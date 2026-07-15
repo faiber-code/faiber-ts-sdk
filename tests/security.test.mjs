@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { AxiosError, AxiosHeaders } from "axios";
-import { InferaClient, MemoryTokenProvider } from "../packages/core/dist/index.js";
+import { FaiberClient, MemoryTokenProvider } from "../packages/core/dist/index.js";
 
 test("absolute URLs cannot escape the configured service origin", () => {
-  const client = new InferaClient("modules", { domains: { modules: "https://api.example.com" } });
+  const client = new FaiberClient("modules", { domains: { modules: "https://api.example.com" } });
   const uri = client.axios.getUri({ url: "https://untrusted.example/resource" });
   assert.equal(uri, "https://api.example.com/https://untrusted.example/resource");
 });
@@ -22,7 +22,7 @@ test("concurrent unauthorized requests share refresh and use the replacement tok
     }
     throw new AxiosError("unauthorized", "ERR_BAD_REQUEST", config, null, { data: {}, status: 401, statusText: "Unauthorized", headers: new AxiosHeaders(), config });
   };
-  const client = new InferaClient("idp", {
+  const client = new FaiberClient("idp", {
     domains: { idp: "https://id.example.com" }, tokenProvider: tokens, axios: { adapter },
     refreshAuth: async ({ client: refreshClient }) => (await refreshClient.post("/refresh")).data,
   });

@@ -8,18 +8,18 @@
     "baseUrl": ".", "ignoreDeprecations": "6.0",
     "paths": {
       "@faiber/sdk-core": ["packages/core/src/index.ts"],
-      "@faiber/infera-idp": ["packages/idp/src/index.ts"],
-      "@faiber/infera-profile": ["packages/profile/src/index.ts"],
-      "@faiber/infera-modules": ["packages/modules/src/index.ts"],
-      "@faiber/infera-asset": ["packages/asset/src/index.ts"],
-      "@faiber/infera-payment": ["packages/payment/src/index.ts"],
-      "@faiber/infera-messenger": ["packages/messenger/src/index.ts"],
-      "@faiber/infera-crm": ["packages/crm/src/index.ts"],
-      "@faiber/infera-lms": ["packages/lms/src/index.ts"],
-      "@faiber/infera-reservation": ["packages/reservation/src/index.ts"],
-      "@faiber/infera-session": ["packages/session/src/index.ts"],
-      "@faiber/infera-version": ["packages/version/src/index.ts"],
-      "@faiber/infera-flow": ["packages/flow/src/index.ts"]
+      "@faiber/faiber-idp": ["packages/idp/src/index.ts"],
+      "@faiber/faiber-profile": ["packages/profile/src/index.ts"],
+      "@faiber/faiber-modules": ["packages/modules/src/index.ts"],
+      "@faiber/faiber-asset": ["packages/asset/src/index.ts"],
+      "@faiber/faiber-payment": ["packages/payment/src/index.ts"],
+      "@faiber/faiber-messenger": ["packages/messenger/src/index.ts"],
+      "@faiber/faiber-crm": ["packages/crm/src/index.ts"],
+      "@faiber/faiber-lms": ["packages/lms/src/index.ts"],
+      "@faiber/faiber-reservation": ["packages/reservation/src/index.ts"],
+      "@faiber/faiber-session": ["packages/session/src/index.ts"],
+      "@faiber/faiber-version": ["packages/version/src/index.ts"],
+      "@faiber/faiber-flow": ["packages/flow/src/index.ts"]
     }
   }
 }

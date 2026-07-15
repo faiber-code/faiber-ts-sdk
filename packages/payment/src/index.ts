@@ -1,3 +1,11 @@
-import { RestResource, ServiceApi, type JsonObject, type RequestOptions } from "@faiber/sdk-core";
-export class PaymentApi extends ServiceApi { readonly gateways = new RestResource(this.client, "/api/v1/gateways"); readonly transactions = new RestResource(this.client, "/api/v1/transactions"); createPayment(data: JsonObject, options?: RequestOptions<JsonObject>) { return this.client.post("/api/v1/payment", data, options); } gatewayOptions(options?: RequestOptions) { return this.client.get("/api/v1/gateways/options", undefined, options); } dailyIncome(options?: RequestOptions) { return this.client.get("/api/v1/transactions/daily-income", undefined, options); } }
+import { RestResource, ServiceApi, type RequestOptions } from "@faiber/sdk-core";
+import type { CreateGatewayInput, CreatePaymentInput, CreatePaymentResponse, DailyIncomeResponse, Gateway, GatewayListResponse, GatewayOptionsResponse, GatewayResponse, Transaction, TransactionListResponse, TransactionResponse, UpdateGatewayInput } from "./types.js";
+export class PaymentApi extends ServiceApi {
+    readonly gateways = new RestResource<Gateway, CreateGatewayInput, UpdateGatewayInput, GatewayListResponse, GatewayResponse>(this.client, "/api/v1/gateways");
+    readonly transactions = new RestResource<Transaction, never, never, TransactionListResponse, TransactionResponse>(this.client, "/api/v1/transactions");
+    createPayment(data: CreatePaymentInput, options?: RequestOptions<CreatePaymentInput>) { return this.client.post<CreatePaymentResponse, CreatePaymentInput>("/api/v1/payment", data, options); }
+    gatewayOptions(options?: RequestOptions) { return this.client.get<GatewayOptionsResponse>("/api/v1/gateways/options", undefined, options); }
+    dailyIncome(options?: RequestOptions) { return this.client.get<DailyIncomeResponse>("/api/v1/transactions/daily-income", undefined, options); }
+}
+export * from "./types.js";
 export * from "@faiber/sdk-core";

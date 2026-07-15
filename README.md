@@ -1,30 +1,30 @@
 # faiber-ts-sdk
 
-One TypeScript monorepo for the public Infera service APIs. Install one service SDK or the complete facade. `infera-agentic`, `infera-control`, UI frameworks, state managers, storage libraries and server frameworks are intentionally excluded.
+One TypeScript monorepo for the public Faiber service APIs. Install one service SDK or the complete facade. `faiber-agentic`, `faiber-control`, UI frameworks, state managers, storage libraries and server frameworks are intentionally excluded.
 
 ## Packages
 
 | Package | Purpose |
 | --- | --- |
 | `@faiber/sdk-core` | Axios client, auth, token providers, REST primitives and environment helpers |
-| `@faiber/infera-idp` | Login, tokens, users, roles and permissions |
-| `@faiber/infera-profile` | Profiles, locations and personal records |
-| `@faiber/infera-modules` | Products, posts, taxonomy, content, SEO, inventory, orders and social APIs |
-| `@faiber/infera-asset` | Wallet, billing, ranks, actions, subscriptions and banking |
-| `@faiber/infera-payment` | Gateways, payments and transactions |
-| `@faiber/infera-messenger` | Notifications, templates, channels and delivery providers |
-| `@faiber/infera-crm` | Leads, workflows, teams, reminders and work logs |
-| `@faiber/infera-lms` | Courses, classrooms, assessments, certificates, events and reports |
-| `@faiber/infera-reservation` | Services, providers, schedules, slots and reservations |
-| `@faiber/infera-session` | Live rooms, tokens, recordings and analytics |
-| `@faiber/infera-version` | Service and release versions |
-| `@faiber/infera-flow` | Automations, runs, trigger/action catalog and validation |
+| `@faiber/faiber-idp` | Login, tokens, users, roles and permissions |
+| `@faiber/faiber-profile` | Profiles, locations and personal records |
+| `@faiber/faiber-modules` | Products, posts, taxonomy, content, SEO, inventory, orders and social APIs |
+| `@faiber/faiber-asset` | Wallet, billing, ranks, actions, subscriptions and banking |
+| `@faiber/faiber-payment` | Gateways, payments and transactions |
+| `@faiber/faiber-messenger` | Notifications, templates, channels and delivery providers |
+| `@faiber/faiber-crm` | Leads, workflows, teams, reminders and work logs |
+| `@faiber/faiber-lms` | Courses, classrooms, assessments, certificates, events and reports |
+| `@faiber/faiber-reservation` | Services, providers, schedules, slots and reservations |
+| `@faiber/faiber-session` | Live rooms, tokens, recordings and analytics |
+| `@faiber/faiber-version` | Service and release versions |
+| `@faiber/faiber-flow` | Automations, runs, trigger/action catalog and validation |
 | `faiber-ts-sdk` | Convenience facade containing every package above |
 
 ## Install only what you use
 
 ```bash
-npm install @faiber/infera-modules @faiber/infera-idp
+npm install @faiber/faiber-modules @faiber/faiber-idp
 ```
 
 Or install everything:
@@ -66,10 +66,10 @@ const posts = await sdk.modules.posts.list({ page_number: 1, page_size: 10 });
 ## Install one service
 
 ```ts
-import { InferaClient, MemoryTokenProvider } from "@faiber/sdk-core";
-import { ModulesApi } from "@faiber/infera-modules";
+import { FaiberClient, MemoryTokenProvider } from "@faiber/sdk-core";
+import { ModulesApi } from "@faiber/faiber-modules";
 
-const client = new InferaClient("modules", {
+const client = new FaiberClient("modules", {
   domains: { modules: "https://content.example.com" },
   tokenProvider: new MemoryTokenProvider(),
 });
@@ -119,13 +119,35 @@ const response = await sdk.modules.client.request({
 
 Convenience calls return the full `AxiosResponse`; the SDK never unwraps, caches, normalizes or mutates application data.
 
+## Typed inputs and outputs
+
+Every service package exports its domain entities, named input interfaces, and named response interfaces. CRUD resources preserve these types through the full Axios response:
+
+```ts
+import type {
+  CreateProductInput,
+  ProductListResponse,
+} from "@faiber/faiber-modules";
+
+const input: CreateProductInput = {
+  name: "Camera",
+  status: 1,
+};
+
+await sdk.modules.products.create(input);
+const response = await sdk.modules.products.list({ page_number: 1 });
+const body: ProductListResponse = response.data;
+```
+
+Custom actions such as authentication, notifications, slot generation, profile updates, and workflow validation also expose dedicated `*Input` and `*Response` interfaces. The low-level `client.request<TResponse, TData>()` remains generic for endpoints defined by an application.
+
 Absolute request URLs are disabled by default to prevent authorization headers from being redirected to another origin. Applications that intentionally need absolute URLs can opt back in with `axios: { allowAbsoluteUrls: true }`.
 
 ## Domains
 
 The SDK never reads environment variables itself. `domainsFromEnv` reads a plain object using these optional names:
 
-`INFERA_IDP_URL`, `INFERA_PROFILE_URL`, `INFERA_MODULES_URL`, `INFERA_ASSET_URL`, `INFERA_PAYMENT_URL`, `INFERA_MESSENGER_URL`, `INFERA_CRM_URL`, `INFERA_LMS_URL`, `INFERA_RESERVATION_URL`, `INFERA_SESSION_URL`, `INFERA_VERSION_URL`, and `INFERA_FLOW_URL`.
+`FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, and `FAIBER_FLOW_URL`.
 
 You can also pass `domains` directly or use `defaultDomain` when services share one API gateway.
 
