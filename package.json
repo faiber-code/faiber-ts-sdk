@@ -1,0 +1,17 @@
+{
+  "name": "faiber-ts-sdk-monorepo",
+  "version": "0.1.0",
+  "description": "Framework-agnostic TypeScript SDK for Infera services",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "tsc -b",
+    "typecheck": "tsc -b --pretty false",
+    "test": "node --test tests/*.test.mjs",
+    "pack:check": "node scripts/pack-check.mjs"
+  },
+  "engines": { "node": ">=18" },
+  "devDependencies": { "typescript": "^6.0.3" },
+  "keywords": ["faiber", "infera", "sdk", "typescript", "axios", "api-client"]
+}

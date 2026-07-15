@@ -1,0 +1,3 @@
+import { RestResource, ServiceApi, type JsonObject, type RequestOptions } from "@faiber/sdk-core";
+export class PaymentApi extends ServiceApi { readonly gateways = new RestResource(this.client, "/api/v1/gateways"); readonly transactions = new RestResource(this.client, "/api/v1/transactions"); createPayment(data: JsonObject, options?: RequestOptions<JsonObject>) { return this.client.post("/api/v1/payment", data, options); } gatewayOptions(options?: RequestOptions) { return this.client.get("/api/v1/gateways/options", undefined, options); } dailyIncome(options?: RequestOptions) { return this.client.get("/api/v1/transactions/daily-income", undefined, options); } }
+export * from "@faiber/sdk-core";
