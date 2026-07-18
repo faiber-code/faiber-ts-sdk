@@ -19,7 +19,7 @@ One TypeScript monorepo for the public Faiber service APIs. Install one service 
 | `@faiber/faiber-session` | Live rooms, tokens, recordings and analytics |
 | `@faiber/faiber-version` | Service and release versions |
 | `@faiber/faiber-flow` | Automations, runs, trigger/action catalog and validation |
-| `faiber-ts-sdk` | Convenience facade containing every package above |
+| `@faiber/faiber-ts-sdk` | Convenience facade containing every package above |
 
 ## Install only what you use
 
@@ -30,7 +30,7 @@ npm install @faiber/faiber-modules @faiber/faiber-idp
 Or install everything:
 
 ```bash
-npm install faiber-ts-sdk
+npm install @faiber/faiber-ts-sdk
 ```
 
 Axios is the only external runtime dependency.
@@ -38,7 +38,7 @@ Axios is the only external runtime dependency.
 ## Complete website example
 
 ```ts
-import { FaiberSDK, MemoryTokenProvider, domainsFromEnv } from "faiber-ts-sdk";
+import { FaiberSDK, MemoryTokenProvider, domainsFromEnv } from "@faiber/faiber-ts-sdk";
 
 const tokens = new MemoryTokenProvider();
 const sdk = new FaiberSDK({
@@ -151,11 +151,49 @@ The SDK never reads environment variables itself. `domainsFromEnv` reads a plain
 
 You can also pass `domains` directly or use `defaultDomain` when services share one API gateway.
 
-## Development
 
-```bash
-pnpm install
-pnpm build
-pnpm typecheck
-pnpm pack:check
+## Type-safe custom and newly released endpoints
+
+Every service exposes its configured `FaiberClient`. Use the generic request method when an application adopts an endpoint before a convenience method is released:
+
+```ts
+interface SearchInput { query: string; limit?: number }
+interface SearchResult { items: Product[]; next_cursor?: string }
+
+const response = await sdk.modules.client.post<SearchResult, SearchInput>(
+  "/api/v1/custom-search",
+  { query: "camera", limit: 20 },
+);
+```
+
+For teams that already generate `openapi-typescript` contracts, `OpenApiClient<paths>` provides typed paths, query parameters, headers, request bodies, and responses without changing the configured authentication transport.
+
+## Uploads and media
+
+```ts
+await sdk.profile.uploadAvatar(userId, file);
+
+const form = multipart({
+  file,
+  alt: "Product front view",
+  role: "gallery",
+  metadata: { locale: "fa" },
+});
+await sdk.modules.client.post("/api/v1/media", form);
+```
+
+## Errors, timeouts, and cancellation
+
+The SDK preserves Axios errors and full responses. Applications can inspect status codes, API error bodies, headers, and request IDs without losing transport context.
+
+```ts
+try {
+  await sdk.modules.products.list({ search: "camera" }, {
+    signal: AbortSignal.timeout(5_000),
+  });
+} catch (error) {
+  if (axios.isAxiosError<ApiErrorBody>(error)) {
+    console.error(error.response?.status, error.response?.data.request_id);
+  }
+}
 ```

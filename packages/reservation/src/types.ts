@@ -43,15 +43,26 @@ export interface UpdateReservationInput extends Partial<CreateReservationInput> 
     status?: string;
 }
 export interface TimeSlot extends JsonObject {
+    id: number;
+    provider_id: number;
+    service_id?: number | null;
     starts_at: string;
     ends_at: string;
-    available: boolean;
+    is_reserved: boolean;
+    reserved_by_user_id?: string | null;
 }
 export interface GenerateSlotsInput extends JsonObject {
-    provider_id: string;
-    service_id?: string;
-    from: string;
-    to: string;
+    provider_id: number;
+    service_id?: number;
+    from_date: string;
+    to_date: string;
+    slot_duration_minutes?: number;
+}
+export interface UpdateTimeSlotInput extends JsonObject {
+    starts_at?: string;
+    ends_at?: string;
+    is_reserved?: boolean;
+    reserved_by_user_id?: string | null;
 }
 export interface WorkSchedule extends JsonObject {
     day_of_week: number;
@@ -79,6 +90,10 @@ export interface ReservationResponse extends ResourceResponse<Reservation> {
 export interface AvailableSlotsResponse extends ApiEnvelope<TimeSlot[]> {
 }
 export interface GenerateSlotsResponse extends ApiEnvelope<TimeSlot[]> {
+}
+export interface TimeSlotResponse extends ApiEnvelope<TimeSlot> {
+}
+export interface DeleteTimeSlotResponse extends ApiEnvelope<{ deleted: boolean; id: number }> {
 }
 export interface SchedulesResponse extends ApiEnvelope<WorkSchedule[]> {
 }

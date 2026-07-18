@@ -1,0 +1,16 @@
+{
+  "services": {
+    "idp": { "env": "FAIBER_IDP_OPENAPI", "fallback": "http://127.0.0.1:8001/api-doc/openapi.json" },
+    "profile": { "env": "FAIBER_PROFILE_OPENAPI", "fallback": "http://127.0.0.1:8002/api-doc/openapi.json" },
+    "modules": { "env": "FAIBER_MODULES_OPENAPI", "fallback": "http://127.0.0.1:8003/api-doc/openapi.json" },
+    "asset": { "env": "FAIBER_ASSET_OPENAPI", "fallback": "http://127.0.0.1:8004/api-doc/openapi.json" },
+    "payment": { "env": "FAIBER_PAYMENT_OPENAPI", "fallback": "http://127.0.0.1:8005/api-doc/openapi.json" },
+    "messenger": { "env": "FAIBER_MESSENGER_OPENAPI", "fallback": "http://127.0.0.1:8006/api-doc/openapi.json" },
+    "crm": { "env": "FAIBER_CRM_OPENAPI", "fallback": "http://127.0.0.1:8007/api-doc/openapi.json" },
+    "lms": { "env": "FAIBER_LMS_OPENAPI", "fallback": "http://127.0.0.1:8008/api-doc/openapi.json" },
+    "reservation": { "env": "FAIBER_RESERVATION_OPENAPI", "fallback": "http://127.0.0.1:8009/api-doc/openapi.json" },
+    "session": { "env": "FAIBER_SESSION_OPENAPI", "fallback": "http://127.0.0.1:8010/api-doc/openapi.json" },
+    "version": { "env": "FAIBER_VERSION_OPENAPI", "fallback": "http://127.0.0.1:8011/api-doc/openapi.json" },
+    "flow": { "env": "FAIBER_FLOW_OPENAPI", "fallback": "http://127.0.0.1:8012/api-doc/openapi.json" }
+  }
+}

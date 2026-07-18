@@ -5,7 +5,7 @@
     "sourceMap": true, "strict": true, "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true, "verbatimModuleSyntax": true, "isolatedModules": true,
     "skipLibCheck": true, "forceConsistentCasingInFileNames": true, "composite": true,
-    "baseUrl": ".", "ignoreDeprecations": "6.0",
+    "baseUrl": ".", "ignoreDeprecations": "5.0",
     "paths": {
       "@faiber/sdk-core": ["packages/core/src/index.ts"],
       "@faiber/faiber-idp": ["packages/idp/src/index.ts"],

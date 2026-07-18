@@ -59,6 +59,42 @@ export interface PageQuery extends QueryParams {
     page_size?: number;
     search?: string;
 }
+export interface CursorQuery extends QueryParams {
+    cursor?: string;
+    limit?: number;
+    search?: string;
+}
+export interface SortQuery extends QueryParams {
+    sort?: string;
+    order?: "asc" | "desc";
+}
+export type ListQuery = PageQuery & SortQuery & {
+    filter?: string;
+    include?: string | readonly string[];
+};
+export interface CursorResult<T> {
+    items: T[];
+    next_cursor?: string | null;
+    has_more?: boolean;
+}
+export interface ApiErrorBody extends JsonObject {
+    code?: string;
+    message: string;
+    details?: JsonValue;
+    request_id?: string;
+    errors?: Record<string, string | string[]>;
+}
+export interface MediaReference extends JsonObject {
+    id: Identifier;
+    url: string;
+    key?: string;
+    role?: string;
+    mime_type?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    sort_order?: number;
+}
 export interface TokenSet {
     accessToken?: string;
     refreshToken?: string;

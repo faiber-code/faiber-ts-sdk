@@ -1,4 +1,4 @@
-import { FaiberClient, type FaiberSdkConfig, type ServiceName } from "@faiber/sdk-core";
+import { FaiberClient, OpenApiClient, type FaiberSdkConfig, type OpenApiPaths, type ServiceName } from "@faiber/sdk-core";
 import { AssetApi } from "@faiber/faiber-asset";
 import { CrmApi } from "@faiber/faiber-crm";
 import { FlowApi } from "@faiber/faiber-flow";
@@ -36,6 +36,10 @@ export class FaiberSDK {
             this.clients.set(name, client);
         }
         return client;
+    }
+    /** Typed access to every generated OpenAPI operation for a service. */
+    operations<Paths extends OpenApiPaths>(name: ServiceName): OpenApiClient<Paths> {
+        return new OpenApiClient<Paths>(this.service(name));
     }
     private api<T>(name: ServiceName, create: (client: FaiberClient) => T): T {
         let api = this.apis.get(name) as T | undefined;

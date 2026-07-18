@@ -7,6 +7,11 @@ export interface Profile extends JsonObject {
     last_name?: string;
     status?: string;
     role?: ProfileRole;
+    avatar_url?: string;
+    properties?: ProfileProperties;
+}
+export interface ProfileProperties extends JsonObject {
+    [key: string]: JsonValue | undefined;
 }
 export interface ProfileRecord extends JsonObject {
     id: string;
@@ -168,6 +173,8 @@ export interface GreetingListResponse extends ProfileRecordListResponse<Greeting
 export interface GreetingResponse extends ProfileRecordResponse<Greeting> {
 }
 export interface FullProfileResponse extends ApiEnvelope<Profile> {
+}
+export interface AdminProfileResponse extends ApiEnvelope<Profile> {
 }
 export interface ProfileMediaResponse extends ApiEnvelope<ProfileMedia[]> {
 }

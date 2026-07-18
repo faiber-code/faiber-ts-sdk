@@ -1,4 +1,4 @@
-import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
+import { RestResource, ServiceApi, multipart, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 type R<E extends T.ProfileRecord, C, U, L, S> = RestResource<E, C, U, L, S>;
 export class ProfileApi extends ServiceApi {
@@ -13,10 +13,14 @@ export class ProfileApi extends ServiceApi {
     readonly greetings: R<T.Greeting, T.CreateGreetingInput, T.UpdateGreetingInput, T.GreetingListResponse, T.GreetingResponse> = new RestResource(this.client, "/api/v1/greetings");
     byRole(role: T.ProfileRole, params?: QueryParams, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>(`/api/v1/profile/${role}`, params, options); }
     full(id: Identifier, options?: RequestOptions) { return this.client.get<T.FullProfileResponse>(`/api/v1/profile/${encodeURIComponent(id)}/full`, undefined, options); }
-    media(id: Identifier, options?: RequestOptions) { return this.client.get<T.ProfileMediaResponse>(`/api/v1/profile/${encodeURIComponent(id)}/media`, undefined, options); }
-    setStatus(id: Identifier, data: T.ProfileStatusInput, options?: RequestOptions<T.ProfileStatusInput>) { return this.client.patch<T.ProfileResponse, T.ProfileStatusInput>(`/api/v1/profile/${encodeURIComponent(id)}/status`, data, options); }
-    personalInformation(id: Identifier, data: T.PersonalInformationInput, options?: RequestOptions<T.PersonalInformationInput>) { return this.client.patch<T.ProfileResponse, T.PersonalInformationInput>(`/api/v1/profile/update/personal-information/${encodeURIComponent(id)}`, data, options); }
+    admin(id: Identifier, options?: RequestOptions) { return this.client.get<T.AdminProfileResponse>(`/api/v1/profile/${encodeURIComponent(id)}/admin`, undefined, options); }
+    media(id: Identifier, key?: string, options?: RequestOptions) { return this.client.get<T.ProfileMediaResponse>(`/api/v1/profile/${encodeURIComponent(id)}/media`, key ? { key } : undefined, options); }
+    setStatus(id: Identifier, data: T.ProfileStatusInput, options?: RequestOptions<T.ProfileStatusInput>) { return this.client.put<T.ProfileResponse, T.ProfileStatusInput>(`/api/v1/profile/${encodeURIComponent(id)}/status`, data, options); }
+    personalInformation(id: Identifier, data: T.PersonalInformationInput, options?: RequestOptions<T.PersonalInformationInput>) { return this.client.put<T.ProfileResponse, T.PersonalInformationInput>(`/api/v1/profile/update/personal-information/${encodeURIComponent(id)}`, data, options); }
     educationInformation(id: Identifier, data: T.EducationInformationInput, options?: RequestOptions<T.EducationInformationInput>) { return this.client.patch<T.ProfileResponse, T.EducationInformationInput>(`/api/v1/profile/update/education-information/${encodeURIComponent(id)}`, data, options); }
+    setProperties(id: Identifier, properties: T.ProfileProperties, options?: RequestOptions<T.ProfileProperties>) { return this.client.put<T.ProfileResponse, T.ProfileProperties>(`/api/v1/profile/${encodeURIComponent(id)}/properties`, properties, options); }
+    uploadAvatar(id: Identifier, file: Blob, options?: RequestOptions<FormData>) { return this.client.post<T.ProfileMediaResponse, FormData>(`/api/v1/profile/${encodeURIComponent(id)}/avatar`, multipart({ file }), options); }
+    deleteAvatar(id: Identifier, options?: RequestOptions) { return this.client.delete<T.ProfileMediaResponse>(`/api/v1/profile/${encodeURIComponent(id)}/avatar`, options); }
 }
 export * from "./types.js";
 export * from "@faiber/sdk-core";
