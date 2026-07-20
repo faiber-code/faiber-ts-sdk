@@ -2,7 +2,6 @@ import { FaiberClient, OpenApiClient, type FaiberSdkConfig, type OpenApiPaths, t
 import { AssetApi } from "@faiber/faiber-asset";
 import { CrmApi } from "@faiber/faiber-crm";
 import { FlowApi } from "@faiber/faiber-flow";
-import { FitappApi } from "@faiber/faiber-fitapp";
 import { IdpApi } from "@faiber/faiber-idp";
 import { LmsApi } from "@faiber/faiber-lms";
 import { MessengerApi } from "@faiber/faiber-messenger";
@@ -25,7 +24,6 @@ export interface FaiberServiceApis {
     session: SessionApi;
     version: VersionApi;
     flow: FlowApi;
-    fitapp: FitappApi;
 }
 export class FaiberSDK {
     private readonly clients = new Map<ServiceName, FaiberClient>();
@@ -63,7 +61,10 @@ export class FaiberSDK {
     get session(): SessionApi { return this.api("session", (client) => new SessionApi(client)); }
     get version(): VersionApi { return this.api("version", (client) => new VersionApi(client)); }
     get flow(): FlowApi { return this.api("flow", (client) => new FlowApi(client)); }
-    get fitapp(): FitappApi { return this.api("fitapp", (client) => new FitappApi(client)); }
 }
 export * from "@faiber/sdk-core";
-export { AssetApi, CrmApi, FitappApi, FlowApi, IdpApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, VersionApi };
+export { AssetApi, CrmApi, FlowApi, IdpApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, VersionApi };
+export type { AuthTokensResponse, User as IdpUser } from "@faiber/faiber-idp";
+export type { Profile, ProfileProperties } from "@faiber/faiber-profile";
+export type { Lead } from "@faiber/faiber-crm";
+export type { InteractiveContent } from "@faiber/faiber-lms";

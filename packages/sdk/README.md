@@ -33,6 +33,6 @@ const [products, profile, slots] = await Promise.all([
 ]);
 ```
 
-The facade exposes `idp`, `profile`, `modules`, `asset`, `payment`, `messenger`, `crm`, `lms`, `reservation`, `session`, `version`, `flow`, and `fitapp`. Each convenience method returns a full Axios response and exports named input/output interfaces.
+The facade exposes `idp`, `profile`, `modules`, `asset`, `payment`, `messenger`, `crm`, `lms`, `reservation`, `session`, `version`, and `flow`. Each convenience method returns a full Axios response and exports named input/output interfaces.
 
 See the package examples above for authentication and service configuration. All clients also support standard Axios errors, cancellation, interceptors, and request options.
