@@ -5,6 +5,6 @@
     { "path": "packages/modules" }, { "path": "packages/asset" }, { "path": "packages/payment" },
     { "path": "packages/messenger" }, { "path": "packages/crm" }, { "path": "packages/lms" },
     { "path": "packages/reservation" }, { "path": "packages/session" }, { "path": "packages/version" },
-    { "path": "packages/flow" }, { "path": "packages/sdk" }
+    { "path": "packages/flow" }, { "path": "packages/fitapp" }, { "path": "packages/sdk" }
   ]
 }

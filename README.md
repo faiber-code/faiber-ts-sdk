@@ -19,6 +19,7 @@ One TypeScript monorepo for the public Faiber service APIs. Install one service 
 | `@faiber/faiber-session` | Live rooms, tokens, recordings and analytics |
 | `@faiber/faiber-version` | Service and release versions |
 | `@faiber/faiber-flow` | Automations, runs, trigger/action catalog and validation |
+| `@faiber/faiber-fitapp` | Coaching relationships, fitness plans, activity, progress and conversations |
 | `@faiber/faiber-ts-sdk` | Convenience facade containing every package above |
 
 ## Install only what you use
