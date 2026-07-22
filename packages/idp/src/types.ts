@@ -1,57 +1,65 @@
-import type { ApiEnvelope, Identifier, OperationResponse, ResourceListResponse, ResourceResponse, } from "@faiber/sdk-core";
-export interface User {
-    id?: string;
-    uuid?: string;
+import type { ApiEnvelope, JsonObject, OperationResponse, } from "@faiber/sdk-core";
+export interface User extends JsonObject {
+    id: string;
     phone?: string | null;
     email?: string | null;
     national_code?: string | null;
-    status?: string | number | boolean;
-    roles?: Role[];
-    created_at?: string;
-    updated_at?: string;
+    status: number;
+    active_sessions: number;
+    roles: Role[];
 }
-export interface Role {
+export interface Role extends JsonObject {
     id: string;
     name: string;
     title?: string;
     permissions?: Permission[];
 }
-export interface Permission {
+export interface Permission extends JsonObject {
     id: string;
     name: string;
     title?: string;
     description?: string | null;
 }
-export interface OAuthProvider {
+export interface OAuthProvider extends JsonObject {
     name: string;
     enabled: boolean;
     authorization_url?: string;
 }
 export interface LoginInput {
-    phone?: string;
-    email?: string;
-    username?: string;
+    grant_type: string;
+    username: string;
     password: string;
+    client_id: string;
+    client_secret: string;
+    device_id?: string;
 }
 export interface WebLoginInput extends LoginInput {
-    redirect_uri?: string;
-    remember?: boolean;
 }
 export interface AccountLoginInput {
     account: string;
-    password: string;
+    device_id?: string;
 }
 export interface OtpLoginInput {
+    grant_type: string;
+    username: string;
+    otp_code: string;
+    client_id: string;
+    client_secret: string;
+    device_id?: string;
+}
+export interface RegisterUserInput extends JsonObject {
     phone?: string;
     email?: string;
-    code: string;
+    national_code?: string;
+    role?: string;
+    roles?: string[];
 }
-export interface RegisterUserInput {
+export interface CreateUserInput extends JsonObject {
     phone?: string;
     email?: string;
     national_code?: string;
     password?: string;
-    role?: string;
+    roles: string[];
 }
 export interface UpdateUserInput {
     phone?: string | null;
@@ -59,45 +67,50 @@ export interface UpdateUserInput {
     national_code?: string | null;
 }
 export interface ChangePasswordInput {
-    password: string;
-    password_confirmation?: string;
-    current_password?: string;
+    password?: string;
 }
 export interface ChangeRolesInput {
-    role_ids?: Identifier[];
-    roles?: string[];
+    roles: string[];
 }
 export interface SetUserStatusInput {
-    status: string | number | boolean;
+    enabled: boolean;
 }
+export interface CreateRoleInput { name: string; permissions?: string[]; }
 export interface UpdateRoleInput {
-    permissions: Identifier[];
+    permissions: string[];
 }
-export interface AuthTokensResponse {
-    access_token?: string;
-    refresh_token?: string;
-    token?: string;
-    token_type?: string;
-    expires_in?: number;
-    user?: User;
+export interface AuthTokens extends Record<string, string | number> {
+    access_token: string;
+    refresh_token: string;
+    expires_in: number;
+    scope: string;
+}
+export interface AuthTokensResponse extends ApiEnvelope<AuthTokens> {
 }
 export interface ValidateSessionData {
-    valid: boolean;
-    user?: User;
+    user_id: string;
 }
 export interface ValidateSessionResponse extends ApiEnvelope<ValidateSessionData> {
 }
-export interface UserResponse extends ResourceResponse<User> {
+export interface UserData extends JsonObject { user: User; }
+export interface UserResponse extends ApiEnvelope<UserData> {
 }
-export interface UserListResponse extends ResourceListResponse<User> {
+export interface UserListData extends JsonObject { users: User[]; total: number; page: number; per_page: number; }
+export interface UserListResponse extends ApiEnvelope<UserListData> {
 }
-export interface RoleResponse extends ResourceResponse<Role> {
+export interface UserSelf extends JsonObject { id: string; phone?: string | null; email?: string | null; national_code?: string | null; status: number; roles: Role[]; permissions: Permission[]; }
+export interface UserSelfResponse extends ApiEnvelope<UserSelf> {
 }
-export interface RoleListResponse extends ResourceListResponse<Role> {
+export interface RoleData extends JsonObject { role: Role; }
+export interface RoleResponse extends ApiEnvelope<RoleData> {
 }
-export interface PermissionResponse extends ResourceResponse<Permission> {
+export interface RoleListData extends JsonObject { roles: Role[]; }
+export interface RoleListResponse extends ApiEnvelope<RoleListData> {
 }
-export interface PermissionListResponse extends ResourceListResponse<Permission> {
+export interface PermissionListData extends JsonObject { permissions: Permission[]; services: string[]; }
+export interface PermissionResponse extends ApiEnvelope<Permission> {
+}
+export interface PermissionListResponse extends ApiEnvelope<PermissionListData> {
 }
 export interface OAuthProviderListResponse extends ApiEnvelope<OAuthProvider[]> {
 }

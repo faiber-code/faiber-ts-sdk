@@ -1,9 +1,11 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
 import type * as T from "./types.js";
+import { AssetOperations } from "./operations.js";
 export class AssetApi extends ServiceApi {
-    readonly assets = new RestResource<T.Asset, T.CreateAssetInput, T.UpdateAssetInput, T.AssetListResponse, T.AssetResponse>(this.client, "/api/v1/assets");
-    readonly ranks = new RestResource<T.Rank, T.CreateRankInput, T.UpdateRankInput, T.RankListResponse, T.RankResponse>(this.client, "/api/v1/ranks");
-    readonly actions = new RestResource<T.AssetAction, T.CreateAssetActionInput, T.UpdateAssetActionInput, T.AssetActionListResponse, T.AssetActionResponse>(this.client, "/api/v1/actions");
+    readonly operations = new AssetOperations(this.client);
+    readonly assets = new RestResource<T.Asset, T.CreateAssetInput, T.UpdateAssetInput, T.AssetListResponse, T.AssetResponse>(this.client, "/api/v1/assets", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly ranks = new RestResource<T.Rank, T.CreateRankInput, T.UpdateRankInput, T.RankListResponse, T.RankResponse>(this.client, "/api/v1/ranks", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly actions = new RestResource<T.AssetAction, T.CreateAssetActionInput, T.UpdateAssetActionInput, T.AssetActionListResponse, T.AssetActionResponse>(this.client, "/api/v1/actions", { supported: ["list", "show", "create", "update", "delete"] });
     dashboard(options?: RequestOptions) {
         return this.client.get<T.AssetDashboardResponse>("/api/v1/dashboard", undefined, options);
     }
@@ -28,3 +30,5 @@ export class AssetApi extends ServiceApi {
 }
 export * from "@faiber/sdk-core";
 export * from "./types.js";
+export * from "./operations.js";
+export * from "./operations.types.js";

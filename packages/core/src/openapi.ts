@@ -88,6 +88,16 @@ export function multipart(fields: Record<string, unknown>): FormData {
     return data;
 }
 
+export type UrlEncodedValue = string | number | boolean | null | undefined;
+export function urlEncoded<T extends object>(fields: T): URLSearchParams {
+    const data = new URLSearchParams();
+    for (const [key, value] of Object.entries(fields as Record<string, UrlEncodedValue>)) {
+        if (value !== undefined && value !== null)
+            data.set(key, String(value));
+    }
+    return data;
+}
+
 function toFormValue(value: unknown): string | Blob {
     if (value instanceof Blob) return value;
     if (typeof value === "string") return value;

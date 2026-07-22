@@ -1,199 +1,104 @@
-# faiber-ts-sdk
+# Faiber TypeScript SDK
 
-One TypeScript monorepo for the public Faiber service APIs. Install one service SDK or the complete facade. `faiber-agentic`, `faiber-control`, UI frameworks, state managers, storage libraries and server frameworks are intentionally excluded.
+Typed, framework-neutral clients for the public Faiber service platform. Install one service package or the complete facade. Axios is the only runtime transport dependency.
 
 ## Packages
 
-| Package | Purpose |
+| Package | Capability |
 | --- | --- |
-| `@faiber/sdk-core` | Axios client, auth, token providers, REST primitives and environment helpers |
-| `@faiber/faiber-idp` | Login, tokens, users, roles and permissions |
-| `@faiber/faiber-profile` | Profiles, locations and personal records |
-| `@faiber/faiber-modules` | Products, posts, taxonomy, content, SEO, inventory, orders and social APIs |
-| `@faiber/faiber-asset` | Wallet, billing, ranks, actions, subscriptions and banking |
-| `@faiber/faiber-payment` | Gateways, payments and transactions |
-| `@faiber/faiber-messenger` | Notifications, templates, channels and delivery providers |
-| `@faiber/faiber-crm` | Leads, workflows, teams, reminders and work logs |
-| `@faiber/faiber-lms` | Courses, classrooms, assessments, certificates, events and reports |
-| `@faiber/faiber-reservation` | Services, providers, schedules, slots and reservations |
-| `@faiber/faiber-session` | Live rooms, tokens, recordings and analytics |
-| `@faiber/faiber-version` | Service and release versions |
-| `@faiber/faiber-flow` | Automations, runs, trigger/action catalog and validation |
-| `@faiber/faiber-ts-sdk` | Convenience facade containing every package above |
+| `@faiber/sdk-core` | Domains, Axios transport, token providers, auth refresh, guarded REST resources, OpenAPI operations, form and multipart encoding |
+| `@faiber/faiber-idp` | Login, sessions, users, roles, permissions, OAuth and access control |
+| `@faiber/faiber-profile` | Profiles, atomic field/property patching, locations, avatars, surveys and profile metadata |
+| `@faiber/faiber-modules` | Products, posts, pages, taxonomy, SEO, media, inventory, orders, comments and authors |
+| `@faiber/faiber-asset` | Wallets, balances, plans, subscriptions, ranks, billing, ledger and banking |
+| `@faiber/faiber-payment` | Gateways, payment creation/verification, callbacks and transactions |
+| `@faiber/faiber-messenger` | Notifications, templates, channels, providers and delivery state |
+| `@faiber/faiber-crm` | Leads, contacts, teams, pipelines, workflows, reminders and work logs |
+| `@faiber/faiber-lms` | Courses, classrooms, enrollment, assessments, certificates, homework, events and reports |
+| `@faiber/faiber-reservation` | Services, providers, schedules, available slots and reservations |
+| `@faiber/faiber-session` | Live rooms, access tokens, playback, recordings and analytics |
+| `@faiber/faiber-version` | Service registry and release history |
+| `@faiber/faiber-flow` | Automations, triggers, actions, validation, runs and execution history |
+| `@faiber/faiber-ts-sdk` | One facade containing every package above |
 
-## Install only what you use
-
-```bash
-npm install @faiber/faiber-modules @faiber/faiber-idp
-```
-
-Or install everything:
+## Install and initialize
 
 ```bash
 npm install @faiber/faiber-ts-sdk
 ```
 
-Axios is the only external runtime dependency.
-
-## Complete website example
-
 ```ts
 import { FaiberSDK, MemoryTokenProvider, domainsFromEnv } from "@faiber/faiber-ts-sdk";
 
-const tokens = new MemoryTokenProvider();
+const tokenProvider = new MemoryTokenProvider();
 const sdk = new FaiberSDK({
-  // Pass process.env in Node, import.meta.env in Vite, or any plain object.
   domains: domainsFromEnv(import.meta.env),
-  tokenProvider: tokens,
-  axios: {
-    withCredentials: true,
-    timeout: 15_000,
-    headers: { "X-Frontend": "storefront" },
+  tokenProvider,
+  axios: { withCredentials: true, timeout: 15_000 },
+});
+
+const login = await sdk.idp.login({
+  grant_type: "password",
+  username,
+  password,
+  client_id,
+  client_secret,
+});
+await tokenProvider.setTokens({
+  accessToken: login.data.data.access_token,
+  refreshToken: login.data.data.refresh_token,
+});
+```
+
+Login forms are sent as `application/x-www-form-urlencoded`. Cookie deployments can omit the token provider and use `withCredentials: true`; Bearer deployments provide a token provider. The SDK never reads global storage or embeds credentials.
+
+For browser applications, prefer secure `HttpOnly`, `SameSite` cookies or an in-memory token provider. `StorageTokenProvider` is available only for applications that explicitly accept that Web Storage is readable by JavaScript and can expose tokens during an XSS incident. Server applications can implement `TokenProvider` against their request/session context.
+
+Automatic refresh is opt-in through `refreshAuth`. Concurrent `401` responses share one refresh request, retries obtain the replacement token, and a failed refresh clears stale credentials.
+
+## Complete route coverage
+
+Every service exposes curated convenience APIs plus `sdk.<service>.operations`, generated from mounted Rust routes. Generated methods preserve the HTTP verb, path identifiers, query shape, body shape, response envelope, form/multipart transport, and declared permission. REST convenience resources are capability guarded, so an unsupported operation fails locally instead of producing a backend `405`.
+
+```ts
+await sdk.profile.updateProfile(profileId, {
+  first_name: { en: "Ava", fa: "آوا" },
+  properties: {
+    weight: 68.5,
+    training_goal: "muscle_gain",
+    workout_plan: weeklyPlan,
+    workout_stats: stats,
   },
 });
-
-const login = await sdk.idp.login({ phone: "09120000000", password: userSuppliedPassword });
-const body = login.data;
-await tokens.setTokens({
-  accessToken: body.access_token ?? body.token,
-  refreshToken: body.refresh_token,
-});
-
-const products = await sdk.modules.products.list({ page_number: 1, page_size: 24 });
-const posts = await sdk.modules.posts.list({ page_number: 1, page_size: 10 });
 ```
 
-## Install one service
+The profile call above sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields remain unchanged and nullable fields can be cleared with `null`.
 
-```ts
-import { FaiberClient, MemoryTokenProvider } from "@faiber/sdk-core";
-import { ModulesApi } from "@faiber/faiber-modules";
+## Pagination, filtering, and search
 
-const client = new FaiberClient("modules", {
-  domains: { modules: "https://content.example.com" },
-  tokenProvider: new MemoryTokenProvider(),
-});
+List methods preserve each backend's typed query contract, including page number/size, cursor, server search, sort, and domain-specific filters. Generated operation query types retain nested keys such as `page[number]` and `page[size]` where the service expects them. Pagination metadata remains in the original API response envelope.
 
-const modules = new ModulesApi(client);
-const response = await modules.products.list({ search: "camera" }, {
-  signal: AbortSignal.timeout(5000),
-  headers: { "X-Request-Source": "search-page" },
-});
-```
+## Domains and environment configuration
 
-## Browser and Node authentication
+`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, and `FAIBER_FLOW_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
 
-The SDK does not access global storage. Supply the strategy appropriate for the host:
+## Inputs, outputs, errors, and cancellation
 
-```ts
-import { StorageTokenProvider } from "@faiber/sdk-core";
-
-// Browser, only when your threat model explicitly permits localStorage:
-const browserTokens = new StorageTokenProvider(window.localStorage);
-
-// Server: implement TokenProvider using the request/session context.
-const serverTokens = {
-  async getTokens() { return session.tokens; },
-  async setTokens(value) { session.tokens = value; },
-};
-```
-
-Cookie authentication works by setting `withCredentials: true` and omitting a token provider. Automatic refresh is opt-in through `refreshAuth`; concurrent 401 responses share one isolated refresh request. Refresh failures clear stale stored credentials, and retried requests always obtain the new authorization value.
-
-For public browser applications, prefer secure `HttpOnly`, `SameSite` cookies or an in-memory provider. Persistent Web Storage is readable by JavaScript and therefore exposes bearer tokens if the page suffers an XSS vulnerability. `StorageTokenProvider` is an explicit adapter, never an automatic default.
-
-## Axios remains available
-
-Every API exposes its `AxiosInstance`:
-
-```ts
-sdk.modules.axios.interceptors.response.use(logResponse);
-
-// Any new or project-specific endpoint is immediately usable.
-const response = await sdk.modules.client.request({
-  method: "QUERY",
-  url: "/api/v1/custom-search",
-  data: { query: "..." },
-});
-```
-
-Convenience calls return the full `AxiosResponse`; the SDK never unwraps, caches, normalizes or mutates application data.
-
-## Typed inputs and outputs
-
-Every service package exports its domain entities, named input interfaces, and named response interfaces. CRUD resources preserve these types through the full Axios response:
-
-```ts
-import type {
-  CreateProductInput,
-  ProductListResponse,
-} from "@faiber/faiber-modules";
-
-const input: CreateProductInput = {
-  name: "Camera",
-  status: 1,
-};
-
-await sdk.modules.products.create(input);
-const response = await sdk.modules.products.list({ page_number: 1 });
-const body: ProductListResponse = response.data;
-```
-
-Custom actions such as authentication, notifications, slot generation, profile updates, and workflow validation also expose dedicated `*Input` and `*Response` interfaces. The low-level `client.request<TResponse, TData>()` remains generic for endpoints defined by an application.
-
-Absolute request URLs are disabled by default to prevent authorization headers from being redirected to another origin. Applications that intentionally need absolute URLs can opt back in with `axios: { allowAbsoluteUrls: true }`.
-
-## Domains
-
-The SDK never reads environment variables itself. `domainsFromEnv` reads a plain object using these optional names:
-
-`FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, and `FAIBER_FLOW_URL`.
-
-You can also pass `domains` directly or use `defaultDomain` when services share one API gateway.
-
-
-## Type-safe custom and newly released endpoints
-
-Every service exposes its configured `FaiberClient`. Use the generic request method when an application adopts an endpoint before a convenience method is released:
-
-```ts
-interface SearchInput { query: string; limit?: number }
-interface SearchResult { items: Product[]; next_cursor?: string }
-
-const response = await sdk.modules.client.post<SearchResult, SearchInput>(
-  "/api/v1/custom-search",
-  { query: "camera", limit: 20 },
-);
-```
-
-For teams that already generate `openapi-typescript` contracts, `OpenApiClient<paths>` provides typed paths, query parameters, headers, request bodies, and responses without changing the configured authentication transport.
+Packages export named request, query, entity, response-envelope, and generated operation types. SDK calls return full Axios responses and do not unwrap, cache, or mutate data. Axios errors retain status, response body, headers, and request IDs. Every call supports request headers, timeout, interceptors, adapters, and `AbortSignal` cancellation.
 
 ## Uploads and media
 
-```ts
-await sdk.profile.uploadAvatar(userId, file);
+Uploads use standards-compatible `FormData` through `multipart(...)`; URL-encoded forms use `urlEncoded(...)`. Media methods return the backend's media identifier, key, URL, or binary response without rewriting it, so it can be linked to products, posts, profiles, and other hosted records.
 
-const form = multipart({
+```ts
+import { multipart } from "@faiber/faiber-ts-sdk";
+
+await sdk.profile.uploadAvatar(profileId, avatarFile);
+await sdk.modules.client.post("/api/v1/media", multipart({
   file,
   alt: "Product front view",
   role: "gallery",
-  metadata: { locale: "fa" },
-});
-await sdk.modules.client.post("/api/v1/media", form);
+}));
 ```
 
-## Errors, timeouts, and cancellation
-
-The SDK preserves Axios errors and full responses. Applications can inspect status codes, API error bodies, headers, and request IDs without losing transport context.
-
-```ts
-try {
-  await sdk.modules.products.list({ search: "camera" }, {
-    signal: AbortSignal.timeout(5_000),
-  });
-} catch (error) {
-  if (axios.isAxiosError<ApiErrorBody>(error)) {
-    console.error(error.response?.status, error.response?.data.request_id);
-  }
-}
-```
+Use the typed low-level `sdk.<service>.client` only for application-specific routes that are not part of the public service contract. Absolute request URLs are disabled by default so authorization headers cannot be redirected to another origin.

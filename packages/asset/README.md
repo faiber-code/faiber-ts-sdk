@@ -1,6 +1,6 @@
 # @faiber/faiber-asset
 
-Typed, framework-neutral TypeScript client for Faiber wallets, billing, subscriptions, plans, ranks, actions, and banking.
+Wallets, balances, plans, subscriptions, purchases, ranks, rewards, usage, bank transactions, sandbox billing, and service lifecycle operations.
 
 ## Install
 
@@ -8,7 +8,7 @@ Typed, framework-neutral TypeScript client for Faiber wallets, billing, subscrip
 npm install @faiber/faiber-asset
 ```
 
-## Create a client
+## Configure
 
 ```ts
 import { FaiberClient, MemoryTokenProvider } from "@faiber/sdk-core";
@@ -22,23 +22,51 @@ const client = new FaiberClient("asset", {
 });
 const api = new AssetApi(client);
 
-const wallets = await api.wallets.list({ page_number: 1 });
+const assets = await api.assets.list({ "page[number]": 1 });
+const wallet = await api.operations.walletBillingWalletShowGet();
 ```
 
-All methods return a full Axios `AxiosResponse`. Entities, named request inputs, response envelopes, pagination models, and shared core types are exported from the package. Use `client.request<TResponse, TBody>()` for project-specific endpoints.
+## Complete capability
 
-## Authentication
+This package exposes 66 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
-Pass a `TokenProvider` for bearer authentication, or set `withCredentials: true` for secure cookie sessions. The SDK never reads browser storage or environment variables implicitly.
+| Area | Operations | HTTP methods |
+|---|---:|---|
+| `action` | 6 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `bank` | 5 | `GET`, `PATCH`, `POST` |
+| `catalog` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `charge` | 2 | `GET`, `PATCH` |
+| `dashboard` | 1 | `GET` |
+| `integration` | 3 | `GET` |
+| `llm-usage` | 3 | `GET`, `PUT` |
+| `logs` | 2 | `GET` |
+| `rank` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `router` | 2 | `GET` |
+| `sandbox-billing` | 7 | `DELETE`, `GET`, `POST`, `PUT` |
+| `service-lifecycle` | 4 | `DELETE`, `POST` |
+| `wallet` | 4 | `GET` |
+| `wallet-billing` | 17 | `DELETE`, `GET`, `POST`, `PUT` |
+
+Administrative and self-service billing routes are distinct operations. Purchase, top-up, pause, resume, removal, and permanent-data deletion methods preserve the backend verbs and permission annotations.
+
+## Authentication and authorization
+
+Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
+
+## Inputs, queries, responses, and transport
+
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+
+Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
 ## Errors and cancellation
 
-Axios errors are preserved so callers can inspect `response.status`, structured API error bodies, headers, and request IDs. Pass normal Axios options as the final argument:
-
 ```ts
-await api.client.get("/health", undefined , { signal: AbortSignal.timeout(5_000) });
+try {
+  await api.client.get("/health", undefined, { signal: AbortSignal.timeout(5_000) });
+} catch (error) {
+  // Axios errors retain response.status and the service error body.
+}
 ```
 
-## Complete SDK
-
-Install `@faiber/faiber-ts-sdk` when an application uses multiple Faiber services. The complete package provides shared configuration, authentication, uploads, and error handling across services.
+Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.

@@ -1,6 +1,6 @@
 # @faiber/faiber-session
 
-Typed, framework-neutral TypeScript client for Faiber live rooms, room state, playback, recordings, tokens, and analytics.
+Rooms, room lifecycle, LiveKit tokens and webhooks, recordings, playback, analytics, interactive starts, and room-state responses.
 
 ## Install
 
@@ -8,7 +8,7 @@ Typed, framework-neutral TypeScript client for Faiber live rooms, room state, pl
 npm install @faiber/faiber-session
 ```
 
-## Create a client
+## Configure
 
 ```ts
 import { FaiberClient, MemoryTokenProvider } from "@faiber/sdk-core";
@@ -22,23 +22,41 @@ const client = new FaiberClient("session", {
 });
 const api = new SessionApi(client);
 
-const rooms = await api.rooms.list({ page_number: 1 });
+const rooms = await api.rooms.list({ "page[number]": 1 });
+const token = await api.livekitToken(roomId);
 ```
 
-All methods return a full Axios `AxiosResponse`. Entities, named request inputs, response envelopes, pagination models, and shared core types are exported from the package. Use `client.request<TResponse, TBody>()` for project-specific endpoints.
+## Complete capability
 
-## Authentication
+This package exposes 18 registered operations from the live sessions service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
-Pass a `TokenProvider` for bearer authentication, or set `withCredentials: true` for secure cookie sessions. The SDK never reads browser storage or environment variables implicitly.
+| Area | Operations | HTTP methods |
+|---|---:|---|
+| `integration` | 1 | `GET` |
+| `room` | 15 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `room-state` | 1 | `POST` |
+| `router` | 1 | `GET` |
+
+Room start, stop, end, playback, recording, webhook, and state-response routes are separate operations so their unusual GET/POST verbs are preserved exactly.
+
+## Authentication and authorization
+
+Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
+
+## Inputs, queries, responses, and transport
+
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+
+Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
 
 ## Errors and cancellation
 
-Axios errors are preserved so callers can inspect `response.status`, structured API error bodies, headers, and request IDs. Pass normal Axios options as the final argument:
-
 ```ts
-await api.client.get("/health", undefined , { signal: AbortSignal.timeout(5_000) });
+try {
+  await api.client.get("/health", undefined, { signal: AbortSignal.timeout(5_000) });
+} catch (error) {
+  // Axios errors retain response.status and the service error body.
+}
 ```
 
-## Complete SDK
-
-Install `@faiber/faiber-ts-sdk` when an application uses multiple Faiber services. The complete package provides shared configuration, authentication, uploads, and error handling across services.
+Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.

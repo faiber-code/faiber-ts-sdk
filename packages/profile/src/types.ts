@@ -2,13 +2,46 @@ import type { ApiEnvelope, JsonObject, JsonValue, ResourceListResponse, Resource
 export type ProfileRole = "manager" | "accountant" | "support" | "consultant" | "teacher" | "student" | "parent" | "other";
 export interface Profile extends JsonObject {
     id: string;
-    user_id?: string;
-    first_name?: string;
-    last_name?: string;
-    status?: string;
-    role?: ProfileRole;
-    avatar_url?: string;
+    user_id: string;
+    email?: string | null;
+    phone?: string | null;
+    national_code?: string | null;
+    first_name?: LocalizedText | null;
+    last_name?: LocalizedText | null;
+    status: string;
+    employee_type?: string | null;
+    freemium_session_limit?: number | null;
+    avatar?: string | null;
+    has_active_enrollment: boolean;
+    roles: ProfileRoleRecord[];
+    credential?: ProfileCredential | null;
+    meta?: JsonValue;
+    app?: JsonValue;
+    assessment?: JsonValue;
     properties?: ProfileProperties;
+    services?: ProfileProperties;
+    parent?: ProfileParent[];
+}
+export interface LocalizedText extends JsonObject {
+    fa?: string | null;
+    en?: string | null;
+}
+export interface ProfileRoleRecord extends JsonObject {
+    id: string;
+    name: string;
+}
+export interface ProfileCredential extends JsonObject {
+    handle_registration: number;
+    handle_registration_with_installment: number;
+    handle_await_installment: number;
+    handle_overdue_installment: number;
+    handle_freemium_sessions: number;
+    handle_cancel: number;
+    total: number;
+}
+export interface ProfileParent extends JsonObject {
+    user_id: string;
+    parent_type?: string | null;
 }
 export interface ProfileProperties extends JsonObject {
     [key: string]: JsonValue | undefined;
@@ -54,8 +87,35 @@ export interface CreateProfileInput extends JsonObject {
     last_name?: string;
     role?: ProfileRole;
 }
-export interface UpdateProfileInput extends Partial<CreateProfileInput> {
+export interface ProfilePatchInput extends JsonObject {
+    email?: string | null;
+    phone?: string | null;
+    national_code?: string | null;
+    national_number?: string | null;
+    first_name?: LocalizedText | string | null;
+    last_name?: LocalizedText | string | null;
+    birthday?: string | null;
+    nationality?: string | null;
+    religion?: string | null;
+    gender?: string | null;
+    attendance_mode?: string | null;
+    level?: string | null;
+    referral_source?: string | null;
+    referrer_uuid?: string | null;
+    description?: string | null;
+    marital?: string | null;
+    nickname?: string | null;
+    country_id?: string | null;
+    province_id?: string | null;
+    city_id?: string | null;
     status?: string;
+    employee_type?: string | null;
+    freemium_session_limit?: number | null;
+    meta?: JsonValue;
+    app?: JsonValue;
+    properties?: ProfileProperties;
+}
+export interface UpdateProfileInput extends ProfilePatchInput {
 }
 export interface CreateProfileRecordInput extends JsonObject {
     name?: string;
@@ -114,10 +174,20 @@ export interface ProfileStatusInput extends JsonObject {
     reason?: string;
 }
 export interface PersonalInformationInput extends JsonObject {
-    first_name?: string;
-    last_name?: string;
-    phone?: string;
-    birth_date?: string;
+    first_name?: LocalizedText;
+    last_name?: LocalizedText;
+    birthday?: string;
+    nationality?: string;
+    religion?: string;
+    gender?: string;
+    marital?: string;
+    nickname?: string;
+    national_number?: string;
+    description?: string;
+    referral_source?: string;
+    referrer_uuid?: string;
+    country_id?: string;
+    province_id?: string;
     city_id?: string;
 }
 export interface EducationInformationInput extends JsonObject {
@@ -128,13 +198,30 @@ export interface EducationInformationInput extends JsonObject {
     ended_at?: string;
 }
 export interface ProfileMedia extends JsonObject {
-    id: string;
     url: string;
-    type?: string;
+    key: string;
 }
-export interface ProfileListResponse extends ResourceListResponse<Profile> {
+export interface ProfilePropertiesInput extends JsonObject {
+    properties: ProfileProperties;
 }
-export interface ProfileResponse extends ResourceResponse<Profile> {
+export interface ProfilePropertiesResponse extends ApiEnvelope<JsonObject> {
+}
+export interface ProfileListData extends JsonObject {
+    profiles: Profile[];
+}
+export interface ProfileSingleData extends JsonObject {
+    profile: Profile;
+}
+export interface ProfilePaginationMeta extends JsonObject {
+    current_page: number;
+    per_page: number;
+    total: number;
+    last_page: number;
+}
+export interface ProfileListResponse extends ApiEnvelope<ProfileListData> {
+    meta: ProfilePaginationMeta;
+}
+export interface ProfileResponse extends ApiEnvelope<ProfileSingleData> {
 }
 export interface ProfileRecordListResponse<T extends ProfileRecord> extends ResourceListResponse<T> {
 }
@@ -172,9 +259,11 @@ export interface GreetingListResponse extends ProfileRecordListResponse<Greeting
 }
 export interface GreetingResponse extends ProfileRecordResponse<Greeting> {
 }
-export interface FullProfileResponse extends ApiEnvelope<Profile> {
+export interface FullProfileResponse extends ProfileResponse {
 }
-export interface AdminProfileResponse extends ApiEnvelope<Profile> {
+export interface AdminProfileResponse extends ProfileResponse {
 }
-export interface ProfileMediaResponse extends ApiEnvelope<ProfileMedia[]> {
+export interface ProfileMediaResponse extends ApiEnvelope<ProfileMedia> {
+}
+export interface ProfileMediaDeleteResponse extends ApiEnvelope<JsonObject> {
 }

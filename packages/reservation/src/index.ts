@@ -1,9 +1,11 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
+import { ReservationOperations } from "./operations.js";
 export class ReservationApi extends ServiceApi {
-    readonly services = new RestResource<T.BookableService, T.CreateBookableServiceInput, T.UpdateBookableServiceInput, T.ServiceListResponse, T.ServiceResponse>(this.client, "/api/v1/services");
-    readonly providers = new RestResource<T.Provider, T.CreateProviderInput, T.UpdateProviderInput, T.ProviderListResponse, T.ProviderResponse>(this.client, "/api/v1/providers");
-    readonly reservations = new RestResource<T.Reservation, T.CreateReservationInput, T.UpdateReservationInput, T.ReservationListResponse, T.ReservationResponse>(this.client, "/api/v1/reservations");
+    readonly operations = new ReservationOperations(this.client);
+    readonly services = new RestResource<T.BookableService, T.CreateBookableServiceInput, T.UpdateBookableServiceInput, T.ServiceListResponse, T.ServiceResponse>(this.client, "/api/v1/services", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly providers = new RestResource<T.Provider, T.CreateProviderInput, T.UpdateProviderInput, T.ProviderListResponse, T.ProviderResponse>(this.client, "/api/v1/providers", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly reservations = new RestResource<T.Reservation, T.CreateReservationInput, T.UpdateReservationInput, T.ReservationListResponse, T.ReservationResponse>(this.client, "/api/v1/reservations", { supported: ["list", "show", "create", "update", "delete"] });
     availableSlots(params?: QueryParams, options?: RequestOptions) { return this.client.get<T.AvailableSlotsResponse>("/api/v1/slots/available", params, options); }
     generateSlots(data: T.GenerateSlotsInput, options?: RequestOptions<T.GenerateSlotsInput>) { return this.client.post<T.GenerateSlotsResponse, T.GenerateSlotsInput>("/api/v1/slots", data, options); }
     slot(id: Identifier, options?: RequestOptions) { return this.client.get<T.TimeSlotResponse>(`/api/v1/slots/${encodeURIComponent(id)}`, undefined, options); }
@@ -17,3 +19,5 @@ export class ReservationApi extends ServiceApi {
 }
 export * from "./types.js";
 export * from "@faiber/sdk-core";
+export * from "./operations.js";
+export * from "./operations.types.js";

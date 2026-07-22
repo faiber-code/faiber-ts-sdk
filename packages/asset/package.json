@@ -1,1 +1,20 @@
-{ "name": "@faiber/faiber-asset", "version": "0.2.1", "type": "module", "sideEffects": false, "main": "./dist/index.js", "types": "./dist/index.d.ts", "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } }, "files": ["dist"], "dependencies": { "@faiber/sdk-core": "0.2.1" } }
+{
+  "name": "@faiber/faiber-asset",
+  "version": "0.2.2",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@faiber/sdk-core": "0.2.2"
+  }
+}

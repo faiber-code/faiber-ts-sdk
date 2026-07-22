@@ -1,62 +1,46 @@
 # @faiber/sdk-core
 
-Shared transport, authentication, REST resources, OpenAPI operations, uploads, pagination, and environment helpers for every Faiber TypeScript SDK.
+Framework-neutral transport and authentication primitives shared by every Faiber TypeScript SDK.
 
-## Install
+## Install and configure
 
 ```bash
 npm install @faiber/sdk-core
 ```
 
-## Client and authentication
-
 ```ts
 import { FaiberClient, MemoryTokenProvider } from "@faiber/sdk-core";
 
-const tokens = new MemoryTokenProvider({ accessToken: initialToken });
+const tokens = new MemoryTokenProvider({ accessToken: session.accessToken });
 const client = new FaiberClient("profile", {
-  domains: { profile: "https://profile.example.com" },
+  domains: { profile: import.meta.env.FAIBER_PROFILE_URL },
   tokenProvider: tokens,
   axios: { timeout: 15_000, withCredentials: true },
 });
-
-const response = await client.get("/api/v1/profile", {
-  page_number: 1,
-  page_size: 25,
-  search: "Rasul",
-});
 ```
 
-Implement `TokenProvider` for server sessions, encrypted storage, or another host-specific strategy. `StorageTokenProvider` is available for browser applications that explicitly accept Web Storage's XSS exposure. Cookie authentication requires no token provider.
+`FaiberClient` resolves only configured service origins, rejects absolute URLs by default, adds a Bearer token supplied by `TokenProvider`, and preserves full Axios responses. Cookie sessions work with `withCredentials: true` and no token provider. `MemoryTokenProvider` and opt-in `StorageTokenProvider` are included; custom providers can bind server-side sessions or encrypted storage.
 
-## Automatic refresh
-
-Configure `refreshAuth` to refresh once when concurrent requests receive `401`; waiting requests share the same refresh operation and retry with the new authorization value.
-
-## Typed OpenAPI operations
-
-`OpenApiClient<paths>` derives path, query, header, body, and response types from an `openapi-typescript` contract:
+## Requests and encoding
 
 ```ts
-import { OpenApiClient } from "@faiber/sdk-core";
-import type { paths } from "./profile.openapi.js";
+import { multipart, urlEncoded } from "@faiber/sdk-core";
 
-const operations = new OpenApiClient<paths>(client);
-const profile = await operations.get("/api/v1/profile/{uuid}/admin", {
-  path: { uuid: userId },
+await client.post("/api/v1/login", urlEncoded({ username, password }), {
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
 });
+
+await client.post("/api/v1/profile/avatar", multipart({ file, alt: "Avatar" }));
 ```
 
-## Multipart uploads
+The client provides typed `get`, `post`, `put`, `patch`, `delete`, and generic `request` methods. Query values, request headers, timeout, adapters, interceptors, `AbortSignal`, multipart data, and URL-encoded forms remain available through Axios-compatible options.
 
-```ts
-import { multipart } from "@faiber/sdk-core";
+## Resources and generated operations
 
-await client.post("/api/v1/profile/me/avatar", multipart({
-  file,
-  alt: "Profile portrait",
-  roles: ["avatar", "thumbnail"],
-}));
-```
+`RestResource` supplies typed list/show/create/update/replace/delete helpers. Each resource declares the operations its backend actually mounts; unsupported calls throw `UnsupportedOperationError` locally instead of sending a request that will return `405`. The update verb is configurable per service.
 
-All requests return full Axios responses and accept standard Axios cancellation, headers, adapters, interceptors, and timeout options.
+`OpenApiClient<paths>` derives path, query, header, body, and response types from `openapi-typescript` contracts. Service packages also expose generated named operations that preserve every mounted backend verb, path parameter, query object, request body, response envelope, transport encoding, and permission annotation.
+
+## Authentication refresh and errors
+
+Configure `refreshAuth` for one shared refresh when concurrent calls receive `401`. Retried calls obtain the new token and failed refreshes clear stale credentials. The SDK does not unwrap or hide Axios errors, so applications retain status, response body, headers, request IDs, cancellation, and timeout details.

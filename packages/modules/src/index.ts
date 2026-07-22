@@ -3,22 +3,24 @@ import type { AttachCategoryInput, AttachTagInput, AuditLogListResponse, Author,
 function targetPath(base: string, host: string, id: Identifier): string {
     return `${base}/${encodeURIComponent(host)}/${encodeURIComponent(id)}`;
 }
+import { ModulesOperations } from "./operations.js";
 export class ModulesApi extends ServiceApi {
-    readonly products = new RestResource<Product, CreateProductInput, UpdateProductInput, ProductListResponse, ProductResponse>(this.client, "/api/v1/shop/products");
-    readonly variants = new RestResource<ProductVariant, CreateProductVariantInput, UpdateProductVariantInput, ProductVariantListResponse, ProductVariantResponse>(this.client, "/api/v1/shop/variants");
-    readonly orders = new RestResource<Order, CreateOrderInput, UpdateOrderInput>(this.client, "/api/v1/shop/orders");
-    readonly posts = new RestResource<BlogPost, CreateBlogPostInput, UpdateBlogPostInput>(this.client, "/api/v1/blog/posts");
-    readonly categories = new RestResource<Category, CreateCategoryInput, UpdateCategoryInput>(this.client, "/api/v1/categories");
-    readonly tags = new RestResource<Tag, CreateTagInput, UpdateTagInput>(this.client, "/api/v1/tags");
-    readonly authors = new RestResource<Author, CreateAuthorInput, UpdateAuthorInput>(this.client, "/api/v1/authors");
-    readonly contents = new RestResource<Content, CreateContentInput, UpdateContentInput>(this.client, "/api/v1/contents");
-    readonly seo = new RestResource<SeoContent, CreateSeoContentInput, UpdateSeoContentInput>(this.client, "/api/v1/seo-contents");
-    readonly comments = new RestResource<Comment, CreateCommentInput, UpdateCommentInput>(this.client, "/api/v1/comments");
-    readonly requests = new RestResource<ModuleRequest, CreateModuleRequestInput, UpdateModuleRequestInput>(this.client, "/api/v1/requests");
-    readonly warehouses = new RestResource<Warehouse, CreateWarehouseInput, UpdateWarehouseInput>(this.client, "/api/v1/inventory/warehouses");
-    readonly inventory = new RestResource<Inventory, CreateInventoryInput, UpdateInventoryInput>(this.client, "/api/v1/inventory/inventories");
-    readonly pricing = new RestResource<Pricing, CreatePricingInput, UpdatePricingInput>(this.client, "/api/v1/pricing");
-    readonly samples = new RestResource<Sample, CreateSampleInput, UpdateSampleInput>(this.client, "/api/v1/samples");
+    readonly operations = new ModulesOperations(this.client);
+    readonly products = new RestResource<Product, CreateProductInput, UpdateProductInput, ProductListResponse, ProductResponse>(this.client, "/api/v1/shop/products", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly variants = new RestResource<ProductVariant, CreateProductVariantInput, UpdateProductVariantInput, ProductVariantListResponse, ProductVariantResponse>(this.client, "/api/v1/shop/variants", { supported: ["list", "show", "update", "replace", "delete"] });
+    readonly orders = new RestResource<Order, CreateOrderInput, UpdateOrderInput>(this.client, "/api/v1/shop/orders", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly posts = new RestResource<BlogPost, CreateBlogPostInput, UpdateBlogPostInput>(this.client, "/api/v1/blog/posts", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly categories = new RestResource<Category, CreateCategoryInput, UpdateCategoryInput>(this.client, "/api/v1/categories", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly tags = new RestResource<Tag, CreateTagInput, UpdateTagInput>(this.client, "/api/v1/tags", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly authors = new RestResource<Author, CreateAuthorInput, UpdateAuthorInput>(this.client, "/api/v1/authors", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly contents = new RestResource<Content, CreateContentInput, UpdateContentInput>(this.client, "/api/v1/contents", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly seo = new RestResource<SeoContent, CreateSeoContentInput, UpdateSeoContentInput>(this.client, "/api/v1/seo-contents", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly comments = new RestResource<Comment, CreateCommentInput, UpdateCommentInput>(this.client, "/api/v1/comments", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly requests = new RestResource<ModuleRequest, CreateModuleRequestInput, UpdateModuleRequestInput>(this.client, "/api/v1/requests", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly warehouses = new RestResource<Warehouse, CreateWarehouseInput, UpdateWarehouseInput>(this.client, "/api/v1/inventory/warehouses", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly inventory = new RestResource<Inventory, CreateInventoryInput, UpdateInventoryInput>(this.client, "/api/v1/inventory/inventories", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly pricing = new RestResource<Pricing, CreatePricingInput, UpdatePricingInput>(this.client, "/api/v1/pricing", { supported: ["list", "show", "create", "update", "replace", "delete"] });
+    readonly samples = new RestResource<Sample, CreateSampleInput, UpdateSampleInput>(this.client, "/api/v1/samples", { supported: ["list", "show", "create", "update", "replace", "delete"] });
     productVariants(productId: Identifier, params?: ProductVariantQuery, options?: RequestOptions) {
         return this.client.get<ProductVariantListResponse>(`/api/v1/shop/products/${encodeURIComponent(productId)}/variants`, params, options);
     }
@@ -64,3 +66,5 @@ export class ModulesApi extends ServiceApi {
 }
 export * from "@faiber/sdk-core";
 export * from "./types.js";
+export * from "./operations.js";
+export * from "./operations.types.js";

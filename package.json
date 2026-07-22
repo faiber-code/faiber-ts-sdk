@@ -1,19 +1,35 @@
 {
   "name": "faiber-ts-sdk-monorepo",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Framework-agnostic TypeScript SDK for Faiber services",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "clean": "node scripts/clean.mjs",
     "generate": "node scripts/generate-openapi.mjs",
     "generate:check": "node scripts/generate-openapi.mjs --check",
+    "contracts:extract": "node scripts/extract-service-contracts.mjs",
+    "contracts:generate": "node scripts/generate-service-operations.mjs",
+    "contracts:audit": "node scripts/audit-service-contracts.mjs",
     "build": "tsc -b",
     "typecheck": "tsc -b --pretty false",
     "test": "node --test tests/*.test.mjs",
     "pack:check": "node scripts/pack-check.mjs"
   },
-  "engines": { "node": ">=18" },
-  "devDependencies": { "openapi-typescript": "^7.13.0", "typescript": "^5.9.3" },
-  "keywords": ["faiber", "sdk", "typescript", "axios", "api-client"]
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.13.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "faiber",
+    "sdk",
+    "typescript",
+    "axios",
+    "api-client"
+  ]
 }

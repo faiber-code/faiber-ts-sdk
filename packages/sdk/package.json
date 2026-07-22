@@ -1,1 +1,33 @@
-{"name":"@faiber/faiber-ts-sdk","version":"0.2.1","type":"module","sideEffects":false,"main":"./dist/index.js","types":"./dist/index.d.ts","exports":{".":{"types":"./dist/index.d.ts","import":"./dist/index.js"}},"files":["dist","README.md"],"dependencies":{"@faiber/faiber-asset":"0.2.1","@faiber/faiber-crm":"0.2.1","@faiber/faiber-flow":"0.2.1","@faiber/faiber-idp":"0.2.1","@faiber/faiber-lms":"0.2.1","@faiber/faiber-messenger":"0.2.1","@faiber/faiber-modules":"0.2.1","@faiber/faiber-payment":"0.2.1","@faiber/faiber-profile":"0.2.1","@faiber/faiber-reservation":"0.2.1","@faiber/faiber-session":"0.2.1","@faiber/faiber-version":"0.2.1","@faiber/sdk-core":"0.2.1"}}
+{
+  "name": "@faiber/faiber-ts-sdk",
+  "version": "0.2.2",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@faiber/faiber-asset": "0.2.2",
+    "@faiber/faiber-crm": "0.2.2",
+    "@faiber/faiber-flow": "0.2.2",
+    "@faiber/faiber-idp": "0.2.2",
+    "@faiber/faiber-lms": "0.2.2",
+    "@faiber/faiber-messenger": "0.2.2",
+    "@faiber/faiber-modules": "0.2.2",
+    "@faiber/faiber-payment": "0.2.2",
+    "@faiber/faiber-profile": "0.2.2",
+    "@faiber/faiber-reservation": "0.2.2",
+    "@faiber/faiber-session": "0.2.2",
+    "@faiber/faiber-version": "0.2.2",
+    "@faiber/sdk-core": "0.2.2"
+  }
+}
