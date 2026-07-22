@@ -31,6 +31,8 @@ This repository is the public TypeScript SDK monorepo for Faiber services. Chang
   - `@faiber/faiber-session`
   - `@faiber/faiber-version`
   - `@faiber/faiber-flow`
+  - `@faiber/faiber-knowledge`
+  - `@faiber/faiber-chat`
 - Do not publish the private monorepo root.
 - Do not reintroduce or publish new versions under the historical unscoped `faiber-ts-sdk` name.
 
@@ -100,7 +102,7 @@ git push origin 0.1.2
 - Recommended release loop:
 
 ```bash
-for package in core idp profile modules social asset payment messenger crm lms reservation session version flow sdk; do
+for package in core idp profile modules social asset payment messenger crm lms reservation session version flow knowledge chat sdk; do
   NPM_CONFIG_CACHE=/tmp/faiber-npm-cache npm publish "./packages/$package" --access public
 done
 ```
@@ -128,6 +130,8 @@ npm view @faiber/faiber-reservation version
 npm view @faiber/faiber-session version
 npm view @faiber/faiber-version version
 npm view @faiber/faiber-flow version
+npm view @faiber/faiber-knowledge version
+npm view @faiber/faiber-chat version
 npm view @faiber/faiber-ts-sdk version
 ```
 

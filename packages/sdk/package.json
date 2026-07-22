@@ -1,6 +1,6 @@
 {
   "name": "@faiber/faiber-ts-sdk",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -16,19 +16,21 @@
     "README.md"
   ],
   "dependencies": {
-    "@faiber/faiber-asset": "0.2.2",
-    "@faiber/faiber-crm": "0.2.2",
-    "@faiber/faiber-flow": "0.2.2",
-    "@faiber/faiber-idp": "0.2.2",
-    "@faiber/faiber-lms": "0.2.2",
-    "@faiber/faiber-messenger": "0.2.2",
-    "@faiber/faiber-modules": "0.2.2",
-    "@faiber/faiber-payment": "0.2.2",
-    "@faiber/faiber-profile": "0.2.2",
-    "@faiber/faiber-reservation": "0.2.2",
-    "@faiber/faiber-session": "0.2.2",
-    "@faiber/faiber-social": "0.2.2",
-    "@faiber/faiber-version": "0.2.2",
-    "@faiber/sdk-core": "0.2.2"
+    "@faiber/faiber-asset": "0.3.0",
+    "@faiber/faiber-crm": "0.3.0",
+    "@faiber/faiber-flow": "0.3.0",
+    "@faiber/faiber-idp": "0.3.0",
+    "@faiber/faiber-knowledge": "0.3.0",
+    "@faiber/faiber-chat": "0.3.0",
+    "@faiber/faiber-lms": "0.3.0",
+    "@faiber/faiber-messenger": "0.3.0",
+    "@faiber/faiber-modules": "0.3.0",
+    "@faiber/faiber-payment": "0.3.0",
+    "@faiber/faiber-profile": "0.3.0",
+    "@faiber/faiber-reservation": "0.3.0",
+    "@faiber/faiber-session": "0.3.0",
+    "@faiber/faiber-social": "0.3.0",
+    "@faiber/faiber-version": "0.3.0",
+    "@faiber/sdk-core": "0.3.0"
   }
 }

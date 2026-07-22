@@ -1,5 +1,5 @@
 {
-  "name": "@faiber/faiber-profile",
+  "name": "@faiber/faiber-chat",
   "version": "0.3.0",
   "type": "module",
   "sideEffects": false,
@@ -12,7 +12,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "dependencies": {
     "@faiber/sdk-core": "0.3.0"

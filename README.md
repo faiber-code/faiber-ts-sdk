@@ -20,6 +20,8 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 | `@faiber/faiber-session` | Live rooms, access tokens, playback, recordings and analytics |
 | `@faiber/faiber-version` | Service registry and release history |
 | `@faiber/faiber-flow` | Automations, triggers, actions, validation, runs and execution history |
+| `@faiber/faiber-knowledge` | Knowledge bases, groups, items, graph edges, chat bindings, rules, runtime resolution and actions |
+| `@faiber/faiber-chat` | Direct, group, channel and AI conversations, messages, members, reactions, read state and realtime events |
 | `@faiber/faiber-ts-sdk` | One facade containing every package above |
 
 ## Install and initialize
@@ -81,7 +83,7 @@ List methods preserve each backend's typed query contract, including page number
 
 ## Domains and environment configuration
 
-`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, and `FAIBER_FLOW_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
+`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, and `FAIBER_CHAT_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
 
 ## Inputs, outputs, errors, and cancellation
 

@@ -4,6 +4,8 @@ import { CrmApi } from "@faiber/faiber-crm";
 import { FlowApi } from "@faiber/faiber-flow";
 import { IdpApi } from "@faiber/faiber-idp";
 import { LmsApi } from "@faiber/faiber-lms";
+import { KnowledgeApi } from "@faiber/faiber-knowledge";
+import { ChatApi } from "@faiber/faiber-chat";
 import { MessengerApi } from "@faiber/faiber-messenger";
 import { ModulesApi } from "@faiber/faiber-modules";
 import { PaymentApi } from "@faiber/faiber-payment";
@@ -26,6 +28,8 @@ export interface FaiberServiceApis {
     version: VersionApi;
     flow: FlowApi;
     social: SocialApi;
+    knowledge: KnowledgeApi;
+    chat: ChatApi;
 }
 export class FaiberSDK {
     private readonly clients = new Map<ServiceName, FaiberClient>();
@@ -64,9 +68,11 @@ export class FaiberSDK {
     get version(): VersionApi { return this.api("version", (client) => new VersionApi(client)); }
     get flow(): FlowApi { return this.api("flow", (client) => new FlowApi(client)); }
     get social(): SocialApi { return this.api("social", (client) => new SocialApi(client)); }
+    get knowledge(): KnowledgeApi { return this.api("knowledge", (client) => new KnowledgeApi(client)); }
+    get chat(): ChatApi { return this.api("chat", (client) => new ChatApi(client)); }
 }
 export * from "@faiber/sdk-core";
-export { AssetApi, CrmApi, FlowApi, IdpApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, VersionApi };
+export { AssetApi, ChatApi, CrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, VersionApi };
 export type { AuthTokensResponse, User as IdpUser } from "@faiber/faiber-idp";
 export type { Profile, ProfileProperties } from "@faiber/faiber-profile";
 export type { Lead } from "@faiber/faiber-crm";

@@ -3,7 +3,7 @@ import { basename, dirname, join, relative, resolve } from "node:path";
 
 const sdkRoot = resolve(import.meta.dirname, "..");
 const servicesRoot = resolve(process.env.FAIBER_SERVICES_ROOT ?? join(sdkRoot, "..", "Service"));
-const services = ["asset", "crm", "flow", "idp", "lms", "messenger", "modules", "payment", "profile", "reservation", "session", "social"];
+const services = ["asset", "chat", "crm", "flow", "idp", "knowledge", "lms", "messenger", "modules", "payment", "profile", "reservation", "session", "social"];
 
 async function walk(root) {
   const result = [];
@@ -67,6 +67,19 @@ function permissionAnnotations(source) {
   for (const match of source.matchAll(/#\[should_have_permissions\(([\s\S]*?)\)\]\s*(?:pub\s+)?async\s+fn\s+(\w+)/g)) {
     const permissions = [...match[1].matchAll(/permissions\s*\(([^)]*)\)/g)].flatMap(group => [...group[1].matchAll(/"([^"]+)"/g)].map(item => item[1]));
     result.set(match[2], permissions);
+  }
+  for (const match of source.matchAll(/(?:pub\s+)?async\s+fn\s+(\w+)\s*\(/g)) {
+    const open = source.indexOf("{", match.index);
+    if (open === -1) continue;
+    let depth = 0;
+    let close = -1;
+    for (let i = open; i < source.length; i += 1) {
+      if (source[i] === "{") depth += 1;
+      else if (source[i] === "}" && --depth === 0) { close = i; break; }
+    }
+    if (close === -1) continue;
+    const permissions = [...source.slice(open, close + 1).matchAll(/\.require\(\s*"([^"]+)"\s*\)/g)].map(item => item[1]);
+    if (permissions.length && !result.has(match[1])) result.set(match[1], permissions);
   }
   return result;
 }
@@ -135,9 +148,18 @@ function handlerSignature(source, handler) {
 const manifest = {};
 for (const service of services) {
   const srcRoot = join(servicesRoot, `infera-${service}`, "src");
-  const router = await readFile(join(srcRoot, "router.rs"), "utf8");
-  const modulePrefixes = prefixes(router, service);
-  const mountedModules = new Set([...router.matchAll(/crate::(\w+)::/g)].map(match => match[1]));
+  let router;
+  let directRouter = false;
+  try {
+    router = await readFile(join(srcRoot, "router.rs"), "utf8");
+  } catch {
+    router = await readFile(join(srcRoot, "main.rs"), "utf8");
+    directRouter = true;
+  }
+  const modulePrefixes = directRouter ? new Map([["routes", "/api/v1"]]) : prefixes(router, service);
+  const mountedModules = directRouter
+    ? new Set(["routes"])
+    : new Set([...router.matchAll(/crate::(\w+)::/g)].map(match => match[1]));
   const files = await walk(srcRoot);
   let discovered = true;
   while (discovered) {
@@ -164,7 +186,9 @@ for (const service of services) {
     for (const route of routeCalls(source)) {
       if (route.method === "ANY") continue;
       const annotated = canonical.get(route.handler);
-      const prefix = module === "router"
+      const prefix = service === "knowledge" && module === "routes" && ["/chat/{chat_slug}/query", "/tool-schema"].includes(route.localPath)
+        ? "/api/v1/runtime"
+        : module === "router"
         ? (["/integration/flow", "/transactions/{uuid}"].includes(route.localPath) ? "/api/v1" : "/")
         : modulePrefixes.get(module);
       if (module !== "router" && !mountedModules.has(module)) {

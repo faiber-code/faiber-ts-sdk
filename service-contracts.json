@@ -855,6 +855,222 @@
       "formUrlEncoded": false
     }
   ],
+  "chat": [
+    {
+      "method": "GET",
+      "path": "/api/v1/conversations",
+      "module": "routes",
+      "handler": "list",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/conversations",
+      "module": "routes",
+      "handler": "create",
+      "permissions": [
+        "chat:write"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "CreateConversation",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/conversations/{id}",
+      "module": "routes",
+      "handler": "archive",
+      "permissions": [
+        "chat:delete"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/conversations/{id}",
+      "module": "routes",
+      "handler": "get_one",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/conversations/{id}",
+      "module": "routes",
+      "handler": "update",
+      "permissions": [
+        "chat:write"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "UpdateConversation",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/conversations/{id}/ai/messages",
+      "module": "routes",
+      "handler": "ai_send",
+      "permissions": [
+        "chat:ai"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "AiMessage",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/conversations/{id}/events",
+      "module": "routes",
+      "handler": "events",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/conversations/{id}/members",
+      "module": "routes",
+      "handler": "members",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/conversations/{id}/members",
+      "module": "routes",
+      "handler": "add_member",
+      "permissions": [
+        "chat:manage"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "MemberInput",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/conversations/{id}/members/{user_id}",
+      "module": "routes",
+      "handler": "remove_member",
+      "permissions": [
+        "chat:manage"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/conversations/{id}/messages",
+      "module": "routes",
+      "handler": "messages",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "query": "ListQuery",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/conversations/{id}/messages",
+      "module": "routes",
+      "handler": "send",
+      "permissions": [
+        "chat:write"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "SendMessage",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/conversations/{id}/read",
+      "module": "routes",
+      "handler": "read",
+      "permissions": [
+        "chat:write"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "ReadInput",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/messages/{id}",
+      "module": "routes",
+      "handler": "delete_message",
+      "permissions": [
+        "chat:delete"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/messages/{id}",
+      "module": "routes",
+      "handler": "edit",
+      "permissions": [
+        "chat:write"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "EditMessage",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/messages/{id}/reactions",
+      "module": "routes",
+      "handler": "react",
+      "permissions": [
+        "chat:write"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "ReactionInput",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    }
+  ],
   "crm": [
     {
       "method": "GET",
@@ -2978,6 +3194,445 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "response": "bool",
+      "multipart": false,
+      "formUrlEncoded": false
+    }
+  ],
+  "knowledge": [
+    {
+      "method": "GET",
+      "path": "/api/v1/actions",
+      "module": "routes",
+      "handler": "list_actions",
+      "permissions": [
+        "knowledge:actions"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "query": "ListQuery",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/actions/{id}/status",
+      "module": "routes",
+      "handler": "update_action_status",
+      "permissions": [
+        "knowledge:actions"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "ActionStatus",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "module": "routes",
+      "handler": "list_audit",
+      "permissions": [
+        "knowledge:audit"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "query": "ListQuery",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/chat-bindings",
+      "module": "routes",
+      "handler": "list_bindings",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/chat-bindings",
+      "module": "routes",
+      "handler": "create_binding",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "CreateBinding",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/chat-bindings/{id}",
+      "module": "routes",
+      "handler": "delete_binding",
+      "permissions": [
+        "knowledge:delete"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/chat-bindings/{id}",
+      "module": "routes",
+      "handler": "update_binding",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "UpdateBinding",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/edges/{id}",
+      "module": "routes",
+      "handler": "delete_edge",
+      "permissions": [
+        "knowledge:delete"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/edges/{id}",
+      "module": "routes",
+      "handler": "update_edge",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "UpdateEdge",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/groups/{id}",
+      "module": "routes",
+      "handler": "delete_group",
+      "permissions": [
+        "knowledge:delete"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/groups/{id}",
+      "module": "routes",
+      "handler": "update_group",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "UpdateGroup",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/items/{id}",
+      "module": "routes",
+      "handler": "delete_item",
+      "permissions": [
+        "knowledge:delete"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/items/{id}",
+      "module": "routes",
+      "handler": "get_item",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/items/{id}",
+      "module": "routes",
+      "handler": "update_item",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "UpdateItem",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge-bases",
+      "module": "routes",
+      "handler": "list_bases",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "query": "ListQuery",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge-bases",
+      "module": "routes",
+      "handler": "create_base",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "CreateKnowledgeBase",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/knowledge-bases/{id}",
+      "module": "routes",
+      "handler": "delete_base",
+      "permissions": [
+        "knowledge:delete"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge-bases/{id}",
+      "module": "routes",
+      "handler": "get_base",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/knowledge-bases/{id}",
+      "module": "routes",
+      "handler": "update_base",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "UpdateKnowledgeBase",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge-bases/{id}/edges",
+      "module": "routes",
+      "handler": "list_edges",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge-bases/{id}/edges",
+      "module": "routes",
+      "handler": "create_edge",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "CreateEdge",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge-bases/{id}/export",
+      "module": "routes",
+      "handler": "export_base",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge-bases/{id}/groups",
+      "module": "routes",
+      "handler": "list_groups",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge-bases/{id}/groups",
+      "module": "routes",
+      "handler": "create_group",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "CreateGroup",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/knowledge-bases/{id}/items",
+      "module": "routes",
+      "handler": "list_items",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "query": "ListQuery",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge-bases/{id}/items",
+      "module": "routes",
+      "handler": "create_item",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "CreateItem",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/knowledge-bases/{id}/publish",
+      "module": "routes",
+      "handler": "publish",
+      "permissions": [
+        "knowledge:publish"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/match-rules",
+      "module": "routes",
+      "handler": "list_rules",
+      "permissions": [
+        "knowledge:read"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "query": "ListQuery",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/match-rules",
+      "module": "routes",
+      "handler": "create_rule",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "CreateRule",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/match-rules/{id}",
+      "module": "routes",
+      "handler": "delete_rule",
+      "permissions": [
+        "knowledge:delete"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/match-rules/{id}",
+      "module": "routes",
+      "handler": "update_rule",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "UpdateRule",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/runtime/chat/{chat_slug}/query",
+      "module": "routes",
+      "handler": "runtime_query",
+      "permissions": [
+        "knowledge:runtime"
+      ],
+      "source": "infera-knowledge/src/routes.rs",
+      "body": "RuntimeQuery",
+      "pathParam": "String",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/runtime/tool-schema",
+      "module": "routes",
+      "handler": "tool_schema",
+      "permissions": [],
+      "source": "infera-knowledge/src/routes.rs",
       "multipart": false,
       "formUrlEncoded": false
     }
@@ -9243,7 +9898,9 @@
       "path": "/api/v1/admin/import/modules",
       "module": "api",
       "handler": "import_modules",
-      "permissions": [],
+      "permissions": [
+        "social:admin"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "legacy::LegacyImportRequest",
       "multipart": false,
@@ -9254,7 +9911,9 @@
       "path": "/api/v1/categories",
       "module": "api",
       "handler": "list_categories",
-      "permissions": [],
+      "permissions": [
+        "social:read"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "multipart": false,
       "formUrlEncoded": false
@@ -9264,7 +9923,9 @@
       "path": "/api/v1/categories",
       "module": "api",
       "handler": "create_category",
-      "permissions": [],
+      "permissions": [
+        "social:category:manage"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "CreateCategory",
       "multipart": false,
@@ -9275,7 +9936,9 @@
       "path": "/api/v1/categories/{id}",
       "module": "api",
       "handler": "delete_category",
-      "permissions": [],
+      "permissions": [
+        "social:category:manage"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9286,7 +9949,9 @@
       "path": "/api/v1/categories/{id}",
       "module": "api",
       "handler": "update_category",
-      "permissions": [],
+      "permissions": [
+        "social:category:manage"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "UpdateCategory",
       "pathParam": "Uuid",
@@ -9298,7 +9963,9 @@
       "path": "/api/v1/comments/{id}",
       "module": "api",
       "handler": "delete_comment",
-      "permissions": [],
+      "permissions": [
+        "social:comment:delete_own"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9309,7 +9976,9 @@
       "path": "/api/v1/comments/{id}",
       "module": "api",
       "handler": "update_comment",
-      "permissions": [],
+      "permissions": [
+        "social:comment:update_own"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "UpdateComment",
       "pathParam": "Uuid",
@@ -9321,7 +9990,9 @@
       "path": "/api/v1/comments/{id}/like",
       "module": "api",
       "handler": "remove_comment_reaction",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9332,7 +10003,9 @@
       "path": "/api/v1/comments/{id}/like",
       "module": "api",
       "handler": "like_comment",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9343,7 +10016,9 @@
       "path": "/api/v1/comments/{id}/reaction",
       "module": "api",
       "handler": "remove_comment_reaction",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9354,7 +10029,9 @@
       "path": "/api/v1/comments/{id}/reaction",
       "module": "api",
       "handler": "comment_reactions",
-      "permissions": [],
+      "permissions": [
+        "social:read"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9365,7 +10042,9 @@
       "path": "/api/v1/comments/{id}/reaction",
       "module": "api",
       "handler": "set_comment_reaction",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "SetReaction",
       "pathParam": "Uuid",
@@ -9377,7 +10056,9 @@
       "path": "/api/v1/comments/post/{id}",
       "module": "api",
       "handler": "list_post_comments",
-      "permissions": [],
+      "permissions": [
+        "social:read"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9388,7 +10069,9 @@
       "path": "/api/v1/comments/post/{id}",
       "module": "api",
       "handler": "create_post_comment",
-      "permissions": [],
+      "permissions": [
+        "social:comment:create"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "CreateComment",
       "pathParam": "Uuid",
@@ -9400,7 +10083,9 @@
       "path": "/api/v1/moderation/actions",
       "module": "api",
       "handler": "moderate",
-      "permissions": [],
+      "permissions": [
+        "social:moderate"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "ModerateTarget",
       "multipart": false,
@@ -9411,7 +10096,9 @@
       "path": "/api/v1/moderation/queue",
       "module": "api",
       "handler": "moderation_queue",
-      "permissions": [],
+      "permissions": [
+        "social:moderate"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "multipart": false,
       "formUrlEncoded": false
@@ -9421,7 +10108,9 @@
       "path": "/api/v1/posts",
       "module": "api",
       "handler": "list_posts",
-      "permissions": [],
+      "permissions": [
+        "social:read"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "query": "FeedQuery",
       "multipart": false,
@@ -9432,7 +10121,9 @@
       "path": "/api/v1/posts",
       "module": "api",
       "handler": "create_post",
-      "permissions": [],
+      "permissions": [
+        "social:post:create"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "CreatePost",
       "multipart": false,
@@ -9443,7 +10134,9 @@
       "path": "/api/v1/posts/{id}",
       "module": "api",
       "handler": "delete_post",
-      "permissions": [],
+      "permissions": [
+        "social:post:delete_own"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9454,7 +10147,9 @@
       "path": "/api/v1/posts/{id}",
       "module": "api",
       "handler": "get_post",
-      "permissions": [],
+      "permissions": [
+        "social:read"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9465,7 +10160,9 @@
       "path": "/api/v1/posts/{id}",
       "module": "api",
       "handler": "update_post",
-      "permissions": [],
+      "permissions": [
+        "social:post:update_own"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "UpdatePost",
       "pathParam": "Uuid",
@@ -9477,7 +10174,9 @@
       "path": "/api/v1/posts/{id}/comments",
       "module": "api",
       "handler": "list_post_comments",
-      "permissions": [],
+      "permissions": [
+        "social:read"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9488,7 +10187,9 @@
       "path": "/api/v1/posts/{id}/comments",
       "module": "api",
       "handler": "create_post_comment",
-      "permissions": [],
+      "permissions": [
+        "social:comment:create"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "CreateComment",
       "pathParam": "Uuid",
@@ -9500,7 +10201,9 @@
       "path": "/api/v1/posts/{id}/like",
       "module": "api",
       "handler": "remove_post_reaction",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9511,7 +10214,9 @@
       "path": "/api/v1/posts/{id}/like",
       "module": "api",
       "handler": "like_post",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9522,7 +10227,9 @@
       "path": "/api/v1/posts/{id}/reaction",
       "module": "api",
       "handler": "remove_post_reaction",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9533,7 +10240,9 @@
       "path": "/api/v1/posts/{id}/reaction",
       "module": "api",
       "handler": "post_reactions",
-      "permissions": [],
+      "permissions": [
+        "social:read"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9544,7 +10253,9 @@
       "path": "/api/v1/posts/{id}/reaction",
       "module": "api",
       "handler": "set_post_reaction",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "SetReaction",
       "pathParam": "Uuid",
@@ -9556,7 +10267,9 @@
       "path": "/api/v1/reactions/post/{id}",
       "module": "api",
       "handler": "remove_post_reaction",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9567,7 +10280,9 @@
       "path": "/api/v1/reactions/post/{id}",
       "module": "api",
       "handler": "post_reactions",
-      "permissions": [],
+      "permissions": [
+        "social:read"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
@@ -9578,7 +10293,9 @@
       "path": "/api/v1/reactions/post/{id}",
       "module": "api",
       "handler": "set_post_reaction",
-      "permissions": [],
+      "permissions": [
+        "social:reaction:write"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "SetReaction",
       "pathParam": "Uuid",
@@ -9590,7 +10307,9 @@
       "path": "/api/v1/reports",
       "module": "api",
       "handler": "create_report",
-      "permissions": [],
+      "permissions": [
+        "social:report:create"
+      ],
       "source": "infera-social/src/api/routes.rs",
       "body": "CreateReport",
       "multipart": false,

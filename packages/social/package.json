@@ -1,11 +1,21 @@
 {
   "name": "@faiber/faiber-social",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": {".": {"types": "./dist/index.d.ts", "import": "./dist/index.js"}},
-  "files": ["dist", "README.md"],
-  "dependencies": {"@faiber/sdk-core": "0.2.2"}
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@faiber/sdk-core": "0.3.0"
+  }
 }

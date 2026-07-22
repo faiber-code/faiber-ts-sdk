@@ -12,6 +12,8 @@ export const SERVICE_NAMES = [
     "session",
     "version",
     "flow",
+    "knowledge",
+    "chat",
     "social",
 ] as const;
 export type ServiceName = (typeof SERVICE_NAMES)[number];
