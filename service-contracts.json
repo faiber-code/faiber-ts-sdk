@@ -3647,6 +3647,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/courses/{course_id}/sessions/{id}",
+      "module": "course",
+      "handler": "destroy_session",
+      "permissions": [
+        "lms:course:delete"
+      ],
+      "source": "infera-lms/src/course/routes.rs",
+      "response": "serde_json::Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/courses/{course_id}/sessions/{id}",
       "module": "course",
@@ -3672,6 +3685,20 @@
       "body": "models::UpdateSessionRequest",
       "pathParam": "i64",
       "response": "models::SessionResponse",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/courses/{id}",
+      "module": "course",
+      "handler": "destroy_course",
+      "permissions": [
+        "lms:course:delete"
+      ],
+      "source": "infera-lms/src/course/routes.rs",
+      "pathParam": "i64",
+      "response": "serde_json::Value",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -3733,6 +3760,20 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/courses/categories/{id}",
+      "module": "course",
+      "handler": "destroy_category",
+      "permissions": [
+        "lms:course:delete"
+      ],
+      "source": "infera-lms/src/course/routes.rs",
+      "pathParam": "i64",
+      "response": "serde_json::Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/courses/categories/{id}",
       "module": "course",
@@ -3786,6 +3827,20 @@
       "source": "infera-lms/src/course/routes.rs",
       "body": "models::CreateVideoSectionRequest",
       "response": "models::VideoSectionResponse",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/courses/video-sections/{id}",
+      "module": "course",
+      "handler": "destroy_video_section",
+      "permissions": [
+        "lms:course:delete"
+      ],
+      "source": "infera-lms/src/course/routes.rs",
+      "pathParam": "i64",
+      "response": "serde_json::Value",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -6728,121 +6783,6 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/social/moderation/posts",
-      "module": "social",
-      "handler": "list_for_moderation",
-      "permissions": [
-        "social:post:moderate"
-      ],
-      "source": "infera-modules/src/social/routes.rs",
-      "query": "SocialPostListQuery",
-      "response": "SocialPostList",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/social/moderation/posts/{id}",
-      "module": "social",
-      "handler": "remove",
-      "permissions": [
-        "social:post:moderate"
-      ],
-      "source": "infera-modules/src/social/routes.rs",
-      "pathParam": "Uuid",
-      "response": "serde_json::Value",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/social/moderation/posts/{id}",
-      "module": "social",
-      "handler": "manage",
-      "permissions": [
-        "social:post:moderate"
-      ],
-      "source": "infera-modules/src/social/routes.rs",
-      "body": "SocialPostUpdate",
-      "pathParam": "Uuid",
-      "response": "SocialPostResponse",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/social/posts",
-      "module": "social",
-      "handler": "list",
-      "permissions": [
-        "social:post:read"
-      ],
-      "source": "infera-modules/src/social/routes.rs",
-      "query": "SocialPostListQuery",
-      "response": "SocialPostList",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/social/posts",
-      "module": "social",
-      "handler": "create",
-      "permissions": [
-        "social:post:create"
-      ],
-      "source": "infera-modules/src/social/routes.rs",
-      "body": "SocialPostCreate",
-      "response": "SocialPostResponse",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/social/posts/{id}",
-      "module": "social",
-      "handler": "show",
-      "permissions": [
-        "social:post:read"
-      ],
-      "source": "infera-modules/src/social/routes.rs",
-      "pathParam": "Uuid",
-      "response": "SocialPostResponse",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/social/posts/{id}",
-      "module": "social",
-      "handler": "update",
-      "permissions": [
-        "social:post:update_own"
-      ],
-      "source": "infera-modules/src/social/routes.rs",
-      "body": "SocialPostUpdate",
-      "pathParam": "Uuid",
-      "response": "SocialPostResponse",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/social/posts/{id}/moderate",
-      "module": "social",
-      "handler": "moderate",
-      "permissions": [
-        "social:post:moderate"
-      ],
-      "source": "infera-modules/src/social/routes.rs",
-      "body": "SocialPostModerate",
-      "pathParam": "Uuid",
-      "response": "SocialPostResponse",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
       "path": "/api/v1/tags",
       "module": "tag",
       "handler": "list_tags",
@@ -9293,6 +9233,366 @@
       "handler": "livekit_webhook",
       "permissions": [],
       "source": "infera-session/src/room/routes.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    }
+  ],
+  "social": [
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/import/modules",
+      "module": "api",
+      "handler": "import_modules",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "legacy::LegacyImportRequest",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/categories",
+      "module": "api",
+      "handler": "list_categories",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/categories",
+      "module": "api",
+      "handler": "create_category",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "CreateCategory",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/categories/{id}",
+      "module": "api",
+      "handler": "delete_category",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/categories/{id}",
+      "module": "api",
+      "handler": "update_category",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "UpdateCategory",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/comments/{id}",
+      "module": "api",
+      "handler": "delete_comment",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/comments/{id}",
+      "module": "api",
+      "handler": "update_comment",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "UpdateComment",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/comments/{id}/like",
+      "module": "api",
+      "handler": "remove_comment_reaction",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/comments/{id}/like",
+      "module": "api",
+      "handler": "like_comment",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/comments/{id}/reaction",
+      "module": "api",
+      "handler": "remove_comment_reaction",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/comments/{id}/reaction",
+      "module": "api",
+      "handler": "comment_reactions",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/comments/{id}/reaction",
+      "module": "api",
+      "handler": "set_comment_reaction",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "SetReaction",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/comments/post/{id}",
+      "module": "api",
+      "handler": "list_post_comments",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/comments/post/{id}",
+      "module": "api",
+      "handler": "create_post_comment",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "CreateComment",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/moderation/actions",
+      "module": "api",
+      "handler": "moderate",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "ModerateTarget",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/moderation/queue",
+      "module": "api",
+      "handler": "moderation_queue",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/posts",
+      "module": "api",
+      "handler": "list_posts",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "query": "FeedQuery",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/posts",
+      "module": "api",
+      "handler": "create_post",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "CreatePost",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/posts/{id}",
+      "module": "api",
+      "handler": "delete_post",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/posts/{id}",
+      "module": "api",
+      "handler": "get_post",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/posts/{id}",
+      "module": "api",
+      "handler": "update_post",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "UpdatePost",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/posts/{id}/comments",
+      "module": "api",
+      "handler": "list_post_comments",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/posts/{id}/comments",
+      "module": "api",
+      "handler": "create_post_comment",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "CreateComment",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/posts/{id}/like",
+      "module": "api",
+      "handler": "remove_post_reaction",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/posts/{id}/like",
+      "module": "api",
+      "handler": "like_post",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/posts/{id}/reaction",
+      "module": "api",
+      "handler": "remove_post_reaction",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/posts/{id}/reaction",
+      "module": "api",
+      "handler": "post_reactions",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/posts/{id}/reaction",
+      "module": "api",
+      "handler": "set_post_reaction",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "SetReaction",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/reactions/post/{id}",
+      "module": "api",
+      "handler": "remove_post_reaction",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reactions/post/{id}",
+      "module": "api",
+      "handler": "post_reactions",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reactions/post/{id}",
+      "module": "api",
+      "handler": "set_post_reaction",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "SetReaction",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/reports",
+      "module": "api",
+      "handler": "create_report",
+      "permissions": [],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "CreateReport",
       "multipart": false,
       "formUrlEncoded": false
     }

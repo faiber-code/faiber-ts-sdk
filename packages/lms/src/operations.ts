@@ -190,6 +190,10 @@ export class LmsOperations extends ServiceApi {
   courseStoreSessionPost(courseId: Identifier, data: T.CourseStoreSessionPostInput, options?: RequestOptions<T.CourseStoreSessionPostInput>) {
     return this.client.request<T.CourseStoreSessionPostResponse, T.CourseStoreSessionPostInput>({ ...options, method: "POST", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions`, data: data });
   }
+  /** DELETE /api/v1/courses/{course_id}/sessions/{id}; permission: lms:course:delete. */
+  courseDestroySessionDelete(courseId: Identifier, id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CourseDestroySessionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(id)}` });
+  }
   /** GET /api/v1/courses/{course_id}/sessions/{id}; permission: lms:course:read. */
   courseShowSessionGet(courseId: Identifier, id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CourseShowSessionGetResponse>({ ...options, method: "GET", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(id)}` });
@@ -197,6 +201,10 @@ export class LmsOperations extends ServiceApi {
   /** PATCH /api/v1/courses/{course_id}/sessions/{id}; permission: lms:course:update. */
   courseUpdateSessionPatch(courseId: Identifier, id: Identifier, data: T.CourseUpdateSessionPatchInput, options?: RequestOptions<T.CourseUpdateSessionPatchInput>) {
     return this.client.request<T.CourseUpdateSessionPatchResponse, T.CourseUpdateSessionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(id)}`, data: data });
+  }
+  /** DELETE /api/v1/courses/{id}; permission: lms:course:delete. */
+  courseDestroyCourseDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CourseDestroyCourseDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/courses/${encodeURIComponent(id)}` });
   }
   /** GET /api/v1/courses/{id}; permission: lms:course:read. */
   courseShowCourseGet(id: Identifier, options?: RequestOptions) {
@@ -214,6 +222,10 @@ export class LmsOperations extends ServiceApi {
   courseStoreCategoryPost(data: T.CourseStoreCategoryPostInput, options?: RequestOptions<T.CourseStoreCategoryPostInput>) {
     return this.client.request<T.CourseStoreCategoryPostResponse, T.CourseStoreCategoryPostInput>({ ...options, method: "POST", url: `/api/v1/courses/categories`, data: data });
   }
+  /** DELETE /api/v1/courses/categories/{id}; permission: lms:course:delete. */
+  courseDestroyCategoryDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CourseDestroyCategoryDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/courses/categories/${encodeURIComponent(id)}` });
+  }
   /** GET /api/v1/courses/categories/{id}; permission: lms:course:read. */
   courseShowCategoryGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.CourseShowCategoryGetResponse>({ ...options, method: "GET", url: `/api/v1/courses/categories/${encodeURIComponent(id)}` });
@@ -229,6 +241,10 @@ export class LmsOperations extends ServiceApi {
   /** POST /api/v1/courses/video-sections; permission: lms:course:create. */
   courseStoreVideoSectionPost(data: T.CourseStoreVideoSectionPostInput, options?: RequestOptions<T.CourseStoreVideoSectionPostInput>) {
     return this.client.request<T.CourseStoreVideoSectionPostResponse, T.CourseStoreVideoSectionPostInput>({ ...options, method: "POST", url: `/api/v1/courses/video-sections`, data: data });
+  }
+  /** DELETE /api/v1/courses/video-sections/{id}; permission: lms:course:delete. */
+  courseDestroyVideoSectionDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CourseDestroyVideoSectionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/courses/video-sections/${encodeURIComponent(id)}` });
   }
   /** GET /api/v1/courses/video-sections/{id}; permission: lms:course:read. */
   courseShowVideoSectionGet(id: Identifier, options?: RequestOptions) {

@@ -31,14 +31,14 @@ const sessions = await api.courseSessions(courseId);
 
 ## Complete capability
 
-This package exposes 127 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 131 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `certificate` | 4 | `GET`, `PATCH`, `POST` |
 | `classroom` | 13 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `config` | 20 | `GET`, `PATCH`, `POST` |
-| `course` | 16 | `GET`, `PATCH`, `POST` |
+| `course` | 20 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `dashboard` | 1 | `GET` |
 | `docs` | 1 | `GET` |
 | `event` | 12 | `GET`, `PATCH`, `POST` |

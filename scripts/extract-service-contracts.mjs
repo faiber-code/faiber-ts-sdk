@@ -3,7 +3,7 @@ import { basename, dirname, join, relative, resolve } from "node:path";
 
 const sdkRoot = resolve(import.meta.dirname, "..");
 const servicesRoot = resolve(process.env.FAIBER_SERVICES_ROOT ?? join(sdkRoot, "..", "Service"));
-const services = ["asset", "crm", "flow", "idp", "lms", "messenger", "modules", "payment", "profile", "reservation", "session"];
+const services = ["asset", "crm", "flow", "idp", "lms", "messenger", "modules", "payment", "profile", "reservation", "session", "social"];
 
 async function walk(root) {
   const result = [];

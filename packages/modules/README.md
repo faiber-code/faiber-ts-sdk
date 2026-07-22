@@ -1,6 +1,6 @@
 # @faiber/faiber-modules
 
-Products, variants, carts, orders, inventory, posts, social content, taxonomy, SEO, comments, reactions, access rules, pricing, and samples.
+Products, variants, carts, orders, inventory, editorial posts and pages, taxonomy, SEO, generic comments and reactions, access rules, pricing, and samples.
 
 ## Install
 
@@ -31,7 +31,7 @@ const posts = await api.posts.list();
 
 ## Complete capability
 
-This package exposes 146 registered operations from the content and commerce modules service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 138 registered operations from the content and commerce modules service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -53,12 +53,11 @@ This package exposes 146 registered operations from the content and commerce mod
 | `seo-content` | 9 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `service-pricing` | 6 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `session` | 1 | `GET` |
-| `social` | 8 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `stock-movement` | 2 | `GET`, `POST` |
 | `tag` | 9 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `user-sample` | 14 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-Target attachment routes for categories, tags, content, comments, SEO, access, and reactions are available under `api.operations` with exact host/target path parameters.
+Categories, tags, comments, reactions, SEO, content attachments, pricing, access, and commerce operations are available under `api.operations`. Community feeds and social posts are provided by `@faiber/faiber-social`.
 
 ## Authentication and authorization
 

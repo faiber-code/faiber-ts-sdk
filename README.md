@@ -9,7 +9,8 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 | `@faiber/sdk-core` | Domains, Axios transport, token providers, auth refresh, guarded REST resources, OpenAPI operations, form and multipart encoding |
 | `@faiber/faiber-idp` | Login, sessions, users, roles, permissions, OAuth and access control |
 | `@faiber/faiber-profile` | Profiles, atomic field/property patching, locations, avatars, surveys and profile metadata |
-| `@faiber/faiber-modules` | Products, posts, pages, taxonomy, SEO, media, inventory, orders, comments and authors |
+| `@faiber/faiber-modules` | Products, editorial posts, pages, taxonomy, SEO, media, inventory, orders, generic comments/reactions and authors |
+| `@faiber/faiber-social` | Social feeds, comments, likes, reactions, reports and moderation |
 | `@faiber/faiber-asset` | Wallets, balances, plans, subscriptions, ranks, billing, ledger and banking |
 | `@faiber/faiber-payment` | Gateways, payment creation/verification, callbacks and transactions |
 | `@faiber/faiber-messenger` | Notifications, templates, channels, providers and delivery state |
@@ -80,7 +81,7 @@ List methods preserve each backend's typed query contract, including page number
 
 ## Domains and environment configuration
 
-`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, and `FAIBER_FLOW_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
+`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, and `FAIBER_FLOW_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
 
 ## Inputs, outputs, errors, and cancellation
 

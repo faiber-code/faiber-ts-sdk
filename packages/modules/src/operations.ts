@@ -518,38 +518,6 @@ export class ModulesOperations extends ServiceApi {
   productUpdateVariantPut(id: Identifier, data: T.ProductUpdateVariantPutInput, options?: RequestOptions<T.ProductUpdateVariantPutInput>) {
     return this.client.request<T.ProductUpdateVariantPutResponse, T.ProductUpdateVariantPutInput>({ ...options, method: "PUT", url: `/api/v1/shop/variants/${encodeURIComponent(id)}`, data: data });
   }
-  /** GET /api/v1/social/moderation/posts; permission: social:post:moderate. */
-  socialListForModerationGet(params?: T.SocialListForModerationGetQuery, options?: RequestOptions) {
-    return this.client.request<T.SocialListForModerationGetResponse>({ ...options, method: "GET", url: `/api/v1/social/moderation/posts`, params });
-  }
-  /** DELETE /api/v1/social/moderation/posts/{id}; permission: social:post:moderate. */
-  socialRemoveDelete(id: Identifier, options?: RequestOptions) {
-    return this.client.request<T.SocialRemoveDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/social/moderation/posts/${encodeURIComponent(id)}` });
-  }
-  /** PATCH /api/v1/social/moderation/posts/{id}; permission: social:post:moderate. */
-  socialManagePatch(id: Identifier, data: T.SocialManagePatchInput, options?: RequestOptions<T.SocialManagePatchInput>) {
-    return this.client.request<T.SocialManagePatchResponse, T.SocialManagePatchInput>({ ...options, method: "PATCH", url: `/api/v1/social/moderation/posts/${encodeURIComponent(id)}`, data: data });
-  }
-  /** GET /api/v1/social/posts; permission: social:post:read. */
-  socialListGet(params?: T.SocialListGetQuery, options?: RequestOptions) {
-    return this.client.request<T.SocialListGetResponse>({ ...options, method: "GET", url: `/api/v1/social/posts`, params });
-  }
-  /** POST /api/v1/social/posts; permission: social:post:create. */
-  socialCreatePost(data: T.SocialCreatePostInput, options?: RequestOptions<T.SocialCreatePostInput>) {
-    return this.client.request<T.SocialCreatePostResponse, T.SocialCreatePostInput>({ ...options, method: "POST", url: `/api/v1/social/posts`, data: data });
-  }
-  /** GET /api/v1/social/posts/{id}; permission: social:post:read. */
-  socialShowGet(id: Identifier, options?: RequestOptions) {
-    return this.client.request<T.SocialShowGetResponse>({ ...options, method: "GET", url: `/api/v1/social/posts/${encodeURIComponent(id)}` });
-  }
-  /** PATCH /api/v1/social/posts/{id}; permission: social:post:update_own. */
-  socialUpdatePatch(id: Identifier, data: T.SocialUpdatePatchInput, options?: RequestOptions<T.SocialUpdatePatchInput>) {
-    return this.client.request<T.SocialUpdatePatchResponse, T.SocialUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/social/posts/${encodeURIComponent(id)}`, data: data });
-  }
-  /** PATCH /api/v1/social/posts/{id}/moderate; permission: social:post:moderate. */
-  socialModeratePatch(id: Identifier, data: T.SocialModeratePatchInput, options?: RequestOptions<T.SocialModeratePatchInput>) {
-    return this.client.request<T.SocialModeratePatchResponse, T.SocialModeratePatchInput>({ ...options, method: "PATCH", url: `/api/v1/social/posts/${encodeURIComponent(id)}/moderate`, data: data });
-  }
   /** GET /api/v1/tags; permission: public/session-derived. */
   tagListTagsGet(params?: T.TagListTagsGetQuery, options?: RequestOptions) {
     return this.client.request<T.TagListTagsGetResponse>({ ...options, method: "GET", url: `/api/v1/tags`, params });

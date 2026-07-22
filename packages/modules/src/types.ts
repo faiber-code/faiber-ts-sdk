@@ -296,13 +296,6 @@ export interface StockMovement {
     movement_type?: string;
     created_at?: string;
 }
-export interface SocialPost {
-    id: string;
-    author_id?: string;
-    content?: string;
-    status?: string | number;
-    created_at?: string;
-}
 export interface ProductVariantQuery extends QueryParams {
     product_id?: string;
     page_number?: number;
@@ -339,7 +332,5 @@ export interface SeoAttachmentListResponse extends ApiEnvelope<SeoContent[]> {
 export interface AuditLogListResponse extends ApiEnvelope<AuditLog[]> {
 }
 export interface StockMovementListResponse extends ApiEnvelope<PaginatedResult<StockMovement>> {
-}
-export interface SocialPostListResponse extends ApiEnvelope<PaginatedResult<SocialPost>> {
 }
 export type TargetIdentifier = Identifier;

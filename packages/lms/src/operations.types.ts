@@ -937,6 +937,10 @@ export interface CourseStoreSessionPostResponseData extends JsonObject {
 export interface CourseStoreSessionPostResponse extends ApiEnvelope<CourseStoreSessionPostResponseData> {
 }
 
+/** Backend response type: serde_json::Value. */
+export interface CourseDestroySessionDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: models::SessionResponse. */
 export interface CourseShowSessionGetResponseData extends JsonObject {
   "id": number;
@@ -979,6 +983,10 @@ export interface CourseUpdateSessionPatchResponseData extends JsonObject {
   "updated_at": string;
 }
 export interface CourseUpdateSessionPatchResponse extends ApiEnvelope<CourseUpdateSessionPatchResponseData> {
+}
+
+/** Backend response type: serde_json::Value. */
+export interface CourseDestroyCourseDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: models::CourseResponse. */
@@ -1074,6 +1082,10 @@ export interface CourseStoreCategoryPostResponseData extends JsonObject {
 export interface CourseStoreCategoryPostResponse extends ApiEnvelope<CourseStoreCategoryPostResponseData> {
 }
 
+/** Backend response type: serde_json::Value. */
+export interface CourseDestroyCategoryDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: models::CategoryResponse. */
 export interface CourseShowCategoryGetResponseData extends JsonObject {
   "id": number;
@@ -1116,9 +1128,13 @@ export interface CourseIndexVideoSectionGetQuery extends QueryParams {
 export interface CourseIndexVideoSectionGetResponseItem extends JsonObject {
   "id": number;
   "course_id": number;
+  "course_session_id"?: number;
   "name": string;
   "sort_order": number;
   "media_url"?: string;
+  "video_type": string;
+  "external_url"?: string;
+  "drm_url"?: string;
   "created_at": string;
   "updated_at": string;
 }
@@ -1138,30 +1154,46 @@ export interface CourseIndexVideoSectionGetResponse extends ApiEnvelope<CourseIn
 /** Backend request type: models::CreateVideoSectionRequest. */
 export interface CourseStoreVideoSectionPostInput extends JsonObject {
   "course_id": number;
+  "course_session_id"?: number;
   "name": string;
   "sort_order": number;
   "media_url"?: string;
+  "video_type"?: string;
+  "external_url"?: string;
+  "drm_url"?: string;
 }
 /** Backend response type: models::VideoSectionResponse. */
 export interface CourseStoreVideoSectionPostResponseData extends JsonObject {
   "id": number;
   "course_id": number;
+  "course_session_id"?: number;
   "name": string;
   "sort_order": number;
   "media_url"?: string;
+  "video_type": string;
+  "external_url"?: string;
+  "drm_url"?: string;
   "created_at": string;
   "updated_at": string;
 }
 export interface CourseStoreVideoSectionPostResponse extends ApiEnvelope<CourseStoreVideoSectionPostResponseData> {
 }
 
+/** Backend response type: serde_json::Value. */
+export interface CourseDestroyVideoSectionDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: models::VideoSectionResponse. */
 export interface CourseShowVideoSectionGetResponseData extends JsonObject {
   "id": number;
   "course_id": number;
+  "course_session_id"?: number;
   "name": string;
   "sort_order": number;
   "media_url"?: string;
+  "video_type": string;
+  "external_url"?: string;
+  "drm_url"?: string;
   "created_at": string;
   "updated_at": string;
 }
@@ -1171,17 +1203,25 @@ export interface CourseShowVideoSectionGetResponse extends ApiEnvelope<CourseSho
 /** Backend request type: models::UpdateVideoSectionRequest. */
 export interface CourseUpdateVideoSectionPatchInput extends JsonObject {
   "course_id"?: number;
+  "course_session_id"?: number;
   "name"?: string;
   "sort_order"?: number;
   "media_url"?: string;
+  "video_type"?: string;
+  "external_url"?: string;
+  "drm_url"?: string;
 }
 /** Backend response type: models::VideoSectionResponse. */
 export interface CourseUpdateVideoSectionPatchResponseData extends JsonObject {
   "id": number;
   "course_id": number;
+  "course_session_id"?: number;
   "name": string;
   "sort_order": number;
   "media_url"?: string;
+  "video_type": string;
+  "external_url"?: string;
+  "drm_url"?: string;
   "created_at": string;
   "updated_at": string;
 }
