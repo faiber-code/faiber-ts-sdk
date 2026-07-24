@@ -19,6 +19,7 @@
     "@faiber/faiber-asset": "0.3.0",
     "@faiber/faiber-crm": "0.3.0",
     "@faiber/faiber-flow": "0.3.0",
+    "@faiber/faiber-game-sdk": "0.1.0",
     "@faiber/faiber-idp": "0.3.0",
     "@faiber/faiber-knowledge": "0.3.0",
     "@faiber/faiber-chat": "0.3.0",
@@ -30,6 +31,7 @@
     "@faiber/faiber-reservation": "0.3.0",
     "@faiber/faiber-session": "0.3.0",
     "@faiber/faiber-social": "0.3.0",
+    "@faiber/faiber-state-sdk": "0.1.0",
     "@faiber/faiber-version": "0.3.0",
     "@faiber/sdk-core": "0.3.0"
   }

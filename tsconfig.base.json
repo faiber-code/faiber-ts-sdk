@@ -19,7 +19,12 @@
       "@faiber/faiber-reservation": ["packages/reservation/src/index.ts"],
       "@faiber/faiber-session": ["packages/session/src/index.ts"],
       "@faiber/faiber-version": ["packages/version/src/index.ts"],
-      "@faiber/faiber-flow": ["packages/flow/src/index.ts"]
+      "@faiber/faiber-flow": ["packages/flow/src/index.ts"],
+      "@faiber/faiber-knowledge": ["packages/knowledge/src/index.ts"],
+      "@faiber/faiber-chat": ["packages/chat/src/index.ts"],
+      "@faiber/faiber-social": ["packages/social/src/index.ts"],
+      "@faiber/faiber-state-sdk": ["packages/state/src/index.ts"],
+      "@faiber/faiber-game-sdk": ["packages/game/src/index.ts"]
     }
   }
 }

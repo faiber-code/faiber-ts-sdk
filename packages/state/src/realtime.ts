@@ -1,0 +1,16 @@
+import type { InputFrame, JoinTicket, Room, ServerEvent, StatePatch } from "./types.js";
+type EventMap={snapshot:Room;patch:StatePatch;player_joined:Extract<ServerEvent,{type:"player_joined"}>;player_left:Extract<ServerEvent,{type:"player_left"}>;ack:Extract<ServerEvent,{type:"ack"}>;error:Error;close:CloseEvent};
+export interface DatagramTransport{send(frame:InputFrame):void|Promise<void>;close():void}
+export interface RealtimeOptions{WebSocket?:typeof WebSocket;datagram?:DatagramTransport;reconnect?:boolean;reconnectDelayMs?:number}
+export class StateRealtimeClient{
+  private socket?:WebSocket;private listeners=new Map<keyof EventMap,Set<(value:never)=>void>>();private sequence=0;private closed=false;
+  constructor(readonly ticket:JoinTicket,private readonly options:RealtimeOptions={}){}
+  connect():Promise<void>{const Socket=this.options.WebSocket??globalThis.WebSocket;if(!Socket)return Promise.reject(new Error("WebSocket is unavailable; provide RealtimeOptions.WebSocket"));const url=new URL(this.ticket.websocket_url);url.searchParams.set("room_id",this.ticket.room_id);url.searchParams.set("player_id",this.ticket.player_id);url.searchParams.set("ticket",this.ticket.ticket);return new Promise((resolve,reject)=>{const socket=new Socket(url);this.socket=socket;socket.onopen=()=>resolve();socket.onerror=()=>reject(new Error("Unable to connect to Infera State"));socket.onmessage=event=>this.receive(String(event.data));socket.onclose=event=>{this.emit("close",event);if(!this.closed&&this.options.reconnect!==false)setTimeout(()=>void this.connect(),this.options.reconnectDelayMs??750)}})}
+  on<K extends keyof EventMap>(type:K,listener:(value:EventMap[K])=>void):()=>void{let set=this.listeners.get(type);if(!set){set=new Set();this.listeners.set(type,set)}set.add(listener as (value:never)=>void);return()=>set?.delete(listener as (value:never)=>void)}
+  sendInput(values:InputFrame["values"],delivery:InputFrame["delivery"]="unreliable"):number{const sequence=++this.sequence;const frame:InputFrame={room_id:this.ticket.room_id,player_id:this.ticket.player_id,ticket:this.ticket.ticket,sequence,delivery,values};if(delivery!=="reliable"&&this.options.datagram)void this.options.datagram.send(frame);else this.send({type:"input",frame});return sequence}
+  ping(){this.send({type:"ping"})}
+  close(){this.closed=true;this.options.datagram?.close();this.socket?.close()}
+  private send(value:unknown){if(this.socket?.readyState!==WebSocket.OPEN)throw new Error("State realtime connection is not open");this.socket.send(JSON.stringify(value))}
+  private receive(raw:string){try{const event=JSON.parse(raw) as ServerEvent;if(event.type==="snapshot")this.emit("snapshot",event.room);else if(event.type==="patch")this.emit("patch",event.patch);else if(event.type==="player_joined")this.emit("player_joined",event);else if(event.type==="player_left")this.emit("player_left",event);else if(event.type==="ack")this.emit("ack",event);else if(event.type==="error")this.emit("error",new Error(`${event.code}: ${event.message}`))}catch(reason){this.emit("error",reason instanceof Error?reason:new Error(String(reason)))}}
+  private emit<K extends keyof EventMap>(type:K,value:EventMap[K]){for(const listener of this.listeners.get(type)??[])listener(value as never)}
+}

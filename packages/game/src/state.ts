@@ -1,0 +1,4 @@
+import type { StatePatch, StateRealtimeClient } from "@faiber/faiber-state-sdk";
+import type { EntityId, GameSystem, World } from "./ecs.js";
+export interface StateBinding{resolveEntity(remoteId:string,world:World):EntityId;applyPatch(entity:EntityId,patch:StatePatch,world:World):void}
+export class StateReplicationSystem implements GameSystem{readonly name="faiber-state-replication";private patches:StatePatch[]=[];private unsubscribe?:()=>void;constructor(private readonly client:StateRealtimeClient,private readonly binding:StateBinding){}connect(){this.unsubscribe=this.client.on("patch",patch=>this.patches.push(patch));return this}update(world:World){for(const patch of this.patches.splice(0)){const entity=this.binding.resolveEntity(patch.entity_id,world);this.binding.applyPatch(entity,patch,world)}}dispose(){this.unsubscribe?.()}}

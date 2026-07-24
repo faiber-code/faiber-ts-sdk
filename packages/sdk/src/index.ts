@@ -14,6 +14,7 @@ import { ReservationApi } from "@faiber/faiber-reservation";
 import { SessionApi } from "@faiber/faiber-session";
 import { SocialApi } from "@faiber/faiber-social";
 import { VersionApi } from "@faiber/faiber-version";
+import { StateApi } from "@faiber/faiber-state-sdk";
 export interface FaiberServiceApis {
     idp: IdpApi;
     profile: ProfileApi;
@@ -30,6 +31,7 @@ export interface FaiberServiceApis {
     social: SocialApi;
     knowledge: KnowledgeApi;
     chat: ChatApi;
+    state: StateApi;
 }
 export class FaiberSDK {
     private readonly clients = new Map<ServiceName, FaiberClient>();
@@ -70,10 +72,14 @@ export class FaiberSDK {
     get social(): SocialApi { return this.api("social", (client) => new SocialApi(client)); }
     get knowledge(): KnowledgeApi { return this.api("knowledge", (client) => new KnowledgeApi(client)); }
     get chat(): ChatApi { return this.api("chat", (client) => new ChatApi(client)); }
+    get state(): StateApi { return this.api("state", (client) => new StateApi(client)); }
 }
 export * from "@faiber/sdk-core";
-export { AssetApi, ChatApi, CrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, VersionApi };
+export { AssetApi, ChatApi, CrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, VersionApi };
 export type { AuthTokensResponse, User as IdpUser } from "@faiber/faiber-idp";
 export type { Profile, ProfileProperties } from "@faiber/faiber-profile";
 export type { Lead } from "@faiber/faiber-crm";
 export type { InteractiveContent } from "@faiber/faiber-lms";
+export * from "@faiber/faiber-state-sdk";
+export * as FaiberGameRuntime from "@faiber/faiber-game-sdk";
+export { FaiberGame, component } from "@faiber/faiber-game-sdk";

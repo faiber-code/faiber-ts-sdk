@@ -22,6 +22,8 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 | `@faiber/faiber-flow` | Automations, triggers, actions, validation, runs and execution history |
 | `@faiber/faiber-knowledge` | Knowledge bases, groups, items, graph edges, chat bindings, rules, runtime resolution and actions |
 | `@faiber/faiber-chat` | Direct, group, channel and AI conversations, messages, members, reactions, read state and realtime events |
+| `@faiber/faiber-state-sdk` | Game worlds, rooms, authoritative state, realtime replication, prediction and server-side simulation |
+| `@faiber/faiber-game-sdk` | Portable TypeScript/WebAssembly ECS, adaptive 2D/3D rendering and cross-platform game runtime |
 | `@faiber/faiber-ts-sdk` | One facade containing every package above |
 
 ## Install and initialize
