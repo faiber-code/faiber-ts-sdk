@@ -25,6 +25,25 @@ export interface OAuthProvider extends JsonObject {
     enabled: boolean;
     authorization_url?: string;
 }
+export interface SessionClient extends JsonObject {
+    id: string;
+    name: string;
+}
+export interface Session extends JsonObject {
+    id: string;
+    client: SessionClient;
+    browser: string;
+    operating_system: string;
+    device_id?: string | null;
+    user_agent?: string | null;
+    ip_address?: string | null;
+    ip_address_v6?: string | null;
+    created_at: string;
+    last_accessed?: string | null;
+    is_current: boolean;
+}
+export interface SessionListResponse extends ApiEnvelope<Session[]> {
+}
 export interface LoginInput {
     grant_type: string;
     username: string;

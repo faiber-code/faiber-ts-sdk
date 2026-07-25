@@ -2823,6 +2823,32 @@
       "formUrlEncoded": true
     },
     {
+      "method": "GET",
+      "path": "/api/v1/auth/logout",
+      "module": "auth",
+      "handler": "logout",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/native/authorize",
+      "module": "auth",
+      "handler": "authorize",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/native/token",
+      "module": "auth",
+      "handler": "token",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs"
+    },
+    {
       "method": "DELETE",
       "path": "/api/v1/auth/oauth/{provider}",
       "module": "auth",
@@ -2901,6 +2927,28 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/auth/sessions",
+      "module": "auth",
+      "handler": "list_sessions",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "response": "Vec<SessionResponse>",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/auth/sessions/{session_id}",
+      "module": "auth",
+      "handler": "delete_session",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/auth/token-login",
       "module": "auth",
       "handler": "login_token",
@@ -2915,16 +2963,6 @@
       "path": "/api/v1/auth/validate",
       "module": "auth",
       "handler": "validate",
-      "permissions": [],
-      "source": "infera-idp/src/auth/routes.rs",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/auth/web-login",
-      "module": "auth",
-      "handler": "logout",
       "permissions": [],
       "source": "infera-idp/src/auth/routes.rs",
       "multipart": false,

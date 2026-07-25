@@ -28,6 +28,7 @@ const login = await api.login({
   password: "secret",
   client_id: "2",
   client_secret: "client-secret",
+  device_id: getOrCreateStableDeviceId(),
 });
 await tokens.setTokens({
   accessToken: login.data.data.access_token,
@@ -37,18 +38,18 @@ await tokens.setTokens({
 
 ## Complete capability
 
-This package exposes 46 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 50 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `acl` | 7 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `auth` | 15 | `DELETE`, `GET`, `POST` |
+| `auth` | 19 | `DELETE`, `GET`, `POST` |
 | `integration` | 1 | `GET` |
 | `router` | 2 | `GET` |
 | `settings` | 2 | `GET`, `PUT` |
 | `user` | 19 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-Login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded` exactly as required by the IDP service. Role assignment uses role UUIDs; role names returned by the service are not restricted to a hard-coded SDK union.
+Login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded` exactly as required by the IDP service. Persist and reuse a stable, non-secret `device_id` so the IDP can distinguish physical devices; browser identity is derived from User-Agent. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. Role assignment uses role UUIDs; role names returned by the service are not restricted to a hard-coded SDK union.
 
 ## Authentication and authorization
 

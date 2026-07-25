@@ -1,5 +1,5 @@
 import { RestResource, ServiceApi, urlEncoded, type Identifier, type OperationResponse, type RequestOptions, } from "@faiber/sdk-core";
-import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, CreateRoleInput, CreateUserInput, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, Role, RoleListResponse, RoleResponse, SetUserStatusInput, UpdateRoleInput, UpdateUserInput, User, UserListResponse, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
+import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, CreateRoleInput, CreateUserInput, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, Role, RoleListResponse, RoleResponse, SessionListResponse, SetUserStatusInput, UpdateRoleInput, UpdateUserInput, User, UserListResponse, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
 import { IdpOperations } from "./operations.js";
 export class IdpApi extends ServiceApi {
     readonly operations = new IdpOperations(this.client);
@@ -23,6 +23,15 @@ export class IdpApi extends ServiceApi {
     }
     refresh(options?: RequestOptions) {
         return this.client.get<AuthTokensResponse>("/api/v1/auth/refresh", undefined, options);
+    }
+    logout(options?: RequestOptions) {
+        return this.client.get<OperationResponse>("/api/v1/auth/logout", undefined, options);
+    }
+    sessions(options?: RequestOptions) {
+        return this.client.get<SessionListResponse>("/api/v1/auth/sessions", undefined, options);
+    }
+    revokeSession(sessionId: Identifier, options?: RequestOptions) {
+        return this.client.delete<OperationResponse>(`/api/v1/auth/sessions/${encodeURIComponent(sessionId)}`, options);
     }
     self(options?: RequestOptions) {
         return this.client.get<UserSelfResponse>("/api/v1/users/self", undefined, options);

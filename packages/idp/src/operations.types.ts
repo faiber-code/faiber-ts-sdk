@@ -104,6 +104,18 @@ export interface AuthLoginPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: response without a declared JSON model. */
+export interface AuthLogoutGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: response without a declared JSON model. */
+export interface AuthAuthorizeGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: response without a declared JSON model. */
+export interface AuthTokenPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: response without a declared JSON model. */
 export interface AuthOauthUnlinkDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -154,6 +166,27 @@ export interface AuthRefreshTokenGetResponse extends ApiEnvelope<JsonValue> {
 export interface AuthGenerateSecureOneTimeTokenRoutePostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Vec<SessionResponse>. */
+export interface AuthListSessionsGetResponseItem extends JsonObject {
+  "id": string;
+  "client": JsonValue;
+  "browser": string;
+  "operating_system": string;
+  "device_id"?: string;
+  "user_agent"?: string;
+  "ip_address"?: string;
+  "ip_address_v6"?: string;
+  "created_at": string;
+  "last_accessed"?: string;
+  "is_current": boolean;
+}
+export interface AuthListSessionsGetResponse extends ApiEnvelope<AuthListSessionsGetResponseItem[]> {
+}
+
+/** Backend response type: response without a declared JSON model. */
+export interface AuthDeleteSessionDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: TokenQuery. */
 export interface AuthLoginTokenGetQuery extends QueryParams {
   "token": string;
@@ -165,10 +198,6 @@ export interface AuthLoginTokenGetResponse extends ApiEnvelope<JsonValue> {
 
 /** Backend response type: response without a declared JSON model. */
 export interface AuthValidateGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: response without a declared JSON model. */
-export interface AuthLogoutGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: PasswordTokenRequest. */

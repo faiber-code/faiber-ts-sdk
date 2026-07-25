@@ -54,6 +54,18 @@ export class IdpOperations extends ServiceApi {
   authLoginPost(data: T.AuthLoginPostInput, options?: RequestOptions<T.AuthLoginPostInput>) {
     return this.client.request<T.AuthLoginPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/login`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
+  /** GET /api/v1/auth/logout; permission: public/session-derived. */
+  authLogoutGet(options?: RequestOptions) {
+    return this.client.request<T.AuthLogoutGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/logout` });
+  }
+  /** GET /api/v1/auth/native/authorize; permission: public/session-derived. */
+  authAuthorizeGet(options?: RequestOptions) {
+    return this.client.request<T.AuthAuthorizeGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/native/authorize` });
+  }
+  /** POST /api/v1/auth/native/token; permission: public/session-derived. */
+  authTokenPost(options?: RequestOptions) {
+    return this.client.request<T.AuthTokenPostResponse>({ ...options, method: "POST", url: `/api/v1/auth/native/token` });
+  }
   /** DELETE /api/v1/auth/oauth/{provider}; permission: public/session-derived. */
   authOauthUnlinkDelete(provider: Identifier, options?: RequestOptions) {
     return this.client.request<T.AuthOauthUnlinkDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/auth/oauth/${encodeURIComponent(provider)}` });
@@ -82,6 +94,14 @@ export class IdpOperations extends ServiceApi {
   authGenerateSecureOneTimeTokenRoutePost(options?: RequestOptions) {
     return this.client.request<T.AuthGenerateSecureOneTimeTokenRoutePostResponse>({ ...options, method: "POST", url: `/api/v1/auth/secure/generate/one-time` });
   }
+  /** GET /api/v1/auth/sessions; permission: public/session-derived. */
+  authListSessionsGet(options?: RequestOptions) {
+    return this.client.request<T.AuthListSessionsGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/sessions` });
+  }
+  /** DELETE /api/v1/auth/sessions/{session_id}; permission: public/session-derived. */
+  authDeleteSessionDelete(sessionId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.AuthDeleteSessionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/auth/sessions/${encodeURIComponent(sessionId)}` });
+  }
   /** GET /api/v1/auth/token-login; permission: public/session-derived. */
   authLoginTokenGet(params?: T.AuthLoginTokenGetQuery, options?: RequestOptions) {
     return this.client.request<T.AuthLoginTokenGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/token-login`, params });
@@ -89,10 +109,6 @@ export class IdpOperations extends ServiceApi {
   /** GET /api/v1/auth/validate; permission: public/session-derived. */
   authValidateGet(options?: RequestOptions) {
     return this.client.request<T.AuthValidateGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/validate` });
-  }
-  /** GET /api/v1/auth/web-login; permission: public/session-derived. */
-  authLogoutGet(options?: RequestOptions) {
-    return this.client.request<T.AuthLogoutGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/web-login` });
   }
   /** POST /api/v1/auth/web-login; permission: public/session-derived. */
   authLoginWebPost(data: T.AuthLoginWebPostInput, options?: RequestOptions<T.AuthLoginWebPostInput>) {
