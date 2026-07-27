@@ -128,22 +128,47 @@ export interface ActionActionsCompletePostResponse extends ApiEnvelope<ActionAct
 /** Backend response type: Vec<methods::PlanProduct>. */
 export interface WalletBillingAdminPlanProductsIndexGetResponseItem extends JsonObject {
   "tier": string;
+  "name": string;
+  "description"?: string;
   "price": number;
+  "currency": string;
+  "duration_days": number;
   "points": number;
   "storage_gb": number;
+  "product_id"?: string;
+  "metadata": JsonValue;
+  "status": number;
 }
 export interface WalletBillingAdminPlanProductsIndexGetResponse extends ApiEnvelope<WalletBillingAdminPlanProductsIndexGetResponseItem[]> {
 }
 
 /** Backend request type: AdminPlanProductBody. */
 export interface WalletBillingAdminPlanProductsUpdatePutInput extends JsonObject {
+  "tier": string;
+  "name": string;
+  "description"?: string;
+  "price": number;
+  "currency"?: string;
+  "duration_days": number;
+  "points": number;
+  "storage_gb": number;
+  "product_id"?: string;
+  "metadata"?: JsonValue;
+  "status"?: number;
 }
 /** Backend response type: methods::PlanProduct. */
 export interface WalletBillingAdminPlanProductsUpdatePutResponseData extends JsonObject {
   "tier": string;
+  "name": string;
+  "description"?: string;
   "price": number;
+  "currency": string;
+  "duration_days": number;
   "points": number;
   "storage_gb": number;
+  "product_id"?: string;
+  "metadata": JsonValue;
+  "status": number;
 }
 export interface WalletBillingAdminPlanProductsUpdatePutResponse extends ApiEnvelope<WalletBillingAdminPlanProductsUpdatePutResponseData> {
 }

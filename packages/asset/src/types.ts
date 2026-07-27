@@ -16,6 +16,35 @@ export interface CreateAssetInput {
 }
 export interface UpdateAssetInput extends Partial<CreateAssetInput> {
 }
+export interface Tariff {
+    tier: string;
+    name: string;
+    description?: string | null;
+    price: number;
+    currency: string;
+    duration_days: number;
+    points: number;
+    storage_gb: number;
+    status: number;
+    product_id?: string | null;
+    metadata: JsonValue;
+}
+export interface CreateTariffInput {
+    tier: string;
+    name: string;
+    description?: string | null;
+    price: number;
+    currency?: string;
+    duration_days: number;
+    points?: number;
+    storage_gb?: number;
+    status?: number;
+    product_id?: string | null;
+    metadata?: JsonValue;
+}
+export interface UpdateTariffInput extends Partial<CreateTariffInput> {}
+export interface TariffListResponse extends ApiEnvelope<Tariff[]> {}
+export interface TariffResponse extends ApiEnvelope<Tariff> {}
 export interface Rank {
     id: string;
     name: string;
