@@ -1772,6 +1772,9 @@ export interface ProductListProductsGetQuery extends QueryParams {
   "category"?: string;
   "scope"?: string;
   "search"?: string;
+  "country"?: string;
+  "province"?: string;
+  "city"?: string;
 }
 /** Backend response type: models::ProductListResponse. */
 export interface ProductListProductsGetResponseData extends JsonObject {
@@ -1790,6 +1793,9 @@ export interface ProductCreateProductPostInput extends JsonObject {
   "sku"?: JsonValue;
   "status"?: number;
   "sort_order"?: number;
+  "country_ids"?: string[];
+  "province_ids"?: string[];
+  "city_ids"?: string[];
 }
 /** Backend response type: models::ProductResponseDTO. */
 export interface ProductCreateProductPostResponseData extends JsonObject {
@@ -1799,6 +1805,9 @@ export interface ProductCreateProductPostResponseData extends JsonObject {
   "sku": JsonValue;
   "status": number;
   "sort_order": number;
+  "country_ids"?: string[];
+  "province_ids"?: string[];
+  "city_ids"?: string[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1817,6 +1826,9 @@ export interface ProductShowProductGetResponseData extends JsonObject {
   "sku": JsonValue;
   "status": number;
   "sort_order": number;
+  "country_ids"?: string[];
+  "province_ids"?: string[];
+  "city_ids"?: string[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1830,6 +1842,9 @@ export interface ProductUpdateProductPatchInput extends JsonObject {
   "sku"?: JsonValue;
   "status"?: number;
   "sort_order"?: number;
+  "country_ids"?: string[] | null;
+  "province_ids"?: string[] | null;
+  "city_ids"?: string[] | null;
 }
 /** Backend response type: models::ProductResponseDTO. */
 export interface ProductUpdateProductPatchResponseData extends JsonObject {
@@ -1839,6 +1854,9 @@ export interface ProductUpdateProductPatchResponseData extends JsonObject {
   "sku": JsonValue;
   "status": number;
   "sort_order": number;
+  "country_ids"?: string[];
+  "province_ids"?: string[];
+  "city_ids"?: string[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1852,6 +1870,9 @@ export interface ProductUpdateProductPutInput extends JsonObject {
   "sku"?: JsonValue;
   "status"?: number;
   "sort_order"?: number;
+  "country_ids"?: string[] | null;
+  "province_ids"?: string[] | null;
+  "city_ids"?: string[] | null;
 }
 /** Backend response type: models::ProductResponseDTO. */
 export interface ProductUpdateProductPutResponseData extends JsonObject {
@@ -1861,6 +1882,9 @@ export interface ProductUpdateProductPutResponseData extends JsonObject {
   "sku": JsonValue;
   "status": number;
   "sort_order": number;
+  "country_ids"?: string[];
+  "province_ids"?: string[];
+  "city_ids"?: string[];
   "created_at": string;
   "updated_at": string;
 }

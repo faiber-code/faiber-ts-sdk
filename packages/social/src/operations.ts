@@ -58,6 +58,26 @@ export class SocialOperations extends ServiceApi {
   apiCreatePostCommentPostApiV1CommentsPostId(id: Identifier, data: T.ApiCreatePostCommentPostApiV1CommentsPostIdInput, options?: RequestOptions<T.ApiCreatePostCommentPostApiV1CommentsPostIdInput>) {
     return this.client.request<T.ApiCreatePostCommentPostApiV1CommentsPostIdResponse, T.ApiCreatePostCommentPostApiV1CommentsPostIdInput>({ ...options, method: "POST", url: `/api/v1/comments/post/${encodeURIComponent(id)}`, data: data });
   }
+  /** GET /api/v1/me/analytics; permission: social:analytics:read_own. */
+  apiMyAnalyticsGet(params?: T.ApiMyAnalyticsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiMyAnalyticsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/analytics`, params });
+  }
+  /** GET /api/v1/me/bookmarks; permission: social:read. */
+  apiMyBookmarksGet(options?: RequestOptions) {
+    return this.client.request<T.ApiMyBookmarksGetResponse>({ ...options, method: "GET", url: `/api/v1/me/bookmarks` });
+  }
+  /** GET /api/v1/me/posts; permission: social:read. */
+  apiListMyPostsGet(params?: T.ApiListMyPostsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiListMyPostsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/posts`, params });
+  }
+  /** GET /api/v1/media/{id}; permission: social:read. */
+  apiGetMediaGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiGetMediaGetResponse>({ ...options, method: "GET", url: `/api/v1/media/${encodeURIComponent(id)}` });
+  }
+  /** POST /api/v1/media/uploads; permission: social:post:create. */
+  apiUploadMediaPost(data: T.ApiUploadMediaPostInput, options?: RequestOptions<T.ApiUploadMediaPostInput>) {
+    return this.client.request<T.ApiUploadMediaPostResponse, T.ApiUploadMediaPostInput>({ ...options, method: "POST", url: `/api/v1/media/uploads`, data: data });
+  }
   /** POST /api/v1/moderation/actions; permission: social:moderate. */
   apiModeratePost(data: T.ApiModeratePostInput, options?: RequestOptions<T.ApiModeratePostInput>) {
     return this.client.request<T.ApiModeratePostResponse, T.ApiModeratePostInput>({ ...options, method: "POST", url: `/api/v1/moderation/actions`, data: data });
@@ -86,6 +106,18 @@ export class SocialOperations extends ServiceApi {
   apiUpdatePostPatch(id: Identifier, data: T.ApiUpdatePostPatchInput, options?: RequestOptions<T.ApiUpdatePostPatchInput>) {
     return this.client.request<T.ApiUpdatePostPatchResponse, T.ApiUpdatePostPatchInput>({ ...options, method: "PATCH", url: `/api/v1/posts/${encodeURIComponent(id)}`, data: data });
   }
+  /** GET /api/v1/posts/{id}/analytics; permission: social:analytics:read_own. */
+  apiPostAnalyticsGet(id: Identifier, params?: T.ApiPostAnalyticsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiPostAnalyticsGetResponse>({ ...options, method: "GET", url: `/api/v1/posts/${encodeURIComponent(id)}/analytics`, params });
+  }
+  /** DELETE /api/v1/posts/{id}/bookmark; permission: social:bookmark:write. */
+  apiUnbookmarkPostDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiUnbookmarkPostDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/posts/${encodeURIComponent(id)}/bookmark` });
+  }
+  /** PUT /api/v1/posts/{id}/bookmark; permission: social:bookmark:write. */
+  apiBookmarkPostPut(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiBookmarkPostPutResponse>({ ...options, method: "PUT", url: `/api/v1/posts/${encodeURIComponent(id)}/bookmark` });
+  }
   /** GET /api/v1/posts/{id}/comments; permission: social:read. */
   apiListPostCommentsGetApiV1PostsIdComments(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ApiListPostCommentsGetApiV1PostsIdCommentsResponse>({ ...options, method: "GET", url: `/api/v1/posts/${encodeURIComponent(id)}/comments` });
@@ -113,6 +145,18 @@ export class SocialOperations extends ServiceApi {
   /** PUT /api/v1/posts/{id}/reaction; permission: social:reaction:write. */
   apiSetPostReactionPut(id: Identifier, data: T.ApiSetPostReactionPutInput, options?: RequestOptions<T.ApiSetPostReactionPutInput>) {
     return this.client.request<T.ApiSetPostReactionPutResponse, T.ApiSetPostReactionPutInput>({ ...options, method: "PUT", url: `/api/v1/posts/${encodeURIComponent(id)}/reaction`, data: data });
+  }
+  /** POST /api/v1/posts/{id}/resubmit; permission: social:post:update_own. */
+  apiResubmitPostPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiResubmitPostPostResponse>({ ...options, method: "POST", url: `/api/v1/posts/${encodeURIComponent(id)}/resubmit` });
+  }
+  /** POST /api/v1/posts/{id}/share-events; permission: social:share:write. */
+  apiRecordShareEventPost(id: Identifier, data: T.ApiRecordShareEventPostInput, options?: RequestOptions<T.ApiRecordShareEventPostInput>) {
+    return this.client.request<T.ApiRecordShareEventPostResponse, T.ApiRecordShareEventPostInput>({ ...options, method: "POST", url: `/api/v1/posts/${encodeURIComponent(id)}/share-events`, data: data });
+  }
+  /** POST /api/v1/posts/{id}/views; permission: social:view:write. */
+  apiRecordPostViewPost(id: Identifier, data: T.ApiRecordPostViewPostInput, options?: RequestOptions<T.ApiRecordPostViewPostInput>) {
+    return this.client.request<T.ApiRecordPostViewPostResponse, T.ApiRecordPostViewPostInput>({ ...options, method: "POST", url: `/api/v1/posts/${encodeURIComponent(id)}/views`, data: data });
   }
   /** DELETE /api/v1/reactions/post/{id}; permission: social:reaction:write. */
   apiRemovePostReactionDeleteApiV1ReactionsPostId(id: Identifier, options?: RequestOptions) {

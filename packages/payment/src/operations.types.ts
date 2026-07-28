@@ -180,6 +180,29 @@ export interface TransactionIndexGetResponse extends ApiEnvelope<TransactionInde
 export interface RouterShowStatusGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Vec<models::PaymentVerificationResponse>. */
+export interface TransactionVerificationLogsGetResponseItem extends JsonObject {
+  "id": string;
+  "transaction_uuid": string;
+  "verifier_user_id": string;
+  "successful": boolean;
+  "previous_status"?: string;
+  "resulting_status"?: string;
+  "tracking_code"?: string;
+  "message"?: string;
+  "created_at": string;
+}
+export interface TransactionVerificationLogsGetResponse extends ApiEnvelope<TransactionVerificationLogsGetResponseItem[]> {
+}
+
+/** Backend response type: models::VerifyPaymentResponse. */
+export interface TransactionVerifyPaymentPostResponseData extends JsonObject {
+  "transaction": JsonValue;
+  "verification": JsonValue;
+}
+export interface TransactionVerifyPaymentPostResponse extends ApiEnvelope<TransactionVerifyPaymentPostResponseData> {
+}
+
 /** Backend query type: models::DailyIncomeQuery. */
 export interface TransactionDailyIncomeGetQuery extends QueryParams {
   "days"?: number;

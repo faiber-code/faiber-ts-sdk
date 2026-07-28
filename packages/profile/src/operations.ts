@@ -14,6 +14,22 @@ export class ProfileOperations extends ServiceApi {
   sessionGetSelfGet(options?: RequestOptions) {
     return this.client.request<T.SessionGetSelfGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/self` });
   }
+  /** GET /api/v1/campaign; permission: public/session-derived. */
+  campaignIndexGet(options?: RequestOptions) {
+    return this.client.request<T.CampaignIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/campaign` });
+  }
+  /** GET /api/v1/campaign-profile/me/contributions; permission: public/session-derived. */
+  campaignMyContributionsGet(options?: RequestOptions) {
+    return this.client.request<T.CampaignMyContributionsGetResponse>({ ...options, method: "GET", url: `/api/v1/campaign-profile/me/contributions` });
+  }
+  /** GET /api/v1/campaign/{id}; permission: public/session-derived. */
+  campaignShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CampaignShowGetResponse>({ ...options, method: "GET", url: `/api/v1/campaign/${encodeURIComponent(id)}` });
+  }
+  /** POST /api/v1/campaign/{id}/contributions; permission: public/session-derived. */
+  campaignContributePost(id: Identifier, data: T.CampaignContributePostInput, options?: RequestOptions<T.CampaignContributePostInput>) {
+    return this.client.request<T.CampaignContributePostResponse, T.CampaignContributePostInput>({ ...options, method: "POST", url: `/api/v1/campaign/${encodeURIComponent(id)}/contributions`, data: data });
+  }
   /** GET /api/v1/city; permission: city:read. */
   cityIndexGet(params?: T.CityIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.CityIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/city`, params });
@@ -177,6 +193,10 @@ export class ProfileOperations extends ServiceApi {
   /** DELETE /api/v1/profile/{uuid}/avatar; permission: public/session-derived. */
   profileAvatarDeleteDelete(uuid: Identifier, options?: RequestOptions) {
     return this.client.request<T.ProfileAvatarDeleteDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/profile/${encodeURIComponent(uuid)}/avatar` });
+  }
+  /** GET /api/v1/profile/{uuid}/avatar; permission: public/session-derived. */
+  profileAvatarShowGet(uuid: Identifier, params?: T.ProfileAvatarShowGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileAvatarShowGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/${encodeURIComponent(uuid)}/avatar`, params });
   }
   /** POST /api/v1/profile/{uuid}/avatar; permission: public/session-derived. */
   profileAvatarStorePost(uuid: Identifier, data: T.ProfileAvatarStorePostInput, options?: RequestOptions<T.ProfileAvatarStorePostInput>) {

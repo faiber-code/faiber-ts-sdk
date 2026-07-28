@@ -1,9 +1,9 @@
-import { ServiceApi, type ApiEnvelope, type Identifier, type RequestOptions } from "@faiber/sdk-core";
+import { ServiceApi, multipart, type ApiEnvelope, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type {
-  CreateCategoryInput, CreateCommentInput, CreatePostInput, CreateReportInput, FeedQuery, LegacyImportInput,
+  AnalyticsQuery, CreateCategoryInput, CreateCommentInput, CreatePostInput, CreateReportInput, FeedQuery, LegacyImportInput, RecordViewInput,
   LegacyImportReport, ModerateTargetInput, ModerationQueueResponse, ReactionSummaryResponse,
   SetReactionInput, SocialCategoryListResponse, SocialCategoryResponse, SocialCommentListResponse, SocialCommentResponse, SocialPostListResponse,
-  SocialPostResponse, SocialReactionResponse, UpdateCategoryInput, UpdateCommentInput, UpdatePostInput,
+  SocialPostResponse, SocialReactionResponse, UpdateCategoryInput, UpdateCommentInput, UpdatePostInput, ShareEventInput, CreatorAnalyticsResponse, SocialMediaResponse,
 } from "./types.js";
 
 const id = (value: Identifier) => encodeURIComponent(value);
@@ -12,6 +12,7 @@ import { SocialOperations } from "./operations.js";
 export class SocialApi extends ServiceApi {
     readonly operations = new SocialOperations(this.client);
   categories(options?: RequestOptions) { return this.client.get<SocialCategoryListResponse>("/api/v1/categories", undefined, options); }
+  uploadMedia(file: Blob, options?: RequestOptions<FormData>) { return this.client.post<SocialMediaResponse, FormData>("/api/v1/media/uploads", multipart({ file }), options); }
   createCategory(data: CreateCategoryInput, options?: RequestOptions<CreateCategoryInput>) { return this.client.post<SocialCategoryResponse, CreateCategoryInput>("/api/v1/categories", data, options); }
   updateCategory(categoryId: Identifier, data: UpdateCategoryInput, options?: RequestOptions<UpdateCategoryInput>) { return this.client.patch<SocialCategoryResponse, UpdateCategoryInput>(`/api/v1/categories/${id(categoryId)}`, data, options); }
   deleteCategory(categoryId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/categories/${id(categoryId)}`, options); }
@@ -20,6 +21,9 @@ export class SocialApi extends ServiceApi {
   createPost(data: CreatePostInput, options?: RequestOptions<CreatePostInput>) { return this.client.post<SocialPostResponse, CreatePostInput>("/api/v1/posts", data, options); }
   updatePost(postId: Identifier, data: UpdatePostInput, options?: RequestOptions<UpdatePostInput>) { return this.client.patch<SocialPostResponse, UpdatePostInput>(`/api/v1/posts/${id(postId)}`, data, options); }
   deletePost(postId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/posts/${id(postId)}`, options); }
+  myPosts(params?: FeedQuery, options?: RequestOptions) { return this.client.get<SocialPostListResponse>("/api/v1/me/posts", params, options); }
+  myBookmarks(options?: RequestOptions) { return this.client.get<ApiEnvelope<string[]>>("/api/v1/me/bookmarks", undefined, options); }
+  resubmitPost(postId: Identifier, options?: RequestOptions) { return this.client.post<SocialPostResponse, Record<string, never>>(`/api/v1/posts/${id(postId)}/resubmit`, {}, options); }
   comments(postId: Identifier, options?: RequestOptions) { return this.client.get<SocialCommentListResponse>(`/api/v1/posts/${id(postId)}/comments`, undefined, options); }
   createComment(postId: Identifier, data: CreateCommentInput, options?: RequestOptions<CreateCommentInput>) { return this.client.post<SocialCommentResponse, CreateCommentInput>(`/api/v1/posts/${id(postId)}/comments`, data, options); }
   updateComment(commentId: Identifier, data: UpdateCommentInput, options?: RequestOptions<UpdateCommentInput>) { return this.client.patch<SocialCommentResponse, UpdateCommentInput>(`/api/v1/comments/${id(commentId)}`, data, options); }
@@ -29,6 +33,12 @@ export class SocialApi extends ServiceApi {
   removeReaction(target: "posts" | "comments", targetId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/${target}/${id(targetId)}/reaction`, options); }
   like(target: "posts" | "comments", targetId: Identifier, options?: RequestOptions) { return this.client.put<SocialReactionResponse, Record<string, never>>(`/api/v1/${target}/${id(targetId)}/like`, {}, options); }
   unlike(target: "posts" | "comments", targetId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/${target}/${id(targetId)}/like`, options); }
+  bookmark(postId: Identifier, options?: RequestOptions) { return this.client.put<void, Record<string, never>>(`/api/v1/posts/${id(postId)}/bookmark`, {}, options); }
+  unbookmark(postId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/posts/${id(postId)}/bookmark`, options); }
+  recordView(postId: Identifier, data: RecordViewInput, options?: RequestOptions<RecordViewInput>) { return this.client.post<ApiEnvelope<{counted:boolean}>, RecordViewInput>(`/api/v1/posts/${id(postId)}/views`, data, options); }
+  recordShare(postId: Identifier, data: ShareEventInput = {}, options?: RequestOptions<ShareEventInput>) { return this.client.post<void, ShareEventInput>(`/api/v1/posts/${id(postId)}/share-events`, data, options); }
+  myAnalytics(params?: AnalyticsQuery, options?: RequestOptions) { return this.client.get<CreatorAnalyticsResponse>("/api/v1/me/analytics", params, options); }
+  postAnalytics(postId: Identifier, params?: AnalyticsQuery, options?: RequestOptions) { return this.client.get<CreatorAnalyticsResponse>(`/api/v1/posts/${id(postId)}/analytics`, params, options); }
   report(data: CreateReportInput, options?: RequestOptions<CreateReportInput>) { return this.client.post<ApiEnvelope<unknown>, CreateReportInput>("/api/v1/reports", data, options); }
   moderationQueue(options?: RequestOptions) { return this.client.get<ModerationQueueResponse>("/api/v1/moderation/queue", undefined, options); }
   moderate(data: ModerateTargetInput, options?: RequestOptions<ModerateTargetInput>) { return this.client.post<ApiEnvelope<unknown>, ModerateTargetInput>("/api/v1/moderation/actions", data, options); }

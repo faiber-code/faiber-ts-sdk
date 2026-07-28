@@ -425,6 +425,17 @@ export interface UserRegisterWithPhonePostResponseData extends JsonObject {
 export interface UserRegisterWithPhonePostResponse extends ApiEnvelope<UserRegisterWithPhonePostResponseData> {
 }
 
+/** Backend query type: RegistrationStatsQuery. */
+export interface UserUsersRegistrationStatsGetQuery extends QueryParams {
+  "range"?: string;
+}
+/** Backend response type: RegistrationStatsResponse. */
+export interface UserUsersRegistrationStatsGetResponseData extends JsonObject {
+  "points": JsonValue[];
+}
+export interface UserUsersRegistrationStatsGetResponse extends ApiEnvelope<UserUsersRegistrationStatsGetResponseData> {
+}
+
 /** Backend response type: UserSelfResponse. */
 export interface UserUserFindSelfGetResponseData extends JsonObject {
   "id": string;

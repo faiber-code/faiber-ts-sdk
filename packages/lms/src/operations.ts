@@ -6,6 +6,38 @@ export class LmsOperations extends ServiceApi {
   routerOpenapiJsonGet(options?: RequestOptions) {
     return this.client.request<T.RouterOpenapiJsonGetResponse>({ ...options, method: "GET", url: `/api/openapi.json` });
   }
+  /** POST /api/v1/academy/attempts/{id}/submit; permission: public/session-derived. */
+  academySubmitExamPost(id: Identifier, data: T.AcademySubmitExamPostInput, options?: RequestOptions<T.AcademySubmitExamPostInput>) {
+    return this.client.request<T.AcademySubmitExamPostResponse, T.AcademySubmitExamPostInput>({ ...options, method: "POST", url: `/api/v1/academy/attempts/${encodeURIComponent(id)}/submit`, data: data });
+  }
+  /** GET /api/v1/academy/categories; permission: public/session-derived. */
+  academyCategoriesGet(options?: RequestOptions) {
+    return this.client.request<T.AcademyCategoriesGetResponse>({ ...options, method: "GET", url: `/api/v1/academy/categories` });
+  }
+  /** GET /api/v1/academy/courses; permission: public/session-derived. */
+  academyCoursesGet(params?: T.AcademyCoursesGetQuery, options?: RequestOptions) {
+    return this.client.request<T.AcademyCoursesGetResponse>({ ...options, method: "GET", url: `/api/v1/academy/courses`, params });
+  }
+  /** GET /api/v1/academy/courses/{id}; permission: public/session-derived. */
+  academyCourseGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.AcademyCourseGetResponse>({ ...options, method: "GET", url: `/api/v1/academy/courses/${encodeURIComponent(id)}` });
+  }
+  /** POST /api/v1/academy/courses/{id}/enroll; permission: public/session-derived. */
+  academyEnrollPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.AcademyEnrollPostResponse>({ ...options, method: "POST", url: `/api/v1/academy/courses/${encodeURIComponent(id)}/enroll` });
+  }
+  /** GET /api/v1/academy/enrollments; permission: public/session-derived. */
+  academyMyEnrollmentsGet(options?: RequestOptions) {
+    return this.client.request<T.AcademyMyEnrollmentsGetResponse>({ ...options, method: "GET", url: `/api/v1/academy/enrollments` });
+  }
+  /** POST /api/v1/academy/enrollments/{id}/exams/{exam_id}/attempts; permission: public/session-derived. */
+  academyStartExamPost(id: Identifier, examId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.AcademyStartExamPostResponse>({ ...options, method: "POST", url: `/api/v1/academy/enrollments/${encodeURIComponent(id)}/exams/${encodeURIComponent(examId)}/attempts` });
+  }
+  /** POST /api/v1/academy/enrollments/{id}/sessions/{session_id}/complete; permission: public/session-derived. */
+  academyCompleteSessionPost(id: Identifier, sessionId: Identifier, data: T.AcademyCompleteSessionPostInput, options?: RequestOptions<T.AcademyCompleteSessionPostInput>) {
+    return this.client.request<T.AcademyCompleteSessionPostResponse, T.AcademyCompleteSessionPostInput>({ ...options, method: "POST", url: `/api/v1/academy/enrollments/${encodeURIComponent(id)}/sessions/${encodeURIComponent(sessionId)}/complete`, data: data });
+  }
   /** GET /api/v1/auth/self; permission: public/session-derived. */
   sessionGetSelfGet(options?: RequestOptions) {
     return this.client.request<T.SessionGetSelfGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/self` });
@@ -318,6 +350,10 @@ export class LmsOperations extends ServiceApi {
   examStoreExamPost(data: T.ExamStoreExamPostInput, options?: RequestOptions<T.ExamStoreExamPostInput>) {
     return this.client.request<T.ExamStoreExamPostResponse, T.ExamStoreExamPostInput>({ ...options, method: "POST", url: `/api/v1/exams`, data: data });
   }
+  /** DELETE /api/v1/exams/{id}; permission: lms:exam:delete. */
+  examDestroyExamDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ExamDestroyExamDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/exams/${encodeURIComponent(id)}` });
+  }
   /** GET /api/v1/exams/{id}; permission: lms:exam:read. */
   examShowExamGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ExamShowExamGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/${encodeURIComponent(id)}` });
@@ -473,6 +509,10 @@ export class LmsOperations extends ServiceApi {
   /** PATCH /api/v1/invitations/{id}; permission: lms:ops:update. */
   opsUpdateInvitationPatch(id: Identifier, data: T.OpsUpdateInvitationPatchInput, options?: RequestOptions<T.OpsUpdateInvitationPatchInput>) {
     return this.client.request<T.OpsUpdateInvitationPatchResponse, T.OpsUpdateInvitationPatchInput>({ ...options, method: "PATCH", url: `/api/v1/invitations/${encodeURIComponent(id)}`, data: data });
+  }
+  /** POST /api/v1/media/images; permission: lms:course:update. */
+  mediaUploadImagePost(data: T.MediaUploadImagePostInput, options?: RequestOptions<T.MediaUploadImagePostInput>) {
+    return this.client.request<T.MediaUploadImagePostResponse, T.MediaUploadImagePostInput>({ ...options, method: "POST", url: `/api/v1/media/images`, data: data });
   }
   /** GET /api/v1/reports/classrooms; permission: lms:report:read. */
   reportClassroomsGet(options?: RequestOptions) {

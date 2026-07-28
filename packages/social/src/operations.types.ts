@@ -22,7 +22,8 @@ export interface ApiCreateCategoryPostInput extends JsonObject {
   "color"?: string;
   "sort_order": number;
   "status": string;
-  "requires_moderation": boolean;
+  "moderate_posts": boolean;
+  "moderate_comments": boolean;
   "metadata": JsonValue;
 }
 /** Backend response type: response without a declared JSON model. */
@@ -42,7 +43,8 @@ export interface ApiUpdateCategoryPatchInput extends JsonObject {
   "color"?: string;
   "sort_order"?: number;
   "status"?: string;
-  "requires_moderation"?: boolean;
+  "moderate_posts"?: boolean;
+  "moderate_comments"?: boolean;
   "metadata"?: JsonValue;
 }
 /** Backend response type: response without a declared JSON model. */
@@ -93,10 +95,46 @@ export interface ApiListPostCommentsGetApiV1CommentsPostIdResponse extends ApiEn
 export interface ApiCreatePostCommentPostApiV1CommentsPostIdInput extends JsonObject {
   "parent_id"?: string;
   "body": string;
-  "requires_moderation": boolean;
 }
 /** Backend response type: response without a declared JSON model. */
 export interface ApiCreatePostCommentPostApiV1CommentsPostIdResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: AnalyticsQuery. */
+export interface ApiMyAnalyticsGetQuery extends QueryParams {
+  "from"?: string;
+  "to"?: string;
+}
+/** Backend response type: response without a declared JSON model. */
+export interface ApiMyAnalyticsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: response without a declared JSON model. */
+export interface ApiMyBookmarksGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: FeedQuery. */
+export interface ApiListMyPostsGetQuery extends QueryParams {
+  "q"?: string;
+  "author_id"?: string;
+  "kind"?: string;
+  "category_id"?: string;
+  "page": number;
+  "limit": number;
+}
+/** Backend response type: response without a declared JSON model. */
+export interface ApiListMyPostsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: response without a declared JSON model. */
+export interface ApiGetMediaGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: multipart/form-data. */
+export interface ApiUploadMediaPostInput extends JsonObject {
+}
+/** Backend response type: response without a declared JSON model. */
+export interface ApiUploadMediaPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: ModerateTarget. */
@@ -136,7 +174,6 @@ export interface ApiCreatePostPostInput extends JsonObject {
   "body": string;
   "media": JsonValue;
   "metadata": JsonValue;
-  "requires_moderation": boolean;
 }
 /** Backend response type: response without a declared JSON model. */
 export interface ApiCreatePostPostResponse extends ApiEnvelope<JsonValue> {
@@ -164,6 +201,23 @@ export interface ApiUpdatePostPatchInput extends JsonObject {
 export interface ApiUpdatePostPatchResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend query type: AnalyticsQuery. */
+export interface ApiPostAnalyticsGetQuery extends QueryParams {
+  "from"?: string;
+  "to"?: string;
+}
+/** Backend response type: response without a declared JSON model. */
+export interface ApiPostAnalyticsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: response without a declared JSON model. */
+export interface ApiUnbookmarkPostDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: response without a declared JSON model. */
+export interface ApiBookmarkPostPutResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: response without a declared JSON model. */
 export interface ApiListPostCommentsGetApiV1PostsIdCommentsResponse extends ApiEnvelope<JsonValue> {
 }
@@ -172,7 +226,6 @@ export interface ApiListPostCommentsGetApiV1PostsIdCommentsResponse extends ApiE
 export interface ApiCreatePostCommentPostApiV1PostsIdCommentsInput extends JsonObject {
   "parent_id"?: string;
   "body": string;
-  "requires_moderation": boolean;
 }
 /** Backend response type: response without a declared JSON model. */
 export interface ApiCreatePostCommentPostApiV1PostsIdCommentsResponse extends ApiEnvelope<JsonValue> {
@@ -200,6 +253,27 @@ export interface ApiSetPostReactionPutInput extends JsonObject {
 }
 /** Backend response type: response without a declared JSON model. */
 export interface ApiSetPostReactionPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: response without a declared JSON model. */
+export interface ApiResubmitPostPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: ShareEvent. */
+export interface ApiRecordShareEventPostInput extends JsonObject {
+  "channel": string;
+  "idempotency_key"?: string;
+}
+/** Backend response type: response without a declared JSON model. */
+export interface ApiRecordShareEventPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: RecordView. */
+export interface ApiRecordPostViewPostInput extends JsonObject {
+  "visible_ms": number;
+}
+/** Backend response type: response without a declared JSON model. */
+export interface ApiRecordPostViewPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: response without a declared JSON model. */

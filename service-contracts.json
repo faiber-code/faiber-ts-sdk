@@ -133,6 +133,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/admin/plan-products/{tier}",
+      "module": "wallet_billing",
+      "handler": "admin_plan_products_delete",
+      "permissions": [
+        "admin:charge:update"
+      ],
+      "source": "infera-asset/src/wallet_billing/routes.rs",
+      "pathParam": "String",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/admin/resource-unit-prices",
       "module": "sandbox_billing",
@@ -3204,6 +3217,18 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/users/registration-stats",
+      "module": "user",
+      "handler": "users_registration_stats",
+      "permissions": [],
+      "source": "infera-idp/src/user/routes.rs",
+      "query": "RegistrationStatsQuery",
+      "response": "RegistrationStatsResponse",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/users/self",
       "module": "user",
       "handler": "user_find_self",
@@ -3683,6 +3708,100 @@
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera-lms/src/router.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/academy/attempts/{id}/submit",
+      "module": "academy",
+      "handler": "submit_exam",
+      "permissions": [],
+      "source": "infera-lms/src/academy/routes.rs",
+      "body": "SubmitExamRequest",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/academy/categories",
+      "module": "academy",
+      "handler": "categories",
+      "permissions": [],
+      "source": "infera-lms/src/academy/routes.rs",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/academy/courses",
+      "module": "academy",
+      "handler": "courses",
+      "permissions": [],
+      "source": "infera-lms/src/academy/routes.rs",
+      "query": "CatalogQuery",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/academy/courses/{id}",
+      "module": "academy",
+      "handler": "course",
+      "permissions": [],
+      "source": "infera-lms/src/academy/routes.rs",
+      "pathParam": "i64",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/academy/courses/{id}/enroll",
+      "module": "academy",
+      "handler": "enroll",
+      "permissions": [],
+      "source": "infera-lms/src/academy/routes.rs",
+      "pathParam": "i64",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/academy/enrollments",
+      "module": "academy",
+      "handler": "my_enrollments",
+      "permissions": [],
+      "source": "infera-lms/src/academy/routes.rs",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/academy/enrollments/{id}/exams/{exam_id}/attempts",
+      "module": "academy",
+      "handler": "start_exam",
+      "permissions": [],
+      "source": "infera-lms/src/academy/routes.rs",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/academy/enrollments/{id}/sessions/{session_id}/complete",
+      "module": "academy",
+      "handler": "complete_session",
+      "permissions": [],
+      "source": "infera-lms/src/academy/routes.rs",
+      "body": "CompleteRequest",
+      "response": "Value",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -4794,6 +4913,20 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/exams/{id}",
+      "module": "exam",
+      "handler": "destroy_exam",
+      "permissions": [
+        "lms:exam:delete"
+      ],
+      "source": "infera-lms/src/exam/routes.rs",
+      "pathParam": "i64",
+      "response": "serde_json::Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/exams/{id}",
       "module": "exam",
@@ -5344,6 +5477,19 @@
       "pathParam": "i64",
       "response": "models::InvitationResponse",
       "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/media/images",
+      "module": "media",
+      "handler": "upload_image",
+      "permissions": [
+        "lms:course:update"
+      ],
+      "source": "infera-lms/src/media.rs",
+      "response": "UploadResponse",
+      "multipart": true,
       "formUrlEncoded": false
     },
     {
@@ -7748,6 +7894,34 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/transactions/{uuid}/verifications",
+      "module": "transaction",
+      "handler": "verification_logs",
+      "permissions": [
+        "admin:transaction:read"
+      ],
+      "source": "infera-payment/src/transaction/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Vec<models::PaymentVerificationResponse>",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/transactions/{uuid}/verify",
+      "module": "transaction",
+      "handler": "verify_payment",
+      "permissions": [
+        "admin:transaction:verify"
+      ],
+      "source": "infera-payment/src/transaction/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::VerifyPaymentResponse",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/transactions/daily-income",
       "module": "transaction",
       "handler": "daily_income",
@@ -7837,6 +8011,53 @@
       "permissions": [],
       "source": "infera-profile/src/session/routes.rs",
       "response": "SessionResponse",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/campaign",
+      "module": "campaign",
+      "handler": "index",
+      "permissions": [],
+      "source": "infera-profile/src/campaign/routes.rs",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/campaign-profile/me/contributions",
+      "module": "campaign",
+      "handler": "my_contributions",
+      "permissions": [],
+      "source": "infera-profile/src/campaign/routes.rs",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/campaign/{id}",
+      "module": "campaign",
+      "handler": "show",
+      "permissions": [],
+      "source": "infera-profile/src/campaign/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/campaign/{id}/contributions",
+      "module": "campaign",
+      "handler": "contribute",
+      "permissions": [],
+      "source": "infera-profile/src/campaign/routes.rs",
+      "body": "ContributionRequest",
+      "pathParam": "Uuid",
+      "response": "Value",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -8404,6 +8625,18 @@
       "permissions": [],
       "source": "infera-profile/src/profile/routes.rs",
       "response": "serde_json::Value",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/profile/{uuid}/avatar",
+      "module": "profile",
+      "handler": "avatar_show",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "query": "MediaQuery",
+      "pathParam": "Uuid",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -10117,6 +10350,69 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/me/analytics",
+      "module": "api",
+      "handler": "my_analytics",
+      "permissions": [
+        "social:analytics:read_own"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "query": "AnalyticsQuery",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/bookmarks",
+      "module": "api",
+      "handler": "my_bookmarks",
+      "permissions": [
+        "social:read"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/posts",
+      "module": "api",
+      "handler": "list_my_posts",
+      "permissions": [
+        "social:read"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "query": "FeedQuery",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/media/{id}",
+      "module": "api",
+      "handler": "get_media",
+      "permissions": [
+        "social:read"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/media/uploads",
+      "module": "api",
+      "handler": "upload_media",
+      "permissions": [
+        "social:post:create"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "multipart": true,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/moderation/actions",
       "module": "api",
@@ -10203,6 +10499,46 @@
       ],
       "source": "infera-social/src/api/routes.rs",
       "body": "UpdatePost",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/posts/{id}/analytics",
+      "module": "api",
+      "handler": "post_analytics",
+      "permissions": [
+        "social:analytics:read_own"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "query": "AnalyticsQuery",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/posts/{id}/bookmark",
+      "module": "api",
+      "handler": "unbookmark_post",
+      "permissions": [
+        "social:bookmark:write"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/posts/{id}/bookmark",
+      "module": "api",
+      "handler": "bookmark_post",
+      "permissions": [
+        "social:bookmark:write"
+      ],
+      "source": "infera-social/src/api/routes.rs",
       "pathParam": "Uuid",
       "multipart": false,
       "formUrlEncoded": false
@@ -10296,6 +10632,47 @@
       ],
       "source": "infera-social/src/api/routes.rs",
       "body": "SetReaction",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/posts/{id}/resubmit",
+      "module": "api",
+      "handler": "resubmit_post",
+      "permissions": [
+        "social:post:update_own"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/posts/{id}/share-events",
+      "module": "api",
+      "handler": "record_share_event",
+      "permissions": [
+        "social:share:write"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "ShareEvent",
+      "pathParam": "Uuid",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/posts/{id}/views",
+      "module": "api",
+      "handler": "record_post_view",
+      "permissions": [
+        "social:view:write"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "body": "RecordView",
       "pathParam": "Uuid",
       "multipart": false,
       "formUrlEncoded": false

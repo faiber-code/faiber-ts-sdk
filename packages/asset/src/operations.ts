@@ -42,6 +42,10 @@ export class AssetOperations extends ServiceApi {
   walletBillingAdminPlanProductsUpdatePut(data: T.WalletBillingAdminPlanProductsUpdatePutInput, options?: RequestOptions<T.WalletBillingAdminPlanProductsUpdatePutInput>) {
     return this.client.request<T.WalletBillingAdminPlanProductsUpdatePutResponse, T.WalletBillingAdminPlanProductsUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/admin/plan-products`, data: data });
   }
+  /** DELETE /api/v1/admin/plan-products/{tier}; permission: admin:charge:update. */
+  walletBillingAdminPlanProductsDeleteDelete(tier: Identifier, options?: RequestOptions) {
+    return this.client.request<T.WalletBillingAdminPlanProductsDeleteDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/admin/plan-products/${encodeURIComponent(tier)}` });
+  }
   /** GET /api/v1/admin/resource-unit-prices; permission: admin:charge:read. */
   sandboxBillingAdminPricesGet(options?: RequestOptions) {
     return this.client.request<T.SandboxBillingAdminPricesGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/resource-unit-prices` });

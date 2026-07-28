@@ -5,6 +5,47 @@ import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: SubmitExamRequest. */
+export interface AcademySubmitExamPostInput extends JsonObject {
+}
+/** Backend response type: Value. */
+export interface AcademySubmitExamPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface AcademyCategoriesGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: CatalogQuery. */
+export interface AcademyCoursesGetQuery extends QueryParams {
+}
+/** Backend response type: Value. */
+export interface AcademyCoursesGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface AcademyCourseGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface AcademyEnrollPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface AcademyMyEnrollmentsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface AcademyStartExamPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: CompleteRequest. */
+export interface AcademyCompleteSessionPostInput extends JsonObject {
+}
+/** Backend response type: Value. */
+export interface AcademyCompleteSessionPostResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: SessionResponse. */
 export interface SessionGetSelfGetResponseData extends JsonObject {
   "user_id": string;
@@ -16,8 +57,8 @@ export interface SessionGetSelfGetResponse extends ApiEnvelope<SessionGetSelfGet
 
 /** Backend query type: PaginationQuery. */
 export interface CertificateIndexCertificateGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::CertificateResponse>. */
 export interface CertificateIndexCertificateGetResponseItem extends JsonObject {
@@ -105,8 +146,8 @@ export interface CertificateUpdateCertificatePatchResponse extends ApiEnvelope<C
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexClassroomGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomResponse>. */
 export interface ClassroomIndexClassroomGetResponseItem extends JsonObject {
@@ -228,8 +269,8 @@ export interface ClassroomUpdateClassroomPatchResponse extends ApiEnvelope<Class
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexClassroomUsersGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomUserResponse>. */
 export interface ClassroomIndexClassroomUsersGetResponseItem extends JsonObject {
@@ -297,8 +338,8 @@ export interface ClassroomUpdateClassroomUserPatchResponse extends ApiEnvelope<C
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexSessionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
@@ -390,8 +431,8 @@ export interface ClassroomUpdateSessionPatchResponse extends ApiEnvelope<Classro
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexAbsencesGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::AbsenceResponse>. */
 export interface ClassroomIndexAbsencesGetResponseItem extends JsonObject {
@@ -417,8 +458,8 @@ export interface ClassroomIndexAbsencesGetResponse extends ApiEnvelope<Classroom
 
 /** Backend query type: PaginationQuery. */
 export interface OpsIndexClubProjectGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::ClubProjectResponse>. */
 export interface OpsIndexClubProjectGetResponseItem extends JsonObject {
@@ -494,8 +535,8 @@ export interface OpsUpdateClubProjectPatchResponse extends ApiEnvelope<OpsUpdate
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexClassroomTypeGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomTypeResponse>. */
 export interface ConfigIndexClassroomTypeGetResponseItem extends JsonObject {
@@ -553,8 +594,8 @@ export interface ConfigUpdateClassroomTypePatchResponse extends ApiEnvelope<Conf
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexEducationDayGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::EducationDayResponse>. */
 export interface ConfigIndexEducationDayGetResponseItem extends JsonObject {
@@ -624,8 +665,8 @@ export interface ConfigUpdateEducationDayPatchResponse extends ApiEnvelope<Confi
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexGradeGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::GradeResponse>. */
 export interface ConfigIndexGradeGetResponseItem extends JsonObject {
@@ -689,8 +730,8 @@ export interface ConfigUpdateGradePatchResponse extends ApiEnvelope<ConfigUpdate
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexTextTemplateGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::TextTemplateResponse>. */
 export interface ConfigIndexTextTemplateGetResponseItem extends JsonObject {
@@ -760,8 +801,8 @@ export interface ConfigUpdateTextTemplatePatchResponse extends ApiEnvelope<Confi
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexWeekendGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::WeekendResponse>. */
 export interface ConfigIndexWeekendGetResponseItem extends JsonObject {
@@ -819,8 +860,8 @@ export interface ConfigUpdateWeekendPatchResponse extends ApiEnvelope<ConfigUpda
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexCourseGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::CourseResponse>. */
 export interface CourseIndexCourseGetResponseItem extends JsonObject {
@@ -829,6 +870,7 @@ export interface CourseIndexCourseGetResponseItem extends JsonObject {
   "name": string;
   "title"?: string;
   "description"?: string;
+  "sort_order": number;
   "duration"?: string;
   "passing_mark"?: number;
   "price"?: string;
@@ -855,6 +897,7 @@ export interface CourseStoreCoursePostInput extends JsonObject {
   "name": string;
   "title"?: string;
   "description"?: string;
+  "sort_order": number;
   "duration"?: string;
   "passing_mark"?: number;
   "price"?: string;
@@ -867,6 +910,7 @@ export interface CourseStoreCoursePostResponseData extends JsonObject {
   "name": string;
   "title"?: string;
   "description"?: string;
+  "sort_order": number;
   "duration"?: string;
   "passing_mark"?: number;
   "price"?: string;
@@ -879,8 +923,8 @@ export interface CourseStoreCoursePostResponse extends ApiEnvelope<CourseStoreCo
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexSessionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface CourseIndexSessionGetResponseItem extends JsonObject {
@@ -996,6 +1040,7 @@ export interface CourseShowCourseGetResponseData extends JsonObject {
   "name": string;
   "title"?: string;
   "description"?: string;
+  "sort_order": number;
   "duration"?: string;
   "passing_mark"?: number;
   "price"?: string;
@@ -1012,6 +1057,7 @@ export interface CourseUpdateCoursePatchInput extends JsonObject {
   "name"?: string;
   "title"?: string;
   "description"?: string;
+  "sort_order"?: number;
   "duration"?: string;
   "passing_mark"?: number;
   "price"?: string;
@@ -1024,6 +1070,7 @@ export interface CourseUpdateCoursePatchResponseData extends JsonObject {
   "name": string;
   "title"?: string;
   "description"?: string;
+  "sort_order": number;
   "duration"?: string;
   "passing_mark"?: number;
   "price"?: string;
@@ -1036,8 +1083,8 @@ export interface CourseUpdateCoursePatchResponse extends ApiEnvelope<CourseUpdat
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexCategoryGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::CategoryResponse>. */
 export interface CourseIndexCategoryGetResponseItem extends JsonObject {
@@ -1121,8 +1168,8 @@ export interface CourseUpdateCategoryPatchResponse extends ApiEnvelope<CourseUpd
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexVideoSectionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::VideoSectionResponse>. */
 export interface CourseIndexVideoSectionGetResponseItem extends JsonObject {
@@ -1253,8 +1300,8 @@ export interface DocsIntegrationGetResponse extends ApiEnvelope<DocsIntegrationG
 
 /** Backend query type: PaginationQuery. */
 export interface EventIndexEventGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::EventResponse>. */
 export interface EventIndexEventGetResponseItem extends JsonObject {
@@ -1307,8 +1354,8 @@ export interface EventStoreEventPostResponse extends ApiEnvelope<EventStoreEvent
 
 /** Backend query type: PaginationQuery. */
 export interface EventIndexUserGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::UserResponse>. */
 export interface EventIndexUserGetResponseItem extends JsonObject {
@@ -1416,8 +1463,8 @@ export interface EventUpdateEventPatchResponse extends ApiEnvelope<EventUpdateEv
 
 /** Backend query type: PaginationQuery. */
 export interface EventIndexSessionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface EventIndexSessionGetResponseItem extends JsonObject {
@@ -1493,8 +1540,8 @@ export interface EventUpdateSessionPatchResponse extends ApiEnvelope<EventUpdate
 
 /** Backend query type: PaginationQuery. */
 export interface ExamIndexExamGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::ExamResponse>. */
 export interface ExamIndexExamGetResponseItem extends JsonObject {
@@ -1545,6 +1592,10 @@ export interface ExamStoreExamPostResponseData extends JsonObject {
 export interface ExamStoreExamPostResponse extends ApiEnvelope<ExamStoreExamPostResponseData> {
 }
 
+/** Backend response type: serde_json::Value. */
+export interface ExamDestroyExamDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: models::ExamResponse. */
 export interface ExamShowExamGetResponseData extends JsonObject {
   "id": number;
@@ -1586,8 +1637,8 @@ export interface ExamUpdateExamPatchResponse extends ApiEnvelope<ExamUpdateExamP
 
 /** Backend query type: PaginationQuery. */
 export interface ExamIndexQuestionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::QuestionResponse>. */
 export interface ExamIndexQuestionGetResponseItem extends JsonObject {
@@ -1675,8 +1726,8 @@ export interface ExamUpdateQuestionPatchResponse extends ApiEnvelope<ExamUpdateQ
 
 /** Backend query type: PaginationQuery. */
 export interface ExamIndexSessionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface ExamIndexSessionGetResponseItem extends JsonObject {
@@ -1758,8 +1809,8 @@ export interface ExamUpdateSessionPatchResponse extends ApiEnvelope<ExamUpdateSe
 
 /** Backend query type: PaginationQuery. */
 export interface HomeworkIndexHomeworkGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::HomeworkResponse>. */
 export interface HomeworkIndexHomeworkGetResponseItem extends JsonObject {
@@ -1839,8 +1890,8 @@ export interface HomeworkUpdateHomeworkPatchResponse extends ApiEnvelope<Homewor
 
 /** Backend query type: PaginationQuery. */
 export interface HomeworkIndexAssignmentGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::AssignmentResponse>. */
 export interface HomeworkIndexAssignmentGetResponseItem extends JsonObject {
@@ -1938,8 +1989,8 @@ export interface HomeworkUpdateAssignmentPatchResponse extends ApiEnvelope<Homew
 
 /** Backend query type: PaginationQuery. */
 export interface HomeworkIndexQuestionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::QuestionResponse>. */
 export interface HomeworkIndexQuestionGetResponseItem extends JsonObject {
@@ -2013,8 +2064,8 @@ export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<J
 
 /** Backend query type: PaginationQuery. */
 export interface InteractiveIndexCategoryGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::CategoryResponse>. */
 export interface InteractiveIndexCategoryGetResponseItem extends JsonObject {
@@ -2078,8 +2129,8 @@ export interface InteractiveUpdateCategoryPatchResponse extends ApiEnvelope<Inte
 
 /** Backend query type: PaginationQuery. */
 export interface InteractiveIndexClassroomSessionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomSessionResponse>. */
 export interface InteractiveIndexClassroomSessionGetResponseItem extends JsonObject {
@@ -2155,8 +2206,8 @@ export interface InteractiveUpdateClassroomSessionPatchResponse extends ApiEnvel
 
 /** Backend query type: PaginationQuery. */
 export interface InteractiveIndexContentGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::ContentResponse>. */
 export interface InteractiveIndexContentGetResponseItem extends JsonObject {
@@ -2248,8 +2299,8 @@ export interface InteractiveUpdateContentPatchResponse extends ApiEnvelope<Inter
 
 /** Backend query type: PaginationQuery. */
 export interface OpsIndexInvitationGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::InvitationResponse>. */
 export interface OpsIndexInvitationGetResponseItem extends JsonObject {
@@ -2323,6 +2374,17 @@ export interface OpsUpdateInvitationPatchResponseData extends JsonObject {
 export interface OpsUpdateInvitationPatchResponse extends ApiEnvelope<OpsUpdateInvitationPatchResponseData> {
 }
 
+/** Backend request type: multipart/form-data. */
+export interface MediaUploadImagePostInput extends JsonObject {
+}
+/** Backend response type: UploadResponse. */
+export interface MediaUploadImagePostResponseData extends JsonObject {
+  "url": string;
+  "key": string;
+}
+export interface MediaUploadImagePostResponse extends ApiEnvelope<MediaUploadImagePostResponseData> {
+}
+
 /** Backend response type: Vec<models::ClassroomReport>. */
 export interface ReportClassroomsGetResponseItem extends JsonObject {
   "classroom_id": number;
@@ -2364,8 +2426,8 @@ export interface ServiceCheckLicenceGetResponse extends ApiEnvelope<ServiceCheck
 
 /** Backend query type: PaginationQuery. */
 export interface OpsIndexSupportInteractionGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::SupportInteractionResponse>. */
 export interface OpsIndexSupportInteractionGetResponseItem extends JsonObject {
@@ -2445,8 +2507,8 @@ export interface OpsUpdateSupportInteractionPatchResponse extends ApiEnvelope<Op
 
 /** Backend query type: PaginationQuery. */
 export interface OpsIndexWorktimeGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page_number"?: number;
+  "page_size"?: number;
 }
 /** Backend response type: crate::models::PagedResult<models::WorktimeResponse>. */
 export interface OpsIndexWorktimeGetResponseItem extends JsonObject {

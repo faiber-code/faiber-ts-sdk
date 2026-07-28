@@ -10,7 +10,7 @@ export type SocialCategoryStatus = "active" | "hidden" | "archived";
 export interface SocialCategory {
   id: string; organization_id: string; slug: string; name: JsonValue; description: JsonValue;
   icon?: string | null; color?: string | null; sort_order: number; status: SocialCategoryStatus;
-  requires_moderation: boolean; metadata: JsonValue; created_at: string; updated_at: string;
+  moderate_posts: boolean; moderate_comments: boolean; metadata: JsonValue; created_at: string; updated_at: string;
 }
 
 export interface SocialPost {
@@ -35,16 +35,25 @@ export interface SocialReport {
   created_at: string;
 }
 export interface FeedQuery extends QueryParams { q?: string; author_id?: string; category_id?: string; kind?: SocialPostKind; page?: number; limit?: number; }
-export interface CreatePostInput { category_id?: string; kind?: SocialPostKind; visibility?: SocialVisibility; title?: string; body: string; media?: JsonValue; metadata?: JsonValue; requires_moderation?: boolean; }
-export interface UpdatePostInput extends Partial<Omit<CreatePostInput, "requires_moderation">> {}
-export interface CreateCategoryInput { slug: string; name: JsonValue; description?: JsonValue; icon?: string; color?: string; sort_order?: number; status?: SocialCategoryStatus; requires_moderation?: boolean; metadata?: JsonValue; }
+export interface CreatePostInput { category_id?: string; kind?: SocialPostKind; visibility?: SocialVisibility; title?: string; body: string; media?: JsonValue; metadata?: JsonValue; }
+export interface UpdatePostInput extends Partial<CreatePostInput> {}
+export interface CreateCategoryInput { slug: string; name: JsonValue; description?: JsonValue; icon?: string; color?: string; sort_order?: number; status?: SocialCategoryStatus; moderate_posts?: boolean; moderate_comments?: boolean; metadata?: JsonValue; }
 export interface UpdateCategoryInput extends Partial<CreateCategoryInput> {}
-export interface CreateCommentInput { parent_id?: string; body: string; requires_moderation?: boolean; }
+export interface CreateCommentInput { parent_id?: string; body: string; }
 export interface UpdateCommentInput { body: string; }
 export interface SetReactionInput { reaction_type: ReactionType; }
 export interface CreateReportInput { target_type: SocialTargetType; target_id: string; reason: string; details?: string; }
 export interface ModerateTargetInput { target_type: SocialTargetType | "report"; target_id: string; action: "approve" | "reject" | "hide" | "resolve" | "dismiss"; reason?: string; }
 export interface ReactionSummary { total: number; by_type: Partial<Record<ReactionType, number>>; viewer_reaction?: ReactionType | null; }
+export interface ShareEventInput { channel?: string; idempotency_key?: string; }
+export interface RecordViewInput { visible_ms: number; }
+export interface SocialMedia { id: string; url: string; content_type: string; }
+export type SocialMediaResponse = ApiEnvelope<SocialMedia>;
+export interface AnalyticsQuery extends QueryParams { from?: string; to?: string; }
+export interface PostAnalytics { post_id: string; views: number; reach: number; reactions: number; comments: number; bookmarks: number; shares: number; }
+export interface AnalyticsTrendPoint { date: string; views: number; reach: number; }
+export interface CreatorAnalytics { from: string; to: string; totals: Omit<PostAnalytics, "post_id">; posts: PostAnalytics[]; trend: AnalyticsTrendPoint[]; }
+export type CreatorAnalyticsResponse = ApiEnvelope<CreatorAnalytics>;
 export interface ModerationQueue { posts: SocialPost[]; comments: SocialComment[]; reports: SocialReport[]; }
 export interface LegacyImportInput { dry_run?: boolean; }
 export interface LegacyImportReport { dry_run: boolean; categories: number; posts: number; comments: number; post_reactions: number; comment_reactions: number; reaction_mappings: JsonValue; }

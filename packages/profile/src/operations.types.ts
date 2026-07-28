@@ -17,8 +17,28 @@ export interface SessionGetSelfGetResponseData extends JsonObject {
   "user_id": string;
   "roles": string[];
   "permissions": string[];
+  "profile": JsonValue;
 }
 export interface SessionGetSelfGetResponse extends ApiEnvelope<SessionGetSelfGetResponseData> {
+}
+
+/** Backend response type: Value. */
+export interface CampaignIndexGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface CampaignMyContributionsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface CampaignShowGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: ContributionRequest. */
+export interface CampaignContributePostInput extends JsonObject {
+}
+/** Backend response type: Value. */
+export interface CampaignContributePostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: models::ListQuery. */
@@ -439,6 +459,13 @@ export interface ProfileShowAdminGetResponse extends ApiEnvelope<ProfileShowAdmi
 
 /** Backend response type: serde_json::Value. */
 export interface ProfileAvatarDeleteDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: MediaQuery. */
+export interface ProfileAvatarShowGetQuery extends QueryParams {
+}
+/** Backend response type: response without a declared JSON model. */
+export interface ProfileAvatarShowGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: multipart/form-data. */

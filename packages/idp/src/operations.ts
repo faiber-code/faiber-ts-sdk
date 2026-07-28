@@ -190,6 +190,10 @@ export class IdpOperations extends ServiceApi {
   userRegisterWithPhonePost(data: T.UserRegisterWithPhonePostInput, options?: RequestOptions<T.UserRegisterWithPhonePostInput>) {
     return this.client.request<T.UserRegisterWithPhonePostResponse, T.UserRegisterWithPhonePostInput>({ ...options, method: "POST", url: `/api/v1/users/register-phone`, data: data });
   }
+  /** GET /api/v1/users/registration-stats; permission: public/session-derived. */
+  userUsersRegistrationStatsGet(params?: T.UserUsersRegistrationStatsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.UserUsersRegistrationStatsGetResponse>({ ...options, method: "GET", url: `/api/v1/users/registration-stats`, params });
+  }
   /** GET /api/v1/users/self; permission: public/session-derived. */
   userUserFindSelfGet(options?: RequestOptions) {
     return this.client.request<T.UserUserFindSelfGetResponse>({ ...options, method: "GET", url: `/api/v1/users/self` });

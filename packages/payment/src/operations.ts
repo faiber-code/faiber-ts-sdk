@@ -54,6 +54,14 @@ export class PaymentOperations extends ServiceApi {
   routerShowStatusGet(uuid: Identifier, options?: RequestOptions) {
     return this.client.request<T.RouterShowStatusGetResponse>({ ...options, method: "GET", url: `/api/v1/transactions/${encodeURIComponent(uuid)}` });
   }
+  /** GET /api/v1/transactions/{uuid}/verifications; permission: admin:transaction:read. */
+  transactionVerificationLogsGet(uuid: Identifier, options?: RequestOptions) {
+    return this.client.request<T.TransactionVerificationLogsGetResponse>({ ...options, method: "GET", url: `/api/v1/transactions/${encodeURIComponent(uuid)}/verifications` });
+  }
+  /** POST /api/v1/transactions/{uuid}/verify; permission: admin:transaction:verify. */
+  transactionVerifyPaymentPost(uuid: Identifier, options?: RequestOptions) {
+    return this.client.request<T.TransactionVerifyPaymentPostResponse>({ ...options, method: "POST", url: `/api/v1/transactions/${encodeURIComponent(uuid)}/verify` });
+  }
   /** GET /api/v1/transactions/daily-income; permission: admin:transaction:read. */
   transactionDailyIncomeGet(params?: T.TransactionDailyIncomeGetQuery, options?: RequestOptions) {
     return this.client.request<T.TransactionDailyIncomeGetResponse>({ ...options, method: "GET", url: `/api/v1/transactions/daily-income`, params });
