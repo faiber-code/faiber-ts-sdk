@@ -2,6 +2,7 @@ import { ServiceApi, multipart, type ApiEnvelope, type Identifier, type RequestO
 import type {
   AnalyticsQuery, CreateCategoryInput, CreateCommentInput, CreatePostInput, CreateReportInput, FeedQuery, LegacyImportInput, RecordViewInput,
   LegacyImportReport, ModerateTargetInput, ModerationQueueResponse, ReactionSummaryResponse,
+  ModerationActionResponse, ModerationAuditQuery, ModerationAuditResponse, SocialReportResponse,
   SetReactionInput, SocialCategoryListResponse, SocialCategoryResponse, SocialCommentListResponse, SocialCommentResponse, SocialPostListResponse,
   SocialPostResponse, SocialReactionResponse, UpdateCategoryInput, UpdateCommentInput, UpdatePostInput, ShareEventInput, CreatorAnalyticsResponse, SocialMediaResponse,
 } from "./types.js";
@@ -39,9 +40,11 @@ export class SocialApi extends ServiceApi {
   recordShare(postId: Identifier, data: ShareEventInput = {}, options?: RequestOptions<ShareEventInput>) { return this.client.post<void, ShareEventInput>(`/api/v1/posts/${id(postId)}/share-events`, data, options); }
   myAnalytics(params?: AnalyticsQuery, options?: RequestOptions) { return this.client.get<CreatorAnalyticsResponse>("/api/v1/me/analytics", params, options); }
   postAnalytics(postId: Identifier, params?: AnalyticsQuery, options?: RequestOptions) { return this.client.get<CreatorAnalyticsResponse>(`/api/v1/posts/${id(postId)}/analytics`, params, options); }
-  report(data: CreateReportInput, options?: RequestOptions<CreateReportInput>) { return this.client.post<ApiEnvelope<unknown>, CreateReportInput>("/api/v1/reports", data, options); }
+  report(data: CreateReportInput, options?: RequestOptions<CreateReportInput>) { return this.client.post<SocialReportResponse, CreateReportInput>("/api/v1/reports", data, options); }
   moderationQueue(options?: RequestOptions) { return this.client.get<ModerationQueueResponse>("/api/v1/moderation/queue", undefined, options); }
-  moderate(data: ModerateTargetInput, options?: RequestOptions<ModerateTargetInput>) { return this.client.post<ApiEnvelope<unknown>, ModerateTargetInput>("/api/v1/moderation/actions", data, options); }
+  /** Lists the authenticated organization's moderation history with bounded pagination. */
+  moderationAudit(params?: ModerationAuditQuery, options?: RequestOptions) { return this.client.get<ModerationAuditResponse>("/api/v1/moderation/audit", params, options); }
+  moderate(data: ModerateTargetInput, options?: RequestOptions<ModerateTargetInput>) { return this.client.post<ModerationActionResponse, ModerateTargetInput>("/api/v1/moderation/actions", data, options); }
   importModules(data: LegacyImportInput = { dry_run: true }, options?: RequestOptions<LegacyImportInput>) { return this.client.post<ApiEnvelope<LegacyImportReport>, LegacyImportInput>("/api/v1/admin/import/modules", data, options); }
 }
 

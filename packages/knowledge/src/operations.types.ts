@@ -3,40 +3,40 @@ import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend query type: ListQuery. */
 export interface RoutesListActionsGetQuery extends QueryParams {
-  "q"?: string;
-  "status"?: string;
-  "group"?: string;
-  "kind"?: string;
-  "page"?: number;
-  "limit"?: number;
+  "q"?: string | null;
+  "status"?: string | null;
+  "group"?: string | null;
+  "kind"?: string | null;
+  "page"?: number | null;
+  "limit"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesListActionsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: ActionStatus. */
 export interface RoutesUpdateActionStatusPatchInput extends JsonObject {
   "status": string;
-  "input": JsonValue;
+  "input"?: JsonValue;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesUpdateActionStatusPatchResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: ListQuery. */
 export interface RoutesListAuditGetQuery extends QueryParams {
-  "q"?: string;
-  "status"?: string;
-  "group"?: string;
-  "kind"?: string;
-  "page"?: number;
-  "limit"?: number;
+  "q"?: string | null;
+  "status"?: string | null;
+  "group"?: string | null;
+  "kind"?: string | null;
+  "page"?: number | null;
+  "limit"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesListAuditGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesListBindingsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -44,102 +44,102 @@ export interface RoutesListBindingsGetResponse extends ApiEnvelope<JsonValue> {
 export interface RoutesCreateBindingPostInput extends JsonObject {
   "chat_slug": string;
   "knowledge_base_id": string;
-  "group_slugs": JsonValue;
-  "max_level": number;
-  "tool_policy": JsonValue;
-  "enabled": boolean;
+  "group_slugs"?: JsonValue;
+  "max_level"?: number;
+  "tool_policy"?: JsonValue;
+  "enabled"?: boolean;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesCreateBindingPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesDeleteBindingDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: UpdateBinding. */
 export interface RoutesUpdateBindingPutInput extends JsonObject {
-  "group_slugs"?: JsonValue;
-  "max_level"?: number;
-  "tool_policy"?: JsonValue;
-  "enabled"?: boolean;
-  "expected_version"?: number;
+  "group_slugs"?: JsonValue | null;
+  "max_level"?: number | null;
+  "tool_policy"?: JsonValue | null;
+  "enabled"?: boolean | null;
+  "expected_version"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesUpdateBindingPutResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesDeleteEdgeDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: UpdateEdge. */
 export interface RoutesUpdateEdgePutInput extends JsonObject {
-  "edge_type"?: string;
-  "conditions"?: JsonValue;
-  "weight"?: number;
-  "status"?: string;
-  "expected_version"?: number;
+  "edge_type"?: string | null;
+  "conditions"?: JsonValue | null;
+  "weight"?: number | null;
+  "status"?: string | null;
+  "expected_version"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesUpdateEdgePutResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesDeleteGroupDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: UpdateGroup. */
 export interface RoutesUpdateGroupPutInput extends JsonObject {
-  "parent_id"?: string;
-  "name"?: JsonValue;
-  "description"?: JsonValue;
-  "sort_order"?: number;
-  "inclusion_policy"?: JsonValue;
-  "status"?: string;
-  "expected_version"?: number;
+  "parent_id"?: string | null;
+  "name"?: JsonValue | null;
+  "description"?: JsonValue | null;
+  "sort_order"?: number | null;
+  "inclusion_policy"?: JsonValue | null;
+  "status"?: string | null;
+  "expected_version"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesUpdateGroupPutResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesDeleteItemDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesGetItemGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: UpdateItem. */
 export interface RoutesUpdateItemPutInput extends JsonObject {
-  "group_id"?: string;
-  "kind"?: string;
-  "title"?: JsonValue;
-  "summary"?: JsonValue;
-  "content"?: JsonValue;
-  "metadata"?: JsonValue;
-  "tags"?: JsonValue;
-  "importance"?: string;
-  "status"?: string;
-  "valid_from"?: string;
-  "valid_to"?: string;
-  "expected_version"?: number;
+  "group_id"?: string | null;
+  "kind"?: string | null;
+  "title"?: JsonValue | null;
+  "summary"?: JsonValue | null;
+  "content"?: JsonValue | null;
+  "metadata"?: JsonValue | null;
+  "tags"?: JsonValue | null;
+  "importance"?: string | null;
+  "status"?: string | null;
+  "valid_from"?: string | null;
+  "valid_to"?: string | null;
+  "expected_version"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesUpdateItemPutResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: ListQuery. */
 export interface RoutesListBasesGetQuery extends QueryParams {
-  "q"?: string;
-  "status"?: string;
-  "group"?: string;
-  "kind"?: string;
-  "page"?: number;
-  "limit"?: number;
+  "q"?: string | null;
+  "status"?: string | null;
+  "group"?: string | null;
+  "kind"?: string | null;
+  "page"?: number | null;
+  "limit"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesListBasesGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -147,38 +147,38 @@ export interface RoutesListBasesGetResponse extends ApiEnvelope<JsonValue> {
 export interface RoutesCreateBasePostInput extends JsonObject {
   "slug": string;
   "name": string;
-  "description": string;
-  "default_language": string;
-  "supported_languages": JsonValue;
-  "settings": JsonValue;
+  "description"?: string;
+  "default_language"?: string;
+  "supported_languages"?: JsonValue;
+  "settings"?: JsonValue;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesCreateBasePostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesDeleteBaseDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesGetBaseGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: UpdateKnowledgeBase. */
 export interface RoutesUpdateBasePutInput extends JsonObject {
-  "name"?: string;
-  "description"?: string;
-  "default_language"?: string;
-  "supported_languages"?: JsonValue;
-  "settings"?: JsonValue;
-  "status"?: string;
-  "expected_version"?: number;
+  "name"?: string | null;
+  "description"?: string | null;
+  "default_language"?: string | null;
+  "supported_languages"?: JsonValue | null;
+  "settings"?: JsonValue | null;
+  "status"?: string | null;
+  "expected_version"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesUpdateBasePutResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesListEdgesGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -187,44 +187,44 @@ export interface RoutesCreateEdgePostInput extends JsonObject {
   "from_item_id": string;
   "to_item_id": string;
   "edge_type": string;
-  "conditions": JsonValue;
-  "weight": number;
+  "conditions"?: JsonValue;
+  "weight"?: number;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesCreateEdgePostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesExportBaseGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesListGroupsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: CreateGroup. */
 export interface RoutesCreateGroupPostInput extends JsonObject {
-  "parent_id"?: string;
+  "parent_id"?: string | null;
   "slug": string;
   "name": JsonValue;
-  "description": JsonValue;
-  "sort_order": number;
-  "inclusion_policy": JsonValue;
+  "description"?: JsonValue;
+  "sort_order"?: number;
+  "inclusion_policy"?: JsonValue;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesCreateGroupPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: ListQuery. */
 export interface RoutesListItemsGetQuery extends QueryParams {
-  "q"?: string;
-  "status"?: string;
-  "group"?: string;
-  "kind"?: string;
-  "page"?: number;
-  "limit"?: number;
+  "q"?: string | null;
+  "status"?: string | null;
+  "group"?: string | null;
+  "kind"?: string | null;
+  "page"?: number | null;
+  "limit"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesListItemsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -234,88 +234,88 @@ export interface RoutesCreateItemPostInput extends JsonObject {
   "slug": string;
   "kind": string;
   "title": JsonValue;
-  "summary": JsonValue;
+  "summary"?: JsonValue;
   "content": JsonValue;
-  "metadata": JsonValue;
-  "tags": JsonValue;
-  "importance": string;
-  "valid_from"?: string;
-  "valid_to"?: string;
+  "metadata"?: JsonValue;
+  "tags"?: JsonValue;
+  "importance"?: string;
+  "valid_from"?: string | null;
+  "valid_to"?: string | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesCreateItemPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesPublishPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: ListQuery. */
 export interface RoutesListRulesGetQuery extends QueryParams {
-  "q"?: string;
-  "status"?: string;
-  "group"?: string;
-  "kind"?: string;
-  "page"?: number;
-  "limit"?: number;
+  "q"?: string | null;
+  "status"?: string | null;
+  "group"?: string | null;
+  "kind"?: string | null;
+  "page"?: number | null;
+  "limit"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesListRulesGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: CreateRule. */
 export interface RoutesCreateRulePostInput extends JsonObject {
   "knowledge_base_id": string;
-  "group_id"?: string;
+  "group_id"?: string | null;
   "slug": string;
   "name": JsonValue;
-  "priority": number;
+  "priority"?: number;
   "conditions": JsonValue;
   "outcomes": JsonValue;
-  "stop_on_match": boolean;
-  "enabled": boolean;
+  "stop_on_match"?: boolean;
+  "enabled"?: boolean;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesCreateRulePostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesDeleteRuleDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: UpdateRule. */
 export interface RoutesUpdateRulePutInput extends JsonObject {
-  "group_id"?: string;
-  "name"?: JsonValue;
-  "priority"?: number;
-  "conditions"?: JsonValue;
-  "outcomes"?: JsonValue;
-  "stop_on_match"?: boolean;
-  "enabled"?: boolean;
-  "expected_version"?: number;
+  "group_id"?: string | null;
+  "name"?: JsonValue | null;
+  "priority"?: number | null;
+  "conditions"?: JsonValue | null;
+  "outcomes"?: JsonValue | null;
+  "stop_on_match"?: boolean | null;
+  "enabled"?: boolean | null;
+  "expected_version"?: number | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesUpdateRulePutResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: RuntimeQuery. */
 export interface RoutesRuntimeQueryPostInput extends JsonObject {
-  "query"?: string;
-  "profile_id"?: string;
-  "profile": JsonValue;
-  "props": JsonValue;
-  "meta": JsonValue;
-  "inputs": JsonValue;
-  "group_slugs": JsonValue;
-  "level"?: number;
-  "limit"?: number;
-  "event"?: JsonValue;
+  "query"?: string | null;
+  "profile_id"?: string | null;
+  "profile"?: JsonValue;
+  "props"?: JsonValue;
+  "meta"?: JsonValue;
+  "inputs"?: JsonValue;
+  "group_slugs"?: JsonValue;
+  "level"?: number | null;
+  "limit"?: number | null;
+  "event"?: JsonValue | null;
 }
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesRuntimeQueryPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RoutesToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
 }
 

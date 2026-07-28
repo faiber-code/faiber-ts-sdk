@@ -33,6 +33,8 @@ This repository is the public TypeScript SDK monorepo for Faiber services. Chang
   - `@faiber/faiber-flow`
   - `@faiber/faiber-knowledge`
   - `@faiber/faiber-chat`
+  - `@faiber/faiber-state-sdk`
+  - `@faiber/faiber-game-sdk`
 - Do not publish the private monorepo root.
 - Do not reintroduce or publish new versions under the historical unscoped `faiber-ts-sdk` name.
 
@@ -52,6 +54,31 @@ This repository is the public TypeScript SDK monorepo for Faiber services. Chang
 - Support normal Axios options, including signals, timeouts, headers, adapters, and interceptors.
 - Upload APIs must use standards-compliant `FormData` and work in supported browser and Node runtimes.
 - Correct service contract drift before release. HTTP methods, routes, parameter names, nullability, identifiers, pagination, and response envelopes must match the service API.
+
+## Mandatory endpoint completeness gates
+
+These gates are release-blocking for every public Faiber service package. Route-export and
+contract-generation scripts are coverage aids, not authoritative API specifications.
+
+- Inspect the mounted Rust router, handler extractors, request/response models, validation,
+  authorization middleware, repository behavior, and relevant tests before declaring an
+  endpoint synchronized.
+- Every mounted public endpoint must have exactly one callable SDK operation with the correct
+  method, path parameters, query serialization, request encoding, response envelope, status
+  behavior, and declared IDP permission. Curated convenience methods may supplement, but may
+  never replace, complete operation coverage.
+- Every operation must use named exported input, query, response, pagination, nested-object,
+  and enum types. `any`, unexplained `unknown` or `JsonValue`, and empty placeholder interfaces
+  are forbidden when the backend declares a concrete wire model.
+- Every protected operation must execute through `FaiberClient`, inheriting either Bearer-token
+  authorization from the configured `TokenProvider` or secure cookie authorization through
+  Axios `withCredentials`. Generated or handwritten clients must not create an unauthenticated
+  transport path. Login, registration, and refresh bootstrap calls are the documented exceptions.
+- Every operation needs consumer-facing JSDoc describing its purpose, parameters, response,
+  authorization or permission requirement, relevant errors, and non-obvious behavior. Package
+  READMEs must provide accurate workflow guidance and capability summaries.
+- Contract drift, authorization bypasses, placeholder public models, missing documentation, or
+  endpoint coverage derived only from route-export scripts must fail release verification.
 
 ## Required release gates
 
@@ -102,7 +129,7 @@ git push origin 0.1.2
 - Recommended release loop:
 
 ```bash
-for package in core idp profile modules social asset payment messenger crm lms reservation session version flow knowledge chat sdk; do
+for package in core idp profile modules social asset payment messenger crm lms reservation session version flow knowledge chat state game sdk; do
   NPM_CONFIG_CACHE=/tmp/faiber-npm-cache npm publish "./packages/$package" --access public
 done
 ```
@@ -132,6 +159,8 @@ npm view @faiber/faiber-version version
 npm view @faiber/faiber-flow version
 npm view @faiber/faiber-knowledge version
 npm view @faiber/faiber-chat version
+npm view @faiber/faiber-state-sdk version
+npm view @faiber/faiber-game-sdk version
 npm view @faiber/faiber-ts-sdk version
 ```
 

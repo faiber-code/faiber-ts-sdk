@@ -4480,7 +4480,6 @@
         "lms:course:read"
       ],
       "source": "infera-lms/src/course/routes.rs",
-      "pathParam": "i64",
       "response": "models::SessionResponse",
       "multipart": false,
       "formUrlEncoded": false
@@ -4495,7 +4494,6 @@
       ],
       "source": "infera-lms/src/course/routes.rs",
       "body": "models::UpdateSessionRequest",
-      "pathParam": "i64",
       "response": "models::SessionResponse",
       "multipart": false,
       "formUrlEncoded": false
@@ -4980,6 +4978,20 @@
       "source": "infera-lms/src/exam/routes.rs",
       "body": "models::CreateQuestionRequest",
       "response": "models::QuestionResponse",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/exams/questions/{id}",
+      "module": "exam",
+      "handler": "destroy_question",
+      "permissions": [
+        "lms:exam:delete"
+      ],
+      "source": "infera-lms/src/exam/routes.rs",
+      "pathParam": "i64",
+      "response": "serde_json::Value",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -10422,6 +10434,19 @@
       ],
       "source": "infera-social/src/api/routes.rs",
       "body": "ModerateTarget",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/moderation/audit",
+      "module": "api",
+      "handler": "moderation_audit",
+      "permissions": [
+        "social:moderate"
+      ],
+      "source": "infera-social/src/api/routes.rs",
+      "query": "ModerationAuditQuery",
       "multipart": false,
       "formUrlEncoded": false
     },

@@ -117,7 +117,10 @@ export interface AuthContext {
 export interface ServiceClientOptions {
     axios?: CreateAxiosDefaults;
     headers?: AxiosRequestConfig["headers"];
+    authMode?: AuthMode;
 }
+/** `auto` sends a token when available and otherwise honors Axios cookie settings. */
+export type AuthMode = "auto" | "bearer" | "cookie";
 export interface RefreshAuthContext {
     service: ServiceName;
     client: AxiosInstance;
@@ -127,6 +130,7 @@ export interface FaiberSdkConfig {
     domains: ServiceDomains;
     defaultDomain?: string;
     axios?: CreateAxiosDefaults;
+    authMode?: AuthMode;
     serviceOptions?: Partial<Record<ServiceName, ServiceClientOptions>>;
     tokenProvider?: TokenProvider;
     getAuthorization?: (context: AuthContext) => MaybePromise<string | null | undefined>;

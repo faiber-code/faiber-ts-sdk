@@ -9,12 +9,13 @@ export class FaiberClient {
     private refreshPromise: Promise<TokenSet | null> | null = null;
     constructor(readonly service: ServiceName, readonly config: FaiberSdkConfig) {
         const serviceOptions = config.serviceOptions?.[service];
-        const defaults = { allowAbsoluteUrls: false, ...config.axios, ...serviceOptions?.axios, baseURL: domainFor(config.domains, service, config.defaultDomain), headers: { ...config.axios?.headers, ...serviceOptions?.axios?.headers, ...serviceOptions?.headers } };
+        const authMode = serviceOptions?.authMode ?? config.authMode ?? "auto";
+        const defaults = { allowAbsoluteUrls: false, ...(authMode === "cookie" ? { withCredentials: true } : {}), ...config.axios, ...serviceOptions?.axios, baseURL: domainFor(config.domains, service, config.defaultDomain), headers: { ...config.axios?.headers, ...serviceOptions?.axios?.headers, ...serviceOptions?.headers } };
         this.axios = config.createAxios?.(defaults, service) ?? axios.create(defaults);
         this.refreshAxios = axios.create(defaults);
         this.axios.interceptors.request.use(async (request) => {
             const tokens = await config.tokenProvider?.getTokens() ?? null;
-            const authorization = config.getAuthorization ? await config.getAuthorization({ service, request, tokens }) : bearerAuthorization(tokens);
+            const authorization = authMode === "cookie" ? null : config.getAuthorization ? await config.getAuthorization({ service, request, tokens }) : bearerAuthorization(tokens);
             if (authorization && !request.headers.has("Authorization"))
                 request.headers.set("Authorization", authorization);
             return request;
@@ -30,7 +31,7 @@ export class FaiberClient {
                 request[RETRY] = true;
                 try {
                     const storedTokens = await config.tokenProvider?.getTokens() ?? null;
-                    const currentAuthorization = config.getAuthorization ? await config.getAuthorization({ service, request, tokens: storedTokens }) : bearerAuthorization(storedTokens);
+                    const currentAuthorization = authMode === "cookie" ? null : config.getAuthorization ? await config.getAuthorization({ service, request, tokens: storedTokens }) : bearerAuthorization(storedTokens);
                     const failedHeaders = AxiosHeaders.from(request.headers as RawAxiosHeaders);
                     if (currentAuthorization && failedHeaders.get("Authorization") !== currentAuthorization) {
                         failedHeaders.delete("Authorization");
@@ -40,7 +41,7 @@ export class FaiberClient {
                     this.refreshPromise ??= Promise.resolve(config.refreshAuth!({ service, client: this.refreshAxios, tokens: storedTokens })).finally(() => { this.refreshPromise = null; });
                     const tokens = await this.refreshPromise;
                     await config.tokenProvider?.setTokens(tokens);
-                    if (!tokens)
+                    if (!tokens && authMode !== "cookie")
                         throw error;
                     const headers = AxiosHeaders.from(request.headers as RawAxiosHeaders);
                     headers.delete("Authorization");
@@ -50,7 +51,14 @@ export class FaiberClient {
                 catch (refreshError) {
                     await config.tokenProvider?.setTokens(null);
                     await config.onAuthFailure?.(refreshError);
-                    throw refreshError;
+                    // The protected request is the operation the consumer invoked. Preserve its
+                    // Axios response/status as the primary failure; expose the refresh failure as
+                    // the cause without replacing that transport context.
+                    if (refreshError !== error && error && typeof error === "object") {
+                        try { Object.defineProperty(error, "cause", { value: refreshError, configurable: true }); }
+                        catch { /* Some custom error objects are non-extensible. */ }
+                    }
+                    throw error;
                 }
             });
     }

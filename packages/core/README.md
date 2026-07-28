@@ -14,12 +14,13 @@ import { FaiberClient, MemoryTokenProvider } from "@faiber/sdk-core";
 const tokens = new MemoryTokenProvider({ accessToken: session.accessToken });
 const client = new FaiberClient("profile", {
   domains: { profile: import.meta.env.FAIBER_PROFILE_URL },
+  authMode: "bearer",
   tokenProvider: tokens,
   axios: { timeout: 15_000, withCredentials: true },
 });
 ```
 
-`FaiberClient` resolves only configured service origins, rejects absolute URLs by default, adds a Bearer token supplied by `TokenProvider`, and preserves full Axios responses. Cookie sessions work with `withCredentials: true` and no token provider. `MemoryTokenProvider` and opt-in `StorageTokenProvider` are included; custom providers can bind server-side sessions or encrypted storage.
+`FaiberClient` resolves only configured service origins, rejects absolute URLs by default, adds a Bearer token supplied by `TokenProvider`, and preserves full Axios responses. Set `authMode: "cookie"` to enable credentialed requests automatically and suppress Bearer injection. `auto` is the backward-compatible default and uses a token when available while honoring explicit Axios cookie settings. `MemoryTokenProvider` and opt-in `StorageTokenProvider` are included; custom providers can bind server-side sessions or encrypted storage.
 
 ## Requests and encoding
 
@@ -43,4 +44,4 @@ The client provides typed `get`, `post`, `put`, `patch`, `delete`, and generic `
 
 ## Authentication refresh and errors
 
-Configure `refreshAuth` for one shared refresh when concurrent calls receive `401`. Retried calls obtain the new token and failed refreshes clear stale credentials. The SDK does not unwrap or hide Axios errors, so applications retain status, response body, headers, request IDs, cancellation, and timeout details.
+Configure `refreshAuth` for one shared refresh when concurrent calls receive `401`. Retried calls obtain the new token; in cookie mode the callback may return `null` after the server rotates its HttpOnly cookie and the protected request is still retried once. Failed refreshes clear stale credentials. A refresh failure preserves the original protected-request Axios error (and attaches the refresh error as its `cause` when possible), so applications retain the operation's status, response body, headers, request IDs, cancellation, and timeout details.

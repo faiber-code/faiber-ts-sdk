@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
 export interface LmsEntity extends JsonObject {
     id: string;
     name?: string;
@@ -198,3 +198,61 @@ export interface ClassroomUserResponse extends ApiEnvelope<Classroom> {
 }
 export interface LmsReportResponse extends ApiEnvelope<ReportRow[]> {
 }
+
+/** Learner-facing academy category returned from the active catalog. */
+export interface AcademyCategory {
+    id: number;
+    name_fa: string;
+    name_en: string;
+    description_fa: string | null;
+    description_en: string | null;
+}
+export interface AcademyCatalogQuery extends QueryParams { category_id?: number; }
+export interface AcademyCourse {
+    id: number;
+    category_id: number | null;
+    title_fa: string;
+    title_en: string;
+    description_fa: string | null;
+    description_en: string | null;
+    duration: string | null;
+    passing_mark: number | null;
+    /** Decimal value serialized by PostgreSQL as a string. */
+    price: string | null;
+    cover_url: string | null;
+    audience_tags: JsonValue;
+    enrollment_id: string | null;
+    enrollment_status: string | null;
+    session_count: number;
+    completed_count: number;
+}
+export interface AcademySession {
+    id: number;
+    name: string;
+    content_fa: string | null;
+    content_en: string | null;
+    sort_order: number;
+    session_type: string;
+    duration_minutes: number | null;
+    exam_id: number | null;
+    completed: boolean;
+    unlocked: boolean;
+}
+export interface AcademyCourseDetail { id: number; sessions: AcademySession[]; }
+export interface AcademyEnrollmentStart { id: string; status: string; price: string; }
+export interface AcademyEnrollment { id: string; course_id: number; status: string; best_score: number | null; }
+export interface AcademyCompleteSessionInput { idempotency_key: string; }
+export interface AcademySessionCompletion { session_id: number; completed: true; }
+export interface AcademyExamQuestion { id: number; text: string; type: string; options: JsonValue; }
+export interface AcademyExamAttempt { attempt_id: string; questions: AcademyExamQuestion[]; }
+/** Keys are decimal question identifiers; values retain the question's JSON answer representation. */
+export interface AcademySubmitExamInput { answers: Record<string, JsonValue>; }
+export interface AcademyExamResult { score: number; passing_mark: number; passed: boolean; }
+export type AcademyCategoriesResponse = ApiEnvelope<AcademyCategory[]>;
+export type AcademyCoursesResponse = ApiEnvelope<AcademyCourse[]>;
+export type AcademyCourseResponse = ApiEnvelope<AcademyCourseDetail>;
+export type AcademyEnrollmentStartResponse = ApiEnvelope<AcademyEnrollmentStart>;
+export type AcademyEnrollmentsResponse = ApiEnvelope<AcademyEnrollment[]>;
+export type AcademySessionCompletionResponse = ApiEnvelope<AcademySessionCompletion>;
+export type AcademyExamAttemptResponse = ApiEnvelope<AcademyExamAttempt>;
+export type AcademyExamResultResponse = ApiEnvelope<AcademyExamResult>;

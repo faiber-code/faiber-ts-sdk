@@ -1,7 +1,7 @@
 import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -71,9 +71,33 @@ export interface DashboardDashboardShowGetResponse extends ApiEnvelope<Dashboard
 }
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
+export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
+  "name": string;
+  "field_type": string;
+  "required": boolean;
+  "description": string;
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataDirectEvents extends JsonObject {
+  "event_name": string;
+  "payload_fields": IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields[];
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataDirect extends JsonObject {
+  "transport": string;
+  "queue"?: string | null;
+  "broker_url_hint"?: string | null;
+  "sample_profile_id"?: string | null;
+  "events": IntegrationIntegrationDocsShowGetResponseDataDirectEvents[];
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataSdk extends JsonObject {
+  "event_name": string;
+  "method": string;
+  "language": string;
+  "cargo_dep": string;
+  "code": string;
+}
 export interface IntegrationIntegrationDocsShowGetResponseData extends JsonObject {
-  "direct": JsonValue;
-  "sdk": JsonValue[];
+  "direct": IntegrationIntegrationDocsShowGetResponseDataDirect;
+  "sdk": IntegrationIntegrationDocsShowGetResponseDataSdk[];
 }
 export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<IntegrationIntegrationDocsShowGetResponseData> {
 }
@@ -83,17 +107,30 @@ export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<J
 }
 
 /** Backend response type: crate::integration::models::RabbitMqIntegrationResponse. */
+export interface IntegrationRabbitmqIntegrationShowGetResponseDataEventsPayloadFields extends JsonObject {
+  "name": string;
+  "field_type": string;
+  "required": boolean;
+  "description": string;
+}
+export interface IntegrationRabbitmqIntegrationShowGetResponseDataEvents extends JsonObject {
+  "event_name": string;
+  "payload_fields": IntegrationRabbitmqIntegrationShowGetResponseDataEventsPayloadFields[];
+}
 export interface IntegrationRabbitmqIntegrationShowGetResponseData extends JsonObject {
   "queue": string;
   "broker_url_hint": string;
   "sample_profile_id": string;
-  "events": JsonValue[];
+  "events": IntegrationRabbitmqIntegrationShowGetResponseDataEvents[];
 }
 export interface IntegrationRabbitmqIntegrationShowGetResponse extends ApiEnvelope<IntegrationRabbitmqIntegrationShowGetResponseData> {
 }
 
 /** Backend query type: NotificationListQuery. */
 export interface NotificationNotificationsIndexGetQuery extends QueryParams {
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
+  "recipient"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<NotificationResponse>. */
 export interface NotificationNotificationsIndexGetResponseItem extends JsonObject {
@@ -103,16 +140,16 @@ export interface NotificationNotificationsIndexGetResponseItem extends JsonObjec
   "channel": string;
   "recipient": string;
   "status": string;
-  "description"?: string;
-  "params"?: JsonValue;
-  "options"?: JsonValue;
-  "delivery_attempts"?: JsonValue;
+  "description"?: string | null;
+  "params"?: JsonValue | null;
+  "options"?: JsonValue | null;
+  "delivery_attempts"?: JsonValue | null;
   "delivered": boolean;
   "read": boolean;
-  "read_at"?: string;
-  "scheduled_at"?: string;
-  "sent_at"?: string;
-  "failed_at"?: string;
+  "read_at"?: string | null;
+  "scheduled_at"?: string | null;
+  "sent_at"?: string | null;
+  "failed_at"?: string | null;
   "created_at": string;
 }
 export interface NotificationNotificationsIndexGetResponsePageMeta extends JsonObject {
@@ -130,16 +167,16 @@ export interface NotificationNotificationsIndexGetResponse extends ApiEnvelope<N
 
 /** Backend request type: SendNotificationRequest. */
 export interface NotificationNotificationsSendPostInput extends JsonObject {
-  "template_id"?: number;
-  "template_name"?: string;
+  "template_id"?: number | null;
+  "template_name"?: string | null;
   "channel": string;
-  "recipients": string[];
-  "recipient"?: string;
-  "params": Record<string, JsonValue>;
-  "service_name"?: string;
-  "options": JsonValue;
-  "description"?: string;
-  "scheduled_at"?: string;
+  "recipients"?: string[];
+  "recipient"?: string | null;
+  "params"?: Record<string, JsonValue>;
+  "service_name"?: string | null;
+  "options"?: JsonValue;
+  "description"?: string | null;
+  "scheduled_at"?: string | null;
 }
 /** Backend response type: SendNotificationResponse. */
 export interface NotificationNotificationsSendPostResponseData extends JsonObject {
@@ -156,16 +193,16 @@ export interface NotificationNotificationsShowGetResponseData extends JsonObject
   "channel": string;
   "recipient": string;
   "status": string;
-  "description"?: string;
-  "params"?: JsonValue;
-  "options"?: JsonValue;
-  "delivery_attempts"?: JsonValue;
+  "description"?: string | null;
+  "params"?: JsonValue | null;
+  "options"?: JsonValue | null;
+  "delivery_attempts"?: JsonValue | null;
   "delivered": boolean;
   "read": boolean;
-  "read_at"?: string;
-  "scheduled_at"?: string;
-  "sent_at"?: string;
-  "failed_at"?: string;
+  "read_at"?: string | null;
+  "scheduled_at"?: string | null;
+  "sent_at"?: string | null;
+  "failed_at"?: string | null;
   "created_at": string;
 }
 export interface NotificationNotificationsShowGetResponse extends ApiEnvelope<NotificationNotificationsShowGetResponseData> {
@@ -173,6 +210,7 @@ export interface NotificationNotificationsShowGetResponse extends ApiEnvelope<No
 
 /** Backend query type: MarkReadQuery. */
 export interface NotificationNotificationsMarkReadPatchQuery extends QueryParams {
+  "recipient"?: string | null;
 }
 /** Backend response type: NotificationResponse. */
 export interface NotificationNotificationsMarkReadPatchResponseData extends JsonObject {
@@ -182,16 +220,16 @@ export interface NotificationNotificationsMarkReadPatchResponseData extends Json
   "channel": string;
   "recipient": string;
   "status": string;
-  "description"?: string;
-  "params"?: JsonValue;
-  "options"?: JsonValue;
-  "delivery_attempts"?: JsonValue;
+  "description"?: string | null;
+  "params"?: JsonValue | null;
+  "options"?: JsonValue | null;
+  "delivery_attempts"?: JsonValue | null;
   "delivered": boolean;
   "read": boolean;
-  "read_at"?: string;
-  "scheduled_at"?: string;
-  "sent_at"?: string;
-  "failed_at"?: string;
+  "read_at"?: string | null;
+  "scheduled_at"?: string | null;
+  "sent_at"?: string | null;
+  "failed_at"?: string | null;
   "created_at": string;
 }
 export interface NotificationNotificationsMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMarkReadPatchResponseData> {
@@ -203,7 +241,7 @@ export interface ServiceServicesIndexGetResponseItem extends JsonObject {
   "name": string;
   "provider": string;
   "channel": string;
-  "options"?: JsonValue;
+  "options"?: JsonValue | null;
   "priority": number;
 }
 export interface ServiceServicesIndexGetResponse extends ApiEnvelope<ServiceServicesIndexGetResponseItem[]> {
@@ -215,7 +253,7 @@ export interface ServiceServicesCreatePostInput extends JsonObject {
   "provider": string;
   "channel": string;
   "options": JsonValue;
-  "priority"?: number;
+  "priority"?: number | null;
 }
 /** Backend response type: ServiceResponse. */
 export interface ServiceServicesCreatePostResponseData extends JsonObject {
@@ -223,7 +261,7 @@ export interface ServiceServicesCreatePostResponseData extends JsonObject {
   "name": string;
   "provider": string;
   "channel": string;
-  "options"?: JsonValue;
+  "options"?: JsonValue | null;
   "priority": number;
 }
 export interface ServiceServicesCreatePostResponse extends ApiEnvelope<ServiceServicesCreatePostResponseData> {
@@ -239,7 +277,7 @@ export interface ServiceServicesShowGetResponseData extends JsonObject {
   "name": string;
   "provider": string;
   "channel": string;
-  "options"?: JsonValue;
+  "options"?: JsonValue | null;
   "priority": number;
 }
 export interface ServiceServicesShowGetResponse extends ApiEnvelope<ServiceServicesShowGetResponseData> {
@@ -247,11 +285,11 @@ export interface ServiceServicesShowGetResponse extends ApiEnvelope<ServiceServi
 
 /** Backend request type: UpdateServiceRequest. */
 export interface ServiceServicesUpdatePatchInput extends JsonObject {
-  "name"?: string;
-  "provider"?: string;
-  "channel"?: string;
-  "options"?: JsonValue;
-  "priority"?: number;
+  "name"?: string | null;
+  "provider"?: string | null;
+  "channel"?: string | null;
+  "options"?: JsonValue | null;
+  "priority"?: number | null;
 }
 /** Backend response type: ServiceResponse. */
 export interface ServiceServicesUpdatePatchResponseData extends JsonObject {
@@ -259,7 +297,7 @@ export interface ServiceServicesUpdatePatchResponseData extends JsonObject {
   "name": string;
   "provider": string;
   "channel": string;
-  "options"?: JsonValue;
+  "options"?: JsonValue | null;
   "priority": number;
 }
 export interface ServiceServicesUpdatePatchResponse extends ApiEnvelope<ServiceServicesUpdatePatchResponseData> {
@@ -270,8 +308,8 @@ export interface TemplateTemplatesIndexGetResponseItem extends JsonObject {
   "id": number;
   "name": string;
   "fa_name": string;
-  "params"?: JsonValue;
-  "channel_id"?: number;
+  "params"?: JsonValue | null;
+  "channel_id"?: number | null;
 }
 export interface TemplateTemplatesIndexGetResponse extends ApiEnvelope<TemplateTemplatesIndexGetResponseItem[]> {
 }
@@ -280,16 +318,16 @@ export interface TemplateTemplatesIndexGetResponse extends ApiEnvelope<TemplateT
 export interface TemplateTemplatesCreatePostInput extends JsonObject {
   "name": string;
   "fa_name": string;
-  "params"?: string[];
-  "channel_id"?: number;
+  "params"?: string[] | null;
+  "channel_id"?: number | null;
 }
 /** Backend response type: TemplateResponse. */
 export interface TemplateTemplatesCreatePostResponseData extends JsonObject {
   "id": number;
   "name": string;
   "fa_name": string;
-  "params"?: JsonValue;
-  "channel_id"?: number;
+  "params"?: JsonValue | null;
+  "channel_id"?: number | null;
 }
 export interface TemplateTemplatesCreatePostResponse extends ApiEnvelope<TemplateTemplatesCreatePostResponseData> {
 }
@@ -303,17 +341,17 @@ export interface TemplateTemplatesShowGetResponseData extends JsonObject {
   "id": number;
   "name": string;
   "fa_name": string;
-  "params"?: JsonValue;
-  "channel_id"?: number;
+  "params"?: JsonValue | null;
+  "channel_id"?: number | null;
 }
 export interface TemplateTemplatesShowGetResponse extends ApiEnvelope<TemplateTemplatesShowGetResponseData> {
 }
 
 /** Backend request type: UpdateTemplateRequest. */
 export interface TemplateTemplatesUpdatePatchInput extends JsonObject {
-  "name"?: string;
-  "fa_name"?: string;
-  "params"?: string[];
+  "name"?: string | null;
+  "fa_name"?: string | null;
+  "params"?: string[] | null;
   "channel_id"?: number | null;
 }
 /** Backend response type: TemplateResponse. */
@@ -321,8 +359,8 @@ export interface TemplateTemplatesUpdatePatchResponseData extends JsonObject {
   "id": number;
   "name": string;
   "fa_name": string;
-  "params"?: JsonValue;
-  "channel_id"?: number;
+  "params"?: JsonValue | null;
+  "channel_id"?: number | null;
 }
 export interface TemplateTemplatesUpdatePatchResponse extends ApiEnvelope<TemplateTemplatesUpdatePatchResponseData> {
 }
@@ -333,7 +371,7 @@ export interface TemplateTemplateContentsIndexGetResponseItem extends JsonObject
   "template_id": number;
   "channel": string;
   "text": string;
-  "options"?: JsonValue;
+  "options"?: JsonValue | null;
 }
 export interface TemplateTemplateContentsIndexGetResponse extends ApiEnvelope<TemplateTemplateContentsIndexGetResponseItem[]> {
 }
@@ -342,7 +380,7 @@ export interface TemplateTemplateContentsIndexGetResponse extends ApiEnvelope<Te
 export interface TemplateTemplateContentsCreatePostInput extends JsonObject {
   "channel": string;
   "text": string;
-  "options"?: JsonValue;
+  "options"?: JsonValue | null;
 }
 /** Backend response type: TemplateContentResponse. */
 export interface TemplateTemplateContentsCreatePostResponseData extends JsonObject {
@@ -350,15 +388,15 @@ export interface TemplateTemplateContentsCreatePostResponseData extends JsonObje
   "template_id": number;
   "channel": string;
   "text": string;
-  "options"?: JsonValue;
+  "options"?: JsonValue | null;
 }
 export interface TemplateTemplateContentsCreatePostResponse extends ApiEnvelope<TemplateTemplateContentsCreatePostResponseData> {
 }
 
 /** Backend request type: UpdateTemplateContentRequest. */
 export interface TemplateTemplateContentsUpdatePatchInput extends JsonObject {
-  "text"?: string;
-  "options"?: JsonValue;
+  "text"?: string | null;
+  "options"?: JsonValue | null;
 }
 /** Backend response type: TemplateContentResponse. */
 export interface TemplateTemplateContentsUpdatePatchResponseData extends JsonObject {
@@ -366,16 +404,16 @@ export interface TemplateTemplateContentsUpdatePatchResponseData extends JsonObj
   "template_id": number;
   "channel": string;
   "text": string;
-  "options"?: JsonValue;
+  "options"?: JsonValue | null;
 }
 export interface TemplateTemplateContentsUpdatePatchResponse extends ApiEnvelope<TemplateTemplateContentsUpdatePatchResponseData> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RouterStatusRouteGetHealthResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RouterStatusRouteGetUpResponse extends ApiEnvelope<JsonValue> {
 }
 

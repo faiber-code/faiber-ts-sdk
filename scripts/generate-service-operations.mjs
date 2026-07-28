@@ -15,8 +15,43 @@ const camel = value => {
   return converted[0].toLowerCase() + converted.slice(1);
 };
 const operationBaseName = endpoint => `${endpoint.module}-${endpoint.handler}-${endpoint.method.toLowerCase()}`;
+const operationPurpose = endpoint => endpoint.handler.replace(/_/g, " ");
 const placeholders = path => [...path.matchAll(/\{([^}]+)\}/g)].map(match => match[1]);
 const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${encodeURIComponent(${camel(name)})}`)}\``;
+
+// Hand-audited response contracts for handlers that intentionally build serde_json::Value or
+// return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
+const responseOverrides = {
+  lms: {
+    submit_exam: "AcademyExamResultResponse", categories: "AcademyCategoriesResponse",
+    courses: "AcademyCoursesResponse", course: "AcademyCourseResponse",
+    enroll: "AcademyEnrollmentStartResponse", my_enrollments: "AcademyEnrollmentsResponse",
+    start_exam: "AcademyExamAttemptResponse", complete_session: "AcademySessionCompletionResponse",
+  },
+  social: {
+    upload_media: "SocialMediaResponse", get_media: "NoContentResponse",
+    list_categories: "SocialCategoryListResponse", create_category: "SocialCategoryResponse",
+    update_category: "SocialCategoryResponse", delete_category: "NoContentResponse",
+    list_posts: "SocialPostListResponse", list_my_posts: "SocialPostListResponse",
+    my_bookmarks: "SocialBookmarksResponse", create_post: "SocialPostResponse",
+    get_post: "SocialPostResponse", update_post: "SocialPostResponse", delete_post: "NoContentResponse",
+    resubmit_post: "SocialPostResponse", bookmark_post: "NoContentResponse", unbookmark_post: "NoContentResponse",
+    record_post_view: "RecordViewResponse", record_share_event: "NoContentResponse",
+    my_analytics: "CreatorAnalyticsResponse", post_analytics: "CreatorAnalyticsResponse",
+    list_post_comments: "SocialCommentListResponse", create_post_comment: "SocialCommentResponse",
+    update_comment: "SocialCommentResponse", delete_comment: "NoContentResponse",
+    post_reactions: "ReactionSummaryResponse", comment_reactions: "ReactionSummaryResponse",
+    set_post_reaction: "SocialReactionResponse", set_comment_reaction: "SocialReactionResponse",
+    like_post: "SocialReactionResponse", like_comment: "SocialReactionResponse",
+    remove_post_reaction: "NoContentResponse", remove_comment_reaction: "NoContentResponse",
+    create_report: "SocialReportResponse", moderation_queue: "ModerationQueueResponse",
+    moderation_audit: "ModerationAuditResponse", moderate: "ModerationActionResponse",
+    import_modules: "LegacyImportResponse",
+  },
+};
+const inputOverrides = {
+  lms: { submit_exam: "AcademySubmitExamInput", complete_session: "AcademyCompleteSessionInput" },
+};
 
 async function rustFiles(rootDir) {
   const output = [];
@@ -63,9 +98,10 @@ function structFrom(file, name) {
   const fields = splitFields(file.source.slice(open + 1, close)).flatMap(part => {
     const rename = part.match(/#\[serde\(rename\s*=\s*"([^"]+)"\)\]/)?.[1];
     const flatten = /#\[serde\(flatten\)\]/.test(part);
+    const defaulted = /#\[serde\([^\]]*\bdefault\b[^\]]*\)\]/.test(part);
     const clean = part.replace(/#\[[\s\S]*?\]/g, "").replace(/\/\/.*$/gm, "").trim();
-    const field = clean.match(/pub\s+(\w+)\s*:\s*([\s\S]+)$/);
-    return field ? [{ name: rename ?? field[1], rustType: field[2].trim(), flatten }] : [];
+    const field = clean.match(/(?:pub(?:\([^)]*\))?\s+)?(\w+)\s*:\s*([\s\S]+)$/);
+    return field ? [{ name: rename ?? field[1], rustType: field[2].trim(), flatten, defaulted }] : [];
   });
   return { file, fields };
 }
@@ -105,18 +141,71 @@ function resolveStruct(files, module, raw) {
     ?? matches[0];
 }
 
-function renderedFields(files, module, raw, seen = new Set(), query = false) {
+function enumFrom(file, name) {
+  const match = new RegExp(`(?:pub(?:\\([^)]*\\))?\\s+)?enum\\s+${name}(?:\\s*<[^>{]+>)?\\s*\\{`).exec(file.source);
+  if (match?.index === undefined) return null;
+  const open = file.source.indexOf("{", match.index);
+  const close = matchingBrace(file.source, open);
+  if (close === -1) return null;
+  const attributes = file.source.slice(Math.max(0, file.source.lastIndexOf("#[", match.index)), match.index);
+  const renameAll = attributes.match(/serde\([^\]]*rename_all\s*=\s*"([^"]+)"/)?.[1];
+  const rename = value => renameAll === "snake_case"
+    ? value.replace(/([a-z0-9])([A-Z])/g, "$1_$2").toLowerCase()
+    : renameAll === "kebab-case" ? value.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase() : value;
+  const variants = splitFields(file.source.slice(open + 1, close)).flatMap(part => {
+    const explicit = part.match(/#\[serde\(rename\s*=\s*"([^"]+)"\)\]/)?.[1];
+    const clean = part.replace(/#\[[\s\S]*?\]/g, "").replace(/\/\/.*$/gm, "").trim();
+    const variant = clean.match(/^(\w+)\s*(?:\{|\(|$)/)?.[1];
+    return variant ? [explicit ?? rename(variant)] : [];
+  });
+  return variants.length ? variants : null;
+}
+
+function resolveEnum(files, module, raw) {
+  const name = typeName(raw);
+  if (!name) return null;
+  const matches = files.map(file => ({ file, variants: enumFrom(file, name) })).filter(item => item.variants);
+  return matches.find(item => item.file.path.includes(`/${module}/`)) ?? matches[0] ?? null;
+}
+
+function renderedFields(files, module, raw, seen = new Set(), query = false, declarations = null, base = "Nested", declared = new Set()) {
   const resolved = resolveStruct(files, module, raw);
   const name = typeName(raw);
   if (!resolved || !name || seen.has(`${resolved.file.path}:${name}`)) return [];
   const nextSeen = new Set(seen).add(`${resolved.file.path}:${name}`);
   return resolved.fields.flatMap(field => {
-    if (field.flatten) return renderedFields(files, module, field.rustType, nextSeen, query);
+    if (field.flatten) return renderedFields(files, module, field.rustType, nextSeen, query, declarations, base, declared);
     const outer = unwrap(field.rustType, "Option");
     const optional = Boolean(outer);
-    const nested = query ? renderedFields(files, module, outer ?? field.rustType, nextSeen, true) : [];
+    const valueRaw = outer ?? field.rustType;
+    const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared) : [];
     if (nested.length) return nested.map(item => ({ ...item, name: `${field.name}[${item.name}]`, optional: optional || item.optional }));
-    return [{ name: field.name, optional, type: tsType(outer ?? field.rustType, query) }];
+    let renderedType = tsType(valueRaw, query);
+    if (!query && (renderedType === "JsonValue" || renderedType === "JsonValue[]") && declarations) {
+      const vector = unwrap(valueRaw, "Vec");
+      const candidate = vector ?? valueRaw;
+      const nestedStruct = resolveStruct(files, module, candidate);
+      const nestedEnum = resolveEnum(files, module, candidate);
+      const nestedName = `${base}${pascal(field.name)}`;
+      if (nestedStruct && !nextSeen.has(`${nestedStruct.file.path}:${typeName(candidate)}`)) {
+        const key = `${nestedStruct.file.path}:${typeName(candidate)}:${nestedName}`;
+        if (!declared.has(key)) {
+          declared.add(key);
+          const fields = renderedFields(files, module, candidate, nextSeen, false, declarations, nestedName, declared);
+          declarations.push(`export interface ${nestedName} extends JsonObject {`);
+          writeFields(declarations, fields);
+          declarations.push("}");
+        }
+        renderedType = `${nestedName}${vector ? "[]" : ""}`;
+      } else if (nestedEnum) {
+        if (!declared.has(nestedName)) {
+          declared.add(nestedName);
+          declarations.push(`export type ${nestedName} = ${nestedEnum.variants.map(value => JSON.stringify(value)).join(" | ")};`);
+        }
+        renderedType = `${nestedName}${vector ? "[]" : ""}`;
+      }
+    }
+    return [{ name: field.name, optional: optional || field.defaulted, type: optional && !renderedType.includes("null") ? `${renderedType} | null` : renderedType }];
   });
 }
 
@@ -131,7 +220,7 @@ function responseDataType(lines, files, module, raw, base) {
   const paged = unwrap(normalized, "PagedResult");
   if (vector || paged) {
     const itemRaw = vector ?? paged;
-    const itemFields = renderedFields(files, module, itemRaw);
+    const itemFields = renderedFields(files, module, itemRaw, new Set(), false, lines, `${base}Item`);
     const itemType = itemFields.length ? `${base}Item` : tsType(itemRaw);
     if (itemFields.length) {
       lines.push(`export interface ${base}Item extends JsonObject {`);
@@ -147,7 +236,7 @@ function responseDataType(lines, files, module, raw, base) {
     }
     return `${itemType}[]`;
   }
-  const fields = renderedFields(files, module, normalized);
+  const fields = renderedFields(files, module, normalized, new Set(), false, lines, `${base}Data`);
   if (fields.length) {
     lines.push(`export interface ${base}Data extends JsonObject {`);
     writeFields(lines, fields);
@@ -182,11 +271,20 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const ids = placeholders(endpoint.path);
     const hasInput = Boolean(endpoint.body || endpoint.multipart);
     const hasQuery = Boolean(endpoint.query);
+    const inputOverride = inputOverrides[service]?.[endpoint.handler];
+    const responseOverride = responseOverrides[service]?.[endpoint.handler];
     if (hasInput) {
       typeLines.push(`/** Backend request type: ${endpoint.body ?? "multipart/form-data"}. */`);
-      typeLines.push(`export interface ${base}Input extends JsonObject {`);
-      writeFields(typeLines, renderedFields(files, endpoint.module, endpoint.body));
-      typeLines.push("}");
+      if (inputOverride) {
+        typeLines.push(`export type ${base}Input = import("./types.js").${inputOverride};`);
+      } else if (endpoint.multipart) {
+        typeLines.push(`export type ${base}Input = FormData;`);
+      } else {
+        const inputFields = renderedFields(files, endpoint.module, endpoint.body, new Set(), false, typeLines, `${base}Input`);
+        typeLines.push(`export interface ${base}Input extends JsonObject {`);
+        writeFields(typeLines, inputFields);
+        typeLines.push("}");
+      }
     }
     if (hasQuery) {
       typeLines.push(`/** Backend query type: ${endpoint.query}. */`);
@@ -194,22 +292,35 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       writeFields(typeLines, renderedFields(files, endpoint.module, endpoint.query, new Set(), true));
       typeLines.push("}");
     }
-    typeLines.push(`/** Backend response type: ${endpoint.response ?? "response without a declared JSON model"}. */`);
-    const dataType = responseDataType(typeLines, files, endpoint.module, endpoint.response, `${base}Response`);
-    const metaType = endpoint.responseMeta
-      ? responseDataType(typeLines, files, endpoint.module, endpoint.responseMeta, `${base}Meta`)
-      : null;
-    typeLines.push(`export interface ${base}Response extends ApiEnvelope<${dataType}> {`);
-    if (metaType) typeLines.push(`  meta: ${metaType};`);
-    typeLines.push("}");
+    typeLines.push(`/** Backend response type: ${endpoint.response ?? "handler-defined response"}. */`);
+    if (responseOverride) {
+      typeLines.push(`export type ${base}Response = import("./types.js").${responseOverride};`);
+    } else {
+      const dataType = responseDataType(typeLines, files, endpoint.module, endpoint.response, `${base}Response`);
+      const metaType = endpoint.responseMeta
+        ? responseDataType(typeLines, files, endpoint.module, endpoint.responseMeta, `${base}Meta`)
+        : null;
+      typeLines.push(`export interface ${base}Response extends ApiEnvelope<${dataType}> {`);
+      if (metaType) typeLines.push(`  meta: ${metaType};`);
+      typeLines.push("}");
+    }
     typeLines.push("");
 
     const args = ids.map(id => `${camel(id)}: Identifier`);
     if (hasInput) args.push(`data: T.${base}Input`);
     if (hasQuery) args.push(`params?: T.${base}Query`);
     args.push(`options?: RequestOptions${hasInput ? `<T.${base}Input>` : ""}`);
-    const permissions = endpoint.permissions.length ? endpoint.permissions.join(", ") : "public/session-derived";
-    operationLines.push(`  /** ${endpoint.method} ${endpoint.path}; permission: ${permissions}. */`);
+    const permissions = endpoint.permissions.length ? endpoint.permissions.join(", ") : "session-derived or public bootstrap route";
+    operationLines.push("  /**");
+    operationLines.push(`   * Performs the ${operationPurpose(endpoint)} operation for the ${endpoint.module.replace(/_/g, " ")} capability.`);
+    operationLines.push(`   * Calls \`${endpoint.method} ${endpoint.path}\` through the shared IDP-aware Faiber client.`);
+    for (const id of ids) operationLines.push(`   * @param ${camel(id)} Backend path identifier \`${id}\`.`);
+    if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
+    if (hasQuery) operationLines.push("   * @param params Typed query parameters; omitted members retain backend defaults.");
+    operationLines.push("   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.");
+    operationLines.push("   * @returns The complete Axios response, including the typed service envelope, status, and headers.");
+    operationLines.push(`   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: ${permissions}.`);
+    operationLines.push("   */");
     operationLines.push(`  ${methodName}(${args.join(", ")}) {`);
     const requestData = endpoint.formUrlEncoded ? "urlEncoded(data)" : "data";
     operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : ""} });`);

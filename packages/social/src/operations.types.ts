@@ -3,303 +3,269 @@ import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend request type: legacy::LegacyImportRequest. */
 export interface ApiImportModulesPostInput extends JsonObject {
-  "dry_run": boolean;
+  "dry_run"?: boolean;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiImportModulesPostResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiImportModulesPostResponse = import("./types.js").LegacyImportResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiListCategoriesGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiListCategoriesGetResponse = import("./types.js").SocialCategoryListResponse;
 
 /** Backend request type: CreateCategory. */
 export interface ApiCreateCategoryPostInput extends JsonObject {
   "slug": string;
   "name": JsonValue;
-  "description": JsonValue;
-  "icon"?: string;
-  "color"?: string;
-  "sort_order": number;
-  "status": string;
-  "moderate_posts": boolean;
-  "moderate_comments": boolean;
-  "metadata": JsonValue;
-}
-/** Backend response type: response without a declared JSON model. */
-export interface ApiCreateCategoryPostResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: response without a declared JSON model. */
-export interface ApiDeleteCategoryDeleteResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend request type: UpdateCategory. */
-export interface ApiUpdateCategoryPatchInput extends JsonObject {
-  "slug"?: string;
-  "name"?: JsonValue;
   "description"?: JsonValue;
-  "icon"?: string;
-  "color"?: string;
+  "icon"?: string | null;
+  "color"?: string | null;
   "sort_order"?: number;
   "status"?: string;
   "moderate_posts"?: boolean;
   "moderate_comments"?: boolean;
   "metadata"?: JsonValue;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiUpdateCategoryPatchResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiCreateCategoryPostResponse = import("./types.js").SocialCategoryResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiDeleteCommentDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: handler-defined response. */
+export type ApiDeleteCategoryDeleteResponse = import("./types.js").NoContentResponse;
+
+/** Backend request type: UpdateCategory. */
+export interface ApiUpdateCategoryPatchInput extends JsonObject {
+  "slug"?: string | null;
+  "name"?: JsonValue | null;
+  "description"?: JsonValue | null;
+  "icon"?: string | null;
+  "color"?: string | null;
+  "sort_order"?: number | null;
+  "status"?: string | null;
+  "moderate_posts"?: boolean | null;
+  "moderate_comments"?: boolean | null;
+  "metadata"?: JsonValue | null;
 }
+/** Backend response type: handler-defined response. */
+export type ApiUpdateCategoryPatchResponse = import("./types.js").SocialCategoryResponse;
+
+/** Backend response type: handler-defined response. */
+export type ApiDeleteCommentDeleteResponse = import("./types.js").NoContentResponse;
 
 /** Backend request type: UpdateComment. */
 export interface ApiUpdateCommentPatchInput extends JsonObject {
   "body": string;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiUpdateCommentPatchResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiUpdateCommentPatchResponse = import("./types.js").SocialCommentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiRemoveCommentReactionDeleteApiV1CommentsIdLikeResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiRemoveCommentReactionDeleteApiV1CommentsIdLikeResponse = import("./types.js").NoContentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiLikeCommentPutResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiLikeCommentPutResponse = import("./types.js").SocialReactionResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiRemoveCommentReactionDeleteApiV1CommentsIdReactionResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiRemoveCommentReactionDeleteApiV1CommentsIdReactionResponse = import("./types.js").NoContentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiCommentReactionsGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiCommentReactionsGetResponse = import("./types.js").ReactionSummaryResponse;
 
 /** Backend request type: SetReaction. */
 export interface ApiSetCommentReactionPutInput extends JsonObject {
   "reaction_type": string;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiSetCommentReactionPutResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiSetCommentReactionPutResponse = import("./types.js").SocialReactionResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiListPostCommentsGetApiV1CommentsPostIdResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiListPostCommentsGetApiV1CommentsPostIdResponse = import("./types.js").SocialCommentListResponse;
 
 /** Backend request type: CreateComment. */
 export interface ApiCreatePostCommentPostApiV1CommentsPostIdInput extends JsonObject {
-  "parent_id"?: string;
+  "parent_id"?: string | null;
   "body": string;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiCreatePostCommentPostApiV1CommentsPostIdResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiCreatePostCommentPostApiV1CommentsPostIdResponse = import("./types.js").SocialCommentResponse;
 
 /** Backend query type: AnalyticsQuery. */
 export interface ApiMyAnalyticsGetQuery extends QueryParams {
-  "from"?: string;
-  "to"?: string;
+  "from"?: string | null;
+  "to"?: string | null;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiMyAnalyticsGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiMyAnalyticsGetResponse = import("./types.js").CreatorAnalyticsResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiMyBookmarksGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiMyBookmarksGetResponse = import("./types.js").SocialBookmarksResponse;
 
 /** Backend query type: FeedQuery. */
 export interface ApiListMyPostsGetQuery extends QueryParams {
-  "q"?: string;
-  "author_id"?: string;
-  "kind"?: string;
-  "category_id"?: string;
-  "page": number;
-  "limit": number;
+  "q"?: string | null;
+  "author_id"?: string | null;
+  "kind"?: string | null;
+  "category_id"?: string | null;
+  "page"?: number;
+  "limit"?: number;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiListMyPostsGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiListMyPostsGetResponse = import("./types.js").SocialPostListResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiGetMediaGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiGetMediaGetResponse = import("./types.js").NoContentResponse;
 
 /** Backend request type: multipart/form-data. */
-export interface ApiUploadMediaPostInput extends JsonObject {
-}
-/** Backend response type: response without a declared JSON model. */
-export interface ApiUploadMediaPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type ApiUploadMediaPostInput = FormData;
+/** Backend response type: handler-defined response. */
+export type ApiUploadMediaPostResponse = import("./types.js").SocialMediaResponse;
 
 /** Backend request type: ModerateTarget. */
 export interface ApiModeratePostInput extends JsonObject {
   "target_type": string;
   "target_id": string;
   "action": string;
-  "reason"?: string;
+  "reason"?: string | null;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiModeratePostResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiModeratePostResponse = import("./types.js").ModerationActionResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiModerationQueueGetResponse extends ApiEnvelope<JsonValue> {
+/** Backend query type: ModerationAuditQuery. */
+export interface ApiModerationAuditGetQuery extends QueryParams {
+  "target_type"?: string | null;
+  "action"?: string | null;
+  "page"?: number;
+  "limit"?: number;
 }
+/** Backend response type: handler-defined response. */
+export type ApiModerationAuditGetResponse = import("./types.js").ModerationAuditResponse;
+
+/** Backend response type: handler-defined response. */
+export type ApiModerationQueueGetResponse = import("./types.js").ModerationQueueResponse;
 
 /** Backend query type: FeedQuery. */
 export interface ApiListPostsGetQuery extends QueryParams {
-  "q"?: string;
-  "author_id"?: string;
-  "kind"?: string;
-  "category_id"?: string;
-  "page": number;
-  "limit": number;
+  "q"?: string | null;
+  "author_id"?: string | null;
+  "kind"?: string | null;
+  "category_id"?: string | null;
+  "page"?: number;
+  "limit"?: number;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiListPostsGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiListPostsGetResponse = import("./types.js").SocialPostListResponse;
 
 /** Backend request type: CreatePost. */
 export interface ApiCreatePostPostInput extends JsonObject {
-  "category_id"?: string;
-  "kind": string;
-  "visibility": string;
-  "title"?: string;
-  "body": string;
-  "media": JsonValue;
-  "metadata": JsonValue;
-}
-/** Backend response type: response without a declared JSON model. */
-export interface ApiCreatePostPostResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: response without a declared JSON model. */
-export interface ApiDeletePostDeleteResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: response without a declared JSON model. */
-export interface ApiGetPostGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend request type: UpdatePost. */
-export interface ApiUpdatePostPatchInput extends JsonObject {
-  "category_id"?: string;
+  "category_id"?: string | null;
   "kind"?: string;
   "visibility"?: string;
-  "title"?: string;
-  "body"?: string;
+  "title"?: string | null;
+  "body": string;
   "media"?: JsonValue;
   "metadata"?: JsonValue;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiUpdatePostPatchResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: handler-defined response. */
+export type ApiCreatePostPostResponse = import("./types.js").SocialPostResponse;
+
+/** Backend response type: handler-defined response. */
+export type ApiDeletePostDeleteResponse = import("./types.js").NoContentResponse;
+
+/** Backend response type: handler-defined response. */
+export type ApiGetPostGetResponse = import("./types.js").SocialPostResponse;
+
+/** Backend request type: UpdatePost. */
+export interface ApiUpdatePostPatchInput extends JsonObject {
+  "category_id"?: string | null;
+  "kind"?: string | null;
+  "visibility"?: string | null;
+  "title"?: string | null;
+  "body"?: string | null;
+  "media"?: JsonValue | null;
+  "metadata"?: JsonValue | null;
 }
+/** Backend response type: handler-defined response. */
+export type ApiUpdatePostPatchResponse = import("./types.js").SocialPostResponse;
 
 /** Backend query type: AnalyticsQuery. */
 export interface ApiPostAnalyticsGetQuery extends QueryParams {
-  "from"?: string;
-  "to"?: string;
+  "from"?: string | null;
+  "to"?: string | null;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiPostAnalyticsGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiPostAnalyticsGetResponse = import("./types.js").CreatorAnalyticsResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiUnbookmarkPostDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiUnbookmarkPostDeleteResponse = import("./types.js").NoContentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiBookmarkPostPutResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiBookmarkPostPutResponse = import("./types.js").NoContentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiListPostCommentsGetApiV1PostsIdCommentsResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiListPostCommentsGetApiV1PostsIdCommentsResponse = import("./types.js").SocialCommentListResponse;
 
 /** Backend request type: CreateComment. */
 export interface ApiCreatePostCommentPostApiV1PostsIdCommentsInput extends JsonObject {
-  "parent_id"?: string;
+  "parent_id"?: string | null;
   "body": string;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiCreatePostCommentPostApiV1PostsIdCommentsResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiCreatePostCommentPostApiV1PostsIdCommentsResponse = import("./types.js").SocialCommentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiRemovePostReactionDeleteApiV1PostsIdLikeResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiRemovePostReactionDeleteApiV1PostsIdLikeResponse = import("./types.js").NoContentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiLikePostPutResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiLikePostPutResponse = import("./types.js").SocialReactionResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiRemovePostReactionDeleteApiV1PostsIdReactionResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiRemovePostReactionDeleteApiV1PostsIdReactionResponse = import("./types.js").NoContentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiPostReactionsGetApiV1PostsIdReactionResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiPostReactionsGetApiV1PostsIdReactionResponse = import("./types.js").ReactionSummaryResponse;
 
 /** Backend request type: SetReaction. */
 export interface ApiSetPostReactionPutInput extends JsonObject {
   "reaction_type": string;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiSetPostReactionPutResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiSetPostReactionPutResponse = import("./types.js").SocialReactionResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiResubmitPostPostResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiResubmitPostPostResponse = import("./types.js").SocialPostResponse;
 
 /** Backend request type: ShareEvent. */
 export interface ApiRecordShareEventPostInput extends JsonObject {
-  "channel": string;
-  "idempotency_key"?: string;
+  "channel"?: string;
+  "idempotency_key"?: string | null;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiRecordShareEventPostResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiRecordShareEventPostResponse = import("./types.js").NoContentResponse;
 
 /** Backend request type: RecordView. */
 export interface ApiRecordPostViewPostInput extends JsonObject {
   "visible_ms": number;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiRecordPostViewPostResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiRecordPostViewPostResponse = import("./types.js").RecordViewResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiRemovePostReactionDeleteApiV1ReactionsPostIdResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiRemovePostReactionDeleteApiV1ReactionsPostIdResponse = import("./types.js").NoContentResponse;
 
-/** Backend response type: response without a declared JSON model. */
-export interface ApiPostReactionsGetApiV1ReactionsPostIdResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiPostReactionsGetApiV1ReactionsPostIdResponse = import("./types.js").ReactionSummaryResponse;
 
 /** Backend request type: SetReaction. */
 export interface ApiSetPostReactionPostInput extends JsonObject {
   "reaction_type": string;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiSetPostReactionPostResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiSetPostReactionPostResponse = import("./types.js").SocialReactionResponse;
 
 /** Backend request type: CreateReport. */
 export interface ApiCreateReportPostInput extends JsonObject {
   "target_type": string;
   "target_id": string;
   "reason": string;
-  "details"?: string;
+  "details"?: string | null;
 }
-/** Backend response type: response without a declared JSON model. */
-export interface ApiCreateReportPostResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: handler-defined response. */
+export type ApiCreateReportPostResponse = import("./types.js").SocialReportResponse;
 

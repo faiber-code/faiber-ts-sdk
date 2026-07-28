@@ -10,7 +10,7 @@ export class StateRealtimeClient{
   sendInput(values:InputFrame["values"],delivery:InputFrame["delivery"]="unreliable"):number{const sequence=++this.sequence;const frame:InputFrame={room_id:this.ticket.room_id,player_id:this.ticket.player_id,ticket:this.ticket.ticket,sequence,delivery,values};if(delivery!=="reliable"&&this.options.datagram)void this.options.datagram.send(frame);else this.send({type:"input",frame});return sequence}
   ping(){this.send({type:"ping"})}
   close(){this.closed=true;this.options.datagram?.close();this.socket?.close()}
-  private send(value:unknown){if(this.socket?.readyState!==WebSocket.OPEN)throw new Error("State realtime connection is not open");this.socket.send(JSON.stringify(value))}
+  private send(value:unknown){const Socket=this.options.WebSocket??globalThis.WebSocket;if(!Socket||this.socket?.readyState!==Socket.OPEN)throw new Error("State realtime connection is not open");this.socket.send(JSON.stringify(value))}
   private receive(raw:string){try{const event=JSON.parse(raw) as ServerEvent;if(event.type==="snapshot")this.emit("snapshot",event.room);else if(event.type==="patch")this.emit("patch",event.patch);else if(event.type==="player_joined")this.emit("player_joined",event);else if(event.type==="player_left")this.emit("player_left",event);else if(event.type==="ack")this.emit("ack",event);else if(event.type==="error")this.emit("error",new Error(`${event.code}: ${event.message}`))}catch(reason){this.emit("error",reason instanceof Error?reason:new Error(String(reason)))}}
   private emit<K extends keyof EventMap>(type:K,value:EventMap[K]){for(const listener of this.listeners.get(type)??[])listener(value as never)}
 }

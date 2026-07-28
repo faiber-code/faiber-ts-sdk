@@ -28,7 +28,7 @@ const wallet = await api.operations.walletBillingWalletShowGet();
 
 ## Complete capability
 
-This package exposes 66 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 67 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -45,7 +45,7 @@ This package exposes 66 registered operations from the assets and billing servic
 | `sandbox-billing` | 7 | `DELETE`, `GET`, `POST`, `PUT` |
 | `service-lifecycle` | 4 | `DELETE`, `POST` |
 | `wallet` | 4 | `GET` |
-| `wallet-billing` | 17 | `DELETE`, `GET`, `POST`, `PUT` |
+| `wallet-billing` | 18 | `DELETE`, `GET`, `POST`, `PUT` |
 
 Administrative and self-service billing routes are distinct operations. Purchase, top-up, pause, resume, removal, and permanent-data deletion methods preserve the backend verbs and permission annotations.
 

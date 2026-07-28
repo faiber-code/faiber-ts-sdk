@@ -10,7 +10,7 @@ export class LmsApi extends ServiceApi {
     readonly classrooms: R<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update"] });
     readonly classroomSessions: R<T.ClassroomSession, T.CreateClassroomSessionInput, T.UpdateClassroomSessionInput> = new RestResource(this.client, "/api/v1/classrooms/sessions", { supported: ["list", "show", "create", "update"] });
     readonly exams: R<T.Exam, T.CreateExamInput, T.UpdateExamInput> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update"] });
-    readonly examQuestions: R<T.ExamQuestion, T.CreateExamQuestionInput, T.UpdateExamQuestionInput> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update"] });
+    readonly examQuestions: R<T.ExamQuestion, T.CreateExamQuestionInput, T.UpdateExamQuestionInput> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
     readonly examSessions: R<T.ExamSession, T.CreateExamSessionInput, T.UpdateExamSessionInput> = new RestResource(this.client, "/api/v1/exams/sessions", { supported: ["list", "show", "create", "update"] });
     readonly homeworks: R<T.Homework, T.CreateHomeworkInput, T.UpdateHomeworkInput> = new RestResource(this.client, "/api/v1/homeworks", { supported: ["list", "show", "create", "update"] });
     readonly homeworkQuestions: R<T.HomeworkQuestion, T.CreateHomeworkQuestionInput, T.UpdateHomeworkQuestionInput> = new RestResource(this.client, "/api/v1/homeworks/questions", { supported: ["list", "show", "create", "update"] });
@@ -24,6 +24,22 @@ export class LmsApi extends ServiceApi {
     courseSessions(id: Identifier, params?: QueryParams, options?: RequestOptions) { return this.client.get<T.CourseSessionsResponse>(`/api/v1/courses/${encodeURIComponent(id)}/sessions`, params, options); }
     addClassroomUser(id: Identifier, data: T.ClassroomUserInput, options?: RequestOptions<T.ClassroomUserInput>) { return this.client.post<T.ClassroomUserResponse, T.ClassroomUserInput>(`/api/v1/classrooms/${encodeURIComponent(id)}/users`, data, options); }
     report(kind: "teachers" | "students" | "classrooms", params?: QueryParams, options?: RequestOptions) { return this.client.get<T.LmsReportResponse>(`/api/v1/reports/${kind}`, params, options); }
+    /** Lists active learner academy categories for the authenticated IDP session. */
+    academyCategories(options?: RequestOptions) { return this.client.get<T.AcademyCategoriesResponse>("/api/v1/academy/categories", undefined, options); }
+    /** Lists active academy courses and the current learner's enrollment progress. */
+    academyCourses(params?: T.AcademyCatalogQuery, options?: RequestOptions) { return this.client.get<T.AcademyCoursesResponse>("/api/v1/academy/courses", params, options); }
+    /** Returns ordered sessions and lock/completion state for one academy course. */
+    academyCourse(courseId: Identifier, options?: RequestOptions) { return this.client.get<T.AcademyCourseResponse>(`/api/v1/academy/courses/${encodeURIComponent(courseId)}`, undefined, options); }
+    /** Enrolls the authenticated learner; paid courses return `pending_payment`. */
+    academyEnroll(courseId: Identifier, options?: RequestOptions) { return this.client.post<T.AcademyEnrollmentStartResponse, Record<string, never>>(`/api/v1/academy/courses/${encodeURIComponent(courseId)}/enroll`, {}, options); }
+    /** Lists enrollments owned by the authenticated learner. */
+    academyEnrollments(options?: RequestOptions) { return this.client.get<T.AcademyEnrollmentsResponse>("/api/v1/academy/enrollments", undefined, options); }
+    /** Completes an unlocked non-exam session idempotently. */
+    completeAcademySession(enrollmentId: Identifier, sessionId: Identifier, data: T.AcademyCompleteSessionInput, options?: RequestOptions<T.AcademyCompleteSessionInput>) { return this.client.post<T.AcademySessionCompletionResponse, T.AcademyCompleteSessionInput>(`/api/v1/academy/enrollments/${encodeURIComponent(enrollmentId)}/sessions/${encodeURIComponent(sessionId)}/complete`, data, options); }
+    /** Starts an unlocked exam attempt without exposing correct answers. */
+    startAcademyExam(enrollmentId: Identifier, examId: Identifier, options?: RequestOptions) { return this.client.post<T.AcademyExamAttemptResponse, Record<string, never>>(`/api/v1/academy/enrollments/${encodeURIComponent(enrollmentId)}/exams/${encodeURIComponent(examId)}/attempts`, {}, options); }
+    /** Submits answers once and returns the server-calculated score and pass state. */
+    submitAcademyExam(attemptId: Identifier, data: T.AcademySubmitExamInput, options?: RequestOptions<T.AcademySubmitExamInput>) { return this.client.post<T.AcademyExamResultResponse, T.AcademySubmitExamInput>(`/api/v1/academy/attempts/${encodeURIComponent(attemptId)}/submit`, data, options); }
 }
 export * from "./types.js";
 export * from "@faiber/sdk-core";

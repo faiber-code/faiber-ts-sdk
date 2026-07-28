@@ -38,6 +38,7 @@ import { FaiberSDK, MemoryTokenProvider, domainsFromEnv } from "@faiber/faiber-t
 const tokenProvider = new MemoryTokenProvider();
 const sdk = new FaiberSDK({
   domains: domainsFromEnv(import.meta.env),
+  authMode: "bearer",
   tokenProvider,
   axios: { withCredentials: true, timeout: 15_000 },
 });
@@ -55,7 +56,7 @@ await tokenProvider.setTokens({
 });
 ```
 
-Login forms are sent as `application/x-www-form-urlencoded`. Cookie deployments can omit the token provider and use `withCredentials: true`; Bearer deployments provide a token provider. The SDK never reads global storage or embeds credentials.
+Login forms are sent as `application/x-www-form-urlencoded`. Cookie deployments set `authMode: "cookie"`, which enables credentialed requests and suppresses Bearer injection; Bearer deployments set `authMode: "bearer"` and provide a token provider. The backward-compatible `auto` mode sends a token when available and otherwise follows Axios cookie configuration. The SDK never reads global storage or embeds credentials.
 
 For browser applications, prefer secure `HttpOnly`, `SameSite` cookies or an in-memory token provider. `StorageTokenProvider` is available only for applications that explicitly accept that Web Storage is readable by JavaScript and can expose tokens during an XSS incident. Server applications can implement `TokenProvider` against their request/session context.
 
@@ -85,7 +86,7 @@ List methods preserve each backend's typed query contract, including page number
 
 ## Domains and environment configuration
 
-`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, and `FAIBER_CHAT_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
+`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, `FAIBER_CHAT_URL`, and `FAIBER_STATE_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
 
 ## Inputs, outputs, errors, and cancellation
 

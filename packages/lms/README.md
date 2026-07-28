@@ -31,10 +31,11 @@ const sessions = await api.courseSessions(courseId);
 
 ## Complete capability
 
-This package exposes 131 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 142 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
+| `academy` | 8 | `GET`, `POST` |
 | `certificate` | 4 | `GET`, `PATCH`, `POST` |
 | `classroom` | 13 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `config` | 20 | `GET`, `PATCH`, `POST` |
@@ -42,7 +43,7 @@ This package exposes 131 registered operations from the learning management serv
 | `dashboard` | 1 | `GET` |
 | `docs` | 1 | `GET` |
 | `event` | 12 | `GET`, `PATCH`, `POST` |
-| `exam` | 12 | `GET`, `PATCH`, `POST` |
+| `exam` | 13 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `homework` | 12 | `GET`, `PATCH`, `POST` |
 | `integration` | 1 | `GET` |
 | `interactive` | 12 | `GET`, `PATCH`, `POST` |
@@ -52,7 +53,13 @@ This package exposes 131 registered operations from the learning management serv
 | `service` | 1 | `GET` |
 | `session` | 1 | `GET` |
 
-Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, and work-time records have dedicated typed operations. Most LMS updates use `PATCH`; unsupported generic deletes are guarded locally.
+Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, work-time records, and authenticated learner academy progression have dedicated typed operations. Exam questions support typed deletion; other unsupported generic deletes remain guarded locally.
+
+```ts
+const catalog = await api.academyCourses({ category_id: 4 });
+const enrollment = await api.academyEnroll(catalog.data.data[0].id);
+const detail = await api.academyCourse(catalog.data.data[0].id);
+```
 
 ## Authentication and authorization
 

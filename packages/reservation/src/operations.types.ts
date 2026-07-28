@@ -5,7 +5,7 @@ import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from
 export interface RouterHealthGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -15,16 +15,16 @@ export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<J
 
 /** Backend query type: PaginationQuery. */
 export interface ProviderIndexGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<ProviderResponse>. */
 export interface ProviderIndexGetResponseItem extends JsonObject {
   "id": number;
-  "user_id"?: string;
+  "user_id"?: string | null;
   "name": string;
-  "bio"?: string;
-  "avatar_url"?: string;
+  "bio"?: string | null;
+  "avatar_url"?: string | null;
   "is_active": boolean;
   "created_at": string;
 }
@@ -43,19 +43,19 @@ export interface ProviderIndexGetResponse extends ApiEnvelope<ProviderIndexGetRe
 
 /** Backend request type: CreateProviderRequest. */
 export interface ProviderStorePostInput extends JsonObject {
-  "user_id"?: string;
+  "user_id"?: string | null;
   "name": string;
-  "bio"?: string;
-  "avatar_url"?: string;
-  "is_active"?: boolean;
+  "bio"?: string | null;
+  "avatar_url"?: string | null;
+  "is_active"?: boolean | null;
 }
 /** Backend response type: ProviderResponse. */
 export interface ProviderStorePostResponseData extends JsonObject {
   "id": number;
-  "user_id"?: string;
+  "user_id"?: string | null;
   "name": string;
-  "bio"?: string;
-  "avatar_url"?: string;
+  "bio"?: string | null;
+  "avatar_url"?: string | null;
   "is_active": boolean;
   "created_at": string;
 }
@@ -69,10 +69,10 @@ export interface ProviderDestroyDeleteResponse extends ApiEnvelope<JsonObject> {
 /** Backend response type: ProviderResponse. */
 export interface ProviderShowGetResponseData extends JsonObject {
   "id": number;
-  "user_id"?: string;
+  "user_id"?: string | null;
   "name": string;
-  "bio"?: string;
-  "avatar_url"?: string;
+  "bio"?: string | null;
+  "avatar_url"?: string | null;
   "is_active": boolean;
   "created_at": string;
 }
@@ -81,19 +81,19 @@ export interface ProviderShowGetResponse extends ApiEnvelope<ProviderShowGetResp
 
 /** Backend request type: UpdateProviderRequest. */
 export interface ProviderUpdatePatchInput extends JsonObject {
-  "user_id"?: string;
-  "name"?: string;
-  "bio"?: string;
-  "avatar_url"?: string;
-  "is_active"?: boolean;
+  "user_id"?: string | null;
+  "name"?: string | null;
+  "bio"?: string | null;
+  "avatar_url"?: string | null;
+  "is_active"?: boolean | null;
 }
 /** Backend response type: ProviderResponse. */
 export interface ProviderUpdatePatchResponseData extends JsonObject {
   "id": number;
-  "user_id"?: string;
+  "user_id"?: string | null;
   "name": string;
-  "bio"?: string;
-  "avatar_url"?: string;
+  "bio"?: string | null;
+  "avatar_url"?: string | null;
   "is_active": boolean;
   "created_at": string;
 }
@@ -104,8 +104,8 @@ export interface ProviderUpdatePatchResponse extends ApiEnvelope<ProviderUpdateP
 export interface ProviderListServicesGetResponseItem extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "image_url"?: string;
+  "description"?: string | null;
+  "image_url"?: string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -139,8 +139,14 @@ export interface WorkScheduleIndexGetResponse extends ApiEnvelope<WorkScheduleIn
 }
 
 /** Backend request type: UpsertScheduleRequest. */
+export interface WorkScheduleUpsertPutInputSchedules extends JsonObject {
+  "day_of_week": string;
+  "start_time": string;
+  "end_time": string;
+  "is_active"?: boolean | null;
+}
 export interface WorkScheduleUpsertPutInput extends JsonObject {
-  "schedules": JsonValue[];
+  "schedules": WorkScheduleUpsertPutInputSchedules[];
 }
 /** Backend response type: Vec<WorkScheduleResponse>. */
 export interface WorkScheduleUpsertPutResponseItem extends JsonObject {
@@ -156,12 +162,12 @@ export interface WorkScheduleUpsertPutResponse extends ApiEnvelope<WorkScheduleU
 
 /** Backend query type: ReservationListQuery. */
 export interface ReservationIndexGetQuery extends QueryParams {
-  "user_id"?: string;
-  "provider_id"?: number;
-  "service_id"?: number;
-  "status"?: string;
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "user_id"?: string | null;
+  "provider_id"?: number | null;
+  "service_id"?: number | null;
+  "status"?: string | null;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: PagedResult<ReservationResponse>. */
 export interface ReservationIndexGetResponseItem extends JsonObject {
@@ -171,8 +177,8 @@ export interface ReservationIndexGetResponseItem extends JsonObject {
   "service_id": number;
   "user_id": string;
   "status": string;
-  "notes"?: string;
-  "starts_at"?: string;
+  "notes"?: string | null;
+  "starts_at"?: string | null;
   "created_at": string;
 }
 export interface ReservationIndexGetResponsePageMeta extends JsonObject {
@@ -192,7 +198,7 @@ export interface ReservationIndexGetResponse extends ApiEnvelope<ReservationInde
 export interface ReservationStorePostInput extends JsonObject {
   "time_slot_id": number;
   "user_id": string;
-  "notes"?: string;
+  "notes"?: string | null;
 }
 /** Backend response type: ReservationResponse. */
 export interface ReservationStorePostResponseData extends JsonObject {
@@ -202,8 +208,8 @@ export interface ReservationStorePostResponseData extends JsonObject {
   "service_id": number;
   "user_id": string;
   "status": string;
-  "notes"?: string;
-  "starts_at"?: string;
+  "notes"?: string | null;
+  "starts_at"?: string | null;
   "created_at": string;
 }
 export interface ReservationStorePostResponse extends ApiEnvelope<ReservationStorePostResponseData> {
@@ -221,8 +227,8 @@ export interface ReservationShowGetResponseData extends JsonObject {
   "service_id": number;
   "user_id": string;
   "status": string;
-  "notes"?: string;
-  "starts_at"?: string;
+  "notes"?: string | null;
+  "starts_at"?: string | null;
   "created_at": string;
 }
 export interface ReservationShowGetResponse extends ApiEnvelope<ReservationShowGetResponseData> {
@@ -230,8 +236,8 @@ export interface ReservationShowGetResponse extends ApiEnvelope<ReservationShowG
 
 /** Backend request type: UpdateReservationRequest. */
 export interface ReservationUpdatePatchInput extends JsonObject {
-  "status"?: string;
-  "notes"?: string;
+  "status"?: string | null;
+  "notes"?: string | null;
 }
 /** Backend response type: ReservationResponse. */
 export interface ReservationUpdatePatchResponseData extends JsonObject {
@@ -241,8 +247,8 @@ export interface ReservationUpdatePatchResponseData extends JsonObject {
   "service_id": number;
   "user_id": string;
   "status": string;
-  "notes"?: string;
-  "starts_at"?: string;
+  "notes"?: string | null;
+  "starts_at"?: string | null;
   "created_at": string;
 }
 export interface ReservationUpdatePatchResponse extends ApiEnvelope<ReservationUpdatePatchResponseData> {
@@ -250,15 +256,15 @@ export interface ReservationUpdatePatchResponse extends ApiEnvelope<ReservationU
 
 /** Backend query type: PaginationQuery. */
 export interface ReservationServiceIndexGetQuery extends QueryParams {
-  "page[number]"?: number;
-  "page[size]"?: number;
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<ServiceResponse>. */
 export interface ReservationServiceIndexGetResponseItem extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "image_url"?: string;
+  "description"?: string | null;
+  "image_url"?: string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -280,18 +286,18 @@ export interface ReservationServiceIndexGetResponse extends ApiEnvelope<Reservat
 /** Backend request type: CreateServiceRequest. */
 export interface ReservationServiceStorePostInput extends JsonObject {
   "name": string;
-  "description"?: string;
-  "image_url"?: string;
+  "description"?: string | null;
+  "image_url"?: string | null;
   "duration_minutes": number;
-  "buffer_minutes"?: number;
-  "is_active"?: boolean;
+  "buffer_minutes"?: number | null;
+  "is_active"?: boolean | null;
 }
 /** Backend response type: ServiceResponse. */
 export interface ReservationServiceStorePostResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "image_url"?: string;
+  "description"?: string | null;
+  "image_url"?: string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -308,8 +314,8 @@ export interface ReservationServiceDestroyDeleteResponse extends ApiEnvelope<Jso
 export interface ReservationServiceShowGetResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "image_url"?: string;
+  "description"?: string | null;
+  "image_url"?: string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -320,19 +326,19 @@ export interface ReservationServiceShowGetResponse extends ApiEnvelope<Reservati
 
 /** Backend request type: UpdateServiceRequest. */
 export interface ReservationServiceUpdatePatchInput extends JsonObject {
-  "name"?: string;
-  "description"?: string;
-  "image_url"?: string;
-  "duration_minutes"?: number;
-  "buffer_minutes"?: number;
-  "is_active"?: boolean;
+  "name"?: string | null;
+  "description"?: string | null;
+  "image_url"?: string | null;
+  "duration_minutes"?: number | null;
+  "buffer_minutes"?: number | null;
+  "is_active"?: boolean | null;
 }
 /** Backend response type: ServiceResponse. */
 export interface ReservationServiceUpdatePatchResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "image_url"?: string;
+  "description"?: string | null;
+  "image_url"?: string | null;
   "duration_minutes": number;
   "buffer_minutes": number;
   "is_active": boolean;
@@ -364,18 +370,18 @@ export interface TimeSlotShowGetResponseData extends JsonObject {
   "starts_at": string;
   "ends_at": string;
   "is_reserved": boolean;
-  "reserved_by_user_id"?: string;
+  "reserved_by_user_id"?: string | null;
 }
 export interface TimeSlotShowGetResponse extends ApiEnvelope<TimeSlotShowGetResponseData> {
 }
 
 /** Backend request type: UpdateTimeSlotRequest. */
 export interface TimeSlotUpdatePatchInput extends JsonObject {
-  "provider_id"?: number;
-  "service_id"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
-  "is_reserved"?: boolean;
+  "provider_id"?: number | null;
+  "service_id"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
+  "is_reserved"?: boolean | null;
 }
 /** Backend response type: TimeSlotResponse. */
 export interface TimeSlotUpdatePatchResponseData extends JsonObject {
@@ -385,16 +391,16 @@ export interface TimeSlotUpdatePatchResponseData extends JsonObject {
   "starts_at": string;
   "ends_at": string;
   "is_reserved": boolean;
-  "reserved_by_user_id"?: string;
+  "reserved_by_user_id"?: string | null;
 }
 export interface TimeSlotUpdatePatchResponse extends ApiEnvelope<TimeSlotUpdatePatchResponseData> {
 }
 
 /** Backend query type: AvailableSlotsQuery. */
 export interface TimeSlotAvailableGetQuery extends QueryParams {
-  "service_id"?: number;
-  "provider_id"?: number;
-  "date"?: string;
+  "service_id"?: number | null;
+  "provider_id"?: number | null;
+  "date"?: string | null;
 }
 /** Backend response type: Vec<TimeSlotResponse>. */
 export interface TimeSlotAvailableGetResponseItem extends JsonObject {
@@ -404,7 +410,7 @@ export interface TimeSlotAvailableGetResponseItem extends JsonObject {
   "starts_at": string;
   "ends_at": string;
   "is_reserved": boolean;
-  "reserved_by_user_id"?: string;
+  "reserved_by_user_id"?: string | null;
 }
 export interface TimeSlotAvailableGetResponse extends ApiEnvelope<TimeSlotAvailableGetResponseItem[]> {
 }

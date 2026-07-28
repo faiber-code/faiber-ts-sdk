@@ -11,3 +11,7 @@ realtime.sendInput({ move_x: 5, move_z: -1 }, "unreliable");
 ```
 
 Browsers use the reliable WebSocket channel by default. Native mobile/desktop hosts can inject a `DatagramTransport` for UDP or QUIC traffic. `PredictionBuffer` replays unacknowledged input after each authoritative patch.
+
+All HTTP methods use the shared `FaiberClient`, so Bearer tokens and secure-cookie credentials,
+Axios errors, cancellation signals, and custom request options are preserved. The realtime socket
+authenticates with the short-lived ticket returned by the authorized `join` call.

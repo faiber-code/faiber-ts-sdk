@@ -23,7 +23,7 @@ try {
   let total = 0;
   for (const [service, endpoints] of Object.entries(committed)) {
     const source = await readFile(join(root, "packages", service, "src", "operations.ts"), "utf8");
-    const generated = [...source.matchAll(/\/\*\* (GET|POST|PUT|PATCH|DELETE) ([^;]+); permission:/g)]
+    const generated = [...source.matchAll(/\* Calls `((?:GET|POST|PUT|PATCH|DELETE)) ([^`]+)`/g)]
       .map(match => `${match[1]} ${match[2]}`);
     const expected = endpoints.map(endpoint => `${endpoint.method} ${endpoint.path}`);
     const generatedSet = new Set(generated);
@@ -36,7 +36,7 @@ try {
     }
     for (const endpoint of endpoints.filter(endpoint => endpoint.formUrlEncoded)) {
       const escaped = endpoint.path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      const block = source.match(new RegExp(`/\\*\\* ${endpoint.method} ${escaped};[\\s\\S]*?^  }`, "m"))?.[0] ?? "";
+      const block = source.match(new RegExp("\\* Calls `" + endpoint.method + " " + escaped + "`[\\s\\S]*?^  }", "m"))?.[0] ?? "";
       if (!block.includes("urlEncoded(data)") || !block.includes("application/x-www-form-urlencoded")) {
         throw new Error(`${service}: ${endpoint.method} ${endpoint.path} is not URL encoded`);
       }

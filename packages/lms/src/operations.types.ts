@@ -1,50 +1,41 @@
 import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: SubmitExamRequest. */
-export interface AcademySubmitExamPostInput extends JsonObject {
-}
+export type AcademySubmitExamPostInput = import("./types.js").AcademySubmitExamInput;
 /** Backend response type: Value. */
-export interface AcademySubmitExamPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AcademySubmitExamPostResponse = import("./types.js").AcademyExamResultResponse;
 
 /** Backend response type: Value. */
-export interface AcademyCategoriesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AcademyCategoriesGetResponse = import("./types.js").AcademyCategoriesResponse;
 
 /** Backend query type: CatalogQuery. */
 export interface AcademyCoursesGetQuery extends QueryParams {
+  "category_id"?: number | null;
 }
 /** Backend response type: Value. */
-export interface AcademyCoursesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AcademyCoursesGetResponse = import("./types.js").AcademyCoursesResponse;
 
 /** Backend response type: Value. */
-export interface AcademyCourseGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AcademyCourseGetResponse = import("./types.js").AcademyCourseResponse;
 
 /** Backend response type: Value. */
-export interface AcademyEnrollPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AcademyEnrollPostResponse = import("./types.js").AcademyEnrollmentStartResponse;
 
 /** Backend response type: Value. */
-export interface AcademyMyEnrollmentsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AcademyMyEnrollmentsGetResponse = import("./types.js").AcademyEnrollmentsResponse;
 
 /** Backend response type: Value. */
-export interface AcademyStartExamPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AcademyStartExamPostResponse = import("./types.js").AcademyExamAttemptResponse;
 
 /** Backend request type: CompleteRequest. */
-export interface AcademyCompleteSessionPostInput extends JsonObject {
-}
+export type AcademyCompleteSessionPostInput = import("./types.js").AcademyCompleteSessionInput;
 /** Backend response type: Value. */
-export interface AcademyCompleteSessionPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AcademyCompleteSessionPostResponse = import("./types.js").AcademySessionCompletionResponse;
 
 /** Backend response type: SessionResponse. */
 export interface SessionGetSelfGetResponseData extends JsonObject {
@@ -57,18 +48,18 @@ export interface SessionGetSelfGetResponse extends ApiEnvelope<SessionGetSelfGet
 
 /** Backend query type: PaginationQuery. */
 export interface CertificateIndexCertificateGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CertificateResponse>. */
 export interface CertificateIndexCertificateGetResponseItem extends JsonObject {
   "id": number;
   "user_id": string;
-  "course_id"?: number;
-  "classroom_id"?: number;
+  "course_id"?: number | null;
+  "classroom_id"?: number | null;
   "title": string;
   "issued_at": string;
-  "media_url"?: string;
+  "media_url"?: string | null;
   "created_at": string;
 }
 export interface CertificateIndexCertificateGetResponsePageMeta extends JsonObject {
@@ -87,21 +78,21 @@ export interface CertificateIndexCertificateGetResponse extends ApiEnvelope<Cert
 /** Backend request type: models::CreateCertificateRequest. */
 export interface CertificateStoreCertificatePostInput extends JsonObject {
   "user_id": string;
-  "course_id"?: number;
-  "classroom_id"?: number;
+  "course_id"?: number | null;
+  "classroom_id"?: number | null;
   "title": string;
   "issued_at": string;
-  "media_url"?: string;
+  "media_url"?: string | null;
 }
 /** Backend response type: models::CertificateResponse. */
 export interface CertificateStoreCertificatePostResponseData extends JsonObject {
   "id": number;
   "user_id": string;
-  "course_id"?: number;
-  "classroom_id"?: number;
+  "course_id"?: number | null;
+  "classroom_id"?: number | null;
   "title": string;
   "issued_at": string;
-  "media_url"?: string;
+  "media_url"?: string | null;
   "created_at": string;
 }
 export interface CertificateStoreCertificatePostResponse extends ApiEnvelope<CertificateStoreCertificatePostResponseData> {
@@ -111,11 +102,11 @@ export interface CertificateStoreCertificatePostResponse extends ApiEnvelope<Cer
 export interface CertificateShowCertificateGetResponseData extends JsonObject {
   "id": number;
   "user_id": string;
-  "course_id"?: number;
-  "classroom_id"?: number;
+  "course_id"?: number | null;
+  "classroom_id"?: number | null;
   "title": string;
   "issued_at": string;
-  "media_url"?: string;
+  "media_url"?: string | null;
   "created_at": string;
 }
 export interface CertificateShowCertificateGetResponse extends ApiEnvelope<CertificateShowCertificateGetResponseData> {
@@ -123,22 +114,22 @@ export interface CertificateShowCertificateGetResponse extends ApiEnvelope<Certi
 
 /** Backend request type: models::UpdateCertificateRequest. */
 export interface CertificateUpdateCertificatePatchInput extends JsonObject {
-  "user_id"?: string;
-  "course_id"?: number;
-  "classroom_id"?: number;
-  "title"?: string;
-  "issued_at"?: string;
-  "media_url"?: string;
+  "user_id"?: string | null;
+  "course_id"?: number | null;
+  "classroom_id"?: number | null;
+  "title"?: string | null;
+  "issued_at"?: string | null;
+  "media_url"?: string | null;
 }
 /** Backend response type: models::CertificateResponse. */
 export interface CertificateUpdateCertificatePatchResponseData extends JsonObject {
   "id": number;
   "user_id": string;
-  "course_id"?: number;
-  "classroom_id"?: number;
+  "course_id"?: number | null;
+  "classroom_id"?: number | null;
   "title": string;
   "issued_at": string;
-  "media_url"?: string;
+  "media_url"?: string | null;
   "created_at": string;
 }
 export interface CertificateUpdateCertificatePatchResponse extends ApiEnvelope<CertificateUpdateCertificatePatchResponseData> {
@@ -146,22 +137,22 @@ export interface CertificateUpdateCertificatePatchResponse extends ApiEnvelope<C
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexClassroomGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomResponse>. */
 export interface ClassroomIndexClassroomGetResponseItem extends JsonObject {
   "id": number;
   "course_id": number;
   "name": string;
-  "code"?: string;
-  "classroom_type_id"?: number;
-  "school_grade_id"?: number;
-  "teacher_user_id"?: string;
-  "consultant_user_id"?: string;
-  "capacity"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "code"?: string | null;
+  "classroom_type_id"?: number | null;
+  "school_grade_id"?: number | null;
+  "teacher_user_id"?: string | null;
+  "consultant_user_id"?: string | null;
+  "capacity"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -183,14 +174,14 @@ export interface ClassroomIndexClassroomGetResponse extends ApiEnvelope<Classroo
 export interface ClassroomStoreClassroomPostInput extends JsonObject {
   "course_id": number;
   "name": string;
-  "code"?: string;
-  "classroom_type_id"?: number;
-  "school_grade_id"?: number;
-  "teacher_user_id"?: string;
-  "consultant_user_id"?: string;
-  "capacity"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "code"?: string | null;
+  "classroom_type_id"?: number | null;
+  "school_grade_id"?: number | null;
+  "teacher_user_id"?: string | null;
+  "consultant_user_id"?: string | null;
+  "capacity"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
 }
 /** Backend response type: models::ClassroomResponse. */
@@ -198,14 +189,14 @@ export interface ClassroomStoreClassroomPostResponseData extends JsonObject {
   "id": number;
   "course_id": number;
   "name": string;
-  "code"?: string;
-  "classroom_type_id"?: number;
-  "school_grade_id"?: number;
-  "teacher_user_id"?: string;
-  "consultant_user_id"?: string;
-  "capacity"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "code"?: string | null;
+  "classroom_type_id"?: number | null;
+  "school_grade_id"?: number | null;
+  "teacher_user_id"?: string | null;
+  "consultant_user_id"?: string | null;
+  "capacity"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -218,14 +209,14 @@ export interface ClassroomShowClassroomGetResponseData extends JsonObject {
   "id": number;
   "course_id": number;
   "name": string;
-  "code"?: string;
-  "classroom_type_id"?: number;
-  "school_grade_id"?: number;
-  "teacher_user_id"?: string;
-  "consultant_user_id"?: string;
-  "capacity"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "code"?: string | null;
+  "classroom_type_id"?: number | null;
+  "school_grade_id"?: number | null;
+  "teacher_user_id"?: string | null;
+  "consultant_user_id"?: string | null;
+  "capacity"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -235,31 +226,31 @@ export interface ClassroomShowClassroomGetResponse extends ApiEnvelope<Classroom
 
 /** Backend request type: models::UpdateClassroomRequest. */
 export interface ClassroomUpdateClassroomPatchInput extends JsonObject {
-  "course_id"?: number;
-  "name"?: string;
-  "code"?: string;
-  "classroom_type_id"?: number;
-  "school_grade_id"?: number;
-  "teacher_user_id"?: string;
-  "consultant_user_id"?: string;
-  "capacity"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
-  "status"?: string;
+  "course_id"?: number | null;
+  "name"?: string | null;
+  "code"?: string | null;
+  "classroom_type_id"?: number | null;
+  "school_grade_id"?: number | null;
+  "teacher_user_id"?: string | null;
+  "consultant_user_id"?: string | null;
+  "capacity"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::ClassroomResponse. */
 export interface ClassroomUpdateClassroomPatchResponseData extends JsonObject {
   "id": number;
   "course_id": number;
   "name": string;
-  "code"?: string;
-  "classroom_type_id"?: number;
-  "school_grade_id"?: number;
-  "teacher_user_id"?: string;
-  "consultant_user_id"?: string;
-  "capacity"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "code"?: string | null;
+  "classroom_type_id"?: number | null;
+  "school_grade_id"?: number | null;
+  "teacher_user_id"?: string | null;
+  "consultant_user_id"?: string | null;
+  "capacity"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -269,15 +260,15 @@ export interface ClassroomUpdateClassroomPatchResponse extends ApiEnvelope<Class
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexClassroomUsersGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomUserResponse>. */
 export interface ClassroomIndexClassroomUsersGetResponseItem extends JsonObject {
   "id": number;
   "classroom_id": number;
   "user_id": string;
-  "score"?: number;
+  "score"?: number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -298,15 +289,15 @@ export interface ClassroomIndexClassroomUsersGetResponse extends ApiEnvelope<Cla
 /** Backend request type: models::EnrollClassroomUserRequest. */
 export interface ClassroomEnrollClassroomUserPostInput extends JsonObject {
   "user_id": string;
-  "score"?: number;
-  "status"?: string;
+  "score"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::ClassroomUserResponse. */
 export interface ClassroomEnrollClassroomUserPostResponseData extends JsonObject {
   "id": number;
   "classroom_id": number;
   "user_id": string;
-  "score"?: number;
+  "score"?: number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -320,15 +311,15 @@ export interface ClassroomRemoveClassroomUserDeleteResponse extends ApiEnvelope<
 
 /** Backend request type: models::UpdateClassroomUserRequest. */
 export interface ClassroomUpdateClassroomUserPatchInput extends JsonObject {
-  "score"?: number;
-  "status"?: string;
+  "score"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::ClassroomUserResponse. */
 export interface ClassroomUpdateClassroomUserPatchResponseData extends JsonObject {
   "id": number;
   "classroom_id": number;
   "user_id": string;
-  "score"?: number;
+  "score"?: number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -338,17 +329,17 @@ export interface ClassroomUpdateClassroomUserPatchResponse extends ApiEnvelope<C
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexSessionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
   "id": number;
   "classroom_id": number;
-  "course_session_id"?: number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "course_session_id"?: number | null;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -369,20 +360,20 @@ export interface ClassroomIndexSessionGetResponse extends ApiEnvelope<ClassroomI
 /** Backend request type: models::CreateSessionRequest. */
 export interface ClassroomStoreSessionPostInput extends JsonObject {
   "classroom_id": number;
-  "course_session_id"?: number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "course_session_id"?: number | null;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
 }
 /** Backend response type: models::SessionResponse. */
 export interface ClassroomStoreSessionPostResponseData extends JsonObject {
   "id": number;
   "classroom_id": number;
-  "course_session_id"?: number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "course_session_id"?: number | null;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -394,10 +385,10 @@ export interface ClassroomStoreSessionPostResponse extends ApiEnvelope<Classroom
 export interface ClassroomShowSessionGetResponseData extends JsonObject {
   "id": number;
   "classroom_id": number;
-  "course_session_id"?: number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "course_session_id"?: number | null;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -407,21 +398,21 @@ export interface ClassroomShowSessionGetResponse extends ApiEnvelope<ClassroomSh
 
 /** Backend request type: models::UpdateSessionRequest. */
 export interface ClassroomUpdateSessionPatchInput extends JsonObject {
-  "classroom_id"?: number;
-  "course_session_id"?: number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
-  "status"?: string;
+  "classroom_id"?: number | null;
+  "course_session_id"?: number | null;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::SessionResponse. */
 export interface ClassroomUpdateSessionPatchResponseData extends JsonObject {
   "id": number;
   "classroom_id": number;
-  "course_session_id"?: number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "course_session_id"?: number | null;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -431,8 +422,8 @@ export interface ClassroomUpdateSessionPatchResponse extends ApiEnvelope<Classro
 
 /** Backend query type: PaginationQuery. */
 export interface ClassroomIndexAbsencesGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::AbsenceResponse>. */
 export interface ClassroomIndexAbsencesGetResponseItem extends JsonObject {
@@ -440,7 +431,7 @@ export interface ClassroomIndexAbsencesGetResponseItem extends JsonObject {
   "classroom_session_id": number;
   "user_id": string;
   "status": string;
-  "absence_reason"?: string;
+  "absence_reason"?: string | null;
   "created_at": string;
 }
 export interface ClassroomIndexAbsencesGetResponsePageMeta extends JsonObject {
@@ -458,15 +449,15 @@ export interface ClassroomIndexAbsencesGetResponse extends ApiEnvelope<Classroom
 
 /** Backend query type: PaginationQuery. */
 export interface OpsIndexClubProjectGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ClubProjectResponse>. */
 export interface OpsIndexClubProjectGetResponseItem extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "owner_user_id"?: string;
+  "description"?: string | null;
+  "owner_user_id"?: string | null;
   "status": string;
   "created_at": string;
 }
@@ -486,16 +477,16 @@ export interface OpsIndexClubProjectGetResponse extends ApiEnvelope<OpsIndexClub
 /** Backend request type: models::CreateClubProjectRequest. */
 export interface OpsStoreClubProjectPostInput extends JsonObject {
   "name": string;
-  "description"?: string;
-  "owner_user_id"?: string;
+  "description"?: string | null;
+  "owner_user_id"?: string | null;
   "status": string;
 }
 /** Backend response type: models::ClubProjectResponse. */
 export interface OpsStoreClubProjectPostResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "owner_user_id"?: string;
+  "description"?: string | null;
+  "owner_user_id"?: string | null;
   "status": string;
   "created_at": string;
 }
@@ -506,8 +497,8 @@ export interface OpsStoreClubProjectPostResponse extends ApiEnvelope<OpsStoreClu
 export interface OpsShowClubProjectGetResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "owner_user_id"?: string;
+  "description"?: string | null;
+  "owner_user_id"?: string | null;
   "status": string;
   "created_at": string;
 }
@@ -516,17 +507,17 @@ export interface OpsShowClubProjectGetResponse extends ApiEnvelope<OpsShowClubPr
 
 /** Backend request type: models::UpdateClubProjectRequest. */
 export interface OpsUpdateClubProjectPatchInput extends JsonObject {
-  "name"?: string;
-  "description"?: string;
-  "owner_user_id"?: string;
-  "status"?: string;
+  "name"?: string | null;
+  "description"?: string | null;
+  "owner_user_id"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::ClubProjectResponse. */
 export interface OpsUpdateClubProjectPatchResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
-  "owner_user_id"?: string;
+  "description"?: string | null;
+  "owner_user_id"?: string | null;
   "status": string;
   "created_at": string;
 }
@@ -535,8 +526,8 @@ export interface OpsUpdateClubProjectPatchResponse extends ApiEnvelope<OpsUpdate
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexClassroomTypeGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomTypeResponse>. */
 export interface ConfigIndexClassroomTypeGetResponseItem extends JsonObject {
@@ -581,7 +572,7 @@ export interface ConfigShowClassroomTypeGetResponse extends ApiEnvelope<ConfigSh
 
 /** Backend request type: models::UpdateClassroomTypeRequest. */
 export interface ConfigUpdateClassroomTypePatchInput extends JsonObject {
-  "name"?: string;
+  "name"?: string | null;
 }
 /** Backend response type: models::ClassroomTypeResponse. */
 export interface ConfigUpdateClassroomTypePatchResponseData extends JsonObject {
@@ -594,15 +585,15 @@ export interface ConfigUpdateClassroomTypePatchResponse extends ApiEnvelope<Conf
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexEducationDayGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::EducationDayResponse>. */
 export interface ConfigIndexEducationDayGetResponseItem extends JsonObject {
   "id": number;
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string;
+  "label"?: string | null;
   "created_at": string;
 }
 export interface ConfigIndexEducationDayGetResponsePageMeta extends JsonObject {
@@ -622,14 +613,14 @@ export interface ConfigIndexEducationDayGetResponse extends ApiEnvelope<ConfigIn
 export interface ConfigStoreEducationDayPostInput extends JsonObject {
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string;
+  "label"?: string | null;
 }
 /** Backend response type: models::EducationDayResponse. */
 export interface ConfigStoreEducationDayPostResponseData extends JsonObject {
   "id": number;
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string;
+  "label"?: string | null;
   "created_at": string;
 }
 export interface ConfigStoreEducationDayPostResponse extends ApiEnvelope<ConfigStoreEducationDayPostResponseData> {
@@ -640,7 +631,7 @@ export interface ConfigShowEducationDayGetResponseData extends JsonObject {
   "id": number;
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string;
+  "label"?: string | null;
   "created_at": string;
 }
 export interface ConfigShowEducationDayGetResponse extends ApiEnvelope<ConfigShowEducationDayGetResponseData> {
@@ -648,16 +639,16 @@ export interface ConfigShowEducationDayGetResponse extends ApiEnvelope<ConfigSho
 
 /** Backend request type: models::UpdateEducationDayRequest. */
 export interface ConfigUpdateEducationDayPatchInput extends JsonObject {
-  "day_date"?: string;
-  "is_holiday"?: boolean;
-  "label"?: string;
+  "day_date"?: string | null;
+  "is_holiday"?: boolean | null;
+  "label"?: string | null;
 }
 /** Backend response type: models::EducationDayResponse. */
 export interface ConfigUpdateEducationDayPatchResponseData extends JsonObject {
   "id": number;
   "day_date": string;
   "is_holiday": boolean;
-  "label"?: string;
+  "label"?: string | null;
   "created_at": string;
 }
 export interface ConfigUpdateEducationDayPatchResponse extends ApiEnvelope<ConfigUpdateEducationDayPatchResponseData> {
@@ -665,8 +656,8 @@ export interface ConfigUpdateEducationDayPatchResponse extends ApiEnvelope<Confi
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexGradeGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::GradeResponse>. */
 export interface ConfigIndexGradeGetResponseItem extends JsonObject {
@@ -715,8 +706,8 @@ export interface ConfigShowGradeGetResponse extends ApiEnvelope<ConfigShowGradeG
 
 /** Backend request type: models::UpdateGradeRequest. */
 export interface ConfigUpdateGradePatchInput extends JsonObject {
-  "name"?: string;
-  "sort_order"?: number;
+  "name"?: string | null;
+  "sort_order"?: number | null;
 }
 /** Backend response type: models::GradeResponse. */
 export interface ConfigUpdateGradePatchResponseData extends JsonObject {
@@ -730,8 +721,8 @@ export interface ConfigUpdateGradePatchResponse extends ApiEnvelope<ConfigUpdate
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexTextTemplateGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::TextTemplateResponse>. */
 export interface ConfigIndexTextTemplateGetResponseItem extends JsonObject {
@@ -784,9 +775,9 @@ export interface ConfigShowTextTemplateGetResponse extends ApiEnvelope<ConfigSho
 
 /** Backend request type: models::UpdateTextTemplateRequest. */
 export interface ConfigUpdateTextTemplatePatchInput extends JsonObject {
-  "name"?: string;
-  "body"?: string;
-  "template_type"?: string;
+  "name"?: string | null;
+  "body"?: string | null;
+  "template_type"?: string | null;
 }
 /** Backend response type: models::TextTemplateResponse. */
 export interface ConfigUpdateTextTemplatePatchResponseData extends JsonObject {
@@ -801,8 +792,8 @@ export interface ConfigUpdateTextTemplatePatchResponse extends ApiEnvelope<Confi
 
 /** Backend query type: PaginationQuery. */
 export interface ConfigIndexWeekendGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::WeekendResponse>. */
 export interface ConfigIndexWeekendGetResponseItem extends JsonObject {
@@ -847,7 +838,7 @@ export interface ConfigShowWeekendGetResponse extends ApiEnvelope<ConfigShowWeek
 
 /** Backend request type: models::UpdateWeekendRequest. */
 export interface ConfigUpdateWeekendPatchInput extends JsonObject {
-  "day_of_week"?: number;
+  "day_of_week"?: number | null;
 }
 /** Backend response type: models::WeekendResponse. */
 export interface ConfigUpdateWeekendPatchResponseData extends JsonObject {
@@ -860,20 +851,20 @@ export interface ConfigUpdateWeekendPatchResponse extends ApiEnvelope<ConfigUpda
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexCourseGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CourseResponse>. */
 export interface CourseIndexCourseGetResponseItem extends JsonObject {
   "id": number;
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
-  "title"?: string;
-  "description"?: string;
+  "title"?: string | null;
+  "description"?: string | null;
   "sort_order": number;
-  "duration"?: string;
-  "passing_mark"?: number;
-  "price"?: string;
+  "duration"?: string | null;
+  "passing_mark"?: number | null;
+  "price"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -893,27 +884,27 @@ export interface CourseIndexCourseGetResponse extends ApiEnvelope<CourseIndexCou
 
 /** Backend request type: models::CreateCourseRequest. */
 export interface CourseStoreCoursePostInput extends JsonObject {
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
-  "title"?: string;
-  "description"?: string;
+  "title"?: string | null;
+  "description"?: string | null;
   "sort_order": number;
-  "duration"?: string;
-  "passing_mark"?: number;
-  "price"?: string;
+  "duration"?: string | null;
+  "passing_mark"?: number | null;
+  "price"?: string | null;
   "status": string;
 }
 /** Backend response type: models::CourseResponse. */
 export interface CourseStoreCoursePostResponseData extends JsonObject {
   "id": number;
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
-  "title"?: string;
-  "description"?: string;
+  "title"?: string | null;
+  "description"?: string | null;
   "sort_order": number;
-  "duration"?: string;
-  "passing_mark"?: number;
-  "price"?: string;
+  "duration"?: string | null;
+  "passing_mark"?: number | null;
+  "price"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -923,18 +914,19 @@ export interface CourseStoreCoursePostResponse extends ApiEnvelope<CourseStoreCo
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexSessionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface CourseIndexSessionGetResponseItem extends JsonObject {
   "id": number;
   "course_id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "session_type": string;
-  "duration_minutes"?: number;
+  "exam_id"?: number | null;
+  "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "status": string;
   "created_at": string;
@@ -957,10 +949,11 @@ export interface CourseIndexSessionGetResponse extends ApiEnvelope<CourseIndexSe
 export interface CourseStoreSessionPostInput extends JsonObject {
   "course_id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "session_type": string;
-  "duration_minutes"?: number;
+  "exam_id"?: number | null;
+  "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "status": string;
 }
@@ -969,10 +962,11 @@ export interface CourseStoreSessionPostResponseData extends JsonObject {
   "id": number;
   "course_id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "session_type": string;
-  "duration_minutes"?: number;
+  "exam_id"?: number | null;
+  "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "status": string;
   "created_at": string;
@@ -990,10 +984,11 @@ export interface CourseShowSessionGetResponseData extends JsonObject {
   "id": number;
   "course_id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "session_type": string;
-  "duration_minutes"?: number;
+  "exam_id"?: number | null;
+  "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "status": string;
   "created_at": string;
@@ -1004,23 +999,25 @@ export interface CourseShowSessionGetResponse extends ApiEnvelope<CourseShowSess
 
 /** Backend request type: models::UpdateSessionRequest. */
 export interface CourseUpdateSessionPatchInput extends JsonObject {
-  "name"?: string;
-  "description"?: string;
-  "sort_order"?: number;
-  "session_type"?: string;
-  "duration_minutes"?: number;
-  "auto_unlock"?: boolean;
-  "status"?: string;
+  "name"?: string | null;
+  "description"?: string | null;
+  "sort_order"?: number | null;
+  "session_type"?: string | null;
+  "exam_id"?: number | null;
+  "duration_minutes"?: number | null;
+  "auto_unlock"?: boolean | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::SessionResponse. */
 export interface CourseUpdateSessionPatchResponseData extends JsonObject {
   "id": number;
   "course_id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "session_type": string;
-  "duration_minutes"?: number;
+  "exam_id"?: number | null;
+  "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "status": string;
   "created_at": string;
@@ -1036,14 +1033,14 @@ export interface CourseDestroyCourseDeleteResponse extends ApiEnvelope<JsonValue
 /** Backend response type: models::CourseResponse. */
 export interface CourseShowCourseGetResponseData extends JsonObject {
   "id": number;
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
-  "title"?: string;
-  "description"?: string;
+  "title"?: string | null;
+  "description"?: string | null;
   "sort_order": number;
-  "duration"?: string;
-  "passing_mark"?: number;
-  "price"?: string;
+  "duration"?: string | null;
+  "passing_mark"?: number | null;
+  "price"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1053,27 +1050,27 @@ export interface CourseShowCourseGetResponse extends ApiEnvelope<CourseShowCours
 
 /** Backend request type: models::UpdateCourseRequest. */
 export interface CourseUpdateCoursePatchInput extends JsonObject {
-  "category_id"?: number;
-  "name"?: string;
-  "title"?: string;
-  "description"?: string;
-  "sort_order"?: number;
-  "duration"?: string;
-  "passing_mark"?: number;
-  "price"?: string;
-  "status"?: string;
+  "category_id"?: number | null;
+  "name"?: string | null;
+  "title"?: string | null;
+  "description"?: string | null;
+  "sort_order"?: number | null;
+  "duration"?: string | null;
+  "passing_mark"?: number | null;
+  "price"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::CourseResponse. */
 export interface CourseUpdateCoursePatchResponseData extends JsonObject {
   "id": number;
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
-  "title"?: string;
-  "description"?: string;
+  "title"?: string | null;
+  "description"?: string | null;
   "sort_order": number;
-  "duration"?: string;
-  "passing_mark"?: number;
-  "price"?: string;
+  "duration"?: string | null;
+  "passing_mark"?: number | null;
+  "price"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1083,14 +1080,14 @@ export interface CourseUpdateCoursePatchResponse extends ApiEnvelope<CourseUpdat
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexCategoryGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CategoryResponse>. */
 export interface CourseIndexCategoryGetResponseItem extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
@@ -1112,7 +1109,7 @@ export interface CourseIndexCategoryGetResponse extends ApiEnvelope<CourseIndexC
 /** Backend request type: models::CreateCategoryRequest. */
 export interface CourseStoreCategoryPostInput extends JsonObject {
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "status": string;
 }
@@ -1120,7 +1117,7 @@ export interface CourseStoreCategoryPostInput extends JsonObject {
 export interface CourseStoreCategoryPostResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
@@ -1137,7 +1134,7 @@ export interface CourseDestroyCategoryDeleteResponse extends ApiEnvelope<JsonVal
 export interface CourseShowCategoryGetResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
@@ -1148,16 +1145,16 @@ export interface CourseShowCategoryGetResponse extends ApiEnvelope<CourseShowCat
 
 /** Backend request type: models::UpdateCategoryRequest. */
 export interface CourseUpdateCategoryPatchInput extends JsonObject {
-  "name"?: string;
-  "description"?: string;
-  "sort_order"?: number;
-  "status"?: string;
+  "name"?: string | null;
+  "description"?: string | null;
+  "sort_order"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::CategoryResponse. */
 export interface CourseUpdateCategoryPatchResponseData extends JsonObject {
   "id": number;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "sort_order": number;
   "status": string;
   "created_at": string;
@@ -1168,20 +1165,20 @@ export interface CourseUpdateCategoryPatchResponse extends ApiEnvelope<CourseUpd
 
 /** Backend query type: PaginationQuery. */
 export interface CourseIndexVideoSectionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::VideoSectionResponse>. */
 export interface CourseIndexVideoSectionGetResponseItem extends JsonObject {
   "id": number;
   "course_id": number;
-  "course_session_id"?: number;
+  "course_session_id"?: number | null;
   "name": string;
   "sort_order": number;
-  "media_url"?: string;
+  "media_url"?: string | null;
   "video_type": string;
-  "external_url"?: string;
-  "drm_url"?: string;
+  "external_url"?: string | null;
+  "drm_url"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1201,25 +1198,25 @@ export interface CourseIndexVideoSectionGetResponse extends ApiEnvelope<CourseIn
 /** Backend request type: models::CreateVideoSectionRequest. */
 export interface CourseStoreVideoSectionPostInput extends JsonObject {
   "course_id": number;
-  "course_session_id"?: number;
+  "course_session_id"?: number | null;
   "name": string;
   "sort_order": number;
-  "media_url"?: string;
-  "video_type"?: string;
-  "external_url"?: string;
-  "drm_url"?: string;
+  "media_url"?: string | null;
+  "video_type"?: string | null;
+  "external_url"?: string | null;
+  "drm_url"?: string | null;
 }
 /** Backend response type: models::VideoSectionResponse. */
 export interface CourseStoreVideoSectionPostResponseData extends JsonObject {
   "id": number;
   "course_id": number;
-  "course_session_id"?: number;
+  "course_session_id"?: number | null;
   "name": string;
   "sort_order": number;
-  "media_url"?: string;
+  "media_url"?: string | null;
   "video_type": string;
-  "external_url"?: string;
-  "drm_url"?: string;
+  "external_url"?: string | null;
+  "drm_url"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1234,13 +1231,13 @@ export interface CourseDestroyVideoSectionDeleteResponse extends ApiEnvelope<Jso
 export interface CourseShowVideoSectionGetResponseData extends JsonObject {
   "id": number;
   "course_id": number;
-  "course_session_id"?: number;
+  "course_session_id"?: number | null;
   "name": string;
   "sort_order": number;
-  "media_url"?: string;
+  "media_url"?: string | null;
   "video_type": string;
-  "external_url"?: string;
-  "drm_url"?: string;
+  "external_url"?: string | null;
+  "drm_url"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1249,26 +1246,26 @@ export interface CourseShowVideoSectionGetResponse extends ApiEnvelope<CourseSho
 
 /** Backend request type: models::UpdateVideoSectionRequest. */
 export interface CourseUpdateVideoSectionPatchInput extends JsonObject {
-  "course_id"?: number;
-  "course_session_id"?: number;
-  "name"?: string;
-  "sort_order"?: number;
-  "media_url"?: string;
-  "video_type"?: string;
-  "external_url"?: string;
-  "drm_url"?: string;
+  "course_id"?: number | null;
+  "course_session_id"?: number | null;
+  "name"?: string | null;
+  "sort_order"?: number | null;
+  "media_url"?: string | null;
+  "video_type"?: string | null;
+  "external_url"?: string | null;
+  "drm_url"?: string | null;
 }
 /** Backend response type: models::VideoSectionResponse. */
 export interface CourseUpdateVideoSectionPatchResponseData extends JsonObject {
   "id": number;
   "course_id": number;
-  "course_session_id"?: number;
+  "course_session_id"?: number | null;
   "name": string;
   "sort_order": number;
-  "media_url"?: string;
+  "media_url"?: string | null;
   "video_type": string;
-  "external_url"?: string;
-  "drm_url"?: string;
+  "external_url"?: string | null;
+  "drm_url"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1300,17 +1297,17 @@ export interface DocsIntegrationGetResponse extends ApiEnvelope<DocsIntegrationG
 
 /** Backend query type: PaginationQuery. */
 export interface EventIndexEventGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::EventResponse>. */
 export interface EventIndexEventGetResponseItem extends JsonObject {
   "id": number;
-  "event_type_id"?: number;
+  "event_type_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "description"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1330,21 +1327,21 @@ export interface EventIndexEventGetResponse extends ApiEnvelope<EventIndexEventG
 
 /** Backend request type: models::CreateEventRequest. */
 export interface EventStoreEventPostInput extends JsonObject {
-  "event_type_id"?: number;
+  "event_type_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "description"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
 }
 /** Backend response type: models::EventResponse. */
 export interface EventStoreEventPostResponseData extends JsonObject {
   "id": number;
-  "event_type_id"?: number;
+  "event_type_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "description"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1354,8 +1351,8 @@ export interface EventStoreEventPostResponse extends ApiEnvelope<EventStoreEvent
 
 /** Backend query type: PaginationQuery. */
 export interface EventIndexUserGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::UserResponse>. */
 export interface EventIndexUserGetResponseItem extends JsonObject {
@@ -1408,8 +1405,8 @@ export interface EventShowUserGetResponse extends ApiEnvelope<EventShowUserGetRe
 
 /** Backend request type: models::UpdateUserRequest. */
 export interface EventUpdateUserPatchInput extends JsonObject {
-  "user_id"?: string;
-  "status"?: string;
+  "user_id"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::UserResponse. */
 export interface EventUpdateUserPatchResponseData extends JsonObject {
@@ -1425,11 +1422,11 @@ export interface EventUpdateUserPatchResponse extends ApiEnvelope<EventUpdateUse
 /** Backend response type: models::EventResponse. */
 export interface EventShowEventGetResponseData extends JsonObject {
   "id": number;
-  "event_type_id"?: number;
+  "event_type_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "description"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1439,21 +1436,21 @@ export interface EventShowEventGetResponse extends ApiEnvelope<EventShowEventGet
 
 /** Backend request type: models::UpdateEventRequest. */
 export interface EventUpdateEventPatchInput extends JsonObject {
-  "event_type_id"?: number;
-  "name"?: string;
-  "description"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
-  "status"?: string;
+  "event_type_id"?: number | null;
+  "name"?: string | null;
+  "description"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::EventResponse. */
 export interface EventUpdateEventPatchResponseData extends JsonObject {
   "id": number;
-  "event_type_id"?: number;
+  "event_type_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "description"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1463,16 +1460,16 @@ export interface EventUpdateEventPatchResponse extends ApiEnvelope<EventUpdateEv
 
 /** Backend query type: PaginationQuery. */
 export interface EventIndexSessionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface EventIndexSessionGetResponseItem extends JsonObject {
   "id": number;
   "event_id": number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "created_at": string;
 }
 export interface EventIndexSessionGetResponsePageMeta extends JsonObject {
@@ -1491,17 +1488,17 @@ export interface EventIndexSessionGetResponse extends ApiEnvelope<EventIndexSess
 /** Backend request type: models::CreateSessionRequest. */
 export interface EventStoreSessionPostInput extends JsonObject {
   "event_id": number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
 }
 /** Backend response type: models::SessionResponse. */
 export interface EventStoreSessionPostResponseData extends JsonObject {
   "id": number;
   "event_id": number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "created_at": string;
 }
 export interface EventStoreSessionPostResponse extends ApiEnvelope<EventStoreSessionPostResponseData> {
@@ -1511,9 +1508,9 @@ export interface EventStoreSessionPostResponse extends ApiEnvelope<EventStoreSes
 export interface EventShowSessionGetResponseData extends JsonObject {
   "id": number;
   "event_id": number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "created_at": string;
 }
 export interface EventShowSessionGetResponse extends ApiEnvelope<EventShowSessionGetResponseData> {
@@ -1521,18 +1518,18 @@ export interface EventShowSessionGetResponse extends ApiEnvelope<EventShowSessio
 
 /** Backend request type: models::UpdateSessionRequest. */
 export interface EventUpdateSessionPatchInput extends JsonObject {
-  "event_id"?: number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "event_id"?: number | null;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
 }
 /** Backend response type: models::SessionResponse. */
 export interface EventUpdateSessionPatchResponseData extends JsonObject {
   "id": number;
   "event_id": number;
-  "name"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "name"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "created_at": string;
 }
 export interface EventUpdateSessionPatchResponse extends ApiEnvelope<EventUpdateSessionPatchResponseData> {
@@ -1540,17 +1537,17 @@ export interface EventUpdateSessionPatchResponse extends ApiEnvelope<EventUpdate
 
 /** Backend query type: PaginationQuery. */
 export interface ExamIndexExamGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ExamResponse>. */
 export interface ExamIndexExamGetResponseItem extends JsonObject {
   "id": number;
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "duration_minutes"?: number;
-  "passing_mark"?: number;
+  "description"?: string | null;
+  "duration_minutes"?: number | null;
+  "passing_mark"?: number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1570,21 +1567,21 @@ export interface ExamIndexExamGetResponse extends ApiEnvelope<ExamIndexExamGetRe
 
 /** Backend request type: models::CreateExamRequest. */
 export interface ExamStoreExamPostInput extends JsonObject {
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "duration_minutes"?: number;
-  "passing_mark"?: number;
+  "description"?: string | null;
+  "duration_minutes"?: number | null;
+  "passing_mark"?: number | null;
   "status": string;
 }
 /** Backend response type: models::ExamResponse. */
 export interface ExamStoreExamPostResponseData extends JsonObject {
   "id": number;
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "duration_minutes"?: number;
-  "passing_mark"?: number;
+  "description"?: string | null;
+  "duration_minutes"?: number | null;
+  "passing_mark"?: number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1599,11 +1596,11 @@ export interface ExamDestroyExamDeleteResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: models::ExamResponse. */
 export interface ExamShowExamGetResponseData extends JsonObject {
   "id": number;
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "duration_minutes"?: number;
-  "passing_mark"?: number;
+  "description"?: string | null;
+  "duration_minutes"?: number | null;
+  "passing_mark"?: number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1613,21 +1610,21 @@ export interface ExamShowExamGetResponse extends ApiEnvelope<ExamShowExamGetResp
 
 /** Backend request type: models::UpdateExamRequest. */
 export interface ExamUpdateExamPatchInput extends JsonObject {
-  "course_id"?: number;
-  "name"?: string;
-  "description"?: string;
-  "duration_minutes"?: number;
-  "passing_mark"?: number;
-  "status"?: string;
+  "course_id"?: number | null;
+  "name"?: string | null;
+  "description"?: string | null;
+  "duration_minutes"?: number | null;
+  "passing_mark"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::ExamResponse. */
 export interface ExamUpdateExamPatchResponseData extends JsonObject {
   "id": number;
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
-  "duration_minutes"?: number;
-  "passing_mark"?: number;
+  "description"?: string | null;
+  "duration_minutes"?: number | null;
+  "passing_mark"?: number | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1637,17 +1634,17 @@ export interface ExamUpdateExamPatchResponse extends ApiEnvelope<ExamUpdateExamP
 
 /** Backend query type: PaginationQuery. */
 export interface ExamIndexQuestionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::QuestionResponse>. */
 export interface ExamIndexQuestionGetResponseItem extends JsonObject {
   "id": number;
-  "exam_id"?: number;
+  "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue;
-  "correct_answer"?: string;
+  "options"?: JsonValue | null;
+  "correct_answer"?: string | null;
   "sort_order": number;
   "created_at": string;
 }
@@ -1666,35 +1663,39 @@ export interface ExamIndexQuestionGetResponse extends ApiEnvelope<ExamIndexQuest
 
 /** Backend request type: models::CreateQuestionRequest. */
 export interface ExamStoreQuestionPostInput extends JsonObject {
-  "exam_id"?: number;
+  "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue;
-  "correct_answer"?: string;
+  "options"?: JsonValue | null;
+  "correct_answer"?: string | null;
   "sort_order": number;
 }
 /** Backend response type: models::QuestionResponse. */
 export interface ExamStoreQuestionPostResponseData extends JsonObject {
   "id": number;
-  "exam_id"?: number;
+  "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue;
-  "correct_answer"?: string;
+  "options"?: JsonValue | null;
+  "correct_answer"?: string | null;
   "sort_order": number;
   "created_at": string;
 }
 export interface ExamStoreQuestionPostResponse extends ApiEnvelope<ExamStoreQuestionPostResponseData> {
 }
 
+/** Backend response type: serde_json::Value. */
+export interface ExamDestroyQuestionDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: models::QuestionResponse. */
 export interface ExamShowQuestionGetResponseData extends JsonObject {
   "id": number;
-  "exam_id"?: number;
+  "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue;
-  "correct_answer"?: string;
+  "options"?: JsonValue | null;
+  "correct_answer"?: string | null;
   "sort_order": number;
   "created_at": string;
 }
@@ -1703,21 +1704,21 @@ export interface ExamShowQuestionGetResponse extends ApiEnvelope<ExamShowQuestio
 
 /** Backend request type: models::UpdateQuestionRequest. */
 export interface ExamUpdateQuestionPatchInput extends JsonObject {
-  "exam_id"?: number;
-  "question_text"?: string;
-  "question_type"?: string;
-  "options"?: JsonValue;
-  "correct_answer"?: string;
-  "sort_order"?: number;
+  "exam_id"?: number | null;
+  "question_text"?: string | null;
+  "question_type"?: string | null;
+  "options"?: JsonValue | null;
+  "correct_answer"?: string | null;
+  "sort_order"?: number | null;
 }
 /** Backend response type: models::QuestionResponse. */
 export interface ExamUpdateQuestionPatchResponseData extends JsonObject {
   "id": number;
-  "exam_id"?: number;
+  "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue;
-  "correct_answer"?: string;
+  "options"?: JsonValue | null;
+  "correct_answer"?: string | null;
   "sort_order": number;
   "created_at": string;
 }
@@ -1726,16 +1727,16 @@ export interface ExamUpdateQuestionPatchResponse extends ApiEnvelope<ExamUpdateQ
 
 /** Backend query type: PaginationQuery. */
 export interface ExamIndexSessionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
 export interface ExamIndexSessionGetResponseItem extends JsonObject {
   "id": number;
   "exam_id": number;
-  "classroom_id"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "classroom_id"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
 }
@@ -1755,18 +1756,18 @@ export interface ExamIndexSessionGetResponse extends ApiEnvelope<ExamIndexSessio
 /** Backend request type: models::CreateSessionRequest. */
 export interface ExamStoreSessionPostInput extends JsonObject {
   "exam_id": number;
-  "classroom_id"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "classroom_id"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
 }
 /** Backend response type: models::SessionResponse. */
 export interface ExamStoreSessionPostResponseData extends JsonObject {
   "id": number;
   "exam_id": number;
-  "classroom_id"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "classroom_id"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
 }
@@ -1777,9 +1778,9 @@ export interface ExamStoreSessionPostResponse extends ApiEnvelope<ExamStoreSessi
 export interface ExamShowSessionGetResponseData extends JsonObject {
   "id": number;
   "exam_id": number;
-  "classroom_id"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "classroom_id"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
 }
@@ -1788,19 +1789,19 @@ export interface ExamShowSessionGetResponse extends ApiEnvelope<ExamShowSessionG
 
 /** Backend request type: models::UpdateSessionRequest. */
 export interface ExamUpdateSessionPatchInput extends JsonObject {
-  "exam_id"?: number;
-  "classroom_id"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
-  "status"?: string;
+  "exam_id"?: number | null;
+  "classroom_id"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::SessionResponse. */
 export interface ExamUpdateSessionPatchResponseData extends JsonObject {
   "id": number;
   "exam_id": number;
-  "classroom_id"?: number;
-  "starts_at"?: string;
-  "ends_at"?: string;
+  "classroom_id"?: number | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
   "status": string;
   "created_at": string;
 }
@@ -1809,15 +1810,15 @@ export interface ExamUpdateSessionPatchResponse extends ApiEnvelope<ExamUpdateSe
 
 /** Backend query type: PaginationQuery. */
 export interface HomeworkIndexHomeworkGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::HomeworkResponse>. */
 export interface HomeworkIndexHomeworkGetResponseItem extends JsonObject {
   "id": number;
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1837,17 +1838,17 @@ export interface HomeworkIndexHomeworkGetResponse extends ApiEnvelope<HomeworkIn
 
 /** Backend request type: models::CreateHomeworkRequest. */
 export interface HomeworkStoreHomeworkPostInput extends JsonObject {
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "status": string;
 }
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkStoreHomeworkPostResponseData extends JsonObject {
   "id": number;
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1858,9 +1859,9 @@ export interface HomeworkStoreHomeworkPostResponse extends ApiEnvelope<HomeworkS
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkShowHomeworkGetResponseData extends JsonObject {
   "id": number;
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1870,17 +1871,17 @@ export interface HomeworkShowHomeworkGetResponse extends ApiEnvelope<HomeworkSho
 
 /** Backend request type: models::UpdateHomeworkRequest. */
 export interface HomeworkUpdateHomeworkPatchInput extends JsonObject {
-  "course_id"?: number;
-  "name"?: string;
-  "description"?: string;
-  "status"?: string;
+  "course_id"?: number | null;
+  "name"?: string | null;
+  "description"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkUpdateHomeworkPatchResponseData extends JsonObject {
   "id": number;
-  "course_id"?: number;
+  "course_id"?: number | null;
   "name": string;
-  "description"?: string;
+  "description"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1890,19 +1891,19 @@ export interface HomeworkUpdateHomeworkPatchResponse extends ApiEnvelope<Homewor
 
 /** Backend query type: PaginationQuery. */
 export interface HomeworkIndexAssignmentGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::AssignmentResponse>. */
 export interface HomeworkIndexAssignmentGetResponseItem extends JsonObject {
   "id": number;
   "homework_id": number;
-  "classroom_id"?: number;
-  "user_id"?: string;
-  "due_at"?: string;
+  "classroom_id"?: number | null;
+  "user_id"?: string | null;
+  "due_at"?: string | null;
   "status": string;
-  "answer_text"?: string;
-  "score"?: number;
+  "answer_text"?: string | null;
+  "score"?: number | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1922,23 +1923,23 @@ export interface HomeworkIndexAssignmentGetResponse extends ApiEnvelope<Homework
 /** Backend request type: models::CreateAssignmentRequest. */
 export interface HomeworkStoreAssignmentPostInput extends JsonObject {
   "homework_id": number;
-  "classroom_id"?: number;
-  "user_id"?: string;
-  "due_at"?: string;
+  "classroom_id"?: number | null;
+  "user_id"?: string | null;
+  "due_at"?: string | null;
   "status": string;
-  "answer_text"?: string;
-  "score"?: number;
+  "answer_text"?: string | null;
+  "score"?: number | null;
 }
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkStoreAssignmentPostResponseData extends JsonObject {
   "id": number;
   "homework_id": number;
-  "classroom_id"?: number;
-  "user_id"?: string;
-  "due_at"?: string;
+  "classroom_id"?: number | null;
+  "user_id"?: string | null;
+  "due_at"?: string | null;
   "status": string;
-  "answer_text"?: string;
-  "score"?: number;
+  "answer_text"?: string | null;
+  "score"?: number | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1949,12 +1950,12 @@ export interface HomeworkStoreAssignmentPostResponse extends ApiEnvelope<Homewor
 export interface HomeworkShowAssignmentGetResponseData extends JsonObject {
   "id": number;
   "homework_id": number;
-  "classroom_id"?: number;
-  "user_id"?: string;
-  "due_at"?: string;
+  "classroom_id"?: number | null;
+  "user_id"?: string | null;
+  "due_at"?: string | null;
   "status": string;
-  "answer_text"?: string;
-  "score"?: number;
+  "answer_text"?: string | null;
+  "score"?: number | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1963,24 +1964,24 @@ export interface HomeworkShowAssignmentGetResponse extends ApiEnvelope<HomeworkS
 
 /** Backend request type: models::UpdateAssignmentRequest. */
 export interface HomeworkUpdateAssignmentPatchInput extends JsonObject {
-  "homework_id"?: number;
-  "classroom_id"?: number;
-  "user_id"?: string;
-  "due_at"?: string;
-  "status"?: string;
-  "answer_text"?: string;
-  "score"?: number;
+  "homework_id"?: number | null;
+  "classroom_id"?: number | null;
+  "user_id"?: string | null;
+  "due_at"?: string | null;
+  "status"?: string | null;
+  "answer_text"?: string | null;
+  "score"?: number | null;
 }
 /** Backend response type: models::AssignmentResponse. */
 export interface HomeworkUpdateAssignmentPatchResponseData extends JsonObject {
   "id": number;
   "homework_id": number;
-  "classroom_id"?: number;
-  "user_id"?: string;
-  "due_at"?: string;
+  "classroom_id"?: number | null;
+  "user_id"?: string | null;
+  "due_at"?: string | null;
   "status": string;
-  "answer_text"?: string;
-  "score"?: number;
+  "answer_text"?: string | null;
+  "score"?: number | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1989,8 +1990,8 @@ export interface HomeworkUpdateAssignmentPatchResponse extends ApiEnvelope<Homew
 
 /** Backend query type: PaginationQuery. */
 export interface HomeworkIndexQuestionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::QuestionResponse>. */
 export interface HomeworkIndexQuestionGetResponseItem extends JsonObject {
@@ -2043,9 +2044,9 @@ export interface HomeworkShowQuestionGetResponse extends ApiEnvelope<HomeworkSho
 
 /** Backend request type: models::UpdateQuestionRequest. */
 export interface HomeworkUpdateQuestionPatchInput extends JsonObject {
-  "homework_id"?: number;
-  "question_text"?: string;
-  "sort_order"?: number;
+  "homework_id"?: number | null;
+  "question_text"?: string | null;
+  "sort_order"?: number | null;
 }
 /** Backend response type: models::QuestionResponse. */
 export interface HomeworkUpdateQuestionPatchResponseData extends JsonObject {
@@ -2064,8 +2065,8 @@ export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<J
 
 /** Backend query type: PaginationQuery. */
 export interface InteractiveIndexCategoryGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CategoryResponse>. */
 export interface InteractiveIndexCategoryGetResponseItem extends JsonObject {
@@ -2114,8 +2115,8 @@ export interface InteractiveShowCategoryGetResponse extends ApiEnvelope<Interact
 
 /** Backend request type: models::UpdateCategoryRequest. */
 export interface InteractiveUpdateCategoryPatchInput extends JsonObject {
-  "name"?: string;
-  "sort_order"?: number;
+  "name"?: string | null;
+  "sort_order"?: number | null;
 }
 /** Backend response type: models::CategoryResponse. */
 export interface InteractiveUpdateCategoryPatchResponseData extends JsonObject {
@@ -2129,16 +2130,16 @@ export interface InteractiveUpdateCategoryPatchResponse extends ApiEnvelope<Inte
 
 /** Backend query type: PaginationQuery. */
 export interface InteractiveIndexClassroomSessionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ClassroomSessionResponse>. */
 export interface InteractiveIndexClassroomSessionGetResponseItem extends JsonObject {
   "id": number;
   "classroom_session_id": number;
   "interactive_content_id": number;
-  "room_code"?: string;
-  "state"?: JsonValue;
+  "room_code"?: string | null;
+  "state"?: JsonValue | null;
   "created_at": string;
 }
 export interface InteractiveIndexClassroomSessionGetResponsePageMeta extends JsonObject {
@@ -2158,16 +2159,16 @@ export interface InteractiveIndexClassroomSessionGetResponse extends ApiEnvelope
 export interface InteractiveStoreClassroomSessionPostInput extends JsonObject {
   "classroom_session_id": number;
   "interactive_content_id": number;
-  "room_code"?: string;
-  "state"?: JsonValue;
+  "room_code"?: string | null;
+  "state"?: JsonValue | null;
 }
 /** Backend response type: models::ClassroomSessionResponse. */
 export interface InteractiveStoreClassroomSessionPostResponseData extends JsonObject {
   "id": number;
   "classroom_session_id": number;
   "interactive_content_id": number;
-  "room_code"?: string;
-  "state"?: JsonValue;
+  "room_code"?: string | null;
+  "state"?: JsonValue | null;
   "created_at": string;
 }
 export interface InteractiveStoreClassroomSessionPostResponse extends ApiEnvelope<InteractiveStoreClassroomSessionPostResponseData> {
@@ -2178,8 +2179,8 @@ export interface InteractiveShowClassroomSessionGetResponseData extends JsonObje
   "id": number;
   "classroom_session_id": number;
   "interactive_content_id": number;
-  "room_code"?: string;
-  "state"?: JsonValue;
+  "room_code"?: string | null;
+  "state"?: JsonValue | null;
   "created_at": string;
 }
 export interface InteractiveShowClassroomSessionGetResponse extends ApiEnvelope<InteractiveShowClassroomSessionGetResponseData> {
@@ -2187,18 +2188,18 @@ export interface InteractiveShowClassroomSessionGetResponse extends ApiEnvelope<
 
 /** Backend request type: models::UpdateClassroomSessionRequest. */
 export interface InteractiveUpdateClassroomSessionPatchInput extends JsonObject {
-  "classroom_session_id"?: number;
-  "interactive_content_id"?: number;
-  "room_code"?: string;
-  "state"?: JsonValue;
+  "classroom_session_id"?: number | null;
+  "interactive_content_id"?: number | null;
+  "room_code"?: string | null;
+  "state"?: JsonValue | null;
 }
 /** Backend response type: models::ClassroomSessionResponse. */
 export interface InteractiveUpdateClassroomSessionPatchResponseData extends JsonObject {
   "id": number;
   "classroom_session_id": number;
   "interactive_content_id": number;
-  "room_code"?: string;
-  "state"?: JsonValue;
+  "room_code"?: string | null;
+  "state"?: JsonValue | null;
   "created_at": string;
 }
 export interface InteractiveUpdateClassroomSessionPatchResponse extends ApiEnvelope<InteractiveUpdateClassroomSessionPatchResponseData> {
@@ -2206,16 +2207,16 @@ export interface InteractiveUpdateClassroomSessionPatchResponse extends ApiEnvel
 
 /** Backend query type: PaginationQuery. */
 export interface InteractiveIndexContentGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::ContentResponse>. */
 export interface InteractiveIndexContentGetResponseItem extends JsonObject {
   "id": number;
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue;
+  "payload"?: JsonValue | null;
   "reward_points": number;
   "status": string;
   "created_at": string;
@@ -2236,20 +2237,20 @@ export interface InteractiveIndexContentGetResponse extends ApiEnvelope<Interact
 
 /** Backend request type: models::CreateContentRequest. */
 export interface InteractiveStoreContentPostInput extends JsonObject {
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue;
+  "payload"?: JsonValue | null;
   "reward_points": number;
   "status": string;
 }
 /** Backend response type: models::ContentResponse. */
 export interface InteractiveStoreContentPostResponseData extends JsonObject {
   "id": number;
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue;
+  "payload"?: JsonValue | null;
   "reward_points": number;
   "status": string;
   "created_at": string;
@@ -2261,10 +2262,10 @@ export interface InteractiveStoreContentPostResponse extends ApiEnvelope<Interac
 /** Backend response type: models::ContentResponse. */
 export interface InteractiveShowContentGetResponseData extends JsonObject {
   "id": number;
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue;
+  "payload"?: JsonValue | null;
   "reward_points": number;
   "status": string;
   "created_at": string;
@@ -2275,20 +2276,20 @@ export interface InteractiveShowContentGetResponse extends ApiEnvelope<Interacti
 
 /** Backend request type: models::UpdateContentRequest. */
 export interface InteractiveUpdateContentPatchInput extends JsonObject {
-  "category_id"?: number;
-  "name"?: string;
-  "content_type"?: string;
-  "payload"?: JsonValue;
-  "reward_points"?: number;
-  "status"?: string;
+  "category_id"?: number | null;
+  "name"?: string | null;
+  "content_type"?: string | null;
+  "payload"?: JsonValue | null;
+  "reward_points"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::ContentResponse. */
 export interface InteractiveUpdateContentPatchResponseData extends JsonObject {
   "id": number;
-  "category_id"?: number;
+  "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue;
+  "payload"?: JsonValue | null;
   "reward_points": number;
   "status": string;
   "created_at": string;
@@ -2299,15 +2300,15 @@ export interface InteractiveUpdateContentPatchResponse extends ApiEnvelope<Inter
 
 /** Backend query type: PaginationQuery. */
 export interface OpsIndexInvitationGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::InvitationResponse>. */
 export interface OpsIndexInvitationGetResponseItem extends JsonObject {
   "id": number;
   "inviter_user_id": string;
-  "invitee_user_id"?: string;
-  "invitee_email"?: string;
+  "invitee_user_id"?: string | null;
+  "invitee_email"?: string | null;
   "reward_status": string;
   "created_at": string;
 }
@@ -2327,16 +2328,16 @@ export interface OpsIndexInvitationGetResponse extends ApiEnvelope<OpsIndexInvit
 /** Backend request type: models::CreateInvitationRequest. */
 export interface OpsStoreInvitationPostInput extends JsonObject {
   "inviter_user_id": string;
-  "invitee_user_id"?: string;
-  "invitee_email"?: string;
+  "invitee_user_id"?: string | null;
+  "invitee_email"?: string | null;
   "reward_status": string;
 }
 /** Backend response type: models::InvitationResponse. */
 export interface OpsStoreInvitationPostResponseData extends JsonObject {
   "id": number;
   "inviter_user_id": string;
-  "invitee_user_id"?: string;
-  "invitee_email"?: string;
+  "invitee_user_id"?: string | null;
+  "invitee_email"?: string | null;
   "reward_status": string;
   "created_at": string;
 }
@@ -2347,8 +2348,8 @@ export interface OpsStoreInvitationPostResponse extends ApiEnvelope<OpsStoreInvi
 export interface OpsShowInvitationGetResponseData extends JsonObject {
   "id": number;
   "inviter_user_id": string;
-  "invitee_user_id"?: string;
-  "invitee_email"?: string;
+  "invitee_user_id"?: string | null;
+  "invitee_email"?: string | null;
   "reward_status": string;
   "created_at": string;
 }
@@ -2357,17 +2358,17 @@ export interface OpsShowInvitationGetResponse extends ApiEnvelope<OpsShowInvitat
 
 /** Backend request type: models::UpdateInvitationRequest. */
 export interface OpsUpdateInvitationPatchInput extends JsonObject {
-  "inviter_user_id"?: string;
-  "invitee_user_id"?: string;
-  "invitee_email"?: string;
-  "reward_status"?: string;
+  "inviter_user_id"?: string | null;
+  "invitee_user_id"?: string | null;
+  "invitee_email"?: string | null;
+  "reward_status"?: string | null;
 }
 /** Backend response type: models::InvitationResponse. */
 export interface OpsUpdateInvitationPatchResponseData extends JsonObject {
   "id": number;
   "inviter_user_id": string;
-  "invitee_user_id"?: string;
-  "invitee_email"?: string;
+  "invitee_user_id"?: string | null;
+  "invitee_email"?: string | null;
   "reward_status": string;
   "created_at": string;
 }
@@ -2375,8 +2376,7 @@ export interface OpsUpdateInvitationPatchResponse extends ApiEnvelope<OpsUpdateI
 }
 
 /** Backend request type: multipart/form-data. */
-export interface MediaUploadImagePostInput extends JsonObject {
-}
+export type MediaUploadImagePostInput = FormData;
 /** Backend response type: UploadResponse. */
 export interface MediaUploadImagePostResponseData extends JsonObject {
   "url": string;
@@ -2426,15 +2426,15 @@ export interface ServiceCheckLicenceGetResponse extends ApiEnvelope<ServiceCheck
 
 /** Backend query type: PaginationQuery. */
 export interface OpsIndexSupportInteractionGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::SupportInteractionResponse>. */
 export interface OpsIndexSupportInteractionGetResponseItem extends JsonObject {
   "id": number;
   "user_id": string;
   "subject": string;
-  "body"?: string;
+  "body"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2456,7 +2456,7 @@ export interface OpsIndexSupportInteractionGetResponse extends ApiEnvelope<OpsIn
 export interface OpsStoreSupportInteractionPostInput extends JsonObject {
   "user_id": string;
   "subject": string;
-  "body"?: string;
+  "body"?: string | null;
   "status": string;
 }
 /** Backend response type: models::SupportInteractionResponse. */
@@ -2464,7 +2464,7 @@ export interface OpsStoreSupportInteractionPostResponseData extends JsonObject {
   "id": number;
   "user_id": string;
   "subject": string;
-  "body"?: string;
+  "body"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2477,7 +2477,7 @@ export interface OpsShowSupportInteractionGetResponseData extends JsonObject {
   "id": number;
   "user_id": string;
   "subject": string;
-  "body"?: string;
+  "body"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2487,17 +2487,17 @@ export interface OpsShowSupportInteractionGetResponse extends ApiEnvelope<OpsSho
 
 /** Backend request type: models::UpdateSupportInteractionRequest. */
 export interface OpsUpdateSupportInteractionPatchInput extends JsonObject {
-  "user_id"?: string;
-  "subject"?: string;
-  "body"?: string;
-  "status"?: string;
+  "user_id"?: string | null;
+  "subject"?: string | null;
+  "body"?: string | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::SupportInteractionResponse. */
 export interface OpsUpdateSupportInteractionPatchResponseData extends JsonObject {
   "id": number;
   "user_id": string;
   "subject": string;
-  "body"?: string;
+  "body"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2507,17 +2507,17 @@ export interface OpsUpdateSupportInteractionPatchResponse extends ApiEnvelope<Op
 
 /** Backend query type: PaginationQuery. */
 export interface OpsIndexWorktimeGetQuery extends QueryParams {
-  "page_number"?: number;
-  "page_size"?: number;
+  "page_number"?: number | null;
+  "page_size"?: number | null;
 }
 /** Backend response type: crate::models::PagedResult<models::WorktimeResponse>. */
 export interface OpsIndexWorktimeGetResponseItem extends JsonObject {
   "id": number;
   "teacher_user_id": string;
   "starts_at": string;
-  "ends_at"?: string;
+  "ends_at"?: string | null;
   "status": string;
-  "notes"?: string;
+  "notes"?: string | null;
   "created_at": string;
 }
 export interface OpsIndexWorktimeGetResponsePageMeta extends JsonObject {
@@ -2537,18 +2537,18 @@ export interface OpsIndexWorktimeGetResponse extends ApiEnvelope<OpsIndexWorktim
 export interface OpsStoreWorktimePostInput extends JsonObject {
   "teacher_user_id": string;
   "starts_at": string;
-  "ends_at"?: string;
+  "ends_at"?: string | null;
   "status": string;
-  "notes"?: string;
+  "notes"?: string | null;
 }
 /** Backend response type: models::WorktimeResponse. */
 export interface OpsStoreWorktimePostResponseData extends JsonObject {
   "id": number;
   "teacher_user_id": string;
   "starts_at": string;
-  "ends_at"?: string;
+  "ends_at"?: string | null;
   "status": string;
-  "notes"?: string;
+  "notes"?: string | null;
   "created_at": string;
 }
 export interface OpsStoreWorktimePostResponse extends ApiEnvelope<OpsStoreWorktimePostResponseData> {
@@ -2559,9 +2559,9 @@ export interface OpsShowWorktimeGetResponseData extends JsonObject {
   "id": number;
   "teacher_user_id": string;
   "starts_at": string;
-  "ends_at"?: string;
+  "ends_at"?: string | null;
   "status": string;
-  "notes"?: string;
+  "notes"?: string | null;
   "created_at": string;
 }
 export interface OpsShowWorktimeGetResponse extends ApiEnvelope<OpsShowWorktimeGetResponseData> {
@@ -2569,26 +2569,26 @@ export interface OpsShowWorktimeGetResponse extends ApiEnvelope<OpsShowWorktimeG
 
 /** Backend request type: models::UpdateWorktimeRequest. */
 export interface OpsUpdateWorktimePatchInput extends JsonObject {
-  "teacher_user_id"?: string;
-  "starts_at"?: string;
-  "ends_at"?: string;
-  "status"?: string;
-  "notes"?: string;
+  "teacher_user_id"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
+  "status"?: string | null;
+  "notes"?: string | null;
 }
 /** Backend response type: models::WorktimeResponse. */
 export interface OpsUpdateWorktimePatchResponseData extends JsonObject {
   "id": number;
   "teacher_user_id": string;
   "starts_at": string;
-  "ends_at"?: string;
+  "ends_at"?: string | null;
   "status": string;
-  "notes"?: string;
+  "notes"?: string | null;
   "created_at": string;
 }
 export interface OpsUpdateWorktimePatchResponse extends ApiEnvelope<OpsUpdateWorktimePatchResponseData> {
 }
 
-/** Backend response type: response without a declared JSON model. */
+/** Backend response type: handler-defined response. */
 export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
 }
 

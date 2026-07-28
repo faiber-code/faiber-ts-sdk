@@ -32,17 +32,18 @@ console.log(updated.data.data.profile);
 
 ## Complete capability
 
-This package exposes 115 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 120 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `city` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `campaign` | 4 | `GET`, `POST` |
 | `country` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `integration` | 2 | `GET` |
 | `log-action` | 3 | `POST` |
 | `logger` | 2 | `GET` |
 | `option` | 4 | `GET`, `POST` |
-| `profile` | 51 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `profile` | 52 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `profile-property` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `profile-search` | 1 | `POST` |
 | `province` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |

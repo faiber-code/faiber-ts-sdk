@@ -28,13 +28,19 @@ const feed = await api.feed({ category_id: categories.data.data[0]?.id, page: 1,
 
 ## Complete capability
 
-This package exposes 32 registered operations from the social interactions service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 44 registered operations from the social interactions service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `api` | 32 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `api` | 44 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
 Social owns community categories, posts, and interactions on those posts and comments. Modules continues to own generic comments and reactions for products, services, and other Modules resources.
+
+Moderators can inspect a typed, paginated audit trail:
+
+```ts
+const audit = await api.moderationAudit({ target_type: "post", action: "hide", page: 1, limit: 30 });
+```
 
 ## Authentication and authorization
 

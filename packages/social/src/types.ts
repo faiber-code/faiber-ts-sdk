@@ -34,6 +34,7 @@ export interface SocialReport {
   reason: string; details?: string | null; status: "open" | "reviewing" | "resolved" | "dismissed";
   created_at: string;
 }
+export interface SocialListMeta { total: number; page: number; limit: number; }
 export interface FeedQuery extends QueryParams { q?: string; author_id?: string; category_id?: string; kind?: SocialPostKind; page?: number; limit?: number; }
 export interface CreatePostInput { category_id?: string; kind?: SocialPostKind; visibility?: SocialVisibility; title?: string; body: string; media?: JsonValue; metadata?: JsonValue; }
 export interface UpdatePostInput extends Partial<CreatePostInput> {}
@@ -47,6 +48,7 @@ export interface ModerateTargetInput { target_type: SocialTargetType | "report";
 export interface ReactionSummary { total: number; by_type: Partial<Record<ReactionType, number>>; viewer_reaction?: ReactionType | null; }
 export interface ShareEventInput { channel?: string; idempotency_key?: string; }
 export interface RecordViewInput { visible_ms: number; }
+export interface RecordViewResult { counted: boolean; }
 export interface SocialMedia { id: string; url: string; content_type: string; }
 export type SocialMediaResponse = ApiEnvelope<SocialMedia>;
 export interface AnalyticsQuery extends QueryParams { from?: string; to?: string; }
@@ -55,14 +57,30 @@ export interface AnalyticsTrendPoint { date: string; views: number; reach: numbe
 export interface CreatorAnalytics { from: string; to: string; totals: Omit<PostAnalytics, "post_id">; posts: PostAnalytics[]; trend: AnalyticsTrendPoint[]; }
 export type CreatorAnalyticsResponse = ApiEnvelope<CreatorAnalytics>;
 export interface ModerationQueue { posts: SocialPost[]; comments: SocialComment[]; reports: SocialReport[]; }
+export interface ModerationAuditQuery extends QueryParams { target_type?: SocialTargetType | "report"; action?: ModerateTargetInput["action"]; page?: number; limit?: number; }
+export interface ModerationAuditEntry {
+  id: string; organization_id: string; moderator_user_id: string; target_type: SocialTargetType | "report";
+  target_id: string; action: ModerateTargetInput["action"]; reason?: string | null;
+  previous_status?: string | null; new_status: string; metadata: JsonValue; created_at: string;
+}
+export interface ModerationAuditMeta { total: number; page: number; limit: number; }
+export interface ModerationAuditResponse extends ApiEnvelope<ModerationAuditEntry[]> { meta: ModerationAuditMeta; }
+export interface ModerationActionResult { target_type: SocialTargetType | "report"; target_id: string; previous_status: string | null; status: string; }
 export interface LegacyImportInput { dry_run?: boolean; }
 export interface LegacyImportReport { dry_run: boolean; categories: number; posts: number; comments: number; post_reactions: number; comment_reactions: number; reaction_mappings: JsonValue; }
 export type SocialPostResponse = ApiEnvelope<SocialPost>;
 export type SocialCategoryResponse = ApiEnvelope<SocialCategory>;
 export type SocialCategoryListResponse = ApiEnvelope<SocialCategory[]>;
-export type SocialPostListResponse = ApiEnvelope<SocialPost[]>;
+export interface SocialPostListResponse extends ApiEnvelope<SocialPost[]> { meta?: SocialListMeta; }
 export type SocialCommentResponse = ApiEnvelope<SocialComment>;
 export type SocialCommentListResponse = ApiEnvelope<SocialComment[]>;
 export type SocialReactionResponse = ApiEnvelope<SocialReaction>;
 export type ReactionSummaryResponse = ApiEnvelope<ReactionSummary>;
 export type ModerationQueueResponse = ApiEnvelope<ModerationQueue>;
+export type SocialBookmarksResponse = ApiEnvelope<string[]>;
+export type RecordViewResponse = ApiEnvelope<RecordViewResult>;
+export type SocialReportResponse = ApiEnvelope<SocialReport>;
+export type ModerationActionResponse = ApiEnvelope<ModerationActionResult>;
+export type LegacyImportResponse = ApiEnvelope<LegacyImportReport>;
+/** Used by endpoints that deliberately return 204 or an HTTP redirect without a JSON envelope. */
+export type NoContentResponse = void;
