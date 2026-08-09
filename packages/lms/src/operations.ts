@@ -1459,6 +1459,17 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.MediaUploadImagePostResponse, T.MediaUploadImagePostInput>({ ...options, method: "POST", url: `/api/v1/media/images`, data: data });
   }
   /**
+   * Performs the download image operation for the media capability.
+   * Calls `GET /api/v1/media/images/{filename}` through the shared IDP-aware Faiber client.
+   * @param filename Backend path identifier `filename`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:read.
+   */
+  mediaDownloadImageGet(filename: Identifier, options?: RequestOptions) {
+    return this.client.request<T.MediaDownloadImageGetResponse>({ ...options, method: "GET", url: `/api/v1/media/images/${encodeURIComponent(filename)}` });
+  }
+  /**
    * Performs the classrooms operation for the report capability.
    * Calls `GET /api/v1/reports/classrooms` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

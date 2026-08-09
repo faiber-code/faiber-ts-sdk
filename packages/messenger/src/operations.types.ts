@@ -1,7 +1,7 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -71,57 +71,23 @@ export interface DashboardDashboardShowGetResponse extends ApiEnvelope<Dashboard
 }
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
-export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
-  "name": string;
-  "field_type": string;
-  "required": boolean;
-  "description": string;
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataDirectEvents extends JsonObject {
-  "event_name": string;
-  "payload_fields": IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields[];
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataDirect extends JsonObject {
-  "transport": string;
-  "queue"?: string | null;
-  "broker_url_hint"?: string | null;
-  "sample_profile_id"?: string | null;
-  "events": IntegrationIntegrationDocsShowGetResponseDataDirectEvents[];
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataSdk extends JsonObject {
-  "event_name": string;
-  "method": string;
-  "language": string;
-  "cargo_dep": string;
-  "code": string;
-}
 export interface IntegrationIntegrationDocsShowGetResponseData extends JsonObject {
-  "direct": IntegrationIntegrationDocsShowGetResponseDataDirect;
-  "sdk": IntegrationIntegrationDocsShowGetResponseDataSdk[];
+  "direct": BackendJson<"DirectIntegrationMeta">;
+  "sdk": BackendJson<"SdkIntegrationSnippet">[];
 }
 export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<IntegrationIntegrationDocsShowGetResponseData> {
 }
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<JsonValue> {
+export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
 /** Backend response type: crate::integration::models::RabbitMqIntegrationResponse. */
-export interface IntegrationRabbitmqIntegrationShowGetResponseDataEventsPayloadFields extends JsonObject {
-  "name": string;
-  "field_type": string;
-  "required": boolean;
-  "description": string;
-}
-export interface IntegrationRabbitmqIntegrationShowGetResponseDataEvents extends JsonObject {
-  "event_name": string;
-  "payload_fields": IntegrationRabbitmqIntegrationShowGetResponseDataEventsPayloadFields[];
-}
 export interface IntegrationRabbitmqIntegrationShowGetResponseData extends JsonObject {
   "queue": string;
   "broker_url_hint": string;
   "sample_profile_id": string;
-  "events": IntegrationRabbitmqIntegrationShowGetResponseDataEvents[];
+  "events": BackendJson<"IntegrationEventMeta">[];
 }
 export interface IntegrationRabbitmqIntegrationShowGetResponse extends ApiEnvelope<IntegrationRabbitmqIntegrationShowGetResponseData> {
 }
@@ -409,11 +375,11 @@ export interface TemplateTemplateContentsUpdatePatchResponseData extends JsonObj
 export interface TemplateTemplateContentsUpdatePatchResponse extends ApiEnvelope<TemplateTemplateContentsUpdatePatchResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterStatusRouteGetHealthResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterStatusRouteGetUpResponse extends ApiEnvelope<JsonValue> {
 }
 

@@ -43,6 +43,18 @@ export class FlowOperations extends ServiceApi {
     return this.client.request<T.CatalogTriggersGetResponse>({ ...options, method: "GET", url: `/api/v1/catalog/triggers` });
   }
   /**
+   * Performs the emit operation for the event capability.
+   * Calls `POST /api/v1/events/{event_key}` through the shared IDP-aware Faiber client.
+   * @param eventKey Backend path identifier `event_key`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: flow:execute.
+   */
+  eventEmitPost(eventKey: Identifier, data: T.EventEmitPostInput, options?: RequestOptions<T.EventEmitPostInput>) {
+    return this.client.request<T.EventEmitPostResponse, T.EventEmitPostInput>({ ...options, method: "POST", url: `/api/v1/events/${encodeURIComponent(eventKey)}`, data: data });
+  }
+  /**
    * Performs the index operation for the flow capability.
    * Calls `GET /api/v1/flows` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -109,6 +121,17 @@ export class FlowOperations extends ServiceApi {
     return this.client.request<T.FlowValidatePostResponse>({ ...options, method: "POST", url: `/api/v1/flows/${encodeURIComponent(id)}/validate` });
   }
   /**
+   * Performs the import operation for the flow capability.
+   * Calls `POST /api/v1/flows/import` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: flow:create, flow:update.
+   */
+  flowImportPost(data: T.FlowImportPostInput, options?: RequestOptions<T.FlowImportPostInput>) {
+    return this.client.request<T.FlowImportPostResponse, T.FlowImportPostInput>({ ...options, method: "POST", url: `/api/v1/flows/import`, data: data });
+  }
+  /**
    * Performs the integration flow operation for the router capability.
    * Calls `GET /api/v1/integration/flow` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -139,6 +162,17 @@ export class FlowOperations extends ServiceApi {
    */
   runIndexGet(params?: T.RunIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.RunIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/runs`, params });
+  }
+  /**
+   * Performs the show operation for the run capability.
+   * Calls `GET /api/v1/runs/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: flow_run:read.
+   */
+  runShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RunShowGetResponse>({ ...options, method: "GET", url: `/api/v1/runs/${encodeURIComponent(id)}` });
   }
   /**
    * Performs the status route operation for the router capability.

@@ -1,16 +1,16 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: serde_json::Value. */
 export interface RouterHealthGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<JsonValue> {
+export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
 /** Backend query type: PaginationQuery. */
@@ -139,14 +139,8 @@ export interface WorkScheduleIndexGetResponse extends ApiEnvelope<WorkScheduleIn
 }
 
 /** Backend request type: UpsertScheduleRequest. */
-export interface WorkScheduleUpsertPutInputSchedules extends JsonObject {
-  "day_of_week": string;
-  "start_time": string;
-  "end_time": string;
-  "is_active"?: boolean | null;
-}
 export interface WorkScheduleUpsertPutInput extends JsonObject {
-  "schedules": WorkScheduleUpsertPutInputSchedules[];
+  "schedules": BackendJson<"ScheduleEntry">[];
 }
 /** Backend response type: Vec<WorkScheduleResponse>. */
 export interface WorkScheduleUpsertPutResponseItem extends JsonObject {

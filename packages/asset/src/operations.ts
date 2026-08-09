@@ -445,6 +445,40 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.WalletMeTransactionsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions`, params });
   }
   /**
+   * Performs the me transaction show operation for the wallet capability.
+   * Calls `GET /api/v1/me/transactions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   */
+  walletMeTransactionShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.WalletMeTransactionShowGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the me transaction days operation for the wallet capability.
+   * Calls `GET /api/v1/me/transactions/days` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   */
+  walletMeTransactionDaysGet(params?: T.WalletMeTransactionDaysGetQuery, options?: RequestOptions) {
+    return this.client.request<T.WalletMeTransactionDaysGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions/days`, params });
+  }
+  /**
+   * Performs the me transaction day operation for the wallet capability.
+   * Calls `GET /api/v1/me/transactions/days/{day}` through the shared IDP-aware Faiber client.
+   * @param day Backend path identifier `day`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   */
+  walletMeTransactionDayGet(day: Identifier, params?: T.WalletMeTransactionDayGetQuery, options?: RequestOptions) {
+    return this.client.request<T.WalletMeTransactionDayGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions/days/${encodeURIComponent(day)}`, params });
+  }
+  /**
    * Performs the plans index operation for the wallet billing capability.
    * Calls `GET /api/v1/plans` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend query type: ListQuery. */
@@ -7,10 +7,13 @@ export interface RoutesListActionsGetQuery extends QueryParams {
   "status"?: string | null;
   "group"?: string | null;
   "kind"?: string | null;
+  "linked_service"?: string | null;
+  "linked_entity_type"?: string | null;
+  "linked_entity_id"?: string | null;
   "page"?: number | null;
   "limit"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesListActionsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -19,7 +22,7 @@ export interface RoutesUpdateActionStatusPatchInput extends JsonObject {
   "status": string;
   "input"?: JsonValue;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesUpdateActionStatusPatchResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -29,14 +32,17 @@ export interface RoutesListAuditGetQuery extends QueryParams {
   "status"?: string | null;
   "group"?: string | null;
   "kind"?: string | null;
+  "linked_service"?: string | null;
+  "linked_entity_type"?: string | null;
+  "linked_entity_id"?: string | null;
   "page"?: number | null;
   "limit"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesListAuditGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesListBindingsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -49,13 +55,12 @@ export interface RoutesCreateBindingPostInput extends JsonObject {
   "tool_policy"?: JsonValue;
   "enabled"?: boolean;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesCreateBindingPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RoutesDeleteBindingDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesDeleteBindingDeleteResponse = void;
 
 /** Backend request type: UpdateBinding. */
 export interface RoutesUpdateBindingPutInput extends JsonObject {
@@ -65,13 +70,12 @@ export interface RoutesUpdateBindingPutInput extends JsonObject {
   "enabled"?: boolean | null;
   "expected_version"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesUpdateBindingPutResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RoutesDeleteEdgeDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesDeleteEdgeDeleteResponse = void;
 
 /** Backend request type: UpdateEdge. */
 export interface RoutesUpdateEdgePutInput extends JsonObject {
@@ -81,13 +85,12 @@ export interface RoutesUpdateEdgePutInput extends JsonObject {
   "status"?: string | null;
   "expected_version"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesUpdateEdgePutResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RoutesDeleteGroupDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesDeleteGroupDeleteResponse = void;
 
 /** Backend request type: UpdateGroup. */
 export interface RoutesUpdateGroupPutInput extends JsonObject {
@@ -99,15 +102,14 @@ export interface RoutesUpdateGroupPutInput extends JsonObject {
   "status"?: string | null;
   "expected_version"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesUpdateGroupPutResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RoutesDeleteItemDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesDeleteItemDeleteResponse = void;
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesGetItemGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -119,6 +121,13 @@ export interface RoutesUpdateItemPutInput extends JsonObject {
   "summary"?: JsonValue | null;
   "content"?: JsonValue | null;
   "metadata"?: JsonValue | null;
+  "description"?: JsonValue | null;
+  "linked_service"?: string | null;
+  "linked_entity_type"?: string | null;
+  "linked_entity_id"?: string | null;
+  "link_url"?: string | null;
+  "open_in_new_tab"?: boolean | null;
+  "show_when"?: JsonValue | null;
   "tags"?: JsonValue | null;
   "importance"?: string | null;
   "status"?: string | null;
@@ -126,7 +135,7 @@ export interface RoutesUpdateItemPutInput extends JsonObject {
   "valid_to"?: string | null;
   "expected_version"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesUpdateItemPutResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -136,10 +145,13 @@ export interface RoutesListBasesGetQuery extends QueryParams {
   "status"?: string | null;
   "group"?: string | null;
   "kind"?: string | null;
+  "linked_service"?: string | null;
+  "linked_entity_type"?: string | null;
+  "linked_entity_id"?: string | null;
   "page"?: number | null;
   "limit"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesListBasesGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -152,15 +164,14 @@ export interface RoutesCreateBasePostInput extends JsonObject {
   "supported_languages"?: JsonValue;
   "settings"?: JsonValue;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesCreateBasePostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RoutesDeleteBaseDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesDeleteBaseDeleteResponse = void;
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesGetBaseGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -174,11 +185,11 @@ export interface RoutesUpdateBasePutInput extends JsonObject {
   "status"?: string | null;
   "expected_version"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesUpdateBasePutResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesListEdgesGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -190,15 +201,15 @@ export interface RoutesCreateEdgePostInput extends JsonObject {
   "conditions"?: JsonValue;
   "weight"?: number;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesCreateEdgePostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesExportBaseGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesListGroupsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -211,7 +222,7 @@ export interface RoutesCreateGroupPostInput extends JsonObject {
   "sort_order"?: number;
   "inclusion_policy"?: JsonValue;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesCreateGroupPostResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -221,10 +232,13 @@ export interface RoutesListItemsGetQuery extends QueryParams {
   "status"?: string | null;
   "group"?: string | null;
   "kind"?: string | null;
+  "linked_service"?: string | null;
+  "linked_entity_type"?: string | null;
+  "linked_entity_id"?: string | null;
   "page"?: number | null;
   "limit"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesListItemsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -237,16 +251,23 @@ export interface RoutesCreateItemPostInput extends JsonObject {
   "summary"?: JsonValue;
   "content": JsonValue;
   "metadata"?: JsonValue;
+  "description"?: JsonValue;
+  "linked_service"?: string | null;
+  "linked_entity_type"?: string | null;
+  "linked_entity_id"?: string | null;
+  "link_url"?: string | null;
+  "open_in_new_tab"?: boolean;
+  "show_when"?: JsonValue;
   "tags"?: JsonValue;
   "importance"?: string;
   "valid_from"?: string | null;
   "valid_to"?: string | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesCreateItemPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesPublishPostResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -256,10 +277,13 @@ export interface RoutesListRulesGetQuery extends QueryParams {
   "status"?: string | null;
   "group"?: string | null;
   "kind"?: string | null;
+  "linked_service"?: string | null;
+  "linked_entity_type"?: string | null;
+  "linked_entity_id"?: string | null;
   "page"?: number | null;
   "limit"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesListRulesGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -275,13 +299,12 @@ export interface RoutesCreateRulePostInput extends JsonObject {
   "stop_on_match"?: boolean;
   "enabled"?: boolean;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesCreateRulePostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RoutesDeleteRuleDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesDeleteRuleDeleteResponse = void;
 
 /** Backend request type: UpdateRule. */
 export interface RoutesUpdateRulePutInput extends JsonObject {
@@ -294,7 +317,7 @@ export interface RoutesUpdateRulePutInput extends JsonObject {
   "enabled"?: boolean | null;
   "expected_version"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesUpdateRulePutResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -309,13 +332,28 @@ export interface RoutesRuntimeQueryPostInput extends JsonObject {
   "group_slugs"?: JsonValue;
   "level"?: number | null;
   "limit"?: number | null;
+  "compact"?: boolean;
+  "max_context_chars"?: number | null;
   "event"?: JsonValue | null;
 }
-/** Backend response type: handler-defined response. */
-export interface RoutesRuntimeQueryPostResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: RuntimeResult. */
+export interface RoutesRuntimeQueryPostResponseData extends JsonObject {
+  "chat_slug": string;
+  "release"?: JsonValue | null;
+  "knowledge": JsonValue[];
+  "suggestions": JsonValue[];
+  "matched_rules": JsonValue[];
+  "notifications": JsonValue[];
+  "warnings": JsonValue[];
+  "todos": JsonValue[];
+  "input_requests": JsonValue[];
+  "directions": JsonValue[];
+  "trace": JsonValue;
+}
+export interface RoutesRuntimeQueryPostResponse extends ApiEnvelope<RoutesRuntimeQueryPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
 }
 

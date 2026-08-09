@@ -1,5 +1,5 @@
 {
-  "name": "@faiber/faiber-idp",
+  "name": "@faiber/faiber-drm",
   "version": "0.5.1",
   "type": "module",
   "sideEffects": false,

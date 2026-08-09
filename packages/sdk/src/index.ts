@@ -15,6 +15,8 @@ import { SessionApi } from "@faiber/faiber-session";
 import { SocialApi } from "@faiber/faiber-social";
 import { VersionApi } from "@faiber/faiber-version";
 import { StateApi } from "@faiber/faiber-state-sdk";
+import { DrmApi } from "@faiber/faiber-drm";
+import { describeFaiber, FAIBER_SERVICE_CAPABILITIES } from "./capabilities.js";
 export interface FaiberServiceApis {
     idp: IdpApi;
     profile: ProfileApi;
@@ -32,8 +34,13 @@ export interface FaiberServiceApis {
     knowledge: KnowledgeApi;
     chat: ChatApi;
     state: StateApi;
+    drm: DrmApi;
 }
 export class FaiberSDK {
+    /** Machine-readable catalog for IDEs and AI agents choosing a Faiber capability. */
+    static readonly capabilities = FAIBER_SERVICE_CAPABILITIES;
+    /** Machine-readable catalog for IDEs and AI agents choosing a Faiber capability. */
+    readonly capabilities = FAIBER_SERVICE_CAPABILITIES;
     private readonly clients = new Map<ServiceName, FaiberClient>();
     private readonly apis = new Map<ServiceName, unknown>();
     constructor(readonly config: FaiberSdkConfig) { }
@@ -73,9 +80,12 @@ export class FaiberSDK {
     get knowledge(): KnowledgeApi { return this.api("knowledge", (client) => new KnowledgeApi(client)); }
     get chat(): ChatApi { return this.api("chat", (client) => new ChatApi(client)); }
     get state(): StateApi { return this.api("state", (client) => new StateApi(client)); }
+    get drm(): DrmApi { return this.api("drm", (client) => new DrmApi(client)); }
+    /** Explains one service or returns the complete service catalog. */
+    describe(service?: ServiceName) { return describeFaiber(service); }
 }
 export * from "@faiber/sdk-core";
-export { AssetApi, ChatApi, CrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, VersionApi };
+export { AssetApi, ChatApi, CrmApi, DrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, VersionApi };
 export type { AuthTokensResponse, User as IdpUser } from "@faiber/faiber-idp";
 export type { Profile, ProfileProperties } from "@faiber/faiber-profile";
 export type { Lead } from "@faiber/faiber-crm";
@@ -83,3 +93,21 @@ export type { InteractiveContent } from "@faiber/faiber-lms";
 export * from "@faiber/faiber-state-sdk";
 export * as FaiberGameRuntime from "@faiber/faiber-game-sdk";
 export { FaiberGame, component } from "@faiber/faiber-game-sdk";
+export * from "./capabilities.js";
+export * as IdpService from "@faiber/faiber-idp";
+export * as ProfileService from "@faiber/faiber-profile";
+export * as ModulesService from "@faiber/faiber-modules";
+export * as AssetService from "@faiber/faiber-asset";
+export * as PaymentService from "@faiber/faiber-payment";
+export * as MessengerService from "@faiber/faiber-messenger";
+export * as CrmService from "@faiber/faiber-crm";
+export * as LmsService from "@faiber/faiber-lms";
+export * as ReservationService from "@faiber/faiber-reservation";
+export * as SessionService from "@faiber/faiber-session";
+export * as VersionService from "@faiber/faiber-version";
+export * as FlowService from "@faiber/faiber-flow";
+export * as KnowledgeService from "@faiber/faiber-knowledge";
+export * as ChatService from "@faiber/faiber-chat";
+export * as SocialService from "@faiber/faiber-social";
+export * as StateService from "@faiber/faiber-state-sdk";
+export * as DrmService from "@faiber/faiber-drm";

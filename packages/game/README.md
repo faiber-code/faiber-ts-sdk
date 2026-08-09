@@ -2,6 +2,10 @@
 
 Portable TypeScript/WebAssembly game runtime designed to scale from a small 2D web game to a cross-platform 3D title.
 
+```bash
+npm install @faiber/faiber-ts-sdk
+```
+
 The first foundation includes an ECS world, fixed-step game loop, pluggable renderer and physics systems, WebAssembly game plugins, adaptive device quality, automatic texture variant selection, WebGL 2/headless backends, and direct Infera State replication bindings.
 
 ```ts

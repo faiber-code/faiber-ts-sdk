@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: HealthResponse. */
@@ -32,23 +32,13 @@ export interface CatalogTriggersGetResponseItem extends JsonObject {
 export interface CatalogTriggersGetResponse extends ApiEnvelope<CatalogTriggersGetResponseItem[]> {
 }
 
+/** Backend request type: serde_json::Value. */
+export type EventEmitPostInput = JsonValue;
+/** Backend response type: serde_json::Value. */
+export interface EventEmitPostResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: Vec<FlowResponse>. */
-export interface FlowIndexGetResponseItemGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowIndexGetResponseItemGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowIndexGetResponseItemGraph extends JsonObject {
-  "nodes": FlowIndexGetResponseItemGraphNodes[];
-  "edges": FlowIndexGetResponseItemGraphEdges[];
-}
 export interface FlowIndexGetResponseItem extends JsonObject {
   "id": string;
   "name": string;
@@ -56,7 +46,7 @@ export interface FlowIndexGetResponseItem extends JsonObject {
   "enabled": boolean;
   "trigger_key": string;
   "capture_fields": string[];
-  "graph": FlowIndexGetResponseItemGraph;
+  "graph": BackendJson<"FlowGraph">;
   "version": number;
   "created_at": string;
   "updated_at": string;
@@ -65,46 +55,14 @@ export interface FlowIndexGetResponse extends ApiEnvelope<FlowIndexGetResponseIt
 }
 
 /** Backend request type: CreateFlowRequest. */
-export interface FlowStorePostInputGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowStorePostInputGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowStorePostInputGraph extends JsonObject {
-  "nodes": FlowStorePostInputGraphNodes[];
-  "edges": FlowStorePostInputGraphEdges[];
-}
 export interface FlowStorePostInput extends JsonObject {
   "name": string;
   "slug"?: string | null;
   "trigger_key": string;
   "enabled"?: boolean | null;
-  "graph"?: FlowStorePostInputGraph | null;
+  "graph"?: BackendJson<"FlowGraph"> | null;
 }
 /** Backend response type: FlowResponse. */
-export interface FlowStorePostResponseDataGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowStorePostResponseDataGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowStorePostResponseDataGraph extends JsonObject {
-  "nodes": FlowStorePostResponseDataGraphNodes[];
-  "edges": FlowStorePostResponseDataGraphEdges[];
-}
 export interface FlowStorePostResponseData extends JsonObject {
   "id": string;
   "name": string;
@@ -112,7 +70,7 @@ export interface FlowStorePostResponseData extends JsonObject {
   "enabled": boolean;
   "trigger_key": string;
   "capture_fields": string[];
-  "graph": FlowStorePostResponseDataGraph;
+  "graph": BackendJson<"FlowGraph">;
   "version": number;
   "created_at": string;
   "updated_at": string;
@@ -125,22 +83,6 @@ export interface FlowDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: FlowResponse. */
-export interface FlowShowGetResponseDataGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowShowGetResponseDataGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowShowGetResponseDataGraph extends JsonObject {
-  "nodes": FlowShowGetResponseDataGraphNodes[];
-  "edges": FlowShowGetResponseDataGraphEdges[];
-}
 export interface FlowShowGetResponseData extends JsonObject {
   "id": string;
   "name": string;
@@ -148,7 +90,7 @@ export interface FlowShowGetResponseData extends JsonObject {
   "enabled": boolean;
   "trigger_key": string;
   "capture_fields": string[];
-  "graph": FlowShowGetResponseDataGraph;
+  "graph": BackendJson<"FlowGraph">;
   "version": number;
   "created_at": string;
   "updated_at": string;
@@ -157,46 +99,14 @@ export interface FlowShowGetResponse extends ApiEnvelope<FlowShowGetResponseData
 }
 
 /** Backend request type: UpdateFlowRequest. */
-export interface FlowUpdatePutInputGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowUpdatePutInputGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowUpdatePutInputGraph extends JsonObject {
-  "nodes": FlowUpdatePutInputGraphNodes[];
-  "edges": FlowUpdatePutInputGraphEdges[];
-}
 export interface FlowUpdatePutInput extends JsonObject {
   "name"?: string | null;
   "slug"?: string | null;
   "trigger_key"?: string | null;
   "enabled"?: boolean | null;
-  "graph"?: FlowUpdatePutInputGraph | null;
+  "graph"?: BackendJson<"FlowGraph"> | null;
 }
 /** Backend response type: FlowResponse. */
-export interface FlowUpdatePutResponseDataGraphNodes extends JsonObject {
-  "id": string;
-  "type": string;
-  "position"?: JsonValue | null;
-  "data": JsonValue;
-}
-export interface FlowUpdatePutResponseDataGraphEdges extends JsonObject {
-  "id": string;
-  "source": string;
-  "target": string;
-  "data"?: JsonValue | null;
-}
-export interface FlowUpdatePutResponseDataGraph extends JsonObject {
-  "nodes": FlowUpdatePutResponseDataGraphNodes[];
-  "edges": FlowUpdatePutResponseDataGraphEdges[];
-}
 export interface FlowUpdatePutResponseData extends JsonObject {
   "id": string;
   "name": string;
@@ -204,7 +114,7 @@ export interface FlowUpdatePutResponseData extends JsonObject {
   "enabled": boolean;
   "trigger_key": string;
   "capture_fields": string[];
-  "graph": FlowUpdatePutResponseDataGraph;
+  "graph": BackendJson<"FlowGraph">;
   "version": number;
   "created_at": string;
   "updated_at": string;
@@ -216,8 +126,28 @@ export interface FlowUpdatePutResponse extends ApiEnvelope<FlowUpdatePutResponse
 export interface FlowValidatePostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: ImportFlowsRequest. */
+export interface FlowImportPostInput extends JsonObject {
+  "version"?: number | null;
+  "source"?: string | null;
+  "dry_run"?: boolean;
+  "flows"?: BackendJson<"ImportFlowEntry">[];
+  "event_bridges"?: BackendJson<"ImportEventBridgeEntry">[];
+  "event_bridge_groups"?: BackendJson<"ImportEventBridgeGroupEntry">[];
+}
+/** Backend response type: ImportFlowsResponse. */
+export interface FlowImportPostResponseData extends JsonObject {
+  "validated": number;
+  "created": number;
+  "updated": number;
+  "unchanged": number;
+  "dry_run": boolean;
+}
+export interface FlowImportPostResponse extends ApiEnvelope<FlowImportPostResponseData> {
+}
+
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface RouterIntegrationFlowGetResponse extends ApiEnvelope<JsonValue> {
+export interface RouterIntegrationFlowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
 /** Backend query type: RegistryQuery. */
@@ -225,13 +155,9 @@ export interface RegistryActiveTriggersGetQuery extends QueryParams {
   "service"?: string | null;
 }
 /** Backend response type: ActiveTriggersResponse. */
-export interface RegistryActiveTriggersGetResponseDataTriggers extends JsonObject {
-  "trigger_key": string;
-  "capture_fields": string[];
-}
 export interface RegistryActiveTriggersGetResponseData extends JsonObject {
   "version": number;
-  "triggers": RegistryActiveTriggersGetResponseDataTriggers[];
+  "triggers": BackendJson<"RegistryTriggerEntry">[];
 }
 export interface RegistryActiveTriggersGetResponse extends ApiEnvelope<RegistryActiveTriggersGetResponseData> {
 }
@@ -251,6 +177,21 @@ export interface RunIndexGetResponseItem extends JsonObject {
   "finished_at"?: string | null;
 }
 export interface RunIndexGetResponse extends ApiEnvelope<RunIndexGetResponseItem[]> {
+}
+
+/** Backend response type: crate::run::methods::FlowRunDetailView. */
+export interface RunShowGetResponseData extends JsonObject {
+  "id": string;
+  "flow_id": string;
+  "trigger_event_id": string;
+  "status": string;
+  "error"?: string | null;
+  "started_at": string;
+  "finished_at"?: string | null;
+  "context"?: JsonValue | null;
+  "steps": BackendJson<"FlowRunStepView">[];
+}
+export interface RunShowGetResponse extends ApiEnvelope<RunShowGetResponseData> {
 }
 
 /** Backend response type: HealthResponse. */

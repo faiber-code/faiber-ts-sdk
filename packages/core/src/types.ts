@@ -16,6 +16,7 @@ export const SERVICE_NAMES = [
     "chat",
     "social",
     "state",
+    "drm",
 ] as const;
 export type ServiceName = (typeof SERVICE_NAMES)[number];
 export type ServiceDomains = Partial<Record<ServiceName, string>>;
@@ -26,6 +27,12 @@ export type JsonValue = JsonPrimitive | JsonValue[] | JsonObject;
 export interface JsonObject {
     [key: string]: JsonValue | undefined;
 }
+/**
+ * JSON-safe backend contract that could not be structurally expanded from Rust source.
+ * The brand preserves the authoritative Rust type name for IDEs and AI agents instead of
+ * collapsing a concrete model into an unexplained `any`, `unknown`, or unlabelled JSON value.
+ */
+export type BackendJson<RustType extends string> = JsonValue & { readonly __faiberRustType?: RustType };
 export type QueryValue = string | number | boolean | null | undefined | readonly (string | number | boolean)[];
 export type QueryParams = Record<string, QueryValue>;
 export interface ApiEnvelope<T> {

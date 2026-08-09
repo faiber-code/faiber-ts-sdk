@@ -1,7 +1,7 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -849,10 +849,11 @@ export interface ConfigUpdateWeekendPatchResponseData extends JsonObject {
 export interface ConfigUpdateWeekendPatchResponse extends ApiEnvelope<ConfigUpdateWeekendPatchResponseData> {
 }
 
-/** Backend query type: PaginationQuery. */
+/** Backend query type: CourseListQuery. */
 export interface CourseIndexCourseGetQuery extends QueryParams {
   "page_number"?: number | null;
   "page_size"?: number | null;
+  "category_ids"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CourseResponse>. */
 export interface CourseIndexCourseGetResponseItem extends JsonObject {
@@ -1179,6 +1180,7 @@ export interface CourseIndexVideoSectionGetResponseItem extends JsonObject {
   "video_type": string;
   "external_url"?: string | null;
   "drm_url"?: string | null;
+  "drm_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1205,6 +1207,7 @@ export interface CourseStoreVideoSectionPostInput extends JsonObject {
   "video_type"?: string | null;
   "external_url"?: string | null;
   "drm_url"?: string | null;
+  "drm_media_id"?: BackendJson<"uuid::Uuid"> | null;
 }
 /** Backend response type: models::VideoSectionResponse. */
 export interface CourseStoreVideoSectionPostResponseData extends JsonObject {
@@ -1217,6 +1220,7 @@ export interface CourseStoreVideoSectionPostResponseData extends JsonObject {
   "video_type": string;
   "external_url"?: string | null;
   "drm_url"?: string | null;
+  "drm_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1238,6 +1242,7 @@ export interface CourseShowVideoSectionGetResponseData extends JsonObject {
   "video_type": string;
   "external_url"?: string | null;
   "drm_url"?: string | null;
+  "drm_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1254,6 +1259,7 @@ export interface CourseUpdateVideoSectionPatchInput extends JsonObject {
   "video_type"?: string | null;
   "external_url"?: string | null;
   "drm_url"?: string | null;
+  "drm_media_id"?: BackendJson<"uuid::Uuid"> | null;
 }
 /** Backend response type: models::VideoSectionResponse. */
 export interface CourseUpdateVideoSectionPatchResponseData extends JsonObject {
@@ -1266,6 +1272,7 @@ export interface CourseUpdateVideoSectionPatchResponseData extends JsonObject {
   "video_type": string;
   "external_url"?: string | null;
   "drm_url"?: string | null;
+  "drm_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -1643,7 +1650,7 @@ export interface ExamIndexQuestionGetResponseItem extends JsonObject {
   "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue | null;
+  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "correct_answer"?: string | null;
   "sort_order": number;
   "created_at": string;
@@ -1666,7 +1673,7 @@ export interface ExamStoreQuestionPostInput extends JsonObject {
   "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue | null;
+  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "correct_answer"?: string | null;
   "sort_order": number;
 }
@@ -1676,7 +1683,7 @@ export interface ExamStoreQuestionPostResponseData extends JsonObject {
   "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue | null;
+  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "correct_answer"?: string | null;
   "sort_order": number;
   "created_at": string;
@@ -1694,7 +1701,7 @@ export interface ExamShowQuestionGetResponseData extends JsonObject {
   "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue | null;
+  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "correct_answer"?: string | null;
   "sort_order": number;
   "created_at": string;
@@ -1707,7 +1714,7 @@ export interface ExamUpdateQuestionPatchInput extends JsonObject {
   "exam_id"?: number | null;
   "question_text"?: string | null;
   "question_type"?: string | null;
-  "options"?: JsonValue | null;
+  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "correct_answer"?: string | null;
   "sort_order"?: number | null;
 }
@@ -1717,7 +1724,7 @@ export interface ExamUpdateQuestionPatchResponseData extends JsonObject {
   "exam_id"?: number | null;
   "question_text": string;
   "question_type": string;
-  "options"?: JsonValue | null;
+  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "correct_answer"?: string | null;
   "sort_order": number;
   "created_at": string;
@@ -2060,7 +2067,7 @@ export interface HomeworkUpdateQuestionPatchResponse extends ApiEnvelope<Homewor
 }
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<JsonValue> {
+export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
 /** Backend query type: PaginationQuery. */
@@ -2139,7 +2146,7 @@ export interface InteractiveIndexClassroomSessionGetResponseItem extends JsonObj
   "classroom_session_id": number;
   "interactive_content_id": number;
   "room_code"?: string | null;
-  "state"?: JsonValue | null;
+  "state"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "created_at": string;
 }
 export interface InteractiveIndexClassroomSessionGetResponsePageMeta extends JsonObject {
@@ -2160,7 +2167,7 @@ export interface InteractiveStoreClassroomSessionPostInput extends JsonObject {
   "classroom_session_id": number;
   "interactive_content_id": number;
   "room_code"?: string | null;
-  "state"?: JsonValue | null;
+  "state"?: BackendJson<"sea_orm::prelude::Json"> | null;
 }
 /** Backend response type: models::ClassroomSessionResponse. */
 export interface InteractiveStoreClassroomSessionPostResponseData extends JsonObject {
@@ -2168,7 +2175,7 @@ export interface InteractiveStoreClassroomSessionPostResponseData extends JsonOb
   "classroom_session_id": number;
   "interactive_content_id": number;
   "room_code"?: string | null;
-  "state"?: JsonValue | null;
+  "state"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "created_at": string;
 }
 export interface InteractiveStoreClassroomSessionPostResponse extends ApiEnvelope<InteractiveStoreClassroomSessionPostResponseData> {
@@ -2180,7 +2187,7 @@ export interface InteractiveShowClassroomSessionGetResponseData extends JsonObje
   "classroom_session_id": number;
   "interactive_content_id": number;
   "room_code"?: string | null;
-  "state"?: JsonValue | null;
+  "state"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "created_at": string;
 }
 export interface InteractiveShowClassroomSessionGetResponse extends ApiEnvelope<InteractiveShowClassroomSessionGetResponseData> {
@@ -2191,7 +2198,7 @@ export interface InteractiveUpdateClassroomSessionPatchInput extends JsonObject 
   "classroom_session_id"?: number | null;
   "interactive_content_id"?: number | null;
   "room_code"?: string | null;
-  "state"?: JsonValue | null;
+  "state"?: BackendJson<"sea_orm::prelude::Json"> | null;
 }
 /** Backend response type: models::ClassroomSessionResponse. */
 export interface InteractiveUpdateClassroomSessionPatchResponseData extends JsonObject {
@@ -2199,7 +2206,7 @@ export interface InteractiveUpdateClassroomSessionPatchResponseData extends Json
   "classroom_session_id": number;
   "interactive_content_id": number;
   "room_code"?: string | null;
-  "state"?: JsonValue | null;
+  "state"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "created_at": string;
 }
 export interface InteractiveUpdateClassroomSessionPatchResponse extends ApiEnvelope<InteractiveUpdateClassroomSessionPatchResponseData> {
@@ -2216,7 +2223,7 @@ export interface InteractiveIndexContentGetResponseItem extends JsonObject {
   "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue | null;
+  "payload"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "reward_points": number;
   "status": string;
   "created_at": string;
@@ -2240,7 +2247,7 @@ export interface InteractiveStoreContentPostInput extends JsonObject {
   "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue | null;
+  "payload"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "reward_points": number;
   "status": string;
 }
@@ -2250,7 +2257,7 @@ export interface InteractiveStoreContentPostResponseData extends JsonObject {
   "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue | null;
+  "payload"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "reward_points": number;
   "status": string;
   "created_at": string;
@@ -2265,7 +2272,7 @@ export interface InteractiveShowContentGetResponseData extends JsonObject {
   "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue | null;
+  "payload"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "reward_points": number;
   "status": string;
   "created_at": string;
@@ -2279,7 +2286,7 @@ export interface InteractiveUpdateContentPatchInput extends JsonObject {
   "category_id"?: number | null;
   "name"?: string | null;
   "content_type"?: string | null;
-  "payload"?: JsonValue | null;
+  "payload"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "reward_points"?: number | null;
   "status"?: string | null;
 }
@@ -2289,7 +2296,7 @@ export interface InteractiveUpdateContentPatchResponseData extends JsonObject {
   "category_id"?: number | null;
   "name": string;
   "content_type": string;
-  "payload"?: JsonValue | null;
+  "payload"?: BackendJson<"sea_orm::prelude::Json"> | null;
   "reward_points": number;
   "status": string;
   "created_at": string;
@@ -2383,6 +2390,10 @@ export interface MediaUploadImagePostResponseData extends JsonObject {
   "key": string;
 }
 export interface MediaUploadImagePostResponse extends ApiEnvelope<MediaUploadImagePostResponseData> {
+}
+
+/** Backend response type: raw-response. */
+export interface MediaDownloadImageGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: Vec<models::ClassroomReport>. */
@@ -2588,7 +2599,7 @@ export interface OpsUpdateWorktimePatchResponseData extends JsonObject {
 export interface OpsUpdateWorktimePatchResponse extends ApiEnvelope<OpsUpdateWorktimePatchResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
 }
 

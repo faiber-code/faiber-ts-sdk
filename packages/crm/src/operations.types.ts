@@ -1,49 +1,24 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
-export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
-  "name": string;
-  "field_type": string;
-  "required": boolean;
-  "description": string;
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataDirectEvents extends JsonObject {
-  "event_name": string;
-  "payload_fields": IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields[];
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataDirect extends JsonObject {
-  "transport": string;
-  "queue"?: string | null;
-  "base_url"?: string | null;
-  "broker_url_hint"?: string | null;
-  "sample_profile_id"?: string | null;
-  "events": IntegrationIntegrationDocsShowGetResponseDataDirectEvents[];
-}
-export interface IntegrationIntegrationDocsShowGetResponseDataSdk extends JsonObject {
-  "event_name": string;
-  "method": string;
-  "language": string;
-  "cargo_dep": string;
-  "code": string;
-}
 export interface IntegrationIntegrationDocsShowGetResponseData extends JsonObject {
-  "direct": IntegrationIntegrationDocsShowGetResponseDataDirect;
-  "sdk": IntegrationIntegrationDocsShowGetResponseDataSdk[];
+  "direct": BackendJson<"DirectIntegrationMeta">;
+  "sdk": BackendJson<"SdkIntegrationSnippet">[];
 }
 export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<IntegrationIntegrationDocsShowGetResponseData> {
 }
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<JsonValue> {
+export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
 /** Backend query type: LeadListQuery. */
@@ -51,138 +26,8 @@ export interface LeadIndexGetQuery extends QueryParams {
   "sort"?: string | null;
 }
 /** Backend response type: LeadListResponse. */
-export interface LeadIndexGetResponseDataLeadsCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadIndexGetResponseDataLeadsProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadIndexGetResponseDataLeadsWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadIndexGetResponseDataLeadsWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadIndexGetResponseDataLeadsLeadLogsProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadIndexGetResponseDataLeadsLeadLogsFromWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadIndexGetResponseDataLeadsLeadLogsToWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadIndexGetResponseDataLeadsLeadLogs extends JsonObject {
-  "id": string;
-  "from_workflow_node_id"?: string | null;
-  "to_workflow_node_id"?: string | null;
-  "type": string;
-  "profile_id": string;
-  "profile"?: LeadIndexGetResponseDataLeadsLeadLogsProfile | null;
-  "from_status"?: string | null;
-  "to_status"?: string | null;
-  "from_workflow_node"?: LeadIndexGetResponseDataLeadsLeadLogsFromWorkflowNode | null;
-  "to_workflow_node"?: LeadIndexGetResponseDataLeadsLeadLogsToWorkflowNode | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadIndexGetResponseDataLeadsLeadTouchProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadIndexGetResponseDataLeadsLeadTouch extends JsonObject {
-  "id": string;
-  "lead_id": string;
-  "profile_id": string;
-  "profile"?: LeadIndexGetResponseDataLeadsLeadTouchProfile | null;
-  "description"?: string | null;
-  "status": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadIndexGetResponseDataLeads extends JsonObject {
-  "id": string;
-  "profile_id"?: string | null;
-  "title"?: string | null;
-  "description"?: string | null;
-  "creator_id": string;
-  "creator"?: LeadIndexGetResponseDataLeadsCreator | null;
-  "workflow_id"?: string | null;
-  "workflow_node_id"?: string | null;
-  "campaign_id"?: string | null;
-  "source_id"?: string | null;
-  "task_status": string;
-  "foreign_key"?: string | null;
-  "task_priority": number;
-  "flags": string[];
-  "profile"?: LeadIndexGetResponseDataLeadsProfile | null;
-  "created_at": string;
-  "updated_at": string;
-  "enrollment_id"?: number | null;
-  "enrollment_course_id"?: number | null;
-  "installment_id"?: number | null;
-  "installment_enrollment_id"?: number | null;
-  "active_at"?: string | null;
-  "is_active_status"?: boolean | null;
-  "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadIndexGetResponseDataLeadsWorkflow | null;
-  "workflow_node"?: LeadIndexGetResponseDataLeadsWorkflowNode | null;
-  "lead_logs"?: LeadIndexGetResponseDataLeadsLeadLogs[] | null;
-  "lead_touch"?: LeadIndexGetResponseDataLeadsLeadTouch[] | null;
-  "meta_data"?: JsonValue | null;
-}
 export interface LeadIndexGetResponseData extends JsonObject {
-  "leads": LeadIndexGetResponseDataLeads[];
+  "leads": BackendJson<"FullLeadResponse">[];
 }
 export interface LeadIndexGetResponse extends ApiEnvelope<LeadIndexGetResponseData> {
 }
@@ -209,50 +54,13 @@ export interface LeadCreatePostInput extends JsonObject {
   "description"?: string | null;
 }
 /** Backend response type: LeadResponse. */
-export interface LeadCreatePostResponseDataCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadCreatePostResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadCreatePostResponseDataWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadCreatePostResponseDataWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadCreatePostResponseData extends JsonObject {
   "id": string;
   "profile_id"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "creator_id": string;
-  "creator"?: LeadCreatePostResponseDataCreator | null;
+  "creator"?: BackendJson<"ProfileSummary"> | null;
   "workflow_id"?: string | null;
   "workflow_node_id"?: string | null;
   "campaign_id"?: string | null;
@@ -261,7 +69,7 @@ export interface LeadCreatePostResponseData extends JsonObject {
   "foreign_key"?: string | null;
   "task_priority": number;
   "flags": string[];
-  "profile"?: LeadCreatePostResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "created_at": string;
   "updated_at": string;
   "enrollment_id"?: number | null;
@@ -271,8 +79,8 @@ export interface LeadCreatePostResponseData extends JsonObject {
   "active_at"?: string | null;
   "is_active_status"?: boolean | null;
   "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadCreatePostResponseDataWorkflow | null;
-  "workflow_node"?: LeadCreatePostResponseDataWorkflowNode | null;
+  "workflow"?: BackendJson<"WorkflowResponse"> | null;
+  "workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "is_in_reminder"?: boolean | null;
   "meta_data"?: JsonValue | null;
 }
@@ -400,50 +208,13 @@ export interface LeadDestroyDeleteResponse extends ApiEnvelope<boolean> {
 }
 
 /** Backend response type: LeadResponse. */
-export interface LeadShowGetResponseDataCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadShowGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadShowGetResponseDataWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadShowGetResponseDataWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadShowGetResponseData extends JsonObject {
   "id": string;
   "profile_id"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "creator_id": string;
-  "creator"?: LeadShowGetResponseDataCreator | null;
+  "creator"?: BackendJson<"ProfileSummary"> | null;
   "workflow_id"?: string | null;
   "workflow_node_id"?: string | null;
   "campaign_id"?: string | null;
@@ -452,7 +223,7 @@ export interface LeadShowGetResponseData extends JsonObject {
   "foreign_key"?: string | null;
   "task_priority": number;
   "flags": string[];
-  "profile"?: LeadShowGetResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "created_at": string;
   "updated_at": string;
   "enrollment_id"?: number | null;
@@ -462,8 +233,8 @@ export interface LeadShowGetResponseData extends JsonObject {
   "active_at"?: string | null;
   "is_active_status"?: boolean | null;
   "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadShowGetResponseDataWorkflow | null;
-  "workflow_node"?: LeadShowGetResponseDataWorkflowNode | null;
+  "workflow"?: BackendJson<"WorkflowResponse"> | null;
+  "workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "is_in_reminder"?: boolean | null;
   "meta_data"?: JsonValue | null;
 }
@@ -492,50 +263,13 @@ export interface LeadUpdatePutInput extends JsonObject {
   "assignee_profile_id"?: string | null;
 }
 /** Backend response type: LeadResponse. */
-export interface LeadUpdatePutResponseDataCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadUpdatePutResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadUpdatePutResponseDataWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadUpdatePutResponseDataWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadUpdatePutResponseData extends JsonObject {
   "id": string;
   "profile_id"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "creator_id": string;
-  "creator"?: LeadUpdatePutResponseDataCreator | null;
+  "creator"?: BackendJson<"ProfileSummary"> | null;
   "workflow_id"?: string | null;
   "workflow_node_id"?: string | null;
   "campaign_id"?: string | null;
@@ -544,7 +278,7 @@ export interface LeadUpdatePutResponseData extends JsonObject {
   "foreign_key"?: string | null;
   "task_priority": number;
   "flags": string[];
-  "profile"?: LeadUpdatePutResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "created_at": string;
   "updated_at": string;
   "enrollment_id"?: number | null;
@@ -554,8 +288,8 @@ export interface LeadUpdatePutResponseData extends JsonObject {
   "active_at"?: string | null;
   "is_active_status"?: boolean | null;
   "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadUpdatePutResponseDataWorkflow | null;
-  "workflow_node"?: LeadUpdatePutResponseDataWorkflowNode | null;
+  "workflow"?: BackendJson<"WorkflowResponse"> | null;
+  "workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "is_in_reminder"?: boolean | null;
   "meta_data"?: JsonValue | null;
 }
@@ -563,50 +297,13 @@ export interface LeadUpdatePutResponse extends ApiEnvelope<LeadUpdatePutResponse
 }
 
 /** Backend response type: LeadResponse. */
-export interface LeadCheckStatusGetResponseDataCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadCheckStatusGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadCheckStatusGetResponseDataWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadCheckStatusGetResponseDataWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadCheckStatusGetResponseData extends JsonObject {
   "id": string;
   "profile_id"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "creator_id": string;
-  "creator"?: LeadCheckStatusGetResponseDataCreator | null;
+  "creator"?: BackendJson<"ProfileSummary"> | null;
   "workflow_id"?: string | null;
   "workflow_node_id"?: string | null;
   "campaign_id"?: string | null;
@@ -615,7 +312,7 @@ export interface LeadCheckStatusGetResponseData extends JsonObject {
   "foreign_key"?: string | null;
   "task_priority": number;
   "flags": string[];
-  "profile"?: LeadCheckStatusGetResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "created_at": string;
   "updated_at": string;
   "enrollment_id"?: number | null;
@@ -625,8 +322,8 @@ export interface LeadCheckStatusGetResponseData extends JsonObject {
   "active_at"?: string | null;
   "is_active_status"?: boolean | null;
   "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadCheckStatusGetResponseDataWorkflow | null;
-  "workflow_node"?: LeadCheckStatusGetResponseDataWorkflowNode | null;
+  "workflow"?: BackendJson<"WorkflowResponse"> | null;
+  "workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "is_in_reminder"?: boolean | null;
   "meta_data"?: JsonValue | null;
 }
@@ -634,54 +331,8 @@ export interface LeadCheckStatusGetResponse extends ApiEnvelope<LeadCheckStatusG
 }
 
 /** Backend response type: LeadLogListResponse. */
-export interface LeadListLogsGetResponseDataLeadLogsProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadListLogsGetResponseDataLeadLogsFromWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadListLogsGetResponseDataLeadLogsToWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadListLogsGetResponseDataLeadLogs extends JsonObject {
-  "id": string;
-  "from_workflow_node_id"?: string | null;
-  "to_workflow_node_id"?: string | null;
-  "type": string;
-  "profile_id": string;
-  "profile"?: LeadListLogsGetResponseDataLeadLogsProfile | null;
-  "from_status"?: string | null;
-  "to_status"?: string | null;
-  "from_workflow_node"?: LeadListLogsGetResponseDataLeadLogsFromWorkflowNode | null;
-  "to_workflow_node"?: LeadListLogsGetResponseDataLeadLogsToWorkflowNode | null;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadListLogsGetResponseData extends JsonObject {
-  "lead_logs": LeadListLogsGetResponseDataLeadLogs[];
+  "lead_logs": BackendJson<"LeadLogResponse">[];
 }
 export interface LeadListLogsGetResponse extends ApiEnvelope<LeadListLogsGetResponseData> {
 }
@@ -695,49 +346,17 @@ export interface LeadCreateLogPostInput extends JsonObject {
   "type": string;
 }
 /** Backend response type: LeadLogResponse. */
-export interface LeadCreateLogPostResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadCreateLogPostResponseDataFromWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadCreateLogPostResponseDataToWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadCreateLogPostResponseData extends JsonObject {
   "id": string;
   "from_workflow_node_id"?: string | null;
   "to_workflow_node_id"?: string | null;
   "type": string;
   "profile_id": string;
-  "profile"?: LeadCreateLogPostResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "from_status"?: string | null;
   "to_status"?: string | null;
-  "from_workflow_node"?: LeadCreateLogPostResponseDataFromWorkflowNode | null;
-  "to_workflow_node"?: LeadCreateLogPostResponseDataToWorkflowNode | null;
+  "from_workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
+  "to_workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -749,49 +368,17 @@ export interface LeadDestroyLogDeleteResponse extends ApiEnvelope<boolean> {
 }
 
 /** Backend response type: LeadLogResponse. */
-export interface LeadShowLogGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadShowLogGetResponseDataFromWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadShowLogGetResponseDataToWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadShowLogGetResponseData extends JsonObject {
   "id": string;
   "from_workflow_node_id"?: string | null;
   "to_workflow_node_id"?: string | null;
   "type": string;
   "profile_id": string;
-  "profile"?: LeadShowLogGetResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "from_status"?: string | null;
   "to_status"?: string | null;
-  "from_workflow_node"?: LeadShowLogGetResponseDataFromWorkflowNode | null;
-  "to_workflow_node"?: LeadShowLogGetResponseDataToWorkflowNode | null;
+  "from_workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
+  "to_workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -807,49 +394,17 @@ export interface LeadUpdateLogPutInput extends JsonObject {
   "type"?: string | null;
 }
 /** Backend response type: LeadLogResponse. */
-export interface LeadUpdateLogPutResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadUpdateLogPutResponseDataFromWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadUpdateLogPutResponseDataToWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadUpdateLogPutResponseData extends JsonObject {
   "id": string;
   "from_workflow_node_id"?: string | null;
   "to_workflow_node_id"?: string | null;
   "type": string;
   "profile_id": string;
-  "profile"?: LeadUpdateLogPutResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "from_status"?: string | null;
   "to_status"?: string | null;
-  "from_workflow_node"?: LeadUpdateLogPutResponseDataFromWorkflowNode | null;
-  "to_workflow_node"?: LeadUpdateLogPutResponseDataToWorkflowNode | null;
+  "from_workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
+  "to_workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -862,50 +417,13 @@ export interface LeadMoveToDonePutInput extends JsonObject {
   "assignee_profile_id"?: string | null;
 }
 /** Backend response type: LeadResponse. */
-export interface LeadMoveToDonePutResponseDataCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadMoveToDonePutResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadMoveToDonePutResponseDataWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadMoveToDonePutResponseDataWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadMoveToDonePutResponseData extends JsonObject {
   "id": string;
   "profile_id"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "creator_id": string;
-  "creator"?: LeadMoveToDonePutResponseDataCreator | null;
+  "creator"?: BackendJson<"ProfileSummary"> | null;
   "workflow_id"?: string | null;
   "workflow_node_id"?: string | null;
   "campaign_id"?: string | null;
@@ -914,7 +432,7 @@ export interface LeadMoveToDonePutResponseData extends JsonObject {
   "foreign_key"?: string | null;
   "task_priority": number;
   "flags": string[];
-  "profile"?: LeadMoveToDonePutResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "created_at": string;
   "updated_at": string;
   "enrollment_id"?: number | null;
@@ -924,8 +442,8 @@ export interface LeadMoveToDonePutResponseData extends JsonObject {
   "active_at"?: string | null;
   "is_active_status"?: boolean | null;
   "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadMoveToDonePutResponseDataWorkflow | null;
-  "workflow_node"?: LeadMoveToDonePutResponseDataWorkflowNode | null;
+  "workflow"?: BackendJson<"WorkflowResponse"> | null;
+  "workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "is_in_reminder"?: boolean | null;
   "meta_data"?: JsonValue | null;
 }
@@ -933,24 +451,8 @@ export interface LeadMoveToDonePutResponse extends ApiEnvelope<LeadMoveToDonePut
 }
 
 /** Backend response type: LeadTouchListResponse. */
-export interface LeadListTouchesGetResponseDataLeadTouchProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadListTouchesGetResponseDataLeadTouch extends JsonObject {
-  "id": string;
-  "lead_id": string;
-  "profile_id": string;
-  "profile"?: LeadListTouchesGetResponseDataLeadTouchProfile | null;
-  "description"?: string | null;
-  "status": string;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadListTouchesGetResponseData extends JsonObject {
-  "lead_touch": LeadListTouchesGetResponseDataLeadTouch[];
+  "lead_touch": BackendJson<"LeadTouchResponse">[];
 }
 export interface LeadListTouchesGetResponse extends ApiEnvelope<LeadListTouchesGetResponseData> {
 }
@@ -961,17 +463,11 @@ export interface LeadCreateTouchPostInput extends JsonObject {
   "status": string;
 }
 /** Backend response type: LeadTouchResponse. */
-export interface LeadCreateTouchPostResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
 export interface LeadCreateTouchPostResponseData extends JsonObject {
   "id": string;
   "lead_id": string;
   "profile_id": string;
-  "profile"?: LeadCreateTouchPostResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "description"?: string | null;
   "status": string;
   "created_at": string;
@@ -985,17 +481,11 @@ export interface LeadDestroyTouchDeleteResponse extends ApiEnvelope<boolean> {
 }
 
 /** Backend response type: LeadTouchResponse. */
-export interface LeadShowTouchGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
 export interface LeadShowTouchGetResponseData extends JsonObject {
   "id": string;
   "lead_id": string;
   "profile_id": string;
-  "profile"?: LeadShowTouchGetResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "description"?: string | null;
   "status": string;
   "created_at": string;
@@ -1010,17 +500,11 @@ export interface LeadUpdateTouchPutInput extends JsonObject {
   "status"?: string | null;
 }
 /** Backend response type: LeadTouchResponse. */
-export interface LeadUpdateTouchPutResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
 export interface LeadUpdateTouchPutResponseData extends JsonObject {
   "id": string;
   "lead_id": string;
   "profile_id": string;
-  "profile"?: LeadUpdateTouchPutResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "description"?: string | null;
   "status": string;
   "created_at": string;
@@ -1039,50 +523,13 @@ export interface LeadCreateDeveloperPostInput extends JsonObject {
   "meta"?: JsonValue | null;
 }
 /** Backend response type: LeadResponse. */
-export interface LeadCreateDeveloperPostResponseDataCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadCreateDeveloperPostResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadCreateDeveloperPostResponseDataWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadCreateDeveloperPostResponseDataWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadCreateDeveloperPostResponseData extends JsonObject {
   "id": string;
   "profile_id"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "creator_id": string;
-  "creator"?: LeadCreateDeveloperPostResponseDataCreator | null;
+  "creator"?: BackendJson<"ProfileSummary"> | null;
   "workflow_id"?: string | null;
   "workflow_node_id"?: string | null;
   "campaign_id"?: string | null;
@@ -1091,7 +538,7 @@ export interface LeadCreateDeveloperPostResponseData extends JsonObject {
   "foreign_key"?: string | null;
   "task_priority": number;
   "flags": string[];
-  "profile"?: LeadCreateDeveloperPostResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "created_at": string;
   "updated_at": string;
   "enrollment_id"?: number | null;
@@ -1101,8 +548,8 @@ export interface LeadCreateDeveloperPostResponseData extends JsonObject {
   "active_at"?: string | null;
   "is_active_status"?: boolean | null;
   "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadCreateDeveloperPostResponseDataWorkflow | null;
-  "workflow_node"?: LeadCreateDeveloperPostResponseDataWorkflowNode | null;
+  "workflow"?: BackendJson<"WorkflowResponse"> | null;
+  "workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "is_in_reminder"?: boolean | null;
   "meta_data"?: JsonValue | null;
 }
@@ -1114,94 +561,8 @@ export interface LeadDeveloperReadyGetQuery extends QueryParams {
   "sort"?: string | null;
 }
 /** Backend response type: DeveloperReadyLeadListResponse. */
-export interface LeadDeveloperReadyGetResponseDataLeadsLeadLogsProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadDeveloperReadyGetResponseDataLeadsLeadLogsFromWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadDeveloperReadyGetResponseDataLeadsLeadLogsToWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadDeveloperReadyGetResponseDataLeadsLeadLogs extends JsonObject {
-  "id": string;
-  "from_workflow_node_id"?: string | null;
-  "to_workflow_node_id"?: string | null;
-  "type": string;
-  "profile_id": string;
-  "profile"?: LeadDeveloperReadyGetResponseDataLeadsLeadLogsProfile | null;
-  "from_status"?: string | null;
-  "to_status"?: string | null;
-  "from_workflow_node"?: LeadDeveloperReadyGetResponseDataLeadsLeadLogsFromWorkflowNode | null;
-  "to_workflow_node"?: LeadDeveloperReadyGetResponseDataLeadsLeadLogsToWorkflowNode | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadDeveloperReadyGetResponseDataLeadsLeadTouchProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadDeveloperReadyGetResponseDataLeadsLeadTouch extends JsonObject {
-  "id": string;
-  "lead_id": string;
-  "profile_id": string;
-  "profile"?: LeadDeveloperReadyGetResponseDataLeadsLeadTouchProfile | null;
-  "description"?: string | null;
-  "status": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadDeveloperReadyGetResponseDataLeads extends JsonObject {
-  "id": string;
-  "profile_id"?: string | null;
-  "title"?: string | null;
-  "description"?: string | null;
-  "creator_id": string;
-  "workflow_id"?: string | null;
-  "workflow_node_id"?: string | null;
-  "campaign_id"?: string | null;
-  "source_id"?: string | null;
-  "task_status": string;
-  "foreign_key"?: string | null;
-  "task_priority": number;
-  "flags": string[];
-  "created_at": string;
-  "updated_at": string;
-  "enrollment_id"?: number | null;
-  "enrollment_course_id"?: number | null;
-  "installment_id"?: number | null;
-  "installment_enrollment_id"?: number | null;
-  "active_at"?: string | null;
-  "lead_logs"?: LeadDeveloperReadyGetResponseDataLeadsLeadLogs[] | null;
-  "lead_touch"?: LeadDeveloperReadyGetResponseDataLeadsLeadTouch[] | null;
-}
 export interface LeadDeveloperReadyGetResponseData extends JsonObject {
-  "leads": LeadDeveloperReadyGetResponseDataLeads[];
+  "leads": BackendJson<"DeveloperReadyLeadResponse">[];
 }
 export interface LeadDeveloperReadyGetResponse extends ApiEnvelope<LeadDeveloperReadyGetResponseData> {
 }
@@ -1213,50 +574,13 @@ export interface LeadByForeignKeyGetQuery extends QueryParams {
   "flags"?: string | null;
 }
 /** Backend response type: LeadResponse. */
-export interface LeadByForeignKeyGetResponseDataCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadByForeignKeyGetResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadByForeignKeyGetResponseDataWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadByForeignKeyGetResponseDataWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadByForeignKeyGetResponseData extends JsonObject {
   "id": string;
   "profile_id"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "creator_id": string;
-  "creator"?: LeadByForeignKeyGetResponseDataCreator | null;
+  "creator"?: BackendJson<"ProfileSummary"> | null;
   "workflow_id"?: string | null;
   "workflow_node_id"?: string | null;
   "campaign_id"?: string | null;
@@ -1265,7 +589,7 @@ export interface LeadByForeignKeyGetResponseData extends JsonObject {
   "foreign_key"?: string | null;
   "task_priority": number;
   "flags": string[];
-  "profile"?: LeadByForeignKeyGetResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "created_at": string;
   "updated_at": string;
   "enrollment_id"?: number | null;
@@ -1275,8 +599,8 @@ export interface LeadByForeignKeyGetResponseData extends JsonObject {
   "active_at"?: string | null;
   "is_active_status"?: boolean | null;
   "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadByForeignKeyGetResponseDataWorkflow | null;
-  "workflow_node"?: LeadByForeignKeyGetResponseDataWorkflowNode | null;
+  "workflow"?: BackendJson<"WorkflowResponse"> | null;
+  "workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "is_in_reminder"?: boolean | null;
   "meta_data"?: JsonValue | null;
 }
@@ -1309,50 +633,13 @@ export interface LeadUpdateByForeignKeyPutInput extends JsonObject {
   "assignee_profile_id"?: string | null;
 }
 /** Backend response type: LeadResponse. */
-export interface LeadUpdateByForeignKeyPutResponseDataCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadUpdateByForeignKeyPutResponseDataProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadUpdateByForeignKeyPutResponseDataWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadUpdateByForeignKeyPutResponseDataWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface LeadUpdateByForeignKeyPutResponseData extends JsonObject {
   "id": string;
   "profile_id"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "creator_id": string;
-  "creator"?: LeadUpdateByForeignKeyPutResponseDataCreator | null;
+  "creator"?: BackendJson<"ProfileSummary"> | null;
   "workflow_id"?: string | null;
   "workflow_node_id"?: string | null;
   "campaign_id"?: string | null;
@@ -1361,7 +648,7 @@ export interface LeadUpdateByForeignKeyPutResponseData extends JsonObject {
   "foreign_key"?: string | null;
   "task_priority": number;
   "flags": string[];
-  "profile"?: LeadUpdateByForeignKeyPutResponseDataProfile | null;
+  "profile"?: BackendJson<"ProfileSummary"> | null;
   "created_at": string;
   "updated_at": string;
   "enrollment_id"?: number | null;
@@ -1371,8 +658,8 @@ export interface LeadUpdateByForeignKeyPutResponseData extends JsonObject {
   "active_at"?: string | null;
   "is_active_status"?: boolean | null;
   "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadUpdateByForeignKeyPutResponseDataWorkflow | null;
-  "workflow_node"?: LeadUpdateByForeignKeyPutResponseDataWorkflowNode | null;
+  "workflow"?: BackendJson<"WorkflowResponse"> | null;
+  "workflow_node"?: BackendJson<"WorkflowNodeResponse"> | null;
   "is_in_reminder"?: boolean | null;
   "meta_data"?: JsonValue | null;
 }
@@ -1386,138 +673,8 @@ export interface LeadLightGetQuery extends QueryParams {
   "page[number]"?: number | null;
 }
 /** Backend response type: LeadLightListResponse. */
-export interface LeadLightGetResponseDataLeadsCreator extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadLightGetResponseDataLeadsProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadLightGetResponseDataLeadsWorkflow extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadLightGetResponseDataLeadsWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadLightGetResponseDataLeadsLeadLogsProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadLightGetResponseDataLeadsLeadLogsFromWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadLightGetResponseDataLeadsLeadLogsToWorkflowNode extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "workflow_id": string;
-  "is_draggable_in": boolean;
-  "is_draggable_out": boolean;
-  "actions"?: JsonValue | null;
-  "auto_win": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadLightGetResponseDataLeadsLeadLogs extends JsonObject {
-  "id": string;
-  "from_workflow_node_id"?: string | null;
-  "to_workflow_node_id"?: string | null;
-  "type": string;
-  "profile_id": string;
-  "profile"?: LeadLightGetResponseDataLeadsLeadLogsProfile | null;
-  "from_status"?: string | null;
-  "to_status"?: string | null;
-  "from_workflow_node"?: LeadLightGetResponseDataLeadsLeadLogsFromWorkflowNode | null;
-  "to_workflow_node"?: LeadLightGetResponseDataLeadsLeadLogsToWorkflowNode | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadLightGetResponseDataLeadsLeadTouchProfile extends JsonObject {
-  "id": string;
-  "first_name_fa"?: string | null;
-  "last_name_fa"?: string | null;
-  "phone"?: string | null;
-}
-export interface LeadLightGetResponseDataLeadsLeadTouch extends JsonObject {
-  "id": string;
-  "lead_id": string;
-  "profile_id": string;
-  "profile"?: LeadLightGetResponseDataLeadsLeadTouchProfile | null;
-  "description"?: string | null;
-  "status": string;
-  "created_at": string;
-  "updated_at": string;
-}
-export interface LeadLightGetResponseDataLeads extends JsonObject {
-  "id": string;
-  "profile_id"?: string | null;
-  "title"?: string | null;
-  "description"?: string | null;
-  "creator_id": string;
-  "creator"?: LeadLightGetResponseDataLeadsCreator | null;
-  "workflow_id"?: string | null;
-  "workflow_node_id"?: string | null;
-  "campaign_id"?: string | null;
-  "source_id"?: string | null;
-  "task_status": string;
-  "foreign_key"?: string | null;
-  "task_priority": number;
-  "flags": string[];
-  "profile"?: LeadLightGetResponseDataLeadsProfile | null;
-  "created_at": string;
-  "updated_at": string;
-  "enrollment_id"?: number | null;
-  "enrollment_course_id"?: number | null;
-  "installment_id"?: number | null;
-  "installment_enrollment_id"?: number | null;
-  "active_at"?: string | null;
-  "is_active_status"?: boolean | null;
-  "is_sos_assignee"?: boolean | null;
-  "workflow"?: LeadLightGetResponseDataLeadsWorkflow | null;
-  "workflow_node"?: LeadLightGetResponseDataLeadsWorkflowNode | null;
-  "lead_logs"?: LeadLightGetResponseDataLeadsLeadLogs[] | null;
-  "lead_touch"?: LeadLightGetResponseDataLeadsLeadTouch[] | null;
-  "meta_data"?: JsonValue | null;
-}
 export interface LeadLightGetResponseData extends JsonObject {
-  "leads": LeadLightGetResponseDataLeads[];
+  "leads": BackendJson<"FullLeadResponse">[];
   "total_count": number;
   "won_count": number;
   "lost_count": number;
@@ -1601,15 +758,8 @@ export interface SosIndexGetQuery extends QueryParams {
   "sort"?: string | null;
 }
 /** Backend response type: SosListResponse. */
-export interface SosIndexGetResponseDataSos extends JsonObject {
-  "id": string;
-  "profile_id": string;
-  "assignee_ids": string[];
-  "created_at": string;
-  "updated_at": string;
-}
 export interface SosIndexGetResponseData extends JsonObject {
-  "sos": SosIndexGetResponseDataSos[];
+  "sos": BackendJson<"SosResponse">[];
 }
 export interface SosIndexGetResponse extends ApiEnvelope<SosIndexGetResponseData> {
 }
@@ -1784,15 +934,8 @@ export interface SosAllGetQuery extends QueryParams {
   "sort"?: string | null;
 }
 /** Backend response type: SosListResponse. */
-export interface SosAllGetResponseDataSos extends JsonObject {
-  "id": string;
-  "profile_id": string;
-  "assignee_ids": string[];
-  "created_at": string;
-  "updated_at": string;
-}
 export interface SosAllGetResponseData extends JsonObject {
-  "sos": SosAllGetResponseDataSos[];
+  "sos": BackendJson<"SosResponse">[];
 }
 export interface SosAllGetResponse extends ApiEnvelope<SosAllGetResponseData> {
 }
@@ -1809,17 +952,8 @@ export interface SosExitAssigneeRoutePostResponse extends ApiEnvelope<SosExitAss
 }
 
 /** Backend response type: DailyStatsResponse. */
-export interface StatsDailyGetResponseDataWorkflows extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "hint"?: string | null;
-  "daily_tasks": number;
-  "leads_count": number;
-}
 export interface StatsDailyGetResponseData extends JsonObject {
-  "workflows": StatsDailyGetResponseDataWorkflows[];
+  "workflows": BackendJson<"DailyWorkflowStats">[];
   "total_tasks": number;
   "total_done_tasks": number;
   "extra_tasks_done": number;
@@ -1829,18 +963,9 @@ export interface StatsDailyGetResponse extends ApiEnvelope<StatsDailyGetResponse
 }
 
 /** Backend response type: LeadStatsResponse. */
-export interface StatsLeadGetResponseDataWorkflows extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "priority": number;
-  "count": number;
-  "activeLeadCount": number;
-  "deActiveLeadCount": number;
-}
 export interface StatsLeadGetResponseData extends JsonObject {
   "total": number;
-  "workflows": StatsLeadGetResponseDataWorkflows[];
+  "workflows": BackendJson<"WorkflowLeadStats">[];
   "permissions": string[];
 }
 export interface StatsLeadGetResponse extends ApiEnvelope<StatsLeadGetResponseData> {
@@ -2406,11 +1531,11 @@ export interface WorklogUpdatePutResponseData extends JsonObject {
 export interface WorklogUpdatePutResponse extends ApiEnvelope<WorklogUpdatePutResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterStatusRouteGetHealthResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterStatusRouteGetUpResponse extends ApiEnvelope<JsonValue> {
 }
 

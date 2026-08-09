@@ -39,14 +39,31 @@ function routeCalls(source) {
     if (close === -1) break;
     const call = source.slice(open + 1, close);
     const path = call.match(/^\s*"([^"]+)"\s*,/)?.[1];
+    const factory = enclosingFactory(source, cursor);
     if (path) {
-      for (const match of call.matchAll(/\b(get|post|put|patch|delete|any)\s*\(\s*(?:(?:\w+)::)*(\w+)/g)) {
-        routes.push({ localPath: path, method: match[1].toUpperCase(), handler: match[2] });
+      for (const match of call.matchAll(/\b(get|post|put|patch|delete|any)\s*\(\s*((?:\w+::)*)(\w+)/g)) {
+        routes.push({ localPath: path, method: match[1].toUpperCase(), qualifier: match[2].replace(/::$/, ""), handler: match[3], factory });
       }
     }
     cursor = close + 1;
   }
   return routes;
+}
+
+function enclosingFactory(source, position) {
+  let result;
+  for (const match of source.matchAll(/(?:pub\s+)?fn\s+(\w+)\s*\([^)]*\)[^{]*\{/g)) {
+    if (match.index > position) break;
+    const open = source.indexOf("{", match.index);
+    let depth = 0;
+    let close = -1;
+    for (let i = open; i < source.length; i += 1) {
+      if (source[i] === "{") depth += 1;
+      else if (source[i] === "}" && --depth === 0) { close = i; break; }
+    }
+    if (open < position && position < close) result = match[1];
+  }
+  return result;
 }
 
 function annotations(source) {
@@ -86,13 +103,16 @@ function permissionAnnotations(source) {
 
 function prefixes(router, service) {
   const map = new Map();
-  for (const match of router.matchAll(/\.nest\(\s*"([^"]+)"\s*,\s*crate::(\w+)::routes::\w+\(\)\s*\)/g)) {
+  for (const match of router.matchAll(/\.nest\(\s*"([^"]+)"\s*,\s*crate::(\w+)::(?:(?:routes)::)?(\w+)\(\)\s*,?\s*\)/g)) {
     let prefix = match[1];
     if (!prefix.startsWith("/api/")) prefix = `/api/v1${prefix}`;
-    map.set(match[2], prefix);
+    map.set(`${match[2]}:${match[3]}`, prefix);
+    if (!map.has(match[2])) map.set(match[2], prefix);
   }
-  for (const match of router.matchAll(/\.merge\(\s*crate::(\w+)::(?:routes::)?\w+\([^)]*\)\s*\)/g)) {
-    map.set(match[1], service === "payment" && match[1] === "payment_web" ? "/" : "/api/v1");
+  for (const match of router.matchAll(/\.merge\(\s*crate::(\w+)::(?:routes::)?(\w+)\([^)]*\)\s*\)/g)) {
+    const prefix = service === "payment" && match[1] === "payment_web" ? "/" : "/api/v1";
+    map.set(`${match[1]}:${match[2]}`, prefix);
+    if (!map.has(match[1])) map.set(match[1], prefix);
   }
   if (service === "profile") {
     map.set("option", "/api/v1");
@@ -122,9 +142,10 @@ function handlerSignature(source, handler) {
     ?? params.match(/Form\s*\([^)]*\)\s*:\s*Form\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
   const query = params.match(/Query\s*\([^)]*\)\s*:\s*Query\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
   const pathParam = params.match(/Path\s*\([^)]*\)\s*:\s*Path\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim();
-  const responseMatch = after.match(/APIResponse(WithMeta)?\s*</);
+  const responseMatch = after.match(/(?:APIResponse|ApiResponse)(WithMeta)?\s*</);
   let response;
   let responseMeta;
+  let responseEnvelope = "api";
   if (responseMatch?.index !== undefined) {
     const open = after.indexOf("<", responseMatch.index);
     let depth = 0;
@@ -142,7 +163,31 @@ function handlerSignature(source, handler) {
       } else if (after[i] === "," && depth === 0 && responseMatch[1]) split = i;
     }
   }
-  return { body, query, pathParam, response, responseMeta, multipart: /Multipart/.test(params), formUrlEncoded: /Form\s*<|Form\s*\([^)]*\)\s*:\s*Form\s*</.test(params) };
+  if (!response) {
+    const json = after.match(/Json\s*</);
+    if (json?.index !== undefined) {
+      const open = after.indexOf("<", json.index);
+      const close = matchingAngle(after, open);
+      if (close !== -1) {
+        response = after.slice(open + 1, close).trim();
+        responseEnvelope = "raw";
+      }
+    }
+  }
+  if (!response && /(?:Result\s*<\s*)?StatusCode\b/.test(after)) responseEnvelope = "no-content";
+  else if (!response && /\bRedirect\b/.test(after)) responseEnvelope = "redirect";
+  else if (!response && /\b(?:Sse|WebSocketUpgrade)\b/.test(after)) responseEnvelope = "stream";
+  else if (!response && /\bResponse\b/.test(after)) responseEnvelope = "raw-response";
+  return { body, query, pathParam, response, responseMeta, responseEnvelope, multipart: /Multipart/.test(params), formUrlEncoded: /Form\s*<|Form\s*\([^)]*\)\s*:\s*Form\s*</.test(params) };
+}
+
+function matchingAngle(source, open) {
+  let depth = 0;
+  for (let i = open; i < source.length; i += 1) {
+    if (source[i] === "<") depth += 1;
+    else if (source[i] === ">" && --depth === 0) return i;
+  }
+  return -1;
 }
 
 const manifest = {};
@@ -161,13 +206,14 @@ for (const service of services) {
     ? new Set(["routes"])
     : new Set([...router.matchAll(/crate::(\w+)::/g)].map(match => match[1]));
   const files = await walk(srcRoot);
+  const fileSources = new Map(await Promise.all(files.map(async file => [file, await readFile(file, "utf8")])));
   let discovered = true;
   while (discovered) {
     discovered = false;
     for (const file of files) {
       const parent = dirname(file) === srcRoot ? basename(file, ".rs") : basename(dirname(file));
       if (parent !== "router" && !mountedModules.has(parent)) continue;
-      const source = await readFile(file, "utf8");
+      const source = fileSources.get(file);
       for (const match of source.matchAll(/crate::(\w+)::routes::/g)) {
         if (!mountedModules.has(match[1])) {
           mountedModules.add(match[1]);
@@ -179,7 +225,7 @@ for (const service of services) {
   const endpoints = [];
   const unresolved = [];
   for (const file of files) {
-    const source = await readFile(file, "utf8");
+    const source = fileSources.get(file);
     const module = dirname(file) === srcRoot ? basename(file, ".rs") : basename(dirname(file));
     const canonical = annotations(source);
     const permissions = permissionAnnotations(source);
@@ -190,7 +236,7 @@ for (const service of services) {
         ? "/api/v1/runtime"
         : module === "router"
         ? (["/integration/flow", "/transactions/{uuid}"].includes(route.localPath) ? "/api/v1" : "/")
-        : modulePrefixes.get(module);
+        : modulePrefixes.get(`${module}:${route.factory}`) ?? modulePrefixes.get(module);
       if (module !== "router" && !mountedModules.has(module)) {
         unresolved.push(`${relative(srcRoot, file)}:${route.method}:${route.localPath}:${route.handler}:not-mounted`);
         continue;
@@ -204,6 +250,17 @@ for (const service of services) {
           ? cleanPath(annotated)
           : cleanPath(`/api/v1${annotated}`)
         : joinPath(prefix, route.localPath);
+      let signature = handlerSignature(source, route.handler);
+      if (!signature.response && route.qualifier) {
+        const qualifierPath = route.qualifier.replaceAll("::", "/");
+        const candidates = [...fileSources.entries()]
+          .filter(([, candidate]) => new RegExp(`(?:pub\\s+)?async\\s+fn\\s+${route.handler}\\s*\\(`).test(candidate))
+          .sort(([left], [right]) => Number(!left.includes(qualifierPath)) - Number(!right.includes(qualifierPath)));
+        if (candidates[0]) signature = handlerSignature(candidates[0][1], route.handler);
+      }
+      if (service === "profile" && ["manager_index", "accountant_index", "support_index", "consultant_index", "teacher_index", "student_index", "parent_index", "other_index"].includes(route.handler)) {
+        signature = { query: "models::ListQuery", response: "models::ListData", responseMeta: "crate::models::PaginationMeta", responseEnvelope: "api" };
+      }
       endpoints.push({
         method: route.method,
         path,
@@ -211,7 +268,7 @@ for (const service of services) {
         handler: route.handler,
         permissions: permissions.get(route.handler) ?? [],
         source: relative(servicesRoot, file),
-        ...handlerSignature(source, route.handler),
+        ...signature,
       });
     }
   }

@@ -120,6 +120,27 @@ export class PaymentOperations extends ServiceApi {
     return this.client.request<T.PaymentCreatePaymentPostResponse, T.PaymentCreatePaymentPostInput>({ ...options, method: "POST", url: `/api/v1/payment`, data: data });
   }
   /**
+   * Performs the show operation for the settings capability.
+   * Calls `GET /api/v1/settings` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:gateway:read.
+   */
+  settingsShowGet(options?: RequestOptions) {
+    return this.client.request<T.SettingsShowGetResponse>({ ...options, method: "GET", url: `/api/v1/settings` });
+  }
+  /**
+   * Performs the update operation for the settings capability.
+   * Calls `PATCH /api/v1/settings` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:gateway:update.
+   */
+  settingsUpdatePatch(data: T.SettingsUpdatePatchInput, options?: RequestOptions<T.SettingsUpdatePatchInput>) {
+    return this.client.request<T.SettingsUpdatePatchResponse, T.SettingsUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/settings`, data: data });
+  }
+  /**
    * Performs the index operation for the transaction capability.
    * Calls `GET /api/v1/transactions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -140,6 +161,17 @@ export class PaymentOperations extends ServiceApi {
    */
   routerShowStatusGet(uuid: Identifier, options?: RequestOptions) {
     return this.client.request<T.RouterShowStatusGetResponse>({ ...options, method: "GET", url: `/api/v1/transactions/${encodeURIComponent(uuid)}` });
+  }
+  /**
+   * Performs the reject payment operation for the transaction capability.
+   * Calls `POST /api/v1/transactions/{uuid}/reject` through the shared IDP-aware Faiber client.
+   * @param uuid Backend path identifier `uuid`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:verify.
+   */
+  transactionRejectPaymentPost(uuid: Identifier, options?: RequestOptions) {
+    return this.client.request<T.TransactionRejectPaymentPostResponse>({ ...options, method: "POST", url: `/api/v1/transactions/${encodeURIComponent(uuid)}/reject` });
   }
   /**
    * Performs the verification logs operation for the transaction capability.

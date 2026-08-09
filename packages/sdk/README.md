@@ -38,7 +38,10 @@ const [products, profile, slots] = await Promise.all([
 ]);
 ```
 
-The facade exposes `idp`, `profile`, `modules`, `social`, `asset`, `payment`, `messenger`, `crm`, `lms`, `reservation`, `session`, `version`, `flow`, `knowledge`, `chat`, and `state`. Each service has curated convenience methods, guarded REST resources, a low-level authenticated client, and an `operations` object containing every route extracted from the mounted backend service.
+The facade exposes `idp`, `profile`, `modules`, `social`, `asset`, `payment`, `messenger`, `crm`, `lms`, `reservation`, `session`, `version`, `flow`, `knowledge`, `chat`, `state`, and `drm`. Each regular REST service has curated convenience methods, guarded REST resources, a low-level authenticated client, and an `operations` object containing every route extracted from the mounted backend service. DRM, realtime State, and Version have curated transport-aware clients covering their complete mounted contracts. The internal sandbox management gateway is intentionally not exposed.
+
+`FaiberSDK.capabilities`, `sdk.capabilities`, and `sdk.describe(service?)` expose machine-readable descriptions, authentication rules, transports, environment variables, operation counts, and AI-agent usage guidance. Every service package is also exported as a namespace such as `IdpService`, `DrmService`, or `StateService`, so application code can import runtime APIs and types exclusively from this facade.
+
 
 All methods return full Axios responses and accept request options for headers, cancellation, timeout, and transport overrides. Use `authMode: "cookie"` for secure HttpOnly-cookie authorization, or `authMode: "bearer"` with an in-memory/server token provider. Service origins are supplied through `domains`, `defaultDomain`, or `domainsFromEnv`; the SDK never hardcodes deployment domains.
 

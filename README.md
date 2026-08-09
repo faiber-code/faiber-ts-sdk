@@ -23,6 +23,7 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 | `@faiber/faiber-knowledge` | Knowledge bases, groups, items, graph edges, chat bindings, rules, runtime resolution and actions |
 | `@faiber/faiber-chat` | Direct, group, channel and AI conversations, messages, members, reactions, read state and realtime events |
 | `@faiber/faiber-state-sdk` | Game worlds, rooms, authoritative state, realtime replication, prediction and server-side simulation |
+| `@faiber/faiber-drm` | Audio/video folders, tags, search, uploads, metadata and signed playback |
 | `@faiber/faiber-game-sdk` | Portable TypeScript/WebAssembly ECS, adaptive 2D/3D rendering and cross-platform game runtime |
 | `@faiber/faiber-ts-sdk` | One facade containing every package above |
 
@@ -62,9 +63,11 @@ For browser applications, prefer secure `HttpOnly`, `SameSite` cookies or an in-
 
 Automatic refresh is opt-in through `refreshAuth`. Concurrent `401` responses share one refresh request, retries obtain the replacement token, and a failed refresh clears stale credentials.
 
-## Complete route coverage
+## Complete route coverage and AI guidance
 
 Every service exposes curated convenience APIs plus `sdk.<service>.operations`, generated from mounted Rust routes. Generated methods preserve the HTTP verb, path identifiers, query shape, body shape, response envelope, form/multipart transport, and declared permission. REST convenience resources are capability guarded, so an unsupported operation fails locally instead of producing a backend `405`.
+
+The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. The internal sandbox management gateway is deliberately not exposed. Concrete Rust types that cannot be expanded structurally retain a branded `BackendJson<"Rust::Type">` name rather than degrading to `any` or an unexplained placeholder.
 
 ```ts
 await sdk.profile.updateProfile(profileId, {
@@ -86,7 +89,7 @@ List methods preserve each backend's typed query contract, including page number
 
 ## Domains and environment configuration
 
-`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, `FAIBER_CHAT_URL`, and `FAIBER_STATE_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
+`domainsFromEnv` reads a plain object such as `import.meta.env` or `process.env`. Supported keys are `FAIBER_IDP_URL`, `FAIBER_PROFILE_URL`, `FAIBER_MODULES_URL`, `FAIBER_SOCIAL_URL`, `FAIBER_ASSET_URL`, `FAIBER_PAYMENT_URL`, `FAIBER_MESSENGER_URL`, `FAIBER_CRM_URL`, `FAIBER_LMS_URL`, `FAIBER_RESERVATION_URL`, `FAIBER_SESSION_URL`, `FAIBER_VERSION_URL`, `FAIBER_FLOW_URL`, `FAIBER_KNOWLEDGE_URL`, `FAIBER_CHAT_URL`, `FAIBER_STATE_URL`, and `FAIBER_DRM_URL`. Applications may instead pass `domains` directly or a shared `defaultDomain` gateway. Absolute request URLs are rejected unless explicitly enabled.
 
 ## Inputs, outputs, errors, and cancellation
 

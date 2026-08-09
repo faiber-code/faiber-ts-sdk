@@ -128,7 +128,7 @@ function tsType(raw, query = false) {
   if (/^(u|i)(8|16|32|64|128|size)$/.test(type) || /^(f32|f64|Decimal|BigDecimal)$/.test(type)) return "number";
   if (/^(Value|serde_json::Value)$/.test(type)) return "JsonValue";
   if (type === "()") return "JsonObject";
-  return query ? "QueryValue" : "JsonValue";
+  return query ? "QueryValue" : `BackendJson<${JSON.stringify(type)}>`;
 }
 
 function resolveStruct(files, module, raw) {
@@ -254,7 +254,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     return nameCounts.get(base) === 1 ? base : `${base}-${endpoint.path}`;
   };
   const typeLines = [
-    'import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";',
+    'import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";',
     "",
     "/** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */",
   ];
@@ -279,6 +279,8 @@ for (const [service, endpoints] of Object.entries(manifest)) {
         typeLines.push(`export type ${base}Input = import("./types.js").${inputOverride};`);
       } else if (endpoint.multipart) {
         typeLines.push(`export type ${base}Input = FormData;`);
+      } else if (/^(?:serde_json::)?Value$/.test(endpoint.body)) {
+        typeLines.push(`export type ${base}Input = JsonValue;`);
       } else {
         const inputFields = renderedFields(files, endpoint.module, endpoint.body, new Set(), false, typeLines, `${base}Input`);
         typeLines.push(`export interface ${base}Input extends JsonObject {`);
@@ -292,17 +294,23 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       writeFields(typeLines, renderedFields(files, endpoint.module, endpoint.query, new Set(), true));
       typeLines.push("}");
     }
-    typeLines.push(`/** Backend response type: ${endpoint.response ?? "handler-defined response"}. */`);
+    typeLines.push(`/** Backend response type: ${endpoint.response ?? endpoint.responseEnvelope ?? "handler-defined response"}. */`);
     if (responseOverride) {
       typeLines.push(`export type ${base}Response = import("./types.js").${responseOverride};`);
+    } else if (endpoint.responseEnvelope === "no-content" || endpoint.responseEnvelope === "redirect") {
+      typeLines.push(`export type ${base}Response = void;`);
     } else {
       const dataType = responseDataType(typeLines, files, endpoint.module, endpoint.response, `${base}Response`);
       const metaType = endpoint.responseMeta
         ? responseDataType(typeLines, files, endpoint.module, endpoint.responseMeta, `${base}Meta`)
         : null;
-      typeLines.push(`export interface ${base}Response extends ApiEnvelope<${dataType}> {`);
-      if (metaType) typeLines.push(`  meta: ${metaType};`);
-      typeLines.push("}");
+      if (endpoint.responseEnvelope === "raw") {
+        typeLines.push(`export type ${base}Response = ${dataType};`);
+      } else {
+        typeLines.push(`export interface ${base}Response extends ApiEnvelope<${dataType}> {`);
+        if (metaType) typeLines.push(`  meta: ${metaType};`);
+        typeLines.push("}");
+      }
     }
     typeLines.push("");
 

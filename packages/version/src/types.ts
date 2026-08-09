@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject, JsonValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject } from "@faiber/sdk-core";
 
 export interface ServiceVersionSummary extends JsonObject {
   id: string;
@@ -38,4 +38,5 @@ export interface ServicesResponse extends ApiEnvelope<ServicesData> {}
 export interface ServiceResponse extends ApiEnvelope<ServiceData> {}
 export interface ServiceVersionsResponse extends ApiEnvelope<ServiceVersionsData> {}
 export interface VersionResponse extends ApiEnvelope<VersionData> {}
-export type HealthResponse = JsonValue;
+export interface VersionHealth extends JsonObject { version: string; }
+export interface HealthResponse extends ApiEnvelope<VersionHealth> {}

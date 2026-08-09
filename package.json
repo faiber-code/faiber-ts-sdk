@@ -1,6 +1,6 @@
 {
   "name": "faiber-ts-sdk-monorepo",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Framework-agnostic TypeScript SDK for Faiber services",
   "private": true,
   "workspaces": [
@@ -15,7 +15,8 @@
     "contracts:audit": "node scripts/audit-service-contracts.mjs",
     "build": "tsc -b",
     "typecheck": "tsc -b --pretty false",
-    "test": "node --test tests/*.test.mjs",
+    "test:types": "tsc -p tests/tsconfig.json --pretty false",
+    "test": "npm run test:types && node --test tests/*.test.mjs",
     "pack:check": "node scripts/pack-check.mjs"
   },
   "engines": {

@@ -718,6 +718,98 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.InventoryUpdateWarehousePutResponse, T.InventoryUpdateWarehousePutInput>({ ...options, method: "PUT", url: `/api/v1/inventory/warehouses/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Performs the list operation for the podcast capability.
+   * Calls `GET /api/v1/podcasts` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  podcastListGet(options?: RequestOptions) {
+    return this.client.request<T.PodcastListGetResponse>({ ...options, method: "GET", url: `/api/v1/podcasts` });
+  }
+  /**
+   * Performs the create operation for the podcast capability.
+   * Calls `POST /api/v1/podcasts` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  podcastCreatePost(data: T.PodcastCreatePostInput, options?: RequestOptions<T.PodcastCreatePostInput>) {
+    return this.client.request<T.PodcastCreatePostResponse, T.PodcastCreatePostInput>({ ...options, method: "POST", url: `/api/v1/podcasts`, data: data });
+  }
+  /**
+   * Performs the remove operation for the podcast capability.
+   * Calls `DELETE /api/v1/podcasts/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  podcastRemoveDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.PodcastRemoveDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/podcasts/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show operation for the podcast capability.
+   * Calls `GET /api/v1/podcasts/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  podcastShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.PodcastShowGetResponse>({ ...options, method: "GET", url: `/api/v1/podcasts/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update operation for the podcast capability.
+   * Calls `PATCH /api/v1/podcasts/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  podcastUpdatePatch(id: Identifier, data: T.PodcastUpdatePatchInput, options?: RequestOptions<T.PodcastUpdatePatchInput>) {
+    return this.client.request<T.PodcastUpdatePatchResponse, T.PodcastUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/podcasts/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the create episode operation for the podcast capability.
+   * Calls `POST /api/v1/podcasts/{id}/episodes` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  podcastCreateEpisodePost(id: Identifier, data: T.PodcastCreateEpisodePostInput, options?: RequestOptions<T.PodcastCreateEpisodePostInput>) {
+    return this.client.request<T.PodcastCreateEpisodePostResponse, T.PodcastCreateEpisodePostInput>({ ...options, method: "POST", url: `/api/v1/podcasts/${encodeURIComponent(id)}/episodes`, data: data });
+  }
+  /**
+   * Performs the remove episode operation for the podcast capability.
+   * Calls `DELETE /api/v1/podcasts/{podcast_id}/episodes/{id}` through the shared IDP-aware Faiber client.
+   * @param podcastId Backend path identifier `podcast_id`.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  podcastRemoveEpisodeDelete(podcastId: Identifier, id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.PodcastRemoveEpisodeDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/podcasts/${encodeURIComponent(podcastId)}/episodes/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update episode operation for the podcast capability.
+   * Calls `PATCH /api/v1/podcasts/{podcast_id}/episodes/{id}` through the shared IDP-aware Faiber client.
+   * @param podcastId Backend path identifier `podcast_id`.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  podcastUpdateEpisodePatch(podcastId: Identifier, id: Identifier, data: T.PodcastUpdateEpisodePatchInput, options?: RequestOptions<T.PodcastUpdateEpisodePatchInput>) {
+    return this.client.request<T.PodcastUpdateEpisodePatchResponse, T.PodcastUpdateEpisodePatchInput>({ ...options, method: "PATCH", url: `/api/v1/podcasts/${encodeURIComponent(podcastId)}/episodes/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
    * Performs the list pricing operation for the service pricing capability.
    * Calls `GET /api/v1/pricing` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.

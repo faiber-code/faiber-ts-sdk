@@ -1,7 +1,73 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: handler-defined response. */
+/** Backend query type: AssistantModelsQuery. */
+export interface RoutesAssistantModelsGetQuery extends QueryParams {
+  "billing_payer"?: string | null;
+}
+/** Backend response type: Value. */
+export interface RoutesAssistantModelsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface RoutesListManagedAssistantsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: CreateAssistant. */
+export interface RoutesCreateAssistantPostInput extends JsonObject {
+  "name": string;
+  "system_prompt": string;
+  "model_ref": string;
+  "billing_payer"?: string;
+  "knowledge_group_slugs"?: string[];
+  "knowledge_level"?: number | null;
+  "customer_actions"?: BackendJson<"CustomerAction">[];
+}
+/** Backend response type: Value. */
+export interface RoutesCreateAssistantPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: no-content. */
+export type RoutesDeleteAssistantDeleteResponse = void;
+
+/** Backend response type: Value. */
+export interface RoutesGetManagedAssistantGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: UpdateAssistant. */
+export interface RoutesUpdateAssistantPutInput extends JsonObject {
+  "name"?: string | null;
+  "system_prompt"?: string | null;
+  "model_ref"?: string | null;
+  "billing_payer"?: string | null;
+  "knowledge_group_slugs"?: string[] | null;
+  "knowledge_level"?: number | null;
+  "customer_actions"?: BackendJson<"CustomerAction">[] | null;
+  "status"?: string | null;
+  "expected_version"?: number | null;
+}
+/** Backend response type: Value. */
+export interface RoutesUpdateAssistantPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: CustomerActionContentQuery. */
+export interface RoutesCustomerActionContentGetQuery extends QueryParams {
+  "content_type": string;
+  "q"?: string | null;
+}
+/** Backend response type: Value. */
+export interface RoutesCustomerActionContentGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface RoutesListAssistantsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface RoutesGetAssistantGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
 export interface RoutesListGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -13,17 +79,17 @@ export interface RoutesCreatePostInput extends JsonObject {
   "description"?: JsonValue;
   "member_ids"?: string[];
   "agent_slug"?: string;
+  "assistant_id"?: string | null;
   "settings"?: JsonValue;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesCreatePostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RoutesArchiveDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesArchiveDeleteResponse = void;
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesGetOneGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -35,7 +101,7 @@ export interface RoutesUpdatePutInput extends JsonObject {
   "status"?: string | null;
   "expected_version"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesUpdatePutResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -51,15 +117,15 @@ export interface RoutesAiSendPostInput extends JsonObject {
   "knowledge_group_slugs"?: string[];
   "knowledge_level"?: number | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesAiSendPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: raw-response. */
 export interface RoutesEventsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesMembersGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -68,13 +134,12 @@ export interface RoutesAddMemberPostInput extends JsonObject {
   "user_id": string;
   "role"?: string;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesAddMemberPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RoutesRemoveMemberDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesRemoveMemberDeleteResponse = void;
 
 /** Backend query type: ListQuery. */
 export interface RoutesMessagesGetQuery extends QueryParams {
@@ -83,7 +148,7 @@ export interface RoutesMessagesGetQuery extends QueryParams {
   "limit"?: number | null;
   "q"?: string | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesMessagesGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -96,7 +161,7 @@ export interface RoutesSendPostInput extends JsonObject {
   "thread_root_id"?: string | null;
   "client_id"?: string | null;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesSendPostResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -105,19 +170,17 @@ export interface RoutesReadPostInput extends JsonObject {
   "sequence": number;
   "message_id"?: string | null;
 }
-/** Backend response type: handler-defined response. */
-export interface RoutesReadPostResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesReadPostResponse = void;
 
-/** Backend response type: handler-defined response. */
-export interface RoutesDeleteMessageDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: no-content. */
+export type RoutesDeleteMessageDeleteResponse = void;
 
 /** Backend request type: EditMessage. */
 export interface RoutesEditPutInput extends JsonObject {
   "content": JsonValue;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesEditPutResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -125,7 +188,7 @@ export interface RoutesEditPutResponse extends ApiEnvelope<JsonValue> {
 export interface RoutesReactPostInput extends JsonObject {
   "emoji": string;
 }
-/** Backend response type: handler-defined response. */
+/** Backend response type: Value. */
 export interface RoutesReactPostResponse extends ApiEnvelope<JsonValue> {
 }
 

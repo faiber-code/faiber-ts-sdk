@@ -24,6 +24,16 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.OptionAddressGetPostResponse, T.OptionAddressGetPostInput>({ ...options, method: "POST", url: `/api/v1/address/get`, data: data });
   }
   /**
+   * Performs the get chat context operation for the session capability.
+   * Calls `GET /api/v1/auth/chat-context` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  sessionGetChatContextGet(options?: RequestOptions) {
+    return this.client.request<T.SessionGetChatContextGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/chat-context` });
+  }
+  /**
    * Performs the get self operation for the session capability.
    * Calls `GET /api/v1/auth/self` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -690,12 +700,13 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the accountant index operation for the profile capability.
    * Calls `GET /api/v1/profile/accountant` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileAccountantIndexGet(options?: RequestOptions) {
-    return this.client.request<T.ProfileAccountantIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/accountant` });
+  profileAccountantIndexGet(params?: T.ProfileAccountantIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileAccountantIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/accountant`, params });
   }
   /**
    * Performs the add address operation for the profile capability.
@@ -783,12 +794,13 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the consultant index operation for the profile capability.
    * Calls `GET /api/v1/profile/consultant` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileConsultantIndexGet(options?: RequestOptions) {
-    return this.client.request<T.ProfileConsultantIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/consultant` });
+  profileConsultantIndexGet(params?: T.ProfileConsultantIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileConsultantIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/consultant`, params });
   }
   /**
    * Performs the country get operation for the profile capability.
@@ -870,32 +882,35 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the manager index operation for the profile capability.
    * Calls `GET /api/v1/profile/manager` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileManagerIndexGet(options?: RequestOptions) {
-    return this.client.request<T.ProfileManagerIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/manager` });
+  profileManagerIndexGet(params?: T.ProfileManagerIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileManagerIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/manager`, params });
   }
   /**
    * Performs the other index operation for the profile capability.
    * Calls `GET /api/v1/profile/other` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileOtherIndexGet(options?: RequestOptions) {
-    return this.client.request<T.ProfileOtherIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/other` });
+  profileOtherIndexGet(params?: T.ProfileOtherIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileOtherIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/other`, params });
   }
   /**
    * Performs the parent index operation for the profile capability.
    * Calls `GET /api/v1/profile/parent` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileParentIndexGet(options?: RequestOptions) {
-    return this.client.request<T.ProfileParentIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/parent` });
+  profileParentIndexGet(params?: T.ProfileParentIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileParentIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/parent`, params });
   }
   /**
    * Performs the province get operation for the profile capability.
@@ -922,12 +937,13 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the student index operation for the profile capability.
    * Calls `GET /api/v1/profile/student` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileStudentIndexGet(options?: RequestOptions) {
-    return this.client.request<T.ProfileStudentIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/student` });
+  profileStudentIndexGet(params?: T.ProfileStudentIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileStudentIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/student`, params });
   }
   /**
    * Performs the student pes operation for the profile capability.
@@ -952,12 +968,13 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the support index operation for the profile capability.
    * Calls `GET /api/v1/profile/support` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileSupportIndexGet(options?: RequestOptions) {
-    return this.client.request<T.ProfileSupportIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/support` });
+  profileSupportIndexGet(params?: T.ProfileSupportIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileSupportIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/support`, params });
   }
   /**
    * Performs the support pes operation for the profile capability.
@@ -982,12 +999,13 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the teacher index operation for the profile capability.
    * Calls `GET /api/v1/profile/teacher` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileTeacherIndexGet(options?: RequestOptions) {
-    return this.client.request<T.ProfileTeacherIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/teacher` });
+  profileTeacherIndexGet(params?: T.ProfileTeacherIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileTeacherIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/teacher`, params });
   }
   /**
    * Performs the restore operation for the profile capability.

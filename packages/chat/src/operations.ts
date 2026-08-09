@@ -3,6 +3,104 @@ import type * as T from "./operations.types.js";
 
 export class ChatOperations extends ServiceApi {
   /**
+   * Performs the assistant models operation for the routes capability.
+   * Calls `GET /api/v1/admin/assistant-models` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesAssistantModelsGet(params?: T.RoutesAssistantModelsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesAssistantModelsGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/assistant-models`, params });
+  }
+  /**
+   * Performs the list managed assistants operation for the routes capability.
+   * Calls `GET /api/v1/admin/assistants` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesListManagedAssistantsGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesListManagedAssistantsGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/assistants` });
+  }
+  /**
+   * Performs the create assistant operation for the routes capability.
+   * Calls `POST /api/v1/admin/assistants` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesCreateAssistantPost(data: T.RoutesCreateAssistantPostInput, options?: RequestOptions<T.RoutesCreateAssistantPostInput>) {
+    return this.client.request<T.RoutesCreateAssistantPostResponse, T.RoutesCreateAssistantPostInput>({ ...options, method: "POST", url: `/api/v1/admin/assistants`, data: data });
+  }
+  /**
+   * Performs the delete assistant operation for the routes capability.
+   * Calls `DELETE /api/v1/admin/assistants/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesDeleteAssistantDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesDeleteAssistantDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/admin/assistants/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the get managed assistant operation for the routes capability.
+   * Calls `GET /api/v1/admin/assistants/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesGetManagedAssistantGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesGetManagedAssistantGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/assistants/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update assistant operation for the routes capability.
+   * Calls `PUT /api/v1/admin/assistants/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesUpdateAssistantPut(id: Identifier, data: T.RoutesUpdateAssistantPutInput, options?: RequestOptions<T.RoutesUpdateAssistantPutInput>) {
+    return this.client.request<T.RoutesUpdateAssistantPutResponse, T.RoutesUpdateAssistantPutInput>({ ...options, method: "PUT", url: `/api/v1/admin/assistants/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the customer action content operation for the routes capability.
+   * Calls `GET /api/v1/admin/customer-action-content` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesCustomerActionContentGet(params?: T.RoutesCustomerActionContentGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesCustomerActionContentGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/customer-action-content`, params });
+  }
+  /**
+   * Performs the list assistants operation for the routes capability.
+   * Calls `GET /api/v1/assistants` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:read.
+   */
+  routesListAssistantsGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesListAssistantsGetResponse>({ ...options, method: "GET", url: `/api/v1/assistants` });
+  }
+  /**
+   * Performs the get assistant operation for the routes capability.
+   * Calls `GET /api/v1/assistants/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:read.
+   */
+  routesGetAssistantGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesGetAssistantGetResponse>({ ...options, method: "GET", url: `/api/v1/assistants/${encodeURIComponent(id)}` });
+  }
+  /**
    * Performs the list operation for the routes capability.
    * Calls `GET /api/v1/conversations` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

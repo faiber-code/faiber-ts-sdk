@@ -1,67 +1,65 @@
-import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterBeautifiedOpenapiGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: handler-defined response. */
+/** Backend response type: api. */
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: Vec<models::AccessResponseDTO>. */
-export type AccessListOnTargetGetResponseItemAccessLevel = "Maintainer" | "Editor" | "Viewer";
 export interface AccessListOnTargetGetResponseItem extends JsonObject {
   "id": string;
   "user_id": string;
   "granted_by_user_id": string;
   "target_id": string;
-  "access_level": AccessListOnTargetGetResponseItemAccessLevel;
+  "access_level": BackendJson<"AccessLevel">;
   "created_at": string;
 }
 export interface AccessListOnTargetGetResponse extends ApiEnvelope<AccessListOnTargetGetResponseItem[]> {
 }
 
 /** Backend request type: models::AccessGrantRequest. */
-export type AccessGrantOnTargetPostInputAccessLevel = "Maintainer" | "Editor" | "Viewer";
 export interface AccessGrantOnTargetPostInput extends JsonObject {
   "user_id": string;
-  "access_level": AccessGrantOnTargetPostInputAccessLevel;
+  "access_level": BackendJson<"AccessLevel">;
 }
 /** Backend response type: models::AccessResponseDTO. */
-export type AccessGrantOnTargetPostResponseDataAccessLevel = "Maintainer" | "Editor" | "Viewer";
 export interface AccessGrantOnTargetPostResponseData extends JsonObject {
   "id": string;
   "user_id": string;
   "granted_by_user_id": string;
   "target_id": string;
-  "access_level": AccessGrantOnTargetPostResponseDataAccessLevel;
+  "access_level": BackendJson<"AccessLevel">;
   "created_at": string;
 }
 export interface AccessGrantOnTargetPostResponse extends ApiEnvelope<AccessGrantOnTargetPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface AccessRevokeOnTargetDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface AccessRevokeOnTargetDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type AccessRevokeOnTargetDeleteResponse = AccessRevokeOnTargetDeleteResponseData;
 
 /** Backend request type: models::AccessUpdateRequest. */
-export type AccessUpdateOnTargetPutInputAccessLevel = "Maintainer" | "Editor" | "Viewer";
 export interface AccessUpdateOnTargetPutInput extends JsonObject {
-  "access_level": AccessUpdateOnTargetPutInputAccessLevel;
+  "access_level": BackendJson<"AccessLevel">;
 }
 /** Backend response type: models::AccessResponseDTO. */
-export type AccessUpdateOnTargetPutResponseDataAccessLevel = "Maintainer" | "Editor" | "Viewer";
 export interface AccessUpdateOnTargetPutResponseData extends JsonObject {
   "id": string;
   "user_id": string;
   "granted_by_user_id": string;
   "target_id": string;
-  "access_level": AccessUpdateOnTargetPutResponseDataAccessLevel;
+  "access_level": BackendJson<"AccessLevel">;
   "created_at": string;
 }
 export interface AccessUpdateOnTargetPutResponse extends ApiEnvelope<AccessUpdateOnTargetPutResponseData> {
@@ -94,19 +92,8 @@ export interface AuthorListAuthorsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::AuthorListResponse. */
-export interface AuthorListAuthorsGetResponseDataAuthors extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "name": string;
-  "bio"?: string | null;
-  "avatar_url"?: string | null;
-  "social_links"?: JsonValue | null;
-  "website"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface AuthorListAuthorsGetResponseData extends JsonObject {
-  "authors": AuthorListAuthorsGetResponseDataAuthors[];
+  "authors": BackendJson<"AuthorResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -138,9 +125,12 @@ export interface AuthorCreateAuthorPostResponseData extends JsonObject {
 export interface AuthorCreateAuthorPostResponse extends ApiEnvelope<AuthorCreateAuthorPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface AuthorDeleteAuthorDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface AuthorDeleteAuthorDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type AuthorDeleteAuthorDeleteResponse = AuthorDeleteAuthorDeleteResponseData;
 
 /** Backend response type: models::AuthorResponseDTO. */
 export interface AuthorShowAuthorGetResponseData extends JsonObject {
@@ -209,18 +199,8 @@ export interface BlogListPostsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::PostListResponse. */
-export interface BlogListPostsGetResponseDataPosts extends JsonObject {
-  "id": string;
-  "title": string;
-  "description"?: string | null;
-  "content"?: string | null;
-  "image_url"?: string | null;
-  "status": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface BlogListPostsGetResponseData extends JsonObject {
-  "posts": BlogListPostsGetResponseDataPosts[];
+  "posts": BackendJson<"PostResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -250,9 +230,12 @@ export interface BlogCreatePostPostResponseData extends JsonObject {
 export interface BlogCreatePostPostResponse extends ApiEnvelope<BlogCreatePostPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface BlogDeletePostDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface BlogDeletePostDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type BlogDeletePostDeleteResponse = BlogDeletePostDeleteResponseData;
 
 /** Backend response type: models::PostResponseDTO. */
 export interface BlogShowPostGetResponseData extends JsonObject {
@@ -318,18 +301,8 @@ export interface CategoryListCategoriesGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::CategoryListResponse. */
-export interface CategoryListCategoriesGetResponseDataCategories extends JsonObject {
-  "id": string;
-  "parent_id"?: string | null;
-  "name"?: string | null;
-  "description"?: string | null;
-  "status": number;
-  "requires_confirmation": boolean;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface CategoryListCategoriesGetResponseData extends JsonObject {
-  "categories": CategoryListCategoriesGetResponseDataCategories[];
+  "categories": BackendJson<"CategoryResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -363,9 +336,12 @@ export interface CategoryCreateCategoryPostResponse extends ApiEnvelope<Category
 export interface CategoryDetachFromTargetDeleteQuery extends QueryParams {
   "junction_id": string;
 }
-/** Backend response type: handler-defined response. */
-export interface CategoryDetachFromTargetDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface CategoryDetachFromTargetDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type CategoryDetachFromTargetDeleteResponse = CategoryDetachFromTargetDeleteResponseData;
 
 /** Backend response type: Vec<models::CategoryAttachmentDTO>. */
 export interface CategoryListOnTargetGetResponseItem extends JsonObject {
@@ -394,9 +370,12 @@ export interface CategoryAttachToTargetPostResponseData extends JsonObject {
 export interface CategoryAttachToTargetPostResponse extends ApiEnvelope<CategoryAttachToTargetPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface CategoryDeleteCategoryDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface CategoryDeleteCategoryDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type CategoryDeleteCategoryDeleteResponse = CategoryDeleteCategoryDeleteResponseData;
 
 /** Backend response type: models::CategoryResponseDTO. */
 export interface CategoryShowCategoryGetResponseData extends JsonObject {
@@ -462,18 +441,8 @@ export interface CommentListCommentsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::CommentListResponse. */
-export interface CommentListCommentsGetResponseDataComments extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "author_id"?: string | null;
-  "parent_id"?: string | null;
-  "content": string;
-  "status": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface CommentListCommentsGetResponseData extends JsonObject {
-  "comments": CommentListCommentsGetResponseDataComments[];
+  "comments": BackendJson<"CommentResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -532,9 +501,12 @@ export interface CommentCreateOnTargetPostResponseData extends JsonObject {
 export interface CommentCreateOnTargetPostResponse extends ApiEnvelope<CommentCreateOnTargetPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface CommentDeleteCommentDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface CommentDeleteCommentDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type CommentDeleteCommentDeleteResponse = CommentDeleteCommentDeleteResponseData;
 
 /** Backend response type: models::CommentResponseDTO. */
 export interface CommentShowCommentGetResponseData extends JsonObject {
@@ -594,17 +566,8 @@ export interface ContentListContentsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::ContentListResponse. */
-export interface ContentListContentsGetResponseDataContents extends JsonObject {
-  "id": string;
-  "created_by_user_id": string;
-  "created_by_author_id"?: string | null;
-  "content"?: string | null;
-  "auto_saved_content"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface ContentListContentsGetResponseData extends JsonObject {
-  "contents": ContentListContentsGetResponseDataContents[];
+  "contents": BackendJson<"ContentResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -634,17 +597,19 @@ export interface ContentCreateContentPostResponse extends ApiEnvelope<ContentCre
 export interface ContentDetachFromTargetDeleteQuery extends QueryParams {
   "junction_id": string;
 }
-/** Backend response type: handler-defined response. */
-export interface ContentDetachFromTargetDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface ContentDetachFromTargetDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type ContentDetachFromTargetDeleteResponse = ContentDetachFromTargetDeleteResponseData;
 
 /** Backend response type: Vec<models::ContentAttachmentDTO>. */
-export type ContentListOnTargetGetResponseItemContentType = "Primary" | "Secondary" | "Description" | "Complementary" | "Explanation" | "FullDetail";
 export interface ContentListOnTargetGetResponseItem extends JsonObject {
   "id": string;
   "content_id": string;
   "target_id": string;
-  "content_type": ContentListOnTargetGetResponseItemContentType;
+  "content_type": BackendJson<"ContentType">;
   "sort_order": number;
   "priority"?: number | null;
   "created_at": string;
@@ -653,20 +618,18 @@ export interface ContentListOnTargetGetResponse extends ApiEnvelope<ContentListO
 }
 
 /** Backend request type: models::ContentAttachRequest. */
-export type ContentAttachToTargetPostInputContentType = "Primary" | "Secondary" | "Description" | "Complementary" | "Explanation" | "FullDetail";
 export interface ContentAttachToTargetPostInput extends JsonObject {
   "content_id": string;
-  "content_type": ContentAttachToTargetPostInputContentType;
+  "content_type": BackendJson<"ContentType">;
   "sort_order"?: number | null;
   "priority"?: number | null;
 }
 /** Backend response type: models::ContentAttachmentDTO. */
-export type ContentAttachToTargetPostResponseDataContentType = "Primary" | "Secondary" | "Description" | "Complementary" | "Explanation" | "FullDetail";
 export interface ContentAttachToTargetPostResponseData extends JsonObject {
   "id": string;
   "content_id": string;
   "target_id": string;
-  "content_type": ContentAttachToTargetPostResponseDataContentType;
+  "content_type": BackendJson<"ContentType">;
   "sort_order": number;
   "priority"?: number | null;
   "created_at": string;
@@ -674,9 +637,12 @@ export interface ContentAttachToTargetPostResponseData extends JsonObject {
 export interface ContentAttachToTargetPostResponse extends ApiEnvelope<ContentAttachToTargetPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface ContentDeleteContentDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface ContentDeleteContentDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type ContentDeleteContentDeleteResponse = ContentDeleteContentDeleteResponseData;
 
 /** Backend response type: models::ContentResponseDTO. */
 export interface ContentShowContentGetResponseData extends JsonObject {
@@ -740,7 +706,7 @@ export interface ContentUpdateContentPutResponse extends ApiEnvelope<ContentUpda
 }
 
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<JsonValue> {
+export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
 /** Backend query type: models::InventoryListQuery. */
@@ -751,19 +717,8 @@ export interface InventoryListInventoriesGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::InventoryListResponse. */
-export interface InventoryListInventoriesGetResponseDataInventories extends JsonObject {
-  "id": string;
-  "variant_id": string;
-  "warehouse_id": string;
-  "priority": number;
-  "quantity": number;
-  "reserved": number;
-  "available": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface InventoryListInventoriesGetResponseData extends JsonObject {
-  "inventories": InventoryListInventoriesGetResponseDataInventories[];
+  "inventories": BackendJson<"InventoryResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -793,9 +748,12 @@ export interface InventoryCreateInventoryPostResponseData extends JsonObject {
 export interface InventoryCreateInventoryPostResponse extends ApiEnvelope<InventoryCreateInventoryPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface InventoryDeleteInventoryDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface InventoryDeleteInventoryDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type InventoryDeleteInventoryDeleteResponse = InventoryDeleteInventoryDeleteResponseData;
 
 /** Backend response type: models::InventoryResponseDTO. */
 export interface InventoryShowInventoryGetResponseData extends JsonObject {
@@ -862,18 +820,8 @@ export interface StockMovementListStockMovementsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::StockMovementListResponse. */
-export interface StockMovementListStockMovementsGetResponseDataStockMovements extends JsonObject {
-  "id": string;
-  "variant_id": string;
-  "warehouse_id": string;
-  "type": string;
-  "quantity": number;
-  "reference_id"?: string | null;
-  "reason"?: string | null;
-  "created_at": string;
-}
 export interface StockMovementListStockMovementsGetResponseData extends JsonObject {
-  "stock_movements": StockMovementListStockMovementsGetResponseDataStockMovements[];
+  "stock_movements": BackendJson<"StockMovementResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -910,16 +858,8 @@ export interface InventoryListWarehousesGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::WarehouseListResponse. */
-export interface InventoryListWarehousesGetResponseDataWarehouses extends JsonObject {
-  "id": string;
-  "name": string;
-  "location": string;
-  "capacity": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface InventoryListWarehousesGetResponseData extends JsonObject {
-  "warehouses": InventoryListWarehousesGetResponseDataWarehouses[];
+  "warehouses": BackendJson<"WarehouseResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -945,9 +885,12 @@ export interface InventoryCreateWarehousePostResponseData extends JsonObject {
 export interface InventoryCreateWarehousePostResponse extends ApiEnvelope<InventoryCreateWarehousePostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface InventoryDeleteWarehouseDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface InventoryDeleteWarehouseDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type InventoryDeleteWarehouseDeleteResponse = InventoryDeleteWarehouseDeleteResponseData;
 
 /** Backend response type: models::WarehouseResponseDTO. */
 export interface InventoryShowWarehouseGetResponseData extends JsonObject {
@@ -997,26 +940,145 @@ export interface InventoryUpdateWarehousePutResponseData extends JsonObject {
 export interface InventoryUpdateWarehousePutResponse extends ApiEnvelope<InventoryUpdateWarehousePutResponseData> {
 }
 
+/** Backend response type: Vec<entity::podcast::Model>. */
+export interface PodcastListGetResponseItem extends JsonObject {
+  "id": string;
+  "user_id": string;
+  "granted_by_user_id": string;
+  "target_id": string;
+  "access_level": BackendJson<"AccessLevel">;
+  "created_at": string;
+  "deleted_at"?: string | null;
+}
+export interface PodcastListGetResponse extends ApiEnvelope<PodcastListGetResponseItem[]> {
+}
+
+/** Backend request type: models::PodcastInput. */
+export interface PodcastCreatePostInput extends JsonObject {
+  "title": string;
+  "description"?: string | null;
+  "cover_image_url"?: string | null;
+  "status"?: number | null;
+}
+/** Backend response type: entity::podcast::Model. */
+export interface PodcastCreatePostResponseData extends JsonObject {
+  "id": string;
+  "user_id": string;
+  "granted_by_user_id": string;
+  "target_id": string;
+  "access_level": BackendJson<"AccessLevel">;
+  "created_at": string;
+  "deleted_at"?: string | null;
+}
+export interface PodcastCreatePostResponse extends ApiEnvelope<PodcastCreatePostResponseData> {
+}
+
+/** Backend response type: EmptyAPIResponse. */
+export interface PodcastRemoveDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
+}
+export type PodcastRemoveDeleteResponse = PodcastRemoveDeleteResponseData;
+
+/** Backend response type: models::PodcastDetail. */
+export interface PodcastShowGetResponseData extends JsonObject {
+  "id": string;
+  "user_id": string;
+  "granted_by_user_id": string;
+  "target_id": string;
+  "access_level": BackendJson<"AccessLevel">;
+  "created_at": string;
+  "deleted_at"?: string | null;
+  "episodes": BackendJson<"entity::podcast_episode::Model">[];
+}
+export interface PodcastShowGetResponse extends ApiEnvelope<PodcastShowGetResponseData> {
+}
+
+/** Backend request type: models::PodcastUpdate. */
+export interface PodcastUpdatePatchInput extends JsonObject {
+  "title"?: string | null;
+  "description"?: string | null;
+  "cover_image_url"?: string | null;
+  "status"?: number | null;
+}
+/** Backend response type: entity::podcast::Model. */
+export interface PodcastUpdatePatchResponseData extends JsonObject {
+  "id": string;
+  "user_id": string;
+  "granted_by_user_id": string;
+  "target_id": string;
+  "access_level": BackendJson<"AccessLevel">;
+  "created_at": string;
+  "deleted_at"?: string | null;
+}
+export interface PodcastUpdatePatchResponse extends ApiEnvelope<PodcastUpdatePatchResponseData> {
+}
+
+/** Backend request type: models::EpisodeInput. */
+export interface PodcastCreateEpisodePostInput extends JsonObject {
+  "title": string;
+  "description"?: string | null;
+  "sort_order"?: number | null;
+  "audio_source": string;
+  "external_audio_url"?: string | null;
+  "drm_media_id"?: string | null;
+  "duration_seconds"?: number | null;
+  "status"?: number | null;
+  "published_at"?: string | null;
+}
+/** Backend response type: entity::podcast_episode::Model. */
+export interface PodcastCreateEpisodePostResponseData extends JsonObject {
+  "id": string;
+  "user_id": string;
+  "granted_by_user_id": string;
+  "target_id": string;
+  "access_level": BackendJson<"AccessLevel">;
+  "created_at": string;
+  "deleted_at"?: string | null;
+}
+export interface PodcastCreateEpisodePostResponse extends ApiEnvelope<PodcastCreateEpisodePostResponseData> {
+}
+
+/** Backend response type: EmptyAPIResponse. */
+export interface PodcastRemoveEpisodeDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
+}
+export type PodcastRemoveEpisodeDeleteResponse = PodcastRemoveEpisodeDeleteResponseData;
+
+/** Backend request type: models::EpisodeUpdate. */
+export interface PodcastUpdateEpisodePatchInput extends JsonObject {
+  "title"?: string | null;
+  "description"?: string | null;
+  "sort_order"?: number | null;
+  "audio_source"?: string | null;
+  "external_audio_url"?: string | null;
+  "drm_media_id"?: string | null;
+  "duration_seconds"?: number | null;
+  "status"?: number | null;
+  "published_at"?: string | null;
+}
+/** Backend response type: entity::podcast_episode::Model. */
+export interface PodcastUpdateEpisodePatchResponseData extends JsonObject {
+  "id": string;
+  "user_id": string;
+  "granted_by_user_id": string;
+  "target_id": string;
+  "access_level": BackendJson<"AccessLevel">;
+  "created_at": string;
+  "deleted_at"?: string | null;
+}
+export interface PodcastUpdateEpisodePatchResponse extends ApiEnvelope<PodcastUpdateEpisodePatchResponseData> {
+}
+
 /** Backend query type: PaginationQuery. */
 export interface ServicePricingListPricingGetQuery extends QueryParams {
   "page_number"?: number | null;
   "page_size"?: number | null;
 }
 /** Backend response type: models::ServicePricingListResponse. */
-export interface ServicePricingListPricingGetResponseDataPricings extends JsonObject {
-  "id": string;
-  "service_name": string;
-  "display_name"?: string | null;
-  "hourly_price": number;
-  "monthly_price": number;
-  "annual_price": number;
-  "currency": string;
-  "status": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface ServicePricingListPricingGetResponseData extends JsonObject {
-  "pricings": ServicePricingListPricingGetResponseDataPricings[];
+  "pricings": BackendJson<"ServicePricingResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -1050,9 +1112,12 @@ export interface ServicePricingCreatePricingPostResponseData extends JsonObject 
 export interface ServicePricingCreatePricingPostResponse extends ApiEnvelope<ServicePricingCreatePricingPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface ServicePricingDeletePricingDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface ServicePricingDeletePricingDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type ServicePricingDeletePricingDeleteResponse = ServicePricingDeletePricingDeleteResponseData;
 
 /** Backend response type: models::ServicePricingResponseDTO. */
 export interface ServicePricingShowPricingGetResponseData extends JsonObject {
@@ -1126,34 +1191,34 @@ export interface ServicePricingUpdatePricingPutResponse extends ApiEnvelope<Serv
 export interface ReactionDeleteOnTargetDeleteQuery extends QueryParams {
   "reaction_id": string;
 }
-/** Backend response type: handler-defined response. */
-export interface ReactionDeleteOnTargetDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface ReactionDeleteOnTargetDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type ReactionDeleteOnTargetDeleteResponse = ReactionDeleteOnTargetDeleteResponseData;
 
 /** Backend response type: Vec<models::ReactionResponseDTO>. */
-export type ReactionListOnTargetGetResponseItemReactionType = "Like" | "Dislike" | "Favorite" | "Bookmark" | "Share";
 export interface ReactionListOnTargetGetResponseItem extends JsonObject {
   "id": string;
   "user_id": string;
   "target_id": string;
-  "reaction_type": ReactionListOnTargetGetResponseItemReactionType;
+  "reaction_type": BackendJson<"ReactionType">;
   "created_at": string;
 }
 export interface ReactionListOnTargetGetResponse extends ApiEnvelope<ReactionListOnTargetGetResponseItem[]> {
 }
 
 /** Backend request type: models::ReactionCreateRequest. */
-export type ReactionCreateOnTargetPostInputReactionType = "Like" | "Dislike" | "Favorite" | "Bookmark" | "Share";
 export interface ReactionCreateOnTargetPostInput extends JsonObject {
-  "reaction_type": ReactionCreateOnTargetPostInputReactionType;
+  "reaction_type": BackendJson<"ReactionType">;
 }
 /** Backend response type: models::ReactionResponseDTO. */
-export type ReactionCreateOnTargetPostResponseDataReactionType = "Like" | "Dislike" | "Favorite" | "Bookmark" | "Share";
 export interface ReactionCreateOnTargetPostResponseData extends JsonObject {
   "id": string;
   "user_id": string;
   "target_id": string;
-  "reaction_type": ReactionCreateOnTargetPostResponseDataReactionType;
+  "reaction_type": BackendJson<"ReactionType">;
   "created_at": string;
 }
 export interface ReactionCreateOnTargetPostResponse extends ApiEnvelope<ReactionCreateOnTargetPostResponseData> {
@@ -1165,17 +1230,8 @@ export interface RequestListRequestsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::RequestListResponse. */
-export interface RequestListRequestsGetResponseDataRequests extends JsonObject {
-  "id": string;
-  "key": string;
-  "name": string;
-  "description"?: string | null;
-  "status": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface RequestListRequestsGetResponseData extends JsonObject {
-  "requests": RequestListRequestsGetResponseDataRequests[];
+  "requests": BackendJson<"RequestResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -1207,9 +1263,12 @@ export interface RequestCreateRequestPostResponse extends ApiEnvelope<RequestCre
 export interface RequestDetachFromTargetDeleteQuery extends QueryParams {
   "junction_id": string;
 }
-/** Backend response type: handler-defined response. */
-export interface RequestDetachFromTargetDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface RequestDetachFromTargetDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type RequestDetachFromTargetDeleteResponse = RequestDetachFromTargetDeleteResponseData;
 
 /** Backend response type: Vec<models::RequestAttachmentDTO>. */
 export interface RequestListOnTargetGetResponseItem extends JsonObject {
@@ -1238,9 +1297,12 @@ export interface RequestAttachToTargetPostResponseData extends JsonObject {
 export interface RequestAttachToTargetPostResponse extends ApiEnvelope<RequestAttachToTargetPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface RequestDeleteRequestDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface RequestDeleteRequestDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type RequestDeleteRequestDeleteResponse = RequestDeleteRequestDeleteResponseData;
 
 /** Backend response type: models::RequestResponseDTO. */
 export interface RequestShowRequestGetResponseData extends JsonObject {
@@ -1345,21 +1407,8 @@ export interface UserSampleListSamplesGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::UserSampleListResponse. */
-export interface UserSampleListSamplesGetResponseDataSamples extends JsonObject {
-  "id": string;
-  "slug": string;
-  "name": string;
-  "description"?: string | null;
-  "project_slug"?: string | null;
-  "preview_url"?: string | null;
-  "thumbnail_url"?: string | null;
-  "category"?: string | null;
-  "status": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface UserSampleListSamplesGetResponseData extends JsonObject {
-  "samples": UserSampleListSamplesGetResponseDataSamples[];
+  "samples": BackendJson<"UserSampleResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -1395,9 +1444,12 @@ export interface UserSampleCreateSamplePostResponseData extends JsonObject {
 export interface UserSampleCreateSamplePostResponse extends ApiEnvelope<UserSampleCreateSamplePostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface UserSampleDeleteSampleDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface UserSampleDeleteSampleDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type UserSampleDeleteSampleDeleteResponse = UserSampleDeleteSampleDeleteResponseData;
 
 /** Backend response type: models::UserSampleResponseDTO. */
 export interface UserSampleShowSampleGetResponseData extends JsonObject {
@@ -1478,23 +1530,8 @@ export interface UserSampleListSampleVariablesGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::SampleVariableListResponse. */
-export interface UserSampleListSampleVariablesGetResponseDataVariables extends JsonObject {
-  "id": string;
-  "sample_id": string;
-  "sample_slug"?: string | null;
-  "sample_name"?: string | null;
-  "key": string;
-  "label": string;
-  "value"?: string | null;
-  "group_name"?: string | null;
-  "variable_type": string;
-  "description"?: string | null;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface UserSampleListSampleVariablesGetResponseData extends JsonObject {
-  "variables": UserSampleListSampleVariablesGetResponseDataVariables[];
+  "variables": BackendJson<"SampleVariableResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -1547,23 +1584,8 @@ export interface UserSampleListAllVariablesGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::SampleVariableListResponse. */
-export interface UserSampleListAllVariablesGetResponseDataVariables extends JsonObject {
-  "id": string;
-  "sample_id": string;
-  "sample_slug"?: string | null;
-  "sample_name"?: string | null;
-  "key": string;
-  "label": string;
-  "value"?: string | null;
-  "group_name"?: string | null;
-  "variable_type": string;
-  "description"?: string | null;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface UserSampleListAllVariablesGetResponseData extends JsonObject {
-  "variables": UserSampleListAllVariablesGetResponseDataVariables[];
+  "variables": BackendJson<"SampleVariableResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -1571,9 +1593,12 @@ export interface UserSampleListAllVariablesGetResponseData extends JsonObject {
 export interface UserSampleListAllVariablesGetResponse extends ApiEnvelope<UserSampleListAllVariablesGetResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface UserSampleDeleteVariableDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface UserSampleDeleteVariableDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type UserSampleDeleteVariableDeleteResponse = UserSampleDeleteVariableDeleteResponseData;
 
 /** Backend response type: models::SampleVariableResponseDTO. */
 export interface UserSampleShowVariableGetResponseData extends JsonObject {
@@ -1658,18 +1683,8 @@ export interface SeoContentListSeoContentsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::SeoContentListResponse. */
-export interface SeoContentListSeoContentsGetResponseDataSeoContents extends JsonObject {
-  "id": string;
-  "meta_url"?: string | null;
-  "meta_title"?: string | null;
-  "meta_description"?: string | null;
-  "meta_keyword"?: string | null;
-  "meta_ld"?: JsonValue | null;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface SeoContentListSeoContentsGetResponseData extends JsonObject {
-  "seo_contents": SeoContentListSeoContentsGetResponseDataSeoContents[];
+  "seo_contents": BackendJson<"SeoContentResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -1703,9 +1718,12 @@ export interface SeoContentCreateSeoContentPostResponse extends ApiEnvelope<SeoC
 export interface SeoContentDetachFromTargetDeleteQuery extends QueryParams {
   "junction_id": string;
 }
-/** Backend response type: handler-defined response. */
-export interface SeoContentDetachFromTargetDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface SeoContentDetachFromTargetDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type SeoContentDetachFromTargetDeleteResponse = SeoContentDetachFromTargetDeleteResponseData;
 
 /** Backend response type: Vec<models::SeoContentAttachmentDTO>. */
 export interface SeoContentListOnTargetGetResponseItem extends JsonObject {
@@ -1731,9 +1749,12 @@ export interface SeoContentAttachToTargetPostResponseData extends JsonObject {
 export interface SeoContentAttachToTargetPostResponse extends ApiEnvelope<SeoContentAttachToTargetPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface SeoContentDeleteSeoContentDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface SeoContentDeleteSeoContentDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type SeoContentDeleteSeoContentDeleteResponse = SeoContentDeleteSeoContentDeleteResponseData;
 
 /** Backend response type: models::SeoContentResponseDTO. */
 export interface SeoContentShowSeoContentGetResponseData extends JsonObject {
@@ -1821,26 +1842,8 @@ export interface OrderListOrdersGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::OrderListResponse. */
-export interface OrderListOrdersGetResponseDataOrdersItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": number;
-  "total_price": number;
-  "created_at": string;
-}
-export interface OrderListOrdersGetResponseDataOrders extends JsonObject {
-  "id": string;
-  "user_id": string;
-  "status": number;
-  "total": number;
-  "items": OrderListOrdersGetResponseDataOrdersItems[];
-  "created_at": string;
-  "updated_at": string;
-}
 export interface OrderListOrdersGetResponseData extends JsonObject {
-  "orders": OrderListOrdersGetResponseDataOrders[];
+  "orders": BackendJson<"OrderResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -1849,57 +1852,37 @@ export interface OrderListOrdersGetResponse extends ApiEnvelope<OrderListOrdersG
 }
 
 /** Backend request type: models::OrderCreateRequest. */
-export interface OrderCreateOrderPostInputItems extends JsonObject {
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": number;
-}
 export interface OrderCreateOrderPostInput extends JsonObject {
   "status"?: number | null;
-  "items": OrderCreateOrderPostInputItems[];
+  "items": BackendJson<"OrderItemInput">[];
 }
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderCreateOrderPostResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": number;
-  "total_price": number;
-  "created_at": string;
-}
 export interface OrderCreateOrderPostResponseData extends JsonObject {
   "id": string;
   "user_id": string;
   "status": number;
   "total": number;
-  "items": OrderCreateOrderPostResponseDataItems[];
+  "items": BackendJson<"OrderItemResponseDTO">[];
   "created_at": string;
   "updated_at": string;
 }
 export interface OrderCreateOrderPostResponse extends ApiEnvelope<OrderCreateOrderPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface OrderDeleteOrderDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface OrderDeleteOrderDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type OrderDeleteOrderDeleteResponse = OrderDeleteOrderDeleteResponseData;
 
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderShowOrderGetResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": number;
-  "total_price": number;
-  "created_at": string;
-}
 export interface OrderShowOrderGetResponseData extends JsonObject {
   "id": string;
   "user_id": string;
   "status": number;
   "total": number;
-  "items": OrderShowOrderGetResponseDataItems[];
+  "items": BackendJson<"OrderItemResponseDTO">[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1911,21 +1894,12 @@ export interface OrderUpdateOrderPatchInput extends JsonObject {
   "status"?: number | null;
 }
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderUpdateOrderPatchResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": number;
-  "total_price": number;
-  "created_at": string;
-}
 export interface OrderUpdateOrderPatchResponseData extends JsonObject {
   "id": string;
   "user_id": string;
   "status": number;
   "total": number;
-  "items": OrderUpdateOrderPatchResponseDataItems[];
+  "items": BackendJson<"OrderItemResponseDTO">[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1937,21 +1911,12 @@ export interface OrderUpdateOrderPutInput extends JsonObject {
   "status"?: number | null;
 }
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderUpdateOrderPutResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": number;
-  "total_price": number;
-  "created_at": string;
-}
 export interface OrderUpdateOrderPutResponseData extends JsonObject {
   "id": string;
   "user_id": string;
   "status": number;
   "total": number;
-  "items": OrderUpdateOrderPutResponseDataItems[];
+  "items": BackendJson<"OrderItemResponseDTO">[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1978,21 +1943,12 @@ export interface OrderAddOrderItemPostInput extends JsonObject {
   "unit_price": number;
 }
 /** Backend response type: models::OrderResponseDTO. */
-export interface OrderAddOrderItemPostResponseDataItems extends JsonObject {
-  "id": string;
-  "order_id": string;
-  "variant_id": string;
-  "quantity": number;
-  "unit_price": number;
-  "total_price": number;
-  "created_at": string;
-}
 export interface OrderAddOrderItemPostResponseData extends JsonObject {
   "id": string;
   "user_id": string;
   "status": number;
   "total": number;
-  "items": OrderAddOrderItemPostResponseDataItems[];
+  "items": BackendJson<"OrderItemResponseDTO">[];
   "created_at": string;
   "updated_at": string;
 }
@@ -2011,21 +1967,8 @@ export interface ProductListProductsGetQuery extends QueryParams {
   "city"?: string | null;
 }
 /** Backend response type: models::ProductListResponse. */
-export interface ProductListProductsGetResponseDataProducts extends JsonObject {
-  "id": string;
-  "name": string;
-  "description"?: string | null;
-  "sku": JsonValue;
-  "status": number;
-  "sort_order": number;
-  "country_ids"?: string[] | null;
-  "province_ids"?: string[] | null;
-  "city_ids"?: string[] | null;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface ProductListProductsGetResponseData extends JsonObject {
-  "products": ProductListProductsGetResponseDataProducts[];
+  "products": BackendJson<"ProductResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -2061,9 +2004,12 @@ export interface ProductCreateProductPostResponseData extends JsonObject {
 export interface ProductCreateProductPostResponse extends ApiEnvelope<ProductCreateProductPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface ProductDeleteProductDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface ProductDeleteProductDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type ProductDeleteProductDeleteResponse = ProductDeleteProductDeleteResponseData;
 
 /** Backend response type: models::ProductResponseDTO. */
 export interface ProductShowProductGetResponseData extends JsonObject {
@@ -2144,22 +2090,8 @@ export interface ProductListProductVariantsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::VariantListResponse. */
-export interface ProductListProductVariantsGetResponseDataVariants extends JsonObject {
-  "id": string;
-  "product_id": string;
-  "name": string;
-  "sku": JsonValue;
-  "price": number;
-  "cost": number;
-  "weight": number;
-  "stock_priority": number;
-  "status": number;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface ProductListProductVariantsGetResponseData extends JsonObject {
-  "variants": ProductListProductVariantsGetResponseDataVariants[];
+  "variants": BackendJson<"VariantResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -2203,22 +2135,8 @@ export interface ProductListVariantsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::VariantListResponse. */
-export interface ProductListVariantsGetResponseDataVariants extends JsonObject {
-  "id": string;
-  "product_id": string;
-  "name": string;
-  "sku": JsonValue;
-  "price": number;
-  "cost": number;
-  "weight": number;
-  "stock_priority": number;
-  "status": number;
-  "sort_order": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface ProductListVariantsGetResponseData extends JsonObject {
-  "variants": ProductListVariantsGetResponseDataVariants[];
+  "variants": BackendJson<"VariantResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -2226,9 +2144,12 @@ export interface ProductListVariantsGetResponseData extends JsonObject {
 export interface ProductListVariantsGetResponse extends ApiEnvelope<ProductListVariantsGetResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface ProductDeleteVariantDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface ProductDeleteVariantDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type ProductDeleteVariantDeleteResponse = ProductDeleteVariantDeleteResponseData;
 
 /** Backend response type: models::VariantResponseDTO. */
 export interface ProductShowVariantGetResponseData extends JsonObject {
@@ -2312,15 +2233,8 @@ export interface TagListTagsGetQuery extends QueryParams {
   "page_size"?: number | null;
 }
 /** Backend response type: models::TagListResponse. */
-export interface TagListTagsGetResponseDataTags extends JsonObject {
-  "id": string;
-  "name": string;
-  "status": number;
-  "created_at": string;
-  "updated_at": string;
-}
 export interface TagListTagsGetResponseData extends JsonObject {
-  "tags": TagListTagsGetResponseDataTags[];
+  "tags": BackendJson<"TagResponseDTO">[];
   "page_number": number;
   "page_size": number;
   "total_items": number;
@@ -2348,9 +2262,12 @@ export interface TagCreateTagPostResponse extends ApiEnvelope<TagCreateTagPostRe
 export interface TagDetachFromTargetDeleteQuery extends QueryParams {
   "junction_id": string;
 }
-/** Backend response type: handler-defined response. */
-export interface TagDetachFromTargetDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface TagDetachFromTargetDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type TagDetachFromTargetDeleteResponse = TagDetachFromTargetDeleteResponseData;
 
 /** Backend response type: Vec<models::TagAttachmentDTO>. */
 export interface TagListOnTargetGetResponseItem extends JsonObject {
@@ -2379,9 +2296,12 @@ export interface TagAttachToTargetPostResponseData extends JsonObject {
 export interface TagAttachToTargetPostResponse extends ApiEnvelope<TagAttachToTargetPostResponseData> {
 }
 
-/** Backend response type: handler-defined response. */
-export interface TagDeleteTagDeleteResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: EmptyAPIResponse. */
+export interface TagDeleteTagDeleteResponseData extends JsonObject {
+  "status": string;
+  "message": string;
 }
+export type TagDeleteTagDeleteResponse = TagDeleteTagDeleteResponseData;
 
 /** Backend response type: models::TagResponseDTO. */
 export interface TagShowTagGetResponseData extends JsonObject {

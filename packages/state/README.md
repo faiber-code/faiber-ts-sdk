@@ -2,6 +2,10 @@
 
 TypeScript client for Infera State worlds, rooms, authoritative state, WASM endpoints, realtime replication, and client prediction.
 
+```bash
+npm install @faiber/faiber-ts-sdk
+```
+
 ```ts
 const ticket = (await faiber.state.join(roomId, userId)).data.data;
 const realtime = new StateRealtimeClient(ticket);
