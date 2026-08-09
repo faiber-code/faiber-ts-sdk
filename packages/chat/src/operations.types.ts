@@ -192,3 +192,7 @@ export interface RoutesReactPostInput extends JsonObject {
 export interface RoutesReactPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: serde_json::Value. */
+export interface MainHealthGetResponse extends ApiEnvelope<JsonValue> {
+}
+

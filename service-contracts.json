@@ -1363,6 +1363,18 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "main",
+      "handler": "health",
+      "permissions": [],
+      "source": "infera-chat/src/main.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "crm": [
@@ -4674,6 +4686,18 @@
       "permissions": [],
       "source": "infera-knowledge/src/routes.rs",
       "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "main",
+      "handler": "health",
+      "permissions": [],
+      "source": "infera-knowledge/src/main.rs",
+      "response": "Health",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -12531,6 +12555,18 @@
       "source": "infera-social/src/api/routes.rs",
       "body": "CreateReport",
       "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "main",
+      "handler": "health",
+      "permissions": [],
+      "source": "infera-social/src/main.rs",
+      "response": "Health",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

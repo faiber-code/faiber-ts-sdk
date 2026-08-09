@@ -494,5 +494,15 @@ export class SocialOperations extends ServiceApi {
   apiCreateReportPost(data: T.ApiCreateReportPostInput, options?: RequestOptions<T.ApiCreateReportPostInput>) {
     return this.client.request<T.ApiCreateReportPostResponse, T.ApiCreateReportPostInput>({ ...options, method: "POST", url: `/api/v1/reports`, data: data });
   }
+  /**
+   * Performs the health operation for the main capability.
+   * Calls `GET /health` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  mainHealthGet(options?: RequestOptions) {
+    return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });
+  }
 }
 

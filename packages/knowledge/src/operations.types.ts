@@ -357,3 +357,12 @@ export interface RoutesRuntimeQueryPostResponse extends ApiEnvelope<RoutesRuntim
 export interface RoutesToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Health. */
+export interface MainHealthGetResponseData extends JsonObject {
+  "service": BackendJson<"&'static str">;
+  "version": BackendJson<"&'static str">;
+  "status": BackendJson<"&'static str">;
+}
+export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
+}
+

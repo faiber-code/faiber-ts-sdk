@@ -201,10 +201,14 @@ for (const service of services) {
     router = await readFile(join(srcRoot, "main.rs"), "utf8");
     directRouter = true;
   }
-  const modulePrefixes = directRouter ? new Map([["routes", "/api/v1"]]) : prefixes(router, service);
+  const modulePrefixes = directRouter ? new Map([["routes", "/api/v1"], ["main", "/"]]) : prefixes(router, service);
   const mountedModules = directRouter
-    ? new Set(["routes"])
+    ? new Set(["routes", "main"])
     : new Set([...router.matchAll(/crate::(\w+)::/g)].map(match => match[1]));
+  if (service === "social") {
+    modulePrefixes.set("main", "/");
+    mountedModules.add("main");
+  }
   const files = await walk(srcRoot);
   const fileSources = new Map(await Promise.all(files.map(async file => [file, await readFile(file, "utf8")])));
   let discovered = true;

@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject } from "@faiber/sdk-core";
+import type { ApiEnvelope, BackendJson, JsonObject } from "@faiber/sdk-core";
 
 export interface ServiceVersionSummary extends JsonObject {
   id: string;
@@ -40,3 +40,4 @@ export interface ServiceVersionsResponse extends ApiEnvelope<ServiceVersionsData
 export interface VersionResponse extends ApiEnvelope<VersionData> {}
 export interface VersionHealth extends JsonObject { version: string; }
 export interface HealthResponse extends ApiEnvelope<VersionHealth> {}
+export type VersionOpenApiDocument = BackendJson<"utoipa::openapi::OpenApi">;

@@ -269,3 +269,12 @@ export interface ApiCreateReportPostInput extends JsonObject {
 /** Backend response type: Value. */
 export type ApiCreateReportPostResponse = import("./types.js").SocialReportResponse;
 
+/** Backend response type: Health. */
+export interface MainHealthGetResponseData extends JsonObject {
+  "service": BackendJson<"&'static str">;
+  "version": BackendJson<"&'static str">;
+  "status": BackendJson<"&'static str">;
+}
+export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
+}
+

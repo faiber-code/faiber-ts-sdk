@@ -11,6 +11,13 @@ export class VersionApi extends ServiceApi {
    */
   health(options?: RequestOptions) { return this.client.get<T.HealthResponse>("/health", undefined, options); }
   /**
+   * Gets the machine-readable OpenAPI document through `GET /api/openapi.json`.
+   * @param options Axios headers, timeout, cancellation signal, and transport options.
+   * @returns Complete Axios response containing the Utoipa OpenAPI document.
+   * @throws AxiosError for unavailable or failed transport responses.
+   */
+  openapi(options?: RequestOptions) { return this.client.get<T.VersionOpenApiDocument>("/api/openapi.json", undefined, options); }
+  /**
    * Lists registered services and latest releases through `GET /api/v1/services`.
    * @param options Axios headers, timeout, cancellation signal, and transport options.
    * @returns Complete Axios response with typed service summaries.
