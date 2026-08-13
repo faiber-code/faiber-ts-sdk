@@ -1,5 +1,6 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
 import type { AttachCategoryInput, AttachTagInput, AuditLogListResponse, Author, BlogPost, CartResponse, Category, CategoryAttachmentListResponse, CategoryAttachmentResponse, Comment, Content, ContentAttachmentListResponse, CreateAuthorInput, CreateBlogPostInput, CreateCategoryInput, CreateCommentInput, CreateContentInput, CreateInventoryInput, CreateModuleRequestInput, CreateOrderInput, CreatePricingInput, CreateProductInput, CreateProductVariantInput, CreateSampleInput, CreateSeoContentInput, CreateTagInput, CreateWarehouseInput, Inventory, ModuleRequest, Order, Pricing, Product, ProductListResponse, ProductResponse, ProductVariant, ProductVariantListResponse, ProductVariantQuery, ProductVariantResponse, ReplaceCartInput, Sample, SeoAttachmentListResponse, SeoContent, StockMovementListResponse, Tag, TagAttachmentListResponse, TagAttachmentResponse, UpdateAuthorInput, UpdateBlogPostInput, UpdateCategoryInput, UpdateCommentInput, UpdateContentInput, UpdateInventoryInput, UpdateModuleRequestInput, UpdateOrderInput, UpdatePricingInput, UpdateProductInput, UpdateProductVariantInput, UpdateSampleInput, UpdateSeoContentInput, UpdateTagInput, UpdateWarehouseInput, Warehouse, } from "./types.js";
+import type { AgentProposal, ContentDocument, ContentDocumentQuery, ContentRevision, ModulesAuthSelf, ModulesRouteContract, ModulesSettings, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
 function targetPath(base: string, host: string, id: Identifier): string {
     return `${base}/${encodeURIComponent(host)}/${encodeURIComponent(id)}`;
 }
@@ -56,6 +57,73 @@ export class ModulesApi extends ServiceApi {
     }
     stockMovements(params?: QueryParams, options?: RequestOptions) {
         return this.client.get<StockMovementListResponse>("/api/v1/inventory/stock-movements", params, options);
+    }
+    authSelf(options?: RequestOptions) {
+        return this.client.get<ModulesAuthSelf>("/api/v1/auth/self", undefined, options);
+    }
+    routeContracts(options?: RequestOptions) {
+        return this.client.get<{ service: string; tenancy: string; routes: ModulesRouteContract[] }>("/api/v1/public/routes", undefined, options);
+    }
+    settings(options?: RequestOptions) {
+        return this.client.get<ModulesSettings>("/api/v1/manage/settings", undefined, options);
+    }
+    updateSettings(etag: string, data: UpdateModulesSettingsInput, options?: RequestOptions<UpdateModulesSettingsInput>) {
+        return this.client.put<ModulesSettings, UpdateModulesSettingsInput>("/api/v1/manage/settings", data, {
+            ...options,
+            headers: { ...options?.headers, "If-Match": etag },
+        });
+    }
+    publicContent(kind: string, locale: string, slug: string, options?: RequestOptions) {
+        return this.client.get<ContentDocument>(`/api/v1/public/content/${encodeURIComponent(kind)}/${encodeURIComponent(locale)}/${encodeURIComponent(slug)}`, undefined, options);
+    }
+    contentDocuments(params?: ContentDocumentQuery, options?: RequestOptions) {
+        return this.client.get<ContentDocument[]>("/api/v1/manage/content", params, options);
+    }
+    createContentDocument(data: WriteContentDocumentInput, options?: RequestOptions<WriteContentDocumentInput>) {
+        return this.client.post<ContentDocument, WriteContentDocumentInput>("/api/v1/manage/content", data, options);
+    }
+    contentDocument(id: Identifier, options?: RequestOptions) {
+        return this.client.get<ContentDocument>(`/api/v1/manage/content/${encodeURIComponent(id)}`, undefined, options);
+    }
+    updateContentDocument(id: Identifier, etag: string, data: WriteContentDocumentInput, options?: RequestOptions<WriteContentDocumentInput>) {
+        return this.client.put<ContentDocument, WriteContentDocumentInput>(`/api/v1/manage/content/${encodeURIComponent(id)}`, data, {
+            ...options,
+            headers: { ...options?.headers, "If-Match": etag },
+        });
+    }
+    contentRevisions(id: Identifier, options?: RequestOptions) {
+        return this.client.get<ContentRevision[]>(`/api/v1/manage/content/${encodeURIComponent(id)}/revisions`, undefined, options);
+    }
+    restoreContentRevision(id: Identifier, revision: number, etag: string, options?: RequestOptions) {
+        return this.client.post<ContentDocument, undefined>(`/api/v1/manage/content/${encodeURIComponent(id)}/revisions/${revision}/restore`, undefined, {
+            ...options,
+            headers: { ...options?.headers, "If-Match": etag },
+        });
+    }
+    publishContent(id: Identifier, etag: string, options?: RequestOptions) {
+        return this.client.post<ContentDocument, undefined>(`/api/v1/manage/content/${encodeURIComponent(id)}/publish`, undefined, {
+            ...options,
+            headers: { ...options?.headers, "If-Match": etag },
+        });
+    }
+    agentProposals(options?: RequestOptions) {
+        return this.client.get<AgentProposal[]>("/api/v1/manage/agents/proposals", undefined, options);
+    }
+    agentProposal(id: Identifier, options?: RequestOptions) {
+        return this.client.get<AgentProposal>(`/api/v1/manage/agents/proposals/${encodeURIComponent(id)}`, undefined, options);
+    }
+    approveAgentProposal(id: Identifier, options?: RequestOptions) {
+        return this.client.post<AgentProposal, undefined>(`/api/v1/manage/agents/proposals/${encodeURIComponent(id)}/approve`, undefined, options);
+    }
+    rejectAgentProposal(id: Identifier, options?: RequestOptions) {
+        return this.client.post<AgentProposal, undefined>(`/api/v1/manage/agents/proposals/${encodeURIComponent(id)}/reject`, undefined, options);
+    }
+    runAgent(data: RunModulesAgentInput, idempotencyKey: string, options?: RequestOptions<RunModulesAgentInput>) {
+        return this.client.post<string, RunModulesAgentInput>("/api/v1/manage/agents/runs", data, {
+            ...options,
+            headers: { ...options?.headers, "Idempotency-Key": idempotencyKey },
+            responseType: "text",
+        });
     }
 }
 export * from "@faiber/sdk-core";

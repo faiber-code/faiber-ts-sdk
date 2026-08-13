@@ -5,3 +5,4 @@ export * from "./assets.js";
 export * from "./wasm.js";
 export * from "./engine.js";
 export * from "./state.js";
+export * from "./match.js";

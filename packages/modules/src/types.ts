@@ -334,3 +334,131 @@ export interface AuditLogListResponse extends ApiEnvelope<AuditLog[]> {
 export interface StockMovementListResponse extends ApiEnvelope<PaginatedResult<StockMovement>> {
 }
 export type TargetIdentifier = Identifier;
+
+export interface ModulesAuthSelf {
+    user_id: string;
+    roles: string[];
+    permissions: string[];
+}
+
+export interface ModulesRouteContract {
+    method: string;
+    path: string;
+    permission: string;
+    visibility: "public" | "authenticated" | "manage" | "integration";
+    risk: "read" | "ordinary" | "risky";
+}
+
+export interface ModulesSettings {
+    id: number;
+    title: string;
+    locales: string[];
+    timezone: string;
+    currency: string;
+    contact: JsonValue;
+    seo_defaults: JsonValue;
+    checkout_rules: JsonValue;
+    delivery: JsonValue;
+    etag: string;
+    updated_at: string;
+}
+
+export interface UpdateModulesSettingsInput {
+    title: string;
+    locales: string[];
+    timezone: string;
+    currency: string;
+    contact?: JsonValue;
+    seo_defaults?: JsonValue;
+    checkout_rules?: JsonValue;
+    delivery?: JsonValue;
+}
+
+export type ContentDocumentKind = "page" | "post" | "reusable" | "podcast" | "episode";
+export type ContentDocumentStatus = "draft" | "review" | "scheduled" | "published" | "archived";
+
+export interface ContentDocument {
+    id: string;
+    kind: ContentDocumentKind;
+    legacy_host?: string;
+    legacy_id?: string;
+    slug: string;
+    locale: string;
+    title: string;
+    status: ContentDocumentStatus;
+    editor_json: JsonValue;
+    sanitized_html: string;
+    plain_text: string;
+    current_revision: number;
+    etag: string;
+    publish_at?: string;
+    published_at?: string;
+    created_by: string;
+    updated_by: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface WriteContentDocumentInput {
+    kind: ContentDocumentKind;
+    slug: string;
+    locale?: string;
+    title: string;
+    editor_json?: JsonValue;
+    publish_at?: string;
+}
+
+export interface ContentDocumentQuery extends QueryParams {
+    kind?: ContentDocumentKind;
+    locale?: string;
+    status?: ContentDocumentStatus;
+}
+
+export interface ContentRevision {
+    id: string;
+    document_id: string;
+    revision: number;
+    title: string;
+    editor_json: JsonValue;
+    sanitized_html: string;
+    plain_text: string;
+    actor_user_id: string;
+    provenance: JsonValue;
+    created_at: string;
+}
+
+export type ModulesAgentSpecialist = "content" | "seo" | "commerce" | "media" | "forms" | "manage";
+export type AgentProposalRisk = "read" | "ordinary" | "risky";
+
+export interface AgentProposal {
+    id: string;
+    agentic_run_id?: string;
+    actor_user_id: string;
+    specialist: ModulesAgentSpecialist;
+    operation: string;
+    target_type: string;
+    target_id?: string;
+    expected_etag?: string;
+    diff: JsonValue;
+    risk: AgentProposalRisk;
+    status: "running" | "pending" | "approved" | "applied" | "rejected" | "expired" | "failed";
+    idempotency_key: string;
+    expires_at: string;
+    approved_by?: string;
+    applied_at?: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface RunModulesAgentInput {
+    operation: string;
+    message: string;
+    specialist: ModulesAgentSpecialist;
+    target_type: string;
+    target_id?: string;
+    expected_etag?: string;
+    resource_ids?: string[];
+    context?: JsonValue;
+    model_ref?: string;
+    risk?: AgentProposalRisk;
+}

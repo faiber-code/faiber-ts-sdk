@@ -1,6 +1,6 @@
 {
   "name": "@faiber/faiber-version",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -16,6 +16,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@faiber/sdk-core": "0.5.2"
+    "@faiber/sdk-core": "0.6.0"
   }
 }
+

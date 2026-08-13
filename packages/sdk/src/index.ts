@@ -16,6 +16,7 @@ import { SocialApi } from "@faiber/faiber-social";
 import { VersionApi } from "@faiber/faiber-version";
 import { StateApi } from "@faiber/faiber-state-sdk";
 import { DrmApi } from "@faiber/faiber-drm";
+import { TaskApi } from "@faiber/faiber-task";
 import { describeFaiber, FAIBER_SERVICE_CAPABILITIES } from "./capabilities.js";
 export interface FaiberServiceApis {
     idp: IdpApi;
@@ -35,6 +36,7 @@ export interface FaiberServiceApis {
     chat: ChatApi;
     state: StateApi;
     drm: DrmApi;
+    task: TaskApi;
 }
 export class FaiberSDK {
     /** Machine-readable catalog for IDEs and AI agents choosing a Faiber capability. */
@@ -81,11 +83,12 @@ export class FaiberSDK {
     get chat(): ChatApi { return this.api("chat", (client) => new ChatApi(client)); }
     get state(): StateApi { return this.api("state", (client) => new StateApi(client)); }
     get drm(): DrmApi { return this.api("drm", (client) => new DrmApi(client)); }
+    get task(): TaskApi { return this.api("task", (client) => new TaskApi(client)); }
     /** Explains one service or returns the complete service catalog. */
     describe(service?: ServiceName) { return describeFaiber(service); }
 }
 export * from "@faiber/sdk-core";
-export { AssetApi, ChatApi, CrmApi, DrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, VersionApi };
+export { AssetApi, ChatApi, CrmApi, DrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, TaskApi, VersionApi };
 export type { AuthTokensResponse, User as IdpUser } from "@faiber/faiber-idp";
 export type { Profile, ProfileProperties } from "@faiber/faiber-profile";
 export type { Lead } from "@faiber/faiber-crm";
@@ -111,3 +114,4 @@ export * as ChatService from "@faiber/faiber-chat";
 export * as SocialService from "@faiber/faiber-social";
 export * as StateService from "@faiber/faiber-state-sdk";
 export * as DrmService from "@faiber/faiber-drm";
+export * as TaskService from "@faiber/faiber-task";
