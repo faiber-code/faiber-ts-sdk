@@ -9,7 +9,7 @@ import {
 const manifest = JSON.parse(await readFile(new URL("../service-contracts.json", import.meta.url), "utf8"));
 
 test("the facade and AI catalog cover every sandbox service exactly once", () => {
-  const expected = ["idp", "profile", "modules", "asset", "payment", "messenger", "crm", "lms", "reservation", "session", "version", "flow", "knowledge", "chat", "social", "state", "drm", "task"];
+  const expected = ["idp", "profile", "modules", "asset", "payment", "messenger", "crm", "lms", "reservation", "session", "version", "flow", "knowledge", "chat", "social", "state", "drm", "task", "manage"];
   assert.deepEqual([...SERVICE_NAMES], expected);
   assert.deepEqual(FAIBER_SERVICE_CAPABILITIES.map(item => item.service), expected);
   for (const capability of FAIBER_SERVICE_CAPABILITIES) {
@@ -21,7 +21,7 @@ test("the facade and AI catalog cover every sandbox service exactly once", () =>
   }
 });
 
-test("all 18 public service connections share auth, transport, and facade configuration", async () => {
+test("all public service connections share auth, transport, and facade configuration", async () => {
   const requests = [];
   const domains = Object.fromEntries(SERVICE_NAMES.map(service => [service, `https://${service}.sandbox.test`]));
   const sdk = new FaiberSDK({
@@ -77,16 +77,16 @@ test("generated contracts have exact route coverage, named outputs, and complete
     }
     total += endpoints.length;
   }
-  assert.equal(total, 889);
+  assert.equal(total, 933);
 });
 
 test("every published workspace package includes developer documentation", async () => {
   const packageNames = await readdir(new URL("../packages", import.meta.url));
   for (const name of packageNames) {
     const packageJson = JSON.parse(await readFile(new URL(`../packages/${name}/package.json`, import.meta.url), "utf8"));
-    assert.equal(packageJson.version, "0.6.0", `${packageJson.name} release version`);
+    assert.equal(packageJson.version, "0.6.1", `${packageJson.name} release version`);
     for (const [dependency, version] of Object.entries(packageJson.dependencies ?? {})) {
-      if (dependency.startsWith("@faiber/")) assert.equal(version, "0.6.0", `${packageJson.name} -> ${dependency}`);
+      if (dependency.startsWith("@faiber/")) assert.equal(version, "0.6.1", `${packageJson.name} -> ${dependency}`);
     }
     assert.ok(packageJson.files.includes("README.md"), `${packageJson.name} publishes README`);
     const readme = await readFile(new URL(`../packages/${name}/README.md`, import.meta.url), "utf8");

@@ -1,11 +1,31 @@
 # @faiber/faiber-task
 
-Typed client for Faiber Tasks, the sandbox-local authority for software, marketing and operational work.
+Typed client for every authenticated Faiber Tasks route. Tasks is the sandbox-local authority
+for projects, work items, sprints, scoped access grants, reporting, comments, agent proposals,
+and realtime invalidation events.
 
 ```bash
 npm install @faiber/faiber-task
 ```
 
-Install the package, construct a FaiberClient for service task, then pass it to TaskApi.
+```ts
+import { FaiberClient, TaskApi } from "@faiber/faiber-task";
 
-Methods return complete Axios responses and accept standard request options, including AbortSignal. Mutating aggregates use If-Match; retried creates require an idempotency key. IDP provides identity and global permission while Task enforces scoped grants.
+const task = new TaskApi(new FaiberClient("task", {
+  domains: { task: process.env.FAIBER_TASK_URL! },
+  authMode: "bearer",
+  getAccessToken: async () => accessToken,
+}));
+
+const projects = await task.listProjects({ mode: "software" });
+const item = await task.createWorkItem(input, crypto.randomUUID());
+await task.transitionWorkItem(item.data.data.id, item.data.data.version, { status: "in_progress" });
+```
+
+All methods return complete Axios responses and accept shared request options, including
+`AbortSignal`. Mutable aggregates emit ETags; updates accept the integer version and send it
+as `If-Match`. Retried work-item creates must reuse the same idempotency key. `openEvents`
+opens the authenticated SSE invalidation stream with the fetch adapter by default.
+
+IDP proves identity and the configured global Task permission. Task independently enforces
+workspace, team, project, and work-item grants. Global roles never bypass local grants.

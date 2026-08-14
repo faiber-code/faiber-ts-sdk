@@ -58,6 +58,62 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.ApiUpdateCategoryPatchResponse, T.ApiUpdateCategoryPatchInput>({ ...options, method: "PATCH", url: `/api/v1/categories/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Performs the category capability policy operation for the api capability.
+   * Calls `GET /api/v1/categories/{id}/capability-policy` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:read.
+   */
+  apiCategoryCapabilityPolicyGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiCategoryCapabilityPolicyGetResponse>({ ...options, method: "GET", url: `/api/v1/categories/${encodeURIComponent(id)}/capability-policy` });
+  }
+  /**
+   * Performs the claim detail operation for the api capability.
+   * Calls `GET /api/v1/claims/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:read.
+   */
+  apiClaimDetailGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiClaimDetailGetResponse>({ ...options, method: "GET", url: `/api/v1/claims/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the set contact consent operation for the api capability.
+   * Calls `PUT /api/v1/claims/{id}/contact-consent` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:claim:consent.
+   */
+  apiSetContactConsentPut(id: Identifier, data: T.ApiSetContactConsentPutInput, options?: RequestOptions<T.ApiSetContactConsentPutInput>) {
+    return this.client.request<T.ApiSetContactConsentPutResponse, T.ApiSetContactConsentPutInput>({ ...options, method: "PUT", url: `/api/v1/claims/${encodeURIComponent(id)}/contact-consent`, data: data });
+  }
+  /**
+   * Performs the select claim operation for the api capability.
+   * Calls `POST /api/v1/claims/{id}/select` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:claim:select_own.
+   */
+  apiSelectClaimPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiSelectClaimPostResponse>({ ...options, method: "POST", url: `/api/v1/claims/${encodeURIComponent(id)}/select` });
+  }
+  /**
+   * Performs the withdraw claim operation for the api capability.
+   * Calls `POST /api/v1/claims/{id}/withdraw` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:claim:update_own.
+   */
+  apiWithdrawClaimPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiWithdrawClaimPostResponse>({ ...options, method: "POST", url: `/api/v1/claims/${encodeURIComponent(id)}/withdraw` });
+  }
+  /**
    * Performs the delete comment operation for the api capability.
    * Calls `DELETE /api/v1/comments/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -160,6 +216,17 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.ApiCreatePostCommentPostApiV1CommentsPostIdResponse, T.ApiCreatePostCommentPostApiV1CommentsPostIdInput>({ ...options, method: "POST", url: `/api/v1/comments/post/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Performs the receive funding event operation for the api capability.
+   * Calls `POST /api/v1/integrations/funding-events` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:integrations:write.
+   */
+  apiReceiveFundingEventPost(data: T.ApiReceiveFundingEventPostInput, options?: RequestOptions<T.ApiReceiveFundingEventPostInput>) {
+    return this.client.request<T.ApiReceiveFundingEventPostResponse, T.ApiReceiveFundingEventPostInput>({ ...options, method: "POST", url: `/api/v1/integrations/funding-events`, data: data });
+  }
+  /**
    * Performs the my analytics operation for the api capability.
    * Calls `GET /api/v1/me/analytics` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -181,6 +248,17 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.ApiMyBookmarksGetResponse>({ ...options, method: "GET", url: `/api/v1/me/bookmarks` });
   }
   /**
+   * Performs the my claims operation for the api capability.
+   * Calls `GET /api/v1/me/claims` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:read.
+   */
+  apiMyClaimsGet(params?: T.ApiMyClaimsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiMyClaimsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/claims`, params });
+  }
+  /**
    * Performs the list my posts operation for the api capability.
    * Calls `GET /api/v1/me/posts` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -190,6 +268,18 @@ export class SocialOperations extends ServiceApi {
    */
   apiListMyPostsGet(params?: T.ApiListMyPostsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ApiListMyPostsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/posts`, params });
+  }
+  /**
+   * Performs the my post claims operation for the api capability.
+   * Calls `GET /api/v1/me/posts/{id}/claims` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:read.
+   */
+  apiMyPostClaimsGet(id: Identifier, params?: T.ApiMyPostClaimsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiMyPostClaimsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/posts/${encodeURIComponent(id)}/claims`, params });
   }
   /**
    * Performs the get media operation for the api capability.
@@ -219,7 +309,7 @@ export class SocialOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:moderate.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   apiModeratePost(data: T.ApiModeratePostInput, options?: RequestOptions<T.ApiModeratePostInput>) {
     return this.client.request<T.ApiModeratePostResponse, T.ApiModeratePostInput>({ ...options, method: "POST", url: `/api/v1/moderation/actions`, data: data });
@@ -230,7 +320,7 @@ export class SocialOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:moderate.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   apiModerationAuditGet(params?: T.ApiModerationAuditGetQuery, options?: RequestOptions) {
     return this.client.request<T.ApiModerationAuditGetResponse>({ ...options, method: "GET", url: `/api/v1/moderation/audit`, params });
@@ -240,7 +330,7 @@ export class SocialOperations extends ServiceApi {
    * Calls `GET /api/v1/moderation/queue` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:moderate.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   apiModerationQueueGet(options?: RequestOptions) {
     return this.client.request<T.ApiModerationQueueGetResponse>({ ...options, method: "GET", url: `/api/v1/moderation/queue` });
@@ -336,6 +426,40 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.ApiBookmarkPostPutResponse>({ ...options, method: "PUT", url: `/api/v1/posts/${encodeURIComponent(id)}/bookmark` });
   }
   /**
+   * Performs the cancel capability post operation for the api capability.
+   * Calls `POST /api/v1/posts/{id}/cancel` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:post:update_own.
+   */
+  apiCancelCapabilityPostPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiCancelCapabilityPostPostResponse>({ ...options, method: "POST", url: `/api/v1/posts/${encodeURIComponent(id)}/cancel` });
+  }
+  /**
+   * Performs the post capabilities operation for the api capability.
+   * Calls `GET /api/v1/posts/{id}/capabilities` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:read.
+   */
+  apiPostCapabilitiesGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiPostCapabilitiesGetResponse>({ ...options, method: "GET", url: `/api/v1/posts/${encodeURIComponent(id)}/capabilities` });
+  }
+  /**
+   * Performs the create claim operation for the api capability.
+   * Calls `POST /api/v1/posts/{id}/claims` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:claim:create.
+   */
+  apiCreateClaimPost(id: Identifier, data: T.ApiCreateClaimPostInput, options?: RequestOptions<T.ApiCreateClaimPostInput>) {
+    return this.client.request<T.ApiCreateClaimPostResponse, T.ApiCreateClaimPostInput>({ ...options, method: "POST", url: `/api/v1/posts/${encodeURIComponent(id)}/claims`, data: data });
+  }
+  /**
    * Performs the list post comments operation for the api capability.
    * Calls `GET /api/v1/posts/{id}/comments` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -379,6 +503,18 @@ export class SocialOperations extends ServiceApi {
    */
   apiLikePostPut(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ApiLikePostPutResponse>({ ...options, method: "PUT", url: `/api/v1/posts/${encodeURIComponent(id)}/like` });
+  }
+  /**
+   * Performs the navigation access operation for the api capability.
+   * Calls `POST /api/v1/posts/{id}/navigation-access` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:location:navigate.
+   */
+  apiNavigationAccessPost(id: Identifier, data: T.ApiNavigationAccessPostInput, options?: RequestOptions<T.ApiNavigationAccessPostInput>) {
+    return this.client.request<T.ApiNavigationAccessPostResponse, T.ApiNavigationAccessPostInput>({ ...options, method: "POST", url: `/api/v1/posts/${encodeURIComponent(id)}/navigation-access`, data: data });
   }
   /**
    * Performs the remove post reaction operation for the api capability.

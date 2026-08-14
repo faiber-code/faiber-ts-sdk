@@ -2,6 +2,7 @@ import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-co
 import type * as T from "./types.js";
 
 /** Complete typed client for the sandbox digital-rights media service. */
+import { DrmOperations } from "./operations.js";
 export class DrmApi extends ServiceApi {
   /** Checks DRM service readiness. Calls `GET /api/v1/status`. */
   status(options?: RequestOptions) { return this.client.get<T.DrmStatus>("/api/v1/status", undefined, options); }
@@ -43,3 +44,5 @@ export class DrmApi extends ServiceApi {
 
 export * from "./types.js";
 export * from "@faiber/sdk-core";
+export * from "./operations.js";
+export * from "./operations.types.js";

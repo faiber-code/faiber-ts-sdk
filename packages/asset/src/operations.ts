@@ -371,12 +371,24 @@ export class AssetOperations extends ServiceApi {
   /**
    * Performs the plans index operation for the llm usage capability.
    * Calls `GET /api/v1/llm-pricing/plans` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:read.
    */
-  llmUsagePlansIndexGet(options?: RequestOptions) {
-    return this.client.request<T.LlmUsagePlansIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/llm-pricing/plans` });
+  llmUsagePlansIndexGet(params?: T.LlmUsagePlansIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.LlmUsagePlansIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/llm-pricing/plans`, params });
+  }
+  /**
+   * Performs the plan delete operation for the llm usage capability.
+   * Calls `DELETE /api/v1/llm-pricing/plans/{profile_id}` through the shared IDP-aware Faiber client.
+   * @param profileId Backend path identifier `profile_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:update.
+   */
+  llmUsagePlanDeleteDelete(profileId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.LlmUsagePlanDeleteDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/llm-pricing/plans/${encodeURIComponent(profileId)}` });
   }
   /**
    * Performs the plan show operation for the llm usage capability.
@@ -402,6 +414,17 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.LlmUsagePlanSetPutResponse, T.LlmUsagePlanSetPutInput>({ ...options, method: "PUT", url: `/api/v1/llm-pricing/plans/${encodeURIComponent(profileId)}`, data: data });
   }
   /**
+   * Performs the me asset history operation for the wallet capability.
+   * Calls `GET /api/v1/me/asset-history` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   */
+  walletMeAssetHistoryGet(params?: T.WalletMeAssetHistoryGetQuery, options?: RequestOptions) {
+    return this.client.request<T.WalletMeAssetHistoryGetResponse>({ ...options, method: "GET", url: `/api/v1/me/asset-history`, params });
+  }
+  /**
    * Performs the me assets show operation for the wallet capability.
    * Calls `GET /api/v1/me/assets` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -421,6 +444,17 @@ export class AssetOperations extends ServiceApi {
    */
   walletMeBadgesShowGet(params?: T.WalletMeBadgesShowGetQuery, options?: RequestOptions) {
     return this.client.request<T.WalletMeBadgesShowGetResponse>({ ...options, method: "GET", url: `/api/v1/me/badges`, params });
+  }
+  /**
+   * Performs the me badge todos show operation for the wallet capability.
+   * Calls `GET /api/v1/me/badges/todos` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   */
+  walletMeBadgeTodosShowGet(params?: T.WalletMeBadgeTodosShowGetQuery, options?: RequestOptions) {
+    return this.client.request<T.WalletMeBadgeTodosShowGetResponse>({ ...options, method: "GET", url: `/api/v1/me/badges/todos`, params });
   }
   /**
    * Performs the me llm usage operation for the wallet capability.

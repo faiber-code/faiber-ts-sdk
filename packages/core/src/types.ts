@@ -17,7 +17,8 @@ export const SERVICE_NAMES = [
     "social",
     "state",
     "drm",
-    "task",
+   "task",
+    "manage",
 ] as const;
 export type ServiceName = (typeof SERVICE_NAMES)[number];
 export type ServiceDomains = Partial<Record<ServiceName, string>>;

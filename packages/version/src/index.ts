@@ -2,6 +2,7 @@ import { ServiceApi, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 
 /** Typed service registry and release-history client. Authentication follows the shared Faiber client configuration. */
+import { VersionOperations } from "./operations.js";
 export class VersionApi extends ServiceApi {
   /**
    * Checks Version service readiness through `GET /health`.
@@ -51,3 +52,5 @@ export class VersionApi extends ServiceApi {
 }
 export * from "./types.js";
 export * from "@faiber/sdk-core";
+export * from "./operations.js";
+export * from "./operations.types.js";

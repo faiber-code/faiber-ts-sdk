@@ -6,6 +6,7 @@ import { IdpApi } from "@faiber/faiber-idp";
 import { LmsApi } from "@faiber/faiber-lms";
 import { KnowledgeApi } from "@faiber/faiber-knowledge";
 import { ChatApi } from "@faiber/faiber-chat";
+import { ManageApi } from "@faiber/faiber-manage";
 import { MessengerApi } from "@faiber/faiber-messenger";
 import { ModulesApi } from "@faiber/faiber-modules";
 import { PaymentApi } from "@faiber/faiber-payment";
@@ -33,7 +34,8 @@ export interface FaiberServiceApis {
     flow: FlowApi;
     social: SocialApi;
     knowledge: KnowledgeApi;
-    chat: ChatApi;
+   chat: ChatApi;
+    manage: ManageApi;
     state: StateApi;
     drm: DrmApi;
     task: TaskApi;
@@ -80,7 +82,8 @@ export class FaiberSDK {
     get flow(): FlowApi { return this.api("flow", (client) => new FlowApi(client)); }
     get social(): SocialApi { return this.api("social", (client) => new SocialApi(client)); }
     get knowledge(): KnowledgeApi { return this.api("knowledge", (client) => new KnowledgeApi(client)); }
-    get chat(): ChatApi { return this.api("chat", (client) => new ChatApi(client)); }
+   get chat(): ChatApi { return this.api("chat", (client) => new ChatApi(client)); }
+    get manage(): ManageApi { return this.api("manage", (client) => new ManageApi(client)); }
     get state(): StateApi { return this.api("state", (client) => new StateApi(client)); }
     get drm(): DrmApi { return this.api("drm", (client) => new DrmApi(client)); }
     get task(): TaskApi { return this.api("task", (client) => new TaskApi(client)); }
@@ -88,7 +91,7 @@ export class FaiberSDK {
     describe(service?: ServiceName) { return describeFaiber(service); }
 }
 export * from "@faiber/sdk-core";
-export { AssetApi, ChatApi, CrmApi, DrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, TaskApi, VersionApi };
+export { AssetApi, ChatApi, CrmApi, DrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, ManageApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, TaskApi, VersionApi };
 export type { AuthTokensResponse, User as IdpUser } from "@faiber/faiber-idp";
 export type { Profile, ProfileProperties } from "@faiber/faiber-profile";
 export type { Lead } from "@faiber/faiber-crm";
@@ -111,6 +114,15 @@ export * as VersionService from "@faiber/faiber-version";
 export * as FlowService from "@faiber/faiber-flow";
 export * as KnowledgeService from "@faiber/faiber-knowledge";
 export * as ChatService from "@faiber/faiber-chat";
+export * as ManageService from "@faiber/faiber-manage";
+export {
+    domainsFromManageProxy,
+    isManageAgentActionEvent,
+    isManageAgentCompleteEvent,
+    isManageAgentQuestionEvent,
+    managedImageUrl,
+    parseManageAgentEvents,
+} from "@faiber/faiber-manage";
 export * as SocialService from "@faiber/faiber-social";
 export * as StateService from "@faiber/faiber-state-sdk";
 export * as DrmService from "@faiber/faiber-drm";

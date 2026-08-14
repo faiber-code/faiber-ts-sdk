@@ -46,6 +46,30 @@ export interface ApiUpdateCategoryPatchInput extends JsonObject {
 /** Backend response type: Value. */
 export type ApiUpdateCategoryPatchResponse = import("./types.js").SocialCategoryResponse;
 
+/** Backend response type: Value. */
+export interface ApiCategoryCapabilityPolicyGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface ApiClaimDetailGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: ContactConsentInput. */
+export interface ApiSetContactConsentPutInput extends JsonObject {
+  "consented": boolean;
+}
+/** Backend response type: Value. */
+export interface ApiSetContactConsentPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface ApiSelectClaimPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface ApiWithdrawClaimPostResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: no-content. */
 export type ApiDeleteCommentDeleteResponse = import("./types.js").NoContentResponse;
 
@@ -86,6 +110,20 @@ export interface ApiCreatePostCommentPostApiV1CommentsPostIdInput extends JsonOb
 /** Backend response type: Value. */
 export type ApiCreatePostCommentPostApiV1CommentsPostIdResponse = import("./types.js").SocialCommentResponse;
 
+/** Backend request type: FundingEventInput. */
+export interface ApiReceiveFundingEventPostInput extends JsonObject {
+  "external_event_id": string;
+  "post_id": string;
+  "external_reference": string;
+  "status": string;
+  "unit": string;
+  "code": string;
+  "amount": string;
+}
+/** Backend response type: Value. */
+export interface ApiReceiveFundingEventPostResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: AnalyticsQuery. */
 export interface ApiMyAnalyticsGetQuery extends QueryParams {
   "from"?: string | null;
@@ -96,6 +134,15 @@ export type ApiMyAnalyticsGetResponse = import("./types.js").CreatorAnalyticsRes
 
 /** Backend response type: Value. */
 export type ApiMyBookmarksGetResponse = import("./types.js").SocialBookmarksResponse;
+
+/** Backend query type: ClaimListQuery. */
+export interface ApiMyClaimsGetQuery extends QueryParams {
+  "page"?: number;
+  "limit"?: number;
+}
+/** Backend response type: Value. */
+export interface ApiMyClaimsGetResponse extends ApiEnvelope<JsonValue> {
+}
 
 /** Backend query type: FeedQuery. */
 export interface ApiListMyPostsGetQuery extends QueryParams {
@@ -108,6 +155,15 @@ export interface ApiListMyPostsGetQuery extends QueryParams {
 }
 /** Backend response type: Value. */
 export type ApiListMyPostsGetResponse = import("./types.js").SocialPostListResponse;
+
+/** Backend query type: ClaimListQuery. */
+export interface ApiMyPostClaimsGetQuery extends QueryParams {
+  "page"?: number;
+  "limit"?: number;
+}
+/** Backend response type: Value. */
+export interface ApiMyPostClaimsGetResponse extends ApiEnvelope<JsonValue> {
+}
 
 /** Backend response type: raw-response. */
 export type ApiGetMediaGetResponse = import("./types.js").NoContentResponse;
@@ -161,6 +217,7 @@ export interface ApiCreatePostPostInput extends JsonObject {
   "body": string;
   "media"?: JsonValue;
   "metadata"?: JsonValue;
+  "capabilities"?: BackendJson<"CreateCapabilities"> | null;
 }
 /** Backend response type: Value. */
 export type ApiCreatePostPostResponse = import("./types.js").SocialPostResponse;
@@ -199,6 +256,23 @@ export type ApiUnbookmarkPostDeleteResponse = import("./types.js").NoContentResp
 export type ApiBookmarkPostPutResponse = import("./types.js").NoContentResponse;
 
 /** Backend response type: Value. */
+export interface ApiCancelCapabilityPostPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface ApiPostCapabilitiesGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: CreateClaim. */
+export interface ApiCreateClaimPostInput extends JsonObject {
+  "message": string;
+  "evidence"?: JsonValue;
+}
+/** Backend response type: Value. */
+export interface ApiCreateClaimPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
 export type ApiListPostCommentsGetApiV1PostsIdCommentsResponse = import("./types.js").SocialCommentListResponse;
 
 /** Backend request type: CreateComment. */
@@ -214,6 +288,14 @@ export type ApiRemovePostReactionDeleteApiV1PostsIdLikeResponse = import("./type
 
 /** Backend response type: Value. */
 export type ApiLikePostPutResponse = import("./types.js").SocialReactionResponse;
+
+/** Backend request type: NavigationAccessInput. */
+export interface ApiNavigationAccessPostInput extends JsonObject {
+  "reason"?: string | null;
+}
+/** Backend response type: raw-response. */
+export interface ApiNavigationAccessPostResponse extends ApiEnvelope<JsonValue> {
+}
 
 /** Backend response type: no-content. */
 export type ApiRemovePostReactionDeleteApiV1PostsIdReactionResponse = import("./types.js").NoContentResponse;

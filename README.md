@@ -24,6 +24,8 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 | `@faiber/faiber-chat` | Direct, group, channel and AI conversations, messages, members, reactions, read state and realtime events |
 | `@faiber/faiber-state-sdk` | Game worlds, rooms, authoritative state, realtime replication, prediction and server-side simulation |
 | `@faiber/faiber-drm` | Audio/video folders, tags, search, uploads, metadata and signed playback |
+| `@faiber/faiber-task` | Projects, work items, sprints, scoped grants, agent proposals and delivery reports |
+| `@faiber/faiber-manage` | Project-scoped service proxy origins and governed Manage Agent interactions |
 | `@faiber/faiber-game-sdk` | Portable TypeScript/WebAssembly ECS, adaptive 2D/3D rendering and cross-platform game runtime |
 | `@faiber/faiber-ts-sdk` | One facade containing every package above |
 
@@ -67,7 +69,7 @@ Automatic refresh is opt-in through `refreshAuth`. Concurrent `401` responses sh
 
 Every service exposes curated convenience APIs plus `sdk.<service>.operations`, generated from mounted Rust routes. Generated methods preserve the HTTP verb, path identifiers, query shape, body shape, response envelope, form/multipart transport, and declared permission. REST convenience resources are capability guarded, so an unsupported operation fails locally instead of producing a backend `405`.
 
-The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. The internal sandbox management gateway is deliberately not exposed. Concrete Rust types that cannot be expanded structurally retain a branded `BackendJson<"Rust::Type">` name rather than degrading to `any` or an unexplained placeholder.
+The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. Manage is exposed as a project-scoped gateway and governed Agentic transport; it never grants arbitrary-host access. Concrete Rust types that cannot be expanded structurally retain a branded `BackendJson<"Rust::Type">` name rather than degrading to `any` or an unexplained placeholder.
 
 ```ts
 await sdk.profile.updateProfile(profileId, {

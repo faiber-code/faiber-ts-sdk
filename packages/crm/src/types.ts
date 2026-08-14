@@ -1,172 +1,175 @@
-import type { ApiEnvelope, JsonObject, OperationResponse, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
-export interface CrmEntity extends JsonObject {
-    id: string;
-    name?: string;
-    status?: string;
+import type { ApiEnvelope, JsonObject, JsonValue } from "@faiber/sdk-core";
+import type * as O from "./operations.types.js";
+
+export type CrmWorkspace = O.ApiContextGetResponseData;
+export type CrmPipeline = CrmPipelineWithStages;
+export type CrmTeam = O.ApiTeamsGetResponseItem;
+export type CrmCompany = O.ApiCompanyGetResponseData;
+export type CrmContact = O.ApiContactGetResponseData;
+export type CrmLead = O.ApiLeadGetResponseData;
+/** Backward-compatible name for the current production lead view. */
+export type Lead = CrmLead;
+export type CrmDeal = O.ApiDealGetResponseData;
+export type CrmTask = O.ApiCreateTaskPostResponseData;
+export type CrmActivity = O.ApiCreateActivityPostResponseData;
+export type CrmSource = O.ApiCreateSourcePostResponseData;
+export type CrmCampaign = O.ApiCreateCampaignPostResponseData;
+export type CrmReportRun = O.ApiReportRunGetResponseData;
+export interface CrmMetricValue extends JsonObject {
+  key: string;
+  value: number;
+  unit: string;
+  freshness: string;
+  source_of_truth: string;
+  status: string;
+  computed_at: string;
+  evidence_count: number;
 }
-export interface Lead extends CrmEntity {
-    name: string;
-    email?: string;
-    phone?: string;
-    assignee_id?: string;
+
+export interface CrmOverview extends JsonObject {
+  period_start: string;
+  period_end: string;
+  metrics: CrmMetricValue[];
+  data_quality_warnings: string[];
 }
-export interface Workflow extends CrmEntity {
-    name: string;
+export type CrmWebhookSubscription = O.ApiAutomationWebhooksGetResponseItem;
+
+export interface CrmResponseMeta extends JsonObject {
+  request_id: string;
 }
-export interface WorkflowNode extends CrmEntity {
-    workflow_id?: string;
-    type?: string;
+
+export interface CrmApiResponse<T> extends ApiEnvelope<T> {
+  meta: CrmResponseMeta;
 }
-export interface WorkflowMember extends CrmEntity {
-    workflow_id?: string;
-    user_id?: string;
+
+export type CrmListQuery = O.ApiLeadsGetQuery;
+export type CreateCrmCompanyInput = O.ApiCreateCompanyPostInput;
+export type UpdateCrmCompanyInput = O.ApiUpdateCompanyPatchInput;
+export type CreateCrmContactInput = O.ApiCreateContactPostInput;
+export type UpdateCrmContactInput = O.ApiUpdateContactPatchInput;
+export type CreateCrmLeadInput = O.ApiCreateLeadPostInput;
+export type UpdateCrmLeadInput = O.ApiUpdateLeadPatchInput;
+export type CreateCrmDealInput = O.ApiCreateDealPostInput;
+export type UpdateCrmDealInput = O.ApiUpdateDealPatchInput;
+export type CreateCrmTaskInput = O.ApiCreateTaskPostInput;
+export type CreateCrmActivityInput = O.ApiCreateActivityPostInput;
+export type CrmMoveStageInput = O.ApiMoveLeadStagePatchInput;
+export type CrmAssignmentInput = O.ApiAssignLeadPatchInput;
+
+export interface CrmListData<T extends JsonObject> extends JsonObject {
+  items: T[];
+  next_cursor: string | null;
 }
-export interface Team extends CrmEntity {
-    name: string;
+
+export type CrmCompanyListResponse = CrmApiResponse<CrmListData<CrmCompany>>;
+export type CrmContactListResponse = CrmApiResponse<CrmListData<CrmContact>>;
+export type CrmLeadListResponse = CrmApiResponse<CrmListData<CrmLead>>;
+export type CrmDealListResponse = CrmApiResponse<CrmListData<CrmDeal>>;
+export type CrmTaskListResponse = CrmApiResponse<CrmListData<CrmTask>>;
+export type CrmActivityListResponse = CrmApiResponse<CrmListData<CrmActivity>>;
+
+export interface CrmPipelineStage extends JsonObject {
+  id: string;
+  pipeline_id: string;
+  name: string;
+  slug: string;
+  position: number;
+  probability: number;
+  stage_type: string;
+  sla_minutes: number | null;
+  is_active: boolean;
 }
-export interface TeamUser extends CrmEntity {
-    team_id?: string;
-    user_id?: string;
+
+export interface CrmPipelineWithStages extends JsonObject {
+  id: string;
+  name: string;
+  slug: string;
+  entity_type: string;
+  team_id: string | null;
+  is_default: boolean;
+  is_active: boolean;
+  version: number;
+  stages: CrmPipelineStage[];
 }
-export interface Worklog extends CrmEntity {
-    lead_id?: string;
-    content?: string;
+
+export type CrmPipelinesResponse = CrmApiResponse<CrmPipelineWithStages[]>;
+
+export interface CrmTeamMember extends JsonObject {
+  id: string;
+  team_id: string;
+  user_id: string;
+  title: string | null;
+  capacity: number;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
 }
-export interface Reminder extends CrmEntity {
-    lead_id?: string;
-    remind_at?: string;
+
+export interface CrmTeamDetail extends JsonObject {
+  team: CrmTeam;
+  members: CrmTeamMember[];
 }
-export interface Escalation extends CrmEntity {
-    lead_id?: string;
-    reason?: string;
+
+export type CrmTeamDetailResponse = CrmApiResponse<CrmTeamDetail>;
+
+export interface CrmBoardColumn<T extends JsonObject> extends JsonObject {
+  stage: JsonObject;
+  records: T[];
+  count: number;
+  total_value: number;
 }
-export interface CreateCrmEntityInput extends JsonObject {
-    name?: string;
-    status?: string;
+
+export interface CrmBoard<T extends JsonObject> extends JsonObject {
+  pipeline: JsonObject;
+  columns: CrmBoardColumn<T>[];
 }
-export interface UpdateCrmEntityInput extends Partial<CreateCrmEntityInput> {
+
+export type CrmBoardResponse = CrmApiResponse<CrmBoard<CrmLead> | CrmBoard<CrmDeal>>;
+
+export interface CrmReportCatalog extends JsonObject {
+  reports: JsonObject[];
+  metrics: JsonObject[];
 }
-export interface CreateLeadInput extends CreateCrmEntityInput {
-    name: string;
-    email?: string;
-    phone?: string;
-    assignee_id?: string;
+
+export type CrmReportCatalogResponse = CrmApiResponse<CrmReportCatalog>;
+
+export interface CrmReportRefreshResult extends JsonObject {
+  report_run_id: string;
+  status: string;
+  overview: CrmOverview;
+  agentic_started: boolean;
 }
-export interface UpdateLeadInput extends Partial<CreateLeadInput> {
+
+export type CrmReportRefreshResponse = CrmApiResponse<CrmReportRefreshResult>;
+
+export interface CrmAgenticInsightResult extends JsonObject {
+  job_id: string;
+  report_run_id: string;
+  status: string;
+  charged_to_user_id: string;
 }
-export interface CreateWorkflowInput extends CreateCrmEntityInput {
-    name: string;
+
+export type CrmAgenticInsightResponse = CrmApiResponse<CrmAgenticInsightResult>;
+export type CrmOverviewResponse = CrmApiResponse<CrmOverview>;
+
+export interface CrmAutomationJob extends JsonObject {
+  id: string;
+  job_type: string;
+  status: string;
+  priority: number;
+  attempts: number;
+  max_attempts: number;
+  available_at: string;
+  result: JsonValue | null;
+  last_error: string | null;
+  created_at: string;
+  updated_at: string;
 }
-export interface UpdateWorkflowInput extends Partial<CreateWorkflowInput> {
-}
-export interface CreateWorkflowNodeInput extends CreateCrmEntityInput {
-    workflow_id: string;
-    type: string;
-}
-export interface UpdateWorkflowNodeInput extends Partial<CreateWorkflowNodeInput> {
-}
-export interface CreateWorkflowMemberInput extends CreateCrmEntityInput {
-    workflow_id: string;
-    user_id: string;
-}
-export interface UpdateWorkflowMemberInput extends Partial<CreateWorkflowMemberInput> {
-}
-export interface CreateTeamInput extends CreateCrmEntityInput {
-    name: string;
-}
-export interface UpdateTeamInput extends Partial<CreateTeamInput> {
-}
-export interface CreateTeamUserInput extends CreateCrmEntityInput {
-    team_id: string;
-    user_id: string;
-}
-export interface UpdateTeamUserInput extends Partial<CreateTeamUserInput> {
-}
-export interface CreateWorklogInput extends CreateCrmEntityInput {
-    lead_id: string;
-    content: string;
-}
-export interface UpdateWorklogInput extends Partial<CreateWorklogInput> {
-}
-export interface CreateReminderInput extends CreateCrmEntityInput {
-    lead_id: string;
-    remind_at: string;
-}
-export interface UpdateReminderInput extends Partial<CreateReminderInput> {
-}
-export interface CreateEscalationInput extends CreateCrmEntityInput {
-    lead_id: string;
-    reason: string;
-}
-export interface UpdateEscalationInput extends Partial<CreateEscalationInput> {
-}
-export interface LeadLogInput extends JsonObject {
-    content: string;
-    type?: string;
-}
-export interface LeadTouchInput extends JsonObject {
-    channel: string;
-    notes?: string;
-    touched_at?: string;
-}
-export interface LeadStats extends JsonObject {
-    total: number;
-    open: number;
-    won: number;
-    lost: number;
-}
-export interface DailyStats extends JsonObject {
-    date: string;
-    leads: number;
-    activities: number;
-}
-export interface CrmListResponse<T extends CrmEntity> extends ResourceListResponse<T> {
-}
-export interface CrmResponse<T extends CrmEntity> extends ResourceResponse<T> {
-}
-export interface LeadListResponse extends CrmListResponse<Lead> {
-}
-export interface LeadResponse extends CrmResponse<Lead> {
-}
-export interface WorkflowListResponse extends CrmListResponse<Workflow> {
-}
-export interface WorkflowResponse extends CrmResponse<Workflow> {
-}
-export interface WorkflowNodeListResponse extends CrmListResponse<WorkflowNode> {
-}
-export interface WorkflowNodeResponse extends CrmResponse<WorkflowNode> {
-}
-export interface WorkflowMemberListResponse extends CrmListResponse<WorkflowMember> {
-}
-export interface WorkflowMemberResponse extends CrmResponse<WorkflowMember> {
-}
-export interface TeamListResponse extends CrmListResponse<Team> {
-}
-export interface TeamResponse extends CrmResponse<Team> {
-}
-export interface TeamUserListResponse extends CrmListResponse<TeamUser> {
-}
-export interface TeamUserResponse extends CrmResponse<TeamUser> {
-}
-export interface WorklogListResponse extends CrmListResponse<Worklog> {
-}
-export interface WorklogResponse extends CrmResponse<Worklog> {
-}
-export interface ReminderListResponse extends CrmListResponse<Reminder> {
-}
-export interface ReminderResponse extends CrmResponse<Reminder> {
-}
-export interface EscalationListResponse extends CrmListResponse<Escalation> {
-}
-export interface EscalationResponse extends CrmResponse<Escalation> {
-}
-export interface LeadStatsResponse extends ApiEnvelope<LeadStats> {
-}
-export interface DailyStatsResponse extends ApiEnvelope<DailyStats[]> {
-}
-export interface MarkLeadDoneResponse extends OperationResponse {
-}
-export interface LeadLogResponse extends ApiEnvelope<Worklog> {
-}
-export interface LeadTouchResponse extends ApiEnvelope<Worklog> {
+
+export type CrmAutomationJobListResponse = CrmApiResponse<CrmListData<CrmAutomationJob>>;
+
+export interface CrmErrorBody extends JsonObject {
+  code: string;
+  message: string;
+  details: JsonValue;
 }

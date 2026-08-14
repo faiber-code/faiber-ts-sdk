@@ -214,6 +214,7 @@ export interface BlogCreatePostPostInput extends JsonObject {
   "description"?: string | null;
   "content"?: string | null;
   "image_url"?: string | null;
+  "author_id"?: string | null;
   "status"?: number | null;
 }
 /** Backend response type: models::PostResponseDTO. */
@@ -223,6 +224,7 @@ export interface BlogCreatePostPostResponseData extends JsonObject {
   "description"?: string | null;
   "content"?: string | null;
   "image_url"?: string | null;
+  "author_id"?: string | null;
   "status": number;
   "created_at": string;
   "updated_at": string;
@@ -244,6 +246,7 @@ export interface BlogShowPostGetResponseData extends JsonObject {
   "description"?: string | null;
   "content"?: string | null;
   "image_url"?: string | null;
+  "author_id"?: string | null;
   "status": number;
   "created_at": string;
   "updated_at": string;
@@ -257,6 +260,7 @@ export interface BlogUpdatePostPatchInput extends JsonObject {
   "description"?: string | null;
   "content"?: string | null;
   "image_url"?: string | null;
+  "author_id"?: string | null;
   "status"?: number | null;
 }
 /** Backend response type: models::PostResponseDTO. */
@@ -266,6 +270,7 @@ export interface BlogUpdatePostPatchResponseData extends JsonObject {
   "description"?: string | null;
   "content"?: string | null;
   "image_url"?: string | null;
+  "author_id"?: string | null;
   "status": number;
   "created_at": string;
   "updated_at": string;
@@ -279,6 +284,7 @@ export interface BlogUpdatePostPutInput extends JsonObject {
   "description"?: string | null;
   "content"?: string | null;
   "image_url"?: string | null;
+  "author_id"?: string | null;
   "status"?: number | null;
 }
 /** Backend response type: models::PostResponseDTO. */
@@ -288,6 +294,7 @@ export interface BlogUpdatePostPutResponseData extends JsonObject {
   "description"?: string | null;
   "content"?: string | null;
   "image_url"?: string | null;
+  "author_id"?: string | null;
   "status": number;
   "created_at": string;
   "updated_at": string;
@@ -315,6 +322,8 @@ export interface CategoryCreateCategoryPostInput extends JsonObject {
   "parent_id"?: string | null;
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
+  "scope"?: string | null;
   "status"?: number | null;
   "requires_confirmation"?: boolean | null;
 }
@@ -324,6 +333,8 @@ export interface CategoryCreateCategoryPostResponseData extends JsonObject {
   "parent_id"?: string | null;
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
+  "scope": string;
   "status": number;
   "requires_confirmation": boolean;
   "created_at": string;
@@ -383,6 +394,8 @@ export interface CategoryShowCategoryGetResponseData extends JsonObject {
   "parent_id"?: string | null;
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
+  "scope": string;
   "status": number;
   "requires_confirmation": boolean;
   "created_at": string;
@@ -396,6 +409,8 @@ export interface CategoryUpdateCategoryPatchInput extends JsonObject {
   "parent_id"?: string | null;
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
+  "scope"?: string | null;
   "status"?: number | null;
   "requires_confirmation"?: boolean | null;
 }
@@ -405,6 +420,8 @@ export interface CategoryUpdateCategoryPatchResponseData extends JsonObject {
   "parent_id"?: string | null;
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
+  "scope": string;
   "status": number;
   "requires_confirmation": boolean;
   "created_at": string;
@@ -418,6 +435,8 @@ export interface CategoryUpdateCategoryPutInput extends JsonObject {
   "parent_id"?: string | null;
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
+  "scope"?: string | null;
   "status"?: number | null;
   "requires_confirmation"?: boolean | null;
 }
@@ -427,6 +446,8 @@ export interface CategoryUpdateCategoryPutResponseData extends JsonObject {
   "parent_id"?: string | null;
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
+  "scope": string;
   "status": number;
   "requires_confirmation": boolean;
   "created_at": string;
@@ -940,6 +961,231 @@ export interface InventoryUpdateWarehousePutResponseData extends JsonObject {
 export interface InventoryUpdateWarehousePutResponse extends ApiEnvelope<InventoryUpdateWarehousePutResponseData> {
 }
 
+/** Backend response type: Value. */
+export type ManagementApiAgentModelsGetResponse = JsonValue;
+
+/** Backend response type: Vec<ProposalRecord>. */
+export interface ManagementApiListProposalsGetResponseItem extends JsonObject {
+  "id": string;
+  "agentic_run_id"?: string | null;
+  "actor_user_id": string;
+  "specialist": string;
+  "operation": string;
+  "target_type": string;
+  "target_id"?: string | null;
+  "expected_etag"?: string | null;
+  "diff": JsonValue;
+  "risk": string;
+  "status": string;
+  "idempotency_key": string;
+  "expires_at": string;
+  "approved_by"?: string | null;
+  "applied_at"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ManagementApiListProposalsGetResponse = ManagementApiListProposalsGetResponseItem[];
+
+/** Backend response type: ProposalRecord. */
+export interface ManagementApiGetProposalGetResponseData extends JsonObject {
+  "id": string;
+  "agentic_run_id"?: string | null;
+  "actor_user_id": string;
+  "specialist": string;
+  "operation": string;
+  "target_type": string;
+  "target_id"?: string | null;
+  "expected_etag"?: string | null;
+  "diff": JsonValue;
+  "risk": string;
+  "status": string;
+  "idempotency_key": string;
+  "expires_at": string;
+  "approved_by"?: string | null;
+  "applied_at"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ManagementApiGetProposalGetResponse = ManagementApiGetProposalGetResponseData;
+
+/** Backend response type: ProposalRecord. */
+export interface ManagementApiApproveProposalPostResponseData extends JsonObject {
+  "id": string;
+  "agentic_run_id"?: string | null;
+  "actor_user_id": string;
+  "specialist": string;
+  "operation": string;
+  "target_type": string;
+  "target_id"?: string | null;
+  "expected_etag"?: string | null;
+  "diff": JsonValue;
+  "risk": string;
+  "status": string;
+  "idempotency_key": string;
+  "expires_at": string;
+  "approved_by"?: string | null;
+  "applied_at"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ManagementApiApproveProposalPostResponse = ManagementApiApproveProposalPostResponseData;
+
+/** Backend response type: ProposalRecord. */
+export interface ManagementApiRejectProposalPostResponseData extends JsonObject {
+  "id": string;
+  "agentic_run_id"?: string | null;
+  "actor_user_id": string;
+  "specialist": string;
+  "operation": string;
+  "target_type": string;
+  "target_id"?: string | null;
+  "expected_etag"?: string | null;
+  "diff": JsonValue;
+  "risk": string;
+  "status": string;
+  "idempotency_key": string;
+  "expires_at": string;
+  "approved_by"?: string | null;
+  "applied_at"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ManagementApiRejectProposalPostResponse = ManagementApiRejectProposalPostResponseData;
+
+/** Backend request type: AgentRunInput. */
+export interface ManagementApiRunAgentPostInput extends JsonObject {
+  "operation": string;
+  "message": string;
+  "specialist": string;
+  "target_type": string;
+  "target_id"?: string | null;
+  "expected_etag"?: string | null;
+  "resource_ids"?: string[];
+  "context"?: JsonValue;
+  "model_ref"?: string | null;
+  "risk"?: string;
+}
+/** Backend response type: raw-response. */
+export interface ManagementApiRunAgentPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: ContentListQuery. */
+export interface ManagementApiListContentGetQuery extends QueryParams {
+  "kind"?: string | null;
+  "locale"?: string | null;
+  "status"?: string | null;
+}
+/** Backend response type: Vec<ContentRecord>. */
+export interface ManagementApiListContentGetResponseItem extends JsonObject {
+  "id": string;
+  "kind": string;
+  "legacy_host"?: string | null;
+  "legacy_id"?: string | null;
+  "slug": string;
+  "locale": string;
+  "title": string;
+  "status": string;
+  "editor_json": JsonValue;
+  "sanitized_html": string;
+  "plain_text": string;
+  "current_revision": number;
+  "etag": string;
+  "publish_at"?: string | null;
+  "published_at"?: string | null;
+  "created_by": string;
+  "updated_by": string;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ManagementApiListContentGetResponse = ManagementApiListContentGetResponseItem[];
+
+/** Backend request type: ContentWrite. */
+export interface ManagementApiCreateContentPostInput extends JsonObject {
+  "kind": string;
+  "slug": string;
+  "locale"?: string;
+  "title": string;
+  "editor_json"?: JsonValue;
+  "publish_at"?: string | null;
+}
+/** Backend response type: raw-response. */
+export interface ManagementApiCreateContentPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: raw-response. */
+export interface ManagementApiGetContentGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: ContentWrite. */
+export interface ManagementApiUpdateContentPutInput extends JsonObject {
+  "kind": string;
+  "slug": string;
+  "locale"?: string;
+  "title": string;
+  "editor_json"?: JsonValue;
+  "publish_at"?: string | null;
+}
+/** Backend response type: raw-response. */
+export interface ManagementApiUpdateContentPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: raw-response. */
+export interface ManagementApiPublishContentPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Vec<ContentRevisionRecord>. */
+export interface ManagementApiListContentRevisionsGetResponseItem extends JsonObject {
+  "id": string;
+  "document_id": string;
+  "revision": number;
+  "title": string;
+  "editor_json": JsonValue;
+  "sanitized_html": string;
+  "plain_text": string;
+  "actor_user_id": string;
+  "provenance": JsonValue;
+  "created_at": string;
+}
+export type ManagementApiListContentRevisionsGetResponse = ManagementApiListContentRevisionsGetResponseItem[];
+
+/** Backend response type: raw-response. */
+export interface ManagementApiRestoreContentRevisionPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: raw-response. */
+export interface ManagementApiGetSettingsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: SettingsUpdate. */
+export interface ManagementApiUpdateSettingsPutInput extends JsonObject {
+  "title": string;
+  "locales": JsonValue;
+  "timezone": string;
+  "currency": string;
+  "contact"?: JsonValue;
+  "seo_defaults"?: JsonValue;
+  "checkout_rules"?: JsonValue;
+  "delivery"?: JsonValue;
+}
+/** Backend response type: raw-response. */
+export interface ManagementApiUpdateSettingsPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: raw-response. */
+export interface MediaGetFileGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: multipart/form-data. */
+export type MediaUploadImagePostInput = FormData;
+/** Backend response type: UploadResponse. */
+export interface MediaUploadImagePostResponseData extends JsonObject {
+  "url": string;
+  "key": string;
+  "content_type": string;
+  "size": number;
+}
+export type MediaUploadImagePostResponse = MediaUploadImagePostResponseData;
+
 /** Backend response type: Vec<entity::podcast::Model>. */
 export interface PodcastListGetResponseItem extends JsonObject {
   "id": string;
@@ -1186,6 +1432,13 @@ export interface ServicePricingUpdatePricingPutResponseData extends JsonObject {
 }
 export interface ServicePricingUpdatePricingPutResponse extends ApiEnvelope<ServicePricingUpdatePricingPutResponseData> {
 }
+
+/** Backend response type: raw-response. */
+export interface ManagementApiPublicContentGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export type ManagementApiPublicRoutesGetResponse = JsonValue;
 
 /** Backend query type: models::ReactionDeleteQuery. */
 export interface ReactionDeleteOnTargetDeleteQuery extends QueryParams {
@@ -1980,6 +2233,7 @@ export interface ProductListProductsGetResponse extends ApiEnvelope<ProductListP
 export interface ProductCreateProductPostInput extends JsonObject {
   "name": string;
   "description"?: string | null;
+  "image_url"?: string | null;
   "sku"?: JsonValue | null;
   "status"?: number | null;
   "sort_order"?: number | null;
@@ -1992,6 +2246,7 @@ export interface ProductCreateProductPostResponseData extends JsonObject {
   "id": string;
   "name": string;
   "description"?: string | null;
+  "image_url"?: string | null;
   "sku": JsonValue;
   "status": number;
   "sort_order": number;
@@ -2016,6 +2271,7 @@ export interface ProductShowProductGetResponseData extends JsonObject {
   "id": string;
   "name": string;
   "description"?: string | null;
+  "image_url"?: string | null;
   "sku": JsonValue;
   "status": number;
   "sort_order": number;
@@ -2032,6 +2288,7 @@ export interface ProductShowProductGetResponse extends ApiEnvelope<ProductShowPr
 export interface ProductUpdateProductPatchInput extends JsonObject {
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
   "sku"?: JsonValue | null;
   "status"?: number | null;
   "sort_order"?: number | null;
@@ -2044,6 +2301,7 @@ export interface ProductUpdateProductPatchResponseData extends JsonObject {
   "id": string;
   "name": string;
   "description"?: string | null;
+  "image_url"?: string | null;
   "sku": JsonValue;
   "status": number;
   "sort_order": number;
@@ -2060,6 +2318,7 @@ export interface ProductUpdateProductPatchResponse extends ApiEnvelope<ProductUp
 export interface ProductUpdateProductPutInput extends JsonObject {
   "name"?: string | null;
   "description"?: string | null;
+  "image_url"?: string | null;
   "sku"?: JsonValue | null;
   "status"?: number | null;
   "sort_order"?: number | null;
@@ -2072,6 +2331,7 @@ export interface ProductUpdateProductPutResponseData extends JsonObject {
   "id": string;
   "name": string;
   "description"?: string | null;
+  "image_url"?: string | null;
   "sku": JsonValue;
   "status": number;
   "sort_order": number;

@@ -13,6 +13,8 @@ export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 export interface ActionActionsIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
   "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
   "search"?: string | null;
 }
 /** Backend response type: PagedResult<ActionResponse>. */
@@ -115,12 +117,22 @@ export interface ActionActionsUpdatePatchResponse extends ApiEnvelope<ActionActi
 export interface ActionActionsCompletePostInput extends JsonObject {
   "action_name": string;
   "profile_id": string;
+  "event_id"?: string | null;
+  "subject_type"?: string | null;
+  "subject_id"?: string | null;
+  "value"?: number | null;
+  "metadata"?: BackendJson<"Json"> | null;
+  "occurred_at"?: string | null;
 }
 /** Backend response type: crate::reward::engine::CompleteActionResult. */
 export interface ActionActionsCompletePostResponseData extends JsonObject {
   "action_log_id": string;
   "action_count": number;
+  "consecutive_days": number;
+  "duplicate": boolean;
+  "daily_cap_applied": boolean;
   "grants": BackendJson<"RewardGrant">[];
+  "badge_upgrades": BackendJson<"BadgeUpgrade">[];
 }
 export interface ActionActionsCompletePostResponse extends ApiEnvelope<ActionActionsCompletePostResponseData> {
 }
@@ -209,12 +221,40 @@ export interface SandboxBillingAdminPricesUpdatePutResponse extends ApiEnvelope<
 
 /** Backend query type: AdminSubscriptionListQuery. */
 export interface WalletBillingAdminSubscriptionsIndexGetQuery extends QueryParams {
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
   "project"?: string | null;
   "profile_id"?: string | null;
+  "search"?: string | null;
 }
-/** Backend response type: SubscriptionListResponse. */
+/** Backend response type: PagedResult<SubscriptionDTO>. */
+export interface WalletBillingAdminSubscriptionsIndexGetResponseItem extends JsonObject {
+  "id": string;
+  "profile_id": string;
+  "project": string;
+  "service_name": string;
+  "period": string;
+  "unit_price": number;
+  "currency": string;
+  "status": string;
+  "purchase_id"?: string | null;
+  "current_period_start"?: string | null;
+  "current_period_end"?: string | null;
+  "next_charge_at"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export interface WalletBillingAdminSubscriptionsIndexGetResponsePageMeta extends JsonObject {
+  "page": number;
+  "page_size": number;
+  "total_items": number;
+  "total_pages": number;
+}
 export interface WalletBillingAdminSubscriptionsIndexGetResponseData extends JsonObject {
-  "subscriptions": BackendJson<"SubscriptionDTO">[];
+  "data": WalletBillingAdminSubscriptionsIndexGetResponseItem[];
+  "meta": WalletBillingAdminSubscriptionsIndexGetResponsePageMeta;
 }
 export interface WalletBillingAdminSubscriptionsIndexGetResponse extends ApiEnvelope<WalletBillingAdminSubscriptionsIndexGetResponseData> {
 }
@@ -268,6 +308,8 @@ export interface WalletBillingAdminUserPlanDisablePutResponse extends ApiEnvelop
 export interface CatalogAssetsIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
   "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
   "asset_type"?: string | null;
   "search"?: string | null;
 }
@@ -377,6 +419,8 @@ export interface BankBankSummaryShowGetResponse extends ApiEnvelope<BankBankSumm
 export interface BankBankTransactionsIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
   "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
   "profile_id"?: string | null;
   "bank_transaction_type"?: QueryValue | null;
   "search"?: string | null;
@@ -527,11 +571,38 @@ export interface IntegrationRabbitmqIntegrationShowGetResponseData extends JsonO
 export interface IntegrationRabbitmqIntegrationShowGetResponse extends ApiEnvelope<IntegrationRabbitmqIntegrationShowGetResponseData> {
 }
 
-/** Backend response type: PlanListResponse. */
+/** Backend query type: PlanListQuery. */
+export interface LlmUsagePlansIndexGetQuery extends QueryParams {
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
+  "search"?: string | null;
+}
+/** Backend response type: PagedResult<PlanResponse>. */
+export interface LlmUsagePlansIndexGetResponseItem extends JsonObject {
+  "profile_id": string;
+  "tier": string;
+  "expires_at"?: string | null;
+  "plan_points": number;
+  "created_at": string;
+  "updated_at": string;
+}
+export interface LlmUsagePlansIndexGetResponsePageMeta extends JsonObject {
+  "page": number;
+  "page_size": number;
+  "total_items": number;
+  "total_pages": number;
+}
 export interface LlmUsagePlansIndexGetResponseData extends JsonObject {
-  "plans": BackendJson<"PlanResponse">[];
+  "data": LlmUsagePlansIndexGetResponseItem[];
+  "meta": LlmUsagePlansIndexGetResponsePageMeta;
 }
 export interface LlmUsagePlansIndexGetResponse extends ApiEnvelope<LlmUsagePlansIndexGetResponseData> {
+}
+
+/** Backend response type: (). */
+export interface LlmUsagePlanDeleteDeleteResponse extends ApiEnvelope<JsonObject> {
 }
 
 /** Backend response type: PlanResponse. */
@@ -562,6 +633,44 @@ export interface LlmUsagePlanSetPutResponseData extends JsonObject {
 export interface LlmUsagePlanSetPutResponse extends ApiEnvelope<LlmUsagePlanSetPutResponseData> {
 }
 
+/** Backend query type: AssetHistoryQuery. */
+export interface WalletMeAssetHistoryGetQuery extends QueryParams {
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
+  "asset": QueryValue;
+  "earned_only"?: boolean | null;
+}
+/** Backend response type: crate::models::PagedResult<crate::logs::models::UserAssetLogResponse>. */
+export interface WalletMeAssetHistoryGetResponseItem extends JsonObject {
+  "id": string;
+  "profile_id": string;
+  "action_id": string;
+  "asset_id": string;
+  "action_name"?: string | null;
+  "action_title"?: string | null;
+  "action_description"?: string | null;
+  "asset_name"?: string | null;
+  "subject_type": string;
+  "subject_id"?: string | null;
+  "quantity": number;
+  "transaction_type": string;
+  "created_at": string;
+}
+export interface WalletMeAssetHistoryGetResponsePageMeta extends JsonObject {
+  "page": number;
+  "page_size": number;
+  "total_items": number;
+  "total_pages": number;
+}
+export interface WalletMeAssetHistoryGetResponseData extends JsonObject {
+  "data": WalletMeAssetHistoryGetResponseItem[];
+  "meta": WalletMeAssetHistoryGetResponsePageMeta;
+}
+export interface WalletMeAssetHistoryGetResponse extends ApiEnvelope<WalletMeAssetHistoryGetResponseData> {
+}
+
 /** Backend response type: crate::wallet::models::UserWalletResponse. */
 export interface WalletMeAssetsShowGetResponseData extends JsonObject {
   "profile_id": string;
@@ -590,6 +699,21 @@ export interface WalletMeBadgesShowGetResponseData extends JsonObject {
   "badges": BackendJson<"WalletBadgeBalance">[];
 }
 export interface WalletMeBadgesShowGetResponse extends ApiEnvelope<WalletMeBadgesShowGetResponseData> {
+}
+
+/** Backend query type: SubjectBadgeQuery. */
+export interface WalletMeBadgeTodosShowGetQuery extends QueryParams {
+  "subject_type"?: string | null;
+  "subject_id"?: string | null;
+}
+/** Backend response type: crate::badge::models::BadgeTodoResponse. */
+export interface WalletMeBadgeTodosShowGetResponseData extends JsonObject {
+  "profile_id": string;
+  "subject_type": string;
+  "subject_id"?: string | null;
+  "badges": BackendJson<"BadgeTodo">[];
+}
+export interface WalletMeBadgeTodosShowGetResponse extends ApiEnvelope<WalletMeBadgeTodosShowGetResponseData> {
 }
 
 /** Backend query type: UsageQuery. */
@@ -747,6 +871,8 @@ export interface WalletBillingPointsPacksPurchasePostResponse extends ApiEnvelop
 export interface RankRanksIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
   "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
   "search"?: string | null;
 }
 /** Backend response type: PagedResult<RankResponse>. */
@@ -1013,12 +1139,15 @@ export interface WalletBillingSubscriptionsPurchasePostResponse extends ApiEnvel
 export interface LogsUserActionLogsIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
   "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
   "profile_id"?: string | null;
   "action_id"?: string | null;
   "asset_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
   "search"?: string | null;
+  "earned_only"?: boolean | null;
 }
 /** Backend response type: crate::models::PagedResult<crate::logs::models::UserActionLogResponse>. */
 export interface LogsUserActionLogsIndexGetResponseItem extends JsonObject {
@@ -1026,6 +1155,12 @@ export interface LogsUserActionLogsIndexGetResponseItem extends JsonObject {
   "profile_id": string;
   "action_id": string;
   "action_name"?: string | null;
+  "event_id"?: string | null;
+  "subject_type": string;
+  "subject_id"?: string | null;
+  "value"?: number | null;
+  "metadata": JsonValue;
+  "occurred_at": string;
   "status": number;
   "created_at": string;
 }
@@ -1046,12 +1181,15 @@ export interface LogsUserActionLogsIndexGetResponse extends ApiEnvelope<LogsUser
 export interface LogsUserAssetLogsIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
   "page[size]"?: number | null;
+  "page_number"?: string | null;
+  "page_size"?: string | null;
   "profile_id"?: string | null;
   "action_id"?: string | null;
   "asset_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
   "search"?: string | null;
+  "earned_only"?: boolean | null;
 }
 /** Backend response type: crate::models::PagedResult<crate::logs::models::UserAssetLogResponse>. */
 export interface LogsUserAssetLogsIndexGetResponseItem extends JsonObject {
@@ -1060,7 +1198,11 @@ export interface LogsUserAssetLogsIndexGetResponseItem extends JsonObject {
   "action_id": string;
   "asset_id": string;
   "action_name"?: string | null;
+  "action_title"?: string | null;
+  "action_description"?: string | null;
   "asset_name"?: string | null;
+  "subject_type": string;
+  "subject_id"?: string | null;
   "quantity": number;
   "transaction_type": string;
   "created_at": string;

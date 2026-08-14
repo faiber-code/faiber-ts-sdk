@@ -751,6 +751,28 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.CourseUpdateCategoryPatchResponse, T.CourseUpdateCategoryPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/categories/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Performs the reorder categories operation for the course capability.
+   * Calls `PATCH /api/v1/courses/categories/reorder` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
+   */
+  courseReorderCategoriesPatch(data: T.CourseReorderCategoriesPatchInput, options?: RequestOptions<T.CourseReorderCategoriesPatchInput>) {
+    return this.client.request<T.CourseReorderCategoriesPatchResponse, T.CourseReorderCategoriesPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/categories/reorder`, data: data });
+  }
+  /**
+   * Performs the reorder courses operation for the course capability.
+   * Calls `PATCH /api/v1/courses/reorder` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update.
+   */
+  courseReorderCoursesPatch(data: T.CourseReorderCoursesPatchInput, options?: RequestOptions<T.CourseReorderCoursesPatchInput>) {
+    return this.client.request<T.CourseReorderCoursesPatchResponse, T.CourseReorderCoursesPatchInput>({ ...options, method: "PATCH", url: `/api/v1/courses/reorder`, data: data });
+  }
+  /**
    * Performs the index video section operation for the course capability.
    * Calls `GET /api/v1/courses/video-sections` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.

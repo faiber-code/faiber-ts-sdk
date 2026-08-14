@@ -2,8 +2,11 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, relative, resolve } from "node:path";
 
 const sdkRoot = resolve(import.meta.dirname, "..");
-const servicesRoot = resolve(process.env.FAIBER_SERVICES_ROOT ?? join(sdkRoot, "..", "Service"));
-const services = ["asset", "chat", "crm", "flow", "idp", "knowledge", "lms", "messenger", "modules", "payment", "profile", "reservation", "session", "social"];
+const servicesRoot = resolve(process.env.FAIBER_SERVICES_ROOT ?? join(sdkRoot, "..", "services"));
+const services = [
+  "asset", "chat", "crm", "drm", "flow", "idp", "knowledge", "lms", "messenger",
+  "modules", "payment", "profile", "reservation", "session", "social", "state", "task", "version",
+];
 
 async function walk(root) {
   const result = [];
@@ -127,7 +130,12 @@ function cleanPath(path) {
 }
 
 function joinPath(prefix, path) {
+  if (path === "/api/v1" || path.startsWith("/api/v1/")) return cleanPath(path);
   return cleanPath(`${prefix.replace(/\/$/, "")}/${path.replace(/^\//, "")}`);
+}
+
+function relativeSource(file) {
+  return relative(servicesRoot, file).replaceAll(String.fromCharCode(92), "/");
 }
 
 function handlerSignature(source, handler) {
@@ -231,22 +239,24 @@ for (const service of services) {
   for (const file of files) {
     const source = fileSources.get(file);
     const module = dirname(file) === srcRoot ? basename(file, ".rs") : basename(dirname(file));
-    const canonical = annotations(source);
-    const permissions = permissionAnnotations(source);
-    for (const route of routeCalls(source)) {
+      const canonical = annotations(source);
+      const permissions = permissionAnnotations(source);
+      for (const route of routeCalls(source)) {
       if (route.method === "ANY") continue;
       const annotated = canonical.get(route.handler);
-      const prefix = service === "knowledge" && module === "routes" && ["/chat/{chat_slug}/query", "/tool-schema"].includes(route.localPath)
+      const prefix = service === "task" && ["/health/live", "/health/ready", "/health/dependencies", "/metrics", "/api/openapi.json"].includes(route.localPath)
+        ? "/"
+        : service === "knowledge" && module === "routes" && ["/chat/{chat_slug}/query", "/tool-schema"].includes(route.localPath)
         ? "/api/v1/runtime"
         : module === "router"
         ? (["/integration/flow", "/transactions/{uuid}"].includes(route.localPath) ? "/api/v1" : "/")
         : modulePrefixes.get(`${module}:${route.factory}`) ?? modulePrefixes.get(module);
       if (module !== "router" && !mountedModules.has(module)) {
-        unresolved.push(`${relative(srcRoot, file)}:${route.method}:${route.localPath}:${route.handler}:not-mounted`);
+        unresolved.push(`${relativeSource(file)}:${route.method}:${route.localPath}:${route.handler}:not-mounted`);
         continue;
       }
       if (!annotated && !prefix) {
-        unresolved.push(`${relative(srcRoot, file)}:${route.method}:${route.localPath}:${route.handler}`);
+        unresolved.push(`${relativeSource(file)}:${route.method}:${route.localPath}:${route.handler}`);
         continue;
       }
       const path = annotated
@@ -271,7 +281,7 @@ for (const service of services) {
         module,
         handler: route.handler,
         permissions: permissions.get(route.handler) ?? [],
-        source: relative(servicesRoot, file),
+        source: relativeSource(file),
         ...signature,
       });
     }

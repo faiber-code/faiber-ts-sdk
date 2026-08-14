@@ -2,9 +2,15 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const servicesRoot = resolve(process.env.FAIBER_SERVICES_ROOT ?? join(root, "..", "Service"));
+const servicesRoot = resolve(process.env.FAIBER_SERVICES_ROOT ?? join(root, "..", "services"));
 const manifestPath = resolve(process.argv[2] ?? join(root, "service-contracts.json"));
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+const selectedServices = new Set(
+  (process.argv[3] ?? process.env.FAIBER_CONTRACT_SERVICES ?? "")
+    .split(",")
+    .map(value => value.trim())
+    .filter(Boolean),
+);
 
 const pascal = value => value
   .replace(/[^a-zA-Z0-9]+(.)/g, (_, char) => char.toUpperCase())
@@ -22,6 +28,22 @@ const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${e
 // Hand-audited response contracts for handlers that intentionally build serde_json::Value or
 // return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
 const responseOverrides = {
+  crm: {
+    activities: "CrmActivityListResponse",
+    automation_jobs: "CrmAutomationJobListResponse",
+    board: "CrmBoardResponse",
+    companies: "CrmCompanyListResponse",
+    contacts: "CrmContactListResponse",
+    deals: "CrmDealListResponse",
+    leads: "CrmLeadListResponse",
+    overview: "CrmOverviewResponse",
+    pipelines: "CrmPipelinesResponse",
+    refresh_reports: "CrmReportRefreshResponse",
+    report_catalog: "CrmReportCatalogResponse",
+    request_agentic_insight: "CrmAgenticInsightResponse",
+    tasks: "CrmTaskListResponse",
+    team: "CrmTeamDetailResponse",
+  },
   lms: {
     submit_exam: "AcademyExamResultResponse", categories: "AcademyCategoriesResponse",
     courses: "AcademyCoursesResponse", course: "AcademyCourseResponse",
@@ -247,6 +269,7 @@ function responseDataType(lines, files, module, raw, base) {
 }
 
 for (const [service, endpoints] of Object.entries(manifest)) {
+  if (selectedServices.size && !selectedServices.has(service)) continue;
   const files = await rustFiles(join(servicesRoot, `infera-${service}`));
   const nameCounts = endpoints.reduce((counts, endpoint) => counts.set(operationBaseName(endpoint), (counts.get(operationBaseName(endpoint)) ?? 0) + 1), new Map());
   const operationName = endpoint => {
@@ -306,6 +329,8 @@ for (const [service, endpoints] of Object.entries(manifest)) {
         : null;
       if (endpoint.responseEnvelope === "raw") {
         typeLines.push(`export type ${base}Response = ${dataType};`);
+      } else if (service === "crm") {
+        typeLines.push(`export type ${base}Response = import("./types.js").CrmApiResponse<${dataType}>;`);
       } else {
         typeLines.push(`export interface ${base}Response extends ApiEnvelope<${dataType}> {`);
         if (metaType) typeLines.push(`  meta: ${metaType};`);

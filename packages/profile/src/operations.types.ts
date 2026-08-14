@@ -150,11 +150,12 @@ export interface CountryIndexGetQuery extends QueryParams {
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
   "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface CountryIndexGetResponseData extends JsonObject {
-  "countries": BackendJson<"Response">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface CountryIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -168,13 +169,14 @@ export interface CountryIndexGetResponse extends ApiEnvelope<CountryIndexGetResp
 
 /** Backend request type: models::Create. */
 export interface CountryStorePostInput extends JsonObject {
+  "province_id": string;
   "name": string;
   "latitude"?: number | null;
   "longitude"?: number | null;
 }
 /** Backend response type: models::SingleData. */
 export interface CountryStorePostResponseData extends JsonObject {
-  "country": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface CountryStorePostResponse extends ApiEnvelope<CountryStorePostResponseData> {
 }
@@ -185,35 +187,37 @@ export interface CountryDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
 
 /** Backend response type: models::SingleData. */
 export interface CountryShowGetResponseData extends JsonObject {
-  "country": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface CountryShowGetResponse extends ApiEnvelope<CountryShowGetResponseData> {
 }
 
 /** Backend request type: models::Update. */
 export interface CountryUpdatePatchInput extends JsonObject {
+  "province_id"?: string | null;
   "name"?: string | null;
-  "status"?: string | null;
   "latitude"?: number | null;
   "longitude"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::SingleData. */
 export interface CountryUpdatePatchResponseData extends JsonObject {
-  "country": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface CountryUpdatePatchResponse extends ApiEnvelope<CountryUpdatePatchResponseData> {
 }
 
 /** Backend request type: models::Update. */
 export interface CountryUpdatePutInput extends JsonObject {
+  "province_id"?: string | null;
   "name"?: string | null;
-  "status"?: string | null;
   "latitude"?: number | null;
   "longitude"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::SingleData. */
 export interface CountryUpdatePutResponseData extends JsonObject {
-  "country": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface CountryUpdatePutResponse extends ApiEnvelope<CountryUpdatePutResponseData> {
 }
@@ -296,12 +300,13 @@ export interface ProfileIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -313,6 +318,14 @@ export interface ProfileIndexGetResponse extends ApiEnvelope<ProfileIndexGetResp
   meta: ProfileIndexGetMetaData;
 }
 
+/** Backend query type: MediaQuery. */
+export interface ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarQuery extends QueryParams {
+  "key": string;
+}
+/** Backend response type: raw-response. */
+export interface ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: models::ListQuery. */
 export interface ProfilePropertyIndexGetQuery extends QueryParams {
   "page"?: string | null;
@@ -320,13 +333,13 @@ export interface ProfilePropertyIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[key]"?: string | null;
-  "filter[title]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfilePropertyIndexGetResponseData extends JsonObject {
-  "profile_property_definitions": BackendJson<"Response">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfilePropertyIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -340,21 +353,14 @@ export interface ProfilePropertyIndexGetResponse extends ApiEnvelope<ProfileProp
 
 /** Backend request type: models::Create. */
 export interface ProfilePropertyStorePostInput extends JsonObject {
-  "key": string;
-  "title": string;
-  "validator_type": string;
-  "validator_config"?: JsonValue | null;
-  "visible_in_list"?: boolean | null;
-  "visible_in_get"?: boolean | null;
-  "visible_in_full"?: boolean | null;
-  "visible_in_chat"?: boolean | null;
-  "filterable"?: boolean | null;
-  "index_value_kind"?: string | null;
-  "sort_order"?: number | null;
+  "province_id": string;
+  "name": string;
+  "latitude"?: number | null;
+  "longitude"?: number | null;
 }
 /** Backend response type: models::SingleData. */
 export interface ProfilePropertyStorePostResponseData extends JsonObject {
-  "profile_property_definition": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfilePropertyStorePostResponse extends ApiEnvelope<ProfilePropertyStorePostResponseData> {
 }
@@ -365,51 +371,37 @@ export interface ProfilePropertyDestroyDeleteResponse extends ApiEnvelope<JsonVa
 
 /** Backend response type: models::SingleData. */
 export interface ProfilePropertyShowGetResponseData extends JsonObject {
-  "profile_property_definition": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfilePropertyShowGetResponse extends ApiEnvelope<ProfilePropertyShowGetResponseData> {
 }
 
 /** Backend request type: models::Update. */
 export interface ProfilePropertyUpdatePatchInput extends JsonObject {
-  "key"?: string | null;
-  "title"?: string | null;
-  "validator_type"?: string | null;
-  "validator_config"?: JsonValue | null;
-  "visible_in_list"?: boolean | null;
-  "visible_in_get"?: boolean | null;
-  "visible_in_full"?: boolean | null;
-  "visible_in_chat"?: boolean | null;
-  "filterable"?: boolean | null;
-  "index_value_kind"?: string | null;
-  "sort_order"?: number | null;
+  "province_id"?: string | null;
+  "name"?: string | null;
+  "latitude"?: number | null;
+  "longitude"?: number | null;
   "status"?: string | null;
 }
 /** Backend response type: models::SingleData. */
 export interface ProfilePropertyUpdatePatchResponseData extends JsonObject {
-  "profile_property_definition": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfilePropertyUpdatePatchResponse extends ApiEnvelope<ProfilePropertyUpdatePatchResponseData> {
 }
 
 /** Backend request type: models::Update. */
 export interface ProfilePropertyUpdatePutInput extends JsonObject {
-  "key"?: string | null;
-  "title"?: string | null;
-  "validator_type"?: string | null;
-  "validator_config"?: JsonValue | null;
-  "visible_in_list"?: boolean | null;
-  "visible_in_get"?: boolean | null;
-  "visible_in_full"?: boolean | null;
-  "visible_in_chat"?: boolean | null;
-  "filterable"?: boolean | null;
-  "index_value_kind"?: string | null;
-  "sort_order"?: number | null;
+  "province_id"?: string | null;
+  "name"?: string | null;
+  "latitude"?: number | null;
+  "longitude"?: number | null;
   "status"?: string | null;
 }
 /** Backend response type: models::SingleData. */
 export interface ProfilePropertyUpdatePutResponseData extends JsonObject {
-  "profile_property_definition": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfilePropertyUpdatePutResponse extends ApiEnvelope<ProfilePropertyUpdatePutResponseData> {
 }
@@ -432,7 +424,7 @@ export interface ProfileDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
 
 /** Backend response type: models::SingleData. */
 export interface ProfileShowGetResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileShowGetResponse extends ApiEnvelope<ProfileShowGetResponseData> {
 }
@@ -468,14 +460,14 @@ export interface ProfileUpdatePatchInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdatePatchResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdatePatchResponse extends ApiEnvelope<ProfileUpdatePatchResponseData> {
 }
 
 /** Backend response type: models::SingleData. */
 export interface ProfileShowAdminGetResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileShowAdminGetResponse extends ApiEnvelope<ProfileShowAdminGetResponseData> {
 }
@@ -485,11 +477,11 @@ export interface ProfileAvatarDeleteDeleteResponse extends ApiEnvelope<JsonValue
 }
 
 /** Backend query type: MediaQuery. */
-export interface ProfileAvatarShowGetQuery extends QueryParams {
+export interface ProfileAvatarShowGetApiV1ProfileUuidAvatarQuery extends QueryParams {
   "key": string;
 }
 /** Backend response type: raw-response. */
-export interface ProfileAvatarShowGetResponse extends ApiEnvelope<JsonValue> {
+export interface ProfileAvatarShowGetApiV1ProfileUuidAvatarResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: multipart/form-data. */
@@ -508,7 +500,7 @@ export interface ProfileUpdateEmployeeTypePatchInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdateEmployeeTypePatchResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdateEmployeeTypePatchResponse extends ApiEnvelope<ProfileUpdateEmployeeTypePatchResponseData> {
 }
@@ -519,7 +511,7 @@ export interface ProfileUpdateEmployeeTypePutInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdateEmployeeTypePutResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdateEmployeeTypePutResponse extends ApiEnvelope<ProfileUpdateEmployeeTypePutResponseData> {
 }
@@ -530,7 +522,7 @@ export interface ProfileUpdateFreemiumPatchInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdateFreemiumPatchResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdateFreemiumPatchResponse extends ApiEnvelope<ProfileUpdateFreemiumPatchResponseData> {
 }
@@ -541,14 +533,14 @@ export interface ProfileUpdateFreemiumPutInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdateFreemiumPutResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdateFreemiumPutResponse extends ApiEnvelope<ProfileUpdateFreemiumPutResponseData> {
 }
 
 /** Backend response type: models::SingleData. */
 export interface ProfileShowFullGetResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileShowFullGetResponse extends ApiEnvelope<ProfileShowFullGetResponseData> {
 }
@@ -583,7 +575,7 @@ export interface ProfileUpdateStatusPatchInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdateStatusPatchResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdateStatusPatchResponse extends ApiEnvelope<ProfileUpdateStatusPatchResponseData> {
 }
@@ -594,7 +586,7 @@ export interface ProfileUpdateStatusPutInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdateStatusPutResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdateStatusPutResponse extends ApiEnvelope<ProfileUpdateStatusPutResponseData> {
 }
@@ -606,12 +598,13 @@ export interface ProfileAccountantIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileAccountantIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileAccountantIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -692,7 +685,7 @@ export interface ProfileCityGetPostInput extends JsonObject {
 }
 /** Backend response type: models::ListData. */
 export interface ProfileCityGetPostResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileCityGetPostResponse extends ApiEnvelope<ProfileCityGetPostResponseData> {
 }
@@ -704,12 +697,13 @@ export interface ProfileConsultantIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileConsultantIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileConsultantIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -728,7 +722,7 @@ export interface ProfileCountryGetPostInput extends JsonObject {
 }
 /** Backend response type: models::ListData. */
 export interface ProfileCountryGetPostResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileCountryGetPostResponse extends ApiEnvelope<ProfileCountryGetPostResponseData> {
 }
@@ -743,7 +737,7 @@ export interface ProfileBulkGetPostInput extends JsonObject {
 }
 /** Backend response type: models::ListData. */
 export interface ProfileBulkGetPostResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileBulkGetPostResponse extends ApiEnvelope<ProfileBulkGetPostResponseData> {
 }
@@ -771,12 +765,13 @@ export interface ProfileManagerIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileManagerIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileManagerIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -795,12 +790,13 @@ export interface ProfileOtherIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileOtherIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileOtherIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -819,12 +815,13 @@ export interface ProfileParentIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileParentIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileParentIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -843,7 +840,7 @@ export interface ProfileProvinceGetPostInput extends JsonObject {
 }
 /** Backend response type: models::ListData. */
 export interface ProfileProvinceGetPostResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileProvinceGetPostResponse extends ApiEnvelope<ProfileProvinceGetPostResponseData> {
 }
@@ -878,12 +875,13 @@ export interface ProfileStudentIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileStudentIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileStudentIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -914,12 +912,13 @@ export interface ProfileSupportIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileSupportIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileSupportIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -950,12 +949,13 @@ export interface ProfileTeacherIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[role]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProfileTeacherIndexGetResponseData extends JsonObject {
-  "profiles": BackendJson<"ProfileResponse">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProfileTeacherIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -1007,7 +1007,7 @@ export interface ProfileUpdatePersonalPatchInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdatePersonalPatchResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdatePersonalPatchResponse extends ApiEnvelope<ProfileUpdatePersonalPatchResponseData> {
 }
@@ -1032,7 +1032,7 @@ export interface ProfileUpdatePersonalPutInput extends JsonObject {
 }
 /** Backend response type: models::SingleData. */
 export interface ProfileUpdatePersonalPutResponseData extends JsonObject {
-  "profile": BackendJson<"ProfileResponse">;
+  "city": BackendJson<"Response">;
 }
 export interface ProfileUpdatePersonalPutResponse extends ApiEnvelope<ProfileUpdatePersonalPutResponseData> {
 }
@@ -1045,12 +1045,12 @@ export interface ProvinceIndexGetQuery extends QueryParams {
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
   "filter[name]"?: string | null;
-  "filter[country_id]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface ProvinceIndexGetResponseData extends JsonObject {
-  "provinces": BackendJson<"Response">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface ProvinceIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -1064,14 +1064,14 @@ export interface ProvinceIndexGetResponse extends ApiEnvelope<ProvinceIndexGetRe
 
 /** Backend request type: models::Create. */
 export interface ProvinceStorePostInput extends JsonObject {
-  "country_id": string;
+  "province_id": string;
   "name": string;
   "latitude"?: number | null;
   "longitude"?: number | null;
 }
 /** Backend response type: models::SingleData. */
 export interface ProvinceStorePostResponseData extends JsonObject {
-  "province": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface ProvinceStorePostResponse extends ApiEnvelope<ProvinceStorePostResponseData> {
 }
@@ -1082,37 +1082,37 @@ export interface ProvinceDestroyDeleteResponse extends ApiEnvelope<JsonValue> {
 
 /** Backend response type: models::SingleData. */
 export interface ProvinceShowGetResponseData extends JsonObject {
-  "province": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface ProvinceShowGetResponse extends ApiEnvelope<ProvinceShowGetResponseData> {
 }
 
 /** Backend request type: models::Update. */
 export interface ProvinceUpdatePatchInput extends JsonObject {
-  "country_id"?: string | null;
+  "province_id"?: string | null;
   "name"?: string | null;
-  "status"?: string | null;
   "latitude"?: number | null;
   "longitude"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::SingleData. */
 export interface ProvinceUpdatePatchResponseData extends JsonObject {
-  "province": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface ProvinceUpdatePatchResponse extends ApiEnvelope<ProvinceUpdatePatchResponseData> {
 }
 
 /** Backend request type: models::Update. */
 export interface ProvinceUpdatePutInput extends JsonObject {
-  "country_id"?: string | null;
+  "province_id"?: string | null;
   "name"?: string | null;
-  "status"?: string | null;
   "latitude"?: number | null;
   "longitude"?: number | null;
+  "status"?: string | null;
 }
 /** Backend response type: models::SingleData. */
 export interface ProvinceUpdatePutResponseData extends JsonObject {
-  "province": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface ProvinceUpdatePutResponse extends ApiEnvelope<ProvinceUpdatePutResponseData> {
 }
@@ -1127,20 +1127,21 @@ export interface ProvinceRestoreGetResponse extends ApiEnvelope<JsonValue> {
 
 /** Backend response type: models::ListData. */
 export interface SettingIndexGetResponseData extends JsonObject {
-  "setting": BackendJson<"Response">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface SettingIndexGetResponse extends ApiEnvelope<SettingIndexGetResponseData> {
 }
 
 /** Backend request type: models::Create. */
 export interface SettingStorePostInput extends JsonObject {
-  "key": string;
-  "title": string;
-  "value": number;
+  "province_id": string;
+  "name": string;
+  "latitude"?: number | null;
+  "longitude"?: number | null;
 }
 /** Backend response type: models::SingleData. */
 export interface SettingStorePostResponseData extends JsonObject {
-  "setting": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface SettingStorePostResponse extends ApiEnvelope<SettingStorePostResponseData> {
 }
@@ -1167,13 +1168,13 @@ export interface TrustedServiceIndexGetQuery extends QueryParams {
   "filter[search]"?: string | null;
   "filter[status]"?: string | null;
   "filter[active]"?: string | null;
-  "filter[service_key]"?: string | null;
-  "filter[title]"?: string | null;
+  "filter[name]"?: string | null;
+  "filter[province_id]"?: string | null;
   "filter[trashed]"?: string | null;
 }
 /** Backend response type: models::ListData. */
 export interface TrustedServiceIndexGetResponseData extends JsonObject {
-  "trusted_services": BackendJson<"Response">[];
+  "cities": BackendJson<"Response">[];
 }
 export interface TrustedServiceIndexGetMetaData extends JsonObject {
   "current_page": number;
@@ -1187,12 +1188,14 @@ export interface TrustedServiceIndexGetResponse extends ApiEnvelope<TrustedServi
 
 /** Backend request type: models::Create. */
 export interface TrustedServiceStorePostInput extends JsonObject {
-  "service_key": string;
-  "title": string;
+  "province_id": string;
+  "name": string;
+  "latitude"?: number | null;
+  "longitude"?: number | null;
 }
 /** Backend response type: models::SingleData. */
 export interface TrustedServiceStorePostResponseData extends JsonObject {
-  "trusted_service": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface TrustedServiceStorePostResponse extends ApiEnvelope<TrustedServiceStorePostResponseData> {
 }
@@ -1203,33 +1206,37 @@ export interface TrustedServiceDestroyDeleteResponse extends ApiEnvelope<JsonVal
 
 /** Backend response type: models::SingleData. */
 export interface TrustedServiceShowGetResponseData extends JsonObject {
-  "trusted_service": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface TrustedServiceShowGetResponse extends ApiEnvelope<TrustedServiceShowGetResponseData> {
 }
 
 /** Backend request type: models::Update. */
 export interface TrustedServiceUpdatePatchInput extends JsonObject {
-  "service_key"?: string | null;
-  "title"?: string | null;
+  "province_id"?: string | null;
+  "name"?: string | null;
+  "latitude"?: number | null;
+  "longitude"?: number | null;
   "status"?: string | null;
 }
 /** Backend response type: models::SingleData. */
 export interface TrustedServiceUpdatePatchResponseData extends JsonObject {
-  "trusted_service": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface TrustedServiceUpdatePatchResponse extends ApiEnvelope<TrustedServiceUpdatePatchResponseData> {
 }
 
 /** Backend request type: models::Update. */
 export interface TrustedServiceUpdatePutInput extends JsonObject {
-  "service_key"?: string | null;
-  "title"?: string | null;
+  "province_id"?: string | null;
+  "name"?: string | null;
+  "latitude"?: number | null;
+  "longitude"?: number | null;
   "status"?: string | null;
 }
 /** Backend response type: models::SingleData. */
 export interface TrustedServiceUpdatePutResponseData extends JsonObject {
-  "trusted_service": BackendJson<"Response">;
+  "city": BackendJson<"Response">;
 }
 export interface TrustedServiceUpdatePutResponse extends ApiEnvelope<TrustedServiceUpdatePutResponseData> {
 }

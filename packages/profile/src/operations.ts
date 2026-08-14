@@ -385,6 +385,18 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.ProfileIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile`, params });
   }
   /**
+   * Performs the avatar show operation for the profile capability.
+   * Calls `GET /api/v1/profile-media/{uuid}/avatar` through the shared IDP-aware Faiber client.
+   * @param uuid Backend path identifier `uuid`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileAvatarShowGetApiV1ProfileMediaUuidAvatar(uuid: Identifier, params?: T.ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarResponse>({ ...options, method: "GET", url: `/api/v1/profile-media/${encodeURIComponent(uuid)}/avatar`, params });
+  }
+  /**
    * Performs the index operation for the profile property capability.
    * Calls `GET /api/v1/profile-property-definition` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -551,8 +563,8 @@ export class ProfileOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  profileAvatarShowGet(uuid: Identifier, params?: T.ProfileAvatarShowGetQuery, options?: RequestOptions) {
-    return this.client.request<T.ProfileAvatarShowGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/${encodeURIComponent(uuid)}/avatar`, params });
+  profileAvatarShowGetApiV1ProfileUuidAvatar(uuid: Identifier, params?: T.ProfileAvatarShowGetApiV1ProfileUuidAvatarQuery, options?: RequestOptions) {
+    return this.client.request<T.ProfileAvatarShowGetApiV1ProfileUuidAvatarResponse>({ ...options, method: "GET", url: `/api/v1/profile/${encodeURIComponent(uuid)}/avatar`, params });
   }
   /**
    * Performs the avatar store operation for the profile capability.
