@@ -156,6 +156,21 @@ export interface ApiListMyPostsGetQuery extends QueryParams {
 /** Backend response type: Value. */
 export type ApiListMyPostsGetResponse = import("./types.js").SocialPostListResponse;
 
+/** Backend response type: Value. */
+export type ApiGetFeedLocationGetResponse = import("./types.js").FeedLocationPreferenceResponse;
+
+/** Backend request type: SetFeedLocation. */
+export interface ApiSetFeedLocationPutInput extends JsonObject {
+  "latitude": number;
+  "longitude": number;
+  "range_km": number;
+}
+/** Backend response type: Value. */
+export type ApiSetFeedLocationPutResponse = import("./types.js").FeedLocationPreferenceResponse;
+
+/** Backend response type: no-content. */
+export type ApiClearFeedLocationDeleteResponse = import("./types.js").NoContentResponse;
+
 /** Backend query type: ClaimListQuery. */
 export interface ApiMyPostClaimsGetQuery extends QueryParams {
   "page"?: number;
@@ -359,4 +374,3 @@ export interface MainHealthGetResponseData extends JsonObject {
 }
 export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
 }
-

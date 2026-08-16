@@ -269,6 +269,18 @@ export class SocialOperations extends ServiceApi {
   apiListMyPostsGet(params?: T.ApiListMyPostsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ApiListMyPostsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/posts`, params });
   }
+  /** Gets the authenticated user's feed location preference. */
+  apiGetFeedLocationGet(options?: RequestOptions) {
+    return this.client.request<T.ApiGetFeedLocationGetResponse>({ ...options, method: "GET", url: `/api/v1/me/feed-location` });
+  }
+  /** Sets the authenticated user's feed location and search range. */
+  apiSetFeedLocationPut(data: T.ApiSetFeedLocationPutInput, options?: RequestOptions<T.ApiSetFeedLocationPutInput>) {
+    return this.client.request<T.ApiSetFeedLocationPutResponse, T.ApiSetFeedLocationPutInput>({ ...options, method: "PUT", url: `/api/v1/me/feed-location`, data });
+  }
+  /** Clears the authenticated user's feed location preference. */
+  apiClearFeedLocationDelete(options?: RequestOptions) {
+    return this.client.request<T.ApiClearFeedLocationDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/me/feed-location` });
+  }
   /**
    * Performs the my post claims operation for the api capability.
    * Calls `GET /api/v1/me/posts/{id}/claims` through the shared IDP-aware Faiber client.
@@ -641,4 +653,3 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });
   }
 }
-
