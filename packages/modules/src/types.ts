@@ -414,6 +414,70 @@ export interface ContentDocumentQuery extends QueryParams {
     status?: ContentDocumentStatus;
 }
 
+/** Pagination and optional category filter for published public content. */
+export interface PublicContentQuery extends QueryParams {
+    page_number?: number;
+    page_size?: number;
+    category?: string;
+}
+
+/** Paginated published-content response returned by Modules public APIs. */
+export interface PublicContentListResponse {
+    items: ContentDocument[];
+    page_number: number;
+    page_size: number;
+    total_items: number;
+}
+
+/** Public category node. Use parent_id to reconstruct an arbitrary-depth tree. */
+export interface PublicContentCategory {
+    id: string;
+    parent_id?: string;
+    legacy_host?: string;
+    legacy_id?: string;
+    slug?: string;
+    locale: string;
+    name?: string;
+    description?: string;
+    image_url?: string;
+    scope: "post" | "product";
+    status: number;
+    seo: JsonValue;
+    created_at: string;
+    updated_at: string;
+}
+
+/** Deterministic category import used by trusted migration operators. Requires content:write. */
+export interface ImportContentCategoryInput {
+    parent_id?: string;
+    legacy_host: string;
+    legacy_id: string;
+    slug: string;
+    locale?: string;
+    name: string;
+    description?: string;
+    image_url?: string;
+    scope?: "post" | "product";
+    status?: number;
+    seo?: JsonValue;
+}
+
+/** Deterministic revisioned document import. Publishing also requires content:publish. */
+export interface ImportContentDocumentInput {
+    kind: ContentDocumentKind;
+    slug: string;
+    locale?: string;
+    title: string;
+    legacy_host: string;
+    legacy_id: string;
+    source_checksum: string;
+    editor_json?: JsonValue;
+    status?: ContentDocumentStatus;
+    publish_at?: string;
+    published_at?: string;
+    category_ids?: string[];
+}
+
 export interface ContentRevision {
     id: string;
     document_id: string;

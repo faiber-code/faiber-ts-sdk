@@ -29,9 +29,25 @@ const products = await api.products.list({
 const posts = await api.posts.list();
 ```
 
+Published CMS content and arbitrary-depth category trees are available through the
+public-role methods:
+
+```ts
+const categories = await api.publicContentCategories("post", "fa");
+const articles = await api.publicContentList("post", "fa", {
+  page_number: 1,
+  page_size: 12,
+  category: categories.data[0]?.slug,
+});
+```
+
+Trusted migration operators can use `importContentCategory` and
+`importContentDocument` for deterministic, replay-safe imports. Those calls require
+`content:write`; importing a published document also requires `content:publish`.
+
 ## Complete capability
 
-This package exposes 138 registered operations from the content and commerce modules service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 138 generated registered operations plus curated public-content and migration methods from the content and commerce modules service. Common workflows have concise methods on `api`; every generated backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|

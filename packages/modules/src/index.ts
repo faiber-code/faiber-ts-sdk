@@ -1,6 +1,6 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
 import type { AttachCategoryInput, AttachTagInput, AuditLogListResponse, Author, BlogPost, CartResponse, Category, CategoryAttachmentListResponse, CategoryAttachmentResponse, Comment, Content, ContentAttachmentListResponse, CreateAuthorInput, CreateBlogPostInput, CreateCategoryInput, CreateCommentInput, CreateContentInput, CreateInventoryInput, CreateModuleRequestInput, CreateOrderInput, CreatePricingInput, CreateProductInput, CreateProductVariantInput, CreateSampleInput, CreateSeoContentInput, CreateTagInput, CreateWarehouseInput, Inventory, ModuleRequest, Order, Pricing, Product, ProductListResponse, ProductResponse, ProductVariant, ProductVariantListResponse, ProductVariantQuery, ProductVariantResponse, ReplaceCartInput, Sample, SeoAttachmentListResponse, SeoContent, StockMovementListResponse, Tag, TagAttachmentListResponse, TagAttachmentResponse, UpdateAuthorInput, UpdateBlogPostInput, UpdateCategoryInput, UpdateCommentInput, UpdateContentInput, UpdateInventoryInput, UpdateModuleRequestInput, UpdateOrderInput, UpdatePricingInput, UpdateProductInput, UpdateProductVariantInput, UpdateSampleInput, UpdateSeoContentInput, UpdateTagInput, UpdateWarehouseInput, Warehouse, } from "./types.js";
-import type { AgentProposal, ContentDocument, ContentDocumentQuery, ContentRevision, ModulesAuthSelf, ModulesRouteContract, ModulesSettings, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
+import type { AgentProposal, ContentDocument, ContentDocumentQuery, ContentRevision, ImportContentCategoryInput, ImportContentDocumentInput, ModulesAuthSelf, ModulesRouteContract, ModulesSettings, PublicContentCategory, PublicContentListResponse, PublicContentQuery, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
 function targetPath(base: string, host: string, id: Identifier): string {
     return `${base}/${encodeURIComponent(host)}/${encodeURIComponent(id)}`;
 }
@@ -75,6 +75,22 @@ export class ModulesApi extends ServiceApi {
     }
     publicContent(kind: string, locale: string, slug: string, options?: RequestOptions) {
         return this.client.get<ContentDocument>(`/api/v1/public/content/${encodeURIComponent(kind)}/${encodeURIComponent(locale)}/${encodeURIComponent(slug)}`, undefined, options);
+    }
+    /** Lists published content. Public-role content:read access is sufficient. */
+    publicContentList(kind: string, locale: string, params?: PublicContentQuery, options?: RequestOptions) {
+        return this.client.get<PublicContentListResponse>(`/api/v1/public/content/${encodeURIComponent(kind)}/${encodeURIComponent(locale)}`, params, options);
+    }
+    /** Lists active public category nodes for a locale and scope. */
+    publicContentCategories(scope: "post" | "product", locale: string, options?: RequestOptions) {
+        return this.client.get<PublicContentCategory[]>(`/api/v1/public/categories/${encodeURIComponent(scope)}/${encodeURIComponent(locale)}`, undefined, options);
+    }
+    /** Replay-safe category import for trusted operators with content:write. */
+    importContentCategory(id: Identifier, data: ImportContentCategoryInput, options?: RequestOptions<ImportContentCategoryInput>) {
+        return this.client.put<PublicContentCategory, ImportContentCategoryInput>(`/api/v1/manage/import/categories/${encodeURIComponent(id)}`, data, options);
+    }
+    /** Replay-safe document import; published input additionally requires content:publish. */
+    importContentDocument(id: Identifier, data: ImportContentDocumentInput, options?: RequestOptions<ImportContentDocumentInput>) {
+        return this.client.put<ContentDocument, ImportContentDocumentInput>(`/api/v1/manage/import/content/${encodeURIComponent(id)}`, data, options);
     }
     contentDocuments(params?: ContentDocumentQuery, options?: RequestOptions) {
         return this.client.get<ContentDocument[]>("/api/v1/manage/content", params, options);
