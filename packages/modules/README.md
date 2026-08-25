@@ -39,6 +39,12 @@ const articles = await api.publicContentList("post", "fa", {
   page_size: 12,
   category: categories.data[0]?.slug,
 });
+const article = await api.publicContent(
+  "post",
+  "fa",
+  "Iran-Teen-AI-&-Coding-Elites-2025", // retained legacy SEO slug is supported
+);
+renderTrustedCmsHtml(article.data.sanitized_html);
 ```
 
 Trusted migration operators can use `importContentCategory` and

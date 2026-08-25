@@ -278,4 +278,3 @@ export interface PaymentWebCallbackPostQuery extends QueryParams {
 /** Backend response type: raw-response. */
 export interface PaymentWebCallbackPostResponse extends ApiEnvelope<JsonValue> {
 }
-

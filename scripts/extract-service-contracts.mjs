@@ -1,12 +1,20 @@
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { access, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, relative, resolve } from "node:path";
 
 const sdkRoot = resolve(import.meta.dirname, "..");
-const servicesRoot = resolve(process.env.FAIBER_SERVICES_ROOT ?? join(sdkRoot, "..", "services"));
+const siblingRoots = [join(sdkRoot, "..", "Service"), join(sdkRoot, "..", "services")];
+const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async () => {
+  for (const candidate of siblingRoots) {
+    try { await access(candidate); return candidate; } catch { /* keep looking */ }
+  }
+  return siblingRoots[0];
+})();
+const servicesRoot = resolve(discoveredServicesRoot);
 const services = [
   "asset", "chat", "crm", "drm", "flow", "idp", "knowledge", "lms", "messenger",
   "modules", "payment", "profile", "reservation", "session", "social", "state", "task", "version",
 ];
+const serviceDirectories = { version: "infera_version" };
 
 async function walk(root) {
   const result = [];
@@ -200,7 +208,7 @@ function matchingAngle(source, open) {
 
 const manifest = {};
 for (const service of services) {
-  const srcRoot = join(servicesRoot, `infera-${service}`, "src");
+  const srcRoot = join(servicesRoot, serviceDirectories[service] ?? `infera-${service}`, "src");
   let router;
   let directRouter = false;
   try {

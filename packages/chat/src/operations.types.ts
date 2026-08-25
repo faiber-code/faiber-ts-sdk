@@ -67,6 +67,25 @@ export interface RoutesListAssistantsGetResponse extends ApiEnvelope<JsonValue> 
 export interface RoutesGetAssistantGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: entity::attachment::Model. */
+export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
+  "id": string;
+  "conversation_id": string;
+  "user_message_id": string;
+  "assistant_message_id"?: string | null;
+  "agentic_thread_id": string;
+  "agent_slug": string;
+  "agentic_request_id"?: string | null;
+  "model_ref"?: string | null;
+  "status": string;
+  "usage": BackendJson<"Json">;
+  "error"?: string | null;
+  "created_at": string;
+  "completed_at"?: string | null;
+}
+export interface RoutesCompleteAttachmentPostResponse extends ApiEnvelope<RoutesCompleteAttachmentPostResponseData> {
+}
+
 /** Backend response type: Value. */
 export interface RoutesListGetResponse extends ApiEnvelope<JsonValue> {
 }
@@ -121,6 +140,36 @@ export interface RoutesAiSendPostInput extends JsonObject {
 export interface RoutesAiSendPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Value. */
+export interface RoutesAiRuntimeInputsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: CompleteAiRuntimeInput. */
+export interface RoutesAiCompleteRuntimeInputPostInput extends JsonObject {
+  "value"?: JsonValue;
+  "cancelled"?: boolean;
+}
+/** Backend response type: Value. */
+export interface RoutesAiCompleteRuntimeInputPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: CreateAttachment. */
+export interface RoutesCreateAttachmentPostInput extends JsonObject {
+  "file_name": string;
+  "media_type": string;
+  "byte_size": number;
+  "checksum_sha256"?: string | null;
+  "metadata"?: JsonValue;
+}
+/** Backend response type: AttachmentUpload. */
+export interface RoutesCreateAttachmentPostResponseData extends JsonObject {
+  "attachment": BackendJson<"entity::attachment::Model">;
+  "upload_url": string;
+  "expires_in_seconds": number;
+}
+export interface RoutesCreateAttachmentPostResponse extends ApiEnvelope<RoutesCreateAttachmentPostResponseData> {
+}
+
 /** Backend response type: raw-response. */
 export interface RoutesEventsGetResponse extends ApiEnvelope<JsonValue> {
 }
@@ -160,6 +209,7 @@ export interface RoutesSendPostInput extends JsonObject {
   "reply_to_id"?: string | null;
   "thread_root_id"?: string | null;
   "client_id"?: string | null;
+  "attachment_ids"?: string[];
 }
 /** Backend response type: Value. */
 export interface RoutesSendPostResponse extends ApiEnvelope<JsonValue> {
@@ -172,6 +222,14 @@ export interface RoutesReadPostInput extends JsonObject {
 }
 /** Backend response type: no-content. */
 export type RoutesReadPostResponse = void;
+
+/** Backend request type: RealtimeAuthInput. */
+export interface RoutesRealtimeAuthPostInput extends JsonObject {
+  "socket_id": string;
+  "channel_name": string;
+}
+/** Backend response type: Value. */
+export type RoutesRealtimeAuthPostResponse = JsonValue;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteMessageDeleteResponse = void;
@@ -195,4 +253,3 @@ export interface RoutesReactPostResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: serde_json::Value. */
 export interface MainHealthGetResponse extends ApiEnvelope<JsonValue> {
 }
-

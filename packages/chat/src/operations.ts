@@ -101,6 +101,17 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesGetAssistantGetResponse>({ ...options, method: "GET", url: `/api/v1/assistants/${encodeURIComponent(id)}` });
   }
   /**
+   * Performs the complete attachment operation for the routes capability.
+   * Calls `POST /api/v1/attachments/{id}/complete` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:write.
+   */
+  routesCompleteAttachmentPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesCompleteAttachmentPostResponse>({ ...options, method: "POST", url: `/api/v1/attachments/${encodeURIComponent(id)}/complete` });
+  }
+  /**
    * Performs the list operation for the routes capability.
    * Calls `GET /api/v1/conversations` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -166,6 +177,42 @@ export class ChatOperations extends ServiceApi {
    */
   routesAiSendPost(id: Identifier, data: T.RoutesAiSendPostInput, options?: RequestOptions<T.RoutesAiSendPostInput>) {
     return this.client.request<T.RoutesAiSendPostResponse, T.RoutesAiSendPostInput>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/ai/messages`, data: data });
+  }
+  /**
+   * Performs the ai runtime inputs operation for the routes capability.
+   * Calls `GET /api/v1/conversations/{id}/ai/runtime-inputs` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesAiRuntimeInputsGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesAiRuntimeInputsGetResponse>({ ...options, method: "GET", url: `/api/v1/conversations/${encodeURIComponent(id)}/ai/runtime-inputs` });
+  }
+  /**
+   * Performs the ai complete runtime input operation for the routes capability.
+   * Calls `POST /api/v1/conversations/{id}/ai/runtime-inputs/{input_id}/complete` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param inputId Backend path identifier `input_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesAiCompleteRuntimeInputPost(id: Identifier, inputId: Identifier, data: T.RoutesAiCompleteRuntimeInputPostInput, options?: RequestOptions<T.RoutesAiCompleteRuntimeInputPostInput>) {
+    return this.client.request<T.RoutesAiCompleteRuntimeInputPostResponse, T.RoutesAiCompleteRuntimeInputPostInput>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/ai/runtime-inputs/${encodeURIComponent(inputId)}/complete`, data: data });
+  }
+  /**
+   * Performs the create attachment operation for the routes capability.
+   * Calls `POST /api/v1/conversations/{id}/attachments` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:write.
+   */
+  routesCreateAttachmentPost(id: Identifier, data: T.RoutesCreateAttachmentPostInput, options?: RequestOptions<T.RoutesCreateAttachmentPostInput>) {
+    return this.client.request<T.RoutesCreateAttachmentPostResponse, T.RoutesCreateAttachmentPostInput>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/attachments`, data: data });
   }
   /**
    * Performs the events operation for the routes capability.
@@ -250,6 +297,18 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesReadPostResponse, T.RoutesReadPostInput>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/read`, data: data });
   }
   /**
+   * Performs the realtime auth operation for the routes capability.
+   * Calls `POST /api/v1/conversations/{id}/realtime-auth` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed URL-encoded form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  routesRealtimeAuthPost(id: Identifier, data: T.RoutesRealtimeAuthPostInput, options?: RequestOptions<T.RoutesRealtimeAuthPostInput>) {
+    return this.client.request<T.RoutesRealtimeAuthPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/realtime-auth`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
+  }
+  /**
    * Performs the delete message operation for the routes capability.
    * Calls `DELETE /api/v1/messages/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -295,4 +354,3 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });
   }
 }
-

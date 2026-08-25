@@ -219,6 +219,47 @@ export interface SandboxBillingAdminPricesUpdatePutResponseData extends JsonObje
 export interface SandboxBillingAdminPricesUpdatePutResponse extends ApiEnvelope<SandboxBillingAdminPricesUpdatePutResponseData> {
 }
 
+/** Backend request type: AdminProjectPricingInput. */
+export interface SandboxBillingAdminProjectPricingOverridePutInput extends JsonObject {
+  "monthly_price_override"?: number | null;
+}
+/** Backend response type: AllocationView. */
+export interface SandboxBillingAdminProjectPricingOverridePutResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "title"?: string | null;
+  "description"?: string | null;
+  "season_id"?: string | null;
+  "public": boolean;
+  "criteria"?: BackendJson<"Json"> | null;
+  "achievement_assets"?: BackendJson<"Json"> | null;
+  "status": number;
+  "created_at": string;
+  "updated_at"?: string | null;
+  "deleted_at"?: string | null;
+  "price": BackendJson<"PriceBreakdown">;
+  "unit_prices": BackendJson<"UnitPrices">;
+  "currency": string;
+  "hourly_price": number;
+  "daily_estimate": number;
+  "monthly_estimate": number;
+  "next_charge_at": string;
+}
+export interface SandboxBillingAdminProjectPricingOverridePutResponse extends ApiEnvelope<SandboxBillingAdminProjectPricingOverridePutResponseData> {
+}
+
+/** Backend request type: AdminFinancialOwnerInput. */
+export interface SandboxBillingAdminProjectFinancialOwnerPutInput extends JsonObject {
+  "current_profile_id": string;
+  "financial_owner_user_id": string;
+}
+/** Backend response type: APIEmptyResponse. */
+export interface SandboxBillingAdminProjectFinancialOwnerPutResponseData extends JsonObject {
+  "status": string;
+  "message": string;
+}
+export type SandboxBillingAdminProjectFinancialOwnerPutResponse = SandboxBillingAdminProjectFinancialOwnerPutResponseData;
+
 /** Backend query type: AdminSubscriptionListQuery. */
 export interface WalletBillingAdminSubscriptionsIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
@@ -991,8 +1032,9 @@ export interface SandboxBillingUpdatePutInput extends JsonObject {
   "cpu_millicores": number;
   "ram_mb": number;
   "database_storage_mb": number;
-  "minio_storage_mb": number;
-  "app_storage_mb": number;
+  "minio_storage_mb"?: number;
+  "app_storage_mb"?: number;
+  "volume_storage_mb"?: Record<string, JsonValue>;
 }
 /** Backend response type: AllocationView. */
 export interface SandboxBillingUpdatePutResponseData extends JsonObject {
@@ -1241,4 +1283,3 @@ export interface WalletBillingWalletTopupPostResponseData extends JsonObject {
 }
 export interface WalletBillingWalletTopupPostResponse extends ApiEnvelope<WalletBillingWalletTopupPostResponseData> {
 }
-

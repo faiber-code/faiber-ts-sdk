@@ -1152,6 +1152,78 @@ export type ManagementApiListContentRevisionsGetResponse = ManagementApiListCont
 export interface ManagementApiRestoreContentRevisionPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: CategoryImport. */
+export interface ContentTransferUpsertCategoryPutInput extends JsonObject {
+  "parent_id"?: string | null;
+  "legacy_host": string;
+  "legacy_id": string;
+  "slug": string;
+  "locale"?: string;
+  "name": string;
+  "description"?: string | null;
+  "image_url"?: string | null;
+  "scope"?: string;
+  "status"?: number;
+  "seo"?: JsonValue;
+}
+/** Backend response type: CategoryRecord. */
+export interface ContentTransferUpsertCategoryPutResponseData extends JsonObject {
+  "id": string;
+  "parent_id"?: string | null;
+  "legacy_host"?: string | null;
+  "legacy_id"?: string | null;
+  "slug"?: string | null;
+  "locale": string;
+  "name"?: string | null;
+  "description"?: string | null;
+  "image_url"?: string | null;
+  "scope": string;
+  "status": number;
+  "seo": JsonValue;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ContentTransferUpsertCategoryPutResponse = ContentTransferUpsertCategoryPutResponseData;
+
+/** Backend request type: ContentImport. */
+export interface ContentTransferUpsertContentPutInput extends JsonObject {
+  "kind": string;
+  "slug": string;
+  "locale"?: string;
+  "title": string;
+  "legacy_host": string;
+  "legacy_id": string;
+  "source_checksum": string;
+  "editor_json"?: JsonValue;
+  "status"?: string;
+  "publish_at"?: string | null;
+  "published_at"?: string | null;
+  "category_ids"?: string[];
+}
+/** Backend response type: ContentRecord. */
+export interface ContentTransferUpsertContentPutResponseData extends JsonObject {
+  "id": string;
+  "kind": string;
+  "legacy_host"?: string | null;
+  "legacy_id"?: string | null;
+  "slug": string;
+  "locale": string;
+  "title": string;
+  "status": string;
+  "editor_json": JsonValue;
+  "sanitized_html": string;
+  "plain_text": string;
+  "current_revision": number;
+  "etag": string;
+  "publish_at"?: string | null;
+  "published_at"?: string | null;
+  "created_by": string;
+  "updated_by": string;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ContentTransferUpsertContentPutResponse = ContentTransferUpsertContentPutResponseData;
+
 /** Backend response type: raw-response. */
 export interface ManagementApiGetSettingsGetResponse extends ApiEnvelope<JsonValue> {
 }
@@ -1432,6 +1504,40 @@ export interface ServicePricingUpdatePricingPutResponseData extends JsonObject {
 }
 export interface ServicePricingUpdatePricingPutResponse extends ApiEnvelope<ServicePricingUpdatePricingPutResponseData> {
 }
+
+/** Backend response type: Vec<CategoryRecord>. */
+export interface ContentTransferListPublicCategoriesGetResponseItem extends JsonObject {
+  "id": string;
+  "parent_id"?: string | null;
+  "legacy_host"?: string | null;
+  "legacy_id"?: string | null;
+  "slug"?: string | null;
+  "locale": string;
+  "name"?: string | null;
+  "description"?: string | null;
+  "image_url"?: string | null;
+  "scope": string;
+  "status": number;
+  "seo": JsonValue;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ContentTransferListPublicCategoriesGetResponse = ContentTransferListPublicCategoriesGetResponseItem[];
+
+/** Backend query type: PublicContentQuery. */
+export interface ContentTransferListPublicContentGetQuery extends QueryParams {
+  "page_number"?: number | null;
+  "page_size"?: number | null;
+  "category"?: string | null;
+}
+/** Backend response type: PublicContentList. */
+export interface ContentTransferListPublicContentGetResponseData extends JsonObject {
+  "items": BackendJson<"ContentRecord">[];
+  "page_number": number;
+  "page_size": number;
+  "total_items": number;
+}
+export type ContentTransferListPublicContentGetResponse = ContentTransferListPublicContentGetResponseData;
 
 /** Backend response type: raw-response. */
 export interface ManagementApiPublicContentGetResponse extends ApiEnvelope<JsonValue> {
@@ -2605,4 +2711,3 @@ export interface TagUpdateTagPutResponseData extends JsonObject {
 }
 export interface TagUpdateTagPutResponse extends ApiEnvelope<TagUpdateTagPutResponseData> {
 }
-

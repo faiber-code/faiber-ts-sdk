@@ -49,6 +49,29 @@ export interface RoutesUseGuestLinkPostInput extends JsonObject {
 export interface RoutesUseGuestLinkPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: PerformancePolicyInput. */
+export interface RoutesUpsertPerformancePolicyPutInput extends JsonObject {
+  "month": string;
+  "team_id"?: string | null;
+  "user_id"?: string | null;
+  "minimum_completed_tasks"?: number;
+  "target_points"?: number;
+  "estimate_capacity_hours"?: number | null;
+}
+/** Backend response type: serde_json::Value. */
+export interface RoutesUpsertPerformancePolicyPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: PointHistoryQuery. */
+export interface RoutesPointHistoryGetQuery extends QueryParams {
+  "month"?: string | null;
+  "user_id"?: string | null;
+  "limit"?: number | null;
+}
+/** Backend response type: Vec<serde_json::Value>. */
+export interface RoutesPointHistoryGetResponse extends ApiEnvelope<JsonValue[]> {
+}
+
 /** Backend query type: ProjectListQuery. */
 export interface RoutesListProjectsGetQuery extends QueryParams {
   "cursor"?: string | null;
@@ -113,6 +136,17 @@ export interface RoutesGrantProjectAccessPostInput extends JsonObject {
 export interface RoutesGrantProjectAccessPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Vec<WorkflowStateView>. */
+export interface RoutesWorkflowStatesGetResponseItem extends JsonObject {
+  "key": string;
+  "name": JsonValue;
+  "category": string;
+  "position": number;
+  "wip_limit"?: number | null;
+}
+export interface RoutesWorkflowStatesGetResponse extends ApiEnvelope<RoutesWorkflowStatesGetResponseItem[]> {
+}
+
 /** Backend query type: ReportQuery. */
 export interface RoutesReportSummaryGetQuery extends QueryParams {
   "project_id": string;
@@ -126,6 +160,37 @@ export interface RoutesReportSummaryGetResponseData extends JsonObject {
   "completion_rate": number;
 }
 export interface RoutesReportSummaryGetResponse extends ApiEnvelope<RoutesReportSummaryGetResponseData> {
+}
+
+/** Backend query type: MonitoringQuery. */
+export interface RoutesTeamMonitoringGetQuery extends QueryParams {
+  "month"?: string | null;
+  "team_id"?: string | null;
+}
+/** Backend response type: serde_json::Value. */
+export interface RoutesTeamMonitoringGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: SprintListQuery. */
+export interface RoutesListSprintsGetQuery extends QueryParams {
+  "team_id"?: string | null;
+  "project_id"?: string | null;
+  "status"?: string | null;
+}
+/** Backend response type: Vec<SprintView>. */
+export interface RoutesListSprintsGetResponseItem extends JsonObject {
+  "id": string;
+  "team_id": string;
+  "project_id"?: string | null;
+  "name": string;
+  "goal": string;
+  "status": string;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
+  "capacity"?: number | null;
+  "version": number;
+}
+export interface RoutesListSprintsGetResponse extends ApiEnvelope<RoutesListSprintsGetResponseItem[]> {
 }
 
 /** Backend request type: CreateSprint. */
@@ -150,6 +215,45 @@ export interface RoutesCompleteSprintPostResponse extends ApiEnvelope<JsonValue>
 export interface RoutesStartSprintPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Vec<TeamView>. */
+export interface RoutesListTeamsGetResponseItem extends JsonObject {
+  "id": string;
+  "key": string;
+  "name": string;
+  "description": string;
+  "status": string;
+  "member_ids": string[];
+  "version": number;
+}
+export interface RoutesListTeamsGetResponse extends ApiEnvelope<RoutesListTeamsGetResponseItem[]> {
+}
+
+/** Backend request type: CreateTeam. */
+export interface RoutesCreateTeamPostInput extends JsonObject {
+  "key": string;
+  "name": string;
+  "description"?: string;
+  "member_ids"?: string[];
+}
+/** Backend response type: raw-response. */
+export interface RoutesCreateTeamPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: raw-response. */
+export interface RoutesGetTeamGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: UpdateTeam. */
+export interface RoutesUpdateTeamPatchInput extends JsonObject {
+  "name"?: string | null;
+  "description"?: string | null;
+  "status"?: string | null;
+  "member_ids"?: string[] | null;
+}
+/** Backend response type: raw-response. */
+export interface RoutesUpdateTeamPatchResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: WorkItemListQuery. */
 export interface RoutesListWorkItemsGetQuery extends QueryParams {
   "cursor"?: string | null;
@@ -157,6 +261,7 @@ export interface RoutesListWorkItemsGetQuery extends QueryParams {
   "project_id"?: string | null;
   "sprint_id"?: string | null;
   "owner_id"?: string | null;
+  "team_id"?: string | null;
   "status"?: string | null;
   "q"?: string | null;
   "sort"?: string | null;
@@ -166,6 +271,7 @@ export interface RoutesListWorkItemsGetResponseItem extends JsonObject {
   "id": string;
   "workspace_id": string;
   "project_id": string;
+  "team_id"?: string | null;
   "parent_id"?: string | null;
   "sequence": number;
   "key": string;
@@ -196,6 +302,7 @@ export interface RoutesListWorkItemsGetResponse extends ApiEnvelope<RoutesListWo
 /** Backend request type: CreateWorkItem. */
 export interface RoutesCreateWorkItemPostInput extends JsonObject {
   "project_id": string;
+  "team_id"?: string | null;
   "parent_id"?: string | null;
   "item_type"?: string;
   "title": string;
@@ -227,6 +334,7 @@ export interface RoutesUpdateWorkItemPatchInput extends JsonObject {
   "description"?: string | null;
   "priority"?: string | null;
   "owner_id"?: string | null;
+  "team_id"?: string | null;
   "estimate"?: number | null;
   "story_points"?: number | null;
   "start_at"?: string | null;
@@ -240,6 +348,19 @@ export interface RoutesUpdateWorkItemPatchInput extends JsonObject {
 export interface RoutesUpdateWorkItemPatchResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Vec<CommentView>. */
+export interface RoutesListCommentsGetResponseItem extends JsonObject {
+  "id": string;
+  "work_item_id": string;
+  "author_id": string;
+  "body": string;
+  "mentions": string[];
+  "version": number;
+  "created_at": string;
+}
+export interface RoutesListCommentsGetResponse extends ApiEnvelope<RoutesListCommentsGetResponseItem[]> {
+}
+
 /** Backend request type: CreateComment. */
 export interface RoutesCreateCommentPostInput extends JsonObject {
   "body": string;
@@ -249,6 +370,47 @@ export interface RoutesCreateCommentPostInput extends JsonObject {
 export interface RoutesCreateCommentPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Vec<CommitLinkView>. */
+export interface RoutesListCommitsGetResponseItem extends JsonObject {
+  "id": string;
+  "work_item_id": string;
+  "linked_by": string;
+  "sandbox_project": string;
+  "commit_sha": string;
+  "subject": string;
+  "branch"?: string | null;
+  "repository_label"?: string | null;
+  "committed_at"?: string | null;
+  "metadata": JsonValue;
+  "created_at": string;
+}
+export interface RoutesListCommitsGetResponse extends ApiEnvelope<RoutesListCommitsGetResponseItem[]> {
+}
+
+/** Backend request type: AttachCommit. */
+export interface RoutesAttachCommitPostInput extends JsonObject {
+  "commit_sha": string;
+  "subject"?: string;
+  "branch"?: string | null;
+  "repository_label"?: string | null;
+  "committed_at"?: string | null;
+  "metadata"?: JsonValue;
+}
+/** Backend response type: raw-response. */
+export interface RoutesAttachCommitPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: PointEntryInput. */
+export interface RoutesAddPointsPostInput extends JsonObject {
+  "user_id": string;
+  "entry_type": string;
+  "points": number;
+  "reason"?: string;
+}
+/** Backend response type: raw-response. */
+export interface RoutesAddPointsPostResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend request type: TransitionWorkItem. */
 export interface RoutesTransitionWorkItemPostInput extends JsonObject {
   "status": string;
@@ -256,6 +418,137 @@ export interface RoutesTransitionWorkItemPostInput extends JsonObject {
 }
 /** Backend response type: raw-response. */
 export interface RoutesTransitionWorkItemPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Vec<WorkLogView>. */
+export interface RoutesListWorkLogsGetResponseItem extends JsonObject {
+  "id": string;
+  "work_item_id": string;
+  "author_id": string;
+  "body": string;
+  "minutes"?: number | null;
+  "log_type": string;
+  "created_at": string;
+}
+export interface RoutesListWorkLogsGetResponse extends ApiEnvelope<RoutesListWorkLogsGetResponseItem[]> {
+}
+
+/** Backend request type: CreateWorkLog. */
+export interface RoutesCreateWorkLogPostInput extends JsonObject {
+  "body": string;
+  "minutes"?: number | null;
+  "log_type"?: string;
+}
+/** Backend response type: raw-response. */
+export interface RoutesCreateWorkLogPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Vec<WorkSessionView>. */
+export interface RoutesListWorkSessionsGetResponseItem extends JsonObject {
+  "id": string;
+  "workspace_id": string;
+  "work_item_id": string;
+  "user_id": string;
+  "client_id": string;
+  "state": string;
+  "runtime_state": string;
+  "started_at": string;
+  "ended_at"?: string | null;
+  "last_heartbeat_at": string;
+  "active_seconds": number;
+  "idle_seconds": number;
+  "elapsed_seconds": number;
+  "stop_reason"?: string | null;
+  "metadata": JsonValue;
+  "version": number;
+}
+export interface RoutesListWorkSessionsGetResponse extends ApiEnvelope<RoutesListWorkSessionsGetResponseItem[]> {
+}
+
+/** Backend request type: StartWorkSession. */
+export interface RoutesStartWorkSessionPostInput extends JsonObject {
+  "client_id": string;
+  "metadata"?: JsonValue;
+}
+/** Backend response type: raw-response. */
+export interface RoutesStartWorkSessionPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: HeartbeatWorkSession. */
+export interface RoutesHeartbeatWorkSessionPostInput extends JsonObject {
+  "active_seconds"?: number;
+  "idle_seconds"?: number;
+  "state": string;
+  "observed_at"?: string | null;
+}
+/** Backend response type: WorkSessionView. */
+export interface RoutesHeartbeatWorkSessionPostResponseData extends JsonObject {
+  "id": string;
+  "workspace_id": string;
+  "work_item_id": string;
+  "user_id": string;
+  "client_id": string;
+  "state": string;
+  "runtime_state": string;
+  "started_at": string;
+  "ended_at"?: string | null;
+  "last_heartbeat_at": string;
+  "active_seconds": number;
+  "idle_seconds": number;
+  "elapsed_seconds": number;
+  "stop_reason"?: string | null;
+  "metadata": JsonValue;
+  "version": number;
+}
+export interface RoutesHeartbeatWorkSessionPostResponse extends ApiEnvelope<RoutesHeartbeatWorkSessionPostResponseData> {
+}
+
+/** Backend request type: StopWorkSession. */
+export interface RoutesStopWorkSessionPostInput extends JsonObject {
+  "reason"?: string | null;
+}
+/** Backend response type: WorkSessionView. */
+export interface RoutesStopWorkSessionPostResponseData extends JsonObject {
+  "id": string;
+  "workspace_id": string;
+  "work_item_id": string;
+  "user_id": string;
+  "client_id": string;
+  "state": string;
+  "runtime_state": string;
+  "started_at": string;
+  "ended_at"?: string | null;
+  "last_heartbeat_at": string;
+  "active_seconds": number;
+  "idle_seconds": number;
+  "elapsed_seconds": number;
+  "stop_reason"?: string | null;
+  "metadata": JsonValue;
+  "version": number;
+}
+export interface RoutesStopWorkSessionPostResponse extends ApiEnvelope<RoutesStopWorkSessionPostResponseData> {
+}
+
+/** Backend response type: Vec<WorkSessionView>. */
+export interface RoutesActiveWorkSessionsGetResponseItem extends JsonObject {
+  "id": string;
+  "workspace_id": string;
+  "work_item_id": string;
+  "user_id": string;
+  "client_id": string;
+  "state": string;
+  "runtime_state": string;
+  "started_at": string;
+  "ended_at"?: string | null;
+  "last_heartbeat_at": string;
+  "active_seconds": number;
+  "idle_seconds": number;
+  "elapsed_seconds": number;
+  "stop_reason"?: string | null;
+  "metadata": JsonValue;
+  "version": number;
+}
+export interface RoutesActiveWorkSessionsGetResponse extends ApiEnvelope<RoutesActiveWorkSessionsGetResponseItem[]> {
 }
 
 /** Backend response type: WorkspaceSummary. */

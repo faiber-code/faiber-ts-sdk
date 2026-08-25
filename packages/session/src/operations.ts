@@ -13,6 +13,37 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
   }
   /**
+   * Performs the livekit config show operation for the configuration capability.
+   * Calls `GET /api/v1/config/livekit` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: config:read.
+   */
+  configurationLivekitConfigShowGet(options?: RequestOptions) {
+    return this.client.request<T.ConfigurationLivekitConfigShowGetResponse>({ ...options, method: "GET", url: `/api/v1/config/livekit` });
+  }
+  /**
+   * Performs the livekit config update operation for the configuration capability.
+   * Calls `PUT /api/v1/config/livekit` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: config:update.
+   */
+  configurationLivekitConfigUpdatePut(data: T.ConfigurationLivekitConfigUpdatePutInput, options?: RequestOptions<T.ConfigurationLivekitConfigUpdatePutInput>) {
+    return this.client.request<T.ConfigurationLivekitConfigUpdatePutResponse, T.ConfigurationLivekitConfigUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/config/livekit`, data: data });
+  }
+  /**
+   * Performs the integration docs show operation for the integration capability.
+   * Calls `GET /api/v1/integration/docs` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: integration:read.
+   */
+  integrationIntegrationDocsShowGet(options?: RequestOptions) {
+    return this.client.request<T.IntegrationIntegrationDocsShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/docs` });
+  }
+  /**
    * Performs the flow integration show operation for the integration capability.
    * Calls `GET /api/v1/integration/flow` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -21,6 +52,39 @@ export class SessionOperations extends ServiceApi {
    */
   integrationFlowIntegrationShowGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/flow` });
+  }
+  /**
+   * Performs the recording manifest operation for the recording capability.
+   * Calls `GET /api/v1/recordings/{recording_id}/manifest` through the shared IDP-aware Faiber client.
+   * @param recordingId Backend path identifier `recording_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room_recording:read.
+   */
+  recordingRecordingManifestGet(recordingId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RecordingRecordingManifestGetResponse>({ ...options, method: "GET", url: `/api/v1/recordings/${encodeURIComponent(recordingId)}/manifest` });
+  }
+  /**
+   * Performs the recording schedule operation for the recording capability.
+   * Calls `POST /api/v1/recordings/{recording_id}/schedule` through the shared IDP-aware Faiber client.
+   * @param recordingId Backend path identifier `recording_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room_recording:process.
+   */
+  recordingRecordingSchedulePost(recordingId: Identifier, data: T.RecordingRecordingSchedulePostInput, options?: RequestOptions<T.RecordingRecordingSchedulePostInput>) {
+    return this.client.request<T.RecordingRecordingSchedulePostResponse, T.RecordingRecordingSchedulePostInput>({ ...options, method: "POST", url: `/api/v1/recordings/${encodeURIComponent(recordingId)}/schedule`, data: data });
+  }
+  /**
+   * Performs the audio models operation for the recording capability.
+   * Calls `GET /api/v1/recordings/audio-models` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: config:read.
+   */
+  recordingAudioModelsGet(options?: RequestOptions) {
+    return this.client.request<T.RecordingAudioModelsGetResponse>({ ...options, method: "GET", url: `/api/v1/recordings/audio-models` });
   }
   /**
    * Performs the room state respond operation for the room state capability.
@@ -104,14 +168,14 @@ export class SessionOperations extends ServiceApi {
   }
   /**
    * Performs the rooms end operation for the room capability.
-   * Calls `GET /api/v1/rooms/{room_id}/end` through the shared IDP-aware Faiber client.
+   * Calls `POST /api/v1/rooms/{room_id}/end` through the shared IDP-aware Faiber client.
    * @param roomId Backend path identifier `room_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room:end.
    */
-  roomRoomsEndGet(roomId: Identifier, options?: RequestOptions) {
-    return this.client.request<T.RoomRoomsEndGetResponse>({ ...options, method: "GET", url: `/api/v1/rooms/${encodeURIComponent(roomId)}/end` });
+  roomRoomsEndPost(roomId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoomRoomsEndPostResponse>({ ...options, method: "POST", url: `/api/v1/rooms/${encodeURIComponent(roomId)}/end` });
   }
   /**
    * Performs the rooms interactive start operation for the room capability.
@@ -123,6 +187,17 @@ export class SessionOperations extends ServiceApi {
    */
   roomRoomsInteractiveStartPost(roomId: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoomRoomsInteractiveStartPostResponse>({ ...options, method: "POST", url: `/api/v1/rooms/${encodeURIComponent(roomId)}/interactive/start` });
+  }
+  /**
+   * Performs the rooms join operation for the room capability.
+   * Calls `GET /api/v1/rooms/{room_id}/join` through the shared IDP-aware Faiber client.
+   * @param roomId Backend path identifier `room_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room:read_livekit_token.
+   */
+  roomRoomsJoinGet(roomId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoomRoomsJoinGetResponse>({ ...options, method: "GET", url: `/api/v1/rooms/${encodeURIComponent(roomId)}/join` });
   }
   /**
    * Performs the rooms livekit token operation for the room capability.
@@ -152,21 +227,10 @@ export class SessionOperations extends ServiceApi {
    * @param roomId Backend path identifier `room_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room:read_recordings.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room_recording:read.
    */
   roomRoomsRecordingsGet(roomId: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoomRoomsRecordingsGetResponse>({ ...options, method: "GET", url: `/api/v1/rooms/${encodeURIComponent(roomId)}/recordings` });
-  }
-  /**
-   * Performs the rooms start operation for the room capability.
-   * Calls `GET /api/v1/rooms/{room_id}/start` through the shared IDP-aware Faiber client.
-   * @param roomId Backend path identifier `room_id`.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room:start.
-   */
-  roomRoomsStartGet(roomId: Identifier, options?: RequestOptions) {
-    return this.client.request<T.RoomRoomsStartGetResponse>({ ...options, method: "GET", url: `/api/v1/rooms/${encodeURIComponent(roomId)}/start` });
   }
   /**
    * Performs the rooms stop operation for the room capability.
@@ -200,4 +264,3 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.RoomLivekitWebhookPostResponse>({ ...options, method: "POST", url: `/api/v1/rooms/livekit/webhook` });
   }
 }
-

@@ -382,4 +382,3 @@ export interface RouterStatusRouteGetHealthResponse extends ApiEnvelope<JsonValu
 /** Backend response type: api. */
 export interface RouterStatusRouteGetUpResponse extends ApiEnvelope<JsonValue> {
 }
-

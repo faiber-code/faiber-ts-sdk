@@ -412,4 +412,3 @@ export interface TimeSlotAvailableGetResponse extends ApiEnvelope<TimeSlotAvaila
 /** Backend response type: serde_json::Value. */
 export interface RouterHealthGetHealthResponse extends ApiEnvelope<JsonValue> {
 }
-

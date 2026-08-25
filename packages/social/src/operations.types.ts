@@ -8,6 +8,15 @@ export interface ApiImportModulesPostInput extends JsonObject {
 /** Backend response type: legacy::LegacyImportReport. */
 export type ApiImportModulesPostResponse = import("./types.js").LegacyImportResponse;
 
+/** Backend response type: SessionIdentity. */
+export interface ApiSelfIdentityGetResponseData extends JsonObject {
+  "user_id": string;
+  "roles": string[];
+  "permissions": string[];
+}
+export interface ApiSelfIdentityGetResponse extends ApiEnvelope<ApiSelfIdentityGetResponseData> {
+}
+
 /** Backend response type: Value. */
 export type ApiListCategoriesGetResponse = import("./types.js").SocialCategoryListResponse;
 
@@ -144,6 +153,23 @@ export interface ApiMyClaimsGetQuery extends QueryParams {
 export interface ApiMyClaimsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: no-content. */
+export type ApiClearFeedLocationDeleteResponse = void;
+
+/** Backend response type: Value. */
+export interface ApiGetFeedLocationGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: SetFeedLocation. */
+export interface ApiSetFeedLocationPutInput extends JsonObject {
+  "latitude": number;
+  "longitude": number;
+  "range_km": number;
+}
+/** Backend response type: Value. */
+export interface ApiSetFeedLocationPutResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: FeedQuery. */
 export interface ApiListMyPostsGetQuery extends QueryParams {
   "q"?: string | null;
@@ -155,21 +181,6 @@ export interface ApiListMyPostsGetQuery extends QueryParams {
 }
 /** Backend response type: Value. */
 export type ApiListMyPostsGetResponse = import("./types.js").SocialPostListResponse;
-
-/** Backend response type: Value. */
-export type ApiGetFeedLocationGetResponse = import("./types.js").FeedLocationPreferenceResponse;
-
-/** Backend request type: SetFeedLocation. */
-export interface ApiSetFeedLocationPutInput extends JsonObject {
-  "latitude": number;
-  "longitude": number;
-  "range_km": number;
-}
-/** Backend response type: Value. */
-export type ApiSetFeedLocationPutResponse = import("./types.js").FeedLocationPreferenceResponse;
-
-/** Backend response type: no-content. */
-export type ApiClearFeedLocationDeleteResponse = import("./types.js").NoContentResponse;
 
 /** Backend query type: ClaimListQuery. */
 export interface ApiMyPostClaimsGetQuery extends QueryParams {

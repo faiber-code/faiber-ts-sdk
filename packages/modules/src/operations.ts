@@ -861,6 +861,30 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.ManagementApiRestoreContentRevisionPostResponse>({ ...options, method: "POST", url: `/api/v1/manage/content/${encodeURIComponent(id)}/revisions/${encodeURIComponent(revision)}/restore` });
   }
   /**
+   * Performs the upsert category operation for the content transfer capability.
+   * Calls `PUT /api/v1/manage/import/categories/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  contentTransferUpsertCategoryPut(id: Identifier, data: T.ContentTransferUpsertCategoryPutInput, options?: RequestOptions<T.ContentTransferUpsertCategoryPutInput>) {
+    return this.client.request<T.ContentTransferUpsertCategoryPutResponse, T.ContentTransferUpsertCategoryPutInput>({ ...options, method: "PUT", url: `/api/v1/manage/import/categories/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the upsert content operation for the content transfer capability.
+   * Calls `PUT /api/v1/manage/import/content/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  contentTransferUpsertContentPut(id: Identifier, data: T.ContentTransferUpsertContentPutInput, options?: RequestOptions<T.ContentTransferUpsertContentPutInput>) {
+    return this.client.request<T.ContentTransferUpsertContentPutResponse, T.ContentTransferUpsertContentPutInput>({ ...options, method: "PUT", url: `/api/v1/manage/import/content/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
    * Performs the get settings operation for the management api capability.
    * Calls `GET /api/v1/manage/settings` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -1062,6 +1086,31 @@ export class ModulesOperations extends ServiceApi {
    */
   servicePricingUpdatePricingPut(id: Identifier, data: T.ServicePricingUpdatePricingPutInput, options?: RequestOptions<T.ServicePricingUpdatePricingPutInput>) {
     return this.client.request<T.ServicePricingUpdatePricingPutResponse, T.ServicePricingUpdatePricingPutInput>({ ...options, method: "PUT", url: `/api/v1/pricing/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the list public categories operation for the content transfer capability.
+   * Calls `GET /api/v1/public/categories/{scope}/{locale}` through the shared IDP-aware Faiber client.
+   * @param scope Backend path identifier `scope`.
+   * @param locale Backend path identifier `locale`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  contentTransferListPublicCategoriesGet(scope: Identifier, locale: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ContentTransferListPublicCategoriesGetResponse>({ ...options, method: "GET", url: `/api/v1/public/categories/${encodeURIComponent(scope)}/${encodeURIComponent(locale)}` });
+  }
+  /**
+   * Performs the list public content operation for the content transfer capability.
+   * Calls `GET /api/v1/public/content/{kind}/{locale}` through the shared IDP-aware Faiber client.
+   * @param kind Backend path identifier `kind`.
+   * @param locale Backend path identifier `locale`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  contentTransferListPublicContentGet(kind: Identifier, locale: Identifier, params?: T.ContentTransferListPublicContentGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ContentTransferListPublicContentGetResponse>({ ...options, method: "GET", url: `/api/v1/public/content/${encodeURIComponent(kind)}/${encodeURIComponent(locale)}`, params });
   }
   /**
    * Performs the public content operation for the management api capability.
@@ -1899,4 +1948,3 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.TagUpdateTagPutResponse, T.TagUpdateTagPutInput>({ ...options, method: "PUT", url: `/api/v1/tags/${encodeURIComponent(id)}`, data: data });
   }
 }
-

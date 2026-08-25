@@ -4,6 +4,7 @@ import type * as T from "./types.js";
 /** Complete typed client for the sandbox digital-rights media service. */
 import { DrmOperations } from "./operations.js";
 export class DrmApi extends ServiceApi {
+    readonly operations = new DrmOperations(this.client);
   /** Checks DRM service readiness. Calls `GET /api/v1/status`. */
   status(options?: RequestOptions) { return this.client.get<T.DrmStatus>("/api/v1/status", undefined, options); }
   /** Lists media folders. Calls `GET /api/v1/folders`. */

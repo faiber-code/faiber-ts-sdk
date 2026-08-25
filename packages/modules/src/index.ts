@@ -73,6 +73,11 @@ export class ModulesApi extends ServiceApi {
             headers: { ...options?.headers, "If-Match": etag },
         });
     }
+    /**
+     * Loads one published document by its canonical slug or retained legacy slug.
+     * The service returns sanitized HTML safe for public rendering and preserves
+     * the complete Axios response, including ETag and request metadata.
+     */
     publicContent(kind: string, locale: string, slug: string, options?: RequestOptions) {
         return this.client.get<ContentDocument>(`/api/v1/public/content/${encodeURIComponent(kind)}/${encodeURIComponent(locale)}/${encodeURIComponent(slug)}`, undefined, options);
     }

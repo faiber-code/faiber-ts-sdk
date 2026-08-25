@@ -329,4 +329,3 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.RouterStatusRouteGetUpResponse>({ ...options, method: "GET", url: `/up` });
   }
 }
-

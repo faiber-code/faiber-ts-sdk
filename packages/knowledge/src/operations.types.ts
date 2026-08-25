@@ -365,4 +365,3 @@ export interface MainHealthGetResponseData extends JsonObject {
 }
 export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
 }
-

@@ -143,6 +143,31 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.SandboxBillingAdminPricesUpdatePutResponse, T.SandboxBillingAdminPricesUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/admin/resource-unit-prices`, data: data });
   }
   /**
+   * Performs the admin project pricing override operation for the sandbox billing capability.
+   * Calls `PUT /api/v1/admin/sandbox-projects/{profile_id}/{project}/pricing-override` through the shared IDP-aware Faiber client.
+   * @param profileId Backend path identifier `profile_id`.
+   * @param project Backend path identifier `project`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:update.
+   */
+  sandboxBillingAdminProjectPricingOverridePut(profileId: Identifier, project: Identifier, data: T.SandboxBillingAdminProjectPricingOverridePutInput, options?: RequestOptions<T.SandboxBillingAdminProjectPricingOverridePutInput>) {
+    return this.client.request<T.SandboxBillingAdminProjectPricingOverridePutResponse, T.SandboxBillingAdminProjectPricingOverridePutInput>({ ...options, method: "PUT", url: `/api/v1/admin/sandbox-projects/${encodeURIComponent(profileId)}/${encodeURIComponent(project)}/pricing-override`, data: data });
+  }
+  /**
+   * Performs the admin project financial owner operation for the sandbox billing capability.
+   * Calls `PUT /api/v1/admin/sandbox-projects/{project}/financial-owner` through the shared IDP-aware Faiber client.
+   * @param project Backend path identifier `project`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:update.
+   */
+  sandboxBillingAdminProjectFinancialOwnerPut(project: Identifier, data: T.SandboxBillingAdminProjectFinancialOwnerPutInput, options?: RequestOptions<T.SandboxBillingAdminProjectFinancialOwnerPutInput>) {
+    return this.client.request<T.SandboxBillingAdminProjectFinancialOwnerPutResponse, T.SandboxBillingAdminProjectFinancialOwnerPutInput>({ ...options, method: "PUT", url: `/api/v1/admin/sandbox-projects/${encodeURIComponent(project)}/financial-owner`, data: data });
+  }
+  /**
    * Performs the admin subscriptions index operation for the wallet billing capability.
    * Calls `GET /api/v1/admin/subscriptions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -801,4 +826,3 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.WalletBillingWalletTopupPostResponse, T.WalletBillingWalletTopupPostInput>({ ...options, method: "POST", url: `/api/v1/wallet/topup`, data: data });
   }
 }
-

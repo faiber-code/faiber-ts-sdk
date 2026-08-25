@@ -5,8 +5,144 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: LiveKitConfigResponse. */
+export interface ConfigurationLivekitConfigShowGetResponseData extends JsonObject {
+  "livekit_url": string;
+  "livekit_ws_url": string;
+  "api_key": string;
+  "has_api_secret": boolean;
+  "egress_enabled": boolean;
+  "egress_layout": string;
+  "recording_prefix": string;
+  "s3_endpoint": string;
+  "s3_region": string;
+  "s3_bucket": string;
+  "s3_access_key": string;
+  "has_s3_secret_key": boolean;
+  "s3_force_path_style": boolean;
+  "agentic_url": string;
+  "has_agentic_service_token": boolean;
+  "audio_processing_enabled": boolean;
+  "audio_model_ref"?: string | null;
+  "chat_model_ref"?: string | null;
+  "archive_delay_minutes": number;
+  "processing_window_start": string;
+  "processing_window_end": string;
+}
+export interface ConfigurationLivekitConfigShowGetResponse extends ApiEnvelope<ConfigurationLivekitConfigShowGetResponseData> {
+}
+
+/** Backend request type: LiveKitConfigUpdate. */
+export interface ConfigurationLivekitConfigUpdatePutInput extends JsonObject {
+  "livekit_url": string;
+  "livekit_ws_url": string;
+  "api_key": string;
+  "api_secret"?: string | null;
+  "egress_enabled": boolean;
+  "egress_layout": string;
+  "recording_prefix": string;
+  "s3_endpoint": string;
+  "s3_region": string;
+  "s3_bucket": string;
+  "s3_access_key": string;
+  "s3_secret_key"?: string | null;
+  "s3_force_path_style": boolean;
+  "agentic_url": string;
+  "audio_processing_enabled"?: boolean;
+  "audio_model_ref"?: string | null;
+  "chat_model_ref"?: string | null;
+  "archive_delay_minutes": number;
+  "processing_window_start": string;
+  "processing_window_end": string;
+}
+/** Backend response type: LiveKitConfigResponse. */
+export interface ConfigurationLivekitConfigUpdatePutResponseData extends JsonObject {
+  "livekit_url": string;
+  "livekit_ws_url": string;
+  "api_key": string;
+  "has_api_secret": boolean;
+  "egress_enabled": boolean;
+  "egress_layout": string;
+  "recording_prefix": string;
+  "s3_endpoint": string;
+  "s3_region": string;
+  "s3_bucket": string;
+  "s3_access_key": string;
+  "has_s3_secret_key": boolean;
+  "s3_force_path_style": boolean;
+  "agentic_url": string;
+  "has_agentic_service_token": boolean;
+  "audio_processing_enabled": boolean;
+  "audio_model_ref"?: string | null;
+  "chat_model_ref"?: string | null;
+  "archive_delay_minutes": number;
+  "processing_window_start": string;
+  "processing_window_end": string;
+}
+export interface ConfigurationLivekitConfigUpdatePutResponse extends ApiEnvelope<ConfigurationLivekitConfigUpdatePutResponseData> {
+}
+
+/** Backend response type: crate::integration::models::IntegrationDocsResponse. */
+export interface IntegrationIntegrationDocsShowGetResponseData extends JsonObject {
+  "api_base_path": string;
+  "livekit_ws_url": string;
+  "authentication": string;
+  "steps": BackendJson<"IntegrationStep">[];
+  "snippets": BackendJson<"IntegrationSnippet">[];
+}
+export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<IntegrationIntegrationDocsShowGetResponseData> {
+}
+
 /** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
 export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
+}
+
+/** Backend response type: RecordingManifestResponse. */
+export interface RecordingRecordingManifestGetResponseData extends JsonObject {
+  "schema_version": number;
+  "recording_id": string;
+  "room_id": string;
+  "status": string;
+  "started_at"?: string | null;
+  "stopped_at"?: string | null;
+  "archive_key"?: string | null;
+  "manifest_key"?: string | null;
+  "tracks": BackendJson<"RecordingTrackResponse">[];
+  "audio_analyses": BackendJson<"AudioAnalysisResponse">[];
+}
+export interface RecordingRecordingManifestGetResponse extends ApiEnvelope<RecordingRecordingManifestGetResponseData> {
+}
+
+/** Backend request type: ScheduleRecordingRequest. */
+export interface RecordingRecordingSchedulePostInput extends JsonObject {
+  "process_at": string;
+  "audio_processing"?: boolean | null;
+  "audio_model_ref"?: string | null;
+}
+/** Backend response type: RecordingManifestResponse. */
+export interface RecordingRecordingSchedulePostResponseData extends JsonObject {
+  "schema_version": number;
+  "recording_id": string;
+  "room_id": string;
+  "status": string;
+  "started_at"?: string | null;
+  "stopped_at"?: string | null;
+  "archive_key"?: string | null;
+  "manifest_key"?: string | null;
+  "tracks": BackendJson<"RecordingTrackResponse">[];
+  "audio_analyses": BackendJson<"AudioAnalysisResponse">[];
+}
+export interface RecordingRecordingSchedulePostResponse extends ApiEnvelope<RecordingRecordingSchedulePostResponseData> {
+}
+
+/** Backend response type: Vec<AudioModel>. */
+export interface RecordingAudioModelsGetResponseItem extends JsonObject {
+  "model_ref": string;
+  "model": string;
+  "provider_label": string;
+  "source": string;
+}
+export interface RecordingAudioModelsGetResponse extends ApiEnvelope<RecordingAudioModelsGetResponseItem[]> {
 }
 
 /** Backend request type: RoomStateRespond. */
@@ -43,6 +179,7 @@ export interface RoomRoomsCreatePostInput extends JsonObject {
   "states"?: BackendJson<"RoomStateCommand">[] | null;
   "status"?: number | null;
   "starts_at": string;
+  "drm_mixed_media_id"?: string | null;
 }
 /** Backend response type: RoomSingleResponse. */
 export interface RoomRoomsCreatePostResponseData extends JsonObject {
@@ -100,11 +237,11 @@ export interface RoomRoomsUpdatePutResponse extends ApiEnvelope<RoomRoomsUpdateP
 }
 
 /** Backend response type: APIEmptyResponse. */
-export interface RoomRoomsEndGetResponseData extends JsonObject {
+export interface RoomRoomsEndPostResponseData extends JsonObject {
   "status": string;
   "message": string;
 }
-export type RoomRoomsEndGetResponse = RoomRoomsEndGetResponseData;
+export type RoomRoomsEndPostResponse = RoomRoomsEndPostResponseData;
 
 /** Backend response type: APIEmptyResponse. */
 export interface RoomRoomsInteractiveStartPostResponseData extends JsonObject {
@@ -112,6 +249,18 @@ export interface RoomRoomsInteractiveStartPostResponseData extends JsonObject {
   "message": string;
 }
 export type RoomRoomsInteractiveStartPostResponse = RoomRoomsInteractiveStartPostResponseData;
+
+/** Backend response type: LiveKitJoinResponse. */
+export interface RoomRoomsJoinGetResponseData extends JsonObject {
+  "token": string;
+  "url": string;
+  "room_name": string;
+  "can_end": boolean;
+  "chat_model_ref"?: string | null;
+  "realtime"?: BackendJson<"RealtimeJoinResponse"> | null;
+}
+export interface RoomRoomsJoinGetResponse extends ApiEnvelope<RoomRoomsJoinGetResponseData> {
+}
 
 /** Backend response type: LiveKitTokenResponse. */
 export interface RoomRoomsLivekitTokenGetResponseData extends JsonObject {
@@ -130,16 +279,10 @@ export interface RoomRoomsPlaybackShowGetResponse extends ApiEnvelope<RoomRoomsP
 
 /** Backend response type: RoomRecordingResponse. */
 export interface RoomRoomsRecordingsGetResponseData extends JsonObject {
+  "room": BackendJson<"RoomRecordingRoomResponse">;
   "recordings": BackendJson<"RoomRecording">[];
 }
 export interface RoomRoomsRecordingsGetResponse extends ApiEnvelope<RoomRoomsRecordingsGetResponseData> {
-}
-
-/** Backend response type: RoomSingleResponse. */
-export interface RoomRoomsStartGetResponseData extends JsonObject {
-  "room": BackendJson<"RoomDetailResponse">;
-}
-export interface RoomRoomsStartGetResponse extends ApiEnvelope<RoomRoomsStartGetResponseData> {
 }
 
 /** Backend response type: RoomSingleResponse. */
@@ -165,4 +308,3 @@ export interface RoomLivekitWebhookPostResponseData extends JsonObject {
   "message": string;
 }
 export type RoomLivekitWebhookPostResponse = RoomLivekitWebhookPostResponseData;
-

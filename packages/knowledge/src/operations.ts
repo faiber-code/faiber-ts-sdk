@@ -386,4 +386,3 @@ export class KnowledgeOperations extends ServiceApi {
     return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });
   }
 }
-
