@@ -3165,6 +3165,17 @@
     },
     {
       "method": "GET",
+      "path": "/packages/{package_id}/files/{*path}",
+      "module": "router",
+      "handler": "package_file",
+      "permissions": [],
+      "source": "infera-drm/src/router.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/status",
       "module": "router",
       "handler": "status",
@@ -8301,6 +8312,18 @@
       "body": "SettingsUpdate",
       "responseEnvelope": "raw-response",
       "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/media/assets",
+      "module": "media",
+      "handler": "upload_asset",
+      "permissions": [],
+      "source": "infera-modules/src/media/mod.rs",
+      "response": "UploadResponse",
+      "responseEnvelope": "raw",
+      "multipart": true,
       "formUrlEncoded": false
     },
     {

@@ -1243,6 +1243,17 @@ export interface ManagementApiUpdateSettingsPutInput extends JsonObject {
 export interface ManagementApiUpdateSettingsPutResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: multipart/form-data. */
+export type MediaUploadAssetPostInput = FormData;
+/** Backend response type: UploadResponse. */
+export interface MediaUploadAssetPostResponseData extends JsonObject {
+  "url": string;
+  "key": string;
+  "content_type": string;
+  "size": number;
+}
+export type MediaUploadAssetPostResponse = MediaUploadAssetPostResponseData;
+
 /** Backend response type: raw-response. */
 export interface MediaGetFileGetResponse extends ApiEnvelope<JsonValue> {
 }

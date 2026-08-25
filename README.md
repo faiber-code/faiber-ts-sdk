@@ -102,14 +102,8 @@ Packages export named request, query, entity, response-envelope, and generated o
 Uploads use standards-compatible `FormData` through `multipart(...)`; URL-encoded forms use `urlEncoded(...)`. Media methods return the backend's media identifier, key, URL, or binary response without rewriting it, so it can be linked to products, posts, profiles, and other hosted records.
 
 ```ts
-import { multipart } from "@faiber/faiber-ts-sdk";
-
 await sdk.profile.uploadAvatar(profileId, avatarFile);
-await sdk.modules.client.post("/api/v1/media", multipart({
-  file,
-  alt: "Product front view",
-  role: "gallery",
-}));
+await sdk.modules.uploadMediaAsset(file, "product");
 ```
 
 Use the typed low-level `sdk.<service>.client` only for application-specific routes that are not part of the public service contract. Absolute request URLs are disabled by default so authorization headers cannot be redirected to another origin.

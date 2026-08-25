@@ -77,16 +77,16 @@ test("generated contracts have exact route coverage, named outputs, and complete
     }
     total += endpoints.length;
   }
-  assert.equal(total, 1068);
+  assert.equal(total, 1070);
 });
 
 test("every published workspace package includes developer documentation", async () => {
   const packageNames = await readdir(new URL("../packages", import.meta.url));
   for (const name of packageNames) {
     const packageJson = JSON.parse(await readFile(new URL(`../packages/${name}/package.json`, import.meta.url), "utf8"));
-    assert.equal(packageJson.version, "0.6.2", `${packageJson.name} release version`);
+    assert.equal(packageJson.version, "0.7.0", `${packageJson.name} release version`);
     for (const [dependency, version] of Object.entries(packageJson.dependencies ?? {})) {
-      if (dependency.startsWith("@faiber/")) assert.equal(version, "0.6.2", `${packageJson.name} -> ${dependency}`);
+      if (dependency.startsWith("@faiber/")) assert.equal(version, "0.7.0", `${packageJson.name} -> ${dependency}`);
     }
     assert.ok(packageJson.files.includes("README.md"), `${packageJson.name} publishes README`);
     const readme = await readFile(new URL(`../packages/${name}/README.md`, import.meta.url), "utf8");

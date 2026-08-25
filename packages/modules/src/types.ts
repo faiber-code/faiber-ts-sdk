@@ -3,6 +3,7 @@ export interface Product {
     id: string;
     name: string;
     description?: string | null;
+    image_url?: string | null;
     sku?: JsonValue;
     status?: number;
     sort_order?: number;
@@ -12,6 +13,7 @@ export interface Product {
 export interface CreateProductInput {
     name: string;
     description?: string;
+    image_url?: string;
     sku?: JsonValue;
     status?: number;
     sort_order?: number;
@@ -309,11 +311,21 @@ export interface InventoryQuery extends QueryParams {
 }
 export interface ProductResponse extends ResourceResponse<Product> {
 }
-export interface ProductListResponse extends ResourceListResponse<Product> {
+export interface ProductListResponse extends ApiEnvelope<{
+    products: Product[];
+    page_number: number;
+    page_size: number;
+    total_items: number;
+}> {
 }
 export interface ProductVariantResponse extends ResourceResponse<ProductVariant> {
 }
-export interface ProductVariantListResponse extends ResourceListResponse<ProductVariant> {
+export interface ProductVariantListResponse extends ApiEnvelope<{
+    variants: ProductVariant[];
+    page_number: number;
+    page_size: number;
+    total_items: number;
+}> {
 }
 export interface CartResponse extends ApiEnvelope<Cart> {
 }
@@ -374,7 +386,7 @@ export interface UpdateModulesSettingsInput {
     delivery?: JsonValue;
 }
 
-export type ContentDocumentKind = "page" | "post" | "reusable" | "podcast" | "episode";
+export type ContentDocumentKind = "page" | "post" | "reusable" | "podcast" | "episode" | "student_project" | "parent_review";
 export type ContentDocumentStatus = "draft" | "review" | "scheduled" | "published" | "archived";
 
 export interface ContentDocument {
@@ -476,6 +488,22 @@ export interface ImportContentDocumentInput {
     publish_at?: string;
     published_at?: string;
     category_ids?: string[];
+}
+
+export type ModulesMediaPurpose =
+    | "editor"
+    | "post"
+    | "product"
+    | "post-category"
+    | "product-category"
+    | "student-project"
+    | "parent-review";
+
+export interface ModulesMediaUploadResponse {
+    url: string;
+    key: string;
+    content_type: string;
+    size: number;
 }
 
 export interface ContentRevision {

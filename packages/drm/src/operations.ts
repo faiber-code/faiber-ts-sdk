@@ -885,6 +885,18 @@ export class DrmOperations extends ServiceApi {
     return this.client.request<T.RouterLegacyStatusGetResponse>({ ...options, method: "GET", url: `/packages/${encodeURIComponent(kind)}/${encodeURIComponent(mediaId)}` });
   }
   /**
+   * Performs the package file operation for the router capability.
+   * Calls `GET /packages/{package_id}/files/{*path}` through the shared IDP-aware Faiber client.
+   * @param packageId Backend path identifier `package_id`.
+   * @param path Backend path identifier `*path`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerPackageFileGet(packageId: Identifier, path: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RouterPackageFileGetResponse>({ ...options, method: "GET", url: `/packages/${encodeURIComponent(packageId)}/files/${encodeURIComponent(path)}` });
+  }
+  /**
    * Performs the status operation for the router capability.
    * Calls `GET /status` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

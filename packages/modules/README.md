@@ -23,10 +23,21 @@ const client = new FaiberClient("modules", {
 const api = new ModulesApi(client);
 
 const products = await api.products.list({
-  "page[number]": 1,
-  "page[size]": 24,
+  page_number: 1,
+  page_size: 24,
+  scope: "public-shop",
 });
 const posts = await api.posts.list();
+```
+
+Images and videos can be persisted in Modules-managed object storage with the
+typed media helper. The service returns the object URL, key, MIME type, and size.
+
+```ts
+const uploaded = await api.uploadMediaAsset(videoFile, "student-project", {
+  signal: AbortSignal.timeout(120_000),
+});
+console.log(uploaded.data.url);
 ```
 
 Published CMS content and arbitrary-depth category trees are available through the
@@ -53,7 +64,7 @@ Trusted migration operators can use `importContentCategory` and
 
 ## Complete capability
 
-This package exposes 138 generated registered operations plus curated public-content and migration methods from the content and commerce modules service. Common workflows have concise methods on `api`; every generated backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 170 generated registered operations plus curated public-content and migration methods from the content and commerce modules service. Common workflows have concise methods on `api`; every generated backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|

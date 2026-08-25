@@ -906,6 +906,17 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.ManagementApiUpdateSettingsPutResponse, T.ManagementApiUpdateSettingsPutInput>({ ...options, method: "PUT", url: `/api/v1/manage/settings`, data: data });
   }
   /**
+   * Performs the upload asset operation for the media capability.
+   * Calls `POST /api/v1/media/assets` through the shared IDP-aware Faiber client.
+   * @param data Typed multipart form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  mediaUploadAssetPost(data: T.MediaUploadAssetPostInput, options?: RequestOptions<T.MediaUploadAssetPostInput>) {
+    return this.client.request<T.MediaUploadAssetPostResponse, T.MediaUploadAssetPostInput>({ ...options, method: "POST", url: `/api/v1/media/assets`, data: data });
+  }
+  /**
    * Performs the get file operation for the media capability.
    * Calls `GET /api/v1/media/files/{*key}` through the shared IDP-aware Faiber client.
    * @param key Backend path identifier `*key`.

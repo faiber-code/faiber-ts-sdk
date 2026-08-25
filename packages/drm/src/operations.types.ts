@@ -1107,6 +1107,10 @@ export type RouterLegacyEnqueuePostResponse = JsonValue;
 /** Backend response type: serde_json::Value. */
 export type RouterLegacyStatusGetResponse = JsonValue;
 
+/** Backend response type: raw-response. */
+export interface RouterPackageFileGetResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: serde_json::Value. */
 export type RouterStatusGetResponse = JsonValue;
 

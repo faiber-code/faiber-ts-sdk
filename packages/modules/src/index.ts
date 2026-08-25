@@ -1,6 +1,6 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
 import type { AttachCategoryInput, AttachTagInput, AuditLogListResponse, Author, BlogPost, CartResponse, Category, CategoryAttachmentListResponse, CategoryAttachmentResponse, Comment, Content, ContentAttachmentListResponse, CreateAuthorInput, CreateBlogPostInput, CreateCategoryInput, CreateCommentInput, CreateContentInput, CreateInventoryInput, CreateModuleRequestInput, CreateOrderInput, CreatePricingInput, CreateProductInput, CreateProductVariantInput, CreateSampleInput, CreateSeoContentInput, CreateTagInput, CreateWarehouseInput, Inventory, ModuleRequest, Order, Pricing, Product, ProductListResponse, ProductResponse, ProductVariant, ProductVariantListResponse, ProductVariantQuery, ProductVariantResponse, ReplaceCartInput, Sample, SeoAttachmentListResponse, SeoContent, StockMovementListResponse, Tag, TagAttachmentListResponse, TagAttachmentResponse, UpdateAuthorInput, UpdateBlogPostInput, UpdateCategoryInput, UpdateCommentInput, UpdateContentInput, UpdateInventoryInput, UpdateModuleRequestInput, UpdateOrderInput, UpdatePricingInput, UpdateProductInput, UpdateProductVariantInput, UpdateSampleInput, UpdateSeoContentInput, UpdateTagInput, UpdateWarehouseInput, Warehouse, } from "./types.js";
-import type { AgentProposal, ContentDocument, ContentDocumentQuery, ContentRevision, ImportContentCategoryInput, ImportContentDocumentInput, ModulesAuthSelf, ModulesRouteContract, ModulesSettings, PublicContentCategory, PublicContentListResponse, PublicContentQuery, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
+import type { AgentProposal, ContentDocument, ContentDocumentQuery, ContentRevision, ImportContentCategoryInput, ImportContentDocumentInput, ModulesAuthSelf, ModulesMediaPurpose, ModulesMediaUploadResponse, ModulesRouteContract, ModulesSettings, PublicContentCategory, PublicContentListResponse, PublicContentQuery, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
 function targetPath(base: string, host: string, id: Identifier): string {
     return `${base}/${encodeURIComponent(host)}/${encodeURIComponent(id)}`;
 }
@@ -33,6 +33,13 @@ export class ModulesApi extends ServiceApi {
     }
     replaceCart(data: ReplaceCartInput, options?: RequestOptions<ReplaceCartInput>) {
         return this.client.put<CartResponse, ReplaceCartInput>("/api/v1/shop/cart", data, options);
+    }
+    /** Uploads an image or video asset into Modules-managed object storage. */
+    uploadMediaAsset(file: Blob, purpose: ModulesMediaPurpose, options?: RequestOptions<FormData>) {
+        const data = new FormData();
+        data.append("kind", purpose);
+        data.append("file", file);
+        return this.client.post<ModulesMediaUploadResponse, FormData>("/api/v1/media/assets", data, options);
     }
     categoriesFor(host: string, id: Identifier, options?: RequestOptions) {
         return this.client.get<CategoryAttachmentListResponse>(targetPath("/api/v1/categories", host, id), undefined, options);
