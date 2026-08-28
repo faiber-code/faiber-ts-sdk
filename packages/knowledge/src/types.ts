@@ -21,6 +21,15 @@ export interface CreateRuleInput extends JsonObject { knowledge_base_id: string;
 export interface UpdateRuleInput extends JsonObject { group_id?: string; name?: JsonValue; priority?: number; conditions?: JsonValue; outcomes?: JsonValue; stop_on_match?: boolean; enabled?: boolean; expected_version?: number; }
 export interface RuntimeQueryInput extends JsonObject { query?: string; profile_id?: string; profile?: JsonValue; props?: JsonValue; meta?: JsonValue; inputs?: JsonValue; group_slugs?: JsonValue; level?: number; limit?: number; event?: JsonValue; }
 export interface RuntimeResult extends JsonObject { chat_slug: string; release?: JsonValue; knowledge: JsonValue[]; matched_rules: JsonValue[]; notifications: JsonValue[]; warnings: JsonValue[]; todos: JsonValue[]; input_requests: JsonValue[]; directions: JsonValue[]; trace: JsonValue; }
+export type ContextMode = "economy" | "balanced" | "deep" | "custom";
+export interface AssistantConfigurationInput extends JsonObject { assistant_name?: string; knowledge_base_ids?: string[]; recommender_group_ids?: string[]; short_memory_enabled?: boolean; long_memory_enabled?: boolean; short_memory_turns?: number; long_memory_limit?: number; context_mode?: ContextMode; context_budget_tokens?: number; knowledge_enabled?: boolean; recommenders_enabled?: boolean; selected_media_enabled?: boolean; session_enabled?: boolean; max_knowledge_results?: number; max_chunks_per_document?: number; }
+export interface AssistantQueryInput extends JsonObject { user_id: string; query?: string; profile?: JsonValue; conversation_id?: string; drm_media_ids?: string[]; model_id?: string; context?: JsonValue; delivered_memory_ids?: string[]; limit?: number; }
+export interface RecordAssistantTurnInput extends JsonObject { user_id: string; profile?: JsonValue; conversation_id: string; user_message: string; assistant_message: string; user_message_id?: string; assistant_message_id?: string; }
+export interface AssistantRuntimeResult extends JsonObject { policy: JsonValue; knowledge: JsonValue[]; memory: JsonValue; recommendations: JsonValue[]; citations: JsonValue[]; findings: JsonValue[]; trace: JsonValue; budget: JsonValue; }
+export interface MemorySubjectQuery extends QueryParams { assistant_id?: string; q?: string; memory_type?: "short" | "long"; page?: number; limit?: number; }
+export interface MemoryOverrideInput extends JsonObject { short_memory_enabled?: boolean; long_memory_enabled?: boolean; }
+export interface ConverterCapability extends JsonObject { id: string; extensions: string[]; status: string; mode: string; features: string[]; }
+export interface ProcessingJob extends JsonObject { id: string; job_type: string; status: string; stage: string; progress: number; attempts: number; error_code?: string | null; error_detail?: string | null; metrics: JsonValue; updated_at: string; }
 export interface ActionStatusInput extends JsonObject { status: string; input?: JsonValue; }
 export type KnowledgeBaseResponse = ApiEnvelope<KnowledgeBase>;
 export type KnowledgeBaseListResponse = ApiEnvelope<KnowledgeBase[]>;
@@ -35,3 +44,6 @@ export type ChatBindingListResponse = ApiEnvelope<ChatBinding[]>;
 export type MatchRuleResponse = ApiEnvelope<MatchRule>;
 export type MatchRuleListResponse = ApiEnvelope<MatchRule[]>;
 export type RuntimeResultResponse = ApiEnvelope<RuntimeResult>;
+export type AssistantRuntimeResponse = ApiEnvelope<AssistantRuntimeResult>;
+export type ConverterCapabilityListResponse = ApiEnvelope<ConverterCapability[]>;
+export type ProcessingJobListResponse = ApiEnvelope<ProcessingJob[]>;
