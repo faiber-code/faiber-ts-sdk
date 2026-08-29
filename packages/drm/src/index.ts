@@ -25,6 +25,8 @@ export class DrmApi extends ServiceApi {
   media(params?: T.DrmMediaListQuery, options?: RequestOptions) { return this.client.get<T.DrmMediaPage>("/api/v1/media", params, options); }
   /** Gets media metadata and tags. Calls `GET /api/v1/media/{id}`. */
   medium(id: Identifier, options?: RequestOptions) { return this.client.get<T.DrmMediaRecord>(`/api/v1/media/${encodeURIComponent(id)}`, undefined, options); }
+  /** Gets up to 50 media records in one ordered request. Calls `POST /api/v1/media/batch`; requires `drm:media:read`. */
+  batchMedia(data:T.DrmBatchMediaInput,options?:RequestOptions<T.DrmBatchMediaInput>){return this.client.post<T.DrmMediaRecord[],T.DrmBatchMediaInput>("/api/v1/media/batch",data,options);}
   /** Uploads audio/video with optional metadata. Calls `POST /api/v1/media` as multipart form data. */
   uploadMedia(input: T.DrmMediaUpload, options?: RequestOptions<FormData>) {
     const data = new FormData();

@@ -31,6 +31,7 @@ export interface DrmMediaUpdate extends JsonObject {
 export interface DrmMediaUpload {
   file: Blob; name?: string; description?: string; folder_id?: string | null; tag_ids?: string[];
 }
+export interface DrmBatchMediaInput extends JsonObject { ids:string[]; }
 export interface DrmPlayback extends JsonObject {
   media_id: string; media_type: DrmMediaType; mime_type: string; url: string; expires_in_seconds: number;
 }

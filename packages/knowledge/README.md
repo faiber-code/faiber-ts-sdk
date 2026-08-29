@@ -27,11 +27,23 @@ const result = await api.query("fitness-coach", {
   query: "What workout is scheduled today?",
   profile_id: userId,
 });
+
+const context = await api.assistantQuery(assistantId, {
+  user_id: userId,
+  conversation_id: conversationId,
+  query: "Explain the selected lesson",
+  drm_media_ids: [mediaId],
+  model_id: "provider/model",
+  profile: currentProfile,
+});
+
+// Send this cursor on the next turn to receive only relevant context deltas.
+const cursor = context.data.data.trace.context_cursor;
 ```
 
 ## Complete capability
 
-This package exposes 33 registered operations from the knowledge service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+Common authoring operations and governed assistant, memory, ingestion, converter, job, usage, and status workflows have typed methods on `api`; generated legacy authoring operations remain available on `api.operations`. Assistant responses include hard token-budget accounting, citations, dependency state, trace IDs, and a conversation delivery cursor.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
