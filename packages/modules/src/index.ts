@@ -1,6 +1,6 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
 import type { AttachCategoryInput, AttachTagInput, AuditLogListResponse, Author, BlogPost, CartResponse, Category, CategoryAttachmentListResponse, CategoryAttachmentResponse, Comment, Content, ContentAttachmentListResponse, CreateAuthorInput, CreateBlogPostInput, CreateCategoryInput, CreateCommentInput, CreateContentInput, CreateInventoryInput, CreateModuleRequestInput, CreateOrderInput, CreatePricingInput, CreateProductInput, CreateProductVariantInput, CreateSampleInput, CreateSeoContentInput, CreateTagInput, CreateWarehouseInput, Inventory, ModuleRequest, Order, Pricing, Product, ProductListResponse, ProductResponse, ProductVariant, ProductVariantListResponse, ProductVariantQuery, ProductVariantResponse, ReplaceCartInput, Sample, SeoAttachmentListResponse, SeoContent, StockMovementListResponse, Tag, TagAttachmentListResponse, TagAttachmentResponse, UpdateAuthorInput, UpdateBlogPostInput, UpdateCategoryInput, UpdateCommentInput, UpdateContentInput, UpdateInventoryInput, UpdateModuleRequestInput, UpdateOrderInput, UpdatePricingInput, UpdateProductInput, UpdateProductVariantInput, UpdateSampleInput, UpdateSeoContentInput, UpdateTagInput, UpdateWarehouseInput, Warehouse, } from "./types.js";
-import type { AgentProposal, ContentDocument, ContentDocumentQuery, ContentRevision, ModulesAuthSelf, ModulesRouteContract, ModulesSettings, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
+import type { AgentProposal, AutocompleteQuery, AutocompleteResponse, ContentDocument, ContentDocumentQuery, ContentRevision, ImportContentCategoryInput, ImportContentDocumentInput, ModulesAuthSelf, ModulesMediaPurpose, ModulesMediaUploadResponse, ModulesRouteContract, ModulesSettings, PublicContentCategory, PublicContentListResponse, PublicContentQuery, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
 function targetPath(base: string, host: string, id: Identifier): string {
     return `${base}/${encodeURIComponent(host)}/${encodeURIComponent(id)}`;
 }
@@ -33,6 +33,13 @@ export class ModulesApi extends ServiceApi {
     }
     replaceCart(data: ReplaceCartInput, options?: RequestOptions<ReplaceCartInput>) {
         return this.client.put<CartResponse, ReplaceCartInput>("/api/v1/shop/cart", data, options);
+    }
+    /** Uploads an image or video asset into Modules-managed object storage. */
+    uploadMediaAsset(file: Blob, purpose: ModulesMediaPurpose, options?: RequestOptions<FormData>) {
+        const data = new FormData();
+        data.append("kind", purpose);
+        data.append("file", file);
+        return this.client.post<ModulesMediaUploadResponse, FormData>("/api/v1/media/assets", data, options);
     }
     categoriesFor(host: string, id: Identifier, options?: RequestOptions) {
         return this.client.get<CategoryAttachmentListResponse>(targetPath("/api/v1/categories", host, id), undefined, options);
@@ -73,8 +80,37 @@ export class ModulesApi extends ServiceApi {
             headers: { ...options?.headers, "If-Match": etag },
         });
     }
+    /**
+     * Loads one published document by its canonical slug or retained legacy slug.
+     * The service returns sanitized HTML safe for public rendering and preserves
+     * the complete Axios response, including ETag and request metadata.
+     */
     publicContent(kind: string, locale: string, slug: string, options?: RequestOptions) {
         return this.client.get<ContentDocument>(`/api/v1/public/content/${encodeURIComponent(kind)}/${encodeURIComponent(locale)}/${encodeURIComponent(slug)}`, undefined, options);
+    }
+    /** Lists published content. Public-role content:read access is sufficient. */
+    publicContentList(kind: string, locale: string, params?: PublicContentQuery, options?: RequestOptions) {
+        return this.client.get<PublicContentListResponse>(`/api/v1/public/content/${encodeURIComponent(kind)}/${encodeURIComponent(locale)}`, params, options);
+    }
+    /** Lists active public category nodes for a locale and scope. */
+    publicContentCategories(scope: "post" | "product", locale: string, options?: RequestOptions) {
+        return this.client.get<PublicContentCategory[]>(`/api/v1/public/categories/${encodeURIComponent(scope)}/${encodeURIComponent(locale)}`, undefined, options);
+    }
+    /**
+     * Returns relevance-ranked autocomplete suggestions from published posts,
+     * active products, or both. This public endpoint accepts two or more query
+     * characters, clamps the result limit to 20, and supports cancellation.
+     */
+    autocomplete(params: AutocompleteQuery, options?: RequestOptions) {
+        return this.client.get<AutocompleteResponse>("/api/v1/public/search/autocomplete", params, options);
+    }
+    /** Replay-safe category import for trusted operators with content:write. */
+    importContentCategory(id: Identifier, data: ImportContentCategoryInput, options?: RequestOptions<ImportContentCategoryInput>) {
+        return this.client.put<PublicContentCategory, ImportContentCategoryInput>(`/api/v1/manage/import/categories/${encodeURIComponent(id)}`, data, options);
+    }
+    /** Replay-safe document import; published input additionally requires content:publish. */
+    importContentDocument(id: Identifier, data: ImportContentDocumentInput, options?: RequestOptions<ImportContentDocumentInput>) {
+        return this.client.put<ContentDocument, ImportContentDocumentInput>(`/api/v1/manage/import/content/${encodeURIComponent(id)}`, data, options);
     }
     contentDocuments(params?: ContentDocumentQuery, options?: RequestOptions) {
         return this.client.get<ContentDocument[]>("/api/v1/manage/content", params, options);

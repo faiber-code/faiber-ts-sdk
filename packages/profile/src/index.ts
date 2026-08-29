@@ -23,6 +23,12 @@ export class ProfileApi extends ServiceApi {
     /** @deprecated The profile service has never registered an education-information route. Store custom education data through updateProfile properties instead. */
     educationInformation(_id: Identifier, _data: T.EducationInformationInput, _options?: RequestOptions<T.EducationInformationInput>): never { throw new UnsupportedOperationError("update", "/api/v1/profile/update/education-information/{uuid}"); }
     setProperties(id: Identifier, properties: T.ProfileProperties, options?: RequestOptions<T.ProfilePropertiesInput>) { return this.client.put<T.ProfilePropertiesResponse, T.ProfilePropertiesInput>(`/api/v1/profile/${encodeURIComponent(id)}/properties`, { properties }, options); }
+    addresses(id: Identifier, options?: RequestOptions) { return this.client.get<T.ProfileAddressListResponse>(`/api/v1/profile/get/address/${encodeURIComponent(id)}`, undefined, options); }
+    saveAddress(id: Identifier, data: T.SaveProfileAddressInput, options?: RequestOptions<T.SaveProfileAddressInput>) { return this.client.put<T.ProfileAddressMutationResponse, T.SaveProfileAddressInput>(`/api/v1/profile/add/address/${encodeURIComponent(id)}`, data, options); }
+    deleteAddress(id: Identifier, title: string, options?: RequestOptions) { return this.client.delete<T.ProfileAddressMutationResponse>(`/api/v1/profile/${encodeURIComponent(id)}/delete/address/${encodeURIComponent(title)}`, options); }
+    myAddresses(options?: RequestOptions) { return this.client.get<T.ProfileAddressListResponse>("/api/v1/profile/me/addresses", undefined, options); }
+    saveMyAddress(data: T.SaveProfileAddressInput, options?: RequestOptions<T.SaveProfileAddressInput>) { return this.client.put<T.ProfileAddressMutationResponse, T.SaveProfileAddressInput>("/api/v1/profile/me/addresses", data, options); }
+    deleteMyAddress(title: string, options?: RequestOptions) { return this.client.delete<T.ProfileAddressMutationResponse>(`/api/v1/profile/me/addresses/${encodeURIComponent(title)}`, options); }
     uploadAvatar(id: Identifier, file: Blob, options?: RequestOptions<FormData>) { return this.client.post<T.ProfileMediaResponse, FormData>(`/api/v1/profile/${encodeURIComponent(id)}/avatar`, multipart({ file }), options); }
     deleteAvatar(id: Identifier, options?: RequestOptions) { return this.client.delete<T.ProfileMediaDeleteResponse>(`/api/v1/profile/${encodeURIComponent(id)}/avatar`, options); }
 }

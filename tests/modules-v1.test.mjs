@@ -30,3 +30,12 @@ test("Modules settings updates send optimistic concurrency through If-Match", ()
   assert.match(method, /"If-Match": etag/);
   assert.doesNotMatch(method, /\/api\/v2\//);
 });
+
+test("Modules public content methods encode exact legacy SEO slugs", () => {
+  const method = source.slice(
+    source.indexOf("publicContent("),
+    source.indexOf("publicContentList("),
+  );
+  assert.match(method, /encodeURIComponent\(slug\)/);
+  assert.match(method, /ContentDocument/);
+});

@@ -252,4 +252,3 @@ export class PaymentOperations extends ServiceApi {
     return this.client.request<T.PaymentWebCallbackPostResponse>({ ...options, method: "POST", url: `/payments/callbacks/${encodeURIComponent(provider)}`, params });
   }
 }
-

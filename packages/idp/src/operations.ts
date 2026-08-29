@@ -33,6 +33,16 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.OidcDiscoveryGetResponse>({ ...options, method: "GET", url: `/api/v1/.well-known/openid-configuration` });
   }
   /**
+   * Performs the permission templates index operation for the acl capability.
+   * Calls `GET /api/v1/acl/permission-templates` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  aclPermissionTemplatesIndexGet(options?: RequestOptions) {
+    return this.client.request<T.AclPermissionTemplatesIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/acl/permission-templates` });
+  }
+  /**
    * Performs the permissions index operation for the acl capability.
    * Calls `GET /api/v1/acl/permissions` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -295,17 +305,6 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AuthOauthProvidersGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/oauth/providers` });
   }
   /**
-   * Performs the otp login operation for the auth capability.
-   * Calls `POST /api/v1/auth/otp-login` through the shared IDP-aware Faiber client.
-   * @param data Typed URL-encoded form.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  authOtpLoginPost(data: T.AuthOtpLoginPostInput, options?: RequestOptions<T.AuthOtpLoginPostInput>) {
-    return this.client.request<T.AuthOtpLoginPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/otp-login`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
-  }
-  /**
    * Performs the refresh token operation for the auth capability.
    * Calls `GET /api/v1/auth/refresh` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -314,6 +313,17 @@ export class IdpOperations extends ServiceApi {
    */
   authRefreshTokenGet(options?: RequestOptions) {
     return this.client.request<T.AuthRefreshTokenGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/refresh` });
+  }
+  /**
+   * Performs the otp login operation for the auth capability.
+   * Calls `POST /api/v1/auth/secure/exchange/one-time` through the shared IDP-aware Faiber client.
+   * @param data Typed URL-encoded form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  authOtpLoginPost(data: T.AuthOtpLoginPostInput, options?: RequestOptions<T.AuthOtpLoginPostInput>) {
+    return this.client.request<T.AuthOtpLoginPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/secure/exchange/one-time`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
    * Performs the generate secure one time token route operation for the auth capability.
@@ -570,6 +580,16 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.IdentityAuthorityUpdatePutResponse, T.IdentityAuthorityUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/settings/identity-authority`, data: data });
   }
   /**
+   * Performs the activate canonical operation for the identity authority capability.
+   * Calls `POST /api/v1/settings/identity-authority/activate-canonical` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  identityAuthorityActivateCanonicalPost(options?: RequestOptions) {
+    return this.client.request<T.IdentityAuthorityActivateCanonicalPostResponse>({ ...options, method: "POST", url: `/api/v1/settings/identity-authority/activate-canonical` });
+  }
+  /**
    * Performs the discover operation for the identity authority capability.
    * Calls `POST /api/v1/settings/identity-authority/discover` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
@@ -592,6 +612,17 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.IdentityAuthorityPairCanonicalPostResponse, T.IdentityAuthorityPairCanonicalPostInput>({ ...options, method: "POST", url: `/api/v1/settings/identity-authority/pair`, data: data });
   }
   /**
+   * Performs the pair faiber operation for the identity authority capability.
+   * Calls `POST /api/v1/settings/identity-authority/pair-faiber` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  identityAuthorityPairFaiberPost(data: T.IdentityAuthorityPairFaiberPostInput, options?: RequestOptions<T.IdentityAuthorityPairFaiberPostInput>) {
+    return this.client.request<T.IdentityAuthorityPairFaiberPostResponse, T.IdentityAuthorityPairFaiberPostInput>({ ...options, method: "POST", url: `/api/v1/settings/identity-authority/pair-faiber`, data: data });
+  }
+  /**
    * Performs the create pairing invitation operation for the identity authority capability.
    * Calls `POST /api/v1/settings/identity-authority/pairing-invitations` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
@@ -601,6 +632,59 @@ export class IdpOperations extends ServiceApi {
    */
   identityAuthorityCreatePairingInvitationPost(data: T.IdentityAuthorityCreatePairingInvitationPostInput, options?: RequestOptions<T.IdentityAuthorityCreatePairingInvitationPostInput>) {
     return this.client.request<T.IdentityAuthorityCreatePairingInvitationPostResponse, T.IdentityAuthorityCreatePairingInvitationPostInput>({ ...options, method: "POST", url: `/api/v1/settings/identity-authority/pairing-invitations`, data: data });
+  }
+  /**
+   * Performs the login page settings show operation for the settings capability.
+   * Calls `GET /api/v1/settings/login-page` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  settingsLoginPageSettingsShowGet(options?: RequestOptions) {
+    return this.client.request<T.SettingsLoginPageSettingsShowGetResponse>({ ...options, method: "GET", url: `/api/v1/settings/login-page` });
+  }
+  /**
+   * Performs the login page settings update operation for the settings capability.
+   * Calls `PUT /api/v1/settings/login-page` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  settingsLoginPageSettingsUpdatePut(data: T.SettingsLoginPageSettingsUpdatePutInput, options?: RequestOptions<T.SettingsLoginPageSettingsUpdatePutInput>) {
+    return this.client.request<T.SettingsLoginPageSettingsUpdatePutResponse, T.SettingsLoginPageSettingsUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/settings/login-page`, data: data });
+  }
+  /**
+   * Performs the login page asset upload operation for the settings capability.
+   * Calls `POST /api/v1/settings/login-page/assets` through the shared IDP-aware Faiber client.
+   * @param data Typed multipart form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  settingsLoginPageAssetUploadPost(data: T.SettingsLoginPageAssetUploadPostInput, options?: RequestOptions<T.SettingsLoginPageAssetUploadPostInput>) {
+    return this.client.request<T.SettingsLoginPageAssetUploadPostResponse, T.SettingsLoginPageAssetUploadPostInput>({ ...options, method: "POST", url: `/api/v1/settings/login-page/assets`, data: data });
+  }
+  /**
+   * Performs the login page asset operation for the settings capability.
+   * Calls `GET /api/v1/settings/login-page/assets/{asset_key}` through the shared IDP-aware Faiber client.
+   * @param assetKey Backend path identifier `asset_key`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  settingsLoginPageAssetGet(assetKey: Identifier, options?: RequestOptions) {
+    return this.client.request<T.SettingsLoginPageAssetGetResponse>({ ...options, method: "GET", url: `/api/v1/settings/login-page/assets/${encodeURIComponent(assetKey)}` });
+  }
+  /**
+   * Performs the login page settings public operation for the settings capability.
+   * Calls `GET /api/v1/settings/login-page/public` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  settingsLoginPageSettingsPublicGet(options?: RequestOptions) {
+    return this.client.request<T.SettingsLoginPageSettingsPublicGetResponse>({ ...options, method: "GET", url: `/api/v1/settings/login-page/public` });
   }
   /**
    * Performs the oauth settings show operation for the settings capability.
@@ -895,6 +979,17 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.UserUserFindSelfGetResponse>({ ...options, method: "GET", url: `/api/v1/users/self` });
   }
   /**
+   * Performs the user update self operation for the user capability.
+   * Calls `PATCH /api/v1/users/self` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  userUserUpdateSelfPatch(data: T.UserUserUpdateSelfPatchInput, options?: RequestOptions<T.UserUserUpdateSelfPatchInput>) {
+    return this.client.request<T.UserUserUpdateSelfPatchResponse, T.UserUserUpdateSelfPatchInput>({ ...options, method: "PATCH", url: `/api/v1/users/self`, data: data });
+  }
+  /**
    * Performs the users stats operation for the user capability.
    * Calls `GET /api/v1/users/stats` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -915,4 +1010,3 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.UserSyncUsersGetResponse>({ ...options, method: "GET", url: `/api/v1/users/sync` });
   }
 }
-

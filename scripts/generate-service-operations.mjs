@@ -1,8 +1,16 @@
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { access, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const servicesRoot = resolve(process.env.FAIBER_SERVICES_ROOT ?? join(root, "..", "services"));
+const siblingRoots = [join(root, "..", "Service"), join(root, "..", "services")];
+const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async () => {
+  for (const candidate of siblingRoots) {
+    try { await access(candidate); return candidate; } catch { /* keep looking */ }
+  }
+  return siblingRoots[0];
+})();
+const servicesRoot = resolve(discoveredServicesRoot);
+const serviceDirectories = { version: "infera_version" };
 const manifestPath = resolve(process.argv[2] ?? join(root, "service-contracts.json"));
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
 const selectedServices = new Set(
@@ -157,7 +165,13 @@ function resolveStruct(files, module, raw) {
   const name = typeName(raw);
   if (!name) return null;
   const matches = files.map(file => structFrom(file, name)).filter(Boolean);
-  if (!matches.length) return null;
+  if (!matches.length) {
+    for (const file of files) {
+      const alias = new RegExp(`(?:pub\\s+)?type\\s+${name}\\s*=\\s*([^;]+);`).exec(file.source)?.[1]?.trim();
+      if (alias && typeName(alias) !== name) return resolveStruct(files, module, alias);
+    }
+    return null;
+  }
   return matches.find(item => item.file.path.includes(`/${module}/`))
     ?? matches.find(item => basename(item.file.path) === "models.rs")
     ?? matches[0];
@@ -270,7 +284,7 @@ function responseDataType(lines, files, module, raw, base) {
 
 for (const [service, endpoints] of Object.entries(manifest)) {
   if (selectedServices.size && !selectedServices.has(service)) continue;
-  const files = await rustFiles(join(servicesRoot, `infera-${service}`));
+  const files = await rustFiles(join(servicesRoot, serviceDirectories[service] ?? `infera-${service}`));
   const nameCounts = endpoints.reduce((counts, endpoint) => counts.set(operationBaseName(endpoint), (counts.get(operationBaseName(endpoint)) ?? 0) + 1), new Map());
   const operationName = endpoint => {
     const base = operationBaseName(endpoint);
@@ -360,8 +374,8 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push("  }");
   }
   operationLines.push("}", "");
-  await writeFile(join(root, "packages", service, "src", "operations.types.ts"), `${typeLines.join("\n")}\n`);
-  await writeFile(join(root, "packages", service, "src", "operations.ts"), `${operationLines.join("\n")}\n`);
+  await writeFile(join(root, "packages", service, "src", "operations.types.ts"), `${typeLines.join("\n").trimEnd()}\n`);
+  await writeFile(join(root, "packages", service, "src", "operations.ts"), `${operationLines.join("\n").trimEnd()}\n`);
   const indexPath = join(root, "packages", service, "src", "index.ts");
   let index = await readFile(indexPath, "utf8");
   const operationsClass = `${pascal(service)}Operations`;

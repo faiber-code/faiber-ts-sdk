@@ -267,6 +267,62 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.CountryRestoreGetResponse>({ ...options, method: "GET", url: `/api/v1/country/undo/${encodeURIComponent(id)}` });
   }
   /**
+   * Performs the index operation for the custom type capability.
+   * Calls `GET /api/v1/custom-type` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  customTypeIndexGet(params?: T.CustomTypeIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CustomTypeIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/custom-type`, params });
+  }
+  /**
+   * Performs the store operation for the custom type capability.
+   * Calls `POST /api/v1/custom-type` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  customTypeStorePost(data: T.CustomTypeStorePostInput, options?: RequestOptions<T.CustomTypeStorePostInput>) {
+    return this.client.request<T.CustomTypeStorePostResponse, T.CustomTypeStorePostInput>({ ...options, method: "POST", url: `/api/v1/custom-type`, data: data });
+  }
+  /**
+   * Performs the destroy operation for the custom type capability.
+   * Calls `DELETE /api/v1/custom-type/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  customTypeDestroyDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CustomTypeDestroyDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/custom-type/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show operation for the custom type capability.
+   * Calls `GET /api/v1/custom-type/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  customTypeShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CustomTypeShowGetResponse>({ ...options, method: "GET", url: `/api/v1/custom-type/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update operation for the custom type capability.
+   * Calls `PATCH /api/v1/custom-type/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  customTypeUpdatePatch(id: Identifier, data: T.CustomTypeUpdatePatchInput, options?: RequestOptions<T.CustomTypeUpdatePatchInput>) {
+    return this.client.request<T.CustomTypeUpdatePatchResponse, T.CustomTypeUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/custom-type/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
    * Performs the dependency operation for the option capability.
    * Calls `GET /api/v1/dependency` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -361,6 +417,17 @@ export class ProfileOperations extends ServiceApi {
    */
   loggerShowGet(log: Identifier, options?: RequestOptions) {
     return this.client.request<T.LoggerShowGetResponse>({ ...options, method: "GET", url: `/api/v1/logger/${encodeURIComponent(log)}` });
+  }
+  /**
+   * Performs the parent children get operation for the option capability.
+   * Calls `POST /api/v1/parent/children/get` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  optionParentChildrenGetPost(data: T.OptionParentChildrenGetPostInput, options?: RequestOptions<T.OptionParentChildrenGetPostInput>) {
+    return this.client.request<T.OptionParentChildrenGetPostResponse, T.OptionParentChildrenGetPostInput>({ ...options, method: "POST", url: `/api/v1/parent/children/get`, data: data });
   }
   /**
    * Performs the parent get operation for the option capability.
@@ -485,6 +552,85 @@ export class ProfileOperations extends ServiceApi {
    */
   profilePropertyRestoreGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ProfilePropertyRestoreGetResponse>({ ...options, method: "GET", url: `/api/v1/profile-property-definition/undo/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show profile referral operation for the referral capability.
+   * Calls `GET /api/v1/profile-referral/{profile_id}` through the shared IDP-aware Faiber client.
+   * @param profileId Backend path identifier `profile_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  referralShowProfileReferralGet(profileId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ReferralShowProfileReferralGetResponse>({ ...options, method: "GET", url: `/api/v1/profile-referral/${encodeURIComponent(profileId)}` });
+  }
+  /**
+   * Performs the assign operation for the referral capability.
+   * Calls `PUT /api/v1/profile-referral/{profile_id}` through the shared IDP-aware Faiber client.
+   * @param profileId Backend path identifier `profile_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  referralAssignPut(profileId: Identifier, data: T.ReferralAssignPutInput, options?: RequestOptions<T.ReferralAssignPutInput>) {
+    return this.client.request<T.ReferralAssignPutResponse, T.ReferralAssignPutInput>({ ...options, method: "PUT", url: `/api/v1/profile-referral/${encodeURIComponent(profileId)}`, data: data });
+  }
+  /**
+   * Performs the list relations operation for the relation capability.
+   * Calls `GET /api/v1/profile-relation` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationListRelationsGet(params?: T.RelationListRelationsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RelationListRelationsGetResponse>({ ...options, method: "GET", url: `/api/v1/profile-relation`, params });
+  }
+  /**
+   * Performs the create relation operation for the relation capability.
+   * Calls `POST /api/v1/profile-relation` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationCreateRelationPost(data: T.RelationCreateRelationPostInput, options?: RequestOptions<T.RelationCreateRelationPostInput>) {
+    return this.client.request<T.RelationCreateRelationPostResponse, T.RelationCreateRelationPostInput>({ ...options, method: "POST", url: `/api/v1/profile-relation`, data: data });
+  }
+  /**
+   * Performs the delete relation operation for the relation capability.
+   * Calls `DELETE /api/v1/profile-relation/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationDeleteRelationDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RelationDeleteRelationDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/profile-relation/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show relation operation for the relation capability.
+   * Calls `GET /api/v1/profile-relation/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationShowRelationGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RelationShowRelationGetResponse>({ ...options, method: "GET", url: `/api/v1/profile-relation/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update relation operation for the relation capability.
+   * Calls `PUT /api/v1/profile-relation/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationUpdateRelationPut(id: Identifier, data: T.RelationUpdateRelationPutInput, options?: RequestOptions<T.RelationUpdateRelationPutInput>) {
+    return this.client.request<T.RelationUpdateRelationPutResponse, T.RelationUpdateRelationPutInput>({ ...options, method: "PUT", url: `/api/v1/profile-relation/${encodeURIComponent(id)}`, data: data });
   }
   /**
    * Performs the delete parent operation for the profile capability.
@@ -903,6 +1049,49 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.ProfileManagerIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/manager`, params });
   }
   /**
+   * Performs the get my addresses operation for the profile capability.
+   * Calls `GET /api/v1/profile/me/addresses` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileGetMyAddressesGet(options?: RequestOptions) {
+    return this.client.request<T.ProfileGetMyAddressesGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/me/addresses` });
+  }
+  /**
+   * Performs the save my address operation for the profile capability.
+   * Calls `PATCH /api/v1/profile/me/addresses` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileSaveMyAddressPatch(data: T.ProfileSaveMyAddressPatchInput, options?: RequestOptions<T.ProfileSaveMyAddressPatchInput>) {
+    return this.client.request<T.ProfileSaveMyAddressPatchResponse, T.ProfileSaveMyAddressPatchInput>({ ...options, method: "PATCH", url: `/api/v1/profile/me/addresses`, data: data });
+  }
+  /**
+   * Performs the save my address operation for the profile capability.
+   * Calls `PUT /api/v1/profile/me/addresses` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileSaveMyAddressPut(data: T.ProfileSaveMyAddressPutInput, options?: RequestOptions<T.ProfileSaveMyAddressPutInput>) {
+    return this.client.request<T.ProfileSaveMyAddressPutResponse, T.ProfileSaveMyAddressPutInput>({ ...options, method: "PUT", url: `/api/v1/profile/me/addresses`, data: data });
+  }
+  /**
+   * Performs the delete my address operation for the profile capability.
+   * Calls `DELETE /api/v1/profile/me/addresses/{title}` through the shared IDP-aware Faiber client.
+   * @param title Backend path identifier `title`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileDeleteMyAddressDelete(title: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ProfileDeleteMyAddressDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/profile/me/addresses/${encodeURIComponent(title)}` });
+  }
+  /**
    * Performs the other index operation for the profile capability.
    * Calls `GET /api/v1/profile/other` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -1169,6 +1358,116 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.ProvinceRestoreGetResponse>({ ...options, method: "GET", url: `/api/v1/province/undo/${encodeURIComponent(id)}` });
   }
   /**
+   * Performs the list operation for the referral capability.
+   * Calls `GET /api/v1/referral-source` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  referralListGet(options?: RequestOptions) {
+    return this.client.request<T.ReferralListGetResponse>({ ...options, method: "GET", url: `/api/v1/referral-source` });
+  }
+  /**
+   * Performs the create operation for the referral capability.
+   * Calls `POST /api/v1/referral-source` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  referralCreatePost(data: T.ReferralCreatePostInput, options?: RequestOptions<T.ReferralCreatePostInput>) {
+    return this.client.request<T.ReferralCreatePostResponse, T.ReferralCreatePostInput>({ ...options, method: "POST", url: `/api/v1/referral-source`, data: data });
+  }
+  /**
+   * Performs the delete operation for the referral capability.
+   * Calls `DELETE /api/v1/referral-source/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  referralDeleteDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ReferralDeleteDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/referral-source/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show operation for the referral capability.
+   * Calls `GET /api/v1/referral-source/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  referralShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ReferralShowGetResponse>({ ...options, method: "GET", url: `/api/v1/referral-source/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update operation for the referral capability.
+   * Calls `PUT /api/v1/referral-source/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  referralUpdatePut(id: Identifier, data: T.ReferralUpdatePutInput, options?: RequestOptions<T.ReferralUpdatePutInput>) {
+    return this.client.request<T.ReferralUpdatePutResponse, T.ReferralUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/referral-source/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the list types operation for the relation capability.
+   * Calls `GET /api/v1/relation-type` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationListTypesGet(options?: RequestOptions) {
+    return this.client.request<T.RelationListTypesGetResponse>({ ...options, method: "GET", url: `/api/v1/relation-type` });
+  }
+  /**
+   * Performs the create type operation for the relation capability.
+   * Calls `POST /api/v1/relation-type` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationCreateTypePost(data: T.RelationCreateTypePostInput, options?: RequestOptions<T.RelationCreateTypePostInput>) {
+    return this.client.request<T.RelationCreateTypePostResponse, T.RelationCreateTypePostInput>({ ...options, method: "POST", url: `/api/v1/relation-type`, data: data });
+  }
+  /**
+   * Performs the delete type operation for the relation capability.
+   * Calls `DELETE /api/v1/relation-type/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationDeleteTypeDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RelationDeleteTypeDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/relation-type/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show type operation for the relation capability.
+   * Calls `GET /api/v1/relation-type/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationShowTypeGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RelationShowTypeGetResponse>({ ...options, method: "GET", url: `/api/v1/relation-type/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update type operation for the relation capability.
+   * Calls `PUT /api/v1/relation-type/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  relationUpdateTypePut(id: Identifier, data: T.RelationUpdateTypePutInput, options?: RequestOptions<T.RelationUpdateTypePutInput>) {
+    return this.client.request<T.RelationUpdateTypePutResponse, T.RelationUpdateTypePutInput>({ ...options, method: "PUT", url: `/api/v1/relation-type/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
    * Performs the index operation for the setting capability.
    * Calls `GET /api/v1/setting` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -1188,6 +1487,271 @@ export class ProfileOperations extends ServiceApi {
    */
   settingStorePost(data: T.SettingStorePostInput, options?: RequestOptions<T.SettingStorePostInput>) {
     return this.client.request<T.SettingStorePostResponse, T.SettingStorePostInput>({ ...options, method: "POST", url: `/api/v1/setting`, data: data });
+  }
+  /**
+   * Performs the actions list operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-action` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleActionsListGet(params?: T.LifecycleActionsListGetQuery, options?: RequestOptions) {
+    return this.client.request<T.LifecycleActionsListGetResponse>({ ...options, method: "GET", url: `/api/v1/state-action`, params });
+  }
+  /**
+   * Performs the create action operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-action` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleCreateActionPost(data: T.LifecycleCreateActionPostInput, options?: RequestOptions<T.LifecycleCreateActionPostInput>) {
+    return this.client.request<T.LifecycleCreateActionPostResponse, T.LifecycleCreateActionPostInput>({ ...options, method: "POST", url: `/api/v1/state-action`, data: data });
+  }
+  /**
+   * Performs the delete action operation for the lifecycle capability.
+   * Calls `DELETE /api/v1/state-action/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleDeleteActionDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.LifecycleDeleteActionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/state-action/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show action operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-action/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleShowActionGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.LifecycleShowActionGetResponse>({ ...options, method: "GET", url: `/api/v1/state-action/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update action operation for the lifecycle capability.
+   * Calls `PUT /api/v1/state-action/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleUpdateActionPut(id: Identifier, data: T.LifecycleUpdateActionPutInput, options?: RequestOptions<T.LifecycleUpdateActionPutInput>) {
+    return this.client.request<T.LifecycleUpdateActionPutResponse, T.LifecycleUpdateActionPutInput>({ ...options, method: "PUT", url: `/api/v1/state-action/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the dry run action operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-action/dry-run` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleDryRunActionPost(data: T.LifecycleDryRunActionPostInput, options?: RequestOptions<T.LifecycleDryRunActionPostInput>) {
+    return this.client.request<T.LifecycleDryRunActionPostResponse, T.LifecycleDryRunActionPostInput>({ ...options, method: "POST", url: `/api/v1/state-action/dry-run`, data: data });
+  }
+  /**
+   * Performs the states operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-definition` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleStatesGet(params?: T.LifecycleStatesGetQuery, options?: RequestOptions) {
+    return this.client.request<T.LifecycleStatesGetResponse>({ ...options, method: "GET", url: `/api/v1/state-definition`, params });
+  }
+  /**
+   * Performs the create state operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-definition` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleCreateStatePost(data: T.LifecycleCreateStatePostInput, options?: RequestOptions<T.LifecycleCreateStatePostInput>) {
+    return this.client.request<T.LifecycleCreateStatePostResponse, T.LifecycleCreateStatePostInput>({ ...options, method: "POST", url: `/api/v1/state-definition`, data: data });
+  }
+  /**
+   * Performs the delete state operation for the lifecycle capability.
+   * Calls `DELETE /api/v1/state-definition/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleDeleteStateDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.LifecycleDeleteStateDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/state-definition/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show state operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-definition/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleShowStateGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.LifecycleShowStateGetResponse>({ ...options, method: "GET", url: `/api/v1/state-definition/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update state operation for the lifecycle capability.
+   * Calls `PUT /api/v1/state-definition/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleUpdateStatePut(id: Identifier, data: T.LifecycleUpdateStatePutInput, options?: RequestOptions<T.LifecycleUpdateStatePutInput>) {
+    return this.client.request<T.LifecycleUpdateStatePutResponse, T.LifecycleUpdateStatePutInput>({ ...options, method: "PUT", url: `/api/v1/state-definition/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the action attempts operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-evaluation/action-attempts` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleActionAttemptsGet(params?: T.LifecycleActionAttemptsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.LifecycleActionAttemptsGetResponse>({ ...options, method: "GET", url: `/api/v1/state-evaluation/action-attempts`, params });
+  }
+  /**
+   * Performs the evaluate operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-evaluation/evaluate` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleEvaluatePost(data: T.LifecycleEvaluatePostInput, options?: RequestOptions<T.LifecycleEvaluatePostInput>) {
+    return this.client.request<T.LifecycleEvaluatePostResponse, T.LifecycleEvaluatePostInput>({ ...options, method: "POST", url: `/api/v1/state-evaluation/evaluate`, data: data });
+  }
+  /**
+   * Performs the outbox operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-evaluation/outbox` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleOutboxGet(params?: T.LifecycleOutboxGetQuery, options?: RequestOptions) {
+    return this.client.request<T.LifecycleOutboxGetResponse>({ ...options, method: "GET", url: `/api/v1/state-evaluation/outbox`, params });
+  }
+  /**
+   * Performs the retry operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-evaluation/outbox/{id}/retry` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleRetryPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.LifecycleRetryPostResponse>({ ...options, method: "POST", url: `/api/v1/state-evaluation/outbox/${encodeURIComponent(id)}/retry` });
+  }
+  /**
+   * Performs the process outbox operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-evaluation/outbox/process` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleProcessOutboxPost(options?: RequestOptions) {
+    return this.client.request<T.LifecycleProcessOutboxPostResponse>({ ...options, method: "POST", url: `/api/v1/state-evaluation/outbox/process` });
+  }
+  /**
+   * Performs the preview operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-evaluation/preview` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecyclePreviewPost(data: T.LifecyclePreviewPostInput, options?: RequestOptions<T.LifecyclePreviewPostInput>) {
+    return this.client.request<T.LifecyclePreviewPostResponse, T.LifecyclePreviewPostInput>({ ...options, method: "POST", url: `/api/v1/state-evaluation/preview`, data: data });
+  }
+  /**
+   * Performs the transitions operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-evaluation/transitions` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleTransitionsGet(params?: T.LifecycleTransitionsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.LifecycleTransitionsGetResponse>({ ...options, method: "GET", url: `/api/v1/state-evaluation/transitions`, params });
+  }
+  /**
+   * Performs the validate rule operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-evaluation/validate-rule` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleValidateRulePost(data: T.LifecycleValidateRulePostInput, options?: RequestOptions<T.LifecycleValidateRulePostInput>) {
+    return this.client.request<T.LifecycleValidateRulePostResponse, T.LifecycleValidateRulePostInput>({ ...options, method: "POST", url: `/api/v1/state-evaluation/validate-rule`, data: data });
+  }
+  /**
+   * Performs the systems operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-system` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleSystemsGet(options?: RequestOptions) {
+    return this.client.request<T.LifecycleSystemsGetResponse>({ ...options, method: "GET", url: `/api/v1/state-system` });
+  }
+  /**
+   * Performs the create system operation for the lifecycle capability.
+   * Calls `POST /api/v1/state-system` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleCreateSystemPost(data: T.LifecycleCreateSystemPostInput, options?: RequestOptions<T.LifecycleCreateSystemPostInput>) {
+    return this.client.request<T.LifecycleCreateSystemPostResponse, T.LifecycleCreateSystemPostInput>({ ...options, method: "POST", url: `/api/v1/state-system`, data: data });
+  }
+  /**
+   * Performs the delete system operation for the lifecycle capability.
+   * Calls `DELETE /api/v1/state-system/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleDeleteSystemDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.LifecycleDeleteSystemDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/state-system/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show system operation for the lifecycle capability.
+   * Calls `GET /api/v1/state-system/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleShowSystemGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.LifecycleShowSystemGetResponse>({ ...options, method: "GET", url: `/api/v1/state-system/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update system operation for the lifecycle capability.
+   * Calls `PUT /api/v1/state-system/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  lifecycleUpdateSystemPut(id: Identifier, data: T.LifecycleUpdateSystemPutInput, options?: RequestOptions<T.LifecycleUpdateSystemPutInput>) {
+    return this.client.request<T.LifecycleUpdateSystemPutResponse, T.LifecycleUpdateSystemPutInput>({ ...options, method: "PUT", url: `/api/v1/state-system/${encodeURIComponent(id)}`, data: data });
   }
   /**
    * Performs the index operation for the survey capability.
@@ -1373,4 +1937,3 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.RouterHealthGetUpResponse>({ ...options, method: "GET", url: `/up` });
   }
 }
-

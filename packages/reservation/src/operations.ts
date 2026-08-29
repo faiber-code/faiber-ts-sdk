@@ -325,4 +325,3 @@ export class ReservationOperations extends ServiceApi {
     return this.client.request<T.RouterHealthGetHealthResponse>({ ...options, method: "GET", url: `/health` });
   }
 }
-

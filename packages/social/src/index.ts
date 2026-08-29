@@ -4,7 +4,7 @@ import type {
   LegacyImportReport, ModerateTargetInput, ModerationQueueResponse, ReactionSummaryResponse,
   ModerationActionResponse, ModerationAuditQuery, ModerationAuditResponse, SocialReportResponse,
   SetReactionInput, SocialCategoryListResponse, SocialCategoryResponse, SocialCommentListResponse, SocialCommentResponse, SocialPostListResponse,
-  SocialPostResponse, SocialReactionResponse, UpdateCategoryInput, UpdateCommentInput, UpdatePostInput, ShareEventInput, CreatorAnalyticsResponse, SocialMediaResponse,
+  SocialPostResponse, SocialReactionResponse, UpdateCategoryInput, UpdateCommentInput, UpdatePostInput, ShareEventInput, CreatorAnalyticsResponse, SocialMediaResponse, FeedLocationPreferenceResponse, SetFeedLocationInput,
 } from "./types.js";
 
 const id = (value: Identifier) => encodeURIComponent(value);
@@ -23,6 +23,9 @@ export class SocialApi extends ServiceApi {
   updatePost(postId: Identifier, data: UpdatePostInput, options?: RequestOptions<UpdatePostInput>) { return this.client.patch<SocialPostResponse, UpdatePostInput>(`/api/v1/posts/${id(postId)}`, data, options); }
   deletePost(postId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/posts/${id(postId)}`, options); }
   myPosts(params?: FeedQuery, options?: RequestOptions) { return this.client.get<SocialPostListResponse>("/api/v1/me/posts", params, options); }
+  feedLocation(options?: RequestOptions) { return this.client.get<FeedLocationPreferenceResponse>("/api/v1/me/feed-location", undefined, options); }
+  setFeedLocation(data: SetFeedLocationInput, options?: RequestOptions<SetFeedLocationInput>) { return this.client.put<FeedLocationPreferenceResponse, SetFeedLocationInput>("/api/v1/me/feed-location", data, options); }
+  clearFeedLocation(options?: RequestOptions) { return this.client.delete<void>("/api/v1/me/feed-location", options); }
   myBookmarks(options?: RequestOptions) { return this.client.get<ApiEnvelope<string[]>>("/api/v1/me/bookmarks", undefined, options); }
   resubmitPost(postId: Identifier, options?: RequestOptions) { return this.client.post<SocialPostResponse, Record<string, never>>(`/api/v1/posts/${id(postId)}/resubmit`, {}, options); }
   comments(postId: Identifier, options?: RequestOptions) { return this.client.get<SocialCommentListResponse>(`/api/v1/posts/${id(postId)}/comments`, undefined, options); }

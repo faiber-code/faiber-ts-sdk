@@ -8,6 +8,15 @@ export interface ApiImportModulesPostInput extends JsonObject {
 /** Backend response type: legacy::LegacyImportReport. */
 export type ApiImportModulesPostResponse = import("./types.js").LegacyImportResponse;
 
+/** Backend response type: SessionIdentity. */
+export interface ApiSelfIdentityGetResponseData extends JsonObject {
+  "user_id": string;
+  "roles": string[];
+  "permissions": string[];
+}
+export interface ApiSelfIdentityGetResponse extends ApiEnvelope<ApiSelfIdentityGetResponseData> {
+}
+
 /** Backend response type: Value. */
 export type ApiListCategoriesGetResponse = import("./types.js").SocialCategoryListResponse;
 
@@ -142,6 +151,23 @@ export interface ApiMyClaimsGetQuery extends QueryParams {
 }
 /** Backend response type: Value. */
 export interface ApiMyClaimsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: no-content. */
+export type ApiClearFeedLocationDeleteResponse = void;
+
+/** Backend response type: Value. */
+export interface ApiGetFeedLocationGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: SetFeedLocation. */
+export interface ApiSetFeedLocationPutInput extends JsonObject {
+  "latitude": number;
+  "longitude": number;
+  "range_km": number;
+}
+/** Backend response type: Value. */
+export interface ApiSetFeedLocationPutResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: FeedQuery. */
@@ -359,4 +385,3 @@ export interface MainHealthGetResponseData extends JsonObject {
 }
 export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
 }
-

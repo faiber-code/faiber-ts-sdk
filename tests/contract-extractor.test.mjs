@@ -19,6 +19,18 @@ test("contract extraction finds the sibling services tree and emits portable mou
     const manifest = JSON.parse(await readFile(output, "utf8"));
     assert.ok(manifest.modules.length > 0);
     assert.ok(manifest.modules.some(endpoint => endpoint.path === "/api/v1/manage/content"));
+    const drmOperationsSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/operations/settings");
+    const drmKnowledgeSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/mixed-media/{id}/knowledge-sync");
+    assert.deepEqual(
+      { pathParam: drmOperationsSettings?.pathParam, response: drmOperationsSettings?.response },
+      { pathParam: undefined, response: "SettingsResponse" },
+      "qualified DRM operations settings must resolve operations_handlers::get_settings",
+    );
+    assert.deepEqual(
+      { pathParam: drmKnowledgeSettings?.pathParam, response: drmKnowledgeSettings?.response },
+      { pathParam: "Uuid", response: "KnowledgeSyncSettings" },
+      "qualified DRM knowledge sync must resolve knowledge_sync::get_settings",
+    );
     for (const endpoints of Object.values(manifest)) {
       for (const endpoint of endpoints) {
         assert.doesNotMatch(endpoint.path, /\/api\/v1\/api\/v1\//);

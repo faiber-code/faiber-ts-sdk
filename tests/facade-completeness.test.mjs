@@ -18,6 +18,9 @@ test("the facade and AI catalog cover every sandbox service exactly once", () =>
     assert.match(capability.environmentVariable, /^FAIBER_[A-Z]+_URL$/);
     assert.ok(capability.operationCount > 0);
     assert.ok(capability.auth.length > 20);
+    if (manifest[capability.service]) {
+      assert.equal(capability.operationCount, manifest[capability.service].length, `${capability.service} catalog operation count`);
+    }
   }
 });
 
@@ -77,16 +80,18 @@ test("generated contracts have exact route coverage, named outputs, and complete
     }
     total += endpoints.length;
   }
-  assert.equal(total, 933);
+  assert.equal(total, 1100);
 });
 
 test("every published workspace package includes developer documentation", async () => {
+  const rootPackage = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
+  const releaseVersion = rootPackage.version;
   const packageNames = await readdir(new URL("../packages", import.meta.url));
   for (const name of packageNames) {
     const packageJson = JSON.parse(await readFile(new URL(`../packages/${name}/package.json`, import.meta.url), "utf8"));
-    assert.equal(packageJson.version, "0.6.1", `${packageJson.name} release version`);
+    assert.equal(packageJson.version, releaseVersion, `${packageJson.name} release version`);
     for (const [dependency, version] of Object.entries(packageJson.dependencies ?? {})) {
-      if (dependency.startsWith("@faiber/")) assert.equal(version, "0.6.1", `${packageJson.name} -> ${dependency}`);
+      if (dependency.startsWith("@faiber/")) assert.equal(version, releaseVersion, `${packageJson.name} -> ${dependency}`);
     }
     assert.ok(packageJson.files.includes("README.md"), `${packageJson.name} publishes README`);
     const readme = await readFile(new URL(`../packages/${name}/README.md`, import.meta.url), "utf8");

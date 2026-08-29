@@ -1,6 +1,10 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
+/** Backend response type: Value. */
+export interface RoutesAssistantContextCatalogGetResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: AssistantModelsQuery. */
 export interface RoutesAssistantModelsGetQuery extends QueryParams {
   "billing_payer"?: string | null;
@@ -21,6 +25,21 @@ export interface RoutesCreateAssistantPostInput extends JsonObject {
   "billing_payer"?: string;
   "knowledge_group_slugs"?: string[];
   "knowledge_level"?: number | null;
+  "knowledge_base_ids"?: string[];
+  "recommender_group_ids"?: string[];
+  "short_memory_enabled"?: boolean;
+  "long_memory_enabled"?: boolean;
+  "short_memory_turns"?: number;
+  "long_memory_limit"?: number;
+  "context_mode"?: string;
+  "context_budget_tokens"?: number;
+  "max_knowledge_results"?: number;
+  "max_chunks_per_document"?: number;
+  "knowledge_enabled"?: boolean;
+  "recommenders_enabled"?: boolean;
+  "selected_media_enabled"?: boolean;
+  "session_access"?: boolean;
+  "drm_access"?: boolean;
   "customer_actions"?: BackendJson<"CustomerAction">[];
 }
 /** Backend response type: Value. */
@@ -42,6 +61,21 @@ export interface RoutesUpdateAssistantPutInput extends JsonObject {
   "billing_payer"?: string | null;
   "knowledge_group_slugs"?: string[] | null;
   "knowledge_level"?: number | null;
+  "knowledge_base_ids"?: string[] | null;
+  "recommender_group_ids"?: string[] | null;
+  "short_memory_enabled"?: boolean | null;
+  "long_memory_enabled"?: boolean | null;
+  "short_memory_turns"?: number | null;
+  "long_memory_limit"?: number | null;
+  "context_mode"?: string | null;
+  "context_budget_tokens"?: number | null;
+  "max_knowledge_results"?: number | null;
+  "max_chunks_per_document"?: number | null;
+  "knowledge_enabled"?: boolean | null;
+  "recommenders_enabled"?: boolean | null;
+  "selected_media_enabled"?: boolean | null;
+  "session_access"?: boolean | null;
+  "drm_access"?: boolean | null;
   "customer_actions"?: BackendJson<"CustomerAction">[] | null;
   "status"?: string | null;
   "expected_version"?: number | null;
@@ -65,6 +99,25 @@ export interface RoutesListAssistantsGetResponse extends ApiEnvelope<JsonValue> 
 
 /** Backend response type: Value. */
 export interface RoutesGetAssistantGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: entity::attachment::Model. */
+export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
+  "id": string;
+  "conversation_id": string;
+  "user_message_id": string;
+  "assistant_message_id"?: string | null;
+  "agentic_thread_id": string;
+  "agent_slug": string;
+  "agentic_request_id"?: string | null;
+  "model_ref"?: string | null;
+  "status": string;
+  "usage": BackendJson<"Json">;
+  "error"?: string | null;
+  "created_at": string;
+  "completed_at"?: string | null;
+}
+export interface RoutesCompleteAttachmentPostResponse extends ApiEnvelope<RoutesCompleteAttachmentPostResponseData> {
 }
 
 /** Backend response type: Value. */
@@ -116,9 +169,41 @@ export interface RoutesAiSendPostInput extends JsonObject {
   "inputs"?: JsonValue;
   "knowledge_group_slugs"?: string[];
   "knowledge_level"?: number | null;
+  "drm_media_ids"?: string[];
+  "session_room_id"?: string | null;
 }
 /** Backend response type: Value. */
 export interface RoutesAiSendPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface RoutesAiRuntimeInputsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: CompleteAiRuntimeInput. */
+export interface RoutesAiCompleteRuntimeInputPostInput extends JsonObject {
+  "value"?: JsonValue;
+  "cancelled"?: boolean;
+}
+/** Backend response type: Value. */
+export interface RoutesAiCompleteRuntimeInputPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: CreateAttachment. */
+export interface RoutesCreateAttachmentPostInput extends JsonObject {
+  "file_name": string;
+  "media_type": string;
+  "byte_size": number;
+  "checksum_sha256"?: string | null;
+  "metadata"?: JsonValue;
+}
+/** Backend response type: AttachmentUpload. */
+export interface RoutesCreateAttachmentPostResponseData extends JsonObject {
+  "attachment": BackendJson<"entity::attachment::Model">;
+  "upload_url": string;
+  "expires_in_seconds": number;
+}
+export interface RoutesCreateAttachmentPostResponse extends ApiEnvelope<RoutesCreateAttachmentPostResponseData> {
 }
 
 /** Backend response type: raw-response. */
@@ -160,6 +245,7 @@ export interface RoutesSendPostInput extends JsonObject {
   "reply_to_id"?: string | null;
   "thread_root_id"?: string | null;
   "client_id"?: string | null;
+  "attachment_ids"?: string[];
 }
 /** Backend response type: Value. */
 export interface RoutesSendPostResponse extends ApiEnvelope<JsonValue> {
@@ -172,6 +258,14 @@ export interface RoutesReadPostInput extends JsonObject {
 }
 /** Backend response type: no-content. */
 export type RoutesReadPostResponse = void;
+
+/** Backend request type: RealtimeAuthInput. */
+export interface RoutesRealtimeAuthPostInput extends JsonObject {
+  "socket_id": string;
+  "channel_name": string;
+}
+/** Backend response type: Value. */
+export type RoutesRealtimeAuthPostResponse = JsonValue;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteMessageDeleteResponse = void;
@@ -195,4 +289,3 @@ export interface RoutesReactPostResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: serde_json::Value. */
 export interface MainHealthGetResponse extends ApiEnvelope<JsonValue> {
 }
-

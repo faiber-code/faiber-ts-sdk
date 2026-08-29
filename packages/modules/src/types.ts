@@ -3,6 +3,7 @@ export interface Product {
     id: string;
     name: string;
     description?: string | null;
+    image_url?: string | null;
     sku?: JsonValue;
     status?: number;
     sort_order?: number;
@@ -12,6 +13,7 @@ export interface Product {
 export interface CreateProductInput {
     name: string;
     description?: string;
+    image_url?: string;
     sku?: JsonValue;
     status?: number;
     sort_order?: number;
@@ -57,11 +59,15 @@ export interface OrderItem {
     variant_id: string;
     quantity: number;
     unit_price?: string | number;
+    total_price?: string | number;
 }
+export type CreateOrderItemInput = Pick<OrderItem, "variant_id" | "quantity"> & {
+    unit_price: string | number;
+};
 export interface CreateOrderInput {
     user_id?: string;
     status?: string | number;
-    items?: Array<Pick<OrderItem, "variant_id" | "quantity">>;
+    items: CreateOrderItemInput[];
 }
 export interface UpdateOrderInput {
     status?: string | number;
@@ -309,11 +315,21 @@ export interface InventoryQuery extends QueryParams {
 }
 export interface ProductResponse extends ResourceResponse<Product> {
 }
-export interface ProductListResponse extends ResourceListResponse<Product> {
+export interface ProductListResponse extends ApiEnvelope<{
+    products: Product[];
+    page_number: number;
+    page_size: number;
+    total_items: number;
+}> {
 }
 export interface ProductVariantResponse extends ResourceResponse<ProductVariant> {
 }
-export interface ProductVariantListResponse extends ResourceListResponse<ProductVariant> {
+export interface ProductVariantListResponse extends ApiEnvelope<{
+    variants: ProductVariant[];
+    page_number: number;
+    page_size: number;
+    total_items: number;
+}> {
 }
 export interface CartResponse extends ApiEnvelope<Cart> {
 }
@@ -374,7 +390,7 @@ export interface UpdateModulesSettingsInput {
     delivery?: JsonValue;
 }
 
-export type ContentDocumentKind = "page" | "post" | "reusable" | "podcast" | "episode";
+export type ContentDocumentKind = "page" | "post" | "reusable" | "podcast" | "episode" | "student_project" | "parent_review";
 export type ContentDocumentStatus = "draft" | "review" | "scheduled" | "published" | "archived";
 
 export interface ContentDocument {
@@ -412,6 +428,116 @@ export interface ContentDocumentQuery extends QueryParams {
     kind?: ContentDocumentKind;
     locale?: string;
     status?: ContentDocumentStatus;
+}
+
+/** Pagination and optional category filter for published public content. */
+export interface PublicContentQuery extends QueryParams {
+    page_number?: number;
+    page_size?: number;
+    category?: string;
+}
+
+/** Paginated published-content response returned by Modules public APIs. */
+export interface PublicContentListResponse {
+    items: ContentDocument[];
+    page_number: number;
+    page_size: number;
+    total_items: number;
+}
+
+/** Selects which public Modules records participate in autocomplete. */
+export type AutocompleteScope = "posts" | "products" | "mixed";
+
+/** Query for the indexed public autocomplete endpoint. */
+export interface AutocompleteQuery extends QueryParams {
+    q: string;
+    scope?: AutocompleteScope;
+    locale?: string;
+    limit?: number;
+}
+
+/** One relevance-ranked public search suggestion. */
+export interface AutocompleteSuggestion {
+    id: string;
+    kind: "post" | "product";
+    title: string;
+    description?: string;
+    image_url?: string;
+    slug?: string;
+    locale?: string;
+    score: number;
+}
+
+/** Response returned by the indexed public autocomplete endpoint. */
+export interface AutocompleteResponse {
+    query: string;
+    scope: AutocompleteScope;
+    items: AutocompleteSuggestion[];
+}
+
+/** Public category node. Use parent_id to reconstruct an arbitrary-depth tree. */
+export interface PublicContentCategory {
+    id: string;
+    parent_id?: string;
+    legacy_host?: string;
+    legacy_id?: string;
+    slug?: string;
+    locale: string;
+    name?: string;
+    description?: string;
+    image_url?: string;
+    scope: "post" | "product";
+    status: number;
+    seo: JsonValue;
+    created_at: string;
+    updated_at: string;
+}
+
+/** Deterministic category import used by trusted migration operators. Requires content:write. */
+export interface ImportContentCategoryInput {
+    parent_id?: string;
+    legacy_host: string;
+    legacy_id: string;
+    slug: string;
+    locale?: string;
+    name: string;
+    description?: string;
+    image_url?: string;
+    scope?: "post" | "product";
+    status?: number;
+    seo?: JsonValue;
+}
+
+/** Deterministic revisioned document import. Publishing also requires content:publish. */
+export interface ImportContentDocumentInput {
+    kind: ContentDocumentKind;
+    slug: string;
+    locale?: string;
+    title: string;
+    legacy_host: string;
+    legacy_id: string;
+    source_checksum: string;
+    editor_json?: JsonValue;
+    status?: ContentDocumentStatus;
+    publish_at?: string;
+    published_at?: string;
+    category_ids?: string[];
+}
+
+export type ModulesMediaPurpose =
+    | "editor"
+    | "post"
+    | "product"
+    | "post-category"
+    | "product-category"
+    | "student-project"
+    | "parent-review";
+
+export interface ModulesMediaUploadResponse {
+    url: string;
+    key: string;
+    content_type: string;
+    size: number;
 }
 
 export interface ContentRevision {

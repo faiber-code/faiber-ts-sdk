@@ -4,6 +4,7 @@ import type * as T from "./types.js";
 /** Typed service registry and release-history client. Authentication follows the shared Faiber client configuration. */
 import { VersionOperations } from "./operations.js";
 export class VersionApi extends ServiceApi {
+    readonly operations = new VersionOperations(this.client);
   /**
    * Checks Version service readiness through `GET /health`.
    * @param options Axios headers, timeout, cancellation signal, and transport options.

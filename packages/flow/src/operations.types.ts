@@ -207,4 +207,3 @@ export interface RouterStatusRouteGetUpResponseData extends JsonObject {
 }
 export interface RouterStatusRouteGetUpResponse extends ApiEnvelope<RouterStatusRouteGetUpResponseData> {
 }
-

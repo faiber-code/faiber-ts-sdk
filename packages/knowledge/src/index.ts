@@ -21,16 +21,37 @@ export class KnowledgeApi extends ServiceApi {
   updateItem(itemId: Identifier, data: T.UpdateItemInput, options?: RequestOptions<T.UpdateItemInput>) { return this.client.put<T.KnowledgeItemResponse, T.UpdateItemInput>(`/api/v1/items/${id(itemId)}`, data, options); }
   deleteItem(itemId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/items/${id(itemId)}`, options); }
   query(chatSlug: string, data: T.RuntimeQueryInput, options?: RequestOptions<T.RuntimeQueryInput>) { return this.client.post<T.RuntimeResultResponse, T.RuntimeQueryInput>(`/api/v1/runtime/chat/${id(chatSlug)}/query`, data, options); }
-  configureAssistant(assistantId: Identifier, data: T.AssistantConfigurationInput, options?: RequestOptions<T.AssistantConfigurationInput>) { return this.client.put<ApiEnvelope<JsonValue>, T.AssistantConfigurationInput>(`/api/v1/runtime/assistants/${id(assistantId)}/configure`, data, options); }
   queryAssistant(assistantId: Identifier, data: T.AssistantQueryInput, options?: RequestOptions<T.AssistantQueryInput>) { return this.client.post<T.AssistantRuntimeResponse, T.AssistantQueryInput>(`/api/v1/runtime/assistants/${id(assistantId)}/query`, data, options); }
   recordAssistantTurn(assistantId: Identifier, data: T.RecordAssistantTurnInput, options?: RequestOptions<T.RecordAssistantTurnInput>) { return this.client.post<ApiEnvelope<JsonValue>, T.RecordAssistantTurnInput>(`/api/v1/runtime/assistants/${id(assistantId)}/memory/turn`, data, options); }
   memorySubjects(params?: T.MemorySubjectQuery, options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue[]>>("/api/v1/memory-subjects", params, options); }
   clearMemorySubject(subjectId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/memory-subjects/${id(subjectId)}`, options); }
   setMemoryOverride(subjectId: Identifier, data: T.MemoryOverrideInput, options?: RequestOptions<T.MemoryOverrideInput>) { return this.client.put<ApiEnvelope<JsonValue>, T.MemoryOverrideInput>(`/api/v1/memory-subjects/${id(subjectId)}/policy`, data, options); }
-  converters(options?: RequestOptions) { return this.client.get<T.ConverterCapabilityListResponse>("/api/v1/platform/converters", undefined, options); }
-  processingJobs(options?: RequestOptions) { return this.client.get<T.ProcessingJobListResponse>("/api/v1/processing-jobs", undefined, options); }
   auditEvents(options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue[]>>("/api/v1/audit-events", undefined, options); }
   toolSchema(options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue>>("/api/v1/runtime/tool-schema", undefined, options); }
+  /** Reads scoped inventories, dependency health, retrieval latency, quality, and backlog. Requires `knowledge:read`. */
+  platformStatus(options?: RequestOptions) { return this.client.get<T.PlatformStatusResponse>("/api/v1/platform/status", undefined, options); }
+  /** Lists truthful converter capabilities and configuration state. Requires `knowledge:read`. */
+  converters(options?: RequestOptions) { return this.client.get<T.ConverterListResponse>("/api/v1/platform/converters", undefined, options); }
+  /** Lists observable ingestion jobs. Requires `knowledge:read`. */
+  processingJobs(options?: RequestOptions) { return this.client.get<T.ProcessingJobListResponse>("/api/v1/processing-jobs", undefined, options); }
+  /** Lists governed sources in the current organization. Requires `knowledge:read`. */
+  sources(options?: RequestOptions) { return this.client.get<T.KnowledgeSourceListResponse>("/api/v1/sources", undefined, options); }
+  /** Lists governed documents in the current organization. Requires `knowledge:read`. */
+  documents(options?: RequestOptions) { return this.client.get<T.KnowledgeDocumentListResponse>("/api/v1/documents", undefined, options); }
+  /** Queues an idempotent document ingestion job. Requires `knowledge:write`. */
+  ingestDocument(data:T.IngestDocumentInput,options?:RequestOptions<T.IngestDocumentInput>){return this.client.post<ApiEnvelope<JsonValue>,T.IngestDocumentInput>("/api/v1/documents",data,options);}
+  /** Configures a versioned assistant context policy with optimistic revision checking. Requires `knowledge:write`. */
+  configureAssistant(assistantId:Identifier,data:T.AssistantConfigurationInput,options?:RequestOptions<T.AssistantConfigurationInput>){return this.client.put<ApiEnvelope<JsonValue>,T.AssistantConfigurationInput>(`/api/v1/runtime/assistants/${id(assistantId)}/configure`,data,options);}
+  /** Retrieves governed, packed assistant context and returns its delivery cursor. Requires `knowledge:runtime`. */
+  assistantQuery(assistantId:Identifier,data:T.AssistantQueryInput,options?:RequestOptions<T.AssistantQueryInput>){return this.client.post<T.AssistantRuntimeResponse,T.AssistantQueryInput>(`/api/v1/runtime/assistants/${id(assistantId)}/query`,data,options);}
+  /** Runs the same canonical pipeline for operator preview. Requires `knowledge:runtime`. */
+  previewAssistant(assistantId:Identifier,data:T.AssistantQueryInput,options?:RequestOptions<T.AssistantQueryInput>){return this.client.post<T.AssistantRuntimeResponse,T.AssistantQueryInput>(`/api/v1/runtime/assistants/${id(assistantId)}/preview`,data,options);}
+  /** Runs the canonical evaluation adapter using identical governance. Requires `knowledge:runtime`. */
+  evaluateAssistant(assistantId:Identifier,data:T.AssistantQueryInput,options?:RequestOptions<T.AssistantQueryInput>){return this.client.post<T.AssistantRuntimeResponse,T.AssistantQueryInput>(`/api/v1/runtime/assistants/${id(assistantId)}/evaluations`,data,options);}
+  /** Queues post-response memory extraction with message idempotency. Requires `knowledge:runtime`. */
+  recordMemoryTurn(assistantId:Identifier,data:T.MemoryTurnInput,options?:RequestOptions<T.MemoryTurnInput>){return this.client.post<ApiEnvelope<JsonValue>,T.MemoryTurnInput>(`/api/v1/runtime/assistants/${id(assistantId)}/memory/turn`,data,options);}
+  /** Attaches authoritative provider usage and cached-token categories to a retrieval trace. Requires `knowledge:runtime`. */
+  recordRetrievalUsage(traceId:Identifier,data:T.RetrievalUsageInput,options?:RequestOptions<T.RetrievalUsageInput>){return this.client.post<ApiEnvelope<JsonValue>,T.RetrievalUsageInput>(`/api/v1/runtime/retrieval-traces/${id(traceId)}/usage`,data,options);}
 }
 export * from "./types.js";
 export * from "@faiber/sdk-core";

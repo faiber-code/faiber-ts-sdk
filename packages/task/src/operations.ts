@@ -67,6 +67,28 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesUseGuestLinkPostResponse, T.RoutesUseGuestLinkPostInput>({ ...options, method: "POST", url: `/api/v1/guest-links/use`, data: data });
   }
   /**
+   * Performs the upsert performance policy operation for the routes capability.
+   * Calls `PUT /api/v1/performance/policies` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesUpsertPerformancePolicyPut(data: T.RoutesUpsertPerformancePolicyPutInput, options?: RequestOptions<T.RoutesUpsertPerformancePolicyPutInput>) {
+    return this.client.request<T.RoutesUpsertPerformancePolicyPutResponse, T.RoutesUpsertPerformancePolicyPutInput>({ ...options, method: "PUT", url: `/api/v1/performance/policies`, data: data });
+  }
+  /**
+   * Performs the point history operation for the routes capability.
+   * Calls `GET /api/v1/points/history` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesPointHistoryGet(params?: T.RoutesPointHistoryGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesPointHistoryGetResponse>({ ...options, method: "GET", url: `/api/v1/points/history`, params });
+  }
+  /**
    * Performs the list projects operation for the routes capability.
    * Calls `GET /api/v1/projects` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -124,6 +146,17 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesGrantProjectAccessPostResponse, T.RoutesGrantProjectAccessPostInput>({ ...options, method: "POST", url: `/api/v1/projects/${encodeURIComponent(id)}/grants`, data: data });
   }
   /**
+   * Performs the workflow states operation for the routes capability.
+   * Calls `GET /api/v1/projects/{id}/workflow` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesWorkflowStatesGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesWorkflowStatesGetResponse>({ ...options, method: "GET", url: `/api/v1/projects/${encodeURIComponent(id)}/workflow` });
+  }
+  /**
    * Performs the report summary operation for the routes capability.
    * Calls `GET /api/v1/reports/summary` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -133,6 +166,28 @@ export class TaskOperations extends ServiceApi {
    */
   routesReportSummaryGet(params?: T.RoutesReportSummaryGetQuery, options?: RequestOptions) {
     return this.client.request<T.RoutesReportSummaryGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/summary`, params });
+  }
+  /**
+   * Performs the team monitoring operation for the routes capability.
+   * Calls `GET /api/v1/reports/team-monitoring` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesTeamMonitoringGet(params?: T.RoutesTeamMonitoringGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesTeamMonitoringGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/team-monitoring`, params });
+  }
+  /**
+   * Performs the list sprints operation for the routes capability.
+   * Calls `GET /api/v1/sprints` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesListSprintsGet(params?: T.RoutesListSprintsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesListSprintsGetResponse>({ ...options, method: "GET", url: `/api/v1/sprints`, params });
   }
   /**
    * Performs the create sprint operation for the routes capability.
@@ -166,6 +221,50 @@ export class TaskOperations extends ServiceApi {
    */
   routesStartSprintPost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesStartSprintPostResponse>({ ...options, method: "POST", url: `/api/v1/sprints/${encodeURIComponent(id)}/start` });
+  }
+  /**
+   * Performs the list teams operation for the routes capability.
+   * Calls `GET /api/v1/teams` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesListTeamsGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesListTeamsGetResponse>({ ...options, method: "GET", url: `/api/v1/teams` });
+  }
+  /**
+   * Performs the create team operation for the routes capability.
+   * Calls `POST /api/v1/teams` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesCreateTeamPost(data: T.RoutesCreateTeamPostInput, options?: RequestOptions<T.RoutesCreateTeamPostInput>) {
+    return this.client.request<T.RoutesCreateTeamPostResponse, T.RoutesCreateTeamPostInput>({ ...options, method: "POST", url: `/api/v1/teams`, data: data });
+  }
+  /**
+   * Performs the get team operation for the routes capability.
+   * Calls `GET /api/v1/teams/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesGetTeamGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesGetTeamGetResponse>({ ...options, method: "GET", url: `/api/v1/teams/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update team operation for the routes capability.
+   * Calls `PATCH /api/v1/teams/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesUpdateTeamPatch(id: Identifier, data: T.RoutesUpdateTeamPatchInput, options?: RequestOptions<T.RoutesUpdateTeamPatchInput>) {
+    return this.client.request<T.RoutesUpdateTeamPatchResponse, T.RoutesUpdateTeamPatchInput>({ ...options, method: "PATCH", url: `/api/v1/teams/${encodeURIComponent(id)}`, data: data });
   }
   /**
    * Performs the list work items operation for the routes capability.
@@ -213,6 +312,17 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesUpdateWorkItemPatchResponse, T.RoutesUpdateWorkItemPatchInput>({ ...options, method: "PATCH", url: `/api/v1/work-items/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Performs the list comments operation for the routes capability.
+   * Calls `GET /api/v1/work-items/{id}/comments` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesListCommentsGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesListCommentsGetResponse>({ ...options, method: "GET", url: `/api/v1/work-items/${encodeURIComponent(id)}/comments` });
+  }
+  /**
    * Performs the create comment operation for the routes capability.
    * Calls `POST /api/v1/work-items/{id}/comments` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -225,6 +335,41 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesCreateCommentPostResponse, T.RoutesCreateCommentPostInput>({ ...options, method: "POST", url: `/api/v1/work-items/${encodeURIComponent(id)}/comments`, data: data });
   }
   /**
+   * Performs the list commits operation for the routes capability.
+   * Calls `GET /api/v1/work-items/{id}/commits` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesListCommitsGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesListCommitsGetResponse>({ ...options, method: "GET", url: `/api/v1/work-items/${encodeURIComponent(id)}/commits` });
+  }
+  /**
+   * Performs the attach commit operation for the routes capability.
+   * Calls `POST /api/v1/work-items/{id}/commits` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesAttachCommitPost(id: Identifier, data: T.RoutesAttachCommitPostInput, options?: RequestOptions<T.RoutesAttachCommitPostInput>) {
+    return this.client.request<T.RoutesAttachCommitPostResponse, T.RoutesAttachCommitPostInput>({ ...options, method: "POST", url: `/api/v1/work-items/${encodeURIComponent(id)}/commits`, data: data });
+  }
+  /**
+   * Performs the add points operation for the routes capability.
+   * Calls `POST /api/v1/work-items/{id}/points` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesAddPointsPost(id: Identifier, data: T.RoutesAddPointsPostInput, options?: RequestOptions<T.RoutesAddPointsPostInput>) {
+    return this.client.request<T.RoutesAddPointsPostResponse, T.RoutesAddPointsPostInput>({ ...options, method: "POST", url: `/api/v1/work-items/${encodeURIComponent(id)}/points`, data: data });
+  }
+  /**
    * Performs the transition work item operation for the routes capability.
    * Calls `POST /api/v1/work-items/{id}/transition` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -235,6 +380,86 @@ export class TaskOperations extends ServiceApi {
    */
   routesTransitionWorkItemPost(id: Identifier, data: T.RoutesTransitionWorkItemPostInput, options?: RequestOptions<T.RoutesTransitionWorkItemPostInput>) {
     return this.client.request<T.RoutesTransitionWorkItemPostResponse, T.RoutesTransitionWorkItemPostInput>({ ...options, method: "POST", url: `/api/v1/work-items/${encodeURIComponent(id)}/transition`, data: data });
+  }
+  /**
+   * Performs the list work logs operation for the routes capability.
+   * Calls `GET /api/v1/work-items/{id}/work-logs` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesListWorkLogsGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesListWorkLogsGetResponse>({ ...options, method: "GET", url: `/api/v1/work-items/${encodeURIComponent(id)}/work-logs` });
+  }
+  /**
+   * Performs the create work log operation for the routes capability.
+   * Calls `POST /api/v1/work-items/{id}/work-logs` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesCreateWorkLogPost(id: Identifier, data: T.RoutesCreateWorkLogPostInput, options?: RequestOptions<T.RoutesCreateWorkLogPostInput>) {
+    return this.client.request<T.RoutesCreateWorkLogPostResponse, T.RoutesCreateWorkLogPostInput>({ ...options, method: "POST", url: `/api/v1/work-items/${encodeURIComponent(id)}/work-logs`, data: data });
+  }
+  /**
+   * Performs the list work sessions operation for the routes capability.
+   * Calls `GET /api/v1/work-items/{id}/work-sessions` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesListWorkSessionsGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesListWorkSessionsGetResponse>({ ...options, method: "GET", url: `/api/v1/work-items/${encodeURIComponent(id)}/work-sessions` });
+  }
+  /**
+   * Performs the start work session operation for the routes capability.
+   * Calls `POST /api/v1/work-items/{id}/work-sessions/start` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesStartWorkSessionPost(id: Identifier, data: T.RoutesStartWorkSessionPostInput, options?: RequestOptions<T.RoutesStartWorkSessionPostInput>) {
+    return this.client.request<T.RoutesStartWorkSessionPostResponse, T.RoutesStartWorkSessionPostInput>({ ...options, method: "POST", url: `/api/v1/work-items/${encodeURIComponent(id)}/work-sessions/start`, data: data });
+  }
+  /**
+   * Performs the heartbeat work session operation for the routes capability.
+   * Calls `POST /api/v1/work-sessions/{id}/heartbeat` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesHeartbeatWorkSessionPost(id: Identifier, data: T.RoutesHeartbeatWorkSessionPostInput, options?: RequestOptions<T.RoutesHeartbeatWorkSessionPostInput>) {
+    return this.client.request<T.RoutesHeartbeatWorkSessionPostResponse, T.RoutesHeartbeatWorkSessionPostInput>({ ...options, method: "POST", url: `/api/v1/work-sessions/${encodeURIComponent(id)}/heartbeat`, data: data });
+  }
+  /**
+   * Performs the stop work session operation for the routes capability.
+   * Calls `POST /api/v1/work-sessions/{id}/stop` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesStopWorkSessionPost(id: Identifier, data: T.RoutesStopWorkSessionPostInput, options?: RequestOptions<T.RoutesStopWorkSessionPostInput>) {
+    return this.client.request<T.RoutesStopWorkSessionPostResponse, T.RoutesStopWorkSessionPostInput>({ ...options, method: "POST", url: `/api/v1/work-sessions/${encodeURIComponent(id)}/stop`, data: data });
+  }
+  /**
+   * Performs the active work sessions operation for the routes capability.
+   * Calls `GET /api/v1/work-sessions/active` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesActiveWorkSessionsGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesActiveWorkSessionsGetResponse>({ ...options, method: "GET", url: `/api/v1/work-sessions/active` });
   }
   /**
    * Performs the workspace operation for the routes capability.

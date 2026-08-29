@@ -1051,4 +1051,3 @@ export type RouterReadinessRouteGetResponse = import("./types.js").CrmApiRespons
 
 /** Backend response type: api. */
 export type RouterStatusRouteGetUpResponse = import("./types.js").CrmApiResponse<JsonValue>;
-

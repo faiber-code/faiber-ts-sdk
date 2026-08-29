@@ -12,6 +12,13 @@ export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: Value. */
 export type OidcDiscoveryGetResponse = JsonValue;
 
+/** Backend response type: PermissionTemplateListResponse. */
+export interface AclPermissionTemplatesIndexGetResponseData extends JsonObject {
+  "templates": BackendJson<"PermissionTemplateResponse">[];
+}
+export interface AclPermissionTemplatesIndexGetResponse extends ApiEnvelope<AclPermissionTemplatesIndexGetResponseData> {
+}
+
 /** Backend response type: PermissionListResponse. */
 export interface AclPermissionsIndexGetResponseData extends JsonObject {
   "permissions": BackendJson<"PermissionResponse">[];
@@ -238,6 +245,10 @@ export interface AuthOauthProvidersGetResponseData extends JsonObject {
 export interface AuthOauthProvidersGetResponse extends ApiEnvelope<AuthOauthProvidersGetResponseData> {
 }
 
+/** Backend response type: api. */
+export interface AuthRefreshTokenGetResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend request type: OTPTokenRequest. */
 export interface AuthOtpLoginPostInput extends JsonObject {
   "grant_type": string;
@@ -249,10 +260,6 @@ export interface AuthOtpLoginPostInput extends JsonObject {
 }
 /** Backend response type: api. */
 export interface AuthOtpLoginPostResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: api. */
-export interface AuthRefreshTokenGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: api. */
@@ -570,6 +577,26 @@ export interface IdentityAuthorityUpdatePutResponseData extends JsonObject {
 export interface IdentityAuthorityUpdatePutResponse extends ApiEnvelope<IdentityAuthorityUpdatePutResponseData> {
 }
 
+/** Backend response type: AuthorityView. */
+export interface IdentityAuthorityActivateCanonicalPostResponseData extends JsonObject {
+  "mode": string;
+  "canonical_provider_id"?: string | null;
+  "canonical_provider_key"?: string | null;
+  "canonical_display_name"?: string | null;
+  "canonical_issuer"?: string | null;
+  "subject_policy": string;
+  "jit_provisioning": boolean;
+  "activated_at"?: string | null;
+  "last_discovery_at"?: string | null;
+  "last_login_at"?: string | null;
+  "last_logout_at"?: string | null;
+  "last_error"?: string | null;
+  "federated_session_count": number;
+  "rollout_enabled": boolean;
+}
+export interface IdentityAuthorityActivateCanonicalPostResponse extends ApiEnvelope<IdentityAuthorityActivateCanonicalPostResponseData> {
+}
+
 /** Backend request type: DiscoverInput. */
 export interface IdentityAuthorityDiscoverPostInput extends JsonObject {
   "issuer_url": string;
@@ -612,6 +639,31 @@ export interface IdentityAuthorityPairCanonicalPostResponseData extends JsonObje
 export interface IdentityAuthorityPairCanonicalPostResponse extends ApiEnvelope<IdentityAuthorityPairCanonicalPostResponseData> {
 }
 
+/** Backend request type: PairFaiberInput. */
+export interface IdentityAuthorityPairFaiberPostInput extends JsonObject {
+  "faiber_issuer": string;
+  "pairing_code": string;
+}
+/** Backend response type: AuthorityView. */
+export interface IdentityAuthorityPairFaiberPostResponseData extends JsonObject {
+  "mode": string;
+  "canonical_provider_id"?: string | null;
+  "canonical_provider_key"?: string | null;
+  "canonical_display_name"?: string | null;
+  "canonical_issuer"?: string | null;
+  "subject_policy": string;
+  "jit_provisioning": boolean;
+  "activated_at"?: string | null;
+  "last_discovery_at"?: string | null;
+  "last_login_at"?: string | null;
+  "last_logout_at"?: string | null;
+  "last_error"?: string | null;
+  "federated_session_count": number;
+  "rollout_enabled": boolean;
+}
+export interface IdentityAuthorityPairFaiberPostResponse extends ApiEnvelope<IdentityAuthorityPairFaiberPostResponseData> {
+}
+
 /** Backend request type: PairingInvitationInput. */
 export interface IdentityAuthorityCreatePairingInvitationPostInput extends JsonObject {
   "linked_issuer": string;
@@ -622,6 +674,75 @@ export interface IdentityAuthorityCreatePairingInvitationPostResponseData extend
   "expires_at": string;
 }
 export interface IdentityAuthorityCreatePairingInvitationPostResponse extends ApiEnvelope<IdentityAuthorityCreatePairingInvitationPostResponseData> {
+}
+
+/** Backend response type: LoginPageSettingsResponse. */
+export interface SettingsLoginPageSettingsShowGetResponseData extends JsonObject {
+  "title"?: string | null;
+  "subtitle"?: string | null;
+  "trademark"?: string | null;
+  "icon_asset_key"?: string | null;
+  "icon_url"?: string | null;
+  "localizations": Record<string, JsonValue>;
+  "mockup_asset_keys": string[];
+  "mockup_image_urls": string[];
+  "faiber_enabled": boolean;
+}
+export interface SettingsLoginPageSettingsShowGetResponse extends ApiEnvelope<SettingsLoginPageSettingsShowGetResponseData> {
+}
+
+/** Backend request type: UpdateLoginPageSettings. */
+export interface SettingsLoginPageSettingsUpdatePutInput extends JsonObject {
+  "title"?: string | null;
+  "subtitle"?: string | null;
+  "trademark"?: string | null;
+  "icon_asset_key"?: string | null;
+  "localizations"?: Record<string, JsonValue>;
+  "mockup_asset_keys"?: string[];
+  "faiber_enabled"?: boolean;
+}
+/** Backend response type: LoginPageSettingsResponse. */
+export interface SettingsLoginPageSettingsUpdatePutResponseData extends JsonObject {
+  "title"?: string | null;
+  "subtitle"?: string | null;
+  "trademark"?: string | null;
+  "icon_asset_key"?: string | null;
+  "icon_url"?: string | null;
+  "localizations": Record<string, JsonValue>;
+  "mockup_asset_keys": string[];
+  "mockup_image_urls": string[];
+  "faiber_enabled": boolean;
+}
+export interface SettingsLoginPageSettingsUpdatePutResponse extends ApiEnvelope<SettingsLoginPageSettingsUpdatePutResponseData> {
+}
+
+/** Backend request type: multipart/form-data. */
+export type SettingsLoginPageAssetUploadPostInput = FormData;
+/** Backend response type: LoginPageAssetUploadResponse. */
+export interface SettingsLoginPageAssetUploadPostResponseData extends JsonObject {
+  "asset_key": string;
+  "url": string;
+}
+export interface SettingsLoginPageAssetUploadPostResponse extends ApiEnvelope<SettingsLoginPageAssetUploadPostResponseData> {
+}
+
+/** Backend response type: raw-response. */
+export interface SettingsLoginPageAssetGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: LoginPageSettingsResponse. */
+export interface SettingsLoginPageSettingsPublicGetResponseData extends JsonObject {
+  "title"?: string | null;
+  "subtitle"?: string | null;
+  "trademark"?: string | null;
+  "icon_asset_key"?: string | null;
+  "icon_url"?: string | null;
+  "localizations": Record<string, JsonValue>;
+  "mockup_asset_keys": string[];
+  "mockup_image_urls": string[];
+  "faiber_enabled": boolean;
+}
+export interface SettingsLoginPageSettingsPublicGetResponse extends ApiEnvelope<SettingsLoginPageSettingsPublicGetResponseData> {
 }
 
 /** Backend response type: OAuthSettingsResponse. */
@@ -657,6 +778,7 @@ export interface OauthClientsListGetResponseItem extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
+  "service_user_id"?: string | null;
   "status": number;
 }
 export interface OauthClientsListGetResponse extends ApiEnvelope<OauthClientsListGetResponseItem[]> {
@@ -673,6 +795,7 @@ export interface OauthClientsCreatePostInput extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted"?: boolean;
+  "service_user_id"?: string | null;
   "status"?: number;
 }
 /** Backend response type: ClientCreated. */
@@ -701,6 +824,7 @@ export interface OauthClientsUpdatePutInput extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted"?: boolean;
+  "service_user_id"?: string | null;
   "status"?: number;
 }
 /** Backend response type: ClientView. */
@@ -715,6 +839,7 @@ export interface OauthClientsUpdatePutResponseData extends JsonObject {
   "client_type": string;
   "token_endpoint_auth_method": string;
   "trusted": boolean;
+  "service_user_id"?: string | null;
   "status": number;
 }
 export interface OauthClientsUpdatePutResponse extends ApiEnvelope<OauthClientsUpdatePutResponseData> {
@@ -950,6 +1075,25 @@ export interface UserUserFindSelfGetResponseData extends JsonObject {
 export interface UserUserFindSelfGetResponse extends ApiEnvelope<UserUserFindSelfGetResponseData> {
 }
 
+/** Backend request type: UpdateUser. */
+export interface UserUserUpdateSelfPatchInput extends JsonObject {
+  "phone"?: string | null;
+  "email"?: string | null;
+  "national_code"?: string | null;
+}
+/** Backend response type: UserSelfResponse. */
+export interface UserUserUpdateSelfPatchResponseData extends JsonObject {
+  "id": string;
+  "phone"?: string | null;
+  "email"?: string | null;
+  "national_code"?: string | null;
+  "status": number;
+  "roles": BackendJson<"RoleResponse">[];
+  "permissions": BackendJson<"PermissionResponse">[];
+}
+export interface UserUserUpdateSelfPatchResponse extends ApiEnvelope<UserUserUpdateSelfPatchResponseData> {
+}
+
 /** Backend response type: UserStatsResponse. */
 export interface UserUsersStatsGetResponseData extends JsonObject {
   "users_count": number;
@@ -962,4 +1106,3 @@ export interface UserUsersStatsGetResponse extends ApiEnvelope<UserUsersStatsGet
 /** Backend response type: bool. */
 export interface UserSyncUsersGetResponse extends ApiEnvelope<boolean> {
 }
-

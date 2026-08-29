@@ -36,6 +36,8 @@ export interface SocialReport {
 }
 export interface SocialListMeta { total: number; page: number; limit: number; }
 export interface FeedQuery extends QueryParams { q?: string; author_id?: string; category_id?: string; kind?: SocialPostKind; page?: number; limit?: number; }
+export interface FeedLocationPreference { latitude: number; longitude: number; range_km: number; }
+export type SetFeedLocationInput = FeedLocationPreference;
 export interface CreatePostInput { category_id?: string; kind?: SocialPostKind; visibility?: SocialVisibility; title?: string; body: string; media?: JsonValue; metadata?: JsonValue; }
 export interface UpdatePostInput extends Partial<CreatePostInput> {}
 export interface CreateCategoryInput { slug: string; name: JsonValue; description?: JsonValue; icon?: string; color?: string; sort_order?: number; status?: SocialCategoryStatus; moderate_posts?: boolean; moderate_comments?: boolean; metadata?: JsonValue; }
@@ -72,6 +74,7 @@ export type SocialPostResponse = ApiEnvelope<SocialPost>;
 export type SocialCategoryResponse = ApiEnvelope<SocialCategory>;
 export type SocialCategoryListResponse = ApiEnvelope<SocialCategory[]>;
 export interface SocialPostListResponse extends ApiEnvelope<SocialPost[]> { meta?: SocialListMeta; }
+export type FeedLocationPreferenceResponse = ApiEnvelope<FeedLocationPreference | null>;
 export type SocialCommentResponse = ApiEnvelope<SocialComment>;
 export type SocialCommentListResponse = ApiEnvelope<SocialComment[]>;
 export type SocialReactionResponse = ApiEnvelope<SocialReaction>;

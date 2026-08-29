@@ -14,6 +14,16 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.ApiImportModulesPostResponse, T.ApiImportModulesPostInput>({ ...options, method: "POST", url: `/api/v1/admin/import/modules`, data: data });
   }
   /**
+   * Performs the self identity operation for the api capability.
+   * Calls `GET /api/v1/auth/self` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  apiSelfIdentityGet(options?: RequestOptions) {
+    return this.client.request<T.ApiSelfIdentityGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/self` });
+  }
+  /**
    * Performs the list categories operation for the api capability.
    * Calls `GET /api/v1/categories` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -257,6 +267,37 @@ export class SocialOperations extends ServiceApi {
    */
   apiMyClaimsGet(params?: T.ApiMyClaimsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ApiMyClaimsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/claims`, params });
+  }
+  /**
+   * Performs the clear feed location operation for the api capability.
+   * Calls `DELETE /api/v1/me/feed-location` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:read.
+   */
+  apiClearFeedLocationDelete(options?: RequestOptions) {
+    return this.client.request<T.ApiClearFeedLocationDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/me/feed-location` });
+  }
+  /**
+   * Performs the get feed location operation for the api capability.
+   * Calls `GET /api/v1/me/feed-location` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:read.
+   */
+  apiGetFeedLocationGet(options?: RequestOptions) {
+    return this.client.request<T.ApiGetFeedLocationGetResponse>({ ...options, method: "GET", url: `/api/v1/me/feed-location` });
+  }
+  /**
+   * Performs the set feed location operation for the api capability.
+   * Calls `PUT /api/v1/me/feed-location` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: social:read.
+   */
+  apiSetFeedLocationPut(data: T.ApiSetFeedLocationPutInput, options?: RequestOptions<T.ApiSetFeedLocationPutInput>) {
+    return this.client.request<T.ApiSetFeedLocationPutResponse, T.ApiSetFeedLocationPutInput>({ ...options, method: "PUT", url: `/api/v1/me/feed-location`, data: data });
   }
   /**
    * Performs the list my posts operation for the api capability.
@@ -641,4 +682,3 @@ export class SocialOperations extends ServiceApi {
     return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });
   }
 }
-
