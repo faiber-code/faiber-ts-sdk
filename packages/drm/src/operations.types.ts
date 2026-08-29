@@ -11,6 +11,18 @@ export interface RouterAuditEventsGetQuery extends QueryParams {
 /** Backend response type: Page<audit_event::Model>. */
 export type RouterAuditEventsGetResponse = BackendJson<"Page<audit_event::Model>">;
 
+/** Backend query type: AnalysisQuery. */
+export interface RouterListAnalysesGetQuery extends QueryParams {
+  "page"?: number | null;
+  "size"?: number | null;
+  "search"?: string | null;
+  "status"?: string | null;
+  "from"?: string | null;
+  "to"?: string | null;
+}
+/** Backend response type: Page<CompositionAnalysis>. */
+export type RouterListAnalysesGetResponse = BackendJson<"Page<CompositionAnalysis>">;
+
 /** Backend response type: Vec<composition_category::Model>. */
 export interface RouterListCompositionCategoriesGetResponseItem extends JsonObject {
   "id": string;
@@ -434,10 +446,11 @@ export interface RouterListCategoriesGetResponseItem extends JsonObject {
 }
 export type RouterListCategoriesGetResponse = RouterListCategoriesGetResponseItem[];
 
-/** Backend request type: CategoryInput. */
+/** Backend request type: GenericCategoryInput. */
 export interface RouterCreateCategoryPostLibrariesIdCategoriesInput extends JsonObject {
-  "title": string;
+  "id"?: string | null;
   "parent_id"?: string | null;
+  "title": string;
 }
 /** Backend response type: content_category::Model. */
 export interface RouterCreateCategoryPostLibrariesIdCategoriesResponseData extends JsonObject {
@@ -498,6 +511,7 @@ export type RouterCreateItemPostResponse = RouterCreateItemPostResponseData;
 export interface RouterQueryItemsGetQuery extends QueryParams {
   "category_id"?: string | null;
   "direct"?: boolean;
+  "errors"?: boolean;
   "search"?: string | null;
   "page"?: number | null;
   "size"?: number | null;
@@ -518,10 +532,11 @@ export type RouterLibraryStatsGetResponse = RouterLibraryStatsGetResponseData;
 /** Backend response type: no-content. */
 export type RouterArchiveCategoryDeleteResponse = void;
 
-/** Backend request type: CategoryInput. */
+/** Backend request type: GenericCategoryInput. */
 export interface RouterUpdateCategoryPatchLibrariesLibraryIdCategoriesIdInput extends JsonObject {
-  "title": string;
+  "id"?: string | null;
   "parent_id"?: string | null;
+  "title": string;
 }
 /** Backend response type: content_category::Model. */
 export interface RouterUpdateCategoryPatchLibrariesLibraryIdCategoriesIdResponseData extends JsonObject {
@@ -744,6 +759,26 @@ export interface RouterPlaybackGetResponseData extends JsonObject {
 }
 export type RouterPlaybackGetResponse = RouterPlaybackGetResponseData;
 
+/** Backend request type: BatchMediaInput. */
+export interface RouterBatchMediaPostInput extends JsonObject {
+  "ids": string[];
+}
+/** Backend response type: Vec<MediaResponse>. */
+export interface RouterBatchMediaPostResponseItem extends JsonObject {
+  "id": string;
+  "actor_id"?: string | null;
+  "action": string;
+  "entity_type": string;
+  "entity_id"?: string | null;
+  "request_id"?: string | null;
+  "before_data"?: BackendJson<"Json"> | null;
+  "after_data"?: BackendJson<"Json"> | null;
+  "created_at": string;
+  "tags": BackendJson<"entity::tag::Model">[];
+  "transcription"?: BackendJson<"entity::media_transcription::Model"> | null;
+}
+export type RouterBatchMediaPostResponse = RouterBatchMediaPostResponseItem[];
+
 /** Backend query type: DrmStatusesQuery. */
 export interface RouterDrmStatusesGetQuery extends QueryParams {
   "ids": string;
@@ -810,6 +845,7 @@ export interface RouterCreateMixedMediaPostInput extends JsonObject {
   "name": string;
   "description"?: string | null;
   "category_id"?: string | null;
+  "transcription_language"?: string | null;
 }
 /** Backend response type: mixed_media::Model. */
 export interface RouterCreateMixedMediaPostResponseData extends JsonObject {
@@ -848,6 +884,7 @@ export interface RouterUpdateMixedMediaPatchInput extends JsonObject {
   "name"?: string | null;
   "description"?: string | null;
   "status"?: string | null;
+  "transcription_language"?: string | null;
   "category_id"?: string | null;
 }
 /** Backend response type: mixed_media::Model. */
@@ -863,6 +900,34 @@ export interface RouterUpdateMixedMediaPatchResponseData extends JsonObject {
   "created_at": string;
 }
 export type RouterUpdateMixedMediaPatchResponse = RouterUpdateMixedMediaPatchResponseData;
+
+/** Backend response type: Option<CompositionAnalysis>. */
+export type RouterGetAnalysisGetResponse = BackendJson<"CompositionAnalysis"> | null;
+
+/** Backend request type: StartAnalysisInput. */
+export interface RouterStartAnalysisPostInput extends JsonObject {
+  "language"?: string | null;
+  "force"?: boolean;
+}
+/** Backend response type: CompositionAnalysis. */
+export interface RouterStartAnalysisPostResponseData extends JsonObject {
+  "mixed_media_id": string;
+  "composition_name": string;
+  "manifest_version": number;
+  "model_ref": string;
+  "summary_model_ref"?: string | null;
+  "language": string;
+  "detected_language"?: string | null;
+  "status": string;
+  "transcript"?: string | null;
+  "summary"?: string | null;
+  "last_error"?: string | null;
+  "queued_at": string;
+  "started_at"?: string | null;
+  "completed_at"?: string | null;
+  "updated_at": string;
+}
+export type RouterStartAnalysisPostResponse = RouterStartAnalysisPostResponseData;
 
 /** Backend request type: CategoryInput. */
 export interface RouterCreateCategoryPostMixedMediaIdCategoriesInput extends JsonObject {
@@ -882,6 +947,50 @@ export interface RouterCreateCategoryPostMixedMediaIdCategoriesResponseData exte
   "created_at": string;
 }
 export type RouterCreateCategoryPostMixedMediaIdCategoriesResponse = RouterCreateCategoryPostMixedMediaIdCategoriesResponseData;
+
+/** Backend response type: KnowledgeSyncSettings. */
+export interface RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponseData extends JsonObject {
+  "mixed_media_id": string;
+  "enabled": boolean;
+  "knowledge_base_id"?: string | null;
+  "sync_status": string;
+  "synced_manifest_version"?: number | null;
+  "knowledge_document_id"?: string | null;
+  "last_error"?: string | null;
+  "last_synced_at"?: string | null;
+}
+export type RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponse = RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponseData;
+
+/** Backend response type: KnowledgeSyncSettings. */
+export interface RouterSyncNowPostResponseData extends JsonObject {
+  "mixed_media_id": string;
+  "enabled": boolean;
+  "knowledge_base_id"?: string | null;
+  "sync_status": string;
+  "synced_manifest_version"?: number | null;
+  "knowledge_document_id"?: string | null;
+  "last_error"?: string | null;
+  "last_synced_at"?: string | null;
+}
+export type RouterSyncNowPostResponse = RouterSyncNowPostResponseData;
+
+/** Backend request type: UpdateKnowledgeSync. */
+export interface RouterUpdateSettingsPutInput extends JsonObject {
+  "enabled": boolean;
+  "knowledge_base_id"?: string | null;
+}
+/** Backend response type: KnowledgeSyncSettings. */
+export interface RouterUpdateSettingsPutResponseData extends JsonObject {
+  "mixed_media_id": string;
+  "enabled": boolean;
+  "knowledge_base_id"?: string | null;
+  "sync_status": string;
+  "synced_manifest_version"?: number | null;
+  "knowledge_document_id"?: string | null;
+  "last_error"?: string | null;
+  "last_synced_at"?: string | null;
+}
+export type RouterUpdateSettingsPutResponse = RouterUpdateSettingsPutResponseData;
 
 /** Backend response type: mixed_media_manifest::Model. */
 export interface RouterGetManifestGetResponseData extends JsonObject {
@@ -1063,25 +1172,31 @@ export type RouterUpdatePartPutResponse = RouterUpdatePartPutResponseData;
 /** Backend response type: serde_json::Value. */
 export type RouterHealthGetResponse = JsonValue;
 
+/** Backend response type: Value. */
+export type RouterKnowledgeCatalogGetResponse = JsonValue;
+
 /** Backend response type: SettingsResponse. */
-export interface RouterGetSettingsGetResponseData extends JsonObject {
+export interface RouterGetSettingsGetOperationsSettingsResponseData extends JsonObject {
   "package_concurrency": number;
   "transcription_enabled": boolean;
   "transcription_model_ref"?: string | null;
+  "summary_model_ref"?: string | null;
 }
-export type RouterGetSettingsGetResponse = RouterGetSettingsGetResponseData;
+export type RouterGetSettingsGetOperationsSettingsResponse = RouterGetSettingsGetOperationsSettingsResponseData;
 
 /** Backend request type: SettingsInput. */
 export interface RouterUpdateSettingsPatchInput extends JsonObject {
   "package_concurrency": number;
   "transcription_enabled"?: boolean;
   "transcription_model_ref"?: string | null;
+  "summary_model_ref"?: string | null;
 }
 /** Backend response type: SettingsResponse. */
 export interface RouterUpdateSettingsPatchResponseData extends JsonObject {
   "package_concurrency": number;
   "transcription_enabled": boolean;
   "transcription_model_ref"?: string | null;
+  "summary_model_ref"?: string | null;
 }
 export type RouterUpdateSettingsPatchResponse = RouterUpdateSettingsPatchResponseData;
 

@@ -454,7 +454,7 @@ export class AssetOperations extends ServiceApi {
    * Calls `GET /api/v1/me/assets` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   walletMeAssetsShowGet(options?: RequestOptions) {
     return this.client.request<T.WalletMeAssetsShowGetResponse>({ ...options, method: "GET", url: `/api/v1/me/assets` });
@@ -498,7 +498,7 @@ export class AssetOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   walletMeTransactionsGet(params?: T.WalletMeTransactionsGetQuery, options?: RequestOptions) {
     return this.client.request<T.WalletMeTransactionsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions`, params });

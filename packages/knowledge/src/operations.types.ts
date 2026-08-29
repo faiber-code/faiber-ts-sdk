@@ -357,11 +357,19 @@ export interface RoutesRuntimeQueryPostResponse extends ApiEnvelope<RoutesRuntim
 export interface RoutesToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: serde_json::Value. */
+export interface MainReadinessGetHealthResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: Health. */
-export interface MainHealthGetResponseData extends JsonObject {
+export interface MainLivenessGetResponseData extends JsonObject {
   "service": BackendJson<"&'static str">;
   "version": BackendJson<"&'static str">;
   "status": BackendJson<"&'static str">;
 }
-export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
+export interface MainLivenessGetResponse extends ApiEnvelope<MainLivenessGetResponseData> {
+}
+
+/** Backend response type: serde_json::Value. */
+export interface MainReadinessGetHealthReadyResponse extends ApiEnvelope<JsonValue> {
 }

@@ -14,6 +14,17 @@ export class DrmOperations extends ServiceApi {
     return this.client.request<T.RouterAuditEventsGetResponse>({ ...options, method: "GET", url: `/audit-events`, params });
   }
   /**
+   * Performs the list analyses operation for the router capability.
+   * Calls `GET /composition-analyses` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerListAnalysesGet(params?: T.RouterListAnalysesGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RouterListAnalysesGetResponse>({ ...options, method: "GET", url: `/composition-analyses`, params });
+  }
+  /**
    * Performs the list composition categories operation for the router capability.
    * Calls `GET /composition-categories` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -580,6 +591,17 @@ export class DrmOperations extends ServiceApi {
     return this.client.request<T.RouterPlaybackGetResponse>({ ...options, method: "GET", url: `/media/${encodeURIComponent(id)}/playback` });
   }
   /**
+   * Performs the batch media operation for the router capability.
+   * Calls `POST /media/batch` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerBatchMediaPost(data: T.RouterBatchMediaPostInput, options?: RequestOptions<T.RouterBatchMediaPostInput>) {
+    return this.client.request<T.RouterBatchMediaPostResponse, T.RouterBatchMediaPostInput>({ ...options, method: "POST", url: `/media/batch`, data: data });
+  }
+  /**
    * Performs the drm statuses operation for the router capability.
    * Calls `GET /media/drm-statuses` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -668,6 +690,29 @@ export class DrmOperations extends ServiceApi {
     return this.client.request<T.RouterUpdateMixedMediaPatchResponse, T.RouterUpdateMixedMediaPatchInput>({ ...options, method: "PATCH", url: `/mixed-media/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Performs the get analysis operation for the router capability.
+   * Calls `GET /mixed-media/{id}/analysis` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerGetAnalysisGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RouterGetAnalysisGetResponse>({ ...options, method: "GET", url: `/mixed-media/${encodeURIComponent(id)}/analysis` });
+  }
+  /**
+   * Performs the start analysis operation for the router capability.
+   * Calls `POST /mixed-media/{id}/analysis` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerStartAnalysisPost(id: Identifier, data: T.RouterStartAnalysisPostInput, options?: RequestOptions<T.RouterStartAnalysisPostInput>) {
+    return this.client.request<T.RouterStartAnalysisPostResponse, T.RouterStartAnalysisPostInput>({ ...options, method: "POST", url: `/mixed-media/${encodeURIComponent(id)}/analysis`, data: data });
+  }
+  /**
    * Performs the create category operation for the router capability.
    * Calls `POST /mixed-media/{id}/categories` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -678,6 +723,40 @@ export class DrmOperations extends ServiceApi {
    */
   routerCreateCategoryPostMixedMediaIdCategories(id: Identifier, data: T.RouterCreateCategoryPostMixedMediaIdCategoriesInput, options?: RequestOptions<T.RouterCreateCategoryPostMixedMediaIdCategoriesInput>) {
     return this.client.request<T.RouterCreateCategoryPostMixedMediaIdCategoriesResponse, T.RouterCreateCategoryPostMixedMediaIdCategoriesInput>({ ...options, method: "POST", url: `/mixed-media/${encodeURIComponent(id)}/categories`, data: data });
+  }
+  /**
+   * Performs the get settings operation for the router capability.
+   * Calls `GET /mixed-media/{id}/knowledge-sync` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerGetSettingsGetMixedMediaIdKnowledgeSync(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponse>({ ...options, method: "GET", url: `/mixed-media/${encodeURIComponent(id)}/knowledge-sync` });
+  }
+  /**
+   * Performs the sync now operation for the router capability.
+   * Calls `POST /mixed-media/{id}/knowledge-sync` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerSyncNowPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RouterSyncNowPostResponse>({ ...options, method: "POST", url: `/mixed-media/${encodeURIComponent(id)}/knowledge-sync` });
+  }
+  /**
+   * Performs the update settings operation for the router capability.
+   * Calls `PUT /mixed-media/{id}/knowledge-sync` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerUpdateSettingsPut(id: Identifier, data: T.RouterUpdateSettingsPutInput, options?: RequestOptions<T.RouterUpdateSettingsPutInput>) {
+    return this.client.request<T.RouterUpdateSettingsPutResponse, T.RouterUpdateSettingsPutInput>({ ...options, method: "PUT", url: `/mixed-media/${encodeURIComponent(id)}/knowledge-sync`, data: data });
   }
   /**
    * Performs the get manifest operation for the router capability.
@@ -831,14 +910,24 @@ export class DrmOperations extends ServiceApi {
     return this.client.request<T.RouterHealthGetResponse>({ ...options, method: "GET", url: `/operations/health` });
   }
   /**
+   * Performs the knowledge catalog operation for the router capability.
+   * Calls `GET /operations/knowledge-catalog` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routerKnowledgeCatalogGet(options?: RequestOptions) {
+    return this.client.request<T.RouterKnowledgeCatalogGetResponse>({ ...options, method: "GET", url: `/operations/knowledge-catalog` });
+  }
+  /**
    * Performs the get settings operation for the router capability.
    * Calls `GET /operations/settings` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  routerGetSettingsGet(options?: RequestOptions) {
-    return this.client.request<T.RouterGetSettingsGetResponse>({ ...options, method: "GET", url: `/operations/settings` });
+  routerGetSettingsGetOperationsSettings(options?: RequestOptions) {
+    return this.client.request<T.RouterGetSettingsGetOperationsSettingsResponse>({ ...options, method: "GET", url: `/operations/settings` });
   }
   /**
    * Performs the update settings operation for the router capability.

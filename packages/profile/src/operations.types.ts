@@ -342,6 +342,14 @@ export interface LoggerShowGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: BulkParentGet. */
+export interface OptionParentChildrenGetPostInput extends JsonObject {
+  "user_ids": string[];
+}
+/** Backend response type: Value. */
+export interface OptionParentChildrenGetPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: BulkParentGet. */
 export interface OptionParentGetPostInput extends JsonObject {
   "user_ids": string[];
 }

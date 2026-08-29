@@ -419,6 +419,17 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.LoggerShowGetResponse>({ ...options, method: "GET", url: `/api/v1/logger/${encodeURIComponent(log)}` });
   }
   /**
+   * Performs the parent children get operation for the option capability.
+   * Calls `POST /api/v1/parent/children/get` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  optionParentChildrenGetPost(data: T.OptionParentChildrenGetPostInput, options?: RequestOptions<T.OptionParentChildrenGetPostInput>) {
+    return this.client.request<T.OptionParentChildrenGetPostResponse, T.OptionParentChildrenGetPostInput>({ ...options, method: "POST", url: `/api/v1/parent/children/get`, data: data });
+  }
+  /**
    * Performs the parent get operation for the option capability.
    * Calls `POST /api/v1/parent/get` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.

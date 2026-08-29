@@ -1557,6 +1557,21 @@ export interface ManagementApiPublicContentGetResponse extends ApiEnvelope<JsonV
 /** Backend response type: Value. */
 export type ManagementApiPublicRoutesGetResponse = JsonValue;
 
+/** Backend query type: AutocompleteQuery. */
+export interface SearchAutocompleteGetQuery extends QueryParams {
+  "q": string;
+  "scope"?: QueryValue | null;
+  "locale"?: string | null;
+  "limit"?: number | null;
+}
+/** Backend response type: AutocompleteResponse. */
+export interface SearchAutocompleteGetResponseData extends JsonObject {
+  "query": string;
+  "scope": BackendJson<"AutocompleteScope">;
+  "items": BackendJson<"AutocompleteSuggestion">[];
+}
+export type SearchAutocompleteGetResponse = SearchAutocompleteGetResponseData;
+
 /** Backend query type: models::ReactionDeleteQuery. */
 export interface ReactionDeleteOnTargetDeleteQuery extends QueryParams {
   "reaction_id": string;

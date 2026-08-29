@@ -54,6 +54,51 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/flow` });
   }
   /**
+   * Performs the tool schema operation for the assistant tools capability.
+   * Calls `GET /api/v1/integrations/chat/tool-schema` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  assistantToolsToolSchemaGet(options?: RequestOptions) {
+    return this.client.request<T.AssistantToolsToolSchemaGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/chat/tool-schema` });
+  }
+  /**
+   * Performs the list user sessions operation for the assistant tools capability.
+   * Calls `GET /api/v1/integrations/chat/users/{user_id}/sessions` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  assistantToolsListUserSessionsGet(userId: Identifier, params?: T.AssistantToolsListUserSessionsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.AssistantToolsListUserSessionsGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/chat/users/${encodeURIComponent(userId)}/sessions`, params });
+  }
+  /**
+   * Performs the user session detail operation for the assistant tools capability.
+   * Calls `GET /api/v1/integrations/chat/users/{user_id}/sessions/{room_id}` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param roomId Backend path identifier `room_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  assistantToolsUserSessionDetailGet(userId: Identifier, roomId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.AssistantToolsUserSessionDetailGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/chat/users/${encodeURIComponent(userId)}/sessions/${encodeURIComponent(roomId)}` });
+  }
+  /**
+   * Performs the recordings index operation for the recording capability.
+   * Calls `GET /api/v1/recordings` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room_recording:read.
+   */
+  recordingRecordingsIndexGet(params?: T.RecordingRecordingsIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RecordingRecordingsIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/recordings`, params });
+  }
+  /**
    * Performs the recording manifest operation for the recording capability.
    * Calls `GET /api/v1/recordings/{recording_id}/manifest` through the shared IDP-aware Faiber client.
    * @param recordingId Backend path identifier `recording_id`.

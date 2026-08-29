@@ -376,13 +376,33 @@ export class KnowledgeOperations extends ServiceApi {
     return this.client.request<T.RoutesToolSchemaGetResponse>({ ...options, method: "GET", url: `/api/v1/runtime/tool-schema` });
   }
   /**
-   * Performs the health operation for the main capability.
+   * Performs the readiness operation for the main capability.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  mainHealthGet(options?: RequestOptions) {
-    return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });
+  mainReadinessGetHealth(options?: RequestOptions) {
+    return this.client.request<T.MainReadinessGetHealthResponse>({ ...options, method: "GET", url: `/health` });
+  }
+  /**
+   * Performs the liveness operation for the main capability.
+   * Calls `GET /health/live` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  mainLivenessGet(options?: RequestOptions) {
+    return this.client.request<T.MainLivenessGetResponse>({ ...options, method: "GET", url: `/health/live` });
+  }
+  /**
+   * Performs the readiness operation for the main capability.
+   * Calls `GET /health/ready` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  mainReadinessGetHealthReady(options?: RequestOptions) {
+    return this.client.request<T.MainReadinessGetHealthReadyResponse>({ ...options, method: "GET", url: `/health/ready` });
   }
 }

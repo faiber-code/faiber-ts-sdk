@@ -1,6 +1,10 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
+/** Backend response type: Value. */
+export interface RoutesAssistantContextCatalogGetResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: AssistantModelsQuery. */
 export interface RoutesAssistantModelsGetQuery extends QueryParams {
   "billing_payer"?: string | null;
@@ -21,6 +25,21 @@ export interface RoutesCreateAssistantPostInput extends JsonObject {
   "billing_payer"?: string;
   "knowledge_group_slugs"?: string[];
   "knowledge_level"?: number | null;
+  "knowledge_base_ids"?: string[];
+  "recommender_group_ids"?: string[];
+  "short_memory_enabled"?: boolean;
+  "long_memory_enabled"?: boolean;
+  "short_memory_turns"?: number;
+  "long_memory_limit"?: number;
+  "context_mode"?: string;
+  "context_budget_tokens"?: number;
+  "max_knowledge_results"?: number;
+  "max_chunks_per_document"?: number;
+  "knowledge_enabled"?: boolean;
+  "recommenders_enabled"?: boolean;
+  "selected_media_enabled"?: boolean;
+  "session_access"?: boolean;
+  "drm_access"?: boolean;
   "customer_actions"?: BackendJson<"CustomerAction">[];
 }
 /** Backend response type: Value. */
@@ -42,6 +61,21 @@ export interface RoutesUpdateAssistantPutInput extends JsonObject {
   "billing_payer"?: string | null;
   "knowledge_group_slugs"?: string[] | null;
   "knowledge_level"?: number | null;
+  "knowledge_base_ids"?: string[] | null;
+  "recommender_group_ids"?: string[] | null;
+  "short_memory_enabled"?: boolean | null;
+  "long_memory_enabled"?: boolean | null;
+  "short_memory_turns"?: number | null;
+  "long_memory_limit"?: number | null;
+  "context_mode"?: string | null;
+  "context_budget_tokens"?: number | null;
+  "max_knowledge_results"?: number | null;
+  "max_chunks_per_document"?: number | null;
+  "knowledge_enabled"?: boolean | null;
+  "recommenders_enabled"?: boolean | null;
+  "selected_media_enabled"?: boolean | null;
+  "session_access"?: boolean | null;
+  "drm_access"?: boolean | null;
   "customer_actions"?: BackendJson<"CustomerAction">[] | null;
   "status"?: string | null;
   "expected_version"?: number | null;
@@ -135,6 +169,8 @@ export interface RoutesAiSendPostInput extends JsonObject {
   "inputs"?: JsonValue;
   "knowledge_group_slugs"?: string[];
   "knowledge_level"?: number | null;
+  "drm_media_ids"?: string[];
+  "session_room_id"?: string | null;
 }
 /** Backend response type: Value. */
 export interface RoutesAiSendPostResponse extends ApiEnvelope<JsonValue> {

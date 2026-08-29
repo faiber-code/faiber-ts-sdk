@@ -3,6 +3,16 @@ import type * as T from "./operations.types.js";
 
 export class ChatOperations extends ServiceApi {
   /**
+   * Performs the assistant context catalog operation for the routes capability.
+   * Calls `GET /api/v1/admin/assistant-context-catalog` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesAssistantContextCatalogGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesAssistantContextCatalogGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/assistant-context-catalog` });
+  }
+  /**
    * Performs the assistant models operation for the routes capability.
    * Calls `GET /api/v1/admin/assistant-models` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.

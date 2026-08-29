@@ -1147,6 +1147,17 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.ManagementApiPublicRoutesGetResponse>({ ...options, method: "GET", url: `/api/v1/public/routes` });
   }
   /**
+   * Performs the autocomplete operation for the search capability.
+   * Calls `GET /api/v1/public/search/autocomplete` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  searchAutocompleteGet(params?: T.SearchAutocompleteGetQuery, options?: RequestOptions) {
+    return this.client.request<T.SearchAutocompleteGetResponse>({ ...options, method: "GET", url: `/api/v1/public/search/autocomplete`, params });
+  }
+  /**
    * Performs the delete on target operation for the reaction capability.
    * Calls `DELETE /api/v1/reactions/{host}/{target_id}` through the shared IDP-aware Faiber client.
    * @param host Backend path identifier `host`.

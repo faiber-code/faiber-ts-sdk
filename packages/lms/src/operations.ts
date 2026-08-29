@@ -135,6 +135,17 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.CertificateStoreCertificatePostResponse, T.CertificateStoreCertificatePostInput>({ ...options, method: "POST", url: `/api/v1/certificates`, data: data });
   }
   /**
+   * Performs the render certificate image operation for the certificate capability.
+   * Calls `GET /api/v1/certificates/{code}/image.svg` through the shared IDP-aware Faiber client.
+   * @param code Backend path identifier `code`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  certificateRenderCertificateImageGet(code: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CertificateRenderCertificateImageGetResponse>({ ...options, method: "GET", url: `/api/v1/certificates/${encodeURIComponent(code)}/image.svg` });
+  }
+  /**
    * Performs the show certificate operation for the certificate capability.
    * Calls `GET /api/v1/certificates/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -156,6 +167,51 @@ export class LmsOperations extends ServiceApi {
    */
   certificateUpdateCertificatePatch(id: Identifier, data: T.CertificateUpdateCertificatePatchInput, options?: RequestOptions<T.CertificateUpdateCertificatePatchInput>) {
     return this.client.request<T.CertificateUpdateCertificatePatchResponse, T.CertificateUpdateCertificatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/certificates/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the index template operation for the certificate capability.
+   * Calls `GET /api/v1/certificates/templates` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:read.
+   */
+  certificateIndexTemplateGet(params?: T.CertificateIndexTemplateGetQuery, options?: RequestOptions) {
+    return this.client.request<T.CertificateIndexTemplateGetResponse>({ ...options, method: "GET", url: `/api/v1/certificates/templates`, params });
+  }
+  /**
+   * Performs the store template operation for the certificate capability.
+   * Calls `POST /api/v1/certificates/templates` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:create.
+   */
+  certificateStoreTemplatePost(data: T.CertificateStoreTemplatePostInput, options?: RequestOptions<T.CertificateStoreTemplatePostInput>) {
+    return this.client.request<T.CertificateStoreTemplatePostResponse, T.CertificateStoreTemplatePostInput>({ ...options, method: "POST", url: `/api/v1/certificates/templates`, data: data });
+  }
+  /**
+   * Performs the show template operation for the certificate capability.
+   * Calls `GET /api/v1/certificates/templates/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:read.
+   */
+  certificateShowTemplateGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CertificateShowTemplateGetResponse>({ ...options, method: "GET", url: `/api/v1/certificates/templates/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update template operation for the certificate capability.
+   * Calls `PATCH /api/v1/certificates/templates/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:update.
+   */
+  certificateUpdateTemplatePatch(id: Identifier, data: T.CertificateUpdateTemplatePatchInput, options?: RequestOptions<T.CertificateUpdateTemplatePatchInput>) {
+    return this.client.request<T.CertificateUpdateTemplatePatchResponse, T.CertificateUpdateTemplatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/certificates/templates/${encodeURIComponent(id)}`, data: data });
   }
   /**
    * Performs the index classroom operation for the classroom capability.
@@ -201,6 +257,17 @@ export class LmsOperations extends ServiceApi {
    */
   classroomUpdateClassroomPatch(id: Identifier, data: T.ClassroomUpdateClassroomPatchInput, options?: RequestOptions<T.ClassroomUpdateClassroomPatchInput>) {
     return this.client.request<T.ClassroomUpdateClassroomPatchResponse, T.ClassroomUpdateClassroomPatchInput>({ ...options, method: "PATCH", url: `/api/v1/classrooms/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the show completion operation for the classroom capability.
+   * Calls `GET /api/v1/classrooms/{id}/completion` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:finalize.
+   */
+  classroomShowCompletionGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ClassroomShowCompletionGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/${encodeURIComponent(id)}/completion` });
   }
   /**
    * Performs the finalize classroom operation for the classroom capability.
@@ -1206,6 +1273,27 @@ export class LmsOperations extends ServiceApi {
    */
   reportCoursesGet(params?: T.ReportCoursesGetQuery, options?: RequestOptions) {
     return this.client.request<T.ReportCoursesGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/courses`, params });
+  }
+  /**
+   * Performs the my students operation for the report capability.
+   * Calls `GET /api/v1/reports/my-students` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read_own.
+   */
+  reportMyStudentsGet(options?: RequestOptions) {
+    return this.client.request<T.ReportMyStudentsGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/my-students` });
+  }
+  /**
+   * Performs the student summary operation for the report capability.
+   * Calls `GET /api/v1/reports/student-summary` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:report:read_own.
+   */
+  reportStudentSummaryGet(params?: T.ReportStudentSummaryGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ReportStudentSummaryGetResponse>({ ...options, method: "GET", url: `/api/v1/reports/student-summary`, params });
   }
   /**
    * Performs the students operation for the report capability.

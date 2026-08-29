@@ -100,6 +100,38 @@ export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<I
 export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
+/** Backend response type: Value. */
+export interface AssistantToolsToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: SessionQuery. */
+export interface AssistantToolsListUserSessionsGetQuery extends QueryParams {
+  "q"?: string | null;
+  "limit"?: number | null;
+}
+/** Backend response type: Value. */
+export interface AssistantToolsListUserSessionsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface AssistantToolsUserSessionDetailGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: RecordingQueueQuery. */
+export interface RecordingRecordingsIndexGetQuery extends QueryParams {
+  "page_number"?: number | null;
+  "page_size"?: number | null;
+  "search"?: string | null;
+  "status"?: string | null;
+}
+/** Backend response type: RecordingQueueResponse. */
+export interface RecordingRecordingsIndexGetResponseData extends JsonObject {
+  "recordings": BackendJson<"RecordingQueueItem">[];
+  "meta": BackendJson<"PagedPaginationMeta">;
+}
+export interface RecordingRecordingsIndexGetResponse extends ApiEnvelope<RecordingRecordingsIndexGetResponseData> {
+}
+
 /** Backend response type: RecordingManifestResponse. */
 export interface RecordingRecordingManifestGetResponseData extends JsonObject {
   "schema_version": number;

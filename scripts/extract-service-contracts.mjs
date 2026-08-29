@@ -197,6 +197,27 @@ function handlerSignature(source, handler) {
   return { body, query, pathParam, response, responseMeta, responseEnvelope, multipart: /Multipart/.test(params), formUrlEncoded: /Form\s*<|Form\s*\([^)]*\)\s*:\s*Form\s*</.test(params) };
 }
 
+function qualifiedHandlerSource(fileSources, srcRoot, qualifier, handler) {
+  if (!qualifier) return undefined;
+  const qualifiedPath = qualifier
+    .replace(/^crate::/, "")
+    .replace(/^self::/, "")
+    .replaceAll("::", "/");
+  const candidates = [...fileSources.entries()]
+    .filter(([, candidate]) => new RegExp(`(?:pub\\s+)?async\\s+fn\\s+${handler}\\s*\\(`).test(candidate))
+    .map(([file, candidate]) => {
+      const modulePath = relative(srcRoot, file)
+        .replaceAll(String.fromCharCode(92), "/")
+        .replace(/\.rs$/, "")
+        .replace(/\/mod$/, "");
+      const exact = modulePath === qualifiedPath;
+      const suffix = modulePath.endsWith(`/${qualifiedPath}`) || modulePath.endsWith(qualifiedPath);
+      return { candidate, score: exact ? 0 : suffix ? 1 : 2, modulePath };
+    })
+    .sort((left, right) => left.score - right.score || left.modulePath.localeCompare(right.modulePath));
+  return candidates[0]?.score < 2 ? candidates[0].candidate : undefined;
+}
+
 function matchingAngle(source, open) {
   let depth = 0;
   for (let i = open; i < source.length; i += 1) {
@@ -272,14 +293,8 @@ for (const service of services) {
           ? cleanPath(annotated)
           : cleanPath(`/api/v1${annotated}`)
         : joinPath(prefix, route.localPath);
-      let signature = handlerSignature(source, route.handler);
-      if (!signature.response && route.qualifier) {
-        const qualifierPath = route.qualifier.replaceAll("::", "/");
-        const candidates = [...fileSources.entries()]
-          .filter(([, candidate]) => new RegExp(`(?:pub\\s+)?async\\s+fn\\s+${route.handler}\\s*\\(`).test(candidate))
-          .sort(([left], [right]) => Number(!left.includes(qualifierPath)) - Number(!right.includes(qualifierPath)));
-        if (candidates[0]) signature = handlerSignature(candidates[0][1], route.handler);
-      }
+      const resolvedSource = qualifiedHandlerSource(fileSources, srcRoot, route.qualifier, route.handler) ?? source;
+      let signature = handlerSignature(resolvedSource, route.handler);
       if (service === "profile" && ["manager_index", "accountant_index", "support_index", "consultant_index", "teacher_index", "student_index", "parent_index", "other_index"].includes(route.handler)) {
         signature = { query: "models::ListQuery", response: "models::ListData", responseMeta: "crate::models::PaginationMeta", responseEnvelope: "api" };
       }
@@ -288,7 +303,7 @@ for (const service of services) {
         path,
         module,
         handler: route.handler,
-        permissions: permissions.get(route.handler) ?? [],
+        permissions: permissionAnnotations(resolvedSource).get(route.handler) ?? permissions.get(route.handler) ?? [],
         source: relativeSource(file),
         ...signature,
       });
