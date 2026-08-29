@@ -1,6 +1,6 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
 import type { AttachCategoryInput, AttachTagInput, AuditLogListResponse, Author, BlogPost, CartResponse, Category, CategoryAttachmentListResponse, CategoryAttachmentResponse, Comment, Content, ContentAttachmentListResponse, CreateAuthorInput, CreateBlogPostInput, CreateCategoryInput, CreateCommentInput, CreateContentInput, CreateInventoryInput, CreateModuleRequestInput, CreateOrderInput, CreatePricingInput, CreateProductInput, CreateProductVariantInput, CreateSampleInput, CreateSeoContentInput, CreateTagInput, CreateWarehouseInput, Inventory, ModuleRequest, Order, Pricing, Product, ProductListResponse, ProductResponse, ProductVariant, ProductVariantListResponse, ProductVariantQuery, ProductVariantResponse, ReplaceCartInput, Sample, SeoAttachmentListResponse, SeoContent, StockMovementListResponse, Tag, TagAttachmentListResponse, TagAttachmentResponse, UpdateAuthorInput, UpdateBlogPostInput, UpdateCategoryInput, UpdateCommentInput, UpdateContentInput, UpdateInventoryInput, UpdateModuleRequestInput, UpdateOrderInput, UpdatePricingInput, UpdateProductInput, UpdateProductVariantInput, UpdateSampleInput, UpdateSeoContentInput, UpdateTagInput, UpdateWarehouseInput, Warehouse, } from "./types.js";
-import type { AgentProposal, ContentDocument, ContentDocumentQuery, ContentRevision, ImportContentCategoryInput, ImportContentDocumentInput, ModulesAuthSelf, ModulesMediaPurpose, ModulesMediaUploadResponse, ModulesRouteContract, ModulesSettings, PublicContentCategory, PublicContentListResponse, PublicContentQuery, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
+import type { AgentProposal, AutocompleteQuery, AutocompleteResponse, ContentDocument, ContentDocumentQuery, ContentRevision, ImportContentCategoryInput, ImportContentDocumentInput, ModulesAuthSelf, ModulesMediaPurpose, ModulesMediaUploadResponse, ModulesRouteContract, ModulesSettings, PublicContentCategory, PublicContentListResponse, PublicContentQuery, RunModulesAgentInput, UpdateModulesSettingsInput, WriteContentDocumentInput } from "./types.js";
 function targetPath(base: string, host: string, id: Identifier): string {
     return `${base}/${encodeURIComponent(host)}/${encodeURIComponent(id)}`;
 }
@@ -95,6 +95,14 @@ export class ModulesApi extends ServiceApi {
     /** Lists active public category nodes for a locale and scope. */
     publicContentCategories(scope: "post" | "product", locale: string, options?: RequestOptions) {
         return this.client.get<PublicContentCategory[]>(`/api/v1/public/categories/${encodeURIComponent(scope)}/${encodeURIComponent(locale)}`, undefined, options);
+    }
+    /**
+     * Returns relevance-ranked autocomplete suggestions from published posts,
+     * active products, or both. This public endpoint accepts two or more query
+     * characters, clamps the result limit to 20, and supports cancellation.
+     */
+    autocomplete(params: AutocompleteQuery, options?: RequestOptions) {
+        return this.client.get<AutocompleteResponse>("/api/v1/public/search/autocomplete", params, options);
     }
     /** Replay-safe category import for trusted operators with content:write. */
     importContentCategory(id: Identifier, data: ImportContentCategoryInput, options?: RequestOptions<ImportContentCategoryInput>) {

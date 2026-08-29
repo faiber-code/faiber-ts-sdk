@@ -1778,7 +1778,7 @@ export class ModulesOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: product:read.
    */
   productListProductVariantsGet(productId: Identifier, params?: T.ProductListProductVariantsGetQuery, options?: RequestOptions) {
     return this.client.request<T.ProductListProductVariantsGetResponse>({ ...options, method: "GET", url: `/api/v1/shop/products/${encodeURIComponent(productId)}/variants`, params });

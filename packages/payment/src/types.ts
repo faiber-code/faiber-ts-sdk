@@ -25,14 +25,16 @@ export interface Transaction extends JsonObject {
 }
 export interface CreatePaymentInput extends JsonObject {
     amount: number;
-    currency: string;
-    gateway_id?: string;
+    service_name: string;
+    description?: string;
     callback_url?: string;
-    metadata?: JsonObject;
+    service_model: string;
+    service_id: string;
+    queue_name: string;
 }
 export interface PaymentResult extends JsonObject {
-    transaction: Transaction;
-    redirect_url?: string;
+    transaction: string;
+    redirect_url: string;
 }
 export interface GatewayOption extends JsonObject {
     id: string;

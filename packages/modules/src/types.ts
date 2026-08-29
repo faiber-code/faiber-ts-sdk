@@ -59,11 +59,15 @@ export interface OrderItem {
     variant_id: string;
     quantity: number;
     unit_price?: string | number;
+    total_price?: string | number;
 }
+export type CreateOrderItemInput = Pick<OrderItem, "variant_id" | "quantity"> & {
+    unit_price: string | number;
+};
 export interface CreateOrderInput {
     user_id?: string;
     status?: string | number;
-    items?: Array<Pick<OrderItem, "variant_id" | "quantity">>;
+    items: CreateOrderItemInput[];
 }
 export interface UpdateOrderInput {
     status?: string | number;
@@ -439,6 +443,36 @@ export interface PublicContentListResponse {
     page_number: number;
     page_size: number;
     total_items: number;
+}
+
+/** Selects which public Modules records participate in autocomplete. */
+export type AutocompleteScope = "posts" | "products" | "mixed";
+
+/** Query for the indexed public autocomplete endpoint. */
+export interface AutocompleteQuery extends QueryParams {
+    q: string;
+    scope?: AutocompleteScope;
+    locale?: string;
+    limit?: number;
+}
+
+/** One relevance-ranked public search suggestion. */
+export interface AutocompleteSuggestion {
+    id: string;
+    kind: "post" | "product";
+    title: string;
+    description?: string;
+    image_url?: string;
+    slug?: string;
+    locale?: string;
+    score: number;
+}
+
+/** Response returned by the indexed public autocomplete endpoint. */
+export interface AutocompleteResponse {
+    query: string;
+    scope: AutocompleteScope;
+    items: AutocompleteSuggestion[];
 }
 
 /** Public category node. Use parent_id to reconstruct an arbitrary-depth tree. */

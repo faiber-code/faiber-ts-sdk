@@ -975,6 +975,42 @@ export interface ProfileManagerIndexGetResponse extends ApiEnvelope<ProfileManag
   meta: ProfileManagerIndexGetMetaData;
 }
 
+/** Backend response type: serde_json::Value. */
+export interface ProfileGetMyAddressesGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: models::AddressRequest. */
+export interface ProfileSaveMyAddressPatchInput extends JsonObject {
+  "title": string;
+  "country"?: string | null;
+  "province"?: string | null;
+  "city"?: string | null;
+  "postal_code"?: string | null;
+  "plate"?: string | null;
+  "detail"?: string | null;
+}
+/** Backend response type: serde_json::Value. */
+export interface ProfileSaveMyAddressPatchResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: models::AddressRequest. */
+export interface ProfileSaveMyAddressPutInput extends JsonObject {
+  "title": string;
+  "country"?: string | null;
+  "province"?: string | null;
+  "city"?: string | null;
+  "postal_code"?: string | null;
+  "plate"?: string | null;
+  "detail"?: string | null;
+}
+/** Backend response type: serde_json::Value. */
+export interface ProfileSaveMyAddressPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: serde_json::Value. */
+export interface ProfileDeleteMyAddressDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: models::ListQuery. */
 export interface ProfileOtherIndexGetQuery extends QueryParams {
   "page"?: string | null;

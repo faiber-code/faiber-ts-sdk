@@ -200,6 +200,17 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.RoomRoomsJoinGetResponse>({ ...options, method: "GET", url: `/api/v1/rooms/${encodeURIComponent(roomId)}/join` });
   }
   /**
+   * Performs the rooms leaderboard operation for the room capability.
+   * Calls `GET /api/v1/rooms/{room_id}/leaderboard` through the shared IDP-aware Faiber client.
+   * @param roomId Backend path identifier `room_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: room:read_own.
+   */
+  roomRoomsLeaderboardGet(roomId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoomRoomsLeaderboardGetResponse>({ ...options, method: "GET", url: `/api/v1/rooms/${encodeURIComponent(roomId)}/leaderboard` });
+  }
+  /**
    * Performs the rooms livekit token operation for the room capability.
    * Calls `GET /api/v1/rooms/{room_id}/livekit-token` through the shared IDP-aware Faiber client.
    * @param roomId Backend path identifier `room_id`.

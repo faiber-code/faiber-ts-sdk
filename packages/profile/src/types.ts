@@ -43,6 +43,24 @@ export interface ProfileParent extends JsonObject {
     user_id: string;
     parent_type?: string | null;
 }
+export interface ProfileAddress extends JsonObject {
+    id?: string;
+    profile_id?: string;
+    title: string;
+    country?: string | null;
+    province?: string | null;
+    city?: string | null;
+    postal_code?: string | null;
+    plate?: string | null;
+    detail?: string | null;
+    created_at?: string;
+    updated_at?: string | null;
+}
+export type SaveProfileAddressInput = Pick<ProfileAddress, "title"> & Partial<Pick<ProfileAddress, "country" | "province" | "city" | "postal_code" | "plate" | "detail">>;
+export interface ProfileAddressListResponse extends ApiEnvelope<ProfileAddress[]> {
+}
+export interface ProfileAddressMutationResponse extends ApiEnvelope<JsonValue> {
+}
 export interface ProfileProperties extends JsonObject {
     [key: string]: JsonValue | undefined;
 }

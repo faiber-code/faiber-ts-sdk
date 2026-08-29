@@ -58,6 +58,21 @@ const article = await api.publicContent(
 renderTrustedCmsHtml(article.data.sanitized_html);
 ```
 
+Published posts and active products share one indexed autocomplete endpoint. Use
+`scope: "posts"`, `"products"`, or `"mixed"`; the full Axios response and request
+cancellation remain available.
+
+```ts
+const suggestions = await api.autocomplete(
+  { q: "برنامه نویسی", scope: "mixed", locale: "fa", limit: 8 },
+  { signal: AbortSignal.timeout(5_000) },
+);
+
+for (const item of suggestions.data.items) {
+  console.log(item.kind, item.title, item.slug);
+}
+```
+
 Trusted migration operators can use `importContentCategory` and
 `importContentDocument` for deterministic, replay-safe imports. Those calls require
 `content:write`; importing a published document also requires `content:publish`.

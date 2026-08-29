@@ -77,7 +77,7 @@ test("generated contracts have exact route coverage, named outputs, and complete
     }
     total += endpoints.length;
   }
-  assert.equal(total, 1070);
+  assert.equal(total, 1075);
 });
 
 test("every published workspace package includes developer documentation", async () => {

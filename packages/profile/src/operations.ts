@@ -1038,6 +1038,49 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.ProfileManagerIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/manager`, params });
   }
   /**
+   * Performs the get my addresses operation for the profile capability.
+   * Calls `GET /api/v1/profile/me/addresses` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileGetMyAddressesGet(options?: RequestOptions) {
+    return this.client.request<T.ProfileGetMyAddressesGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/me/addresses` });
+  }
+  /**
+   * Performs the save my address operation for the profile capability.
+   * Calls `PATCH /api/v1/profile/me/addresses` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileSaveMyAddressPatch(data: T.ProfileSaveMyAddressPatchInput, options?: RequestOptions<T.ProfileSaveMyAddressPatchInput>) {
+    return this.client.request<T.ProfileSaveMyAddressPatchResponse, T.ProfileSaveMyAddressPatchInput>({ ...options, method: "PATCH", url: `/api/v1/profile/me/addresses`, data: data });
+  }
+  /**
+   * Performs the save my address operation for the profile capability.
+   * Calls `PUT /api/v1/profile/me/addresses` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileSaveMyAddressPut(data: T.ProfileSaveMyAddressPutInput, options?: RequestOptions<T.ProfileSaveMyAddressPutInput>) {
+    return this.client.request<T.ProfileSaveMyAddressPutResponse, T.ProfileSaveMyAddressPutInput>({ ...options, method: "PUT", url: `/api/v1/profile/me/addresses`, data: data });
+  }
+  /**
+   * Performs the delete my address operation for the profile capability.
+   * Calls `DELETE /api/v1/profile/me/addresses/{title}` through the shared IDP-aware Faiber client.
+   * @param title Backend path identifier `title`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  profileDeleteMyAddressDelete(title: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ProfileDeleteMyAddressDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/profile/me/addresses/${encodeURIComponent(title)}` });
+  }
+  /**
    * Performs the other index operation for the profile capability.
    * Calls `GET /api/v1/profile/other` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.

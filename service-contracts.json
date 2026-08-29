@@ -9302,7 +9302,9 @@
       "path": "/api/v1/shop/products/{product_id}/variants",
       "module": "product",
       "handler": "list_product_variants",
-      "permissions": [],
+      "permissions": [
+        "product:read"
+      ],
       "source": "infera-modules/src/product/routes.rs",
       "query": "PaginationQuery",
       "pathParam": "Uuid",
@@ -11155,6 +11157,57 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/profile/me/addresses",
+      "module": "profile",
+      "handler": "get_my_addresses",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/profile/me/addresses",
+      "module": "profile",
+      "handler": "save_my_address",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::AddressRequest",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/me/addresses",
+      "module": "profile",
+      "handler": "save_my_address",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "body": "models::AddressRequest",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/profile/me/addresses/{title}",
+      "module": "profile",
+      "handler": "delete_my_address",
+      "permissions": [],
+      "source": "infera-profile/src/profile/routes.rs",
+      "pathParam": "String",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/profile/other",
       "module": "profile",
       "handler": "other_index",
@@ -12839,6 +12892,21 @@
       "source": "infera-session/src/room/routes.rs",
       "pathParam": "Uuid",
       "response": "LiveKitJoinResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/rooms/{room_id}/leaderboard",
+      "module": "room",
+      "handler": "rooms_leaderboard",
+      "permissions": [
+        "room:read_own"
+      ],
+      "source": "infera-session/src/room/routes.rs",
+      "pathParam": "Uuid",
+      "response": "RoomLeaderboardResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

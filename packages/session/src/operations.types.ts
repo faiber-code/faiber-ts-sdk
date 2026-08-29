@@ -25,6 +25,7 @@ export interface ConfigurationLivekitConfigShowGetResponseData extends JsonObjec
   "audio_processing_enabled": boolean;
   "audio_model_ref"?: string | null;
   "chat_model_ref"?: string | null;
+  "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
   "processing_window_end": string;
@@ -51,6 +52,7 @@ export interface ConfigurationLivekitConfigUpdatePutInput extends JsonObject {
   "audio_processing_enabled"?: boolean;
   "audio_model_ref"?: string | null;
   "chat_model_ref"?: string | null;
+  "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
   "processing_window_end": string;
@@ -75,6 +77,7 @@ export interface ConfigurationLivekitConfigUpdatePutResponseData extends JsonObj
   "audio_processing_enabled": boolean;
   "audio_model_ref"?: string | null;
   "chat_model_ref"?: string | null;
+  "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
   "processing_window_end": string;
@@ -148,10 +151,13 @@ export interface RecordingAudioModelsGetResponse extends ApiEnvelope<RecordingAu
 /** Backend request type: RoomStateRespond. */
 export interface RoomStateRoomStateRespondPostInput extends JsonObject {
   "values": string[];
+  "evidence_images"?: BackendJson<"TaskEvidenceImage">[];
 }
 /** Backend response type: RoomStateRespondResponse. */
 export interface RoomStateRoomStateRespondPostResponseData extends JsonObject {
   "validated": boolean;
+  "event": string;
+  "reason"?: string | null;
 }
 export interface RoomStateRoomStateRespondPostResponse extends ApiEnvelope<RoomStateRoomStateRespondPostResponseData> {
 }
@@ -260,6 +266,13 @@ export interface RoomRoomsJoinGetResponseData extends JsonObject {
   "realtime"?: BackendJson<"RealtimeJoinResponse"> | null;
 }
 export interface RoomRoomsJoinGetResponse extends ApiEnvelope<RoomRoomsJoinGetResponseData> {
+}
+
+/** Backend response type: RoomLeaderboardResponse. */
+export interface RoomRoomsLeaderboardGetResponseData extends JsonObject {
+  "entries": BackendJson<"RoomLeaderboardEntry">[];
+}
+export interface RoomRoomsLeaderboardGetResponse extends ApiEnvelope<RoomRoomsLeaderboardGetResponseData> {
 }
 
 /** Backend response type: LiveKitTokenResponse. */
