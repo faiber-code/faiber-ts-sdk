@@ -171,6 +171,46 @@ export interface AssetDashboardResponse extends ApiEnvelope<AssetDashboard> {
 }
 export interface WalletResponse extends ApiEnvelope<Wallet> {
 }
+/** Query for an administrator's view of one user's wallet ledger. */
+export interface AdminWalletQuery extends QueryParams {
+    limit?: number;
+}
+/** One authoritative wallet ledger entry. */
+export interface AdminWalletTransaction extends JsonObject {
+    id: string;
+    profile_id: string;
+    direction: "credit" | "debit";
+    amount: number;
+    reason: string;
+    ref_type?: string | null;
+    ref_id?: string | null;
+    balance_after: number;
+    created_at: string;
+}
+/** Wallet balance and recent ledger entries visible to an administrator. */
+export interface AdminWalletSnapshot {
+    wallet: Wallet;
+    transactions: AdminWalletTransaction[];
+}
+/** Permission-gated administrative credit or debit. */
+export interface AdminWalletAdjustmentInput extends JsonObject {
+    direction: "credit" | "debit";
+    amount: number;
+    reason: string;
+}
+export interface AdminWalletSnapshotResponse extends ApiEnvelope<AdminWalletSnapshot> {
+}
+/** Read-only effective pricing for a sandbox project owned by the authenticated account. */
+export interface SandboxProjectPricing extends JsonObject {
+    project: string;
+    currency: string;
+    fixed_monthly_price?: number | null;
+    hourly_price: number;
+    daily_estimate: number;
+    monthly_estimate: number;
+}
+export interface SandboxProjectPricingResponse extends ApiEnvelope<SandboxProjectPricing> {
+}
 export interface SubscriptionListResponse extends ApiEnvelope<PaginatedResult<Subscription>> {
 }
 export interface BillingPlanListResponse extends ApiEnvelope<BillingPlan[]> {

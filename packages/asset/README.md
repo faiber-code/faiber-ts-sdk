@@ -26,6 +26,15 @@ const assets = await api.assets.list({ "page[number]": 1 });
 const wallet = await api.wallet();
 const dailyCosts = await api.dailyCosts({ page_size: 14 });
 const topUp = await api.topUpWallet({ amount: 500_000, currency: "IRR" });
+const pricing = await api.sandboxProjectPricing("fitapp");
+
+// Trusted admin/server context only (admin:charge:read/update):
+const userWallet = await api.adminUserWallet(profileId, { limit: 25 });
+await api.adjustAdminUserWallet(profileId, {
+  direction: "credit",
+  amount: 500_000,
+  reason: "Support adjustment",
+});
 ```
 
 ## Complete capability
@@ -49,7 +58,7 @@ This package exposes 67 registered operations from the assets and billing servic
 | `wallet` | 4 | `GET` |
 | `wallet-billing` | 18 | `DELETE`, `GET`, `POST`, `PUT` |
 
-Administrative and self-service billing routes are distinct operations. `wallet`, `dailyCosts`, and `topUpWallet` operate on the authenticated account. Trusted server tooling can use `setSandboxFinancialOwner` and `setSandboxFixedPrice`; never expose an administrative token in browser code. Purchase, top-up, pause, resume, removal, and permanent-data deletion methods preserve the backend verbs and permission annotations.
+Administrative and self-service billing routes are distinct operations. `wallet`, `dailyCosts`, `topUpWallet`, and `sandboxProjectPricing` operate on the authenticated account. Trusted server tooling can use `adminUserWallet`, `adjustAdminUserWallet`, `setSandboxFinancialOwner`, and `setSandboxFixedPrice`; never expose an administrative token in browser code. Administrative adjustments create authoritative credit/debit ledger entries and reject non-positive amounts or missing reasons. Purchase, top-up, pause, resume, removal, and permanent-data deletion methods preserve the backend verbs and permission annotations.
 
 ## Authentication and authorization
 

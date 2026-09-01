@@ -42,8 +42,9 @@ const faiberAccount = linked.data.data.identities.find(
 
 // Uses only the sandbox IDP session. The service verifies the linked identity
 // and projects the linked main-Faiber wallet server-side.
-const billing = await api.linkedFaiberBilling({ page_size: 14 });
+const billing = await api.linkedFaiberBilling({ project: "fitapp", page_size: 14 });
 console.log(billing.data.data.wallet.balance);
+console.log(billing.data.data.project_pricing?.fixed_monthly_price);
 
 const topUp = await api.topUpLinkedFaiberWallet({ amount: 500_000 });
 window.location.assign(topUp.data.data.payment_url);

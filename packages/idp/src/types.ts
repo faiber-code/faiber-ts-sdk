@@ -40,6 +40,8 @@ export interface LinkedIdentityListData extends JsonObject {
 }
 /** Query for the linked main-Faiber account's metered daily costs. */
 export interface LinkedFaiberBillingQuery extends QueryParams {
+    /** Optional sandbox project whose effective pricing should be projected. */
+    project?: string;
     page?: number;
     page_size?: number;
     from?: string;
@@ -71,6 +73,16 @@ export interface LinkedFaiberBilling extends JsonObject {
     provider_id: string;
     wallet: LinkedFaiberWallet;
     daily_costs: LinkedFaiberDailyCostsPage;
+    project_pricing?: LinkedFaiberProjectPricing | null;
+}
+/** Effective pricing for a project billed to the linked main-Faiber account. */
+export interface LinkedFaiberProjectPricing extends JsonObject {
+    project: string;
+    currency: string;
+    fixed_monthly_price?: string | number | null;
+    hourly_price: string | number;
+    daily_estimate: string | number;
+    monthly_estimate: string | number;
 }
 export interface LinkedFaiberBillingResponse extends ApiEnvelope<LinkedFaiberBilling> {
 }

@@ -223,6 +223,30 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.WalletBillingAdminUserPlanDisablePutResponse>({ ...options, method: "PUT", url: `/api/v1/admin/user-plans/${encodeURIComponent(profileId)}/disable` });
   }
   /**
+   * Performs the admin user wallet show operation for the wallet billing capability.
+   * Calls `GET /api/v1/admin/users/{profile_id}/wallet` through the shared IDP-aware Faiber client.
+   * @param profileId Backend path identifier `profile_id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:read.
+   */
+  walletBillingAdminUserWalletShowGet(profileId: Identifier, params?: T.WalletBillingAdminUserWalletShowGetQuery, options?: RequestOptions) {
+    return this.client.request<T.WalletBillingAdminUserWalletShowGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/users/${encodeURIComponent(profileId)}/wallet`, params });
+  }
+  /**
+   * Performs the admin user wallet adjust operation for the wallet billing capability.
+   * Calls `POST /api/v1/admin/users/{profile_id}/wallet/adjustments` through the shared IDP-aware Faiber client.
+   * @param profileId Backend path identifier `profile_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:update.
+   */
+  walletBillingAdminUserWalletAdjustPost(profileId: Identifier, data: T.WalletBillingAdminUserWalletAdjustPostInput, options?: RequestOptions<T.WalletBillingAdminUserWalletAdjustPostInput>) {
+    return this.client.request<T.WalletBillingAdminUserWalletAdjustPostResponse, T.WalletBillingAdminUserWalletAdjustPostInput>({ ...options, method: "POST", url: `/api/v1/admin/users/${encodeURIComponent(profileId)}/wallet/adjustments`, data: data });
+  }
+  /**
    * Performs the assets index operation for the catalog capability.
    * Calls `GET /api/v1/assets` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -689,6 +713,17 @@ export class AssetOperations extends ServiceApi {
    */
   sandboxBillingPausePost(project: Identifier, options?: RequestOptions) {
     return this.client.request<T.SandboxBillingPausePostResponse>({ ...options, method: "POST", url: `/api/v1/sandbox-resources/${encodeURIComponent(project)}/pause` });
+  }
+  /**
+   * Performs the show pricing operation for the sandbox billing capability.
+   * Calls `GET /api/v1/sandbox-resources/{project}/pricing` through the shared IDP-aware Faiber client.
+   * @param project Backend path identifier `project`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  sandboxBillingShowPricingGet(project: Identifier, options?: RequestOptions) {
+    return this.client.request<T.SandboxBillingShowPricingGetResponse>({ ...options, method: "GET", url: `/api/v1/sandbox-resources/${encodeURIComponent(project)}/pricing` });
   }
   /**
    * Performs the resume operation for the sandbox billing capability.

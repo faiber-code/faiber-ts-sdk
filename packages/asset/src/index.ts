@@ -21,6 +21,18 @@ export class AssetApi extends ServiceApi {
     topUpWallet(data: T.WalletTopUpInput, options?: RequestOptions<T.WalletTopUpInput>) {
         return this.client.post<T.WalletTopUpResponse, T.WalletTopUpInput>("/api/v1/wallet/topup", data, options);
     }
+    /** Reads one user's wallet and recent ledger entries. Requires `admin:charge:read`. */
+    adminUserWallet(profileId: Identifier, params?: T.AdminWalletQuery, options?: RequestOptions) {
+        return this.client.get<T.AdminWalletSnapshotResponse>(`/api/v1/admin/users/${encodeURIComponent(profileId)}/wallet`, params, options);
+    }
+    /** Credits or debits one user's wallet and records an auditable ledger entry. Requires `admin:charge:update`. */
+    adjustAdminUserWallet(profileId: Identifier, data: T.AdminWalletAdjustmentInput, options?: RequestOptions<T.AdminWalletAdjustmentInput>) {
+        return this.client.post<T.AdminWalletSnapshotResponse, T.AdminWalletAdjustmentInput>(`/api/v1/admin/users/${encodeURIComponent(profileId)}/wallet/adjustments`, data, options);
+    }
+    /** Reads effective project pricing without creating or changing a sandbox allocation. */
+    sandboxProjectPricing(project: Identifier, options?: RequestOptions) {
+        return this.client.get<T.SandboxProjectPricingResponse>(`/api/v1/sandbox-resources/${encodeURIComponent(project)}/pricing`, undefined, options);
+    }
     /** Moves an existing sandbox allocation and subscription to a linked Faiber financial owner. */
     setSandboxFinancialOwner(project: Identifier, data: O.SandboxBillingAdminProjectFinancialOwnerPutInput, options?: RequestOptions<O.SandboxBillingAdminProjectFinancialOwnerPutInput>) {
         return this.operations.sandboxBillingAdminProjectFinancialOwnerPut(project, data, options);

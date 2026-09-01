@@ -28,7 +28,7 @@ async function provePublicContracts(): Promise<void> {
   const linkedFaiberSubject = linkedResponse.data.data.identities.find(
     identity => identity.provider === "faiber",
   )?.provider_id;
-  const linkedBilling = await apis.idp.linkedFaiberBilling({ page_size: 14 });
+  const linkedBilling = await apis.idp.linkedFaiberBilling({ project: "fitapp", page_size: 14 });
   await apis.idp.topUpLinkedFaiberWallet({
     amount: 500_000,
     currency: linkedBilling.data.data.wallet.currency,
@@ -53,6 +53,17 @@ async function provePublicContracts(): Promise<void> {
   const dailyCostsResponse = await apis.asset.dailyCosts({ page_size: 14 });
   const dailyCosts: AssetService.DailyCostSummary[] = dailyCostsResponse.data.data.items;
   await apis.asset.topUpWallet({ amount: 500_000, ...(wallet.currency ? { currency: wallet.currency } : {}) });
+  const projectPricing = await apis.asset.sandboxProjectPricing("fitapp");
+  const fixedMonthlyPrice: number | null | undefined = projectPricing.data.data.fixed_monthly_price;
+  void fixedMonthlyPrice;
+  const adminWallet = await apis.asset.adminUserWallet("00000000-0000-0000-0000-000000000001", { limit: 25 });
+  const adminBalance: number = adminWallet.data.data.wallet.balance;
+  void adminBalance;
+  await apis.asset.adjustAdminUserWallet("00000000-0000-0000-0000-000000000001", {
+    direction: "credit",
+    amount: 500_000,
+    reason: "Support adjustment",
+  });
   await apis.asset.setSandboxFinancialOwner("fitapp", {
     current_profile_id: "00000000-0000-0000-0000-000000000001",
     financial_owner_user_id: linkedFaiberSubject ?? "00000000-0000-0000-0000-000000000002",

@@ -168,6 +168,7 @@ export interface AuthListLinkedIdentitiesGetResponse extends ApiEnvelope<AuthLis
 
 /** Backend query type: LinkedFaiberBillingQuery. */
 export interface AuthLinkedFaiberBillingGetQuery extends QueryParams {
+  "project"?: string | null;
   "page"?: number | null;
   "page_size"?: number | null;
   "from"?: string | null;
@@ -175,10 +176,19 @@ export interface AuthLinkedFaiberBillingGetQuery extends QueryParams {
   "tz_offset_minutes"?: number | null;
 }
 /** Backend response type: LinkedFaiberBillingResponse. */
+export interface AuthLinkedFaiberBillingGetResponseProjectPricing extends JsonObject {
+  "project": string;
+  "currency": string;
+  "fixed_monthly_price"?: number | null;
+  "hourly_price": number;
+  "daily_estimate": number;
+  "monthly_estimate": number;
+}
 export interface AuthLinkedFaiberBillingGetResponseData extends JsonObject {
   "provider_id": string;
   "wallet": BackendJson<"LinkedFaiberWallet">;
   "daily_costs": BackendJson<"LinkedFaiberDailyCostsPage">;
+  "project_pricing"?: AuthLinkedFaiberBillingGetResponseProjectPricing | null;
 }
 export interface AuthLinkedFaiberBillingGetResponse extends ApiEnvelope<AuthLinkedFaiberBillingGetResponseData> {
 }
