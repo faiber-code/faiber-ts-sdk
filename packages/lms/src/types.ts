@@ -12,6 +12,26 @@ export interface Course extends LmsEntity {
 export interface CourseCategory extends LmsEntity {
     name: string;
 }
+/** Course session, including its external or DRM-backed video source. */
+export interface CourseSession extends LmsEntity {
+    id: string;
+    course_id: string;
+    name: string;
+    description: string | null;
+    sort_order: number;
+    session_type: string;
+    session_type_id: string | null;
+    exam_id: string | null;
+    duration_minutes: number | null;
+    auto_unlock: boolean;
+    info: string | null;
+    video_type: "external" | "drm" | string | null;
+    external_url: string | null;
+    drm_mixed_media_id: string | null;
+    status: string;
+    created_at: string;
+    updated_at: string;
+}
 export interface VideoSection extends LmsEntity {
     course_id?: string;
     video_url?: string;
@@ -128,6 +148,24 @@ export interface CreateCourseInput extends CreateLmsEntityInput {
     description?: string;
 }
 export interface UpdateCourseInput extends Partial<CreateCourseInput> {
+}
+export interface CreateCourseSessionInput extends CreateLmsEntityInput {
+    course_id: string;
+    name: string;
+    description?: string | null;
+    sort_order: number;
+    session_type: string;
+    session_type_id?: string | null;
+    exam_id?: string | null;
+    duration_minutes?: number | null;
+    auto_unlock: boolean;
+    info?: string | null;
+    video_type?: "external" | "drm" | string | null;
+    external_url?: string | null;
+    drm_mixed_media_id?: string | null;
+    status: string;
+}
+export interface UpdateCourseSessionInput extends Partial<Omit<CreateCourseSessionInput, "course_id">> {
 }
 export interface CreateCourseCategoryInput extends CreateLmsEntityInput {
     name: string;
@@ -251,7 +289,16 @@ export interface LmsResponse<T extends LmsEntity> extends ResourceResponse<T> {
 }
 export interface DashboardResponse extends ApiEnvelope<LmsDashboard> {
 }
-export interface CourseSessionsResponse extends ApiEnvelope<ClassroomSession[]> {
+export interface CourseSessionPage extends JsonObject {
+    data: CourseSession[];
+    meta: {
+        page: number;
+        page_size: number;
+        total_items: number;
+        total_pages: number;
+    };
+}
+export interface CourseSessionsResponse extends ApiEnvelope<CourseSessionPage> {
 }
 export interface ClassroomSessionTypesResponse extends ApiEnvelope<ClassroomSessionType[]> {
 }
@@ -326,6 +373,9 @@ export interface AcademySession {
     session_type: string;
     duration_minutes: number | null;
     exam_id: number | null;
+    video_type: "external" | "drm" | string | null;
+    external_url: string | null;
+    drm_mixed_media_id: string | null;
     completed: boolean;
     unlocked: boolean;
 }

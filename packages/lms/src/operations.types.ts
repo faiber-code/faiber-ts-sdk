@@ -1307,6 +1307,8 @@ export interface CourseIndexSessionGetResponseItem extends JsonObject {
   "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "info"?: string | null;
+  "video_type"?: string | null;
+  "external_url"?: string | null;
   "drm_mixed_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "status": string;
   "created_at": string;
@@ -1337,6 +1339,8 @@ export interface CourseStoreSessionPostInput extends JsonObject {
   "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "info"?: string | null;
+  "video_type"?: string | null;
+  "external_url"?: string | null;
   "drm_mixed_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "status": string;
 }
@@ -1353,6 +1357,8 @@ export interface CourseStoreSessionPostResponseData extends JsonObject {
   "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "info"?: string | null;
+  "video_type"?: string | null;
+  "external_url"?: string | null;
   "drm_mixed_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "status": string;
   "created_at": string;
@@ -1378,6 +1384,8 @@ export interface CourseShowSessionGetResponseData extends JsonObject {
   "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "info"?: string | null;
+  "video_type"?: string | null;
+  "external_url"?: string | null;
   "drm_mixed_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "status": string;
   "created_at": string;
@@ -1397,6 +1405,8 @@ export interface CourseUpdateSessionPatchInput extends JsonObject {
   "duration_minutes"?: number | null;
   "auto_unlock"?: boolean | null;
   "info"?: string | null;
+  "video_type"?: string | null;
+  "external_url"?: string | null;
   "drm_mixed_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "status"?: string | null;
 }
@@ -1413,6 +1423,8 @@ export interface CourseUpdateSessionPatchResponseData extends JsonObject {
   "duration_minutes"?: number | null;
   "auto_unlock": boolean;
   "info"?: string | null;
+  "video_type"?: string | null;
+  "external_url"?: string | null;
   "drm_mixed_media_id"?: BackendJson<"uuid::Uuid"> | null;
   "status": string;
   "created_at": string;

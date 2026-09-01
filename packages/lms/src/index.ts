@@ -56,6 +56,12 @@ export class LmsApi extends ServiceApi {
         };
     }
     courseSessions(id: Identifier, params?: QueryParams, options?: RequestOptions) { return this.client.get<T.CourseSessionsResponse>(`/api/v1/courses/${encodeURIComponent(id)}/sessions`, params, options); }
+    /** Returns one course session, including its configured external or DRM video source. */
+    courseSession(courseId: Identifier, sessionId: Identifier, options?: RequestOptions) { return this.client.get<T.LmsResponse<T.CourseSession>>(`/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(sessionId)}`, undefined, options); }
+    /** Creates a course session with an optional external or DRM video source. */
+    createCourseSession(courseId: Identifier, data: T.CreateCourseSessionInput, options?: RequestOptions<T.CreateCourseSessionInput>) { return this.client.post<T.LmsResponse<T.CourseSession>, T.CreateCourseSessionInput>(`/api/v1/courses/${encodeURIComponent(courseId)}/sessions`, data, options); }
+    /** Updates a course session and supports clearing or replacing its video source. */
+    updateCourseSession(courseId: Identifier, sessionId: Identifier, data: T.UpdateCourseSessionInput, options?: RequestOptions<T.UpdateCourseSessionInput>) { return this.client.patch<T.LmsResponse<T.CourseSession>, T.UpdateCourseSessionInput>(`/api/v1/courses/${encodeURIComponent(courseId)}/sessions/${encodeURIComponent(sessionId)}`, data, options); }
     addClassroomUser(id: Identifier, data: T.ClassroomUserInput, options?: RequestOptions<T.ClassroomUserInput>) { return this.client.post<T.ClassroomUserResponse, T.ClassroomUserInput>(`/api/v1/classrooms/${encodeURIComponent(id)}/users`, data, options); }
     report(kind: "teachers" | "students" | "classrooms", params?: QueryParams, options?: RequestOptions) { return this.client.get<T.LmsReportResponse>(`/api/v1/reports/${kind}`, params, options); }
     /** Lists active learner academy categories for the authenticated IDP session. */
