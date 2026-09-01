@@ -1,5 +1,5 @@
 import {
- AssetService, FaiberSDK, FaiberGame, IdpService, MessengerService, ModulesService,
+ AssetService, FaiberSDK, FaiberGame, IdpService, LmsService, MessengerService, ModulesService,
   StateRealtimeClient, component, domainsFromManageProxy,
   type CreateWorldInput, type FaiberServiceApis, type ManageService,
 } from "@faiber/faiber-ts-sdk";
@@ -47,6 +47,15 @@ async function provePublicContracts(): Promise<void> {
   await apis.profile.saveAddress("user-1", { title: "Home", city: "Tehran", detail: "Example street" });
   await apis.profile.myAddresses();
   await apis.profile.saveMyAddress({ title: "Home", city: "Tehran", detail: "Example street" });
+  const classroomSessions = await apis.lms.classroomSessions.list({ page_number: 1, page_size: 20 });
+  const classroomSession: LmsService.ClassroomSession | undefined = classroomSessions.data.data.data[0];
+  const classroomSessionTypes = await apis.lms.classroomSessionTypes();
+  const classroomSessionType: LmsService.ClassroomSessionType | undefined = classroomSessionTypes.data.data[0];
+  if (classroomSession) {
+    const sessionLinks: LmsService.ClassroomSessionLinks = apis.lms.classroomSessionLinks(classroomSession);
+    void sessionLinks;
+  }
+  void classroomSessionType;
   await apis.state.createWorld(world);
   const walletResponse = await apis.asset.wallet();
   const wallet: AssetService.Wallet = walletResponse.data.data;

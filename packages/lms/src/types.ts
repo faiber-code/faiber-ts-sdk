@@ -1,9 +1,9 @@
 import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
 export interface LmsEntity extends JsonObject {
     id: string;
-    name?: string;
-    title?: string;
-    status?: string;
+    name?: string | null;
+    title?: string | null;
+    status?: string | null;
 }
 export interface Course extends LmsEntity {
     title: string;
@@ -20,9 +20,56 @@ export interface Classroom extends LmsEntity {
     course_id?: string;
     starts_at?: string;
 }
+
+/** Configured LMS type used to determine classroom-session behavior and provisioning. */
+export interface ClassroomSessionType extends JsonObject {
+    id: string;
+    code: string;
+    name: string;
+    name_en: string | null;
+    is_online: boolean;
+    status: string;
+    sort_order: number;
+    created_at: string;
+    updated_at: string;
+}
+
+/** Minimal server-resolved teacher identity shown with a classroom session. */
+export interface ClassroomSessionTeacherProfile extends JsonObject {
+    id?: string;
+    user_id?: string;
+    first_name?: JsonValue;
+    last_name?: JsonValue;
+    email?: string;
+    phone?: string;
+    national_code?: string;
+    avatar?: string;
+}
+
+/** Classroom session returned by list, today, create, show, and update operations. */
 export interface ClassroomSession extends LmsEntity {
-    classroom_id?: string;
-    starts_at?: string;
+    id: string;
+    classroom_id: string;
+    classroom_name: string | null;
+    course_session_id: string | null;
+    course_session_type_id: string | null;
+    session_type: ClassroomSessionType | null;
+    name: string | null;
+    session_number: number | null;
+    duration_minutes: number | null;
+    description: string | null;
+    teacher_user_id: string | null;
+    teacher_profile: ClassroomSessionTeacherProfile | null;
+    locked: boolean;
+    auto_unlock: boolean;
+    auto_present: boolean;
+    invited: boolean;
+    session_room_id: string | null;
+    starts_at: string | null;
+    ends_at: string | null;
+    status: string;
+    created_at: string;
+    updated_at: string;
 }
 export interface Exam extends LmsEntity {
     course_id?: string;
@@ -101,7 +148,19 @@ export interface UpdateClassroomInput extends Partial<CreateClassroomInput> {
 }
 export interface CreateClassroomSessionInput extends CreateLmsEntityInput {
     classroom_id: string;
-    starts_at: string;
+    course_session_id?: string;
+    name?: string;
+    session_number?: number;
+    duration_minutes?: number;
+    description?: string;
+    teacher_user_id?: string;
+    locked?: boolean;
+    auto_unlock?: boolean;
+    auto_present?: boolean;
+    invited?: boolean;
+    starts_at?: string;
+    ends_at?: string;
+    status: string;
 }
 export interface UpdateClassroomSessionInput extends Partial<CreateClassroomSessionInput> {
 }
@@ -193,6 +252,38 @@ export interface LmsResponse<T extends LmsEntity> extends ResourceResponse<T> {
 export interface DashboardResponse extends ApiEnvelope<LmsDashboard> {
 }
 export interface CourseSessionsResponse extends ApiEnvelope<ClassroomSession[]> {
+}
+export interface ClassroomSessionTypesResponse extends ApiEnvelope<ClassroomSessionType[]> {
+}
+export interface ClassroomSessionListQuery extends QueryParams {
+    page_number?: number;
+    page_size?: number;
+    status?: string;
+    classroom_id?: string;
+    from?: string;
+    to?: string;
+}
+export interface TodayClassroomSessionListQuery extends QueryParams {
+    page_number?: number;
+    page_size?: number;
+    date?: string;
+    timezone_offset_minutes?: number;
+}
+export interface ClassroomSessionPage extends JsonObject {
+    data: ClassroomSession[];
+    meta: {
+        page: number;
+        page_size: number;
+        total_items: number;
+        total_pages: number;
+    };
+}
+export interface ClassroomSessionPageResponse extends ApiEnvelope<ClassroomSessionPage> {
+}
+export type ClassroomSessionRoomReference = string | Pick<ClassroomSession, "session_room_id">;
+export interface ClassroomSessionLinks extends JsonObject {
+    room: string | null;
+    recording: string | null;
 }
 export interface ClassroomUserResponse extends ApiEnvelope<Classroom> {
 }

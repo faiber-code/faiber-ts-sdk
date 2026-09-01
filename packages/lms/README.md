@@ -27,33 +27,36 @@ const courses = await api.courses.list({
   "page[size]": 20,
 });
 const sessions = await api.courseSessions(courseId);
+const classroomSessions = await api.classroomSessions.list({ page_number: 1 });
+const sessionTypes = await api.classroomSessionTypes();
+const links = api.classroomSessionLinks(classroomSessions.data.data.data[0]);
 ```
 
 ## Complete capability
 
-This package exposes 142 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 122 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `academy` | 8 | `GET`, `POST` |
-| `certificate` | 4 | `GET`, `PATCH`, `POST` |
-| `classroom` | 13 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `certificate` | 10 | `GET`, `PATCH`, `POST` |
+| `classroom` | 19 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `config` | 20 | `GET`, `PATCH`, `POST` |
-| `course` | 20 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `course` | 17 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `dashboard` | 1 | `GET` |
 | `docs` | 1 | `GET` |
-| `event` | 12 | `GET`, `PATCH`, `POST` |
-| `exam` | 13 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `drm_routes` | 1 | `GET` |
+| `exam` | 17 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `homework` | 12 | `GET`, `PATCH`, `POST` |
 | `integration` | 1 | `GET` |
-| `interactive` | 12 | `GET`, `PATCH`, `POST` |
-| `ops` | 16 | `GET`, `PATCH`, `POST` |
-| `report` | 3 | `GET` |
+| `media` | 2 | `GET`, `POST` |
+| `profile_routes` | 2 | `GET` |
+| `report` | 7 | `GET` |
 | `router` | 2 | `GET` |
 | `service` | 1 | `GET` |
 | `session` | 1 | `GET` |
 
-Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, work-time records, and authenticated learner academy progression have dedicated typed operations. Exam questions support typed deletion; other unsupported generic deletes remain guarded locally.
+Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom-session list items include the resolved type, lifecycle status, lock/auto-unlock flags, provisioned room ID, times, and teacher profile. Exam questions support typed deletion; other unsupported generic deletes remain guarded locally.
 
 ```ts
 const catalog = await api.academyCourses({ category_id: 4 });

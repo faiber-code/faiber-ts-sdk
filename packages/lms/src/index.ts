@@ -2,13 +2,36 @@ import { RestResource, ServiceApi, type Identifier, type QueryParams, type Reque
 import type * as T from "./types.js";
 type R<E extends T.LmsEntity, C, U> = RestResource<E, C, U, T.LmsListResponse<E>, T.LmsResponse<E>>;
 import { LmsOperations } from "./operations.js";
+
+function classroomSessionRoomId(reference: T.ClassroomSessionRoomReference): string | null {
+    return typeof reference === "string" ? reference : reference.session_room_id;
+}
+
+function sessionUiUrl(path: string, baseUrl?: string): string {
+    if (!baseUrl) return path;
+    try { return new URL(path, baseUrl).toString(); }
+    catch { return `${baseUrl.replace(/\/$/, "")}${path}`; }
+}
+
+/** Builds the Session UI URL for an LMS classroom session, or `null` before a room is provisioned. */
+export function classroomSessionViewUrl(reference: T.ClassroomSessionRoomReference, sessionBaseUrl?: string): string | null {
+    const roomId = classroomSessionRoomId(reference);
+    return roomId ? sessionUiUrl(`/view/room/${encodeURIComponent(roomId)}`, sessionBaseUrl) : null;
+}
+
+/** Builds the Session recording UI URL for an LMS classroom session, or `null` before a room is provisioned. */
+export function classroomSessionRecordingUrl(reference: T.ClassroomSessionRoomReference, sessionBaseUrl?: string): string | null {
+    const roomId = classroomSessionRoomId(reference);
+    return roomId ? sessionUiUrl(`/view/recording/${encodeURIComponent(roomId)}`, sessionBaseUrl) : null;
+}
+
 export class LmsApi extends ServiceApi {
     readonly operations = new LmsOperations(this.client);
     readonly courses: R<T.Course, T.CreateCourseInput, T.UpdateCourseInput> = new RestResource(this.client, "/api/v1/courses", { supported: ["list", "show", "create", "update"] });
     readonly courseCategories: R<T.CourseCategory, T.CreateCourseCategoryInput, T.UpdateCourseCategoryInput> = new RestResource(this.client, "/api/v1/courses/categories", { supported: ["list", "show", "create", "update"] });
     readonly videoSections: R<T.VideoSection, T.CreateVideoSectionInput, T.UpdateVideoSectionInput> = new RestResource(this.client, "/api/v1/courses/video-sections", { supported: ["list", "show", "create", "update"] });
     readonly classrooms: R<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update"] });
-    readonly classroomSessions: R<T.ClassroomSession, T.CreateClassroomSessionInput, T.UpdateClassroomSessionInput> = new RestResource(this.client, "/api/v1/classrooms/sessions", { supported: ["list", "show", "create", "update"] });
+    readonly classroomSessions: RestResource<T.ClassroomSession, T.CreateClassroomSessionInput, T.UpdateClassroomSessionInput, T.ClassroomSessionPageResponse, T.LmsResponse<T.ClassroomSession>> = new RestResource(this.client, "/api/v1/classrooms/sessions", { supported: ["list", "show", "create", "update"] });
     readonly exams: R<T.Exam, T.CreateExamInput, T.UpdateExamInput> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update"] });
     readonly examQuestions: R<T.ExamQuestion, T.CreateExamQuestionInput, T.UpdateExamQuestionInput> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
     readonly examSessions: R<T.ExamSession, T.CreateExamSessionInput, T.UpdateExamSessionInput> = new RestResource(this.client, "/api/v1/exams/sessions", { supported: ["list", "show", "create", "update"] });
@@ -21,6 +44,17 @@ export class LmsApi extends ServiceApi {
     readonly classroomTypes: R<T.ClassroomType, T.CreateClassroomTypeInput, T.UpdateClassroomTypeInput> = new RestResource(this.client, "/api/v1/config/classroom-types", { supported: ["list", "show", "create", "update"] });
     readonly textTemplates: R<T.TextTemplate, T.CreateTextTemplateInput, T.UpdateTextTemplateInput> = new RestResource(this.client, "/api/v1/config/text-templates", { supported: ["list", "show", "create", "update"] });
     dashboard(options?: RequestOptions) { return this.client.get<T.DashboardResponse>("/api/v1/dashboard", undefined, options); }
+    /** Lists active classroom-session types in scheduler display order. */
+    classroomSessionTypes(options?: RequestOptions) { return this.client.get<T.ClassroomSessionTypesResponse>("/api/v1/classrooms/session-types", undefined, options); }
+    /** Lists classroom sessions scheduled for one local date, with lock, type, room, and profile metadata. */
+    todayClassroomSessions(params?: T.TodayClassroomSessionListQuery, options?: RequestOptions) { return this.client.get<T.ClassroomSessionPageResponse>("/api/v1/classrooms/sessions/today", params, options); }
+    /** Returns Session UI and recording URLs, using the configured Session domain when available. */
+    classroomSessionLinks(reference: T.ClassroomSessionRoomReference, sessionBaseUrl = this.client.config.domains.session): T.ClassroomSessionLinks {
+        return {
+            room: classroomSessionViewUrl(reference, sessionBaseUrl),
+            recording: classroomSessionRecordingUrl(reference, sessionBaseUrl),
+        };
+    }
     courseSessions(id: Identifier, params?: QueryParams, options?: RequestOptions) { return this.client.get<T.CourseSessionsResponse>(`/api/v1/courses/${encodeURIComponent(id)}/sessions`, params, options); }
     addClassroomUser(id: Identifier, data: T.ClassroomUserInput, options?: RequestOptions<T.ClassroomUserInput>) { return this.client.post<T.ClassroomUserResponse, T.ClassroomUserInput>(`/api/v1/classrooms/${encodeURIComponent(id)}/users`, data, options); }
     report(kind: "teachers" | "students" | "classrooms", params?: QueryParams, options?: RequestOptions) { return this.client.get<T.LmsReportResponse>(`/api/v1/reports/${kind}`, params, options); }

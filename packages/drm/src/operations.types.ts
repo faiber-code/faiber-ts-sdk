@@ -956,6 +956,7 @@ export interface RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponseData exten
   "sync_status": string;
   "synced_manifest_version"?: number | null;
   "knowledge_document_id"?: string | null;
+  "sync_event_id"?: string | null;
   "last_error"?: string | null;
   "last_synced_at"?: string | null;
 }
@@ -969,6 +970,7 @@ export interface RouterSyncNowPostResponseData extends JsonObject {
   "sync_status": string;
   "synced_manifest_version"?: number | null;
   "knowledge_document_id"?: string | null;
+  "sync_event_id"?: string | null;
   "last_error"?: string | null;
   "last_synced_at"?: string | null;
 }
@@ -987,6 +989,7 @@ export interface RouterUpdateSettingsPutResponseData extends JsonObject {
   "sync_status": string;
   "synced_manifest_version"?: number | null;
   "knowledge_document_id"?: string | null;
+  "sync_event_id"?: string | null;
   "last_error"?: string | null;
   "last_synced_at"?: string | null;
 }

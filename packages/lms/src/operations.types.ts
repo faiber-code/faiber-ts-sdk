@@ -584,6 +584,21 @@ export interface ClassroomUpdateClassroomUserPatchResponseData extends JsonObjec
 export interface ClassroomUpdateClassroomUserPatchResponse extends ApiEnvelope<ClassroomUpdateClassroomUserPatchResponseData> {
 }
 
+/** Backend response type: Vec<models::ClassroomSessionTypeResponse>. */
+export interface ClassroomIndexSessionTypesGetResponseItem extends JsonObject {
+  "id": string;
+  "code": string;
+  "name": string;
+  "name_en"?: string | null;
+  "is_online": boolean;
+  "status": string;
+  "sort_order": number;
+  "created_at": string;
+  "updated_at": string;
+}
+export interface ClassroomIndexSessionTypesGetResponse extends ApiEnvelope<ClassroomIndexSessionTypesGetResponseItem[]> {
+}
+
 /** Backend query type: models::SessionListQuery. */
 export interface ClassroomIndexSessionGetQuery extends QueryParams {
   "page_number"?: number | null;
@@ -599,6 +614,8 @@ export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session_type_id"?: string | null;
+  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
@@ -652,6 +669,8 @@ export interface ClassroomStoreSessionPostResponseData extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session_type_id"?: string | null;
+  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
@@ -678,6 +697,8 @@ export interface ClassroomShowSessionGetResponseData extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session_type_id"?: string | null;
+  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
@@ -721,6 +742,8 @@ export interface ClassroomUpdateSessionPatchResponseData extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session_type_id"?: string | null;
+  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
@@ -780,6 +803,51 @@ export interface ClassroomRecordAttendancePutResponseData extends JsonObject {
   "updated": number;
 }
 export interface ClassroomRecordAttendancePutResponse extends ApiEnvelope<ClassroomRecordAttendancePutResponseData> {
+}
+
+/** Backend query type: models::TodaySessionListQuery. */
+export interface ClassroomIndexTodaySessionsGetQuery extends QueryParams {
+  "page_number"?: number | null;
+  "page_size"?: number | null;
+  "date"?: string | null;
+  "timezone_offset_minutes"?: number | null;
+}
+/** Backend response type: crate::models::PagedResult<models::SessionResponse>. */
+export interface ClassroomIndexTodaySessionsGetResponseItem extends JsonObject {
+  "id": string;
+  "classroom_id": string;
+  "classroom_name"?: string | null;
+  "course_session_id"?: string | null;
+  "course_session_type_id"?: string | null;
+  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
+  "name"?: string | null;
+  "session_number"?: number | null;
+  "duration_minutes"?: number | null;
+  "description"?: string | null;
+  "teacher_user_id"?: string | null;
+  "teacher_profile"?: BackendJson<"crate::profile::ProfileSummary"> | null;
+  "locked": boolean;
+  "auto_unlock": boolean;
+  "auto_present": boolean;
+  "invited": boolean;
+  "session_room_id"?: string | null;
+  "starts_at"?: string | null;
+  "ends_at"?: string | null;
+  "status": string;
+  "created_at": string;
+  "updated_at": string;
+}
+export interface ClassroomIndexTodaySessionsGetResponsePageMeta extends JsonObject {
+  "page": number;
+  "page_size": number;
+  "total_items": number;
+  "total_pages": number;
+}
+export interface ClassroomIndexTodaySessionsGetResponseData extends JsonObject {
+  "data": ClassroomIndexTodaySessionsGetResponseItem[];
+  "meta": ClassroomIndexTodaySessionsGetResponsePageMeta;
+}
+export interface ClassroomIndexTodaySessionsGetResponse extends ApiEnvelope<ClassroomIndexTodaySessionsGetResponseData> {
 }
 
 /** Backend query type: PaginationQuery. */
@@ -1520,12 +1588,18 @@ export interface CourseReorderCoursesPatchInput extends JsonObject {
 export interface CourseReorderCoursesPatchResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend query type: models::DashboardQuery. */
+export interface DashboardIndexGetQuery extends QueryParams {
+  "mode"?: string | null;
+}
 /** Backend response type: models::DashboardStats. */
 export interface DashboardIndexGetResponseData extends JsonObject {
   "courses": number;
   "classrooms": number;
   "students": number;
   "pending_homework": number;
+  "pending_final_homework": number;
+  "pending_todo_homework": number;
   "pending_exams": number;
 }
 export interface DashboardIndexGetResponse extends ApiEnvelope<DashboardIndexGetResponseData> {
@@ -1541,6 +1615,32 @@ export interface DocsIntegrationGetResponseData extends JsonObject {
   "api_base": string;
 }
 export interface DocsIntegrationGetResponse extends ApiEnvelope<DocsIntegrationGetResponseData> {
+}
+
+/** Backend query type: CompositionSearchQuery. */
+export interface DrmRoutesIndexCompositionsGetQuery extends QueryParams {
+  "page"?: number;
+  "size"?: number;
+  "search"?: string | null;
+  "selected_id"?: string | null;
+}
+/** Backend response type: PagedResult<CompositionOption>. */
+export interface DrmRoutesIndexCompositionsGetResponseItem extends JsonObject {
+  "id": string;
+  "name": string;
+  "category_path": string;
+}
+export interface DrmRoutesIndexCompositionsGetResponsePageMeta extends JsonObject {
+  "page": number;
+  "page_size": number;
+  "total_items": number;
+  "total_pages": number;
+}
+export interface DrmRoutesIndexCompositionsGetResponseData extends JsonObject {
+  "data": DrmRoutesIndexCompositionsGetResponseItem[];
+  "meta": DrmRoutesIndexCompositionsGetResponsePageMeta;
+}
+export interface DrmRoutesIndexCompositionsGetResponse extends ApiEnvelope<DrmRoutesIndexCompositionsGetResponseData> {
 }
 
 /** Backend query type: models::ExamListQuery. */

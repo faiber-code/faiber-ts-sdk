@@ -95,7 +95,7 @@ export { AssetApi, ChatApi, CrmApi, DrmApi, FlowApi, IdpApi, KnowledgeApi, LmsAp
 export type { AuthTokensResponse, User as IdpUser } from "@faiber/faiber-idp";
 export type { Profile, ProfileProperties } from "@faiber/faiber-profile";
 export type { Lead } from "@faiber/faiber-crm";
-export type { InteractiveContent } from "@faiber/faiber-lms";
+export type { ClassroomSession, ClassroomSessionType, InteractiveContent } from "@faiber/faiber-lms";
 export * from "@faiber/faiber-state-sdk";
 export * as FaiberGameRuntime from "@faiber/faiber-game-sdk";
 export { FaiberGame, component } from "@faiber/faiber-game-sdk";

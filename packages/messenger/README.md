@@ -32,19 +32,19 @@ await api.operations.notificationNotificationsMarkReadPatch(notificationId);
 
 ## Complete capability
 
-This package exposes 30 registered operations from the messaging service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 32 registered operations from the messaging service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `channel` | 6 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `dashboard` | 1 | `GET` |
 | `integration` | 3 | `GET` |
-| `notification` | 4 | `GET`, `PATCH`, `POST` |
+| `notification` | 6 | `GET`, `PATCH`, `POST` |
 | `router` | 3 | `GET` |
 | `service` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `template` | 8 | `DELETE`, `GET`, `PATCH`, `POST` |
 
-Template content has its own create/update/list routes. Notification read state uses the dedicated PATCH operation rather than generic notification CRUD.
+Template content has its own create/update/list routes. Notification read state uses the dedicated PATCH operation rather than generic notification CRUD. Realtime notification configuration and channel authorization are exposed as typed operations.
 
 ## Authentication and authorization
 
