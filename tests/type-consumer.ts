@@ -1,5 +1,5 @@
 import {
- FaiberSDK, FaiberGame, IdpService, MessengerService, ModulesService,
+ AssetService, FaiberSDK, FaiberGame, IdpService, MessengerService, ModulesService,
   StateRealtimeClient, component, domainsFromManageProxy,
   type CreateWorldInput, type FaiberServiceApis, type ManageService,
 } from "@faiber/faiber-ts-sdk";
@@ -24,6 +24,15 @@ const manageAction: ManageService.ManageServiceAction = {
 async function provePublicContracts(): Promise<void> {
   const loginResponse = await apis.idp.login(login);
   const loginBody: IdpService.AuthTokensResponse = loginResponse.data;
+  const linkedResponse = await apis.idp.linkedIdentities();
+  const linkedFaiberSubject = linkedResponse.data.data.identities.find(
+    identity => identity.provider === "faiber",
+  )?.provider_id;
+  const linkedBilling = await apis.idp.linkedFaiberBilling({ page_size: 14 });
+  await apis.idp.topUpLinkedFaiberWallet({
+    amount: 500_000,
+    currency: linkedBilling.data.data.wallet.currency,
+  });
 
   await apis.modules.products.create(product);
   await apis.modules.orders.create(order);
@@ -39,12 +48,28 @@ async function provePublicContracts(): Promise<void> {
   await apis.profile.myAddresses();
   await apis.profile.saveMyAddress({ title: "Home", city: "Tehran", detail: "Example street" });
   await apis.state.createWorld(world);
+  const walletResponse = await apis.asset.wallet();
+  const wallet: AssetService.Wallet = walletResponse.data.data;
+  const dailyCostsResponse = await apis.asset.dailyCosts({ page_size: 14 });
+  const dailyCosts: AssetService.DailyCostSummary[] = dailyCostsResponse.data.data.items;
+  await apis.asset.topUpWallet({ amount: 500_000, ...(wallet.currency ? { currency: wallet.currency } : {}) });
+  await apis.asset.setSandboxFinancialOwner("fitapp", {
+    current_profile_id: "00000000-0000-0000-0000-000000000001",
+    financial_owner_user_id: linkedFaiberSubject ?? "00000000-0000-0000-0000-000000000002",
+  });
+  await apis.asset.setSandboxFixedPrice(
+    linkedFaiberSubject ?? "00000000-0000-0000-0000-000000000002",
+    "fitapp",
+    { monthly_price_override: 72_000 },
+  );
   void FaiberGame;
   void StateRealtimeClient;
   void Position;
   void loginBody;
  void products;
  void suggestions;
+ void dailyCosts;
+ void linkedBilling;
 void manageDomains;
 
 sdk.manage.listAgentModels({ signal: AbortSignal.timeout(1_000) }).then(response => {

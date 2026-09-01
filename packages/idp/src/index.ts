@@ -1,5 +1,5 @@
 import { RestResource, ServiceApi, urlEncoded, type Identifier, type OperationResponse, type RequestOptions, } from "@faiber/sdk-core";
-import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, CreateRoleInput, CreateUserInput, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, Role, RoleListResponse, RoleResponse, SessionListResponse, SetUserStatusInput, UpdateRoleInput, UpdateUserInput, User, UserListResponse, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
+import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, CreateRoleInput, CreateUserInput, LinkedFaiberBillingQuery, LinkedFaiberBillingResponse, LinkedFaiberTopUpInput, LinkedFaiberTopUpResponse, LinkedIdentityListResponse, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, Role, RoleListResponse, RoleResponse, SessionListResponse, SetUserStatusInput, UpdateRoleInput, UpdateUserInput, User, UserListResponse, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
 import { IdpOperations } from "./operations.js";
 export class IdpApi extends ServiceApi {
     readonly operations = new IdpOperations(this.client);
@@ -39,8 +39,20 @@ export class IdpApi extends ServiceApi {
     providers(options?: RequestOptions) {
         return this.client.get<OAuthProviderListResponse>("/api/v1/auth/oauth/providers", undefined, options);
     }
+    /** Lists provider identities linked to the authenticated account. */
     linkedIdentities(options?: RequestOptions) {
-        return this.client.get<OAuthProviderListResponse>("/api/v1/auth/identities", undefined, options);
+        return this.client.get<LinkedIdentityListResponse>("/api/v1/auth/identities", undefined, options);
+    }
+    /**
+     * Returns balance and daily costs for the main Faiber account linked to the
+     * authenticated sandbox profile. No second Faiber browser session is needed.
+     */
+    linkedFaiberBilling(params?: LinkedFaiberBillingQuery, options?: RequestOptions) {
+        return this.client.get<LinkedFaiberBillingResponse>("/api/v1/auth/linked-faiber/billing", params, options);
+    }
+    /** Starts a top-up for the linked main-Faiber wallet through the sandbox session. */
+    topUpLinkedFaiberWallet(data: LinkedFaiberTopUpInput, options?: RequestOptions<LinkedFaiberTopUpInput>) {
+        return this.client.post<LinkedFaiberTopUpResponse, LinkedFaiberTopUpInput>("/api/v1/auth/linked-faiber/wallet/topup", data, options);
     }
     register(data: RegisterUserInput, options?: RequestOptions<RegisterUserInput>) {
         return this.client.post<UserResponse, RegisterUserInput>("/api/v1/users/register", data, options);

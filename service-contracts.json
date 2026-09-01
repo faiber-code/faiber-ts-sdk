@@ -3906,6 +3906,32 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/auth/linked-faiber/billing",
+      "module": "auth",
+      "handler": "linked_faiber_billing",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "query": "LinkedFaiberBillingQuery",
+      "response": "LinkedFaiberBillingResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/linked-faiber/wallet/topup",
+      "module": "auth",
+      "handler": "linked_faiber_wallet_topup",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "body": "LinkedFaiberTopupRequest",
+      "response": "LinkedFaiberTopupResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/auth/login",
       "module": "auth",
