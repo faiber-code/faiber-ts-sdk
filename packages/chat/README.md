@@ -26,7 +26,11 @@ const conversation = await api.createConversation({
   kind: "direct",
   member_ids: [recipientUserId],
 });
-await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } });
+const sent = await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } });
+
+// Compare sender_id with the authenticated IDP user's ID to distinguish sides
+// in a direct chat. It is null for assistant or other non-user messages.
+const sentByCurrentUser = sent.data.data.sender_id === currentUserId;
 ```
 
 ## Complete capability

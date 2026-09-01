@@ -1,5 +1,5 @@
 import {
- AssetService, FaiberSDK, FaiberGame, IdpService, LmsService, MessengerService, ModulesService,
+ AssetService, ChatService, FaiberSDK, FaiberGame, IdpService, LmsService, MessengerService, ModulesService,
   StateRealtimeClient, component, domainsFromManageProxy,
   type CreateWorldInput, type FaiberServiceApis, type ManageService,
 } from "@faiber/faiber-ts-sdk";
@@ -20,6 +20,26 @@ const manageDomains = domainsFromManageProxy("https://manage.example.test");
 const manageAction: ManageService.ManageServiceAction = {
   service: "modules", method: "GET", path: "/api/v1/shop/products",
 };
+const chatMessage: ChatService.ChatMessage = {
+  id: "00000000-0000-0000-0000-000000000010",
+  conversation_id: "00000000-0000-0000-0000-000000000011",
+  sequence: 1,
+  sender_id: "00000000-0000-0000-0000-000000000001",
+  sender_kind: "user",
+  message_type: "text",
+  content: { text: "Hello" },
+  metadata: {},
+  reply_to_id: null,
+  thread_root_id: null,
+  client_id: null,
+  status: "sent",
+  created_at: "2026-09-01T00:00:00Z",
+  edited_at: null,
+  deleted_at: null,
+  legacy_source: null,
+  legacy_id: null,
+};
+const chatSenderId: string | null = chatMessage.sender_id;
 
 async function provePublicContracts(): Promise<void> {
   const loginResponse = await apis.idp.login(login);
@@ -47,6 +67,12 @@ async function provePublicContracts(): Promise<void> {
   await apis.profile.saveAddress("user-1", { title: "Home", city: "Tehran", detail: "Example street" });
   await apis.profile.myAddresses();
   await apis.profile.saveMyAddress({ title: "Home", city: "Tehran", detail: "Example street" });
+  const avatarResponse = await apis.profile.avatar(
+    "00000000-0000-0000-0000-000000000001",
+    "profiles/00000000-0000-0000-0000-000000000001/avatar/example.png",
+    { signal: AbortSignal.timeout(1_000) },
+  );
+  const avatarBlob: Blob = avatarResponse.data;
   const classroomSessions = await apis.lms.classroomSessions.list({ page_number: 1, page_size: 20 });
   const classroomSession: LmsService.ClassroomSession | undefined = classroomSessions.data.data.data[0];
   const classroomSessionTypes = await apis.lms.classroomSessionTypes();
@@ -90,6 +116,8 @@ async function provePublicContracts(): Promise<void> {
  void suggestions;
  void dailyCosts;
  void linkedBilling;
+ void avatarBlob;
+ void chatSenderId;
 void manageDomains;
 
 sdk.manage.listAgentModels({ signal: AbortSignal.timeout(1_000) }).then(response => {
