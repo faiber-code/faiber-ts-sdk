@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject, OperationResponse, } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject, OperationResponse, QueryParams, } from "@faiber/sdk-core";
 export interface User extends JsonObject {
     id: string;
     phone?: string | null;
@@ -24,6 +24,77 @@ export interface OAuthProvider extends JsonObject {
     name: string;
     enabled: boolean;
     authorization_url?: string;
+}
+/** An identity provider account linked to the authenticated IDP user. */
+export interface LinkedIdentity extends JsonObject {
+    /** Provider key, for example `faiber`, `google`, or `github`. */
+    provider: string;
+    /** Stable subject identifier issued by the linked provider. */
+    provider_id: string;
+    /** Timestamp at which the identity was linked. */
+    linked_at: string;
+}
+/** Linked identities owned by the authenticated IDP user. */
+export interface LinkedIdentityListData extends JsonObject {
+    identities: LinkedIdentity[];
+}
+/** Query for the linked main-Faiber account's metered daily costs. */
+export interface LinkedFaiberBillingQuery extends QueryParams {
+    /** Optional sandbox project whose effective pricing should be projected. */
+    project?: string;
+    page?: number;
+    page_size?: number;
+    from?: string;
+    to?: string;
+    tz_offset_minutes?: number;
+}
+/** Main-Faiber wallet resolved by the sandbox IDP from the signed-in local profile. */
+export interface LinkedFaiberWallet extends JsonObject {
+    profile_id: string;
+    balance: string | number;
+    currency: string;
+}
+export interface LinkedFaiberDailyCost extends JsonObject {
+    date: string;
+    resourceCost: string | number;
+    llmCost: string | number;
+    totalCost: string | number;
+    transactionCount: number;
+    currency: string;
+}
+export interface LinkedFaiberDailyCostsPage extends JsonObject {
+    items: LinkedFaiberDailyCost[];
+    total: number;
+    page: number;
+    pageSize: number;
+}
+/** Billing projection for the main Faiber account linked to the current sandbox user. */
+export interface LinkedFaiberBilling extends JsonObject {
+    provider_id: string;
+    wallet: LinkedFaiberWallet;
+    daily_costs: LinkedFaiberDailyCostsPage;
+    project_pricing?: LinkedFaiberProjectPricing | null;
+}
+/** Effective pricing for a project billed to the linked main-Faiber account. */
+export interface LinkedFaiberProjectPricing extends JsonObject {
+    project: string;
+    currency: string;
+    fixed_monthly_price?: string | number | null;
+    hourly_price: string | number;
+    daily_estimate: string | number;
+    monthly_estimate: string | number;
+}
+export interface LinkedFaiberBillingResponse extends ApiEnvelope<LinkedFaiberBilling> {
+}
+export interface LinkedFaiberTopUpInput extends JsonObject {
+    amount: string | number;
+    currency?: string | null;
+}
+export interface LinkedFaiberTopUp extends JsonObject {
+    purchase_id: string;
+    payment_url: string;
+}
+export interface LinkedFaiberTopUpResponse extends ApiEnvelope<LinkedFaiberTopUp> {
 }
 export interface SessionClient extends JsonObject {
     id: string;
@@ -132,6 +203,8 @@ export interface PermissionResponse extends ApiEnvelope<Permission> {
 export interface PermissionListResponse extends ApiEnvelope<PermissionListData> {
 }
 export interface OAuthProviderListResponse extends ApiEnvelope<OAuthProvider[]> {
+}
+export interface LinkedIdentityListResponse extends ApiEnvelope<LinkedIdentityListData> {
 }
 export interface LogoutUserResponse extends OperationResponse {
 }

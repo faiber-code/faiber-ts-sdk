@@ -1,5 +1,5 @@
 import {
- FaiberSDK, FaiberGame, IdpService, MessengerService, ModulesService,
+ AssetService, ChatService, FaiberSDK, FaiberGame, IdpService, LmsService, MessengerService, ModulesService,
   StateRealtimeClient, component, domainsFromManageProxy,
   type CreateWorldInput, type FaiberServiceApis, type ManageService,
 } from "@faiber/faiber-ts-sdk";
@@ -20,10 +20,39 @@ const manageDomains = domainsFromManageProxy("https://manage.example.test");
 const manageAction: ManageService.ManageServiceAction = {
   service: "modules", method: "GET", path: "/api/v1/shop/products",
 };
+const chatMessage: ChatService.ChatMessage = {
+  id: "00000000-0000-0000-0000-000000000010",
+  conversation_id: "00000000-0000-0000-0000-000000000011",
+  sequence: 1,
+  sender_id: "00000000-0000-0000-0000-000000000001",
+  sender_kind: "user",
+  message_type: "text",
+  content: { text: "Hello" },
+  metadata: {},
+  reply_to_id: null,
+  thread_root_id: null,
+  client_id: null,
+  status: "sent",
+  created_at: "2026-09-01T00:00:00Z",
+  edited_at: null,
+  deleted_at: null,
+  legacy_source: null,
+  legacy_id: null,
+};
+const chatSenderId: string | null = chatMessage.sender_id;
 
 async function provePublicContracts(): Promise<void> {
   const loginResponse = await apis.idp.login(login);
   const loginBody: IdpService.AuthTokensResponse = loginResponse.data;
+  const linkedResponse = await apis.idp.linkedIdentities();
+  const linkedFaiberSubject = linkedResponse.data.data.identities.find(
+    identity => identity.provider === "faiber",
+  )?.provider_id;
+  const linkedBilling = await apis.idp.linkedFaiberBilling({ project: "fitapp", page_size: 14 });
+  await apis.idp.topUpLinkedFaiberWallet({
+    amount: 500_000,
+    currency: linkedBilling.data.data.wallet.currency,
+  });
 
   await apis.modules.products.create(product);
   await apis.modules.orders.create(order);
@@ -38,13 +67,57 @@ async function provePublicContracts(): Promise<void> {
   await apis.profile.saveAddress("user-1", { title: "Home", city: "Tehran", detail: "Example street" });
   await apis.profile.myAddresses();
   await apis.profile.saveMyAddress({ title: "Home", city: "Tehran", detail: "Example street" });
+  const avatarResponse = await apis.profile.avatar(
+    "00000000-0000-0000-0000-000000000001",
+    "profiles/00000000-0000-0000-0000-000000000001/avatar/example.png",
+    { signal: AbortSignal.timeout(1_000) },
+  );
+  const avatarBlob: Blob = avatarResponse.data;
+  const classroomSessions = await apis.lms.classroomSessions.list({ page_number: 1, page_size: 20 });
+  const classroomSession: LmsService.ClassroomSession | undefined = classroomSessions.data.data.data[0];
+  const classroomSessionTypes = await apis.lms.classroomSessionTypes();
+  const classroomSessionType: LmsService.ClassroomSessionType | undefined = classroomSessionTypes.data.data[0];
+  if (classroomSession) {
+    const sessionLinks: LmsService.ClassroomSessionLinks = apis.lms.classroomSessionLinks(classroomSession);
+    void sessionLinks;
+  }
+  void classroomSessionType;
   await apis.state.createWorld(world);
+  const walletResponse = await apis.asset.wallet();
+  const wallet: AssetService.Wallet = walletResponse.data.data;
+  const dailyCostsResponse = await apis.asset.dailyCosts({ page_size: 14 });
+  const dailyCosts: AssetService.DailyCostSummary[] = dailyCostsResponse.data.data.items;
+  await apis.asset.topUpWallet({ amount: 500_000, ...(wallet.currency ? { currency: wallet.currency } : {}) });
+  const projectPricing = await apis.asset.sandboxProjectPricing("fitapp");
+  const fixedMonthlyPrice: number | null | undefined = projectPricing.data.data.fixed_monthly_price;
+  void fixedMonthlyPrice;
+  const adminWallet = await apis.asset.adminUserWallet("00000000-0000-0000-0000-000000000001", { limit: 25 });
+  const adminBalance: number = adminWallet.data.data.wallet.balance;
+  void adminBalance;
+  await apis.asset.adjustAdminUserWallet("00000000-0000-0000-0000-000000000001", {
+    direction: "credit",
+    amount: 500_000,
+    reason: "Support adjustment",
+  });
+  await apis.asset.setSandboxFinancialOwner("fitapp", {
+    current_profile_id: "00000000-0000-0000-0000-000000000001",
+    financial_owner_user_id: linkedFaiberSubject ?? "00000000-0000-0000-0000-000000000002",
+  });
+  await apis.asset.setSandboxFixedPrice(
+    linkedFaiberSubject ?? "00000000-0000-0000-0000-000000000002",
+    "fitapp",
+    { monthly_price_override: 72_000 },
+  );
   void FaiberGame;
   void StateRealtimeClient;
   void Position;
   void loginBody;
  void products;
  void suggestions;
+ void dailyCosts;
+ void linkedBilling;
+ void avatarBlob;
+ void chatSenderId;
 void manageDomains;
 
 sdk.manage.listAgentModels({ signal: AbortSignal.timeout(1_000) }).then(response => {

@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { AxiosHeaders } from "axios";
 import { FaiberClient, MemoryTokenProvider } from "../packages/core/dist/index.js";
-import { LmsApi } from "../packages/lms/dist/index.js";
+import { LmsApi, classroomSessionRecordingUrl, classroomSessionViewUrl } from "../packages/lms/dist/index.js";
 import { SocialApi } from "../packages/social/dist/index.js";
 import { StateApi } from "../packages/state/dist/index.js";
 
@@ -52,6 +52,33 @@ test("LMS academy and question deletion preserve routes, bodies, and Bearer auth
   assert.equal(seen[0].params.category_id, 7);
   const completionBody = typeof seen[1].data === "string" ? JSON.parse(seen[1].data) : seen[1].data;
   assert.equal(completionBody.idempotency_key, "once");
+});
+
+test("LMS classroom sessions expose types, today filtering, and Session UI links", async () => {
+  const seen = [];
+  const client = new FaiberClient("lms", {
+    domains: { lms: "https://lms.example.com", session: "https://session.example.com/api/v1" },
+    tokenProvider: new MemoryTokenProvider({ accessToken: "classroom-token" }),
+    axios: { adapter: async (config) => {
+      seen.push(config);
+      return { data: { status: "success", data: [] }, status: 200, statusText: "OK", headers: new AxiosHeaders(), config };
+    } },
+  });
+  const api = new LmsApi(client);
+  await api.classroomSessionTypes();
+  await api.todayClassroomSessions({ date: "2026-09-01", timezone_offset_minutes: 210 });
+
+  assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
+    ["get", "/api/v1/classrooms/session-types"],
+    ["get", "/api/v1/classrooms/sessions/today"],
+  ]);
+  assert.equal(seen[1].params.timezone_offset_minutes, 210);
+  assert.deepEqual(api.classroomSessionLinks({ session_room_id: "room/id" }), {
+    room: "https://session.example.com/view/room/room%2Fid",
+    recording: "https://session.example.com/view/recording/room%2Fid",
+  });
+  assert.equal(classroomSessionViewUrl("room/id"), "/view/room/room%2Fid");
+  assert.equal(classroomSessionRecordingUrl({ session_room_id: null }), null);
 });
 
 test("Social moderation audit uses typed query routing in cookie mode", async () => {

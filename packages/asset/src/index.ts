@@ -1,5 +1,6 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
 import type * as T from "./types.js";
+import type * as O from "./operations.types.js";
 import { AssetOperations } from "./operations.js";
 export class AssetApi extends ServiceApi {
     readonly operations = new AssetOperations(this.client);
@@ -11,6 +12,34 @@ export class AssetApi extends ServiceApi {
     }
     wallet(options?: RequestOptions) {
         return this.client.get<T.WalletResponse>("/api/v1/wallet", undefined, options);
+    }
+    /** Lists completed daily metered costs for the authenticated Faiber account. */
+    dailyCosts(params?: T.DailyCostQuery, options?: RequestOptions) {
+        return this.client.get<T.DailyCostPageResponse>("/api/v1/me/transactions/days", params, options);
+    }
+    /** Starts a top-up and returns the payment-provider handoff URL. */
+    topUpWallet(data: T.WalletTopUpInput, options?: RequestOptions<T.WalletTopUpInput>) {
+        return this.client.post<T.WalletTopUpResponse, T.WalletTopUpInput>("/api/v1/wallet/topup", data, options);
+    }
+    /** Reads one user's wallet and recent ledger entries. Requires `admin:charge:read`. */
+    adminUserWallet(profileId: Identifier, params?: T.AdminWalletQuery, options?: RequestOptions) {
+        return this.client.get<T.AdminWalletSnapshotResponse>(`/api/v1/admin/users/${encodeURIComponent(profileId)}/wallet`, params, options);
+    }
+    /** Credits or debits one user's wallet and records an auditable ledger entry. Requires `admin:charge:update`. */
+    adjustAdminUserWallet(profileId: Identifier, data: T.AdminWalletAdjustmentInput, options?: RequestOptions<T.AdminWalletAdjustmentInput>) {
+        return this.client.post<T.AdminWalletSnapshotResponse, T.AdminWalletAdjustmentInput>(`/api/v1/admin/users/${encodeURIComponent(profileId)}/wallet/adjustments`, data, options);
+    }
+    /** Reads effective project pricing without creating or changing a sandbox allocation. */
+    sandboxProjectPricing(project: Identifier, options?: RequestOptions) {
+        return this.client.get<T.SandboxProjectPricingResponse>(`/api/v1/sandbox-resources/${encodeURIComponent(project)}/pricing`, undefined, options);
+    }
+    /** Moves an existing sandbox allocation and subscription to a linked Faiber financial owner. */
+    setSandboxFinancialOwner(project: Identifier, data: O.SandboxBillingAdminProjectFinancialOwnerPutInput, options?: RequestOptions<O.SandboxBillingAdminProjectFinancialOwnerPutInput>) {
+        return this.operations.sandboxBillingAdminProjectFinancialOwnerPut(project, data, options);
+    }
+    /** Sets or clears the fixed monthly price charged for a sandbox project. */
+    setSandboxFixedPrice(profileId: Identifier, project: Identifier, data: O.SandboxBillingAdminProjectPricingOverridePutInput, options?: RequestOptions<O.SandboxBillingAdminProjectPricingOverridePutInput>) {
+        return this.operations.sandboxBillingAdminProjectPricingOverridePut(profileId, project, data, options);
     }
     subscriptions(params?: QueryParams, options?: RequestOptions) {
         return this.client.get<T.SubscriptionListResponse>("/api/v1/subscriptions", params, options);

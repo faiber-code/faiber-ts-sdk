@@ -104,6 +104,7 @@ export interface NotificationNotificationsIndexGetResponseItem extends JsonObjec
   "service_name": string;
   "template_id": number;
   "channel": string;
+  "correlation_id"?: string | null;
   "recipient": string;
   "status": string;
   "description"?: string | null;
@@ -157,6 +158,7 @@ export interface NotificationNotificationsShowGetResponseData extends JsonObject
   "service_name": string;
   "template_id": number;
   "channel": string;
+  "correlation_id"?: string | null;
   "recipient": string;
   "status": string;
   "description"?: string | null;
@@ -184,6 +186,7 @@ export interface NotificationNotificationsMarkReadPatchResponseData extends Json
   "service_name": string;
   "template_id": number;
   "channel": string;
+  "correlation_id"?: string | null;
   "recipient": string;
   "status": string;
   "description"?: string | null;
@@ -199,6 +202,27 @@ export interface NotificationNotificationsMarkReadPatchResponseData extends Json
   "created_at": string;
 }
 export interface NotificationNotificationsMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMarkReadPatchResponseData> {
+}
+
+/** Backend request type: RealtimeAuthRequest. */
+export interface NotificationNotificationsRealtimeAuthPostInput extends JsonObject {
+  "socket_id": string;
+  "channel_name": string;
+}
+/** Backend response type: RealtimeAuthResponse. */
+export interface NotificationNotificationsRealtimeAuthPostResponseData extends JsonObject {
+  "auth": string;
+}
+export type NotificationNotificationsRealtimeAuthPostResponse = NotificationNotificationsRealtimeAuthPostResponseData;
+
+/** Backend response type: RealtimeConfigResponse. */
+export interface NotificationNotificationsRealtimeConfigGetResponseData extends JsonObject {
+  "ws_url": string;
+  "app_key": string;
+  "channel": string;
+  "event": BackendJson<"&'static str">;
+}
+export interface NotificationNotificationsRealtimeConfigGetResponse extends ApiEnvelope<NotificationNotificationsRealtimeConfigGetResponseData> {
 }
 
 /** Backend response type: Vec<ServiceResponse>. */

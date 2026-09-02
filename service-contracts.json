@@ -294,6 +294,38 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/admin/users/{profile_id}/wallet",
+      "module": "wallet_billing",
+      "handler": "admin_user_wallet_show",
+      "permissions": [
+        "admin:charge:read"
+      ],
+      "source": "infera-asset/src/wallet_billing/routes.rs",
+      "query": "AdminWalletQuery",
+      "pathParam": "Uuid",
+      "response": "AdminWalletSnapshot",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/users/{profile_id}/wallet/adjustments",
+      "module": "wallet_billing",
+      "handler": "admin_user_wallet_adjust",
+      "permissions": [
+        "admin:charge:update"
+      ],
+      "source": "infera-asset/src/wallet_billing/routes.rs",
+      "body": "AdminWalletAdjustmentRequest",
+      "pathParam": "Uuid",
+      "response": "AdminWalletSnapshot",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/assets",
       "module": "catalog",
       "handler": "assets_index",
@@ -902,6 +934,19 @@
       "source": "infera-asset/src/sandbox_billing.rs",
       "pathParam": "String",
       "response": "AllocationView",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/sandbox-resources/{project}/pricing",
+      "module": "sandbox_billing",
+      "handler": "show_pricing",
+      "permissions": [],
+      "source": "infera-asset/src/sandbox_billing.rs",
+      "pathParam": "String",
+      "response": "ProjectPricingView",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -3906,6 +3951,32 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/auth/linked-faiber/billing",
+      "module": "auth",
+      "handler": "linked_faiber_billing",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "query": "LinkedFaiberBillingQuery",
+      "response": "LinkedFaiberBillingResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/linked-faiber/wallet/topup",
+      "module": "auth",
+      "handler": "linked_faiber_wallet_topup",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "body": "LinkedFaiberTopupRequest",
+      "response": "LinkedFaiberTopupResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/auth/login",
       "module": "auth",
@@ -5766,6 +5837,20 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/classrooms/session-types",
+      "module": "classroom",
+      "handler": "index_session_types",
+      "permissions": [
+        "lms:classroom:read"
+      ],
+      "source": "infera-lms/src/classroom/routes.rs",
+      "response": "Vec<models::ClassroomSessionTypeResponse>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/classrooms/sessions",
       "module": "classroom",
       "handler": "index_session",
@@ -5853,6 +5938,21 @@
       "body": "models::BatchAttendanceRequest",
       "pathParam": "Uuid",
       "response": "models::BatchAttendanceResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/classrooms/sessions/today",
+      "module": "classroom",
+      "handler": "index_today_sessions",
+      "permissions": [
+        "lms:classroom:read"
+      ],
+      "source": "infera-lms/src/classroom/routes.rs",
+      "query": "models::TodaySessionListQuery",
+      "response": "crate::models::PagedResult<models::SessionResponse>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -6443,6 +6543,7 @@
         "lms:dashboard:read"
       ],
       "source": "infera-lms/src/dashboard/routes.rs",
+      "query": "models::DashboardQuery",
       "response": "models::DashboardStats",
       "responseEnvelope": "api",
       "multipart": false,
@@ -6458,6 +6559,22 @@
       ],
       "source": "infera-lms/src/docs/routes.rs",
       "response": "models::IntegrationDocs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/drm/compositions",
+      "module": "drm_routes",
+      "handler": "index_compositions",
+      "permissions": [
+        "lms:course:update",
+        "lms:course:create"
+      ],
+      "source": "infera-lms/src/drm_routes.rs",
+      "query": "CompositionSearchQuery",
+      "response": "PagedResult<CompositionOption>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -7325,6 +7442,35 @@
       "query": "MarkReadQuery",
       "pathParam": "i64",
       "response": "NotificationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/notifications/realtime/auth",
+      "module": "notification",
+      "handler": "notifications_realtime_auth",
+      "permissions": [
+        "admin:notification:read"
+      ],
+      "source": "infera-messenger/src/notification/routes.rs",
+      "body": "RealtimeAuthRequest",
+      "response": "RealtimeAuthResponse",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notifications/realtime/config",
+      "module": "notification",
+      "handler": "notifications_realtime_config",
+      "permissions": [
+        "admin:notification:read"
+      ],
+      "source": "infera-messenger/src/notification/routes.rs",
+      "response": "RealtimeConfigResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

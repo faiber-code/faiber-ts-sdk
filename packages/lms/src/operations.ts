@@ -331,6 +331,16 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ClassroomUpdateClassroomUserPatchResponse, T.ClassroomUpdateClassroomUserPatchInput>({ ...options, method: "PATCH", url: `/api/v1/classrooms/${encodeURIComponent(id)}/users/${encodeURIComponent(userId)}`, data: data });
   }
   /**
+   * Performs the index session types operation for the classroom capability.
+   * Calls `GET /api/v1/classrooms/session-types` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   */
+  classroomIndexSessionTypesGet(options?: RequestOptions) {
+    return this.client.request<T.ClassroomIndexSessionTypesGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/session-types` });
+  }
+  /**
    * Performs the index session operation for the classroom capability.
    * Calls `GET /api/v1/classrooms/sessions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -398,6 +408,17 @@ export class LmsOperations extends ServiceApi {
    */
   classroomRecordAttendancePut(id: Identifier, data: T.ClassroomRecordAttendancePutInput, options?: RequestOptions<T.ClassroomRecordAttendancePutInput>) {
     return this.client.request<T.ClassroomRecordAttendancePutResponse, T.ClassroomRecordAttendancePutInput>({ ...options, method: "PUT", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}/attendance`, data: data });
+  }
+  /**
+   * Performs the index today sessions operation for the classroom capability.
+   * Calls `GET /api/v1/classrooms/sessions/today` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:read.
+   */
+  classroomIndexTodaySessionsGet(params?: T.ClassroomIndexTodaySessionsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ClassroomIndexTodaySessionsGetResponse>({ ...options, method: "GET", url: `/api/v1/classrooms/sessions/today`, params });
   }
   /**
    * Performs the index absences operation for the classroom capability.
@@ -833,12 +854,13 @@ export class LmsOperations extends ServiceApi {
   /**
    * Performs the index operation for the dashboard capability.
    * Calls `GET /api/v1/dashboard` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:dashboard:read.
    */
-  dashboardIndexGet(options?: RequestOptions) {
-    return this.client.request<T.DashboardIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/dashboard` });
+  dashboardIndexGet(params?: T.DashboardIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.DashboardIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/dashboard`, params });
   }
   /**
    * Performs the integration operation for the docs capability.
@@ -849,6 +871,17 @@ export class LmsOperations extends ServiceApi {
    */
   docsIntegrationGet(options?: RequestOptions) {
     return this.client.request<T.DocsIntegrationGetResponse>({ ...options, method: "GET", url: `/api/v1/docs/integration` });
+  }
+  /**
+   * Performs the index compositions operation for the drm routes capability.
+   * Calls `GET /api/v1/drm/compositions` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:course:update, lms:course:create.
+   */
+  drmRoutesIndexCompositionsGet(params?: T.DrmRoutesIndexCompositionsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.DrmRoutesIndexCompositionsGetResponse>({ ...options, method: "GET", url: `/api/v1/drm/compositions`, params });
   }
   /**
    * Performs the index exam operation for the exam capability.

@@ -2,7 +2,53 @@ import type { ApiEnvelope, JsonObject, JsonValue, QueryParams } from "@faiber/sd
 export interface ChatListQuery extends QueryParams { before?: number; after?: number; limit?: number; q?: string; }
 export interface Conversation extends JsonObject { id: string; organization_id: string; kind: string; slug?: string | null; title: JsonValue; description: JsonValue; agent_slug: string; settings: JsonValue; status: string; version: number; created_at: string; updated_at: string; }
 export interface ConversationMember extends JsonObject { id: string; conversation_id: string; user_id: string; role: string; status: string; joined_at: string; }
-export interface ChatMessage extends JsonObject { id: string; conversation_id: string; sender_user_id: string; sequence: number; message_type: string; content: JsonValue; metadata: JsonValue; reply_to_id?: string | null; thread_root_id?: string | null; client_id?: string | null; created_at: string; edited_at?: string | null; }
+export interface ChatAttachment extends JsonObject {
+  id: string;
+  organization_id: string;
+  conversation_id: string;
+  message_id: string | null;
+  uploader_id: string | null;
+  storage_provider: string;
+  bucket: string;
+  object_key: string;
+  cdn_url: string;
+  file_name: string;
+  media_type: string;
+  byte_size: number;
+  checksum_sha256: string | null;
+  status: string;
+  metadata: JsonValue;
+  legacy_source: string | null;
+  legacy_id: number | null;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+}
+
+export interface ChatMessage extends JsonObject {
+  id: string;
+  conversation_id: string;
+  sequence: number;
+  /** Authenticated IDP user that sent the message; null for non-user senders. */
+  sender_id: string | null;
+  /** @deprecated Compatibility field for older Chat deployments. Prefer `sender_id`. */
+  sender_user_id?: string | null;
+  sender_kind: string;
+  message_type: string;
+  content: JsonValue;
+  metadata: JsonValue;
+  reply_to_id: string | null;
+  thread_root_id: string | null;
+  client_id: string | null;
+  status: string;
+  created_at: string;
+  edited_at: string | null;
+  deleted_at: string | null;
+  legacy_source: string | null;
+  legacy_id: string | null;
+  /** Present when messages are returned by the conversation history endpoint. */
+  attachments?: ChatAttachment[];
+}
 export interface CreateConversationInput extends JsonObject { kind?: string; slug?: string; title?: JsonValue; description?: JsonValue; member_ids?: string[]; agent_slug?: string; settings?: JsonValue; }
 export interface UpdateConversationInput extends JsonObject { title?: JsonValue; description?: JsonValue; settings?: JsonValue; status?: string; expected_version?: number; }
 export interface MemberInput extends JsonObject { user_id: string; role?: string; }

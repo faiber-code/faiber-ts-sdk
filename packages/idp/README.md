@@ -34,6 +34,20 @@ await tokens.setTokens({
   accessToken: login.data.data.access_token,
   refreshToken: login.data.data.refresh_token,
 });
+
+const linked = await api.linkedIdentities();
+const faiberAccount = linked.data.data.identities.find(
+  (identity) => identity.provider === "faiber",
+);
+
+// Uses only the sandbox IDP session. The service verifies the linked identity
+// and projects the linked main-Faiber wallet server-side.
+const billing = await api.linkedFaiberBilling({ project: "fitapp", page_size: 14 });
+console.log(billing.data.data.wallet.balance);
+console.log(billing.data.data.project_pricing?.fixed_monthly_price);
+
+const topUp = await api.topUpLinkedFaiberWallet({ amount: 500_000 });
+window.location.assign(topUp.data.data.payment_url);
 ```
 
 ## Complete capability
@@ -49,7 +63,7 @@ This package exposes 51 registered operations from the identity and access servi
 | `settings` | 2 | `GET`, `PUT` |
 | `user` | 20 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-Login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded` exactly as required by the IDP service. Persist and reuse a stable, non-secret `device_id` so the IDP can distinguish physical devices; browser identity is derived from User-Agent. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. Role assignment uses role UUIDs; role names returned by the service are not restricted to a hard-coded SDK union.
+Login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded` exactly as required by the IDP service. Persist and reuse a stable, non-secret `device_id` so the IDP can distinguish physical devices; browser identity is derived from User-Agent. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. `api.linkedIdentities()` returns stable provider subjects, including a linked main Faiber account, without exposing provider credentials. `api.linkedFaiberBilling()` and `api.topUpLinkedFaiberWallet()` use that verified link server-side, so a sandbox application never needs a second main-Faiber browser session or token. Role assignment uses role UUIDs; role names returned by the service are not restricted to a hard-coded SDK union.
 
 ## Authentication and authorization
 

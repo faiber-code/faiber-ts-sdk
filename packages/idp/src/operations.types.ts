@@ -166,6 +166,46 @@ export interface AuthListLinkedIdentitiesGetResponseData extends JsonObject {
 export interface AuthListLinkedIdentitiesGetResponse extends ApiEnvelope<AuthListLinkedIdentitiesGetResponseData> {
 }
 
+/** Backend query type: LinkedFaiberBillingQuery. */
+export interface AuthLinkedFaiberBillingGetQuery extends QueryParams {
+  "project"?: string | null;
+  "page"?: number | null;
+  "page_size"?: number | null;
+  "from"?: string | null;
+  "to"?: string | null;
+  "tz_offset_minutes"?: number | null;
+}
+/** Backend response type: LinkedFaiberBillingResponse. */
+export interface AuthLinkedFaiberBillingGetResponseProjectPricing extends JsonObject {
+  "project": string;
+  "currency": string;
+  "fixed_monthly_price"?: number | null;
+  "hourly_price": number;
+  "daily_estimate": number;
+  "monthly_estimate": number;
+}
+export interface AuthLinkedFaiberBillingGetResponseData extends JsonObject {
+  "provider_id": string;
+  "wallet": BackendJson<"LinkedFaiberWallet">;
+  "daily_costs": BackendJson<"LinkedFaiberDailyCostsPage">;
+  "project_pricing"?: AuthLinkedFaiberBillingGetResponseProjectPricing | null;
+}
+export interface AuthLinkedFaiberBillingGetResponse extends ApiEnvelope<AuthLinkedFaiberBillingGetResponseData> {
+}
+
+/** Backend request type: LinkedFaiberTopupRequest. */
+export interface AuthLinkedFaiberWalletTopupPostInput extends JsonObject {
+  "amount": number;
+  "currency"?: string | null;
+}
+/** Backend response type: LinkedFaiberTopupResponse. */
+export interface AuthLinkedFaiberWalletTopupPostResponseData extends JsonObject {
+  "purchase_id": string;
+  "payment_url": string;
+}
+export interface AuthLinkedFaiberWalletTopupPostResponse extends ApiEnvelope<AuthLinkedFaiberWalletTopupPostResponseData> {
+}
+
 /** Backend request type: PasswordTokenRequest. */
 export interface AuthLoginPostInput extends JsonObject {
   "grant_type": string;

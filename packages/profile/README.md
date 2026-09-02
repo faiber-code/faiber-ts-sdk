@@ -28,6 +28,12 @@ const updated = await api.updateProfile(userId, {
   properties: { workout_plan: plan, membership },
 });
 console.log(updated.data.data.profile);
+
+const uploaded = await api.uploadAvatar(userId, avatarFile);
+const avatar = await api.avatar(userId, uploaded.data.data.key, {
+  signal: AbortSignal.timeout(5_000),
+});
+console.log(avatar.data.type, avatar.data.size);
 ```
 
 ## Complete capability
@@ -54,6 +60,8 @@ This package exposes 120 registered operations from the profiles service. Common
 | `trusted-service` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
 `updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
+
+`avatar(profileId, key)` downloads the stored image as a `Blob` through the public profile-media route. The service constrains `key` to `profiles/{profileId}/avatar/`; a mismatched or unsafe key returns `403`, and a missing object returns `404`.
 
 ## Authentication and authorization
 

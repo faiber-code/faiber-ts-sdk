@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonValue, PaginatedResult, ResourceListResponse, ResourceResponse, } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject, JsonValue, PaginatedResult, QueryParams, ResourceListResponse, ResourceResponse, } from "@faiber/sdk-core";
 export interface Asset {
     id: string;
     name: string;
@@ -76,8 +76,57 @@ export interface AssetDashboard {
 export interface Wallet {
     id?: string;
     user_id?: string;
-    balance?: number;
+    /** Billing principal used by the Asset service. */
+    profile_id?: string;
+    balance: number;
+    currency?: string;
     assets?: Asset[];
+}
+/** Input used to begin a self-service wallet top-up. */
+export interface WalletTopUpInput extends JsonObject {
+    amount: number;
+    currency?: string | null;
+}
+/** Payment handoff created for a wallet top-up. */
+export interface WalletTopUp extends JsonObject {
+    purchase_id: string;
+    payment_url: string;
+}
+export interface WalletTopUpResponse extends ApiEnvelope<WalletTopUp> {
+}
+/** One completed local day's metered Faiber usage. */
+export interface DailyCostSummary extends JsonObject {
+    date: string;
+    resourceCost: number;
+    llmCost: number;
+    totalCost: number;
+    transactionCount: number;
+    currency: string;
+}
+/** Filters and pagination for daily metered costs. */
+export interface DailyCostQuery extends QueryParams {
+    page?: number;
+    page_size?: number;
+    from?: string;
+    to?: string;
+    tz_offset_minutes?: number;
+}
+export interface DailyCostPage extends JsonObject {
+    items: DailyCostSummary[];
+    total: number;
+    page: number;
+    pageSize: number;
+}
+export interface DailyCostPageResponse extends ApiEnvelope<DailyCostPage> {
+}
+/** Administrator input for moving a sandbox project's billing ownership. */
+export interface SandboxFinancialOwnerInput extends JsonObject {
+    current_profile_id: string;
+    financial_owner_user_id: string;
+}
+/** Administrator input for a project's fixed monthly price. */
+export interface SandboxFixedPriceInput extends JsonObject {
+    monthly_price_override?: number | null;
 }
 export interface Subscription {
     id: string;
@@ -121,6 +170,46 @@ export interface SetAiPlanInput {
 export interface AssetDashboardResponse extends ApiEnvelope<AssetDashboard> {
 }
 export interface WalletResponse extends ApiEnvelope<Wallet> {
+}
+/** Query for an administrator's view of one user's wallet ledger. */
+export interface AdminWalletQuery extends QueryParams {
+    limit?: number;
+}
+/** One authoritative wallet ledger entry. */
+export interface AdminWalletTransaction extends JsonObject {
+    id: string;
+    profile_id: string;
+    direction: "credit" | "debit";
+    amount: number;
+    reason: string;
+    ref_type?: string | null;
+    ref_id?: string | null;
+    balance_after: number;
+    created_at: string;
+}
+/** Wallet balance and recent ledger entries visible to an administrator. */
+export interface AdminWalletSnapshot {
+    wallet: Wallet;
+    transactions: AdminWalletTransaction[];
+}
+/** Permission-gated administrative credit or debit. */
+export interface AdminWalletAdjustmentInput extends JsonObject {
+    direction: "credit" | "debit";
+    amount: number;
+    reason: string;
+}
+export interface AdminWalletSnapshotResponse extends ApiEnvelope<AdminWalletSnapshot> {
+}
+/** Read-only effective pricing for a sandbox project owned by the authenticated account. */
+export interface SandboxProjectPricing extends JsonObject {
+    project: string;
+    currency: string;
+    fixed_monthly_price?: number | null;
+    hourly_price: number;
+    daily_estimate: number;
+    monthly_estimate: number;
+}
+export interface SandboxProjectPricingResponse extends ApiEnvelope<SandboxProjectPricing> {
 }
 export interface SubscriptionListResponse extends ApiEnvelope<PaginatedResult<Subscription>> {
 }

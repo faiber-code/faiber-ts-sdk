@@ -345,6 +345,48 @@ export interface WalletBillingAdminUserPlanDisablePutResponseData extends JsonOb
 export interface WalletBillingAdminUserPlanDisablePutResponse extends ApiEnvelope<WalletBillingAdminUserPlanDisablePutResponseData> {
 }
 
+/** Backend query type: AdminWalletQuery. */
+export interface WalletBillingAdminUserWalletShowGetQuery extends QueryParams {
+  "limit"?: number | null;
+}
+export interface WalletBillingAdminUserWalletShowGetWallet extends JsonObject {
+  "profile_id": string;
+  "balance": number;
+  "currency": string;
+}
+export interface WalletBillingAdminUserWalletShowGetTransaction extends JsonObject {
+  "id": string;
+  "profile_id": string;
+  "direction": string;
+  "amount": number;
+  "reason": string;
+  "ref_type"?: string | null;
+  "ref_id"?: string | null;
+  "balance_after": number;
+  "created_at": string;
+}
+/** Backend response type: AdminWalletSnapshot. */
+export interface WalletBillingAdminUserWalletShowGetResponseData extends JsonObject {
+  "wallet": WalletBillingAdminUserWalletShowGetWallet;
+  "transactions": WalletBillingAdminUserWalletShowGetTransaction[];
+}
+export interface WalletBillingAdminUserWalletShowGetResponse extends ApiEnvelope<WalletBillingAdminUserWalletShowGetResponseData> {
+}
+
+/** Backend request type: AdminWalletAdjustmentRequest. */
+export interface WalletBillingAdminUserWalletAdjustPostInput extends JsonObject {
+  "direction"?: string;
+  "amount": number;
+  "reason": string;
+}
+/** Backend response type: AdminWalletSnapshot. */
+export interface WalletBillingAdminUserWalletAdjustPostResponseData extends JsonObject {
+  "wallet": WalletBillingAdminUserWalletShowGetWallet;
+  "transactions": WalletBillingAdminUserWalletShowGetTransaction[];
+}
+export interface WalletBillingAdminUserWalletAdjustPostResponse extends ApiEnvelope<WalletBillingAdminUserWalletAdjustPostResponseData> {
+}
+
 /** Backend query type: AssetListQuery. */
 export interface CatalogAssetsIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
@@ -1084,6 +1126,18 @@ export interface SandboxBillingPausePostResponseData extends JsonObject {
   "next_charge_at": string;
 }
 export interface SandboxBillingPausePostResponse extends ApiEnvelope<SandboxBillingPausePostResponseData> {
+}
+
+/** Backend response type: ProjectPricingView. */
+export interface SandboxBillingShowPricingGetResponseData extends JsonObject {
+  "project": string;
+  "currency": string;
+  "fixed_monthly_price"?: number | null;
+  "hourly_price": number;
+  "daily_estimate": number;
+  "monthly_estimate": number;
+}
+export interface SandboxBillingShowPricingGetResponse extends ApiEnvelope<SandboxBillingShowPricingGetResponseData> {
 }
 
 /** Backend response type: AllocationView. */

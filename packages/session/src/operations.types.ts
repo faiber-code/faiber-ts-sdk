@@ -24,7 +24,9 @@ export interface ConfigurationLivekitConfigShowGetResponseData extends JsonObjec
   "has_agentic_service_token": boolean;
   "audio_processing_enabled": boolean;
   "audio_model_ref"?: string | null;
+  "audio_language": string;
   "chat_model_ref"?: string | null;
+  "chat_assistant_id"?: BackendJson<"uuid::Uuid"> | null;
   "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
@@ -51,7 +53,9 @@ export interface ConfigurationLivekitConfigUpdatePutInput extends JsonObject {
   "agentic_url": string;
   "audio_processing_enabled"?: boolean;
   "audio_model_ref"?: string | null;
+  "audio_language"?: string;
   "chat_model_ref"?: string | null;
+  "chat_assistant_id"?: BackendJson<"uuid::Uuid"> | null;
   "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
@@ -76,7 +80,9 @@ export interface ConfigurationLivekitConfigUpdatePutResponseData extends JsonObj
   "has_agentic_service_token": boolean;
   "audio_processing_enabled": boolean;
   "audio_model_ref"?: string | null;
+  "audio_language": string;
   "chat_model_ref"?: string | null;
+  "chat_assistant_id"?: BackendJson<"uuid::Uuid"> | null;
   "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
@@ -295,6 +301,7 @@ export interface RoomRoomsJoinGetResponseData extends JsonObject {
   "room_name": string;
   "can_end": boolean;
   "chat_model_ref"?: string | null;
+  "chat_assistant_id"?: string | null;
   "realtime"?: BackendJson<"RealtimeJoinResponse"> | null;
 }
 export interface RoomRoomsJoinGetResponse extends ApiEnvelope<RoomRoomsJoinGetResponseData> {

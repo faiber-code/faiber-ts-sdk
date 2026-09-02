@@ -217,6 +217,28 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AuthListLinkedIdentitiesGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/identities` });
   }
   /**
+   * Performs the linked faiber billing operation for the auth capability.
+   * Calls `GET /api/v1/auth/linked-faiber/billing` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  authLinkedFaiberBillingGet(params?: T.AuthLinkedFaiberBillingGetQuery, options?: RequestOptions) {
+    return this.client.request<T.AuthLinkedFaiberBillingGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/linked-faiber/billing`, params });
+  }
+  /**
+   * Performs the linked faiber wallet topup operation for the auth capability.
+   * Calls `POST /api/v1/auth/linked-faiber/wallet/topup` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  authLinkedFaiberWalletTopupPost(data: T.AuthLinkedFaiberWalletTopupPostInput, options?: RequestOptions<T.AuthLinkedFaiberWalletTopupPostInput>) {
+    return this.client.request<T.AuthLinkedFaiberWalletTopupPostResponse, T.AuthLinkedFaiberWalletTopupPostInput>({ ...options, method: "POST", url: `/api/v1/auth/linked-faiber/wallet/topup`, data: data });
+  }
+  /**
    * Performs the login operation for the auth capability.
    * Calls `POST /api/v1/auth/login` through the shared IDP-aware Faiber client.
    * @param data Typed URL-encoded form.
