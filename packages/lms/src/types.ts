@@ -38,6 +38,13 @@ export interface VideoSection extends LmsEntity {
 }
 export interface Classroom extends LmsEntity {
     course_id?: string;
+    course_name?: string | null;
+    teacher_user_id?: string | null;
+    teacher_profile?: ClassroomSessionTeacherProfile | null;
+    consultant_user_id?: string | null;
+    consultant_profile?: ClassroomSessionTeacherProfile | null;
+    support_user_id?: string | null;
+    support_profile?: ClassroomSessionTeacherProfile | null;
     starts_at?: string;
 }
 
@@ -66,12 +73,26 @@ export interface ClassroomSessionTeacherProfile extends JsonObject {
     avatar?: string;
 }
 
+/** Course-session metadata embedded in a classroom-session read. */
+export interface ClassroomCourseSession extends JsonObject {
+    id: string;
+    course_id: string;
+    name: string;
+    description: string | null;
+    sort_order: number;
+    session_type: string;
+    session_type_id: string | null;
+    duration_minutes: number | null;
+    status: string;
+}
+
 /** Classroom session returned by list, today, create, show, and update operations. */
 export interface ClassroomSession extends LmsEntity {
     id: string;
     classroom_id: string;
     classroom_name: string | null;
     course_session_id: string | null;
+    course_session: ClassroomCourseSession | null;
     course_session_type_id: string | null;
     session_type: ClassroomSessionType | null;
     name: string | null;

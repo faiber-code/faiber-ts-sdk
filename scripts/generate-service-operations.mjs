@@ -148,6 +148,11 @@ function unwrap(raw, wrapper) {
 
 function tsType(raw, query = false) {
   const type = raw.replace(/\s+/g, " ").trim();
+  const facadeType = {
+    ClassroomCourseSessionResponse: 'import("./types.js").ClassroomCourseSession',
+    ClassroomSessionTypeResponse: 'import("./types.js").ClassroomSessionType',
+  }[type];
+  if (facadeType) return facadeType;
   const optional = unwrap(type, "Option");
   if (optional) return `${tsType(optional, query)} | null`;
   const vector = unwrap(type, "Vec");

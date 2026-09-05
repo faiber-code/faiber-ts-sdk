@@ -614,8 +614,9 @@ export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session"?: import("./types.js").ClassroomCourseSession | null;
   "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
+  "session_type"?: import("./types.js").ClassroomSessionType | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
@@ -669,8 +670,9 @@ export interface ClassroomStoreSessionPostResponseData extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session"?: import("./types.js").ClassroomCourseSession | null;
   "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
+  "session_type"?: import("./types.js").ClassroomSessionType | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
@@ -697,8 +699,9 @@ export interface ClassroomShowSessionGetResponseData extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session"?: import("./types.js").ClassroomCourseSession | null;
   "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
+  "session_type"?: import("./types.js").ClassroomSessionType | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
@@ -742,8 +745,9 @@ export interface ClassroomUpdateSessionPatchResponseData extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session"?: import("./types.js").ClassroomCourseSession | null;
   "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
+  "session_type"?: import("./types.js").ClassroomSessionType | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
@@ -818,8 +822,9 @@ export interface ClassroomIndexTodaySessionsGetResponseItem extends JsonObject {
   "classroom_id": string;
   "classroom_name"?: string | null;
   "course_session_id"?: string | null;
+  "course_session"?: import("./types.js").ClassroomCourseSession | null;
   "course_session_type_id"?: string | null;
-  "session_type"?: ClassroomIndexSessionTypesGetResponseItem | null;
+  "session_type"?: import("./types.js").ClassroomSessionType | null;
   "name"?: string | null;
   "session_number"?: number | null;
   "duration_minutes"?: number | null;
