@@ -21,6 +21,8 @@ export interface CreateRuleInput extends JsonObject { knowledge_base_id: string;
 export interface UpdateRuleInput extends JsonObject { group_id?: string; name?: JsonValue; priority?: number; conditions?: JsonValue; outcomes?: JsonValue; stop_on_match?: boolean; enabled?: boolean; expected_version?: number; }
 export interface RuntimeQueryInput extends JsonObject { query?: string; profile_id?: string; profile?: JsonValue; props?: JsonValue; meta?: JsonValue; inputs?: JsonValue; group_slugs?: JsonValue; level?: number; limit?: number; event?: JsonValue; }
 export interface RuntimeResult extends JsonObject { chat_slug: string; release?: JsonValue; knowledge: JsonValue[]; matched_rules: JsonValue[]; notifications: JsonValue[]; warnings: JsonValue[]; todos: JsonValue[]; input_requests: JsonValue[]; directions: JsonValue[]; trace: JsonValue; }
+export interface MemorySubjectQuery extends QueryParams { assistant_id?: string; q?: string; memory_type?: "short" | "long"; page?: number; limit?: number; }
+export interface MemoryOverrideInput extends JsonObject { short_memory_enabled?: boolean; long_memory_enabled?: boolean; }
 export interface ActionStatusInput extends JsonObject { status: string; input?: JsonValue; }
 export type KnowledgeBaseResponse = ApiEnvelope<KnowledgeBase>;
 export type KnowledgeBaseListResponse = ApiEnvelope<KnowledgeBase[]>;
@@ -92,6 +94,7 @@ export interface AssistantQueryInput extends JsonObject {
 export interface RetrievalBudget extends JsonObject { requested_tokens:number; used_tokens:number; remaining_tokens:number; dropped_count:number; truncated:boolean; estimator:string; sections:Record<string,number>; }
 export interface AssistantRuntimeResult extends JsonObject { policy:JsonValue; knowledge:JsonValue[]; memory:JsonValue; recommendations:JsonValue[]; citations:JsonValue[]; findings:JsonValue[]; trace:JsonValue; budget:RetrievalBudget; }
 export interface MemoryTurnInput extends JsonObject { user_id:string; profile?:JsonValue; profile_version?:string; profile_source?:string; profile_refreshed_at?:string; conversation_id:string; user_message:string; assistant_message:string; user_message_id?:string; assistant_message_id?:string; }
+export interface RecordAssistantTurnInput extends MemoryTurnInput {}
 export interface RetrievalUsageInput extends JsonObject { final_prompt_tokens:number; cached_input_tokens?:number; reasoning_tokens?:number; output_tokens?:number; token_attribution?:JsonValue; actual_cost?:number; outcome?:string; }
 export interface PlatformStatus extends JsonObject { service:string; version:string; commit:string; status:string; checked_at:string; knowledge_bases:number; published_bases:number; sources:number; documents:number; chunks:number; entities:number; relations:number; assistants:number; memory_subjects:number; memories:number; recommender_groups:number; open_findings:number; queued_jobs:number; processing_jobs:number; failed_jobs:number; stale_documents:number; missing_embeddings:number; memory_backlog:number; dead_letters:number; retrieval:JsonValue; dependencies:Record<string,string>; }
 export interface KnowledgeSource extends JsonObject { id:string; knowledge_base_id:string; slug:string; name:JsonValue; source_type:string; status:string; sync_status:string; document_count:number; chunk_count:number; last_error?:string|null; last_synced_at?:string|null; }
@@ -104,4 +107,5 @@ export type PlatformStatusResponse = ApiEnvelope<PlatformStatus>;
 export type KnowledgeSourceListResponse = ApiEnvelope<KnowledgeSource[]>;
 export type KnowledgeDocumentListResponse = ApiEnvelope<KnowledgeDocument[]>;
 export type ConverterListResponse = ApiEnvelope<ConverterCapability[]>;
+export type ConverterCapabilityListResponse = ConverterListResponse;
 export type ProcessingJobListResponse = ApiEnvelope<ProcessingJob[]>;

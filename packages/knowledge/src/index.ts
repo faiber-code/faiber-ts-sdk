@@ -21,6 +21,12 @@ export class KnowledgeApi extends ServiceApi {
   updateItem(itemId: Identifier, data: T.UpdateItemInput, options?: RequestOptions<T.UpdateItemInput>) { return this.client.put<T.KnowledgeItemResponse, T.UpdateItemInput>(`/api/v1/items/${id(itemId)}`, data, options); }
   deleteItem(itemId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/items/${id(itemId)}`, options); }
   query(chatSlug: string, data: T.RuntimeQueryInput, options?: RequestOptions<T.RuntimeQueryInput>) { return this.client.post<T.RuntimeResultResponse, T.RuntimeQueryInput>(`/api/v1/runtime/chat/${id(chatSlug)}/query`, data, options); }
+  queryAssistant(assistantId: Identifier, data: T.AssistantQueryInput, options?: RequestOptions<T.AssistantQueryInput>) { return this.client.post<T.AssistantRuntimeResponse, T.AssistantQueryInput>(`/api/v1/runtime/assistants/${id(assistantId)}/query`, data, options); }
+  recordAssistantTurn(assistantId: Identifier, data: T.RecordAssistantTurnInput, options?: RequestOptions<T.RecordAssistantTurnInput>) { return this.client.post<ApiEnvelope<JsonValue>, T.RecordAssistantTurnInput>(`/api/v1/runtime/assistants/${id(assistantId)}/memory/turn`, data, options); }
+  memorySubjects(params?: T.MemorySubjectQuery, options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue[]>>("/api/v1/memory-subjects", params, options); }
+  clearMemorySubject(subjectId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/memory-subjects/${id(subjectId)}`, options); }
+  setMemoryOverride(subjectId: Identifier, data: T.MemoryOverrideInput, options?: RequestOptions<T.MemoryOverrideInput>) { return this.client.put<ApiEnvelope<JsonValue>, T.MemoryOverrideInput>(`/api/v1/memory-subjects/${id(subjectId)}/policy`, data, options); }
+  auditEvents(options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue[]>>("/api/v1/audit-events", undefined, options); }
   toolSchema(options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue>>("/api/v1/runtime/tool-schema", undefined, options); }
   /** Reads scoped inventories, dependency health, retrieval latency, quality, and backlog. Requires `knowledge:read`. */
   platformStatus(options?: RequestOptions) { return this.client.get<T.PlatformStatusResponse>("/api/v1/platform/status", undefined, options); }
