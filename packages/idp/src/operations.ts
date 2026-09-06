@@ -656,6 +656,16 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.IdentityAuthorityCreatePairingInvitationPostResponse, T.IdentityAuthorityCreatePairingInvitationPostInput>({ ...options, method: "POST", url: `/api/v1/settings/identity-authority/pairing-invitations`, data: data });
   }
   /**
+   * Performs the recover canonical mode operation for the identity authority capability.
+   * Calls `POST /api/v1/settings/identity-authority/recover-canonical` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  identityAuthorityRecoverCanonicalModePost(options?: RequestOptions) {
+    return this.client.request<T.IdentityAuthorityRecoverCanonicalModePostResponse>({ ...options, method: "POST", url: `/api/v1/settings/identity-authority/recover-canonical` });
+  }
+  /**
    * Performs the login page settings show operation for the settings capability.
    * Calls `GET /api/v1/settings/login-page` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

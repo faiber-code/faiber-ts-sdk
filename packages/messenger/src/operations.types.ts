@@ -204,6 +204,17 @@ export interface NotificationNotificationsMarkReadPatchResponseData extends Json
 export interface NotificationNotificationsMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMarkReadPatchResponseData> {
 }
 
+/** Backend query type: MarkAllReadQuery. */
+export interface NotificationNotificationsMarkAllReadPatchQuery extends QueryParams {
+  "recipient": string;
+}
+/** Backend response type: MarkAllReadResponse. */
+export interface NotificationNotificationsMarkAllReadPatchResponseData extends JsonObject {
+  "updated": number;
+}
+export interface NotificationNotificationsMarkAllReadPatchResponse extends ApiEnvelope<NotificationNotificationsMarkAllReadPatchResponseData> {
+}
+
 /** Backend request type: RealtimeAuthRequest. */
 export interface NotificationNotificationsRealtimeAuthPostInput extends JsonObject {
   "socket_id": string;

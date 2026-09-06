@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { AxiosHeaders } from "axios";
 import { FaiberClient, MemoryTokenProvider } from "../packages/core/dist/index.js";
-import { LmsApi, classroomSessionRecordingUrl, classroomSessionViewUrl } from "../packages/lms/dist/index.js";
+import { LmsApi, certificateImageUrl, certificateViewUrl, classroomSessionRecordingUrl, classroomSessionViewUrl, examPageUrl } from "../packages/lms/dist/index.js";
 import { SocialApi } from "../packages/social/dist/index.js";
 import { StateApi } from "../packages/state/dist/index.js";
 
@@ -67,10 +67,12 @@ test("LMS classroom sessions expose types, today filtering, and Session UI links
   const api = new LmsApi(client);
   await api.classroomSessionTypes();
   await api.todayClassroomSessions({ date: "2026-09-01", timezone_offset_minutes: 210 });
+  await api.listClassrooms({ user_id: "user-id", from: "2026-09-01T00:00:00Z" });
 
   assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
     ["get", "/api/v1/classrooms/session-types"],
     ["get", "/api/v1/classrooms/sessions/today"],
+    ["get", "/api/v1/classrooms"],
   ]);
   assert.equal(seen[1].params.timezone_offset_minutes, 210);
   assert.deepEqual(api.classroomSessionLinks({ session_room_id: "room/id" }), {
@@ -79,6 +81,10 @@ test("LMS classroom sessions expose types, today filtering, and Session UI links
   });
   assert.equal(classroomSessionViewUrl("room/id"), "/view/room/room%2Fid");
   assert.equal(classroomSessionRecordingUrl({ session_room_id: null }), null);
+  assert.equal(seen[2].params.user_id, "user-id");
+  assert.equal(examPageUrl("attempt/id", "https://lms.example.com"), "https://lms.example.com/dashboard/exam/attempt%2Fid");
+  assert.equal(certificateViewUrl("public/id", "https://lms.example.com"), "https://lms.example.com/certificate/public%2Fid");
+  assert.equal(certificateImageUrl("public/id"), "/api/v1/public/certificates/public%2Fid/image.svg");
 });
 
 test("Social moderation audit uses typed query routing in cookie mode", async () => {

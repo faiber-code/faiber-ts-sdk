@@ -28,13 +28,16 @@ const courses = await api.courses.list({
 });
 const sessions = await api.courseSessions(courseId);
 const classroomSessions = await api.classroomSessions.list({ page_number: 1 });
+const assignedClassrooms = await api.listClassrooms({ user_id: profileId, from, to });
 const sessionTypes = await api.classroomSessionTypes();
 const links = api.classroomSessionLinks(classroomSessions.data.data.data[0]);
+const examUrl = api.examPageUrl(examAttemptId);
+const certificateUrl = api.certificateViewUrl(certificateCode);
 ```
 
 ## Complete capability
 
-This package exposes 122 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 127 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -46,7 +49,7 @@ This package exposes 122 registered operations from the learning management serv
 | `dashboard` | 1 | `GET` |
 | `docs` | 1 | `GET` |
 | `drm_routes` | 1 | `GET` |
-| `exam` | 17 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `exam` | 22 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `homework` | 12 | `GET`, `PATCH`, `POST` |
 | `integration` | 1 | `GET` |
 | `media` | 2 | `GET`, `POST` |
@@ -56,7 +59,7 @@ This package exposes 122 registered operations from the learning management serv
 | `service` | 1 | `GET` |
 | `session` | 1 | `GET` |
 
-Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom-session list items include the resolved type, lifecycle status, lock/auto-unlock flags, provisioned room ID, times, and teacher profile. Exam questions support typed deletion; other unsupported generic deletes remain guarded locally.
+Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom, homework/assignment, and exam queries support relationship-aware `user_id` and time filtering. Classroom responses include course plus teacher, consultant, and support profiles. Exam delivery/start/save/submit and public certificate verification/image routes are typed, while `examPageUrl`, `certificateViewUrl`, and `certificateImageUrl` build UI links from the configured LMS domain.
 
 ```ts
 const catalog = await api.academyCourses({ category_id: 4 });

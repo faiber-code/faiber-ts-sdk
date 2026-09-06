@@ -7,6 +7,38 @@ export interface Asset {
     status?: string | number | boolean;
     metadata?: JsonValue;
 }
+export type AssetHistoryKind = "all" | "xp" | "coin" | "gem" | "badge" | "charge";
+export interface AssetHistoryQuery extends QueryParams {
+    "page[number]"?: number;
+    "page[size]"?: number;
+    asset?: AssetHistoryKind;
+    asset_name?: string;
+    earned_only?: boolean;
+}
+export interface LeaderboardQuery extends QueryParams {
+    /** Comma-separated cohort of profile UUIDs; omitted means all ranked profiles. */
+    profile_ids?: string;
+    top?: number;
+    neighbors?: number;
+}
+export interface LeaderboardEntry extends JsonObject {
+    id: string;
+    profile_id: string;
+    name: string | null;
+    level: number;
+    coin: number;
+    blue: number;
+    red: number;
+    green: number;
+    rank: number;
+}
+export interface LeaderboardData extends JsonObject {
+    user: LeaderboardEntry | null;
+    top: LeaderboardEntry[];
+    neighbors: LeaderboardEntry[];
+    message: string | null;
+}
+export interface LeaderboardResponse extends ApiEnvelope<LeaderboardData> {}
 export interface CreateAssetInput {
     name: string;
     slug?: string;

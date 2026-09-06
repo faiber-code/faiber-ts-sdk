@@ -135,17 +135,6 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.CertificateStoreCertificatePostResponse, T.CertificateStoreCertificatePostInput>({ ...options, method: "POST", url: `/api/v1/certificates`, data: data });
   }
   /**
-   * Performs the render certificate image operation for the certificate capability.
-   * Calls `GET /api/v1/certificates/{code}/image.svg` through the shared IDP-aware Faiber client.
-   * @param code Backend path identifier `code`.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  certificateRenderCertificateImageGet(code: Identifier, options?: RequestOptions) {
-    return this.client.request<T.CertificateRenderCertificateImageGetResponse>({ ...options, method: "GET", url: `/api/v1/certificates/${encodeURIComponent(code)}/image.svg` });
-  }
-  /**
    * Performs the show certificate operation for the certificate capability.
    * Calls `GET /api/v1/certificates/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -974,6 +963,52 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ExamUpdateAttemptPatchResponse, T.ExamUpdateAttemptPatchInput>({ ...options, method: "PATCH", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Performs the save attempt answer operation for the exam capability.
+   * Calls `PUT /api/v1/exams/attempts/{id}/answers/{position}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param position Backend path identifier `position`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   */
+  examSaveAttemptAnswerPut(id: Identifier, position: Identifier, data: T.ExamSaveAttemptAnswerPutInput, options?: RequestOptions<T.ExamSaveAttemptAnswerPutInput>) {
+    return this.client.request<T.ExamSaveAttemptAnswerPutResponse, T.ExamSaveAttemptAnswerPutInput>({ ...options, method: "PUT", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/answers/${encodeURIComponent(position)}`, data: data });
+  }
+  /**
+   * Performs the show attempt delivery operation for the exam capability.
+   * Calls `GET /api/v1/exams/attempts/{id}/delivery` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   */
+  examShowAttemptDeliveryGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ExamShowAttemptDeliveryGetResponse>({ ...options, method: "GET", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/delivery` });
+  }
+  /**
+   * Performs the start attempt operation for the exam capability.
+   * Calls `POST /api/v1/exams/attempts/{id}/start` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   */
+  examStartAttemptPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ExamStartAttemptPostResponse>({ ...options, method: "POST", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/start` });
+  }
+  /**
+   * Performs the submit attempt operation for the exam capability.
+   * Calls `POST /api/v1/exams/attempts/{id}/submit` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:read.
+   */
+  examSubmitAttemptPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ExamSubmitAttemptPostResponse>({ ...options, method: "POST", url: `/api/v1/exams/attempts/${encodeURIComponent(id)}/submit` });
+  }
+  /**
    * Performs the index question operation for the exam capability.
    * Calls `GET /api/v1/exams/questions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -1050,6 +1085,17 @@ export class LmsOperations extends ServiceApi {
    */
   examStoreSessionPost(data: T.ExamStoreSessionPostInput, options?: RequestOptions<T.ExamStoreSessionPostInput>) {
     return this.client.request<T.ExamStoreSessionPostResponse, T.ExamStoreSessionPostInput>({ ...options, method: "POST", url: `/api/v1/exams/sessions`, data: data });
+  }
+  /**
+   * Performs the destroy session operation for the exam capability.
+   * Calls `DELETE /api/v1/exams/sessions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:exam:delete.
+   */
+  examDestroySessionDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ExamDestroySessionDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/exams/sessions/${encodeURIComponent(id)}` });
   }
   /**
    * Performs the show session operation for the exam capability.
@@ -1269,10 +1315,21 @@ export class LmsOperations extends ServiceApi {
    * @param code Backend path identifier `code`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:verify.
    */
   certificateVerifyCertificateGet(code: Identifier, options?: RequestOptions) {
     return this.client.request<T.CertificateVerifyCertificateGetResponse>({ ...options, method: "GET", url: `/api/v1/public/certificates/${encodeURIComponent(code)}` });
+  }
+  /**
+   * Performs the render certificate image operation for the certificate capability.
+   * Calls `GET /api/v1/public/certificates/{code}/image.svg` through the shared IDP-aware Faiber client.
+   * @param code Backend path identifier `code`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:certificate:verify.
+   */
+  certificateRenderCertificateImageGet(code: Identifier, options?: RequestOptions) {
+    return this.client.request<T.CertificateRenderCertificateImageGetResponse>({ ...options, method: "GET", url: `/api/v1/public/certificates/${encodeURIComponent(code)}/image.svg` });
   }
   /**
    * Performs the classrooms operation for the report capability.

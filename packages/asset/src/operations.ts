@@ -247,6 +247,40 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.WalletBillingAdminUserWalletAdjustPostResponse, T.WalletBillingAdminUserWalletAdjustPostInput>({ ...options, method: "POST", url: `/api/v1/admin/users/${encodeURIComponent(profileId)}/wallet/adjustments`, data: data });
   }
   /**
+   * Performs the reserve operation for the ai billing capability.
+   * Calls `POST /api/v1/ai-reservations` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  aiBillingReservePost(data: T.AiBillingReservePostInput, options?: RequestOptions<T.AiBillingReservePostInput>) {
+    return this.client.request<T.AiBillingReservePostResponse, T.AiBillingReservePostInput>({ ...options, method: "POST", url: `/api/v1/ai-reservations`, data: data });
+  }
+  /**
+   * Performs the release operation for the ai billing capability.
+   * Calls `POST /api/v1/ai-reservations/{id}/release` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  aiBillingReleasePost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.AiBillingReleasePostResponse>({ ...options, method: "POST", url: `/api/v1/ai-reservations/${encodeURIComponent(id)}/release` });
+  }
+  /**
+   * Performs the settle operation for the ai billing capability.
+   * Calls `POST /api/v1/ai-reservations/{id}/settle` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  aiBillingSettlePost(id: Identifier, data: T.AiBillingSettlePostInput, options?: RequestOptions<T.AiBillingSettlePostInput>) {
+    return this.client.request<T.AiBillingSettlePostResponse, T.AiBillingSettlePostInput>({ ...options, method: "POST", url: `/api/v1/ai-reservations/${encodeURIComponent(id)}/settle`, data: data });
+  }
+  /**
    * Performs the assets index operation for the catalog capability.
    * Calls `GET /api/v1/assets` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -416,6 +450,17 @@ export class AssetOperations extends ServiceApi {
    */
   integrationRabbitmqIntegrationShowGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationRabbitmqIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/rabbitmq` });
+  }
+  /**
+   * Performs the leaderboard index operation for the leaderboard capability.
+   * Calls `GET /api/v1/leaderboard` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   */
+  leaderboardLeaderboardIndexGet(params?: T.LeaderboardLeaderboardIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.LeaderboardLeaderboardIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/leaderboard`, params });
   }
   /**
    * Performs the plans index operation for the llm usage capability.

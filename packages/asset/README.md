@@ -24,6 +24,9 @@ const api = new AssetApi(client);
 
 const assets = await api.assets.list({ "page[number]": 1 });
 const wallet = await api.wallet();
+const balances = await api.myAssets();
+const history = await api.assetHistory({ asset: "coin", "page[size]": 25 });
+const ranking = await api.leaderboard({ top: 10, neighbors: 2 });
 const dailyCosts = await api.dailyCosts({ page_size: 14 });
 const topUp = await api.topUpWallet({ amount: 500_000, currency: "IRR" });
 const pricing = await api.sandboxProjectPricing("fitapp");
@@ -39,7 +42,7 @@ await api.adjustAdminUserWallet(profileId, {
 
 ## Complete capability
 
-This package exposes 67 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 82 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -49,14 +52,15 @@ This package exposes 67 registered operations from the assets and billing servic
 | `charge` | 2 | `GET`, `PATCH` |
 | `dashboard` | 1 | `GET` |
 | `integration` | 3 | `GET` |
-| `llm-usage` | 3 | `GET`, `PUT` |
+| `leaderboard` | 1 | `GET` |
+| `llm-usage` | 4 | `DELETE`, `GET`, `PUT` |
 | `logs` | 2 | `GET` |
 | `rank` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `router` | 2 | `GET` |
-| `sandbox-billing` | 7 | `DELETE`, `GET`, `POST`, `PUT` |
+| `sandbox-billing` | 10 | `DELETE`, `GET`, `POST`, `PUT` |
 | `service-lifecycle` | 4 | `DELETE`, `POST` |
-| `wallet` | 4 | `GET` |
-| `wallet-billing` | 18 | `DELETE`, `GET`, `POST`, `PUT` |
+| `wallet` | 9 | `GET` |
+| `wallet-billing` | 20 | `DELETE`, `GET`, `POST`, `PUT` |
 
 Administrative and self-service billing routes are distinct operations. `wallet`, `dailyCosts`, `topUpWallet`, and `sandboxProjectPricing` operate on the authenticated account. Trusted server tooling can use `adminUserWallet`, `adjustAdminUserWallet`, `setSandboxFinancialOwner`, and `setSandboxFixedPrice`; never expose an administrative token in browser code. Administrative adjustments create authoritative credit/debit ledger entries and reject non-positive amounts or missing reasons. Purchase, top-up, pause, resume, removal, and permanent-data deletion methods preserve the backend verbs and permission annotations.
 

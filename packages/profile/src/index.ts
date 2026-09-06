@@ -13,6 +13,8 @@ export class ProfileApi extends ServiceApi {
     readonly work: R<T.Work, T.CreateWorkInput, T.UpdateWorkInput, T.WorkListResponse, T.WorkResponse> = new RestResource(this.client, "/api/v1/work", { supported: [] });
     readonly education: R<T.Education, T.CreateEducationInput, T.UpdateEducationInput, T.EducationListResponse, T.EducationResponse> = new RestResource(this.client, "/api/v1/education", { supported: [] });
     readonly greetings: R<T.Greeting, T.CreateGreetingInput, T.UpdateGreetingInput, T.GreetingListResponse, T.GreetingResponse> = new RestResource(this.client, "/api/v1/greetings", { supported: [] });
+    /** Lists profiles with merged role records, active status, enrollment state, and role/status filters. */
+    listProfiles(params?: T.ProfileListQuery, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>("/api/v1/profile", params, options); }
     byRole(role: T.ProfileRole, params?: QueryParams, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>(`/api/v1/profile/${role}`, params, options); }
     full(id: Identifier, options?: RequestOptions) { return this.client.get<T.FullProfileResponse>(`/api/v1/profile/${encodeURIComponent(id)}/full`, undefined, options); }
     admin(id: Identifier, options?: RequestOptions) { return this.client.get<T.AdminProfileResponse>(`/api/v1/profile/${encodeURIComponent(id)}/admin`, undefined, options); }

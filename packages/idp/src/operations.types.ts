@@ -176,19 +176,11 @@ export interface AuthLinkedFaiberBillingGetQuery extends QueryParams {
   "tz_offset_minutes"?: number | null;
 }
 /** Backend response type: LinkedFaiberBillingResponse. */
-export interface AuthLinkedFaiberBillingGetResponseProjectPricing extends JsonObject {
-  "project": string;
-  "currency": string;
-  "fixed_monthly_price"?: number | null;
-  "hourly_price": number;
-  "daily_estimate": number;
-  "monthly_estimate": number;
-}
 export interface AuthLinkedFaiberBillingGetResponseData extends JsonObject {
   "provider_id": string;
   "wallet": BackendJson<"LinkedFaiberWallet">;
   "daily_costs": BackendJson<"LinkedFaiberDailyCostsPage">;
-  "project_pricing"?: AuthLinkedFaiberBillingGetResponseProjectPricing | null;
+  "project_pricing"?: BackendJson<"LinkedFaiberProjectPricing"> | null;
 }
 export interface AuthLinkedFaiberBillingGetResponse extends ApiEnvelope<AuthLinkedFaiberBillingGetResponseData> {
 }
@@ -714,6 +706,26 @@ export interface IdentityAuthorityCreatePairingInvitationPostResponseData extend
   "expires_at": string;
 }
 export interface IdentityAuthorityCreatePairingInvitationPostResponse extends ApiEnvelope<IdentityAuthorityCreatePairingInvitationPostResponseData> {
+}
+
+/** Backend response type: AuthorityView. */
+export interface IdentityAuthorityRecoverCanonicalModePostResponseData extends JsonObject {
+  "mode": string;
+  "canonical_provider_id"?: string | null;
+  "canonical_provider_key"?: string | null;
+  "canonical_display_name"?: string | null;
+  "canonical_issuer"?: string | null;
+  "subject_policy": string;
+  "jit_provisioning": boolean;
+  "activated_at"?: string | null;
+  "last_discovery_at"?: string | null;
+  "last_login_at"?: string | null;
+  "last_logout_at"?: string | null;
+  "last_error"?: string | null;
+  "federated_session_count": number;
+  "rollout_enabled": boolean;
+}
+export interface IdentityAuthorityRecoverCanonicalModePostResponse extends ApiEnvelope<IdentityAuthorityRecoverCanonicalModePostResponseData> {
 }
 
 /** Backend response type: LoginPageSettingsResponse. */

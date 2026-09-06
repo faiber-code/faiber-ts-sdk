@@ -38,7 +38,7 @@ console.log(avatar.data.type, avatar.data.size);
 
 ## Complete capability
 
-This package exposes 120 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 173 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -59,7 +59,7 @@ This package exposes 120 registered operations from the profiles service. Common
 | `survey` | 2 | `GET`, `POST` |
 | `trusted-service` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-`updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
+`listProfiles` returns merged profile status, active-enrollment state, and IDP-synchronized role records, with `filter[role]`, `filter[status]`, `filter[active]`, and search support. `updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
 
 `avatar(profileId, key)` downloads the stored image as a `Blob` through the public profile-media route. The service constrains `key` to `profiles/{profileId}/avatar/`; a mismatched or unsafe key returns `403`, and a missing object returns `404`.
 

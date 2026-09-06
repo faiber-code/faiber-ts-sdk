@@ -13,6 +13,14 @@ export class AssetApi extends ServiceApi {
     wallet(options?: RequestOptions) {
         return this.client.get<T.WalletResponse>("/api/v1/wallet", undefined, options);
     }
+    /** Reads the authenticated profile's complete enriched asset balances. */
+    myAssets(options?: RequestOptions) { return this.operations.walletMeAssetsShowGet(options); }
+    /** Lists the authenticated profile's server-paginated asset achievement history. */
+    assetHistory(params?: T.AssetHistoryQuery, options?: RequestOptions) { return this.operations.walletMeAssetHistoryGet(params, options); }
+    /** Returns global or cohort-scoped rankings plus the current user's neighboring ranks. */
+    leaderboard(params?: T.LeaderboardQuery, options?: RequestOptions) {
+        return this.client.get<T.LeaderboardResponse>("/api/v1/leaderboard", params, options);
+    }
     /** Lists completed daily metered costs for the authenticated Faiber account. */
     dailyCosts(params?: T.DailyCostQuery, options?: RequestOptions) {
         return this.client.get<T.DailyCostPageResponse>("/api/v1/me/transactions/days", params, options);

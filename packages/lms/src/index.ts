@@ -1,5 +1,6 @@
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
+import type * as O from "./operations.types.js";
 type R<E extends T.LmsEntity, C, U> = RestResource<E, C, U, T.LmsListResponse<E>, T.LmsResponse<E>>;
 import { LmsOperations } from "./operations.js";
 
@@ -11,6 +12,21 @@ function sessionUiUrl(path: string, baseUrl?: string): string {
     if (!baseUrl) return path;
     try { return new URL(path, baseUrl).toString(); }
     catch { return `${baseUrl.replace(/\/$/, "")}${path}`; }
+}
+
+/** Builds the authenticated LMS exam page URL from an exam-attempt UUID. */
+export function examPageUrl(attemptId: Identifier, lmsBaseUrl?: string): string {
+    return sessionUiUrl(`/dashboard/exam/${encodeURIComponent(attemptId)}`, lmsBaseUrl);
+}
+
+/** Builds the public certificate verification page URL from its public code. */
+export function certificateViewUrl(code: Identifier, lmsBaseUrl?: string): string {
+    return sessionUiUrl(`/certificate/${encodeURIComponent(code)}`, lmsBaseUrl);
+}
+
+/** Builds the public, generated certificate SVG URL from its public code. */
+export function certificateImageUrl(code: Identifier, lmsBaseUrl?: string): string {
+    return sessionUiUrl(`/api/v1/public/certificates/${encodeURIComponent(code)}/image.svg`, lmsBaseUrl);
 }
 
 /** Builds the Session UI URL for an LMS classroom session, or `null` before a room is provisioned. */
@@ -43,6 +59,28 @@ export class LmsApi extends ServiceApi {
     readonly grades: R<T.Grade, T.CreateGradeInput, T.UpdateGradeInput> = new RestResource(this.client, "/api/v1/config/grades", { supported: ["list", "show", "create", "update"] });
     readonly classroomTypes: R<T.ClassroomType, T.CreateClassroomTypeInput, T.UpdateClassroomTypeInput> = new RestResource(this.client, "/api/v1/config/classroom-types", { supported: ["list", "show", "create", "update"] });
     readonly textTemplates: R<T.TextTemplate, T.CreateTextTemplateInput, T.UpdateTextTemplateInput> = new RestResource(this.client, "/api/v1/config/text-templates", { supported: ["list", "show", "create", "update"] });
+    /** Lists classrooms with relationship, role-assignment, status, course, and time filters. */
+    listClassrooms(params?: O.ClassroomIndexClassroomGetQuery, options?: RequestOptions) { return this.operations.classroomIndexClassroomGet(params, options); }
+    /** Reads one classroom with its course and teacher, consultant, and support profiles. */
+    classroom(id: Identifier, options?: RequestOptions) { return this.operations.classroomShowClassroomGet(id, options); }
+    /** Lists classroom sessions, including course-session/type metadata and relationship filters. */
+    listClassroomSessions(params?: O.ClassroomIndexSessionGetQuery, options?: RequestOptions) { return this.operations.classroomIndexSessionGet(params, options); }
+    /** Lists homework definitions. Projects and todos are represented by filtered assignments. */
+    listHomeworks(params?: O.HomeworkIndexHomeworkGetQuery, options?: RequestOptions) { return this.operations.homeworkIndexHomeworkGet(params, options); }
+    /** Lists homework, todo, and project assignments with user, status, classroom, and time filters. */
+    listAssignments(params?: O.HomeworkIndexAssignmentGetQuery, options?: RequestOptions) { return this.operations.homeworkIndexAssignmentGet(params, options); }
+    /** Lists exams with course and relationship-aware time filtering. */
+    listExams(params?: O.ExamIndexExamGetQuery, options?: RequestOptions) { return this.operations.examIndexExamGet(params, options); }
+    /** Lists exam sessions with participant/staff relationship and time filters. */
+    listExamSessions(params?: O.ExamIndexSessionGetQuery, options?: RequestOptions) { return this.operations.examIndexSessionGet(params, options); }
+    /** Lists exam attempts; each returned attempt ID is suitable for examPageUrl. */
+    listExamAttempts(params?: O.ExamIndexAttemptGetQuery, options?: RequestOptions) { return this.operations.examIndexAttemptGet(params, options); }
+    /** Returns the canonical authenticated web page URL for an exam attempt. */
+    examPageUrl(attemptId: Identifier) { return examPageUrl(attemptId, this.client.config.domains.lms); }
+    /** Returns the canonical public certificate verification page URL. */
+    certificateViewUrl(code: Identifier) { return certificateViewUrl(code, this.client.config.domains.lms); }
+    /** Returns the canonical generated certificate SVG URL. */
+    certificateImageUrl(code: Identifier) { return certificateImageUrl(code, this.client.config.domains.lms); }
     dashboard(options?: RequestOptions) { return this.client.get<T.DashboardResponse>("/api/v1/dashboard", undefined, options); }
     /** Lists active classroom-session types in scheduler display order. */
     classroomSessionTypes(options?: RequestOptions) { return this.client.get<T.ClassroomSessionTypesResponse>("/api/v1/classrooms/session-types", undefined, options); }

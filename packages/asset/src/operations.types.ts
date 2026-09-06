@@ -349,26 +349,10 @@ export interface WalletBillingAdminUserPlanDisablePutResponse extends ApiEnvelop
 export interface WalletBillingAdminUserWalletShowGetQuery extends QueryParams {
   "limit"?: number | null;
 }
-export interface WalletBillingAdminUserWalletShowGetWallet extends JsonObject {
-  "profile_id": string;
-  "balance": number;
-  "currency": string;
-}
-export interface WalletBillingAdminUserWalletShowGetTransaction extends JsonObject {
-  "id": string;
-  "profile_id": string;
-  "direction": string;
-  "amount": number;
-  "reason": string;
-  "ref_type"?: string | null;
-  "ref_id"?: string | null;
-  "balance_after": number;
-  "created_at": string;
-}
 /** Backend response type: AdminWalletSnapshot. */
 export interface WalletBillingAdminUserWalletShowGetResponseData extends JsonObject {
-  "wallet": WalletBillingAdminUserWalletShowGetWallet;
-  "transactions": WalletBillingAdminUserWalletShowGetTransaction[];
+  "wallet": BackendJson<"WalletResponse">;
+  "transactions": BackendJson<"entity::wallet_transaction::Model">[];
 }
 export interface WalletBillingAdminUserWalletShowGetResponse extends ApiEnvelope<WalletBillingAdminUserWalletShowGetResponseData> {
 }
@@ -381,10 +365,70 @@ export interface WalletBillingAdminUserWalletAdjustPostInput extends JsonObject 
 }
 /** Backend response type: AdminWalletSnapshot. */
 export interface WalletBillingAdminUserWalletAdjustPostResponseData extends JsonObject {
-  "wallet": WalletBillingAdminUserWalletShowGetWallet;
-  "transactions": WalletBillingAdminUserWalletShowGetTransaction[];
+  "wallet": BackendJson<"WalletResponse">;
+  "transactions": BackendJson<"entity::wallet_transaction::Model">[];
 }
 export interface WalletBillingAdminUserWalletAdjustPostResponse extends ApiEnvelope<WalletBillingAdminUserWalletAdjustPostResponseData> {
+}
+
+/** Backend request type: ReserveAiUsageRequest. */
+export interface AiBillingReservePostInput extends JsonObject {
+  "external_id": string;
+  "kind": string;
+  "model": string;
+  "amount": number;
+  "currency": string;
+  "metadata"?: JsonValue;
+}
+/** Backend response type: AiReservationResponse. */
+export interface AiBillingReservePostResponseData extends JsonObject {
+  "id": string;
+  "external_id": string;
+  "kind": string;
+  "model": string;
+  "reserved_amount": number;
+  "settled_amount"?: number | null;
+  "currency": string;
+  "status": string;
+  "metadata": JsonValue;
+}
+export interface AiBillingReservePostResponse extends ApiEnvelope<AiBillingReservePostResponseData> {
+}
+
+/** Backend response type: AiReservationResponse. */
+export interface AiBillingReleasePostResponseData extends JsonObject {
+  "id": string;
+  "external_id": string;
+  "kind": string;
+  "model": string;
+  "reserved_amount": number;
+  "settled_amount"?: number | null;
+  "currency": string;
+  "status": string;
+  "metadata": JsonValue;
+}
+export interface AiBillingReleasePostResponse extends ApiEnvelope<AiBillingReleasePostResponseData> {
+}
+
+/** Backend request type: SettleAiUsageRequest. */
+export interface AiBillingSettlePostInput extends JsonObject {
+  "actual_amount": number;
+  "currency": string;
+  "metadata"?: JsonValue;
+}
+/** Backend response type: AiReservationResponse. */
+export interface AiBillingSettlePostResponseData extends JsonObject {
+  "id": string;
+  "external_id": string;
+  "kind": string;
+  "model": string;
+  "reserved_amount": number;
+  "settled_amount"?: number | null;
+  "currency": string;
+  "status": string;
+  "metadata": JsonValue;
+}
+export interface AiBillingSettlePostResponse extends ApiEnvelope<AiBillingSettlePostResponseData> {
 }
 
 /** Backend query type: AssetListQuery. */
@@ -654,6 +698,22 @@ export interface IntegrationRabbitmqIntegrationShowGetResponseData extends JsonO
 export interface IntegrationRabbitmqIntegrationShowGetResponse extends ApiEnvelope<IntegrationRabbitmqIntegrationShowGetResponseData> {
 }
 
+/** Backend query type: LeaderboardQuery. */
+export interface LeaderboardLeaderboardIndexGetQuery extends QueryParams {
+  "profile_ids"?: string | null;
+  "top"?: number | null;
+  "neighbors"?: number | null;
+}
+/** Backend response type: LeaderboardResponse. */
+export interface LeaderboardLeaderboardIndexGetResponseData extends JsonObject {
+  "user"?: BackendJson<"LeaderboardEntry"> | null;
+  "top": BackendJson<"LeaderboardEntry">[];
+  "neighbors": BackendJson<"LeaderboardEntry">[];
+  "message"?: string | null;
+}
+export interface LeaderboardLeaderboardIndexGetResponse extends ApiEnvelope<LeaderboardLeaderboardIndexGetResponseData> {
+}
+
 /** Backend query type: PlanListQuery. */
 export interface LlmUsagePlansIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
@@ -722,7 +782,8 @@ export interface WalletMeAssetHistoryGetQuery extends QueryParams {
   "page[size]"?: number | null;
   "page_number"?: string | null;
   "page_size"?: string | null;
-  "asset": QueryValue;
+  "asset"?: QueryValue | null;
+  "asset_name"?: string | null;
   "earned_only"?: boolean | null;
 }
 /** Backend response type: crate::models::PagedResult<crate::logs::models::UserAssetLogResponse>. */
@@ -735,6 +796,8 @@ export interface WalletMeAssetHistoryGetResponseItem extends JsonObject {
   "action_title"?: string | null;
   "action_description"?: string | null;
   "asset_name"?: string | null;
+  "asset_title"?: string | null;
+  "asset_type"?: BackendJson<"AssetType"> | null;
   "subject_type": string;
   "subject_id"?: string | null;
   "quantity": number;
@@ -1240,6 +1303,7 @@ export interface LogsUserActionLogsIndexGetQuery extends QueryParams {
   "profile_id"?: string | null;
   "action_id"?: string | null;
   "asset_id"?: string | null;
+  "asset_ids"?: string[] | null;
   "from"?: string | null;
   "to"?: string | null;
   "search"?: string | null;
@@ -1282,6 +1346,7 @@ export interface LogsUserAssetLogsIndexGetQuery extends QueryParams {
   "profile_id"?: string | null;
   "action_id"?: string | null;
   "asset_id"?: string | null;
+  "asset_ids"?: string[] | null;
   "from"?: string | null;
   "to"?: string | null;
   "search"?: string | null;
@@ -1297,6 +1362,8 @@ export interface LogsUserAssetLogsIndexGetResponseItem extends JsonObject {
   "action_title"?: string | null;
   "action_description"?: string | null;
   "asset_name"?: string | null;
+  "asset_title"?: string | null;
+  "asset_type"?: BackendJson<"AssetType"> | null;
   "subject_type": string;
   "subject_id"?: string | null;
   "quantity": number;

@@ -1,5 +1,14 @@
-import type { ApiEnvelope, JsonObject, JsonValue, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
 export type ProfileRole = "manager" | "accountant" | "support" | "consultant" | "teacher" | "student" | "parent" | "other";
+export interface ProfileListQuery extends QueryParams {
+    page?: string | number;
+    per_page?: string | number;
+    "filter[search]"?: string;
+    "filter[status]"?: string;
+    "filter[active]"?: boolean | "true" | "false" | "1" | "0";
+    "filter[role]"?: ProfileRole;
+    "filter[trashed]"?: string;
+}
 export interface Profile extends JsonObject {
     id: string;
     user_id: string;

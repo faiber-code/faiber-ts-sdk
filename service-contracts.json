@@ -325,6 +325,46 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/ai-reservations",
+      "module": "ai_billing",
+      "handler": "reserve",
+      "permissions": [],
+      "source": "infera-asset/src/ai_billing/routes.rs",
+      "body": "ReserveAiUsageRequest",
+      "response": "AiReservationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-reservations/{id}/release",
+      "module": "ai_billing",
+      "handler": "release",
+      "permissions": [],
+      "source": "infera-asset/src/ai_billing/routes.rs",
+      "pathParam": "Uuid",
+      "response": "AiReservationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-reservations/{id}/settle",
+      "module": "ai_billing",
+      "handler": "settle",
+      "permissions": [],
+      "source": "infera-asset/src/ai_billing/routes.rs",
+      "body": "SettleAiUsageRequest",
+      "pathParam": "Uuid",
+      "response": "AiReservationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/assets",
       "module": "catalog",
@@ -553,6 +593,21 @@
       ],
       "source": "infera-asset/src/integration/routes.rs",
       "response": "crate::integration::models::RabbitMqIntegrationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/leaderboard",
+      "module": "leaderboard",
+      "handler": "leaderboard_index",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/leaderboard/routes.rs",
+      "query": "LeaderboardQuery",
+      "response": "LeaderboardResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -4456,6 +4511,18 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/settings/identity-authority/recover-canonical",
+      "module": "identity_authority",
+      "handler": "recover_canonical_mode",
+      "permissions": [],
+      "source": "infera-idp/src/identity_authority.rs",
+      "response": "AuthorityView",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/settings/login-page",
       "module": "settings",
@@ -5580,18 +5647,6 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/certificates/{code}/image.svg",
-      "module": "certificate",
-      "handler": "render_certificate_image",
-      "permissions": [],
-      "source": "infera-lms/src/certificate/routes.rs",
-      "pathParam": "String",
-      "responseEnvelope": "raw-response",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
       "path": "/api/v1/certificates/{id}",
       "module": "certificate",
       "handler": "show_certificate",
@@ -6702,6 +6757,66 @@
       "formUrlEncoded": false
     },
     {
+      "method": "PUT",
+      "path": "/api/v1/exams/attempts/{id}/answers/{position}",
+      "module": "exam",
+      "handler": "save_attempt_answer",
+      "permissions": [
+        "lms:exam:read"
+      ],
+      "source": "infera-lms/src/exam/routes.rs",
+      "body": "models::SaveAttemptAnswerRequest",
+      "response": "models::SavedAttemptAnswerResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/exams/attempts/{id}/delivery",
+      "module": "exam",
+      "handler": "show_attempt_delivery",
+      "permissions": [
+        "lms:exam:read"
+      ],
+      "source": "infera-lms/src/exam/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::AttemptDeliveryResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/exams/attempts/{id}/start",
+      "module": "exam",
+      "handler": "start_attempt",
+      "permissions": [
+        "lms:exam:read"
+      ],
+      "source": "infera-lms/src/exam/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::AttemptDeliveryResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/exams/attempts/{id}/submit",
+      "module": "exam",
+      "handler": "submit_attempt",
+      "permissions": [
+        "lms:exam:read"
+      ],
+      "source": "infera-lms/src/exam/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::AttemptDeliveryResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/exams/questions",
       "module": "exam",
@@ -6803,6 +6918,21 @@
       "source": "infera-lms/src/exam/routes.rs",
       "body": "models::CreateSessionRequest",
       "response": "models::SessionResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/exams/sessions/{id}",
+      "module": "exam",
+      "handler": "destroy_session",
+      "permissions": [
+        "lms:exam:delete"
+      ],
+      "source": "infera-lms/src/exam/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -7096,11 +7226,27 @@
       "path": "/api/v1/public/certificates/{code}",
       "module": "certificate",
       "handler": "verify_certificate",
-      "permissions": [],
+      "permissions": [
+        "lms:certificate:verify"
+      ],
       "source": "infera-lms/src/certificate/routes.rs",
       "pathParam": "String",
-      "response": "models::CertificateResponse",
+      "response": "models::PublicCertificateResponse",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/certificates/{code}/image.svg",
+      "module": "certificate",
+      "handler": "render_certificate_image",
+      "permissions": [
+        "lms:certificate:verify"
+      ],
+      "source": "infera-lms/src/certificate/routes.rs",
+      "pathParam": "String",
+      "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -7442,6 +7588,21 @@
       "query": "MarkReadQuery",
       "pathParam": "i64",
       "response": "NotificationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/notifications/read-all",
+      "module": "notification",
+      "handler": "notifications_mark_all_read",
+      "permissions": [
+        "admin:notification:read"
+      ],
+      "source": "infera-messenger/src/notification/routes.rs",
+      "query": "MarkAllReadQuery",
+      "response": "MarkAllReadResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

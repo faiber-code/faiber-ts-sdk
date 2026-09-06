@@ -164,6 +164,17 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.NotificationNotificationsMarkReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/${encodeURIComponent(id)}/read`, params });
   }
   /**
+   * Performs the notifications mark all read operation for the notification capability.
+   * Calls `PATCH /api/v1/notifications/read-all` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:notification:read.
+   */
+  notificationNotificationsMarkAllReadPatch(params?: T.NotificationNotificationsMarkAllReadPatchQuery, options?: RequestOptions) {
+    return this.client.request<T.NotificationNotificationsMarkAllReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/read-all`, params });
+  }
+  /**
    * Performs the notifications realtime auth operation for the notification capability.
    * Calls `POST /api/v1/notifications/realtime/auth` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
