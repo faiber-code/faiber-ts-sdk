@@ -4,6 +4,8 @@ import test from "node:test";
 import { AxiosHeaders } from "axios";
 import { FaiberClient, MemoryTokenProvider } from "../packages/core/dist/index.js";
 import { LmsApi, certificateImageUrl, certificateViewUrl, classroomSessionRecordingUrl, classroomSessionViewUrl, examPageUrl } from "../packages/lms/dist/index.js";
+import { IdpApi } from "../packages/idp/dist/index.js";
+import { ProfileApi } from "../packages/profile/dist/index.js";
 import { SocialApi } from "../packages/social/dist/index.js";
 import { StateApi } from "../packages/state/dist/index.js";
 
@@ -85,6 +87,58 @@ test("LMS classroom sessions expose types, today filtering, and Session UI links
   assert.equal(examPageUrl("attempt/id", "https://lms.example.com"), "https://lms.example.com/dashboard/exam/attempt%2Fid");
   assert.equal(certificateViewUrl("public/id", "https://lms.example.com"), "https://lms.example.com/certificate/public%2Fid");
   assert.equal(certificateImageUrl("public/id"), "/api/v1/public/certificates/public%2Fid/image.svg");
+});
+
+test("LMS student statistics use user-scoped server totals instead of truncated arrays", async () => {
+  const seen = [];
+  const totals = new Map([
+    ["/api/v1/classrooms", 17],
+    ["/api/v1/homeworks/assignments", 23],
+    ["/api/v1/exams/attempts", 11],
+  ]);
+  const client = new FaiberClient("lms", {
+    domains: { lms: "https://lms.example.com" },
+    axios: { adapter: async (config) => {
+      seen.push(config);
+      const data = config.url === "/api/v1/reports/student-summary"
+        ? { status: "success", data: { user_id: "student/uuid", classroom_count: 17 } }
+        : { status: "success", data: { data: [], meta: { page: 1, page_size: 1, total_items: totals.get(config.url), total_pages: 1 } } };
+      return { data, status: 200, statusText: "OK", headers: new AxiosHeaders(), config };
+    } },
+  });
+
+  const result = await new LmsApi(client).studentStatistics("student/uuid");
+
+  assert.deepEqual(result.counts, { classroom_count: 17, homework_count: 23, exam_count: 11 });
+  assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
+    ["get", "/api/v1/reports/student-summary"],
+    ["get", "/api/v1/classrooms"],
+    ["get", "/api/v1/homeworks/assignments"],
+    ["get", "/api/v1/exams/attempts"],
+  ]);
+  assert.equal(seen[0].params.student_user_id, "student/uuid");
+  for (const request of seen.slice(1)) {
+    assert.equal(request.params.user_id, "student/uuid");
+    assert.equal(request.params.page_number, 1);
+    assert.equal(request.params.page_size, 1);
+  }
+  assert.equal(result.responses.classrooms.status, 200);
+});
+
+test("IDP and Profile update helpers route canonical user UUIDs to their owning services", async () => {
+  const seen = [];
+  const adapter = async (config) => {
+    seen.push(config);
+    return { data: { status: "success", data: { user: {}, profile: {} } }, status: 200, statusText: "OK", headers: new AxiosHeaders(), config };
+  };
+  const userId = "user/uuid";
+  await new IdpApi(new FaiberClient("idp", { domains: { idp: "https://idp.example.com" }, axios: { adapter } })).updateUser(userId, { email: "user@example.com" });
+  await new ProfileApi(new FaiberClient("profile", { domains: { profile: "https://profile.example.com" }, axios: { adapter } })).updateProfileByUserId(userId, { first_name: "کاربر" });
+
+  assert.deepEqual(seen.map(({ baseURL, method, url }) => [baseURL, method, url]), [
+    ["https://idp.example.com", "patch", "/api/v1/users/user%2Fuuid"],
+    ["https://profile.example.com", "patch", "/api/v1/profile/user%2Fuuid"],
+  ]);
 });
 
 test("Social moderation audit uses typed query routing in cookie mode", async () => {

@@ -22,7 +22,7 @@ const client = new FaiberClient("profile", {
 });
 const api = new ProfileApi(client);
 
-const updated = await api.updateProfile(userId, {
+const updated = await api.updateProfileByUserId(userId, {
   first_name: { en: "Ava", fa: "آوا" },
   phone: "+989121234567",
   properties: { workout_plan: plan, membership },
@@ -59,9 +59,9 @@ This package exposes 173 registered operations from the profiles service. Common
 | `survey` | 2 | `GET`, `POST` |
 | `trusted-service` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-`listProfiles` returns merged profile status, active-enrollment state, and IDP-synchronized role records, with `filter[role]`, `filter[status]`, `filter[active]`, and search support. `updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
+`listProfiles` returns merged profile status, active-enrollment state, and IDP-synchronized role records, with `filter[role]`, `filter[status]`, `filter[active]`, and search support. `updateProfileByUserId` sends one atomic `PATCH /api/v1/profile/{uuid}` using `profile.user_id`; do not pass the profile row's `profile.id`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
 
-`avatar(profileId, key)` downloads the stored image as a `Blob` through the public profile-media route. The service constrains `key` to `profiles/{profileId}/avatar/`; a mismatched or unsafe key returns `403`, and a missing object returns `404`.
+`avatar(userId, key)` downloads the stored image as a `Blob` through the public profile-media route. The service constrains `key` to `profiles/{userId}/avatar/`; a mismatched or unsafe key returns `403`, and a missing object returns `404`.
 
 ## Authentication and authorization
 

@@ -1,8 +1,23 @@
-import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
+import { RestResource, ServiceApi, type AxiosResponse, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 type R<E extends T.LmsEntity, C, U> = RestResource<E, C, U, T.LmsListResponse<E>, T.LmsResponse<E>>;
 import { LmsOperations } from "./operations.js";
+
+/** Exact server-side totals and the complete responses used to calculate them. */
+export interface LmsStudentStatistics {
+    counts: {
+        classroom_count: number;
+        homework_count: number;
+        exam_count: number;
+    };
+    responses: {
+        summary: AxiosResponse<O.ReportStudentSummaryGetResponse>;
+        classrooms: AxiosResponse<O.ClassroomIndexClassroomGetResponse>;
+        homeworkAssignments: AxiosResponse<O.HomeworkIndexAssignmentGetResponse>;
+        examAttempts: AxiosResponse<O.ExamIndexAttemptGetResponse>;
+    };
+}
 
 function classroomSessionRoomId(reference: T.ClassroomSessionRoomReference): string | null {
     return typeof reference === "string" ? reference : reference.session_room_id;
@@ -75,6 +90,35 @@ export class LmsApi extends ServiceApi {
     listExamSessions(params?: O.ExamIndexSessionGetQuery, options?: RequestOptions) { return this.operations.examIndexSessionGet(params, options); }
     /** Lists exam attempts; each returned attempt ID is suitable for examPageUrl. */
     listExamAttempts(params?: O.ExamIndexAttemptGetQuery, options?: RequestOptions) { return this.operations.examIndexAttemptGet(params, options); }
+    /** Returns the access-checked report summary for one LMS user UUID. */
+    studentSummary(userId: Identifier, params?: O.ReportStudentSummaryGetQuery, options?: RequestOptions) {
+        return this.operations.reportStudentSummaryGet({ ...params, student_user_id: String(userId) }, options);
+    }
+    /**
+     * Returns exact user-detail card counts without downloading and filtering global collections.
+     *
+     * Totals come from the backend's user-scoped pagination metadata. The complete Axios
+     * responses are retained for callers that also need status, headers, request IDs, or
+     * the student report summary.
+     */
+    async studentStatistics(userId: Identifier, options?: RequestOptions): Promise<LmsStudentStatistics> {
+        const user_id = String(userId);
+        const countPage = { page_number: 1, page_size: 1, user_id } as const;
+        const [summary, classrooms, homeworkAssignments, examAttempts] = await Promise.all([
+            this.studentSummary(userId, undefined, options),
+            this.operations.classroomIndexClassroomGet(countPage, options),
+            this.operations.homeworkIndexAssignmentGet(countPage, options),
+            this.operations.examIndexAttemptGet(countPage, options),
+        ]);
+        return {
+            counts: {
+                classroom_count: classrooms.data.data.meta.total_items,
+                homework_count: homeworkAssignments.data.data.meta.total_items,
+                exam_count: examAttempts.data.data.meta.total_items,
+            },
+            responses: { summary, classrooms, homeworkAssignments, examAttempts },
+        };
+    }
     /** Returns the canonical authenticated web page URL for an exam attempt. */
     examPageUrl(attemptId: Identifier) { return examPageUrl(attemptId, this.client.config.domains.lms); }
     /** Returns the canonical public certificate verification page URL. */

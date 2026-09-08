@@ -57,6 +57,10 @@ export class IdpApi extends ServiceApi {
     register(data: RegisterUserInput, options?: RequestOptions<RegisterUserInput>) {
         return this.client.post<UserResponse, RegisterUserInput>("/api/v1/users/register", data, options);
     }
+    /** Updates IDP identity fields using the canonical IDP user UUID. */
+    updateUser(userId: Identifier, data: UpdateUserInput, options?: RequestOptions<UpdateUserInput>) {
+        return this.client.patch<UserResponse, UpdateUserInput>(`/api/v1/users/${encodeURIComponent(userId)}`, data, options);
+    }
     changePassword(userId: Identifier, data: ChangePasswordInput, options?: RequestOptions<ChangePasswordInput>) {
         return this.client.patch<OperationResponse, ChangePasswordInput>(`/api/v1/users/${encodeURIComponent(userId)}/change-password`, data, options);
     }

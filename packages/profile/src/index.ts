@@ -16,8 +16,10 @@ export class ProfileApi extends ServiceApi {
     /** Lists profiles with merged role records, active status, enrollment state, and role/status filters. */
     listProfiles(params?: T.ProfileListQuery, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>("/api/v1/profile", params, options); }
     byRole(role: T.ProfileRole, params?: QueryParams, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>(`/api/v1/profile/${role}`, params, options); }
-    full(id: Identifier, options?: RequestOptions) { return this.client.get<T.FullProfileResponse>(`/api/v1/profile/${encodeURIComponent(id)}/full`, undefined, options); }
-    admin(id: Identifier, options?: RequestOptions) { return this.client.get<T.AdminProfileResponse>(`/api/v1/profile/${encodeURIComponent(id)}/admin`, undefined, options); }
+    /** Reads the profile whose canonical owner is the supplied IDP user UUID. */
+    profileByUserId(userId: Identifier, options?: RequestOptions) { return this.client.get<T.ProfileResponse>(`/api/v1/profile/${encodeURIComponent(userId)}`, undefined, options); }
+    full(userId: Identifier, options?: RequestOptions) { return this.client.get<T.FullProfileResponse>(`/api/v1/profile/${encodeURIComponent(userId)}/full`, undefined, options); }
+    admin(userId: Identifier, options?: RequestOptions) { return this.client.get<T.AdminProfileResponse>(`/api/v1/profile/${encodeURIComponent(userId)}/admin`, undefined, options); }
     /**
      * Fetch a profile avatar as binary image data.
      *
@@ -29,7 +31,10 @@ export class ProfileApi extends ServiceApi {
      */
     avatar(id: Identifier, key: string, options?: RequestOptions) { return this.client.get<Blob>(`/api/v1/profile-media/${encodeURIComponent(id)}/avatar`, { key }, { responseType: "blob", ...options }); }
     media(id: Identifier, key: string, options?: RequestOptions) { return this.client.get<Blob>(`/api/v1/profile/${encodeURIComponent(id)}/media`, { key }, { responseType: "blob", ...options }); }
-    updateProfile(id: Identifier, data: T.ProfilePatchInput, options?: RequestOptions<T.ProfilePatchInput>) { return this.client.patch<T.ProfileResponse, T.ProfilePatchInput>(`/api/v1/profile/${encodeURIComponent(id)}`, data, options); }
+    /** Updates a profile by its IDP user UUID, not by the profile row's `id`. */
+    updateProfile(userId: Identifier, data: T.ProfilePatchInput, options?: RequestOptions<T.ProfilePatchInput>) { return this.client.patch<T.ProfileResponse, T.ProfilePatchInput>(`/api/v1/profile/${encodeURIComponent(userId)}`, data, options); }
+    /** Explicit alias for updateProfile that makes the required identifier unambiguous. */
+    updateProfileByUserId(userId: Identifier, data: T.ProfilePatchInput, options?: RequestOptions<T.ProfilePatchInput>) { return this.updateProfile(userId, data, options); }
     setStatus(id: Identifier, data: T.ProfileStatusInput, options?: RequestOptions<T.ProfileStatusInput>) { return this.client.put<T.ProfileResponse, T.ProfileStatusInput>(`/api/v1/profile/${encodeURIComponent(id)}/status`, data, options); }
     personalInformation(id: Identifier, data: T.PersonalInformationInput, options?: RequestOptions<T.PersonalInformationInput>) { return this.client.put<T.ProfileResponse, T.PersonalInformationInput>(`/api/v1/profile/update/personal-information/${encodeURIComponent(id)}`, data, options); }
     /** @deprecated The profile service has never registered an education-information route. Store custom education data through updateProfile properties instead. */

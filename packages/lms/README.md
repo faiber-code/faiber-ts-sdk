@@ -28,7 +28,9 @@ const courses = await api.courses.list({
 });
 const sessions = await api.courseSessions(courseId);
 const classroomSessions = await api.classroomSessions.list({ page_number: 1 });
-const assignedClassrooms = await api.listClassrooms({ user_id: profileId, from, to });
+const assignedClassrooms = await api.listClassrooms({ user_id: userId, from, to });
+const statistics = await api.studentStatistics(userId);
+console.log(statistics.counts.classroom_count, statistics.counts.homework_count, statistics.counts.exam_count);
 const sessionTypes = await api.classroomSessionTypes();
 const links = api.classroomSessionLinks(classroomSessions.data.data.data[0]);
 const examUrl = api.examPageUrl(examAttemptId);
@@ -59,7 +61,7 @@ This package exposes 127 registered operations from the learning management serv
 | `service` | 1 | `GET` |
 | `session` | 1 | `GET` |
 
-Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom, homework/assignment, and exam queries support relationship-aware `user_id` and time filtering. Classroom responses include course plus teacher, consultant, and support profiles. Exam delivery/start/save/submit and public certificate verification/image routes are typed, while `examPageUrl`, `certificateViewUrl`, and `certificateImageUrl` build UI links from the configured LMS domain.
+Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom, homework/assignment, and exam queries support relationship-aware `user_id` and time filtering. `studentStatistics(userId)` uses those server-side filters and pagination totals, so user detail cards are not truncated by a locally filtered page. Classroom responses include course plus teacher, consultant, and support profiles. Exam delivery/start/save/submit and public certificate verification/image routes are typed, while `examPageUrl`, `certificateViewUrl`, and `certificateImageUrl` build UI links from the configured LMS domain.
 
 ```ts
 const catalog = await api.academyCourses({ category_id: 4 });

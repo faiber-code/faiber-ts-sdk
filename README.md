@@ -72,7 +72,7 @@ Every service exposes curated convenience APIs plus `sdk.<service>.operations`, 
 The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. Manage is exposed as a project-scoped gateway and governed Agentic transport; it never grants arbitrary-host access. Concrete Rust types that cannot be expanded structurally retain a branded `BackendJson<"Rust::Type">` name rather than degrading to `any` or an unexplained placeholder.
 
 ```ts
-await sdk.profile.updateProfile(profileId, {
+await sdk.profile.updateProfileByUserId(userId, {
   first_name: { en: "Ava", fa: "آوا" },
   properties: {
     weight: 68.5,
@@ -102,7 +102,7 @@ Packages export named request, query, entity, response-envelope, and generated o
 Uploads use standards-compatible `FormData` through `multipart(...)`; URL-encoded forms use `urlEncoded(...)`. Media methods return the backend's media identifier, key, URL, or binary response without rewriting it, so it can be linked to products, posts, profiles, and other hosted records.
 
 ```ts
-await sdk.profile.uploadAvatar(profileId, avatarFile);
+await sdk.profile.uploadAvatar(userId, avatarFile);
 await sdk.modules.uploadMediaAsset(file, "product");
 ```
 
