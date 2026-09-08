@@ -92,7 +92,7 @@ test("LMS classroom sessions expose types, today filtering, and Session UI links
 test("LMS student statistics use user-scoped server totals instead of truncated arrays", async () => {
   const seen = [];
   const totals = new Map([
-    ["/api/v1/classrooms", 17],
+    ["/api/v1/classrooms", 99],
     ["/api/v1/homeworks/assignments", 23],
     ["/api/v1/exams/attempts", 11],
   ]);

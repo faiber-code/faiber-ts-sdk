@@ -112,7 +112,10 @@ export class LmsApi extends ServiceApi {
         ]);
         return {
             counts: {
-                classroom_count: classrooms.data.data.meta.total_items,
+                // The report is enrollment-specific. The generic classroom list
+                // is relationship-aware and can also include classes where the
+                // same UUID is teacher/support, which inflates learner cards.
+                classroom_count: summary.data.data.classroom_count,
                 homework_count: homeworkAssignments.data.data.meta.total_items,
                 exam_count: examAttempts.data.data.meta.total_items,
             },
