@@ -624,7 +624,7 @@ export interface ClassroomIndexSessionTypesGetResponseItem extends JsonObject {
   "id": string;
   "code": string;
   "name": string;
-  "name_en"?: string | null;
+  "name_fa"?: string | null;
   "is_online": boolean;
   "status": string;
   "sort_order": number;
