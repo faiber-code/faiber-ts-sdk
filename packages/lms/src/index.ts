@@ -69,6 +69,7 @@ export class LmsApi extends ServiceApi {
     readonly homeworks: R<T.Homework, T.CreateHomeworkInput, T.UpdateHomeworkInput> = new RestResource(this.client, "/api/v1/homeworks", { supported: ["list", "show", "create", "update"] });
     readonly homeworkQuestions: R<T.HomeworkQuestion, T.CreateHomeworkQuestionInput, T.UpdateHomeworkQuestionInput> = new RestResource(this.client, "/api/v1/homeworks/questions", { supported: ["list", "show", "create", "update"] });
     readonly certificates: R<T.Certificate, T.CreateCertificateInput, T.UpdateCertificateInput> = new RestResource(this.client, "/api/v1/certificates", { supported: ["list", "show", "create", "update"] });
+    readonly certificateTemplates: R<T.CertificateTemplate, T.CreateCertificateTemplateInput, T.UpdateCertificateTemplateInput> = new RestResource(this.client, "/api/v1/certificates/templates", { supported: ["list", "show", "create", "update"] });
     readonly events: R<T.Event, T.CreateEventInput, T.UpdateEventInput> = new RestResource(this.client, "/api/v1/events", { supported: ["list", "show", "create", "update"] });
     readonly interactiveContent: R<T.InteractiveContent, T.CreateInteractiveContentInput, T.UpdateInteractiveContentInput> = new RestResource(this.client, "/api/v1/interactive/content", { supported: ["list", "show", "create", "update"] });
     readonly grades: R<T.Grade, T.CreateGradeInput, T.UpdateGradeInput> = new RestResource(this.client, "/api/v1/config/grades", { supported: ["list", "show", "create", "update"] });
@@ -128,6 +129,16 @@ export class LmsApi extends ServiceApi {
     certificateViewUrl(code: Identifier) { return certificateViewUrl(code, this.client.config.domains.lms); }
     /** Returns the canonical generated certificate SVG URL. */
     certificateImageUrl(code: Identifier) { return certificateImageUrl(code, this.client.config.domains.lms); }
+    /**
+     * Verifies a public, legacy, or verification code and returns certificate identity and result data.
+     * This public endpoint does not require authentication; unknown codes return an Axios 404 error.
+     */
+    verifyCertificate(code: Identifier, options?: RequestOptions) { return this.operations.certificateVerifyCertificateGet(code, options); }
+    /**
+     * Generates or reads the cached SVG certificate document for a public, legacy, or verification code.
+     * The returned Axios response data is the raw SVG string; cache state is available in response headers.
+     */
+    certificateSvg(code: Identifier, options?: RequestOptions) { return this.operations.certificateRenderCertificateImageGet(code, options); }
     dashboard(options?: RequestOptions) { return this.client.get<T.DashboardResponse>("/api/v1/dashboard", undefined, options); }
     /** Lists active classroom-session types in scheduler display order. */
     classroomSessionTypes(options?: RequestOptions) { return this.client.get<T.ClassroomSessionTypesResponse>("/api/v1/classrooms/session-types", undefined, options); }

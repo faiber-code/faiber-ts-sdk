@@ -89,6 +89,57 @@ test("LMS classroom sessions expose types, today filtering, and Session UI links
   assert.equal(certificateImageUrl("public/id"), "/api/v1/public/certificates/public%2Fid/image.svg");
 });
 
+test("LMS certificate management exposes typed template, issuance, verification, and SVG routes", async () => {
+  const seen = [];
+  const client = new FaiberClient("lms", {
+    domains: { lms: "https://lms.example.com" },
+    tokenProvider: new MemoryTokenProvider({ accessToken: "certificate-token" }),
+    axios: { adapter: async (config) => {
+      seen.push(config);
+      const data = config.url?.endsWith("/image.svg")
+        ? "<svg xmlns=\"http://www.w3.org/2000/svg\"></svg>"
+        : { status: "success", data: {} };
+      return { data, status: 200, statusText: "OK", headers: new AxiosHeaders(), config };
+    } },
+  });
+  const api = new LmsApi(client);
+  const layout = {
+    fields: [{ key: "student_name", x: 877, y: 545, font_size: 54, weight: 700, text_anchor: "middle" }],
+    qr: { key: "verification_code", x: 1460, y: 940, size: 150 },
+  };
+
+  await api.certificateTemplates.create({
+    name: "Completion",
+    background_url: "https://media.example.com/certificate.png",
+    canvas_width: 1754,
+    canvas_height: 1240,
+    layout,
+    status: "active",
+  });
+  await api.certificates.create({
+    user_id: "student-id",
+    title: "Completion",
+    issued_at: "2026-09-14T00:00:00Z",
+    certificate_template_id: "template-id",
+    status: "issued",
+  });
+  await api.certificateTemplates.update("template/id", { layout });
+  await api.certificates.update("certificate/id", { verification_code: "CERT-001" });
+  await api.verifyCertificate("CERT/001");
+  const svg = await api.certificateSvg("CERT/001");
+
+  assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
+    ["post", "/api/v1/certificates/templates"],
+    ["post", "/api/v1/certificates"],
+    ["patch", "/api/v1/certificates/templates/template%2Fid"],
+    ["patch", "/api/v1/certificates/certificate%2Fid"],
+    ["get", "/api/v1/public/certificates/CERT%2F001"],
+    ["get", "/api/v1/public/certificates/CERT%2F001/image.svg"],
+  ]);
+  assert.equal(svg.data, "<svg xmlns=\"http://www.w3.org/2000/svg\"></svg>");
+  assert.ok(seen.slice(0, 4).every((request) => request.headers.get("Authorization") === "Bearer certificate-token"));
+});
+
 test("LMS student statistics use user-scoped server totals instead of truncated arrays", async () => {
   const seen = [];
   const totals = new Map([

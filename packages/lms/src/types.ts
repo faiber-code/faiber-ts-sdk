@@ -133,10 +133,112 @@ export interface HomeworkQuestion extends LmsEntity {
     homework_id?: string;
     question?: string;
 }
-export interface Certificate extends LmsEntity {
-    user_id?: string;
-    course_id?: string;
+export type CertificateStatus = "draft" | "issued" | "revoked" | (string & {});
+export type CertificateTemplateStatus = "active" | "inactive" | (string & {});
+export type CertificateFieldKey = "title" | "student_name" | "course_name" | "classroom_name" | "final_score" | "passing_mark" | "grade_name" | "issued_at" | "verification_code";
+export type CertificateTextAnchor = "start" | "middle" | "end";
+
+/** One dynamic value rendered over a certificate background. Coordinates use template canvas pixels. */
+export interface CertificateLayoutField extends JsonObject {
+    key: CertificateFieldKey;
+    x: number;
+    y: number;
+    font_size: number;
+    weight: number;
+    fill?: string;
+    prefix?: string;
+    uppercase?: boolean;
+    format?: "legacy_date";
+    text_anchor?: CertificateTextAnchor;
+}
+
+/** Verification QR placement rendered from the certificate verification code. */
+export interface CertificateQrLayout extends JsonObject {
+    key?: "verification_code";
+    x: number;
+    y: number;
+    size: number;
+    fill?: string;
+}
+
+/** Complete generator layout stored with a certificate template. */
+export interface CertificateLayout extends JsonObject {
+    fields: CertificateLayoutField[];
+    qr?: CertificateQrLayout;
+}
+
+export interface CertificateTemplate extends LmsEntity {
+    id: string;
+    name: string;
+    name_en: string | null;
+    background_url: string;
+    canvas_width: number;
+    canvas_height: number;
+    layout: CertificateLayout;
+    status: CertificateTemplateStatus;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface CertificateRenderSnapshot extends JsonObject {
+    template?: {
+        id?: string;
+        name?: string;
+        background_url?: string;
+        canvas_width?: number;
+        canvas_height?: number;
+        layout?: CertificateLayout;
+    };
+    certificate?: { title?: string };
+    student?: { user_id?: string; name?: string };
+    course?: { id?: string | null; name?: string | null };
+    classroom?: { id?: string | null; name?: string | null };
+    result?: { final_score?: number | null; passing_mark?: number | null; grade_name?: string | null };
     issued_at?: string;
+    verification_code?: string;
+}
+
+/** Issued certificate and all fields used to regenerate its visual output. */
+export interface Certificate extends LmsEntity {
+    id: string;
+    public_id: string;
+    user_id: string;
+    profile: ClassroomSessionTeacherProfile | null;
+    course_id: string | null;
+    course_name: string | null;
+    classroom_id: string | null;
+    classroom_name: string | null;
+    title: string;
+    certificate_template_id: string | null;
+    grade_id: string | null;
+    score: number | null;
+    passing_mark: number | null;
+    status: CertificateStatus;
+    verification_code: string | null;
+    legacy_code: string | null;
+    issued_by: string | null;
+    issued_at: string;
+    media_url: string | null;
+    revoked_at: string | null;
+    revoke_reason: string | null;
+    render_snapshot: CertificateRenderSnapshot;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface PublicCertificate extends JsonObject {
+    public_id: string;
+    title: string;
+    student_name: string;
+    course_name: string;
+    classroom_name: string;
+    score: number | null;
+    passing_mark: number | null;
+    status: CertificateStatus;
+    valid: boolean;
+    verification_code: string;
+    issued_at: string;
+    image_url: string;
 }
 export interface Event extends LmsEntity {
     starts_at?: string;
@@ -256,10 +358,48 @@ export interface UpdateHomeworkQuestionInput extends Partial<CreateHomeworkQuest
 }
 export interface CreateCertificateInput extends CreateLmsEntityInput {
     user_id: string;
-    course_id: string;
-    issued_at?: string;
+    course_id?: string | null;
+    classroom_id?: string | null;
+    title: string;
+    certificate_template_id?: string | null;
+    grade_id?: string | null;
+    status?: CertificateStatus;
+    verification_code?: string | null;
+    issued_by?: string | null;
+    issued_at: string;
+    media_url?: string | null;
+    render_snapshot?: CertificateRenderSnapshot | null;
 }
-export interface UpdateCertificateInput extends Partial<CreateCertificateInput> {
+export interface UpdateCertificateInput extends JsonObject {
+    user_id?: string;
+    course_id?: string | null;
+    classroom_id?: string | null;
+    title?: string;
+    certificate_template_id?: string | null;
+    status?: CertificateStatus;
+    verification_code?: string | null;
+    issued_at?: string;
+    media_url?: string | null;
+    render_snapshot?: CertificateRenderSnapshot;
+    revoke_reason?: string;
+}
+export interface CreateCertificateTemplateInput extends JsonObject {
+    name: string;
+    name_en?: string | null;
+    background_url: string;
+    canvas_width: number;
+    canvas_height: number;
+    layout?: CertificateLayout | null;
+    status?: CertificateTemplateStatus;
+}
+export interface UpdateCertificateTemplateInput extends JsonObject {
+    name?: string;
+    name_en?: string | null;
+    background_url?: string;
+    canvas_width?: number;
+    canvas_height?: number;
+    layout?: CertificateLayout;
+    status?: CertificateTemplateStatus;
 }
 export interface CreateEventInput extends CreateLmsEntityInput {
     starts_at?: string;
@@ -308,6 +448,14 @@ export interface LmsListResponse<T extends LmsEntity> extends ResourceListRespon
 }
 export interface LmsResponse<T extends LmsEntity> extends ResourceResponse<T> {
 }
+export type CertificateListResponse = LmsListResponse<Certificate>;
+export type CertificateResponse = LmsResponse<Certificate>;
+export type CertificateTemplateListResponse = LmsListResponse<CertificateTemplate>;
+export type CertificateTemplateResponse = LmsResponse<CertificateTemplate>;
+export interface PublicCertificateResponse extends ApiEnvelope<PublicCertificate> {
+}
+/** Raw SVG document returned by the public generator endpoint. */
+export type CertificateSvgResponse = string;
 export interface DashboardResponse extends ApiEnvelope<LmsDashboard> {
 }
 export interface CourseSessionPage extends JsonObject {

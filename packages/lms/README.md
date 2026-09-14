@@ -39,6 +39,45 @@ const examUrl = api.examPageUrl(examAttemptId);
 const certificateUrl = api.certificateViewUrl(certificateCode);
 ```
 
+## Certificate templates and generation
+
+Certificate management is part of the LMS service API. Templates, generator layout, issuance, updates, public verification, and generated SVG documents are all typed; no panel-specific package or tenant-specific seed data is required.
+
+```ts
+const template = await api.certificateTemplates.create({
+  name: "Course completion",
+  background_url: "https://media.example.com/certificates/completion.png",
+  canvas_width: 1754,
+  canvas_height: 1240,
+  layout: {
+    fields: [
+      { key: "student_name", x: 877, y: 545, font_size: 54, weight: 700, text_anchor: "middle" },
+      { key: "course_name", x: 877, y: 665, font_size: 34, weight: 500, text_anchor: "middle" },
+      { key: "issued_at", x: 340, y: 1050, font_size: 22, weight: 400, format: "legacy_date" },
+    ],
+    qr: { key: "verification_code", x: 1460, y: 940, size: 150 },
+  },
+  status: "active",
+});
+
+const issued = await api.certificates.create({
+  user_id: studentId,
+  course_id: courseId,
+  certificate_template_id: template.data.data.id,
+  title: "Course completion",
+  issued_at: new Date().toISOString(),
+  status: "issued",
+});
+
+await api.certificateTemplates.update(template.data.data.id, {
+  layout: { ...template.data.data.layout, fields: updatedFields },
+});
+await api.certificates.update(issued.data.data.id, { verification_code: "CERT-2026-001" });
+
+const verification = await api.verifyCertificate("CERT-2026-001");
+const svg = await api.certificateSvg("CERT-2026-001");
+```
+
 ## Complete capability
 
 This package exposes 143 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
@@ -65,7 +104,7 @@ This package exposes 143 registered operations from the learning management serv
 | `service` | 1 | `GET` |
 | `session` | 1 | `GET` |
 
-Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom, homework/assignment, and exam queries support relationship-aware `user_id` and time filtering. `studentStatistics(userId)` uses those server-side filters and pagination totals, so user detail cards are not truncated by a locally filtered page. Classroom responses include course plus teacher, consultant, and support profiles. `batchClassrooms` exposes the UUID-based Office/Profile integration lookup, while `resolveLegacyClassroomIds` provides the explicit migration bridge for old numeric references. Exam delivery/start/save/submit and public certificate verification/image routes are typed, while `examPageUrl`, `certificateViewUrl`, and `certificateImageUrl` build UI links from the configured LMS domain.
+Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom, homework/assignment, and exam queries support relationship-aware `user_id` and time filtering. `studentStatistics(userId)` uses those server-side filters and pagination totals, so user detail cards are not truncated by a locally filtered page. Classroom responses include course plus teacher, consultant, and support profiles. `batchClassrooms` exposes the UUID-based Office/Profile integration lookup, while `resolveLegacyClassroomIds` provides the explicit migration bridge for old numeric references. Exam delivery/start/save/submit routes are typed. Certificate template CRUD, generator layouts, issuance and updates, public verification, and raw SVG generation are typed as well, while `examPageUrl`, `certificateViewUrl`, and `certificateImageUrl` build UI links from the configured LMS domain.
 
 ```ts
 const catalog = await api.academyCourses({ category_id: 4 });

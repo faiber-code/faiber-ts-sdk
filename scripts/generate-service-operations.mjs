@@ -58,6 +58,11 @@ const responseOverrides = {
     courses: "AcademyCoursesResponse", course: "AcademyCourseResponse",
     enroll: "AcademyEnrollmentStartResponse", my_enrollments: "AcademyEnrollmentsResponse",
     start_exam: "AcademyExamAttemptResponse", complete_session: "AcademySessionCompletionResponse",
+    index_certificate: "CertificateListResponse", store_certificate: "CertificateResponse",
+    show_certificate: "CertificateResponse", update_certificate: "CertificateResponse",
+    index_template: "CertificateTemplateListResponse", store_template: "CertificateTemplateResponse",
+    show_template: "CertificateTemplateResponse", update_template: "CertificateTemplateResponse",
+    verify_certificate: "PublicCertificateResponse", render_certificate_image: "CertificateSvgResponse",
   },
   social: {
     upload_media: "SocialMediaResponse", get_media: "NoContentResponse",
@@ -81,7 +86,11 @@ const responseOverrides = {
   },
 };
 const inputOverrides = {
-  lms: { submit_exam: "AcademySubmitExamInput", complete_session: "AcademyCompleteSessionInput" },
+  lms: {
+    submit_exam: "AcademySubmitExamInput", complete_session: "AcademyCompleteSessionInput",
+    store_certificate: "CreateCertificateInput", update_certificate: "UpdateCertificateInput",
+    store_template: "CreateCertificateTemplateInput", update_template: "UpdateCertificateTemplateInput",
+  },
 };
 
 async function rustFiles(rootDir) {

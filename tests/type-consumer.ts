@@ -82,11 +82,40 @@ async function provePublicContracts(): Promise<void> {
   const classroomSessionType: LmsService.ClassroomSessionType | undefined = classroomSessionTypes.data.data[0];
   await apis.lms.batchClassrooms({ ids: ["00000000-0000-0000-0000-000000000001"] });
   await apis.lms.resolveLegacyClassroomIds({ classrooms: [42], courses: [7] });
+  const certificateLayout: LmsService.CertificateLayout = {
+    fields: [
+      { key: "student_name", x: 877, y: 545, font_size: 54, weight: 700, text_anchor: "middle" },
+      { key: "issued_at", x: 340, y: 1050, font_size: 22, weight: 400, format: "legacy_date" },
+    ],
+    qr: { key: "verification_code", x: 1460, y: 940, size: 150 },
+  };
+  const certificateTemplate = await apis.lms.certificateTemplates.create({
+    name: "Course completion",
+    background_url: "https://media.example.test/certificate.png",
+    canvas_width: 1754,
+    canvas_height: 1240,
+    layout: certificateLayout,
+    status: "active",
+  });
+  const certificate = await apis.lms.certificates.create({
+    user_id: "00000000-0000-0000-0000-000000000001",
+    title: "Course completion",
+    certificate_template_id: certificateTemplate.data.data.id,
+    issued_at: "2026-09-14T00:00:00Z",
+    status: "issued",
+  });
+  await apis.lms.certificates.update(certificate.data.data.id, { verification_code: "CERT-2026-001" });
+  const certificateVerification = await apis.lms.verifyCertificate("CERT-2026-001");
+  const certificateSvg = await apis.lms.certificateSvg("CERT-2026-001");
+  const verifiedStudentName: string = certificateVerification.data.data.student_name;
+  const rawSvg: string = certificateSvg.data;
   if (classroomSession) {
     const sessionLinks: LmsService.ClassroomSessionLinks = apis.lms.classroomSessionLinks(classroomSession);
     void sessionLinks;
   }
   void classroomSessionType;
+  void verifiedStudentName;
+  void rawSvg;
   await apis.state.createWorld(world);
   const walletResponse = await apis.asset.wallet();
   const wallet: AssetService.Wallet = walletResponse.data.data;
