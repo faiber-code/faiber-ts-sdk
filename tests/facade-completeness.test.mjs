@@ -9,7 +9,7 @@ import {
 const manifest = JSON.parse(await readFile(new URL("../service-contracts.json", import.meta.url), "utf8"));
 
 test("the facade and AI catalog cover every sandbox service exactly once", () => {
-  const expected = ["office", "idp", "profile", "modules", "asset", "payment", "messenger", "crm", "lms", "reservation", "session", "version", "flow", "knowledge", "chat", "social", "state", "drm", "task", "manage"];
+  const expected = ["idp", "profile", "modules", "asset", "payment", "messenger", "crm", "lms", "reservation", "session", "version", "flow", "knowledge", "chat", "social", "state", "drm", "task", "manage"];
   assert.deepEqual([...SERVICE_NAMES], expected);
   assert.deepEqual(FAIBER_SERVICE_CAPABILITIES.map(item => item.service), expected);
   for (const capability of FAIBER_SERVICE_CAPABILITIES) {
@@ -97,4 +97,10 @@ test("every published workspace package includes developer documentation", async
     const readme = await readFile(new URL(`../packages/${name}/README.md`, import.meta.url), "utf8");
     assert.match(readme, /npm install/);
   }
+});
+
+test("project-owned Office is not a platform service", () => {
+  assert.equal(SERVICE_NAMES.includes("office"), false);
+  assert.equal(FAIBER_SERVICE_CAPABILITIES.some(item => item.service === "office"), false);
+  assert.equal("office" in new FaiberSDK({ domains: {} }), false);
 });

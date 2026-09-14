@@ -18,11 +18,8 @@ import { VersionApi } from "@faiber/faiber-version";
 import { StateApi } from "@faiber/faiber-state-sdk";
 import { DrmApi } from "@faiber/faiber-drm";
 import { TaskApi } from "@faiber/faiber-task";
-import { OfficeApi } from "./office.js";
-export * from "./office.js";
 import { describeFaiber, FAIBER_SERVICE_CAPABILITIES } from "./capabilities.js";
 export interface FaiberServiceApis {
-    office: OfficeApi;
     idp: IdpApi;
     profile: ProfileApi;
     modules: ModulesApi;
@@ -71,7 +68,6 @@ export class FaiberSDK {
         }
         return api;
     }
-    get office() { return this.api("office", (client) => new OfficeApi(client)); }
     get idp(): IdpApi { return this.api("idp", (client) => new IdpApi(client)); }
     get profile(): ProfileApi { return this.api("profile", (client) => new ProfileApi(client)); }
     get modules(): ModulesApi { return this.api("modules", (client) => new ModulesApi(client)); }
