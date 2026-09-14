@@ -8,6 +8,14 @@ export class CrmApi extends ServiceApi {
 
   context(options?: RequestOptions) { return this.operations.apiContextGet(options); }
   listPipelines(options?: RequestOptions) { return this.operations.apiPipelinesGet(options); }
+  /** Returns only workflows assigned directly to the caller or through their teams, ordered by priority. */
+  listMemberWorkflows(options?: RequestOptions) { return this.operations.apiMemberWorkflowsGet(options); }
+  /** Updates workflow name, priority, guidance, quota, flags, actions, and creation policy with optimistic locking. */
+  updatePipeline(id: Identifier, data: O.ApiUpdatePipelinePatchInput, options?: RequestOptions<O.ApiUpdatePipelinePatchInput>) { return this.operations.apiUpdatePipelinePatch(id, data, options); }
+  /** Returns authoritative per-workflow quota, completed-today, extra-task, and all-done values for the caller. */
+  getDailyStats(options?: RequestOptions) { return this.operations.apiDailyStatsGet(options); }
+  /** Returns server-calculated total, active, and inactive lead counts by workflow. */
+  getLeadStats(options?: RequestOptions) { return this.operations.apiLeadStatsGet(options); }
   listTeams(options?: RequestOptions) { return this.operations.apiTeamsGet(options); }
   createTeam(data: O.ApiCreateTeamPostInput, options?: RequestOptions<O.ApiCreateTeamPostInput>) { return this.operations.apiCreateTeamPost(data, options); }
   getTeam(id: Identifier, options?: RequestOptions) { return this.operations.apiTeamGet(id, options); }
@@ -44,11 +52,17 @@ export class CrmApi extends ServiceApi {
   updateContact(id: Identifier, data: O.ApiUpdateContactPatchInput, options?: RequestOptions<O.ApiUpdateContactPatchInput>) { return this.operations.apiUpdateContactPatch(id, data, options); }
 
   listLeads(params?: O.ApiLeadsGetQuery, options?: RequestOptions) { return this.operations.apiLeadsGet(params, options); }
+  /** Lightweight cursor-paginated lead listing with profile, status-set, active-date, and priority sorting filters. */
+  listLightLeads(params?: O.ApiLightLeadsGetQuery, options?: RequestOptions) { return this.operations.apiLightLeadsGet(params, options); }
   createLead(data: O.ApiCreateLeadPostInput, options?: RequestOptions<O.ApiCreateLeadPostInput>) { return this.operations.apiCreateLeadPost(data, options); }
   getLead(id: Identifier, options?: RequestOptions) { return this.operations.apiLeadGet(id, options); }
   updateLead(id: Identifier, data: O.ApiUpdateLeadPatchInput, options?: RequestOptions<O.ApiUpdateLeadPatchInput>) { return this.operations.apiUpdateLeadPatch(id, data, options); }
   moveLeadStage(id: Identifier, data: O.ApiMoveLeadStagePatchInput, options?: RequestOptions<O.ApiMoveLeadStagePatchInput>) { return this.operations.apiMoveLeadStagePatch(id, data, options); }
   assignLead(id: Identifier, data: O.ApiAssignLeadPatchInput, options?: RequestOptions<O.ApiAssignLeadPatchInput>) { return this.operations.apiAssignLeadPatch(id, data, options); }
+  /** Returns the immutable combined activity and audited transition history for a lead. */
+  getLeadHistory(id: Identifier, options?: RequestOptions) { return this.operations.apiLeadHistoryGet(id, options); }
+  /** Removes all current reminder tasks linked to a lead. */
+  deleteLeadReminders(id: Identifier, options?: RequestOptions) { return this.operations.apiDeleteLeadRemindersDelete(id, options); }
 
   listDeals(params?: O.ApiDealsGetQuery, options?: RequestOptions) { return this.operations.apiDealsGet(params, options); }
   createDeal(data: O.ApiCreateDealPostInput, options?: RequestOptions<O.ApiCreateDealPostInput>) { return this.operations.apiCreateDealPost(data, options); }
@@ -61,8 +75,11 @@ export class CrmApi extends ServiceApi {
   listTasks(params?: O.ApiTasksGetQuery, options?: RequestOptions) { return this.operations.apiTasksGet(params, options); }
   createTask(data: O.ApiCreateTaskPostInput, options?: RequestOptions<O.ApiCreateTaskPostInput>) { return this.operations.apiCreateTaskPost(data, options); }
   updateTaskStatus(id: Identifier, data: O.ApiUpdateTaskStatusPatchInput, options?: RequestOptions<O.ApiUpdateTaskStatusPatchInput>) { return this.operations.apiUpdateTaskStatusPatch(id, data, options); }
+  deleteTask(id: Identifier, options?: RequestOptions) { return this.operations.apiDeleteTaskDelete(id, options); }
   listActivities(params?: O.ApiActivitiesGetQuery, options?: RequestOptions) { return this.operations.apiActivitiesGet(params, options); }
   createActivity(data: O.ApiCreateActivityPostInput, options?: RequestOptions<O.ApiCreateActivityPostInput>) { return this.operations.apiCreateActivityPost(data, options); }
+  /** Atomically creates an activity/worklog and its reminder task under one idempotency key. */
+  createActivityWithReminder(data: O.ApiCreateActivityWithReminderPostInput, options?: RequestOptions<O.ApiCreateActivityWithReminderPostInput>) { return this.operations.apiCreateActivityWithReminderPost(data, options); }
   listSources(options?: RequestOptions) { return this.operations.apiSourcesGet(options); }
   createSource(data: O.ApiCreateSourcePostInput, options?: RequestOptions<O.ApiCreateSourcePostInput>) { return this.operations.apiCreateSourcePost(data, options); }
   listCampaigns(options?: RequestOptions) { return this.operations.apiCampaignsGet(options); }

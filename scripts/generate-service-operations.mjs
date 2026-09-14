@@ -45,6 +45,7 @@ const responseOverrides = {
     contacts: "CrmContactListResponse",
     deals: "CrmDealListResponse",
     leads: "CrmLeadListResponse",
+    light_leads: "CrmLeadListResponse",
     overview: "CrmOverviewResponse",
     pipelines: "CrmPipelinesResponse",
     refresh_reports: "CrmReportRefreshResponse",
@@ -236,7 +237,7 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
     const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared) : [];
     if (nested.length) return nested.map(item => ({ ...item, name: `${field.name}[${item.name}]`, optional: optional || item.optional }));
     let renderedType = tsType(valueRaw, query);
-    if (!query && (renderedType === "JsonValue" || renderedType === "JsonValue[]") && declarations) {
+    if (!query && declarations) {
       const vector = unwrap(valueRaw, "Vec");
       const candidate = vector ?? valueRaw;
       const nestedStruct = resolveStruct(files, module, candidate);

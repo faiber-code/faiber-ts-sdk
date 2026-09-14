@@ -14,6 +14,11 @@ export interface ApiActivitiesGetQuery extends QueryParams {
   "team_id"?: string | null;
   "owner_user_id"?: string | null;
   "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
 }
 /** Backend response type: ListData<Activity>. */
 export type ApiActivitiesGetResponse = import("./types.js").CrmActivityListResponse;
@@ -53,6 +58,82 @@ export interface ApiCreateActivityPostResponseData extends JsonObject {
 }
 export type ApiCreateActivityPostResponse = import("./types.js").CrmApiResponse<ApiCreateActivityPostResponseData>;
 
+/** Backend request type: CreateActivityWithReminder. */
+export interface ApiCreateActivityWithReminderPostInputActivity extends JsonObject {
+  "lead_id"?: string | null;
+  "deal_id"?: string | null;
+  "contact_id"?: string | null;
+  "company_id"?: string | null;
+  "activity_type": string;
+  "direction"?: string | null;
+  "subject"?: string | null;
+  "body"?: string | null;
+  "outcome"?: string | null;
+  "occurred_at"?: string | null;
+  "duration_seconds"?: number | null;
+  "metadata"?: BackendJson<"JsonValue">;
+}
+export interface ApiCreateActivityWithReminderPostInputReminder extends JsonObject {
+  "lead_id"?: string | null;
+  "deal_id"?: string | null;
+  "contact_id"?: string | null;
+  "company_id"?: string | null;
+  "profile_id"?: string | null;
+  "assignee_user_id"?: string | null;
+  "title": string;
+  "description"?: string | null;
+  "task_type"?: string | null;
+  "priority"?: string | null;
+  "due_at"?: string | null;
+}
+export interface ApiCreateActivityWithReminderPostInput extends JsonObject {
+  "activity": ApiCreateActivityWithReminderPostInputActivity;
+  "reminder": ApiCreateActivityWithReminderPostInputReminder;
+}
+/** Backend response type: ActivityWithReminder. */
+export interface ApiCreateActivityWithReminderPostResponseDataActivity extends JsonObject {
+  "id": string;
+  "lead_id"?: string | null;
+  "deal_id"?: string | null;
+  "contact_id"?: string | null;
+  "company_id"?: string | null;
+  "owner_user_id": string;
+  "activity_type": string;
+  "direction"?: string | null;
+  "subject"?: string | null;
+  "body"?: string | null;
+  "outcome"?: string | null;
+  "occurred_at": string;
+  "duration_seconds"?: number | null;
+  "metadata": BackendJson<"JsonValue">;
+  "created_at": string;
+}
+export interface ApiCreateActivityWithReminderPostResponseDataReminder extends JsonObject {
+  "id": string;
+  "lead_id"?: string | null;
+  "deal_id"?: string | null;
+  "contact_id"?: string | null;
+  "company_id"?: string | null;
+  "profile_id"?: string | null;
+  "assignee_user_id": string;
+  "created_by": string;
+  "title": string;
+  "description"?: string | null;
+  "task_type": string;
+  "priority": string;
+  "status": string;
+  "due_at"?: string | null;
+  "completed_at"?: string | null;
+  "version": number;
+  "created_at": string;
+  "updated_at": string;
+}
+export interface ApiCreateActivityWithReminderPostResponseData extends JsonObject {
+  "activity": ApiCreateActivityWithReminderPostResponseDataActivity;
+  "reminder": ApiCreateActivityWithReminderPostResponseDataReminder;
+}
+export type ApiCreateActivityWithReminderPostResponse = import("./types.js").CrmApiResponse<ApiCreateActivityWithReminderPostResponseData>;
+
 /** Backend query type: ListQuery. */
 export interface ApiAutomationJobsGetQuery extends QueryParams {
   "cursor"?: string | null;
@@ -63,6 +144,11 @@ export interface ApiAutomationJobsGetQuery extends QueryParams {
   "team_id"?: string | null;
   "owner_user_id"?: string | null;
   "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
 }
 /** Backend response type: ListData<DurableJob>. */
 export type ApiAutomationJobsGetResponse = import("./types.js").CrmAutomationJobListResponse;
@@ -146,6 +232,11 @@ export interface ApiCompaniesGetQuery extends QueryParams {
   "team_id"?: string | null;
   "owner_user_id"?: string | null;
   "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
 }
 /** Backend response type: ListData<Company>. */
 export type ApiCompaniesGetResponse = import("./types.js").CrmCompanyListResponse;
@@ -258,6 +349,11 @@ export interface ApiContactsGetQuery extends QueryParams {
   "team_id"?: string | null;
   "owner_user_id"?: string | null;
   "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
 }
 /** Backend response type: ListData<Contact>. */
 export type ApiContactsGetResponse = import("./types.js").CrmContactListResponse;
@@ -383,6 +479,11 @@ export interface ApiDealsGetQuery extends QueryParams {
   "team_id"?: string | null;
   "owner_user_id"?: string | null;
   "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
 }
 /** Backend response type: ListData<Deal>. */
 export type ApiDealsGetResponse = import("./types.js").CrmDealListResponse;
@@ -587,6 +688,11 @@ export interface ApiLeadsGetQuery extends QueryParams {
   "team_id"?: string | null;
   "owner_user_id"?: string | null;
   "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
 }
 /** Backend response type: ListData<Lead>. */
 export type ApiLeadsGetResponse = import("./types.js").CrmLeadListResponse;
@@ -601,6 +707,7 @@ export interface ApiCreateLeadPostInput extends JsonObject {
   "campaign_id"?: string | null;
   "owner_user_id"?: string | null;
   "team_id"?: string | null;
+  "profile_id"?: string | null;
   "title": string;
   "first_name"?: string | null;
   "last_name"?: string | null;
@@ -626,6 +733,7 @@ export interface ApiCreateLeadPostResponseData extends JsonObject {
   "campaign_id"?: string | null;
   "owner_user_id"?: string | null;
   "team_id"?: string | null;
+  "profile_id"?: string | null;
   "title": string;
   "first_name"?: string | null;
   "last_name"?: string | null;
@@ -661,6 +769,7 @@ export interface ApiLeadGetResponseData extends JsonObject {
   "campaign_id"?: string | null;
   "owner_user_id"?: string | null;
   "team_id"?: string | null;
+  "profile_id"?: string | null;
   "title": string;
   "first_name"?: string | null;
   "last_name"?: string | null;
@@ -701,6 +810,7 @@ export interface ApiUpdateLeadPatchInput extends JsonObject {
   "estimated_value"?: number | null;
   "currency"?: string | null;
   "next_activity_at"?: string | null;
+  "profile_id"?: string | null;
 }
 /** Backend response type: Lead. */
 export interface ApiUpdateLeadPatchResponseData extends JsonObject {
@@ -713,6 +823,7 @@ export interface ApiUpdateLeadPatchResponseData extends JsonObject {
   "campaign_id"?: string | null;
   "owner_user_id"?: string | null;
   "team_id"?: string | null;
+  "profile_id"?: string | null;
   "title": string;
   "first_name"?: string | null;
   "last_name"?: string | null;
@@ -754,6 +865,7 @@ export interface ApiAssignLeadPatchResponseData extends JsonObject {
   "campaign_id"?: string | null;
   "owner_user_id"?: string | null;
   "team_id"?: string | null;
+  "profile_id"?: string | null;
   "title": string;
   "first_name"?: string | null;
   "last_name"?: string | null;
@@ -777,6 +889,19 @@ export interface ApiAssignLeadPatchResponseData extends JsonObject {
   "updated_at": string;
 }
 export type ApiAssignLeadPatchResponse = import("./types.js").CrmApiResponse<ApiAssignLeadPatchResponseData>;
+
+/** Backend response type: Vec<LeadHistoryEvent>. */
+export interface ApiLeadHistoryGetResponseItem extends JsonObject {
+  "id": string;
+  "event_type": string;
+  "actor_user_id"?: string | null;
+  "data": BackendJson<"JsonValue">;
+  "occurred_at": string;
+}
+export type ApiLeadHistoryGetResponse = import("./types.js").CrmApiResponse<ApiLeadHistoryGetResponseItem[]>;
+
+/** Backend response type: serde_json::Value. */
+export type ApiDeleteLeadRemindersDeleteResponse = import("./types.js").CrmApiResponse<JsonValue>;
 
 /** Backend response type: DeletionResult. */
 export interface ApiRemoveLeadFromSosDeleteResponseData extends JsonObject {
@@ -811,6 +936,7 @@ export interface ApiMoveLeadStagePatchResponseData extends JsonObject {
   "campaign_id"?: string | null;
   "owner_user_id"?: string | null;
   "team_id"?: string | null;
+  "profile_id"?: string | null;
   "title": string;
   "first_name"?: string | null;
   "last_name"?: string | null;
@@ -835,8 +961,58 @@ export interface ApiMoveLeadStagePatchResponseData extends JsonObject {
 }
 export type ApiMoveLeadStagePatchResponse = import("./types.js").CrmApiResponse<ApiMoveLeadStagePatchResponseData>;
 
+/** Backend query type: ListQuery. */
+export interface ApiLightLeadsGetQuery extends QueryParams {
+  "cursor"?: string | null;
+  "limit"?: number | null;
+  "q"?: string | null;
+  "pipeline_id"?: string | null;
+  "stage_id"?: string | null;
+  "team_id"?: string | null;
+  "owner_user_id"?: string | null;
+  "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
+}
+/** Backend response type: ListData<Lead>. */
+export type ApiLightLeadsGetResponse = import("./types.js").CrmLeadListResponse;
+
 /** Backend response type: Vec<PipelineWithStages>. */
 export type ApiPipelinesGetResponse = import("./types.js").CrmPipelinesResponse;
+
+/** Backend request type: UpdatePipeline. */
+export interface ApiUpdatePipelinePatchInput extends JsonObject {
+  "version": number;
+  "name"?: string | null;
+  "priority"?: number | null;
+  "hint"?: string | null;
+  "daily_quota"?: number | null;
+  "can_create_lead"?: boolean | null;
+  "acquire_flags"?: BackendJson<"JsonValue"> | null;
+  "actions"?: BackendJson<"JsonValue"> | null;
+  "is_active"?: boolean | null;
+}
+/** Backend response type: Pipeline. */
+export interface ApiUpdatePipelinePatchResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "entity_type": string;
+  "team_id"?: string | null;
+  "is_default": boolean;
+  "is_active": boolean;
+  "priority": number;
+  "hint"?: string | null;
+  "daily_quota": number;
+  "can_create_lead": boolean;
+  "acquire_flags": BackendJson<"JsonValue">;
+  "actions": BackendJson<"JsonValue">;
+  "version": number;
+}
+export type ApiUpdatePipelinePatchResponse = import("./types.js").CrmApiResponse<ApiUpdatePipelinePatchResponseData>;
 
 /** Backend response type: ReportRun. */
 export interface ApiReportRunGetResponseData extends JsonObject {
@@ -916,6 +1092,44 @@ export interface ApiCreateSourcePostResponseData extends JsonObject {
 }
 export type ApiCreateSourcePostResponse = import("./types.js").CrmApiResponse<ApiCreateSourcePostResponseData>;
 
+/** Backend response type: DailyStats. */
+export interface ApiDailyStatsGetResponseDataWorkflows extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "priority": number;
+  "hint"?: string | null;
+  "daily_tasks": number;
+  "leads_count": number;
+  "lead_count": number;
+}
+export interface ApiDailyStatsGetResponseData extends JsonObject {
+  "workflows": ApiDailyStatsGetResponseDataWorkflows[];
+  "total_tasks": number;
+  "total_done_tasks": number;
+  "extra_tasks_done": number;
+  "all_tasks_done": boolean;
+}
+export type ApiDailyStatsGetResponse = import("./types.js").CrmApiResponse<ApiDailyStatsGetResponseData>;
+
+/** Backend response type: LeadStats. */
+export interface ApiLeadStatsGetResponseDataWorkflows extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "priority": number;
+  "total": number;
+  "active": number;
+  "inactive": number;
+}
+export interface ApiLeadStatsGetResponseData extends JsonObject {
+  "total": number;
+  "active": number;
+  "inactive": number;
+  "workflows": ApiLeadStatsGetResponseDataWorkflows[];
+}
+export type ApiLeadStatsGetResponse = import("./types.js").CrmApiResponse<ApiLeadStatsGetResponseData>;
+
 /** Backend query type: ListQuery. */
 export interface ApiTasksGetQuery extends QueryParams {
   "cursor"?: string | null;
@@ -926,6 +1140,11 @@ export interface ApiTasksGetQuery extends QueryParams {
   "team_id"?: string | null;
   "owner_user_id"?: string | null;
   "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
 }
 /** Backend response type: ListData<Task>. */
 export type ApiTasksGetResponse = import("./types.js").CrmTaskListResponse;
@@ -936,6 +1155,7 @@ export interface ApiCreateTaskPostInput extends JsonObject {
   "deal_id"?: string | null;
   "contact_id"?: string | null;
   "company_id"?: string | null;
+  "profile_id"?: string | null;
   "assignee_user_id"?: string | null;
   "title": string;
   "description"?: string | null;
@@ -950,6 +1170,7 @@ export interface ApiCreateTaskPostResponseData extends JsonObject {
   "deal_id"?: string | null;
   "contact_id"?: string | null;
   "company_id"?: string | null;
+  "profile_id"?: string | null;
   "assignee_user_id": string;
   "created_by": string;
   "title": string;
@@ -965,6 +1186,13 @@ export interface ApiCreateTaskPostResponseData extends JsonObject {
 }
 export type ApiCreateTaskPostResponse = import("./types.js").CrmApiResponse<ApiCreateTaskPostResponseData>;
 
+/** Backend response type: DeletionResult. */
+export interface ApiDeleteTaskDeleteResponseData extends JsonObject {
+  "id": string;
+  "deleted": boolean;
+}
+export type ApiDeleteTaskDeleteResponse = import("./types.js").CrmApiResponse<ApiDeleteTaskDeleteResponseData>;
+
 /** Backend request type: UpdateTaskStatus. */
 export interface ApiUpdateTaskStatusPatchInput extends JsonObject {
   "status": string;
@@ -977,6 +1205,7 @@ export interface ApiUpdateTaskStatusPatchResponseData extends JsonObject {
   "deal_id"?: string | null;
   "contact_id"?: string | null;
   "company_id"?: string | null;
+  "profile_id"?: string | null;
   "assignee_user_id": string;
   "created_by": string;
   "title": string;
@@ -1105,6 +1334,25 @@ export interface ApiDeleteWorkflowAssignmentDeleteResponseData extends JsonObjec
   "deleted": boolean;
 }
 export type ApiDeleteWorkflowAssignmentDeleteResponse = import("./types.js").CrmApiResponse<ApiDeleteWorkflowAssignmentDeleteResponseData>;
+
+/** Backend response type: Vec<Pipeline>. */
+export interface ApiMemberWorkflowsGetResponseItem extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "entity_type": string;
+  "team_id"?: string | null;
+  "is_default": boolean;
+  "is_active": boolean;
+  "priority": number;
+  "hint"?: string | null;
+  "daily_quota": number;
+  "can_create_lead": boolean;
+  "acquire_flags": BackendJson<"JsonValue">;
+  "actions": BackendJson<"JsonValue">;
+  "version": number;
+}
+export type ApiMemberWorkflowsGetResponse = import("./types.js").CrmApiResponse<ApiMemberWorkflowsGetResponseItem[]>;
 
 /** Backend request type: UpdateWorkspace. */
 export interface ApiUpdateWorkspacePatchInput extends JsonObject {

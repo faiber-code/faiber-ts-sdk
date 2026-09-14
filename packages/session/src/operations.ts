@@ -365,11 +365,12 @@ export class SessionOperations extends ServiceApi {
   /**
    * Performs the livekit webhook operation for the room capability.
    * Calls `POST /api/v1/rooms/livekit/webhook` through the shared IDP-aware Faiber client.
+   * @param data Typed binary byte stream.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  roomLivekitWebhookPost(options?: RequestOptions) {
-    return this.client.request<T.RoomLivekitWebhookPostResponse>({ ...options, method: "POST", url: `/api/v1/rooms/livekit/webhook` });
+  roomLivekitWebhookPost(data: T.RoomLivekitWebhookPostInput, options?: RequestOptions<T.RoomLivekitWebhookPostInput>) {
+    return this.client.request<T.RoomLivekitWebhookPostResponse, T.RoomLivekitWebhookPostInput>({ ...options, method: "POST", url: `/api/v1/rooms/livekit/webhook`, data: data, headers: { "Content-Type": "application/octet-stream", ...options?.headers } });
   }
 }

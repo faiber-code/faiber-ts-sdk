@@ -124,17 +124,50 @@ export interface GatewayUpdatePatchResponse extends ApiEnvelope<GatewayUpdatePat
 }
 
 /** Backend response type: models::GatewayOptionsResponse. */
+export interface GatewayOptionsGetResponseDataProviders extends JsonObject {
+  "value": string;
+  "label": string;
+}
+export interface GatewayOptionsGetResponseDataStatuses extends JsonObject {
+  "value": string;
+  "label": string;
+}
 export interface GatewayOptionsGetResponseData extends JsonObject {
-  "providers": BackendJson<"LabelValue">[];
-  "statuses": BackendJson<"LabelValue">[];
+  "providers": GatewayOptionsGetResponseDataProviders[];
+  "statuses": GatewayOptionsGetResponseDataStatuses[];
 }
 export interface GatewayOptionsGetResponse extends ApiEnvelope<GatewayOptionsGetResponseData> {
 }
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
+export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
+  "name": string;
+  "field_type": string;
+  "required": boolean;
+  "description": string;
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataDirectEvents extends JsonObject {
+  "event_name": string;
+  "payload_fields": IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields[];
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataDirect extends JsonObject {
+  "transport": string;
+  "queue"?: string | null;
+  "base_url"?: string | null;
+  "broker_url_hint"?: string | null;
+  "sample_profile_id"?: string | null;
+  "events": IntegrationIntegrationDocsShowGetResponseDataDirectEvents[];
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataSdk extends JsonObject {
+  "event_name": string;
+  "method": string;
+  "language": string;
+  "cargo_dep": string;
+  "code": string;
+}
 export interface IntegrationIntegrationDocsShowGetResponseData extends JsonObject {
-  "direct": BackendJson<"DirectIntegrationMeta">;
-  "sdk": BackendJson<"SdkIntegrationSnippet">[];
+  "direct": IntegrationIntegrationDocsShowGetResponseDataDirect;
+  "sdk": IntegrationIntegrationDocsShowGetResponseDataSdk[];
 }
 export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<IntegrationIntegrationDocsShowGetResponseData> {
 }
@@ -152,6 +185,7 @@ export interface PaymentCreatePaymentPostInput extends JsonObject {
   "service_model": string;
   "service_id": string;
   "queue_name": string;
+  "idempotency_key"?: string | null;
 }
 /** Backend response type: models::CreatePaymentResponse. */
 export interface PaymentCreatePaymentPostResponseData extends JsonObject {
@@ -192,11 +226,29 @@ export interface TransactionIndexGetQuery extends QueryParams {
   "page[size]"?: number | null;
 }
 /** Backend response type: models::TransactionListData. */
+export interface TransactionIndexGetResponseDataSummariesStatus extends JsonObject {
+  "accepted": number;
+  "pending": number;
+  "rejected": number;
+}
+export interface TransactionIndexGetResponseDataSummariesServices extends JsonObject {
+  "name": string;
+  "amount": number;
+}
+export interface TransactionIndexGetResponseDataSummaries extends JsonObject {
+  "status": TransactionIndexGetResponseDataSummariesStatus;
+  "services": TransactionIndexGetResponseDataSummariesServices[];
+}
+export interface TransactionIndexGetResponseDataGateways extends JsonObject {
+  "id": number;
+  "name": string;
+  "provider": string;
+}
 export interface TransactionIndexGetResponseData extends JsonObject {
   "transactions": BackendJson<"crate::models::PagedResult<TransactionResponse>">;
-  "summaries": BackendJson<"TransactionSummaries">;
+  "summaries": TransactionIndexGetResponseDataSummaries;
   "service_names": string[];
-  "gateways": BackendJson<"GatewaySummary">[];
+  "gateways": TransactionIndexGetResponseDataGateways[];
 }
 export interface TransactionIndexGetResponse extends ApiEnvelope<TransactionIndexGetResponseData> {
 }
@@ -209,9 +261,44 @@ export interface RouterShowStatusGetResponse extends ApiEnvelope<RouterShowStatu
 }
 
 /** Backend response type: models::VerifyPaymentResponse. */
+export interface TransactionRejectPaymentPostResponseDataTransactionGateway extends JsonObject {
+  "id": number;
+  "name": string;
+  "provider": string;
+}
+export interface TransactionRejectPaymentPostResponseDataTransaction extends JsonObject {
+  "uuid": string;
+  "amount": number;
+  "gateway_id": number;
+  "gateway"?: TransactionRejectPaymentPostResponseDataTransactionGateway | null;
+  "description"?: string | null;
+  "status"?: string | null;
+  "service_name": string;
+  "service_model_type"?: string | null;
+  "service_model_id"?: string | null;
+  "callback_url"?: string | null;
+  "authority"?: string | null;
+  "user_ip"?: string | null;
+  "queue_name"?: string | null;
+  "tracking_code"?: string | null;
+  "masked_card_number"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export interface TransactionRejectPaymentPostResponseDataVerification extends JsonObject {
+  "id": string;
+  "transaction_uuid": string;
+  "verifier_user_id": string;
+  "successful": boolean;
+  "previous_status"?: string | null;
+  "resulting_status"?: string | null;
+  "tracking_code"?: string | null;
+  "message"?: string | null;
+  "created_at": string;
+}
 export interface TransactionRejectPaymentPostResponseData extends JsonObject {
-  "transaction": BackendJson<"TransactionResponse">;
-  "verification": BackendJson<"PaymentVerificationResponse">;
+  "transaction": TransactionRejectPaymentPostResponseDataTransaction;
+  "verification": TransactionRejectPaymentPostResponseDataVerification;
 }
 export interface TransactionRejectPaymentPostResponse extends ApiEnvelope<TransactionRejectPaymentPostResponseData> {
 }
@@ -232,9 +319,44 @@ export interface TransactionVerificationLogsGetResponse extends ApiEnvelope<Tran
 }
 
 /** Backend response type: models::VerifyPaymentResponse. */
+export interface TransactionVerifyPaymentPostResponseDataTransactionGateway extends JsonObject {
+  "id": number;
+  "name": string;
+  "provider": string;
+}
+export interface TransactionVerifyPaymentPostResponseDataTransaction extends JsonObject {
+  "uuid": string;
+  "amount": number;
+  "gateway_id": number;
+  "gateway"?: TransactionVerifyPaymentPostResponseDataTransactionGateway | null;
+  "description"?: string | null;
+  "status"?: string | null;
+  "service_name": string;
+  "service_model_type"?: string | null;
+  "service_model_id"?: string | null;
+  "callback_url"?: string | null;
+  "authority"?: string | null;
+  "user_ip"?: string | null;
+  "queue_name"?: string | null;
+  "tracking_code"?: string | null;
+  "masked_card_number"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export interface TransactionVerifyPaymentPostResponseDataVerification extends JsonObject {
+  "id": string;
+  "transaction_uuid": string;
+  "verifier_user_id": string;
+  "successful": boolean;
+  "previous_status"?: string | null;
+  "resulting_status"?: string | null;
+  "tracking_code"?: string | null;
+  "message"?: string | null;
+  "created_at": string;
+}
 export interface TransactionVerifyPaymentPostResponseData extends JsonObject {
-  "transaction": BackendJson<"TransactionResponse">;
-  "verification": BackendJson<"PaymentVerificationResponse">;
+  "transaction": TransactionVerifyPaymentPostResponseDataTransaction;
+  "verification": TransactionVerifyPaymentPostResponseDataVerification;
 }
 export interface TransactionVerifyPaymentPostResponse extends ApiEnvelope<TransactionVerifyPaymentPostResponseData> {
 }

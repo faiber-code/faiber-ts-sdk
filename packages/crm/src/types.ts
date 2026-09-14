@@ -83,6 +83,7 @@ export interface CrmPipelineStage extends JsonObject {
   stage_type: string;
   sla_minutes: number | null;
   is_active: boolean;
+  actions: JsonValue;
 }
 
 export interface CrmPipelineWithStages extends JsonObject {
@@ -93,6 +94,12 @@ export interface CrmPipelineWithStages extends JsonObject {
   team_id: string | null;
   is_default: boolean;
   is_active: boolean;
+  priority: number;
+  hint: string | null;
+  daily_quota: number;
+  can_create_lead: boolean;
+  acquire_flags: JsonValue;
+  actions: JsonValue;
   version: number;
   stages: CrmPipelineStage[];
 }

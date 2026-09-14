@@ -35,6 +35,17 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiCreateActivityPostResponse, T.ApiCreateActivityPostInput>({ ...options, method: "POST", url: `/api/v1/activities`, data: data });
   }
   /**
+   * Performs the create activity with reminder operation for the api capability.
+   * Calls `POST /api/v1/activities/with-reminder` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:activity:create, crm:task:create.
+   */
+  apiCreateActivityWithReminderPost(data: T.ApiCreateActivityWithReminderPostInput, options?: RequestOptions<T.ApiCreateActivityWithReminderPostInput>) {
+    return this.client.request<T.ApiCreateActivityWithReminderPostResponse, T.ApiCreateActivityWithReminderPostInput>({ ...options, method: "POST", url: `/api/v1/activities/with-reminder`, data: data });
+  }
+  /**
    * Performs the automation jobs operation for the api capability.
    * Calls `GET /api/v1/automation/jobs` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -326,6 +337,28 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiAssignLeadPatchResponse, T.ApiAssignLeadPatchInput>({ ...options, method: "PATCH", url: `/api/v1/leads/${encodeURIComponent(id)}/assignment`, data: data });
   }
   /**
+   * Performs the lead history operation for the api capability.
+   * Calls `GET /api/v1/leads/{id}/history` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:lead:read, crm:activity:read.
+   */
+  apiLeadHistoryGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiLeadHistoryGetResponse>({ ...options, method: "GET", url: `/api/v1/leads/${encodeURIComponent(id)}/history` });
+  }
+  /**
+   * Performs the delete lead reminders operation for the api capability.
+   * Calls `DELETE /api/v1/leads/{id}/reminders` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:task:delete.
+   */
+  apiDeleteLeadRemindersDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiDeleteLeadRemindersDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/leads/${encodeURIComponent(id)}/reminders` });
+  }
+  /**
    * Performs the remove lead from sos operation for the api capability.
    * Calls `DELETE /api/v1/leads/{id}/sos` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -360,6 +393,17 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiMoveLeadStagePatchResponse, T.ApiMoveLeadStagePatchInput>({ ...options, method: "PATCH", url: `/api/v1/leads/${encodeURIComponent(id)}/stage`, data: data });
   }
   /**
+   * Performs the light leads operation for the api capability.
+   * Calls `GET /api/v1/leads/light` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  apiLightLeadsGet(params?: T.ApiLightLeadsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiLightLeadsGetResponse>({ ...options, method: "GET", url: `/api/v1/leads/light`, params });
+  }
+  /**
    * Performs the pipelines operation for the api capability.
    * Calls `GET /api/v1/pipelines` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -368,6 +412,18 @@ export class CrmOperations extends ServiceApi {
    */
   apiPipelinesGet(options?: RequestOptions) {
     return this.client.request<T.ApiPipelinesGetResponse>({ ...options, method: "GET", url: `/api/v1/pipelines` });
+  }
+  /**
+   * Performs the update pipeline operation for the api capability.
+   * Calls `PATCH /api/v1/pipelines/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:pipeline:update.
+   */
+  apiUpdatePipelinePatch(id: Identifier, data: T.ApiUpdatePipelinePatchInput, options?: RequestOptions<T.ApiUpdatePipelinePatchInput>) {
+    return this.client.request<T.ApiUpdatePipelinePatchResponse, T.ApiUpdatePipelinePatchInput>({ ...options, method: "PATCH", url: `/api/v1/pipelines/${encodeURIComponent(id)}`, data: data });
   }
   /**
    * Performs the report run operation for the api capability.
@@ -455,6 +511,26 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiCreateSourcePostResponse, T.ApiCreateSourcePostInput>({ ...options, method: "POST", url: `/api/v1/sources`, data: data });
   }
   /**
+   * Performs the daily stats operation for the api capability.
+   * Calls `GET /api/v1/stats/daily` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:stats:read, crm:stats:read_own.
+   */
+  apiDailyStatsGet(options?: RequestOptions) {
+    return this.client.request<T.ApiDailyStatsGetResponse>({ ...options, method: "GET", url: `/api/v1/stats/daily` });
+  }
+  /**
+   * Performs the lead stats operation for the api capability.
+   * Calls `GET /api/v1/stats/lead` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:stats:read, crm:stats:read_all.
+   */
+  apiLeadStatsGet(options?: RequestOptions) {
+    return this.client.request<T.ApiLeadStatsGetResponse>({ ...options, method: "GET", url: `/api/v1/stats/lead` });
+  }
+  /**
    * Performs the tasks operation for the api capability.
    * Calls `GET /api/v1/tasks` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -475,6 +551,17 @@ export class CrmOperations extends ServiceApi {
    */
   apiCreateTaskPost(data: T.ApiCreateTaskPostInput, options?: RequestOptions<T.ApiCreateTaskPostInput>) {
     return this.client.request<T.ApiCreateTaskPostResponse, T.ApiCreateTaskPostInput>({ ...options, method: "POST", url: `/api/v1/tasks`, data: data });
+  }
+  /**
+   * Performs the delete task operation for the api capability.
+   * Calls `DELETE /api/v1/tasks/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:task:delete.
+   */
+  apiDeleteTaskDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiDeleteTaskDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/tasks/${encodeURIComponent(id)}` });
   }
   /**
    * Performs the update task status operation for the api capability.
@@ -590,6 +677,16 @@ export class CrmOperations extends ServiceApi {
    */
   apiDeleteWorkflowAssignmentDelete(workflowId: Identifier, assignmentId: Identifier, options?: RequestOptions) {
     return this.client.request<T.ApiDeleteWorkflowAssignmentDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/workflows/${encodeURIComponent(workflowId)}/assignments/${encodeURIComponent(assignmentId)}` });
+  }
+  /**
+   * Performs the member workflows operation for the api capability.
+   * Calls `GET /api/v1/workflows/member-based` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:pipeline:read.
+   */
+  apiMemberWorkflowsGet(options?: RequestOptions) {
+    return this.client.request<T.ApiMemberWorkflowsGetResponse>({ ...options, method: "GET", url: `/api/v1/workflows/member-based` });
   }
   /**
    * Performs the update workspace operation for the api capability.

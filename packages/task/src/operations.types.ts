@@ -99,12 +99,13 @@ export interface RoutesListProjectsGetResponse extends ApiEnvelope<RoutesListPro
 }
 
 /** Backend request type: CreateProject. */
+export type RoutesCreateProjectPostInputMode = "software" | "marketing";
 export interface RoutesCreateProjectPostInput extends JsonObject {
   "team_id"?: string | null;
   "key": string;
   "name": string;
   "description"?: string;
-  "mode": BackendJson<"ProjectMode">;
+  "mode": RoutesCreateProjectPostInputMode;
   "settings"?: JsonValue;
 }
 /** Backend response type: raw-response. */

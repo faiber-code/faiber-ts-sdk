@@ -139,8 +139,14 @@ export interface WorkScheduleIndexGetResponse extends ApiEnvelope<WorkScheduleIn
 }
 
 /** Backend request type: UpsertScheduleRequest. */
+export interface WorkScheduleUpsertPutInputSchedules extends JsonObject {
+  "day_of_week": string;
+  "start_time": string;
+  "end_time": string;
+  "is_active"?: boolean | null;
+}
 export interface WorkScheduleUpsertPutInput extends JsonObject {
-  "schedules": BackendJson<"ScheduleEntry">[];
+  "schedules": WorkScheduleUpsertPutInputSchedules[];
 }
 /** Backend response type: Vec<WorkScheduleResponse>. */
 export interface WorkScheduleUpsertPutResponseItem extends JsonObject {

@@ -1684,6 +1684,22 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/activities/with-reminder",
+      "module": "api",
+      "handler": "create_activity_with_reminder",
+      "permissions": [
+        "crm:activity:create",
+        "crm:task:create"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "CreateActivityWithReminder",
+      "response": "ActivityWithReminder",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/automation/jobs",
       "module": "api",
@@ -2087,6 +2103,37 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/leads/{id}/history",
+      "module": "api",
+      "handler": "lead_history",
+      "permissions": [
+        "crm:lead:read",
+        "crm:activity:read"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Vec<LeadHistoryEvent>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/leads/{id}/reminders",
+      "module": "api",
+      "handler": "delete_lead_reminders",
+      "permissions": [
+        "crm:task:delete"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "DELETE",
       "path": "/api/v1/leads/{id}/sos",
       "module": "api",
@@ -2134,6 +2181,19 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/leads/light",
+      "module": "api",
+      "handler": "light_leads",
+      "permissions": [],
+      "source": "infera-crm/src/api/routes.rs",
+      "query": "ListQuery",
+      "response": "ListData<Lead>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/pipelines",
       "module": "api",
       "handler": "pipelines",
@@ -2142,6 +2202,22 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "Vec<PipelineWithStages>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/pipelines/{id}",
+      "module": "api",
+      "handler": "update_pipeline",
+      "permissions": [
+        "crm:pipeline:update"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "UpdatePipeline",
+      "pathParam": "Uuid",
+      "response": "Pipeline",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2265,6 +2341,36 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/stats/daily",
+      "module": "api",
+      "handler": "daily_stats",
+      "permissions": [
+        "crm:stats:read",
+        "crm:stats:read_own"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "response": "DailyStats",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/stats/lead",
+      "module": "api",
+      "handler": "lead_stats",
+      "permissions": [
+        "crm:stats:read",
+        "crm:stats:read_all"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "response": "LeadStats",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/tasks",
       "module": "api",
       "handler": "tasks",
@@ -2291,6 +2397,21 @@
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateTask",
       "response": "Task",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/tasks/{id}",
+      "module": "api",
+      "handler": "delete_task",
+      "permissions": [
+        "crm:task:delete"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "response": "DeletionResult",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2442,6 +2563,20 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "DeletionResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/workflows/member-based",
+      "module": "api",
+      "handler": "member_workflows",
+      "permissions": [
+        "crm:pipeline:read"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "response": "Vec<Pipeline>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

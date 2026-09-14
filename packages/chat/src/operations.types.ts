@@ -18,6 +18,17 @@ export interface RoutesListManagedAssistantsGetResponse extends ApiEnvelope<Json
 }
 
 /** Backend request type: CreateAssistant. */
+export interface RoutesCreateAssistantPostInputCustomerActions extends JsonObject {
+  "id": string;
+  "label": Record<string, JsonValue>;
+  "kind": string;
+  "content_type"?: string | null;
+  "content_id"?: string | null;
+  "url": string;
+  "style": string;
+  "open_in_new_tab": boolean;
+  "enabled": boolean;
+}
 export interface RoutesCreateAssistantPostInput extends JsonObject {
   "name": string;
   "system_prompt": string;
@@ -40,7 +51,7 @@ export interface RoutesCreateAssistantPostInput extends JsonObject {
   "selected_media_enabled"?: boolean;
   "session_access"?: boolean;
   "drm_access"?: boolean;
-  "customer_actions"?: BackendJson<"CustomerAction">[];
+  "customer_actions"?: RoutesCreateAssistantPostInputCustomerActions[];
 }
 /** Backend response type: Value. */
 export interface RoutesCreateAssistantPostResponse extends ApiEnvelope<JsonValue> {
@@ -54,6 +65,17 @@ export interface RoutesGetManagedAssistantGetResponse extends ApiEnvelope<JsonVa
 }
 
 /** Backend request type: UpdateAssistant. */
+export interface RoutesUpdateAssistantPutInputCustomerActions extends JsonObject {
+  "id": string;
+  "label": Record<string, JsonValue>;
+  "kind": string;
+  "content_type"?: string | null;
+  "content_id"?: string | null;
+  "url": string;
+  "style": string;
+  "open_in_new_tab": boolean;
+  "enabled": boolean;
+}
 export interface RoutesUpdateAssistantPutInput extends JsonObject {
   "name"?: string | null;
   "system_prompt"?: string | null;
@@ -76,7 +98,7 @@ export interface RoutesUpdateAssistantPutInput extends JsonObject {
   "selected_media_enabled"?: boolean | null;
   "session_access"?: boolean | null;
   "drm_access"?: boolean | null;
-  "customer_actions"?: BackendJson<"CustomerAction">[] | null;
+  "customer_actions"?: RoutesUpdateAssistantPutInputCustomerActions[] | null;
   "status"?: string | null;
   "expected_version"?: number | null;
 }
@@ -205,8 +227,30 @@ export interface RoutesCreateAttachmentPostInput extends JsonObject {
   "metadata"?: JsonValue;
 }
 /** Backend response type: AttachmentUpload. */
+export interface RoutesCreateAttachmentPostResponseDataAttachment extends JsonObject {
+  "id": string;
+  "organization_id": string;
+  "conversation_id": string;
+  "message_id"?: string | null;
+  "uploader_id"?: string | null;
+  "storage_provider": string;
+  "bucket": string;
+  "object_key": string;
+  "cdn_url": string;
+  "file_name": string;
+  "media_type": string;
+  "byte_size": number;
+  "checksum_sha256"?: string | null;
+  "status": string;
+  "metadata": BackendJson<"Json">;
+  "legacy_source"?: string | null;
+  "legacy_id"?: number | null;
+  "created_at": string;
+  "updated_at": string;
+  "deleted_at"?: string | null;
+}
 export interface RoutesCreateAttachmentPostResponseData extends JsonObject {
-  "attachment": BackendJson<"entity::attachment::Model">;
+  "attachment": RoutesCreateAttachmentPostResponseDataAttachment;
   "upload_url": string;
   "expires_in_seconds": number;
 }

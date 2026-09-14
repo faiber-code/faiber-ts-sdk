@@ -31,6 +31,18 @@ test("CRM convenience client uses current plural production routes and optimisti
   await sdk.crm.assignTeamToWorkflow("workflow/one", "team/one", mutation);
   await sdk.crm.assignUserToWorkflow("workflow/one", "user/one", mutation);
   await sdk.crm.deleteWorkflowAssignment("workflow/one", "assignment/one", mutation);
+  await sdk.crm.listMemberWorkflows();
+  await sdk.crm.updatePipeline("workflow/one", { version: 2, name: "Retention", daily_quota: 12 }, mutation);
+  await sdk.crm.getDailyStats();
+  await sdk.crm.getLeadStats();
+  await sdk.crm.listLightLeads({ profile_id: "profile-1", statuses: "open,qualified", sort: "task_priority" });
+  await sdk.crm.getLeadHistory("lead/one");
+  await sdk.crm.deleteLeadReminders("lead/one", mutation);
+  await sdk.crm.deleteTask("task/one", mutation);
+  await sdk.crm.createActivityWithReminder({
+    activity: { lead_id: "lead/one", activity_type: "call", outcome: "answered" },
+    reminder: { lead_id: "lead/one", profile_id: "profile-1", title: "Call again", due_at: "2026-09-15T08:00:00Z" },
+  }, mutation);
 
   assert.equal(leads.status, 200);
   assert.deepEqual(requests.map(item => [item.method, item.url]), [
@@ -45,6 +57,15 @@ test("CRM convenience client uses current plural production routes and optimisti
     ["post", "/api/v1/workflows/workflow%2Fone/assignments"],
     ["post", "/api/v1/workflows/workflow%2Fone/assignments"],
     ["delete", "/api/v1/workflows/workflow%2Fone/assignments/assignment%2Fone"],
+    ["get", "/api/v1/workflows/member-based"],
+    ["patch", "/api/v1/pipelines/workflow%2Fone"],
+    ["get", "/api/v1/stats/daily"],
+    ["get", "/api/v1/stats/lead"],
+    ["get", "/api/v1/leads/light"],
+    ["get", "/api/v1/leads/lead%2Fone/history"],
+    ["delete", "/api/v1/leads/lead%2Fone/reminders"],
+    ["delete", "/api/v1/tasks/task%2Fone"],
+    ["post", "/api/v1/activities/with-reminder"],
   ]);
   assert.equal(requests[0].params.q, "Acme");
   assert.equal(body(requests[1]).version, 4);
@@ -52,6 +73,8 @@ test("CRM convenience client uses current plural production routes and optimisti
   assert.equal(body(requests[4]).version, 3);
   assert.deepEqual(body(requests[8]), { team_id: "team/one" });
   assert.deepEqual(body(requests[9]), { user_id: "user/one" });
+  assert.equal(requests[15].params.profile_id, "profile-1");
+  assert.equal(body(requests[19]).reminder.profile_id, "profile-1");
   assert.equal("leads" in sdk.crm, false);
   assert.equal("markLeadDone" in sdk.crm, false);
 });

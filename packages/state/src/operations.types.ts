@@ -38,12 +38,38 @@ export interface RoutesListWorldsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: CreateWorld. */
+export type RoutesCreateWorldPostInputComponentsPropertiesKind = "boolean" | "integer" | "number" | "string" | "vec2" | "vec3" | "quaternion" | "json";
+export type RoutesCreateWorldPostInputComponentsPropertiesAuthority = "server" | "owner" | "shared";
+export interface RoutesCreateWorldPostInputComponentsProperties extends JsonObject {
+  "name": string;
+  "kind": RoutesCreateWorldPostInputComponentsPropertiesKind;
+  "authority"?: RoutesCreateWorldPostInputComponentsPropertiesAuthority;
+  "replicated"?: boolean;
+  "predicted"?: boolean;
+  "default"?: JsonValue;
+}
+export interface RoutesCreateWorldPostInputComponents extends JsonObject {
+  "name": string;
+  "properties": RoutesCreateWorldPostInputComponentsProperties[];
+}
+export interface RoutesCreateWorldPostInputReplication extends JsonObject {
+  "tick_rate"?: number;
+  "snapshot_rate"?: number;
+  "interest_radius"?: number;
+  "history_ticks"?: number;
+}
+export interface RoutesCreateWorldPostInputPhysics extends JsonObject {
+  "enabled"?: boolean;
+  "dimensions"?: number;
+  "gravity"?: BackendJson<"[f32; 3]">;
+  "deterministic"?: boolean;
+}
 export interface RoutesCreateWorldPostInput extends JsonObject {
   "name": string;
   "slug": string;
-  "components"?: BackendJson<"ComponentSchema">[];
-  "replication"?: BackendJson<"ReplicationConfig">;
-  "physics"?: BackendJson<"PhysicsConfig">;
+  "components"?: RoutesCreateWorldPostInputComponents[];
+  "replication"?: RoutesCreateWorldPostInputReplication;
+  "physics"?: RoutesCreateWorldPostInputPhysics;
 }
 /** Backend response type: api. */
 export interface RoutesCreateWorldPostResponse extends ApiEnvelope<JsonValue> {
@@ -54,11 +80,37 @@ export interface RoutesGetWorldGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: UpdateWorld. */
+export type RoutesUpdateWorldPutInputComponentsPropertiesKind = "boolean" | "integer" | "number" | "string" | "vec2" | "vec3" | "quaternion" | "json";
+export type RoutesUpdateWorldPutInputComponentsPropertiesAuthority = "server" | "owner" | "shared";
+export interface RoutesUpdateWorldPutInputComponentsProperties extends JsonObject {
+  "name": string;
+  "kind": RoutesUpdateWorldPutInputComponentsPropertiesKind;
+  "authority"?: RoutesUpdateWorldPutInputComponentsPropertiesAuthority;
+  "replicated"?: boolean;
+  "predicted"?: boolean;
+  "default"?: JsonValue;
+}
+export interface RoutesUpdateWorldPutInputComponents extends JsonObject {
+  "name": string;
+  "properties": RoutesUpdateWorldPutInputComponentsProperties[];
+}
+export interface RoutesUpdateWorldPutInputReplication extends JsonObject {
+  "tick_rate"?: number;
+  "snapshot_rate"?: number;
+  "interest_radius"?: number;
+  "history_ticks"?: number;
+}
+export interface RoutesUpdateWorldPutInputPhysics extends JsonObject {
+  "enabled"?: boolean;
+  "dimensions"?: number;
+  "gravity"?: BackendJson<"[f32; 3]">;
+  "deterministic"?: boolean;
+}
 export interface RoutesUpdateWorldPutInput extends JsonObject {
   "name"?: string | null;
-  "components"?: BackendJson<"ComponentSchema">[] | null;
-  "replication"?: BackendJson<"ReplicationConfig"> | null;
-  "physics"?: BackendJson<"PhysicsConfig"> | null;
+  "components"?: RoutesUpdateWorldPutInputComponents[] | null;
+  "replication"?: RoutesUpdateWorldPutInputReplication | null;
+  "physics"?: RoutesUpdateWorldPutInputPhysics | null;
 }
 /** Backend response type: api. */
 export interface RoutesUpdateWorldPutResponse extends ApiEnvelope<JsonValue> {

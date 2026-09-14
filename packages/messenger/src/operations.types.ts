@@ -71,9 +71,33 @@ export interface DashboardDashboardShowGetResponse extends ApiEnvelope<Dashboard
 }
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
+export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
+  "name": string;
+  "field_type": string;
+  "required": boolean;
+  "description": string;
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataDirectEvents extends JsonObject {
+  "event_name": string;
+  "payload_fields": IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields[];
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataDirect extends JsonObject {
+  "transport": string;
+  "queue"?: string | null;
+  "broker_url_hint"?: string | null;
+  "sample_profile_id"?: string | null;
+  "events": IntegrationIntegrationDocsShowGetResponseDataDirectEvents[];
+}
+export interface IntegrationIntegrationDocsShowGetResponseDataSdk extends JsonObject {
+  "event_name": string;
+  "method": string;
+  "language": string;
+  "cargo_dep": string;
+  "code": string;
+}
 export interface IntegrationIntegrationDocsShowGetResponseData extends JsonObject {
-  "direct": BackendJson<"DirectIntegrationMeta">;
-  "sdk": BackendJson<"SdkIntegrationSnippet">[];
+  "direct": IntegrationIntegrationDocsShowGetResponseDataDirect;
+  "sdk": IntegrationIntegrationDocsShowGetResponseDataSdk[];
 }
 export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<IntegrationIntegrationDocsShowGetResponseData> {
 }
@@ -83,11 +107,21 @@ export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<B
 }
 
 /** Backend response type: crate::integration::models::RabbitMqIntegrationResponse. */
+export interface IntegrationRabbitmqIntegrationShowGetResponseDataEventsPayloadFields extends JsonObject {
+  "name": string;
+  "field_type": string;
+  "required": boolean;
+  "description": string;
+}
+export interface IntegrationRabbitmqIntegrationShowGetResponseDataEvents extends JsonObject {
+  "event_name": string;
+  "payload_fields": IntegrationRabbitmqIntegrationShowGetResponseDataEventsPayloadFields[];
+}
 export interface IntegrationRabbitmqIntegrationShowGetResponseData extends JsonObject {
   "queue": string;
   "broker_url_hint": string;
   "sample_profile_id": string;
-  "events": BackendJson<"IntegrationEventMeta">[];
+  "events": IntegrationRabbitmqIntegrationShowGetResponseDataEvents[];
 }
 export interface IntegrationRabbitmqIntegrationShowGetResponse extends ApiEnvelope<IntegrationRabbitmqIntegrationShowGetResponseData> {
 }

@@ -53,7 +53,7 @@ export class TaskOperations extends ServiceApi {
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   routesEventsGet(options?: RequestOptions) {
-    return this.client.request<T.RoutesEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/events` });
+    return this.client.request<T.RoutesEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/events`, responseType: "stream" });
   }
   /**
    * Performs the use guest link operation for the routes capability.

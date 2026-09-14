@@ -170,6 +170,36 @@ sdk.crm.assignTeamToWorkflow("workflow-1", "team-1", mutationOptions).then(respo
   const assignment: CrmService.CrmWorkflowAssignment = response.data.data;
   return assignment.team_id;
 });
+sdk.crm.listMemberWorkflows().then(response => response.data.data[0]?.daily_quota);
+sdk.crm.updatePipeline("workflow-1", {
+  version: 1,
+  name: "Retention",
+  priority: 10,
+  hint: "Complete the oldest leads first",
+  daily_quota: 12,
+  can_create_lead: true,
+  acquire_flags: ["retention"],
+  actions: [{ key: "open_profile", label: "Open profile", url: "/profiles/{profile_id}" }],
+}, mutationOptions).then(response => response.data.data.priority);
+sdk.crm.getDailyStats().then(response => {
+  const stats: CrmService.ApiDailyStatsGetResponseData = response.data.data;
+  return stats.workflows[0]?.leads_count ?? stats.extra_tasks_done;
+});
+sdk.crm.getLeadStats().then(response => response.data.data.workflows[0]?.active);
+sdk.crm.listLightLeads({
+  profile_id: "profile-1",
+  statuses: "open,qualified",
+  active_from: "2026-09-01T00:00:00Z",
+  active_to: "2026-09-30T23:59:59Z",
+  sort: "task_priority",
+}).then(response => response.data.data.items[0]?.profile_id);
+sdk.crm.getLeadHistory("lead-1").then(response => response.data.data[0]?.event_type);
+sdk.crm.deleteLeadReminders("lead-1", mutationOptions);
+sdk.crm.deleteTask("task-1", mutationOptions).then(response => response.data.data.deleted);
+sdk.crm.createActivityWithReminder({
+  activity: { lead_id: "lead-1", activity_type: "call", outcome: "answered" },
+  reminder: { lead_id: "lead-1", profile_id: "profile-1", title: "Follow up", due_at: "2026-09-15T08:00:00Z" },
+}, mutationOptions).then(response => response.data.data.reminder.profile_id);
 sdk.task.workspace().then(response => response.data.data.sandbox_id);
 sdk.task.openEvents({ signal: AbortSignal.timeout(1_000) }).then(response => response.data);
   void manageAction;

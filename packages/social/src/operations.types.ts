@@ -235,6 +235,45 @@ export interface ApiListPostsGetQuery extends QueryParams {
 export type ApiListPostsGetResponse = import("./types.js").SocialPostListResponse;
 
 /** Backend request type: CreatePost. */
+export interface ApiCreatePostPostInputCapabilitiesSubjectAssertion extends JsonObject {
+  "issuer": string;
+  "token": string;
+}
+export interface ApiCreatePostPostInputCapabilitiesSubject extends JsonObject {
+  "subject_type": string;
+  "subject_ref": string;
+  "assertion": ApiCreatePostPostInputCapabilitiesSubjectAssertion;
+}
+export interface ApiCreatePostPostInputCapabilitiesLocation extends JsonObject {
+  "latitude": number;
+  "longitude": number;
+  "public_label": string;
+  "public_precision"?: string;
+  "access_policy"?: string;
+  "navigation_enabled"?: boolean;
+}
+export interface ApiCreatePostPostInputCapabilitiesBounty extends JsonObject {
+  "unit": string;
+  "code": string;
+  "amount": string;
+  "expires_at"?: string | null;
+}
+export interface ApiCreatePostPostInputCapabilitiesLinkedActionsAssertion extends JsonObject {
+  "issuer": string;
+  "token": string;
+}
+export interface ApiCreatePostPostInputCapabilitiesLinkedActions extends JsonObject {
+  "action_type": string;
+  "resource_ref": string;
+  "assertion": ApiCreatePostPostInputCapabilitiesLinkedActionsAssertion;
+}
+export interface ApiCreatePostPostInputCapabilities extends JsonObject {
+  "version"?: number;
+  "subject"?: ApiCreatePostPostInputCapabilitiesSubject | null;
+  "location"?: ApiCreatePostPostInputCapabilitiesLocation | null;
+  "bounty"?: ApiCreatePostPostInputCapabilitiesBounty | null;
+  "linked_actions"?: ApiCreatePostPostInputCapabilitiesLinkedActions[];
+}
 export interface ApiCreatePostPostInput extends JsonObject {
   "category_id"?: string | null;
   "kind"?: string;
@@ -243,7 +282,7 @@ export interface ApiCreatePostPostInput extends JsonObject {
   "body": string;
   "media"?: JsonValue;
   "metadata"?: JsonValue;
-  "capabilities"?: BackendJson<"CreateCapabilities"> | null;
+  "capabilities"?: ApiCreatePostPostInputCapabilities | null;
 }
 /** Backend response type: Value. */
 export type ApiCreatePostPostResponse = import("./types.js").SocialPostResponse;

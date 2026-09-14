@@ -1,6 +1,6 @@
 # @faiber/faiber-crm
 
-Typed client for the current production CRM: workspace configuration, pipelines and boards,
+Typed client for the current production CRM: workspace configuration, workflow dashboard statistics, pipelines and boards,
 teams, companies, contacts, leads, deals, SOS membership, workflow assignments, tasks, activities, marketing sources/campaigns,
 reports, durable automation, and approval-gated Agentic insights.
 
@@ -18,6 +18,14 @@ const crm = new CrmApi(new FaiberClient("crm", {
 }));
 
 const leads = await crm.listLeads({ q: "Acme", status: "open" });
+const daily = await crm.getDailyStats();
+const assignedWorkflows = await crm.listMemberWorkflows();
+await crm.updatePipeline(assignedWorkflows.data.data[0].id, {
+  version: assignedWorkflows.data.data[0].version,
+  daily_quota: 12,
+  priority: 10,
+  hint: "Complete the oldest leads first",
+});
 const overview = await crm.getOverview();
 await crm.moveLeadStage(leadId, { stage_id: nextStageId, version: leadVersion });
 await crm.removeLeadFromSos(leadId, {
@@ -25,7 +33,7 @@ await crm.removeLeadFromSos(leadId, {
 });
 ```
 
-The package exposes all 58 currently mounted routes through `api.operations`, with concise
+The package exposes all 67 currently mounted routes through `api.operations`, with concise
 methods for each CRM business capability. Mutations use optimistic `version` fields and
 the backend's `Idempotency-Key` header where required. All methods return complete Axios
 responses and accept shared request options, including `AbortSignal` cancellation.
@@ -39,3 +47,7 @@ including `crm:lead:*`, `crm:deal:*`, `crm:company:*`, `crm:contact:*`, `crm:tea
 `removeTeamMember` deactivates a membership. SOS methods add or remove the SOS marker without
 deleting the lead. Workflow assignments accept exactly one `team_id` or `user_id`; the
 `assignTeamToWorkflow` and `assignUserToWorkflow` helpers enforce that shape.
+Daily and lead statistics are computed by the CRM service, not inferred by clients. The SDK also
+exposes profile/status/date lead filters, lightweight cursor pagination, lead history, deletable
+reminders/tasks, and atomic activity-plus-reminder creation. Tenant workflows and their actions are
+configured through the API; the generic CRM service does not seed Poulstar-specific data.
