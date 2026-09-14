@@ -36,6 +36,7 @@ const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${e
 // Hand-audited response contracts for handlers that intentionally build serde_json::Value or
 // return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
 const responseOverrides = {
+  chat: { events: "ChatEventStream" },
   crm: {
     activities: "CrmActivityListResponse",
     automation_jobs: "CrmAutomationJobListResponse",
@@ -177,7 +178,9 @@ function resolveStruct(files, module, raw) {
     }
     return null;
   }
-  return matches.find(item => item.file.path.includes(`/${module}/`))
+  const qualifier = raw.replace(/\s+/g, "").match(/(?:^|::)([A-Za-z_]\w*)::[A-Za-z_]\w*$/)?.[1];
+  return (qualifier ? matches.find(item => basename(item.file.path, ".rs") === qualifier) : undefined)
+    ?? matches.find(item => item.file.path.includes(`/${module}/`))
     ?? matches.find(item => basename(item.file.path) === "models.rs")
     ?? matches[0];
 }
@@ -206,7 +209,9 @@ function resolveEnum(files, module, raw) {
   const name = typeName(raw);
   if (!name) return null;
   const matches = files.map(file => ({ file, variants: enumFrom(file, name) })).filter(item => item.variants);
-  return matches.find(item => item.file.path.includes(`/${module}/`)) ?? matches[0] ?? null;
+  const qualifier = raw.replace(/\s+/g, "").match(/(?:^|::)([A-Za-z_]\w*)::[A-Za-z_]\w*$/)?.[1];
+  return (qualifier ? matches.find(item => basename(item.file.path, ".rs") === qualifier) : undefined)
+    ?? matches.find(item => item.file.path.includes(`/${module}/`)) ?? matches[0] ?? null;
 }
 
 function renderedFields(files, module, raw, seen = new Set(), query = false, declarations = null, base = "Nested", declared = new Set()) {
@@ -311,16 +316,18 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const base = pascal(operationName(endpoint));
     const methodName = camel(operationName(endpoint));
     const ids = placeholders(endpoint.path);
-    const hasInput = Boolean(endpoint.body || endpoint.multipart);
+    const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
     const hasQuery = Boolean(endpoint.query);
     const inputOverride = inputOverrides[service]?.[endpoint.handler];
     const responseOverride = responseOverrides[service]?.[endpoint.handler];
     if (hasInput) {
-      typeLines.push(`/** Backend request type: ${endpoint.body ?? "multipart/form-data"}. */`);
+      typeLines.push(`/** Backend request type: ${endpoint.binary ? "binary byte stream" : endpoint.body ?? "multipart/form-data"}. */`);
       if (inputOverride) {
         typeLines.push(`export type ${base}Input = import("./types.js").${inputOverride};`);
       } else if (endpoint.multipart) {
         typeLines.push(`export type ${base}Input = FormData;`);
+      } else if (endpoint.binary) {
+        typeLines.push(`export type ${base}Input = Blob | ArrayBuffer | ArrayBufferView;`);
       } else if (/^(?:serde_json::)?Value$/.test(endpoint.body)) {
         typeLines.push(`export type ${base}Input = JsonValue;`);
       } else {
@@ -367,7 +374,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push(`   * Performs the ${operationPurpose(endpoint)} operation for the ${endpoint.module.replace(/_/g, " ")} capability.`);
     operationLines.push(`   * Calls \`${endpoint.method} ${endpoint.path}\` through the shared IDP-aware Faiber client.`);
     for (const id of ids) operationLines.push(`   * @param ${camel(id)} Backend path identifier \`${id}\`.`);
-    if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
+    if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.binary ? "binary byte stream" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
     if (hasQuery) operationLines.push("   * @param params Typed query parameters; omitted members retain backend defaults.");
     operationLines.push("   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.");
     operationLines.push("   * @returns The complete Axios response, including the typed service envelope, status, and headers.");
@@ -375,7 +382,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push("   */");
     operationLines.push(`  ${methodName}(${args.join(", ")}) {`);
     const requestData = endpoint.formUrlEncoded ? "urlEncoded(data)" : "data";
-    operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : ""} });`);
+    operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");

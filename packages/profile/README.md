@@ -61,6 +61,11 @@ This package exposes 173 registered operations from the profiles service. Common
 
 `listProfiles` returns merged profile status, active-enrollment state, and IDP-synchronized role records, with `filter[role]`, `filter[status]`, `filter[active]`, and search support. `updateProfileByUserId` sends one atomic `PATCH /api/v1/profile/{uuid}` using `profile.user_id`; do not pass the profile row's `profile.id`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
 
+Profile detail, full, and admin reads expose Office-synchronized balances, enrollments,
+transactions, installments, wallets, and wallet transactions as `data.profile.office`.
+They also expose UUID-based LMS classrooms, sessions, and membership data as
+`data.profile.lms`. Profile lists and chat context omit these heavier, sensitive objects.
+
 `avatar(userId, key)` downloads the stored image as a `Blob` through the public profile-media route. The service constrains `key` to `profiles/{userId}/avatar/`; a mismatched or unsafe key returns `403`, and a missing object returns `404`.
 
 ## Authentication and authorization

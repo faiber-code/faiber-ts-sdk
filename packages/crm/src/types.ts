@@ -14,6 +14,9 @@ export type CrmTask = O.ApiCreateTaskPostResponseData;
 export type CrmActivity = O.ApiCreateActivityPostResponseData;
 export type CrmSource = O.ApiCreateSourcePostResponseData;
 export type CrmCampaign = O.ApiCreateCampaignPostResponseData;
+export type CrmSosLead = O.ApiAddLeadToSosPostResponseData;
+export type CrmWorkflowAssignment = O.ApiCreateWorkflowAssignmentPostResponseData;
+export type CrmDeletionResult = O.ApiDeleteTeamDeleteResponseData;
 export type CrmReportRun = O.ApiReportRunGetResponseData;
 export interface CrmMetricValue extends JsonObject {
   key: string;
@@ -55,6 +58,8 @@ export type CreateCrmTaskInput = O.ApiCreateTaskPostInput;
 export type CreateCrmActivityInput = O.ApiCreateActivityPostInput;
 export type CrmMoveStageInput = O.ApiMoveLeadStagePatchInput;
 export type CrmAssignmentInput = O.ApiAssignLeadPatchInput;
+export type DeleteCrmTeamInput = O.ApiDeleteTeamDeleteInput;
+export type CreateCrmWorkflowAssignmentInput = O.ApiCreateWorkflowAssignmentPostInput;
 
 export interface CrmListData<T extends JsonObject> extends JsonObject {
   items: T[];

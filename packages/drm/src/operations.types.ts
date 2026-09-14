@@ -26,14 +26,10 @@ export type RouterListAnalysesGetResponse = BackendJson<"Page<CompositionAnalysi
 /** Backend response type: Vec<composition_category::Model>. */
 export interface RouterListCompositionCategoriesGetResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "parent_id"?: string | null;
+  "title": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterListCompositionCategoriesGetResponse = RouterListCompositionCategoriesGetResponseItem[];
 
@@ -45,14 +41,10 @@ export interface RouterCreateCompositionCategoryPostInput extends JsonObject {
 /** Backend response type: composition_category::Model. */
 export interface RouterCreateCompositionCategoryPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "parent_id"?: string | null;
+  "title": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterCreateCompositionCategoryPostResponse = RouterCreateCompositionCategoryPostResponseData;
 
@@ -67,14 +59,10 @@ export interface RouterUpdateCompositionCategoryPatchInput extends JsonObject {
 /** Backend response type: composition_category::Model. */
 export interface RouterUpdateCompositionCategoryPatchResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "parent_id"?: string | null;
+  "title": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterUpdateCompositionCategoryPatchResponse = RouterUpdateCompositionCategoryPatchResponseData;
 
@@ -100,30 +88,28 @@ export interface RouterCreateCompositionPostInput extends JsonObject {
 /** Backend response type: mixed_media::Model. */
 export interface RouterCreateCompositionPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "transcription_language": string;
+  "status": string;
+  "manifest_version": number;
+  "published_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterCreateCompositionPostResponse = RouterCreateCompositionPostResponseData;
 
 /** Backend response type: Vec<mixed_media_manifest::Model>. */
-export interface RouterListManifestsGetCompositionsIdManifestsResponseItem extends JsonObject {
+export interface RouterListManifestsGetApiV1CompositionsIdManifestsResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id": string;
+  "version": number;
+  "document": BackendJson<"Json">;
   "created_at": string;
 }
-export type RouterListManifestsGetCompositionsIdManifestsResponse = RouterListManifestsGetCompositionsIdManifestsResponseItem[];
+export type RouterListManifestsGetApiV1CompositionsIdManifestsResponse = RouterListManifestsGetApiV1CompositionsIdManifestsResponseItem[];
 
 /** Backend request type: HistoricalManifestInput. */
 export interface RouterCreateManifestVersionPostInput extends JsonObject {
@@ -134,63 +120,47 @@ export interface RouterCreateManifestVersionPostInput extends JsonObject {
 /** Backend response type: mixed_media_manifest::Model. */
 export interface RouterCreateManifestVersionPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id": string;
+  "version": number;
+  "document": BackendJson<"Json">;
   "created_at": string;
 }
 export type RouterCreateManifestVersionPostResponse = RouterCreateManifestVersionPostResponseData;
 
 /** Backend response type: mixed_media_manifest::Model. */
-export interface RouterPublishPostCompositionsIdPublishResponseData extends JsonObject {
+export interface RouterPublishPostApiV1CompositionsIdPublishResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id": string;
+  "version": number;
+  "document": BackendJson<"Json">;
   "created_at": string;
 }
-export type RouterPublishPostCompositionsIdPublishResponse = RouterPublishPostCompositionsIdPublishResponseData;
+export type RouterPublishPostApiV1CompositionsIdPublishResponse = RouterPublishPostApiV1CompositionsIdPublishResponseData;
 
 /** Backend response type: mixed_media_workflow::Model. */
-export interface RouterGetWorkflowGetCompositionsIdWorkflowResponseData extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
-  "created_at": string;
+export interface RouterGetWorkflowGetApiV1CompositionsIdWorkflowResponseData extends JsonObject {
+  "mixed_media_id": string;
+  "nodes": BackendJson<"Json">;
+  "edges": BackendJson<"Json">;
+  "revision": number;
+  "updated_at": string;
 }
-export type RouterGetWorkflowGetCompositionsIdWorkflowResponse = RouterGetWorkflowGetCompositionsIdWorkflowResponseData;
+export type RouterGetWorkflowGetApiV1CompositionsIdWorkflowResponse = RouterGetWorkflowGetApiV1CompositionsIdWorkflowResponseData;
 
 /** Backend request type: WorkflowInput. */
-export interface RouterSaveWorkflowPutCompositionsIdWorkflowInput extends JsonObject {
+export interface RouterSaveWorkflowPutApiV1CompositionsIdWorkflowInput extends JsonObject {
   "nodes": JsonValue;
   "edges": JsonValue;
 }
 /** Backend response type: mixed_media_workflow::Model. */
-export interface RouterSaveWorkflowPutCompositionsIdWorkflowResponseData extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
-  "created_at": string;
+export interface RouterSaveWorkflowPutApiV1CompositionsIdWorkflowResponseData extends JsonObject {
+  "mixed_media_id": string;
+  "nodes": BackendJson<"Json">;
+  "edges": BackendJson<"Json">;
+  "revision": number;
+  "updated_at": string;
 }
-export type RouterSaveWorkflowPutCompositionsIdWorkflowResponse = RouterSaveWorkflowPutCompositionsIdWorkflowResponseData;
+export type RouterSaveWorkflowPutApiV1CompositionsIdWorkflowResponse = RouterSaveWorkflowPutApiV1CompositionsIdWorkflowResponseData;
 
 /** Backend response type: serde_json::Value. */
 export type RouterDashboardGetResponse = JsonValue;
@@ -215,14 +185,20 @@ export interface RouterCreateJobPostInput extends JsonObject {
 /** Backend response type: DrmJobResponse. */
 export interface RouterCreateJobPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "media_id": string;
+  "package_id"?: string | null;
+  "status": string;
+  "stage": string;
+  "progress": number;
+  "attempts": number;
+  "max_attempts": number;
+  "next_retry_at"?: string | null;
+  "last_error"?: string | null;
+  "config": BackendJson<"Json">;
   "created_at": string;
+  "updated_at": string;
+  "started_at"?: string | null;
+  "completed_at"?: string | null;
   "media_name": string;
   "media_type": string;
 }
@@ -241,14 +217,20 @@ export interface RouterRetryJobPostInput extends JsonObject {
 /** Backend response type: DrmJobResponse. */
 export interface RouterRetryJobPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "media_id": string;
+  "package_id"?: string | null;
+  "status": string;
+  "stage": string;
+  "progress": number;
+  "attempts": number;
+  "max_attempts": number;
+  "next_retry_at"?: string | null;
+  "last_error"?: string | null;
+  "config": BackendJson<"Json">;
   "created_at": string;
+  "updated_at": string;
+  "started_at"?: string | null;
+  "completed_at"?: string | null;
   "media_name": string;
   "media_type": string;
 }
@@ -267,15 +249,14 @@ export interface RouterListExternalReferencesGetQuery extends QueryParams {
 }
 /** Backend response type: Vec<external_reference::Model>. */
 export interface RouterListExternalReferencesGetResponseItem extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
+  "system": string;
   "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "external_id": string;
+  "internal_type": string;
+  "internal_id": string;
+  "metadata": BackendJson<"Json">;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterListExternalReferencesGetResponse = RouterListExternalReferencesGetResponseItem[];
 
@@ -290,29 +271,24 @@ export interface RouterUpsertExternalReferencePostInput extends JsonObject {
 }
 /** Backend response type: external_reference::Model. */
 export interface RouterUpsertExternalReferencePostResponseData extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
+  "system": string;
   "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "external_id": string;
+  "internal_type": string;
+  "internal_id": string;
+  "metadata": BackendJson<"Json">;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterUpsertExternalReferencePostResponse = RouterUpsertExternalReferencePostResponseData;
 
 /** Backend response type: Vec<folder::Model>. */
 export interface RouterListFoldersGetResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "parent_id"?: string | null;
+  "name": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterListFoldersGetResponse = RouterListFoldersGetResponseItem[];
 
@@ -324,14 +300,10 @@ export interface RouterCreateFolderPostInput extends JsonObject {
 /** Backend response type: folder::Model. */
 export interface RouterCreateFolderPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "parent_id"?: string | null;
+  "name": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterCreateFolderPostResponse = RouterCreateFolderPostResponseData;
 
@@ -346,28 +318,22 @@ export interface RouterUpdateFolderPatchInput extends JsonObject {
 /** Backend response type: folder::Model. */
 export interface RouterUpdateFolderPatchResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "parent_id"?: string | null;
+  "name": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterUpdateFolderPatchResponse = RouterUpdateFolderPatchResponseData;
 
 /** Backend response type: Vec<content_library::Model>. */
 export interface RouterListLibrariesGetResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "name": string;
+  "description"?: string | null;
+  "status": string;
+  "visibility": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterListLibrariesGetResponse = RouterListLibrariesGetResponseItem[];
 
@@ -382,14 +348,12 @@ export interface RouterCreateLibraryPostInput extends JsonObject {
 /** Backend response type: content_library::Model. */
 export interface RouterCreateLibraryPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "name": string;
+  "description"?: string | null;
+  "status": string;
+  "visibility": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterCreateLibraryPostResponse = RouterCreateLibraryPostResponseData;
 
@@ -399,14 +363,12 @@ export type RouterDeleteLibraryDeleteResponse = void;
 /** Backend response type: content_library::Model. */
 export interface RouterGetLibraryGetResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "name": string;
+  "description"?: string | null;
+  "status": string;
+  "visibility": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterGetLibraryGetResponse = RouterGetLibraryGetResponseData;
 
@@ -421,62 +383,66 @@ export interface RouterUpdateLibraryPatchInput extends JsonObject {
 /** Backend response type: content_library::Model. */
 export interface RouterUpdateLibraryPatchResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "name": string;
+  "description"?: string | null;
+  "status": string;
+  "visibility": string;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterUpdateLibraryPatchResponse = RouterUpdateLibraryPatchResponseData;
 
 /** Backend response type: Vec<content_category::Model>. */
 export interface RouterListCategoriesGetResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "parent_id"?: string | null;
+  "title": string;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
 export type RouterListCategoriesGetResponse = RouterListCategoriesGetResponseItem[];
 
 /** Backend request type: GenericCategoryInput. */
-export interface RouterCreateCategoryPostLibrariesIdCategoriesInput extends JsonObject {
+export interface RouterCreateCategoryPostApiV1LibrariesIdCategoriesInput extends JsonObject {
   "id"?: string | null;
   "parent_id"?: string | null;
   "title": string;
 }
 /** Backend response type: content_category::Model. */
-export interface RouterCreateCategoryPostLibrariesIdCategoriesResponseData extends JsonObject {
+export interface RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "parent_id"?: string | null;
+  "title": string;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
-export type RouterCreateCategoryPostLibrariesIdCategoriesResponse = RouterCreateCategoryPostLibrariesIdCategoriesResponseData;
+export type RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponse = RouterCreateCategoryPostApiV1LibrariesIdCategoriesResponseData;
 
 /** Backend response type: Vec<media_part::Model>. */
 export interface RouterListItemsGetResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "title": string;
+  "state": string;
+  "media_type"?: string | null;
+  "duration_seconds": number;
+  "textual": BackendJson<"Json">;
+  "rewards": BackendJson<"Json">;
+  "textual_hint"?: string | null;
+  "game_id"?: string | null;
+  "primary_media_id"?: string | null;
+  "hint_media_id"?: string | null;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
 export type RouterListItemsGetResponse = RouterListItemsGetResponseItem[];
 
@@ -496,14 +462,22 @@ export interface RouterCreateItemPostInput extends JsonObject {
 /** Backend response type: media_part::Model. */
 export interface RouterCreateItemPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "title": string;
+  "state": string;
+  "media_type"?: string | null;
+  "duration_seconds": number;
+  "textual": BackendJson<"Json">;
+  "rewards": BackendJson<"Json">;
+  "textual_hint"?: string | null;
+  "game_id"?: string | null;
+  "primary_media_id"?: string | null;
+  "hint_media_id"?: string | null;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
 export type RouterCreateItemPostResponse = RouterCreateItemPostResponseData;
 
@@ -533,24 +507,23 @@ export type RouterLibraryStatsGetResponse = RouterLibraryStatsGetResponseData;
 export type RouterArchiveCategoryDeleteResponse = void;
 
 /** Backend request type: GenericCategoryInput. */
-export interface RouterUpdateCategoryPatchLibrariesLibraryIdCategoriesIdInput extends JsonObject {
+export interface RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdInput extends JsonObject {
   "id"?: string | null;
   "parent_id"?: string | null;
   "title": string;
 }
 /** Backend response type: content_category::Model. */
-export interface RouterUpdateCategoryPatchLibrariesLibraryIdCategoriesIdResponseData extends JsonObject {
+export interface RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "parent_id"?: string | null;
+  "title": string;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
-export type RouterUpdateCategoryPatchLibrariesLibraryIdCategoriesIdResponse = RouterUpdateCategoryPatchLibrariesLibraryIdCategoriesIdResponseData;
+export type RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponse = RouterUpdateCategoryPatchApiV1LibrariesLibraryIdCategoriesIdResponseData;
 
 /** Backend response type: no-content. */
 export type RouterArchiveItemDeleteResponse = void;
@@ -558,14 +531,22 @@ export type RouterArchiveItemDeleteResponse = void;
 /** Backend response type: media_part::Model. */
 export interface RouterGetItemGetResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "title": string;
+  "state": string;
+  "media_type"?: string | null;
+  "duration_seconds": number;
+  "textual": BackendJson<"Json">;
+  "rewards": BackendJson<"Json">;
+  "textual_hint"?: string | null;
+  "game_id"?: string | null;
+  "primary_media_id"?: string | null;
+  "hint_media_id"?: string | null;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
 export type RouterGetItemGetResponse = RouterGetItemGetResponseData;
 
@@ -585,27 +566,32 @@ export interface RouterUpdateItemPutInput extends JsonObject {
 /** Backend response type: media_part::Model. */
 export interface RouterUpdateItemPutResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "title": string;
+  "state": string;
+  "media_type"?: string | null;
+  "duration_seconds": number;
+  "textual": BackendJson<"Json">;
+  "rewards": BackendJson<"Json">;
+  "textual_hint"?: string | null;
+  "game_id"?: string | null;
+  "primary_media_id"?: string | null;
+  "hint_media_id"?: string | null;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
 export type RouterUpdateItemPutResponse = RouterUpdateItemPutResponseData;
 
 /** Backend response type: Vec<content_item_media::Model>. */
 export interface RouterItemAttachmentsGetResponseItem extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "content_item_id": string;
+  "media_id": string;
+  "slot": string;
+  "position": number;
+  "is_current": boolean;
   "created_at": string;
 }
 export type RouterItemAttachmentsGetResponse = RouterItemAttachmentsGetResponseItem[];
@@ -619,14 +605,11 @@ export interface RouterAttachMediaPostInput extends JsonObject {
 }
 /** Backend response type: content_item_media::Model. */
 export interface RouterAttachMediaPostResponseData extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "content_item_id": string;
+  "media_id": string;
+  "slot": string;
+  "position": number;
+  "is_current": boolean;
   "created_at": string;
 }
 export type RouterAttachMediaPostResponse = RouterAttachMediaPostResponseData;
@@ -655,14 +638,21 @@ export type RouterUploadMediaPostInput = FormData;
 /** Backend response type: MediaResponse. */
 export interface RouterUploadMediaPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "folder_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "media_type": string;
+  "mime_type": string;
+  "object_key": string;
+  "bucket": string;
+  "size_bytes": number;
+  "duration_seconds"?: number | null;
+  "status": string;
+  "original_filename"?: string | null;
+  "checksum_sha256"?: string | null;
+  "archived_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
   "tags": BackendJson<"entity::tag::Model">[];
   "transcription"?: BackendJson<"entity::media_transcription::Model"> | null;
 }
@@ -674,14 +664,21 @@ export type RouterDeleteMediaDeleteResponse = void;
 /** Backend response type: MediaResponse. */
 export interface RouterGetMediaGetResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "folder_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "media_type": string;
+  "mime_type": string;
+  "object_key": string;
+  "bucket": string;
+  "size_bytes": number;
+  "duration_seconds"?: number | null;
+  "status": string;
+  "original_filename"?: string | null;
+  "checksum_sha256"?: string | null;
+  "archived_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
   "tags": BackendJson<"entity::tag::Model">[];
   "transcription"?: BackendJson<"entity::media_transcription::Model"> | null;
 }
@@ -699,14 +696,21 @@ export interface RouterUpdateMediaPatchInput extends JsonObject {
 /** Backend response type: MediaResponse. */
 export interface RouterUpdateMediaPatchResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "folder_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "media_type": string;
+  "mime_type": string;
+  "object_key": string;
+  "bucket": string;
+  "size_bytes": number;
+  "duration_seconds"?: number | null;
+  "status": string;
+  "original_filename"?: string | null;
+  "checksum_sha256"?: string | null;
+  "archived_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
   "tags": BackendJson<"entity::tag::Model">[];
   "transcription"?: BackendJson<"entity::media_transcription::Model"> | null;
 }
@@ -715,14 +719,18 @@ export type RouterUpdateMediaPatchResponse = RouterUpdateMediaPatchResponseData;
 /** Backend response type: Vec<PackageResponse>. */
 export interface RouterListPackagesGetResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "media_id": string;
+  "revision": number;
+  "status": string;
+  "profile": BackendJson<"Json">;
+  "manifest_dash_key"?: string | null;
+  "manifest_hls_key"?: string | null;
+  "object_prefix": string;
+  "checksum_manifest"?: string | null;
+  "last_error"?: string | null;
   "created_at": string;
+  "updated_at": string;
+  "completed_at"?: string | null;
   "dash_url"?: string | null;
   "hls_url"?: string | null;
 }
@@ -738,14 +746,20 @@ export interface RouterRegeneratePostInput extends JsonObject {
 /** Backend response type: drm_job::Model. */
 export interface RouterRegeneratePostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "media_id": string;
+  "package_id"?: string | null;
+  "status": string;
+  "stage": string;
+  "progress": number;
+  "attempts": number;
+  "max_attempts": number;
+  "next_retry_at"?: string | null;
+  "last_error"?: string | null;
+  "config": BackendJson<"Json">;
   "created_at": string;
+  "updated_at": string;
+  "started_at"?: string | null;
+  "completed_at"?: string | null;
 }
 export type RouterRegeneratePostResponse = RouterRegeneratePostResponseData;
 
@@ -766,14 +780,21 @@ export interface RouterBatchMediaPostInput extends JsonObject {
 /** Backend response type: Vec<MediaResponse>. */
 export interface RouterBatchMediaPostResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "folder_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "media_type": string;
+  "mime_type": string;
+  "object_key": string;
+  "bucket": string;
+  "size_bytes": number;
+  "duration_seconds"?: number | null;
+  "status": string;
+  "original_filename"?: string | null;
+  "checksum_sha256"?: string | null;
+  "archived_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
   "tags": BackendJson<"entity::tag::Model">[];
   "transcription"?: BackendJson<"entity::media_transcription::Model"> | null;
 }
@@ -812,14 +833,21 @@ export interface RouterRegisterExistingMediaPostInput extends JsonObject {
 /** Backend response type: MediaResponse. */
 export interface RouterRegisterExistingMediaPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "folder_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "media_type": string;
+  "mime_type": string;
+  "object_key": string;
+  "bucket": string;
+  "size_bytes": number;
+  "duration_seconds"?: number | null;
+  "status": string;
+  "original_filename"?: string | null;
+  "checksum_sha256"?: string | null;
+  "archived_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
   "tags": BackendJson<"entity::tag::Model">[];
   "transcription"?: BackendJson<"entity::media_transcription::Model"> | null;
 }
@@ -828,14 +856,16 @@ export type RouterRegisterExistingMediaPostResponse = RouterRegisterExistingMedi
 /** Backend response type: Vec<mixed_media::Model>. */
 export interface RouterListMixedMediaGetResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "transcription_language": string;
+  "status": string;
+  "manifest_version": number;
+  "published_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterListMixedMediaGetResponse = RouterListMixedMediaGetResponseItem[];
 
@@ -850,14 +880,16 @@ export interface RouterCreateMixedMediaPostInput extends JsonObject {
 /** Backend response type: mixed_media::Model. */
 export interface RouterCreateMixedMediaPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "transcription_language": string;
+  "status": string;
+  "manifest_version": number;
+  "published_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterCreateMixedMediaPostResponse = RouterCreateMixedMediaPostResponseData;
 
@@ -867,14 +899,16 @@ export type RouterDeleteMixedMediaDeleteResponse = void;
 /** Backend response type: mixed_media::Model. */
 export interface RouterGetMixedMediaGetResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "transcription_language": string;
+  "status": string;
+  "manifest_version": number;
+  "published_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterGetMixedMediaGetResponse = RouterGetMixedMediaGetResponseData;
 
@@ -890,14 +924,16 @@ export interface RouterUpdateMixedMediaPatchInput extends JsonObject {
 /** Backend response type: mixed_media::Model. */
 export interface RouterUpdateMixedMediaPatchResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "transcription_language": string;
+  "status": string;
+  "manifest_version": number;
+  "published_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
 }
 export type RouterUpdateMixedMediaPatchResponse = RouterUpdateMixedMediaPatchResponseData;
 
@@ -930,26 +966,25 @@ export interface RouterStartAnalysisPostResponseData extends JsonObject {
 export type RouterStartAnalysisPostResponse = RouterStartAnalysisPostResponseData;
 
 /** Backend request type: CategoryInput. */
-export interface RouterCreateCategoryPostMixedMediaIdCategoriesInput extends JsonObject {
+export interface RouterCreateCategoryPostApiV1MixedMediaIdCategoriesInput extends JsonObject {
   "title": string;
   "parent_id"?: string | null;
 }
 /** Backend response type: content_category::Model. */
-export interface RouterCreateCategoryPostMixedMediaIdCategoriesResponseData extends JsonObject {
+export interface RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "parent_id"?: string | null;
+  "title": string;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
-export type RouterCreateCategoryPostMixedMediaIdCategoriesResponse = RouterCreateCategoryPostMixedMediaIdCategoriesResponseData;
+export type RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponse = RouterCreateCategoryPostApiV1MixedMediaIdCategoriesResponseData;
 
 /** Backend response type: KnowledgeSyncSettings. */
-export interface RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponseData extends JsonObject {
+export interface RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponseData extends JsonObject {
   "mixed_media_id": string;
   "enabled": boolean;
   "knowledge_base_id"?: string | null;
@@ -960,7 +995,7 @@ export interface RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponseData exten
   "last_error"?: string | null;
   "last_synced_at"?: string | null;
 }
-export type RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponse = RouterGetSettingsGetMixedMediaIdKnowledgeSyncResponseData;
+export type RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponse = RouterGetSettingsGetApiV1MixedMediaIdKnowledgeSyncResponseData;
 
 /** Backend response type: KnowledgeSyncSettings. */
 export interface RouterSyncNowPostResponseData extends JsonObject {
@@ -998,30 +1033,22 @@ export type RouterUpdateSettingsPutResponse = RouterUpdateSettingsPutResponseDat
 /** Backend response type: mixed_media_manifest::Model. */
 export interface RouterGetManifestGetResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id": string;
+  "version": number;
+  "document": BackendJson<"Json">;
   "created_at": string;
 }
 export type RouterGetManifestGetResponse = RouterGetManifestGetResponseData;
 
 /** Backend response type: Vec<mixed_media_manifest::Model>. */
-export interface RouterListManifestsGetMixedMediaIdManifestsResponseItem extends JsonObject {
+export interface RouterListManifestsGetApiV1MixedMediaIdManifestsResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id": string;
+  "version": number;
+  "document": BackendJson<"Json">;
   "created_at": string;
 }
-export type RouterListManifestsGetMixedMediaIdManifestsResponse = RouterListManifestsGetMixedMediaIdManifestsResponseItem[];
+export type RouterListManifestsGetApiV1MixedMediaIdManifestsResponse = RouterListManifestsGetApiV1MixedMediaIdManifestsResponseItem[];
 
 /** Backend request type: PartInput. */
 export interface RouterCreatePartPostInput extends JsonObject {
@@ -1040,30 +1067,34 @@ export interface RouterCreatePartPostInput extends JsonObject {
 /** Backend response type: media_part::Model. */
 export interface RouterCreatePartPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "title": string;
+  "state": string;
+  "media_type"?: string | null;
+  "duration_seconds": number;
+  "textual": BackendJson<"Json">;
+  "rewards": BackendJson<"Json">;
+  "textual_hint"?: string | null;
+  "game_id"?: string | null;
+  "primary_media_id"?: string | null;
+  "hint_media_id"?: string | null;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
 export type RouterCreatePartPostResponse = RouterCreatePartPostResponseData;
 
 /** Backend response type: mixed_media_manifest::Model. */
-export interface RouterPublishPostMixedMediaIdPublishResponseData extends JsonObject {
+export interface RouterPublishPostApiV1MixedMediaIdPublishResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id": string;
+  "version": number;
+  "document": BackendJson<"Json">;
   "created_at": string;
 }
-export type RouterPublishPostMixedMediaIdPublishResponse = RouterPublishPostMixedMediaIdPublishResponseData;
+export type RouterPublishPostApiV1MixedMediaIdPublishResponse = RouterPublishPostApiV1MixedMediaIdPublishResponseData;
 
 /** Backend response type: EditorResources. */
 export interface RouterResourcesGetResponseData extends JsonObject {
@@ -1073,59 +1104,50 @@ export interface RouterResourcesGetResponseData extends JsonObject {
 export type RouterResourcesGetResponse = RouterResourcesGetResponseData;
 
 /** Backend response type: mixed_media_workflow::Model. */
-export interface RouterGetWorkflowGetMixedMediaIdWorkflowResponseData extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
-  "created_at": string;
+export interface RouterGetWorkflowGetApiV1MixedMediaIdWorkflowResponseData extends JsonObject {
+  "mixed_media_id": string;
+  "nodes": BackendJson<"Json">;
+  "edges": BackendJson<"Json">;
+  "revision": number;
+  "updated_at": string;
 }
-export type RouterGetWorkflowGetMixedMediaIdWorkflowResponse = RouterGetWorkflowGetMixedMediaIdWorkflowResponseData;
+export type RouterGetWorkflowGetApiV1MixedMediaIdWorkflowResponse = RouterGetWorkflowGetApiV1MixedMediaIdWorkflowResponseData;
 
 /** Backend request type: WorkflowInput. */
-export interface RouterSaveWorkflowPutMixedMediaIdWorkflowInput extends JsonObject {
+export interface RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowInput extends JsonObject {
   "nodes": JsonValue;
   "edges": JsonValue;
 }
 /** Backend response type: mixed_media_workflow::Model. */
-export interface RouterSaveWorkflowPutMixedMediaIdWorkflowResponseData extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
-  "created_at": string;
+export interface RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowResponseData extends JsonObject {
+  "mixed_media_id": string;
+  "nodes": BackendJson<"Json">;
+  "edges": BackendJson<"Json">;
+  "revision": number;
+  "updated_at": string;
 }
-export type RouterSaveWorkflowPutMixedMediaIdWorkflowResponse = RouterSaveWorkflowPutMixedMediaIdWorkflowResponseData;
+export type RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowResponse = RouterSaveWorkflowPutApiV1MixedMediaIdWorkflowResponseData;
 
 /** Backend response type: no-content. */
 export type RouterDeleteCategoryDeleteResponse = void;
 
 /** Backend request type: CategoryInput. */
-export interface RouterUpdateCategoryPatchMixedMediaMixedIdCategoriesIdInput extends JsonObject {
+export interface RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdInput extends JsonObject {
   "title": string;
   "parent_id"?: string | null;
 }
 /** Backend response type: content_category::Model. */
-export interface RouterUpdateCategoryPatchMixedMediaMixedIdCategoriesIdResponseData extends JsonObject {
+export interface RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "parent_id"?: string | null;
+  "title": string;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
-export type RouterUpdateCategoryPatchMixedMediaMixedIdCategoriesIdResponse = RouterUpdateCategoryPatchMixedMediaMixedIdCategoriesIdResponseData;
+export type RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponse = RouterUpdateCategoryPatchApiV1MixedMediaMixedIdCategoriesIdResponseData;
 
 /** Backend response type: no-content. */
 export type RouterDeletePartDeleteResponse = void;
@@ -1133,14 +1155,22 @@ export type RouterDeletePartDeleteResponse = void;
 /** Backend response type: media_part::Model. */
 export interface RouterGetPartGetResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "title": string;
+  "state": string;
+  "media_type"?: string | null;
+  "duration_seconds": number;
+  "textual": BackendJson<"Json">;
+  "rewards": BackendJson<"Json">;
+  "textual_hint"?: string | null;
+  "game_id"?: string | null;
+  "primary_media_id"?: string | null;
+  "hint_media_id"?: string | null;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
 export type RouterGetPartGetResponse = RouterGetPartGetResponseData;
 
@@ -1161,14 +1191,22 @@ export interface RouterUpdatePartPutInput extends JsonObject {
 /** Backend response type: media_part::Model. */
 export interface RouterUpdatePartPutResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "mixed_media_id"?: string | null;
+  "library_id": string;
+  "category_id"?: string | null;
+  "title": string;
+  "state": string;
+  "media_type"?: string | null;
+  "duration_seconds": number;
+  "textual": BackendJson<"Json">;
+  "rewards": BackendJson<"Json">;
+  "textual_hint"?: string | null;
+  "game_id"?: string | null;
+  "primary_media_id"?: string | null;
+  "hint_media_id"?: string | null;
   "created_at": string;
+  "updated_at": string;
+  "archived_at"?: string | null;
 }
 export type RouterUpdatePartPutResponse = RouterUpdatePartPutResponseData;
 
@@ -1179,13 +1217,13 @@ export type RouterHealthGetResponse = JsonValue;
 export type RouterKnowledgeCatalogGetResponse = JsonValue;
 
 /** Backend response type: SettingsResponse. */
-export interface RouterGetSettingsGetOperationsSettingsResponseData extends JsonObject {
+export interface RouterGetSettingsGetApiV1OperationsSettingsResponseData extends JsonObject {
   "package_concurrency": number;
   "transcription_enabled": boolean;
   "transcription_model_ref"?: string | null;
   "summary_model_ref"?: string | null;
 }
-export type RouterGetSettingsGetOperationsSettingsResponse = RouterGetSettingsGetOperationsSettingsResponseData;
+export type RouterGetSettingsGetApiV1OperationsSettingsResponse = RouterGetSettingsGetApiV1OperationsSettingsResponseData;
 
 /** Backend request type: SettingsInput. */
 export interface RouterUpdateSettingsPatchInput extends JsonObject {
@@ -1235,13 +1273,7 @@ export type RouterStatusGetResponse = JsonValue;
 /** Backend response type: Vec<tag::Model>. */
 export interface RouterListTagsGetResponseItem extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "name": string;
   "created_at": string;
 }
 export type RouterListTagsGetResponse = RouterListTagsGetResponseItem[];
@@ -1253,13 +1285,7 @@ export interface RouterCreateTagPostInput extends JsonObject {
 /** Backend response type: tag::Model. */
 export interface RouterCreateTagPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "name": string;
   "created_at": string;
 }
 export type RouterCreateTagPostResponse = RouterCreateTagPostResponseData;
@@ -1281,14 +1307,24 @@ export interface RouterCreateUploadSessionPostInput extends JsonObject {
 /** Backend response type: UploadSessionResponse. */
 export interface RouterCreateUploadSessionPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "media_id": string;
+  "object_key": string;
+  "multipart_upload_id": string;
+  "filename": string;
+  "name": string;
+  "description"?: string | null;
+  "mime_type": string;
+  "media_type": string;
+  "folder_id"?: string | null;
+  "total_bytes": number;
+  "part_size": number;
+  "checksum_sha256"?: string | null;
+  "status": string;
+  "error"?: string | null;
+  "expires_at": string;
   "created_at": string;
+  "updated_at": string;
+  "completed_at"?: string | null;
   "parts": BackendJson<"upload_part::Model">[];
 }
 export type RouterCreateUploadSessionPostResponse = RouterCreateUploadSessionPostResponseData;
@@ -1299,14 +1335,24 @@ export type RouterCancelUploadDeleteResponse = void;
 /** Backend response type: UploadSessionResponse. */
 export interface RouterGetUploadSessionGetResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "media_id": string;
+  "object_key": string;
+  "multipart_upload_id": string;
+  "filename": string;
+  "name": string;
+  "description"?: string | null;
+  "mime_type": string;
+  "media_type": string;
+  "folder_id"?: string | null;
+  "total_bytes": number;
+  "part_size": number;
+  "checksum_sha256"?: string | null;
+  "status": string;
+  "error"?: string | null;
+  "expires_at": string;
   "created_at": string;
+  "updated_at": string;
+  "completed_at"?: string | null;
   "parts": BackendJson<"upload_part::Model">[];
 }
 export type RouterGetUploadSessionGetResponse = RouterGetUploadSessionGetResponseData;
@@ -1318,29 +1364,34 @@ export interface RouterCompleteUploadPostInput extends JsonObject {
 /** Backend response type: MediaResponse. */
 export interface RouterCompleteUploadPostResponseData extends JsonObject {
   "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "folder_id"?: string | null;
+  "name": string;
+  "description"?: string | null;
+  "media_type": string;
+  "mime_type": string;
+  "object_key": string;
+  "bucket": string;
+  "size_bytes": number;
+  "duration_seconds"?: number | null;
+  "status": string;
+  "original_filename"?: string | null;
+  "checksum_sha256"?: string | null;
+  "archived_at"?: string | null;
   "created_at": string;
+  "updated_at": string;
   "tags": BackendJson<"entity::tag::Model">[];
   "transcription"?: BackendJson<"entity::media_transcription::Model"> | null;
 }
 export type RouterCompleteUploadPostResponse = RouterCompleteUploadPostResponseData;
 
+/** Backend request type: binary byte stream. */
+export type RouterPutUploadPartPutInput = Blob | ArrayBuffer | ArrayBufferView;
 /** Backend response type: upload_part::Model. */
 export interface RouterPutUploadPartPutResponseData extends JsonObject {
-  "id": string;
-  "actor_id"?: string | null;
-  "action": string;
-  "entity_type": string;
-  "entity_id"?: string | null;
-  "request_id"?: string | null;
-  "before_data"?: BackendJson<"Json"> | null;
-  "after_data"?: BackendJson<"Json"> | null;
+  "session_id": string;
+  "part_number": number;
+  "etag": string;
+  "size_bytes": number;
   "created_at": string;
 }
 export type RouterPutUploadPartPutResponse = RouterPutUploadPartPutResponseData;

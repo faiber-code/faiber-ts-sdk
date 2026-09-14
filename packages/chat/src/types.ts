@@ -1,4 +1,8 @@
 import type { ApiEnvelope, JsonObject, JsonValue, QueryParams } from "@faiber/sdk-core";
+export type ChatEventChunk = Uint8Array | string;
+export interface ChatEventAsyncStream extends AsyncIterable<ChatEventChunk> {}
+/** SSE response body returned by Axios in browser-stream or Node async-iterable runtimes. */
+export type ChatEventStream = ReadableStream<Uint8Array> | ChatEventAsyncStream;
 export interface ChatListQuery extends QueryParams { before?: number; after?: number; limit?: number; q?: string; }
 export interface Conversation extends JsonObject { id: string; organization_id: string; kind: string; slug?: string | null; title: JsonValue; description: JsonValue; agent_slug: string; settings: JsonValue; status: string; version: number; created_at: string; updated_at: string; }
 export interface ConversationMember extends JsonObject { id: string; conversation_id: string; user_id: string; role: string; status: string; joined_at: string; }
@@ -52,11 +56,11 @@ export interface ChatMessage extends JsonObject {
 export interface CreateConversationInput extends JsonObject { kind?: string; slug?: string; title?: JsonValue; description?: JsonValue; member_ids?: string[]; agent_slug?: string; settings?: JsonValue; }
 export interface UpdateConversationInput extends JsonObject { title?: JsonValue; description?: JsonValue; settings?: JsonValue; status?: string; expected_version?: number; }
 export interface MemberInput extends JsonObject { user_id: string; role?: string; }
-export interface SendMessageInput extends JsonObject { message_type?: string; content: JsonValue; metadata?: JsonValue; reply_to_id?: string; thread_root_id?: string; client_id?: string; }
+export interface SendMessageInput extends JsonObject { message_type?: string; content: JsonValue; metadata?: JsonValue; reply_to_id?: string; thread_root_id?: string; client_id?: string; attachment_ids?: string[]; }
 export interface EditMessageInput extends JsonObject { content: JsonValue; }
 export interface ReactionInput extends JsonObject { emoji: string; }
 export interface ReadInput extends JsonObject { sequence: number; message_id?: string; }
-export interface AiMessageInput extends JsonObject { message: string; client_id?: string; model_ref?: string; profile?: JsonValue; props?: JsonValue; meta?: JsonValue; inputs?: JsonValue; knowledge_group_slugs?: string[]; knowledge_level?: number; }
+export interface AiMessageInput extends JsonObject { message: string; client_id?: string; model_ref?: string; profile?: JsonValue; props?: JsonValue; meta?: JsonValue; inputs?: JsonValue; knowledge_group_slugs?: string[]; knowledge_level?: number; drm_media_ids?: string[]; session_room_id?: string; }
 export type ConversationResponse = ApiEnvelope<Conversation>;
 export type ConversationListResponse = ApiEnvelope<Conversation[]>;
 export type MemberResponse = ApiEnvelope<ConversationMember>;

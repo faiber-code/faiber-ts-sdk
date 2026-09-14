@@ -31,6 +31,8 @@ const classroomSessions = await api.classroomSessions.list({ page_number: 1 });
 const assignedClassrooms = await api.listClassrooms({ user_id: userId, from, to });
 const statistics = await api.studentStatistics(userId);
 console.log(statistics.counts.classroom_count, statistics.counts.homework_count, statistics.counts.exam_count);
+const officeClassrooms = await api.batchClassrooms({ ids: classroomUuids });
+const migratedIds = await api.resolveLegacyClassroomIds({ classrooms: legacyClassroomIds });
 const sessionTypes = await api.classroomSessionTypes();
 const links = api.classroomSessionLinks(classroomSessions.data.data.data[0]);
 const examUrl = api.examPageUrl(examAttemptId);
@@ -39,11 +41,12 @@ const certificateUrl = api.certificateViewUrl(certificateCode);
 
 ## Complete capability
 
-This package exposes 127 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 143 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `academy` | 8 | `GET`, `POST` |
+| `branding` | 5 | `GET`, `PATCH`, `POST` |
 | `certificate` | 10 | `GET`, `PATCH`, `POST` |
 | `classroom` | 19 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `config` | 20 | `GET`, `PATCH`, `POST` |
@@ -51,17 +54,18 @@ This package exposes 127 registered operations from the learning management serv
 | `dashboard` | 1 | `GET` |
 | `docs` | 1 | `GET` |
 | `drm_routes` | 1 | `GET` |
+| `evaluation` | 4 | `GET`, `POST` |
 | `exam` | 22 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `homework` | 12 | `GET`, `PATCH`, `POST` |
-| `integration` | 1 | `GET` |
+| `integration` | 7 | `GET`, `POST` |
 | `media` | 2 | `GET`, `POST` |
 | `profile_routes` | 2 | `GET` |
-| `report` | 7 | `GET` |
+| `report` | 8 | `GET` |
 | `router` | 2 | `GET` |
 | `service` | 1 | `GET` |
 | `session` | 1 | `GET` |
 
-Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom, homework/assignment, and exam queries support relationship-aware `user_id` and time filtering. `studentStatistics(userId)` uses those server-side filters and pagination totals, so user detail cards are not truncated by a locally filtered page. Classroom responses include course plus teacher, consultant, and support profiles. Exam delivery/start/save/submit and public certificate verification/image routes are typed, while `examPageUrl`, `certificateViewUrl`, and `certificateImageUrl` build UI links from the configured LMS domain.
+Course sessions, classroom users and absences, assignments, classroom-session types, today scheduling, DRM composition search, reports, and authenticated learner academy progression have dedicated typed operations. Classroom, homework/assignment, and exam queries support relationship-aware `user_id` and time filtering. `studentStatistics(userId)` uses those server-side filters and pagination totals, so user detail cards are not truncated by a locally filtered page. Classroom responses include course plus teacher, consultant, and support profiles. `batchClassrooms` exposes the UUID-based Office/Profile integration lookup, while `resolveLegacyClassroomIds` provides the explicit migration bridge for old numeric references. Exam delivery/start/save/submit and public certificate verification/image routes are typed, while `examPageUrl`, `certificateViewUrl`, and `certificateImageUrl` build UI links from the configured LMS domain.
 
 ```ts
 const catalog = await api.academyCourses({ category_id: 4 });

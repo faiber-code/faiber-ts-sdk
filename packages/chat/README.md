@@ -31,17 +31,21 @@ const sent = await api.sendMessage(conversation.data.data.id, { content: { text:
 // Compare sender_id with the authenticated IDP user's ID to distinguish sides
 // in a direct chat. It is null for assistant or other non-user messages.
 const sentByCurrentUser = sent.data.data.sender_id === currentUserId;
+const assistants = await api.managedAssistants();
+const models = await api.assistantModels();
+const pendingInputs = await api.aiRuntimeInputs(conversation.data.data.id);
 ```
 
 ## Complete capability
 
-This package exposes 16 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 32 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `routes` | 16 | `DELETE`, `GET`, `POST`, `PUT` |
+| `main` | 1 | `GET` |
+| `routes` | 31 | `DELETE`, `GET`, `POST`, `PUT` |
 
-AI turns are executed and billed by Infera Agentic; Chat only coordinates conversation context and reconciliation. The events endpoint is an SSE stream and can be requested with normal SDK authorization headers.
+The SDK covers the complete conversation view and moderation surface: conversations, members, messages, attachments, reactions, read cursors, realtime authorization and SSE events. Assistant administration includes list/get/create/update/delete, model and context catalogs, customer-action content, AI messages, selected DRM media, Session room context, pending runtime inputs, and runtime-input completion. AI turns are executed and billed by Infera Agentic; Chat coordinates conversation context and reconciliation.
 
 ## Authentication and authorization
 

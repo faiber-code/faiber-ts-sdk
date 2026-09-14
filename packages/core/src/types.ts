@@ -1,5 +1,6 @@
 import type { AxiosInstance, AxiosRequestConfig, CreateAxiosDefaults, } from "axios";
 export const SERVICE_NAMES = [
+    "office",
     "idp",
     "profile",
     "modules",

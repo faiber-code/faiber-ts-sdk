@@ -1,5 +1,5 @@
 import {
- AssetService, ChatService, FaiberSDK, FaiberGame, IdpService, LmsService, MessengerService, ModulesService,
+ AssetService, ChatService, CrmService, FaiberSDK, FaiberGame, IdpService, LmsService, MessengerService, ModulesService, ProfileService,
   StateRealtimeClient, component, domainsFromManageProxy,
   type CreateWorldInput, type FaiberServiceApis, type ManageService,
 } from "@faiber/faiber-ts-sdk";
@@ -67,6 +67,9 @@ async function provePublicContracts(): Promise<void> {
   await apis.profile.saveAddress("user-1", { title: "Home", city: "Tehran", detail: "Example street" });
   await apis.profile.myAddresses();
   await apis.profile.saveMyAddress({ title: "Home", city: "Tehran", detail: "Example street" });
+  const fullProfile = await apis.profile.full("00000000-0000-0000-0000-000000000001");
+  const office: ProfileService.OfficeProfileData | null | undefined = fullProfile.data.data.profile.office;
+  const classroomId: string | undefined = fullProfile.data.data.profile.lms?.classrooms[0]?.classroom_id;
   const avatarResponse = await apis.profile.avatar(
     "00000000-0000-0000-0000-000000000001",
     "profiles/00000000-0000-0000-0000-000000000001/avatar/example.png",
@@ -77,6 +80,8 @@ async function provePublicContracts(): Promise<void> {
   const classroomSession: LmsService.ClassroomSession | undefined = classroomSessions.data.data.data[0];
   const classroomSessionTypes = await apis.lms.classroomSessionTypes();
   const classroomSessionType: LmsService.ClassroomSessionType | undefined = classroomSessionTypes.data.data[0];
+  await apis.lms.batchClassrooms({ ids: ["00000000-0000-0000-0000-000000000001"] });
+  await apis.lms.resolveLegacyClassroomIds({ classrooms: [42], courses: [7] });
   if (classroomSession) {
     const sessionLinks: LmsService.ClassroomSessionLinks = apis.lms.classroomSessionLinks(classroomSession);
     void sessionLinks;
@@ -116,7 +121,9 @@ async function provePublicContracts(): Promise<void> {
  void suggestions;
  void dailyCosts;
  void linkedBilling;
- void avatarBlob;
+  void avatarBlob;
+  void office;
+  void classroomId;
  void chatSenderId;
 void manageDomains;
 
@@ -125,6 +132,15 @@ sdk.manage.listAgentModels({ signal: AbortSignal.timeout(1_000) }).then(response
   response.data.ollama.think_levels.forEach(level => level.toUpperCase());
 });
 sdk.crm.listLeads({ status: "open" }).then(response => response.data.meta.request_id);
+const mutationOptions = { headers: { "Idempotency-Key": "dashboard-contract-test" } };
+sdk.crm.deleteTeam("team-1", { version: 1 }, mutationOptions).then(response => response.data.data.deleted);
+sdk.crm.removeTeamMember("team-1", "member-1", mutationOptions).then(response => response.data.data.is_active);
+sdk.crm.addLeadToSos("lead-1", mutationOptions).then(response => response.data.data.lead_id);
+sdk.crm.removeLeadFromSos("lead-1", mutationOptions).then(response => response.data.data.deleted);
+sdk.crm.assignTeamToWorkflow("workflow-1", "team-1", mutationOptions).then(response => {
+  const assignment: CrmService.CrmWorkflowAssignment = response.data.data;
+  return assignment.team_id;
+});
 sdk.task.workspace().then(response => response.data.data.sandbox_id);
 sdk.task.openEvents({ signal: AbortSignal.timeout(1_000) }).then(response => response.data);
   void manageAction;

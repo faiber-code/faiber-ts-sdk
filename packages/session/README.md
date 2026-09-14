@@ -24,20 +24,28 @@ const api = new SessionApi(client);
 
 const rooms = await api.rooms.list({ "page[number]": 1 });
 const token = await api.livekitToken(roomId);
+const recordings = await api.listRecordings({ status: "ready" });
+const recording = await api.recordingManifest(recordingId);
+const liveView = api.roomViewUrl(roomId);
+const recordingsView = api.recordingViewUrl(roomId);
 ```
 
 ## Complete capability
 
-This package exposes 18 registered operations from the live sessions service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 34 registered operations from the live sessions service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `integration` | 1 | `GET` |
-| `room` | 15 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `room-state` | 1 | `POST` |
+| `assistant_tools` | 3 | `GET` |
+| `branding` | 5 | `GET`, `POST`, `PUT` |
+| `configuration` | 2 | `GET`, `PUT` |
+| `integration` | 2 | `GET` |
+| `recording` | 4 | `GET`, `POST` |
+| `room` | 16 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `room_state` | 1 | `POST` |
 | `router` | 1 | `GET` |
 
-Room start, stop, end, playback, recording, webhook, and state-response routes are separate operations so their unusual GET/POST verbs are preserved exactly.
+Room creation and management, join/token access, stop/end, interactive starts, playback, leaderboards, room recordings, the global recording queue, manifests, processing schedules, audio models, LiveKit configuration, branding, Chat assistant tools, and state responses are all covered. `roomViewUrl`, `recordingViewUrl`, and `playbackViewUrl` generate the canonical Session web views from the configured Session domain. Unusual lifecycle verbs—including `POST` for ending a room—are preserved exactly.
 
 ## Authentication and authorization
 

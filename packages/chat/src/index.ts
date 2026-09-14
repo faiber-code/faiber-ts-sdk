@@ -1,5 +1,6 @@
 import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
+import type * as O from "./operations.types.js";
 import { ChatOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class ChatApi extends ServiceApi {
@@ -16,10 +17,25 @@ export class ChatApi extends ServiceApi {
   sendMessage(conversationId: Identifier, data: T.SendMessageInput, options?: RequestOptions<T.SendMessageInput>) { return this.client.post<T.MessageResponse, T.SendMessageInput>(`/api/v1/conversations/${id(conversationId)}/messages`, data, options); }
   sendAiMessage(conversationId: Identifier, data: T.AiMessageInput, options?: RequestOptions<T.AiMessageInput>) { return this.client.post<T.AiMessageResponse, T.AiMessageInput>(`/api/v1/conversations/${id(conversationId)}/ai/messages`, data, options); }
   markRead(conversationId: Identifier, data: T.ReadInput, options?: RequestOptions<T.ReadInput>) { return this.client.post<void, T.ReadInput>(`/api/v1/conversations/${id(conversationId)}/read`, data, options); }
-  events(conversationId: Identifier, options?: RequestOptions) { return this.client.get<unknown>(`/api/v1/conversations/${id(conversationId)}/events`, undefined, { ...options, responseType: "stream" }); }
+  events(conversationId: Identifier, options?: RequestOptions) { return this.client.get<T.ChatEventStream>(`/api/v1/conversations/${id(conversationId)}/events`, undefined, { ...options, responseType: "stream" }); }
   editMessage(messageId: Identifier, data: T.EditMessageInput, options?: RequestOptions<T.EditMessageInput>) { return this.client.put<T.MessageResponse, T.EditMessageInput>(`/api/v1/messages/${id(messageId)}`, data, options); }
   deleteMessage(messageId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/messages/${id(messageId)}`, options); }
   react(messageId: Identifier, data: T.ReactionInput, options?: RequestOptions<T.ReactionInput>) { return this.client.post<T.MessageResponse, T.ReactionInput>(`/api/v1/messages/${id(messageId)}/reactions`, data, options); }
+  assistants(options?: RequestOptions) { return this.operations.routesListAssistantsGet(options); }
+  assistant(assistantId: Identifier, options?: RequestOptions) { return this.operations.routesGetAssistantGet(assistantId, options); }
+  managedAssistants(options?: RequestOptions) { return this.operations.routesListManagedAssistantsGet(options); }
+  managedAssistant(assistantId: Identifier, options?: RequestOptions) { return this.operations.routesGetManagedAssistantGet(assistantId, options); }
+  createAssistant(data: O.RoutesCreateAssistantPostInput, options?: RequestOptions<O.RoutesCreateAssistantPostInput>) { return this.operations.routesCreateAssistantPost(data, options); }
+  updateAssistant(assistantId: Identifier, data: O.RoutesUpdateAssistantPutInput, options?: RequestOptions<O.RoutesUpdateAssistantPutInput>) { return this.operations.routesUpdateAssistantPut(assistantId, data, options); }
+  deleteAssistant(assistantId: Identifier, options?: RequestOptions) { return this.operations.routesDeleteAssistantDelete(assistantId, options); }
+  assistantModels(params?: O.RoutesAssistantModelsGetQuery, options?: RequestOptions) { return this.operations.routesAssistantModelsGet(params, options); }
+  assistantContextCatalog(options?: RequestOptions) { return this.operations.routesAssistantContextCatalogGet(options); }
+  customerActionContent(params?: O.RoutesCustomerActionContentGetQuery, options?: RequestOptions) { return this.operations.routesCustomerActionContentGet(params, options); }
+  createAttachment(conversationId: Identifier, data: O.RoutesCreateAttachmentPostInput, options?: RequestOptions<O.RoutesCreateAttachmentPostInput>) { return this.operations.routesCreateAttachmentPost(conversationId, data, options); }
+  completeAttachment(attachmentId: Identifier, options?: RequestOptions) { return this.operations.routesCompleteAttachmentPost(attachmentId, options); }
+  realtimeAuth(conversationId: Identifier, data: O.RoutesRealtimeAuthPostInput, options?: RequestOptions<O.RoutesRealtimeAuthPostInput>) { return this.operations.routesRealtimeAuthPost(conversationId, data, options); }
+  aiRuntimeInputs(conversationId: Identifier, options?: RequestOptions) { return this.operations.routesAiRuntimeInputsGet(conversationId, options); }
+  completeAiRuntimeInput(conversationId: Identifier, inputId: Identifier, data: O.RoutesAiCompleteRuntimeInputPostInput, options?: RequestOptions<O.RoutesAiCompleteRuntimeInputPostInput>) { return this.operations.routesAiCompleteRuntimeInputPost(conversationId, inputId, data, options); }
 }
 export * from "./types.js";
 export * from "@faiber/sdk-core";

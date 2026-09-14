@@ -27,9 +27,93 @@ export interface Profile extends JsonObject {
     meta?: JsonValue;
     app?: JsonValue;
     assessment?: JsonValue;
+    /** Office data synchronized into Profile. Present on detail, full, and admin reads. */
+    office?: OfficeProfileData | null;
+    /** LMS classroom projection. Present on detail, full, and admin reads. */
+    lms?: LmsProfileData | null;
     properties?: ProfileProperties;
     services?: ProfileProperties;
     parent?: ProfileParent[];
+}
+export interface OfficeProfileData extends JsonObject {
+    account_balance?: number | null;
+    wallet_balance?: number | null;
+    enrollments: OfficeEnrollment[];
+    transactions: OfficeTransaction[];
+    installments: OfficeInstallment[];
+    wallets: OfficeWallet[];
+    wallet_transactions: OfficeWalletTransaction[];
+}
+export interface OfficeEnrollment extends JsonObject {
+    enrollment_id: number;
+    student_id?: number | null;
+    classroom_id?: number | null;
+    course_id?: number | null;
+    support_user_id?: string | null;
+    amount?: number | null;
+    discount_amount?: number | null;
+    remain_amount?: number | null;
+    total_sessions?: number | null;
+    freemium_sessions?: number | null;
+    freemium_sessions_used?: number | null;
+    education_status_id?: number | null;
+    archive: boolean;
+}
+export interface OfficeTransaction extends JsonObject {
+    transaction_id: number;
+    subject?: string | null;
+    amount?: number | null;
+    status?: string | null;
+    support_user_id?: string | null;
+    deposit_at?: string | null;
+    archive: boolean;
+}
+export interface OfficeInstallment extends JsonObject {
+    installment_id: number;
+    amount?: number | null;
+    status?: string | null;
+    paid_at?: string | null;
+    deadline?: string | null;
+    archive: boolean;
+}
+export interface OfficeWallet extends JsonObject {
+    wallet_id: number;
+    balance?: number | null;
+}
+export interface OfficeWalletTransaction extends JsonObject {
+    wallet_transaction_id: number;
+    amount?: number | null;
+    transaction_type?: string | null;
+}
+export interface LmsProfileData extends JsonObject {
+    classrooms: LmsClassroom[];
+    classroom_sessions: LmsClassroomSession[];
+    classroom_users: LmsClassroomUser[];
+}
+export interface LmsClassroom extends JsonObject {
+    classroom_id: string;
+    name?: string | null;
+    course_id?: string | null;
+    capacity?: number | null;
+    starts_at?: string | null;
+    ends_at?: string | null;
+    classroom_type_id?: string | null;
+    status?: string | null;
+    consultant_user_id?: string | null;
+    teacher_user_id?: string | null;
+    support_user_id?: string | null;
+}
+export interface LmsClassroomSession extends JsonObject {
+    session_id: string;
+    classroom_id?: string | null;
+    starts_at?: string | null;
+    ends_at?: string | null;
+    status?: string | null;
+}
+export interface LmsClassroomUser extends JsonObject {
+    classroom_id: string;
+    score?: number | null;
+    status?: string | null;
 }
 export interface LocalizedText extends JsonObject {
     fa?: string | null;

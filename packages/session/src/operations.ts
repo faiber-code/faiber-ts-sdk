@@ -13,6 +13,38 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
   }
   /**
+   * Performs the show operation for the branding capability.
+   * Calls `GET /api/v1/config/branding` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: config:read.
+   */
+  brandingShowGet(options?: RequestOptions) {
+    return this.client.request<T.BrandingShowGetResponse>({ ...options, method: "GET", url: `/api/v1/config/branding` });
+  }
+  /**
+   * Performs the update operation for the branding capability.
+   * Calls `PUT /api/v1/config/branding` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: config:update.
+   */
+  brandingUpdatePut(data: T.BrandingUpdatePutInput, options?: RequestOptions<T.BrandingUpdatePutInput>) {
+    return this.client.request<T.BrandingUpdatePutResponse, T.BrandingUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/config/branding`, data: data });
+  }
+  /**
+   * Performs the upload operation for the branding capability.
+   * Calls `POST /api/v1/config/branding/assets` through the shared IDP-aware Faiber client.
+   * @param data Typed multipart form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: config:update.
+   */
+  brandingUploadPost(data: T.BrandingUploadPostInput, options?: RequestOptions<T.BrandingUploadPostInput>) {
+    return this.client.request<T.BrandingUploadPostResponse, T.BrandingUploadPostInput>({ ...options, method: "POST", url: `/api/v1/config/branding/assets`, data: data });
+  }
+  /**
    * Performs the livekit config show operation for the configuration capability.
    * Calls `GET /api/v1/config/livekit` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -86,6 +118,27 @@ export class SessionOperations extends ServiceApi {
    */
   assistantToolsUserSessionDetailGet(userId: Identifier, roomId: Identifier, options?: RequestOptions) {
     return this.client.request<T.AssistantToolsUserSessionDetailGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/chat/users/${encodeURIComponent(userId)}/sessions/${encodeURIComponent(roomId)}` });
+  }
+  /**
+   * Performs the public show operation for the branding capability.
+   * Calls `GET /api/v1/public/branding` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  brandingPublicShowGet(options?: RequestOptions) {
+    return this.client.request<T.BrandingPublicShowGetResponse>({ ...options, method: "GET", url: `/api/v1/public/branding` });
+  }
+  /**
+   * Performs the asset operation for the branding capability.
+   * Calls `GET /api/v1/public/branding/assets/{key}` through the shared IDP-aware Faiber client.
+   * @param key Backend path identifier `key`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  brandingAssetGet(key: Identifier, options?: RequestOptions) {
+    return this.client.request<T.BrandingAssetGetResponse>({ ...options, method: "GET", url: `/api/v1/public/branding/assets/${encodeURIComponent(key)}` });
   }
   /**
    * Performs the recordings index operation for the recording capability.

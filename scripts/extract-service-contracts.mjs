@@ -106,7 +106,11 @@ function permissionAnnotations(source) {
       else if (source[i] === "}" && --depth === 0) { close = i; break; }
     }
     if (close === -1) continue;
-    const permissions = [...source.slice(open, close + 1).matchAll(/\.require\(\s*"([^"]+)"\s*\)/g)].map(item => item[1]);
+    const body = source.slice(open, close + 1);
+    const permissions = [...body.matchAll(/\.require\(\s*"([^"]+)"\s*\)/g)].map(item => item[1]);
+    for (const authorize of body.matchAll(/\bauthorize\s*\(\s*&auth\s*,\s*(?:&\s*)?\[([\s\S]*?)\](?:\.as_slice\(\))?\s*,/g)) {
+      permissions.push(...[...authorize[1].matchAll(/"([^"]+)"/g)].map(item => item[1]));
+    }
     if (permissions.length && !result.has(match[1])) result.set(match[1], permissions);
   }
   return result;
@@ -142,6 +146,26 @@ function joinPath(prefix, path) {
   return cleanPath(`${prefix.replace(/\/$/, "")}/${path.replace(/^\//, "")}`);
 }
 
+function drmPermission(method, path) {
+  const segments = path.replace(/^\/api\/v1/, "").replace(/^\/+|\/+$/g, "").split("/");
+  if (method === "DELETE" && segments[0] === "libraries" && segments.length === 2) {
+    return "drm:library:delete";
+  }
+  if (path.includes("/operations/settings") || path.includes("/operations/transcription-models")) {
+    return "drm:manage";
+  }
+  const action = ["GET", "HEAD"].includes(method) ? "read" : "write";
+  const resource = path.includes("/licenses/") ? "license"
+    : path.includes("/audit-events") ? "audit"
+    : path.includes("/packages") || path.includes("/drm/jobs") ? "package"
+    : path.includes("/upload-sessions") || path.includes("/media") || path.includes("/folders") || path.includes("/tags") ? "media"
+    : path.includes("/compositions") || path.includes("/composition-analyses") || path.includes("/composition-categories") || path.includes("/mixed-media") || path.includes("/external-references") ? "composition"
+    : path.includes("/items") ? "content"
+    : path.includes("/libraries") ? "library"
+    : action;
+  return resource === action ? `drm:${action}` : `drm:${resource}:${action}`;
+}
+
 function relativeSource(file) {
   return relative(servicesRoot, file).replaceAll(String.fromCharCode(92), "/");
 }
@@ -156,6 +180,7 @@ function handlerSignature(source, handler) {
   const body = params.match(/Json\s*\([^)]*\)\s*:\s*Json\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim()
     ?? params.match(/Json\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim()
     ?? params.match(/Form\s*\([^)]*\)\s*:\s*Form\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
+  const binary = /(?:^|,)\s*(?:\w+\s*:\s*)?(?:axum::body::)?Bytes\s*(?:,|$)/m.test(params);
   const query = params.match(/Query\s*\([^)]*\)\s*:\s*Query\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
   const pathParam = params.match(/Path\s*\([^)]*\)\s*:\s*Path\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim();
   const responseMatch = after.match(/(?:APIResponse|ApiResponse)(WithMeta)?\s*</);
@@ -194,15 +219,14 @@ function handlerSignature(source, handler) {
   else if (!response && /\bRedirect\b/.test(after)) responseEnvelope = "redirect";
   else if (!response && /\b(?:Sse|WebSocketUpgrade)\b/.test(after)) responseEnvelope = "stream";
   else if (!response && /\bResponse\b/.test(after)) responseEnvelope = "raw-response";
-  return { body, query, pathParam, response, responseMeta, responseEnvelope, multipart: /Multipart/.test(params), formUrlEncoded: /Form\s*<|Form\s*\([^)]*\)\s*:\s*Form\s*</.test(params) };
+  return { body, query, pathParam, response, responseMeta, responseEnvelope, multipart: /Multipart/.test(params), ...(binary ? { binary: true } : {}), formUrlEncoded: /Form\s*<|Form\s*\([^)]*\)\s*:\s*Form\s*</.test(params) };
 }
 
-function qualifiedHandlerSource(fileSources, srcRoot, qualifier, handler) {
+function qualifiedHandlerSource(fileSources, srcRoot, currentFile, qualifier, handler) {
   if (!qualifier) return undefined;
-  const qualifiedPath = qualifier
-    .replace(/^crate::/, "")
-    .replace(/^self::/, "")
-    .replaceAll("::", "/");
+  const qualifiedPath = qualifier.startsWith("super::")
+    ? `${relative(srcRoot, dirname(currentFile)).replaceAll(String.fromCharCode(92), "/")}/${qualifier.replace(/^super::/, "").replaceAll("::", "/")}`
+    : qualifier.replace(/^crate::/, "").replace(/^self::/, "").replaceAll("::", "/");
   const candidates = [...fileSources.entries()]
     .filter(([, candidate]) => new RegExp(`(?:pub\\s+)?async\\s+fn\\s+${handler}\\s*\\(`).test(candidate))
     .map(([file, candidate]) => {
@@ -273,7 +297,9 @@ for (const service of services) {
       for (const route of routeCalls(source)) {
       if (route.method === "ANY") continue;
       const annotated = canonical.get(route.handler);
-      const prefix = service === "task" && ["/health/live", "/health/ready", "/health/dependencies", "/metrics", "/api/openapi.json"].includes(route.localPath)
+      const prefix = service === "drm" && module === "router"
+        ? "/api/v1"
+        : service === "task" && ["/health/live", "/health/ready", "/health/dependencies", "/metrics", "/api/openapi.json"].includes(route.localPath)
         ? "/"
         : service === "knowledge" && module === "routes" && ["/chat/{chat_slug}/query", "/tool-schema"].includes(route.localPath)
         ? "/api/v1/runtime"
@@ -293,17 +319,21 @@ for (const service of services) {
           ? cleanPath(annotated)
           : cleanPath(`/api/v1${annotated}`)
         : joinPath(prefix, route.localPath);
-      const resolvedSource = qualifiedHandlerSource(fileSources, srcRoot, route.qualifier, route.handler) ?? source;
+      const resolvedSource = qualifiedHandlerSource(fileSources, srcRoot, file, route.qualifier, route.handler) ?? source;
       let signature = handlerSignature(resolvedSource, route.handler);
+      if (service === "chat" && route.handler === "events") {
+        signature = { ...signature, responseEnvelope: "stream" };
+      }
       if (service === "profile" && ["manager_index", "accountant_index", "support_index", "consultant_index", "teacher_index", "student_index", "parent_index", "other_index"].includes(route.handler)) {
         signature = { query: "models::ListQuery", response: "models::ListData", responseMeta: "crate::models::PaginationMeta", responseEnvelope: "api" };
       }
+      const declaredPermissions = permissionAnnotations(resolvedSource).get(route.handler) ?? permissions.get(route.handler) ?? [];
       endpoints.push({
         method: route.method,
         path,
         module,
         handler: route.handler,
-        permissions: permissionAnnotations(resolvedSource).get(route.handler) ?? permissions.get(route.handler) ?? [],
+        permissions: declaredPermissions.length || service !== "drm" ? declaredPermissions : [drmPermission(route.method, path)],
         source: relativeSource(file),
         ...signature,
       });

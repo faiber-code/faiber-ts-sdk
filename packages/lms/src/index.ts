@@ -151,6 +151,14 @@ export class LmsApi extends ServiceApi {
     report(kind: "teachers" | "students" | "classrooms", params?: QueryParams, options?: RequestOptions) { return this.client.get<T.LmsReportResponse>(`/api/v1/reports/${kind}`, params, options); }
     /** Lists active learner academy categories for the authenticated IDP session. */
     academyCategories(options?: RequestOptions) { return this.client.get<T.AcademyCategoriesResponse>("/api/v1/academy/categories", undefined, options); }
+    /** Returns classroom records for Office/Profile integration using canonical UUID identifiers. */
+    batchClassrooms(data: O.IntegrationBatchClassroomsPostInput, options?: RequestOptions<O.IntegrationBatchClassroomsPostInput>) {
+        return this.operations.integrationBatchClassroomsPost(data, options);
+    }
+    /** Resolves legacy numeric classroom references to the LMS UUID identifiers used by current services. */
+    resolveLegacyClassroomIds(data: O.IntegrationResolveLegacyIdsPostInput, options?: RequestOptions<O.IntegrationResolveLegacyIdsPostInput>) {
+        return this.operations.integrationResolveLegacyIdsPost(data, options);
+    }
     /** Lists active academy courses and the current learner's enrollment progress. */
     academyCourses(params?: T.AcademyCatalogQuery, options?: RequestOptions) { return this.client.get<T.AcademyCoursesResponse>("/api/v1/academy/courses", params, options); }
     /** Returns ordered sessions and lock/completion state for one academy course. */

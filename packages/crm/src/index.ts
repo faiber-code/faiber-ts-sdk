@@ -12,6 +12,26 @@ export class CrmApi extends ServiceApi {
   createTeam(data: O.ApiCreateTeamPostInput, options?: RequestOptions<O.ApiCreateTeamPostInput>) { return this.operations.apiCreateTeamPost(data, options); }
   getTeam(id: Identifier, options?: RequestOptions) { return this.operations.apiTeamGet(id, options); }
   addTeamMember(teamId: Identifier, data: O.ApiAddTeamMemberPostInput, options?: RequestOptions<O.ApiAddTeamMemberPostInput>) { return this.operations.apiAddTeamMemberPost(teamId, data, options); }
+  /** Soft-deletes a team after optimistic version validation and detaches its active records. Requires `crm:team:delete`. */
+  deleteTeam(id: Identifier, data: O.ApiDeleteTeamDeleteInput, options?: RequestOptions<O.ApiDeleteTeamDeleteInput>) { return this.operations.apiDeleteTeamDelete(id, data, options); }
+  /** Deactivates a current team membership. Requires `crm:team:manage_members`. */
+  removeTeamMember(teamId: Identifier, memberId: Identifier, options?: RequestOptions) { return this.operations.apiRemoveTeamMemberDelete(teamId, memberId, options); }
+
+  /** Lists leads currently marked for SOS handling. Requires `crm:sos:read`. */
+  listSosLeads(options?: RequestOptions) { return this.operations.apiListSosLeadsGet(options); }
+  /** Marks a lead for SOS handling. Requires `crm:sos:create`. */
+  addLeadToSos(leadId: Identifier, options?: RequestOptions) { return this.operations.apiAddLeadToSosPost(leadId, options); }
+  /** Removes a lead from SOS without deleting the lead. Requires `crm:sos:delete`. */
+  removeLeadFromSos(leadId: Identifier, options?: RequestOptions) { return this.operations.apiRemoveLeadFromSosDelete(leadId, options); }
+
+  /** Lists team and user assignments for a workflow. Requires `crm:workflow_assignment:read`. */
+  listWorkflowAssignments(workflowId: Identifier, options?: RequestOptions) { return this.operations.apiListWorkflowAssignmentsGet(workflowId, options); }
+  /** Assigns exactly one team or user to a workflow. Requires `crm:workflow_assignment:manage`. */
+  createWorkflowAssignment(workflowId: Identifier, data: O.ApiCreateWorkflowAssignmentPostInput, options?: RequestOptions<O.ApiCreateWorkflowAssignmentPostInput>) { return this.operations.apiCreateWorkflowAssignmentPost(workflowId, data, options); }
+  assignTeamToWorkflow(workflowId: Identifier, teamId: Identifier, options?: RequestOptions<O.ApiCreateWorkflowAssignmentPostInput>) { return this.createWorkflowAssignment(workflowId, { team_id: String(teamId) }, options); }
+  assignUserToWorkflow(workflowId: Identifier, userId: Identifier, options?: RequestOptions<O.ApiCreateWorkflowAssignmentPostInput>) { return this.createWorkflowAssignment(workflowId, { user_id: String(userId) }, options); }
+  /** Removes a workflow assignment. Requires `crm:workflow_assignment:manage`. */
+  deleteWorkflowAssignment(workflowId: Identifier, assignmentId: Identifier, options?: RequestOptions) { return this.operations.apiDeleteWorkflowAssignmentDelete(workflowId, assignmentId, options); }
 
   listCompanies(params?: O.ApiCompaniesGetQuery, options?: RequestOptions) { return this.operations.apiCompaniesGet(params, options); }
   createCompany(data: O.ApiCreateCompanyPostInput, options?: RequestOptions<O.ApiCreateCompanyPostInput>) { return this.operations.apiCreateCompanyPost(data, options); }

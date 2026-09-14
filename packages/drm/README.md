@@ -20,8 +20,11 @@ const sdk = new FaiberSDK({
 const page = await sdk.drm.media({ search: "intro", media_type: "video", page: 1, size: 30 });
 const upload = await sdk.drm.uploadMedia({ file, name: "Introduction", tag_ids: [tagId] });
 const playback = await sdk.drm.playback(upload.data.id);
+const libraries = await sdk.drm.listLibraries();
+const compositions = await sdk.drm.listCompositions({ page: 1, size: 30 });
+const statuses = await sdk.drm.drmStatuses();
 ```
 
 `FAIBER_DRM_URL` must be the DRM service origin. Bearer and cookie authentication use the shared SDK configuration. Upload accepts `Blob` and sends `multipart/form-data`; only audio and video are accepted by the backend. Playback URLs are signed for 900 seconds. Every call returns the complete Axios response and accepts Axios request options, including `AbortSignal`, headers, timeout, and adapters.
 
-The client covers all 15 mounted REST operations. Inputs, list filters, paginated results, entity models, and playback output are named exported TypeScript types. Axios errors preserve validation, not-found, and transport responses.
+The client covers all 96 mounted REST operations under `/api/v1`. This includes folders, tags, media, DRM statuses, packages and processing jobs, resumable uploads, compositions and mixed-media workflows, manifests, analyses, content libraries, categories, items and attachments, Knowledge synchronization, operational settings, model catalogs, health, dashboards, and audit events. Common panel workflows are available directly on `sdk.drm`; every route remains available on `sdk.drm.operations` with its exact granular DRM permission. Inputs, filters, outputs, and pagination contracts are exported TypeScript types. Axios errors preserve validation, authorization, conflict, not-found, and transport responses.

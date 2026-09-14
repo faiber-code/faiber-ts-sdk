@@ -233,7 +233,7 @@ export class ChatOperations extends ServiceApi {
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
    */
   routesEventsGet(id: Identifier, options?: RequestOptions) {
-    return this.client.request<T.RoutesEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/conversations/${encodeURIComponent(id)}/events` });
+    return this.client.request<T.RoutesEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/conversations/${encodeURIComponent(id)}/events`, responseType: "stream" });
   }
   /**
    * Performs the members operation for the routes capability.

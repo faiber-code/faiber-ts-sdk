@@ -27,19 +27,21 @@ const sent = await api.send({
   template: "membership-expiring",
   data: { days: 3 },
 });
-await api.operations.notificationNotificationsMarkReadPatch(notificationId);
+await api.markNotificationRead(notificationId);
+await api.createTemplateContent(templateId, { locale: "fa", content: "..." });
+const realtime = await api.notificationRealtimeConfig();
 ```
 
 ## Complete capability
 
-This package exposes 32 registered operations from the messaging service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 33 registered operations from the messaging service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `channel` | 6 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `dashboard` | 1 | `GET` |
 | `integration` | 3 | `GET` |
-| `notification` | 6 | `GET`, `PATCH`, `POST` |
+| `notification` | 7 | `GET`, `PATCH`, `POST` |
 | `router` | 3 | `GET` |
 | `service` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `template` | 8 | `DELETE`, `GET`, `PATCH`, `POST` |

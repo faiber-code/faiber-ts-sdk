@@ -1471,7 +1471,7 @@
       ],
       "source": "infera-chat/src/routes.rs",
       "pathParam": "Uuid",
-      "responseEnvelope": "raw-response",
+      "responseEnvelope": "stream",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -1658,7 +1658,9 @@
       "path": "/api/v1/activities",
       "module": "api",
       "handler": "activities",
-      "permissions": [],
+      "permissions": [
+        "crm:activity:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
       "response": "ListData<Activity>",
@@ -1671,7 +1673,9 @@
       "path": "/api/v1/activities",
       "module": "api",
       "handler": "create_activity",
-      "permissions": [],
+      "permissions": [
+        "crm:activity:create"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateActivity",
       "response": "Activity",
@@ -1684,7 +1688,9 @@
       "path": "/api/v1/automation/jobs",
       "module": "api",
       "handler": "automation_jobs",
-      "permissions": [],
+      "permissions": [
+        "crm:automation:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
       "response": "ListData<DurableJob>",
@@ -1697,7 +1703,9 @@
       "path": "/api/v1/automation/webhooks",
       "module": "api",
       "handler": "automation_webhooks",
-      "permissions": [],
+      "permissions": [
+        "crm:automation:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "Vec<WebhookSubscription>",
       "responseEnvelope": "api",
@@ -1709,7 +1717,9 @@
       "path": "/api/v1/boards/{entity_type}/{pipeline_id}",
       "module": "api",
       "handler": "board",
-      "permissions": [],
+      "permissions": [
+        "crm:board:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
@@ -1721,7 +1731,9 @@
       "path": "/api/v1/campaigns",
       "module": "api",
       "handler": "campaigns",
-      "permissions": [],
+      "permissions": [
+        "crm:marketing:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "Vec<Campaign>",
       "responseEnvelope": "api",
@@ -1733,7 +1745,9 @@
       "path": "/api/v1/campaigns",
       "module": "api",
       "handler": "create_campaign",
-      "permissions": [],
+      "permissions": [
+        "crm:marketing:manage"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateCampaign",
       "response": "Campaign",
@@ -1746,7 +1760,10 @@
       "path": "/api/v1/companies",
       "module": "api",
       "handler": "companies",
-      "permissions": [],
+      "permissions": [
+        "crm:company:read",
+        "crm:company:read_all"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
       "response": "ListData<Company>",
@@ -1759,7 +1776,9 @@
       "path": "/api/v1/companies",
       "module": "api",
       "handler": "create_company",
-      "permissions": [],
+      "permissions": [
+        "crm:company:create"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateCompany",
       "response": "Company",
@@ -1772,7 +1791,10 @@
       "path": "/api/v1/companies/{id}",
       "module": "api",
       "handler": "company",
-      "permissions": [],
+      "permissions": [
+        "crm:company:read",
+        "crm:company:read_all"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "pathParam": "Uuid",
       "response": "Company",
@@ -1785,7 +1807,9 @@
       "path": "/api/v1/companies/{id}",
       "module": "api",
       "handler": "update_company",
-      "permissions": [],
+      "permissions": [
+        "crm:company:update"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "UpdateCompany",
       "pathParam": "Uuid",
@@ -1799,7 +1823,10 @@
       "path": "/api/v1/contacts",
       "module": "api",
       "handler": "contacts",
-      "permissions": [],
+      "permissions": [
+        "crm:contact:read",
+        "crm:contact:read_all"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
       "response": "ListData<Contact>",
@@ -1812,7 +1839,9 @@
       "path": "/api/v1/contacts",
       "module": "api",
       "handler": "create_contact",
-      "permissions": [],
+      "permissions": [
+        "crm:contact:create"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateContact",
       "response": "Contact",
@@ -1825,7 +1854,10 @@
       "path": "/api/v1/contacts/{id}",
       "module": "api",
       "handler": "contact",
-      "permissions": [],
+      "permissions": [
+        "crm:contact:read",
+        "crm:contact:read_all"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "pathParam": "Uuid",
       "response": "Contact",
@@ -1838,7 +1870,9 @@
       "path": "/api/v1/contacts/{id}",
       "module": "api",
       "handler": "update_contact",
-      "permissions": [],
+      "permissions": [
+        "crm:contact:update"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "UpdateContact",
       "pathParam": "Uuid",
@@ -1852,7 +1886,9 @@
       "path": "/api/v1/context",
       "module": "api",
       "handler": "context",
-      "permissions": [],
+      "permissions": [
+        "crm:workspace:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "Workspace",
       "responseEnvelope": "api",
@@ -1864,7 +1900,11 @@
       "path": "/api/v1/deals",
       "module": "api",
       "handler": "deals",
-      "permissions": [],
+      "permissions": [
+        "crm:deal:read",
+        "crm:deal:read_all",
+        "crm:deal:read_own"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
       "response": "ListData<Deal>",
@@ -1877,7 +1917,9 @@
       "path": "/api/v1/deals",
       "module": "api",
       "handler": "create_deal",
-      "permissions": [],
+      "permissions": [
+        "crm:deal:create"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateDeal",
       "response": "Deal",
@@ -1890,7 +1932,11 @@
       "path": "/api/v1/deals/{id}",
       "module": "api",
       "handler": "deal",
-      "permissions": [],
+      "permissions": [
+        "crm:deal:read",
+        "crm:deal:read_all",
+        "crm:deal:read_own"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "pathParam": "Uuid",
       "response": "Deal",
@@ -1903,7 +1949,9 @@
       "path": "/api/v1/deals/{id}",
       "module": "api",
       "handler": "update_deal",
-      "permissions": [],
+      "permissions": [
+        "crm:deal:update"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "UpdateDeal",
       "pathParam": "Uuid",
@@ -1917,7 +1965,9 @@
       "path": "/api/v1/deals/{id}/assignment",
       "module": "api",
       "handler": "assign_deal",
-      "permissions": [],
+      "permissions": [
+        "crm:deal:assign"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "AssignRecord",
       "pathParam": "Uuid",
@@ -1931,7 +1981,9 @@
       "path": "/api/v1/deals/{id}/stage",
       "module": "api",
       "handler": "move_deal_stage",
-      "permissions": [],
+      "permissions": [
+        "crm:deal:move"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "MoveStage",
       "pathParam": "Uuid",
@@ -1942,10 +1994,27 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/integration/office/leads/find",
+      "module": "api",
+      "handler": "find_office_lead",
+      "permissions": [],
+      "source": "infera-crm/src/api/routes.rs",
+      "query": "FindOfficeLeadQuery",
+      "response": "Option<entity::lead::Model>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/leads",
       "module": "api",
       "handler": "leads",
-      "permissions": [],
+      "permissions": [
+        "crm:lead:read",
+        "crm:lead:read_all",
+        "crm:lead:read_own"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
       "response": "ListData<Lead>",
@@ -1958,7 +2027,9 @@
       "path": "/api/v1/leads",
       "module": "api",
       "handler": "create_lead",
-      "permissions": [],
+      "permissions": [
+        "crm:lead:create"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateLead",
       "response": "Lead",
@@ -1971,7 +2042,11 @@
       "path": "/api/v1/leads/{id}",
       "module": "api",
       "handler": "lead",
-      "permissions": [],
+      "permissions": [
+        "crm:lead:read",
+        "crm:lead:read_all",
+        "crm:lead:read_own"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "pathParam": "Uuid",
       "response": "Lead",
@@ -1984,7 +2059,9 @@
       "path": "/api/v1/leads/{id}",
       "module": "api",
       "handler": "update_lead",
-      "permissions": [],
+      "permissions": [
+        "crm:lead:update"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "UpdateLead",
       "pathParam": "Uuid",
@@ -1998,7 +2075,9 @@
       "path": "/api/v1/leads/{id}/assignment",
       "module": "api",
       "handler": "assign_lead",
-      "permissions": [],
+      "permissions": [
+        "crm:lead:assign"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "AssignRecord",
       "pathParam": "Uuid",
@@ -2008,11 +2087,43 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/leads/{id}/sos",
+      "module": "api",
+      "handler": "remove_lead_from_sos",
+      "permissions": [
+        "crm:sos:delete"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "response": "DeletionResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/leads/{id}/sos",
+      "module": "api",
+      "handler": "add_lead_to_sos",
+      "permissions": [
+        "crm:sos:create"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "response": "SosLead",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "PATCH",
       "path": "/api/v1/leads/{id}/stage",
       "module": "api",
       "handler": "move_lead_stage",
-      "permissions": [],
+      "permissions": [
+        "crm:lead:move"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "MoveStage",
       "pathParam": "Uuid",
@@ -2026,7 +2137,9 @@
       "path": "/api/v1/pipelines",
       "module": "api",
       "handler": "pipelines",
-      "permissions": [],
+      "permissions": [
+        "crm:pipeline:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "Vec<PipelineWithStages>",
       "responseEnvelope": "api",
@@ -2038,7 +2151,9 @@
       "path": "/api/v1/reports/{id}",
       "module": "api",
       "handler": "report_run",
-      "permissions": [],
+      "permissions": [
+        "crm:report:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "pathParam": "Uuid",
       "response": "ReportRun",
@@ -2051,7 +2166,9 @@
       "path": "/api/v1/reports/{id}/agentic",
       "module": "api",
       "handler": "request_agentic_insight",
-      "permissions": [],
+      "permissions": [
+        "crm:agent:run"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "pathParam": "Uuid",
       "response": "JsonValue",
@@ -2064,7 +2181,9 @@
       "path": "/api/v1/reports/catalog",
       "module": "api",
       "handler": "report_catalog",
-      "permissions": [],
+      "permissions": [
+        "crm:report:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
@@ -2076,7 +2195,9 @@
       "path": "/api/v1/reports/overview",
       "module": "api",
       "handler": "overview",
-      "permissions": [],
+      "permissions": [
+        "crm:report:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ReportQuery",
       "response": "super::types::Overview",
@@ -2089,7 +2210,9 @@
       "path": "/api/v1/reports/refresh",
       "module": "api",
       "handler": "refresh_reports",
-      "permissions": [],
+      "permissions": [
+        "crm:report:refresh"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ReportQuery",
       "response": "JsonValue",
@@ -2099,10 +2222,26 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/sos",
+      "module": "api",
+      "handler": "list_sos_leads",
+      "permissions": [
+        "crm:sos:read"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "response": "Vec<SosLead>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/sources",
       "module": "api",
       "handler": "sources",
-      "permissions": [],
+      "permissions": [
+        "crm:marketing:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "Vec<Source>",
       "responseEnvelope": "api",
@@ -2114,7 +2253,9 @@
       "path": "/api/v1/sources",
       "module": "api",
       "handler": "create_source",
-      "permissions": [],
+      "permissions": [
+        "crm:marketing:manage"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateSource",
       "response": "Source",
@@ -2127,7 +2268,11 @@
       "path": "/api/v1/tasks",
       "module": "api",
       "handler": "tasks",
-      "permissions": [],
+      "permissions": [
+        "crm:task:read",
+        "crm:task:read_all",
+        "crm:task:read_own"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
       "response": "ListData<Task>",
@@ -2140,7 +2285,9 @@
       "path": "/api/v1/tasks",
       "module": "api",
       "handler": "create_task",
-      "permissions": [],
+      "permissions": [
+        "crm:task:create"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateTask",
       "response": "Task",
@@ -2153,7 +2300,9 @@
       "path": "/api/v1/tasks/{id}/status",
       "module": "api",
       "handler": "update_task_status",
-      "permissions": [],
+      "permissions": [
+        "crm:task:update"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "UpdateTaskStatus",
       "pathParam": "Uuid",
@@ -2167,7 +2316,9 @@
       "path": "/api/v1/teams",
       "module": "api",
       "handler": "teams",
-      "permissions": [],
+      "permissions": [
+        "crm:team:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "Vec<Team>",
       "responseEnvelope": "api",
@@ -2179,10 +2330,28 @@
       "path": "/api/v1/teams",
       "module": "api",
       "handler": "create_team",
-      "permissions": [],
+      "permissions": [
+        "crm:team:create"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateTeam",
       "response": "Team",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/teams/{id}",
+      "module": "api",
+      "handler": "delete_team",
+      "permissions": [
+        "crm:team:delete"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "VersionedDelete",
+      "pathParam": "Uuid",
+      "response": "DeletionResult",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2192,7 +2361,9 @@
       "path": "/api/v1/teams/{id}",
       "module": "api",
       "handler": "team",
-      "permissions": [],
+      "permissions": [
+        "crm:team:read"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "pathParam": "Uuid",
       "response": "serde_json::Value",
@@ -2205,7 +2376,9 @@
       "path": "/api/v1/teams/{id}/members",
       "module": "api",
       "handler": "add_team_member",
-      "permissions": [],
+      "permissions": [
+        "crm:team:manage_members"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "AddTeamMember",
       "pathParam": "Uuid",
@@ -2215,11 +2388,72 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/teams/{team_id}/members/{member_id}",
+      "module": "api",
+      "handler": "remove_team_member",
+      "permissions": [
+        "crm:team:manage_members"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "response": "TeamMember",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/workflows/{id}/assignments",
+      "module": "api",
+      "handler": "list_workflow_assignments",
+      "permissions": [
+        "crm:workflow_assignment:read"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Vec<WorkflowAssignment>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/workflows/{id}/assignments",
+      "module": "api",
+      "handler": "create_workflow_assignment",
+      "permissions": [
+        "crm:workflow_assignment:manage"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "CreateWorkflowAssignment",
+      "pathParam": "Uuid",
+      "response": "WorkflowAssignment",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/workflows/{workflow_id}/assignments/{assignment_id}",
+      "module": "api",
+      "handler": "delete_workflow_assignment",
+      "permissions": [
+        "crm:workflow_assignment:manage"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "response": "DeletionResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "PATCH",
       "path": "/api/v1/workspace/settings",
       "module": "api",
       "handler": "update_workspace",
-      "permissions": [],
+      "permissions": [
+        "crm:settings:update"
+      ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "UpdateWorkspace",
       "response": "Workspace",
@@ -2275,10 +2509,12 @@
   "drm": [
     {
       "method": "GET",
-      "path": "/audit-events",
+      "path": "/api/v1/audit-events",
       "module": "router",
       "handler": "audit_events",
-      "permissions": [],
+      "permissions": [
+        "drm:audit:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "AuditQuery",
       "response": "Page<audit_event::Model>",
@@ -2288,10 +2524,12 @@
     },
     {
       "method": "GET",
-      "path": "/composition-analyses",
+      "path": "/api/v1/composition-analyses",
       "module": "router",
       "handler": "list_analyses",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "AnalysisQuery",
       "response": "Page<CompositionAnalysis>",
@@ -2301,10 +2539,12 @@
     },
     {
       "method": "GET",
-      "path": "/composition-categories",
+      "path": "/api/v1/composition-categories",
       "module": "router",
       "handler": "list_composition_categories",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "Vec<composition_category::Model>",
       "responseEnvelope": "raw",
@@ -2313,10 +2553,12 @@
     },
     {
       "method": "POST",
-      "path": "/composition-categories",
+      "path": "/api/v1/composition-categories",
       "module": "router",
       "handler": "create_composition_category",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "CompositionCategoryInput",
       "response": "composition_category::Model",
@@ -2326,10 +2568,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/composition-categories/{id}",
+      "path": "/api/v1/composition-categories/{id}",
       "module": "router",
       "handler": "delete_composition_category",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -2338,10 +2582,12 @@
     },
     {
       "method": "PATCH",
-      "path": "/composition-categories/{id}",
+      "path": "/api/v1/composition-categories/{id}",
       "module": "router",
       "handler": "update_composition_category",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "CompositionCategoryInput",
       "pathParam": "Uuid",
@@ -2352,10 +2598,12 @@
     },
     {
       "method": "GET",
-      "path": "/compositions",
+      "path": "/api/v1/compositions",
       "module": "router",
       "handler": "list_compositions",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "CompositionQuery",
       "response": "Page<mixed_media::Model>",
@@ -2365,10 +2613,12 @@
     },
     {
       "method": "POST",
-      "path": "/compositions",
+      "path": "/api/v1/compositions",
       "module": "router",
       "handler": "create_composition",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "CompositionInput",
       "response": "mixed_media::Model",
@@ -2378,10 +2628,12 @@
     },
     {
       "method": "GET",
-      "path": "/compositions/{id}/manifests",
+      "path": "/api/v1/compositions/{id}/manifests",
       "module": "router",
       "handler": "list_manifests",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "Vec<mixed_media_manifest::Model>",
@@ -2391,10 +2643,12 @@
     },
     {
       "method": "POST",
-      "path": "/compositions/{id}/manifests",
+      "path": "/api/v1/compositions/{id}/manifests",
       "module": "router",
       "handler": "create_manifest_version",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "HistoricalManifestInput",
       "pathParam": "Uuid",
@@ -2405,10 +2659,12 @@
     },
     {
       "method": "POST",
-      "path": "/compositions/{id}/publish",
+      "path": "/api/v1/compositions/{id}/publish",
       "module": "router",
       "handler": "publish",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "mixed_media_manifest::Model",
@@ -2418,10 +2674,12 @@
     },
     {
       "method": "GET",
-      "path": "/compositions/{id}/workflow",
+      "path": "/api/v1/compositions/{id}/workflow",
       "module": "router",
       "handler": "get_workflow",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "mixed_media_workflow::Model",
@@ -2431,10 +2689,12 @@
     },
     {
       "method": "PUT",
-      "path": "/compositions/{id}/workflow",
+      "path": "/api/v1/compositions/{id}/workflow",
       "module": "router",
       "handler": "save_workflow",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "WorkflowInput",
       "pathParam": "Uuid",
@@ -2445,10 +2705,12 @@
     },
     {
       "method": "GET",
-      "path": "/dashboard/summary",
+      "path": "/api/v1/dashboard/summary",
       "module": "router",
       "handler": "dashboard",
-      "permissions": [],
+      "permissions": [
+        "drm:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "serde_json::Value",
       "responseEnvelope": "raw",
@@ -2457,10 +2719,12 @@
     },
     {
       "method": "GET",
-      "path": "/drm/jobs",
+      "path": "/api/v1/drm/jobs",
       "module": "router",
       "handler": "list_jobs",
-      "permissions": [],
+      "permissions": [
+        "drm:package:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "DrmJobQuery",
       "response": "Page<DrmJobResponse>",
@@ -2470,10 +2734,12 @@
     },
     {
       "method": "POST",
-      "path": "/drm/jobs",
+      "path": "/api/v1/drm/jobs",
       "module": "router",
       "handler": "create_job",
-      "permissions": [],
+      "permissions": [
+        "drm:package:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "EnqueueDrmInput",
       "response": "DrmJobResponse",
@@ -2483,10 +2749,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/drm/jobs/{id}",
+      "path": "/api/v1/drm/jobs/{id}",
       "module": "router",
       "handler": "cancel_job",
-      "permissions": [],
+      "permissions": [
+        "drm:package:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -2495,10 +2763,12 @@
     },
     {
       "method": "POST",
-      "path": "/drm/jobs/{id}/retry",
+      "path": "/api/v1/drm/jobs/{id}/retry",
       "module": "router",
       "handler": "retry_job",
-      "permissions": [],
+      "permissions": [
+        "drm:package:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "DrmConfig",
       "pathParam": "Uuid",
@@ -2509,10 +2779,12 @@
     },
     {
       "method": "POST",
-      "path": "/drm/jobs/actions/retry-failed",
+      "path": "/api/v1/drm/jobs/actions/retry-failed",
       "module": "router",
       "handler": "retry_all_failed",
-      "permissions": [],
+      "permissions": [
+        "drm:package:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "RetryFailedResponse",
       "responseEnvelope": "raw",
@@ -2521,10 +2793,12 @@
     },
     {
       "method": "GET",
-      "path": "/external-references",
+      "path": "/api/v1/external-references",
       "module": "router",
       "handler": "list_external_references",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "ExternalReferenceQuery",
       "response": "Vec<external_reference::Model>",
@@ -2534,10 +2808,12 @@
     },
     {
       "method": "POST",
-      "path": "/external-references",
+      "path": "/api/v1/external-references",
       "module": "router",
       "handler": "upsert_external_reference",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "ExternalReferenceInput",
       "response": "external_reference::Model",
@@ -2547,10 +2823,12 @@
     },
     {
       "method": "GET",
-      "path": "/folders",
+      "path": "/api/v1/folders",
       "module": "router",
       "handler": "list_folders",
-      "permissions": [],
+      "permissions": [
+        "drm:media:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "Vec<folder::Model>",
       "responseEnvelope": "raw",
@@ -2559,10 +2837,12 @@
     },
     {
       "method": "POST",
-      "path": "/folders",
+      "path": "/api/v1/folders",
       "module": "router",
       "handler": "create_folder",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "FolderInput",
       "response": "folder::Model",
@@ -2572,10 +2852,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/folders/{id}",
+      "path": "/api/v1/folders/{id}",
       "module": "router",
       "handler": "delete_folder",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -2584,10 +2866,12 @@
     },
     {
       "method": "PATCH",
-      "path": "/folders/{id}",
+      "path": "/api/v1/folders/{id}",
       "module": "router",
       "handler": "update_folder",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "FolderInput",
       "pathParam": "Uuid",
@@ -2598,10 +2882,12 @@
     },
     {
       "method": "GET",
-      "path": "/libraries",
+      "path": "/api/v1/libraries",
       "module": "router",
       "handler": "list_libraries",
-      "permissions": [],
+      "permissions": [
+        "drm:library:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "Vec<content_library::Model>",
       "responseEnvelope": "raw",
@@ -2610,10 +2896,12 @@
     },
     {
       "method": "POST",
-      "path": "/libraries",
+      "path": "/api/v1/libraries",
       "module": "router",
       "handler": "create_library",
-      "permissions": [],
+      "permissions": [
+        "drm:library:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "LibraryInput",
       "response": "content_library::Model",
@@ -2623,10 +2911,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/libraries/{id}",
+      "path": "/api/v1/libraries/{id}",
       "module": "router",
       "handler": "delete_library",
-      "permissions": [],
+      "permissions": [
+        "drm:library:delete"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -2635,10 +2925,12 @@
     },
     {
       "method": "GET",
-      "path": "/libraries/{id}",
+      "path": "/api/v1/libraries/{id}",
       "module": "router",
       "handler": "get_library",
-      "permissions": [],
+      "permissions": [
+        "drm:library:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "content_library::Model",
@@ -2648,10 +2940,12 @@
     },
     {
       "method": "PATCH",
-      "path": "/libraries/{id}",
+      "path": "/api/v1/libraries/{id}",
       "module": "router",
       "handler": "update_library",
-      "permissions": [],
+      "permissions": [
+        "drm:library:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "LibraryInput",
       "pathParam": "Uuid",
@@ -2662,10 +2956,12 @@
     },
     {
       "method": "GET",
-      "path": "/libraries/{id}/categories",
+      "path": "/api/v1/libraries/{id}/categories",
       "module": "router",
       "handler": "list_categories",
-      "permissions": [],
+      "permissions": [
+        "drm:library:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "Vec<content_category::Model>",
@@ -2675,10 +2971,12 @@
     },
     {
       "method": "POST",
-      "path": "/libraries/{id}/categories",
+      "path": "/api/v1/libraries/{id}/categories",
       "module": "router",
       "handler": "create_category",
-      "permissions": [],
+      "permissions": [
+        "drm:library:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "GenericCategoryInput",
       "pathParam": "Uuid",
@@ -2689,10 +2987,12 @@
     },
     {
       "method": "GET",
-      "path": "/libraries/{id}/items",
+      "path": "/api/v1/libraries/{id}/items",
       "module": "router",
       "handler": "list_items",
-      "permissions": [],
+      "permissions": [
+        "drm:content:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "Vec<media_part::Model>",
@@ -2702,10 +3002,12 @@
     },
     {
       "method": "POST",
-      "path": "/libraries/{id}/items",
+      "path": "/api/v1/libraries/{id}/items",
       "module": "router",
       "handler": "create_item",
-      "permissions": [],
+      "permissions": [
+        "drm:content:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "ContentItemInput",
       "pathParam": "Uuid",
@@ -2716,10 +3018,12 @@
     },
     {
       "method": "GET",
-      "path": "/libraries/{id}/items/query",
+      "path": "/api/v1/libraries/{id}/items/query",
       "module": "router",
       "handler": "query_items",
-      "permissions": [],
+      "permissions": [
+        "drm:content:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "ContentItemsQuery",
       "pathParam": "Uuid",
@@ -2730,10 +3034,12 @@
     },
     {
       "method": "GET",
-      "path": "/libraries/{id}/stats",
+      "path": "/api/v1/libraries/{id}/stats",
       "module": "router",
       "handler": "library_stats",
-      "permissions": [],
+      "permissions": [
+        "drm:library:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "LibraryStats",
@@ -2743,10 +3049,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/libraries/{library_id}/categories/{id}",
+      "path": "/api/v1/libraries/{library_id}/categories/{id}",
       "module": "router",
       "handler": "archive_category",
-      "permissions": [],
+      "permissions": [
+        "drm:library:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "responseEnvelope": "no-content",
       "multipart": false,
@@ -2754,10 +3062,12 @@
     },
     {
       "method": "PATCH",
-      "path": "/libraries/{library_id}/categories/{id}",
+      "path": "/api/v1/libraries/{library_id}/categories/{id}",
       "module": "router",
       "handler": "update_category",
-      "permissions": [],
+      "permissions": [
+        "drm:library:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "GenericCategoryInput",
       "response": "content_category::Model",
@@ -2767,10 +3077,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/libraries/{library_id}/items/{id}",
+      "path": "/api/v1/libraries/{library_id}/items/{id}",
       "module": "router",
       "handler": "archive_item",
-      "permissions": [],
+      "permissions": [
+        "drm:content:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "responseEnvelope": "no-content",
       "multipart": false,
@@ -2778,10 +3090,12 @@
     },
     {
       "method": "GET",
-      "path": "/libraries/{library_id}/items/{id}",
+      "path": "/api/v1/libraries/{library_id}/items/{id}",
       "module": "router",
       "handler": "get_item",
-      "permissions": [],
+      "permissions": [
+        "drm:content:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "media_part::Model",
       "responseEnvelope": "raw",
@@ -2790,10 +3104,12 @@
     },
     {
       "method": "PUT",
-      "path": "/libraries/{library_id}/items/{id}",
+      "path": "/api/v1/libraries/{library_id}/items/{id}",
       "module": "router",
       "handler": "update_item",
-      "permissions": [],
+      "permissions": [
+        "drm:content:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "ContentItemInput",
       "response": "media_part::Model",
@@ -2803,10 +3119,12 @@
     },
     {
       "method": "GET",
-      "path": "/libraries/{library_id}/items/{id}/attachments",
+      "path": "/api/v1/libraries/{library_id}/items/{id}/attachments",
       "module": "router",
       "handler": "item_attachments",
-      "permissions": [],
+      "permissions": [
+        "drm:content:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "Vec<content_item_media::Model>",
       "responseEnvelope": "raw",
@@ -2815,10 +3133,12 @@
     },
     {
       "method": "POST",
-      "path": "/libraries/{library_id}/items/{id}/attachments",
+      "path": "/api/v1/libraries/{library_id}/items/{id}/attachments",
       "module": "router",
       "handler": "attach_media",
-      "permissions": [],
+      "permissions": [
+        "drm:content:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "AttachmentInput",
       "response": "content_item_media::Model",
@@ -2828,10 +3148,12 @@
     },
     {
       "method": "GET",
-      "path": "/licenses/clearkey",
+      "path": "/api/v1/licenses/clearkey",
       "module": "router",
       "handler": "clear_key_license",
-      "permissions": [],
+      "permissions": [
+        "drm:license:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "PackageQuery",
       "response": "serde_json::Value",
@@ -2841,10 +3163,12 @@
     },
     {
       "method": "GET",
-      "path": "/media",
+      "path": "/api/v1/media",
       "module": "router",
       "handler": "list_media",
-      "permissions": [],
+      "permissions": [
+        "drm:media:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "ListQuery",
       "response": "Page<MediaResponse>",
@@ -2854,10 +3178,12 @@
     },
     {
       "method": "POST",
-      "path": "/media",
+      "path": "/api/v1/media",
       "module": "router",
       "handler": "upload_media",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "MediaResponse",
       "responseEnvelope": "raw",
@@ -2866,10 +3192,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/media/{id}",
+      "path": "/api/v1/media/{id}",
       "module": "router",
       "handler": "delete_media",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -2878,10 +3206,12 @@
     },
     {
       "method": "GET",
-      "path": "/media/{id}",
+      "path": "/api/v1/media/{id}",
       "module": "router",
       "handler": "get_media",
-      "permissions": [],
+      "permissions": [
+        "drm:media:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "MediaResponse",
@@ -2891,10 +3221,12 @@
     },
     {
       "method": "PATCH",
-      "path": "/media/{id}",
+      "path": "/api/v1/media/{id}",
       "module": "router",
       "handler": "update_media",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "MediaUpdate",
       "pathParam": "Uuid",
@@ -2905,10 +3237,12 @@
     },
     {
       "method": "GET",
-      "path": "/media/{id}/packages",
+      "path": "/api/v1/media/{id}/packages",
       "module": "router",
       "handler": "list_packages",
-      "permissions": [],
+      "permissions": [
+        "drm:package:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "Vec<PackageResponse>",
@@ -2918,10 +3252,12 @@
     },
     {
       "method": "POST",
-      "path": "/media/{id}/packages",
+      "path": "/api/v1/media/{id}/packages",
       "module": "router",
       "handler": "regenerate",
-      "permissions": [],
+      "permissions": [
+        "drm:package:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "Option<DrmConfig",
       "pathParam": "Uuid",
@@ -2932,10 +3268,12 @@
     },
     {
       "method": "GET",
-      "path": "/media/{id}/playback",
+      "path": "/api/v1/media/{id}/playback",
       "module": "router",
       "handler": "playback",
-      "permissions": [],
+      "permissions": [
+        "drm:media:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "PlaybackResponse",
@@ -2945,10 +3283,12 @@
     },
     {
       "method": "POST",
-      "path": "/media/batch",
+      "path": "/api/v1/media/batch",
       "module": "router",
       "handler": "batch_media",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "BatchMediaInput",
       "response": "Vec<MediaResponse>",
@@ -2958,10 +3298,12 @@
     },
     {
       "method": "GET",
-      "path": "/media/drm-statuses",
+      "path": "/api/v1/media/drm-statuses",
       "module": "router",
       "handler": "drm_statuses",
-      "permissions": [],
+      "permissions": [
+        "drm:media:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "query": "DrmStatusesQuery",
       "response": "Vec<MediaDrmStatusResponse>",
@@ -2971,10 +3313,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/media/packages/{id}",
+      "path": "/api/v1/media/packages/{id}",
       "module": "router",
       "handler": "archive_package",
-      "permissions": [],
+      "permissions": [
+        "drm:package:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -2983,10 +3327,12 @@
     },
     {
       "method": "POST",
-      "path": "/media/register",
+      "path": "/api/v1/media/register",
       "module": "router",
       "handler": "register_existing_media",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "RegisterMediaInput",
       "response": "MediaResponse",
@@ -2996,10 +3342,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media",
+      "path": "/api/v1/mixed-media",
       "module": "router",
       "handler": "list_mixed_media",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "Vec<mixed_media::Model>",
       "responseEnvelope": "raw",
@@ -3008,10 +3356,12 @@
     },
     {
       "method": "POST",
-      "path": "/mixed-media",
+      "path": "/api/v1/mixed-media",
       "module": "router",
       "handler": "create_mixed_media",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "MixedMediaInput",
       "response": "mixed_media::Model",
@@ -3021,10 +3371,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/mixed-media/{id}",
+      "path": "/api/v1/mixed-media/{id}",
       "module": "router",
       "handler": "delete_mixed_media",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -3033,10 +3385,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media/{id}",
+      "path": "/api/v1/mixed-media/{id}",
       "module": "router",
       "handler": "get_mixed_media",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "mixed_media::Model",
@@ -3046,10 +3400,12 @@
     },
     {
       "method": "PATCH",
-      "path": "/mixed-media/{id}",
+      "path": "/api/v1/mixed-media/{id}",
       "module": "router",
       "handler": "update_mixed_media",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "MixedMediaUpdate",
       "pathParam": "Uuid",
@@ -3060,10 +3416,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media/{id}/analysis",
+      "path": "/api/v1/mixed-media/{id}/analysis",
       "module": "router",
       "handler": "get_analysis",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "Option<CompositionAnalysis>",
@@ -3073,10 +3431,12 @@
     },
     {
       "method": "POST",
-      "path": "/mixed-media/{id}/analysis",
+      "path": "/api/v1/mixed-media/{id}/analysis",
       "module": "router",
       "handler": "start_analysis",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "StartAnalysisInput",
       "pathParam": "Uuid",
@@ -3087,10 +3447,12 @@
     },
     {
       "method": "POST",
-      "path": "/mixed-media/{id}/categories",
+      "path": "/api/v1/mixed-media/{id}/categories",
       "module": "router",
       "handler": "create_category",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "CategoryInput",
       "pathParam": "Uuid",
@@ -3101,10 +3463,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media/{id}/knowledge-sync",
+      "path": "/api/v1/mixed-media/{id}/knowledge-sync",
       "module": "router",
       "handler": "get_settings",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "KnowledgeSyncSettings",
@@ -3114,10 +3478,12 @@
     },
     {
       "method": "POST",
-      "path": "/mixed-media/{id}/knowledge-sync",
+      "path": "/api/v1/mixed-media/{id}/knowledge-sync",
       "module": "router",
       "handler": "sync_now",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "KnowledgeSyncSettings",
@@ -3127,10 +3493,12 @@
     },
     {
       "method": "PUT",
-      "path": "/mixed-media/{id}/knowledge-sync",
+      "path": "/api/v1/mixed-media/{id}/knowledge-sync",
       "module": "router",
       "handler": "update_settings",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "UpdateKnowledgeSync",
       "pathParam": "Uuid",
@@ -3141,10 +3509,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media/{id}/manifest",
+      "path": "/api/v1/mixed-media/{id}/manifest",
       "module": "router",
       "handler": "get_manifest",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "mixed_media_manifest::Model",
@@ -3154,10 +3524,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media/{id}/manifests",
+      "path": "/api/v1/mixed-media/{id}/manifests",
       "module": "router",
       "handler": "list_manifests",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "Vec<mixed_media_manifest::Model>",
@@ -3167,10 +3539,12 @@
     },
     {
       "method": "POST",
-      "path": "/mixed-media/{id}/parts",
+      "path": "/api/v1/mixed-media/{id}/parts",
       "module": "router",
       "handler": "create_part",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "PartInput",
       "pathParam": "Uuid",
@@ -3181,10 +3555,12 @@
     },
     {
       "method": "POST",
-      "path": "/mixed-media/{id}/publish",
+      "path": "/api/v1/mixed-media/{id}/publish",
       "module": "router",
       "handler": "publish",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "mixed_media_manifest::Model",
@@ -3194,10 +3570,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media/{id}/resources",
+      "path": "/api/v1/mixed-media/{id}/resources",
       "module": "router",
       "handler": "resources",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "EditorResources",
@@ -3207,10 +3585,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media/{id}/workflow",
+      "path": "/api/v1/mixed-media/{id}/workflow",
       "module": "router",
       "handler": "get_workflow",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "mixed_media_workflow::Model",
@@ -3220,10 +3600,12 @@
     },
     {
       "method": "PUT",
-      "path": "/mixed-media/{id}/workflow",
+      "path": "/api/v1/mixed-media/{id}/workflow",
       "module": "router",
       "handler": "save_workflow",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "WorkflowInput",
       "pathParam": "Uuid",
@@ -3234,10 +3616,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/mixed-media/{mixed_id}/categories/{id}",
+      "path": "/api/v1/mixed-media/{mixed_id}/categories/{id}",
       "module": "router",
       "handler": "delete_category",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "responseEnvelope": "no-content",
       "multipart": false,
@@ -3245,10 +3629,12 @@
     },
     {
       "method": "PATCH",
-      "path": "/mixed-media/{mixed_id}/categories/{id}",
+      "path": "/api/v1/mixed-media/{mixed_id}/categories/{id}",
       "module": "router",
       "handler": "update_category",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "CategoryInput",
       "response": "content_category::Model",
@@ -3258,10 +3644,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/mixed-media/{mixed_id}/parts/{id}",
+      "path": "/api/v1/mixed-media/{mixed_id}/parts/{id}",
       "module": "router",
       "handler": "delete_part",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "responseEnvelope": "no-content",
       "multipart": false,
@@ -3269,10 +3657,12 @@
     },
     {
       "method": "GET",
-      "path": "/mixed-media/{mixed_id}/parts/{id}",
+      "path": "/api/v1/mixed-media/{mixed_id}/parts/{id}",
       "module": "router",
       "handler": "get_part",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "media_part::Model",
       "responseEnvelope": "raw",
@@ -3281,10 +3671,12 @@
     },
     {
       "method": "PUT",
-      "path": "/mixed-media/{mixed_id}/parts/{id}",
+      "path": "/api/v1/mixed-media/{mixed_id}/parts/{id}",
       "module": "router",
       "handler": "update_part",
-      "permissions": [],
+      "permissions": [
+        "drm:composition:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "PartInput",
       "response": "media_part::Model",
@@ -3294,10 +3686,12 @@
     },
     {
       "method": "GET",
-      "path": "/operations/health",
+      "path": "/api/v1/operations/health",
       "module": "router",
       "handler": "health",
-      "permissions": [],
+      "permissions": [
+        "drm:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "serde_json::Value",
       "responseEnvelope": "raw",
@@ -3306,10 +3700,12 @@
     },
     {
       "method": "GET",
-      "path": "/operations/knowledge-catalog",
+      "path": "/api/v1/operations/knowledge-catalog",
       "module": "router",
       "handler": "knowledge_catalog",
-      "permissions": [],
+      "permissions": [
+        "drm:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "Value",
       "responseEnvelope": "raw",
@@ -3318,10 +3714,12 @@
     },
     {
       "method": "GET",
-      "path": "/operations/settings",
+      "path": "/api/v1/operations/settings",
       "module": "router",
       "handler": "get_settings",
-      "permissions": [],
+      "permissions": [
+        "drm:manage"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "SettingsResponse",
       "responseEnvelope": "raw",
@@ -3330,10 +3728,12 @@
     },
     {
       "method": "PATCH",
-      "path": "/operations/settings",
+      "path": "/api/v1/operations/settings",
       "module": "router",
       "handler": "update_settings",
-      "permissions": [],
+      "permissions": [
+        "drm:manage"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "SettingsInput",
       "response": "SettingsResponse",
@@ -3343,10 +3743,12 @@
     },
     {
       "method": "GET",
-      "path": "/operations/transcription-models",
+      "path": "/api/v1/operations/transcription-models",
       "module": "router",
       "handler": "transcription_models",
-      "permissions": [],
+      "permissions": [
+        "drm:manage"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "Vec<TranscriptionModel>",
       "responseEnvelope": "raw",
@@ -3355,10 +3757,12 @@
     },
     {
       "method": "POST",
-      "path": "/packages",
+      "path": "/api/v1/packages",
       "module": "router",
       "handler": "legacy_enqueue",
-      "permissions": [],
+      "permissions": [
+        "drm:package:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "LegacyPackageInput",
       "response": "serde_json::Value",
@@ -3368,10 +3772,12 @@
     },
     {
       "method": "GET",
-      "path": "/packages/{kind}/{media_id}",
+      "path": "/api/v1/packages/{kind}/{media_id}",
       "module": "router",
       "handler": "legacy_status",
-      "permissions": [],
+      "permissions": [
+        "drm:package:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "serde_json::Value",
       "responseEnvelope": "raw",
@@ -3380,10 +3786,12 @@
     },
     {
       "method": "GET",
-      "path": "/packages/{package_id}/files/{*path}",
+      "path": "/api/v1/packages/{package_id}/files/{*path}",
       "module": "router",
       "handler": "package_file",
-      "permissions": [],
+      "permissions": [
+        "drm:package:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "responseEnvelope": "raw-response",
       "multipart": false,
@@ -3391,10 +3799,12 @@
     },
     {
       "method": "GET",
-      "path": "/status",
+      "path": "/api/v1/status",
       "module": "router",
       "handler": "status",
-      "permissions": [],
+      "permissions": [
+        "drm:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "serde_json::Value",
       "responseEnvelope": "raw",
@@ -3403,10 +3813,12 @@
     },
     {
       "method": "GET",
-      "path": "/tags",
+      "path": "/api/v1/tags",
       "module": "router",
       "handler": "list_tags",
-      "permissions": [],
+      "permissions": [
+        "drm:media:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "Vec<tag::Model>",
       "responseEnvelope": "raw",
@@ -3415,10 +3827,12 @@
     },
     {
       "method": "POST",
-      "path": "/tags",
+      "path": "/api/v1/tags",
       "module": "router",
       "handler": "create_tag",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "TagInput",
       "response": "tag::Model",
@@ -3428,10 +3842,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/tags/{id}",
+      "path": "/api/v1/tags/{id}",
       "module": "router",
       "handler": "delete_tag",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -3440,10 +3856,12 @@
     },
     {
       "method": "POST",
-      "path": "/upload-sessions",
+      "path": "/api/v1/upload-sessions",
       "module": "router",
       "handler": "create_upload_session",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "UploadSessionInput",
       "response": "UploadSessionResponse",
@@ -3453,10 +3871,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/upload-sessions/{id}",
+      "path": "/api/v1/upload-sessions/{id}",
       "module": "router",
       "handler": "cancel_upload",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "responseEnvelope": "no-content",
@@ -3465,10 +3885,12 @@
     },
     {
       "method": "GET",
-      "path": "/upload-sessions/{id}",
+      "path": "/api/v1/upload-sessions/{id}",
       "module": "router",
       "handler": "get_upload_session",
-      "permissions": [],
+      "permissions": [
+        "drm:media:read"
+      ],
       "source": "infera-drm/src/router.rs",
       "pathParam": "Uuid",
       "response": "UploadSessionResponse",
@@ -3478,10 +3900,12 @@
     },
     {
       "method": "POST",
-      "path": "/upload-sessions/{id}/complete",
+      "path": "/api/v1/upload-sessions/{id}/complete",
       "module": "router",
       "handler": "complete_upload",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "body": "CompleteUploadInput",
       "pathParam": "Uuid",
@@ -3492,14 +3916,17 @@
     },
     {
       "method": "PUT",
-      "path": "/upload-sessions/{id}/parts/{part_number}",
+      "path": "/api/v1/upload-sessions/{id}/parts/{part_number}",
       "module": "router",
       "handler": "put_upload_part",
-      "permissions": [],
+      "permissions": [
+        "drm:media:write"
+      ],
       "source": "infera-drm/src/router.rs",
       "response": "upload_part::Model",
       "responseEnvelope": "raw",
       "multipart": false,
+      "binary": true,
       "formUrlEncoded": false
     }
   ],
@@ -5891,6 +6318,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/classrooms/batch",
+      "module": "integration",
+      "handler": "batch_classrooms",
+      "permissions": [],
+      "source": "infera-lms/src/integration/routes.rs",
+      "body": "IdBatch",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/classrooms/session-types",
       "module": "classroom",
@@ -6014,6 +6454,31 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/classrooms/users/current",
+      "module": "integration",
+      "handler": "current_classroom_users",
+      "permissions": [],
+      "source": "infera-lms/src/integration/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/classrooms/users/dropout-eligibility",
+      "module": "integration",
+      "handler": "dropout_eligibility",
+      "permissions": [],
+      "source": "infera-lms/src/integration/routes.rs",
+      "body": "UserIdBatch",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/classrooms/users/sessions/absences",
       "module": "classroom",
       "handler": "index_absences",
@@ -6025,6 +6490,49 @@
       "response": "crate::models::PagedResult<models::AbsenceResponse>",
       "responseEnvelope": "api",
       "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/config/branding",
+      "module": "branding",
+      "handler": "show",
+      "permissions": [
+        "lms:config:read"
+      ],
+      "source": "infera-lms/src/branding.rs",
+      "response": "Branding",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/config/branding",
+      "module": "branding",
+      "handler": "update",
+      "permissions": [
+        "lms:config:update"
+      ],
+      "source": "infera-lms/src/branding.rs",
+      "body": "Branding",
+      "response": "Branding",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/config/branding/assets",
+      "module": "branding",
+      "handler": "upload",
+      "permissions": [
+        "lms:config:update"
+      ],
+      "source": "infera-lms/src/branding.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": true,
       "formUrlEncoded": false
     },
     {
@@ -6484,6 +6992,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/courses/batch",
+      "module": "integration",
+      "handler": "batch_courses",
+      "permissions": [],
+      "source": "infera-lms/src/integration/routes.rs",
+      "body": "IdBatch",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/courses/categories",
       "module": "course",
@@ -6590,6 +7111,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/courses/successors/batch",
+      "module": "integration",
+      "handler": "batch_course_successors",
+      "permissions": [],
+      "source": "infera-lms/src/integration/routes.rs",
+      "body": "IdBatch",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/dashboard",
       "module": "dashboard",
@@ -6630,6 +7164,62 @@
       "source": "infera-lms/src/drm_routes.rs",
       "query": "CompositionSearchQuery",
       "response": "PagedResult<CompositionOption>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/evaluations/sessions/{id}",
+      "module": "evaluation",
+      "handler": "get_context",
+      "permissions": [],
+      "source": "infera-lms/src/evaluation/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::EvaluationContext",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/evaluations/sessions/{id}",
+      "module": "evaluation",
+      "handler": "submit",
+      "permissions": [],
+      "source": "infera-lms/src/evaluation/routes.rs",
+      "body": "models::SubmitEvaluation",
+      "pathParam": "Uuid",
+      "response": "models::SubmitEvaluationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/evaluations/settings",
+      "module": "evaluation",
+      "handler": "get_settings",
+      "permissions": [
+        "lms:config:read"
+      ],
+      "source": "infera-lms/src/evaluation/routes.rs",
+      "response": "models::EvaluationSettings",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/evaluations/settings",
+      "module": "evaluation",
+      "handler": "update_settings",
+      "permissions": [
+        "lms:config:update"
+      ],
+      "source": "infera-lms/src/evaluation/routes.rs",
+      "body": "models::UpdateEvaluationSettings",
+      "response": "models::EvaluationSettings",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -7165,6 +7755,19 @@
     },
     {
       "method": "POST",
+      "path": "/api/v1/integration/legacy-ids/resolve",
+      "module": "integration",
+      "handler": "resolve_legacy_ids",
+      "permissions": [],
+      "source": "infera-lms/src/integration/routes.rs",
+      "body": "LegacyIdBatch",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
       "path": "/api/v1/media/images",
       "module": "media",
       "handler": "upload_image",
@@ -7223,6 +7826,30 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/public/branding",
+      "module": "branding",
+      "handler": "public_show",
+      "permissions": [],
+      "source": "infera-lms/src/branding.rs",
+      "response": "Branding",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/branding/assets/{key}",
+      "module": "branding",
+      "handler": "asset",
+      "permissions": [],
+      "source": "infera-lms/src/branding.rs",
+      "pathParam": "String",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/public/certificates/{code}",
       "module": "certificate",
       "handler": "verify_certificate",
@@ -7247,6 +7874,21 @@
       "source": "infera-lms/src/certificate/routes.rs",
       "pathParam": "String",
       "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/assigned-students",
+      "module": "report",
+      "handler": "assigned_students",
+      "permissions": [
+        "lms:report:read_own"
+      ],
+      "source": "infera-lms/src/report/routes.rs",
+      "query": "models::AssignedStudentsQuery",
+      "response": "crate::models::PagedResult<crate::profile::ProfileSummary>",
+      "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -13237,6 +13879,49 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/config/branding",
+      "module": "branding",
+      "handler": "show",
+      "permissions": [
+        "config:read"
+      ],
+      "source": "infera-session/src/branding.rs",
+      "response": "Branding",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/config/branding",
+      "module": "branding",
+      "handler": "update",
+      "permissions": [
+        "config:update"
+      ],
+      "source": "infera-session/src/branding.rs",
+      "body": "Branding",
+      "response": "Branding",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/config/branding/assets",
+      "module": "branding",
+      "handler": "upload",
+      "permissions": [
+        "config:update"
+      ],
+      "source": "infera-session/src/branding.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": true,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/config/livekit",
       "module": "configuration",
       "handler": "livekit_config_show",
@@ -13325,6 +14010,30 @@
       "source": "infera-session/src/assistant_tools.rs",
       "response": "Value",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/branding",
+      "module": "branding",
+      "handler": "public_show",
+      "permissions": [],
+      "source": "infera-session/src/branding.rs",
+      "response": "Branding",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/branding/assets/{key}",
+      "module": "branding",
+      "handler": "asset",
+      "permissions": [],
+      "source": "infera-session/src/branding.rs",
+      "pathParam": "String",
+      "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -13633,6 +14342,7 @@
       "response": "APIEmptyResponse",
       "responseEnvelope": "raw",
       "multipart": false,
+      "binary": true,
       "formUrlEncoded": false
     }
   ],

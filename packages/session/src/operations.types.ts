@@ -5,6 +5,39 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Branding. */
+export interface BrandingShowGetResponseData extends JsonObject {
+  "title"?: string | null;
+  "localizations": Record<string, JsonValue>;
+  "icon_asset_key"?: string | null;
+  "icon_url"?: string | null;
+}
+export interface BrandingShowGetResponse extends ApiEnvelope<BrandingShowGetResponseData> {
+}
+
+/** Backend request type: Branding. */
+export interface BrandingUpdatePutInput extends JsonObject {
+  "title"?: string | null;
+  "localizations": Record<string, JsonValue>;
+  "icon_asset_key"?: string | null;
+  "icon_url"?: string | null;
+}
+/** Backend response type: Branding. */
+export interface BrandingUpdatePutResponseData extends JsonObject {
+  "title"?: string | null;
+  "localizations": Record<string, JsonValue>;
+  "icon_asset_key"?: string | null;
+  "icon_url"?: string | null;
+}
+export interface BrandingUpdatePutResponse extends ApiEnvelope<BrandingUpdatePutResponseData> {
+}
+
+/** Backend request type: multipart/form-data. */
+export type BrandingUploadPostInput = FormData;
+/** Backend response type: serde_json::Value. */
+export interface BrandingUploadPostResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: LiveKitConfigResponse. */
 export interface ConfigurationLivekitConfigShowGetResponseData extends JsonObject {
   "livekit_url": string;
@@ -121,6 +154,20 @@ export interface AssistantToolsListUserSessionsGetResponse extends ApiEnvelope<J
 
 /** Backend response type: Value. */
 export interface AssistantToolsUserSessionDetailGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Branding. */
+export interface BrandingPublicShowGetResponseData extends JsonObject {
+  "title"?: string | null;
+  "localizations": Record<string, JsonValue>;
+  "icon_asset_key"?: string | null;
+  "icon_url"?: string | null;
+}
+export interface BrandingPublicShowGetResponse extends ApiEnvelope<BrandingPublicShowGetResponseData> {
+}
+
+/** Backend response type: raw-response. */
+export interface BrandingAssetGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: RecordingQueueQuery. */
@@ -300,6 +347,7 @@ export interface RoomRoomsJoinGetResponseData extends JsonObject {
   "url": string;
   "room_name": string;
   "can_end": boolean;
+  "ai_chat_enabled": boolean;
   "chat_model_ref"?: string | null;
   "chat_assistant_id"?: string | null;
   "realtime"?: BackendJson<"RealtimeJoinResponse"> | null;

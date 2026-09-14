@@ -568,6 +568,15 @@ export interface ApiMoveDealStagePatchResponseData extends JsonObject {
 }
 export type ApiMoveDealStagePatchResponse = import("./types.js").CrmApiResponse<ApiMoveDealStagePatchResponseData>;
 
+/** Backend query type: FindOfficeLeadQuery. */
+export interface ApiFindOfficeLeadGetQuery extends QueryParams {
+  "profile_id": string;
+  "foreign_key": string;
+  "flags"?: string;
+}
+/** Backend response type: Option<entity::lead::Model>. */
+export type ApiFindOfficeLeadGetResponse = import("./types.js").CrmApiResponse<BackendJson<"entity::lead::Model"> | null>;
+
 /** Backend query type: ListQuery. */
 export interface ApiLeadsGetQuery extends QueryParams {
   "cursor"?: string | null;
@@ -769,6 +778,22 @@ export interface ApiAssignLeadPatchResponseData extends JsonObject {
 }
 export type ApiAssignLeadPatchResponse = import("./types.js").CrmApiResponse<ApiAssignLeadPatchResponseData>;
 
+/** Backend response type: DeletionResult. */
+export interface ApiRemoveLeadFromSosDeleteResponseData extends JsonObject {
+  "id": string;
+  "deleted": boolean;
+}
+export type ApiRemoveLeadFromSosDeleteResponse = import("./types.js").CrmApiResponse<ApiRemoveLeadFromSosDeleteResponseData>;
+
+/** Backend response type: SosLead. */
+export interface ApiAddLeadToSosPostResponseData extends JsonObject {
+  "id": string;
+  "lead_id": string;
+  "created_by": string;
+  "created_at": string;
+}
+export type ApiAddLeadToSosPostResponse = import("./types.js").CrmApiResponse<ApiAddLeadToSosPostResponseData>;
+
 /** Backend request type: MoveStage. */
 export interface ApiMoveLeadStagePatchInput extends JsonObject {
   "stage_id": string;
@@ -851,6 +876,15 @@ export interface ApiRefreshReportsPostQuery extends QueryParams {
 }
 /** Backend response type: JsonValue. */
 export type ApiRefreshReportsPostResponse = import("./types.js").CrmReportRefreshResponse;
+
+/** Backend response type: Vec<SosLead>. */
+export interface ApiListSosLeadsGetResponseItem extends JsonObject {
+  "id": string;
+  "lead_id": string;
+  "created_by": string;
+  "created_at": string;
+}
+export type ApiListSosLeadsGetResponse = import("./types.js").CrmApiResponse<ApiListSosLeadsGetResponseItem[]>;
 
 /** Backend response type: Vec<Source>. */
 export interface ApiSourcesGetResponseItem extends JsonObject {
@@ -992,6 +1026,17 @@ export interface ApiCreateTeamPostResponseData extends JsonObject {
 }
 export type ApiCreateTeamPostResponse = import("./types.js").CrmApiResponse<ApiCreateTeamPostResponseData>;
 
+/** Backend request type: VersionedDelete. */
+export interface ApiDeleteTeamDeleteInput extends JsonObject {
+  "version": number;
+}
+/** Backend response type: DeletionResult. */
+export interface ApiDeleteTeamDeleteResponseData extends JsonObject {
+  "id": string;
+  "deleted": boolean;
+}
+export type ApiDeleteTeamDeleteResponse = import("./types.js").CrmApiResponse<ApiDeleteTeamDeleteResponseData>;
+
 /** Backend response type: serde_json::Value. */
 export type ApiTeamGetResponse = import("./types.js").CrmTeamDetailResponse;
 
@@ -1013,6 +1058,53 @@ export interface ApiAddTeamMemberPostResponseData extends JsonObject {
   "updated_at": string;
 }
 export type ApiAddTeamMemberPostResponse = import("./types.js").CrmApiResponse<ApiAddTeamMemberPostResponseData>;
+
+/** Backend response type: TeamMember. */
+export interface ApiRemoveTeamMemberDeleteResponseData extends JsonObject {
+  "id": string;
+  "team_id": string;
+  "user_id": string;
+  "title"?: string | null;
+  "capacity": number;
+  "is_active": boolean;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiRemoveTeamMemberDeleteResponse = import("./types.js").CrmApiResponse<ApiRemoveTeamMemberDeleteResponseData>;
+
+/** Backend response type: Vec<WorkflowAssignment>. */
+export interface ApiListWorkflowAssignmentsGetResponseItem extends JsonObject {
+  "id": string;
+  "workflow_id": string;
+  "team_id"?: string | null;
+  "user_id"?: string | null;
+  "created_by": string;
+  "created_at": string;
+}
+export type ApiListWorkflowAssignmentsGetResponse = import("./types.js").CrmApiResponse<ApiListWorkflowAssignmentsGetResponseItem[]>;
+
+/** Backend request type: CreateWorkflowAssignment. */
+export interface ApiCreateWorkflowAssignmentPostInput extends JsonObject {
+  "team_id"?: string | null;
+  "user_id"?: string | null;
+}
+/** Backend response type: WorkflowAssignment. */
+export interface ApiCreateWorkflowAssignmentPostResponseData extends JsonObject {
+  "id": string;
+  "workflow_id": string;
+  "team_id"?: string | null;
+  "user_id"?: string | null;
+  "created_by": string;
+  "created_at": string;
+}
+export type ApiCreateWorkflowAssignmentPostResponse = import("./types.js").CrmApiResponse<ApiCreateWorkflowAssignmentPostResponseData>;
+
+/** Backend response type: DeletionResult. */
+export interface ApiDeleteWorkflowAssignmentDeleteResponseData extends JsonObject {
+  "id": string;
+  "deleted": boolean;
+}
+export type ApiDeleteWorkflowAssignmentDeleteResponse = import("./types.js").CrmApiResponse<ApiDeleteWorkflowAssignmentDeleteResponseData>;
 
 /** Backend request type: UpdateWorkspace. */
 export interface ApiUpdateWorkspacePatchInput extends JsonObject {

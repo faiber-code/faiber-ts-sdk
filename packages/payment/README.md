@@ -27,11 +27,14 @@ const payment = await api.createPayment({
   amount: 4900,
   gateway_id: gatewayId,
 });
+const settings = await api.settings();
+const verification = await api.verificationLogs(transactionId);
+await api.verifyTransaction(transactionId);
 ```
 
 ## Complete capability
 
-This package exposes 20 registered operations from the payments service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 23 registered operations from the payments service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -41,7 +44,8 @@ This package exposes 20 registered operations from the payments service. Common 
 | `payment-web` | 3 | `GET`, `POST` |
 | `router` | 3 | `GET` |
 | `session` | 1 | `GET` |
-| `transaction` | 4 | `GET`, `POST` |
+| `settings` | 2 | `GET`, `PATCH` |
+| `transaction` | 5 | `GET`, `POST` |
 
 Browser callback and verification routes are exposed in `api.operations`; callers should preserve the provider query parameters returned by the payment service.
 

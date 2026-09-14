@@ -104,18 +104,25 @@ export interface RoutesGetAssistantGetResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: entity::attachment::Model. */
 export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
   "id": string;
+  "organization_id": string;
   "conversation_id": string;
-  "user_message_id": string;
-  "assistant_message_id"?: string | null;
-  "agentic_thread_id": string;
-  "agent_slug": string;
-  "agentic_request_id"?: string | null;
-  "model_ref"?: string | null;
+  "message_id"?: string | null;
+  "uploader_id"?: string | null;
+  "storage_provider": string;
+  "bucket": string;
+  "object_key": string;
+  "cdn_url": string;
+  "file_name": string;
+  "media_type": string;
+  "byte_size": number;
+  "checksum_sha256"?: string | null;
   "status": string;
-  "usage": BackendJson<"Json">;
-  "error"?: string | null;
+  "metadata": BackendJson<"Json">;
+  "legacy_source"?: string | null;
+  "legacy_id"?: number | null;
   "created_at": string;
-  "completed_at"?: string | null;
+  "updated_at": string;
+  "deleted_at"?: string | null;
 }
 export interface RoutesCompleteAttachmentPostResponse extends ApiEnvelope<RoutesCompleteAttachmentPostResponseData> {
 }
@@ -206,9 +213,8 @@ export interface RoutesCreateAttachmentPostResponseData extends JsonObject {
 export interface RoutesCreateAttachmentPostResponse extends ApiEnvelope<RoutesCreateAttachmentPostResponseData> {
 }
 
-/** Backend response type: raw-response. */
-export interface RoutesEventsGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: stream. */
+export type RoutesEventsGetResponse = import("./types.js").ChatEventStream;
 
 /** Backend response type: Value. */
 export interface RoutesMembersGetResponse extends ApiEnvelope<JsonValue> {

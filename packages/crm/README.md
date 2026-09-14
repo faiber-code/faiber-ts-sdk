@@ -1,7 +1,7 @@
 # @faiber/faiber-crm
 
 Typed client for the current production CRM: workspace configuration, pipelines and boards,
-teams, companies, contacts, leads, deals, tasks, activities, marketing sources/campaigns,
+teams, companies, contacts, leads, deals, SOS membership, workflow assignments, tasks, activities, marketing sources/campaigns,
 reports, durable automation, and approval-gated Agentic insights.
 
 ```bash
@@ -20,18 +20,22 @@ const crm = new CrmApi(new FaiberClient("crm", {
 const leads = await crm.listLeads({ q: "Acme", status: "open" });
 const overview = await crm.getOverview();
 await crm.moveLeadStage(leadId, { stage_id: nextStageId, version: leadVersion });
+await crm.removeLeadFromSos(leadId, {
+  headers: { "Idempotency-Key": crypto.randomUUID() },
+});
 ```
 
-The package exposes all 49 currently mounted routes through `api.operations`, with concise
+The package exposes all 58 currently mounted routes through `api.operations`, with concise
 methods for each CRM business capability. Mutations use optimistic `version` fields and
 the backend's `Idempotency-Key` header where required. All methods return complete Axios
 responses and accept shared request options, including `AbortSignal` cancellation.
 
 CRM authorization remains server enforced. Typical permissions are scoped by capability,
 including `crm:lead:*`, `crm:deal:*`, `crm:company:*`, `crm:contact:*`, `crm:team:*`,
-`crm:task:*`, `crm:activity:*`, `crm:marketing:*`, `crm:report:*`, `crm:automation:read`,
+`crm:sos:*`, `crm:workflow_assignment:*`, `crm:task:*`, `crm:activity:*`, `crm:marketing:*`, `crm:report:*`, `crm:automation:read`,
 `crm:settings:update`, and `crm:agent:run`; `crm:admin` is the service-wide override.
 
-The previous singular `/api/v1/lead`, workflow, reminder, SOS, and worklog resources are
-not mounted by the current CRM and were removed from the public convenience client rather
-than issuing requests that always return 404/405.
+`deleteTeam` is version-safe and detaches active CRM records before soft deletion.
+`removeTeamMember` deactivates a membership. SOS methods add or remove the SOS marker without
+deleting the lead. Workflow assignments accept exactly one `team_id` or `user_id`; the
+`assignTeamToWorkflow` and `assignUserToWorkflow` helpers enforce that shape.

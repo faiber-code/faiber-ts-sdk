@@ -19,8 +19,8 @@ test("contract extraction finds the sibling services tree and emits portable mou
     const manifest = JSON.parse(await readFile(output, "utf8"));
     assert.ok(manifest.modules.length > 0);
     assert.ok(manifest.modules.some(endpoint => endpoint.path === "/api/v1/manage/content"));
-    const drmOperationsSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/operations/settings");
-    const drmKnowledgeSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/mixed-media/{id}/knowledge-sync");
+    const drmOperationsSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/api/v1/operations/settings");
+    const drmKnowledgeSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/api/v1/mixed-media/{id}/knowledge-sync");
     assert.deepEqual(
       { pathParam: drmOperationsSettings?.pathParam, response: drmOperationsSettings?.response },
       { pathParam: undefined, response: "SettingsResponse" },
