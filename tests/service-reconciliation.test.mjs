@@ -44,12 +44,25 @@ test("CRM convenience client uses current plural production routes and optimisti
     reminder: { lead_id: "lead/one", profile_id: "profile-1", title: "Call again", due_at: "2026-09-15T08:00:00Z" },
   }, mutation);
   await sdk.crm.listWorklogs({ sort: "-start_date" });
+  await sdk.crm.listWorkflows({ sort: "priority" });
+  await sdk.crm.getWorkflow("workflow/one");
   await sdk.crm.createWorkflow({
     name: "Customer success",
     slug: "customer-success",
     acquire_flags: ["onboarding"],
     priority: 20,
   });
+  await sdk.crm.updateWorkflow("workflow/one", { name: "Renewals", actions: null, hint: null });
+  await sdk.crm.deleteWorkflow("workflow/one");
+  await sdk.crm.listWorkflowNodes("workflow/one", { sort: "priority" });
+  await sdk.crm.getWorkflowNode("workflow/one", "node/one");
+  await sdk.crm.createWorkflowNode("workflow/one", {
+    name: "Qualified",
+    slug: "qualified",
+    priority: 10,
+  });
+  await sdk.crm.updateWorkflowNode("workflow/one", "node/one", { auto_win: true, actions: null });
+  await sdk.crm.deleteWorkflowNode("workflow/one", "node/one");
 
   assert.equal(leads.status, 200);
   assert.deepEqual(requests.map(item => [item.method, item.url]), [
@@ -74,7 +87,16 @@ test("CRM convenience client uses current plural production routes and optimisti
     ["delete", "/api/v1/tasks/task%2Fone"],
     ["post", "/api/v1/activities/with-reminder"],
     ["get", "/api/v1/worklog"],
-    ["post", "/api/v1/workflow"],
+    ["get", "/api/v1/workflows"],
+    ["get", "/api/v1/workflows/workflow%2Fone"],
+    ["post", "/api/v1/workflows"],
+    ["patch", "/api/v1/workflows/workflow%2Fone"],
+    ["delete", "/api/v1/workflows/workflow%2Fone"],
+    ["get", "/api/v1/workflows/workflow%2Fone/nodes"],
+    ["get", "/api/v1/workflows/workflow%2Fone/nodes/node%2Fone"],
+    ["post", "/api/v1/workflows/workflow%2Fone/nodes"],
+    ["patch", "/api/v1/workflows/workflow%2Fone/nodes/node%2Fone"],
+    ["delete", "/api/v1/workflows/workflow%2Fone/nodes/node%2Fone"],
   ]);
   assert.equal(requests[0].params.q, "Acme");
   assert.equal(body(requests[1]).version, 4);
@@ -85,7 +107,10 @@ test("CRM convenience client uses current plural production routes and optimisti
   assert.equal(requests[15].params.profile_id, "profile-1");
   assert.equal(body(requests[19]).reminder.profile_id, "profile-1");
   assert.equal(requests[20].params.sort, "-start_date");
-  assert.equal(body(requests[21]).slug, "customer-success");
+  assert.equal(requests[21].params.sort, "priority");
+  assert.equal(body(requests[23]).slug, "customer-success");
+  assert.equal(body(requests[24]).actions, null);
+  assert.equal(body(requests[29]).actions, null);
   assert.equal("leads" in sdk.crm, false);
   assert.equal("markLeadDone" in sdk.crm, false);
 });

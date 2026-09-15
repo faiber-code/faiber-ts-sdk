@@ -2539,6 +2539,86 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/workflows",
+      "module": "api",
+      "handler": "list_workflows_route",
+      "permissions": [
+        "workflow:read",
+        "workflow:read_all",
+        "workflow:read_own"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "query": "ListQuery",
+      "response": "Vec<WorkflowResponse>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/workflows",
+      "module": "api",
+      "handler": "create_workflow_route",
+      "permissions": [
+        "workflow:create"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "CreateWorkflowRequest",
+      "response": "WorkflowResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/workflows/{id}",
+      "module": "api",
+      "handler": "delete_workflow_route",
+      "permissions": [
+        "workflow:delete"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "response": "DeletionResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/workflows/{id}",
+      "module": "api",
+      "handler": "show_workflow_route",
+      "permissions": [
+        "workflow:read",
+        "workflow:read_all",
+        "workflow:read_own"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "pathParam": "Uuid",
+      "response": "WorkflowResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/workflows/{id}",
+      "module": "api",
+      "handler": "update_workflow_route",
+      "permissions": [
+        "workflow:update"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "UpdateWorkflowRequest",
+      "pathParam": "Uuid",
+      "response": "WorkflowResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/workflows/{id}/assignments",
       "module": "api",
       "handler": "list_workflow_assignments",
@@ -2578,6 +2658,85 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "DeletionResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/workflows/{workflow_id}/nodes",
+      "module": "api",
+      "handler": "list_workflow_nodes_route",
+      "permissions": [
+        "workflow_node:read",
+        "workflow_node:read_all",
+        "workflow_node:read_own"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "query": "ListQuery",
+      "pathParam": "Uuid",
+      "response": "Vec<WorkflowNodeResponse>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/workflows/{workflow_id}/nodes",
+      "module": "api",
+      "handler": "create_workflow_node_route",
+      "permissions": [
+        "workflow_node:create"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "CreateWorkflowNodeRequest",
+      "pathParam": "Uuid",
+      "response": "WorkflowNodeResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "module": "api",
+      "handler": "delete_workflow_node_route",
+      "permissions": [
+        "workflow_node:delete"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "response": "DeletionResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "module": "api",
+      "handler": "show_workflow_node_route",
+      "permissions": [
+        "workflow_node:read",
+        "workflow_node:read_all",
+        "workflow_node:read_own"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "response": "WorkflowNodeResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "module": "api",
+      "handler": "update_workflow_node_route",
+      "permissions": [
+        "workflow_node:update"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "UpdateWorkflowNodeRequest",
+      "response": "WorkflowNodeResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -6357,6 +6516,21 @@
       "source": "infera-lms/src/classroom/routes.rs",
       "body": "models::CreateClassroomRequest",
       "response": "models::ClassroomResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/classrooms/{id}",
+      "module": "classroom",
+      "handler": "destroy_classroom",
+      "permissions": [
+        "lms:classroom:delete"
+      ],
+      "source": "infera-lms/src/classroom/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

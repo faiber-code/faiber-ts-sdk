@@ -651,8 +651,64 @@ export class CrmOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow:create.
    */
-  apiCreateWorkflowRoutePost(data: T.ApiCreateWorkflowRoutePostInput, options?: RequestOptions<T.ApiCreateWorkflowRoutePostInput>) {
-    return this.client.request<T.ApiCreateWorkflowRoutePostResponse, T.ApiCreateWorkflowRoutePostInput>({ ...options, method: "POST", url: `/api/v1/workflow`, data: data });
+  apiCreateWorkflowRoutePostApiV1Workflow(data: T.ApiCreateWorkflowRoutePostApiV1WorkflowInput, options?: RequestOptions<T.ApiCreateWorkflowRoutePostApiV1WorkflowInput>) {
+    return this.client.request<T.ApiCreateWorkflowRoutePostApiV1WorkflowResponse, T.ApiCreateWorkflowRoutePostApiV1WorkflowInput>({ ...options, method: "POST", url: `/api/v1/workflow`, data: data });
+  }
+  /**
+   * Performs the list workflows route operation for the api capability.
+   * Calls `GET /api/v1/workflows` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow:read, workflow:read_all, workflow:read_own.
+   */
+  apiListWorkflowsRouteGet(params?: T.ApiListWorkflowsRouteGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiListWorkflowsRouteGetResponse>({ ...options, method: "GET", url: `/api/v1/workflows`, params });
+  }
+  /**
+   * Performs the create workflow route operation for the api capability.
+   * Calls `POST /api/v1/workflows` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow:create.
+   */
+  apiCreateWorkflowRoutePostApiV1Workflows(data: T.ApiCreateWorkflowRoutePostApiV1WorkflowsInput, options?: RequestOptions<T.ApiCreateWorkflowRoutePostApiV1WorkflowsInput>) {
+    return this.client.request<T.ApiCreateWorkflowRoutePostApiV1WorkflowsResponse, T.ApiCreateWorkflowRoutePostApiV1WorkflowsInput>({ ...options, method: "POST", url: `/api/v1/workflows`, data: data });
+  }
+  /**
+   * Performs the delete workflow route operation for the api capability.
+   * Calls `DELETE /api/v1/workflows/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow:delete.
+   */
+  apiDeleteWorkflowRouteDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiDeleteWorkflowRouteDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/workflows/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show workflow route operation for the api capability.
+   * Calls `GET /api/v1/workflows/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow:read, workflow:read_all, workflow:read_own.
+   */
+  apiShowWorkflowRouteGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiShowWorkflowRouteGetResponse>({ ...options, method: "GET", url: `/api/v1/workflows/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update workflow route operation for the api capability.
+   * Calls `PATCH /api/v1/workflows/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow:update.
+   */
+  apiUpdateWorkflowRoutePatch(id: Identifier, data: T.ApiUpdateWorkflowRoutePatchInput, options?: RequestOptions<T.ApiUpdateWorkflowRoutePatchInput>) {
+    return this.client.request<T.ApiUpdateWorkflowRoutePatchResponse, T.ApiUpdateWorkflowRoutePatchInput>({ ...options, method: "PATCH", url: `/api/v1/workflows/${encodeURIComponent(id)}`, data: data });
   }
   /**
    * Performs the list workflow assignments operation for the api capability.
@@ -688,6 +744,67 @@ export class CrmOperations extends ServiceApi {
    */
   apiDeleteWorkflowAssignmentDelete(workflowId: Identifier, assignmentId: Identifier, options?: RequestOptions) {
     return this.client.request<T.ApiDeleteWorkflowAssignmentDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/workflows/${encodeURIComponent(workflowId)}/assignments/${encodeURIComponent(assignmentId)}` });
+  }
+  /**
+   * Performs the list workflow nodes route operation for the api capability.
+   * Calls `GET /api/v1/workflows/{workflow_id}/nodes` through the shared IDP-aware Faiber client.
+   * @param workflowId Backend path identifier `workflow_id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow_node:read, workflow_node:read_all, workflow_node:read_own.
+   */
+  apiListWorkflowNodesRouteGet(workflowId: Identifier, params?: T.ApiListWorkflowNodesRouteGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiListWorkflowNodesRouteGetResponse>({ ...options, method: "GET", url: `/api/v1/workflows/${encodeURIComponent(workflowId)}/nodes`, params });
+  }
+  /**
+   * Performs the create workflow node route operation for the api capability.
+   * Calls `POST /api/v1/workflows/{workflow_id}/nodes` through the shared IDP-aware Faiber client.
+   * @param workflowId Backend path identifier `workflow_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow_node:create.
+   */
+  apiCreateWorkflowNodeRoutePost(workflowId: Identifier, data: T.ApiCreateWorkflowNodeRoutePostInput, options?: RequestOptions<T.ApiCreateWorkflowNodeRoutePostInput>) {
+    return this.client.request<T.ApiCreateWorkflowNodeRoutePostResponse, T.ApiCreateWorkflowNodeRoutePostInput>({ ...options, method: "POST", url: `/api/v1/workflows/${encodeURIComponent(workflowId)}/nodes`, data: data });
+  }
+  /**
+   * Performs the delete workflow node route operation for the api capability.
+   * Calls `DELETE /api/v1/workflows/{workflow_id}/nodes/{node_id}` through the shared IDP-aware Faiber client.
+   * @param workflowId Backend path identifier `workflow_id`.
+   * @param nodeId Backend path identifier `node_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow_node:delete.
+   */
+  apiDeleteWorkflowNodeRouteDelete(workflowId: Identifier, nodeId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiDeleteWorkflowNodeRouteDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/workflows/${encodeURIComponent(workflowId)}/nodes/${encodeURIComponent(nodeId)}` });
+  }
+  /**
+   * Performs the show workflow node route operation for the api capability.
+   * Calls `GET /api/v1/workflows/{workflow_id}/nodes/{node_id}` through the shared IDP-aware Faiber client.
+   * @param workflowId Backend path identifier `workflow_id`.
+   * @param nodeId Backend path identifier `node_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow_node:read, workflow_node:read_all, workflow_node:read_own.
+   */
+  apiShowWorkflowNodeRouteGet(workflowId: Identifier, nodeId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ApiShowWorkflowNodeRouteGetResponse>({ ...options, method: "GET", url: `/api/v1/workflows/${encodeURIComponent(workflowId)}/nodes/${encodeURIComponent(nodeId)}` });
+  }
+  /**
+   * Performs the update workflow node route operation for the api capability.
+   * Calls `PATCH /api/v1/workflows/{workflow_id}/nodes/{node_id}` through the shared IDP-aware Faiber client.
+   * @param workflowId Backend path identifier `workflow_id`.
+   * @param nodeId Backend path identifier `node_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow_node:update.
+   */
+  apiUpdateWorkflowNodeRoutePatch(workflowId: Identifier, nodeId: Identifier, data: T.ApiUpdateWorkflowNodeRoutePatchInput, options?: RequestOptions<T.ApiUpdateWorkflowNodeRoutePatchInput>) {
+    return this.client.request<T.ApiUpdateWorkflowNodeRoutePatchResponse, T.ApiUpdateWorkflowNodeRoutePatchInput>({ ...options, method: "PATCH", url: `/api/v1/workflows/${encodeURIComponent(workflowId)}/nodes/${encodeURIComponent(nodeId)}`, data: data });
   }
   /**
    * Performs the member workflows operation for the api capability.

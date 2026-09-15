@@ -61,7 +61,7 @@ export class LmsApi extends ServiceApi {
     readonly courses: R<T.Course, T.CreateCourseInput, T.UpdateCourseInput> = new RestResource(this.client, "/api/v1/courses", { supported: ["list", "show", "create", "update"] });
     readonly courseCategories: R<T.CourseCategory, T.CreateCourseCategoryInput, T.UpdateCourseCategoryInput> = new RestResource(this.client, "/api/v1/courses/categories", { supported: ["list", "show", "create", "update"] });
     readonly videoSections: R<T.VideoSection, T.CreateVideoSectionInput, T.UpdateVideoSectionInput> = new RestResource(this.client, "/api/v1/courses/video-sections", { supported: ["list", "show", "create", "update"] });
-    readonly classrooms: R<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update"] });
+    readonly classrooms: R<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update", "delete"] });
     readonly classroomSessions: RestResource<T.ClassroomSession, T.CreateClassroomSessionInput, T.UpdateClassroomSessionInput, T.ClassroomSessionPageResponse, T.LmsResponse<T.ClassroomSession>> = new RestResource(this.client, "/api/v1/classrooms/sessions", { supported: ["list", "show", "create", "update"] });
     readonly exams: R<T.Exam, T.CreateExamInput, T.UpdateExamInput> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update"] });
     readonly examQuestions: R<T.ExamQuestion, T.CreateExamQuestionInput, T.UpdateExamQuestionInput> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
@@ -79,6 +79,8 @@ export class LmsApi extends ServiceApi {
     listClassrooms(params?: O.ClassroomIndexClassroomGetQuery, options?: RequestOptions) { return this.operations.classroomIndexClassroomGet(params, options); }
     /** Reads one classroom with its course and teacher, consultant, and support profiles. */
     classroom(id: Identifier, options?: RequestOptions) { return this.operations.classroomShowClassroomGet(id, options); }
+    /** Deletes one classroom. Requires `lms:classroom:delete`. */
+    deleteClassroom(id: Identifier, options?: RequestOptions) { return this.operations.classroomDestroyClassroomDelete(id, options); }
     /** Lists classroom sessions, including course-session/type metadata and relationship filters. */
     listClassroomSessions(params?: O.ClassroomIndexSessionGetQuery, options?: RequestOptions) { return this.operations.classroomIndexSessionGet(params, options); }
     /** Lists homework definitions. Projects and todos are represented by filtered assignments. */

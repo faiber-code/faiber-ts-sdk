@@ -225,6 +225,17 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ClassroomStoreClassroomPostResponse, T.ClassroomStoreClassroomPostInput>({ ...options, method: "POST", url: `/api/v1/classrooms`, data: data });
   }
   /**
+   * Performs the destroy classroom operation for the classroom capability.
+   * Calls `DELETE /api/v1/classrooms/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:classroom:delete.
+   */
+  classroomDestroyClassroomDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ClassroomDestroyClassroomDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/classrooms/${encodeURIComponent(id)}` });
+  }
+  /**
    * Performs the show classroom operation for the classroom capability.
    * Calls `GET /api/v1/classrooms/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.

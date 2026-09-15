@@ -70,11 +70,13 @@ test("LMS classroom sessions expose types, today filtering, and Session UI links
   await api.classroomSessionTypes();
   await api.todayClassroomSessions({ date: "2026-09-01", timezone_offset_minutes: 210 });
   await api.listClassrooms({ user_id: "user-id", from: "2026-09-01T00:00:00Z" });
+  await api.deleteClassroom("classroom/id");
 
   assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
     ["get", "/api/v1/classrooms/session-types"],
     ["get", "/api/v1/classrooms/sessions/today"],
     ["get", "/api/v1/classrooms"],
+    ["delete", "/api/v1/classrooms/classroom%2Fid"],
   ]);
   assert.equal(seen[1].params.timezone_offset_minutes, 210);
   assert.deepEqual(api.classroomSessionLinks({ session_room_id: "room/id" }), {

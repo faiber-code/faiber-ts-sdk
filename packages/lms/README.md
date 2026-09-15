@@ -33,6 +33,7 @@ const statistics = await api.studentStatistics(userId);
 console.log(statistics.counts.classroom_count, statistics.counts.homework_count, statistics.counts.exam_count);
 const officeClassrooms = await api.batchClassrooms({ ids: classroomUuids });
 const migratedIds = await api.resolveLegacyClassroomIds({ classrooms: legacyClassroomIds });
+await api.deleteClassroom(classroomUuid);
 const sessionTypes = await api.classroomSessionTypes();
 const links = api.classroomSessionLinks(classroomSessions.data.data.data[0]);
 const examUrl = api.examPageUrl(examAttemptId);
@@ -80,7 +81,7 @@ const svg = await api.certificateSvg("CERT-2026-001");
 
 ## Complete capability
 
-This package exposes 143 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 144 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|

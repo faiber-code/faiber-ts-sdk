@@ -16,6 +16,26 @@ export class CrmApi extends ServiceApi {
   getDailyStats(options?: RequestOptions) { return this.operations.apiDailyStatsGet(options); }
   /** Returns server-calculated total, active, and inactive lead counts by workflow. */
   getLeadStats(options?: RequestOptions) { return this.operations.apiLeadStatsGet(options); }
+  /** Lists all active workflows ordered by priority. */
+  listWorkflows(params?: O.ApiListWorkflowsRouteGetQuery, options?: RequestOptions) { return this.operations.apiListWorkflowsRouteGet(params, options); }
+  /** Returns one workflow by ID. */
+  getWorkflow(id: Identifier, options?: RequestOptions) { return this.operations.apiShowWorkflowRouteGet(id, options); }
+  /** Creates a workflow. Requires `workflow:create`. */
+  createWorkflow(data: O.ApiCreateWorkflowRoutePostApiV1WorkflowsInput, options?: RequestOptions<O.ApiCreateWorkflowRoutePostApiV1WorkflowsInput>) { return this.operations.apiCreateWorkflowRoutePostApiV1Workflows(data, options); }
+  /** Updates every editable workflow field. Requires `workflow:update`. */
+  updateWorkflow(id: Identifier, data: O.ApiUpdateWorkflowRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowRoutePatchInput>) { return this.operations.apiUpdateWorkflowRoutePatch(id, data, options); }
+  /** Soft-deletes a workflow. Requires `workflow:delete`. */
+  deleteWorkflow(id: Identifier, options?: RequestOptions) { return this.operations.apiDeleteWorkflowRouteDelete(id, options); }
+  /** Lists the active nodes belonging to a workflow. */
+  listWorkflowNodes(workflowId: Identifier, params?: O.ApiListWorkflowNodesRouteGetQuery, options?: RequestOptions) { return this.operations.apiListWorkflowNodesRouteGet(workflowId, params, options); }
+  /** Returns one workflow node, scoped to its parent workflow. */
+  getWorkflowNode(workflowId: Identifier, nodeId: Identifier, options?: RequestOptions) { return this.operations.apiShowWorkflowNodeRouteGet(workflowId, nodeId, options); }
+  /** Adds a node to a workflow. Requires `workflow_node:create`. */
+  createWorkflowNode(workflowId: Identifier, data: O.ApiCreateWorkflowNodeRoutePostInput, options?: RequestOptions<O.ApiCreateWorkflowNodeRoutePostInput>) { return this.operations.apiCreateWorkflowNodeRoutePost(workflowId, data, options); }
+  /** Updates every editable workflow-node field. Requires `workflow_node:update`. */
+  updateWorkflowNode(workflowId: Identifier, nodeId: Identifier, data: O.ApiUpdateWorkflowNodeRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowNodeRoutePatchInput>) { return this.operations.apiUpdateWorkflowNodeRoutePatch(workflowId, nodeId, data, options); }
+  /** Soft-deletes a workflow node. Requires `workflow_node:delete`. */
+  deleteWorkflowNode(workflowId: Identifier, nodeId: Identifier, options?: RequestOptions) { return this.operations.apiDeleteWorkflowNodeRouteDelete(workflowId, nodeId, options); }
   listTeams(options?: RequestOptions) { return this.operations.apiTeamsGet(options); }
   createTeam(data: O.ApiCreateTeamPostInput, options?: RequestOptions<O.ApiCreateTeamPostInput>) { return this.operations.apiCreateTeamPost(data, options); }
   getTeam(id: Identifier, options?: RequestOptions) { return this.operations.apiTeamGet(id, options); }
@@ -79,8 +99,6 @@ export class CrmApi extends ServiceApi {
   listActivities(params?: O.ApiActivitiesGetQuery, options?: RequestOptions) { return this.operations.apiActivitiesGet(params, options); }
   /** Lists worklogs visible to the current user. */
   listWorklogs(params?: O.ApiWorklogsGetQuery, options?: RequestOptions) { return this.operations.apiWorklogsGet(params, options); }
-  /** Creates a workflow. Requires `workflow:create`. */
-  createWorkflow(data: O.ApiCreateWorkflowRoutePostInput, options?: RequestOptions<O.ApiCreateWorkflowRoutePostInput>) { return this.operations.apiCreateWorkflowRoutePost(data, options); }
   createActivity(data: O.ApiCreateActivityPostInput, options?: RequestOptions<O.ApiCreateActivityPostInput>) { return this.operations.apiCreateActivityPost(data, options); }
   /** Atomically creates an activity/worklog and its reminder task under one idempotency key. */
   createActivityWithReminder(data: O.ApiCreateActivityWithReminderPostInput, options?: RequestOptions<O.ApiCreateActivityWithReminderPostInput>) { return this.operations.apiCreateActivityWithReminderPost(data, options); }

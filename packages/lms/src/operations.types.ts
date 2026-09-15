@@ -268,6 +268,10 @@ export interface ClassroomStoreClassroomPostResponseData extends JsonObject {
 export interface ClassroomStoreClassroomPostResponse extends ApiEnvelope<ClassroomStoreClassroomPostResponseData> {
 }
 
+/** Backend response type: serde_json::Value. */
+export interface ClassroomDestroyClassroomDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: models::ClassroomResponse. */
 export interface ClassroomShowClassroomGetResponseDataTeacherProfile extends JsonObject {
   "user_id": string;

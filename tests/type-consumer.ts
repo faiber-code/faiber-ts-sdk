@@ -82,6 +82,8 @@ async function provePublicContracts(): Promise<void> {
   const classroomSessionType: LmsService.ClassroomSessionType | undefined = classroomSessionTypes.data.data[0];
   await apis.lms.batchClassrooms({ ids: ["00000000-0000-0000-0000-000000000001"] });
   await apis.lms.resolveLegacyClassroomIds({ classrooms: [42], courses: [7] });
+  await apis.lms.deleteClassroom("00000000-0000-0000-0000-000000000001");
+  await apis.lms.classrooms.delete("00000000-0000-0000-0000-000000000001");
   const certificateLayout: LmsService.CertificateLayout = {
     fields: [
       { key: "student_name", x: 877, y: 545, font_size: 54, weight: 700, text_anchor: "middle" },
@@ -193,7 +195,7 @@ sdk.crm.listLightLeads({
   active_to: "2026-09-30T23:59:59Z",
   sort: "task_priority",
 }).then(response => response.data.data.items[0]?.profile_id);
-sdk.crm.getLeadHistory("lead-1").then(response => response.data.data[0]?.event_type);
+sdk.crm.getLeadHistory("lead-1").then(response => response.data.data[0]?.profile?.first_name);
 sdk.crm.deleteLeadReminders("lead-1", mutationOptions);
 sdk.crm.deleteTask("task-1", mutationOptions).then(response => response.data.data.deleted);
 sdk.crm.createActivityWithReminder({
@@ -208,6 +210,15 @@ sdk.crm.createWorkflow({
   acquire_flags: ["onboarding"],
   priority: 20,
 }).then(response => response.data.data.can_create_lead);
+sdk.crm.listWorkflows({ sort: "priority" }).then(response => response.data.data[0]?.name);
+sdk.crm.getWorkflow("workflow-1").then(response => response.data.data.slug);
+sdk.crm.updateWorkflow("workflow-1", { actions: null, hint: null });
+sdk.crm.deleteWorkflow("workflow-1").then(response => response.data.data.deleted);
+sdk.crm.listWorkflowNodes("workflow-1", { sort: "priority" }).then(response => response.data.data[0]?.workflow_id);
+sdk.crm.getWorkflowNode("workflow-1", "node-1").then(response => response.data.data.name);
+sdk.crm.createWorkflowNode("workflow-1", { name: "Qualified", slug: "qualified", priority: 10 });
+sdk.crm.updateWorkflowNode("workflow-1", "node-1", { actions: null, auto_win: true });
+sdk.crm.deleteWorkflowNode("workflow-1", "node-1").then(response => response.data.data.deleted);
 sdk.task.workspace().then(response => response.data.data.sandbox_id);
 sdk.task.openEvents({ signal: AbortSignal.timeout(1_000) }).then(response => response.data);
   void manageAction;
