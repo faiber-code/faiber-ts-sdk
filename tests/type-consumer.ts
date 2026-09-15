@@ -207,17 +207,29 @@ sdk.crm.listWorklogs({ sort: "-start_date" }).then(response => response.data.dat
 sdk.crm.createWorkflow({
   name: "Customer success",
   slug: "customer-success",
+  flags: ["onboarding", "enterprise"],
   acquire_flags: ["onboarding"],
   priority: 20,
+  actions: [{ key: "qualification-form", kind: "internal", form: "qualification", required: true }],
 }).then(response => response.data.data.can_create_lead);
 sdk.crm.listWorkflows({ sort: "priority" }).then(response => response.data.data[0]?.name);
 sdk.crm.getWorkflow("workflow-1").then(response => response.data.data.slug);
-sdk.crm.updateWorkflow("workflow-1", { actions: null, hint: null });
+sdk.crm.updateWorkflow("workflow-1", {
+  flags: ["onboarding", "enterprise"],
+  acquire_flags: ["enterprise"],
+  actions: [{ key: "crm-form", kind: "external", form: "https://forms.example.test/crm", required: true }],
+  hint: null,
+});
 sdk.crm.deleteWorkflow("workflow-1").then(response => response.data.data.deleted);
 sdk.crm.listWorkflowNodes("workflow-1", { sort: "priority" }).then(response => response.data.data[0]?.workflow_id);
+sdk.crm.listAllWorkflowNodes({ sort: "priority" }).then(response => response.data.data[0]?.workflow_id);
+sdk.crm.getWorkflowNode("node-1").then(response => response.data.data.name);
 sdk.crm.getWorkflowNode("workflow-1", "node-1").then(response => response.data.data.name);
 sdk.crm.createWorkflowNode("workflow-1", { name: "Qualified", slug: "qualified", priority: 10 });
+sdk.crm.createWorkflowNodeInWorkflow("workflow-1", { name: "Qualified", slug: "qualified", priority: 10 });
+sdk.crm.updateWorkflowNode("node-1", { actions: null, auto_win: true });
 sdk.crm.updateWorkflowNode("workflow-1", "node-1", { actions: null, auto_win: true });
+sdk.crm.deleteWorkflowNode("node-1").then(response => response.data.data);
 sdk.crm.deleteWorkflowNode("workflow-1", "node-1").then(response => response.data.data.deleted);
 sdk.task.workspace().then(response => response.data.data.sandbox_id);
 sdk.task.openEvents({ signal: AbortSignal.timeout(1_000) }).then(response => response.data);

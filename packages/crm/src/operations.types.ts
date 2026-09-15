@@ -1340,33 +1340,8 @@ export interface ApiRemoveTeamMemberDeleteResponseData extends JsonObject {
 }
 export type ApiRemoveTeamMemberDeleteResponse = import("./types.js").CrmApiResponse<ApiRemoveTeamMemberDeleteResponseData>;
 
-/** Backend request type: CreateWorkflowRequest. */
-export interface ApiCreateWorkflowRoutePostApiV1WorkflowInput extends JsonObject {
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead"?: boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-}
-/** Backend response type: WorkflowResponse. */
-export interface ApiCreateWorkflowRoutePostApiV1WorkflowResponseData extends JsonObject {
-  "id": string;
-  "name": string;
-  "slug": string;
-  "acquire_flags": string[];
-  "priority": number;
-  "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
-  "hint"?: string | null;
-  "created_at": string;
-  "updated_at": string;
-}
-export type ApiCreateWorkflowRoutePostApiV1WorkflowResponse = import("./types.js").CrmApiResponse<ApiCreateWorkflowRoutePostApiV1WorkflowResponseData>;
-
 /** Backend query type: ListQuery. */
-export interface ApiListWorkflowsRouteGetQuery extends QueryParams {
+export interface ApiListWorkflowsRouteGetApiV1WorkflowQuery extends QueryParams {
   "cursor"?: string | null;
   "limit"?: number | null;
   "q"?: string | null;
@@ -1382,39 +1357,370 @@ export interface ApiListWorkflowsRouteGetQuery extends QueryParams {
   "sort"?: string | null;
 }
 /** Backend response type: Vec<WorkflowResponse>. */
-export interface ApiListWorkflowsRouteGetResponseItem extends JsonObject {
+export type ApiListWorkflowsRouteGetApiV1WorkflowResponseItemActionsKind = "internal" | "external";
+export interface ApiListWorkflowsRouteGetApiV1WorkflowResponseItemActions extends JsonObject {
+  "key": string;
+  "kind": ApiListWorkflowsRouteGetApiV1WorkflowResponseItemActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiListWorkflowsRouteGetApiV1WorkflowResponseItem extends JsonObject {
   "id": string;
   "name": string;
   "slug": string;
+  "flags": string[];
   "acquire_flags": string[];
   "priority": number;
   "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
+  "actions": ApiListWorkflowsRouteGetApiV1WorkflowResponseItemActions[];
   "hint"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
-export type ApiListWorkflowsRouteGetResponse = import("./types.js").CrmApiResponse<ApiListWorkflowsRouteGetResponseItem[]>;
+export type ApiListWorkflowsRouteGetApiV1WorkflowResponse = import("./types.js").CrmApiResponse<ApiListWorkflowsRouteGetApiV1WorkflowResponseItem[]>;
 
 /** Backend request type: CreateWorkflowRequest. */
-export interface ApiCreateWorkflowRoutePostApiV1WorkflowsInput extends JsonObject {
+export type ApiCreateWorkflowRoutePostApiV1WorkflowInputActionsKind = "internal" | "external";
+export interface ApiCreateWorkflowRoutePostApiV1WorkflowInputActions extends JsonObject {
+  "key": string;
+  "kind": ApiCreateWorkflowRoutePostApiV1WorkflowInputActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiCreateWorkflowRoutePostApiV1WorkflowInput extends JsonObject {
   "name": string;
   "slug": string;
+  "flags"?: string[];
   "acquire_flags": string[];
   "priority": number;
   "can_create_lead"?: boolean;
-  "actions"?: JsonValue | null;
+  "actions"?: ApiCreateWorkflowRoutePostApiV1WorkflowInputActions[];
   "hint"?: string | null;
 }
 /** Backend response type: WorkflowResponse. */
+export type ApiCreateWorkflowRoutePostApiV1WorkflowResponseDataActionsKind = "internal" | "external";
+export interface ApiCreateWorkflowRoutePostApiV1WorkflowResponseDataActions extends JsonObject {
+  "key": string;
+  "kind": ApiCreateWorkflowRoutePostApiV1WorkflowResponseDataActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiCreateWorkflowRoutePostApiV1WorkflowResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "flags": string[];
+  "acquire_flags": string[];
+  "priority": number;
+  "can_create_lead": boolean;
+  "actions": ApiCreateWorkflowRoutePostApiV1WorkflowResponseDataActions[];
+  "hint"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiCreateWorkflowRoutePostApiV1WorkflowResponse = import("./types.js").CrmApiResponse<ApiCreateWorkflowRoutePostApiV1WorkflowResponseData>;
+
+/** Backend query type: ListQuery. */
+export interface ApiListWorkflowNodesCompatRouteGetQuery extends QueryParams {
+  "cursor"?: string | null;
+  "limit"?: number | null;
+  "q"?: string | null;
+  "pipeline_id"?: string | null;
+  "stage_id"?: string | null;
+  "team_id"?: string | null;
+  "owner_user_id"?: string | null;
+  "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
+}
+/** Backend response type: Vec<WorkflowNodeResponse>. */
+export interface ApiListWorkflowNodesCompatRouteGetResponseItem extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "priority": number;
+  "workflow_id": string;
+  "is_draggable_in": boolean;
+  "is_draggable_out": boolean;
+  "actions"?: JsonValue | null;
+  "auto_win": boolean;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiListWorkflowNodesCompatRouteGetResponse = import("./types.js").CrmApiResponse<ApiListWorkflowNodesCompatRouteGetResponseItem[]>;
+
+/** Backend response type: bool. */
+export type ApiDeleteWorkflowNodeCompatRouteDeleteResponse = import("./types.js").CrmApiResponse<boolean>;
+
+/** Backend response type: WorkflowNodeResponse. */
+export interface ApiShowWorkflowNodeCompatRouteGetResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "priority": number;
+  "workflow_id": string;
+  "is_draggable_in": boolean;
+  "is_draggable_out": boolean;
+  "actions"?: JsonValue | null;
+  "auto_win": boolean;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiShowWorkflowNodeCompatRouteGetResponse = import("./types.js").CrmApiResponse<ApiShowWorkflowNodeCompatRouteGetResponseData>;
+
+/** Backend request type: UpdateWorkflowNodeRequest. */
+export interface ApiUpdateWorkflowNodeCompatRoutePatchInput extends JsonObject {
+  "name"?: string | null;
+  "slug"?: string | null;
+  "priority"?: number | null;
+  "is_draggable_in"?: boolean | null;
+  "is_draggable_out"?: boolean | null;
+  "actions"?: JsonValue | null;
+  "auto_win"?: boolean | null;
+}
+/** Backend response type: WorkflowNodeResponse. */
+export interface ApiUpdateWorkflowNodeCompatRoutePatchResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "priority": number;
+  "workflow_id": string;
+  "is_draggable_in": boolean;
+  "is_draggable_out": boolean;
+  "actions"?: JsonValue | null;
+  "auto_win": boolean;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiUpdateWorkflowNodeCompatRoutePatchResponse = import("./types.js").CrmApiResponse<ApiUpdateWorkflowNodeCompatRoutePatchResponseData>;
+
+/** Backend request type: CreateWorkflowNodeRequest. */
+export interface ApiCreateWorkflowNodeRoutePostApiV1WorkflowNodeIdInput extends JsonObject {
+  "name": string;
+  "slug": string;
+  "priority": number;
+  "is_draggable_in"?: boolean;
+  "is_draggable_out"?: boolean;
+  "actions"?: JsonValue | null;
+  "auto_win"?: boolean;
+}
+/** Backend response type: WorkflowNodeResponse. */
+export interface ApiCreateWorkflowNodeRoutePostApiV1WorkflowNodeIdResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "priority": number;
+  "workflow_id": string;
+  "is_draggable_in": boolean;
+  "is_draggable_out": boolean;
+  "actions"?: JsonValue | null;
+  "auto_win": boolean;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiCreateWorkflowNodeRoutePostApiV1WorkflowNodeIdResponse = import("./types.js").CrmApiResponse<ApiCreateWorkflowNodeRoutePostApiV1WorkflowNodeIdResponseData>;
+
+/** Backend request type: UpdateWorkflowNodeRequest. */
+export interface ApiUpdateWorkflowNodeCompatRoutePutInput extends JsonObject {
+  "name"?: string | null;
+  "slug"?: string | null;
+  "priority"?: number | null;
+  "is_draggable_in"?: boolean | null;
+  "is_draggable_out"?: boolean | null;
+  "actions"?: JsonValue | null;
+  "auto_win"?: boolean | null;
+}
+/** Backend response type: WorkflowNodeResponse. */
+export interface ApiUpdateWorkflowNodeCompatRoutePutResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "priority": number;
+  "workflow_id": string;
+  "is_draggable_in": boolean;
+  "is_draggable_out": boolean;
+  "actions"?: JsonValue | null;
+  "auto_win": boolean;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiUpdateWorkflowNodeCompatRoutePutResponse = import("./types.js").CrmApiResponse<ApiUpdateWorkflowNodeCompatRoutePutResponseData>;
+
+/** Backend response type: DeletionResult. */
+export interface ApiDeleteWorkflowRouteDeleteApiV1WorkflowIdResponseData extends JsonObject {
+  "id": string;
+  "deleted": boolean;
+}
+export type ApiDeleteWorkflowRouteDeleteApiV1WorkflowIdResponse = import("./types.js").CrmApiResponse<ApiDeleteWorkflowRouteDeleteApiV1WorkflowIdResponseData>;
+
+/** Backend response type: WorkflowResponse. */
+export type ApiShowWorkflowRouteGetApiV1WorkflowIdResponseDataActionsKind = "internal" | "external";
+export interface ApiShowWorkflowRouteGetApiV1WorkflowIdResponseDataActions extends JsonObject {
+  "key": string;
+  "kind": ApiShowWorkflowRouteGetApiV1WorkflowIdResponseDataActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiShowWorkflowRouteGetApiV1WorkflowIdResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "flags": string[];
+  "acquire_flags": string[];
+  "priority": number;
+  "can_create_lead": boolean;
+  "actions": ApiShowWorkflowRouteGetApiV1WorkflowIdResponseDataActions[];
+  "hint"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiShowWorkflowRouteGetApiV1WorkflowIdResponse = import("./types.js").CrmApiResponse<ApiShowWorkflowRouteGetApiV1WorkflowIdResponseData>;
+
+/** Backend request type: UpdateWorkflowRequest. */
+export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowIdInput extends JsonObject {
+  "name"?: string | null;
+  "slug"?: string | null;
+  "flags"?: string[] | null;
+  "acquire_flags"?: string[] | null;
+  "priority"?: number | null;
+  "can_create_lead"?: boolean | null;
+  "actions"?: BackendJson<"WorkflowActionDefinition">[] | null;
+  "hint"?: string | null;
+}
+/** Backend response type: WorkflowResponse. */
+export type ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseDataActionsKind = "internal" | "external";
+export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseDataActions extends JsonObject {
+  "key": string;
+  "kind": ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseDataActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "flags": string[];
+  "acquire_flags": string[];
+  "priority": number;
+  "can_create_lead": boolean;
+  "actions": ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseDataActions[];
+  "hint"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponse = import("./types.js").CrmApiResponse<ApiUpdateWorkflowRoutePatchApiV1WorkflowIdResponseData>;
+
+/** Backend request type: UpdateWorkflowRequest. */
+export interface ApiUpdateWorkflowRoutePutInput extends JsonObject {
+  "name"?: string | null;
+  "slug"?: string | null;
+  "flags"?: string[] | null;
+  "acquire_flags"?: string[] | null;
+  "priority"?: number | null;
+  "can_create_lead"?: boolean | null;
+  "actions"?: BackendJson<"WorkflowActionDefinition">[] | null;
+  "hint"?: string | null;
+}
+/** Backend response type: WorkflowResponse. */
+export type ApiUpdateWorkflowRoutePutResponseDataActionsKind = "internal" | "external";
+export interface ApiUpdateWorkflowRoutePutResponseDataActions extends JsonObject {
+  "key": string;
+  "kind": ApiUpdateWorkflowRoutePutResponseDataActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiUpdateWorkflowRoutePutResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "flags": string[];
+  "acquire_flags": string[];
+  "priority": number;
+  "can_create_lead": boolean;
+  "actions": ApiUpdateWorkflowRoutePutResponseDataActions[];
+  "hint"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiUpdateWorkflowRoutePutResponse = import("./types.js").CrmApiResponse<ApiUpdateWorkflowRoutePutResponseData>;
+
+/** Backend query type: ListQuery. */
+export interface ApiListWorkflowsRouteGetApiV1WorkflowsQuery extends QueryParams {
+  "cursor"?: string | null;
+  "limit"?: number | null;
+  "q"?: string | null;
+  "pipeline_id"?: string | null;
+  "stage_id"?: string | null;
+  "team_id"?: string | null;
+  "owner_user_id"?: string | null;
+  "status"?: string | null;
+  "statuses"?: string | null;
+  "profile_id"?: string | null;
+  "active_from"?: string | null;
+  "active_to"?: string | null;
+  "sort"?: string | null;
+}
+/** Backend response type: Vec<WorkflowResponse>. */
+export type ApiListWorkflowsRouteGetApiV1WorkflowsResponseItemActionsKind = "internal" | "external";
+export interface ApiListWorkflowsRouteGetApiV1WorkflowsResponseItemActions extends JsonObject {
+  "key": string;
+  "kind": ApiListWorkflowsRouteGetApiV1WorkflowsResponseItemActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiListWorkflowsRouteGetApiV1WorkflowsResponseItem extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "flags": string[];
+  "acquire_flags": string[];
+  "priority": number;
+  "can_create_lead": boolean;
+  "actions": ApiListWorkflowsRouteGetApiV1WorkflowsResponseItemActions[];
+  "hint"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiListWorkflowsRouteGetApiV1WorkflowsResponse = import("./types.js").CrmApiResponse<ApiListWorkflowsRouteGetApiV1WorkflowsResponseItem[]>;
+
+/** Backend request type: CreateWorkflowRequest. */
+export type ApiCreateWorkflowRoutePostApiV1WorkflowsInputActionsKind = "internal" | "external";
+export interface ApiCreateWorkflowRoutePostApiV1WorkflowsInputActions extends JsonObject {
+  "key": string;
+  "kind": ApiCreateWorkflowRoutePostApiV1WorkflowsInputActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiCreateWorkflowRoutePostApiV1WorkflowsInput extends JsonObject {
+  "name": string;
+  "slug": string;
+  "flags"?: string[];
+  "acquire_flags": string[];
+  "priority": number;
+  "can_create_lead"?: boolean;
+  "actions"?: ApiCreateWorkflowRoutePostApiV1WorkflowsInputActions[];
+  "hint"?: string | null;
+}
+/** Backend response type: WorkflowResponse. */
+export type ApiCreateWorkflowRoutePostApiV1WorkflowsResponseDataActionsKind = "internal" | "external";
+export interface ApiCreateWorkflowRoutePostApiV1WorkflowsResponseDataActions extends JsonObject {
+  "key": string;
+  "kind": ApiCreateWorkflowRoutePostApiV1WorkflowsResponseDataActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
 export interface ApiCreateWorkflowRoutePostApiV1WorkflowsResponseData extends JsonObject {
   "id": string;
   "name": string;
   "slug": string;
+  "flags": string[];
   "acquire_flags": string[];
   "priority": number;
   "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
+  "actions": ApiCreateWorkflowRoutePostApiV1WorkflowsResponseDataActions[];
   "hint"?: string | null;
   "created_at": string;
   "updated_at": string;
@@ -1422,51 +1728,68 @@ export interface ApiCreateWorkflowRoutePostApiV1WorkflowsResponseData extends Js
 export type ApiCreateWorkflowRoutePostApiV1WorkflowsResponse = import("./types.js").CrmApiResponse<ApiCreateWorkflowRoutePostApiV1WorkflowsResponseData>;
 
 /** Backend response type: DeletionResult. */
-export interface ApiDeleteWorkflowRouteDeleteResponseData extends JsonObject {
+export interface ApiDeleteWorkflowRouteDeleteApiV1WorkflowsIdResponseData extends JsonObject {
   "id": string;
   "deleted": boolean;
 }
-export type ApiDeleteWorkflowRouteDeleteResponse = import("./types.js").CrmApiResponse<ApiDeleteWorkflowRouteDeleteResponseData>;
+export type ApiDeleteWorkflowRouteDeleteApiV1WorkflowsIdResponse = import("./types.js").CrmApiResponse<ApiDeleteWorkflowRouteDeleteApiV1WorkflowsIdResponseData>;
 
 /** Backend response type: WorkflowResponse. */
-export interface ApiShowWorkflowRouteGetResponseData extends JsonObject {
+export type ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseDataActionsKind = "internal" | "external";
+export interface ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseDataActions extends JsonObject {
+  "key": string;
+  "kind": ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseDataActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseData extends JsonObject {
   "id": string;
   "name": string;
   "slug": string;
+  "flags": string[];
   "acquire_flags": string[];
   "priority": number;
   "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
+  "actions": ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseDataActions[];
   "hint"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
-export type ApiShowWorkflowRouteGetResponse = import("./types.js").CrmApiResponse<ApiShowWorkflowRouteGetResponseData>;
+export type ApiShowWorkflowRouteGetApiV1WorkflowsIdResponse = import("./types.js").CrmApiResponse<ApiShowWorkflowRouteGetApiV1WorkflowsIdResponseData>;
 
 /** Backend request type: UpdateWorkflowRequest. */
-export interface ApiUpdateWorkflowRoutePatchInput extends JsonObject {
+export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdInput extends JsonObject {
   "name"?: string | null;
   "slug"?: string | null;
+  "flags"?: string[] | null;
   "acquire_flags"?: string[] | null;
   "priority"?: number | null;
   "can_create_lead"?: boolean | null;
-  "actions"?: JsonValue | null;
+  "actions"?: BackendJson<"WorkflowActionDefinition">[] | null;
   "hint"?: string | null;
 }
 /** Backend response type: WorkflowResponse. */
-export interface ApiUpdateWorkflowRoutePatchResponseData extends JsonObject {
+export type ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseDataActionsKind = "internal" | "external";
+export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseDataActions extends JsonObject {
+  "key": string;
+  "kind": ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseDataActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
+export interface ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseData extends JsonObject {
   "id": string;
   "name": string;
   "slug": string;
+  "flags": string[];
   "acquire_flags": string[];
   "priority": number;
   "can_create_lead": boolean;
-  "actions"?: JsonValue | null;
+  "actions": ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseDataActions[];
   "hint"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
-export type ApiUpdateWorkflowRoutePatchResponse = import("./types.js").CrmApiResponse<ApiUpdateWorkflowRoutePatchResponseData>;
+export type ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponse = import("./types.js").CrmApiResponse<ApiUpdateWorkflowRoutePatchApiV1WorkflowsIdResponseData>;
 
 /** Backend response type: Vec<WorkflowAssignment>. */
 export interface ApiListWorkflowAssignmentsGetResponseItem extends JsonObject {
@@ -1535,7 +1858,7 @@ export interface ApiListWorkflowNodesRouteGetResponseItem extends JsonObject {
 export type ApiListWorkflowNodesRouteGetResponse = import("./types.js").CrmApiResponse<ApiListWorkflowNodesRouteGetResponseItem[]>;
 
 /** Backend request type: CreateWorkflowNodeRequest. */
-export interface ApiCreateWorkflowNodeRoutePostInput extends JsonObject {
+export interface ApiCreateWorkflowNodeRoutePostApiV1WorkflowsWorkflowIdNodesInput extends JsonObject {
   "name": string;
   "slug": string;
   "priority": number;
@@ -1545,7 +1868,7 @@ export interface ApiCreateWorkflowNodeRoutePostInput extends JsonObject {
   "auto_win"?: boolean;
 }
 /** Backend response type: WorkflowNodeResponse. */
-export interface ApiCreateWorkflowNodeRoutePostResponseData extends JsonObject {
+export interface ApiCreateWorkflowNodeRoutePostApiV1WorkflowsWorkflowIdNodesResponseData extends JsonObject {
   "id": string;
   "name": string;
   "slug": string;
@@ -1558,7 +1881,7 @@ export interface ApiCreateWorkflowNodeRoutePostResponseData extends JsonObject {
   "created_at": string;
   "updated_at": string;
 }
-export type ApiCreateWorkflowNodeRoutePostResponse = import("./types.js").CrmApiResponse<ApiCreateWorkflowNodeRoutePostResponseData>;
+export type ApiCreateWorkflowNodeRoutePostApiV1WorkflowsWorkflowIdNodesResponse = import("./types.js").CrmApiResponse<ApiCreateWorkflowNodeRoutePostApiV1WorkflowsWorkflowIdNodesResponseData>;
 
 /** Backend response type: DeletionResult. */
 export interface ApiDeleteWorkflowNodeRouteDeleteResponseData extends JsonObject {
@@ -1609,22 +1932,26 @@ export interface ApiUpdateWorkflowNodeRoutePatchResponseData extends JsonObject 
 }
 export type ApiUpdateWorkflowNodeRoutePatchResponse = import("./types.js").CrmApiResponse<ApiUpdateWorkflowNodeRoutePatchResponseData>;
 
-/** Backend response type: Vec<Pipeline>. */
+/** Backend response type: Vec<WorkflowResponse>. */
+export type ApiMemberWorkflowsGetResponseItemActionsKind = "internal" | "external";
+export interface ApiMemberWorkflowsGetResponseItemActions extends JsonObject {
+  "key": string;
+  "kind": ApiMemberWorkflowsGetResponseItemActionsKind;
+  "form": string;
+  "required"?: boolean;
+}
 export interface ApiMemberWorkflowsGetResponseItem extends JsonObject {
   "id": string;
   "name": string;
   "slug": string;
-  "entity_type": string;
-  "team_id"?: string | null;
-  "is_default": boolean;
-  "is_active": boolean;
+  "flags": string[];
+  "acquire_flags": string[];
   "priority": number;
-  "hint"?: string | null;
-  "daily_quota": number;
   "can_create_lead": boolean;
-  "acquire_flags": BackendJson<"JsonValue">;
-  "actions": BackendJson<"JsonValue">;
-  "version": number;
+  "actions": ApiMemberWorkflowsGetResponseItemActions[];
+  "hint"?: string | null;
+  "created_at": string;
+  "updated_at": string;
 }
 export type ApiMemberWorkflowsGetResponse = import("./types.js").CrmApiResponse<ApiMemberWorkflowsGetResponseItem[]>;
 

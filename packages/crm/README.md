@@ -24,8 +24,12 @@ const worklogs = await crm.listWorklogs({ sort: "-start_date" });
 const workflow = await crm.createWorkflow({
   name: "Customer success",
   slug: "customer-success",
+  flags: ["onboarding", "enterprise"],
   acquire_flags: ["onboarding"],
   priority: 20,
+  actions: [
+    { key: "qualification-form", kind: "internal", form: "qualification", required: true },
+  ],
 });
 const nodes = await crm.listWorkflowNodes(workflow.data.data.id);
 await crm.createWorkflowNode(workflow.data.data.id, {
@@ -47,7 +51,7 @@ await crm.removeLeadFromSos(leadId, {
 });
 ```
 
-The package exposes all 79 currently mounted routes through `api.operations`, with concise
+The package exposes all 90 currently mounted routes through `api.operations`, with concise
 methods for each CRM business capability. Mutations use optimistic `version` fields and
 the backend's `Idempotency-Key` header where required. All methods return complete Axios
 responses and accept shared request options, including `AbortSignal` cancellation.

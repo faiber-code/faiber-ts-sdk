@@ -17,25 +17,47 @@ export class CrmApi extends ServiceApi {
   /** Returns server-calculated total, active, and inactive lead counts by workflow. */
   getLeadStats(options?: RequestOptions) { return this.operations.apiLeadStatsGet(options); }
   /** Lists all active workflows ordered by priority. */
-  listWorkflows(params?: O.ApiListWorkflowsRouteGetQuery, options?: RequestOptions) { return this.operations.apiListWorkflowsRouteGet(params, options); }
+  listWorkflows(params?: O.ApiListWorkflowsRouteGetApiV1WorkflowQuery, options?: RequestOptions) { return this.operations.apiListWorkflowsRouteGetApiV1Workflow(params, options); }
   /** Returns one workflow by ID. */
-  getWorkflow(id: Identifier, options?: RequestOptions) { return this.operations.apiShowWorkflowRouteGet(id, options); }
+  getWorkflow(id: Identifier, options?: RequestOptions) { return this.operations.apiShowWorkflowRouteGetApiV1WorkflowId(id, options); }
   /** Creates a workflow. Requires `workflow:create`. */
-  createWorkflow(data: O.ApiCreateWorkflowRoutePostApiV1WorkflowsInput, options?: RequestOptions<O.ApiCreateWorkflowRoutePostApiV1WorkflowsInput>) { return this.operations.apiCreateWorkflowRoutePostApiV1Workflows(data, options); }
+  createWorkflow(data: O.ApiCreateWorkflowRoutePostApiV1WorkflowInput, options?: RequestOptions<O.ApiCreateWorkflowRoutePostApiV1WorkflowInput>) { return this.operations.apiCreateWorkflowRoutePostApiV1Workflow(data, options); }
   /** Updates every editable workflow field. Requires `workflow:update`. */
-  updateWorkflow(id: Identifier, data: O.ApiUpdateWorkflowRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowRoutePatchInput>) { return this.operations.apiUpdateWorkflowRoutePatch(id, data, options); }
+  updateWorkflow(id: Identifier, data: O.ApiUpdateWorkflowRoutePatchApiV1WorkflowIdInput, options?: RequestOptions<O.ApiUpdateWorkflowRoutePatchApiV1WorkflowIdInput>) { return this.operations.apiUpdateWorkflowRoutePatchApiV1WorkflowId(id, data, options); }
   /** Soft-deletes a workflow. Requires `workflow:delete`. */
-  deleteWorkflow(id: Identifier, options?: RequestOptions) { return this.operations.apiDeleteWorkflowRouteDelete(id, options); }
+  deleteWorkflow(id: Identifier, options?: RequestOptions) { return this.operations.apiDeleteWorkflowRouteDeleteApiV1WorkflowId(id, options); }
+  /** Lists every active workflow node through the CRM panel-compatible route. */
+  listAllWorkflowNodes(params?: O.ApiListWorkflowNodesCompatRouteGetQuery, options?: RequestOptions) { return this.operations.apiListWorkflowNodesCompatRouteGet(params, options); }
   /** Lists the active nodes belonging to a workflow. */
   listWorkflowNodes(workflowId: Identifier, params?: O.ApiListWorkflowNodesRouteGetQuery, options?: RequestOptions) { return this.operations.apiListWorkflowNodesRouteGet(workflowId, params, options); }
   /** Returns one workflow node, scoped to its parent workflow. */
-  getWorkflowNode(workflowId: Identifier, nodeId: Identifier, options?: RequestOptions) { return this.operations.apiShowWorkflowNodeRouteGet(workflowId, nodeId, options); }
+  getWorkflowNode(nodeId: Identifier, options?: RequestOptions): ReturnType<CrmOperations["apiShowWorkflowNodeCompatRouteGet"]>;
+  getWorkflowNode(workflowId: Identifier, nodeId: Identifier, options?: RequestOptions): ReturnType<CrmOperations["apiShowWorkflowNodeRouteGet"]>;
+  getWorkflowNode(workflowOrNodeId: Identifier, nodeIdOrOptions?: Identifier | RequestOptions, options?: RequestOptions) {
+    return typeof nodeIdOrOptions === "string" || typeof nodeIdOrOptions === "number"
+      ? this.operations.apiShowWorkflowNodeRouteGet(workflowOrNodeId, nodeIdOrOptions, options)
+      : this.operations.apiShowWorkflowNodeCompatRouteGet(workflowOrNodeId, nodeIdOrOptions);
+  }
   /** Adds a node to a workflow. Requires `workflow_node:create`. */
-  createWorkflowNode(workflowId: Identifier, data: O.ApiCreateWorkflowNodeRoutePostInput, options?: RequestOptions<O.ApiCreateWorkflowNodeRoutePostInput>) { return this.operations.apiCreateWorkflowNodeRoutePost(workflowId, data, options); }
+  createWorkflowNode(workflowId: Identifier, data: O.ApiCreateWorkflowNodeRoutePostApiV1WorkflowNodeIdInput, options?: RequestOptions<O.ApiCreateWorkflowNodeRoutePostApiV1WorkflowNodeIdInput>) { return this.operations.apiCreateWorkflowNodeRoutePostApiV1WorkflowNodeId(workflowId, data, options); }
+  /** Adds a node through the nested plural route retained for existing integrations. */
+  createWorkflowNodeInWorkflow(workflowId: Identifier, data: O.ApiCreateWorkflowNodeRoutePostApiV1WorkflowsWorkflowIdNodesInput, options?: RequestOptions<O.ApiCreateWorkflowNodeRoutePostApiV1WorkflowsWorkflowIdNodesInput>) { return this.operations.apiCreateWorkflowNodeRoutePostApiV1WorkflowsWorkflowIdNodes(workflowId, data, options); }
   /** Updates every editable workflow-node field. Requires `workflow_node:update`. */
-  updateWorkflowNode(workflowId: Identifier, nodeId: Identifier, data: O.ApiUpdateWorkflowNodeRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowNodeRoutePatchInput>) { return this.operations.apiUpdateWorkflowNodeRoutePatch(workflowId, nodeId, data, options); }
+  updateWorkflowNode(nodeId: Identifier, data: O.ApiUpdateWorkflowNodeCompatRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowNodeCompatRoutePatchInput>): ReturnType<CrmOperations["apiUpdateWorkflowNodeCompatRoutePatch"]>;
+  updateWorkflowNode(workflowId: Identifier, nodeId: Identifier, data: O.ApiUpdateWorkflowNodeRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowNodeRoutePatchInput>): ReturnType<CrmOperations["apiUpdateWorkflowNodeRoutePatch"]>;
+  updateWorkflowNode(workflowOrNodeId: Identifier, nodeIdOrData: Identifier | O.ApiUpdateWorkflowNodeCompatRoutePatchInput, dataOrOptions?: O.ApiUpdateWorkflowNodeRoutePatchInput | RequestOptions, options?: RequestOptions) {
+    return typeof nodeIdOrData === "string" || typeof nodeIdOrData === "number"
+      ? this.operations.apiUpdateWorkflowNodeRoutePatch(workflowOrNodeId, nodeIdOrData, dataOrOptions as O.ApiUpdateWorkflowNodeRoutePatchInput, options)
+      : this.operations.apiUpdateWorkflowNodeCompatRoutePatch(workflowOrNodeId, nodeIdOrData, dataOrOptions as RequestOptions<O.ApiUpdateWorkflowNodeCompatRoutePatchInput> | undefined);
+  }
   /** Soft-deletes a workflow node. Requires `workflow_node:delete`. */
-  deleteWorkflowNode(workflowId: Identifier, nodeId: Identifier, options?: RequestOptions) { return this.operations.apiDeleteWorkflowNodeRouteDelete(workflowId, nodeId, options); }
+  deleteWorkflowNode(nodeId: Identifier, options?: RequestOptions): ReturnType<CrmOperations["apiDeleteWorkflowNodeCompatRouteDelete"]>;
+  deleteWorkflowNode(workflowId: Identifier, nodeId: Identifier, options?: RequestOptions): ReturnType<CrmOperations["apiDeleteWorkflowNodeRouteDelete"]>;
+  deleteWorkflowNode(workflowOrNodeId: Identifier, nodeIdOrOptions?: Identifier | RequestOptions, options?: RequestOptions) {
+    return typeof nodeIdOrOptions === "string" || typeof nodeIdOrOptions === "number"
+      ? this.operations.apiDeleteWorkflowNodeRouteDelete(workflowOrNodeId, nodeIdOrOptions, options)
+      : this.operations.apiDeleteWorkflowNodeCompatRouteDelete(workflowOrNodeId, nodeIdOrOptions);
+  }
   listTeams(options?: RequestOptions) { return this.operations.apiTeamsGet(options); }
   createTeam(data: O.ApiCreateTeamPostInput, options?: RequestOptions<O.ApiCreateTeamPostInput>) { return this.operations.apiCreateTeamPost(data, options); }
   getTeam(id: Identifier, options?: RequestOptions) { return this.operations.apiTeamGet(id, options); }

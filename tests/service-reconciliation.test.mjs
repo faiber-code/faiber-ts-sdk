@@ -11,7 +11,7 @@ function body(config) {
   return typeof config.data === "string" ? JSON.parse(config.data) : config.data;
 }
 
-test("CRM convenience client uses current plural production routes and optimistic mutations", async () => {
+test("CRM convenience client supports panel-compatible and nested workflow routes", async () => {
   const requests = [];
   const adapter = async config => {
     requests.push(config);
@@ -49,11 +49,23 @@ test("CRM convenience client uses current plural production routes and optimisti
   await sdk.crm.createWorkflow({
     name: "Customer success",
     slug: "customer-success",
+    flags: ["onboarding", "enterprise"],
     acquire_flags: ["onboarding"],
     priority: 20,
+    actions: [{ key: "qualification-form", kind: "internal", form: "qualification", required: true }],
   });
-  await sdk.crm.updateWorkflow("workflow/one", { name: "Renewals", actions: null, hint: null });
+  await sdk.crm.updateWorkflow("workflow/one", {
+    name: "Renewals",
+    flags: ["renewal"],
+    acquire_flags: ["renewal"],
+    actions: [{ key: "renewal-form", kind: "external", form: "renewal", required: true }],
+    hint: null,
+  });
   await sdk.crm.deleteWorkflow("workflow/one");
+  await sdk.crm.listAllWorkflowNodes({ sort: "priority" });
+  await sdk.crm.getWorkflowNode("node/one");
+  await sdk.crm.updateWorkflowNode("node/one", { auto_win: false });
+  await sdk.crm.deleteWorkflowNode("node/one");
   await sdk.crm.listWorkflowNodes("workflow/one", { sort: "priority" });
   await sdk.crm.getWorkflowNode("workflow/one", "node/one");
   await sdk.crm.createWorkflowNode("workflow/one", {
@@ -87,14 +99,18 @@ test("CRM convenience client uses current plural production routes and optimisti
     ["delete", "/api/v1/tasks/task%2Fone"],
     ["post", "/api/v1/activities/with-reminder"],
     ["get", "/api/v1/worklog"],
-    ["get", "/api/v1/workflows"],
-    ["get", "/api/v1/workflows/workflow%2Fone"],
-    ["post", "/api/v1/workflows"],
-    ["patch", "/api/v1/workflows/workflow%2Fone"],
-    ["delete", "/api/v1/workflows/workflow%2Fone"],
+    ["get", "/api/v1/workflow"],
+    ["get", "/api/v1/workflow/workflow%2Fone"],
+    ["post", "/api/v1/workflow"],
+    ["patch", "/api/v1/workflow/workflow%2Fone"],
+    ["delete", "/api/v1/workflow/workflow%2Fone"],
+    ["get", "/api/v1/workflow-node"],
+    ["get", "/api/v1/workflow-node/node%2Fone"],
+    ["patch", "/api/v1/workflow-node/node%2Fone"],
+    ["delete", "/api/v1/workflow-node/node%2Fone"],
     ["get", "/api/v1/workflows/workflow%2Fone/nodes"],
     ["get", "/api/v1/workflows/workflow%2Fone/nodes/node%2Fone"],
-    ["post", "/api/v1/workflows/workflow%2Fone/nodes"],
+    ["post", "/api/v1/workflow-node/workflow%2Fone"],
     ["patch", "/api/v1/workflows/workflow%2Fone/nodes/node%2Fone"],
     ["delete", "/api/v1/workflows/workflow%2Fone/nodes/node%2Fone"],
   ]);
@@ -109,8 +125,10 @@ test("CRM convenience client uses current plural production routes and optimisti
   assert.equal(requests[20].params.sort, "-start_date");
   assert.equal(requests[21].params.sort, "priority");
   assert.equal(body(requests[23]).slug, "customer-success");
-  assert.equal(body(requests[24]).actions, null);
-  assert.equal(body(requests[29]).actions, null);
+  assert.equal(body(requests[23]).actions[0].kind, "internal");
+  assert.equal(body(requests[24]).actions[0].kind, "external");
+  assert.equal(body(requests[28]).auto_win, false);
+  assert.equal(body(requests[33]).actions, null);
   assert.equal("leads" in sdk.crm, false);
   assert.equal("markLeadDone" in sdk.crm, false);
 });
