@@ -182,14 +182,24 @@ export interface UpdateCommentInput extends Partial<CreateCommentInput> {
 }
 export interface ModuleRequest {
     id: string;
-    category_id?: string;
-    status?: string | number;
-    payload?: JsonValue;
+    user_id: string;
+    name: string;
+    description?: string | null;
+    status: number;
+    route_to_crm: boolean;
+    crm_flags: string[];
+    created_at: string;
+    updated_at: string;
 }
 export interface CreateModuleRequestInput {
-    category_id?: string;
-    status?: string | number;
-    payload?: JsonValue;
+    user_id?: string;
+    name: string;
+    description?: string | null;
+    status?: number;
+    /** Publishes each submission to CRM's reusable lead-intake command. */
+    route_to_crm?: boolean;
+    /** Flags CRM uses to select the matching workflow acquire flags. */
+    crm_flags?: string[];
 }
 export interface UpdateModuleRequestInput extends Partial<CreateModuleRequestInput> {
 }

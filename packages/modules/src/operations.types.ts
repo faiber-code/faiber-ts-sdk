@@ -1789,6 +1789,8 @@ export interface RequestListRequestsGetResponseDataRequests extends JsonObject {
   "name": string;
   "description"?: string | null;
   "status": number;
+  "route_to_crm": boolean;
+  "crm_flags": string[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1807,6 +1809,8 @@ export interface RequestCreateRequestPostInput extends JsonObject {
   "name": string;
   "description"?: string | null;
   "status"?: number | null;
+  "route_to_crm"?: boolean;
+  "crm_flags"?: string[];
 }
 /** Backend response type: models::RequestResponseDTO. */
 export interface RequestCreateRequestPostResponseData extends JsonObject {
@@ -1815,6 +1819,8 @@ export interface RequestCreateRequestPostResponseData extends JsonObject {
   "name": string;
   "description"?: string | null;
   "status": number;
+  "route_to_crm": boolean;
+  "crm_flags": string[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1873,6 +1879,8 @@ export interface RequestShowRequestGetResponseData extends JsonObject {
   "name": string;
   "description"?: string | null;
   "status": number;
+  "route_to_crm": boolean;
+  "crm_flags": string[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1885,6 +1893,8 @@ export interface RequestUpdateRequestPatchInput extends JsonObject {
   "name"?: string | null;
   "description"?: string | null;
   "status"?: number | null;
+  "route_to_crm"?: boolean | null;
+  "crm_flags"?: string[] | null;
 }
 /** Backend response type: models::RequestResponseDTO. */
 export interface RequestUpdateRequestPatchResponseData extends JsonObject {
@@ -1893,6 +1903,8 @@ export interface RequestUpdateRequestPatchResponseData extends JsonObject {
   "name": string;
   "description"?: string | null;
   "status": number;
+  "route_to_crm": boolean;
+  "crm_flags": string[];
   "created_at": string;
   "updated_at": string;
 }
@@ -1905,6 +1917,8 @@ export interface RequestUpdateRequestPutInput extends JsonObject {
   "name"?: string | null;
   "description"?: string | null;
   "status"?: number | null;
+  "route_to_crm"?: boolean | null;
+  "crm_flags"?: string[] | null;
 }
 /** Backend response type: models::RequestResponseDTO. */
 export interface RequestUpdateRequestPutResponseData extends JsonObject {
@@ -1913,6 +1927,8 @@ export interface RequestUpdateRequestPutResponseData extends JsonObject {
   "name": string;
   "description"?: string | null;
   "status": number;
+  "route_to_crm": boolean;
+  "crm_flags": string[];
   "created_at": string;
   "updated_at": string;
 }

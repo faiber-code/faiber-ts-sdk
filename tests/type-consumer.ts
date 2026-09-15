@@ -231,6 +231,11 @@ sdk.crm.updateWorkflowNode("node-1", { actions: null, auto_win: true });
 sdk.crm.updateWorkflowNode("workflow-1", "node-1", { actions: null, auto_win: true });
 sdk.crm.deleteWorkflowNode("node-1").then(response => response.data.data);
 sdk.crm.deleteWorkflowNode("workflow-1", "node-1").then(response => response.data.data.deleted);
+sdk.modules.requests.create({
+  name: "Course registration",
+  route_to_crm: true,
+  crm_flags: ["website", "next-course"],
+}).then(response => response.data.data.route_to_crm);
 sdk.task.workspace().then(response => response.data.data.sandbox_id);
 sdk.task.openEvents({ signal: AbortSignal.timeout(1_000) }).then(response => response.data);
   void manageAction;

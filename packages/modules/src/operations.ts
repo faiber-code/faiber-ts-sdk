@@ -1319,7 +1319,7 @@ export class ModulesOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: modules:request:submit.
    */
   requestSubmitPost(requestId: Identifier, data: T.RequestSubmitPostInput, options?: RequestOptions<T.RequestSubmitPostInput>) {
     return this.client.request<T.RequestSubmitPostResponse, T.RequestSubmitPostInput>({ ...options, method: "POST", url: `/api/v1/requests/${encodeURIComponent(requestId)}/logs`, data: data });

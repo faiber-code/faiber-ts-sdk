@@ -10495,7 +10495,9 @@
       "path": "/api/v1/requests/{request_id}/logs",
       "module": "request",
       "handler": "submit",
-      "permissions": [],
+      "permissions": [
+        "modules:request:submit"
+      ],
       "source": "infera-modules/src/request/routes.rs",
       "body": "models::RequestSubmitRequest",
       "pathParam": "Uuid",
