@@ -1,7 +1,7 @@
 # @faiber/faiber-crm
 
 Typed client for the current production CRM: workspace configuration, workflow dashboard statistics, pipelines and boards,
-teams, companies, contacts, leads, deals, SOS membership, workflow assignments, tasks, activities, marketing sources/campaigns,
+teams, companies, contacts, leads, deals, SOS membership, workflow assignments, workflows, tasks, activities, worklogs, marketing sources/campaigns,
 reports, durable automation, and approval-gated Agentic insights.
 
 ```bash
@@ -20,6 +20,13 @@ const crm = new CrmApi(new FaiberClient("crm", {
 const leads = await crm.listLeads({ q: "Acme", status: "open" });
 const daily = await crm.getDailyStats();
 const assignedWorkflows = await crm.listMemberWorkflows();
+const worklogs = await crm.listWorklogs({ sort: "-start_date" });
+const workflow = await crm.createWorkflow({
+  name: "Customer success",
+  slug: "customer-success",
+  acquire_flags: ["onboarding"],
+  priority: 20,
+});
 await crm.updatePipeline(assignedWorkflows.data.data[0].id, {
   version: assignedWorkflows.data.data[0].version,
   daily_quota: 12,
@@ -33,14 +40,14 @@ await crm.removeLeadFromSos(leadId, {
 });
 ```
 
-The package exposes all 67 currently mounted routes through `api.operations`, with concise
+The package exposes all 69 currently mounted routes through `api.operations`, with concise
 methods for each CRM business capability. Mutations use optimistic `version` fields and
 the backend's `Idempotency-Key` header where required. All methods return complete Axios
 responses and accept shared request options, including `AbortSignal` cancellation.
 
 CRM authorization remains server enforced. Typical permissions are scoped by capability,
 including `crm:lead:*`, `crm:deal:*`, `crm:company:*`, `crm:contact:*`, `crm:team:*`,
-`crm:sos:*`, `crm:workflow_assignment:*`, `crm:task:*`, `crm:activity:*`, `crm:marketing:*`, `crm:report:*`, `crm:automation:read`,
+`crm:sos:*`, `crm:workflow_assignment:*`, `workflow:create`, `worklog:*`, `crm:task:*`, `crm:activity:*`, `crm:marketing:*`, `crm:report:*`, `crm:automation:read`,
 `crm:settings:update`, and `crm:agent:run`; `crm:admin` is the service-wide override.
 
 `deleteTeam` is version-safe and detaches active CRM records before soft deletion.

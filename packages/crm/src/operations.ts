@@ -644,6 +644,17 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.ApiRemoveTeamMemberDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/teams/${encodeURIComponent(teamId)}/members/${encodeURIComponent(memberId)}` });
   }
   /**
+   * Performs the create workflow route operation for the api capability.
+   * Calls `POST /api/v1/workflow` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: workflow:create.
+   */
+  apiCreateWorkflowRoutePost(data: T.ApiCreateWorkflowRoutePostInput, options?: RequestOptions<T.ApiCreateWorkflowRoutePostInput>) {
+    return this.client.request<T.ApiCreateWorkflowRoutePostResponse, T.ApiCreateWorkflowRoutePostInput>({ ...options, method: "POST", url: `/api/v1/workflow`, data: data });
+  }
+  /**
    * Performs the list workflow assignments operation for the api capability.
    * Calls `GET /api/v1/workflows/{id}/assignments` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -687,6 +698,17 @@ export class CrmOperations extends ServiceApi {
    */
   apiMemberWorkflowsGet(options?: RequestOptions) {
     return this.client.request<T.ApiMemberWorkflowsGetResponse>({ ...options, method: "GET", url: `/api/v1/workflows/member-based` });
+  }
+  /**
+   * Performs the worklogs operation for the api capability.
+   * Calls `GET /api/v1/worklog` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: worklog:read, worklog:read_all, worklog:read_own.
+   */
+  apiWorklogsGet(params?: T.ApiWorklogsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ApiWorklogsGetResponse>({ ...options, method: "GET", url: `/api/v1/worklog`, params });
   }
   /**
    * Performs the update workspace operation for the api capability.

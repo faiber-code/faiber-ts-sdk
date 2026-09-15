@@ -1663,7 +1663,7 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "query": "ListQuery",
-      "response": "ListData<Activity>",
+      "response": "ListData<ActivityResponse>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -1678,7 +1678,7 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "body": "CreateActivity",
-      "response": "Activity",
+      "response": "ActivityResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2523,6 +2523,21 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/workflow",
+      "module": "api",
+      "handler": "create_workflow_route",
+      "permissions": [
+        "workflow:create"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "body": "CreateWorkflowRequest",
+      "response": "WorkflowResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/workflows/{id}/assignments",
       "module": "api",
@@ -2577,6 +2592,23 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "Vec<Pipeline>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/worklog",
+      "module": "api",
+      "handler": "worklogs",
+      "permissions": [
+        "worklog:read",
+        "worklog:read_all",
+        "worklog:read_own"
+      ],
+      "source": "infera-crm/src/api/routes.rs",
+      "query": "super::types::WorklogListQuery",
+      "response": "Vec<WorklogResponse>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

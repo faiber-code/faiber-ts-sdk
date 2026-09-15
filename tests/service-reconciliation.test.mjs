@@ -43,6 +43,13 @@ test("CRM convenience client uses current plural production routes and optimisti
     activity: { lead_id: "lead/one", activity_type: "call", outcome: "answered" },
     reminder: { lead_id: "lead/one", profile_id: "profile-1", title: "Call again", due_at: "2026-09-15T08:00:00Z" },
   }, mutation);
+  await sdk.crm.listWorklogs({ sort: "-start_date" });
+  await sdk.crm.createWorkflow({
+    name: "Customer success",
+    slug: "customer-success",
+    acquire_flags: ["onboarding"],
+    priority: 20,
+  });
 
   assert.equal(leads.status, 200);
   assert.deepEqual(requests.map(item => [item.method, item.url]), [
@@ -66,6 +73,8 @@ test("CRM convenience client uses current plural production routes and optimisti
     ["delete", "/api/v1/leads/lead%2Fone/reminders"],
     ["delete", "/api/v1/tasks/task%2Fone"],
     ["post", "/api/v1/activities/with-reminder"],
+    ["get", "/api/v1/worklog"],
+    ["post", "/api/v1/workflow"],
   ]);
   assert.equal(requests[0].params.q, "Acme");
   assert.equal(body(requests[1]).version, 4);
@@ -75,6 +84,8 @@ test("CRM convenience client uses current plural production routes and optimisti
   assert.deepEqual(body(requests[9]), { user_id: "user/one" });
   assert.equal(requests[15].params.profile_id, "profile-1");
   assert.equal(body(requests[19]).reminder.profile_id, "profile-1");
+  assert.equal(requests[20].params.sort, "-start_date");
+  assert.equal(body(requests[21]).slug, "customer-success");
   assert.equal("leads" in sdk.crm, false);
   assert.equal("markLeadDone" in sdk.crm, false);
 });

@@ -77,6 +77,10 @@ export class CrmApi extends ServiceApi {
   updateTaskStatus(id: Identifier, data: O.ApiUpdateTaskStatusPatchInput, options?: RequestOptions<O.ApiUpdateTaskStatusPatchInput>) { return this.operations.apiUpdateTaskStatusPatch(id, data, options); }
   deleteTask(id: Identifier, options?: RequestOptions) { return this.operations.apiDeleteTaskDelete(id, options); }
   listActivities(params?: O.ApiActivitiesGetQuery, options?: RequestOptions) { return this.operations.apiActivitiesGet(params, options); }
+  /** Lists worklogs visible to the current user. */
+  listWorklogs(params?: O.ApiWorklogsGetQuery, options?: RequestOptions) { return this.operations.apiWorklogsGet(params, options); }
+  /** Creates a workflow. Requires `workflow:create`. */
+  createWorkflow(data: O.ApiCreateWorkflowRoutePostInput, options?: RequestOptions<O.ApiCreateWorkflowRoutePostInput>) { return this.operations.apiCreateWorkflowRoutePost(data, options); }
   createActivity(data: O.ApiCreateActivityPostInput, options?: RequestOptions<O.ApiCreateActivityPostInput>) { return this.operations.apiCreateActivityPost(data, options); }
   /** Atomically creates an activity/worklog and its reminder task under one idempotency key. */
   createActivityWithReminder(data: O.ApiCreateActivityWithReminderPostInput, options?: RequestOptions<O.ApiCreateActivityWithReminderPostInput>) { return this.operations.apiCreateActivityWithReminderPost(data, options); }

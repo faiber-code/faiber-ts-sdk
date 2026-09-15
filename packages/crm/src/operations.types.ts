@@ -20,7 +20,7 @@ export interface ApiActivitiesGetQuery extends QueryParams {
   "active_to"?: string | null;
   "sort"?: string | null;
 }
-/** Backend response type: ListData<Activity>. */
+/** Backend response type: ListData<ActivityResponse>. */
 export type ApiActivitiesGetResponse = import("./types.js").CrmActivityListResponse;
 
 /** Backend request type: CreateActivity. */
@@ -38,7 +38,19 @@ export interface ApiCreateActivityPostInput extends JsonObject {
   "duration_seconds"?: number | null;
   "metadata"?: BackendJson<"JsonValue">;
 }
-/** Backend response type: Activity. */
+/** Backend response type: ActivityResponse. */
+export interface ApiCreateActivityPostResponseDataProfile extends JsonObject {
+  "id": string;
+  "user_id"?: string | null;
+  "email"?: string | null;
+  "phone"?: string | null;
+  "national_code"?: string | null;
+  "first_name"?: JsonValue | null;
+  "last_name"?: JsonValue | null;
+  "status"?: string | null;
+  "employee_type"?: string | null;
+  "avatar"?: string | null;
+}
 export interface ApiCreateActivityPostResponseData extends JsonObject {
   "id": string;
   "lead_id"?: string | null;
@@ -55,6 +67,7 @@ export interface ApiCreateActivityPostResponseData extends JsonObject {
   "duration_seconds"?: number | null;
   "metadata": BackendJson<"JsonValue">;
   "created_at": string;
+  "profile"?: ApiCreateActivityPostResponseDataProfile | null;
 }
 export type ApiCreateActivityPostResponse = import("./types.js").CrmApiResponse<ApiCreateActivityPostResponseData>;
 
@@ -91,6 +104,18 @@ export interface ApiCreateActivityWithReminderPostInput extends JsonObject {
   "reminder": ApiCreateActivityWithReminderPostInputReminder;
 }
 /** Backend response type: ActivityWithReminder. */
+export interface ApiCreateActivityWithReminderPostResponseDataActivityProfile extends JsonObject {
+  "id": string;
+  "user_id"?: string | null;
+  "email"?: string | null;
+  "phone"?: string | null;
+  "national_code"?: string | null;
+  "first_name"?: JsonValue | null;
+  "last_name"?: JsonValue | null;
+  "status"?: string | null;
+  "employee_type"?: string | null;
+  "avatar"?: string | null;
+}
 export interface ApiCreateActivityWithReminderPostResponseDataActivity extends JsonObject {
   "id": string;
   "lead_id"?: string | null;
@@ -107,6 +132,7 @@ export interface ApiCreateActivityWithReminderPostResponseDataActivity extends J
   "duration_seconds"?: number | null;
   "metadata": BackendJson<"JsonValue">;
   "created_at": string;
+  "profile"?: ApiCreateActivityWithReminderPostResponseDataActivityProfile | null;
 }
 export interface ApiCreateActivityWithReminderPostResponseDataReminder extends JsonObject {
   "id": string;
@@ -1301,6 +1327,31 @@ export interface ApiRemoveTeamMemberDeleteResponseData extends JsonObject {
 }
 export type ApiRemoveTeamMemberDeleteResponse = import("./types.js").CrmApiResponse<ApiRemoveTeamMemberDeleteResponseData>;
 
+/** Backend request type: CreateWorkflowRequest. */
+export interface ApiCreateWorkflowRoutePostInput extends JsonObject {
+  "name": string;
+  "slug": string;
+  "acquire_flags": string[];
+  "priority": number;
+  "can_create_lead"?: boolean;
+  "actions"?: JsonValue | null;
+  "hint"?: string | null;
+}
+/** Backend response type: WorkflowResponse. */
+export interface ApiCreateWorkflowRoutePostResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "slug": string;
+  "acquire_flags": string[];
+  "priority": number;
+  "can_create_lead": boolean;
+  "actions"?: JsonValue | null;
+  "hint"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiCreateWorkflowRoutePostResponse = import("./types.js").CrmApiResponse<ApiCreateWorkflowRoutePostResponseData>;
+
 /** Backend response type: Vec<WorkflowAssignment>. */
 export interface ApiListWorkflowAssignmentsGetResponseItem extends JsonObject {
   "id": string;
@@ -1353,6 +1404,24 @@ export interface ApiMemberWorkflowsGetResponseItem extends JsonObject {
   "version": number;
 }
 export type ApiMemberWorkflowsGetResponse = import("./types.js").CrmApiResponse<ApiMemberWorkflowsGetResponseItem[]>;
+
+/** Backend query type: super::types::WorklogListQuery. */
+export interface ApiWorklogsGetQuery extends QueryParams {
+  "sort"?: string | null;
+}
+/** Backend response type: Vec<WorklogResponse>. */
+export interface ApiWorklogsGetResponseItem extends JsonObject {
+  "id": string;
+  "log_type": string;
+  "assignee_id": string;
+  "profile_id": string;
+  "start_date": string;
+  "duration": number;
+  "description"?: string | null;
+  "created_at": string;
+  "updated_at": string;
+}
+export type ApiWorklogsGetResponse = import("./types.js").CrmApiResponse<ApiWorklogsGetResponseItem[]>;
 
 /** Backend request type: UpdateWorkspace. */
 export interface ApiUpdateWorkspacePatchInput extends JsonObject {

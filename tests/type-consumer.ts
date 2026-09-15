@@ -200,6 +200,14 @@ sdk.crm.createActivityWithReminder({
   activity: { lead_id: "lead-1", activity_type: "call", outcome: "answered" },
   reminder: { lead_id: "lead-1", profile_id: "profile-1", title: "Follow up", due_at: "2026-09-15T08:00:00Z" },
 }, mutationOptions).then(response => response.data.data.reminder.profile_id);
+sdk.crm.listActivities().then(response => response.data.data.items[0]?.profile?.first_name);
+sdk.crm.listWorklogs({ sort: "-start_date" }).then(response => response.data.data[0]?.duration);
+sdk.crm.createWorkflow({
+  name: "Customer success",
+  slug: "customer-success",
+  acquire_flags: ["onboarding"],
+  priority: 20,
+}).then(response => response.data.data.can_create_lead);
 sdk.task.workspace().then(response => response.data.data.sandbox_id);
 sdk.task.openEvents({ signal: AbortSignal.timeout(1_000) }).then(response => response.data);
   void manageAction;
