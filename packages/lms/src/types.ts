@@ -11,7 +11,8 @@ export interface AiRoleSummarySettings extends JsonObject { role:AiSummaryRole; 
 export interface AiSummarySettings extends JsonObject { globally_enabled:boolean; financial_owner_user_id:string|null; roles:AiRoleSummarySettings[] }
 export interface AiSummarySettingsInput extends JsonObject { globally_enabled:boolean; roles:Omit<AiRoleSummarySettings,"config_revision">[] }
 export interface AiSummaryModel extends JsonObject { model_ref:string; model:string; provider_label:string; source:string }
-export interface EvaluationQuestion extends JsonObject { stable_id:string; version:number; kind:"teacher_rating"|"student_feedback"; metric_id:string; label_en:string; label_fa:string; description_en:string; description_fa:string; allow_not_applicable:boolean; enabled:boolean; sort_order:number }
+export interface EvaluationQuestion extends JsonObject { stable_id:string; version:number; kind:"teacher_rating"|"student_feedback"; metric_id:string; label_en:string; label_fa:string; description_en:string; description_fa:string; allow_not_applicable:boolean; enabled:boolean; archived:boolean; sort_order:number }
+export interface EvaluationQuestionInput extends JsonObject { stable_id?:string|null; kind:"teacher_rating"|"student_feedback"; metric_id:string; label_en:string; label_fa:string; description_en:string; description_fa:string; allow_not_applicable:boolean; enabled:boolean; archived?:boolean; sort_order:number }
 export type AiSummarySettingsResponse = ApiEnvelope<AiSummarySettings>;
 export type AiSummaryModelsResponse = ApiEnvelope<AiSummaryModel[]>;
 export type AiLatestSummaryResponse = ApiEnvelope<AiLatestSummary>;

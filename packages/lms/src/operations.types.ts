@@ -2080,7 +2080,12 @@ export interface DrmRoutesIndexCompositionsGetResponse extends ApiEnvelope<DrmRo
 export interface EvaluationQuestionContract extends JsonObject {
   "stable_id": string; "version": number; "kind": string; "metric_id": string;
   "label_en": string; "label_fa": string; "description_en": string; "description_fa": string;
-  "allow_not_applicable": boolean; "enabled": boolean; "sort_order": number;
+  "allow_not_applicable": boolean; "enabled": boolean; "archived": boolean; "sort_order": number;
+}
+export interface EvaluationQuestionUpdateContract extends JsonObject {
+  "stable_id"?: string | null; "kind": "teacher_rating" | "student_feedback"; "metric_id": string;
+  "label_en": string; "label_fa": string; "description_en": string; "description_fa": string;
+  "allow_not_applicable": boolean; "enabled": boolean; "archived"?: boolean; "sort_order": number;
 }
 export interface EvaluationGetContextGetResponseDataTeacherRatingsTargetsProfile extends JsonObject {
   "user_id": string;
@@ -2151,7 +2156,7 @@ export interface EvaluationGetSettingsGetResponse extends ApiEnvelope<Evaluation
 export interface EvaluationUpdateSettingsPutInput extends JsonObject {
   "teacher_ratings_enabled": boolean;
   "student_feedback_enabled": boolean;
-  "questions": EvaluationQuestionContract[];
+  "questions": EvaluationQuestionUpdateContract[];
 }
 /** Backend response type: models::EvaluationSettings. */
 export interface EvaluationUpdateSettingsPutResponseData extends JsonObject {
