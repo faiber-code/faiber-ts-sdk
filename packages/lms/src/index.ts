@@ -58,6 +58,16 @@ export function classroomSessionRecordingUrl(reference: T.ClassroomSessionRoomRe
 
 export class LmsApi extends ServiceApi {
     readonly operations = new LmsOperations(this.client);
+    /** Reads AI performance-summary configuration. Requires `lms:config:read`. */
+    aiSummarySettings(options?: RequestOptions) { return this.client.get<T.AiSummarySettingsResponse>("/api/v1/ai-summaries/settings", undefined, options); }
+    /** Saves independently enabled student, teacher, and support summary settings. Requires `lms:config:update`. */
+    updateAiSummarySettings(data: T.AiSummarySettingsInput, options?: RequestOptions<T.AiSummarySettingsInput>) { return this.client.put<T.AiSummarySettingsResponse, T.AiSummarySettingsInput>("/api/v1/ai-summaries/settings", data, options); }
+    /** Lists cloud and worker language models available to the project's financial owner. */
+    aiSummaryModels(options?: RequestOptions) { return this.client.get<T.AiSummaryModelsResponse>("/api/v1/ai-summaries/models", undefined, options); }
+    /** Reads the latest authorized summary. Pass a child UUID after selecting a verified child in the parent app. This read never starts generation. */
+    latestAiSummary(role: T.AiSummaryRole, userId?: Identifier, options?: RequestOptions) { return this.client.get<T.AiLatestSummaryResponse>("/api/v1/ai-summaries/latest", { role, ...(userId ? { user_id: String(userId) } : {}) }, options); }
+    /** Queues an administrative summary refresh. Requires `lms:ai_summary:manage`. */
+    refreshAiSummary(userId: Identifier, role: T.AiSummaryRole, options?: RequestOptions) { return this.client.post<T.AiRefreshSummaryResponse, Record<string, never>>(`/api/v1/ai-summaries/users/${encodeURIComponent(userId)}/${role}/refresh`, {}, options); }
     readonly courses: R<T.Course, T.CreateCourseInput, T.UpdateCourseInput> = new RestResource(this.client, "/api/v1/courses", { supported: ["list", "show", "create", "update"] });
     readonly courseCategories: R<T.CourseCategory, T.CreateCourseCategoryInput, T.UpdateCourseCategoryInput> = new RestResource(this.client, "/api/v1/courses/categories", { supported: ["list", "show", "create", "update"] });
     readonly videoSections: R<T.VideoSection, T.CreateVideoSectionInput, T.UpdateVideoSectionInput> = new RestResource(this.client, "/api/v1/courses/video-sections", { supported: ["list", "show", "create", "update"] });

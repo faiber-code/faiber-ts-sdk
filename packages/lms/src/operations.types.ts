@@ -2077,6 +2077,11 @@ export interface DrmRoutesIndexCompositionsGetResponse extends ApiEnvelope<DrmRo
 }
 
 /** Backend response type: models::EvaluationContext. */
+export interface EvaluationQuestionContract extends JsonObject {
+  "stable_id": string; "version": number; "kind": string; "metric_id": string;
+  "label_en": string; "label_fa": string; "description_en": string; "description_fa": string;
+  "allow_not_applicable": boolean; "enabled": boolean; "sort_order": number;
+}
 export interface EvaluationGetContextGetResponseDataTeacherRatingsTargetsProfile extends JsonObject {
   "user_id": string;
   "first_name"?: JsonValue | null;
@@ -2091,12 +2096,14 @@ export interface EvaluationGetContextGetResponseDataTeacherRatingsTargets extend
   "submitted": boolean;
   "scores"?: JsonValue | null;
   "description"?: string | null;
+  "questions": EvaluationQuestionContract[];
 }
 export interface EvaluationGetContextGetResponseDataTeacherRatings extends JsonObject {
   "enabled": boolean;
   "applicable": boolean;
   "targets": EvaluationGetContextGetResponseDataTeacherRatingsTargets[];
   "fields": string[];
+  "questions": EvaluationQuestionContract[];
 }
 export interface EvaluationGetContextGetResponseDataStudentFeedback extends JsonObject {
   "enabled": boolean;
@@ -2105,6 +2112,7 @@ export interface EvaluationGetContextGetResponseDataStudentFeedback extends Json
   "scores"?: JsonValue | null;
   "description"?: string | null;
   "fields": string[];
+  "questions": EvaluationQuestionContract[];
 }
 export interface EvaluationGetContextGetResponseData extends JsonObject {
   "classroom_session_id": string;
@@ -2134,6 +2142,7 @@ export interface EvaluationSubmitPostResponse extends ApiEnvelope<EvaluationSubm
 export interface EvaluationGetSettingsGetResponseData extends JsonObject {
   "teacher_ratings_enabled": boolean;
   "student_feedback_enabled": boolean;
+  "questions": EvaluationQuestionContract[];
 }
 export interface EvaluationGetSettingsGetResponse extends ApiEnvelope<EvaluationGetSettingsGetResponseData> {
 }
@@ -2142,11 +2151,13 @@ export interface EvaluationGetSettingsGetResponse extends ApiEnvelope<Evaluation
 export interface EvaluationUpdateSettingsPutInput extends JsonObject {
   "teacher_ratings_enabled": boolean;
   "student_feedback_enabled": boolean;
+  "questions": EvaluationQuestionContract[];
 }
 /** Backend response type: models::EvaluationSettings. */
 export interface EvaluationUpdateSettingsPutResponseData extends JsonObject {
   "teacher_ratings_enabled": boolean;
   "student_feedback_enabled": boolean;
+  "questions": EvaluationQuestionContract[];
 }
 export interface EvaluationUpdateSettingsPutResponse extends ApiEnvelope<EvaluationUpdateSettingsPutResponseData> {
 }
