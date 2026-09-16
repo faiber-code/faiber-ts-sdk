@@ -785,6 +785,18 @@ export interface ApiCreateLeadPostResponseData extends JsonObject {
 export type ApiCreateLeadPostResponse = import("./types.js").CrmApiResponse<ApiCreateLeadPostResponseData>;
 
 /** Backend response type: Lead. */
+export interface ApiLeadGetResponseDataProfile extends JsonObject {
+  "id": string;
+  "user_id"?: string | null;
+  "email"?: string | null;
+  "phone"?: string | null;
+  "national_code"?: string | null;
+  "first_name"?: JsonValue | null;
+  "last_name"?: JsonValue | null;
+  "status"?: string | null;
+  "employee_type"?: string | null;
+  "avatar"?: string | null;
+}
 export interface ApiLeadGetResponseData extends JsonObject {
   "id": string;
   "pipeline_id": string;
@@ -817,6 +829,7 @@ export interface ApiLeadGetResponseData extends JsonObject {
   "created_by": string;
   "created_at": string;
   "updated_at": string;
+  "profile"?: ApiLeadGetResponseDataProfile | null;
 }
 export type ApiLeadGetResponse = import("./types.js").CrmApiResponse<ApiLeadGetResponseData>;
 

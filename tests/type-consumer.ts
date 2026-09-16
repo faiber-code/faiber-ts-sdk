@@ -163,6 +163,7 @@ sdk.manage.listAgentModels({ signal: AbortSignal.timeout(1_000) }).then(response
   response.data.ollama.think_levels.forEach(level => level.toUpperCase());
 });
 sdk.crm.listLeads({ status: "open" }).then(response => response.data.meta.request_id);
+sdk.crm.getLead("lead-1").then(response => response.data.data.profile?.user_id);
 const mutationOptions = { headers: { "Idempotency-Key": "dashboard-contract-test" } };
 sdk.crm.deleteTeam("team-1", { version: 1 }, mutationOptions).then(response => response.data.data.deleted);
 sdk.crm.removeTeamMember("team-1", "member-1", mutationOptions).then(response => response.data.data.is_active);
