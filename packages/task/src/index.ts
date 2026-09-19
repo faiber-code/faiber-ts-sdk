@@ -30,6 +30,16 @@ export class TaskApi extends ServiceApi {
     return this.client.post<T.TaskResponse<T.Project>, T.CreateProjectInput>("/api/v1/projects", data, options);
   }
 
+  /** Creates or returns the authenticated user's private Task project. */
+  ensurePersonalProject(options?: RequestOptions) {
+    return this.client.post<T.TaskResponse<T.Project>>("/api/v1/projects/personal", undefined, options);
+  }
+
+  /** Creates a general shared project with a project-scoped owner grant. */
+  createSharedProject(data: T.CreateSharedProjectInput, options?: RequestOptions<T.CreateSharedProjectInput>) {
+    return this.client.post<T.TaskResponse<T.Project>, T.CreateSharedProjectInput>("/api/v1/projects/shared", data, options);
+  }
+
   /** Gets one authorized project and preserves its ETag in the complete Axios response. */
   getProject(id: Identifier, options?: RequestOptions) {
     return this.client.get<T.TaskResponse<T.Project>>(`/api/v1/projects/${encodeURIComponent(id)}`, undefined, options);

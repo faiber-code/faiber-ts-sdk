@@ -85,6 +85,10 @@ export interface NotificationListResponse extends ResourceListResponse<Notificat
 }
 export interface NotificationResponse extends ResourceResponse<Notification> {
 }
+export interface InboxItem { id: number; description: string | null; read: boolean; created_at: string }
+export interface InboxResponse extends ApiEnvelope<{ data: InboxItem[]; meta: { page: number; page_size: number; total_items: number; total_pages: number } }> {}
+export interface InboxItemResponse extends ApiEnvelope<InboxItem> {}
+export interface InboxReadAllResponse extends ApiEnvelope<{ updated: number }> {}
 export interface DashboardResponse extends ApiEnvelope<MessengerDashboard> {
 }
 export interface SendNotificationResponse extends ApiEnvelope<Notification> {

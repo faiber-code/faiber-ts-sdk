@@ -1,9 +1,10 @@
 import type {ApiEnvelope, CursorQuery, JsonObject, QueryParams} from '@faiber/sdk-core'
 export interface WorkspaceSummary{ id:string;sandbox_id:string;name:string;version:number }
-export type ProjectMode='software'|'marketing'
+export type ProjectMode='software'|'marketing'|'general'
 export interface Project{ id:string;workspace_id:string;team_id:string|null;key:string;name:string;description:string;mode:ProjectMode;status:string;settings:JsonObject;version:number;created_at:string;updated_at:string }
 export interface WorkItem{ id:string;workspace_id:string;project_id:string;parent_id:string|null;sequence:number;key:string;item_type:string;title:string;description:string;status:string;priority:string;rank:string;owner_id:string;reporter_id:string;estimate:number|null;story_points:number|null;start_at:string|null;due_at:string|null;completed_at:string|null;sprint_id:string|null;release_id:string|null;campaign_id:string|null;custom_fields:JsonObject;version:number;created_at:string;updated_at:string }
 export interface CreateProjectInput{team_id?:string|null;key:string;name:string;description?:string;mode:ProjectMode;settings?:JsonObject}
+export interface CreateSharedProjectInput{name:string}
 export interface UpdateProjectInput{ name?:string;description?:string;status?:string;settings?:JsonObject }
 export interface ProjectQuery extends CursorQuery{mode?:ProjectMode;status?:string;q?:string}
 export interface WorkItemQuery extends CursorQuery{project_id?:string;sprint_id?:string;owner_id?:string;status?:string;q?:string;sort?:string}

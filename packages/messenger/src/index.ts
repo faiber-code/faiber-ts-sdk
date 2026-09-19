@@ -16,6 +16,11 @@ export class MessengerApi extends ServiceApi {
     notification(id: Identifier, options?: RequestOptions) { return this.operations.notificationNotificationsShowGet(id, options); }
     markNotificationRead(id: Identifier, params?: O.NotificationNotificationsMarkReadPatchQuery, options?: RequestOptions) { return this.operations.notificationNotificationsMarkReadPatch(id, params, options); }
     markAllNotificationsRead(params?: O.NotificationNotificationsMarkAllReadPatchQuery, options?: RequestOptions) { return this.operations.notificationNotificationsMarkAllReadPatch(params, options); }
+    /** Lists only the authenticated recipient's notifications. */
+    myInbox(options?: RequestOptions) { return this.client.get<T.InboxResponse>("/api/v1/notifications/me", undefined, options); }
+    /** Marks one owned notification as read, with recipient derived by Messenger. */
+    markMyNotificationRead(id: Identifier, options?: RequestOptions) { return this.client.patch<T.InboxItemResponse>(`/api/v1/notifications/me/${encodeURIComponent(id)}/read`, undefined, options); }
+    markMyInboxRead(options?: RequestOptions) { return this.client.patch<T.InboxReadAllResponse>("/api/v1/notifications/me/read-all", undefined, options); }
     notificationRealtimeAuth(data: O.NotificationNotificationsRealtimeAuthPostInput, options?: RequestOptions<O.NotificationNotificationsRealtimeAuthPostInput>) { return this.operations.notificationNotificationsRealtimeAuthPost(data, options); }
     notificationRealtimeConfig(options?: RequestOptions) { return this.operations.notificationNotificationsRealtimeConfigGet(options); }
     createTemplateContent(id: Identifier, data: O.TemplateTemplateContentsCreatePostInput, options?: RequestOptions<O.TemplateTemplateContentsCreatePostInput>) { return this.operations.templateTemplateContentsCreatePost(id, data, options); }
