@@ -17,6 +17,7 @@ export interface Profile extends JsonObject {
     national_code?: string | null;
     first_name?: LocalizedText | null;
     last_name?: LocalizedText | null;
+    gender: string | null;
     status: string;
     employee_type?: string | null;
     freemium_session_limit?: number | null;

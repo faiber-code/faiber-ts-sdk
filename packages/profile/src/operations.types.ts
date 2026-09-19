@@ -127,6 +127,7 @@ export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
   "national_code"?: string | null;
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
+  "gender"?: string | null;
   "status": string;
   "employee_type"?: string | null;
   "freemium_session_limit"?: number | null;
