@@ -238,6 +238,48 @@ export interface NotificationNotificationsMarkReadPatchResponseData extends Json
 export interface NotificationNotificationsMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMarkReadPatchResponseData> {
 }
 
+/** Backend query type: PaginationQuery. */
+export interface NotificationNotificationsMyInboxGetQuery extends QueryParams {
+  "page[number]"?: number | null;
+  "page[size]"?: number | null;
+}
+/** Backend response type: crate::models::PagedResult<InboxItem>. */
+export interface NotificationNotificationsMyInboxGetResponseItem extends JsonObject {
+  "id": number;
+  "description"?: string | null;
+  "read": boolean;
+  "created_at": string;
+}
+export interface NotificationNotificationsMyInboxGetResponsePageMeta extends JsonObject {
+  "page": number;
+  "page_size": number;
+  "total_items": number;
+  "total_pages": number;
+}
+export interface NotificationNotificationsMyInboxGetResponseData extends JsonObject {
+  "data": NotificationNotificationsMyInboxGetResponseItem[];
+  "meta": NotificationNotificationsMyInboxGetResponsePageMeta;
+}
+export interface NotificationNotificationsMyInboxGetResponse extends ApiEnvelope<NotificationNotificationsMyInboxGetResponseData> {
+}
+
+/** Backend response type: InboxItem. */
+export interface NotificationNotificationsMyMarkReadPatchResponseData extends JsonObject {
+  "id": number;
+  "description"?: string | null;
+  "read": boolean;
+  "created_at": string;
+}
+export interface NotificationNotificationsMyMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMyMarkReadPatchResponseData> {
+}
+
+/** Backend response type: MarkAllReadResponse. */
+export interface NotificationNotificationsMyMarkAllReadPatchResponseData extends JsonObject {
+  "updated": number;
+}
+export interface NotificationNotificationsMyMarkAllReadPatchResponse extends ApiEnvelope<NotificationNotificationsMyMarkAllReadPatchResponseData> {
+}
+
 /** Backend query type: MarkAllReadQuery. */
 export interface NotificationNotificationsMarkAllReadPatchQuery extends QueryParams {
   "recipient": string;

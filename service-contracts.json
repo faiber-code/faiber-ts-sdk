@@ -559,6 +559,59 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/games/escrows/{match_id}",
+      "module": "game_escrow",
+      "handler": "show",
+      "permissions": [],
+      "source": "infera-asset/src/game_escrow.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/games/escrows/{match_id}/refund",
+      "module": "game_escrow",
+      "handler": "refund",
+      "permissions": [],
+      "source": "infera-asset/src/game_escrow.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/games/escrows/{match_id}/settle",
+      "module": "game_escrow",
+      "handler": "settle",
+      "permissions": [],
+      "source": "infera-asset/src/game_escrow.rs",
+      "body": "SettleRequest",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/games/escrows/fund",
+      "module": "game_escrow",
+      "handler": "fund",
+      "permissions": [],
+      "source": "infera-asset/src/game_escrow.rs",
+      "body": "FundRequest",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/integration/docs",
       "module": "integration",
       "handler": "integration_docs_show",
@@ -2065,7 +2118,7 @@
       ],
       "source": "infera-crm/src/api/routes.rs",
       "pathParam": "Uuid",
-      "response": "Lead",
+      "response": "LeadResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2361,7 +2414,8 @@
       "handler": "lead_stats",
       "permissions": [
         "crm:stats:read",
-        "crm:stats:read_all"
+        "crm:stats:read_all",
+        "crm:stats:read_own"
       ],
       "source": "infera-crm/src/api/routes.rs",
       "response": "LeadStats",
@@ -4853,6 +4907,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/auth/browser-login",
+      "module": "auth",
+      "handler": "browser_login",
+      "permissions": [],
+      "source": "infera-idp/src/auth/routes.rs",
+      "body": "BrowserLoginRequest",
+      "response": "APIEmptyResponse",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/auth/custom-oauth/{provider}",
       "module": "custom_oauth",
@@ -6532,6 +6599,123 @@
       "source": "infera-lms/src/academy/routes.rs",
       "body": "CompleteRequest",
       "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/jobs",
+      "module": "ai_summary",
+      "handler": "jobs",
+      "permissions": [
+        "lms:ai_summary:manage"
+      ],
+      "source": "infera-lms/src/ai_summary/routes.rs",
+      "query": "JobQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/latest",
+      "module": "ai_summary",
+      "handler": "latest",
+      "permissions": [
+        "lms:ai_summary:read_own"
+      ],
+      "source": "infera-lms/src/ai_summary/routes.rs",
+      "query": "LatestQuery",
+      "response": "LatestSummary",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/models",
+      "module": "ai_summary",
+      "handler": "models",
+      "permissions": [
+        "lms:config:read"
+      ],
+      "source": "infera-lms/src/ai_summary/routes.rs",
+      "response": "Vec<ModelOption>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/refresh",
+      "module": "ai_summary",
+      "handler": "refresh_many",
+      "permissions": [
+        "lms:ai_summary:manage"
+      ],
+      "source": "infera-lms/src/ai_summary/routes.rs",
+      "body": "BulkRefreshRequest",
+      "response": "BulkRefreshResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/settings",
+      "module": "ai_summary",
+      "handler": "settings",
+      "permissions": [
+        "lms:config:read"
+      ],
+      "source": "infera-lms/src/ai_summary/routes.rs",
+      "response": "SummarySettings",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/ai-summaries/settings",
+      "module": "ai_summary",
+      "handler": "update_settings",
+      "permissions": [
+        "lms:config:update"
+      ],
+      "source": "infera-lms/src/ai_summary/routes.rs",
+      "body": "UpdateSummarySettings",
+      "response": "SummarySettings",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/summaries",
+      "module": "ai_summary",
+      "handler": "summaries",
+      "permissions": [
+        "lms:ai_summary:manage"
+      ],
+      "source": "infera-lms/src/ai_summary/routes.rs",
+      "query": "JobQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/users/{user_id}/{role}/refresh",
+      "module": "ai_summary",
+      "handler": "refresh",
+      "permissions": [
+        "lms:ai_summary:manage"
+      ],
+      "source": "infera-lms/src/ai_summary/routes.rs",
+      "response": "RefreshResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -8751,6 +8935,50 @@
       "query": "MarkReadQuery",
       "pathParam": "i64",
       "response": "NotificationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notifications/me",
+      "module": "notification",
+      "handler": "notifications_my_inbox",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/notification/routes.rs",
+      "query": "PaginationQuery",
+      "response": "crate::models::PagedResult<InboxItem>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/notifications/me/{id}/read",
+      "module": "notification",
+      "handler": "notifications_my_mark_read",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/notification/routes.rs",
+      "pathParam": "i64",
+      "response": "InboxItem",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/notifications/me/read-all",
+      "module": "notification",
+      "handler": "notifications_my_mark_all_read",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/notification/routes.rs",
+      "response": "MarkAllReadResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -14537,6 +14765,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/integrations/lms/performance-context",
+      "module": "integration",
+      "handler": "performance_context",
+      "permissions": [],
+      "source": "infera-session/src/integration/lms.rs",
+      "body": "ContextRequest",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/public/branding",
       "module": "branding",
@@ -15772,12 +16013,96 @@
   "state": [
     {
       "method": "GET",
+      "path": "/api/v1/game-operations/sessions",
+      "module": "routes",
+      "handler": "game_operation_sessions",
+      "permissions": [
+        "state:read"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "query": "AdminSessionFilter",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/game-operations/sessions/{session_id}/events",
+      "module": "routes",
+      "handler": "game_operation_events",
+      "permissions": [
+        "state:read"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "query": "AdminEventFilter",
+      "pathParam": "Uuid",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/game-operations/summary",
+      "module": "routes",
+      "handler": "game_operations_summary",
+      "permissions": [
+        "state:read"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/game-operations/worlds",
+      "module": "routes",
+      "handler": "game_operation_worlds",
+      "permissions": [
+        "state:read"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/game-operations/worlds/{game_id}/economy",
+      "module": "routes",
+      "handler": "update_game_operation_economy",
+      "permissions": [
+        "state:write"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "body": "UpdateGameEconomy",
+      "pathParam": "String",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/realtime",
       "module": "routes",
       "handler": "realtime",
       "permissions": [],
       "source": "infera-state/src/routes.rs",
       "query": "RealtimeQuery",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/rooms/{room_id}",
+      "module": "routes",
+      "handler": "delete_room",
+      "permissions": [
+        "state:write"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "pathParam": "Uuid",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -15791,6 +16116,21 @@
         "state:read"
       ],
       "source": "infera-state/src/routes.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/rooms/{room_id}",
+      "module": "routes",
+      "handler": "update_room",
+      "permissions": [
+        "state:write"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "body": "UpdateRoom",
       "pathParam": "Uuid",
       "responseEnvelope": "api",
       "multipart": false,
@@ -15848,6 +16188,20 @@
       ],
       "source": "infera-state/src/routes.rs",
       "body": "CreateWorld",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/worlds/{world_id}",
+      "module": "routes",
+      "handler": "delete_world",
+      "permissions": [
+        "state:write"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "pathParam": "Uuid",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -15911,6 +16265,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/worlds/{world_id}/endpoints/{endpoint_id}",
+      "module": "routes",
+      "handler": "delete_endpoint",
+      "permissions": [
+        "state:write"
+      ],
+      "source": "infera-state/src/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/worlds/{world_id}/rooms",
       "module": "routes",
@@ -15964,6 +16331,19 @@
       "source": "infera-state/src/routes.rs",
       "body": "UploadWasm",
       "pathParam": "Uuid",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/worlds/{world_id}/wasm/{module_id}",
+      "module": "routes",
+      "handler": "delete_wasm",
+      "permissions": [
+        "state:write"
+      ],
+      "source": "infera-state/src/routes.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -16144,6 +16524,29 @@
       "pathParam": "Uuid",
       "response": "Vec<WorkflowStateView>",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/projects/personal",
+      "module": "routes",
+      "handler": "ensure_personal_project",
+      "permissions": [],
+      "source": "infera-task/src/routes.rs",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/projects/shared",
+      "module": "routes",
+      "handler": "create_shared_project",
+      "permissions": [],
+      "source": "infera-task/src/routes.rs",
+      "body": "CreateSharedProject",
+      "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
     },

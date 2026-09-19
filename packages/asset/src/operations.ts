@@ -422,6 +422,51 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.DashboardDashboardShowGetResponse>({ ...options, method: "GET", url: `/api/v1/dashboard`, params });
   }
   /**
+   * Performs the show operation for the game escrow capability.
+   * Calls `GET /api/v1/games/escrows/{match_id}` through the shared IDP-aware Faiber client.
+   * @param matchId Backend path identifier `match_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  gameEscrowShowGet(matchId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.GameEscrowShowGetResponse>({ ...options, method: "GET", url: `/api/v1/games/escrows/${encodeURIComponent(matchId)}` });
+  }
+  /**
+   * Performs the refund operation for the game escrow capability.
+   * Calls `POST /api/v1/games/escrows/{match_id}/refund` through the shared IDP-aware Faiber client.
+   * @param matchId Backend path identifier `match_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  gameEscrowRefundPost(matchId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.GameEscrowRefundPostResponse>({ ...options, method: "POST", url: `/api/v1/games/escrows/${encodeURIComponent(matchId)}/refund` });
+  }
+  /**
+   * Performs the settle operation for the game escrow capability.
+   * Calls `POST /api/v1/games/escrows/{match_id}/settle` through the shared IDP-aware Faiber client.
+   * @param matchId Backend path identifier `match_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  gameEscrowSettlePost(matchId: Identifier, data: T.GameEscrowSettlePostInput, options?: RequestOptions<T.GameEscrowSettlePostInput>) {
+    return this.client.request<T.GameEscrowSettlePostResponse, T.GameEscrowSettlePostInput>({ ...options, method: "POST", url: `/api/v1/games/escrows/${encodeURIComponent(matchId)}/settle`, data: data });
+  }
+  /**
+   * Performs the fund operation for the game escrow capability.
+   * Calls `POST /api/v1/games/escrows/fund` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  gameEscrowFundPost(data: T.GameEscrowFundPostInput, options?: RequestOptions<T.GameEscrowFundPostInput>) {
+    return this.client.request<T.GameEscrowFundPostResponse, T.GameEscrowFundPostInput>({ ...options, method: "POST", url: `/api/v1/games/escrows/fund`, data: data });
+  }
+  /**
    * Performs the integration docs show operation for the integration capability.
    * Calls `GET /api/v1/integration/docs` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

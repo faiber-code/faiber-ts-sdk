@@ -3,6 +3,61 @@ import type * as T from "./operations.types.js";
 
 export class StateOperations extends ServiceApi {
   /**
+   * Performs the game operation sessions operation for the routes capability.
+   * Calls `GET /api/v1/game-operations/sessions` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:read.
+   */
+  routesGameOperationSessionsGet(params?: T.RoutesGameOperationSessionsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesGameOperationSessionsGetResponse>({ ...options, method: "GET", url: `/api/v1/game-operations/sessions`, params });
+  }
+  /**
+   * Performs the game operation events operation for the routes capability.
+   * Calls `GET /api/v1/game-operations/sessions/{session_id}/events` through the shared IDP-aware Faiber client.
+   * @param sessionId Backend path identifier `session_id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:read.
+   */
+  routesGameOperationEventsGet(sessionId: Identifier, params?: T.RoutesGameOperationEventsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RoutesGameOperationEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/game-operations/sessions/${encodeURIComponent(sessionId)}/events`, params });
+  }
+  /**
+   * Performs the game operations summary operation for the routes capability.
+   * Calls `GET /api/v1/game-operations/summary` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:read.
+   */
+  routesGameOperationsSummaryGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesGameOperationsSummaryGetResponse>({ ...options, method: "GET", url: `/api/v1/game-operations/summary` });
+  }
+  /**
+   * Performs the game operation worlds operation for the routes capability.
+   * Calls `GET /api/v1/game-operations/worlds` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:read.
+   */
+  routesGameOperationWorldsGet(options?: RequestOptions) {
+    return this.client.request<T.RoutesGameOperationWorldsGetResponse>({ ...options, method: "GET", url: `/api/v1/game-operations/worlds` });
+  }
+  /**
+   * Performs the update game operation economy operation for the routes capability.
+   * Calls `PATCH /api/v1/game-operations/worlds/{game_id}/economy` through the shared IDP-aware Faiber client.
+   * @param gameId Backend path identifier `game_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:write.
+   */
+  routesUpdateGameOperationEconomyPatch(gameId: Identifier, data: T.RoutesUpdateGameOperationEconomyPatchInput, options?: RequestOptions<T.RoutesUpdateGameOperationEconomyPatchInput>) {
+    return this.client.request<T.RoutesUpdateGameOperationEconomyPatchResponse, T.RoutesUpdateGameOperationEconomyPatchInput>({ ...options, method: "PATCH", url: `/api/v1/game-operations/worlds/${encodeURIComponent(gameId)}/economy`, data: data });
+  }
+  /**
    * Performs the realtime operation for the routes capability.
    * Calls `GET /api/v1/realtime` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -14,6 +69,17 @@ export class StateOperations extends ServiceApi {
     return this.client.request<T.RoutesRealtimeGetResponse>({ ...options, method: "GET", url: `/api/v1/realtime`, params });
   }
   /**
+   * Performs the delete room operation for the routes capability.
+   * Calls `DELETE /api/v1/rooms/{room_id}` through the shared IDP-aware Faiber client.
+   * @param roomId Backend path identifier `room_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:write.
+   */
+  routesDeleteRoomDelete(roomId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesDeleteRoomDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/rooms/${encodeURIComponent(roomId)}` });
+  }
+  /**
    * Performs the get room operation for the routes capability.
    * Calls `GET /api/v1/rooms/{room_id}` through the shared IDP-aware Faiber client.
    * @param roomId Backend path identifier `room_id`.
@@ -23,6 +89,18 @@ export class StateOperations extends ServiceApi {
    */
   routesGetRoomGet(roomId: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesGetRoomGetResponse>({ ...options, method: "GET", url: `/api/v1/rooms/${encodeURIComponent(roomId)}` });
+  }
+  /**
+   * Performs the update room operation for the routes capability.
+   * Calls `PUT /api/v1/rooms/{room_id}` through the shared IDP-aware Faiber client.
+   * @param roomId Backend path identifier `room_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:write.
+   */
+  routesUpdateRoomPut(roomId: Identifier, data: T.RoutesUpdateRoomPutInput, options?: RequestOptions<T.RoutesUpdateRoomPutInput>) {
+    return this.client.request<T.RoutesUpdateRoomPutResponse, T.RoutesUpdateRoomPutInput>({ ...options, method: "PUT", url: `/api/v1/rooms/${encodeURIComponent(roomId)}`, data: data });
   }
   /**
    * Performs the invoke endpoint operation for the routes capability.
@@ -71,6 +149,17 @@ export class StateOperations extends ServiceApi {
     return this.client.request<T.RoutesCreateWorldPostResponse, T.RoutesCreateWorldPostInput>({ ...options, method: "POST", url: `/api/v1/worlds`, data: data });
   }
   /**
+   * Performs the delete world operation for the routes capability.
+   * Calls `DELETE /api/v1/worlds/{world_id}` through the shared IDP-aware Faiber client.
+   * @param worldId Backend path identifier `world_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:write.
+   */
+  routesDeleteWorldDelete(worldId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesDeleteWorldDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/worlds/${encodeURIComponent(worldId)}` });
+  }
+  /**
    * Performs the get world operation for the routes capability.
    * Calls `GET /api/v1/worlds/{world_id}` through the shared IDP-aware Faiber client.
    * @param worldId Backend path identifier `world_id`.
@@ -117,6 +206,18 @@ export class StateOperations extends ServiceApi {
     return this.client.request<T.RoutesCreateEndpointPostResponse, T.RoutesCreateEndpointPostInput>({ ...options, method: "POST", url: `/api/v1/worlds/${encodeURIComponent(worldId)}/endpoints`, data: data });
   }
   /**
+   * Performs the delete endpoint operation for the routes capability.
+   * Calls `DELETE /api/v1/worlds/{world_id}/endpoints/{endpoint_id}` through the shared IDP-aware Faiber client.
+   * @param worldId Backend path identifier `world_id`.
+   * @param endpointId Backend path identifier `endpoint_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:write.
+   */
+  routesDeleteEndpointDelete(worldId: Identifier, endpointId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesDeleteEndpointDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/worlds/${encodeURIComponent(worldId)}/endpoints/${encodeURIComponent(endpointId)}` });
+  }
+  /**
    * Performs the list rooms operation for the routes capability.
    * Calls `GET /api/v1/worlds/{world_id}/rooms` through the shared IDP-aware Faiber client.
    * @param worldId Backend path identifier `world_id`.
@@ -161,5 +262,17 @@ export class StateOperations extends ServiceApi {
    */
   routesUploadWasmPost(worldId: Identifier, data: T.RoutesUploadWasmPostInput, options?: RequestOptions<T.RoutesUploadWasmPostInput>) {
     return this.client.request<T.RoutesUploadWasmPostResponse, T.RoutesUploadWasmPostInput>({ ...options, method: "POST", url: `/api/v1/worlds/${encodeURIComponent(worldId)}/wasm`, data: data });
+  }
+  /**
+   * Performs the delete wasm operation for the routes capability.
+   * Calls `DELETE /api/v1/worlds/{world_id}/wasm/{module_id}` through the shared IDP-aware Faiber client.
+   * @param worldId Backend path identifier `world_id`.
+   * @param moduleId Backend path identifier `module_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:write.
+   */
+  routesDeleteWasmDelete(worldId: Identifier, moduleId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesDeleteWasmDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/worlds/${encodeURIComponent(worldId)}/wasm/${encodeURIComponent(moduleId)}` });
   }
 }

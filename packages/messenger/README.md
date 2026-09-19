@@ -22,31 +22,26 @@ const client = new FaiberClient("messenger", {
 });
 const api = new MessengerApi(client);
 
-const sent = await api.send({
-  recipient_id: userId,
-  template: "membership-expiring",
-  data: { days: 3 },
-});
-await api.markNotificationRead(notificationId);
-await api.createTemplateContent(templateId, { locale: "fa", content: "..." });
-const realtime = await api.notificationRealtimeConfig();
+const inbox = await api.myInbox();
+const first = inbox.data.data.data[0];
+if (first) await api.markMyNotificationRead(first.id);
 ```
 
 ## Complete capability
 
-This package exposes 33 registered operations from the messaging service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 36 registered operations from the messaging service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `channel` | 6 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `dashboard` | 1 | `GET` |
 | `integration` | 3 | `GET` |
-| `notification` | 7 | `GET`, `PATCH`, `POST` |
+| `notification` | 10 | `GET`, `PATCH`, `POST` |
 | `router` | 3 | `GET` |
 | `service` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `template` | 8 | `DELETE`, `GET`, `PATCH`, `POST` |
 
-Template content has its own create/update/list routes. Notification read state uses the dedicated PATCH operation rather than generic notification CRUD. Realtime notification configuration and channel authorization are exposed as typed operations.
+Self-service inbox routes derive the recipient from the authenticated user and return a reduced response without delivery administration fields. Administrative notification routes and template content remain separate operations.
 
 ## Authentication and authorization
 

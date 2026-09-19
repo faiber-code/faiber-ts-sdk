@@ -99,7 +99,7 @@ export interface RoutesListProjectsGetResponse extends ApiEnvelope<RoutesListPro
 }
 
 /** Backend request type: CreateProject. */
-export type RoutesCreateProjectPostInputMode = "software" | "marketing";
+export type RoutesCreateProjectPostInputMode = "software" | "marketing" | "general";
 export interface RoutesCreateProjectPostInput extends JsonObject {
   "team_id"?: string | null;
   "key": string;
@@ -147,6 +147,16 @@ export interface RoutesWorkflowStatesGetResponseItem extends JsonObject {
 }
 export interface RoutesWorkflowStatesGetResponse extends ApiEnvelope<RoutesWorkflowStatesGetResponseItem[]> {
 }
+
+/** Backend response type: raw-response. */
+export type RoutesEnsurePersonalProjectPostResponse = import("./types.js").ProjectResponse;
+
+/** Backend request type: CreateSharedProject. */
+export interface RoutesCreateSharedProjectPostInput extends JsonObject {
+  "name": string;
+}
+/** Backend response type: raw-response. */
+export type RoutesCreateSharedProjectPostResponse = import("./types.js").ProjectResponse;
 
 /** Backend query type: ReportQuery. */
 export interface RoutesReportSummaryGetQuery extends QueryParams {

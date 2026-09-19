@@ -24,24 +24,18 @@ const api = new SocialApi(client);
 
 const categories = await api.categories();
 const feed = await api.feed({ category_id: categories.data.data[0]?.id, page: 1, limit: 20 });
-await api.setFeedLocation({ latitude: 35.6892, longitude: 51.3890, range_km: 25 });
 ```
 
 ## Complete capability
 
-This package exposes the social interactions operations, including per-user feed location preferences. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 61 registered operations from the social interactions service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `api` | 44 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `api` | 60 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `main` | 1 | `GET` |
 
 Social owns community categories, posts, and interactions on those posts and comments. Modules continues to own generic comments and reactions for products, services, and other Modules resources.
-
-Moderators can inspect a typed, paginated audit trail:
-
-```ts
-const audit = await api.moderationAudit({ target_type: "post", action: "hide", page: 1, limit: 30 });
-```
 
 ## Authentication and authorization
 

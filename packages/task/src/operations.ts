@@ -157,6 +157,27 @@ export class TaskOperations extends ServiceApi {
     return this.client.request<T.RoutesWorkflowStatesGetResponse>({ ...options, method: "GET", url: `/api/v1/projects/${encodeURIComponent(id)}/workflow` });
   }
   /**
+   * Performs the ensure personal project operation for the routes capability.
+   * Calls `POST /api/v1/projects/personal` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesEnsurePersonalProjectPost(options?: RequestOptions) {
+    return this.client.request<T.RoutesEnsurePersonalProjectPostResponse>({ ...options, method: "POST", url: `/api/v1/projects/personal` });
+  }
+  /**
+   * Performs the create shared project operation for the routes capability.
+   * Calls `POST /api/v1/projects/shared` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesCreateSharedProjectPost(data: T.RoutesCreateSharedProjectPostInput, options?: RequestOptions<T.RoutesCreateSharedProjectPostInput>) {
+    return this.client.request<T.RoutesCreateSharedProjectPostResponse, T.RoutesCreateSharedProjectPostInput>({ ...options, method: "POST", url: `/api/v1/projects/shared`, data: data });
+  }
+  /**
    * Performs the report summary operation for the routes capability.
    * Calls `GET /api/v1/reports/summary` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.

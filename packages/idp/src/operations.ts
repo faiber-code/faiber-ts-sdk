@@ -141,6 +141,17 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.IdentityAuthorityPublicShowGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/authority` });
   }
   /**
+   * Performs the browser login operation for the auth capability.
+   * Calls `POST /api/v1/auth/browser-login` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  authBrowserLoginPost(data: T.AuthBrowserLoginPostInput, options?: RequestOptions<T.AuthBrowserLoginPostInput>) {
+    return this.client.request<T.AuthBrowserLoginPostResponse, T.AuthBrowserLoginPostInput>({ ...options, method: "POST", url: `/api/v1/auth/browser-login`, data: data });
+  }
+  /**
    * Performs the start operation for the custom oauth capability.
    * Calls `GET /api/v1/auth/custom-oauth/{provider}` through the shared IDP-aware Faiber client.
    * @param provider Backend path identifier `provider`.

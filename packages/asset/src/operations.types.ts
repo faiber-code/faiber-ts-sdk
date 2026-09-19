@@ -797,6 +797,32 @@ export interface DashboardDashboardShowGetResponseData extends JsonObject {
 export interface DashboardDashboardShowGetResponse extends ApiEnvelope<DashboardDashboardShowGetResponseData> {
 }
 
+/** Backend response type: Value. */
+export type GameEscrowShowGetResponse = JsonValue;
+
+/** Backend response type: Value. */
+export type GameEscrowRefundPostResponse = JsonValue;
+
+/** Backend request type: SettleRequest. */
+export interface GameEscrowSettlePostInput extends JsonObject {
+  "winner_ids": string[];
+  "burn_basis_points"?: number;
+}
+/** Backend response type: Value. */
+export type GameEscrowSettlePostResponse = JsonValue;
+
+/** Backend request type: FundRequest. */
+export interface GameEscrowFundPostInputPlayers extends JsonObject {
+  "profile_id": string;
+  "amount": number;
+}
+export interface GameEscrowFundPostInput extends JsonObject {
+  "match_id": string;
+  "players": GameEscrowFundPostInputPlayers[];
+}
+/** Backend response type: Value. */
+export type GameEscrowFundPostResponse = JsonValue;
+
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
 export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
   "name": string;

@@ -1,72 +1,60 @@
 # @faiber/faiber-crm
 
-Typed client for the current production CRM: workspace configuration, workflow dashboard statistics, pipelines and boards,
-teams, companies, contacts, leads, deals, SOS membership, workflow assignments, workflows, tasks, activities, worklogs, marketing sources/campaigns,
-reports, durable automation, and approval-gated Agentic insights.
+Leads, campaigns, sources, logs, touches, teams, workflows, reminders, escalations, webhooks, work logs, and statistics.
+
+## Install
 
 ```bash
 npm install @faiber/faiber-crm
 ```
 
+## Configure
+
 ```ts
-import { CrmApi, FaiberClient } from "@faiber/faiber-crm";
+import { FaiberClient, MemoryTokenProvider } from "@faiber/sdk-core";
+import { CrmApi } from "@faiber/faiber-crm";
 
-const crm = new CrmApi(new FaiberClient("crm", {
+const tokens = new MemoryTokenProvider();
+const client = new FaiberClient("crm", {
   domains: { crm: process.env.FAIBER_CRM_URL! },
-  authMode: "bearer",
-  getAccessToken: async () => accessToken,
-}));
+  tokenProvider: tokens,
+  axios: { timeout: 15_000, withCredentials: true },
+});
+const api = new CrmApi(client);
 
-const leads = await crm.listLeads({ q: "Acme", status: "open" });
-const daily = await crm.getDailyStats();
-const assignedWorkflows = await crm.listMemberWorkflows();
-const worklogs = await crm.listWorklogs({ sort: "-start_date" });
-const workflow = await crm.createWorkflow({
-  name: "Customer success",
-  slug: "customer-success",
-  flags: ["onboarding", "enterprise"],
-  acquire_flags: ["onboarding"],
-  priority: 20,
-  actions: [
-    { key: "qualification-form", kind: "internal", form: "qualification", required: true },
-  ],
-});
-const nodes = await crm.listWorkflowNodes(workflow.data.data.id);
-await crm.createWorkflowNode(workflow.data.data.id, {
-  name: "Qualified",
-  slug: "qualified",
-  priority: 10,
-});
-await crm.updateWorkflow(workflow.data.data.id, { hint: null, actions: null });
-await crm.updatePipeline(assignedWorkflows.data.data[0].id, {
-  version: assignedWorkflows.data.data[0].version,
-  daily_quota: 12,
-  priority: 10,
-  hint: "Complete the oldest leads first",
-});
-const overview = await crm.getOverview();
-await crm.moveLeadStage(leadId, { stage_id: nextStageId, version: leadVersion });
-await crm.removeLeadFromSos(leadId, {
-  headers: { "Idempotency-Key": crypto.randomUUID() },
-});
+const leads = await api.leads.list({ search: "Acme" });
+await api.markLeadDone(leadId);
 ```
 
-The package exposes all 90 currently mounted routes through `api.operations`, with concise
-methods for each CRM business capability. Mutations use optimistic `version` fields and
-the backend's `Idempotency-Key` header where required. All methods return complete Axios
-responses and accept shared request options, including `AbortSignal` cancellation.
+## Complete capability
 
-CRM authorization remains server enforced. Typical permissions are scoped by capability,
-including `crm:lead:*`, `crm:deal:*`, `crm:company:*`, `crm:contact:*`, `crm:team:*`,
-`crm:sos:*`, `crm:workflow_assignment:*`, `workflow:*`, `workflow_node:*`, `worklog:*`, `crm:task:*`, `crm:activity:*`, `crm:marketing:*`, `crm:report:*`, `crm:automation:read`,
-`crm:settings:update`, and `crm:agent:run`; `crm:admin` is the service-wide override.
+This package exposes 90 registered operations from the crm service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
-`deleteTeam` is version-safe and detaches active CRM records before soft deletion.
-`removeTeamMember` deactivates a membership. SOS methods add or remove the SOS marker without
-deleting the lead. Workflow assignments accept exactly one `team_id` or `user_id`; the
-`assignTeamToWorkflow` and `assignUserToWorkflow` helpers enforce that shape.
-Daily and lead statistics are computed by the CRM service, not inferred by clients. The SDK also
-exposes profile/status/date lead filters, lightweight cursor pagination, profile-enriched lead history, deletable
-reminders/tasks, and atomic activity-plus-reminder creation. Tenant workflows and their actions are
-fully readable and editable through the API together with their nodes; the generic CRM service does
-not seed Poulstar-specific data.
+| Area | Operations | HTTP methods |
+|---|---:|---|
+| `api` | 85 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `router` | 5 | `GET` |
+
+CRM resources update with `PUT`, not `PATCH`. Workflow nodes and members are created under parent-ID routes; those exact operations are available under `api.operations`.
+
+## Authentication and authorization
+
+Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.
+
+## Inputs, queries, responses, and transport
+
+All methods return the complete Axios response, including status, headers, and request IDs. Request bodies and query objects are named exported interfaces. Nested pagination uses keys such as `page[number]` and `page[size]` where required by the service. Standard Axios request options, headers, timeouts, adapters, interceptors, and `AbortSignal` cancellation are supported as the final argument.
+
+Generic REST resources are capability-guarded. Calling a legacy method that the service does not register throws `UnsupportedOperationError` before sending a request instead of producing a backend `405`.
+
+## Errors and cancellation
+
+```ts
+try {
+  await api.client.get("/health", undefined, { signal: AbortSignal.timeout(5_000) });
+} catch (error) {
+  // Axios errors retain response.status and the service error body.
+}
+```
+
+Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.

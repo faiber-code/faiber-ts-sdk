@@ -37,6 +37,10 @@ const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${e
 // return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
 const responseOverrides = {
   chat: { events: "ChatEventStream" },
+  task: {
+    ensure_personal_project: "ProjectResponse",
+    create_shared_project: "ProjectResponse",
+  },
   crm: {
     activities: "CrmActivityListResponse",
     automation_jobs: "CrmAutomationJobListResponse",
@@ -87,6 +91,7 @@ const responseOverrides = {
   },
 };
 const inputOverrides = {
+  idp: { browser_login: "BrowserLoginInput" },
   lms: {
     submit_exam: "AcademySubmitExamInput", complete_session: "AcademyCompleteSessionInput",
     store_certificate: "CreateCertificateInput", update_certificate: "UpdateCertificateInput",

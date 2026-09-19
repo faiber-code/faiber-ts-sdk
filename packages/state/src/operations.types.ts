@@ -1,6 +1,50 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
+/** Backend query type: AdminSessionFilter. */
+export interface RoutesGameOperationSessionsGetQuery extends QueryParams {
+  "page"?: number | null;
+  "page_size"?: number | null;
+  "game_id"?: string | null;
+  "status"?: string | null;
+  "settlement_status"?: string | null;
+  "paid"?: boolean | null;
+  "user_id"?: string | null;
+  "session_id"?: string | null;
+}
+/** Backend response type: api. */
+export interface RoutesGameOperationSessionsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: AdminEventFilter. */
+export interface RoutesGameOperationEventsGetQuery extends QueryParams {
+  "page"?: number | null;
+  "page_size"?: number | null;
+  "kind"?: string | null;
+  "user_id"?: string | null;
+}
+/** Backend response type: api. */
+export interface RoutesGameOperationEventsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: api. */
+export interface RoutesGameOperationsSummaryGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: api. */
+export interface RoutesGameOperationWorldsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: UpdateGameEconomy. */
+export interface RoutesUpdateGameOperationEconomyPatchInput extends JsonObject {
+  "entry_coins": number;
+  "burn_percent": number;
+  "enabled": boolean;
+}
+/** Backend response type: api. */
+export interface RoutesUpdateGameOperationEconomyPatchResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend query type: RealtimeQuery. */
 export interface RoutesRealtimeGetQuery extends QueryParams {
   "room_id": string;
@@ -12,7 +56,22 @@ export interface RoutesRealtimeGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: api. */
+export interface RoutesDeleteRoomDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: api. */
 export interface RoutesGetRoomGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: UpdateRoom. */
+export type RoutesUpdateRoomPutInputStatus = "waiting" | "running" | "paused" | "closed";
+export interface RoutesUpdateRoomPutInput extends JsonObject {
+  "name"?: string | null;
+  "capacity"?: number | null;
+  "status"?: RoutesUpdateRoomPutInputStatus | null;
+}
+/** Backend response type: api. */
+export interface RoutesUpdateRoomPutResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: InvokeWasm. */
@@ -76,6 +135,10 @@ export interface RoutesCreateWorldPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: api. */
+export interface RoutesDeleteWorldDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: api. */
 export interface RoutesGetWorldGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -133,6 +196,10 @@ export interface RoutesCreateEndpointPostResponse extends ApiEnvelope<JsonValue>
 }
 
 /** Backend response type: api. */
+export interface RoutesDeleteEndpointDeleteResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: api. */
 export interface RoutesListRoomsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -157,4 +224,8 @@ export interface RoutesUploadWasmPostInput extends JsonObject {
 }
 /** Backend response type: api. */
 export interface RoutesUploadWasmPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: api. */
+export interface RoutesDeleteWasmDeleteResponse extends ApiEnvelope<JsonValue> {
 }

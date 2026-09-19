@@ -23,63 +23,15 @@ const client = new FaiberClient("modules", {
 const api = new ModulesApi(client);
 
 const products = await api.products.list({
-  page_number: 1,
-  page_size: 24,
-  scope: "public-shop",
+  "page[number]": 1,
+  "page[size]": 24,
 });
 const posts = await api.posts.list();
 ```
 
-Images and videos can be persisted in Modules-managed object storage with the
-typed media helper. The service returns the object URL, key, MIME type, and size.
-
-```ts
-const uploaded = await api.uploadMediaAsset(videoFile, "student-project", {
-  signal: AbortSignal.timeout(120_000),
-});
-console.log(uploaded.data.url);
-```
-
-Published CMS content and arbitrary-depth category trees are available through the
-public-role methods:
-
-```ts
-const categories = await api.publicContentCategories("post", "fa");
-const articles = await api.publicContentList("post", "fa", {
-  page_number: 1,
-  page_size: 12,
-  category: categories.data[0]?.slug,
-});
-const article = await api.publicContent(
-  "post",
-  "fa",
-  "Iran-Teen-AI-&-Coding-Elites-2025", // retained legacy SEO slug is supported
-);
-renderTrustedCmsHtml(article.data.sanitized_html);
-```
-
-Published posts and active products share one indexed autocomplete endpoint. Use
-`scope: "posts"`, `"products"`, or `"mixed"`; the full Axios response and request
-cancellation remain available.
-
-```ts
-const suggestions = await api.autocomplete(
-  { q: "برنامه نویسی", scope: "mixed", locale: "fa", limit: 8 },
-  { signal: AbortSignal.timeout(5_000) },
-);
-
-for (const item of suggestions.data.items) {
-  console.log(item.kind, item.title, item.slug);
-}
-```
-
-Trusted migration operators can use `importContentCategory` and
-`importContentDocument` for deterministic, replay-safe imports. Those calls require
-`content:write`; importing a published document also requires `content:publish`.
-
 ## Complete capability
 
-This package exposes 170 generated registered operations plus curated public-content and migration methods from the content and commerce modules service. Common workflows have concise methods on `api`; every generated backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 171 registered operations from the content and commerce modules service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -91,13 +43,18 @@ This package exposes 170 generated registered operations plus curated public-con
 | `category` | 9 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `comment` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `content` | 9 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `content-transfer` | 4 | `GET`, `PUT` |
 | `integration` | 1 | `GET` |
 | `inventory` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `management-api` | 17 | `GET`, `POST`, `PUT` |
+| `media` | 3 | `GET`, `POST` |
 | `order` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `podcast` | 8 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `product` | 13 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `reaction` | 3 | `DELETE`, `GET`, `POST` |
 | `request` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `router` | 3 | `GET` |
+| `search` | 1 | `GET` |
 | `seo-content` | 9 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `service-pricing` | 6 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `session` | 1 | `GET` |

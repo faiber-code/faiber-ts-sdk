@@ -103,6 +103,93 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.AcademyCompleteSessionPostResponse, T.AcademyCompleteSessionPostInput>({ ...options, method: "POST", url: `/api/v1/academy/enrollments/${encodeURIComponent(id)}/sessions/${encodeURIComponent(sessionId)}/complete`, data: data });
   }
   /**
+   * Performs the jobs operation for the ai summary capability.
+   * Calls `GET /api/v1/ai-summaries/jobs` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:ai_summary:manage.
+   */
+  aiSummaryJobsGet(params?: T.AiSummaryJobsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.AiSummaryJobsGetResponse>({ ...options, method: "GET", url: `/api/v1/ai-summaries/jobs`, params });
+  }
+  /**
+   * Performs the latest operation for the ai summary capability.
+   * Calls `GET /api/v1/ai-summaries/latest` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:ai_summary:read_own.
+   */
+  aiSummaryLatestGet(params?: T.AiSummaryLatestGetQuery, options?: RequestOptions) {
+    return this.client.request<T.AiSummaryLatestGetResponse>({ ...options, method: "GET", url: `/api/v1/ai-summaries/latest`, params });
+  }
+  /**
+   * Performs the models operation for the ai summary capability.
+   * Calls `GET /api/v1/ai-summaries/models` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   */
+  aiSummaryModelsGet(options?: RequestOptions) {
+    return this.client.request<T.AiSummaryModelsGetResponse>({ ...options, method: "GET", url: `/api/v1/ai-summaries/models` });
+  }
+  /**
+   * Performs the refresh many operation for the ai summary capability.
+   * Calls `POST /api/v1/ai-summaries/refresh` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:ai_summary:manage.
+   */
+  aiSummaryRefreshManyPost(data: T.AiSummaryRefreshManyPostInput, options?: RequestOptions<T.AiSummaryRefreshManyPostInput>) {
+    return this.client.request<T.AiSummaryRefreshManyPostResponse, T.AiSummaryRefreshManyPostInput>({ ...options, method: "POST", url: `/api/v1/ai-summaries/refresh`, data: data });
+  }
+  /**
+   * Performs the settings operation for the ai summary capability.
+   * Calls `GET /api/v1/ai-summaries/settings` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:read.
+   */
+  aiSummarySettingsGet(options?: RequestOptions) {
+    return this.client.request<T.AiSummarySettingsGetResponse>({ ...options, method: "GET", url: `/api/v1/ai-summaries/settings` });
+  }
+  /**
+   * Performs the update settings operation for the ai summary capability.
+   * Calls `PUT /api/v1/ai-summaries/settings` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:config:update.
+   */
+  aiSummaryUpdateSettingsPut(data: T.AiSummaryUpdateSettingsPutInput, options?: RequestOptions<T.AiSummaryUpdateSettingsPutInput>) {
+    return this.client.request<T.AiSummaryUpdateSettingsPutResponse, T.AiSummaryUpdateSettingsPutInput>({ ...options, method: "PUT", url: `/api/v1/ai-summaries/settings`, data: data });
+  }
+  /**
+   * Performs the summaries operation for the ai summary capability.
+   * Calls `GET /api/v1/ai-summaries/summaries` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:ai_summary:manage.
+   */
+  aiSummarySummariesGet(params?: T.AiSummarySummariesGetQuery, options?: RequestOptions) {
+    return this.client.request<T.AiSummarySummariesGetResponse>({ ...options, method: "GET", url: `/api/v1/ai-summaries/summaries`, params });
+  }
+  /**
+   * Performs the refresh operation for the ai summary capability.
+   * Calls `POST /api/v1/ai-summaries/users/{user_id}/{role}/refresh` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param role Backend path identifier `role`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:ai_summary:manage.
+   */
+  aiSummaryRefreshPost(userId: Identifier, role: Identifier, options?: RequestOptions) {
+    return this.client.request<T.AiSummaryRefreshPostResponse>({ ...options, method: "POST", url: `/api/v1/ai-summaries/users/${encodeURIComponent(userId)}/${encodeURIComponent(role)}/refresh` });
+  }
+  /**
    * Performs the get self operation for the session capability.
    * Calls `GET /api/v1/auth/self` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

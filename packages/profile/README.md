@@ -22,18 +22,12 @@ const client = new FaiberClient("profile", {
 });
 const api = new ProfileApi(client);
 
-const updated = await api.updateProfileByUserId(userId, {
+const updated = await api.updateProfile(userId, {
   first_name: { en: "Ava", fa: "آوا" },
   phone: "+989121234567",
   properties: { workout_plan: plan, membership },
 });
 console.log(updated.data.data.profile);
-
-const uploaded = await api.uploadAvatar(userId, avatarFile);
-const avatar = await api.avatar(userId, uploaded.data.data.key, {
-  signal: AbortSignal.timeout(5_000),
-});
-console.log(avatar.data.type, avatar.data.size);
 ```
 
 ## Complete capability
@@ -42,31 +36,28 @@ This package exposes 173 registered operations from the profiles service. Common
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `city` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `campaign` | 4 | `GET`, `POST` |
+| `city` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `country` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `custom-type` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `integration` | 2 | `GET` |
+| `lifecycle` | 24 | `DELETE`, `GET`, `POST`, `PUT` |
 | `log-action` | 3 | `POST` |
 | `logger` | 2 | `GET` |
-| `option` | 4 | `GET`, `POST` |
-| `profile` | 52 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `option` | 5 | `GET`, `POST` |
+| `profile` | 57 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `profile-property` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `profile-search` | 1 | `POST` |
 | `province` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `referral` | 7 | `DELETE`, `GET`, `POST`, `PUT` |
+| `relation` | 10 | `DELETE`, `GET`, `POST`, `PUT` |
 | `router` | 3 | `GET` |
-| `session` | 1 | `GET` |
+| `session` | 2 | `GET` |
 | `setting` | 2 | `GET`, `POST` |
 | `survey` | 2 | `GET`, `POST` |
 | `trusted-service` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-`listProfiles` returns merged profile status, active-enrollment state, and IDP-synchronized role records, with `filter[role]`, `filter[status]`, `filter[active]`, and search support. `updateProfileByUserId` sends one atomic `PATCH /api/v1/profile/{uuid}` using `profile.user_id`; do not pass the profile row's `profile.id`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
-
-Profile detail, full, and admin reads expose Office-synchronized balances, enrollments,
-transactions, installments, wallets, and wallet transactions as `data.profile.office`.
-They also expose UUID-based LMS classrooms, sessions, and membership data as
-`data.profile.lms`. Profile lists and chat context omit these heavier, sensitive objects.
-
-`avatar(userId, key)` downloads the stored image as a `Blob` through the public profile-media route. The service constrains `key` to `profiles/{userId}/avatar/`; a mismatched or unsafe key returns `403`, and a missing object returns `404`.
+`updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
 
 ## Authentication and authorization
 

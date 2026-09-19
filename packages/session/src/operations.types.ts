@@ -166,6 +166,14 @@ export interface AssistantToolsListUserSessionsGetResponse extends ApiEnvelope<J
 export interface AssistantToolsUserSessionDetailGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: ContextRequest. */
+export interface IntegrationPerformanceContextPostInput extends JsonObject {
+  "room_ids": string[];
+}
+/** Backend response type: Value. */
+export interface IntegrationPerformanceContextPostResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: Branding. */
 export interface BrandingPublicShowGetResponseData extends JsonObject {
   "title"?: string | null;

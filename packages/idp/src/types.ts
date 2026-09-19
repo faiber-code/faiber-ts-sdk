@@ -1,4 +1,8 @@
 import type { ApiEnvelope, JsonObject, OperationResponse, QueryParams, } from "@faiber/sdk-core";
+/** Login with a public IDP client; credentials are exchanged only for HttpOnly session cookies. */
+export type BrowserLoginInput =
+    | { client_id: string; method: "password"; identifier: string; password: string }
+    | { client_id: string; method: "otp"; identifier: string; code: string };
 export interface User extends JsonObject {
     id: string;
     phone?: string | null;

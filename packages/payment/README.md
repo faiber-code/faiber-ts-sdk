@@ -27,9 +27,6 @@ const payment = await api.createPayment({
   amount: 4900,
   gateway_id: gatewayId,
 });
-const settings = await api.settings();
-const verification = await api.verificationLogs(transactionId);
-await api.verifyTransaction(transactionId);
 ```
 
 ## Complete capability

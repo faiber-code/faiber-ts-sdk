@@ -525,7 +525,7 @@ export class CrmOperations extends ServiceApi {
    * Calls `GET /api/v1/stats/lead` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:stats:read, crm:stats:read_all.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: crm:stats:read, crm:stats:read_all, crm:stats:read_own.
    */
   apiLeadStatsGet(options?: RequestOptions) {
     return this.client.request<T.ApiLeadStatsGetResponse>({ ...options, method: "GET", url: `/api/v1/stats/lead` });

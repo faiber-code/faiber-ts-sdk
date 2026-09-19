@@ -164,6 +164,38 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.NotificationNotificationsMarkReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/${encodeURIComponent(id)}/read`, params });
   }
   /**
+   * Performs the notifications my inbox operation for the notification capability.
+   * Calls `GET /api/v1/notifications/me` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  notificationNotificationsMyInboxGet(params?: T.NotificationNotificationsMyInboxGetQuery, options?: RequestOptions) {
+    return this.client.request<T.NotificationNotificationsMyInboxGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/me`, params });
+  }
+  /**
+   * Performs the notifications my mark read operation for the notification capability.
+   * Calls `PATCH /api/v1/notifications/me/{id}/read` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  notificationNotificationsMyMarkReadPatch(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.NotificationNotificationsMyMarkReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/${encodeURIComponent(id)}/read` });
+  }
+  /**
+   * Performs the notifications my mark all read operation for the notification capability.
+   * Calls `PATCH /api/v1/notifications/me/read-all` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  notificationNotificationsMyMarkAllReadPatch(options?: RequestOptions) {
+    return this.client.request<T.NotificationNotificationsMyMarkAllReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/read-all` });
+  }
+  /**
    * Performs the notifications mark all read operation for the notification capability.
    * Calls `PATCH /api/v1/notifications/read-all` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.

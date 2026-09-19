@@ -34,36 +34,26 @@ await tokens.setTokens({
   accessToken: login.data.data.access_token,
   refreshToken: login.data.data.refresh_token,
 });
-
-const linked = await api.linkedIdentities();
-const faiberAccount = linked.data.data.identities.find(
-  (identity) => identity.provider === "faiber",
-);
-
-// Uses only the sandbox IDP session. The service verifies the linked identity
-// and projects the linked main-Faiber wallet server-side.
-const billing = await api.linkedFaiberBilling({ project: "fitapp", page_size: 14 });
-console.log(billing.data.data.wallet.balance);
-console.log(billing.data.data.project_pricing?.fixed_monthly_price);
-
-const topUp = await api.topUpLinkedFaiberWallet({ amount: 500_000 });
-window.location.assign(topUp.data.data.payment_url);
 ```
 
 ## Complete capability
 
-This package exposes 51 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 97 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `acl` | 7 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `auth` | 19 | `DELETE`, `GET`, `POST` |
+| `acl` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `auth` | 23 | `DELETE`, `GET`, `POST` |
+| `custom-oauth` | 8 | `DELETE`, `GET`, `POST`, `PUT` |
+| `identity-authority` | 10 | `GET`, `POST`, `PUT` |
 | `integration` | 1 | `GET` |
+| `oauth-clients` | 5 | `DELETE`, `GET`, `POST`, `PUT` |
+| `oidc` | 11 | `GET`, `POST` |
 | `router` | 2 | `GET` |
-| `settings` | 2 | `GET`, `PUT` |
-| `user` | 20 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `settings` | 7 | `GET`, `POST`, `PUT` |
+| `user` | 22 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
-Login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded` exactly as required by the IDP service. Persist and reuse a stable, non-secret `device_id` so the IDP can distinguish physical devices; browser identity is derived from User-Agent. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. `api.linkedIdentities()` returns stable provider subjects, including a linked main Faiber account, without exposing provider credentials. `api.linkedFaiberBilling()` and `api.topUpLinkedFaiberWallet()` use that verified link server-side, so a sandbox application never needs a second main-Faiber browser session or token. Role assignment uses role UUIDs; role names returned by the service are not restricted to a hard-coded SDK union.
+Legacy token login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded`. `api.operations.authBrowserLoginPost` accepts a registered public client, a password or OTP credential, and a matching HTTPS Origin; it returns an HttpOnly session cookie without a client secret or bearer token in the response. Persist and reuse a stable, non-secret `device_id` for legacy token login so the IDP can distinguish physical devices. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. Role assignment uses role UUIDs.
 
 ## Authentication and authorization
 

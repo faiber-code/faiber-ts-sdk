@@ -169,6 +169,15 @@ export interface IdentityAuthorityPublicShowGetResponseData extends JsonObject {
 export interface IdentityAuthorityPublicShowGetResponse extends ApiEnvelope<IdentityAuthorityPublicShowGetResponseData> {
 }
 
+/** Backend request type: BrowserLoginRequest. */
+export type AuthBrowserLoginPostInput = import("./types.js").BrowserLoginInput;
+/** Backend response type: APIEmptyResponse. */
+export interface AuthBrowserLoginPostResponseData extends JsonObject {
+  "status": string;
+  "message": string;
+}
+export type AuthBrowserLoginPostResponse = AuthBrowserLoginPostResponseData;
+
 /** Backend query type: StartQuery. */
 export interface CustomOauthStartGetQuery extends QueryParams {
   "redirect"?: string | null;

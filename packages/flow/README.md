@@ -28,15 +28,16 @@ const validation = await api.validate(flowId);
 
 ## Complete capability
 
-This package exposes 15 registered operations from the automation flows service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 18 registered operations from the automation flows service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `catalog` | 3 | `GET`, `POST` |
-| `flow` | 6 | `DELETE`, `GET`, `POST`, `PUT` |
+| `event` | 1 | `POST` |
+| `flow` | 7 | `DELETE`, `GET`, `POST`, `PUT` |
 | `registry` | 1 | `GET` |
 | `router` | 4 | `GET` |
-| `run` | 1 | `GET` |
+| `run` | 2 | `GET` |
 
 Flow updates use `PUT`. Runs are read-only in the current service contract; unsupported generic run mutations fail locally before a network request.
 

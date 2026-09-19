@@ -26,14 +26,7 @@ const conversation = await api.createConversation({
   kind: "direct",
   member_ids: [recipientUserId],
 });
-const sent = await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } });
-
-// Compare sender_id with the authenticated IDP user's ID to distinguish sides
-// in a direct chat. It is null for assistant or other non-user messages.
-const sentByCurrentUser = sent.data.data.sender_id === currentUserId;
-const assistants = await api.managedAssistants();
-const models = await api.assistantModels();
-const pendingInputs = await api.aiRuntimeInputs(conversation.data.data.id);
+await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } });
 ```
 
 ## Complete capability
@@ -45,7 +38,7 @@ This package exposes 32 registered operations from the chat service. Common work
 | `main` | 1 | `GET` |
 | `routes` | 31 | `DELETE`, `GET`, `POST`, `PUT` |
 
-The SDK covers the complete conversation view and moderation surface: conversations, members, messages, attachments, reactions, read cursors, realtime authorization and SSE events. Assistant administration includes list/get/create/update/delete, model and context catalogs, customer-action content, AI messages, selected DRM media, Session room context, pending runtime inputs, and runtime-input completion. AI turns are executed and billed by Infera Agentic; Chat coordinates conversation context and reconciliation.
+AI turns are executed and billed by Infera Agentic; Chat only coordinates conversation context and reconciliation. The events endpoint is an SSE stream and can be requested with normal SDK authorization headers.
 
 ## Authentication and authorization
 
