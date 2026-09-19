@@ -92,6 +92,8 @@ export interface CrmPipelineStage extends JsonObject {
   stage_type: string;
   sla_minutes: number | null;
   is_active: boolean;
+  is_draggable_in: boolean;
+  is_draggable_out: boolean;
   actions: JsonValue;
 }
 
