@@ -242,6 +242,11 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
     const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared) : [];
     if (nested.length) return nested.map(item => ({ ...item, name: `${field.name}[${item.name}]`, optional: optional || item.optional }));
     let renderedType = tsType(valueRaw, query);
+    if (module === "classroom" && field.name === "weekly_schedule" && !query) {
+      renderedType = base.endsWith("Input")
+        ? 'import("./types.js").ClassroomWeeklyScheduleRuleInput[]'
+        : 'import("./types.js").ClassroomWeeklyScheduleRule[]';
+    }
     if (!query && declarations) {
       const vector = unwrap(valueRaw, "Vec");
       const candidate = vector ?? valueRaw;

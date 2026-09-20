@@ -303,7 +303,7 @@ export interface ClassroomIndexClassroomGetResponseItem extends JsonObject {
   "support_profile"?: ClassroomIndexClassroomGetResponseItemSupportProfile | null;
   "capacity"?: number | null;
   "notifications": JsonValue;
-  "weekly_schedule": JsonValue;
+  "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
   "check_sessions": JsonValue;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
@@ -339,7 +339,7 @@ export interface ClassroomStoreClassroomPostInput extends JsonObject {
   "support_user_id"?: string | null;
   "capacity"?: number | null;
   "notifications"?: JsonValue | null;
-  "weekly_schedule"?: JsonValue | null;
+  "weekly_schedule"?: import("./types.js").ClassroomWeeklyScheduleRuleInput[] | null;
   "check_sessions"?: JsonValue | null;
   "starts_at": string;
   "ends_at"?: string | null;
@@ -397,7 +397,7 @@ export interface ClassroomStoreClassroomPostResponseData extends JsonObject {
   "support_profile"?: ClassroomStoreClassroomPostResponseDataSupportProfile | null;
   "capacity"?: number | null;
   "notifications": JsonValue;
-  "weekly_schedule": JsonValue;
+  "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
   "check_sessions": JsonValue;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
@@ -464,7 +464,7 @@ export interface ClassroomShowClassroomGetResponseData extends JsonObject {
   "support_profile"?: ClassroomShowClassroomGetResponseDataSupportProfile | null;
   "capacity"?: number | null;
   "notifications": JsonValue;
-  "weekly_schedule": JsonValue;
+  "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
   "check_sessions": JsonValue;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
@@ -490,7 +490,7 @@ export interface ClassroomUpdateClassroomPatchInput extends JsonObject {
   "support_user_id"?: string | null;
   "capacity"?: number | null;
   "notifications"?: JsonValue | null;
-  "weekly_schedule"?: JsonValue | null;
+  "weekly_schedule"?: import("./types.js").ClassroomWeeklyScheduleRuleInput[] | null;
   "check_sessions"?: JsonValue | null;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
@@ -548,7 +548,7 @@ export interface ClassroomUpdateClassroomPatchResponseData extends JsonObject {
   "support_profile"?: ClassroomUpdateClassroomPatchResponseDataSupportProfile | null;
   "capacity"?: number | null;
   "notifications": JsonValue;
-  "weekly_schedule": JsonValue;
+  "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
   "check_sessions": JsonValue;
   "starts_at"?: string | null;
   "ends_at"?: string | null;

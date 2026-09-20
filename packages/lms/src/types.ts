@@ -64,7 +64,36 @@ export interface Classroom extends LmsEntity {
     support_user_id?: string | null;
     support_profile?: ClassroomSessionTeacherProfile | null;
     starts_at?: string;
+    weekly_schedule?: ClassroomWeeklyScheduleRule[];
 }
+
+/** Canonical LMS schedule: Sunday is 0, Saturday is 6; times are local to the rule offset. */
+export interface ClassroomWeeklyScheduleRule extends JsonObject {
+    day_of_week: number;
+    starts_at: string;
+    duration_minutes?: number | null;
+    timezone_offset_minutes?: number | null;
+    id?: string;
+    day?: string;
+    start_time?: string;
+    delivery_type?: string;
+    delivery_type_name?: string;
+    session_type?: string;
+}
+
+/** Accepted legacy form; the LMS normalizes it to day_of_week and starts_at. */
+export interface ClassroomLegacyWeeklyScheduleRule extends JsonObject {
+    day: string;
+    start_time: string;
+    id?: string;
+    delivery_type?: string;
+    delivery_type_name?: string;
+    session_type?: string;
+    duration_minutes?: number | null;
+    timezone_offset_minutes?: number | null;
+}
+
+export type ClassroomWeeklyScheduleRuleInput = ClassroomWeeklyScheduleRule | ClassroomLegacyWeeklyScheduleRule;
 
 /** Configured LMS type used to determine classroom-session behavior and provisioning. */
 export interface ClassroomSessionType extends JsonObject {
@@ -320,8 +349,24 @@ export interface CreateVideoSectionInput extends CreateLmsEntityInput {
 export interface UpdateVideoSectionInput extends Partial<CreateVideoSectionInput> {
 }
 export interface CreateClassroomInput extends CreateLmsEntityInput {
-    course_id?: string;
-    starts_at?: string;
+    course_id: string;
+    name: string;
+    starts_at: string;
+    status: string;
+    code?: string | null;
+    description?: string | null;
+    info?: string | null;
+    classroom_type_id?: string | null;
+    school_grade_id?: string | null;
+    grade_id?: string | null;
+    teacher_user_id?: string | null;
+    consultant_user_id?: string | null;
+    support_user_id?: string | null;
+    capacity?: number | null;
+    notifications?: JsonValue;
+    weekly_schedule?: ClassroomWeeklyScheduleRuleInput[];
+    check_sessions?: JsonValue;
+    ends_at?: string | null;
 }
 export interface UpdateClassroomInput extends Partial<CreateClassroomInput> {
 }

@@ -58,6 +58,25 @@ This package exposes 152 registered operations from the learning management serv
 
 Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, and work-time records have dedicated typed operations. Most LMS updates use `PATCH`; unsupported generic deletes are guarded locally.
 
+### Classroom weekly schedules
+
+Use `day_of_week` (Sunday `0` through Saturday `6`) and `starts_at` (`HH:MM` or `HH:MM:SS`) for new classroom schedules. Set `timezone_offset_minutes` when the local time differs from the offset in the classroom's `starts_at` timestamp.
+
+```ts
+await api.classrooms.create({
+  course_id: courseId,
+  name: "Autumn class",
+  starts_at: "2026-09-20T09:08:11.383Z",
+  status: "active",
+  weekly_schedule: [
+    { day_of_week: 0, starts_at: "15:00", timezone_offset_minutes: 210 },
+    { day_of_week: 2, starts_at: "14:00", timezone_offset_minutes: 210 },
+  ],
+});
+```
+
+For existing forms, the LMS also accepts `day` (Persian or English weekday name) with `start_time`. It adds canonical fields on save and preserves extra metadata such as `delivery_type` and `session_type`; those metadata fields do not select the course session type. A Persian day without an explicit offset defaults to Tehran time (`+03:30`).
+
 ## Authentication and authorization
 
 Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.

@@ -84,6 +84,20 @@ async function provePublicContracts(): Promise<void> {
   await apis.lms.resolveLegacyClassroomIds({ classrooms: [42], courses: [7] });
   await apis.lms.deleteClassroom("00000000-0000-0000-0000-000000000001");
   await apis.lms.classrooms.delete("00000000-0000-0000-0000-000000000001");
+  const classroomBase = {
+    course_id: "00000000-0000-0000-0000-000000000002",
+    name: "Autumn class",
+    starts_at: "2026-09-20T09:08:11.383Z",
+    status: "active",
+  };
+  await apis.lms.classrooms.create({
+    ...classroomBase,
+    weekly_schedule: [{ day_of_week: 0, starts_at: "15:00", timezone_offset_minutes: 210 }],
+  });
+  await apis.lms.operations.classroomStoreClassroomPost({
+    ...classroomBase,
+    weekly_schedule: [{ day: "سه‌شنبه", start_time: "14:00:00", delivery_type: "interactive" }],
+  });
   const certificateLayout: LmsService.CertificateLayout = {
     fields: [
       { key: "student_name", x: 877, y: 545, font_size: 54, weight: 700, text_anchor: "middle" },
