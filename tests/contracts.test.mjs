@@ -91,6 +91,34 @@ test("LMS classroom sessions expose types, today filtering, and Session UI links
   assert.equal(certificateImageUrl("public/id"), "/api/v1/public/certificates/public%2Fid/image.svg");
 });
 
+test("LMS classroom create and update forward interactive weekly rules unchanged", async () => {
+  const seen = [];
+  const client = new FaiberClient("lms", {
+    domains: { lms: "https://lms.example.com" },
+    tokenProvider: new MemoryTokenProvider({ accessToken: "classroom-token" }),
+    axios: { adapter: async (config) => {
+      seen.push(config);
+      return { data: { status: "success", data: {} }, status: 200, statusText: "OK", headers: new AxiosHeaders(), config };
+    } },
+  });
+  const api = new LmsApi(client);
+  const weekly_schedule = [
+    { day_of_week: 0, starts_at: "15:00", mode: "online" },
+    { day_of_week: 2, starts_at: "14:00", mode: "interactive", delivery_type: "interactive" },
+  ];
+  await api.classrooms.create({ course_id: "course-id", name: "Class", starts_at: "2026-09-20T09:00:00Z", status: "active", weekly_schedule });
+  await api.classrooms.update("classroom-id", { weekly_schedule });
+  assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
+    ["post", "/api/v1/classrooms"],
+    ["patch", "/api/v1/classrooms/classroom-id"],
+  ]);
+  for (const request of seen) {
+    assert.equal(request.headers.get("Authorization"), "Bearer classroom-token");
+    const body = typeof request.data === "string" ? JSON.parse(request.data) : request.data;
+    assert.deepEqual(body.weekly_schedule, weekly_schedule);
+  }
+});
+
 test("LMS certificate management exposes typed template, issuance, verification, and SVG routes", async () => {
   const seen = [];
   const client = new FaiberClient("lms", {

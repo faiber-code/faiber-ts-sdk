@@ -67,7 +67,7 @@ export interface Classroom extends LmsEntity {
     weekly_schedule?: ClassroomWeeklyScheduleRule[];
 }
 
-/** Canonical LMS schedule: Sunday is 0, Saturday is 6; times are local to the rule offset. */
+/** Canonical LMS schedule: Sunday is 0, Saturday is 6; times are local to the rule offset. The rule's mode selects the generated primary session type. */
 export interface ClassroomWeeklyScheduleRule extends JsonObject {
     day_of_week: number;
     starts_at: string;
@@ -76,9 +76,11 @@ export interface ClassroomWeeklyScheduleRule extends JsonObject {
     id?: string;
     day?: string;
     start_time?: string;
+    mode?: "online" | "interactive" | "in_person" | "makeup";
     delivery_type?: string;
     delivery_type_name?: string;
     session_type?: string;
+    course_session_type_id?: string;
 }
 
 /** Accepted legacy form; the LMS normalizes it to day_of_week and starts_at. */
@@ -86,9 +88,11 @@ export interface ClassroomLegacyWeeklyScheduleRule extends JsonObject {
     day: string;
     start_time: string;
     id?: string;
+    mode?: "online" | "interactive" | "in_person" | "makeup";
     delivery_type?: string;
     delivery_type_name?: string;
     session_type?: string;
+    course_session_type_id?: string;
     duration_minutes?: number | null;
     timezone_offset_minutes?: number | null;
 }

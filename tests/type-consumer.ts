@@ -92,11 +92,11 @@ async function provePublicContracts(): Promise<void> {
   };
   await apis.lms.classrooms.create({
     ...classroomBase,
-    weekly_schedule: [{ day_of_week: 0, starts_at: "15:00", timezone_offset_minutes: 210 }],
+    weekly_schedule: [{ day_of_week: 0, starts_at: "15:00", timezone_offset_minutes: 210, mode: "online" }],
   });
   await apis.lms.operations.classroomStoreClassroomPost({
     ...classroomBase,
-    weekly_schedule: [{ day: "سه‌شنبه", start_time: "14:00:00", delivery_type: "interactive" }],
+    weekly_schedule: [{ day: "سه‌شنبه", start_time: "14:00:00", mode: "interactive", delivery_type: "interactive" }],
   });
   const certificateLayout: LmsService.CertificateLayout = {
     fields: [

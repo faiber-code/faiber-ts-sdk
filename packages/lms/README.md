@@ -69,13 +69,13 @@ await api.classrooms.create({
   starts_at: "2026-09-20T09:08:11.383Z",
   status: "active",
   weekly_schedule: [
-    { day_of_week: 0, starts_at: "15:00", timezone_offset_minutes: 210 },
-    { day_of_week: 2, starts_at: "14:00", timezone_offset_minutes: 210 },
+    { day_of_week: 0, starts_at: "15:00", timezone_offset_minutes: 210, mode: "online" },
+    { day_of_week: 2, starts_at: "14:00", timezone_offset_minutes: 210, mode: "interactive" },
   ],
 });
 ```
 
-For existing forms, the LMS also accepts `day` (Persian or English weekday name) with `start_time`. It adds canonical fields on save and preserves extra metadata such as `delivery_type` and `session_type`; those metadata fields do not select the course session type. A Persian day without an explicit offset defaults to Tehran time (`+03:30`).
+The weekly `mode` selects each generated primary session type: `online` → `ONLINE_CLASS`, `interactive` → `VIDEO` (composition media), `in_person` → `MEETING`, and `makeup` → `REWIEW_CLASS`. You can instead supply a `course_session_type_id`. Updating `weekly_schedule` on a classroom also reschedules its existing generated sessions. For existing forms, the LMS accepts `day` (Persian or English weekday name) with `start_time`; it normalizes these fields on save. Legacy `delivery_type` and `session_type` are supported when `mode` is absent, with `delivery_type` taking precedence. A Persian day without an explicit offset defaults to Tehran time (`+03:30`).
 
 ## Authentication and authorization
 
