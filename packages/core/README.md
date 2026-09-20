@@ -45,3 +45,32 @@ The client provides typed `get`, `post`, `put`, `patch`, `delete`, and generic `
 ## Authentication refresh and errors
 
 Configure `refreshAuth` for one shared refresh when concurrent calls receive `401`. Retried calls obtain the new token; in cookie mode the callback may return `null` after the server rotates its HttpOnly cookie and the protected request is still retried once. Failed refreshes clear stale credentials. A refresh failure preserves the original protected-request Axios error (and attaches the refresh error as its `cause` when possible), so applications retain the operation's status, response body, headers, request IDs, cancellation, and timeout details.
+
+## Sockudo realtime subscriptions
+
+`subscribeRealtime` connects a private Sockudo channel over the Pusher-compatible WebSocket protocol. Fetch the browser-safe configuration from the owning service and authorize through its authenticated Faiber client. Chat owns conversation channels; Messenger owns notification channels. No app secret belongs in the browser.
+
+```ts
+import { FaiberClient, subscribeRealtime } from '@faiber/sdk-core';
+import { ChatApi } from '@faiber/faiber-chat';
+const chat = new ChatApi(new FaiberClient('chat', {
+  domains: { chat: 'https://chat.example.com' }, authMode: 'cookie',
+}));
+const conversationId = 'your-conversation-id';
+const config = (await chat.realtimeConfig(conversationId)).data.data;
+const reloadMessages = async () => {
+  const response = await chat.messages(conversationId);
+  console.log(response.data.data);
+};
+const subscription = subscribeRealtime({
+  config,
+  authorize: async input => (await chat.realtimeAuth(conversationId, input)).data,
+  onEvent: () => { void reloadMessages(); },
+  onSubscribed: () => { void reloadMessages(); },
+  onError: error => console.error(error.message),
+});
+// On logout or component teardown:
+subscription.close();
+```
+
+Subscription authorization is repeated on reconnect. `onSubscribed` runs after every successful subscription: reload persisted data to recover events missed while offline. Events are invalidation hints and their service-specific payload is intentionally `unknown`; service HTTP responses remain authoritative. `onError` reports connection/authorization failures; HTTP authorization failures retain normal Axios behavior within your callback. Close cancels the connection and ignores late authorization results. HTTPS pages require `wss:`; allow the exact WebSocket origin in your Content Security Policy.

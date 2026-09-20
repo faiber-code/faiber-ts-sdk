@@ -307,7 +307,7 @@ export interface NotificationNotificationsRealtimeConfigGetResponseData extends 
   "ws_url": string;
   "app_key": string;
   "channel": string;
-  "event": BackendJson<"&'static str">;
+  "event": string;
 }
 export interface NotificationNotificationsRealtimeConfigGetResponse extends ApiEnvelope<NotificationNotificationsRealtimeConfigGetResponseData> {
 }

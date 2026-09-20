@@ -61,3 +61,9 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+### Realtime through Sockudo
+
+Use `subscribeRealtime` from `@faiber/sdk-core` for private Sockudo subscriptions. Chat configuration comes from `ChatApi.realtimeConfig(conversationId)` and authorization from `ChatApi.realtimeAuth`; both require conversation membership and `chat:read`. Notification configuration and authorization use `MessengerApi.operations.notificationNotificationsRealtimeConfigGet` and `notificationNotificationsRealtimeAuthPost` with `notification:self:read`; the backend permits only the signed-in recipient's channel. Keep these service responsibilities separate. Reload persisted records on subscription/reconnect, close subscriptions on logout, and keep all Sockudo secrets server-side. See the [core subscription example](https://github.com/faiber-code/faiber-ts-sdk/tree/main/packages/core#sockudo-realtime-subscriptions).
+
+`speechStatus()` reports configured local transcription availability. `transcribe(audioBlob, 'fa', {signal})` accepts up to 8 MiB of WebM, Ogg, MP4, or WAV audio and returns editable transcript text; it never sends a chat message automatically. Both require `chat:ai`; invalid audio returns 400, unavailable services return 502, and cancellation uses normal Axios request signals.

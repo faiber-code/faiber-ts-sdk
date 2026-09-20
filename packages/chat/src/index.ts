@@ -5,6 +5,14 @@ import { ChatOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class ChatApi extends ServiceApi {
   readonly operations = new ChatOperations(this.client);
+  /** Check configured local transcription availability; requires chat:ai. */
+  speechStatus(options?: RequestOptions) { return this.client.get<T.SpeechStatusResponse>("/api/v1/speech/status", undefined, options); }
+  /** Transcribe raw webm/ogg/mp4/wav audio (8 MiB maximum). Requires chat:ai; private storage is cleaned up after processing.
+   * Does not send a chat message. Supports abort signals and a 200-second default timeout. */
+  transcribe(recording: Blob, language: T.SpeechLanguage = 'auto', options?: RequestOptions<Blob>) {
+    return this.client.request<T.SpeechTranscriptResponse,Blob>({...options, method:'POST',url:'/api/v1/speech/transcribe',params:{language},data:recording,timeout:options?.timeout ?? 200000,headers:{...options?.headers,'Content-Type':recording.type}});
+  }
+
   conversations(options?: RequestOptions) { return this.client.get<T.ConversationListResponse>("/api/v1/conversations", undefined, options); }
   createConversation(data: T.CreateConversationInput, options?: RequestOptions<T.CreateConversationInput>) { return this.client.post<T.ConversationResponse, T.CreateConversationInput>("/api/v1/conversations", data, options); }
   conversation(conversationId: Identifier, options?: RequestOptions) { return this.client.get<T.ConversationResponse>(`/api/v1/conversations/${id(conversationId)}`, undefined, options); }
@@ -34,6 +42,9 @@ export class ChatApi extends ServiceApi {
   createAttachment(conversationId: Identifier, data: O.RoutesCreateAttachmentPostInput, options?: RequestOptions<O.RoutesCreateAttachmentPostInput>) { return this.operations.routesCreateAttachmentPost(conversationId, data, options); }
   completeAttachment(attachmentId: Identifier, options?: RequestOptions) { return this.operations.routesCompleteAttachmentPost(attachmentId, options); }
   realtimeAuth(conversationId: Identifier, data: O.RoutesRealtimeAuthPostInput, options?: RequestOptions<O.RoutesRealtimeAuthPostInput>) { return this.operations.routesRealtimeAuthPost(conversationId, data, options); }
+  /** Return browser-safe Sockudo configuration after checking conversation membership (chat:read).
+   * Preserves Axios response metadata; 401/403 deny access and 502 means realtime is unconfigured. */
+  realtimeConfig(conversationId: Identifier, options?: RequestOptions) { return this.client.get<T.ChatRealtimeConfigResponse>(`/api/v1/conversations/${id(conversationId)}/realtime-config`, undefined, options); }
   aiRuntimeInputs(conversationId: Identifier, options?: RequestOptions) { return this.operations.routesAiRuntimeInputsGet(conversationId, options); }
   completeAiRuntimeInput(conversationId: Identifier, inputId: Identifier, data: O.RoutesAiCompleteRuntimeInputPostInput, options?: RequestOptions<O.RoutesAiCompleteRuntimeInputPostInput>) { return this.operations.routesAiCompleteRuntimeInputPost(conversationId, inputId, data, options); }
 }

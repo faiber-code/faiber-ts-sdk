@@ -315,7 +315,7 @@ export interface RoutesRealtimeAuthPostInput extends JsonObject {
   "channel_name": string;
 }
 /** Backend response type: Value. */
-export type RoutesRealtimeAuthPostResponse = JsonValue;
+export interface RoutesRealtimeAuthPostResponse { auth: string }
 
 /** Backend response type: no-content. */
 export type RoutesDeleteMessageDeleteResponse = void;

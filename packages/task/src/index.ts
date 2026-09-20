@@ -10,6 +10,23 @@ const versionOptions = <TData>(version: number, options?: RequestOptions<TData>)
 import { TaskOperations } from "./operations.js";
 export class TaskApi extends ServiceApi {
     readonly operations = new TaskOperations(this.client);
+  /** Read authorized project checklist snapshots atomically; requires access:use and work_item.read. */
+  projectChecklists(id: Identifier, options?: RequestOptions) { return this.client.get<T.TaskListResponse<T.ChecklistSnapshot>>(`/api/v1/projects/${encodeURIComponent(id)}/checklists`, undefined, options); }
+  /** Read a checklist and task version in one snapshot; 403/404 for inaccessible tasks. */
+  checklist(id: Identifier, options?: RequestOptions) { return this.client.get<T.TaskResponse<T.ChecklistSnapshot>>(`/api/v1/work-items/${encodeURIComponent(id)}/checklist`, undefined, options); }
+  /** Replace up to 200 unique UUID steps; requires work_item.update and task If-Match version. 409 on concurrent changes. */
+  replaceChecklist(id: Identifier, version: number, data: T.ChecklistInput, options?: RequestOptions<T.ChecklistInput>) { return this.client.put<T.TaskResponse<T.ChecklistResult>, T.ChecklistInput>(`/api/v1/work-items/${encodeURIComponent(id)}/checklist`, data, versionOptions(version, options)); }
+  /** List active project grants; requires access:use and project.read. */
+  projectMembers(id: Identifier, options?: RequestOptions) { return this.client.get<T.TaskListResponse<T.ProjectMember>>(`/api/v1/projects/${encodeURIComponent(id)}/members`, undefined, options); }
+  /** Revoke a project grant with project.members.manage; owner and personal-project removal are forbidden. */
+  removeProjectMember(id: Identifier, userId: Identifier, options?: RequestOptions) { return this.client.delete<T.TaskResponse<T.RemovalResult>>(`/api/v1/projects/${encodeURIComponent(id)}/members/${encodeURIComponent(userId)}`, options); }
+  /** Read only the authenticated user's reminder on an accessible task; null means never configured. */
+  reminder(id: Identifier, options?: RequestOptions) { return this.client.get<T.TaskResponse<T.Reminder|null>>(`/api/v1/work-items/${encodeURIComponent(id)}/reminder`, undefined, options); }
+  /** Save a future user-owned reminder. Use version 0 for first creation, then the returned version; 409 indicates conflict. */
+  saveReminder(id: Identifier, version: number, data: T.ReminderInput, options?: RequestOptions<T.ReminderInput>) { return this.client.put<T.TaskResponse<T.Reminder>,T.ReminderInput>(`/api/v1/work-items/${encodeURIComponent(id)}/reminder`, data, versionOptions(version, options)); }
+  /** Cancel future deliveries with the reminder's If-Match version. Previously queued notifications remain in Messenger. */
+  removeReminder(id: Identifier, version: number, options?: RequestOptions) { return this.client.delete<T.TaskResponse<T.RemovalResult>>(`/api/v1/work-items/${encodeURIComponent(id)}/reminder`, versionOptions(version, options)); }
+
   /** Gets the active sandbox workspace; requires the configured global Task permission and scoped access. */
   workspace(options?: RequestOptions) {
     return this.client.get<T.TaskResponse<T.WorkspaceSummary>>("/api/v1/workspace", undefined, options);

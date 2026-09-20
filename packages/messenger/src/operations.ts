@@ -212,7 +212,7 @@ export class MessengerOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:notification:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
    */
   notificationNotificationsRealtimeAuthPost(data: T.NotificationNotificationsRealtimeAuthPostInput, options?: RequestOptions<T.NotificationNotificationsRealtimeAuthPostInput>) {
     return this.client.request<T.NotificationNotificationsRealtimeAuthPostResponse, T.NotificationNotificationsRealtimeAuthPostInput>({ ...options, method: "POST", url: `/api/v1/notifications/realtime/auth`, data: data });
@@ -222,7 +222,7 @@ export class MessengerOperations extends ServiceApi {
    * Calls `GET /api/v1/notifications/realtime/config` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:notification:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
    */
   notificationNotificationsRealtimeConfigGet(options?: RequestOptions) {
     return this.client.request<T.NotificationNotificationsRealtimeConfigGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/realtime/config` });

@@ -1,6 +1,6 @@
 {
   "name": "@faiber/sdk-core",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -16,6 +16,7 @@
     "README.md"
   ],
   "dependencies": {
-    "axios": "^1.18.1"
+    "axios": "^1.18.1",
+    "pusher-js": "^8.4.0"
   }
 }

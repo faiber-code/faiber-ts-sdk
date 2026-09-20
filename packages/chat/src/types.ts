@@ -1,4 +1,6 @@
 import type { ApiEnvelope, JsonObject, JsonValue, QueryParams } from "@faiber/sdk-core";
+export interface ChatRealtimeConfig { ws_url: string; app_key: string; channel: string }
+export interface ChatRealtimeConfigResponse extends ApiEnvelope<ChatRealtimeConfig> {}
 export type ChatEventChunk = Uint8Array | string;
 export interface ChatEventAsyncStream extends AsyncIterable<ChatEventChunk> {}
 /** SSE response body returned by Axios in browser-stream or Node async-iterable runtimes. */
@@ -68,3 +70,9 @@ export type MemberListResponse = ApiEnvelope<ConversationMember[]>;
 export type MessageResponse = ApiEnvelope<ChatMessage>;
 export type MessageListResponse = ApiEnvelope<ChatMessage[]>;
 export type AiMessageResponse = ApiEnvelope<{ user_message: ChatMessage; assistant_message: ChatMessage; ai_turn: JsonValue; billing_authority: string }>;
+
+export interface SpeechStatus { available:boolean; engine?:string; max_bytes?:number }
+export interface SpeechStatusResponse extends ApiEnvelope<SpeechStatus> {}
+export interface SpeechTranscript { text:string; engine:string }
+export interface SpeechTranscriptResponse extends ApiEnvelope<SpeechTranscript> {}
+export type SpeechLanguage = 'en'|'fa'|'auto';

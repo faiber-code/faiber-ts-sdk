@@ -40,3 +40,7 @@ Pass an `AbortSignal` through the final request-options argument to cancel calls
 
 IDP proves identity and the configured global Task permission. Task independently enforces
 workspace, team, project, and work-item grants. Global roles never bypass local grants.
+
+### Checklists, collaborators, and reminders
+
+`projectChecklists` and `checklist` return atomic task/checklist snapshots. Save with `replaceChecklist(taskId, taskVersion, {items})`; a 409 requires reloading before retry. `projectMembers` lists project grants, and `removeProjectMember` requires project membership management rights (owners cannot be removed). `reminder`, `saveReminder`, and `removeReminder` operate only on the current user's reminder. Use version 0 for first creation and the returned reminder version thereafter. Reminders accept future ISO timestamps, IANA time zones, and `once`, `daily`, or `monthly` recurrence. Task creation accepts an optional `reminder` atomically. Delivery is handled by Messenger; these APIs never grant access to another user's inbox. All operations preserve Axios responses and support cancellation through request options.
