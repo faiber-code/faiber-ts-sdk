@@ -484,7 +484,7 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ClassroomUpdateSessionPatchResponse, T.ClassroomUpdateSessionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the index attendance operation for the classroom capability.
+   * Lists attendance records with each learner's online/in-person mode and recorded participation details.
    * Calls `GET /api/v1/classrooms/sessions/{id}/attendance` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.

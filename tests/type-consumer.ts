@@ -98,6 +98,9 @@ async function provePublicContracts(): Promise<void> {
     ...classroomBase,
     weekly_schedule: [{ day: "سه‌شنبه", start_time: "14:00:00", mode: "interactive", delivery_type: "interactive" }],
   });
+  const attendance = await apis.lms.operations.classroomIndexAttendanceGet("classroom-session-id", { page_number: 1, page_size: 100 });
+  const attendanceMode: "online" | "in_person" | undefined = attendance.data.data?.data[0]?.attendance_mode;
+  void attendanceMode;
   const certificateLayout: LmsService.CertificateLayout = {
     fields: [
       { key: "student_name", x: 877, y: 545, font_size: 54, weight: 700, text_anchor: "middle" },

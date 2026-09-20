@@ -1068,7 +1068,13 @@ export interface ClassroomIndexAttendanceGetResponseItem extends JsonObject {
   "profile"?: ClassroomIndexAttendanceGetResponseItemProfile | null;
   "status": string;
   "absence_reason"?: string | null;
+  "attendance_mode": "online" | "in_person";
+  "online": boolean;
+  "attended_seconds"?: number | null;
+  "description"?: string | null;
+  "ratings": JsonValue;
   "created_at": string;
+  "updated_at": string;
 }
 export interface ClassroomIndexAttendanceGetResponsePageMeta extends JsonObject {
   "page": number;
@@ -1217,7 +1223,13 @@ export interface ClassroomIndexAbsencesGetResponseItem extends JsonObject {
   "profile"?: ClassroomIndexAbsencesGetResponseItemProfile | null;
   "status": string;
   "absence_reason"?: string | null;
+  "attendance_mode": "online" | "in_person";
+  "online": boolean;
+  "attended_seconds"?: number | null;
+  "description"?: string | null;
+  "ratings": JsonValue;
   "created_at": string;
+  "updated_at": string;
 }
 export interface ClassroomIndexAbsencesGetResponsePageMeta extends JsonObject {
   "page": number;

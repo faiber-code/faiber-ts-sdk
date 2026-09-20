@@ -58,6 +58,8 @@ This package exposes 152 registered operations from the learning management serv
 
 Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, and work-time records have dedicated typed operations. Most LMS updates use `PATCH`; unsupported generic deletes are guarded locally.
 
+Session attendance rows expose `attendance_mode` (`online` or `in_person`) alongside the stored `online` boolean, attended seconds, description, and ratings. The same details are available on absence rows. When recording an attendance batch, include `online` for each learner whose attendance mode matters; omitting it defaults to in-person.
+
 ### Classroom weekly schedules
 
 Use `day_of_week` (Sunday `0` through Saturday `6`) and `starts_at` (`HH:MM` or `HH:MM:SS`) for new classroom schedules. Set `timezone_offset_minutes` when the local time differs from the offset in the classroom's `starts_at` timestamp.
