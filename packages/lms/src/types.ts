@@ -391,6 +391,10 @@ export interface CreateClassroomSessionInput extends CreateLmsEntityInput {
     status: string;
 }
 export interface UpdateClassroomSessionInput extends Partial<CreateClassroomSessionInput> {
+    /** Confirms deletion of recordings when this reschedule resets an existing room generation. */
+    confirm_recording_reset?: boolean;
+    /** Reassigns every later classroom session to weekly schedule slots after the selected start. */
+    shift_following_sessions?: boolean;
 }
 export interface CreateExamInput extends CreateLmsEntityInput {
     course_id?: string;

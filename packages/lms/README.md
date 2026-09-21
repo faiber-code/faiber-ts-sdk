@@ -79,6 +79,17 @@ await api.classrooms.create({
 
 The weekly `mode` selects each generated primary session type: `online` → `ONLINE_CLASS`, `interactive` → `VIDEO` (composition media), `in_person` → `MEETING`, and `makeup` → `REWIEW_CLASS`. You can instead supply a `course_session_type_id`. Updating `weekly_schedule` on a classroom also reschedules its existing generated sessions. For existing forms, the LMS accepts `day` (Persian or English weekday name) with `start_time`; it normalizes these fields on save. Legacy `delivery_type` and `session_type` are supported when `mode` is absent, with `delivery_type` taking precedence. A Persian day without an explicit offset defaults to Tehran time (`+03:30`).
 
+When moving one classroom session, opt in to shifting every later session onto the next weekly schedule slots after the new start time:
+
+```ts
+await api.classroomSessions.update(sessionId, {
+  starts_at: "2026-09-23T10:00:00Z",
+  shift_following_sessions: true,
+});
+```
+
+If the selected session or an affected later session already has a provisioned room, the LMS returns `409 recording_reset_confirmation_required`. Repeat the request with `confirm_recording_reset: true` only after the user accepts that the affected recordings will be removed and those rooms reset.
+
 ## Authentication and authorization
 
 Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.

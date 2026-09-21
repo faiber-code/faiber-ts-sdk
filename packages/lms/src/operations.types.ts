@@ -970,6 +970,7 @@ export interface ClassroomShowSessionGetResponse extends ApiEnvelope<ClassroomSh
 /** Backend request type: models::UpdateSessionRequest. */
 export interface ClassroomUpdateSessionPatchInput extends JsonObject {
   "confirm_recording_reset"?: boolean;
+  "shift_following_sessions"?: boolean;
   "classroom_id"?: string | null;
   "course_session_id"?: string | null;
   "course_session_type_id"?: string | null;
@@ -1913,6 +1914,7 @@ export interface CourseShowSessionGetResponse extends ApiEnvelope<CourseShowSess
 /** Backend request type: models::UpdateSessionRequest. */
 export interface CourseUpdateSessionPatchInput extends JsonObject {
   "confirm_recording_reset"?: boolean;
+  "shift_following_sessions"?: boolean;
   "classroom_id"?: string | null;
   "course_session_id"?: string | null;
   "course_session_type_id"?: string | null;
@@ -3219,6 +3221,7 @@ export interface ExamShowSessionGetResponse extends ApiEnvelope<ExamShowSessionG
 /** Backend request type: models::UpdateSessionRequest. */
 export interface ExamUpdateSessionPatchInput extends JsonObject {
   "confirm_recording_reset"?: boolean;
+  "shift_following_sessions"?: boolean;
   "classroom_id"?: string | null;
   "course_session_id"?: string | null;
   "course_session_type_id"?: string | null;
