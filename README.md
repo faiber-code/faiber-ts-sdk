@@ -15,7 +15,7 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 | `@faiber/faiber-payment` | Gateways, payment creation/verification, callbacks and transactions |
 | `@faiber/faiber-messenger` | Notifications, templates, channels, providers and delivery state |
 | `@faiber/faiber-crm` | Leads, contacts, teams, pipelines, workflows, reminders and work logs |
-| `@faiber/faiber-lms` | Courses, classrooms, enrollment, assessments, certificates, homework, events and reports |
+| `@faiber/faiber-lms` | Courses, classrooms, homework/project banks and assignments, exam banks/items/sessions/users, certificates, and reports |
 | `@faiber/faiber-reservation` | Services, providers, schedules, available slots and reservations |
 | `@faiber/faiber-session` | Live rooms, access tokens, playback, recordings and analytics |
 | `@faiber/faiber-version` | Service registry and release history |

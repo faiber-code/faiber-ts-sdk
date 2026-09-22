@@ -73,10 +73,15 @@ export class LmsApi extends ServiceApi {
     readonly videoSections: R<T.VideoSection, T.CreateVideoSectionInput, T.UpdateVideoSectionInput> = new RestResource(this.client, "/api/v1/courses/video-sections", { supported: ["list", "show", "create", "update"] });
     readonly classrooms: R<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update", "delete"] });
     readonly classroomSessions: RestResource<T.ClassroomSession, T.CreateClassroomSessionInput, T.UpdateClassroomSessionInput, T.ClassroomSessionPageResponse, T.LmsResponse<T.ClassroomSession>> = new RestResource(this.client, "/api/v1/classrooms/sessions", { supported: ["list", "show", "create", "update"] });
-    readonly exams: R<T.Exam, T.CreateExamInput, T.UpdateExamInput> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update"] });
+    readonly exams: R<T.Exam, T.CreateExamInput, T.UpdateExamInput> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update", "delete"] });
+    /** Exam definitions, explicitly named as the exam-bank layer. */
+    readonly examBanks: R<T.ExamBank, T.CreateExamInput, T.UpdateExamInput> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update", "delete"] });
     readonly examQuestions: R<T.ExamQuestion, T.CreateExamQuestionInput, T.UpdateExamQuestionInput> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
-    readonly examSessions: R<T.ExamSession, T.CreateExamSessionInput, T.UpdateExamSessionInput> = new RestResource(this.client, "/api/v1/exams/sessions", { supported: ["list", "show", "create", "update"] });
-    readonly homeworks: R<T.Homework, T.CreateHomeworkInput, T.UpdateHomeworkInput> = new RestResource(this.client, "/api/v1/homeworks", { supported: ["list", "show", "create", "update"] });
+    /** Items/questions contained by exam banks. Filter lists with `exam_id`. */
+    readonly examBankItems: R<T.ExamBankItem, T.CreateExamQuestionInput, T.UpdateExamQuestionInput> = new RestResource(this.client, "/api/v1/exams/questions", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly examSessions: R<T.ExamSession, T.CreateExamSessionInput, T.UpdateExamSessionInput> = new RestResource(this.client, "/api/v1/exams/sessions", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly homeworks: R<T.Homework, T.CreateHomeworkInput, T.UpdateHomeworkInput> = new RestResource(this.client, "/api/v1/homeworks", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly homeworkBanks: R<T.HomeworkBank, T.CreateHomeworkBankInput, T.UpdateHomeworkBankInput> = new RestResource(this.client, "/api/v1/homework-banks", { supported: ["list", "show", "create", "update", "delete"] });
     readonly homeworkQuestions: R<T.HomeworkQuestion, T.CreateHomeworkQuestionInput, T.UpdateHomeworkQuestionInput> = new RestResource(this.client, "/api/v1/homeworks/questions", { supported: ["list", "show", "create", "update"] });
     readonly certificates: R<T.Certificate, T.CreateCertificateInput, T.UpdateCertificateInput> = new RestResource(this.client, "/api/v1/certificates", { supported: ["list", "show", "create", "update"] });
     readonly certificateTemplates: R<T.CertificateTemplate, T.CreateCertificateTemplateInput, T.UpdateCertificateTemplateInput> = new RestResource(this.client, "/api/v1/certificates/templates", { supported: ["list", "show", "create", "update"] });
@@ -97,6 +102,26 @@ export class LmsApi extends ServiceApi {
     listHomeworks(params?: O.HomeworkIndexHomeworkGetQuery, options?: RequestOptions) { return this.operations.homeworkIndexHomeworkGet(params, options); }
     /** Lists homework, todo, and project assignments with user, status, classroom, and time filters. */
     listAssignments(params?: O.HomeworkIndexAssignmentGetQuery, options?: RequestOptions) { return this.operations.homeworkIndexAssignmentGet(params, options); }
+    /** Creates a delivery assignment from a reusable homework/project bank item. */
+    createAssignment(data: O.HomeworkStoreAssignmentPostInput, options?: RequestOptions<O.HomeworkStoreAssignmentPostInput>) { return this.operations.homeworkStoreAssignmentPost(data, options); }
+    /** Reads one homework/project assignment record. */
+    assignment(id: Identifier, options?: RequestOptions) { return this.operations.homeworkShowAssignmentGet(id, options); }
+    /** Updates assignment delivery, ownership, answer, score, or status fields. */
+    updateAssignment(id: Identifier, data: O.HomeworkUpdateAssignmentPatchInput, options?: RequestOptions<O.HomeworkUpdateAssignmentPatchInput>) { return this.operations.homeworkUpdateAssignmentPatch(id, data, options); }
+    /** Deletes an assignment record without deleting its reusable bank item. */
+    deleteAssignment(id: Identifier, options?: RequestOptions) { return this.operations.homeworkDestroyAssignmentDelete(id, options); }
+    /** Returns a fully managed nested resource containing only definitions owned by one homework bank. */
+    homeworkBankItems(homeworkBankId: Identifier): R<T.HomeworkBankItem, O.HomeworkStoreBankHomeworkPostInput, O.HomeworkUpdateBankHomeworkPatchInput> {
+        return new RestResource(this.client, `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks`, { supported: ["list", "show", "create", "update", "delete"] });
+    }
+    /** Lists exam-bank items/questions for one bank. */
+    listExamBankItems(examBankId: Identifier, params?: O.ExamIndexQuestionGetQuery, options?: RequestOptions) { return this.operations.examIndexQuestionGet({ ...params, exam_id: String(examBankId) }, options); }
+    /** Lists exam users/attempts. */
+    listExamUsers(params?: O.ExamIndexAttemptGetQuery, options?: RequestOptions) { return this.operations.examIndexAttemptGet(params, options); }
+    /** Reads one exam user/attempt. */
+    examUser(id: Identifier, options?: RequestOptions) { return this.operations.examShowAttemptGet(id, options); }
+    /** Updates scoring, deadline, extension, description, or status for an exam user/attempt. */
+    updateExamUser(id: Identifier, data: O.ExamUpdateAttemptPatchInput, options?: RequestOptions<O.ExamUpdateAttemptPatchInput>) { return this.operations.examUpdateAttemptPatch(id, data, options); }
     /** Lists exams with course and relationship-aware time filtering. */
     listExams(params?: O.ExamIndexExamGetQuery, options?: RequestOptions) { return this.operations.examIndexExamGet(params, options); }
     /** Lists exam sessions with participant/staff relationship and time filters. */

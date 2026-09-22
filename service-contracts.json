@@ -8120,7 +8120,7 @@
         "lms:exam:read"
       ],
       "source": "infera-lms/src/exam/routes.rs",
-      "query": "PaginationQuery",
+      "query": "models::QuestionListQuery",
       "response": "crate::models::PagedResult<models::QuestionResponse>",
       "responseEnvelope": "api",
       "multipart": false,
@@ -8265,6 +8265,157 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/homework-banks",
+      "module": "homework",
+      "handler": "index_bank",
+      "permissions": [
+        "lms:homework_bank:read"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "query": "models::HomeworkBankListQuery",
+      "response": "crate::models::PagedResult<models::HomeworkBankResponse>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/homework-banks",
+      "module": "homework",
+      "handler": "store_bank",
+      "permissions": [
+        "lms:homework_bank:create"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "body": "models::CreateHomeworkBankRequest",
+      "response": "models::HomeworkBankResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/homework-banks/{homework_bank_id}/homeworks",
+      "module": "homework",
+      "handler": "index_bank_homework",
+      "permissions": [
+        "lms:homework:read"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "query": "models::BankHomeworkListQuery",
+      "pathParam": "Uuid",
+      "response": "crate::models::PagedResult<models::BankHomeworkResponse>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/homework-banks/{homework_bank_id}/homeworks",
+      "module": "homework",
+      "handler": "store_bank_homework",
+      "permissions": [
+        "lms:homework:create"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "body": "models::CreateBankHomeworkRequest",
+      "pathParam": "Uuid",
+      "response": "models::BankHomeworkResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+      "module": "homework",
+      "handler": "destroy_bank_homework",
+      "permissions": [
+        "lms:homework:delete"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+      "module": "homework",
+      "handler": "show_bank_homework",
+      "permissions": [
+        "lms:homework:read"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "response": "models::BankHomeworkResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
+      "module": "homework",
+      "handler": "update_bank_homework",
+      "permissions": [
+        "lms:homework:update"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "body": "models::UpdateBankHomeworkRequest",
+      "response": "models::BankHomeworkResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/homework-banks/{id}",
+      "module": "homework",
+      "handler": "destroy_bank",
+      "permissions": [
+        "lms:homework_bank:delete"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/homework-banks/{id}",
+      "module": "homework",
+      "handler": "show_bank",
+      "permissions": [
+        "lms:homework_bank:read"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "pathParam": "Uuid",
+      "response": "models::HomeworkBankResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/homework-banks/{id}",
+      "module": "homework",
+      "handler": "update_bank",
+      "permissions": [
+        "lms:homework_bank:update"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "body": "models::UpdateHomeworkBankRequest",
+      "pathParam": "Uuid",
+      "response": "models::HomeworkBankResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/homeworks",
       "module": "homework",
       "handler": "index_homework",
@@ -8289,6 +8440,21 @@
       "source": "infera-lms/src/homework/routes.rs",
       "body": "models::CreateHomeworkRequest",
       "response": "models::HomeworkResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/homeworks/{id}",
+      "module": "homework",
+      "handler": "destroy_homework",
+      "permissions": [
+        "lms:homework:delete"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -8350,6 +8516,21 @@
       "source": "infera-lms/src/homework/routes.rs",
       "body": "models::CreateAssignmentRequest",
       "response": "models::AssignmentResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/homeworks/assignments/{id}",
+      "module": "homework",
+      "handler": "destroy_assignment",
+      "permissions": [
+        "lms:homework:delete"
+      ],
+      "source": "infera-lms/src/homework/routes.rs",
+      "pathParam": "Uuid",
+      "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

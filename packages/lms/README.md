@@ -1,6 +1,6 @@
 # @faiber/faiber-lms
 
-Courses, categories, video sections, classrooms, sessions, enrollments, exams, homework, certificates, events, interactive content, operations, reports, and education configuration.
+Courses, classrooms, homework/project banks and assignments, exam banks/items/sessions/users, certificates, reports, and education configuration.
 
 ## Install
 
@@ -31,7 +31,7 @@ const sessions = await api.courseSessions(courseId);
 
 ## Complete capability
 
-This package exposes 152 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 164 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -47,7 +47,7 @@ This package exposes 152 registered operations from the learning management serv
 | `drm-routes` | 1 | `GET` |
 | `evaluation` | 4 | `GET`, `POST`, `PUT` |
 | `exam` | 22 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `homework` | 12 | `GET`, `PATCH`, `POST` |
+| `homework` | 24 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `integration` | 7 | `GET`, `POST` |
 | `media` | 2 | `GET`, `POST` |
 | `profile-routes` | 2 | `GET` |
@@ -57,6 +57,18 @@ This package exposes 152 registered operations from the learning management serv
 | `session` | 1 | `GET` |
 
 Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, and work-time records have dedicated typed operations. Most LMS updates use `PATCH`; unsupported generic deletes are guarded locally.
+
+### Homework and exam banks
+
+Reusable definitions are separate from delivery records. Manage homework banks with `api.homeworkBanks`, then use `api.homeworkBankItems(bankId)` for their homework/project items. Each item exposes `kind: "homework" | "project"`, and assignments are managed with `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment`.
+
+Exam definitions are exposed as `api.examBanks`, their questions/items as `api.examBankItems`, delivery sessions as `api.examSessions`, and learner attempts as `listExamUsers`, `examUser`, and `updateExamUser`. The legacy `api.exams`, `api.examQuestions`, and `api.homeworks` names remain available.
+
+```ts
+const bank = await api.homeworkBanks.create({ name: "Projects", status: "active" });
+const items = api.homeworkBankItems(bank.data.data.id);
+await items.create({ name: "Capstone", status: "active", kind: "project", points: 20 });
+```
 
 Session attendance rows expose `attendance_mode` (`online` or `in_person`) alongside the stored `online` boolean, attended seconds, description, and ratings. The same details are available on absence rows. When recording an attendance batch, include `online` for each learner whose attendance mode matters; omitting it defaults to in-person.
 

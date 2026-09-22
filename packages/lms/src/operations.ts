@@ -484,7 +484,7 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ClassroomUpdateSessionPatchResponse, T.ClassroomUpdateSessionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/classrooms/sessions/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Lists attendance records with each learner's online/in-person mode and recorded participation details.
+   * Performs the index attendance operation for the classroom capability.
    * Calls `GET /api/v1/classrooms/sessions/{id}/attendance` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -1349,6 +1349,123 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.ExamUpdateSessionPatchResponse, T.ExamUpdateSessionPatchInput>({ ...options, method: "PATCH", url: `/api/v1/exams/sessions/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Performs the index bank operation for the homework capability.
+   * Calls `GET /api/v1/homework-banks` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:read.
+   */
+  homeworkIndexBankGet(params?: T.HomeworkIndexBankGetQuery, options?: RequestOptions) {
+    return this.client.request<T.HomeworkIndexBankGetResponse>({ ...options, method: "GET", url: `/api/v1/homework-banks`, params });
+  }
+  /**
+   * Performs the store bank operation for the homework capability.
+   * Calls `POST /api/v1/homework-banks` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:create.
+   */
+  homeworkStoreBankPost(data: T.HomeworkStoreBankPostInput, options?: RequestOptions<T.HomeworkStoreBankPostInput>) {
+    return this.client.request<T.HomeworkStoreBankPostResponse, T.HomeworkStoreBankPostInput>({ ...options, method: "POST", url: `/api/v1/homework-banks`, data: data });
+  }
+  /**
+   * Performs the index bank homework operation for the homework capability.
+   * Calls `GET /api/v1/homework-banks/{homework_bank_id}/homeworks` through the shared IDP-aware Faiber client.
+   * @param homeworkBankId Backend path identifier `homework_bank_id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   */
+  homeworkIndexBankHomeworkGet(homeworkBankId: Identifier, params?: T.HomeworkIndexBankHomeworkGetQuery, options?: RequestOptions) {
+    return this.client.request<T.HomeworkIndexBankHomeworkGetResponse>({ ...options, method: "GET", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks`, params });
+  }
+  /**
+   * Performs the store bank homework operation for the homework capability.
+   * Calls `POST /api/v1/homework-banks/{homework_bank_id}/homeworks` through the shared IDP-aware Faiber client.
+   * @param homeworkBankId Backend path identifier `homework_bank_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:create.
+   */
+  homeworkStoreBankHomeworkPost(homeworkBankId: Identifier, data: T.HomeworkStoreBankHomeworkPostInput, options?: RequestOptions<T.HomeworkStoreBankHomeworkPostInput>) {
+    return this.client.request<T.HomeworkStoreBankHomeworkPostResponse, T.HomeworkStoreBankHomeworkPostInput>({ ...options, method: "POST", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks`, data: data });
+  }
+  /**
+   * Performs the destroy bank homework operation for the homework capability.
+   * Calls `DELETE /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}` through the shared IDP-aware Faiber client.
+   * @param homeworkBankId Backend path identifier `homework_bank_id`.
+   * @param homeworkId Backend path identifier `homework_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:delete.
+   */
+  homeworkDestroyBankHomeworkDelete(homeworkBankId: Identifier, homeworkId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.HomeworkDestroyBankHomeworkDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks/${encodeURIComponent(homeworkId)}` });
+  }
+  /**
+   * Performs the show bank homework operation for the homework capability.
+   * Calls `GET /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}` through the shared IDP-aware Faiber client.
+   * @param homeworkBankId Backend path identifier `homework_bank_id`.
+   * @param homeworkId Backend path identifier `homework_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:read.
+   */
+  homeworkShowBankHomeworkGet(homeworkBankId: Identifier, homeworkId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.HomeworkShowBankHomeworkGetResponse>({ ...options, method: "GET", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks/${encodeURIComponent(homeworkId)}` });
+  }
+  /**
+   * Performs the update bank homework operation for the homework capability.
+   * Calls `PATCH /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}` through the shared IDP-aware Faiber client.
+   * @param homeworkBankId Backend path identifier `homework_bank_id`.
+   * @param homeworkId Backend path identifier `homework_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:update.
+   */
+  homeworkUpdateBankHomeworkPatch(homeworkBankId: Identifier, homeworkId: Identifier, data: T.HomeworkUpdateBankHomeworkPatchInput, options?: RequestOptions<T.HomeworkUpdateBankHomeworkPatchInput>) {
+    return this.client.request<T.HomeworkUpdateBankHomeworkPatchResponse, T.HomeworkUpdateBankHomeworkPatchInput>({ ...options, method: "PATCH", url: `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks/${encodeURIComponent(homeworkId)}`, data: data });
+  }
+  /**
+   * Performs the destroy bank operation for the homework capability.
+   * Calls `DELETE /api/v1/homework-banks/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:delete.
+   */
+  homeworkDestroyBankDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.HomeworkDestroyBankDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/homework-banks/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the show bank operation for the homework capability.
+   * Calls `GET /api/v1/homework-banks/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:read.
+   */
+  homeworkShowBankGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.HomeworkShowBankGetResponse>({ ...options, method: "GET", url: `/api/v1/homework-banks/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update bank operation for the homework capability.
+   * Calls `PATCH /api/v1/homework-banks/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework_bank:update.
+   */
+  homeworkUpdateBankPatch(id: Identifier, data: T.HomeworkUpdateBankPatchInput, options?: RequestOptions<T.HomeworkUpdateBankPatchInput>) {
+    return this.client.request<T.HomeworkUpdateBankPatchResponse, T.HomeworkUpdateBankPatchInput>({ ...options, method: "PATCH", url: `/api/v1/homework-banks/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
    * Performs the index homework operation for the homework capability.
    * Calls `GET /api/v1/homeworks` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -1369,6 +1486,17 @@ export class LmsOperations extends ServiceApi {
    */
   homeworkStoreHomeworkPost(data: T.HomeworkStoreHomeworkPostInput, options?: RequestOptions<T.HomeworkStoreHomeworkPostInput>) {
     return this.client.request<T.HomeworkStoreHomeworkPostResponse, T.HomeworkStoreHomeworkPostInput>({ ...options, method: "POST", url: `/api/v1/homeworks`, data: data });
+  }
+  /**
+   * Performs the destroy homework operation for the homework capability.
+   * Calls `DELETE /api/v1/homeworks/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:delete.
+   */
+  homeworkDestroyHomeworkDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.HomeworkDestroyHomeworkDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/homeworks/${encodeURIComponent(id)}` });
   }
   /**
    * Performs the show homework operation for the homework capability.
@@ -1414,6 +1542,17 @@ export class LmsOperations extends ServiceApi {
    */
   homeworkStoreAssignmentPost(data: T.HomeworkStoreAssignmentPostInput, options?: RequestOptions<T.HomeworkStoreAssignmentPostInput>) {
     return this.client.request<T.HomeworkStoreAssignmentPostResponse, T.HomeworkStoreAssignmentPostInput>({ ...options, method: "POST", url: `/api/v1/homeworks/assignments`, data: data });
+  }
+  /**
+   * Performs the destroy assignment operation for the homework capability.
+   * Calls `DELETE /api/v1/homeworks/assignments/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:homework:delete.
+   */
+  homeworkDestroyAssignmentDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.HomeworkDestroyAssignmentDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/homeworks/assignments/${encodeURIComponent(id)}` });
   }
   /**
    * Performs the show assignment operation for the homework capability.

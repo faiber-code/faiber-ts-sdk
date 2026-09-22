@@ -56,6 +56,41 @@ test("LMS academy and question deletion preserve routes, bodies, and Bearer auth
   assert.equal(completionBody.idempotency_key, "once");
 });
 
+test("LMS bank hierarchy keeps definitions separate from assignments and exam delivery", async () => {
+  const seen = [];
+  const client = new FaiberClient("lms", {
+    domains: { lms: "https://lms.example.com" },
+    tokenProvider: new MemoryTokenProvider({ accessToken: "bank-token" }),
+    axios: { adapter: async (config) => {
+      seen.push(config);
+      return { data: { status: "success", data: {} }, status: 200, statusText: "OK", headers: new AxiosHeaders(), config };
+    } },
+  });
+  const api = new LmsApi(client);
+  await api.homeworkBanks.create({ name: "Projects", status: "active" });
+  await api.homeworkBankItems("bank/id").create({ name: "Capstone", status: "active", kind: "project", points: 20 });
+  await api.homeworkBankItems("bank/id").delete("item/id");
+  await api.deleteAssignment("assignment/id");
+  await api.examBanks.delete("exam/id");
+  await api.listExamBankItems("exam/id", { page_size: 25 });
+  await api.examSessions.delete("session/id");
+  await api.updateExamUser("attempt/id", { status: "completed", teacher_score: 18 });
+
+  assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
+    ["post", "/api/v1/homework-banks"],
+    ["post", "/api/v1/homework-banks/bank%2Fid/homeworks"],
+    ["delete", "/api/v1/homework-banks/bank%2Fid/homeworks/item%2Fid"],
+    ["delete", "/api/v1/homeworks/assignments/assignment%2Fid"],
+    ["delete", "/api/v1/exams/exam%2Fid"],
+    ["get", "/api/v1/exams/questions"],
+    ["delete", "/api/v1/exams/sessions/session%2Fid"],
+    ["patch", "/api/v1/exams/attempts/attempt%2Fid"],
+  ]);
+  assert.equal(seen[5].params.exam_id, "exam/id");
+  assert.equal(seen[5].params.page_size, 25);
+  assert.ok(seen.every((request) => request.headers.get("Authorization") === "Bearer bank-token"));
+});
+
 test("LMS classroom sessions expose types, today filtering, and Session UI links", async () => {
   const seen = [];
   const client = new FaiberClient("lms", {

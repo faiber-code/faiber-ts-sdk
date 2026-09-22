@@ -164,22 +164,63 @@ export interface ClassroomSession extends LmsEntity {
     updated_at: string;
 }
 export interface Exam extends LmsEntity {
-    course_id?: string;
-    duration_minutes?: number;
+    course_id?: string | null;
+    grade_id?: string | null;
+    name: string;
+    description?: string | null;
+    info?: string | null;
+    cover_url?: string | null;
+    duration_minutes?: number | null;
+    passing_mark?: number | null;
+    questions_count?: number | null;
+    easy_count?: number | null;
+    medium_count?: number | null;
+    hard_count?: number | null;
+    selection_mode?: string;
+    status: string;
 }
 export interface ExamQuestion extends LmsEntity {
-    exam_id?: string;
-    question?: string;
+    exam_id: string;
+    question_text?: string;
+    question_type?: string;
+    difficulty?: string;
+    points?: number;
+    sort_order?: number;
 }
 export interface ExamSession extends LmsEntity {
     exam_id?: string;
     user_id?: string;
     score?: number;
 }
-export interface Homework extends LmsEntity {
-    course_id?: string;
-    due_at?: string;
+export type HomeworkKind = "homework" | "project";
+export type HomeworkDifficulty = "easy" | "medium" | "hard";
+export interface HomeworkBank extends LmsEntity {
+    name: string;
+    title: string | null;
+    description: string | null;
+    status: "active" | "inactive";
+    created_at: string;
+    updated_at: string;
 }
+export interface CreateHomeworkBankInput extends JsonObject { name: string; title?: string | null; description?: string | null; status?: "active" | "inactive"; }
+export interface UpdateHomeworkBankInput extends Partial<CreateHomeworkBankInput> {}
+export interface Homework extends LmsEntity {
+    homework_bank_id: string;
+    course_id?: string | null;
+    name: string;
+    title?: string | null;
+    description?: string | null;
+    status: "active" | "inactive";
+    sort_order: number;
+    difficulty?: HomeworkDifficulty | null;
+    points: number;
+    kind: HomeworkKind;
+    created_at: string;
+    updated_at: string;
+}
+export type HomeworkBankItem = Homework;
+export type ExamBank = Exam;
+export type ExamBankItem = ExamQuestion;
 export interface HomeworkQuestion extends LmsEntity {
     homework_id?: string;
     question?: string;
@@ -415,9 +456,17 @@ export interface CreateExamSessionInput extends CreateLmsEntityInput {
 export interface UpdateExamSessionInput extends Partial<CreateExamSessionInput> {
     score?: number;
 }
-export interface CreateHomeworkInput extends CreateLmsEntityInput {
+export interface CreateHomeworkInput extends JsonObject {
+    name: string;
+    status: "active" | "inactive";
+    homework_bank_id?: string;
     course_id?: string;
-    due_at?: string;
+    title?: string | null;
+    description?: string | null;
+    sort_order?: number;
+    difficulty?: HomeworkDifficulty | null;
+    points?: number;
+    kind?: HomeworkKind;
 }
 export interface UpdateHomeworkInput extends Partial<CreateHomeworkInput> {
 }
