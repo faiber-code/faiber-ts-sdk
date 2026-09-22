@@ -1,3 +1,4 @@
+import { TaskWorkspaceOperations } from "./workspace.js";
 import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 
@@ -9,6 +10,7 @@ const versionOptions = <TData>(version: number, options?: RequestOptions<TData>)
 /** Typed client for every authenticated route mounted by Faiber Tasks. */
 import { TaskOperations } from "./operations.js";
 export class TaskApi extends ServiceApi {
+  readonly workspaceAssistant = new TaskWorkspaceOperations(this.client);
     readonly operations = new TaskOperations(this.client);
   /** Read authorized project checklist snapshots atomically; requires access:use and work_item.read. */
   projectChecklists(id: Identifier, options?: RequestOptions) { return this.client.get<T.TaskListResponse<T.ChecklistSnapshot>>(`/api/v1/projects/${encodeURIComponent(id)}/checklists`, undefined, options); }
@@ -175,3 +177,5 @@ export * from "./types.js";
 export * from "@faiber/sdk-core";
 export * from "./operations.js";
 export * from "./operations.types.js";
+
+export * from "./workspace.js";

@@ -3,6 +3,8 @@ import type * as T from "./types.js";
 import { KnowledgeOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class KnowledgeApi extends ServiceApi {
+  /** Loads full contracts from an enabled assistant binding and its immutable published release, without semantic truncation. Requires knowledge:runtime; missing published bindings return 404. */
+  assistantContracts(assistantId: Identifier, slug: string, options?: RequestOptions) { return this.client.get<T.AssistantContractsResponse>(`/api/v1/runtime/assistants/${id(assistantId)}/contracts/${id(slug)}`, undefined, options); }
   readonly operations = new KnowledgeOperations(this.client);
   knowledgeBases(params?: T.KnowledgeListQuery, options?: RequestOptions) { return this.client.get<T.KnowledgeBaseListResponse>("/api/v1/knowledge-bases", params, options); }
   createKnowledgeBase(data: T.CreateKnowledgeBaseInput, options?: RequestOptions<T.CreateKnowledgeBaseInput>) { return this.client.post<T.KnowledgeBaseResponse, T.CreateKnowledgeBaseInput>("/api/v1/knowledge-bases", data, options); }

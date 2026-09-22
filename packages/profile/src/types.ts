@@ -379,3 +379,9 @@ export interface ProfileMediaResponse extends ApiEnvelope<ProfileMedia> {
 }
 export interface ProfileMediaDeleteResponse extends ApiEnvelope<JsonObject> {
 }
+
+/** Current active sandbox directory names; contact information is deliberately withheld. */
+export interface DirectoryPerson { user_id: string; first_name_fa: string | null; last_name_fa: string | null; first_name_en: string | null; last_name_en: string | null; email: null; phone: null; }
+export interface ResolvePeopleInput { user_ids: string[]; }
+export interface ResolvePeopleResult { results: DirectoryPerson[]; has_more: boolean; }
+export interface ResolvePeopleResponse { data: ResolvePeopleResult; }

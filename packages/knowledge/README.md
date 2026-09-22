@@ -61,3 +61,7 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+### Deterministic published assistant contracts
+
+`knowledge.assistantContracts(assistantId, '2done-assistants')` retrieves complete contract records from the assistant's enabled base binding and immutable published release. It returns `data.release_id` and keyed `data.contracts`, including localized content and versioned JSON Schema metadata. Unlike semantic retrieval, this operation does not rank, truncate, or omit required contracts. It requires `knowledge:runtime`; absent, disabled, unpublished, or inaccessible bindings fail rather than returning partial guidance. Normal Axios authentication, cancellation, and error handling apply.

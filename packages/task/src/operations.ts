@@ -1,3 +1,4 @@
+import type * as W from "./workspace.js";
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
 
@@ -531,5 +532,104 @@ export class TaskOperations extends ServiceApi {
    */
   routesMetricsGet(options?: RequestOptions) {
     return this.client.request<T.RoutesMetricsGetResponse>({ ...options, method: "GET", url: `/metrics` });
+  }
+  /**
+   * Calls `POST /api/v1/assistant/query` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceQuery(data: W.WorkspaceQuery, options?: RequestOptions<W.WorkspaceQuery>) {
+    return this.client.request<W.WorkspaceQueryResponse, W.WorkspaceQuery>({ ...options, method: "POST", url: `/api/v1/assistant/query`, data });
+  }
+  /**
+   * Calls `GET /api/v1/planning-preferences` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspacePreferences(options?: RequestOptions) {
+    return this.client.request<W.PlanningPreferencesResponse>({ ...options, method: "GET", url: `/api/v1/planning-preferences` });
+  }
+  /**
+   * Calls `PUT /api/v1/planning-preferences` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceSavePreferences(data: W.PlanningPreferences, options?: RequestOptions<W.PlanningPreferences>) {
+    return this.client.request<W.PlanningPreferencesResponse, W.PlanningPreferences>({ ...options, method: "PUT", url: `/api/v1/planning-preferences`, data });
+  }
+  /**
+   * Calls `GET /api/v1/note-folders` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceFolders(params: W.NoteFoldersQuery, options?: RequestOptions) {
+    return this.client.request<W.NoteFoldersResponse>({ ...options, method: "GET", url: `/api/v1/note-folders`, params });
+  }
+  /**
+   * Calls `POST /api/v1/review-proposals` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspacePropose(data: W.ReviewProposalInput, options?: RequestOptions<W.ReviewProposalInput>) {
+    return this.client.request<W.ReviewProposalResponse, W.ReviewProposalInput>({ ...options, method: "POST", url: `/api/v1/review-proposals`, data });
+  }
+  /**
+   * Calls `POST /api/v1/review-proposals/validate` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceValidate(data: W.ReviewProposalInput, options?: RequestOptions<W.ReviewProposalInput>) {
+    return this.client.request<W.ReviewPreviewResponse, W.ReviewProposalInput>({ ...options, method: "POST", url: `/api/v1/review-proposals/validate`, data });
+  }
+  /**
+   * Calls `GET /api/v1/review-proposals/{id}` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceProposal(id: string, options?: RequestOptions) {
+    return this.client.request<W.ReviewProposalResponse>({ ...options, method: "GET", url: `/api/v1/review-proposals/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Calls `PUT /api/v1/review-proposals/{id}` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceRevise(id: string, data: W.ReviewProposalInput, options?: RequestOptions<W.ReviewProposalInput>) {
+    return this.client.request<W.ReviewProposalResponse, W.ReviewProposalInput>({ ...options, method: "PUT", url: `/api/v1/review-proposals/${encodeURIComponent(id)}`, data });
+  }
+  /**
+   * Calls `POST /api/v1/review-proposals/{id}/apply` using the authenticated sandbox connection.
+   * Requires `task:access:use` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceApply(id: string, options?: RequestOptions) {
+    return this.client.request<W.ReviewProposalResponse>({ ...options, method: "POST", url: `/api/v1/review-proposals/${encodeURIComponent(id)}/apply` });
+  }
+  /**
+   * Calls `POST /api/v1/review-proposals/{id}/refresh` to rebuild a pending preview.
+   * Requires task:access:use and domain permissions; pass If-Match for the reviewed revision.
+   * @returns The complete Axios response with a new proposal revision; no changes are applied.
+   * @throws AxiosError on access, validation, or concurrency conflicts.
+   */
+  workspaceRefresh(id:string,options?:RequestOptions) {
+    return this.client.request<W.ReviewProposalResponse>({...options,method:"POST",url:`/api/v1/review-proposals/${encodeURIComponent(id)}/refresh`});
   }
 }

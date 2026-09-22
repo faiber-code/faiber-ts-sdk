@@ -1,9 +1,11 @@
+import { ChatWorkspaceOperations } from "./workspace.js";
 import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 import { ChatOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class ChatApi extends ServiceApi {
+  readonly workspaceAssistant = new ChatWorkspaceOperations(this.client);
   readonly operations = new ChatOperations(this.client);
   /** Check configured local transcription availability; requires chat:ai. */
   speechStatus(options?: RequestOptions) { return this.client.get<T.SpeechStatusResponse>("/api/v1/speech/status", undefined, options); }
@@ -52,3 +54,5 @@ export * from "./types.js";
 export * from "@faiber/sdk-core";
 export * from "./operations.js";
 export * from "./operations.types.js";
+
+export * from "./workspace.js";

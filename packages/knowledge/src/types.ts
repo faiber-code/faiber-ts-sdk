@@ -109,3 +109,8 @@ export type KnowledgeDocumentListResponse = ApiEnvelope<KnowledgeDocument[]>;
 export type ConverterListResponse = ApiEnvelope<ConverterCapability[]>;
 export type ConverterCapabilityListResponse = ConverterListResponse;
 export type ProcessingJobListResponse = ApiEnvelope<ProcessingJob[]>;
+
+/** Published contract content and deliberately extensible JSON Schema metadata. */
+export interface PublishedAssistantContract { content: Record<string, string>; metadata: { contract_version: string; output_schema?: JsonValue }; }
+export interface AssistantContractsResult { release_id: string; contracts: Record<string, PublishedAssistantContract>; }
+export interface AssistantContractsResponse { data: AssistantContractsResult; }

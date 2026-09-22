@@ -80,3 +80,7 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+### Current space-member names
+
+After retrieving eligible member IDs from Task, call `profile.resolvePeople({ user_ids })` with 1–200 UUIDs per batch. The response contains active sandbox profiles with English/Persian names and canonical `user_id`; email and phone are withheld. No match or duplicate names require clarification before assignment. Requires `profile:lookup` and the standard authenticated client; invalid batches return an Axios 400 response. Request options support cancellation and timeouts.

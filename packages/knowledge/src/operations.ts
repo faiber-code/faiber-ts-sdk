@@ -1,3 +1,4 @@
+import type * as W from "./types.js";
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
 
@@ -404,5 +405,15 @@ export class KnowledgeOperations extends ServiceApi {
    */
   mainReadinessGetHealthReady(options?: RequestOptions) {
     return this.client.request<T.MainReadinessGetHealthReadyResponse>({ ...options, method: "GET", url: `/health/ready` });
+  }
+  /**
+   * Calls `GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}` using the authenticated sandbox connection.
+   * Requires `knowledge:runtime` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceAssistantContracts(assistant_id: string, slug: string, options?: RequestOptions) {
+    return this.client.request<W.AssistantContractsResponse>({ ...options, method: "GET", url: `/api/v1/runtime/assistants/${encodeURIComponent(assistant_id)}/contracts/${encodeURIComponent(slug)}` });
   }
 }

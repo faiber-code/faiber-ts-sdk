@@ -3,6 +3,8 @@ import type * as T from "./types.js";
 type R<E extends T.ProfileRecord, C, U, L, S> = RestResource<E, C, U, L, S>;
 import { ProfileOperations } from "./operations.js";
 export class ProfileApi extends ServiceApi {
+    /** Resolves 1–200 authenticated sandbox user IDs to active profile names. Requires profile:lookup; invalid batches return 400. Scope eligible membership through Task before calling. */
+    resolvePeople(data: T.ResolvePeopleInput, options?: RequestOptions<T.ResolvePeopleInput>) { return this.client.post<T.ResolvePeopleResponse, T.ResolvePeopleInput>("/api/v1/profile/people/resolve", data, options); }
     readonly operations = new ProfileOperations(this.client);
     readonly profiles = new RestResource<T.Profile, T.CreateProfileInput, T.UpdateProfileInput, T.ProfileListResponse, T.ProfileResponse>(this.client, "/api/v1/profile", { supported: ["list", "show", "update", "delete"] });
     readonly countries: R<T.Country, T.CreateCountryInput, T.UpdateCountryInput, T.CountryListResponse, T.CountryResponse> = new RestResource(this.client, "/api/v1/country", { supported: ["list", "show", "create", "update", "replace", "delete"] });

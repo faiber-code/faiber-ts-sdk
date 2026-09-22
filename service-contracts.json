@@ -1692,6 +1692,45 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/workspace-assistants",
+      "module": "workspace",
+      "handler": "roles",
+      "permissions": [
+        "assistant:read"
+      ],
+      "source": "infera-chat/src/workspace_assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/admin/workspace-assistants/{role}",
+      "module": "workspace",
+      "handler": "bind",
+      "permissions": [
+        "assistant:manage"
+      ],
+      "source": "infera-chat/src/workspace_assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/workspace-assistants",
+      "module": "workspace",
+      "handler": "managedRoles",
+      "permissions": [
+        "assistant:manage"
+      ],
+      "source": "infera-chat/src/workspace_assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "crm": [
@@ -6484,6 +6523,19 @@
       "permissions": [],
       "source": "infera-knowledge/src/main.rs",
       "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/runtime/assistants/{assistant_id}/contracts/{slug}",
+      "module": "workspace",
+      "handler": "assistantContracts",
+      "permissions": [
+        "knowledge:runtime"
+      ],
+      "source": "infera-knowledge/src/contracts.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -14416,6 +14468,19 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/profile/people/resolve",
+      "module": "workspace",
+      "handler": "resolvePeople",
+      "permissions": [
+        "profile:lookup"
+      ],
+      "source": "infera-profile/src/profile_search/people.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "reservation": [
@@ -17129,6 +17194,136 @@
       "permissions": [],
       "source": "infera-task/src/routes.rs",
       "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/assistant/query",
+      "module": "workspace",
+      "handler": "query",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/planning-preferences",
+      "module": "workspace",
+      "handler": "preferences",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/planning-preferences",
+      "module": "workspace",
+      "handler": "savePreferences",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/note-folders",
+      "module": "workspace",
+      "handler": "folders",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/review-proposals",
+      "module": "workspace",
+      "handler": "propose",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/review-proposals/validate",
+      "module": "workspace",
+      "handler": "validate",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/review-proposals/{id}",
+      "module": "workspace",
+      "handler": "proposal",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/review-proposals/{id}",
+      "module": "workspace",
+      "handler": "revise",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/review-proposals/{id}/apply",
+      "module": "workspace",
+      "handler": "apply",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/review-proposals/{id}/refresh",
+      "module": "workspace",
+      "handler": "refresh",
+      "permissions": [
+        "task:access:use"
+      ],
+      "source": "infera-task/src/assistant.rs",
+      "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     }

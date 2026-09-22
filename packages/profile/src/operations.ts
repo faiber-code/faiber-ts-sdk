@@ -1,3 +1,4 @@
+import type * as W from "./types.js";
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
 
@@ -1935,5 +1936,15 @@ export class ProfileOperations extends ServiceApi {
    */
   routerHealthGetUp(options?: RequestOptions) {
     return this.client.request<T.RouterHealthGetUpResponse>({ ...options, method: "GET", url: `/up` });
+  }
+  /**
+   * Calls `POST /api/v1/profile/people/resolve` using the authenticated sandbox connection.
+   * Requires `profile:lookup` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceResolvePeople(data: W.ResolvePeopleInput, options?: RequestOptions<W.ResolvePeopleInput>) {
+    return this.client.request<W.ResolvePeopleResponse, W.ResolvePeopleInput>({ ...options, method: "POST", url: `/api/v1/profile/people/resolve`, data });
   }
 }

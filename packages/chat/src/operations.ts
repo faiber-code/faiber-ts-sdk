@@ -1,3 +1,4 @@
+import type * as W from "./workspace.js";
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
 
@@ -362,5 +363,34 @@ export class ChatOperations extends ServiceApi {
    */
   mainHealthGet(options?: RequestOptions) {
     return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });
+  }
+  /**
+   * Calls `GET /api/v1/workspace-assistants` using the authenticated sandbox connection.
+   * Requires `assistant:read` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceRoles(options?: RequestOptions) {
+    return this.client.request<W.WorkspaceAssistantBindingsResponse>({ ...options, method: "GET", url: `/api/v1/workspace-assistants` });
+  }
+  /**
+   * Calls `PUT /api/v1/admin/workspace-assistants/{role}` using the authenticated sandbox connection.
+   * Requires `assistant:manage` and current resource access. Supply If-Match for versioned writes.
+   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
+   * @returns The complete Axios response with the typed service envelope.
+   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
+   */
+  workspaceBind(role: string, data: W.WorkspaceAssistantBindingInput, options?: RequestOptions<W.WorkspaceAssistantBindingInput>) {
+    return this.client.request<W.WorkspaceAssistantBindingResponse, W.WorkspaceAssistantBindingInput>({ ...options, method: "PUT", url: `/api/v1/admin/workspace-assistants/${encodeURIComponent(role)}`, data });
+  }
+  /**
+   * Calls `GET /api/v1/admin/workspace-assistants` to inspect staged and active role bindings.
+   * Requires assistant:manage in the current sandbox.
+   * @returns The complete Axios response with managed role bindings and versions.
+   * @throws AxiosError on authentication, permission, or dependency failures.
+   */
+  workspaceManagedRoles(options?:RequestOptions) {
+    return this.client.request<W.ManagedWorkspaceRolesResponse>({...options,method:"GET",url:"/api/v1/admin/workspace-assistants"});
   }
 }

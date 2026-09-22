@@ -9,7 +9,9 @@ export interface CreateSharedProjectInput{name:string;description?:string}
 export interface UpdateProjectInput{ name?:string;description?:string;status?:string;settings?:JsonObject }
 export interface ProjectQuery extends CursorQuery{mode?:ProjectMode;status?:string;q?:string}
 export interface WorkItemQuery extends CursorQuery{project_id?:string;sprint_id?:string;owner_id?:string;status?:string;q?:string;sort?:string}
-export interface CreateWorkItemInput{reminder?:ReminderInput;project_id:string;parent_id?:string|null;item_type?:string;title:string;description?:string;priority?:string;owner_id:string;estimate?:number|null;story_points?:number|null;start_at?:string|null;due_at?:string|null;sprint_id?:string|null;release_id?:string|null;campaign_id?:string|null;custom_fields?:JsonObject;external_source?:string|null;external_id?:string|null}
+export interface CreateWorkItemInput{
+  /** Initial steps are saved atomically with the task and reminder. */
+  checklist?: ChecklistItem[];reminder?:ReminderInput|null;project_id:string;parent_id?:string|null;item_type?:string;title:string;description?:string;priority?:string;owner_id:string;estimate?:number|null;story_points?:number|null;start_at?:string|null;due_at?:string|null;sprint_id?:string|null;release_id?:string|null;campaign_id?:string|null;custom_fields?:JsonObject;external_source?:string|null;external_id?:string|null}
 export interface UpdateWorkItemInput{title?:string;description?:string;priority?:string;owner_id?:string;estimate?:number|null;story_points?:number|null;start_at?:string|null;due_at?:string|null;sprint_id?:string|null;release_id?:string|null;campaign_id?:string|null;custom_fields?:JsonObject}
 export interface TransitionWorkItemInput{status:string;rank?:string}
 export interface CreateSprintInput{team_id:string;project_id?:string|null;name:string;goal?:string;starts_at?:string|null;ends_at?:string|null;capacity?:number|null}
@@ -34,5 +36,6 @@ export interface ChecklistResult { id:string; version:number; items:ChecklistIte
 export interface ChecklistSnapshot extends ChecklistResult { task:WorkItem }
 export interface ProjectMember { id:string; role:string; version:number }
 export interface RemovalResult { removed:boolean }
-export interface ReminderInput { anchor_at:string; timezone:string; recurrence:'once'|'daily'|'monthly' }
+export type ReminderTrigger = {kind:'relative';minutes_before:number}|{kind:'same_day';time:string};
+export interface ReminderInput { anchor_at:string; timezone:string; recurrence:'once'|'daily'|'monthly';triggers?:ReminderTrigger[] }
 export interface Reminder extends ReminderInput { work_item_id:string; workspace_id:string; user_id:string; next_at:string|null; last_queued_at:string|null; version:number }
