@@ -205,7 +205,8 @@ export interface HomeworkBank extends LmsEntity {
 export interface CreateHomeworkBankInput extends JsonObject { name: string; title?: string | null; description?: string | null; status?: "active" | "inactive"; }
 export interface UpdateHomeworkBankInput extends Partial<CreateHomeworkBankInput> {}
 export interface Homework extends LmsEntity {
-    homework_bank_id: string;
+    /** Set only when this homework is explicitly managed as a bank item. */
+    homework_bank_id: string | null;
     course_id?: string | null;
     name: string;
     title?: string | null;
@@ -218,7 +219,19 @@ export interface Homework extends LmsEntity {
     created_at: string;
     updated_at: string;
 }
-export type HomeworkBankItem = Homework;
+export interface HomeworkBankItem extends LmsEntity {
+    homework_bank_id: string;
+    name: string;
+    title?: string | null;
+    description?: string | null;
+    status: "active" | "inactive";
+    sort_order: number;
+    difficulty?: HomeworkDifficulty | null;
+    points: number;
+    kind: HomeworkKind;
+    created_at: string;
+    updated_at: string;
+}
 export type ExamBank = Exam;
 export type ExamBankItem = ExamQuestion;
 export interface HomeworkQuestion extends LmsEntity {

@@ -3521,7 +3521,7 @@ export interface HomeworkIndexHomeworkGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::HomeworkResponse>. */
 export interface HomeworkIndexHomeworkGetResponseItem extends JsonObject {
   "id": string;
-  "homework_bank_id": string;
+  "homework_bank_id": string | null;
   "course_id"?: string | null;
   "course_name"?: string | null;
   "grade_id"?: string | null;
@@ -3568,7 +3568,7 @@ export interface HomeworkStoreHomeworkPostInput extends JsonObject {
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkStoreHomeworkPostResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id": string;
+  "homework_bank_id": string | null;
   "course_id"?: string | null;
   "course_name"?: string | null;
   "grade_id"?: string | null;
@@ -3594,7 +3594,7 @@ export interface HomeworkDestroyHomeworkDeleteResponse extends ApiEnvelope<JsonV
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkShowHomeworkGetResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id": string;
+  "homework_bank_id": string | null;
   "course_id"?: string | null;
   "course_name"?: string | null;
   "grade_id"?: string | null;
@@ -3631,7 +3631,7 @@ export interface HomeworkUpdateHomeworkPatchInput extends JsonObject {
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkUpdateHomeworkPatchResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id": string;
+  "homework_bank_id": string | null;
   "course_id"?: string | null;
   "course_name"?: string | null;
   "grade_id"?: string | null;

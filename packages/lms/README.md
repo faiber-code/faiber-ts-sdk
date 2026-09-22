@@ -60,7 +60,7 @@ Course sessions, classroom users and absences, assignments, invitations, club pr
 
 ### Homework and exam banks
 
-Reusable definitions are separate from delivery records. Manage homework banks with `api.homeworkBanks`, then use `api.homeworkBankItems(bankId)` for their homework/project items. Each item exposes `kind: "homework" | "project"`, and assignments are managed with `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment`.
+Reusable definitions are separate from delivery records. Manage homework banks with `api.homeworkBanks`, then use `api.homeworkBankItems(bankId)` for their explicitly linked homework/project items. Standalone or historical homework returned by the compatibility `api.homeworks` resource is not treated as bank content and has `homework_bank_id: null`. Each bank item exposes a required `homework_bank_id` and `kind: "homework" | "project"`; assignments are managed with `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment`.
 
 Exam definitions are exposed as `api.examBanks`, their questions/items as `api.examBankItems`, delivery sessions as `api.examSessions`, and learner attempts as `listExamUsers`, `examUser`, and `updateExamUser`. The legacy `api.exams`, `api.examQuestions`, and `api.homeworks` names remain available.
 
