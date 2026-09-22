@@ -111,6 +111,6 @@ export type ConverterCapabilityListResponse = ConverterListResponse;
 export type ProcessingJobListResponse = ApiEnvelope<ProcessingJob[]>;
 
 /** Published contract content and deliberately extensible JSON Schema metadata. */
-export interface PublishedAssistantContract { content: Record<string, string>; metadata: { contract_version: string; output_schema?: JsonValue }; }
-export interface AssistantContractsResult { release_id: string; contracts: Record<string, PublishedAssistantContract>; }
+export interface PublishedAssistantContract { content: Record<string, string>; metadata: { contract_version: string; output_schema?: JsonValue; shared_contract?: {slug:string;version:string;release_id:string} }; }
+export interface AssistantContractsResult { release_id: string; shared_release_id?: string|null; contracts: Record<string, PublishedAssistantContract>; }
 export interface AssistantContractsResponse { data: AssistantContractsResult; }

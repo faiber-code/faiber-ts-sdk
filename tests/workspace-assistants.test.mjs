@@ -13,10 +13,10 @@ test('workspace contracts, role discovery and review revisions use authenticated
  await task.workspaceAssistant.propose({conversation_id:'conversation',project_id:null,request_id:'once',operations:[{kind:'delete',id:'record',expected_version:2}]});
  await task.workspaceAssistant.apply('proposal',3);await task.workspaceAssistant.refresh('proposal',3);
  await new ChatApi(connection('chat')).workspaceAssistant.roles();
- await new KnowledgeApi(connection('knowledge')).assistantContracts('assistant','2done-assistants');
+ await new KnowledgeApi(connection('knowledge')).assistantContracts('assistant','2done-action');
  await new ProfileApi(connection('profile')).resolvePeople({user_ids:['member']});
  assert.ok(calls.every(c=>c.headers.get('Authorization')==='Bearer caller'));
  assert.equal(calls[2].headers.get('If-Match'),'3');assert.equal(calls[3].headers.get('If-Match'),'3');
- assert.deepEqual(calls.map(c=>[c.method,c.url]),[['post','/api/v1/assistant/query'],['post','/api/v1/review-proposals'],['post','/api/v1/review-proposals/proposal/apply'],['post','/api/v1/review-proposals/proposal/refresh'],['get','/api/v1/workspace-assistants'],['get','/api/v1/runtime/assistants/assistant/contracts/2done-assistants'],['post','/api/v1/profile/people/resolve']]);
+ assert.deepEqual(calls.map(c=>[c.method,c.url]),[['post','/api/v1/assistant/query'],['post','/api/v1/review-proposals'],['post','/api/v1/review-proposals/proposal/apply'],['post','/api/v1/review-proposals/proposal/refresh'],['get','/api/v1/workspace-assistants'],['get','/api/v1/runtime/assistants/assistant/contracts/2done-action'],['post','/api/v1/profile/people/resolve']]);
  assert.deepEqual(JSON.parse(calls[0].data),{owner_id:'caller',completed_by_me:true,limit:200});
 });

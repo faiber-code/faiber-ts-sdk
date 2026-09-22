@@ -2,10 +2,10 @@ import { ServiceApi,type RequestOptions } from '@faiber/sdk-core';
 import type { ReviewProposal,ReminderInput,WorkspaceQueryResult } from '@faiber/faiber-task';
 export type WorkspaceAssistantRole='action'|'chat';
 export interface WorkspaceAssistantBinding {role:WorkspaceAssistantRole;assistant_id:string;name:string;version:number}
-export interface WorkspaceAssistantBindingInput {assistant_id:string;knowledge_slug:'2done-assistants';enabled:boolean;expected_version:number}
+export interface WorkspaceAssistantBindingInput {assistant_id:string;knowledge_slug:'2done-action'|'2done-chat'|'2done-assistants';enabled:boolean;expected_version:number}
 export interface WorkspaceDraft {title:string;description:string;checklist:string[];project_id:string;owner_id:string|null;priority:'low'|'medium'|'high';item_type:'task'|'note';due_at:string|null;reminder:ReminderInput|null}
 export interface WorkspaceCitation {title:string;url:string}
-export interface WorkspaceResultBase {schema_version:'1.0.0';text:string;citations:WorkspaceCitation[];knowledge_release_id:string;retrieved_at:string}
+export interface WorkspaceResultBase {schema_version:'1.0.0';text:string;citations:WorkspaceCitation[];knowledge_release_id:string;shared_knowledge_release_id?:string|null;retrieved_at:string}
 export type WorkspaceAssistantResult = WorkspaceResultBase & (
  | {kind:'draft';draft:WorkspaceDraft}
  | {kind:'proposal';proposal:ReviewProposal}
