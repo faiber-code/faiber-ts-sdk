@@ -23,3 +23,7 @@ Public search/detail return published, closed, or moved places. Merged IDs resol
 All methods return full Axios responses. Pass request options with an AbortSignal to cancel, and handle authentication (401), authorization (403), missing records (404), validation (400), and service failures. Retain user inputs on a failed mutation. No automatic mutation retry is performed. The full facade is [@faiber/faiber-ts-sdk](https://www.npmjs.com/package/@faiber/faiber-ts-sdk).
 
 This capability is under development on the Rasht integration branch; use its reviewed pinned package artifacts until a coordinated SDK release is published.
+
+`search({ limit: 100, offset: 100 })` retrieves subsequent catalog pages. Proposals
+accept bounded HTTP(S) source records (`url`, `label`, `checked_at`) and remain pending
+until moderation. `pool` and `gym` are supported place categories.

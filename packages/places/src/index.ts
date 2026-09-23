@@ -1,7 +1,7 @@
 import {ServiceApi,type RequestOptions} from '@faiber/sdk-core';
 export interface Place {id:string;slug:string;name:{fa:string;en?:string};description:{fa:string;en?:string};category:string;tags:string[];latitude:number;longitude:number;address:{fa:string;en?:string};district:string;media:{url:string;alt:{fa:string;en?:string}}[];sources:{url:string;label:string;checked_at:string}[];opening_info:Record<string,string>|null;contact:Record<string,string>;verification:string;status:string;canonical_id?:string;created_at:string}
-export interface PlaceQuery {q?:string;category?:string;bbox?:string;lat?:number;lon?:number;radius?:number;limit?:number;[key:string]:string|number|undefined}
-export interface Proposal {name:string;description?:string;category:string;latitude:number;longitude:number;address?:string}
+export interface PlaceQuery {q?:string;category?:string;bbox?:string;lat?:number;lon?:number;radius?:number;limit?:number;offset?:number;[key:string]:string|number|undefined}
+export interface Proposal {name:string;description?:string;category:string;latitude:number;longitude:number;address?:string;sources?:{url:string;label:string;checked_at:string}[]}
 export class PlacesApi extends ServiceApi {
  search(params?:PlaceQuery,options?:RequestOptions){return this.client.get<{data:Place[]}>('/api/v1/places',params,options);}
  place(id:string,options?:RequestOptions){return this.client.get<{data:Place}>(`/api/v1/places/${encodeURIComponent(id)}`,undefined,options);}

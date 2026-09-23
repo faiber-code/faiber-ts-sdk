@@ -58,3 +58,8 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+Public post responses include `kind` and nullable `expires_at`. Story reads, including
+media and comment URLs, expire 24 hours after creation. Categories may require an
+additional `metadata.required_publish_permission`; the authenticated service enforces
+that entitlement for creation and edits. Clients cannot grant their own permissions.

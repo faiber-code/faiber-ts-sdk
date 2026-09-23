@@ -10,7 +10,7 @@ import type {
 const id = (value: Identifier) => encodeURIComponent(value);
 
 import { SocialOperations } from "./operations.js";
-export interface PublicPost {liked:boolean;bookmarked:boolean;id:string;author_user_id:string;body:string;media:{id:string;url:string}[];created_at:string;reactions_count:number;comments_count:number;subject:{subject_type:string;subject_ref:string;public_snapshot:{name:{fa:string;en?:string};slug:string}}|null}
+export interface PublicPost {kind:"post"|"question"|"story"|"announcement";expires_at:string|null;liked:boolean;bookmarked:boolean;id:string;author_user_id:string;body:string;media:{id:string;url:string}[];created_at:string;reactions_count:number;comments_count:number;subject:{subject_type:string;subject_ref:string;public_snapshot:{name:{fa:string;en?:string};slug:string}}|null}
 export interface PublicFeedQuery {subject_type?:string;subject_ref?:string;subject_refs?:string;following?:boolean;q?:string;author_id?:string;page?:number;limit?:number;[key:string]:string|number|boolean|undefined}
 export class SocialApi extends ServiceApi {
   publicFeed(params?:PublicFeedQuery,options?:RequestOptions){return this.client.get<ApiEnvelope<PublicPost[]>>('/api/v1/public/posts',params,options);}
