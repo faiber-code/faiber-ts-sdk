@@ -1,3 +1,4 @@
+import { LearningTeacherApi } from "./learning.js";
 import { ChatWorkspaceOperations } from "./workspace.js";
 import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
@@ -12,6 +13,8 @@ export class ChatApi extends ServiceApi {
     return this.client.post<import('./speech-live.js').LiveSpeechResponse, import('./speech-live.js').LiveSpeechInput>('/api/v1/speech/live',input,options);
   }
 
+
+  readonly learning = new LearningTeacherApi(this.client);
   readonly workspaceAssistant = new ChatWorkspaceOperations(this.client);
   readonly operations = new ChatOperations(this.client);
   /** Check configured local transcription availability; requires chat:ai. */
@@ -70,8 +73,9 @@ export * from "./operations.types.js";
 
 export * from "./workspace.js";
 
+export * from "./learning.js";
+
 export * from "./speech-recorder.js";
 
 export * from "./speech-playback.js";
-
 export * from "./speech-live.js";

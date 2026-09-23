@@ -128,3 +128,21 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+## Versioned interactive learning
+
+`api.interactive` exposes published previews, authored definition versions, start/resume, draft saves, progressive hints, deterministic submissions and bounded teacher context. The deployment must include the interactive-learning migration and executor. The previous unmounted `interactiveContent` resource now fails locally; use the supported versioned API.
+
+```ts
+const catalog = await api.interactive.catalog();
+const started = await api.interactive.start(sessionId, { enrollment_id: enrollmentId });
+const run = started.data.data;
+const result = await api.interactive.submit(run.state.id, {
+  revision: run.state.revision,
+  activity_id: run.definition.activities[run.state.current_activity].id,
+  code: "score = 10",
+  idempotency_key: crypto.randomUUID(),
+});
+```
+
+The server owns checks and mastery. Browser output must not be submitted as a passing result. Keep the idempotency key for retries of an identical submission; refetch on revision conflict. Definition authoring requires `lms:course:read`/`lms:course:update`; learner mutations verify active enrollment ownership and prerequisites. No API credentials belong in browser storage.
