@@ -158,3 +158,16 @@ tenant, authenticated user and voice revision in the scope. Call exported
 language or scope replaces the last entry. Cancelled playback retains already generated
 sections; a replay requests only missing sections. Storage denial falls back to memory.
 No server cache is introduced.
+
+### Curriculum-bound teacher
+
+`chat.learning.ask(runId, { question, idempotency_key })` requires `chat:ai` and
+ownership of the LMS run. The server loads the published objective and verified
+results; callers cannot choose a learner, model, curriculum, tools, or progress.
+Reuse the idempotency key only when retrying exactly the same question.
+
+`chat.learning.history(runId, { signal })` requires `chat:read` and the same run
+ownership. It returns at most 40 messages in chronological order as
+`{ id, role: 'user' | 'teacher', text }` in `response.data.data`. It does not expose
+conversation management, internal prompts, metadata, or other learners' records.
+Both methods retain Axios status/headers and accept cancellation options.

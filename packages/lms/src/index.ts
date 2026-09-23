@@ -1,3 +1,4 @@
+import { InteractiveLearningApi } from "./interactive.js";
 import { RestResource, ServiceApi, type AxiosResponse, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
@@ -86,6 +87,7 @@ export function classroomSessionRecordingUrl(reference: T.ClassroomSessionRoomRe
 }
 
 export class LmsApi extends ServiceApi {
+    readonly interactive = new InteractiveLearningApi(this.client);
     readonly operations = new LmsOperations(this.client);
     /** Reads AI performance-summary configuration. Requires `lms:config:read`. */
     aiSummarySettings(options?: RequestOptions) { return this.client.get<T.AiSummarySettingsResponse>("/api/v1/ai-summaries/settings", undefined, options); }
@@ -117,7 +119,7 @@ export class LmsApi extends ServiceApi {
     readonly certificates: R<T.Certificate, T.CreateCertificateInput, T.UpdateCertificateInput> = new RestResource(this.client, "/api/v1/certificates", { supported: ["list", "show", "create", "update"] });
     readonly certificateTemplates: R<T.CertificateTemplate, T.CreateCertificateTemplateInput, T.UpdateCertificateTemplateInput> = new RestResource(this.client, "/api/v1/certificates/templates", { supported: ["list", "show", "create", "update"] });
     readonly events: R<T.Event, T.CreateEventInput, T.UpdateEventInput> = new RestResource(this.client, "/api/v1/events", { supported: ["list", "show", "create", "update"] });
-    readonly interactiveContent: R<T.InteractiveContent, T.CreateInteractiveContentInput, T.UpdateInteractiveContentInput> = new RestResource(this.client, "/api/v1/interactive/content", { supported: ["list", "show", "create", "update"] });
+    readonly interactiveContent: R<T.InteractiveContent, T.CreateInteractiveContentInput, T.UpdateInteractiveContentInput> = new RestResource(this.client, "/api/v1/interactive/content", { supported: [] });
     readonly grades: R<T.Grade, T.CreateGradeInput, T.UpdateGradeInput> = new RestResource(this.client, "/api/v1/config/grades", { supported: ["list", "show", "create", "update"] });
     readonly classroomTypes: R<T.ClassroomType, T.CreateClassroomTypeInput, T.UpdateClassroomTypeInput> = new RestResource(this.client, "/api/v1/config/classroom-types", { supported: ["list", "show", "create", "update"] });
     readonly textTemplates: R<T.TextTemplate, T.CreateTextTemplateInput, T.UpdateTextTemplateInput> = new RestResource(this.client, "/api/v1/config/text-templates", { supported: ["list", "show", "create", "update"] });
@@ -257,3 +259,5 @@ export * from "./types.js";
 export * from "@faiber/sdk-core";
 export * from "./operations.js";
 export * from "./operations.types.js";
+
+export * from "./interactive.js";
