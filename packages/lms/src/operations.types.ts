@@ -3758,6 +3758,7 @@ export interface HomeworkIndexAssignmentGetResponseItemSupportProfile extends Js
 export interface HomeworkIndexAssignmentGetResponseItem extends JsonObject {
   "id": string;
   "homework_id": string;
+  "homework_question_id"?: string | null;
   "homework_name"?: string | null;
   "homework"?: import("./types.js").Homework | null;
   "homework_question"?: import("./types.js").HomeworkQuestion | null;
@@ -3775,7 +3776,10 @@ export interface HomeworkIndexAssignmentGetResponseItem extends JsonObject {
   "due_at"?: string | null;
   "status": string;
   "answer_text"?: string | null;
+  "description"?: string | null;
   "score"?: number | null;
+  "active_until"?: string | null;
+  "resolved_at"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3841,6 +3845,7 @@ export interface HomeworkStoreAssignmentPostResponseDataSupportProfile extends J
 export interface HomeworkStoreAssignmentPostResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "homework_question_id"?: string | null;
   "homework_name"?: string | null;
   "homework"?: import("./types.js").Homework | null;
   "homework_question"?: import("./types.js").HomeworkQuestion | null;
@@ -3858,7 +3863,10 @@ export interface HomeworkStoreAssignmentPostResponseData extends JsonObject {
   "due_at"?: string | null;
   "status": string;
   "answer_text"?: string | null;
+  "description"?: string | null;
   "score"?: number | null;
+  "active_until"?: string | null;
+  "resolved_at"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3905,6 +3913,7 @@ export interface HomeworkShowAssignmentGetResponseDataSupportProfile extends Jso
 export interface HomeworkShowAssignmentGetResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "homework_question_id"?: string | null;
   "homework_name"?: string | null;
   "homework"?: import("./types.js").Homework | null;
   "homework_question"?: import("./types.js").HomeworkQuestion | null;
@@ -3922,7 +3931,10 @@ export interface HomeworkShowAssignmentGetResponseData extends JsonObject {
   "due_at"?: string | null;
   "status": string;
   "answer_text"?: string | null;
+  "description"?: string | null;
   "score"?: number | null;
+  "active_until"?: string | null;
+  "resolved_at"?: string | null;
   "created_at": string;
   "updated_at": string;
 }
@@ -3979,6 +3991,7 @@ export interface HomeworkUpdateAssignmentPatchResponseDataSupportProfile extends
 export interface HomeworkUpdateAssignmentPatchResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "homework_question_id"?: string | null;
   "homework_name"?: string | null;
   "homework"?: import("./types.js").Homework | null;
   "homework_question"?: import("./types.js").HomeworkQuestion | null;
@@ -3996,7 +4009,10 @@ export interface HomeworkUpdateAssignmentPatchResponseData extends JsonObject {
   "due_at"?: string | null;
   "status": string;
   "answer_text"?: string | null;
+  "description"?: string | null;
   "score"?: number | null;
+  "active_until"?: string | null;
+  "resolved_at"?: string | null;
   "created_at": string;
   "updated_at": string;
 }

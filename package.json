@@ -1,6 +1,6 @@
 {
   "name": "faiber-ts-sdk-monorepo",
-  "version": "0.18.3",
+  "version": "0.18.4",
   "description": "Framework-agnostic TypeScript SDK for Faiber services",
   "private": true,
   "workspaces": [

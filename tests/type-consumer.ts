@@ -101,9 +101,17 @@ async function provePublicContracts(): Promise<void> {
   const assignedHomeworkDescription: string | null | undefined = homeworkAssignment.data.data.homework?.description;
   const assignedQuestionKind: LmsService.HomeworkItemKind | undefined = homeworkAssignment.data.data.homework_question?.kind;
   const assignedQuestionName: string | undefined = homeworkAssignment.data.data.homework_question?.name;
+  const assignedQuestionId: string | null | undefined = homeworkAssignment.data.data.homework_question_id;
+  const assignmentDescription: string | null | undefined = homeworkAssignment.data.data.description;
+  const assignmentActiveUntil: string | null | undefined = homeworkAssignment.data.data.active_until;
+  const assignmentResolvedAt: string | null | undefined = homeworkAssignment.data.data.resolved_at;
   void assignedHomeworkDescription;
   void assignedQuestionKind;
   void assignedQuestionName;
+  void assignedQuestionId;
+  void assignmentDescription;
+  void assignmentActiveUntil;
+  void assignmentResolvedAt;
   await apis.lms.homeworkBankItems("00000000-0000-0000-0000-000000000010").create({
     name: "Capstone project",
     question_text: "Build and present the capstone project",
