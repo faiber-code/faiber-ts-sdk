@@ -58,6 +58,10 @@ This package exposes 164 registered operations from the learning management serv
 
 Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, and work-time records have dedicated typed operations. Most LMS updates use `PATCH`; unsupported generic deletes are guarded locally.
 
+Homework assignments and exam sessions expose explicit `student_user_id`, `teacher_user_id`, `consultant_user_id`, and `support_user_id` list filters. The existing `user_id` filter remains available when a caller wants any related participant or staff role.
+
+Homework-bank items accept `name` on create and update. Responses always include `name`; when it is blank or omitted, the LMS derives it from the question text and caps it at 80 Unicode characters with an ellipsis.
+
 ### Homework and exam banks
 
 Reusable homework definitions are the homework-bank layer: `api.homeworkBanks` and the compatibility alias `api.homeworks` address the same records. Use `api.homeworkBankItems(bankId)` for the definition's questions/items (`homework_questions`). Every item has `kind: "todo" | "project"`; the nested list accepts the same `kind` filter, and create/update accept the field. Delivery records reference an item's ID (not the bank ID) and are fully managed through `api.homeworkAssignments`. The compatibility methods `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment` remain available.

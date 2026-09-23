@@ -2996,9 +2996,15 @@ export interface ExamUpdateQuestionPatchResponse extends ApiEnvelope<ExamUpdateQ
 export interface ExamIndexSessionGetQuery extends QueryParams {
   "page_number"?: number | null;
   "page_size"?: number | null;
+  "search"?: string | null;
   "status"?: string | null;
+  "exam_id"?: string | null;
   "classroom_id"?: string | null;
   "user_id"?: string | null;
+  "student_user_id"?: string | null;
+  "teacher_user_id"?: string | null;
+  "consultant_user_id"?: string | null;
+  "support_user_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
 }
@@ -3383,6 +3389,7 @@ export interface HomeworkIndexBankHomeworkGetQuery extends QueryParams {
 export interface HomeworkIndexBankHomeworkGetResponseItem extends JsonObject {
   "id": string;
   "homework_id": string;
+  "name": string;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -3411,6 +3418,7 @@ export interface HomeworkIndexBankHomeworkGetResponse extends ApiEnvelope<Homewo
 
 /** Backend request type: models::CreateBankHomeworkRequest. */
 export interface HomeworkStoreBankHomeworkPostInput extends JsonObject {
+  "name"?: string | null;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -3426,6 +3434,7 @@ export interface HomeworkStoreBankHomeworkPostInput extends JsonObject {
 export interface HomeworkStoreBankHomeworkPostResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "name": string;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -3450,6 +3459,7 @@ export interface HomeworkDestroyBankHomeworkDeleteResponse extends ApiEnvelope<J
 export interface HomeworkShowBankHomeworkGetResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "name": string;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -3468,6 +3478,7 @@ export interface HomeworkShowBankHomeworkGetResponse extends ApiEnvelope<Homewor
 
 /** Backend request type: models::UpdateBankHomeworkRequest. */
 export interface HomeworkUpdateBankHomeworkPatchInput extends JsonObject {
+  "name"?: string | null;
   "question_text"?: string | null;
   "description"?: string | null;
   "answer"?: string | null;
@@ -3483,6 +3494,7 @@ export interface HomeworkUpdateBankHomeworkPatchInput extends JsonObject {
 export interface HomeworkUpdateBankHomeworkPatchResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "name": string;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -3703,6 +3715,10 @@ export interface HomeworkIndexAssignmentGetQuery extends QueryParams {
   "homework_id"?: string | null;
   "classroom_id"?: string | null;
   "user_id"?: string | null;
+  "student_user_id"?: string | null;
+  "teacher_user_id"?: string | null;
+  "consultant_user_id"?: string | null;
+  "support_user_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
 }
@@ -3993,6 +4009,7 @@ export interface HomeworkIndexQuestionGetQuery extends QueryParams {
 export interface HomeworkIndexQuestionGetResponseItem extends JsonObject {
   "id": string;
   "homework_id": string;
+  "name": string;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -4022,6 +4039,7 @@ export interface HomeworkIndexQuestionGetResponse extends ApiEnvelope<HomeworkIn
 /** Backend request type: models::CreateQuestionRequest. */
 export interface HomeworkStoreQuestionPostInput extends JsonObject {
   "homework_id": string;
+  "name"?: string | null;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -4037,6 +4055,7 @@ export interface HomeworkStoreQuestionPostInput extends JsonObject {
 export interface HomeworkStoreQuestionPostResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "name": string;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -4057,6 +4076,7 @@ export interface HomeworkStoreQuestionPostResponse extends ApiEnvelope<HomeworkS
 export interface HomeworkShowQuestionGetResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "name": string;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
@@ -4076,6 +4096,7 @@ export interface HomeworkShowQuestionGetResponse extends ApiEnvelope<HomeworkSho
 /** Backend request type: models::UpdateQuestionRequest. */
 export interface HomeworkUpdateQuestionPatchInput extends JsonObject {
   "homework_id"?: string | null;
+  "name"?: string | null;
   "question_text"?: string | null;
   "description"?: string | null;
   "answer"?: string | null;
@@ -4091,6 +4112,7 @@ export interface HomeworkUpdateQuestionPatchInput extends JsonObject {
 export interface HomeworkUpdateQuestionPatchResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
+  "name": string;
   "question_text": string;
   "description"?: string | null;
   "answer"?: string | null;
