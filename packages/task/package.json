@@ -1,6 +1,6 @@
 {
   "name": "@faiber/faiber-task",
-  "version": "0.17.1",
+  "version": "0.18.0",
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -16,6 +16,6 @@
     "README.md"
   ],
   "dependencies": {
-    "@faiber/sdk-core": "0.17.1"
+    "@faiber/sdk-core": "0.18.0"
   }
 }

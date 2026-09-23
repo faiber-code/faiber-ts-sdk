@@ -124,3 +124,9 @@ progressive MP3 playback with `ChatService.playSpeech()`. Both reuse your authen
 revision; phrase playback starts before the entire response has been generated. See the
 [Chat package speech guide](packages/chat/README.md#live-dictation-and-earlier-speech-playback)
 for availability, cancellation, limits, and fallback behavior.
+
+Speech playback can preload three phrases and optionally retain the latest compressed
+audio **on the client** for fast replay: pass `cacheScope` (service/tenant/user/voice revision)
+and `persistCache: true` to `ChatService.playSpeech()`. Persistence uses browser IndexedDB,
+not a server cache. Clear private audio on logout with `ChatService.clearSpeechPlaybackCache()`.
+See the Chat package guide for bounds, cancellation and storage tradeoffs.

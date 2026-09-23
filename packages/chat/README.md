@@ -143,7 +143,18 @@ fall back to `createSpeechRecorder()` and `transcribe()`. Never treat provisiona
 saved message. Finalization can revise earlier words. Abort and unmount should cancel.
 
 `playSpeech()` is browser-only progressive **phrase** synthesis, not provider-level audio
-streaming. It preserves text order and prepares one phrase ahead, without retaining audio
-across users. Individual phrases use the configured voice and its billing rules. Synthesis,
+streaming. It preserves text order, preloads up to three phrases and schedules ready audio on the
+browser audio clock. Synthesis slower than playback can still cause buffering. Individual phrases use the configured voice and its billing rules. Synthesis,
 decode, and playback errors reject the promise; cancellation stops playback and in-flight
 requests. Short utterances still depend on model generation latency.
+
+Opt into **client-side** replay with `{ cacheScope: tenantId + ':' + userId + ':' + voiceRevision, persistCache: true }`.
+The latest utterance's compressed MP3 sections are kept in browser IndexedDB (up to 16 MiB);
+replay and page reload reuse available sections without TTS requests. Omit `persistCache`
+for memory-only replay, or omit `cacheScope` to disable caching. This stores private audio
+on the device: only enable persistence when your product permits it. Include the service,
+tenant, authenticated user and voice revision in the scope. Call exported
+`clearSpeechPlaybackCache()` on logout, and abort active playback first. Changing text,
+language or scope replaces the last entry. Cancelled playback retains already generated
+sections; a replay requests only missing sections. Storage denial falls back to memory.
+No server cache is introduced.

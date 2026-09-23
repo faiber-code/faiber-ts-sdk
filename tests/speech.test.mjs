@@ -47,10 +47,25 @@ test('live speech chunks inherit auth, signal, ordering and preserve server revi
 test('progressive playback starts before later synthesis finishes and abort releases audio',async t=>{
  const {playSpeech}=await import('../packages/chat/dist/index.js');
  const original=globalThis.AudioContext;let starts=0,closed=0,secondSignal,resolveSecond;
- class Context {destination={};resume(){return Promise.resolve()}close(){closed++;return Promise.resolve()}decodeAudioData(){return Promise.resolve({})}createBufferSource(){return {connect(){},addEventListener(){},start(){starts++},stop(){}}}}
+ class Context {destination={};resume(){return Promise.resolve()}close(){closed++;return Promise.resolve()}decodeAudioData(){return Promise.resolve({duration:3})}createBufferSource(){return {connect(){},addEventListener(){},start(){starts++},stop(){}}}}
  globalThis.AudioContext=Context;t.after(()=>{globalThis.AudioContext=original});
  let calls=0;const api={synthesize:async(_,options)=>{calls++;if(calls===2){secondSignal=options.signal;await new Promise(resolve=>resolveSecond=resolve)}return {data:new Blob(['audio'])}}};
  const controller=new AbortController();const playback=playSpeech(api,{text:'This first sentence should start right away. '+('Here are the remaining tasks. '.repeat(12))},{signal:controller.signal});
  await new Promise(resolve=>setTimeout(resolve,10));assert.equal(starts,1);assert.equal(calls,2);
  controller.abort();resolveSecond();await assert.rejects(playback,{name:'AbortError'});assert.equal(secondSignal.aborted,true);assert.equal(closed,1);
+});
+
+test('preloads multiple phrases during playback, schedules contiguous audio and replays locally',async t=>{
+ const {playSpeech,clearSpeechPlaybackCache}=await import('../packages/chat/dist/index.js');
+ const original=globalThis.AudioContext; const contexts=[];
+ class Context {currentTime=0;destination={};sources=[];constructor(){contexts.push(this)}resume(){return Promise.resolve()}close(){return Promise.resolve()}decodeAudioData(){return Promise.resolve({duration:2})}createBufferSource(){const s={connect(){},disconnect(){},stop(){},addEventListener(_,fn){this.end=fn},start(at){this.at=at}};this.sources.push(s);return s}}
+ globalThis.AudioContext=Context;t.after(()=>{globalThis.AudioContext=original});
+ let calls=0;const api={synthesize:async()=>{calls++;return {data:new Blob(['mp3'])}}};
+ const input={text:'First phrase of the spoken response. Second phrase of the spoken response. Third phrase of the spoken response. Fourth phrase of the spoken response.'};
+ async function finish(p,ctx){await new Promise(r=>setTimeout(r,15));assert.equal(ctx.sources.length,3);const lead=ctx.sources[0].at;assert.ok(lead===0||lead===0.5);assert.deepEqual(ctx.sources.map(s=>s.at),[lead,lead+2,lead+4]);ctx.currentTime=2;ctx.sources[0].end();await new Promise(r=>setTimeout(r,15));assert.equal(ctx.sources[3].at,lead+6);ctx.sources.slice(1).forEach(s=>s.end());await p;}
+ await finish(playSpeech(api,input,{cacheScope:'tenant/user-a/voice-1'}),contexts[0]);assert.equal(calls,4);
+ await finish(playSpeech(api,input,{cacheScope:'tenant/user-a/voice-1'}),contexts[1]);assert.equal(calls,4,'replay must not call TTS');
+ await finish(playSpeech(api,input,{cacheScope:'tenant/user-b/voice-1'}),contexts[2]);assert.equal(calls,8,'different account must not reuse audio');
+ await clearSpeechPlaybackCache();
+ await finish(playSpeech(api,input,{cacheScope:'tenant/user-b/voice-1'}),contexts[3]);assert.equal(calls,12,'logout clears replay');
 });
