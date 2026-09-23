@@ -5,6 +5,13 @@ import type * as O from "./operations.types.js";
 import { ChatOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class ChatApi extends ServiceApi {
+  /** Start, push, finalize or cancel an ordered speech session; chat:ai required.
+   * 400 rejects unsupported codecs/languages, 502 means capacity/provider unavailable.
+   * No task/note/message is saved. Uses normal authenticated Axios transport. */
+  liveSpeech(input: import('./speech-live.js').LiveSpeechInput, options?: RequestOptions<import('./speech-live.js').LiveSpeechInput>) {
+    return this.client.post<import('./speech-live.js').LiveSpeechResponse, import('./speech-live.js').LiveSpeechInput>('/api/v1/speech/live',input,options);
+  }
+
   readonly workspaceAssistant = new ChatWorkspaceOperations(this.client);
   readonly operations = new ChatOperations(this.client);
   /** Check configured local transcription availability; requires chat:ai. */
@@ -64,3 +71,7 @@ export * from "./operations.types.js";
 export * from "./workspace.js";
 
 export * from "./speech-recorder.js";
+
+export * from "./speech-playback.js";
+
+export * from "./speech-live.js";

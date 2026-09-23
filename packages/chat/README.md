@@ -110,3 +110,40 @@ const voice = await chat.synthesize(
 Options include `audioBitsPerSecond` (16,000–64,000), `filter: false` and an abort signal. Permission/device errors are preserved; cancellation rejects pending setup with `AbortError` once microphone acquisition resolves and releases any acquired tracks. Always call `dispose()` on cancellation/unmount and after receiving the final recording chunk. The helper neither uploads nor transcribes automatically and does not enforce a duration or byte limit; enforce the STT service's limits in your application.
 
 `synthesize` requests MP3 by default: mono, 24 kHz, 64 kbit/s. Explicit `format: 'wav'` retains lossless output for processing. MP3 requires a service deployment that supports this format; mismatched upstream formats fail rather than being mislabeled. Speech responses are private and not cacheable. Authentication, Axios response metadata, cancellation, and provider billing follow the configured Chat client. Check the returned Blob MIME type rather than assuming a filename extension. Uploading an existing compressed recording through `transcribe` does not re-encode it in the browser.
+
+### Live dictation and earlier speech playback
+
+```ts
+import { startLiveDictation, playSpeech } from '@faiber/faiber-chat';
+
+// `chat` is your authenticated ChatApi. Start after a microphone button click.
+const dictation = await startLiveDictation(chat, {
+  language: 'fa',
+  signal: abortController.signal,
+  onPartial: text => { provisionalText = text; }, // replace, do not append
+  onError: error => { showError(error.message); },
+});
+const finalText = await dictation.finish(); // stop button: insert this editable revision once
+// Or dictation.cancel() when leaving the page.
+
+// Starts the first phrase while the next phrase is synthesized; MP3 transfer.
+await playSpeech(chat, { text: 'سلام. این برنامه امروز شماست.', language: 'fa' }, {
+  signal: abortController.signal,
+  onPhase: phase => { playbackState = phase; },
+});
+```
+
+Live dictation uploads each compressed chunk once through the normal authenticated
+`FaiberClient` transport. `liveSpeech()` exposes the underlying ordered start/push/finish/cancel
+operations with full Axios responses. Sessions are caller/organization-bound and expire;
+recordings are limited to 60 seconds and buffered upload to 128 KiB. Current live support
+requires the configured Persian Shenava model, an available streaming worker lane, and
+WebM/Ogg Opus. Unsupported language/codec or busy capacity rejects start; applications may
+fall back to `createSpeechRecorder()` and `transcribe()`. Never treat provisional text as a
+saved message. Finalization can revise earlier words. Abort and unmount should cancel.
+
+`playSpeech()` is browser-only progressive **phrase** synthesis, not provider-level audio
+streaming. It preserves text order and prepares one phrase ahead, without retaining audio
+across users. Individual phrases use the configured voice and its billing rules. Synthesis,
+decode, and playback errors reject the promise; cancellation stops playback and in-flight
+requests. Short utterances still depend on model generation latency.

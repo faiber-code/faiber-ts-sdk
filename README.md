@@ -117,3 +117,10 @@ Workspace assistant workflows are available through `task.workspaceAssistant`, `
 ### Speech transfer optimization
 
 `@faiber/faiber-chat` exports `createSpeechRecorder` (also available through the facade's `ChatService` namespace). It captures microphone speech with native noise/echo processing, mono audio and a compact Opus/AAC bitrate, without an encoder download. Send its Blob through your authenticated `chat.transcribe` client. `chat.synthesize` requests compact MP3 by default; pass `format: 'wav'` for lossless processing. Both network calls preserve Axios responses and abort signals. See the [Chat package guide](packages/chat/README.md#compact-microphone-capture-and-speech-playback) for resource cleanup, supported fallbacks, bitrate controls and browser limitations.
+
+Chat supports continuous compressed dictation with `ChatService.startLiveDictation()` and
+progressive MP3 playback with `ChatService.playSpeech()`. Both reuse your authenticated
+`ChatApi`. Live transcription returns replaceable provisional text followed by one final
+revision; phrase playback starts before the entire response has been generated. See the
+[Chat package speech guide](packages/chat/README.md#live-dictation-and-earlier-speech-playback)
+for availability, cancellation, limits, and fallback behavior.
