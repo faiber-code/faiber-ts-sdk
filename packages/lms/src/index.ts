@@ -19,6 +19,35 @@ export interface LmsStudentStatistics {
     };
 }
 
+function assignmentListQuery(params?: T.HomeworkAssignmentListQuery): O.HomeworkIndexAssignmentGetQuery | undefined {
+    if (!params) return undefined;
+    const { statuses, ...query } = params;
+    return {
+        ...query,
+        ...(statuses?.length ? { status: statuses.join(",") } : {}),
+    };
+}
+
+/** Complete CRUD surface for homework-item delivery assignments. */
+export class HomeworkAssignmentsApi extends ServiceApi {
+    private readonly operations = new LmsOperations(this.client);
+    list(params?: T.HomeworkAssignmentListQuery, options?: RequestOptions) {
+        return this.operations.homeworkIndexAssignmentGet(assignmentListQuery(params), options);
+    }
+    show(id: Identifier, options?: RequestOptions) {
+        return this.operations.homeworkShowAssignmentGet(id, options);
+    }
+    create(data: O.HomeworkStoreAssignmentPostInput, options?: RequestOptions<O.HomeworkStoreAssignmentPostInput>) {
+        return this.operations.homeworkStoreAssignmentPost(data, options);
+    }
+    update(id: Identifier, data: O.HomeworkUpdateAssignmentPatchInput, options?: RequestOptions<O.HomeworkUpdateAssignmentPatchInput>) {
+        return this.operations.homeworkUpdateAssignmentPatch(id, data, options);
+    }
+    delete(id: Identifier, options?: RequestOptions) {
+        return this.operations.homeworkDestroyAssignmentDelete(id, options);
+    }
+}
+
 function classroomSessionRoomId(reference: T.ClassroomSessionRoomReference): string | null {
     return typeof reference === "string" ? reference : reference.session_room_id;
 }
@@ -83,6 +112,8 @@ export class LmsApi extends ServiceApi {
     readonly homeworks: R<T.Homework, T.CreateHomeworkInput, T.UpdateHomeworkInput> = new RestResource(this.client, "/api/v1/homeworks", { supported: ["list", "show", "create", "update", "delete"] });
     readonly homeworkBanks: R<T.HomeworkBank, T.CreateHomeworkBankInput, T.UpdateHomeworkBankInput> = new RestResource(this.client, "/api/v1/homework-banks", { supported: ["list", "show", "create", "update", "delete"] });
     readonly homeworkQuestions: R<T.HomeworkQuestion, T.CreateHomeworkQuestionInput, T.UpdateHomeworkQuestionInput> = new RestResource(this.client, "/api/v1/homeworks/questions", { supported: ["list", "show", "create", "update"] });
+    /** Delivered homework-bank items, with typed status and relationship filters. */
+    readonly homeworkAssignments = new HomeworkAssignmentsApi(this.client);
     readonly certificates: R<T.Certificate, T.CreateCertificateInput, T.UpdateCertificateInput> = new RestResource(this.client, "/api/v1/certificates", { supported: ["list", "show", "create", "update"] });
     readonly certificateTemplates: R<T.CertificateTemplate, T.CreateCertificateTemplateInput, T.UpdateCertificateTemplateInput> = new RestResource(this.client, "/api/v1/certificates/templates", { supported: ["list", "show", "create", "update"] });
     readonly events: R<T.Event, T.CreateEventInput, T.UpdateEventInput> = new RestResource(this.client, "/api/v1/events", { supported: ["list", "show", "create", "update"] });
@@ -101,7 +132,7 @@ export class LmsApi extends ServiceApi {
     /** Lists homework-bank definitions; their todo/project items are exposed by `homeworkBankItems`. */
     listHomeworks(params?: O.HomeworkIndexHomeworkGetQuery, options?: RequestOptions) { return this.operations.homeworkIndexHomeworkGet(params, options); }
     /** Lists delivered assignments with user, status, classroom, and time filters. */
-    listAssignments(params?: O.HomeworkIndexAssignmentGetQuery, options?: RequestOptions) { return this.operations.homeworkIndexAssignmentGet(params, options); }
+    listAssignments(params?: T.HomeworkAssignmentListQuery, options?: RequestOptions) { return this.operations.homeworkIndexAssignmentGet(assignmentListQuery(params), options); }
     /** Creates a delivery assignment from a reusable homework/project bank item. */
     createAssignment(data: O.HomeworkStoreAssignmentPostInput, options?: RequestOptions<O.HomeworkStoreAssignmentPostInput>) { return this.operations.homeworkStoreAssignmentPost(data, options); }
     /** Reads one homework/project assignment record. */
