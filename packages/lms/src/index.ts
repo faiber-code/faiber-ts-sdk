@@ -157,8 +157,8 @@ export class LmsApi extends ServiceApi {
     updateExamUser(id: Identifier, data: O.ExamUpdateAttemptPatchInput, options?: RequestOptions<O.ExamUpdateAttemptPatchInput>) { return this.operations.examUpdateAttemptPatch(id, data, options); }
     /** Lists exams with course and relationship-aware time filtering. */
     listExams(params?: O.ExamIndexExamGetQuery, options?: RequestOptions) { return this.operations.examIndexExamGet(params, options); }
-    /** Lists exam sessions with participant/staff relationship and time filters. */
-    listExamSessions(params?: O.ExamIndexSessionGetQuery, options?: RequestOptions) { return this.operations.examIndexSessionGet(params, options); }
+    /** Lists exam sessions with explicit student, teacher, consultant, and support filters. */
+    listExamSessions(params?: T.ExamSessionListQuery, options?: RequestOptions) { return this.operations.examIndexSessionGet(params, options); }
     /** Lists exam attempts; each returned attempt ID is suitable for examPageUrl. */
     listExamAttempts(params?: O.ExamIndexAttemptGetQuery, options?: RequestOptions) { return this.operations.examIndexAttemptGet(params, options); }
     /** Returns the access-checked report summary for one LMS user UUID. */

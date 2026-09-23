@@ -217,7 +217,34 @@ export interface HomeworkAssignmentListQuery extends QueryParams {
     /** The assigned homework-bank item/question ID, not its parent bank ID. */
     homework_id?: string;
     classroom_id?: string;
+    /** Match any related participant or staff member. */
     user_id?: string;
+    /** Match only the student receiving the assignment. */
+    student_user_id?: string;
+    /** Match only the assigned teacher. */
+    teacher_user_id?: string;
+    /** Match only the assigned consultant. */
+    consultant_user_id?: string;
+    /** Match only the assigned support user. */
+    support_user_id?: string;
+    from?: string;
+    to?: string;
+}
+/** Role-aware filters for delivered exam sessions. */
+export interface ExamSessionListQuery extends QueryParams {
+    page_number?: number;
+    page_size?: number;
+    search?: string;
+    status?: string;
+    exam_id?: string;
+    classroom_id?: string;
+    /** Match any related participant or staff member. */
+    user_id?: string;
+    /** Match only sessions containing an attempt for this student. */
+    student_user_id?: string;
+    teacher_user_id?: string;
+    consultant_user_id?: string;
+    support_user_id?: string;
     from?: string;
     to?: string;
 }
@@ -245,6 +272,7 @@ export type ExamBank = Exam;
 export type ExamBankItem = ExamQuestion;
 export interface HomeworkQuestion extends LmsEntity {
     homework_id: string;
+    /** Explicit name, or the server-generated 80-character question-text fallback. */
     name: string;
     question_text: string;
     description?: string | null;
@@ -506,6 +534,8 @@ export interface UpdateHomeworkInput extends Partial<CreateHomeworkInput> {
 }
 export interface CreateHomeworkQuestionInput extends JsonObject {
     homework_id: string;
+    /** Optional display name; blank or omitted names fall back to truncated question text. */
+    name?: string | null;
     question_text: string;
     description?: string | null;
     answer?: string | null;
