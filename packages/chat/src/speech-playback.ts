@@ -13,10 +13,10 @@ export function splitSpeechText(text: string): string[] {
   const parts: string[] = [];
   let part = '';
   for (const word of words) {
-    const limit = parts.length ? 240 : 85;
+    const limit = 85;
     if (part && part.length + word.length + 1 > limit) { parts.push(part); part = ''; }
     part += (part ? ' ' : '') + word;
-    if (/[.!?؟؛:]$/u.test(word) && part.length >= (parts.length ? 90 : 25)) {
+    if (/[.!?؟؛:]$/u.test(word) && part.length >= 25) {
       parts.push(part); part = '';
     }
   }

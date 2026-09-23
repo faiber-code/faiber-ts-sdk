@@ -34,7 +34,7 @@ test('progressive speech preserves English/Persian text with a short first phras
  for(const text of ['Hello there. '+('Complete the remaining jobs tomorrow. '.repeat(20)), 'سلام. '+('لطفاً کارهای امروز را انجام دهید. '.repeat(20)), 'x'.repeat(300)]) {
   const parts=splitSpeechText(text);
   assert.equal(parts.join(' '),text.trim().replace(/\s+/g,' '));
-  if(text.startsWith('Hello')) assert.ok(parts[0].length<=85);
+  if(text.startsWith('Hello')) assert.ok(parts.every(part=>part.length<=85));
  }
 });
 test('live speech chunks inherit auth, signal, ordering and preserve server revision metadata',async()=>{
