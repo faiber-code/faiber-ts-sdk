@@ -60,15 +60,19 @@ Course sessions, classroom users and absences, assignments, invitations, club pr
 
 ### Homework and exam banks
 
-Reusable homework definitions are the homework-bank layer: `api.homeworkBanks` and the compatibility alias `api.homeworks` address the same records. Use `api.homeworkBankItems(bankId)` for the definition's questions/items (`homework_questions`). Every item has `kind: "todo" | "project"`; the nested list accepts the same `kind` filter, and create/update accept the field. Delivery records remain separate and are managed with `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment`.
+Reusable homework definitions are the homework-bank layer: `api.homeworkBanks` and the compatibility alias `api.homeworks` address the same records. Use `api.homeworkBankItems(bankId)` for the definition's questions/items (`homework_questions`). Every item has `kind: "todo" | "project"`; the nested list accepts the same `kind` filter, and create/update accept the field. Delivery records reference an item's ID (not the bank ID) and are fully managed through `api.homeworkAssignments`. The compatibility methods `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment` remain available.
 
 Exam definitions are exposed as `api.examBanks`, their questions/items as `api.examBankItems`, delivery sessions as `api.examSessions`, and learner attempts as `listExamUsers`, `examUser`, and `updateExamUser`. The legacy `api.exams`, `api.examQuestions`, and `api.homeworks` names remain available.
 
 ```ts
 const bank = await api.homeworkBanks.create({ name: "Projects", status: "active" });
 const items = api.homeworkBankItems(bank.data.data.id);
-await items.create({ question_text: "Build a recursion demo", question_type: "answer", kind: "project", status: "active" });
+const item = await items.create({ question_text: "Build a recursion demo", question_type: "answer", kind: "project", status: "active" });
 const todos = await items.list({ kind: "todo" });
+const assignments = await api.homeworkAssignments.list({
+  statuses: ["pending", "unsolved", "completed"],
+  homework_id: item.data.data.id,
+});
 ```
 
 Session attendance rows expose `attendance_mode` (`online` or `in_person`) alongside the stored `online` boolean, attended seconds, description, and ratings. The same details are available on absence rows. When recording an attendance batch, include `online` for each learner whose attendance mode matters; omitting it defaults to in-person.

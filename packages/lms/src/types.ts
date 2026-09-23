@@ -194,6 +194,33 @@ export interface ExamSession extends LmsEntity {
 }
 export type HomeworkItemKind = "todo" | "project";
 export type HomeworkDifficulty = "easy" | "medium" | "hard";
+export const HOMEWORK_ASSIGNMENT_STATUSES = [
+    "pending",
+    "assigned",
+    "submitted",
+    "unsolved",
+    "ungraded",
+    "incorrect",
+    "incomplete",
+    "completed_with_remediation",
+    "completed",
+    "rejected",
+    "inactive",
+] as const;
+export type HomeworkAssignmentStatus = typeof HOMEWORK_ASSIGNMENT_STATUSES[number];
+/** Filters delivered homework items. `statuses` is encoded as the backend's comma-separated `status` query. */
+export interface HomeworkAssignmentListQuery extends QueryParams {
+    page_number?: number;
+    page_size?: number;
+    status?: HomeworkAssignmentStatus;
+    statuses?: readonly HomeworkAssignmentStatus[];
+    /** The assigned homework-bank item/question ID, not its parent bank ID. */
+    homework_id?: string;
+    classroom_id?: string;
+    user_id?: string;
+    from?: string;
+    to?: string;
+}
 export interface Homework extends LmsEntity {
     /** Deprecated compatibility field; homework definitions are themselves banks. */
     homework_bank_id: string | null;
