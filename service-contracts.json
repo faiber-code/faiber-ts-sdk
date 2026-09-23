@@ -8627,7 +8627,7 @@
         "lms:homework:read"
       ],
       "source": "infera-lms/src/homework/routes.rs",
-      "query": "PaginationQuery",
+      "query": "models::QuestionListQuery",
       "response": "crate::models::PagedResult<models::QuestionResponse>",
       "responseEnvelope": "api",
       "multipart": false,

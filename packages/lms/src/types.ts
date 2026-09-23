@@ -192,7 +192,7 @@ export interface ExamSession extends LmsEntity {
     user_id?: string;
     score?: number;
 }
-export type HomeworkKind = "homework" | "project";
+export type HomeworkItemKind = "todo" | "project";
 export type HomeworkDifficulty = "easy" | "medium" | "hard";
 export interface Homework extends LmsEntity {
     /** Deprecated compatibility field; homework definitions are themselves banks. */
@@ -208,7 +208,6 @@ export interface Homework extends LmsEntity {
     sort_order: number;
     difficulty?: HomeworkDifficulty | null;
     points: number;
-    kind: HomeworkKind;
     created_at: string;
     updated_at: string;
 }
@@ -223,6 +222,7 @@ export interface HomeworkQuestion extends LmsEntity {
     description?: string | null;
     answer?: string | null;
     question_type: "notification" | "answer" | "link" | (string & {});
+    kind: HomeworkItemKind;
     points: number;
     is_final: boolean;
     media: JsonValue;
@@ -473,7 +473,6 @@ export interface CreateHomeworkInput extends JsonObject {
     sort_order?: number;
     difficulty?: HomeworkDifficulty | null;
     points?: number;
-    kind?: HomeworkKind;
 }
 export interface UpdateHomeworkInput extends Partial<CreateHomeworkInput> {
 }
@@ -483,6 +482,7 @@ export interface CreateHomeworkQuestionInput extends JsonObject {
     description?: string | null;
     answer?: string | null;
     question_type?: "notification" | "answer" | "link" | (string & {});
+    kind?: HomeworkItemKind;
     points?: number;
     is_final?: boolean;
     media?: JsonValue;

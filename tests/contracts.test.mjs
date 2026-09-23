@@ -68,7 +68,8 @@ test("LMS bank hierarchy keeps definitions separate from assignments and exam de
   });
   const api = new LmsApi(client);
   await api.homeworkBanks.create({ name: "Projects", status: "active" });
-  await api.homeworkBankItems("bank/id").create({ question_text: "Capstone", question_type: "answer", status: "active", points: 20 });
+  await api.homeworkBankItems("bank/id").create({ question_text: "Capstone", question_type: "answer", kind: "project", status: "active", points: 20 });
+  await api.homeworkBankItems("bank/id").list({ kind: "project" });
   await api.homeworkBankItems("bank/id").delete("item/id");
   await api.deleteAssignment("assignment/id");
   await api.examBanks.delete("exam/id");
@@ -79,6 +80,7 @@ test("LMS bank hierarchy keeps definitions separate from assignments and exam de
   assert.deepEqual(seen.map(({ method, url }) => [method, url]), [
     ["post", "/api/v1/homework-banks"],
     ["post", "/api/v1/homework-banks/bank%2Fid/homeworks"],
+    ["get", "/api/v1/homework-banks/bank%2Fid/homeworks"],
     ["delete", "/api/v1/homework-banks/bank%2Fid/homeworks/item%2Fid"],
     ["delete", "/api/v1/homeworks/assignments/assignment%2Fid"],
     ["delete", "/api/v1/exams/exam%2Fid"],
@@ -86,8 +88,9 @@ test("LMS bank hierarchy keeps definitions separate from assignments and exam de
     ["delete", "/api/v1/exams/sessions/session%2Fid"],
     ["patch", "/api/v1/exams/attempts/attempt%2Fid"],
   ]);
-  assert.equal(seen[5].params.exam_id, "exam/id");
-  assert.equal(seen[5].params.page_size, 25);
+  assert.equal(seen[2].params.kind, "project");
+  assert.equal(seen[6].params.exam_id, "exam/id");
+  assert.equal(seen[6].params.page_size, 25);
   assert.ok(seen.every((request) => request.headers.get("Authorization") === "Bearer bank-token"));
 });
 

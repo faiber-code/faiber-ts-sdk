@@ -98,9 +98,9 @@ export class LmsApi extends ServiceApi {
     deleteClassroom(id: Identifier, options?: RequestOptions) { return this.operations.classroomDestroyClassroomDelete(id, options); }
     /** Lists classroom sessions, including course-session/type metadata and relationship filters. */
     listClassroomSessions(params?: O.ClassroomIndexSessionGetQuery, options?: RequestOptions) { return this.operations.classroomIndexSessionGet(params, options); }
-    /** Lists homework definitions. Projects and todos are represented by filtered assignments. */
+    /** Lists homework-bank definitions; their todo/project items are exposed by `homeworkBankItems`. */
     listHomeworks(params?: O.HomeworkIndexHomeworkGetQuery, options?: RequestOptions) { return this.operations.homeworkIndexHomeworkGet(params, options); }
-    /** Lists homework, todo, and project assignments with user, status, classroom, and time filters. */
+    /** Lists delivered assignments with user, status, classroom, and time filters. */
     listAssignments(params?: O.HomeworkIndexAssignmentGetQuery, options?: RequestOptions) { return this.operations.homeworkIndexAssignmentGet(params, options); }
     /** Creates a delivery assignment from a reusable homework/project bank item. */
     createAssignment(data: O.HomeworkStoreAssignmentPostInput, options?: RequestOptions<O.HomeworkStoreAssignmentPostInput>) { return this.operations.homeworkStoreAssignmentPost(data, options); }
@@ -110,7 +110,7 @@ export class LmsApi extends ServiceApi {
     updateAssignment(id: Identifier, data: O.HomeworkUpdateAssignmentPatchInput, options?: RequestOptions<O.HomeworkUpdateAssignmentPatchInput>) { return this.operations.homeworkUpdateAssignmentPatch(id, data, options); }
     /** Deletes an assignment record without deleting its reusable bank item. */
     deleteAssignment(id: Identifier, options?: RequestOptions) { return this.operations.homeworkDestroyAssignmentDelete(id, options); }
-    /** Returns the questions/items belonging to one homework definition/bank. */
+    /** Returns the filterable todo/project questions belonging to one homework definition/bank. */
     homeworkBankItems(homeworkBankId: Identifier): R<T.HomeworkBankItem, O.HomeworkStoreBankHomeworkPostInput, O.HomeworkUpdateBankHomeworkPatchInput> {
         return new RestResource(this.client, `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks`, { supported: ["list", "show", "create", "update", "delete"] });
     }

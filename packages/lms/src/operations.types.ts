@@ -3321,7 +3321,6 @@ export interface HomeworkIndexBankGetResponseItem extends JsonObject {
   "sort_order": number;
   "difficulty"?: string | null;
   "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3350,7 +3349,6 @@ export interface HomeworkStoreBankPostInput extends JsonObject {
   "sort_order"?: number;
   "difficulty"?: string | null;
   "points"?: number;
-  "kind"?: string;
 }
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkStoreBankPostResponseData extends JsonObject {
@@ -3366,7 +3364,6 @@ export interface HomeworkStoreBankPostResponseData extends JsonObject {
   "sort_order": number;
   "difficulty"?: string | null;
   "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3380,6 +3377,7 @@ export interface HomeworkIndexBankHomeworkGetQuery extends QueryParams {
   "search"?: string | null;
   "status"?: string | null;
   "question_type"?: string | null;
+  "kind"?: "todo" | "project" | null;
 }
 /** Backend response type: crate::models::PagedResult<models::QuestionResponse>. */
 export interface HomeworkIndexBankHomeworkGetResponseItem extends JsonObject {
@@ -3389,6 +3387,7 @@ export interface HomeworkIndexBankHomeworkGetResponseItem extends JsonObject {
   "description"?: string | null;
   "answer"?: string | null;
   "question_type": string;
+  "kind": "todo" | "project";
   "points": number;
   "is_final": boolean;
   "media": JsonValue;
@@ -3416,6 +3415,7 @@ export interface HomeworkStoreBankHomeworkPostInput extends JsonObject {
   "description"?: string | null;
   "answer"?: string | null;
   "question_type"?: string;
+  "kind"?: "todo" | "project";
   "points"?: number;
   "is_final"?: boolean;
   "media"?: JsonValue | null;
@@ -3430,6 +3430,7 @@ export interface HomeworkStoreBankHomeworkPostResponseData extends JsonObject {
   "description"?: string | null;
   "answer"?: string | null;
   "question_type": string;
+  "kind": "todo" | "project";
   "points": number;
   "is_final": boolean;
   "media": JsonValue;
@@ -3453,6 +3454,7 @@ export interface HomeworkShowBankHomeworkGetResponseData extends JsonObject {
   "description"?: string | null;
   "answer"?: string | null;
   "question_type": string;
+  "kind": "todo" | "project";
   "points": number;
   "is_final": boolean;
   "media": JsonValue;
@@ -3470,6 +3472,7 @@ export interface HomeworkUpdateBankHomeworkPatchInput extends JsonObject {
   "description"?: string | null;
   "answer"?: string | null;
   "question_type"?: string | null;
+  "kind"?: "todo" | "project" | null;
   "points"?: number | null;
   "is_final"?: boolean | null;
   "media"?: JsonValue | null;
@@ -3484,6 +3487,7 @@ export interface HomeworkUpdateBankHomeworkPatchResponseData extends JsonObject 
   "description"?: string | null;
   "answer"?: string | null;
   "question_type": string;
+  "kind": "todo" | "project";
   "points": number;
   "is_final": boolean;
   "media": JsonValue;
@@ -3513,7 +3517,6 @@ export interface HomeworkShowBankGetResponseData extends JsonObject {
   "sort_order": number;
   "difficulty"?: string | null;
   "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3532,7 +3535,6 @@ export interface HomeworkUpdateBankPatchInput extends JsonObject {
   "sort_order"?: number | null;
   "difficulty"?: string | null;
   "points"?: number | null;
-  "kind"?: string | null;
 }
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkUpdateBankPatchResponseData extends JsonObject {
@@ -3548,7 +3550,6 @@ export interface HomeworkUpdateBankPatchResponseData extends JsonObject {
   "sort_order": number;
   "difficulty"?: string | null;
   "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3563,7 +3564,6 @@ export interface HomeworkIndexHomeworkGetQuery extends QueryParams {
   "status"?: string | null;
   "homework_bank_id"?: string | null;
   "difficulty"?: string | null;
-  "kind"?: string | null;
   "course_id"?: string | null;
   "user_id"?: string | null;
   "from"?: string | null;
@@ -3584,7 +3584,6 @@ export interface HomeworkIndexHomeworkGetResponseItem extends JsonObject {
   "sort_order": number;
   "difficulty"?: string | null;
   "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3614,7 +3613,6 @@ export interface HomeworkStoreHomeworkPostInput extends JsonObject {
   "sort_order"?: number;
   "difficulty"?: string | null;
   "points"?: number;
-  "kind"?: string;
 }
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkStoreHomeworkPostResponseData extends JsonObject {
@@ -3631,7 +3629,6 @@ export interface HomeworkStoreHomeworkPostResponseData extends JsonObject {
   "sort_order": number;
   "difficulty"?: string | null;
   "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3657,7 +3654,6 @@ export interface HomeworkShowHomeworkGetResponseData extends JsonObject {
   "sort_order": number;
   "difficulty"?: string | null;
   "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3677,7 +3673,6 @@ export interface HomeworkUpdateHomeworkPatchInput extends JsonObject {
   "sort_order"?: number | null;
   "difficulty"?: string | null;
   "points"?: number | null;
-  "kind"?: string | null;
 }
 /** Backend response type: models::HomeworkResponse. */
 export interface HomeworkUpdateHomeworkPatchResponseData extends JsonObject {
@@ -3694,7 +3689,6 @@ export interface HomeworkUpdateHomeworkPatchResponseData extends JsonObject {
   "sort_order": number;
   "difficulty"?: string | null;
   "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3985,24 +3979,30 @@ export interface HomeworkUpdateAssignmentPatchResponseData extends JsonObject {
 export interface HomeworkUpdateAssignmentPatchResponse extends ApiEnvelope<HomeworkUpdateAssignmentPatchResponseData> {
 }
 
-/** Backend query type: PaginationQuery. */
+/** Backend query type: models::QuestionListQuery. */
 export interface HomeworkIndexQuestionGetQuery extends QueryParams {
   "page_number"?: number | null;
   "page_size"?: number | null;
+  "homework_id"?: string | null;
+  "search"?: string | null;
+  "status"?: string | null;
+  "question_type"?: string | null;
+  "kind"?: "todo" | "project" | null;
 }
 /** Backend response type: crate::models::PagedResult<models::QuestionResponse>. */
 export interface HomeworkIndexQuestionGetResponseItem extends JsonObject {
   "id": string;
-  "exam_id"?: string | null;
+  "homework_id": string;
   "question_text": string;
+  "description"?: string | null;
+  "answer"?: string | null;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
-  "sort_order": number;
-  "difficulty": string;
+  "kind": "todo" | "project";
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "is_final": boolean;
+  "media": JsonValue;
   "status": string;
+  "sort_order": number;
   "created_at": string;
   "updated_at": string;
 }
@@ -4021,30 +4021,32 @@ export interface HomeworkIndexQuestionGetResponse extends ApiEnvelope<HomeworkIn
 
 /** Backend request type: models::CreateQuestionRequest. */
 export interface HomeworkStoreQuestionPostInput extends JsonObject {
-  "exam_id"?: string | null;
+  "homework_id": string;
   "question_text": string;
-  "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
-  "sort_order": number;
-  "difficulty"?: string | null;
-  "points"?: number | null;
-  "media"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "status"?: string | null;
+  "description"?: string | null;
+  "answer"?: string | null;
+  "question_type"?: string;
+  "kind"?: "todo" | "project";
+  "points"?: number;
+  "is_final"?: boolean;
+  "media"?: JsonValue | null;
+  "status"?: string;
+  "sort_order"?: number;
 }
 /** Backend response type: models::QuestionResponse. */
 export interface HomeworkStoreQuestionPostResponseData extends JsonObject {
   "id": string;
-  "exam_id"?: string | null;
+  "homework_id": string;
   "question_text": string;
+  "description"?: string | null;
+  "answer"?: string | null;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
-  "sort_order": number;
-  "difficulty": string;
+  "kind": "todo" | "project";
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "is_final": boolean;
+  "media": JsonValue;
   "status": string;
+  "sort_order": number;
   "created_at": string;
   "updated_at": string;
 }
@@ -4054,16 +4056,17 @@ export interface HomeworkStoreQuestionPostResponse extends ApiEnvelope<HomeworkS
 /** Backend response type: models::QuestionResponse. */
 export interface HomeworkShowQuestionGetResponseData extends JsonObject {
   "id": string;
-  "exam_id"?: string | null;
+  "homework_id": string;
   "question_text": string;
+  "description"?: string | null;
+  "answer"?: string | null;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
-  "sort_order": number;
-  "difficulty": string;
+  "kind": "todo" | "project";
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "is_final": boolean;
+  "media": JsonValue;
   "status": string;
+  "sort_order": number;
   "created_at": string;
   "updated_at": string;
 }
@@ -4072,30 +4075,32 @@ export interface HomeworkShowQuestionGetResponse extends ApiEnvelope<HomeworkSho
 
 /** Backend request type: models::UpdateQuestionRequest. */
 export interface HomeworkUpdateQuestionPatchInput extends JsonObject {
-  "exam_id"?: string | null;
+  "homework_id"?: string | null;
   "question_text"?: string | null;
+  "description"?: string | null;
+  "answer"?: string | null;
   "question_type"?: string | null;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
-  "sort_order"?: number | null;
-  "difficulty"?: string | null;
+  "kind"?: "todo" | "project" | null;
   "points"?: number | null;
-  "media"?: BackendJson<"sea_orm::prelude::Json"> | null;
+  "is_final"?: boolean | null;
+  "media"?: JsonValue | null;
   "status"?: string | null;
+  "sort_order"?: number | null;
 }
 /** Backend response type: models::QuestionResponse. */
 export interface HomeworkUpdateQuestionPatchResponseData extends JsonObject {
   "id": string;
-  "exam_id"?: string | null;
+  "homework_id": string;
   "question_text": string;
+  "description"?: string | null;
+  "answer"?: string | null;
   "question_type": string;
-  "options"?: BackendJson<"sea_orm::prelude::Json"> | null;
-  "correct_answer"?: string | null;
-  "sort_order": number;
-  "difficulty": string;
+  "kind": "todo" | "project";
   "points": number;
-  "media": BackendJson<"sea_orm::prelude::Json">;
+  "is_final": boolean;
+  "media": JsonValue;
   "status": string;
+  "sort_order": number;
   "created_at": string;
   "updated_at": string;
 }
