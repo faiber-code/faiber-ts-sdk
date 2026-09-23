@@ -76,3 +76,6 @@ export interface SpeechStatusResponse extends ApiEnvelope<SpeechStatus> {}
 export interface SpeechTranscript { text:string; engine:string }
 export interface SpeechTranscriptResponse extends ApiEnvelope<SpeechTranscript> {}
 export type SpeechLanguage = 'en'|'fa'|'auto';
+
+export type SpeechAudioFormat = 'mp3' | 'wav';
+export interface SpeechSynthesisInput { text:string; language?: 'fa'|'en'; /** Compact mono MP3 by default; WAV for lossless processing. */ format?: SpeechAudioFormat }

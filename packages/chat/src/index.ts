@@ -15,6 +15,12 @@ export class ChatApi extends ServiceApi {
     return this.client.request<T.SpeechTranscriptResponse,Blob>({...options, method:'POST',url:'/api/v1/speech/transcribe',params:{language},data:recording,timeout:options?.timeout ?? 200000,headers:{...options?.headers,'Content-Type':recording.type}});
   }
 
+  /** Synthesize speech through the configured metered provider; requires chat:ai.
+   * Returns compact MP3 by default, or explicit WAV. Preserves Axios metadata and cancellation.
+   * Disabled voices return 400; unavailable/mismatched provider output returns 502. */
+  synthesize(input:T.SpeechSynthesisInput, options?:RequestOptions<T.SpeechSynthesisInput>) {
+    return this.client.request<Blob,T.SpeechSynthesisInput>({...options,method:'POST',url:'/api/v1/speech/tts',data:{...input,format:input.format ?? 'mp3'},responseType:'blob'});
+  }
   conversations(options?: RequestOptions) { return this.client.get<T.ConversationListResponse>("/api/v1/conversations", undefined, options); }
   createConversation(data: T.CreateConversationInput, options?: RequestOptions<T.CreateConversationInput>) { return this.client.post<T.ConversationResponse, T.CreateConversationInput>("/api/v1/conversations", data, options); }
   conversation(conversationId: Identifier, options?: RequestOptions) { return this.client.get<T.ConversationResponse>(`/api/v1/conversations/${id(conversationId)}`, undefined, options); }
@@ -56,3 +62,5 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./workspace.js";
+
+export * from "./speech-recorder.js";
