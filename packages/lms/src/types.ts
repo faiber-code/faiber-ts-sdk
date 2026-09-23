@@ -245,6 +245,7 @@ export type ExamBank = Exam;
 export type ExamBankItem = ExamQuestion;
 export interface HomeworkQuestion extends LmsEntity {
     homework_id: string;
+    name: string;
     question_text: string;
     description?: string | null;
     answer?: string | null;

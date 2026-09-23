@@ -3743,6 +3743,8 @@ export interface HomeworkIndexAssignmentGetResponseItem extends JsonObject {
   "id": string;
   "homework_id": string;
   "homework_name"?: string | null;
+  "homework"?: import("./types.js").Homework | null;
+  "homework_question"?: import("./types.js").HomeworkQuestion | null;
   "classroom_id"?: string | null;
   "classroom_name"?: string | null;
   "user_id"?: string | null;
@@ -3824,6 +3826,8 @@ export interface HomeworkStoreAssignmentPostResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
   "homework_name"?: string | null;
+  "homework"?: import("./types.js").Homework | null;
+  "homework_question"?: import("./types.js").HomeworkQuestion | null;
   "classroom_id"?: string | null;
   "classroom_name"?: string | null;
   "user_id"?: string | null;
@@ -3886,6 +3890,8 @@ export interface HomeworkShowAssignmentGetResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
   "homework_name"?: string | null;
+  "homework"?: import("./types.js").Homework | null;
+  "homework_question"?: import("./types.js").HomeworkQuestion | null;
   "classroom_id"?: string | null;
   "classroom_name"?: string | null;
   "user_id"?: string | null;
@@ -3958,6 +3964,8 @@ export interface HomeworkUpdateAssignmentPatchResponseData extends JsonObject {
   "id": string;
   "homework_id": string;
   "homework_name"?: string | null;
+  "homework"?: import("./types.js").Homework | null;
+  "homework_question"?: import("./types.js").HomeworkQuestion | null;
   "classroom_id"?: string | null;
   "classroom_name"?: string | null;
   "user_id"?: string | null;

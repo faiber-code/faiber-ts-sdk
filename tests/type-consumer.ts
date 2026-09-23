@@ -85,6 +85,13 @@ async function provePublicContracts(): Promise<void> {
   await apis.lms.deleteClassroom("00000000-0000-0000-0000-000000000001");
   await apis.lms.homeworkAssignments.list({ statuses: ["pending", "unsolved", "completed"] });
   await apis.lms.homeworkAssignments.create({ homework_id: "00000000-0000-0000-0000-000000000010", status: "unsolved" });
+  const homeworkAssignment = await apis.lms.homeworkAssignments.show("00000000-0000-0000-0000-000000000011");
+  const assignedHomeworkDescription: string | null | undefined = homeworkAssignment.data.data.homework?.description;
+  const assignedQuestionKind: LmsService.HomeworkItemKind | undefined = homeworkAssignment.data.data.homework_question?.kind;
+  const assignedQuestionName: string | undefined = homeworkAssignment.data.data.homework_question?.name;
+  void assignedHomeworkDescription;
+  void assignedQuestionKind;
+  void assignedQuestionName;
   await apis.lms.classrooms.delete("00000000-0000-0000-0000-000000000001");
   const classroomBase = {
     course_id: "00000000-0000-0000-0000-000000000002",
