@@ -16,6 +16,7 @@ export const SERVICE_NAMES = [
     "chat",
     "social",
     "places",
+    "gis",
     "state",
     "drm",
    "task",

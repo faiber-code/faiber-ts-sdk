@@ -9,7 +9,7 @@ import {
 const manifest = JSON.parse(await readFile(new URL("../service-contracts.json", import.meta.url), "utf8"));
 
 test("the facade and AI catalog cover every sandbox service exactly once", () => {
-  const expected = ["idp", "profile", "modules", "asset", "payment", "messenger", "crm", "lms", "reservation", "session", "version", "flow", "knowledge", "chat", "social", "places", "state", "drm", "task", "manage"];
+  const expected = ["idp", "profile", "modules", "asset", "payment", "messenger", "crm", "lms", "reservation", "session", "version", "flow", "knowledge", "chat", "social", "places", "gis", "state", "drm", "task", "manage"];
   assert.deepEqual([...SERVICE_NAMES], expected);
   assert.deepEqual(FAIBER_SERVICE_CAPABILITIES.map(item => item.service), expected);
   for (const capability of FAIBER_SERVICE_CAPABILITIES) {

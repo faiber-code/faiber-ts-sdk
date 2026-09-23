@@ -1,3 +1,4 @@
+import { GisApi } from "@faiber/faiber-gis";
 import { PlacesApi } from "@faiber/faiber-places";
 import { FaiberClient, OpenApiClient, type FaiberSdkConfig, type OpenApiPaths, type ServiceName } from "@faiber/sdk-core";
 import { AssetApi } from "@faiber/faiber-asset";
@@ -22,6 +23,7 @@ import { TaskApi } from "@faiber/faiber-task";
 import { describeFaiber, FAIBER_SERVICE_CAPABILITIES } from "./capabilities.js";
 export interface FaiberServiceApis {
     places: PlacesApi;
+    gis: GisApi;
     idp: IdpApi;
     profile: ProfileApi;
     modules: ModulesApi;
@@ -70,6 +72,7 @@ export class FaiberSDK {
         }
         return api;
     }
+    get gis(): GisApi { return this.api("gis", (client) => new GisApi(client)); }
     get places(): PlacesApi { return this.api("places", (client) => new PlacesApi(client)); }
     get idp(): IdpApi { return this.api("idp", (client) => new IdpApi(client)); }
     get profile(): ProfileApi { return this.api("profile", (client) => new ProfileApi(client)); }
@@ -132,3 +135,5 @@ export * as DrmService from "@faiber/faiber-drm";
 export * as TaskService from "@faiber/faiber-task";
 
 export * as PlacesService from "@faiber/faiber-places";
+
+export * as GisService from "@faiber/faiber-gis";
