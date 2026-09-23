@@ -68,7 +68,7 @@ test("LMS bank hierarchy keeps definitions separate from assignments and exam de
   });
   const api = new LmsApi(client);
   await api.homeworkBanks.create({ name: "Projects", status: "active" });
-  await api.homeworkBankItems("bank/id").create({ name: "Capstone", status: "active", kind: "project", points: 20 });
+  await api.homeworkBankItems("bank/id").create({ question_text: "Capstone", question_type: "answer", status: "active", points: 20 });
   await api.homeworkBankItems("bank/id").delete("item/id");
   await api.deleteAssignment("assignment/id");
   await api.examBanks.delete("exam/id");

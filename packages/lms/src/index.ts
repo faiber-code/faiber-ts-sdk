@@ -110,7 +110,7 @@ export class LmsApi extends ServiceApi {
     updateAssignment(id: Identifier, data: O.HomeworkUpdateAssignmentPatchInput, options?: RequestOptions<O.HomeworkUpdateAssignmentPatchInput>) { return this.operations.homeworkUpdateAssignmentPatch(id, data, options); }
     /** Deletes an assignment record without deleting its reusable bank item. */
     deleteAssignment(id: Identifier, options?: RequestOptions) { return this.operations.homeworkDestroyAssignmentDelete(id, options); }
-    /** Returns a fully managed nested resource containing only definitions owned by one homework bank. */
+    /** Returns the questions/items belonging to one homework definition/bank. */
     homeworkBankItems(homeworkBankId: Identifier): R<T.HomeworkBankItem, O.HomeworkStoreBankHomeworkPostInput, O.HomeworkUpdateBankHomeworkPatchInput> {
         return new RestResource(this.client, `/api/v1/homework-banks/${encodeURIComponent(homeworkBankId)}/homeworks`, { supported: ["list", "show", "create", "update", "delete"] });
     }

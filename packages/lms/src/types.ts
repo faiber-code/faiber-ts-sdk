@@ -194,20 +194,13 @@ export interface ExamSession extends LmsEntity {
 }
 export type HomeworkKind = "homework" | "project";
 export type HomeworkDifficulty = "easy" | "medium" | "hard";
-export interface HomeworkBank extends LmsEntity {
-    name: string;
-    title: string | null;
-    description: string | null;
-    status: "active" | "inactive";
-    created_at: string;
-    updated_at: string;
-}
-export interface CreateHomeworkBankInput extends JsonObject { name: string; title?: string | null; description?: string | null; status?: "active" | "inactive"; }
-export interface UpdateHomeworkBankInput extends Partial<CreateHomeworkBankInput> {}
 export interface Homework extends LmsEntity {
-    /** Set only when this homework is explicitly managed as a bank item. */
+    /** Deprecated compatibility field; homework definitions are themselves banks. */
     homework_bank_id: string | null;
     course_id?: string | null;
+    course_name?: string | null;
+    grade_id?: string | null;
+    teacher_grade_id?: string | null;
     name: string;
     title?: string | null;
     description?: string | null;
@@ -219,25 +212,26 @@ export interface Homework extends LmsEntity {
     created_at: string;
     updated_at: string;
 }
-export interface HomeworkBankItem extends LmsEntity {
-    homework_bank_id: string;
-    name: string;
-    title?: string | null;
-    description?: string | null;
-    status: "active" | "inactive";
-    sort_order: number;
-    difficulty?: HomeworkDifficulty | null;
-    points: number;
-    kind: HomeworkKind;
-    created_at: string;
-    updated_at: string;
-}
+export type HomeworkBank = Homework;
+export type CreateHomeworkBankInput = CreateHomeworkInput;
+export type UpdateHomeworkBankInput = UpdateHomeworkInput;
 export type ExamBank = Exam;
 export type ExamBankItem = ExamQuestion;
 export interface HomeworkQuestion extends LmsEntity {
-    homework_id?: string;
-    question?: string;
+    homework_id: string;
+    question_text: string;
+    description?: string | null;
+    answer?: string | null;
+    question_type: "notification" | "answer" | "link" | (string & {});
+    points: number;
+    is_final: boolean;
+    media: JsonValue;
+    status: "active" | "inactive";
+    sort_order: number;
+    created_at: string;
+    updated_at: string;
 }
+export type HomeworkBankItem = HomeworkQuestion;
 export type CertificateStatus = "draft" | "issued" | "revoked" | (string & {});
 export type CertificateTemplateStatus = "active" | "inactive" | (string & {});
 export type CertificateFieldKey = "title" | "student_name" | "course_name" | "classroom_name" | "final_score" | "passing_mark" | "grade_name" | "issued_at" | "verification_code";
@@ -483,9 +477,17 @@ export interface CreateHomeworkInput extends JsonObject {
 }
 export interface UpdateHomeworkInput extends Partial<CreateHomeworkInput> {
 }
-export interface CreateHomeworkQuestionInput extends CreateLmsEntityInput {
+export interface CreateHomeworkQuestionInput extends JsonObject {
     homework_id: string;
-    question: string;
+    question_text: string;
+    description?: string | null;
+    answer?: string | null;
+    question_type?: "notification" | "answer" | "link" | (string & {});
+    points?: number;
+    is_final?: boolean;
+    media?: JsonValue;
+    status?: "active" | "inactive";
+    sort_order?: number;
 }
 export interface UpdateHomeworkQuestionInput extends Partial<CreateHomeworkQuestionInput> {
 }

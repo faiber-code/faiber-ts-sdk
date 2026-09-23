@@ -60,14 +60,14 @@ Course sessions, classroom users and absences, assignments, invitations, club pr
 
 ### Homework and exam banks
 
-Reusable definitions are separate from delivery records. Manage homework banks with `api.homeworkBanks`, then use `api.homeworkBankItems(bankId)` for their explicitly linked homework/project items. Standalone or historical homework returned by the compatibility `api.homeworks` resource is not treated as bank content and has `homework_bank_id: null`. Each bank item exposes a required `homework_bank_id` and `kind: "homework" | "project"`; assignments are managed with `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment`.
+Reusable homework definitions are the homework-bank layer: `api.homeworkBanks` and the compatibility alias `api.homeworks` address the same records. Use `api.homeworkBankItems(bankId)` for the definition's questions/items (`homework_questions`). Delivery records remain separate and are managed with `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment`.
 
 Exam definitions are exposed as `api.examBanks`, their questions/items as `api.examBankItems`, delivery sessions as `api.examSessions`, and learner attempts as `listExamUsers`, `examUser`, and `updateExamUser`. The legacy `api.exams`, `api.examQuestions`, and `api.homeworks` names remain available.
 
 ```ts
 const bank = await api.homeworkBanks.create({ name: "Projects", status: "active" });
 const items = api.homeworkBankItems(bank.data.data.id);
-await items.create({ name: "Capstone", status: "active", kind: "project", points: 20 });
+await items.create({ question_text: "Explain recursion", question_type: "answer", status: "active" });
 ```
 
 Session attendance rows expose `attendance_mode` (`online` or `in_person`) alongside the stored `online` boolean, attended seconds, description, and ratings. The same details are available on absence rows. When recording an attendance batch, include `online` for each learner whose attendance mode matters; omitting it defaults to in-person.

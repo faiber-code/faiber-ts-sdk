@@ -3310,10 +3310,18 @@ export interface HomeworkIndexBankGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<models::HomeworkBankResponse>. */
 export interface HomeworkIndexBankGetResponseItem extends JsonObject {
   "id": string;
+  "course_id"?: string | null;
+  "course_name"?: string | null;
+  "grade_id"?: string | null;
+  "teacher_grade_id"?: string | null;
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
   "status": string;
+  "sort_order": number;
+  "difficulty"?: string | null;
+  "points": number;
+  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3332,18 +3340,33 @@ export interface HomeworkIndexBankGetResponse extends ApiEnvelope<HomeworkIndexB
 
 /** Backend request type: models::CreateHomeworkBankRequest. */
 export interface HomeworkStoreBankPostInput extends JsonObject {
+  "course_id"?: string | null;
+  "grade_id"?: string | null;
+  "teacher_grade_id"?: string | null;
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
   "status"?: string;
+  "sort_order"?: number;
+  "difficulty"?: string | null;
+  "points"?: number;
+  "kind"?: string;
 }
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkStoreBankPostResponseData extends JsonObject {
   "id": string;
+  "course_id"?: string | null;
+  "course_name"?: string | null;
+  "grade_id"?: string | null;
+  "teacher_grade_id"?: string | null;
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
   "status": string;
+  "sort_order": number;
+  "difficulty"?: string | null;
+  "points": number;
+  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3356,21 +3379,21 @@ export interface HomeworkIndexBankHomeworkGetQuery extends QueryParams {
   "page_size"?: number | null;
   "search"?: string | null;
   "status"?: string | null;
-  "difficulty"?: string | null;
-  "kind"?: string | null;
+  "question_type"?: string | null;
 }
-/** Backend response type: crate::models::PagedResult<models::BankHomeworkResponse>. */
+/** Backend response type: crate::models::PagedResult<models::QuestionResponse>. */
 export interface HomeworkIndexBankHomeworkGetResponseItem extends JsonObject {
   "id": string;
-  "homework_bank_id": string;
-  "name": string;
-  "title"?: string | null;
+  "homework_id": string;
+  "question_text": string;
   "description"?: string | null;
+  "answer"?: string | null;
+  "question_type": string;
+  "points": number;
+  "is_final": boolean;
+  "media": JsonValue;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
-  "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3389,27 +3412,29 @@ export interface HomeworkIndexBankHomeworkGetResponse extends ApiEnvelope<Homewo
 
 /** Backend request type: models::CreateBankHomeworkRequest. */
 export interface HomeworkStoreBankHomeworkPostInput extends JsonObject {
-  "name": string;
-  "title"?: string | null;
+  "question_text": string;
   "description"?: string | null;
+  "answer"?: string | null;
+  "question_type"?: string;
+  "points"?: number;
+  "is_final"?: boolean;
+  "media"?: JsonValue | null;
   "status"?: string;
   "sort_order"?: number;
-  "difficulty"?: string | null;
-  "points"?: number;
-  "kind"?: string;
 }
-/** Backend response type: models::BankHomeworkResponse. */
+/** Backend response type: models::QuestionResponse. */
 export interface HomeworkStoreBankHomeworkPostResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id": string;
-  "name": string;
-  "title"?: string | null;
+  "homework_id": string;
+  "question_text": string;
   "description"?: string | null;
+  "answer"?: string | null;
+  "question_type": string;
+  "points": number;
+  "is_final": boolean;
+  "media": JsonValue;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
-  "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3420,18 +3445,19 @@ export interface HomeworkStoreBankHomeworkPostResponse extends ApiEnvelope<Homew
 export interface HomeworkDestroyBankHomeworkDeleteResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: models::BankHomeworkResponse. */
+/** Backend response type: models::QuestionResponse. */
 export interface HomeworkShowBankHomeworkGetResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id": string;
-  "name": string;
-  "title"?: string | null;
+  "homework_id": string;
+  "question_text": string;
   "description"?: string | null;
+  "answer"?: string | null;
+  "question_type": string;
+  "points": number;
+  "is_final": boolean;
+  "media": JsonValue;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
-  "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3440,27 +3466,29 @@ export interface HomeworkShowBankHomeworkGetResponse extends ApiEnvelope<Homewor
 
 /** Backend request type: models::UpdateBankHomeworkRequest. */
 export interface HomeworkUpdateBankHomeworkPatchInput extends JsonObject {
-  "name"?: string | null;
-  "title"?: string | null;
+  "question_text"?: string | null;
   "description"?: string | null;
+  "answer"?: string | null;
+  "question_type"?: string | null;
+  "points"?: number | null;
+  "is_final"?: boolean | null;
+  "media"?: JsonValue | null;
   "status"?: string | null;
   "sort_order"?: number | null;
-  "difficulty"?: string | null;
-  "points"?: number | null;
-  "kind"?: string | null;
 }
-/** Backend response type: models::BankHomeworkResponse. */
+/** Backend response type: models::QuestionResponse. */
 export interface HomeworkUpdateBankHomeworkPatchResponseData extends JsonObject {
   "id": string;
-  "homework_bank_id": string;
-  "name": string;
-  "title"?: string | null;
+  "homework_id": string;
+  "question_text": string;
   "description"?: string | null;
+  "answer"?: string | null;
+  "question_type": string;
+  "points": number;
+  "is_final": boolean;
+  "media": JsonValue;
   "status": string;
   "sort_order": number;
-  "difficulty"?: string | null;
-  "points": number;
-  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3474,10 +3502,18 @@ export interface HomeworkDestroyBankDeleteResponse extends ApiEnvelope<JsonValue
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkShowBankGetResponseData extends JsonObject {
   "id": string;
+  "course_id"?: string | null;
+  "course_name"?: string | null;
+  "grade_id"?: string | null;
+  "teacher_grade_id"?: string | null;
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
   "status": string;
+  "sort_order": number;
+  "difficulty"?: string | null;
+  "points": number;
+  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -3486,18 +3522,33 @@ export interface HomeworkShowBankGetResponse extends ApiEnvelope<HomeworkShowBan
 
 /** Backend request type: models::UpdateHomeworkBankRequest. */
 export interface HomeworkUpdateBankPatchInput extends JsonObject {
+  "course_id"?: string | null;
+  "grade_id"?: string | null;
+  "teacher_grade_id"?: string | null;
   "name"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
   "status"?: string | null;
+  "sort_order"?: number | null;
+  "difficulty"?: string | null;
+  "points"?: number | null;
+  "kind"?: string | null;
 }
 /** Backend response type: models::HomeworkBankResponse. */
 export interface HomeworkUpdateBankPatchResponseData extends JsonObject {
   "id": string;
+  "course_id"?: string | null;
+  "course_name"?: string | null;
+  "grade_id"?: string | null;
+  "teacher_grade_id"?: string | null;
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
   "status": string;
+  "sort_order": number;
+  "difficulty"?: string | null;
+  "points": number;
+  "kind": string;
   "created_at": string;
   "updated_at": string;
 }
