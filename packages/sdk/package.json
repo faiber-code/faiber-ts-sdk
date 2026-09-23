@@ -36,6 +36,7 @@
     "@faiber/faiber-state-sdk": "0.15.0",
     "@faiber/faiber-task": "0.15.0",
     "@faiber/faiber-version": "0.15.0",
-    "@faiber/sdk-core": "0.15.0"
+    "@faiber/sdk-core": "0.15.0",
+    "@faiber/faiber-places": "0.15.0"
   }
 }

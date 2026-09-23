@@ -1551,3 +1551,8 @@ export interface UserUsersStatsGetResponse extends ApiEnvelope<UserUsersStatsGet
 /** Backend response type: bool. */
 export interface UserSyncUsersGetResponse extends ApiEnvelope<boolean> {
 }
+
+/** Internal-service-only one-time token exchange. */
+export interface AuthExchangeOneTimeTokenPostInput extends JsonObject {token:string}
+export interface ExchangedTokens extends JsonObject {access_token:string;refresh_token:string;expires_in:number;scope:string}
+export interface AuthExchangeOneTimeTokenPostResponse extends ApiEnvelope<ExchangedTokens> {}

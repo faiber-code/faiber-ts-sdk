@@ -1,3 +1,4 @@
+import { PlacesApi } from "@faiber/faiber-places";
 import { FaiberClient, OpenApiClient, type FaiberSdkConfig, type OpenApiPaths, type ServiceName } from "@faiber/sdk-core";
 import { AssetApi } from "@faiber/faiber-asset";
 import { CrmApi } from "@faiber/faiber-crm";
@@ -20,6 +21,7 @@ import { DrmApi } from "@faiber/faiber-drm";
 import { TaskApi } from "@faiber/faiber-task";
 import { describeFaiber, FAIBER_SERVICE_CAPABILITIES } from "./capabilities.js";
 export interface FaiberServiceApis {
+    places: PlacesApi;
     idp: IdpApi;
     profile: ProfileApi;
     modules: ModulesApi;
@@ -68,6 +70,7 @@ export class FaiberSDK {
         }
         return api;
     }
+    get places(): PlacesApi { return this.api("places", (client) => new PlacesApi(client)); }
     get idp(): IdpApi { return this.api("idp", (client) => new IdpApi(client)); }
     get profile(): ProfileApi { return this.api("profile", (client) => new ProfileApi(client)); }
     get modules(): ModulesApi { return this.api("modules", (client) => new ModulesApi(client)); }
@@ -91,7 +94,7 @@ export class FaiberSDK {
     describe(service?: ServiceName) { return describeFaiber(service); }
 }
 export * from "@faiber/sdk-core";
-export { AssetApi, ChatApi, CrmApi, DrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, ManageApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, TaskApi, VersionApi };
+export { PlacesApi, AssetApi, ChatApi, CrmApi, DrmApi, FlowApi, IdpApi, KnowledgeApi, LmsApi, ManageApi, MessengerApi, ModulesApi, PaymentApi, ProfileApi, ReservationApi, SessionApi, SocialApi, StateApi, TaskApi, VersionApi };
 export type { AuthTokensResponse, User as IdpUser } from "@faiber/faiber-idp";
 export type { Profile, ProfileProperties } from "@faiber/faiber-profile";
 export type { Lead } from "@faiber/faiber-crm";
@@ -127,3 +130,5 @@ export * as SocialService from "@faiber/faiber-social";
 export * as StateService from "@faiber/faiber-state-sdk";
 export * as DrmService from "@faiber/faiber-drm";
 export * as TaskService from "@faiber/faiber-task";
+
+export * as PlacesService from "@faiber/faiber-places";

@@ -2,7 +2,14 @@ import { RestResource, ServiceApi, UnsupportedOperationError, multipart, type Id
 import type * as T from "./types.js";
 type R<E extends T.ProfileRecord, C, U, L, S> = RestResource<E, C, U, L, S>;
 import { ProfileOperations } from "./operations.js";
+export interface PublicSocialProfile {user_id:string;handle:string;display_name:string;bio:string;avatar:string|null}
 export class ProfileApi extends ServiceApi {
+    /** Search visible public profiles by display name or handle; returns only public fields. */
+    searchPublicProfiles(q:string,options?:RequestOptions){return this.client.get<{data:PublicSocialProfile[]}>("/api/v1/public-profiles",{q},options);}
+    publicProfile(handle:string,options?:RequestOptions){return this.client.get<{data:PublicSocialProfile}>(`/api/v1/public-profiles/${encodeURIComponent(handle)}`,undefined,options);}
+    mySocialProfile(options?:RequestOptions){return this.client.get<{data:PublicSocialProfile}>('/api/v1/social-profile/me',undefined,options);}
+    updateSocialProfile(data:Pick<PublicSocialProfile,'handle'|'display_name'|'bio'>,options?:RequestOptions){return this.client.put<{data:PublicSocialProfile}>('/api/v1/social-profile/me',data,options);}
+
     /** Resolves 1–200 authenticated sandbox user IDs to active profile names. Requires profile:lookup; invalid batches return 400. Scope eligible membership through Task before calling. */
     resolvePeople(data: T.ResolvePeopleInput, options?: RequestOptions<T.ResolvePeopleInput>) { return this.client.post<T.ResolvePeopleResponse, T.ResolvePeopleInput>("/api/v1/profile/people/resolve", data, options); }
     readonly operations = new ProfileOperations(this.client);

@@ -2,6 +2,8 @@ import { RestResource, ServiceApi, urlEncoded, type Identifier, type OperationRe
 import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, CreateRoleInput, CreateUserInput, LinkedFaiberBillingQuery, LinkedFaiberBillingResponse, LinkedFaiberTopUpInput, LinkedFaiberTopUpResponse, LinkedIdentityListResponse, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, Role, RoleListResponse, RoleResponse, SessionListResponse, SetUserStatusInput, UpdateRoleInput, UpdateUserInput, User, UserListResponse, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
 import { IdpOperations } from "./operations.js";
 export class IdpApi extends ServiceApi {
+    browserOtpLogin(data: {client_id:string;method:'otp';identifier:string;code:string}, options?:RequestOptions) {return this.client.post<OperationResponse>('/api/v1/auth/browser-login',data,options);}
+
     readonly operations = new IdpOperations(this.client);
     readonly users = new RestResource<User, CreateUserInput, UpdateUserInput, UserListResponse, UserResponse>(this.client, "/api/v1/users", { supported: ["list", "show", "create", "update", "replace", "delete"] });
     readonly roles = new RestResource<Role, CreateRoleInput, UpdateRoleInput, RoleListResponse, RoleResponse>(this.client, "/api/v1/acl/roles", { supported: ["list", "show", "create", "update", "replace", "delete"] });

@@ -5182,7 +5182,7 @@
     },
     {
       "method": "POST",
-      "path": "/api/v1/auth/secure/exchange/one-time",
+      "path": "/api/v1/auth/otp-login",
       "module": "auth",
       "handler": "otp_login",
       "permissions": [],
@@ -5988,6 +5988,21 @@
       "permissions": [],
       "source": "infera-idp/src/user/routes.rs",
       "response": "bool",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/secure/exchange/one-time",
+      "module": "auth",
+      "handler": "exchange_one_time_token",
+      "permissions": [
+        "internal_service_guard"
+      ],
+      "source": "infera-idp/src/auth/routes.rs",
+      "body": "OneTimeExchangeRequest",
+      "response": "APIResponse<TokenResponse>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

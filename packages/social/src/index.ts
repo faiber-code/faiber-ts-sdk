@@ -10,7 +10,17 @@ import type {
 const id = (value: Identifier) => encodeURIComponent(value);
 
 import { SocialOperations } from "./operations.js";
+export interface PublicPost {liked:boolean;bookmarked:boolean;id:string;author_user_id:string;body:string;media:{id:string;url:string}[];created_at:string;reactions_count:number;comments_count:number;subject:{subject_type:string;subject_ref:string;public_snapshot:{name:{fa:string;en?:string};slug:string}}|null}
+export interface PublicFeedQuery {subject_type?:string;subject_ref?:string;subject_refs?:string;following?:boolean;q?:string;author_id?:string;page?:number;limit?:number;[key:string]:string|number|boolean|undefined}
 export class SocialApi extends ServiceApi {
+  publicFeed(params?:PublicFeedQuery,options?:RequestOptions){return this.client.get<ApiEnvelope<PublicPost[]>>('/api/v1/public/posts',params,options);}
+  publicPost(postId:string,options?:RequestOptions){return this.client.get<ApiEnvelope<PublicPost>>(`/api/v1/public/posts/${id(postId)}`,undefined,options);}
+  publicComments(postId:string,options?:RequestOptions){return this.client.get<ApiEnvelope<{id:string;body:string;user_id:string;parent_id:string|null;created_at:string}[]>>(`/api/v1/public/posts/${id(postId)}/comments`,undefined,options);}
+  follow(kind:'place'|'user',target:string,options?:RequestOptions){return this.client.put<void>(`/api/v1/follow/${kind}/${id(target)}`,{},options);}
+  unfollow(kind:'place'|'user',target:string,options?:RequestOptions){return this.client.delete<void>(`/api/v1/follow/${kind}/${id(target)}`,options);}
+  block(target:string,options?:RequestOptions){return this.client.put<void>(`/api/v1/block/${id(target)}`,{},options);}
+  unblock(target:string,options?:RequestOptions){return this.client.delete<void>(`/api/v1/block/${id(target)}`,options);}
+
     readonly operations = new SocialOperations(this.client);
   categories(options?: RequestOptions) { return this.client.get<SocialCategoryListResponse>("/api/v1/categories", undefined, options); }
   uploadMedia(file: Blob, options?: RequestOptions<FormData>) { return this.client.post<SocialMediaResponse, FormData>("/api/v1/media/uploads", multipart({ file }), options); }

@@ -3,6 +3,18 @@ import type * as T from "./operations.types.js";
 
 export class IdpOperations extends ServiceApi {
   /**
+   * Exchanges an internal single-use token for access and refresh tokens.
+   * Calls `POST /api/v1/auth/secure/exchange/one-time` through the shared IDP-aware Faiber client.
+   * @param data Single-use token issued to the internal integration.
+   * @param options Trusted internal-service authorization headers and cancellation options.
+   * @returns The complete Axios response with access_token, refresh_token, expires_in, and scope.
+   * @throws AxiosError for an invalid/consumed token (400), internal-service denial (403), or expired session (401).
+   */
+  authExchangeOneTimeTokenPost(data:T.AuthExchangeOneTimeTokenPostInput,options?:RequestOptions<T.AuthExchangeOneTimeTokenPostInput>){
+    return this.client.request<T.AuthExchangeOneTimeTokenPostResponse,T.AuthExchangeOneTimeTokenPostInput>({...options,method:"POST",url:"/api/v1/auth/secure/exchange/one-time",data});
+  }
+
+  /**
    * Performs the status route operation for the router capability.
    * Calls `GET /` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -349,14 +361,14 @@ export class IdpOperations extends ServiceApi {
   }
   /**
    * Performs the otp login operation for the auth capability.
-   * Calls `POST /api/v1/auth/secure/exchange/one-time` through the shared IDP-aware Faiber client.
+   * Calls `POST /api/v1/auth/otp-login` through the shared IDP-aware Faiber client.
    * @param data Typed URL-encoded form.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
   authOtpLoginPost(data: T.AuthOtpLoginPostInput, options?: RequestOptions<T.AuthOtpLoginPostInput>) {
-    return this.client.request<T.AuthOtpLoginPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/secure/exchange/one-time`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
+    return this.client.request<T.AuthOtpLoginPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/otp-login`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
    * Performs the generate secure one time token route operation for the auth capability.
