@@ -31,12 +31,12 @@ await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } })
 
 ## Complete capability
 
-This package exposes 32 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 36 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `main` | 1 | `GET` |
-| `routes` | 31 | `DELETE`, `GET`, `POST`, `PUT` |
+| `routes` | 35 | `DELETE`, `GET`, `POST`, `PUT` |
 
 AI turns are executed and billed by Infera Agentic; Chat only coordinates conversation context and reconciliation. The events endpoint is an SSE stream and can be requested with normal SDK authorization headers.
 
@@ -171,3 +171,18 @@ ownership. It returns at most 40 messages in chronological order as
 `{ id, role: 'user' | 'teacher', text }` in `response.data.data`. It does not expose
 conversation management, internal prompts, metadata, or other learners' records.
 Both methods retain Axios status/headers and accept cancellation options.
+
+## Attachment upload and download
+
+Reserve with `createAttachment`, then call `uploadAttachmentContent(id, bytes, { onUploadProgress, signal })`. This authenticated route sends raw binary with `application/octet-stream` (100 MiB maximum). Bytes must match the reserved size and checksum. `completeAttachment(id)` still finalizes existing presigned uploads.
+
+```ts
+const response = await api.downloadAttachment(attachmentId, { signal });
+const blob = response.data; // Blob in browsers and Node 18+
+const previewUrl = URL.createObjectURL(blob);
+// Use previewUrl in an image/viewer or a download anchor.
+// Revoke only after the viewer/download has finished, never immediately after clicking.
+URL.revokeObjectURL(previewUrl);
+```
+
+Downloads use authenticated Chat access (`chat:read`), preserve Axios metadata, and support `onDownloadProgress`. Use `api.operations.routesDownloadAttachmentGet` for raw bytes. Access failures return 403/404; storage failures return 502. Upload completion requires `chat:write`.

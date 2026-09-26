@@ -112,6 +112,8 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesGetAssistantGetResponse>({ ...options, method: "GET", url: `/api/v1/assistants/${encodeURIComponent(id)}` });
   }
   /**
+   * Optional raw bytes upload through authenticated storage (100 MiB maximum); omitted bytes finalize a presigned upload.
+   * @param data Raw bytes matching the reservation size and checksum.
    * Performs the complete attachment operation for the routes capability.
    * Calls `POST /api/v1/attachments/{id}/complete` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -119,8 +121,19 @@ export class ChatOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:write.
    */
-  routesCompleteAttachmentPost(id: Identifier, options?: RequestOptions) {
-    return this.client.request<T.RoutesCompleteAttachmentPostResponse>({ ...options, method: "POST", url: `/api/v1/attachments/${encodeURIComponent(id)}/complete` });
+  routesCompleteAttachmentPost(id: Identifier, options?: RequestOptions<T.AttachmentUploadBody>, data?: T.AttachmentUploadBody) {
+    return this.client.request<T.RoutesCompleteAttachmentPostResponse, T.AttachmentUploadBody>({ ...options, method: "POST", url: `/api/v1/attachments/${encodeURIComponent(id)}/complete`, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });
+  }
+  /**
+   * Downloads a ready attachment after conversation membership authorization.
+   * Calls `GET /api/v1/attachments/{id}/content` through the shared IDP-aware Faiber client.
+   * @param id Attachment identifier.
+   * @param options Axios cancellation, progress, headers and transport options.
+   * @returns The complete Axios response with raw binary bytes and media headers.
+   * @throws AxiosError on 403/404 access failures or 502 storage failures; required permission: chat:read.
+   */
+  routesDownloadAttachmentGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesDownloadAttachmentGetResponse>({ ...options, method: "GET", url: `/api/v1/attachments/${encodeURIComponent(id)}/content`, responseType: "arraybuffer" });
   }
   /**
    * Performs the list operation for the routes capability.

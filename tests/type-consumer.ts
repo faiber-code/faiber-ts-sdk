@@ -42,6 +42,9 @@ const chatMessage: ChatService.ChatMessage = {
 const chatSenderId: string | null = chatMessage.sender_id;
 
 async function provePublicContracts(): Promise<void> {
+  const downloaded: Blob = (await apis.chat.downloadAttachment("attachment-id")).data;
+  await apis.chat.uploadAttachmentContent("attachment-id", new Uint8Array([1, 2]));
+  void downloaded;
   const loginResponse = await apis.idp.login(login);
   const loginBody: IdpService.AuthTokensResponse = loginResponse.data;
   const linkedResponse = await apis.idp.linkedIdentities();

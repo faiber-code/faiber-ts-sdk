@@ -1731,6 +1731,21 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/attachments/{id}/content",
+      "module": "routes",
+      "handler": "download_attachment",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Response",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "crm": [

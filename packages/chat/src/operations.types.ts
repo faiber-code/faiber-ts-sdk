@@ -339,3 +339,8 @@ export interface RoutesReactPostResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: serde_json::Value. */
 export interface MainHealthGetResponse extends ApiEnvelope<JsonValue> {
 }
+
+/** Raw attachment bytes accepted by authenticated completion. */
+export type AttachmentUploadBody = Blob | ArrayBuffer | Uint8Array;
+/** Browser ArrayBuffer or Node Uint8Array returned by the binary transport. */
+export type RoutesDownloadAttachmentGetResponse = ArrayBuffer | Uint8Array;

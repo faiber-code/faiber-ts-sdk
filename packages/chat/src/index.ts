@@ -59,6 +59,21 @@ export class ChatApi extends ServiceApi {
   customerActionContent(params?: O.RoutesCustomerActionContentGetQuery, options?: RequestOptions) { return this.operations.routesCustomerActionContentGet(params, options); }
   createAttachment(conversationId: Identifier, data: O.RoutesCreateAttachmentPostInput, options?: RequestOptions<O.RoutesCreateAttachmentPostInput>) { return this.operations.routesCreateAttachmentPost(conversationId, data, options); }
   completeAttachment(attachmentId: Identifier, options?: RequestOptions) { return this.operations.routesCompleteAttachmentPost(attachmentId, options); }
+  /** Upload reservation bytes and mark the attachment ready (chat:write).
+   * Maximum 100 MiB; size/checksum must match the reservation. Supports onUploadProgress and cancellation.
+   * Returns the attachment envelope; validation/access/storage errors reject with AxiosError. */
+  uploadAttachmentContent(attachmentId: Identifier, data: O.AttachmentUploadBody, options?: RequestOptions<O.AttachmentUploadBody>) {
+    return this.operations.routesCompleteAttachmentPost(attachmentId, options, data);
+  }
+  /** Download a ready attachment as a Blob in browsers and Node 18+ (chat:read).
+   * Preserves Axios metadata and cancellation. 403/404 deny access; 502 indicates storage failure.
+   * Use URL.createObjectURL for preview/download and revoke it only after the consumer finishes. */
+  async downloadAttachment(attachmentId: Identifier, options?: RequestOptions) {
+    const response = await this.operations.routesDownloadAttachmentGet(attachmentId, options);
+    const bytes = response.data instanceof ArrayBuffer ? response.data : Uint8Array.from(response.data).buffer;
+    const contentType = response.headers["content-type"];
+    return { ...response, data: new Blob([bytes], { type: typeof contentType === "string" ? contentType : "application/octet-stream" }) };
+  }
   realtimeAuth(conversationId: Identifier, data: O.RoutesRealtimeAuthPostInput, options?: RequestOptions<O.RoutesRealtimeAuthPostInput>) { return this.operations.routesRealtimeAuthPost(conversationId, data, options); }
   /** Return browser-safe Sockudo configuration after checking conversation membership (chat:read).
    * Preserves Axios response metadata; 401/403 deny access and 502 means realtime is unconfigured. */

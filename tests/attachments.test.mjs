@@ -1,0 +1,22 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {ChatApi} from '../packages/chat/dist/index.js';
+import {FaiberClient,MemoryTokenProvider} from '../packages/core/dist/index.js';
+test('attachment transfers preserve auth, binary bytes, cancellation and media metadata',async()=>{
+ const requests=[];
+ const api=new ChatApi(new FaiberClient('chat',{domains:{chat:'https://chat.example.test'},authMode:'bearer',tokenProvider:new MemoryTokenProvider({accessToken:'test-token'}),axios:{adapter:async config=>{requests.push(config);return {status:200,statusText:'OK',headers:{'content-type':'image/png'},config,data:config.method==='get'?Buffer.from([9,1,2,9]).subarray(1,3):{status:'success',data:{id:'a'}}}}}}));
+ const controller=new AbortController();
+ const response=await api.downloadAttachment('a/b',{signal:controller.signal});
+ assert.ok(response.data instanceof Blob);assert.equal(response.data.type,'image/png');
+ assert.deepEqual([...new Uint8Array(await response.data.arrayBuffer())],[1,2]);
+ assert.equal(requests[0].url,'/api/v1/attachments/a%2Fb/content');
+ assert.equal(requests[0].responseType,'arraybuffer');
+ assert.equal(requests[0].headers.get('Authorization'),'Bearer test-token');
+ assert.equal(requests[0].signal,controller.signal);
+ const progress=()=>{};
+ await api.uploadAttachmentContent('a',new Uint8Array([1,2]),{onUploadProgress:progress});
+ assert.equal(requests[1].headers.get('Content-Type'),'application/octet-stream');
+ assert.equal(requests[1].onUploadProgress,progress);
+ assert.deepEqual([...new Uint8Array(requests[1].data)],[1,2]);
+ await api.completeAttachment('a');assert.equal(requests[2].data,undefined);
+});
