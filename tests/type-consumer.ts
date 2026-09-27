@@ -42,6 +42,9 @@ const chatMessage: ChatService.ChatMessage = {
 const chatSenderId: string | null = chatMessage.sender_id;
 
 async function provePublicContracts(): Promise<void> {
+  const downloaded: Blob = (await apis.chat.downloadAttachment("attachment-id")).data;
+  await apis.chat.uploadAttachmentContent("attachment-id", new Uint8Array([1, 2]));
+  void downloaded;
   const loginResponse = await apis.idp.login(login);
   const loginBody: IdpService.AuthTokensResponse = loginResponse.data;
   const linkedResponse = await apis.idp.linkedIdentities();
@@ -97,6 +100,21 @@ async function provePublicContracts(): Promise<void> {
     support_user_id: "00000000-0000-0000-0000-000000000004",
   });
   await apis.lms.homeworkAssignments.create({ homework_id: "00000000-0000-0000-0000-000000000010", status: "unsolved" });
+  const homeworkAssignment = await apis.lms.homeworkAssignments.show("00000000-0000-0000-0000-000000000011");
+  const assignedHomeworkDescription: string | null | undefined = homeworkAssignment.data.data.homework?.description;
+  const assignedQuestionKind: LmsService.HomeworkItemKind | undefined = homeworkAssignment.data.data.homework_question?.kind;
+  const assignedQuestionName: string | undefined = homeworkAssignment.data.data.homework_question?.name;
+  const assignedQuestionId: string | null | undefined = homeworkAssignment.data.data.homework_question_id;
+  const assignmentDescription: string | null | undefined = homeworkAssignment.data.data.description;
+  const assignmentActiveUntil: string | null | undefined = homeworkAssignment.data.data.active_until;
+  const assignmentResolvedAt: string | null | undefined = homeworkAssignment.data.data.resolved_at;
+  void assignedHomeworkDescription;
+  void assignedQuestionKind;
+  void assignedQuestionName;
+  void assignedQuestionId;
+  void assignmentDescription;
+  void assignmentActiveUntil;
+  void assignmentResolvedAt;
   await apis.lms.homeworkBankItems("00000000-0000-0000-0000-000000000010").create({
     name: "Capstone project",
     question_text: "Build and present the capstone project",

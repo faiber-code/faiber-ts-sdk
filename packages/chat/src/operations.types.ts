@@ -1,8 +1,5 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
-/** Raw private attachment bytes, not a JSON envelope; works in browsers and Node. */
-export type RoutesDownloadAttachmentGetResponse = ArrayBuffer;
-
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: Value. */
 export interface RoutesAssistantContextCatalogGetResponse extends ApiEnvelope<JsonValue> {
@@ -342,3 +339,8 @@ export interface RoutesReactPostResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: serde_json::Value. */
 export interface MainHealthGetResponse extends ApiEnvelope<JsonValue> {
 }
+
+/** Raw attachment bytes accepted by authenticated completion. */
+export type AttachmentUploadBody = Blob | ArrayBuffer | Uint8Array;
+/** Browser ArrayBuffer or Node Uint8Array returned by the binary transport. */
+export type RoutesDownloadAttachmentGetResponse = ArrayBuffer | Uint8Array;

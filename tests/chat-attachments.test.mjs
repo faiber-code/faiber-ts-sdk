@@ -18,7 +18,8 @@ test('private attachment download uses authenticated Chat transport and raw byte
   }));
   const controller = new AbortController();
   const response = await api.downloadAttachment('file/1', { signal: controller.signal });
-  assert.equal(response.data, bytes);
+  assert.ok(response.data instanceof Blob);
+  assert.deepEqual(new Uint8Array(await response.data.arrayBuffer()), new Uint8Array(bytes));
   assert.equal(response.status, 200);
   assert.equal(response.headers['cache-control'], 'private, no-store');
   assert.equal(requests[0].url, '/api/v1/attachments/file%2F1/content');

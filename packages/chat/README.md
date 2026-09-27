@@ -31,12 +31,12 @@ await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } })
 
 ## Complete capability
 
-This package exposes 32 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 36 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `main` | 1 | `GET` |
-| `routes` | 31 | `DELETE`, `GET`, `POST`, `PUT` |
+| `routes` | 35 | `DELETE`, `GET`, `POST`, `PUT` |
 
 AI turns are executed and billed by Infera Agentic; Chat only coordinates conversation context and reconciliation. The events endpoint is an SSE stream and can be requested with normal SDK authorization headers.
 
@@ -67,31 +67,6 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 Use `subscribeRealtime` from `@faiber/sdk-core` for private Sockudo subscriptions. Chat configuration comes from `ChatApi.realtimeConfig(conversationId)` and authorization from `ChatApi.realtimeAuth`; both require conversation membership and `chat:read`. Notification configuration and authorization use `MessengerApi.operations.notificationNotificationsRealtimeConfigGet` and `notificationNotificationsRealtimeAuthPost` with `notification:self:read`; the backend permits only the signed-in recipient's channel. Keep these service responsibilities separate. Reload persisted records on subscription/reconnect, close subscriptions on logout, and keep all Sockudo secrets server-side. See the [core subscription example](https://github.com/faiber-code/faiber-ts-sdk/tree/main/packages/core#sockudo-realtime-subscriptions).
 
 `speechStatus()` reports configured local transcription availability. `transcribe(audioBlob, 'fa', {signal})` accepts up to 8 MiB of WebM, Ogg, MP4, or WAV audio and returns editable transcript text; it never sends a chat message automatically. Both require `chat:ai`; invalid audio returns 400, unavailable services return 502, and cancellation uses normal Axios request signals.
-
-### Private homework-chat attachments
-
-`createAttachment(conversationId, input)` returns a short-lived signed `upload_url`
-for uploading bytes, not downloading them. After uploading, call
-`completeAttachment(attachmentId)` and send the message with `attachment_ids`.
-Do not send your Chat Bearer token to the storage upload URL.
-
-The returned attachment's `cdn_url` is storage metadata and may be inaccessible
-for private buckets. Use authenticated downloads for homework-chat files:
-
-```ts
-const response = await chat.downloadAttachment(attachment.id, { signal });
-const blob = new Blob([response.data], { type: attachment.media_type });
-const objectUrl = URL.createObjectURL(blob);
-// Use objectUrl for an image, preview, or download link, then revoke it on cleanup.
-URL.revokeObjectURL(objectUrl);
-```
-
-Downloads return raw `ArrayBuffer` bytes (also usable in Node), not a JSON envelope.
-They preserve Axios status and headers and use the configured Bearer token or secure
-cookies. Requires `chat:read` and conversation access. Unauthenticated/non-member
-requests fail with 401/403, missing or pending attachments with 404, and unavailable
-storage with 502. An unlinked upload is readable only by its uploader. Cancellation
-uses the normal Axios `signal`; never persist object URLs or credentials in messages.
 
 ### Workspace assistant roles
 
@@ -196,3 +171,18 @@ ownership. It returns at most 40 messages in chronological order as
 `{ id, role: 'user' | 'teacher', text }` in `response.data.data`. It does not expose
 conversation management, internal prompts, metadata, or other learners' records.
 Both methods retain Axios status/headers and accept cancellation options.
+
+## Attachment upload and download
+
+Reserve with `createAttachment`, then call `uploadAttachmentContent(id, bytes, { onUploadProgress, signal })`. This authenticated route sends raw binary with `application/octet-stream` (100 MiB maximum). Bytes must match the reserved size and checksum. `completeAttachment(id)` still finalizes existing presigned uploads.
+
+```ts
+const response = await api.downloadAttachment(attachmentId, { signal });
+const blob = response.data; // Blob in browsers and Node 18+
+const previewUrl = URL.createObjectURL(blob);
+// Use previewUrl in an image/viewer or a download anchor.
+// Revoke only after the viewer/download has finished, never immediately after clicking.
+URL.revokeObjectURL(previewUrl);
+```
+
+Downloads use authenticated Chat access (`chat:read`), preserve Axios metadata, and support `onDownloadProgress`. Use `api.operations.routesDownloadAttachmentGet` for raw bytes. Access failures return 403/404; storage failures return 502. Upload completion requires `chat:write`.
