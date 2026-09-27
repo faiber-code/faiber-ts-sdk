@@ -174,6 +174,12 @@ Both methods retain Axios status/headers and accept cancellation options.
 
 ## Attachment upload and download
 
+`upload_url` is a short-lived signed storage URL for uploading, not downloading.
+The attachment's `cdn_url` is storage metadata and may not be publicly readable.
+For private homework-chat files, use `downloadAttachment(id)` instead of opening
+`cdn_url`. It forwards the configured Bearer token or secure cookies to Chat,
+which verifies conversation access before fetching private storage bytes.
+
 Reserve with `createAttachment`, then call `uploadAttachmentContent(id, bytes, { onUploadProgress, signal })`. This authenticated route sends raw binary with `application/octet-stream` (100 MiB maximum). Bytes must match the reserved size and checksum. `completeAttachment(id)` still finalizes existing presigned uploads.
 
 ```ts

@@ -133,6 +133,7 @@ export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
   "storage_provider": string;
   "bucket": string;
   "object_key": string;
+  /** Storage metadata, not a private download URL; use ChatApi.downloadAttachment(id). */
   "cdn_url": string;
   "file_name": string;
   "media_type": string;
