@@ -59,6 +59,12 @@ export class ChatApi extends ServiceApi {
   customerActionContent(params?: O.RoutesCustomerActionContentGetQuery, options?: RequestOptions) { return this.operations.routesCustomerActionContentGet(params, options); }
   createAttachment(conversationId: Identifier, data: O.RoutesCreateAttachmentPostInput, options?: RequestOptions<O.RoutesCreateAttachmentPostInput>) { return this.operations.routesCreateAttachmentPost(conversationId, data, options); }
   completeAttachment(attachmentId: Identifier, options?: RequestOptions) { return this.operations.routesCompleteAttachmentPost(attachmentId, options); }
+  /** Download private file bytes with the configured Bearer token or cookies (chat:read).
+   * Returns an Axios response with ArrayBuffer data and file headers. Supports abort signals.
+   * 401/403 deny access; 404 means missing/not-ready; 502 means storage unavailable.
+   * In browsers create a Blob/object URL from the bytes and revoke it when finished.
+   */
+  downloadAttachment(attachmentId: Identifier, options?: RequestOptions) { return this.operations.routesDownloadAttachmentGet(attachmentId, options); }
   realtimeAuth(conversationId: Identifier, data: O.RoutesRealtimeAuthPostInput, options?: RequestOptions<O.RoutesRealtimeAuthPostInput>) { return this.operations.routesRealtimeAuthPost(conversationId, data, options); }
   /** Return browser-safe Sockudo configuration after checking conversation membership (chat:read).
    * Preserves Axios response metadata; 401/403 deny access and 502 means realtime is unconfigured. */

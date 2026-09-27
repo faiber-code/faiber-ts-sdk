@@ -68,6 +68,31 @@ Use `subscribeRealtime` from `@faiber/sdk-core` for private Sockudo subscription
 
 `speechStatus()` reports configured local transcription availability. `transcribe(audioBlob, 'fa', {signal})` accepts up to 8 MiB of WebM, Ogg, MP4, or WAV audio and returns editable transcript text; it never sends a chat message automatically. Both require `chat:ai`; invalid audio returns 400, unavailable services return 502, and cancellation uses normal Axios request signals.
 
+### Private homework-chat attachments
+
+`createAttachment(conversationId, input)` returns a short-lived signed `upload_url`
+for uploading bytes, not downloading them. After uploading, call
+`completeAttachment(attachmentId)` and send the message with `attachment_ids`.
+Do not send your Chat Bearer token to the storage upload URL.
+
+The returned attachment's `cdn_url` is storage metadata and may be inaccessible
+for private buckets. Use authenticated downloads for homework-chat files:
+
+```ts
+const response = await chat.downloadAttachment(attachment.id, { signal });
+const blob = new Blob([response.data], { type: attachment.media_type });
+const objectUrl = URL.createObjectURL(blob);
+// Use objectUrl for an image, preview, or download link, then revoke it on cleanup.
+URL.revokeObjectURL(objectUrl);
+```
+
+Downloads return raw `ArrayBuffer` bytes (also usable in Node), not a JSON envelope.
+They preserve Axios status and headers and use the configured Bearer token or secure
+cookies. Requires `chat:read` and conversation access. Unauthenticated/non-member
+requests fail with 401/403, missing or pending attachments with 404, and unavailable
+storage with 502. An unlinked upload is readable only by its uploader. Cancellation
+uses the normal Axios `signal`; never persist object URLs or credentials in messages.
+
 ### Workspace assistant roles
 
 Discover server-managed roles with `chat.workspaceAssistant.roles()`, and choose `role === 'action'` for editable capture or `role === 'chat'` for workspace conversation. Create a conversation with that binding's `assistant_id`; catalog order has no role meaning. `WorkspaceAssistantResult` describes structured message metadata: answers, drafts, clarification, citations, and review proposals, with the Knowledge release and retrieval timestamp. A proposal is a preview until Task confirms approval.

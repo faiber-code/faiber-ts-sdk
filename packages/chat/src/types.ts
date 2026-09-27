@@ -17,6 +17,7 @@ export interface ChatAttachment extends JsonObject {
   storage_provider: string;
   bucket: string;
   object_key: string;
+  /** Storage/CDN metadata; not an authenticated download URL. Use downloadAttachment(id). */
   cdn_url: string;
   file_name: string;
   media_type: string;

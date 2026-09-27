@@ -3,6 +3,17 @@ import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@f
 import type * as T from "./operations.types.js";
 
 export class ChatOperations extends ServiceApi {
+  /** Download private attachment bytes through Chat, never the unsigned CDN URL.
+   * Calls `GET /api/v1/attachments/{id}/content` through the shared IDP-aware Faiber client.
+   * @param id Attachment identifier returned by uploads or message history.
+   * @param options Authenticated Axios transport options, including cancellation.
+   * @returns The complete Axios response containing ArrayBuffer bytes and file headers.
+   * @throws AxiosError: 401 unauthenticated, 403 not a conversation member,
+   * 404 missing/not-ready attachment, 502 unavailable storage. Requires chat:read.
+   */
+  routesDownloadAttachmentGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesDownloadAttachmentGetResponse>({ ...options, method: "GET", url: `/api/v1/attachments/${encodeURIComponent(id)}/content`, responseType: "arraybuffer" });
+  }
   /**
    * Performs the assistant context catalog operation for the routes capability.
    * Calls `GET /api/v1/admin/assistant-context-catalog` through the shared IDP-aware Faiber client.
