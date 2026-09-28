@@ -36,6 +36,11 @@ await client.post("/api/v1/profile/avatar", multipart({ file, alt: "Avatar" }));
 
 The client provides typed `get`, `post`, `put`, `patch`, `delete`, and generic `request` methods. Query values, request headers, timeout, adapters, interceptors, `AbortSignal`, multipart data, and URL-encoded forms remain available through Axios-compatible options.
 
+Native `FormData` uploads automatically clear a configured JSON content type so Axios can
+supply the multipart boundary. Pass `onUploadProgress` for byte progress and `signal` to
+cancel. Await the response before treating the upload as complete; a storage failure can
+arrive after all bytes have been sent.
+
 ## Resources and generated operations
 
 `RestResource` supplies typed list/show/create/update/replace/delete helpers. Each resource declares the operations its backend actually mounts; unsupported calls throw `UnsupportedOperationError` locally instead of sending a request that will return `405`. The update verb is configurable per service.

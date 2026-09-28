@@ -14,6 +14,11 @@ export class FaiberClient {
         this.axios = config.createAxios?.(defaults, service) ?? axios.create(defaults);
         this.refreshAxios = axios.create(defaults);
         this.axios.interceptors.request.use(async (request) => {
+            // Native FormData needs the transport-generated multipart boundary, even when a
+            // consumer configured a JSON Content-Type globally.
+            if (typeof FormData !== "undefined" && request.data instanceof FormData) {
+                request.headers.delete("Content-Type");
+            }
             const tokens = await config.tokenProvider?.getTokens() ?? null;
             const authorization = authMode === "cookie" ? null : config.getAuthorization ? await config.getAuthorization({ service, request, tokens }) : bearerAuthorization(tokens);
             if (authorization && !request.headers.has("Authorization"))

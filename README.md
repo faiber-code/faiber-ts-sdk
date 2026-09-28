@@ -106,6 +106,22 @@ await sdk.profile.uploadAvatar(userId, avatarFile);
 await sdk.modules.uploadMediaAsset(file, "product");
 ```
 
+LMS question, option, homework, and course images use the same authenticated upload:
+
+```ts
+const response = await sdk.lms.media.uploadImage(imageFile, {
+  signal: abortController.signal,
+  onUploadProgress: ({ loaded, total }) => {
+    if (total) updateProgress(Math.round(loaded / total * 100));
+  },
+});
+const imageUrl = response.data.data?.url;
+```
+
+Await the response before saving the returned URL on the question, option, or homework record.
+Byte progress reaching 100% does not confirm storage completion. See the
+[LMS upload guide](packages/lms/README.md) for formats, size limits, permissions, and filenames.
+
 Use the typed low-level `sdk.<service>.client` only for application-specific routes that are not part of the public service contract. Absolute request URLs are disabled by default so authorization headers cannot be redirected to another origin.
 
 ### Realtime through Sockudo

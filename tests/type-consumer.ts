@@ -297,3 +297,16 @@ sdk.task.openEvents({ signal: AbortSignal.timeout(1_000) }).then(response => res
 }
 
 void provePublicContracts;
+
+const imageUploadOptions: LmsService.LmsImageUploadOptions = {
+  fileName: "question.png",
+  signal: new AbortController().signal,
+  onUploadProgress: event => { const uploadedBytes: number = event.loaded; void uploadedBytes; },
+};
+void sdk.lms.media.uploadImage(new Blob([], { type: "image/png" }), imageUploadOptions)
+  .then(response => { const imageUrl: string = response.data.data.url; void imageUrl; });
+
+function assignSelectedHomework(item: LmsService.HomeworkBankItem) {
+  return sdk.lms.homeworkAssignments.createForItem(item, { user_id: "learner-uuid", status: "pending" });
+}
+void assignSelectedHomework;

@@ -64,7 +64,7 @@ Homework-bank items accept `name` on create and update. Responses always include
 
 ### Homework and exam banks
 
-Reusable homework definitions are the homework-bank layer: `api.homeworkBanks` and the compatibility alias `api.homeworks` address the same records. Use `api.homeworkBankItems(bankId)` for the definition's questions/items (`homework_questions`). Every item has `kind: "todo" | "project"`; the nested list accepts the same `kind` filter, and create/update accept the field. Delivery records reference an item's ID (not the bank ID) and are fully managed through `api.homeworkAssignments`. The compatibility methods `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment` remain available.
+Reusable homework definitions are the homework-bank layer: `api.homeworkBanks` and the compatibility alias `api.homeworks` address the same records. Use `api.homeworkBankItems(bankId)` for the definition's questions/items (`homework_questions`). Every item has `kind: "todo" | "project"`; the nested list accepts the same `kind` filter, and create/update accept the field. Prefer `api.homeworkAssignments.createForItem(item, delivery)` to select the exercise ID explicitly. Delivery records reference an item's ID (not the bank ID) and are fully managed through `api.homeworkAssignments`. The compatibility methods `listAssignments`, `createAssignment`, `assignment`, `updateAssignment`, and `deleteAssignment` remain available.
 
 Exam definitions are exposed as `api.examBanks`, their questions/items as `api.examBankItems`, delivery sessions as `api.examSessions`, and learner attempts as `listExamUsers`, `examUser`, and `updateExamUser`. The legacy `api.exams`, `api.examQuestions`, and `api.homeworks` names remain available.
 
@@ -72,6 +72,12 @@ Exam definitions are exposed as `api.examBanks`, their questions/items as `api.e
 const bank = await api.homeworkBanks.create({ name: "Projects", status: "active" });
 const items = api.homeworkBankItems(bank.data.data.id);
 const item = await items.create({ question_text: "Build a recursion demo", question_type: "answer", kind: "project", status: "active" });
+// item.data.data.id is the exercise; item.data.data.homework_id is its parent bank.
+const delivery = await api.homeworkAssignments.createForItem(item.data.data, {
+  user_id: studentUserId,
+  classroom_id: classroomId,
+  status: "pending",
+});
 const todos = await items.list({ kind: "todo" });
 const assignments = await api.homeworkAssignments.list({
   statuses: ["pending", "unsolved", "completed"],
@@ -150,3 +156,33 @@ const result = await api.interactive.submit(run.state.id, {
 ```
 
 The server owns checks and mastery. Browser output must not be submitted as a passing result. Keep the idempotency key for retries of an identical submission; refetch on revision conflict. Definition authoring requires `lms:course:read`/`lms:course:update`; learner mutations verify active enrollment ownership and prerequisites. No API credentials belong in browser storage.
+
+### Question, option, homework, and course images
+
+Use the same authenticated upload endpoint for all LMS images. `File` (browser) and `Blob`
+(browser or Node 18+) are supported; accepted formats are PNG, JPEG, WebP, and GIF up to 10 MiB.
+
+```ts
+const upload = await lms.media.uploadImage(file, {
+  fileName: 'homework.webp',
+  signal: abortController.signal,
+  onUploadProgress: ({ loaded, total }) => {
+    if (total) updateUploadPercent(Math.round(loaded * 100 / total));
+  },
+});
+const imageUrl = upload.data.data?.url;
+if (!imageUrl) throw new Error("Upload did not return an image URL");
+```
+
+The helper sends the multipart `image` field and inherits the SDK's IDP credentials and
+refresh flow. Do not set a multipart boundary yourself. Native Axios progress reports bytes
+sent; await the response before marking the upload successful, because storage can still fail.
+A canceled or failed upload rejects with `AxiosError`. Progress availability depends on the
+Axios adapter/runtime; browser XHR and Node HTTP support byte progress.
+
+Uploading does not automatically change an exercise. Save the returned URL in the question's
+`media` array, an option's `image_url`/`media` field, the homework item's `media` array, or the
+course's image field using its create/update operation. Preserve the other media entries and
+option values when editing. Returned image URLs are service-relative, so resolve them against
+your configured LMS service origin for display. This endpoint currently requires
+`lms:course:update`, including when the image will be used by an exam or homework.

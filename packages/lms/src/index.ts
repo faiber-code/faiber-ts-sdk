@@ -1,3 +1,4 @@
+import { LmsMediaApi } from "./media.js";
 import { InteractiveLearningApi } from "./interactive.js";
 import { RestResource, ServiceApi, type AxiosResponse, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
@@ -29,6 +30,19 @@ function assignmentListQuery(params?: T.HomeworkAssignmentListQuery): O.Homework
     };
 }
 
+/** Delivery details for assigning a selected exercise to one learner. */
+export interface HomeworkItemAssignmentInput {
+    user_id: string;
+    status: T.HomeworkAssignmentStatus;
+    classroom_id?: string | null;
+    teacher_user_id?: string | null;
+    consultant_user_id?: string | null;
+    support_user_id?: string | null;
+    due_at?: string | null;
+    answer_text?: string | null;
+    score?: number | null;
+}
+
 /** Complete CRUD surface for homework-item delivery assignments. */
 export class HomeworkAssignmentsApi extends ServiceApi {
     private readonly operations = new LmsOperations(this.client);
@@ -38,8 +52,22 @@ export class HomeworkAssignmentsApi extends ServiceApi {
     show(id: Identifier, options?: RequestOptions) {
         return this.operations.homeworkShowAssignmentGet(id, options);
     }
+    /** Creates a delivery. homework_id must be the exercise's id, not its parent homework_id or bank id. Requires lms:homework:create. */
     create(data: O.HomeworkStoreAssignmentPostInput, options?: RequestOptions<O.HomeworkStoreAssignmentPostInput>) {
         return this.operations.homeworkStoreAssignmentPost(data, options);
+    }
+    /**
+     * Assigns a selected homework-bank exercise, using item.id instead of its parent item.homework_id.
+     * Requires lms:homework:create and a learner user_id. Returns the full assignment Axios response.
+     * Invalid local item/learner data throws TypeError; server validation, access, and network failures reject with AxiosError.
+     * Forward signal/progress/timeout options through the authenticated SDK transport. Existing placeholders need backend validation.
+     */
+    createForItem(item: T.HomeworkBankItem, data: HomeworkItemAssignmentInput, options?: RequestOptions<O.HomeworkStoreAssignmentPostInput>) {
+        if (!item.id?.trim() || !item.question_text?.trim() || item.status !== "active") {
+            throw new TypeError("Select an active homework exercise with an id and question text, not a bank");
+        }
+        if (!data.user_id?.trim()) throw new TypeError("A learner user_id is required");
+        return this.create({ ...data, homework_id: item.id }, options);
     }
     update(id: Identifier, data: O.HomeworkUpdateAssignmentPatchInput, options?: RequestOptions<O.HomeworkUpdateAssignmentPatchInput>) {
         return this.operations.homeworkUpdateAssignmentPatch(id, data, options);
@@ -87,6 +115,7 @@ export function classroomSessionRecordingUrl(reference: T.ClassroomSessionRoomRe
 }
 
 export class LmsApi extends ServiceApi {
+    readonly media = new LmsMediaApi(this.client);
     readonly interactive = new InteractiveLearningApi(this.client);
     readonly operations = new LmsOperations(this.client);
     /** Reads AI performance-summary configuration. Requires `lms:config:read`. */
@@ -261,3 +290,5 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./interactive.js";
+
+export * from "./media.js";
