@@ -5,6 +5,8 @@ export type BrowserLoginInput =
     | { client_id: string; method: "otp"; identifier: string; code: string };
 export interface User extends JsonObject {
     id: string;
+    /** Account registration timestamp in UTC; absent on older IDP deployments. */
+    created_at?: string;
     phone?: string | null;
     email?: string | null;
     national_code?: string | null;

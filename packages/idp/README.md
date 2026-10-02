@@ -76,3 +76,5 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+Managed user responses include `created_at`, the UTC registration timestamp (optional for compatibility with older deployments). Registration statistics remain available through the typed user registration-stats operation.

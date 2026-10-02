@@ -29,6 +29,25 @@ export class TaskApi extends ServiceApi {
   /** Cancel future deliveries with the reminder's If-Match version. Previously queued notifications remain in Messenger. */
   removeReminder(id: Identifier, version: number, options?: RequestOptions) { return this.client.delete<T.TaskResponse<T.RemovalResult>>(`/api/v1/work-items/${encodeURIComponent(id)}/reminder`, versionOptions(version, options)); }
 
+  /** Gets sandbox-local active plans and expiry dates for up to 100 comma-separated user IDs.
+   * Requires a verified sandbox admin role and task:access:use. Preserves the full Axios response.
+   * @param query User IDs to resolve; unknown accounts are omitted.
+   * @param options Cancellation, timeout, headers and other Axios options.
+   * @throws AxiosError on invalid IDs, forbidden access or an unavailable service.
+   */
+  adminUserPlans(query:T.AdminUserPlansQuery,options?:RequestOptions){
+    return this.client.get<T.TaskResponse<T.AdminUserPlansData>>('/api/v1/plans/admin/users',query,options);
+  }
+  /** Gets confirmed purchases and daily income in toman, grouped by Tehran date.
+   * Requires a verified sandbox admin role and task:access:use; only 2Done exposes this report.
+   * @param query Inclusive YYYY-MM-DD range of at most 366 days, optional paid-plan filter and page.
+   * @param options Cancellation, timeout, headers and other Axios options.
+   * @returns Full Axios response with totals, zero-filled daily points and 20 purchases per page.
+   * @throws AxiosError on invalid dates or plans, forbidden access or an unavailable service.
+   */
+  incomeReport(query:T.IncomeReportQuery,options?:RequestOptions){
+    return this.client.get<T.TaskResponse<T.IncomeReportData>>('/api/v1/plans/admin/income',query,options);
+  }
   /** Gets the active sandbox workspace; requires the configured global Task permission and scoped access. */
   workspace(options?: RequestOptions) {
     return this.client.get<T.TaskResponse<T.WorkspaceSummary>>("/api/v1/workspace", undefined, options);
