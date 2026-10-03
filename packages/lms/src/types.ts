@@ -1,4 +1,17 @@
 import type { ApiEnvelope, JsonObject, JsonValue, QueryParams, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
+export interface TransferUserDataInput { from_user_id: string; to_user_id: string }
+export interface EducationalTransferCounts {
+  classroom_enrollments: number; attendance: number; homework_assignments: number;
+  exam_attempts: number; grades: number; certificates: number; classroom_notes: number;
+  classroom_evaluations: number; session_evaluations: number; academy_enrollments: number; interactive_runs: number;
+}
+export interface EducationalTransferResult {
+  transfer_id: string; from_user_id: string; to_user_id: string;
+  moved: EducationalTransferCounts; profile_sync: "queued";
+}
+export interface TransferUserDataResponse extends ApiEnvelope<EducationalTransferResult> {}
+export type TransferErrorCode = "invalid_user_id" | "same_user" | "invalid_idempotency_key" | "invalid_payload" | "unauthenticated" | "user_not_found" | "profile_unavailable" | "idempotency_conflict" | "destination_conflict" | "active_attempt" | "transfer_busy" | "database_error" | "invalid_saved_response";
+export interface TransferUserDataErrorResponse { status: "error"; error: { code: TransferErrorCode; message: string; details: { user_id?: string } } }
 
 export type AiSummaryRole = "student" | "teacher" | "support";
 export type AiSummaryState = "disabled" | "pending" | "generating" | "ready" | "no_data" | "blocked" | "failed";

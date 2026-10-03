@@ -1,7 +1,21 @@
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
+import type * as W from "./types.js";
+import { AxiosHeaders, type RawAxiosHeaders } from "axios";
 
 export class LmsOperations extends ServiceApi {
+  /**
+   * Calls `POST /api/v1/idp/option/transfer-user-data` atomically; Office finances are excluded.
+   * @param idempotencyKey Required 1–128 printable ASCII characters without spaces; reuse for retries.
+   * @returns The complete Axios response, including per-record counts and the transfer UUID.
+   * @throws AxiosError with TransferUserDataErrorResponse for validation/conflict errors; requires user_data:transfer.
+   */
+  transferUserDataPost(data: W.TransferUserDataInput, idempotencyKey: string, options?: RequestOptions<W.TransferUserDataInput>) {
+    if (!/^[\x21-\x7e]{1,128}$/.test(idempotencyKey)) throw new TypeError("Idempotency-Key must be 1–128 printable ASCII characters without spaces");
+    const headers = new AxiosHeaders(options?.headers as RawAxiosHeaders | AxiosHeaders | undefined);
+    headers.set("Idempotency-Key", idempotencyKey);
+    return this.client.request<W.TransferUserDataResponse, W.TransferUserDataInput>({ ...options, headers, method: "POST", url: "/api/v1/idp/option/transfer-user-data", data });
+  }
   /**
    * Performs the openapi json operation for the router capability.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.

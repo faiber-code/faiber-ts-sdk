@@ -18,6 +18,15 @@ export interface Profile extends JsonObject {
     first_name?: LocalizedText | null;
     last_name?: LocalizedText | null;
     gender: string | null;
+    education_id: string | null;
+    attendance_mode: AttendanceMode | null;
+    level: string | null;
+    referral_source: string | null;
+    referrer_uuid: string | null;
+    description: string | null;
+    /** Latest Office projection; null means unavailable, not zero. */
+    account_balance: number | null;
+    wallet_balance: number | null;
     status: string;
     employee_type?: string | null;
     freemium_session_limit?: number | null;
@@ -302,13 +311,33 @@ export interface PersonalInformationInput extends JsonObject {
     province_id?: string;
     city_id?: string;
 }
-export interface EducationInformationInput extends JsonObject {
-    institution?: string;
-    degree?: string;
-    field?: string;
-    started_at?: string;
-    ended_at?: string;
+export interface EducationInformationInput {
+    education_id?: string | null;
+    attendance_mode?: AttendanceMode | null;
+    /** Free text of 1–64 characters, e.g. "beginner"; numbers are invalid. */
+    level?: string | null;
+    /** Active referral-source code returned by educationDependencies(). */
+    referral_source?: string | null;
+    /** Existing referrer's IDP user UUID, different from the learner. */
+    referrer_uuid?: string | null;
+    description?: string | null;
 }
+export type AttendanceMode = "online" | "in_person";
+export interface EducationOption { id: string; name: string }
+export interface EducationLookupResponse extends ApiEnvelope<EducationOption[]> {}
+export interface CreateEducationOptionInput { name: string }
+export interface EducationOptionResponse extends ApiEnvelope<EducationOption> {}
+export interface AttendanceModeOption { id: AttendanceMode; name: string }
+export interface ReferralSourceOption { id: string; name: string }
+export interface EducationDependencies { attendance_mode: AttendanceModeOption[]; referral_source: ReferralSourceOption[]; level_max_length: number }
+export interface EducationDependenciesResponse extends ApiEnvelope<EducationDependencies> {}
+export type CustomTypeValueType = "select" | "string" | "integer" | "float" | "boolean" | "date" | "uuid" | "object" | "array";
+export interface CustomTypeOption { value: JsonValue; code: string; labels: LocalizedText }
+export interface CustomType { id: string; name: string; value_type: CustomTypeValueType; options: (JsonValue | CustomTypeOption)[]; status: string; created_at: string; updated_at?: string | null }
+export interface CreateCustomTypeInput { name: string; value_type: CustomTypeValueType; options: (JsonValue | CustomTypeOption)[] }
+export interface UpdateCustomTypeInput { name?: string; value_type?: CustomTypeValueType; options?: (JsonValue | CustomTypeOption)[]; status?: string }
+export interface CustomTypeResponse extends ApiEnvelope<{ custom_type: CustomType }> {}
+export interface CustomTypeListResponse extends ApiEnvelope<{ custom_types: CustomType[] }> { meta: ProfilePaginationMeta }
 export interface ProfileMedia extends JsonObject {
     url: string;
     key: string;

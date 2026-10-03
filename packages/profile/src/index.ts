@@ -13,7 +13,8 @@ export class ProfileApi extends ServiceApi {
     readonly settings: R<T.Setting, T.CreateSettingInput, T.UpdateSettingInput, T.SettingListResponse, T.SettingResponse> = new RestResource(this.client, "/api/v1/setting", { supported: ["list", "create"] });
     readonly surveys: R<T.Survey, T.CreateSurveyInput, T.UpdateSurveyInput, T.SurveyListResponse, T.SurveyResponse> = new RestResource(this.client, "/api/v1/survey", { supported: ["list", "create"] });
     readonly work: R<T.Work, T.CreateWorkInput, T.UpdateWorkInput, T.WorkListResponse, T.WorkResponse> = new RestResource(this.client, "/api/v1/work", { supported: [] });
-    readonly education: R<T.Education, T.CreateEducationInput, T.UpdateEducationInput, T.EducationListResponse, T.EducationResponse> = new RestResource(this.client, "/api/v1/education", { supported: [] });
+    readonly education = new RestResource<T.EducationOption, T.CreateEducationOptionInput, never, T.EducationLookupResponse, T.EducationOptionResponse>(this.client, "/api/v1/education", { supported: ["list", "create"] });
+    readonly customTypes = new RestResource<T.CustomType, T.CreateCustomTypeInput, T.UpdateCustomTypeInput, T.CustomTypeListResponse, T.CustomTypeResponse>(this.client, "/api/v1/custom-type", { supported: ["list", "show", "create", "update", "delete"] });
     readonly greetings: R<T.Greeting, T.CreateGreetingInput, T.UpdateGreetingInput, T.GreetingListResponse, T.GreetingResponse> = new RestResource(this.client, "/api/v1/greetings", { supported: [] });
     /** Lists profiles with merged role records, active status, enrollment state, and role/status filters. */
     listProfiles(params?: T.ProfileListQuery, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>("/api/v1/profile", params, options); }
@@ -39,8 +40,13 @@ export class ProfileApi extends ServiceApi {
     updateProfileByUserId(userId: Identifier, data: T.ProfilePatchInput, options?: RequestOptions<T.ProfilePatchInput>) { return this.updateProfile(userId, data, options); }
     setStatus(id: Identifier, data: T.ProfileStatusInput, options?: RequestOptions<T.ProfileStatusInput>) { return this.client.put<T.ProfileResponse, T.ProfileStatusInput>(`/api/v1/profile/${encodeURIComponent(id)}/status`, data, options); }
     personalInformation(id: Identifier, data: T.PersonalInformationInput, options?: RequestOptions<T.PersonalInformationInput>) { return this.client.put<T.ProfileResponse, T.PersonalInformationInput>(`/api/v1/profile/update/personal-information/${encodeURIComponent(id)}`, data, options); }
-    /** @deprecated The profile service has never registered an education-information route. Store custom education data through updateProfile properties instead. */
-    educationInformation(_id: Identifier, _data: T.EducationInformationInput, _options?: RequestOptions<T.EducationInformationInput>): never { throw new UnsupportedOperationError("update", "/api/v1/profile/update/education-information/{uuid}"); }
+    /** Atomic update by IDP user UUID (profile:update). Omission preserves, null clears.
+     * 404: missing profile; 422: invalid education/referral/attendance/level values. */
+    educationInformation(userId: Identifier, data: T.EducationInformationInput, options?: RequestOptions<T.EducationInformationInput>) { return this.operations.educationUpdatePut(userId, data, options); }
+    /** Active {id,name} education lookup; requires profile:read. */
+    listEducations(options?: RequestOptions) { return this.operations.educationIndexGet(options); }
+    /** Typed attendance options and active referral codes; requires profile:read. */
+    educationDependencies(options?: RequestOptions) { return this.operations.educationDependenciesGet(options); }
     setProperties(id: Identifier, properties: T.ProfileProperties, options?: RequestOptions<T.ProfilePropertiesInput>) { return this.client.put<T.ProfilePropertiesResponse, T.ProfilePropertiesInput>(`/api/v1/profile/${encodeURIComponent(id)}/properties`, { properties }, options); }
     addresses(id: Identifier, options?: RequestOptions) { return this.client.get<T.ProfileAddressListResponse>(`/api/v1/profile/get/address/${encodeURIComponent(id)}`, undefined, options); }
     saveAddress(id: Identifier, data: T.SaveProfileAddressInput, options?: RequestOptions<T.SaveProfileAddressInput>) { return this.client.put<T.ProfileAddressMutationResponse, T.SaveProfileAddressInput>(`/api/v1/profile/add/address/${encodeURIComponent(id)}`, data, options); }

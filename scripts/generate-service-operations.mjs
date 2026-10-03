@@ -194,7 +194,9 @@ function resolveStruct(files, module, raw) {
     return null;
   }
   const qualifier = raw.replace(/\s+/g, "").match(/(?:^|::)([A-Za-z_]\w*)::[A-Za-z_]\w*$/)?.[1];
-  return (qualifier ? matches.find(item => basename(item.file.path, ".rs") === qualifier) : undefined)
+  // `models::Create` is local to the route's module, not the first models.rs in the service.
+  return (qualifier === "models" ? matches.find(item => item.file.path.includes(`/${module}/`) && basename(item.file.path) === "models.rs") : undefined)
+    ?? (qualifier ? matches.find(item => basename(item.file.path, ".rs") === qualifier) : undefined)
     ?? matches.find(item => item.file.path.includes(`/${module}/`))
     ?? matches.find(item => basename(item.file.path) === "models.rs")
     ?? matches[0];

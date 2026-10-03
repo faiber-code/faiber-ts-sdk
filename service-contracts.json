@@ -8972,6 +8972,21 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/idp/option/transfer-user-data",
+      "module": "transfer",
+      "handler": "transfer_user_data",
+      "permissions": [
+        "user_data:transfer"
+      ],
+      "source": "infera-lms/src/transfer.rs",
+      "body": "TransferUserDataInput",
+      "response": "TransferUserDataResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "messenger": [
@@ -14493,6 +14508,64 @@
         "profile:lookup"
       ],
       "source": "infera-profile/src/profile_search/people.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/education",
+      "module": "education",
+      "handler": "index",
+      "permissions": [
+        "profile:read"
+      ],
+      "source": "infera-profile/src/education.rs",
+      "response": "Vec<EducationOption>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/education",
+      "module": "education",
+      "handler": "store",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/education.rs",
+      "body": "CreateEducation",
+      "response": "EducationOption",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/education/dependencies",
+      "module": "education",
+      "handler": "dependencies",
+      "permissions": [
+        "profile:read"
+      ],
+      "source": "infera-profile/src/education.rs",
+      "response": "EducationDependencies",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/profile/update/education-information/{uuid}",
+      "module": "education",
+      "handler": "update",
+      "permissions": [
+        "profile:update"
+      ],
+      "source": "infera-profile/src/education.rs",
+      "body": "EducationInformationUpdate",
+      "response": "crate::profile::models::SingleData",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

@@ -4,6 +4,39 @@ import type * as T from "./operations.types.js";
 
 export class ProfileOperations extends ServiceApi {
   /**
+   * Calls `GET /api/v1/education` for active education lookup options.
+   * @returns The complete Axios response.
+   * @throws AxiosError; requires profile:read.
+   */
+  educationIndexGet(options?: RequestOptions) {
+    return this.client.request<W.EducationLookupResponse>({ ...options, method: "GET", url: "/api/v1/education" });
+  }
+  /**
+   * Calls `POST /api/v1/education` to create an education lookup option.
+   * @returns The complete Axios response.
+   * @throws AxiosError; requires profile:update.
+   */
+  educationStorePost(data: W.CreateEducationOptionInput, options?: RequestOptions<W.CreateEducationOptionInput>) {
+    return this.client.request<W.EducationOptionResponse, W.CreateEducationOptionInput>({ ...options, method: "POST", url: "/api/v1/education", data });
+  }
+  /**
+   * Calls `GET /api/v1/education/dependencies` for attendance and referral options.
+   * @returns The complete Axios response.
+   * @throws AxiosError; requires profile:read.
+   */
+  educationDependenciesGet(options?: RequestOptions) {
+    return this.client.request<W.EducationDependenciesResponse>({ ...options, method: "GET", url: "/api/v1/education/dependencies" });
+  }
+  /**
+   * Calls `PUT /api/v1/profile/update/education-information/{uuid}` using an IDP user UUID.
+   * Omitted fields are unchanged; null clears a field. Level is nonempty free text, max 64 characters.
+   * @returns The complete Axios response.
+   * @throws AxiosError; requires profile:update.
+   */
+  educationUpdatePut(uuid: Identifier, data: W.EducationInformationInput, options?: RequestOptions<W.EducationInformationInput>) {
+    return this.client.request<W.ProfileResponse, W.EducationInformationInput>({ ...options, method: "PUT", url: `/api/v1/profile/update/education-information/${encodeURIComponent(uuid)}`, data });
+  }
+  /**
    * Performs the openapi json operation for the router capability.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

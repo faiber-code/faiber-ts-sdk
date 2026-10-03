@@ -32,7 +32,7 @@ console.log(updated.data.data.profile);
 
 ## Complete capability
 
-This package exposes 173 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 178 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -40,6 +40,7 @@ This package exposes 173 registered operations from the profiles service. Common
 | `city` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `country` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `custom-type` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `education` | 4 | `GET`, `POST`, `PUT` |
 | `integration` | 2 | `GET` |
 | `lifecycle` | 24 | `DELETE`, `GET`, `POST`, `PUT` |
 | `log-action` | 3 | `POST` |
@@ -58,6 +59,28 @@ This package exposes 173 registered operations from the profiles service. Common
 | `trusted-service` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
 `updateProfile` sends one atomic `PATCH /api/v1/profile/{uuid}`. Omitted fields stay unchanged; `null` clears nullable fields. System-managed balances, gems, enrollment state, roles, IDs, and avatar objects are not mass-assignable. Use `uploadAvatar` and IDP role operations for those concerns.
+
+## Learner balances and education
+
+Profile reads, including `byRole("student")`, expose top-level `account_balance` and `wallet_balance` from the Office-synchronized snapshot. `null` means not yet known; it is not zero. Listing profiles does not load financial history.
+
+```ts
+const educations = (await api.listEducations()).data.data; // EducationOption[]: { id, name }
+const dependencies = (await api.educationDependencies()).data.data;
+await api.educationInformation(idpUserUuid, {
+  education_id: educations[0].id,
+  attendance_mode: dependencies.attendance_mode[0].id,
+  level: "beginner",
+  referral_source: dependencies.referral_source[0]?.id ?? null,
+  referrer_uuid: null,
+  description: "Learner notes",
+});
+await api.customTypes.create({ name: "job", value_type: "select", options: ["بیکار"] });
+```
+
+`educationInformation` is supported and calls `PUT /api/v1/profile/update/education-information/{uuid}`. The path must be an **IDP user UUID**, not a Profile record ID. The entire update is validated before saving. Omission leaves a field unchanged; `null` clears it. Attendance accepts `online` or `in_person`. Level accepts a nonempty **string of at most 64 Unicode characters**, not a number or a fixed enum. Referral source is an active code from the dependencies response; referrer UUID must identify an existing other user. Description is limited to 10,000 characters. Education must be an active lookup ID.
+
+`GET /api/v1/education` and `/education/dependencies` require `profile:read`; education creation and updates require `profile:update`. Administrators can populate the restored lookup with `api.education.create({name})`. The migration restores the table and nullable column but cannot recover rows deleted by the old migration; recover any historical catalog from a backup rather than inventing IDs.
 
 ## Authentication and authorization
 

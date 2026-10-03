@@ -1,5 +1,27 @@
 # @faiber/faiber-lms
 
+## Educational data transfer
+
+```ts
+const result = await lms.transferUserData(
+  { from_user_id: sourceIdpUuid, to_user_id: destinationIdpUuid },
+  crypto.randomUUID(), // retain this key and reuse it if this request needs retrying
+);
+console.log(result.data.data.transfer_id, result.data.data.moved);
+```
+
+This supported `POST /api/v1/idp/option/transfer-user-data` requires `lms:user_data:transfer` and an `Idempotency-Key` header (1–128 printable ASCII characters, no spaces). Both IDs must be distinct, non-nil UUIDs with active Profile records. `TransferUserDataInput`, `TransferUserDataResponse`, `EducationalTransferCounts`, and `TransferUserDataErrorResponse` are exported types.
+
+The transaction changes learner ownership of classroom enrollments, attendance, homework assignments, exam attempts, grades, certificates, classroom notes/evaluations, academy enrollments, and interactive runs. For session evaluations it changes the target learner of teacher ratings and the author of student feedback. Record IDs, status, scores, submissions, question snapshots and foreign-key links are preserved; academy progress/attempts, exam answers and interactive attempts therefore follow their unchanged parent records. Response `moved` counts directly updated rows by category, not linked children. Profile classroom-cache synchronization is queued in the same transaction (`profile_sync: "queued"`).
+
+It does **not** change Office balances, wallets, invoices, transactions or installments; identity/Profile properties; teachers, consultants, support staff or certificate issuers; invitations, support interactions, club project ownership or work-time entries; Chat participants, messages or conversation IDs; or historical migration/audit attribution. This is an LMS learner-record transfer, not an account merge. Existing Chat conversation access is not transferred.
+
+Same actor + same key + same IDs replays the original successful response. Reusing that key with different IDs returns 409 `idempotency_conflict`. Existing destination uniqueness conflicts return 409 `destination_conflict` without merging or deleting records. Started exam attempts return 409 `active_attempt`; busy educational writes can return 409 `transfer_busy` (retry with the same key). Missing/invalid IDs or key return 422; unavailable Profile validation returns 502. Failures leave all educational records unchanged and do not consume the key. Authentication/permission failures use the shared IDP error contract.
+
+Successful response: `{status:"success", message:"Educational data transferred", data:{transfer_id,from_user_id,to_user_id,moved,profile_sync:"queued"}}`.
+
+Validation/conflict response: `{status:"error", error:{code:"destination_conflict",message:"...",details:{}}}`. `user_not_found` includes `details.user_id`. Axios errors retain the HTTP status and typed response body.
+
 Courses, classrooms, homework/project banks and assignments, exam banks/items/sessions/users, certificates, reports, and education configuration.
 
 ## Install
@@ -31,7 +53,7 @@ const sessions = await api.courseSessions(courseId);
 
 ## Complete capability
 
-This package exposes 164 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 165 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|

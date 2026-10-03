@@ -115,6 +115,14 @@ export function classroomSessionRecordingUrl(reference: T.ClassroomSessionRoomRe
 }
 
 export class LmsApi extends ServiceApi {
+    /** Transfer learner-owned LMS records atomically (user_data:transfer).
+     * Supply a stable Idempotency-Key through idempotencyKey; repeat the same IDs to replay.
+     * 422: invalid/missing users or key; 409: active attempts, collisions or key reuse.
+     * Office financial records and staff assignments are excluded. See package README for scope.
+     */
+    transferUserData(data: T.TransferUserDataInput, idempotencyKey: string, options?: RequestOptions<T.TransferUserDataInput>) {
+        return this.operations.transferUserDataPost(data, idempotencyKey, options);
+    }
     readonly media = new LmsMediaApi(this.client);
     readonly interactive = new InteractiveLearningApi(this.client);
     readonly operations = new LmsOperations(this.client);

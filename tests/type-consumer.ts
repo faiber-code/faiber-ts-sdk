@@ -7,6 +7,26 @@ import {
 const sdk = new FaiberSDK({ domains: { idp: "https://idp.example.test" } });
 const apis: FaiberServiceApis = sdk;
 
+const educationUpdate: ProfileService.EducationInformationInput = {
+  education_id: null, attendance_mode: "online", level: "beginner",
+  referral_source: null, referrer_uuid: null, description: "Notes",
+};
+const educationalTransfer: LmsService.TransferUserDataInput = {
+  from_user_id: "source-idp-uuid", to_user_id: "destination-idp-uuid",
+};
+void sdk.profile.educationInformation("idp-user-uuid", educationUpdate);
+void sdk.profile.operations.customTypeStorePost({ name: "job", value_type: "select", options: ["بیکار"] });
+void sdk.lms.transferUserData(educationalTransfer, "transfer-1").then(response => {
+  const count: number = response.data.data.moved.homework_assignments;
+  const transferId: string = response.data.data.transfer_id;
+  void [count, transferId];
+});
+void sdk.profile.byRole("student").then(response => {
+  const balance: number | null = response.data.data.profiles[0]!.wallet_balance;
+  const educationId: string | null = response.data.data.profiles[0]!.education_id;
+  void [balance, educationId];
+});
+
 const login: IdpService.LoginInput = {
   grant_type: "password", username: "user@example.test", password: "secret",
   client_id: "sandbox-web", client_secret: "public-client-secret",
