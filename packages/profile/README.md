@@ -107,3 +107,5 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 ### Current space-member names
 
 After retrieving eligible member IDs from Task, call `profile.resolvePeople({ user_ids })` with 1–200 UUIDs per batch. The response contains active sandbox profiles with English/Persian names and canonical `user_id`; email and phone are withheld. No match or duplicate names require clarification before assignment. Requires `profile:lookup` and the standard authenticated client; invalid batches return an Axios 400 response. Request options support cancellation and timeouts.
+
+Personal information includes `job`, a nullable job title. Pass `{ job: "Software engineer" }` to `sdk.profile.personalInformation(userId, ...)`; pass `{ job: null }` to clear it. Omitting `job` preserves the saved value. Profile detail and list responses also include `job`, and general profile patch operations accept it.

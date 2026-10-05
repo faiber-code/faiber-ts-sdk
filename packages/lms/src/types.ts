@@ -37,6 +37,10 @@ export interface LmsEntity extends JsonObject {
     status?: string | null;
 }
 export interface Course extends LmsEntity {
+    /** Decimal strings preserve currency precision. */
+    price: string | null;
+    in_person_price: string | null;
+    online_price: string | null;
     title: string;
     category_id?: string;
 }
@@ -434,6 +438,10 @@ export interface CreateLmsEntityInput extends JsonObject {
 export interface UpdateLmsEntityInput extends Partial<CreateLmsEntityInput> {
 }
 export interface CreateCourseInput extends CreateLmsEntityInput {
+    price?: string | null;
+    /** Independent delivery prices; null leaves a price unset. */
+    in_person_price?: string | null;
+    online_price?: string | null;
     title: string;
     category_id?: string;
     description?: string;

@@ -129,6 +129,7 @@ export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
   "first_name"?: JsonValue | null;
   "last_name"?: JsonValue | null;
   "gender"?: string | null;
+  "job"?: string | null;
   "status": string;
   "employee_type"?: string | null;
   "freemium_session_limit"?: number | null;
@@ -877,6 +878,7 @@ export interface ReferralShowProfileReferralGetResponseData extends JsonObject {
   "nationality"?: string | null;
   "religion"?: string | null;
   "gender"?: string | null;
+  "job"?: string | null;
   "attendance_mode"?: string | null;
   "level"?: string | null;
   "education_id"?: string | null;
@@ -928,6 +930,7 @@ export interface ReferralAssignPutResponseData extends JsonObject {
   "nationality"?: string | null;
   "religion"?: string | null;
   "gender"?: string | null;
+  "job"?: string | null;
   "attendance_mode"?: string | null;
   "level"?: string | null;
   "education_id"?: string | null;
@@ -1067,6 +1070,7 @@ export interface ProfileUpdatePatchInput extends JsonObject {
   "nationality"?: string | null;
   "religion"?: string | null;
   "gender"?: string | null;
+  "job"?: string | null;
   "attendance_mode"?: string | null;
   "level"?: string | null;
   "referral_source"?: string | null;
@@ -1695,6 +1699,7 @@ export interface ProfileUpdatePersonalPatchInput extends JsonObject {
   "nationality"?: string | null;
   "religion"?: string | null;
   "gender"?: string | null;
+  "job"?: string | null;
   "marital"?: string | null;
   "nickname"?: string | null;
   "national_number"?: string | null;
@@ -1721,6 +1726,7 @@ export interface ProfileUpdatePersonalPutInput extends JsonObject {
   "nationality"?: string | null;
   "religion"?: string | null;
   "gender"?: string | null;
+  "job"?: string | null;
   "marital"?: string | null;
   "nickname"?: string | null;
   "national_number"?: string | null;

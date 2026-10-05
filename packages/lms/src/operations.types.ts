@@ -1638,6 +1638,8 @@ export interface CourseIndexCourseGetResponseItem extends JsonObject {
   "passing_mark"?: number | null;
   "certificate_template_ids": string[];
   "price"?: string | null;
+  "in_person_price"?: string | null;
+  "online_price"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -1667,6 +1669,8 @@ export interface CourseStoreCoursePostInput extends JsonObject {
   "passing_mark"?: number | null;
   "certificate_template_ids"?: string[];
   "price"?: string | null;
+  "in_person_price"?: string | null;
+  "online_price"?: string | null;
   "status": string;
 }
 /** Backend response type: models::CourseResponse. */
@@ -1682,6 +1686,8 @@ export interface CourseStoreCoursePostResponseData extends JsonObject {
   "passing_mark"?: number | null;
   "certificate_template_ids": string[];
   "price"?: string | null;
+  "in_person_price"?: string | null;
+  "online_price"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2009,6 +2015,8 @@ export interface CourseShowCourseGetResponseData extends JsonObject {
   "passing_mark"?: number | null;
   "certificate_template_ids": string[];
   "price"?: string | null;
+  "in_person_price"?: string | null;
+  "online_price"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;
@@ -2028,6 +2036,8 @@ export interface CourseUpdateCoursePatchInput extends JsonObject {
   "passing_mark"?: number | null;
   "certificate_template_ids"?: string[] | null;
   "price"?: string | null;
+  "in_person_price"?: string | null;
+  "online_price"?: string | null;
   "status"?: string | null;
 }
 /** Backend response type: models::CourseResponse. */
@@ -2043,6 +2053,8 @@ export interface CourseUpdateCoursePatchResponseData extends JsonObject {
   "passing_mark"?: number | null;
   "certificate_template_ids": string[];
   "price"?: string | null;
+  "in_person_price"?: string | null;
+  "online_price"?: string | null;
   "status": string;
   "created_at": string;
   "updated_at": string;

@@ -18,6 +18,7 @@ export interface Profile extends JsonObject {
     first_name?: LocalizedText | null;
     last_name?: LocalizedText | null;
     gender: string | null;
+    job: string | null;
     education_id: string | null;
     attendance_mode: AttendanceMode | null;
     level: string | null;
@@ -209,6 +210,8 @@ export interface CreateProfileInput extends JsonObject {
     role?: ProfileRole;
 }
 export interface ProfilePatchInput extends JsonObject {
+    /** Job title; null clears it, omission preserves it. */
+    job?: string | null;
     email?: string | null;
     phone?: string | null;
     national_code?: string | null;
@@ -295,6 +298,8 @@ export interface ProfileStatusInput extends JsonObject {
     reason?: string;
 }
 export interface PersonalInformationInput extends JsonObject {
+    /** Job title; null clears it, omission preserves it. */
+    job?: string | null;
     first_name?: LocalizedText;
     last_name?: LocalizedText;
     birthday?: string;

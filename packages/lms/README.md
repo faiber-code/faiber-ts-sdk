@@ -208,3 +208,5 @@ course's image field using its create/update operation. Preserve the other media
 option values when editing. Returned image URLs are service-relative, so resolve them against
 your configured LMS service origin for display. This endpoint currently requires
 `lms:course:update`, including when the image will be used by an exam or homework.
+
+Course creation and updates accept independent `in_person_price` and `online_price` decimal strings (for example, `"1200.50"` and `"800.25"`). Course list and detail responses include both fields. On update, omission preserves the saved price and `null` clears only that price. The existing `price` field remains available for existing consumers; delivery prices do not overwrite it.

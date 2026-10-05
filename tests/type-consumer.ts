@@ -330,3 +330,10 @@ function assignSelectedHomework(item: LmsService.HomeworkBankItem) {
   return sdk.lms.homeworkAssignments.createForItem(item, { user_id: "learner-uuid", status: "pending" });
 }
 void assignSelectedHomework;
+
+// Nullable personal information and independent decimal course prices are public contracts.
+const jobUpdate: import('@faiber/faiber-profile').PersonalInformationInput = { job: 'Engineer' };
+const clearJob: import('@faiber/faiber-profile').ProfilePatchInput = { job: null };
+const deliveryPrices: import('@faiber/faiber-lms').CreateCourseInput = { name: 'Course', title: 'Course', in_person_price: '1200.50', online_price: '800.25' };
+const clearOnlinePrice: import('@faiber/faiber-lms').UpdateCourseInput = { online_price: null };
+void [jobUpdate, clearJob, deliveryPrices, clearOnlinePrice];
