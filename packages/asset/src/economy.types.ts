@@ -61,7 +61,7 @@ export type EconomyCapabilitiesResponse=ApiEnvelope<EconomyCapabilities>;
 /** amount is an optional current reservation in whole accounting units, rounded independently before the total budget. */
 export interface EconomyFundingShare {role:string;fraction:EconomyDecimal;amount?:EconomyDecimal}
 export interface EconomyFundingCommand {type:'funding';transaction_id:string;revision:number;scope_id:string;enrollment_id:string;student_id:string;currency:string;verified_amount:EconomyDecimal;budget_amount:EconomyDecimal;allocations:EconomyFundingShare[];verified:boolean}
-export interface EconomyRefundCommand {type:'refund';transaction_id:string;revision:number;amount:EconomyDecimal}
+export interface EconomyRefundCommand {type:'refund';transaction_id:string;revision:number;amount:EconomyDecimal;allocation_amounts?:Record<string,EconomyDecimal>}
 export interface EconomyScopeUpsertCommand {type:'scope_upsert';scope_id:string;period_id:string;starts_at:string;ends_at:string;assignments:Record<string,string>;topic_id?:string|null}
 export interface EconomyEntitlementSetCommand {type:'entitlement_set';profile_id:string;scope_id:string;enrollment_id:string;asset_name:string;revision:number;remaining:EconomyDecimal;paid:boolean}
 export interface EconomyEntitlementAdjustCommand {type:'entitlement_adjust';profile_id:string;scope_id:string;enrollment_id:string;asset_name:string;revision:number;delta:EconomyDecimal;paid:boolean}

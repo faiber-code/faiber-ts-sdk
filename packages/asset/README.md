@@ -110,3 +110,8 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+Broker refund contracts support optional `allocation_amounts`, a complete map of
+role names to absolute whole-unit reservations after the refund. A zero monetary
+`amount` may release rounded capacity into treasury while keeping backing intact.
+Funding and refund commands remain restricted to trusted domain producers.
