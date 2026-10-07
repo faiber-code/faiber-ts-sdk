@@ -337,3 +337,22 @@ const clearJob: import('@faiber/faiber-profile').ProfilePatchInput = { job: null
 const deliveryPrices: import('@faiber/faiber-lms').CreateCourseInput = { name: 'Course', title: 'Course', in_person_price: '1200.50', online_price: '800.25' };
 const clearOnlinePrice: import('@faiber/faiber-lms').UpdateCourseInput = { online_price: null };
 void [jobUpdate, clearJob, deliveryPrices, clearOnlinePrice];
+
+// Generic list clauses and backwards-compatible student query filters.
+import type { ProfileStudentIndexGetQuery, FilterProfilesInput } from '../packages/profile/src/index.js';
+const dynamicStudentQuery: ProfileStudentIndexGetQuery = {
+  'filter[account_balance]': -100, 'filter[double_debt]': true,
+  'filter[created_at][]': ['2026-01-01', '2026-10-07'],
+  'filter[birthday][]': ['2000-01-01', '2010-12-31'],
+  'filter[attendance_mode]': 'online', 'filter[gender]': 'female',
+  'filter[education_id]': 'uuid', 'filter[level]': 'beginner', 'filter[work_id]': 'uuid',
+  'filter[country_id]': 'uuid', 'filter[city_id]': 'uuid',
+  'filter[office.enrollments.education_status_id]': 2,
+  'filter[office.enrollments.freemium_sessions]': 3,
+  'filter[office.enrollments.education_cancel_status]': false,
+  'filter[owner]': 'uuid', sort: '-core.created_at',
+};
+const genericFiltersInput: FilterProfilesInput = {
+  role: 'customer', filters: [{ path: 'properties.owner', op: 'in', value: ['a', 'b'] }],
+};
+void dynamicStudentQuery; void genericFiltersInput;

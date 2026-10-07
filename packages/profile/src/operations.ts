@@ -477,6 +477,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the index operation for the profile capability.
    * Calls `GET /api/v1/profile` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -892,6 +893,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the accountant index operation for the profile capability.
    * Calls `GET /api/v1/profile/accountant` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -986,6 +988,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the consultant index operation for the profile capability.
    * Calls `GET /api/v1/profile/consultant` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -1074,6 +1077,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the manager index operation for the profile capability.
    * Calls `GET /api/v1/profile/manager` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -1128,6 +1132,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the other index operation for the profile capability.
    * Calls `GET /api/v1/profile/other` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -1139,6 +1144,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the parent index operation for the profile capability.
    * Calls `GET /api/v1/profile/parent` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -1172,6 +1178,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the student index operation for the profile capability.
    * Calls `GET /api/v1/profile/student` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -1203,6 +1210,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the support index operation for the profile capability.
    * Calls `GET /api/v1/profile/support` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -1234,6 +1242,7 @@ export class ProfileOperations extends ServiceApi {
   /**
    * Performs the teacher index operation for the profile capability.
    * Calls `GET /api/v1/profile/teacher` through the shared IDP-aware Faiber client.
+   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.

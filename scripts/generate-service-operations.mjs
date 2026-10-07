@@ -327,6 +327,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     "",
     "/** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */",
   ];
+  if (service === "profile") typeLines.unshift('import type { ProfileListQuery as importProfileListQuery } from "./types.js";');
   const operationLines = [
     'import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";',
     'import type * as T from "./operations.types.js";',
@@ -339,7 +340,9 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const methodName = camel(operationName(endpoint));
     const ids = placeholders(endpoint.path);
     const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
-    const hasQuery = Boolean(endpoint.query);
+    const dynamicProfileList = service === "profile" && endpoint.module === "profile" &&
+      /^(index|manager_index|accountant_index|support_index|consultant_index|teacher_index|student_index|parent_index|other_index)$/.test(endpoint.handler);
+    const hasQuery = dynamicProfileList || Boolean(endpoint.query);
     const inputOverride = inputOverrides[service]?.[endpoint.handler];
     const responseOverride = responseOverrides[service]?.[endpoint.handler];
     if (hasInput) {
@@ -361,9 +364,13 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     }
     if (hasQuery) {
       typeLines.push(`/** Backend query type: ${endpoint.query}. */`);
-      typeLines.push(`export interface ${base}Query extends QueryParams {`);
-      writeFields(typeLines, renderedFields(files, endpoint.module, endpoint.query, new Set(), true));
-      typeLines.push("}");
+      if (dynamicProfileList) {
+        typeLines.push(`export interface ${base}Query extends importProfileListQuery {}`);
+      } else {
+        typeLines.push(`export interface ${base}Query extends QueryParams {`);
+        writeFields(typeLines, renderedFields(files, endpoint.module, endpoint.query, new Set(), true));
+        typeLines.push("}");
+      }
     }
     typeLines.push(`/** Backend response type: ${endpoint.response ?? endpoint.responseEnvelope ?? "handler-defined response"}. */`);
     if (responseOverride) {
@@ -395,6 +402,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push("  /**");
     operationLines.push(`   * Performs the ${operationPurpose(endpoint)} operation for the ${endpoint.module.replace(/_/g, " ")} capability.`);
     operationLines.push(`   * Calls \`${endpoint.method} ${endpoint.path}\` through the shared IDP-aware Faiber client.`);
+    if (dynamicProfileList) operationLines.push("   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.");
     for (const id of ids) operationLines.push(`   * @param ${camel(id)} Backend path identifier \`${id}\`.`);
     if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.binary ? "binary byte stream" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
     if (hasQuery) operationLines.push("   * @param params Typed query parameters; omitted members retain backend defaults.");
