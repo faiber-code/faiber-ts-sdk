@@ -60,10 +60,17 @@ export interface CreateConversationInput extends JsonObject { kind?: string; slu
 export interface UpdateConversationInput extends JsonObject { title?: JsonValue; description?: JsonValue; settings?: JsonValue; status?: string; expected_version?: number; }
 export interface MemberInput extends JsonObject { user_id: string; role?: string; }
 export interface SendMessageInput extends JsonObject { message_type?: string; content: JsonValue; metadata?: JsonValue; reply_to_id?: string; thread_root_id?: string; client_id?: string; attachment_ids?: string[]; }
+/** Session interactions are classified and authorized by Chat through Asset. */
+export interface SessionReactionContent extends JsonObject { event_type: 'reaction'; emoji: string; text?: string; }
+export interface SessionHandContent extends JsonObject { event_type: 'hand'; state: 'raised' | 'lowered'; text?: string; }
+/** Reuse client_id when retrying the same session interaction. */
+export interface SessionEventMessageInput extends SendMessageInput { message_type: 'session_event'; content: SessionReactionContent | SessionHandContent; client_id: string; }
 export interface EditMessageInput extends JsonObject { content: JsonValue; }
 export interface ReactionInput extends JsonObject { emoji: string; }
 export interface ReadInput extends JsonObject { sequence: number; message_id?: string; }
 export interface AiMessageInput extends JsonObject { message: string; client_id?: string; model_ref?: string; profile?: JsonValue; props?: JsonValue; meta?: JsonValue; inputs?: JsonValue; knowledge_group_slugs?: string[]; knowledge_level?: number; drm_media_ids?: string[]; session_room_id?: string; }
+/** Bound session AI conversations require a stable client_id for recovery. */
+export interface SessionAiMessageInput extends AiMessageInput { client_id: string; }
 export type ConversationResponse = ApiEnvelope<Conversation>;
 export type ConversationListResponse = ApiEnvelope<Conversation[]>;
 export type MemberResponse = ApiEnvelope<ConversationMember>;

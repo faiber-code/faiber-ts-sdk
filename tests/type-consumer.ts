@@ -356,3 +356,22 @@ const genericFiltersInput: FilterProfilesInput = {
   role: 'customer', filters: [{ path: 'properties.owner', op: 'in', value: ['a', 'b'] }],
 };
 void dynamicStudentQuery; void genericFiltersInput;
+
+// Session interaction contracts retain cancellation and require stable retry IDs.
+const sessionReaction: ChatService.SessionEventMessageInput = {
+  message_type: 'session_event', client_id: 'reaction-id',
+  content: { event_type: 'reaction', emoji: '👏' },
+};
+const sessionHand: ChatService.SessionEventMessageInput = {
+  message_type: 'session_event', client_id: 'hand-id',
+  content: { event_type: 'hand', state: 'lowered' },
+};
+const sessionAi: ChatService.SessionAiMessageInput = { message: 'Explain this', client_id: 'ai-id' };
+void sdk.chat.sendMessage('bound-conversation', sessionReaction, { signal: AbortSignal.timeout(1_000) });
+void sdk.chat.sendMessage('bound-conversation', sessionHand);
+void sdk.chat.sendAiMessage('bound-conversation', sessionAi);
+// @ts-expect-error Session hand state must match the server enum.
+const invalidHand: ChatService.SessionHandContent = { event_type: 'hand', state: 'up' };
+// @ts-expect-error Bound session events require a stable client ID.
+const missingClientId: ChatService.SessionEventMessageInput = { message_type: 'session_event', content: { event_type: 'reaction', emoji: '👏' } };
+void [invalidHand, missingClientId];

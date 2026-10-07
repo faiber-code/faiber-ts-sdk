@@ -172,6 +172,36 @@ ownership. It returns at most 40 messages in chronological order as
 conversation management, internal prompts, metadata, or other learners' records.
 Both methods retain Axios status/headers and accept cancellation options.
 
+## Session interactions and Charge
+
+Chat resolves a session conversation's room from its server-owned binding.
+Clients cannot remove or change that binding. When the sandbox enables the
+funded economy, every message and AI request in a bound conversation requires
+a stable `client_id`. Reuse it with the same content after an uncertain timeout.
+A completed retry returns the stored result; a conflicting or pending request
+is rejected without authorizing another interaction.
+
+```ts
+import type { SessionEventMessageInput } from '@faiber/faiber-chat';
+
+const reaction: SessionEventMessageInput = {
+  message_type: 'session_event',
+  client_id: crypto.randomUUID(),
+  content: { event_type: 'reaction', emoji: '👏', text: '👏' },
+};
+await chat.sendMessage(conversationId, reaction, { signal });
+```
+
+Use `event_type: 'hand'` and `state: 'raised' | 'lowered'` for hand state.
+Ordinary text uses `sendMessage` with its own `client_id`; AI uses
+`sendAiMessage` with a `SessionAiMessageInput`. Chat authorizes these through
+RabbitMQ before saving or generating content. Charge costs, independent
+cooldowns and message burst limits come from sandbox policy and are enforced
+server-side. Lowering a hand uses the configured `lower_hand` policy. Axios
+responses, membership permissions, Bearer/cookie authentication and cancellation
+remain unchanged. Cancellation does not prove that a server reservation was
+released; retry with the same ID to reconcile an uncertain result.
+
 ## Attachment upload and download
 
 `upload_url` is a short-lived signed storage URL for uploading, not downloading.

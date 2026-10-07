@@ -40,7 +40,9 @@ export class ChatApi extends ServiceApi {
   addMember(conversationId: Identifier, data: T.MemberInput, options?: RequestOptions<T.MemberInput>) { return this.client.post<T.MemberResponse, T.MemberInput>(`/api/v1/conversations/${id(conversationId)}/members`, data, options); }
   removeMember(conversationId: Identifier, userId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/conversations/${id(conversationId)}/members/${id(userId)}`, options); }
   messages(conversationId: Identifier, params?: T.ChatListQuery, options?: RequestOptions) { return this.client.get<T.MessageListResponse>(`/api/v1/conversations/${id(conversationId)}/messages`, params, options); }
+  /** Requires chat:write and membership. Bound session conversations require a stable client_id and server-side interaction authorization. */
   sendMessage(conversationId: Identifier, data: T.SendMessageInput, options?: RequestOptions<T.SendMessageInput>) { return this.client.post<T.MessageResponse, T.SendMessageInput>(`/api/v1/conversations/${id(conversationId)}/messages`, data, options); }
+  /** Requires chat:ai and membership. Reuse client_id for uncertain retries in bound session conversations. */
   sendAiMessage(conversationId: Identifier, data: T.AiMessageInput, options?: RequestOptions<T.AiMessageInput>) { return this.client.post<T.AiMessageResponse, T.AiMessageInput>(`/api/v1/conversations/${id(conversationId)}/ai/messages`, data, options); }
   markRead(conversationId: Identifier, data: T.ReadInput, options?: RequestOptions<T.ReadInput>) { return this.client.post<void, T.ReadInput>(`/api/v1/conversations/${id(conversationId)}/read`, data, options); }
   events(conversationId: Identifier, options?: RequestOptions) { return this.client.get<T.ChatEventStream>(`/api/v1/conversations/${id(conversationId)}/events`, undefined, { ...options, responseType: "stream" }); }

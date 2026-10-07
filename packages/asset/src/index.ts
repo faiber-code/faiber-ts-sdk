@@ -14,7 +14,7 @@ export class AssetApi extends ServiceApi {
     economyObjects<K extends E.EconomyObjectKind>(kind:K,params?:E.EconomyObjectQuery,options?:RequestOptions) { return this.client.get<E.EconomyObjectsResponse<K>>(`/api/v1/economy/objects/${encodeURIComponent(kind)}`,params,options); }
     /** Reads immutable journal entries using a sequence cursor. Requires admin:user_asset_log:read. */
     economyJournal(params?:E.EconomyJournalQuery,options?:RequestOptions) { return this.client.get<E.EconomyJournalResponse>("/api/v1/economy/journal",params,options); }
-    /** Reads the authenticated user's wallet, free-session entitlements, Charge and purchases. Requires admin:wallet:read_own. */
+    /** Reads the authenticated user's wallet, scoped earning rights, entitlements, live Charge and purchases. Requires admin:wallet:read_own. */
     myEconomy(options?:RequestOptions) { return this.client.get<E.EconomyObjectsResponse>("/api/v1/economy/me",undefined,options); }
     /** Buys a configured item using Coin, crafting ingredients, or a ten-minute money quote. Reuse event_id on retry. Requires admin:wallet:read_own. */
     purchaseEconomyItem(data:E.EconomyPurchaseInput,options?:RequestOptions<E.EconomyPurchaseInput>) { return this.client.post<E.EconomyCommandResponse,E.EconomyPurchaseInput>("/api/v1/economy/me/purchases",data,options); }

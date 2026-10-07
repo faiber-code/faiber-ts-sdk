@@ -60,6 +60,10 @@ recovery blocks, session Charge, entitlements and separate role rankings. Moneta
 amounts and Coin quantities are exact decimal strings. Valuation includes its
 currency; divide IRR by 10 explicitly when displaying Toman.
 
+`myEconomy()` includes only the authenticated user's allocations and balances.
+Session Charge includes elapsed active-session refill as a read projection;
+reading balances never grants rewards or consumes an entitlement.
+
 ```ts
 const valuation = await api.economyValuation();
 const preview = await api.previewEconomyReward({
