@@ -21,3 +21,11 @@ test('economy operations retain authentication, Axios responses and cancellation
  for(const request of requests)assert.equal(request.headers.get('Authorization'),'Bearer economy-token');
  assert.equal(JSON.parse(requests[6].data).payment,'money');
 });
+
+test('operator configuration reads and paged audits preserve contract fields and cancellation',async()=>{
+ const requests=[];const controller=new AbortController();const api=new AssetApi(new FaiberClient('asset',{domains:{asset:'https://asset.example.test'},axios:{adapter:async config=>{requests.push(config);return {status:200,statusText:'OK',headers:{},config,data:{status:'success',data:[]}}}}}));
+ await api.economyObjects('configuration_projection',{limit:100},{signal:controller.signal});
+ await api.economyJournal({before:200,descending:true},{signal:controller.signal});
+ assert.equal(requests[0].url,'/api/v1/economy/objects/configuration_projection');assert.equal(requests[0].signal,controller.signal);
+ assert.deepEqual(requests[1].params,{before:200,descending:true});assert.equal(requests[1].signal,controller.signal);
+});

@@ -115,3 +115,9 @@ Broker refund contracts support optional `allocation_amounts`, a complete map of
 role names to absolute whole-unit reservations after the refund. A zero monetary
 `amount` may release rounded capacity into treasury while keeping backing intact.
 Funding and refund commands remain restricted to trusted domain producers.
+
+### Operator configuration and rule versions
+
+`economyCapabilities()` reports separate `policy_update`, `rule_update`, `rule_create` and `reward_review` permissions. `updateEconomyPolicy()` accepts optional `funding` (basis points and budget fractions) and `evidence_bindings` (producer, verified fact and action name). These settings are sandbox data and are projected through RabbitMQ. Funding rate changes apply to future approved payments; existing payments retain their captured rate for refunds. Read `economyObjects("configuration_projection")` for producer application receipts.
+
+Edit funded rules through the existing action operations, preserving `criteria.economy` and incrementing its `version`. Identifiers remain stable. Changes and status controls are audited; concurrent stale versions fail rather than overwrite newer rules. Verified evidence retains its original rule version when delayed across a configuration change. Launch time, currency, initial supply and the Coin asset are immutable after launch.

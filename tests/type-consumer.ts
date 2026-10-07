@@ -375,3 +375,15 @@ const invalidHand: ChatService.SessionHandContent = { event_type: 'hand', state:
 // @ts-expect-error Bound session events require a stable client ID.
 const missingClientId: ChatService.SessionEventMessageInput = { message_type: 'session_event', content: { event_type: 'reaction', emoji: '👏' } };
 void [invalidHand, missingClientId];
+
+const fundingPolicy: AssetService.EconomyFundingPolicy = {basis_points:400,allocations:[{role:'learner',fraction:'0.75'}]};
+const evidenceBinding: AssetService.EconomyEvidenceBinding = {producer:'infera-lms',fact:'attendance.present',action_name:'verified-attendance'};
+void [fundingPolicy,evidenceBinding];
+void sdk.asset.economyObjects('configuration_projection').then(response => {
+  const first=response.data.data[0]; if(!first) return;
+  const revision:number = first.data.revision;
+  const policyVersion:number = first.data.policy_version;
+  void [revision,policyVersion];
+});
+void sdk.asset.economyJournal({before:200,descending:true},{signal:AbortSignal.timeout(1000)});
+void sdk.asset.operations.economyJournalGet({before:200,descending:true});

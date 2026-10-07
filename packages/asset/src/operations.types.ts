@@ -808,6 +808,8 @@ export type EconomyCommandPostResponse = import("./types.js").EconomyCommandResp
 /** Backend query type: JournalQuery. */
 export interface EconomyJournalGetQuery extends QueryParams {
   "after"?: number | null;
+  "before"?: number | null;
+  "descending"?: boolean | null;
   "limit"?: number | null;
 }
 /** Backend response type: Vec<Value>. */
@@ -828,6 +830,8 @@ export type EconomyMeGetResponse = import("./types.js").EconomyObjectsResponse;
 /** Backend query type: JournalQuery. */
 export interface EconomyMyHistoryGetQuery extends QueryParams {
   "after"?: number | null;
+  "before"?: number | null;
+  "descending"?: boolean | null;
   "limit"?: number | null;
 }
 /** Backend response type: Vec<Value>. */
