@@ -20,3 +20,6 @@ Thumbs.db
 *.pfx
 *.crt
 *.cer
+
+# Also ignore local workspace dependency symlinks.
+node_modules
