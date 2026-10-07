@@ -52,6 +52,39 @@ This package exposes 86 registered operations from the assets and billing servic
 
 Administrative and self-service billing routes are distinct operations. Purchase, top-up, pause, resume, removal, and permanent-data deletion methods preserve the backend verbs and permission annotations.
 
+## Scoped funded rewards
+
+`myEconomy()`, `economyValuation()`, `myEconomyHistory()` and
+`economyLeaderboard({role, period_id})` expose classroom balances, funding capacity,
+recovery blocks, session Charge, entitlements and separate role rankings. Monetary
+amounts and Coin quantities are exact decimal strings. Valuation includes its
+currency; divide IRR by 10 explicitly when displaying Toman.
+
+```ts
+const valuation = await api.economyValuation();
+const preview = await api.previewEconomyReward({
+  action_name: "configured-action", role: "student", scope_id: classroomId,
+  source_id: verifiedEvidenceId, session_id: roomId, replay: false,
+});
+const purchase = await api.purchaseEconomyItem({
+  event_id: crypto.randomUUID(), item_id: "configured-pack", payment: "money",
+});
+```
+
+Preview never changes a balance. Completion requires verified domain evidence or
+an authorized operator using `economyCommand()` with an audit reason. Services
+send funding, admission and interaction commands through RabbitMQ. Client HTTP
+cannot fabricate those commands. Operator policy and journal methods require the
+permissions documented on each method.
+
+Reuse purchase/credit `event_id` when retrying. Money quotes lock the displayed
+amount until `expires_at`; read the purchase from `myEconomy()` for its payment
+redirect URL or provider error. Successful payment credits once. Coin redemption
+can fail while refund recovery or a backing shortfall remains. Purchased credit
+persists independently of session Charge; `applySessionChargeCredit()` fills only
+space below the session maximum. All methods retain normal Axios error responses,
+authorization and cancellation options.
+
 ## Authentication and authorization
 
 Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.

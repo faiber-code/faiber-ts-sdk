@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject, OperationResponse, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject, JsonValue, OperationResponse, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
 export interface Room extends JsonObject {
     id: string;
     name: string;
@@ -54,3 +54,7 @@ export interface EndRoomResponse extends OperationResponse {
 }
 export interface PlaybackResponse extends ApiEnvelope<Playback> {
 }
+
+export interface RoomInteractionInput { event_id:string; interaction:"emoji"|"raise_hand"|"room_chat"|"interaction"; content:JsonValue }
+export interface RoomInteractionData { reservation_id:string; charge:string }
+export type RoomInteractionResponse = ApiEnvelope<RoomInteractionData>;

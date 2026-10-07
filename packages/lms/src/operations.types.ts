@@ -3955,6 +3955,9 @@ export interface HomeworkShowAssignmentGetResponse extends ApiEnvelope<HomeworkS
 
 /** Backend request type: models::UpdateAssignmentRequest. */
 export interface HomeworkUpdateAssignmentPatchInput extends JsonObject {
+  /** Requires reviewed status, owning reviewer authority and verification_reason; tier comes from sandbox configuration. */
+  "reward_tier"?:string|null;
+  "verification_reason"?:string|null;
   "homework_id"?: string | null;
   "classroom_id"?: string | null;
   "user_id"?: string | null;

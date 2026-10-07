@@ -68,6 +68,46 @@ export interface ActionActionsCreatePostResponseData extends JsonObject {
 export interface ActionActionsCreatePostResponse extends ApiEnvelope<ActionActionsCreatePostResponseData> {
 }
 
+/** Backend request type: CompleteActionRequest. */
+export interface ActionActionsCompletePostInput extends JsonObject {
+  "action_name": string;
+  "profile_id": string;
+  "event_id"?: string | null;
+  "subject_type"?: string | null;
+  "subject_id"?: string | null;
+  "value"?: number | null;
+  "metadata"?: BackendJson<"Json"> | null;
+  "occurred_at"?: string | null;
+}
+/** Backend response type: crate::reward::engine::CompleteActionResult. */
+export type ActionActionsCompletePostResponseDataGrantsAssetType = "Coin" | "Badge" | "XP" | "Charge" | "Gem";
+export interface ActionActionsCompletePostResponseDataGrants extends JsonObject {
+  "asset_id": string;
+  "asset_name": string;
+  "asset_type": ActionActionsCompletePostResponseDataGrantsAssetType;
+  "subject_type": string;
+  "subject_id"?: string | null;
+  "quantity": number;
+}
+export interface ActionActionsCompletePostResponseDataBadgeUpgrades extends JsonObject {
+  "asset_id": string;
+  "asset_name": string;
+  "from_level": number;
+  "to_level": number;
+  "quantity": number;
+}
+export interface ActionActionsCompletePostResponseData extends JsonObject {
+  "action_log_id": string;
+  "action_count": number;
+  "consecutive_days": number;
+  "duplicate": boolean;
+  "daily_cap_applied": boolean;
+  "grants": ActionActionsCompletePostResponseDataGrants[];
+  "badge_upgrades": ActionActionsCompletePostResponseDataBadgeUpgrades[];
+}
+export interface ActionActionsCompletePostResponse extends ApiEnvelope<ActionActionsCompletePostResponseData> {
+}
+
 /** Backend response type: (). */
 export interface ActionActionsDeleteDeleteResponse extends ApiEnvelope<JsonObject> {
 }
@@ -111,46 +151,6 @@ export interface ActionActionsUpdatePatchResponseData extends JsonObject {
   "status": number;
 }
 export interface ActionActionsUpdatePatchResponse extends ApiEnvelope<ActionActionsUpdatePatchResponseData> {
-}
-
-/** Backend request type: CompleteActionRequest. */
-export interface ActionActionsCompletePostInput extends JsonObject {
-  "action_name": string;
-  "profile_id": string;
-  "event_id"?: string | null;
-  "subject_type"?: string | null;
-  "subject_id"?: string | null;
-  "value"?: number | null;
-  "metadata"?: BackendJson<"Json"> | null;
-  "occurred_at"?: string | null;
-}
-/** Backend response type: crate::reward::engine::CompleteActionResult. */
-export type ActionActionsCompletePostResponseDataGrantsAssetType = "Coin" | "Badge" | "XP" | "Charge" | "Gem";
-export interface ActionActionsCompletePostResponseDataGrants extends JsonObject {
-  "asset_id": string;
-  "asset_name": string;
-  "asset_type": ActionActionsCompletePostResponseDataGrantsAssetType;
-  "subject_type": string;
-  "subject_id"?: string | null;
-  "quantity": number;
-}
-export interface ActionActionsCompletePostResponseDataBadgeUpgrades extends JsonObject {
-  "asset_id": string;
-  "asset_name": string;
-  "from_level": number;
-  "to_level": number;
-  "quantity": number;
-}
-export interface ActionActionsCompletePostResponseData extends JsonObject {
-  "action_log_id": string;
-  "action_count": number;
-  "consecutive_days": number;
-  "duplicate": boolean;
-  "daily_cap_applied": boolean;
-  "grants": ActionActionsCompletePostResponseDataGrants[];
-  "badge_upgrades": ActionActionsCompletePostResponseDataBadgeUpgrades[];
-}
-export interface ActionActionsCompletePostResponse extends ApiEnvelope<ActionActionsCompletePostResponseData> {
 }
 
 /** Backend response type: Vec<methods::PlanProduct>. */
@@ -797,6 +797,91 @@ export interface DashboardDashboardShowGetResponseData extends JsonObject {
 export interface DashboardDashboardShowGetResponse extends ApiEnvelope<DashboardDashboardShowGetResponseData> {
 }
 
+/** Backend response type: Capabilities. */
+export type EconomyCapabilitiesGetResponse = import("./types.js").EconomyCapabilitiesResponse;
+
+/** Backend request type: CommandEnvelope. */
+export type EconomyCommandPostInput = import("./types.js").EconomyOperatorCommand;
+/** Backend response type: CommandResult. */
+export type EconomyCommandPostResponse = import("./types.js").EconomyCommandResponse;
+
+/** Backend query type: JournalQuery. */
+export interface EconomyJournalGetQuery extends QueryParams {
+  "after"?: number | null;
+  "limit"?: number | null;
+}
+/** Backend response type: Vec<Value>. */
+export type EconomyJournalGetResponse = import("./types.js").EconomyJournalResponse;
+
+/** Backend query type: LeaderboardQuery. */
+export interface EconomyLeaderboardsGetQuery extends QueryParams {
+  "role": string;
+  "period_id": string;
+  "limit"?: number | null;
+}
+/** Backend response type: Vec<LeaderboardEntry>. */
+export type EconomyLeaderboardsGetResponse = import("./types.js").EconomyLeaderboardResponse;
+
+/** Backend response type: Vec<ObjectRecord>. */
+export type EconomyMeGetResponse = import("./types.js").EconomyObjectsResponse;
+
+/** Backend query type: JournalQuery. */
+export interface EconomyMyHistoryGetQuery extends QueryParams {
+  "after"?: number | null;
+  "limit"?: number | null;
+}
+/** Backend response type: Vec<Value>. */
+export type EconomyMyHistoryGetResponse = import("./types.js").EconomyHistoryResponse;
+
+/** Backend request type: PurchaseInput. */
+export type EconomyPurchasePostInput = import("./types.js").EconomyPurchaseInput;
+/** Backend response type: CommandResult. */
+export type EconomyPurchasePostResponse = import("./types.js").EconomyCommandResponse;
+
+/** Backend request type: PreviewInput. */
+export type EconomyPreviewPostInput = import("./types.js").EconomyPreviewInput;
+/** Backend response type: CommandResult. */
+export type EconomyPreviewPostResponse = import("./types.js").EconomyCommandResponse;
+
+/** Backend request type: CreditInput. */
+export type EconomyCreditPostInput = import("./types.js").EconomyCreditInput;
+/** Backend response type: CommandResult. */
+export type EconomyCreditPostResponse = import("./types.js").EconomyCreditResponse;
+
+/** Backend query type: ObjectQuery. */
+export interface EconomyObjectsGetQuery extends QueryParams {
+  "object_key"?: string | null;
+  "profile_id"?: string | null;
+  "scope_id"?: string | null;
+  "limit"?: number | null;
+  "offset"?: number | null;
+}
+/** Backend response type: Vec<ObjectRecord>. */
+export type EconomyObjectsGetResponse = import("./types.js").EconomyObjectsResponse;
+
+/** Backend response type: Value. */
+export type EconomyPolicyGetGetResponse = import("./types.js").EconomyPolicyResponse;
+
+/** Backend request type: EconomyPolicy. */
+export type EconomyPolicyPutPutInput = import("./types.js").EconomyPolicy;
+/** Backend response type: EconomyPolicy. */
+export type EconomyPolicyPutPutResponse = import("./types.js").EconomyPolicyResponse;
+
+/** Backend response type: ValuationResponse. */
+export type EconomyValuationGetResponse = import("./types.js").EconomyValuationResponse;
+
+/** Backend request type: FundRequest. */
+export interface GameEscrowFundPostInputPlayers extends JsonObject {
+  "profile_id": string;
+  "amount": number;
+}
+export interface GameEscrowFundPostInput extends JsonObject {
+  "match_id": string;
+  "players": GameEscrowFundPostInputPlayers[];
+}
+/** Backend response type: Value. */
+export type GameEscrowFundPostResponse = JsonValue;
+
 /** Backend response type: Value. */
 export type GameEscrowShowGetResponse = JsonValue;
 
@@ -810,18 +895,6 @@ export interface GameEscrowSettlePostInput extends JsonObject {
 }
 /** Backend response type: Value. */
 export type GameEscrowSettlePostResponse = JsonValue;
-
-/** Backend request type: FundRequest. */
-export interface GameEscrowFundPostInputPlayers extends JsonObject {
-  "profile_id": string;
-  "amount": number;
-}
-export interface GameEscrowFundPostInput extends JsonObject {
-  "match_id": string;
-  "players": GameEscrowFundPostInputPlayers[];
-}
-/** Backend response type: Value. */
-export type GameEscrowFundPostResponse = JsonValue;
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
 export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
@@ -1217,21 +1290,6 @@ export interface WalletMeTransactionsGetResponseData extends JsonObject {
 export interface WalletMeTransactionsGetResponse extends ApiEnvelope<WalletMeTransactionsGetResponseData> {
 }
 
-/** Backend response type: entity::wallet_transaction::Model. */
-export interface WalletMeTransactionShowGetResponseData extends JsonObject {
-  "id": string;
-  "profile_id": string;
-  "direction": string;
-  "amount": number;
-  "reason": string;
-  "ref_type"?: string | null;
-  "ref_id"?: string | null;
-  "balance_after": number;
-  "created_at": string;
-}
-export interface WalletMeTransactionShowGetResponse extends ApiEnvelope<WalletMeTransactionShowGetResponseData> {
-}
-
 /** Backend query type: UsageDaysQuery. */
 export interface WalletMeTransactionDaysGetQuery extends QueryParams {
   "page"?: number | null;
@@ -1270,6 +1328,10 @@ export interface WalletMeTransactionDayGetResponseDataResources extends JsonObje
 }
 export interface WalletMeTransactionDayGetResponseDataLlm extends JsonObject {
   "id": string;
+  "project"?: string | null;
+  "provider"?: string | null;
+  "cached_input_tokens": number;
+  "cache_write_tokens": number;
   "model": string;
   "input_tokens": number;
   "output_tokens": number;
@@ -1288,6 +1350,21 @@ export interface WalletMeTransactionDayGetResponseData extends JsonObject {
   "llm": WalletMeTransactionDayGetResponseDataLlm[];
 }
 export interface WalletMeTransactionDayGetResponse extends ApiEnvelope<WalletMeTransactionDayGetResponseData> {
+}
+
+/** Backend response type: entity::wallet_transaction::Model. */
+export interface WalletMeTransactionShowGetResponseData extends JsonObject {
+  "id": string;
+  "profile_id": string;
+  "direction": string;
+  "amount": number;
+  "reason": string;
+  "ref_type"?: string | null;
+  "ref_id"?: string | null;
+  "balance_after": number;
+  "created_at": string;
+}
+export interface WalletMeTransactionShowGetResponse extends ApiEnvelope<WalletMeTransactionShowGetResponseData> {
 }
 
 /** Backend response type: Vec<methods::PlanProduct>. */
@@ -1689,6 +1766,24 @@ export interface WalletBillingSubscriptionsIndexGetResponseData extends JsonObje
 export interface WalletBillingSubscriptionsIndexGetResponse extends ApiEnvelope<WalletBillingSubscriptionsIndexGetResponseData> {
 }
 
+/** Backend request type: SubscriptionPurchaseRequest. */
+export interface WalletBillingSubscriptionsPurchasePostInputItems extends JsonObject {
+  "service_name": string;
+  "period": string;
+}
+export interface WalletBillingSubscriptionsPurchasePostInput extends JsonObject {
+  "project": string;
+  "items": WalletBillingSubscriptionsPurchasePostInputItems[];
+  "currency"?: string | null;
+}
+/** Backend response type: PurchaseInitResponse. */
+export interface WalletBillingSubscriptionsPurchasePostResponseData extends JsonObject {
+  "purchase_id": string;
+  "payment_url": string;
+}
+export interface WalletBillingSubscriptionsPurchasePostResponse extends ApiEnvelope<WalletBillingSubscriptionsPurchasePostResponseData> {
+}
+
 /** Backend response type: APIEmptyResponse. */
 export interface WalletBillingSubscriptionsCancelPostResponseData extends JsonObject {
   "status": string;
@@ -1729,24 +1824,6 @@ export interface ServiceLifecycleResumePostResponseData extends JsonObject {
   "purge_at"?: string | null;
 }
 export type ServiceLifecycleResumePostResponse = ServiceLifecycleResumePostResponseData;
-
-/** Backend request type: SubscriptionPurchaseRequest. */
-export interface WalletBillingSubscriptionsPurchasePostInputItems extends JsonObject {
-  "service_name": string;
-  "period": string;
-}
-export interface WalletBillingSubscriptionsPurchasePostInput extends JsonObject {
-  "project": string;
-  "items": WalletBillingSubscriptionsPurchasePostInputItems[];
-  "currency"?: string | null;
-}
-/** Backend response type: PurchaseInitResponse. */
-export interface WalletBillingSubscriptionsPurchasePostResponseData extends JsonObject {
-  "purchase_id": string;
-  "payment_url": string;
-}
-export interface WalletBillingSubscriptionsPurchasePostResponse extends ApiEnvelope<WalletBillingSubscriptionsPurchasePostResponseData> {
-}
 
 /** Backend query type: LogListQuery. */
 export interface LogsUserActionLogsIndexGetQuery extends QueryParams {

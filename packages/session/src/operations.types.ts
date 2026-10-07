@@ -223,6 +223,17 @@ export interface RecordingRecordingsIndexGetResponseData extends JsonObject {
 export interface RecordingRecordingsIndexGetResponse extends ApiEnvelope<RecordingRecordingsIndexGetResponseData> {
 }
 
+/** Backend response type: Vec<AudioModel>. */
+export interface RecordingAudioModelsGetResponseItem extends JsonObject {
+  "model_ref": string;
+  "model": string;
+  "provider_label": string;
+  "source": string;
+  "capabilities": string[];
+}
+export interface RecordingAudioModelsGetResponse extends ApiEnvelope<RecordingAudioModelsGetResponseItem[]> {
+}
+
 /** Backend response type: RecordingManifestResponse. */
 export interface RecordingRecordingManifestGetResponseDataTracks extends JsonObject {
   "id": string;
@@ -305,16 +316,6 @@ export interface RecordingRecordingSchedulePostResponseData extends JsonObject {
   "audio_analyses": RecordingRecordingSchedulePostResponseDataAudioAnalyses[];
 }
 export interface RecordingRecordingSchedulePostResponse extends ApiEnvelope<RecordingRecordingSchedulePostResponseData> {
-}
-
-/** Backend response type: Vec<AudioModel>. */
-export interface RecordingAudioModelsGetResponseItem extends JsonObject {
-  "model_ref": string;
-  "model": string;
-  "provider_label": string;
-  "source": string;
-}
-export interface RecordingAudioModelsGetResponse extends ApiEnvelope<RecordingAudioModelsGetResponseItem[]> {
 }
 
 /** Backend request type: RoomStateRespond. */
@@ -466,6 +467,8 @@ export interface RoomRoomsCreatePostResponseDataRoomClients extends JsonObject {
   "name"?: string | null;
   "token"?: string | null;
   "status": number;
+  "muted_until"?: string | null;
+  "muted_by"?: string | null;
 }
 export interface RoomRoomsCreatePostResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
@@ -573,6 +576,7 @@ export interface RoomRoomsCreatePostResponseDataRoom extends JsonObject {
   "name": string;
   "capacity": number;
   "starts_at"?: string | null;
+  "started_at"?: string | null;
   "ended_at"?: string | null;
   "clients": RoomRoomsCreatePostResponseDataRoomClients[];
   "current_state"?: RoomRoomsCreatePostResponseDataRoomCurrentState | null;
@@ -590,6 +594,25 @@ export interface RoomRoomsCreatePostResponseData extends JsonObject {
 export interface RoomRoomsCreatePostResponse extends ApiEnvelope<RoomRoomsCreatePostResponseData> {
 }
 
+/** Backend response type: RoomAnalyticsResponse. */
+export interface RoomRoomsAnalyticsGetResponseData extends JsonObject {
+  "ongoing_sessions": number;
+  "sessions_today": number;
+  "ongoing_users": number;
+  "connected_users_today": number;
+}
+export interface RoomRoomsAnalyticsGetResponse extends ApiEnvelope<RoomRoomsAnalyticsGetResponseData> {
+}
+
+/** Backend request type: binary byte stream. */
+export type RoomLivekitWebhookPostInput = Blob | ArrayBuffer | ArrayBufferView;
+/** Backend response type: APIEmptyResponse. */
+export interface RoomLivekitWebhookPostResponseData extends JsonObject {
+  "status": string;
+  "message": string;
+}
+export type RoomLivekitWebhookPostResponse = RoomLivekitWebhookPostResponseData;
+
 /** Backend response type: RoomSingleResponse. */
 export interface RoomRoomsDeleteDeleteResponseDataRoomClients extends JsonObject {
   "id": string;
@@ -598,6 +621,8 @@ export interface RoomRoomsDeleteDeleteResponseDataRoomClients extends JsonObject
   "name"?: string | null;
   "token"?: string | null;
   "status": number;
+  "muted_until"?: string | null;
+  "muted_by"?: string | null;
 }
 export interface RoomRoomsDeleteDeleteResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
@@ -705,6 +730,7 @@ export interface RoomRoomsDeleteDeleteResponseDataRoom extends JsonObject {
   "name": string;
   "capacity": number;
   "starts_at"?: string | null;
+  "started_at"?: string | null;
   "ended_at"?: string | null;
   "clients": RoomRoomsDeleteDeleteResponseDataRoomClients[];
   "current_state"?: RoomRoomsDeleteDeleteResponseDataRoomCurrentState | null;
@@ -730,6 +756,8 @@ export interface RoomRoomsShowGetResponseDataRoomClients extends JsonObject {
   "name"?: string | null;
   "token"?: string | null;
   "status": number;
+  "muted_until"?: string | null;
+  "muted_by"?: string | null;
 }
 export interface RoomRoomsShowGetResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
@@ -837,6 +865,7 @@ export interface RoomRoomsShowGetResponseDataRoom extends JsonObject {
   "name": string;
   "capacity": number;
   "starts_at"?: string | null;
+  "started_at"?: string | null;
   "ended_at"?: string | null;
   "clients": RoomRoomsShowGetResponseDataRoomClients[];
   "current_state"?: RoomRoomsShowGetResponseDataRoomCurrentState | null;
@@ -958,6 +987,8 @@ export interface RoomRoomsUpdatePatchResponseDataRoomClients extends JsonObject 
   "name"?: string | null;
   "token"?: string | null;
   "status": number;
+  "muted_until"?: string | null;
+  "muted_by"?: string | null;
 }
 export interface RoomRoomsUpdatePatchResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
@@ -1065,6 +1096,7 @@ export interface RoomRoomsUpdatePatchResponseDataRoom extends JsonObject {
   "name": string;
   "capacity": number;
   "starts_at"?: string | null;
+  "started_at"?: string | null;
   "ended_at"?: string | null;
   "clients": RoomRoomsUpdatePatchResponseDataRoomClients[];
   "current_state"?: RoomRoomsUpdatePatchResponseDataRoomCurrentState | null;
@@ -1186,6 +1218,8 @@ export interface RoomRoomsUpdatePutResponseDataRoomClients extends JsonObject {
   "name"?: string | null;
   "token"?: string | null;
   "status": number;
+  "muted_until"?: string | null;
+  "muted_by"?: string | null;
 }
 export interface RoomRoomsUpdatePutResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
@@ -1293,6 +1327,7 @@ export interface RoomRoomsUpdatePutResponseDataRoom extends JsonObject {
   "name": string;
   "capacity": number;
   "starts_at"?: string | null;
+  "started_at"?: string | null;
   "ended_at"?: string | null;
   "clients": RoomRoomsUpdatePutResponseDataRoomClients[];
   "current_state"?: RoomRoomsUpdatePutResponseDataRoomCurrentState | null;
@@ -1316,6 +1351,11 @@ export interface RoomRoomsEndPostResponseData extends JsonObject {
   "message": string;
 }
 export type RoomRoomsEndPostResponse = RoomRoomsEndPostResponseData;
+
+/** Backend request type: InteractionInput. */
+export type AssetEconomyInteractPostInput = import("./types.js").RoomInteractionInput;
+/** Backend response type: Value. */
+export type AssetEconomyInteractPostResponse = import("./types.js").RoomInteractionResponse;
 
 /** Backend response type: APIEmptyResponse. */
 export interface RoomRoomsInteractiveStartPostResponseData extends JsonObject {
@@ -1372,6 +1412,8 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoomClients extends JsonObj
   "name"?: string | null;
   "token"?: string | null;
   "status": number;
+  "muted_until"?: string | null;
+  "muted_by"?: string | null;
 }
 export interface RoomRoomsPlaybackShowGetResponseDataRoomStatesClientResponses extends JsonObject {
   "id": string;
@@ -1479,7 +1521,9 @@ export interface RoomRoomsPlaybackShowGetResponseDataRoom extends JsonObject {
   "name": string;
   "capacity": number;
   "starts_at"?: string | null;
+  "started_at"?: string | null;
   "ended_at"?: string | null;
+  "available_until"?: string | null;
   "clients": RoomRoomsPlaybackShowGetResponseDataRoomClients[];
   "states": RoomRoomsPlaybackShowGetResponseDataRoomStates[];
   "room_name": string;
@@ -1538,6 +1582,8 @@ export interface RoomRoomsStopGetResponseDataRoomClients extends JsonObject {
   "name"?: string | null;
   "token"?: string | null;
   "status": number;
+  "muted_until"?: string | null;
+  "muted_by"?: string | null;
 }
 export interface RoomRoomsStopGetResponseDataRoomCurrentStateClientResponses extends JsonObject {
   "id": string;
@@ -1645,6 +1691,7 @@ export interface RoomRoomsStopGetResponseDataRoom extends JsonObject {
   "name": string;
   "capacity": number;
   "starts_at"?: string | null;
+  "started_at"?: string | null;
   "ended_at"?: string | null;
   "clients": RoomRoomsStopGetResponseDataRoomClients[];
   "current_state"?: RoomRoomsStopGetResponseDataRoomCurrentState | null;
@@ -1661,22 +1708,3 @@ export interface RoomRoomsStopGetResponseData extends JsonObject {
 }
 export interface RoomRoomsStopGetResponse extends ApiEnvelope<RoomRoomsStopGetResponseData> {
 }
-
-/** Backend response type: RoomAnalyticsResponse. */
-export interface RoomRoomsAnalyticsGetResponseData extends JsonObject {
-  "ongoing_sessions": number;
-  "sessions_today": number;
-  "ongoing_users": number;
-  "connected_users_today": number;
-}
-export interface RoomRoomsAnalyticsGetResponse extends ApiEnvelope<RoomRoomsAnalyticsGetResponseData> {
-}
-
-/** Backend request type: binary byte stream. */
-export type RoomLivekitWebhookPostInput = Blob | ArrayBuffer | ArrayBufferView;
-/** Backend response type: APIEmptyResponse. */
-export interface RoomLivekitWebhookPostResponseData extends JsonObject {
-  "status": string;
-  "message": string;
-}
-export type RoomLivekitWebhookPostResponse = RoomLivekitWebhookPostResponseData;

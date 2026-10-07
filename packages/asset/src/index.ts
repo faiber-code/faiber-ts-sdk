@@ -1,8 +1,35 @@
+import type * as E from "./economy.types.js";
 import { RestResource, ServiceApi, type Identifier, type QueryParams, type RequestOptions, } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 import { AssetOperations } from "./operations.js";
 export class AssetApi extends ServiceApi {
+    /** Reads versioned scoped-reward policy. Requires admin:coin_settings:read. */
+    economyPolicy(options?: RequestOptions) { return this.client.get<E.EconomyPolicyResponse>("/api/v1/economy/policy", undefined, options); }
+    /** Updates a higher policy version; launch/supply/currency remain immutable. Requires admin:coin_settings:update. */
+    updateEconomyPolicy(data:E.EconomyPolicy, options?:RequestOptions<E.EconomyPolicy>) { return this.client.put<E.EconomyPolicyResponse,E.EconomyPolicy>("/api/v1/economy/policy",data,options); }
+    /** Executes an audited operator reward or scope closure; rejects broker-only commands. Requires admin:action:complete. */
+    economyCommand(data:E.EconomyOperatorCommand,options?:RequestOptions<E.EconomyOperatorCommand>) { return this.client.post<E.EconomyCommandResponse,E.EconomyOperatorCommand>("/api/v1/economy/commands",data,options); }
+    /** Lists scoped budgets, bank counters, recovery balances or other named projections. Requires admin:bank_transaction:read. */
+    economyObjects<K extends E.EconomyObjectKind>(kind:K,params?:E.EconomyObjectQuery,options?:RequestOptions) { return this.client.get<E.EconomyObjectsResponse<K>>(`/api/v1/economy/objects/${encodeURIComponent(kind)}`,params,options); }
+    /** Reads immutable journal entries using a sequence cursor. Requires admin:user_asset_log:read. */
+    economyJournal(params?:E.EconomyJournalQuery,options?:RequestOptions) { return this.client.get<E.EconomyJournalResponse>("/api/v1/economy/journal",params,options); }
+    /** Reads the authenticated user's wallet, free-session entitlements, Charge and purchases. Requires admin:wallet:read_own. */
+    myEconomy(options?:RequestOptions) { return this.client.get<E.EconomyObjectsResponse>("/api/v1/economy/me",undefined,options); }
+    /** Buys a configured item using Coin, crafting ingredients, or a ten-minute money quote. Reuse event_id on retry. Requires admin:wallet:read_own. */
+    purchaseEconomyItem(data:E.EconomyPurchaseInput,options?:RequestOptions<E.EconomyPurchaseInput>) { return this.client.post<E.EconomyCommandResponse,E.EconomyPurchaseInput>("/api/v1/economy/me/purchases",data,options); }
+    /** Applies only the credits that fit below the session Charge maximum, preserving the remainder. Requires admin:wallet:read_own. */
+    applySessionChargeCredit(sessionId:Identifier,data:E.EconomyCreditInput,options?:RequestOptions<E.EconomyCreditInput>) { return this.client.post<E.EconomyCommandResponse<E.EconomyCreditReceipt>,E.EconomyCreditInput>(`/api/v1/economy/me/sessions/${encodeURIComponent(sessionId)}/credit`,data,options); }
+    /** Reads live Coin value and bank shortfall in explicit currency units. Requires admin:wallet:read_own. */
+    economyValuation(options?:RequestOptions) { return this.client.get<E.EconomyValuationResponse>("/api/v1/economy/valuation",undefined,options); }
+    /** Reads only the authenticated profile's immutable changes, using sequence pagination. Requires admin:wallet:read_own. */
+    myEconomyHistory(params?:E.EconomyJournalQuery,options?:RequestOptions) { return this.client.get<E.EconomyHistoryResponse>("/api/v1/economy/me/history",params,options); }
+    /** Simulates an award and rolls back every change. Evidence still requires verification for completion. Requires admin:wallet:read_own. */
+    previewEconomyReward(data:E.EconomyPreviewInput,options?:RequestOptions<E.EconomyPreviewInput>) { return this.client.post<E.EconomyCommandResponse,E.EconomyPreviewInput>("/api/v1/economy/me/rewards/preview",data,options); }
+    /** Reads a single role's period or global XP rankings. Replays do not change live rankings. Requires admin:wallet:read_own. */
+    economyLeaderboard(params:E.EconomyLeaderboardQuery,options?:RequestOptions) { return this.client.get<E.EconomyLeaderboardResponse>("/api/v1/economy/leaderboards",params,options); }
+    /** Reads permission-aware operator controls. Requires admin:wallet:read_own or admin:coin_settings:read. */
+    economyCapabilities(options?:RequestOptions) { return this.client.get<E.EconomyCapabilitiesResponse>("/api/v1/economy/capabilities",undefined,options); }
     readonly operations = new AssetOperations(this.client);
     readonly assets = new RestResource<T.Asset, T.CreateAssetInput, T.UpdateAssetInput, T.AssetListResponse, T.AssetResponse>(this.client, "/api/v1/assets", { supported: ["list", "show", "create", "update", "delete"] });
     readonly ranks = new RestResource<T.Rank, T.CreateRankInput, T.UpdateRankInput, T.RankListResponse, T.RankResponse>(this.client, "/api/v1/ranks", { supported: ["list", "show", "create", "update", "delete"] });
@@ -69,3 +96,5 @@ export * from "@faiber/sdk-core";
 export * from "./types.js";
 export * from "./operations.js";
 export * from "./operations.types.js";
+
+export * from "./economy.types.js";
