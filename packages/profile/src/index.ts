@@ -18,6 +18,20 @@ export class ProfileApi extends ServiceApi {
     readonly greetings: R<T.Greeting, T.CreateGreetingInput, T.UpdateGreetingInput, T.GreetingListResponse, T.GreetingResponse> = new RestResource(this.client, "/api/v1/greetings", { supported: [] });
     /** Lists profiles with merged role records, active status, enrollment state, and role/status filters. */
     listProfiles(params?: T.ProfileListQuery, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>("/api/v1/profile", params, options); }
+    /** Lists any profile role with live core/property/trusted-event filters, applied before pagination.
+     * Requires profile:read. Invalid paths/clauses return 400; unavailable configured fields return 400.
+     * Returns the full Axios response. Accepts cancellation, headers and timeout options.
+     */
+    filterProfiles(input: T.FilterProfilesInput, options?: RequestOptions) {
+        return this.listProfiles({
+            ...(input.page === undefined ? {} : { page: input.page }),
+            ...(input.per_page === undefined ? {} : { per_page: input.per_page }),
+            ...(input.role === undefined ? {} : { "filter[role]": input.role }),
+            ...(input.search === undefined ? {} : { "filter[search]": input.search }),
+            filters: JSON.stringify(input.filters ?? []),
+            ...(input.sort === undefined ? {} : { sort: input.sort.map(s => `${s.dir === "desc" ? "-" : ""}${s.path}`).join(",") })
+        }, options);
+    }
     byRole(role: T.ProfileRole, params?: QueryParams, options?: RequestOptions) { return this.client.get<T.ProfileListResponse>(`/api/v1/profile/${role}`, params, options); }
     /** Reads the profile whose canonical owner is the supplied IDP user UUID. */
     profileByUserId(userId: Identifier, options?: RequestOptions) { return this.client.get<T.ProfileResponse>(`/api/v1/profile/${encodeURIComponent(userId)}`, undefined, options); }

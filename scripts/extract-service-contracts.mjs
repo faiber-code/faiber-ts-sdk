@@ -181,7 +181,7 @@ function handlerSignature(source, handler) {
     ?? params.match(/Json\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim()
     ?? params.match(/Form\s*\([^)]*\)\s*:\s*Form\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
   const binary = /(?:^|,)\s*(?:\w+\s*:\s*)?(?:axum::body::)?Bytes\s*(?:,|$)/m.test(params);
-  const query = params.match(/Query\s*\([^)]*\)\s*:\s*Query\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
+  const query = /(?:super::dynamic::)?DynamicListQuery\s*\(/.test(params) ? "models::ListQuery" : params.match(/Query\s*\([^)]*\)\s*:\s*Query\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
   const pathParam = params.match(/Path\s*\([^)]*\)\s*:\s*Path\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim();
   const responseMatch = after.match(/(?:APIResponse|ApiResponse)(WithMeta)?\s*</);
   let response;

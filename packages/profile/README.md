@@ -109,3 +109,54 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 After retrieving eligible member IDs from Task, call `profile.resolvePeople({ user_ids })` with 1–200 UUIDs per batch. The response contains active sandbox profiles with English/Persian names and canonical `user_id`; email and phone are withheld. No match or duplicate names require clarification before assignment. Requires `profile:lookup` and the standard authenticated client; invalid batches return an Axios 400 response. Request options support cancellation and timeouts.
 
 Personal information includes `job`, a nullable job title. Pass `{ job: "Software engineer" }` to `sdk.profile.personalInformation(userId, ...)`; pass `{ job: null }` to clear it. Omitting `job` preserves the saved value. Profile detail and list responses also include `job`, and general profile patch operations accept it.
+
+### Dynamic profile filters
+
+`listProfiles` and all role-list operation queries, including
+`ProfileStudentIndexGetQuery`, accept bracket filters, repeated date ranges and
+`sort`. Prefer `filterProfiles` for typed operators and JSON values:
+
+```ts
+const response = await api.filterProfiles({
+  role: 'student', // any role name works on the generic profile endpoint
+  filters: [
+    { path: 'core.account_balance', op: 'lt', value: 0 },
+    { path: 'properties.owner', op: 'in', value: ['supporter-user-uuid'] },
+    { path: 'services.office.sync-user.enrollments.freemium_sessions', op: 'gte', value: 1 },
+  ],
+  sort: [{ path: 'core.created_at', dir: 'desc' }],
+  page: 1,
+  per_page: 20,
+});
+const profiles = response.data.data.profiles;
+```
+
+This method requires `profile:read` and uses the normal authenticated Faiber
+client. It returns the full Axios response and accepts cancellation signals,
+headers and timeouts as the second argument. Invalid clauses, dates or unavailable
+configured fields reject with an Axios error carrying HTTP 400.
+
+Use `core.<column>`, `properties.<key>[.<nested-field>]`, or
+`services.<service-key>.<event-name>.<nested-field>` paths. Properties must be
+active, filterable and visible in lists; trusted services must be active and their
+events visible in lists. Nested payload arrays match candidate elements. Clauses
+are ANDed; use `json_contains` with an array/object structure for fields that
+must match the same nested record. Operators are `eq`, `neq`, `gt`, `gte`, `lt`,
+`lte`, `in`, `contains`, `exists` and `json_contains`. Missing data satisfies
+`neq`; array sorting uses the minimum JSON candidate.
+
+```ts
+await api.operations.profileStudentIndexGet({
+  'filter[birthday][]': ['2000-01-01', '2010-12-31'],
+  'filter[created_at][]': ['2026-01-01', '2026-10-07'],
+  'filter[gender]': 'female',
+  sort: '-core.created_at',
+});
+```
+
+Ranges require two ordered endpoints; an empty string leaves a bound open.
+Date-only creation-time upper bounds include that entire day. `sort` accepts
+comma-separated paths, with `-` for descending. Application concepts such as
+`double_debt`, supporter `owner` and `work_id` require stored configured
+properties or their actual trusted-service paths; the SDK does not calculate them.
+These capabilities require a service version supporting dynamic list filters.

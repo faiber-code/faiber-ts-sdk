@@ -146,3 +146,7 @@ audio **on the client** for fast replay: pass `cacheScope` (service/tenant/user/
 and `persistCache: true` to `ChatService.playSpeech()`. Persistence uses browser IndexedDB,
 not a server cache. Clear private audio on logout with `ChatService.clearSpeechPlaybackCache()`.
 See the Chat package guide for bounds, cancellation and storage tradeoffs.
+
+Profile supports generic dynamic filtering through `sdk.profile.filterProfiles`
+with typed core, property and trusted-event paths, any role name, operators,
+sorting and pagination. See the [profile package guide](packages/profile/README.md#dynamic-profile-filters).

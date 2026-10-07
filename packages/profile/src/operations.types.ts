@@ -1,4 +1,4 @@
-import type { CreateCustomTypeInput, UpdateCustomTypeInput, Profile } from "./types.js";
+import type { CreateCustomTypeInput, UpdateCustomTypeInput, Profile, ProfileListQuery } from "./types.js";
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
@@ -646,16 +646,7 @@ export interface OptionParentGetPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileIndexGetResponseDataCities extends Profile {}
 export interface ProfileIndexGetResponseData extends JsonObject {
@@ -1231,16 +1222,7 @@ export interface ProfileUpdateStatusPutResponse extends ApiEnvelope<ProfileUpdat
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileAccountantIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileAccountantIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileAccountantIndexGetResponseDataCities extends Profile {}
 export interface ProfileAccountantIndexGetResponseData extends JsonObject {
@@ -1332,16 +1314,7 @@ export interface ProfileCityGetPostResponse extends ApiEnvelope<ProfileCityGetPo
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileConsultantIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileConsultantIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileConsultantIndexGetResponseDataCities extends Profile {}
 export interface ProfileConsultantIndexGetResponseData extends JsonObject {
@@ -1403,16 +1376,7 @@ export interface ProfileGetParentGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileManagerIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileManagerIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileManagerIndexGetResponseDataCities extends Profile {}
 export interface ProfileManagerIndexGetResponseData extends JsonObject {
@@ -1465,16 +1429,7 @@ export interface ProfileDeleteMyAddressDeleteResponse extends ApiEnvelope<JsonVa
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileOtherIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileOtherIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileOtherIndexGetResponseDataCities extends Profile {}
 export interface ProfileOtherIndexGetResponseData extends JsonObject {
@@ -1491,16 +1446,7 @@ export interface ProfileOtherIndexGetResponse extends ApiEnvelope<ProfileOtherIn
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileParentIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileParentIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileParentIndexGetResponseDataCities extends Profile {}
 export interface ProfileParentIndexGetResponseData extends JsonObject {
@@ -1570,16 +1516,7 @@ export interface ProfileSearchSearchPostResponse extends ApiEnvelope<ProfileSear
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileStudentIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileStudentIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileStudentIndexGetResponseDataCities extends Profile {}
 export interface ProfileStudentIndexGetResponseData extends JsonObject {
@@ -1608,16 +1545,7 @@ export interface ProfileStudentPesSchemaGetResponse extends ApiEnvelope<JsonValu
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileSupportIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileSupportIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileSupportIndexGetResponseDataCities extends Profile {}
 export interface ProfileSupportIndexGetResponseData extends JsonObject {
@@ -1646,16 +1574,7 @@ export interface ProfileSupportPesSchemaGetResponse extends ApiEnvelope<JsonValu
 }
 
 /** Backend query type: models::ListQuery. */
-export interface ProfileTeacherIndexGetQuery extends QueryParams {
-  "page"?: string | null;
-  "per_page"?: string | null;
-  "filter[search]"?: string | null;
-  "filter[status]"?: string | null;
-  "filter[active]"?: string | null;
-  "filter[name]"?: string | null;
-  "filter[province_id]"?: string | null;
-  "filter[trashed]"?: string | null;
-}
+export interface ProfileTeacherIndexGetQuery extends ProfileListQuery {}
 /** Backend response type: models::ListData. */
 export interface ProfileTeacherIndexGetResponseDataCities extends Profile {}
 export interface ProfileTeacherIndexGetResponseData extends JsonObject {

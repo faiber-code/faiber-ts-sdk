@@ -6,8 +6,28 @@ export interface ProfileListQuery extends QueryParams {
     "filter[search]"?: string;
     "filter[status]"?: string;
     "filter[active]"?: boolean | "true" | "false" | "1" | "0";
-    "filter[role]"?: ProfileRole;
+    "filter[role]"?: string;
     "filter[trashed]"?: string;
+    /** JSON-encoded ProfileFilterClause[]. Use filterProfiles for typed clauses. */
+    filters?: string;
+    /** Comma-separated paths, prefix a path with - for descending. */
+    sort?: string;
+    "filter[account_balance]"?: number | string;
+    "filter[double_debt]"?: boolean | string;
+    "filter[created_at][]"?: readonly string[];
+    "filter[birthday][]"?: readonly string[];
+    "filter[attendance_mode]"?: string;
+    "filter[gender]"?: string;
+    "filter[education_id]"?: string;
+    "filter[level]"?: string;
+    "filter[work_id]"?: string;
+    "filter[country_id]"?: string;
+    "filter[city_id]"?: string;
+    "filter[office.enrollments.education_status_id]"?: string | number;
+    "filter[office.enrollments.freemium_sessions]"?: string | number;
+    "filter[office.enrollments.education_cancel_status]"?: string | number | boolean;
+    "filter[owner]"?: string;
+
 }
 export interface Profile extends JsonObject {
     id: string;
@@ -419,3 +439,12 @@ export interface DirectoryPerson { user_id: string; first_name_fa: string | null
 export interface ResolvePeopleInput { user_ids: string[]; }
 export interface ResolvePeopleResult { results: DirectoryPerson[]; has_more: boolean; }
 export interface ResolvePeopleResponse { data: ResolvePeopleResult; }
+
+/** Canonical paths: core.<column>, properties.<configured-key>, services.<service>.<event>.<nested-field>. */
+export type ProfileFilterPath = `core.${string}` | `properties.${string}` | `services.${string}`;
+export type ProfileFilterOperator = "eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "in" | "contains" | "exists" | "json_contains";
+/** All clauses are ANDed; nested service arrays match any candidate element per clause. */
+export interface ProfileFilterClause { path: ProfileFilterPath; op: ProfileFilterOperator; value?: JsonValue; }
+/** Array-valued paths sort by their minimum JSON value. */
+export interface ProfileSortClause { path: ProfileFilterPath; dir: "asc" | "desc"; }
+export interface FilterProfilesInput { filters?: readonly ProfileFilterClause[]; sort?: readonly ProfileSortClause[]; page?: number; per_page?: number; role?: string; search?: string; }
