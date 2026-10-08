@@ -118,8 +118,8 @@ Personal information includes `job`, a nullable job title. Pass `{ job: "Softwar
 
 ```ts
 const response = await api.filterProfiles({
-  role: 'student', // any role name works on the generic profile endpoint
   filters: [
+    { path: 'role', op: 'in', value: ['student', 'customer'] },
     { path: 'core.account_balance', op: 'lt', value: 0 },
     { path: 'properties.owner', op: 'in', value: ['supporter-user-uuid'] },
     { path: 'services.office.sync-user.enrollments.freemium_sessions', op: 'gte', value: 1 },
@@ -135,6 +135,11 @@ This method requires `profile:read` and uses the normal authenticated Faiber
 client. It returns the full Axios response and accepts cancellation signals,
 headers and timeouts as the second argument. Invalid clauses, dates or unavailable
 configured fields reject with an Axios error carrying HTTP 400.
+
+Use `role` (or `core.role`) to filter profile-role names: `eq` matches one role,
+`in` matches any supplied role, and `neq` excludes profiles with that role.
+The separate `role` input still accepts a single role; when combined with clauses,
+all constraints apply together. Role names are not limited to the student use case.
 
 Use `core.<column>`, `properties.<key>[.<nested-field>]`, or
 `services.<service-key>.<event-name>.<nested-field>` paths. Properties must be

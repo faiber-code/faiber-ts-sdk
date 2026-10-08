@@ -440,8 +440,10 @@ export interface ResolvePeopleInput { user_ids: string[]; }
 export interface ResolvePeopleResult { results: DirectoryPerson[]; has_more: boolean; }
 export interface ResolvePeopleResponse { data: ResolvePeopleResult; }
 
-/** Canonical paths: core.<column>, properties.<configured-key>, services.<service>.<event>.<nested-field>. */
-export type ProfileFilterPath = `core.${string}` | `properties.${string}` | `services.${string}`;
+/** Paths: role (or core.role), core.<column>, properties.<configured-key>, services.<service>.<event>.<nested-field>.
+ * Role clauses match names in profile-role records; in matches any supplied role, neq excludes profiles with that role.
+ */
+export type ProfileFilterPath = "role" | `core.${string}` | `properties.${string}` | `services.${string}`;
 export type ProfileFilterOperator = "eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "in" | "contains" | "exists" | "json_contains";
 /** All clauses are ANDed; nested service arrays match any candidate element per clause. */
 export interface ProfileFilterClause { path: ProfileFilterPath; op: ProfileFilterOperator; value?: JsonValue; }

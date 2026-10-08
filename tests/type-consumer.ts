@@ -353,6 +353,10 @@ const dynamicStudentQuery: ProfileStudentIndexGetQuery = {
   'filter[owner]': 'uuid', sort: '-core.created_at',
 };
 const genericFiltersInput: FilterProfilesInput = {
-  role: 'customer', filters: [{ path: 'properties.owner', op: 'in', value: ['a', 'b'] }],
+  role: 'customer', filters: [
+    { path: 'role', op: 'in', value: ['student', 'customer'] },
+    { path: 'core.role', op: 'neq', value: 'teacher' },
+    { path: 'properties.owner', op: 'in', value: ['a', 'b'] },
+  ],
 };
 void dynamicStudentQuery; void genericFiltersInput;

@@ -10,6 +10,8 @@ test('generic profile filters preserve JSON clauses, arbitrary roles, authorizat
     axios: { adapter: async config => { seen.push(config); return { data: { data: { profiles: [] }, meta: { total: 0 } }, status: 200, statusText: 'OK', headers: {}, config }; } } });
   const signal = new AbortController().signal;
   const filters = [
+    { path: 'role', op: 'in', value: ['student', 'customer'] },
+    { path: 'core.role', op: 'neq', value: 'teacher' },
     { path: 'core.account_balance', op: 'lt', value: 0 },
     { path: 'properties.double_debt', op: 'eq', value: true },
     { path: 'services.office.sync-user.enrollments.education_status_id', op: 'in', value: [2, 3] },
