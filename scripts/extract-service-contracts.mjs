@@ -15,6 +15,7 @@ const services = [
   "modules", "payment", "profile", "reservation", "session", "social", "state", "task", "version",
 ];
 const serviceDirectories = { version: "infera_version" };
+try { await access(join(servicesRoot, "infera-version", "src")); serviceDirectories.version = "infera-version"; } catch { /* retain legacy checkout support */ }
 
 async function walk(root) {
   const result = [];
@@ -226,7 +227,7 @@ function qualifiedHandlerSource(fileSources, srcRoot, currentFile, qualifier, ha
   if (!qualifier) return undefined;
   const qualifiedPath = qualifier.startsWith("super::")
     ? `${relative(srcRoot, dirname(currentFile)).replaceAll(String.fromCharCode(92), "/")}/${qualifier.replace(/^super::/, "").replaceAll("::", "/")}`
-    : qualifier.replace(/^crate::/, "").replace(/^self::/, "").replaceAll("::", "/");
+    : qualifier.replace(/^crate::/, "").replace(/^self::/, "").replace(/^infera_\w+::/, "").replaceAll("::", "/");
   const candidates = [...fileSources.entries()]
     .filter(([, candidate]) => new RegExp(`(?:pub\\s+)?async\\s+fn\\s+${handler}\\s*\\(`).test(candidate))
     .map(([file, candidate]) => {
@@ -266,6 +267,22 @@ for (const service of services) {
   const mountedModules = directRouter
     ? new Set(["routes", "main"])
     : new Set([...router.matchAll(/crate::(\w+)::/g)].map(match => match[1]));
+  // Direct main.rs routers may mount composed local router variables. Resolve their
+  // factories against the actual nest so runtime and management ACLs stay distinct.
+  if (directRouter) {
+    for (const mount of router.matchAll(/\.nest\(\s*"([^"]+)"\s*,\s*(?:(?:crate|infera_\w+)::)?(\w+)(?:::(\w+)\(\))?\s*\)/g)) {
+      const [, prefix, variable, directFactory] = mount;
+      const factories = directFactory ? [[variable, directFactory]] : (() => {
+        const declaration = router.match(new RegExp(`let\\s+${variable}\\s*=([\\s\\S]*?);`))?.[1] ?? "";
+        return [...declaration.matchAll(/(?:^|[^\w:])(\w+)::(\w+)\(\)/g)].map(match => [match[1], match[2]]);
+      })();
+      for (const [module, factory] of factories) {
+        mountedModules.add(module);
+        modulePrefixes.set(`${module}:${factory}`, prefix);
+        if (!modulePrefixes.has(module)) modulePrefixes.set(module, prefix);
+      }
+    }
+  }
   if (service === "social") {
     modulePrefixes.set("main", "/");
     mountedModules.add("main");
@@ -301,7 +318,7 @@ for (const service of services) {
         ? "/api/v1"
         : service === "task" && ["/health/live", "/health/ready", "/health/dependencies", "/metrics", "/api/openapi.json"].includes(route.localPath)
         ? "/"
-        : service === "knowledge" && module === "routes" && ["/chat/{chat_slug}/query", "/tool-schema"].includes(route.localPath)
+        : service === "knowledge" && module === "routes" && route.factory === "runtime_router"
         ? "/api/v1/runtime"
         : module === "router"
         ? (["/integration/flow", "/transactions/{uuid}"].includes(route.localPath) ? "/api/v1" : "/")
@@ -335,6 +352,7 @@ for (const service of services) {
         handler: route.handler,
         permissions: declaredPermissions.length || service !== "drm" ? declaredPermissions : [drmPermission(route.method, path)],
         source: relativeSource(file),
+        ...(route.qualifier ? { handlerModule: route.qualifier.split("::").at(-1) } : {}),
         ...signature,
       });
     }

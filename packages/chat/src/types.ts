@@ -73,6 +73,9 @@ export type MessageListResponse = ApiEnvelope<ChatMessage[]>;
 export type AiMessageResponse = ApiEnvelope<{ user_message: ChatMessage; assistant_message: ChatMessage; ai_turn: JsonValue; billing_authority: string }>;
 
 export interface SpeechStatus { available:boolean; engine?:string; max_bytes?:number }
+export interface SpeechLanguageModels {model_ref:string;tts_model_ref:string}
+export interface SpeechSettings {enabled:boolean;model_ref:string;tts_enabled:boolean;tts_model_ref:string;version:number;language_models?:Partial<Record<'en'|'fa',SpeechLanguageModels>>}
+export interface SpeechSettingsResponse extends ApiEnvelope<SpeechSettings> {}
 export interface SpeechStatusResponse extends ApiEnvelope<SpeechStatus> {}
 export interface SpeechTranscript { text:string; engine:string }
 export interface SpeechTranscriptResponse extends ApiEnvelope<SpeechTranscript> {}

@@ -68,3 +68,41 @@ const applied = await task.workspaceAssistant.apply(
 
 `revise` validates edited operations and produces a new revision. On a conflict, `refresh` rebuilds the preview from current records; review it again before applying. Approval is transactional and idempotent for the same revision. All methods inherit caller authentication, cancellation, and Axios error handling. They require `task:access:use` plus each operation's current Task capability; project-owner billing never grants access. Initial `createWorkItem` checklists and personal reminders are committed together with the task.
 Administrative 2Done reports: `adminUserPlans({ user_ids })` returns sandbox subscriptions for up to 100 comma-separated user UUIDs; `incomeReport({ from, to, plan?, page? })` returns confirmed purchases and daily cash income in toman. Dates are inclusive YYYY-MM-DD in Asia/Tehran, at most 366 days. Both require verified administrator role and Task access. Methods retain the full Axios response and accept cancellation options.
+
+
+### Boards, private sources and note memory
+
+`task.collaboration` exposes versioned shared workflows, private attachments, note media,
+imports, indexing and owner-pooled allowances. Inspect `config()` before offering a
+feature and use its deployment-specific file/audio ceilings. Stage IDs and canonical
+categories remain stable when names change. Only space managers edit shared stages;
+participants can transition only assigned tasks. A 409 requires refreshed versions and
+an updated preview before retrying a move.
+
+Create an attachment reservation with a stable request UUID and SHA-256 checksum, upload
+with `uploadAttachment`, then poll `attachment` until scanning marks it clean. Bind clean
+IDs to a comment or use `attachNoteMedia`/`setNoteCover` with the current note version.
+Downloads recheck Task permissions. Storage remains charged while retained originals
+exist; unbinding a file preserves note text and schedules abandoned-object cleanup.
+
+`startNoteImport` accepts a clean private original; `startSourceImport` accepts a public
+HTTP(S) page. Poll `noteImport`, show extraction and provenance, then explicitly approve
+with `applyNoteImport`. One conversion consumes one import; OCR and audio also use their
+configured allowances. Cancellation and retry use the job version. Never automatically
+apply extracted content. `workspaceAssistant.propose` supports `import_note` with the
+current import/note versions, append/replace mode and an optional reviewed summary; the
+original stays attached. A changed source or note returns 409.
+
+`searchNotes` defaults to one specified project and accepts up to nine additional
+accessible projects. Task reauthorizes every returned note/version before returning a
+citation. `noteIndexing` and `retryNoteIndexing` expose progress and authorized retry.
+New content remains directly readable through explicit note selection during indexing.
+Saved supported originals are extracted asynchronously without changing note writing.
+
+Reviewed `archive_note` operations take `archived: true` or `false`. They retain content,
+files and history. Default assistant queries and knowledge search omit archived notes;
+explicit note selection remains permission checked. Use `include_archived: true` only
+when the user requests archived records. All methods preserve Axios responses and accept
+request options, including cancellation signals.
+
+Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.

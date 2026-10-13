@@ -30,6 +30,7 @@ export interface RoutesCreateAssistantPostInputCustomerActions extends JsonObjec
   "enabled": boolean;
 }
 export interface RoutesCreateAssistantPostInput extends JsonObject {
+  "status"?: string | null;
   "name": string;
   "system_prompt": string;
   "model_ref": string;
@@ -116,6 +117,61 @@ export interface RoutesCustomerActionContentGetResponse extends ApiEnvelope<Json
 }
 
 /** Backend response type: Value. */
+export interface RoutesModelsGetApiV1AdminImageModelsResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Settings. */
+export interface RoutesSettingsGetApiV1AdminImageSettingsResponseData extends JsonObject {
+  "enabled": boolean;
+  "model_ref": string;
+  "version": number;
+}
+export interface RoutesSettingsGetApiV1AdminImageSettingsResponse extends ApiEnvelope<RoutesSettingsGetApiV1AdminImageSettingsResponseData> {
+}
+
+/** Backend request type: Settings. */
+export interface RoutesSavePutInput extends JsonObject {
+  "enabled": boolean;
+  "model_ref": string;
+  "version": number;
+}
+/** Backend response type: Settings. */
+export interface RoutesSavePutResponseData extends JsonObject {
+  "enabled": boolean;
+  "model_ref": string;
+  "version": number;
+}
+export interface RoutesSavePutResponse extends ApiEnvelope<RoutesSavePutResponseData> {
+}
+
+/** Backend response type: Value. */
+export interface RoutesModelsGetApiV1AdminSpeechModelsResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: SpeechSettings. */
+export type RoutesSettingsGetApiV1AdminSpeechSettingsResponse = import("./types.js").SpeechSettingsResponse;
+
+/** Backend request type: crate::speech::SpeechSettingsInput. */
+export type RoutesPublicSpeechSettingsPutInput = import("./types.js").SpeechSettings;
+/** Backend response type: crate::speech::SpeechSettings. */
+export type RoutesPublicSpeechSettingsPutResponse = import("./types.js").SpeechSettingsResponse;
+
+/** Backend response type: Value. */
+export interface RoutesManagedRolesGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: BindRole. */
+export interface RoutesBindPutInput extends JsonObject {
+  "assistant_id": string;
+  "knowledge_slug": string;
+  "enabled": boolean;
+  "expected_version": number;
+}
+/** Backend response type: Value. */
+export interface RoutesBindPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
 export interface RoutesListAssistantsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -123,6 +179,9 @@ export interface RoutesListAssistantsGetResponse extends ApiEnvelope<JsonValue> 
 export interface RoutesGetAssistantGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+export type AttachmentUploadBody = Blob | ArrayBuffer | Uint8Array;
+/** Backend request type: binary byte stream. */
+export type RoutesCompleteAttachmentPostInput = Blob | ArrayBuffer | ArrayBufferView;
 /** Backend response type: entity::attachment::Model. */
 export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
   "id": string;
@@ -133,7 +192,6 @@ export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
   "storage_provider": string;
   "bucket": string;
   "object_key": string;
-  /** Storage metadata, not a private download URL; use ChatApi.downloadAttachment(id). */
   "cdn_url": string;
   "file_name": string;
   "media_type": string;
@@ -149,6 +207,9 @@ export interface RoutesCompleteAttachmentPostResponseData extends JsonObject {
 }
 export interface RoutesCompleteAttachmentPostResponse extends ApiEnvelope<RoutesCompleteAttachmentPostResponseData> {
 }
+
+/** Backend response type: raw-response. */
+export type RoutesDownloadAttachmentGetResponse = ArrayBuffer | Uint8Array;
 
 /** Backend response type: Value. */
 export interface RoutesListGetResponse extends ApiEnvelope<JsonValue> {
@@ -316,7 +377,95 @@ export interface RoutesRealtimeAuthPostInput extends JsonObject {
   "channel_name": string;
 }
 /** Backend response type: Value. */
-export interface RoutesRealtimeAuthPostResponse { auth: string }
+export type RoutesRealtimeAuthPostResponse = JsonValue;
+
+/** Backend response type: Value. */
+export interface RoutesRealtimeConfigGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: Generation. */
+export interface FitnessGeneratePostInput extends JsonObject {
+  "order_id": string;
+  "user_id": string;
+  "job_token": string;
+  "intake": JsonValue;
+  "includes_meals": boolean;
+  "workouts"?: boolean;
+  "model_snapshot": JsonValue;
+  "catalog": JsonValue;
+  "reference_time": JsonValue;
+}
+/** Backend response type: Value. */
+export interface FitnessGeneratePostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: ExtractIntake. */
+export interface RoutesExtractIntakePostInput extends JsonObject {
+  "text": string;
+  "locale": string;
+}
+/** Backend response type: Value. */
+export interface RoutesExtractIntakePostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface RoutesModelsGetApiV1FitnessModelsResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: Models. */
+export interface FitnessSaveSettingsPutInput extends JsonObject {
+  "model_ref": string;
+  "stt_model_ref": string;
+  "tts_model_ref": string;
+}
+/** Backend response type: Value. */
+export interface FitnessSaveSettingsPutResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface RoutesStatusGetApiV1ImageStatusResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: MediaInput. */
+export interface MemoryImportExtractPostInput extends JsonObject {
+  "id": string;
+  "user_id": string;
+  "organization_id": string;
+  "content_type": string;
+  "data_base64": string;
+  "language": string;
+}
+/** Backend response type: Value. */
+export interface MemoryImportExtractPostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: SourceInput. */
+export interface MemoryImportSourcePostInput extends JsonObject {
+  "user_id": string;
+  "organization_id": string;
+  "url": string;
+}
+/** Backend response type: Value. */
+export interface MemoryImportSourcePostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Vec<LearningMessage>. */
+export interface RoutesHistoryGetResponseItem extends JsonObject {
+  "id": string;
+  "role": string;
+  "text": string;
+}
+export interface RoutesHistoryGetResponse extends ApiEnvelope<RoutesHistoryGetResponseItem[]> {
+}
+
+/** Backend request type: Question. */
+export interface RoutesAskPostInput extends JsonObject {
+  "question": string;
+  "idempotency_key": string;
+}
+/** Backend response type: Value. */
+export interface RoutesAskPostResponse extends ApiEnvelope<JsonValue> {
+}
 
 /** Backend response type: no-content. */
 export type RoutesDeleteMessageDeleteResponse = void;
@@ -337,11 +486,53 @@ export interface RoutesReactPostInput extends JsonObject {
 export interface RoutesReactPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: LiveSpeechInput. */
+export interface RoutesLivePostInput extends JsonObject {
+  "action": string;
+  "session_id"?: string | null;
+  "sequence"?: number | null;
+  "audio_base64"?: string | null;
+  "content_type"?: string | null;
+  "language"?: string | null;
+}
+/** Backend response type: Value. */
+export interface RoutesLivePostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface RoutesStatusGetApiV1SpeechStatusResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: binary byte stream. */
+export type RoutesTranscribePostInput = Blob | ArrayBuffer | ArrayBufferView;
+/** Backend query type: Language. */
+export interface RoutesTranscribePostQuery extends QueryParams {
+  "language": string;
+}
+/** Backend response type: Value. */
+export interface RoutesTranscribePostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: TtsInput. */
+export type RoutesSynthesizePostInputFormat = "Mp3" | "Wav";
+export interface RoutesSynthesizePostInput extends JsonObject {
+  "format"?: RoutesSynthesizePostInputFormat | null;
+  "text": string;
+  "language"?: string | null;
+}
+/** Backend response type: raw-response. */
+export interface RoutesSynthesizePostResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: VoiceInput. */
+export type RoutesHandlePostInput = import("./assistant-voice.js").AssistantVoiceInput;
+/** Backend response type: Value. */
+export type RoutesHandlePostResponse = import("./assistant-voice.js").AssistantVoiceResponse;
+
+/** Backend response type: Value. */
+export interface RoutesRolesGetResponse extends ApiEnvelope<JsonValue> {
+}
+
 /** Backend response type: serde_json::Value. */
 export interface MainHealthGetResponse extends ApiEnvelope<JsonValue> {
 }
-
-/** Raw attachment bytes accepted by authenticated completion. */
-export type AttachmentUploadBody = Blob | ArrayBuffer | Uint8Array;
-/** Browser ArrayBuffer or Node Uint8Array returned by the binary transport. */
-export type RoutesDownloadAttachmentGetResponse = ArrayBuffer | Uint8Array;

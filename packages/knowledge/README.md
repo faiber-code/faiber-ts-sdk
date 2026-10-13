@@ -31,12 +31,14 @@ const result = await api.query("fitness-coach", {
 
 ## Complete capability
 
-This package exposes 36 registered operations from the knowledge service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 76 registered operations from the knowledge service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `main` | 3 | `GET` |
-| `routes` | 33 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `main` | 4 | `GET`, `POST` |
+| `platform` | 34 | `DELETE`, `GET`, `POST`, `PUT` |
+| `routes` | 35 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `task_projections` | 3 | `POST` |
 
 Management routes use optimistic version fields where supported. Runtime queries are scoped by chat slug and return matched knowledge, rules, notifications, warnings, tasks, input requests, directions, and trace data.
 
@@ -65,3 +67,5 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 ### Deterministic published assistant contracts
 
 `knowledge.assistantContracts(assistantId, '2done-assistants')` retrieves complete contract records from the assistant's enabled base binding and immutable published release. It returns `data.release_id` and keyed `data.contracts`, including localized content and versioned JSON Schema metadata. Unlike semantic retrieval, this operation does not rank, truncate, or omit required contracts. It requires `knowledge:runtime`; absent, disabled, unpublished, or inaccessible bindings fail rather than returning partial guidance. Normal Axios authentication, cancellation, and error handling apply.
+
+Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.

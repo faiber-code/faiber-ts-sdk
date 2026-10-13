@@ -1,3 +1,4 @@
+import { collaborationContracts } from "./collaboration-contract-overrides.mjs";
 import { access, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 
@@ -11,6 +12,7 @@ const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async 
 })();
 const servicesRoot = resolve(discoveredServicesRoot);
 const serviceDirectories = { version: "infera_version" };
+try { await access(join(servicesRoot, "infera-version", "src")); serviceDirectories.version = "infera-version"; } catch { /* retain legacy checkout support */ }
 const manifestPath = resolve(process.argv[2] ?? join(root, "service-contracts.json"));
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
 const selectedServices = new Set(
@@ -29,6 +31,24 @@ const camel = value => {
   return converted[0].toLowerCase() + converted.slice(1);
 };
 const operationBaseName = endpoint => `${endpoint.module}-${endpoint.handler}-${endpoint.method.toLowerCase()}`;
+// Preserve published names for manually reviewed workspace contracts.
+const stableOperationNames = {
+  "GET /api/openapi.json": "workspaceQuery",
+  "GET /api/v1/planning-preferences": "workspacePreferences",
+  "PUT /api/v1/planning-preferences": "workspaceSavePreferences",
+  "GET /api/v1/note-folders": "workspaceFolders",
+  "POST /api/v1/review-proposals": "workspacePropose",
+  "POST /api/v1/review-proposals/validate": "workspaceValidate",
+  "GET /api/v1/review-proposals/{id}": "workspaceProposal",
+  "PUT /api/v1/review-proposals/{id}": "workspaceRevise",
+  "POST /api/v1/review-proposals/{id}/apply": "workspaceApply",
+  "POST /api/v1/review-proposals/{id}/refresh": "workspaceRefresh",
+  "GET /api/v1/actions": "workspaceAssistantContracts",
+
+  "GET /api/v1/workspace-assistants": "workspaceRoles",
+  "GET /api/v1/admin/workspace-assistants": "workspaceManagedRoles",
+  "PUT /api/v1/admin/workspace-assistants/{role}": "workspaceBind",
+};
 const operationPurpose = endpoint => endpoint.handler.replace(/_/g, " ");
 const placeholders = path => [...path.matchAll(/\{([^}]+)\}/g)].map(match => match[1]);
 const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${encodeURIComponent(${camel(name)})}`)}\``;
@@ -198,6 +218,7 @@ function resolveStruct(files, module, raw) {
   return (qualifier === "models" ? matches.find(item => item.file.path.includes(`/${module}/`) && basename(item.file.path) === "models.rs") : undefined)
     ?? (qualifier ? matches.find(item => basename(item.file.path, ".rs") === qualifier) : undefined)
     ?? matches.find(item => item.file.path.includes(`/${module}/`))
+    ?? matches.find(item => basename(item.file.path, ".rs") === module)
     ?? matches.find(item => basename(item.file.path) === "models.rs")
     ?? matches[0];
 }
@@ -337,17 +358,23 @@ for (const [service, endpoints] of Object.entries(manifest)) {
 
   for (const endpoint of endpoints) {
     const base = pascal(operationName(endpoint));
-    const methodName = camel(operationName(endpoint));
+    const methodName = stableOperationNames[`${endpoint.method} ${endpoint.path}`] ?? camel(operationName(endpoint));
     const ids = placeholders(endpoint.path);
+    const reviewed = collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`];
     const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
     const dynamicProfileList = service === "profile" && endpoint.module === "profile" &&
       /^(index|manager_index|accountant_index|support_index|consultant_index|teacher_index|student_index|parent_index|other_index)$/.test(endpoint.handler);
     const hasQuery = dynamicProfileList || Boolean(endpoint.query);
     const inputOverride = inputOverrides[service]?.[endpoint.handler];
     const responseOverride = responseOverrides[service]?.[endpoint.handler];
+    const optionalChatUpload = service === "chat" && endpoint.handler === "complete_attachment";
+    const binaryDownload = (service === "chat" && ["download_attachment", "tts"].includes(endpoint.handler)) || (service === "task" && endpoint.handlerModule === "attachments" && endpoint.handler === "download");
+    if (optionalChatUpload) typeLines.push("export type AttachmentUploadBody = Blob | ArrayBuffer | Uint8Array;");
     if (hasInput) {
       typeLines.push(`/** Backend request type: ${endpoint.binary ? "binary byte stream" : endpoint.body ?? "multipart/form-data"}. */`);
-      if (inputOverride) {
+      if (reviewed?.input) {
+        typeLines.push(`export type ${base}Input = ${reviewed.input};`);
+      } else if (inputOverride) {
         typeLines.push(`export type ${base}Input = import("./types.js").${inputOverride};`);
       } else if (endpoint.multipart) {
         typeLines.push(`export type ${base}Input = FormData;`);
@@ -356,7 +383,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       } else if (/^(?:serde_json::)?Value$/.test(endpoint.body)) {
         typeLines.push(`export type ${base}Input = JsonValue;`);
       } else {
-        const inputFields = renderedFields(files, endpoint.module, endpoint.body, new Set(), false, typeLines, `${base}Input`);
+        const inputFields = renderedFields(files, endpoint.handlerModule ?? endpoint.module, endpoint.body, new Set(), false, typeLines, `${base}Input`);
         typeLines.push(`export interface ${base}Input extends JsonObject {`);
         writeFields(typeLines, inputFields);
         typeLines.push("}");
@@ -368,19 +395,23 @@ for (const [service, endpoints] of Object.entries(manifest)) {
         typeLines.push(`export interface ${base}Query extends importProfileListQuery {}`);
       } else {
         typeLines.push(`export interface ${base}Query extends QueryParams {`);
-        writeFields(typeLines, renderedFields(files, endpoint.module, endpoint.query, new Set(), true));
+        writeFields(typeLines, renderedFields(files, endpoint.handlerModule ?? endpoint.module, endpoint.query, new Set(), true));
         typeLines.push("}");
       }
     }
     typeLines.push(`/** Backend response type: ${endpoint.response ?? endpoint.responseEnvelope ?? "handler-defined response"}. */`);
-    if (responseOverride) {
+    if (reviewed?.response) {
+      typeLines.push(`export type ${base}Response = ${reviewed.response};`);
+    } else if (binaryDownload) {
+      typeLines.push(`export type ${base}Response = ArrayBuffer | Uint8Array;`);
+    } else if (responseOverride) {
       typeLines.push(`export type ${base}Response = import("./types.js").${responseOverride};`);
     } else if (endpoint.responseEnvelope === "no-content" || endpoint.responseEnvelope === "redirect") {
       typeLines.push(`export type ${base}Response = void;`);
     } else {
-      const dataType = responseDataType(typeLines, files, endpoint.module, endpoint.response, `${base}Response`);
+      const dataType = responseDataType(typeLines, files, endpoint.handlerModule ?? endpoint.module, endpoint.response, `${base}Response`);
       const metaType = endpoint.responseMeta
-        ? responseDataType(typeLines, files, endpoint.module, endpoint.responseMeta, `${base}Meta`)
+        ? responseDataType(typeLines, files, endpoint.handlerModule ?? endpoint.module, endpoint.responseMeta, `${base}Meta`)
         : null;
       if (endpoint.responseEnvelope === "raw") {
         typeLines.push(`export type ${base}Response = ${dataType};`);
@@ -395,10 +426,11 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     typeLines.push("");
 
     const args = ids.map(id => `${camel(id)}: Identifier`);
-    if (hasInput) args.push(`data: T.${base}Input`);
+    if (hasInput && !optionalChatUpload) args.push(`data: T.${base}Input`);
     if (hasQuery) args.push(`params?: T.${base}Query`);
-    args.push(`options?: RequestOptions${hasInput ? `<T.${base}Input>` : ""}`);
-    const permissions = endpoint.permissions.length ? endpoint.permissions.join(", ") : "session-derived or public bootstrap route";
+    args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : hasInput ? `<T.${base}Input>` : ""}`);
+    if (optionalChatUpload) args.push("data?: T.AttachmentUploadBody");
+    const permissions = endpoint.permissions.length ? endpoint.permissions.join(", ") : endpoint.path.startsWith("/internal/") || endpoint.path.startsWith("/api/v1/internal/") ? "trusted backend service credential and tenant scope; not a public browser endpoint" : "session-derived or public bootstrap route";
     operationLines.push("  /**");
     operationLines.push(`   * Performs the ${operationPurpose(endpoint)} operation for the ${endpoint.module.replace(/_/g, " ")} capability.`);
     operationLines.push(`   * Calls \`${endpoint.method} ${endpoint.path}\` through the shared IDP-aware Faiber client.`);
@@ -412,7 +444,9 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push("   */");
     operationLines.push(`  ${methodName}(${args.join(", ")}) {`);
     const requestData = endpoint.formUrlEncoded ? "urlEncoded(data)" : "data";
-    operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
+    if (optionalChatUpload) {
+      operationLines.push(`    return this.client.request<T.${base}Response, T.AttachmentUploadBody>({ ...options, method: "POST", url: ${escapedPath(endpoint.path)}, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });`);
+    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");

@@ -5,6 +5,8 @@ import { spawnSync } from "node:child_process";
 
 const root = resolve(import.meta.dirname, "..");
 const committed = JSON.parse(await readFile(join(root, "service-contracts.json"), "utf8"));
+const selected = new Set((process.env.FAIBER_CONTRACT_SERVICES ?? "").split(",").filter(Boolean));
+const scoped = entries => Object.fromEntries(Object.entries(entries).filter(([name]) => !selected.size || selected.has(name)));
 const temporary = await mkdtemp(join(tmpdir(), "faiber-contract-audit-"));
 const extractedPath = join(temporary, "service-contracts.json");
 
@@ -16,12 +18,12 @@ try {
   });
   if (extraction.status !== 0) throw new Error(extraction.stderr || extraction.stdout || "contract extraction failed");
   const extracted = JSON.parse(await readFile(extractedPath, "utf8"));
-  if (JSON.stringify(extracted) !== JSON.stringify(committed)) {
+  if (JSON.stringify(scoped(extracted)) !== JSON.stringify(scoped(committed))) {
     throw new Error("service-contracts.json is stale; run npm run contracts:extract and regenerate operations");
   }
 
   let total = 0;
-  for (const [service, endpoints] of Object.entries(committed)) {
+  for (const [service, endpoints] of Object.entries(scoped(committed))) {
     const source = await readFile(join(root, "packages", service, "src", "operations.ts"), "utf8");
     const generated = [...source.matchAll(/\* Calls `((?:GET|POST|PUT|PATCH|DELETE)) ([^`]+)`/g)]
       .map(match => `${match[1]} ${match[2]}`);

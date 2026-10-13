@@ -31,12 +31,14 @@ await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } })
 
 ## Complete capability
 
-This package exposes 36 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 57 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
+| `fitness` | 2 | `POST`, `PUT` |
 | `main` | 1 | `GET` |
-| `routes` | 35 | `DELETE`, `GET`, `POST`, `PUT` |
+| `memory_import` | 2 | `POST` |
+| `routes` | 52 | `DELETE`, `GET`, `POST`, `PUT` |
 
 AI turns are executed and billed by Infera Agentic; Chat only coordinates conversation context and reconciliation. The events endpoint is an SSE stream and can be requested with normal SDK authorization headers.
 
@@ -192,3 +194,24 @@ URL.revokeObjectURL(previewUrl);
 ```
 
 Downloads use authenticated Chat access (`chat:read`), preserve Axios metadata, and support `onDownloadProgress`. Use `api.operations.routesDownloadAttachmentGet` for raw bytes. Access failures return 403/404; storage failures return 502. Upload completion requires `chat:write`.
+
+
+### Scoped note assistance and hands-free speech
+
+Workspace chat accepts a selected `space_id`, optional `note_id`, and explicitly chosen
+`knowledge_project_ids`. A selected `import_id` refers to a Task extraction preview;
+Chat rechecks its permission and version before including evidence and before delivery.
+Imported text cannot grant tools or permissions. Research must be explicitly requested
+and enabled by the deployment; it consumes the configured research and response limits.
+Changes are returned as Task proposals and require review and versioned approval.
+
+The typed `assistantVoice` API supports start/push/finish/cancel, bounded PCM transcription
+and synthesis. Use stable request IDs and monotonically increasing chunk sequence numbers
+for retries. It requires an accessible project and configured audio allowance. Release
+microphone capture on exit/backgrounding and preserve partial text on network failure.
+Speech settings can select independent language-specific recognition and output models;
+an English request never silently uses a Persian-only model. Live recognition requires
+an available compatible Faiber worker or relay. All calls retain authenticated transport,
+Axios metadata and cancellation options.
+
+Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.

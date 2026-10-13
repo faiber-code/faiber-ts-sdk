@@ -1,4 +1,3 @@
-import type * as W from "./workspace.js";
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
 
@@ -91,6 +90,90 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesCustomerActionContentGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/customer-action-content`, params });
   }
   /**
+   * Performs the models operation for the routes capability.
+   * Calls `GET /api/v1/admin/image-models` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesModelsGetApiV1AdminImageModels(options?: RequestOptions) {
+    return this.client.request<T.RoutesModelsGetApiV1AdminImageModelsResponse>({ ...options, method: "GET", url: `/api/v1/admin/image-models` });
+  }
+  /**
+   * Performs the settings operation for the routes capability.
+   * Calls `GET /api/v1/admin/image-settings` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesSettingsGetApiV1AdminImageSettings(options?: RequestOptions) {
+    return this.client.request<T.RoutesSettingsGetApiV1AdminImageSettingsResponse>({ ...options, method: "GET", url: `/api/v1/admin/image-settings` });
+  }
+  /**
+   * Performs the save operation for the routes capability.
+   * Calls `PUT /api/v1/admin/image-settings` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesSavePut(data: T.RoutesSavePutInput, options?: RequestOptions<T.RoutesSavePutInput>) {
+    return this.client.request<T.RoutesSavePutResponse, T.RoutesSavePutInput>({ ...options, method: "PUT", url: `/api/v1/admin/image-settings`, data: data });
+  }
+  /**
+   * Performs the models operation for the routes capability.
+   * Calls `GET /api/v1/admin/speech-models` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesModelsGetApiV1AdminSpeechModels(options?: RequestOptions) {
+    return this.client.request<T.RoutesModelsGetApiV1AdminSpeechModelsResponse>({ ...options, method: "GET", url: `/api/v1/admin/speech-models` });
+  }
+  /**
+   * Performs the settings operation for the routes capability.
+   * Calls `GET /api/v1/admin/speech-settings` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  routesSettingsGetApiV1AdminSpeechSettings(options?: RequestOptions) {
+    return this.client.request<T.RoutesSettingsGetApiV1AdminSpeechSettingsResponse>({ ...options, method: "GET", url: `/api/v1/admin/speech-settings` });
+  }
+  /**
+   * Performs the public speech settings operation for the routes capability.
+   * Calls `PUT /api/v1/admin/speech-settings` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesPublicSpeechSettingsPut(data: T.RoutesPublicSpeechSettingsPutInput, options?: RequestOptions<T.RoutesPublicSpeechSettingsPutInput>) {
+    return this.client.request<T.RoutesPublicSpeechSettingsPutResponse, T.RoutesPublicSpeechSettingsPutInput>({ ...options, method: "PUT", url: `/api/v1/admin/speech-settings`, data: data });
+  }
+  /**
+   * Performs the managed roles operation for the routes capability.
+   * Calls `GET /api/v1/admin/workspace-assistants` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  workspaceManagedRoles(options?: RequestOptions) {
+    return this.client.request<T.RoutesManagedRolesGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/workspace-assistants` });
+  }
+  /**
+   * Performs the bind operation for the routes capability.
+   * Calls `PUT /api/v1/admin/workspace-assistants/{role}` through the shared IDP-aware Faiber client.
+   * @param role Backend path identifier `role`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   */
+  workspaceBind(role: Identifier, data: T.RoutesBindPutInput, options?: RequestOptions<T.RoutesBindPutInput>) {
+    return this.client.request<T.RoutesBindPutResponse, T.RoutesBindPutInput>({ ...options, method: "PUT", url: `/api/v1/admin/workspace-assistants/${encodeURIComponent(role)}`, data: data });
+  }
+  /**
    * Performs the list assistants operation for the routes capability.
    * Calls `GET /api/v1/assistants` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -112,11 +195,10 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesGetAssistantGetResponse>({ ...options, method: "GET", url: `/api/v1/assistants/${encodeURIComponent(id)}` });
   }
   /**
-   * Optional raw bytes upload through authenticated storage (100 MiB maximum); omitted bytes finalize a presigned upload.
-   * @param data Raw bytes matching the reservation size and checksum.
    * Performs the complete attachment operation for the routes capability.
    * Calls `POST /api/v1/attachments/{id}/complete` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
+   * @param data Typed binary byte stream.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:write.
@@ -125,12 +207,12 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesCompleteAttachmentPostResponse, T.AttachmentUploadBody>({ ...options, method: "POST", url: `/api/v1/attachments/${encodeURIComponent(id)}/complete`, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });
   }
   /**
-   * Downloads a ready attachment after conversation membership authorization.
+   * Performs the download attachment operation for the routes capability.
    * Calls `GET /api/v1/attachments/{id}/content` through the shared IDP-aware Faiber client.
-   * @param id Attachment identifier.
-   * @param options Axios cancellation, progress, headers and transport options.
-   * @returns The complete Axios response with raw binary bytes and media headers.
-   * @throws AxiosError on 403/404 access failures or 502 storage failures; required permission: chat:read.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
    */
   routesDownloadAttachmentGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesDownloadAttachmentGetResponse>({ ...options, method: "GET", url: `/api/v1/attachments/${encodeURIComponent(id)}/content`, responseType: "arraybuffer" });
@@ -333,6 +415,115 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesRealtimeAuthPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/realtime-auth`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
+   * Performs the realtime config operation for the routes capability.
+   * Calls `GET /api/v1/conversations/{id}/realtime-config` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  routesRealtimeConfigGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesRealtimeConfigGetResponse>({ ...options, method: "GET", url: `/api/v1/conversations/${encodeURIComponent(id)}/realtime-config` });
+  }
+  /**
+   * Performs the generate operation for the fitness capability.
+   * Calls `POST /api/v1/fitness/generate` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  fitnessGeneratePost(data: T.FitnessGeneratePostInput, options?: RequestOptions<T.FitnessGeneratePostInput>) {
+    return this.client.request<T.FitnessGeneratePostResponse, T.FitnessGeneratePostInput>({ ...options, method: "POST", url: `/api/v1/fitness/generate`, data: data });
+  }
+  /**
+   * Performs the extract intake operation for the routes capability.
+   * Calls `POST /api/v1/fitness/intake-extract` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesExtractIntakePost(data: T.RoutesExtractIntakePostInput, options?: RequestOptions<T.RoutesExtractIntakePostInput>) {
+    return this.client.request<T.RoutesExtractIntakePostResponse, T.RoutesExtractIntakePostInput>({ ...options, method: "POST", url: `/api/v1/fitness/intake-extract`, data: data });
+  }
+  /**
+   * Performs the models operation for the routes capability.
+   * Calls `GET /api/v1/fitness/models` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  routesModelsGetApiV1FitnessModels(options?: RequestOptions) {
+    return this.client.request<T.RoutesModelsGetApiV1FitnessModelsResponse>({ ...options, method: "GET", url: `/api/v1/fitness/models` });
+  }
+  /**
+   * Performs the save settings operation for the fitness capability.
+   * Calls `PUT /api/v1/fitness/settings` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  fitnessSaveSettingsPut(data: T.FitnessSaveSettingsPutInput, options?: RequestOptions<T.FitnessSaveSettingsPutInput>) {
+    return this.client.request<T.FitnessSaveSettingsPutResponse, T.FitnessSaveSettingsPutInput>({ ...options, method: "PUT", url: `/api/v1/fitness/settings`, data: data });
+  }
+  /**
+   * Performs the status operation for the routes capability.
+   * Calls `GET /api/v1/image-status` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:read, assistant:manage.
+   */
+  routesStatusGetApiV1ImageStatus(options?: RequestOptions) {
+    return this.client.request<T.RoutesStatusGetApiV1ImageStatusResponse>({ ...options, method: "GET", url: `/api/v1/image-status` });
+  }
+  /**
+   * Performs the extract operation for the memory import capability.
+   * Calls `POST /api/v1/internal/memory/media` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   */
+  memoryImportExtractPost(data: T.MemoryImportExtractPostInput, options?: RequestOptions<T.MemoryImportExtractPostInput>) {
+    return this.client.request<T.MemoryImportExtractPostResponse, T.MemoryImportExtractPostInput>({ ...options, method: "POST", url: `/api/v1/internal/memory/media`, data: data });
+  }
+  /**
+   * Performs the source operation for the memory import capability.
+   * Calls `POST /api/v1/internal/memory/source` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   */
+  memoryImportSourcePost(data: T.MemoryImportSourcePostInput, options?: RequestOptions<T.MemoryImportSourcePostInput>) {
+    return this.client.request<T.MemoryImportSourcePostResponse, T.MemoryImportSourcePostInput>({ ...options, method: "POST", url: `/api/v1/internal/memory/source`, data: data });
+  }
+  /**
+   * Performs the history operation for the routes capability.
+   * Calls `GET /api/v1/learning/runs/{id}/messages` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  routesHistoryGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesHistoryGetResponse>({ ...options, method: "GET", url: `/api/v1/learning/runs/${encodeURIComponent(id)}/messages` });
+  }
+  /**
+   * Performs the ask operation for the routes capability.
+   * Calls `POST /api/v1/learning/runs/{id}/questions` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesAskPost(id: Identifier, data: T.RoutesAskPostInput, options?: RequestOptions<T.RoutesAskPostInput>) {
+    return this.client.request<T.RoutesAskPostResponse, T.RoutesAskPostInput>({ ...options, method: "POST", url: `/api/v1/learning/runs/${encodeURIComponent(id)}/questions`, data: data });
+  }
+  /**
    * Performs the delete message operation for the routes capability.
    * Calls `DELETE /api/v1/messages/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -368,6 +559,71 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesReactPostResponse, T.RoutesReactPostInput>({ ...options, method: "POST", url: `/api/v1/messages/${encodeURIComponent(id)}/reactions`, data: data });
   }
   /**
+   * Performs the live operation for the routes capability.
+   * Calls `POST /api/v1/speech/live` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesLivePost(data: T.RoutesLivePostInput, options?: RequestOptions<T.RoutesLivePostInput>) {
+    return this.client.request<T.RoutesLivePostResponse, T.RoutesLivePostInput>({ ...options, method: "POST", url: `/api/v1/speech/live`, data: data });
+  }
+  /**
+   * Performs the status operation for the routes capability.
+   * Calls `GET /api/v1/speech/status` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesStatusGetApiV1SpeechStatus(options?: RequestOptions) {
+    return this.client.request<T.RoutesStatusGetApiV1SpeechStatusResponse>({ ...options, method: "GET", url: `/api/v1/speech/status` });
+  }
+  /**
+   * Performs the transcribe operation for the routes capability.
+   * Calls `POST /api/v1/speech/transcribe` through the shared IDP-aware Faiber client.
+   * @param data Typed binary byte stream.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesTranscribePost(data: T.RoutesTranscribePostInput, params?: T.RoutesTranscribePostQuery, options?: RequestOptions<T.RoutesTranscribePostInput>) {
+    return this.client.request<T.RoutesTranscribePostResponse, T.RoutesTranscribePostInput>({ ...options, method: "POST", url: `/api/v1/speech/transcribe`, data: data, params, headers: { "Content-Type": "application/octet-stream", ...options?.headers } });
+  }
+  /**
+   * Performs the synthesize operation for the routes capability.
+   * Calls `POST /api/v1/speech/tts` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesSynthesizePost(data: T.RoutesSynthesizePostInput, options?: RequestOptions<T.RoutesSynthesizePostInput>) {
+    return this.client.request<T.RoutesSynthesizePostResponse, T.RoutesSynthesizePostInput>({ ...options, method: "POST", url: `/api/v1/speech/tts`, data: data });
+  }
+  /**
+   * Performs the handle operation for the routes capability.
+   * Calls `POST /api/v1/speech/voice` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:ai.
+   */
+  routesHandlePost(data: T.RoutesHandlePostInput, options?: RequestOptions<T.RoutesHandlePostInput>) {
+    return this.client.request<T.RoutesHandlePostResponse, T.RoutesHandlePostInput>({ ...options, method: "POST", url: `/api/v1/speech/voice`, data: data });
+  }
+  /**
+   * Performs the roles operation for the routes capability.
+   * Calls `GET /api/v1/workspace-assistants` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:read.
+   */
+  workspaceRoles(options?: RequestOptions) {
+    return this.client.request<T.RoutesRolesGetResponse>({ ...options, method: "GET", url: `/api/v1/workspace-assistants` });
+  }
+  /**
    * Performs the health operation for the main capability.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -376,34 +632,5 @@ export class ChatOperations extends ServiceApi {
    */
   mainHealthGet(options?: RequestOptions) {
     return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });
-  }
-  /**
-   * Calls `GET /api/v1/workspace-assistants` using the authenticated sandbox connection.
-   * Requires `assistant:read` and current resource access. Supply If-Match for versioned writes.
-   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
-   * @returns The complete Axios response with the typed service envelope.
-   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
-   */
-  workspaceRoles(options?: RequestOptions) {
-    return this.client.request<W.WorkspaceAssistantBindingsResponse>({ ...options, method: "GET", url: `/api/v1/workspace-assistants` });
-  }
-  /**
-   * Calls `PUT /api/v1/admin/workspace-assistants/{role}` using the authenticated sandbox connection.
-   * Requires `assistant:manage` and current resource access. Supply If-Match for versioned writes.
-   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
-   * @returns The complete Axios response with the typed service envelope.
-   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
-   */
-  workspaceBind(role: string, data: W.WorkspaceAssistantBindingInput, options?: RequestOptions<W.WorkspaceAssistantBindingInput>) {
-    return this.client.request<W.WorkspaceAssistantBindingResponse, W.WorkspaceAssistantBindingInput>({ ...options, method: "PUT", url: `/api/v1/admin/workspace-assistants/${encodeURIComponent(role)}`, data });
-  }
-  /**
-   * Calls `GET /api/v1/admin/workspace-assistants` to inspect staged and active role bindings.
-   * Requires assistant:manage in the current sandbox.
-   * @returns The complete Axios response with managed role bindings and versions.
-   * @throws AxiosError on authentication, permission, or dependency failures.
-   */
-  workspaceManagedRoles(options?:RequestOptions) {
-    return this.client.request<W.ManagedWorkspaceRolesResponse>({...options,method:"GET",url:"/api/v1/admin/workspace-assistants"});
   }
 }

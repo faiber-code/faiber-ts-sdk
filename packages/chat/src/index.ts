@@ -6,6 +6,13 @@ import type * as O from "./operations.types.js";
 import { ChatOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class ChatApi extends ServiceApi {
+  /** Metered assistant voice; requires chat:ai and current Task project access.
+   * Stable UUIDs and chunk sequences preserve retries. Reserve 65 input seconds or
+   * 120 output seconds (max 600 characters), settling actual provider duration.
+   * Batch fallback accepts canonical mono 16kHz PCM WAV, at most 60 seconds.
+   * 409 reports exhausted allowance or conflicting retries; quick dictation stays separate.
+   */
+  assistantVoice(input:import('./assistant-voice.js').AssistantVoiceInput,options?:RequestOptions<import('./assistant-voice.js').AssistantVoiceInput>){return this.client.post<import('./assistant-voice.js').AssistantVoiceResponse,import('./assistant-voice.js').AssistantVoiceInput>('/api/v1/speech/voice',input,options);}
   /** Start, push, finalize or cancel an ordered speech session; chat:ai required.
    * 400 rejects unsupported codecs/languages, 502 means capacity/provider unavailable.
    * No task/note/message is saved. Uses normal authenticated Axios transport. */
@@ -19,6 +26,10 @@ export class ChatApi extends ServiceApi {
   readonly operations = new ChatOperations(this.client);
   /** Check configured local transcription availability; requires chat:ai. */
   speechStatus(options?: RequestOptions) { return this.client.get<T.SpeechStatusResponse>("/api/v1/speech/status", undefined, options); }
+  /** Read organization speech routing; requires assistant:manage. */
+  speechSettings(options?:RequestOptions){return this.client.get<T.SpeechSettingsResponse>('/api/v1/admin/speech-settings',undefined,options);}
+  /** Save versioned defaults and optional English/Persian model overrides. */
+  saveSpeechSettings(input:T.SpeechSettings,options?:RequestOptions<T.SpeechSettings>){return this.client.put<T.SpeechSettingsResponse,T.SpeechSettings>('/api/v1/admin/speech-settings',input,options);}
   /** Transcribe raw webm/ogg/mp4/wav audio (8 MiB maximum). Requires chat:ai; private storage is cleaned up after processing.
    * Does not send a chat message. Supports abort signals and a 200-second default timeout. */
   transcribe(recording: Blob, language: T.SpeechLanguage = 'auto', options?: RequestOptions<Blob>) {
@@ -94,3 +105,4 @@ export * from "./speech-recorder.js";
 
 export * from "./speech-playback.js";
 export * from "./speech-live.js";
+export * from "./assistant-voice.js";

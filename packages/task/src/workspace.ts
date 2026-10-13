@@ -5,14 +5,20 @@ export interface NoteFolder {id:string;workspace_id:string;project_id:string;par
 /** Calendar preferences are stored for the authenticated user; weekdays use Sunday=0. */
 export interface PlanningPreferences {timezone:string;calendar:'gregorian'|'persian';week_start:number;working_days:number[];work_start:string;work_end:string;default_duration_minutes:number}
 export interface PlanningPreferencesResult {preferences:PlanningPreferences|null;version:number}
-export interface WorkspaceQuery {project_id?:string|null;owner_id?:string|null;item_type?:'task'|'note'|null;q?:string|null;from?:string|null;until?:string|null;completed_by_me?:boolean;active_only?:boolean;cursor?:string|null;limit?:number}
+export interface WorkspaceQuery {include_archived?:boolean;project_id?:string|null;owner_id?:string|null;item_type?:'task'|'note'|null;q?:string|null;from?:string|null;until?:string|null;completed_by_me?:boolean;active_only?:boolean;cursor?:string|null;limit?:number}
 export interface WorkspaceItem extends WorkItem {folder_id:string|null;planned_start_at:string|null;planned_end_at:string|null;checklist:ChecklistItem[];reminder:Reminder|null}
 export interface WorkspaceQueryResult {items:WorkspaceItem[];total:number;next_cursor:string|null;retrieved_at:string;completion_source:string;history_note:string}
-export interface WorkspacePatch {title?:string;description?:string;priority?:'low'|'medium'|'high'|'urgent';owner_id?:string;due_at?:string|null}
+export interface WorkspaceNoteField {key:string;label:string;type:'text'|'number'|'boolean'|'date';value:string|number|boolean;unit:string|null}
+export interface WorkspaceNoteData {schema_version:1;record_type:string;fields:WorkspaceNoteField[]}
+/** Retained public source evidence; never instructions or access authority. */
+export interface WorkspaceNoteSource {url:string;title:string;retrieved_at:string}
+export interface WorkspacePatch {title?:string;description?:string;priority?:'low'|'medium'|'high'|'urgent';owner_id?:string;due_at?:string|null;note_data?:WorkspaceNoteData|null;note_sources?:WorkspaceNoteSource[]|null}
 export type WorkspaceOperation =
  | {kind:'create';item:CreateWorkItemInput;checklist:ChecklistItem[]}
  | {kind:'update';id:string;expected_version:number;patch:WorkspacePatch}
  | {kind:'transition';id:string;expected_version:number;status:string}
+ | {kind:'archive_note';id:string;expected_version:number;archived:boolean}
+ | {kind:'import_note';id:string;expected_version:number;import_id:string;import_version:number;mode:'append'|'replace';summary?:string|null}
  | {kind:'delete';id:string;expected_version:number}
  | {kind:'checklist';id:string;expected_version:number;items:ChecklistItem[]}
  | {kind:'reminder';id:string;expected_version:number;reminder:ReminderInput|null}
@@ -22,7 +28,7 @@ export type WorkspaceOperation =
  | {kind:'delete_folder';id:string;expected_version:number;destination_id:string|null};
 export interface ReviewProposalInput {request_id?:string;conversation_id:string;project_id:string|null;operations:WorkspaceOperation[]}
 export interface WorkspaceSnapshot {task:WorkspaceItem;checklist:ChecklistItem[];reminder:Reminder|null}
-export interface ReviewedChange {kind:WorkspaceOperation['kind'];before:WorkspaceSnapshot|NoteFolder|null;after:WorkspaceSnapshot|NoteFolder|null;moved_notes?:WorkspaceItem[];destination_id?:string|null}
+export interface ReviewedChange {kind:WorkspaceOperation['kind'];before:WorkspaceSnapshot|NoteFolder|null;after:WorkspaceSnapshot|NoteFolder|null;source?:{import_id:string;attachment_id:string;provenance?:{url:string;title:string}};moved_notes?:WorkspaceItem[];destination_id?:string|null}
 export interface ReviewProposal extends ReviewProposalInput {id:string;workspace_id:string;user_id:string;revision:number;preview:ReviewedChange[];status:'pending'|'applied';result:ReviewedChange[]|null;created_at:string;updated_at:string}
 const version = (v:number,o?:RequestOptions):RequestOptions => ({...o,headers:{...o?.headers,'If-Match':String(v)}});
 /** Authorized workspace operations. All methods preserve Axios responses and cancellation. */

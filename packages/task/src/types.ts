@@ -1,17 +1,17 @@
 import type {ApiEnvelope, CursorQuery, JsonObject, QueryParams} from '@faiber/sdk-core'
 export interface WorkspaceSummary{ id:string;sandbox_id:string;name:string;version:number }
 export type ProjectMode='software'|'marketing'|'general'
-export type ProductPlanId='none'|'trial'|'personal'|'planner'|'enterprise';
+export type ProductPlanId='none'|'trial'|'personal'|'planner'|'business'|'legend';
 export interface AdminUserPlansQuery extends QueryParams {user_ids:string}
 export interface AdminUserPlan {user_id:string;plan:ProductPlanId;status:'inactive'|'trial'|'paid';expires_at:string|null}
 export interface AdminUserPlansData {items:AdminUserPlan[]}
-export interface IncomeReportQuery extends QueryParams {from:string;to:string;plan?:'personal'|'planner'|'enterprise'|'';page?:number}
+export interface IncomeReportQuery extends QueryParams {from:string;to:string;plan?:'personal'|'planner'|'business'|'legend'|'';page?:number}
 export interface IncomeReportPoint {day:string;income_toman:number;purchases:number}
 export interface PlanPurchase {id:string;user_id:string;plan:ProductPlanId;amount_toman:number;purchased_at:string;kind:'purchase'|'renew'|'upgrade'}
 export interface IncomeReportData {total:number;income_toman:number;page:number;per_page:number;timezone:'Asia/Tehran';generated_at:string;points:IncomeReportPoint[];items:PlanPurchase[]}
 export interface Project{ id:string;workspace_id:string;team_id:string|null;key:string;name:string;description:string;mode:ProjectMode;status:string;settings:JsonObject;version:number;created_at:string;updated_at:string }
 export type ProjectResponse = TaskResponse<Project>
-export interface WorkItem{ id:string;workspace_id:string;project_id:string;parent_id:string|null;sequence:number;key:string;item_type:string;title:string;description:string;status:string;priority:string;rank:string;owner_id:string;reporter_id:string;estimate:number|null;story_points:number|null;start_at:string|null;due_at:string|null;completed_at:string|null;sprint_id:string|null;release_id:string|null;campaign_id:string|null;custom_fields:JsonObject;version:number;created_at:string;updated_at:string }
+export interface WorkItem{ id:string;workspace_id:string;project_id:string;parent_id:string|null;sequence:number;key:string;item_type:string;title:string;description:string;status:string;stage_id?:string|null;status_category?:'backlog'|'unstarted'|'started'|'completed'|'cancelled';priority:string;rank:string;owner_id:string;reporter_id:string;estimate:number|null;story_points:number|null;start_at:string|null;due_at:string|null;completed_at:string|null;sprint_id:string|null;release_id:string|null;campaign_id:string|null;custom_fields:JsonObject;version:number;created_at:string;updated_at:string }
 export interface CreateProjectInput{team_id?:string|null;key:string;name:string;description?:string;mode:ProjectMode;settings?:JsonObject}
 export interface CreateSharedProjectInput{name:string;description?:string}
 export interface UpdateProjectInput{ name?:string;description?:string;status?:string;settings?:JsonObject }
@@ -24,8 +24,8 @@ export interface UpdateWorkItemInput{title?:string;description?:string;priority?
 export interface TransitionWorkItemInput{status:string;rank?:string}
 export interface CreateSprintInput{team_id:string;project_id?:string|null;name:string;goal?:string;starts_at?:string|null;ends_at?:string|null;capacity?:number|null}
 export interface Sprint{ id:string;team_id:string;project_id:string|null;name:string;goal:string;status:string;starts_at:string|null;ends_at:string|null;capacity:number|null;version:number }
-export interface CreateCommentInput{body:string;mentions?:string[]}
-export interface Comment{ id:string;work_item_id:string;author_id:string;body:string;mentions:string[];version:number;created_at:string }
+export interface CreateCommentInput{body?:string;mentions?:string[];attachment_ids?:string[];request_id?:string}
+export interface Comment{ id:string;work_item_id:string;author_id:string;body:string;mentions:string[];version:number;created_at:string;attachments:import('./collaboration.js').TaskAttachment[] }
 export interface GrantProjectAccessInput{user_id:string;profile_key:string;expires_at?:string|null}
 export interface GrantProjectAccessResult{project_id:string;user_id:string;profile:string}
 export interface AgentProposalInput{project_id:string;work_item_id?:string|null;operation:string;payload:JsonObject}
