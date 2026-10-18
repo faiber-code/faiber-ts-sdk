@@ -1,3 +1,6 @@
+import { productionRust } from "./rust-source.mjs";
+import { serviceSources } from "./service-source-snapshots.mjs";
+import { releaseContracts } from "./release-contract-overrides.mjs";
 import { collaborationContracts } from "./collaboration-contract-overrides.mjs";
 import { access, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
@@ -10,7 +13,7 @@ const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async 
   }
   return siblingRoots[0];
 })();
-const servicesRoot = resolve(discoveredServicesRoot);
+const servicesRoot = resolve(serviceSources(root, discoveredServicesRoot));
 const serviceDirectories = { version: "infera_version" };
 try { await access(join(servicesRoot, "infera-version", "src")); serviceDirectories.version = "infera-version"; } catch { /* retain legacy checkout support */ }
 const manifestPath = resolve(process.argv[2] ?? join(root, "service-contracts.json"));
@@ -126,10 +129,10 @@ const inputOverrides = {
 async function rustFiles(rootDir) {
   const output = [];
   for (const entry of await readdir(rootDir, { withFileTypes: true })) {
-    if (["target", "node_modules", ".git", "migration", "panel", "example", "chat"].includes(entry.name)) continue;
+    if (["target", "node_modules", ".git", "migration", "panel", "example", "chat", "tests", "benches"].includes(entry.name)) continue;
     const path = join(rootDir, entry.name);
     if (entry.isDirectory()) output.push(...await rustFiles(path));
-    else if (path.endsWith(".rs")) output.push({ path, source: await readFile(path, "utf8") });
+    else if (path.endsWith(".rs")) output.push({ path, source: productionRust(await readFile(path, "utf8")) });
   }
   return output;
 }
@@ -165,13 +168,16 @@ function structFrom(file, name) {
   const open = file.source.indexOf("{", match.index);
   const close = matchingBrace(file.source, open);
   if (close === -1) return null;
+  const attrs = file.source.slice(Math.max(0, file.source.lastIndexOf("#[derive", match.index)), match.index);
+  const renameAll = attrs.match(/serde\([^\]]*rename_all\s*=\s*"([^"]+)"/)?.[1];
+  const wireName = name => renameAll === "camelCase" ? name.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase()) : name;
   const fields = splitFields(file.source.slice(open + 1, close)).flatMap(part => {
     const rename = part.match(/#\[serde\(rename\s*=\s*"([^"]+)"\)\]/)?.[1];
     const flatten = /#\[serde\(flatten\)\]/.test(part);
     const defaulted = /#\[serde\([^\]]*\bdefault\b[^\]]*\)\]/.test(part);
     const clean = part.replace(/#\[[\s\S]*?\]/g, "").replace(/\/\/.*$/gm, "").trim();
     const field = clean.match(/(?:pub(?:\([^)]*\))?\s+)?(\w+)\s*:\s*([\s\S]+)$/);
-    return field ? [{ name: rename ?? field[1], rustType: field[2].trim(), flatten, defaulted }] : [];
+    return field ? [{ name: rename ?? wireName(field[1]), rustType: field[2].trim(), flatten, defaulted }] : [];
   });
   return { file, fields };
 }
@@ -186,21 +192,26 @@ function unwrap(raw, wrapper) {
   return raw.slice(prefix.length, -1).trim();
 }
 
-function tsType(raw, query = false) {
+function tsType(raw, query = false, input = false) {
   const type = raw.replace(/\s+/g, " ").trim();
   const facadeType = {
     ClassroomCourseSessionResponse: 'import("./types.js").ClassroomCourseSession',
     ClassroomSessionTypeResponse: 'import("./types.js").ClassroomSessionType',
   }[type];
   if (facadeType) return facadeType;
+  const fixedArray = type.match(/^\[\s*([^;]+);\s*(\d+)\s*\]$/);
+  if (fixedArray && Number(fixedArray[2]) <= 32) return `[${Array(Number(fixedArray[2])).fill(tsType(fixedArray[1], query, input)).join(", ")}]`;
   const optional = unwrap(type, "Option");
-  if (optional) return `${tsType(optional, query)} | null`;
+  if (optional) return `${tsType(optional, query, input)} | null`;
   const vector = unwrap(type, "Vec");
-  if (vector) return `${tsType(vector, query)}[]`;
-  if (/^(HashMap|BTreeMap)<\s*String\s*,/.test(type)) return "Record<string, JsonValue>";
-  if (/^(String|&str|Uuid)$/.test(type) || /(Date|DateTime|NaiveDate|NaiveDateTime)/.test(type)) return "string";
+  if (vector) return `${tsType(vector, query, input)}[]`;
+  const map = type.match(/^(?:HashMap|BTreeMap)<\s*String\s*,\s*([\s\S]+)>$/);
+  if (map) return `Record<string, ${tsType(map[1], query, input)}>`;
+  if (/(?:^|::)Uuid$/.test(type)) return "string";
+  if (/^(String|&(?:'\w+\s+)?str|Uuid)$/.test(type) || /(Date|DateTime|NaiveDate|NaiveDateTime)/.test(type)) return "string";
   if (/^(bool)$/.test(type)) return "boolean";
-  if (/^(u|i)(8|16|32|64|128|size)$/.test(type) || /^(f32|f64|Decimal|BigDecimal)$/.test(type)) return "number";
+  if (/^(u|i)(8|16|32|64|128|size)$/.test(type) || /^(f32|f64)$/.test(type)) return "number";
+  if (/^(Decimal|BigDecimal)$/.test(type)) return input ? "string | number" : "string";
   if (/^(Value|serde_json::Value)$/.test(type)) return "JsonValue";
   if (type === "()") return "JsonObject";
   return query ? "QueryValue" : `BackendJson<${JSON.stringify(type)}>`;
@@ -268,13 +279,17 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
     const valueRaw = outer ?? field.rustType;
     const nested = query ? renderedFields(files, module, valueRaw, nextSeen, true, declarations, base, declared) : [];
     if (nested.length) return nested.map(item => ({ ...item, name: `${field.name}[${item.name}]`, optional: optional || item.optional }));
-    let renderedType = tsType(valueRaw, query);
+    let renderedType = tsType(valueRaw, query, base.includes("Input"));
     if (module === "classroom" && field.name === "weekly_schedule" && !query) {
       renderedType = base.endsWith("Input")
         ? 'import("./types.js").ClassroomWeeklyScheduleRuleInput[]'
         : 'import("./types.js").ClassroomWeeklyScheduleRule[]';
     }
-    if (!query && declarations) {
+    const facadeField = !query && module === "homework" && ["homework", "homework_question"].includes(field.name)
+      ? `import("./types.js").${field.name === "homework" ? "Homework" : "HomeworkQuestion"}` : null;
+    if (facadeField) renderedType = facadeField;
+    if (module === "classroom" && field.name === "attendance_mode") renderedType = '"online" | "in_person"';
+    if (!facadeField && !query && declarations) {
       const vector = unwrap(valueRaw, "Vec");
       const candidate = vector ?? valueRaw;
       const nestedStruct = resolveStruct(files, module, candidate);
@@ -356,15 +371,18 @@ for (const [service, endpoints] of Object.entries(manifest)) {
   const operationLines = [
     'import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";',
     'import type * as T from "./operations.types.js";',
+    ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.websocket) ? ['import { openMatchRealtime, openRoomRealtime } from "./match-realtime.js";'] : []),
+    ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.idempotencyKey) ? ['import { AxiosHeaders, type RawAxiosHeaders } from "axios";'] : []),
     "",
     `export class ${pascal(service)}Operations extends ServiceApi {`,
   ];
 
   for (const endpoint of endpoints) {
-    const base = pascal(operationName(endpoint));
-    const methodName = stableOperationNames[`${endpoint.method} ${endpoint.path}`] ?? camel(operationName(endpoint));
+    const reviewedRelease = releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`];
+    const base = reviewedRelease?.typeBase ?? pascal(operationName(endpoint));
+    const methodName = reviewedRelease?.methodName ?? (["task", "chat", "knowledge"].includes(service) ? stableOperationNames[`${endpoint.method} ${endpoint.path}`] : undefined) ?? camel(operationName(endpoint));
     const ids = placeholders(endpoint.path);
-    const reviewed = collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`];
+    const reviewed = reviewedRelease ?? collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`];
     const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
     const dynamicProfileList = service === "profile" && endpoint.module === "profile" &&
       /^(index|manager_index|accountant_index|support_index|consultant_index|teacher_index|student_index|parent_index|other_index)$/.test(endpoint.handler);
@@ -395,7 +413,9 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     }
     if (hasQuery) {
       typeLines.push(`/** Backend query type: ${endpoint.query}. */`);
-      if (dynamicProfileList) {
+      if (reviewed?.query) {
+        typeLines.push(`export type ${base}Query = ${reviewed.query};`);
+      } else if (dynamicProfileList) {
         typeLines.push(`export interface ${base}Query extends importProfileListQuery {}`);
       } else {
         typeLines.push(`export interface ${base}Query extends QueryParams {`);
@@ -429,17 +449,32 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     }
     typeLines.push("");
 
+    if (reviewed?.websocket) {
+      const roomSocket = reviewed.websocket === "room";
+      const ticketType = roomSocket ? 'import("./types.js").JoinTicket' : 'import("./contracts.types.js").KheradgahConnectionTicket';
+      const optionsType = roomSocket ? 'import("./contracts.types.js").StateRoomRealtimeOptions' : 'import("./contracts.types.js").KheradgahRealtimeOptions';
+      operationLines.push("  /**", `   * ${reviewed.purpose}`, `   * Calls \`${endpoint.method} ${endpoint.path}\` as a WebSocket upgrade.`,
+        roomSocket ? "   * @param ticket Scoped ticket from the authenticated room join endpoint." : "   * @param ticket One-use connection ticket from the authenticated match connection endpoint.",
+        "   * @param options Injectable WebSocket constructor and AbortSignal; cancellation closes the socket.",
+        roomSocket ? "   * @returns The connected StateRealtimeClient, with typed ServerEvent subscriptions." : "   * @returns The connected WebSocket; messages use KheradgahServerFrame, not an Axios response.",
+        `   * @throws Error when WebSocket is unavailable, the ticket origin differs, or the connection fails; required permission: ${reviewed.auth}.`,
+        "   */", `  ${methodName}(ticket: ${ticketType}, options?: ${optionsType}) {`,
+        `    return ${roomSocket ? "openRoomRealtime" : "openMatchRealtime"}(this.client, ticket, options);`, "  }");
+      continue;
+    }
     const args = ids.map(id => `${camel(id)}: Identifier`);
     if (hasInput && !optionalChatUpload) args.push(`data: T.${base}Input`);
     if (hasQuery) args.push(`params?: T.${base}Query`);
+    if (reviewed?.idempotencyKey) args.push("idempotencyKey: string");
     args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : hasInput ? `<T.${base}Input>` : ""}`);
     if (optionalChatUpload) args.push("data?: T.AttachmentUploadBody");
-    const permissions = endpoint.permissions.length ? endpoint.permissions.join(", ") : endpoint.path.startsWith("/internal/") || endpoint.path.startsWith("/api/v1/internal/") ? "trusted backend service credential and tenant scope; not a public browser endpoint" : "session-derived or public bootstrap route";
+    const permissions = reviewed?.auth ?? (endpoint.permissions.length ? endpoint.permissions.join(", ") : endpoint.path.startsWith("/internal/") || endpoint.path.startsWith("/api/v1/internal/") ? "trusted backend service credential and tenant scope; not a public browser endpoint" : "session-derived or public bootstrap route");
     operationLines.push("  /**");
-    operationLines.push(`   * Performs the ${operationPurpose(endpoint)} operation for the ${endpoint.module.replace(/_/g, " ")} capability.`);
+    operationLines.push(`   * ${reviewed?.purpose ?? `Performs the ${operationPurpose(endpoint)} operation for the ${endpoint.module.replace(/_/g, " ")} capability.`}`);
     operationLines.push(`   * Calls \`${endpoint.method} ${endpoint.path}\` through the shared IDP-aware Faiber client.`);
     if (dynamicProfileList) operationLines.push("   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.");
     for (const id of ids) operationLines.push(`   * @param ${camel(id)} Backend path identifier \`${id}\`.`);
+    if (reviewed?.idempotencyKey) operationLines.push("   * @param idempotencyKey Stable printable ASCII key (1–128 characters, without spaces); reuse for identical retries.");
     if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.binary ? "binary byte stream" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
     if (hasQuery) operationLines.push("   * @param params Typed query parameters; omitted members retain backend defaults.");
     operationLines.push("   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.");
@@ -447,16 +482,22 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push(`   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: ${permissions}.`);
     operationLines.push("   */");
     operationLines.push(`  ${methodName}(${args.join(", ")}) {`);
-    const requestData = endpoint.formUrlEncoded ? "urlEncoded(data)" : "data";
+    if (reviewed?.idempotencyKey) {
+      operationLines.push('    if (!/^[\\x21-\\x7e]{1,128}$/.test(idempotencyKey)) throw new TypeError("Idempotency-Key must be 1–128 printable ASCII characters without spaces");');
+      operationLines.push('    const headers = new AxiosHeaders(options?.headers as RawAxiosHeaders | AxiosHeaders | undefined);');
+      operationLines.push('    headers.set("Idempotency-Key", idempotencyKey);');
+    }
+    const requestData = endpoint.formUrlEncoded ? "urlEncoded(data)" : reviewed?.pathFields
+      ? `{ ...data, ${Object.entries(reviewed.pathFields).map(([field, arg]) => `${JSON.stringify(field)}: String(${arg})`).join(", ")} }` : "data";
     if (optionalChatUpload) {
       operationLines.push(`    return this.client.request<T.${base}Response, T.AttachmentUploadBody>({ ...options, method: "POST", url: ${escapedPath(endpoint.path)}, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });`);
-    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
+    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");
   await writeFile(join(root, "packages", service, "src", "operations.types.ts"), `${typeLines.join("\n").trimEnd()}\n`);
   await writeFile(join(root, "packages", service, "src", "operations.ts"), `${operationLines.join("\n").trimEnd()}\n`);
-  const indexPath = join(root, "packages", service, "src", "index.ts");
+  const indexPath = join(root, "packages", service, "src", service === "state" ? "api.ts" : "index.ts");
   let index = await readFile(indexPath, "utf8");
   const operationsClass = `${pascal(service)}Operations`;
   if (!index.includes(`from "./operations.js"`)) {
@@ -466,7 +507,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
   if (!index.includes("readonly operations =")) {
     index = index.replace(/(export class \w+ extends ServiceApi \{\n)/, `$1    readonly operations = new ${operationsClass}(this.client);\n`);
   }
-  if (!index.includes('export * from "./operations.js";')) {
+  if (service !== "state" && !index.includes('export * from "./operations.js";')) {
     index = `${index.trimEnd()}\nexport * from "./operations.js";\nexport * from "./operations.types.js";\n`;
   }
   await writeFile(indexPath, index);

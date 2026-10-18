@@ -283,6 +283,26 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.ServiceServicesUpdatePatchResponse, T.ServiceServicesUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/services/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Inspect configured messaging providers without sending a message or exposing credentials.
+   * Calls `POST /api/v1/services/setup-check` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:service:read.
+   */
+  serviceSetupCheckPost(options?: RequestOptions) {
+    return this.client.request<T.ServiceSetupCheckPostResponse>({ ...options, method: "POST", url: `/api/v1/services/setup-check` });
+  }
+  /**
+   * Check verified SMS OTP readiness without sending messages. Set x-website-otp-token in request headers; returns a raw object.
+   * Calls `POST /api/v1/services/website-otp-readiness` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only x-website-otp-token.
+   */
+  serviceReadinessPost(options?: RequestOptions) {
+    return this.client.request<T.ServiceReadinessPostResponse>({ ...options, method: "POST", url: `/api/v1/services/website-otp-readiness` });
+  }
+  /**
    * Performs the templates index operation for the template capability.
    * Calls `GET /api/v1/templates` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

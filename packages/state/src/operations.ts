@@ -1,5 +1,6 @@
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
+import { openMatchRealtime, openRoomRealtime } from "./match-realtime.js";
 
 export class StateOperations extends ServiceApi {
   /**
@@ -58,15 +59,15 @@ export class StateOperations extends ServiceApi {
     return this.client.request<T.RoutesUpdateGameOperationEconomyPatchResponse, T.RoutesUpdateGameOperationEconomyPatchInput>({ ...options, method: "PATCH", url: `/api/v1/game-operations/worlds/${encodeURIComponent(gameId)}/economy`, data: data });
   }
   /**
-   * Performs the realtime operation for the routes capability.
-   * Calls `GET /api/v1/realtime` through the shared IDP-aware Faiber client.
-   * @param params Typed query parameters; omitted members retain backend defaults.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * Open room replication with the ticket returned by join. This operation uses a WebSocket upgrade, not an Axios HTTP request.
+   * Calls `GET /api/v1/realtime` as a WebSocket upgrade.
+   * @param ticket Scoped ticket from the authenticated room join endpoint.
+   * @param options Injectable WebSocket constructor and AbortSignal; cancellation closes the socket.
+   * @returns The connected StateRealtimeClient, with typed ServerEvent subscriptions.
+   * @throws Error when WebSocket is unavailable, the ticket origin differs, or the connection fails; required permission: short-lived room ticket issued by the authenticated join endpoint.
    */
-  routesRealtimeGet(params?: T.RoutesRealtimeGetQuery, options?: RequestOptions) {
-    return this.client.request<T.RoutesRealtimeGetResponse>({ ...options, method: "GET", url: `/api/v1/realtime`, params });
+  routesRealtimeGet(ticket: import("./types.js").JoinTicket, options?: import("./contracts.types.js").StateRoomRealtimeOptions) {
+    return openRoomRealtime(this.client, ticket, options);
   }
   /**
    * Performs the delete room operation for the routes capability.
@@ -274,5 +275,228 @@ export class StateOperations extends ServiceApi {
    */
   routesDeleteWasmDelete(worldId: Identifier, moduleId: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesDeleteWasmDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/worlds/${encodeURIComponent(worldId)}/wasm/${encodeURIComponent(moduleId)}` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/game-history` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesHistoryGet(options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesHistoryGetResponse>({ ...options, method: "GET", url: `/api/v2/game-history` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/game-lobbies/{code}` through the shared IDP-aware Faiber client.
+   * @param code Backend path identifier `code`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesLobbyGet(code: Identifier, options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesLobbyGetResponse>({ ...options, method: "GET", url: `/api/v2/game-lobbies/${encodeURIComponent(code)}` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `POST /api/v2/game-lobbies/{code}/join` through the shared IDP-aware Faiber client.
+   * @param code Backend path identifier `code`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesJoinLobbyPost(code: Identifier, options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesJoinLobbyPostResponse>({ ...options, method: "POST", url: `/api/v2/game-lobbies/${encodeURIComponent(code)}/join` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/game-matchmaking/{ticket_id}` through the shared IDP-aware Faiber client.
+   * @param ticketId Backend path identifier `ticket_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesTicketGet(ticketId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesTicketGetResponse>({ ...options, method: "GET", url: `/api/v2/game-matchmaking/${encodeURIComponent(ticketId)}` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/game-progress` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesProgressGet(options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesProgressGetResponse>({ ...options, method: "GET", url: `/api/v2/game-progress` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/game-sessions/{session_id}` through the shared IDP-aware Faiber client.
+   * @param sessionId Backend path identifier `session_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesViewGet(sessionId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesViewGetResponse>({ ...options, method: "GET", url: `/api/v2/game-sessions/${encodeURIComponent(sessionId)}` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `POST /api/v2/game-sessions/{session_id}/commands` through the shared IDP-aware Faiber client.
+   * @param sessionId Backend path identifier `session_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesCommandPost(sessionId: Identifier, data: T.GamesRoutesCommandPostInput, options?: RequestOptions<T.GamesRoutesCommandPostInput>) {
+    return this.client.request<T.GamesRoutesCommandPostResponse, T.GamesRoutesCommandPostInput>({ ...options, method: "POST", url: `/api/v2/game-sessions/${encodeURIComponent(sessionId)}/commands`, data: data });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `POST /api/v2/game-sessions/{session_id}/ready` through the shared IDP-aware Faiber client.
+   * @param sessionId Backend path identifier `session_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesReadyPost(sessionId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesReadyPostResponse>({ ...options, method: "POST", url: `/api/v2/game-sessions/${encodeURIComponent(sessionId)}/ready` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/game-world-progress` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesWorldProgressGet(options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesWorldProgressGetResponse>({ ...options, method: "GET", url: `/api/v2/game-world-progress` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/games` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public catalog.
+   */
+  gamesRoutesCatalogGet(options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesCatalogGetResponse>({ ...options, method: "GET", url: `/api/v2/games` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/games/{game_id}` through the shared IDP-aware Faiber client.
+   * @param gameId Backend path identifier `game_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public catalog.
+   */
+  gamesRoutesGameGet(gameId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.GamesRoutesGameGetResponse>({ ...options, method: "GET", url: `/api/v2/games/${encodeURIComponent(gameId)}` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `POST /api/v2/games/{game_id}/lobbies` through the shared IDP-aware Faiber client.
+   * @param gameId Backend path identifier `game_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesCreateLobbyPost(gameId: Identifier, data: T.GamesRoutesCreateLobbyPostInput, options?: RequestOptions<T.GamesRoutesCreateLobbyPostInput>) {
+    return this.client.request<T.GamesRoutesCreateLobbyPostResponse, T.GamesRoutesCreateLobbyPostInput>({ ...options, method: "POST", url: `/api/v2/games/${encodeURIComponent(gameId)}/lobbies`, data: data });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `POST /api/v2/games/{game_id}/matchmaking` through the shared IDP-aware Faiber client.
+   * @param gameId Backend path identifier `game_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesEnqueuePost(gameId: Identifier, data: T.GamesRoutesEnqueuePostInput, options?: RequestOptions<T.GamesRoutesEnqueuePostInput>) {
+    return this.client.request<T.GamesRoutesEnqueuePostResponse, T.GamesRoutesEnqueuePostInput>({ ...options, method: "POST", url: `/api/v2/games/${encodeURIComponent(gameId)}/matchmaking`, data: data });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `POST /api/v2/games/{game_id}/matchmaking/tickets` through the shared IDP-aware Faiber client.
+   * @param gameId Backend path identifier `game_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  kheradgahRoutesEnqueuePost(gameId: Identifier, data: T.KheradgahRoutesEnqueuePostInput, options?: RequestOptions<T.KheradgahRoutesEnqueuePostInput>) {
+    return this.client.request<T.KheradgahRoutesEnqueuePostResponse, T.KheradgahRoutesEnqueuePostInput>({ ...options, method: "POST", url: `/api/v2/games/${encodeURIComponent(gameId)}/matchmaking/tickets`, data: data });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `DELETE /api/v2/games/{game_id}/matchmaking/tickets/{ticket_id}` through the shared IDP-aware Faiber client.
+   * @param gameId Backend path identifier `game_id`.
+   * @param ticketId Backend path identifier `ticket_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  kheradgahRoutesCancelDelete(gameId: Identifier, ticketId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.KheradgahRoutesCancelDeleteResponse>({ ...options, method: "DELETE", url: `/api/v2/games/${encodeURIComponent(gameId)}/matchmaking/tickets/${encodeURIComponent(ticketId)}` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/games/{game_id}/matchmaking/tickets/{ticket_id}` through the shared IDP-aware Faiber client.
+   * @param gameId Backend path identifier `game_id`.
+   * @param ticketId Backend path identifier `ticket_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  kheradgahRoutesTicketGet(gameId: Identifier, ticketId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.KheradgahRoutesTicketGetResponse>({ ...options, method: "GET", url: `/api/v2/games/${encodeURIComponent(gameId)}/matchmaking/tickets/${encodeURIComponent(ticketId)}` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `POST /api/v2/games/{game_id}/sessions` through the shared IDP-aware Faiber client.
+   * @param gameId Backend path identifier `game_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  gamesRoutesCreateSessionPost(gameId: Identifier, data: T.GamesRoutesCreateSessionPostInput, options?: RequestOptions<T.GamesRoutesCreateSessionPostInput>) {
+    return this.client.request<T.GamesRoutesCreateSessionPostResponse, T.GamesRoutesCreateSessionPostInput>({ ...options, method: "POST", url: `/api/v2/games/${encodeURIComponent(gameId)}/sessions`, data: { ...data, "gameId": String(gameId) } });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `POST /api/v2/matches/{match_id}/connections` through the shared IDP-aware Faiber client.
+   * @param matchId Backend path identifier `match_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  kheradgahRoutesConnectionPost(matchId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.KheradgahRoutesConnectionPostResponse>({ ...options, method: "POST", url: `/api/v2/matches/${encodeURIComponent(matchId)}/connections` });
+  }
+  /**
+   * Use the server-authoritative v2 game API. Commands require the current version; stale versions return 409. The response is {data}, not a v1 envelope.
+   * Calls `GET /api/v2/matches/{match_id}/view` through the shared IDP-aware Faiber client.
+   * @param matchId Backend path identifier `match_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: state:execute and authenticated game membership.
+   */
+  kheradgahRoutesViewGet(matchId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.KheradgahRoutesViewGetResponse>({ ...options, method: "GET", url: `/api/v2/matches/${encodeURIComponent(matchId)}/view` });
+  }
+  /**
+   * Open the v2 match WebSocket and send its one-use hello ticket within five seconds. Acquire a fresh connection ticket after reconnecting.
+   * Calls `GET /api/v2/realtime` as a WebSocket upgrade.
+   * @param ticket One-use connection ticket from the authenticated match connection endpoint.
+   * @param options Injectable WebSocket constructor and AbortSignal; cancellation closes the socket.
+   * @returns The connected WebSocket; messages use KheradgahServerFrame, not an Axios response.
+   * @throws Error when WebSocket is unavailable, the ticket origin differs, or the connection fails; required permission: one-use, 30-second connection ticket issued by the authenticated match connection operation; Origin validation.
+   */
+  connectMatchRealtime(ticket: import("./contracts.types.js").KheradgahConnectionTicket, options?: import("./contracts.types.js").KheradgahRealtimeOptions) {
+    return openMatchRealtime(this.client, ticket, options);
   }
 }

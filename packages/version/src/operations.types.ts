@@ -9,6 +9,11 @@ export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
 export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: ApkRelease. */
+export type RouterPublishApkPostInput = import("./contracts.types.js").ApkPublishInput;
+/** Backend response type: serde_json::Value. */
+export type RouterPublishApkPostResponse = import("./contracts.types.js").ApkPublishReceipt;
+
 /** Backend response type: ServiceListResponse. */
 export type ServiceServicesIndexGetResponseDataServicesLastVersionChannel = "Release" | "PreRelease";
 export type ServiceServicesIndexGetResponseDataServicesLastVersionScope = "Public" | "Closed";

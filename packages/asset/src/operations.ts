@@ -45,17 +45,6 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.ActionActionsCreatePostResponse, T.ActionActionsCreatePostInput>({ ...options, method: "POST", url: `/api/v1/actions`, data: data });
   }
   /**
-   * Performs the actions complete operation for the action capability.
-   * Calls `POST /api/v1/actions/complete` through the shared IDP-aware Faiber client.
-   * @param data Typed JSON request body.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:action:complete.
-   */
-  actionActionsCompletePost(data: T.ActionActionsCompletePostInput, options?: RequestOptions<T.ActionActionsCompletePostInput>) {
-    return this.client.request<T.ActionActionsCompletePostResponse, T.ActionActionsCompletePostInput>({ ...options, method: "POST", url: `/api/v1/actions/complete`, data: data });
-  }
-  /**
    * Performs the actions delete operation for the action capability.
    * Calls `DELETE /api/v1/actions/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -88,6 +77,17 @@ export class AssetOperations extends ServiceApi {
    */
   actionActionsUpdatePatch(id: Identifier, data: T.ActionActionsUpdatePatchInput, options?: RequestOptions<T.ActionActionsUpdatePatchInput>) {
     return this.client.request<T.ActionActionsUpdatePatchResponse, T.ActionActionsUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/actions/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Performs the actions complete operation for the action capability.
+   * Calls `POST /api/v1/actions/complete` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:action:complete.
+   */
+  actionActionsCompletePost(data: T.ActionActionsCompletePostInput, options?: RequestOptions<T.ActionActionsCompletePostInput>) {
+    return this.client.request<T.ActionActionsCompletePostResponse, T.ActionActionsCompletePostInput>({ ...options, method: "POST", url: `/api/v1/actions/complete`, data: data });
   }
   /**
    * Performs the admin plan products index operation for the wallet billing capability.
@@ -177,6 +177,77 @@ export class AssetOperations extends ServiceApi {
    */
   walletBillingAdminSubscriptionsIndexGet(params?: T.WalletBillingAdminSubscriptionsIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.WalletBillingAdminSubscriptionsIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/subscriptions`, params });
+  }
+  /**
+   * Performs the list operation for the trial gifts capability.
+   * Calls `GET /api/v1/admin/trial-gifts/{product}` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:read and asset:charge:read.
+   */
+  trialGiftsListGet(product: Identifier, params?: T.TrialGiftsListGetQuery, options?: RequestOptions) {
+    return this.client.request<T.TrialGiftsListGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/trial-gifts/${encodeURIComponent(product)}`, params });
+  }
+  /**
+   * Administer an owning product service trial gift. Tokens are returned only on creation or explicit copy; reused request IDs are idempotent.
+   * Calls `POST /api/v1/admin/trial-gifts/{product}` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:update and asset:charge:update.
+   */
+  trialGiftsCreatePost(product: Identifier, data: T.TrialGiftsCreatePostInput, options?: RequestOptions<T.TrialGiftsCreatePostInput>) {
+    return this.client.request<T.TrialGiftsCreatePostResponse, T.TrialGiftsCreatePostInput>({ ...options, method: "POST", url: `/api/v1/admin/trial-gifts/${encodeURIComponent(product)}`, data: data });
+  }
+  /**
+   * Administer an owning product service trial gift. Tokens are returned only on creation or explicit copy; reused request IDs are idempotent.
+   * Calls `GET /api/v1/admin/trial-gifts/{product}/{id}` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:read and asset:charge:read.
+   */
+  trialGiftsShowGet(product: Identifier, id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.TrialGiftsShowGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/trial-gifts/${encodeURIComponent(product)}/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Administer an owning product service trial gift. Tokens are returned only on creation or explicit copy; reused request IDs are idempotent.
+   * Calls `PUT /api/v1/admin/trial-gifts/{product}/{id}` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:update and asset:charge:update.
+   */
+  trialGiftsUpdatePut(product: Identifier, id: Identifier, data: T.TrialGiftsUpdatePutInput, options?: RequestOptions<T.TrialGiftsUpdatePutInput>) {
+    return this.client.request<T.TrialGiftsUpdatePutResponse, T.TrialGiftsUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/admin/trial-gifts/${encodeURIComponent(product)}/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
+   * Copy an unused gift token from the encrypted vault. Redeemed gifts return 409; unavailable vaults return 503. Response is no-store.
+   * Calls `GET /api/v1/admin/trial-gifts/{product}/{id}/token` through the shared IDP-aware Faiber client.
+   * @param product Backend path identifier `product`.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:update and asset:charge:update.
+   */
+  trialGiftsCopyTokenGet(product: Identifier, id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.TrialGiftsCopyTokenGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/trial-gifts/${encodeURIComponent(product)}/${encodeURIComponent(id)}/token` });
+  }
+  /**
+   * Performs the products operation for the trial gifts capability.
+   * Calls `GET /api/v1/admin/trial-gifts/products` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:charge:read and asset:charge:read.
+   */
+  trialGiftsProductsGet(options?: RequestOptions) {
+    return this.client.request<T.TrialGiftsProductsGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/trial-gifts/products` });
   }
   /**
    * Performs the admin user plans index operation for the wallet billing capability.
@@ -563,17 +634,6 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.EconomyValuationGetResponse>({ ...options, method: "GET", url: `/api/v1/economy/valuation` });
   }
   /**
-   * Performs the fund operation for the game escrow capability.
-   * Calls `POST /api/v1/games/escrows/fund` through the shared IDP-aware Faiber client.
-   * @param data Typed JSON request body.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  gameEscrowFundPost(data: T.GameEscrowFundPostInput, options?: RequestOptions<T.GameEscrowFundPostInput>) {
-    return this.client.request<T.GameEscrowFundPostResponse, T.GameEscrowFundPostInput>({ ...options, method: "POST", url: `/api/v1/games/escrows/fund`, data: data });
-  }
-  /**
    * Performs the show operation for the game escrow capability.
    * Calls `GET /api/v1/games/escrows/{match_id}` through the shared IDP-aware Faiber client.
    * @param matchId Backend path identifier `match_id`.
@@ -608,6 +668,17 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.GameEscrowSettlePostResponse, T.GameEscrowSettlePostInput>({ ...options, method: "POST", url: `/api/v1/games/escrows/${encodeURIComponent(matchId)}/settle`, data: data });
   }
   /**
+   * Performs the fund operation for the game escrow capability.
+   * Calls `POST /api/v1/games/escrows/fund` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  gameEscrowFundPost(data: T.GameEscrowFundPostInput, options?: RequestOptions<T.GameEscrowFundPostInput>) {
+    return this.client.request<T.GameEscrowFundPostResponse, T.GameEscrowFundPostInput>({ ...options, method: "POST", url: `/api/v1/games/escrows/fund`, data: data });
+  }
+  /**
    * Performs the integration docs show operation for the integration capability.
    * Calls `GET /api/v1/integration/docs` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -636,6 +707,17 @@ export class AssetOperations extends ServiceApi {
    */
   integrationRabbitmqIntegrationShowGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationRabbitmqIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/rabbitmq` });
+  }
+  /**
+   * Publish an immutable, versioned fitness Asset product; changed prices or metadata for an existing tier return 409. Decimal fields accept strings or numbers and serialize as strings.
+   * Calls `PUT /api/v1/internal/fitness/products` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only FITNESS_PROFILE_SERVICE_TOKEN bearer credential.
+   */
+  fitnessPublishPut(data: T.FitnessPublishPutInput, options?: RequestOptions<T.FitnessPublishPutInput>) {
+    return this.client.request<T.FitnessPublishPutResponse, T.FitnessPublishPutInput>({ ...options, method: "PUT", url: `/api/v1/internal/fitness/products`, data: data });
   }
   /**
    * Performs the leaderboard index operation for the leaderboard capability.
@@ -759,6 +841,17 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.WalletMeTransactionsGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions`, params });
   }
   /**
+   * Performs the me transaction show operation for the wallet capability.
+   * Calls `GET /api/v1/me/transactions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
+   */
+  walletMeTransactionShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.WalletMeTransactionShowGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions/${encodeURIComponent(id)}` });
+  }
+  /**
    * Performs the me transaction days operation for the wallet capability.
    * Calls `GET /api/v1/me/transactions/days` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -780,17 +873,6 @@ export class AssetOperations extends ServiceApi {
    */
   walletMeTransactionDayGet(day: Identifier, params?: T.WalletMeTransactionDayGetQuery, options?: RequestOptions) {
     return this.client.request<T.WalletMeTransactionDayGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions/days/${encodeURIComponent(day)}`, params });
-  }
-  /**
-   * Performs the me transaction show operation for the wallet capability.
-   * Calls `GET /api/v1/me/transactions/{id}` through the shared IDP-aware Faiber client.
-   * @param id Backend path identifier `id`.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:wallet:read_own.
-   */
-  walletMeTransactionShowGet(id: Identifier, options?: RequestOptions) {
-    return this.client.request<T.WalletMeTransactionShowGetResponse>({ ...options, method: "GET", url: `/api/v1/me/transactions/${encodeURIComponent(id)}` });
   }
   /**
    * Performs the plans index operation for the wallet billing capability.
@@ -968,6 +1050,17 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.SandboxBillingResumePostResponse>({ ...options, method: "POST", url: `/api/v1/sandbox-resources/${encodeURIComponent(project)}/resume` });
   }
   /**
+   * Quote the current hourly resource price without allocating or debiting; decimal monetary amounts are encoded as strings.
+   * Calls `POST /api/v1/sandbox-resources/quote` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated user.
+   */
+  sandboxBillingQuoteResourcesPost(data: T.SandboxBillingQuoteResourcesPostInput, options?: RequestOptions<T.SandboxBillingQuoteResourcesPostInput>) {
+    return this.client.request<T.SandboxBillingQuoteResourcesPostResponse, T.SandboxBillingQuoteResourcesPostInput>({ ...options, method: "POST", url: `/api/v1/sandbox-resources/quote`, data: data });
+  }
+  /**
    * Performs the subscriptions index operation for the wallet billing capability.
    * Calls `GET /api/v1/subscriptions` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -977,17 +1070,6 @@ export class AssetOperations extends ServiceApi {
    */
   walletBillingSubscriptionsIndexGet(params?: T.WalletBillingSubscriptionsIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.WalletBillingSubscriptionsIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/subscriptions`, params });
-  }
-  /**
-   * Performs the subscriptions purchase operation for the wallet billing capability.
-   * Calls `POST /api/v1/subscriptions/purchase` through the shared IDP-aware Faiber client.
-   * @param data Typed JSON request body.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  walletBillingSubscriptionsPurchasePost(data: T.WalletBillingSubscriptionsPurchasePostInput, options?: RequestOptions<T.WalletBillingSubscriptionsPurchasePostInput>) {
-    return this.client.request<T.WalletBillingSubscriptionsPurchasePostResponse, T.WalletBillingSubscriptionsPurchasePostInput>({ ...options, method: "POST", url: `/api/v1/subscriptions/purchase`, data: data });
   }
   /**
    * Performs the subscriptions cancel operation for the wallet billing capability.
@@ -1049,6 +1131,17 @@ export class AssetOperations extends ServiceApi {
     return this.client.request<T.ServiceLifecycleResumePostResponse>({ ...options, method: "POST", url: `/api/v1/subscriptions/${encodeURIComponent(project)}/${encodeURIComponent(service)}/resume` });
   }
   /**
+   * Performs the subscriptions purchase operation for the wallet billing capability.
+   * Calls `POST /api/v1/subscriptions/purchase` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  walletBillingSubscriptionsPurchasePost(data: T.WalletBillingSubscriptionsPurchasePostInput, options?: RequestOptions<T.WalletBillingSubscriptionsPurchasePostInput>) {
+    return this.client.request<T.WalletBillingSubscriptionsPurchasePostResponse, T.WalletBillingSubscriptionsPurchasePostInput>({ ...options, method: "POST", url: `/api/v1/subscriptions/purchase`, data: data });
+  }
+  /**
    * Performs the user action logs index operation for the logs capability.
    * Calls `GET /api/v1/user-action-logs` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -1079,6 +1172,28 @@ export class AssetOperations extends ServiceApi {
    */
   walletBillingWalletShowGet(options?: RequestOptions) {
     return this.client.request<T.WalletBillingWalletShowGetResponse>({ ...options, method: "GET", url: `/api/v1/wallet` });
+  }
+  /**
+   * Performs the wallet purchase show operation for the wallet billing capability.
+   * Calls `GET /api/v1/wallet/purchases/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated purchase owner.
+   */
+  walletBillingWalletPurchaseShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.WalletBillingWalletPurchaseShowGetResponse>({ ...options, method: "GET", url: `/api/v1/wallet/purchases/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Atomically debit the wallet and activate subscriptions. Reuse request_id on retries; 409 rejects changed quotes and 402 indicates insufficient balance.
+   * Calls `POST /api/v1/wallet/subscriptions` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated wallet owner.
+   */
+  walletBillingWalletSubscriptionsPost(data: T.WalletBillingWalletSubscriptionsPostInput, options?: RequestOptions<T.WalletBillingWalletSubscriptionsPostInput>) {
+    return this.client.request<T.WalletBillingWalletSubscriptionsPostResponse, T.WalletBillingWalletSubscriptionsPostInput>({ ...options, method: "POST", url: `/api/v1/wallet/subscriptions`, data: data });
   }
   /**
    * Performs the wallet topup operation for the wallet billing capability.

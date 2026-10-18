@@ -17,10 +17,11 @@ test("every extracted endpoint has one documented operation using the shared cli
     const routes = [...source.matchAll(/\* Calls `([A-Z]+) ([^`]+)`/g)].map(([, method, path]) => `${method} ${path}`);
     assert.equal(routes.length, endpoints.length, `${service} documentation/operation count`);
     assert.equal(new Set(routes).size, routes.length, `${service} duplicate operations`);
+    assert.equal(((source).match(/return open(?:Match|Room)Realtime\(this\.client/g) ?? []).length, endpoints.filter(e => e.responseEnvelope === "websocket").length, `${service} ticket-authenticated upgrades`);
     for (const endpoint of endpoints) assert.ok(routes.includes(`${endpoint.method} ${endpoint.path}`), `${service}: ${endpoint.method} ${endpoint.path}`);
-    assert.equal((source.match(/return this\.client\.request</g) ?? []).length, endpoints.length, `${service} centralized client usage`);
-    assert.equal((source.match(/@returns The complete Axios response/g) ?? []).length, endpoints.length, `${service} response documentation`);
-    assert.equal((source.match(/@throws AxiosError/g) ?? []).length, endpoints.length, `${service} error documentation`);
+    assert.equal((source.match(/return this\.client\.request</g) ?? []).length, endpoints.filter(e => e.responseEnvelope !== "websocket").length, `${service} centralized HTTP client usage`);
+    assert.equal((source.match(/@returns The complete Axios response/g) ?? []).length, endpoints.filter(e => e.responseEnvelope !== "websocket").length, `${service} HTTP response documentation`);
+    assert.equal((source.match(/@throws AxiosError/g) ?? []).length, endpoints.filter(e => e.responseEnvelope !== "websocket").length, `${service} HTTP error documentation`);
   }
 });
 

@@ -23,6 +23,17 @@ export class VersionOperations extends ServiceApi {
     return this.client.request<T.RouterOpenapiJsonGetResponse>({ ...options, method: "GET", url: `/api/openapi.json` });
   }
   /**
+   * Publish a stable, idempotent APK release with an HTTPS download URL. Returns a raw receipt; invalid metadata returns 400 and missing publisher configuration returns 503.
+   * Calls `POST /api/v1/apk/releases` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only APK_PUBLISH_TOKEN bearer credential.
+   */
+  routerPublishApkPost(data: T.RouterPublishApkPostInput, options?: RequestOptions<T.RouterPublishApkPostInput>) {
+    return this.client.request<T.RouterPublishApkPostResponse, T.RouterPublishApkPostInput>({ ...options, method: "POST", url: `/api/v1/apk/releases`, data: data });
+  }
+  /**
    * Performs the services index operation for the service capability.
    * Calls `GET /api/v1/services` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

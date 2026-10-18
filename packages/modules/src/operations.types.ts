@@ -1531,9 +1531,9 @@ export interface ServicePricingListPricingGetResponseDataPricings extends JsonOb
   "id": string;
   "service_name": string;
   "display_name"?: string | null;
-  "hourly_price": number;
-  "monthly_price": number;
-  "annual_price": number;
+  "hourly_price": string;
+  "monthly_price": string;
+  "annual_price": string;
   "currency": string;
   "status": number;
   "created_at": string;
@@ -1552,9 +1552,9 @@ export interface ServicePricingListPricingGetResponse extends ApiEnvelope<Servic
 export interface ServicePricingCreatePricingPostInput extends JsonObject {
   "service_name": string;
   "display_name"?: string | null;
-  "hourly_price": number;
-  "monthly_price": number;
-  "annual_price": number;
+  "hourly_price": string | number;
+  "monthly_price": string | number;
+  "annual_price": string | number;
   "currency"?: string | null;
   "status"?: number | null;
 }
@@ -1563,9 +1563,9 @@ export interface ServicePricingCreatePricingPostResponseData extends JsonObject 
   "id": string;
   "service_name": string;
   "display_name"?: string | null;
-  "hourly_price": number;
-  "monthly_price": number;
-  "annual_price": number;
+  "hourly_price": string;
+  "monthly_price": string;
+  "annual_price": string;
   "currency": string;
   "status": number;
   "created_at": string;
@@ -1586,9 +1586,9 @@ export interface ServicePricingShowPricingGetResponseData extends JsonObject {
   "id": string;
   "service_name": string;
   "display_name"?: string | null;
-  "hourly_price": number;
-  "monthly_price": number;
-  "annual_price": number;
+  "hourly_price": string;
+  "monthly_price": string;
+  "annual_price": string;
   "currency": string;
   "status": number;
   "created_at": string;
@@ -1601,9 +1601,9 @@ export interface ServicePricingShowPricingGetResponse extends ApiEnvelope<Servic
 export interface ServicePricingUpdatePricingPatchInput extends JsonObject {
   "service_name"?: string | null;
   "display_name"?: string | null;
-  "hourly_price"?: number | null;
-  "monthly_price"?: number | null;
-  "annual_price"?: number | null;
+  "hourly_price"?: string | number | null;
+  "monthly_price"?: string | number | null;
+  "annual_price"?: string | number | null;
   "currency"?: string | null;
   "status"?: number | null;
 }
@@ -1612,9 +1612,9 @@ export interface ServicePricingUpdatePricingPatchResponseData extends JsonObject
   "id": string;
   "service_name": string;
   "display_name"?: string | null;
-  "hourly_price": number;
-  "monthly_price": number;
-  "annual_price": number;
+  "hourly_price": string;
+  "monthly_price": string;
+  "annual_price": string;
   "currency": string;
   "status": number;
   "created_at": string;
@@ -1627,9 +1627,9 @@ export interface ServicePricingUpdatePricingPatchResponse extends ApiEnvelope<Se
 export interface ServicePricingUpdatePricingPutInput extends JsonObject {
   "service_name"?: string | null;
   "display_name"?: string | null;
-  "hourly_price"?: number | null;
-  "monthly_price"?: number | null;
-  "annual_price"?: number | null;
+  "hourly_price"?: string | number | null;
+  "monthly_price"?: string | number | null;
+  "annual_price"?: string | number | null;
   "currency"?: string | null;
   "status"?: number | null;
 }
@@ -1638,9 +1638,9 @@ export interface ServicePricingUpdatePricingPutResponseData extends JsonObject {
   "id": string;
   "service_name": string;
   "display_name"?: string | null;
-  "hourly_price": number;
-  "monthly_price": number;
-  "annual_price": number;
+  "hourly_price": string;
+  "monthly_price": string;
+  "annual_price": string;
   "currency": string;
   "status": number;
   "created_at": string;
@@ -1708,6 +1708,22 @@ export type ContentTransferListPublicContentGetResponse = ContentTransferListPub
 export interface ManagementApiPublicContentGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: WebsiteSubmission. */
+export interface RequestSubmitPostApiV1PublicRequestsKeyInput extends JsonObject {
+  "submission_id": string;
+  "email": string;
+  "name"?: string;
+  "subject"?: string;
+  "message"?: string;
+  "website"?: string;
+}
+/** Backend response type: SubmissionReceipt. */
+export interface RequestSubmitPostApiV1PublicRequestsKeyResponseData extends JsonObject {
+  "submission_id": string;
+  "status": string;
+}
+export type RequestSubmitPostApiV1PublicRequestsKeyResponse = RequestSubmitPostApiV1PublicRequestsKeyResponseData;
+
 /** Backend response type: Value. */
 export type ManagementApiPublicRoutesGetResponse = JsonValue;
 
@@ -1736,6 +1752,13 @@ export interface SearchAutocompleteGetResponseData extends JsonObject {
   "items": SearchAutocompleteGetResponseDataItems[];
 }
 export type SearchAutocompleteGetResponse = SearchAutocompleteGetResponseData;
+
+/** Backend query type: Page. */
+export interface RouterListGetQuery extends QueryParams {
+  "page"?: number;
+}
+/** Backend response type: Value. */
+export type RouterListGetResponse = import("./contracts.types.js").ShopCatalogResponse;
 
 /** Backend query type: models::ReactionDeleteQuery. */
 export interface ReactionDeleteOnTargetDeleteQuery extends QueryParams {
@@ -1979,6 +2002,9 @@ export interface RequestListLogsForCategoryGetResponseItem extends JsonObject {
 export interface RequestListLogsForCategoryGetResponse extends ApiEnvelope<RequestListLogsForCategoryGetResponseItem[]> {
 }
 
+/** Backend response type: serde_json::Value. */
+export type RouterInitializePostResponse = import("./contracts.types.js").WebsiteFormsReady;
+
 /** Backend query type: PaginationQuery. */
 export interface UserSampleListSamplesGetQuery extends QueryParams {
   "page_number"?: number | null;
@@ -2178,7 +2204,7 @@ export interface UserSampleCreateSampleVariablePostResponse extends ApiEnvelope<
 export interface UserSampleVariablesMapBySlugGetResponseData extends JsonObject {
   "sample_id": string;
   "sample_slug": string;
-  "variables": Record<string, JsonValue>;
+  "variables": Record<string, string>;
 }
 export interface UserSampleVariablesMapBySlugGetResponse extends ApiEnvelope<UserSampleVariablesMapBySlugGetResponseData> {
 }
@@ -2467,6 +2493,24 @@ export interface CartReplacePutResponseData extends JsonObject {
 export interface CartReplacePutResponse extends ApiEnvelope<CartReplacePutResponseData> {
 }
 
+/** Backend response type: Checkout. */
+export type OrderReadGetResponse = import("./contracts.types.js").ShopCheckout;
+
+/** Backend response type: Checkout. */
+export type OrderCancelPostResponse = import("./contracts.types.js").ShopCheckout;
+
+/** Backend request type: Accept. */
+export interface OrderPayPostInput extends JsonObject {
+  "max_total": number;
+}
+/** Backend response type: Checkout. */
+export type OrderPayPostResponse = import("./contracts.types.js").ShopCheckout;
+
+/** Backend request type: QuoteRequest. */
+export type OrderQuotePostInput = import("./contracts.types.js").ShopCheckoutQuoteInput;
+/** Backend response type: Checkout. */
+export type OrderQuotePostResponse = import("./contracts.types.js").ShopCheckout;
+
 /** Backend query type: PaginationQuery. */
 export interface OrderListOrdersGetQuery extends QueryParams {
   "page_number"?: number | null;
@@ -2478,15 +2522,16 @@ export interface OrderListOrdersGetResponseDataOrdersItems extends JsonObject {
   "order_id": string;
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
-  "total_price": number;
+  "unit_price": string;
+  "total_price": string;
   "created_at": string;
 }
 export interface OrderListOrdersGetResponseDataOrders extends JsonObject {
+  "checkout"?: JsonValue | null;
   "id": string;
   "user_id": string;
   "status": number;
-  "total": number;
+  "total": string;
   "items": OrderListOrdersGetResponseDataOrdersItems[];
   "created_at": string;
   "updated_at": string;
@@ -2504,9 +2549,10 @@ export interface OrderListOrdersGetResponse extends ApiEnvelope<OrderListOrdersG
 export interface OrderCreateOrderPostInputItems extends JsonObject {
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
+  "unit_price"?: string | number;
 }
 export interface OrderCreateOrderPostInput extends JsonObject {
+  "id"?: string | null;
   "status"?: number | null;
   "items": OrderCreateOrderPostInputItems[];
 }
@@ -2516,15 +2562,16 @@ export interface OrderCreateOrderPostResponseDataItems extends JsonObject {
   "order_id": string;
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
-  "total_price": number;
+  "unit_price": string;
+  "total_price": string;
   "created_at": string;
 }
 export interface OrderCreateOrderPostResponseData extends JsonObject {
+  "checkout"?: JsonValue | null;
   "id": string;
   "user_id": string;
   "status": number;
-  "total": number;
+  "total": string;
   "items": OrderCreateOrderPostResponseDataItems[];
   "created_at": string;
   "updated_at": string;
@@ -2545,15 +2592,16 @@ export interface OrderShowOrderGetResponseDataItems extends JsonObject {
   "order_id": string;
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
-  "total_price": number;
+  "unit_price": string;
+  "total_price": string;
   "created_at": string;
 }
 export interface OrderShowOrderGetResponseData extends JsonObject {
+  "checkout"?: JsonValue | null;
   "id": string;
   "user_id": string;
   "status": number;
-  "total": number;
+  "total": string;
   "items": OrderShowOrderGetResponseDataItems[];
   "created_at": string;
   "updated_at": string;
@@ -2571,15 +2619,16 @@ export interface OrderUpdateOrderPatchResponseDataItems extends JsonObject {
   "order_id": string;
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
-  "total_price": number;
+  "unit_price": string;
+  "total_price": string;
   "created_at": string;
 }
 export interface OrderUpdateOrderPatchResponseData extends JsonObject {
+  "checkout"?: JsonValue | null;
   "id": string;
   "user_id": string;
   "status": number;
-  "total": number;
+  "total": string;
   "items": OrderUpdateOrderPatchResponseDataItems[];
   "created_at": string;
   "updated_at": string;
@@ -2597,15 +2646,16 @@ export interface OrderUpdateOrderPutResponseDataItems extends JsonObject {
   "order_id": string;
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
-  "total_price": number;
+  "unit_price": string;
+  "total_price": string;
   "created_at": string;
 }
 export interface OrderUpdateOrderPutResponseData extends JsonObject {
+  "checkout"?: JsonValue | null;
   "id": string;
   "user_id": string;
   "status": number;
-  "total": number;
+  "total": string;
   "items": OrderUpdateOrderPutResponseDataItems[];
   "created_at": string;
   "updated_at": string;
@@ -2619,8 +2669,8 @@ export interface OrderListOrderItemsGetResponseItem extends JsonObject {
   "order_id": string;
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
-  "total_price": number;
+  "unit_price": string;
+  "total_price": string;
   "created_at": string;
 }
 export interface OrderListOrderItemsGetResponse extends ApiEnvelope<OrderListOrderItemsGetResponseItem[]> {
@@ -2630,7 +2680,7 @@ export interface OrderListOrderItemsGetResponse extends ApiEnvelope<OrderListOrd
 export interface OrderAddOrderItemPostInput extends JsonObject {
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
+  "unit_price"?: string | number;
 }
 /** Backend response type: models::OrderResponseDTO. */
 export interface OrderAddOrderItemPostResponseDataItems extends JsonObject {
@@ -2638,15 +2688,16 @@ export interface OrderAddOrderItemPostResponseDataItems extends JsonObject {
   "order_id": string;
   "variant_id": string;
   "quantity": number;
-  "unit_price": number;
-  "total_price": number;
+  "unit_price": string;
+  "total_price": string;
   "created_at": string;
 }
 export interface OrderAddOrderItemPostResponseData extends JsonObject {
+  "checkout"?: JsonValue | null;
   "id": string;
   "user_id": string;
   "status": number;
-  "total": number;
+  "total": string;
   "items": OrderAddOrderItemPostResponseDataItems[];
   "created_at": string;
   "updated_at": string;
@@ -2815,9 +2866,9 @@ export interface ProductListProductVariantsGetResponseDataVariants extends JsonO
   "product_id": string;
   "name": string;
   "sku": JsonValue;
-  "price": number;
-  "cost": number;
-  "weight": number;
+  "price": string;
+  "cost": string;
+  "weight": string;
   "stock_priority": number;
   "status": number;
   "sort_order": number;
@@ -2837,9 +2888,9 @@ export interface ProductListProductVariantsGetResponse extends ApiEnvelope<Produ
 export interface ProductCreateVariantPostInput extends JsonObject {
   "name": string;
   "sku"?: JsonValue | null;
-  "price": number;
-  "cost"?: number | null;
-  "weight"?: number | null;
+  "price": string | number;
+  "cost"?: string | number | null;
+  "weight"?: string | number | null;
   "stock_priority"?: number | null;
   "status"?: number | null;
   "sort_order"?: number | null;
@@ -2850,9 +2901,9 @@ export interface ProductCreateVariantPostResponseData extends JsonObject {
   "product_id": string;
   "name": string;
   "sku": JsonValue;
-  "price": number;
-  "cost": number;
-  "weight": number;
+  "price": string;
+  "cost": string;
+  "weight": string;
   "stock_priority": number;
   "status": number;
   "sort_order": number;
@@ -2874,9 +2925,9 @@ export interface ProductListVariantsGetResponseDataVariants extends JsonObject {
   "product_id": string;
   "name": string;
   "sku": JsonValue;
-  "price": number;
-  "cost": number;
-  "weight": number;
+  "price": string;
+  "cost": string;
+  "weight": string;
   "stock_priority": number;
   "status": number;
   "sort_order": number;
@@ -2905,9 +2956,9 @@ export interface ProductShowVariantGetResponseData extends JsonObject {
   "product_id": string;
   "name": string;
   "sku": JsonValue;
-  "price": number;
-  "cost": number;
-  "weight": number;
+  "price": string;
+  "cost": string;
+  "weight": string;
   "stock_priority": number;
   "status": number;
   "sort_order": number;
@@ -2921,9 +2972,9 @@ export interface ProductShowVariantGetResponse extends ApiEnvelope<ProductShowVa
 export interface ProductUpdateVariantPatchInput extends JsonObject {
   "name"?: string | null;
   "sku"?: JsonValue | null;
-  "price"?: number | null;
-  "cost"?: number | null;
-  "weight"?: number | null;
+  "price"?: string | number | null;
+  "cost"?: string | number | null;
+  "weight"?: string | number | null;
   "stock_priority"?: number | null;
   "status"?: number | null;
   "sort_order"?: number | null;
@@ -2934,9 +2985,9 @@ export interface ProductUpdateVariantPatchResponseData extends JsonObject {
   "product_id": string;
   "name": string;
   "sku": JsonValue;
-  "price": number;
-  "cost": number;
-  "weight": number;
+  "price": string;
+  "cost": string;
+  "weight": string;
   "stock_priority": number;
   "status": number;
   "sort_order": number;
@@ -2950,9 +3001,9 @@ export interface ProductUpdateVariantPatchResponse extends ApiEnvelope<ProductUp
 export interface ProductUpdateVariantPutInput extends JsonObject {
   "name"?: string | null;
   "sku"?: JsonValue | null;
-  "price"?: number | null;
-  "cost"?: number | null;
-  "weight"?: number | null;
+  "price"?: string | number | null;
+  "cost"?: string | number | null;
+  "weight"?: string | number | null;
   "stock_priority"?: number | null;
   "status"?: number | null;
   "sort_order"?: number | null;
@@ -2963,9 +3014,9 @@ export interface ProductUpdateVariantPutResponseData extends JsonObject {
   "product_id": string;
   "name": string;
   "sku": JsonValue;
-  "price": number;
-  "cost": number;
-  "weight": number;
+  "price": string;
+  "cost": string;
+  "weight": string;
   "stock_priority": number;
   "status": number;
   "sort_order": number;

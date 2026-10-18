@@ -1,8 +1,10 @@
+import { StateOperations } from "./operations.js";
 import { ServiceApi, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 
 /** REST control plane for authoritative realtime worlds. Every route requires the shared IDP-authorized organization context. */
 export class StateApi extends ServiceApi {
+  readonly operations = new StateOperations(this.client);
   /** Checks State runtime readiness via `GET /health`. @returns Full Axios response with transport and WASM capability state. @throws AxiosError for unavailable or failed transport responses. */
   health(options?: RequestOptions) { return this.client.get<T.StateHealthResponse>("/health", undefined, options); }
   /** Lists visible worlds via `GET /api/v1/worlds`. @returns Full Axios response with typed worlds. @throws AxiosError for authentication, authorization, or transport failures. */

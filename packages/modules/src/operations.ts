@@ -1137,6 +1137,18 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.ManagementApiPublicContentGetResponse>({ ...options, method: "GET", url: `/api/v1/public/content/${encodeURIComponent(kind)}/${encodeURIComponent(locale)}/${encodeURIComponent(slug)}` });
   }
   /**
+   * Performs the submit operation for the request capability.
+   * Calls `POST /api/v1/public/requests/{key}` through the shared IDP-aware Faiber client.
+   * @param key Backend path identifier `key`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  requestSubmitPostApiV1PublicRequestsKey(key: Identifier, data: T.RequestSubmitPostApiV1PublicRequestsKeyInput, options?: RequestOptions<T.RequestSubmitPostApiV1PublicRequestsKeyInput>) {
+    return this.client.request<T.RequestSubmitPostApiV1PublicRequestsKeyResponse, T.RequestSubmitPostApiV1PublicRequestsKeyInput>({ ...options, method: "POST", url: `/api/v1/public/requests/${encodeURIComponent(key)}`, data: data });
+  }
+  /**
    * Performs the public routes operation for the management api capability.
    * Calls `GET /api/v1/public/routes` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -1156,6 +1168,17 @@ export class ModulesOperations extends ServiceApi {
    */
   searchAutocompleteGet(params?: T.SearchAutocompleteGetQuery, options?: RequestOptions) {
     return this.client.request<T.SearchAutocompleteGetResponse>({ ...options, method: "GET", url: `/api/v1/public/search/autocomplete`, params });
+  }
+  /**
+   * Page through at most 100 published catalog variants; hasMore indicates the next page. Cost and supplier data are never returned.
+   * Calls `GET /api/v1/public/shop/products` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public catalog.
+   */
+  routerListGet(params?: T.RouterListGetQuery, options?: RequestOptions) {
+    return this.client.request<T.RouterListGetResponse>({ ...options, method: "GET", url: `/api/v1/public/shop/products`, params });
   }
   /**
    * Performs the delete on target operation for the reaction capability.
@@ -1335,6 +1358,16 @@ export class ModulesOperations extends ServiceApi {
    */
   requestListLogsForCategoryGet(categoryId: Identifier, params?: T.RequestListLogsForCategoryGetQuery, options?: RequestOptions) {
     return this.client.request<T.RequestListLogsForCategoryGetResponse>({ ...options, method: "GET", url: `/api/v1/requests/category/${encodeURIComponent(categoryId)}/logs`, params });
+  }
+  /**
+   * Create missing public website form definitions without replacing owner configuration. Returns a raw readiness object.
+   * Calls `POST /api/v1/requests/website-defaults` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: modules:request:create and authenticated administrator/request creator.
+   */
+  routerInitializePost(options?: RequestOptions) {
+    return this.client.request<T.RouterInitializePostResponse>({ ...options, method: "POST", url: `/api/v1/requests/website-defaults` });
   }
   /**
    * Performs the list samples operation for the user sample capability.
@@ -1622,6 +1655,51 @@ export class ModulesOperations extends ServiceApi {
    */
   cartReplacePut(data: T.CartReplacePutInput, options?: RequestOptions<T.CartReplacePutInput>) {
     return this.client.request<T.CartReplacePutResponse, T.CartReplacePutInput>({ ...options, method: "PUT", url: `/api/v1/shop/cart`, data: data });
+  }
+  /**
+   * Use owner-scoped server-priced checkout. Reuse quote id on retries; pass max_total when paying. Set the configured website Origin header. Amounts are integer IRR and stale quotes return 409.
+   * Calls `GET /api/v1/shop/checkout/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated checkout owner; quote/pay/cancel require configured browser Origin.
+   */
+  orderReadGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.OrderReadGetResponse>({ ...options, method: "GET", url: `/api/v1/shop/checkout/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Use owner-scoped server-priced checkout. Reuse quote id on retries; pass max_total when paying. Set the configured website Origin header. Amounts are integer IRR and stale quotes return 409.
+   * Calls `POST /api/v1/shop/checkout/{id}/cancel` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated checkout owner; quote/pay/cancel require configured browser Origin.
+   */
+  orderCancelPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.OrderCancelPostResponse>({ ...options, method: "POST", url: `/api/v1/shop/checkout/${encodeURIComponent(id)}/cancel` });
+  }
+  /**
+   * Use owner-scoped server-priced checkout. Reuse quote id on retries; pass max_total when paying. Set the configured website Origin header. Amounts are integer IRR and stale quotes return 409.
+   * Calls `POST /api/v1/shop/checkout/{id}/pay` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated checkout owner; quote/pay/cancel require configured browser Origin.
+   */
+  orderPayPost(id: Identifier, data: T.OrderPayPostInput, options?: RequestOptions<T.OrderPayPostInput>) {
+    return this.client.request<T.OrderPayPostResponse, T.OrderPayPostInput>({ ...options, method: "POST", url: `/api/v1/shop/checkout/${encodeURIComponent(id)}/pay`, data: data });
+  }
+  /**
+   * Use owner-scoped server-priced checkout. Reuse quote id on retries; pass max_total when paying. Set the configured website Origin header. Amounts are integer IRR and stale quotes return 409.
+   * Calls `POST /api/v1/shop/checkout/quote` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated checkout owner; quote/pay/cancel require configured browser Origin.
+   */
+  orderQuotePost(data: T.OrderQuotePostInput, options?: RequestOptions<T.OrderQuotePostInput>) {
+    return this.client.request<T.OrderQuotePostResponse, T.OrderQuotePostInput>({ ...options, method: "POST", url: `/api/v1/shop/checkout/quote`, data: data });
   }
   /**
    * Performs the list orders operation for the order capability.

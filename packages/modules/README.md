@@ -85,3 +85,18 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+### Storefront checkout and public forms
+
+```ts
+const quote = await api.operations.orderQuotePost({
+  id: checkoutId,
+  items: [{ variant_id: variantId, quantity: 1 }],
+  shipping: { fullName: "Test Buyer", phone: "+989000000000", city: "Rasht", address: "Delivery address", postalCode: "1234567890" },
+}, { headers: { Origin: websiteOrigin } });
+await api.operations.orderPayPost(checkoutId, { max_total: quote.data.total }, { headers: { Origin: websiteOrigin } });
+```
+
+These owner-scoped operations use `/api/v1/shop/checkout/*` and return raw `ShopCheckout` records. Shipping uses camelCase; checkout amounts are integer IRR. Reuse the checkout UUID on retries and retain the configured website Origin for quote, pay and cancel. The server owns prices and rejects stale accepted totals.
+
+`operations.routerListGet({page:1})` lists published storefront products, 100 per page with `hasMore`. `requestSubmitPost` retains administrative request-log behavior; the separate public-form operation submits an idempotent `submission_id` to `website_contact`, `website_newsletter`, or `website_waitlist`. Public forms validate email and field bounds, reject honeypot content and return 429 when rate limited. Website defaults provisioning requires `modules:request:create`.

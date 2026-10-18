@@ -67,3 +67,9 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+### Verified checkout and readiness
+
+`operations.gatewaySetupCheckPost()` performs a read-only live-provider check with `admin:gateway:read`. Product-specific payment operations cover 2done, fitness and storefront checkout. Internal endpoints require their product's trusted server credential; an end-user token alone does not grant access.
+
+`operations.assetCheckoutReceiptGet(purchaseId, options)` accepts `x-asset-payment-token` through `options.headers` and returns a **raw** verified receipt with `purchaseId`, `transaction`, integer IRR `amount`, `providerVerified` and `status` (`pending`, `accepted`, or `rejected`). Other product receipt operations retain their service envelopes. Payment creation uses stable product-specific idempotency keys; retry fitness checkout through `fitnessRetryPost` rather than creating an unrelated transaction.

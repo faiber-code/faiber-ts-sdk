@@ -106,3 +106,9 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+### Trial gifts and wallet checkout
+
+`operations.trialGiftsListGet(product, query)` pages through product-owned gifts; `trialGiftsCreatePost`, `trialGiftsUpdatePut`, and `trialGiftsCopyTokenGet` administer them. Product IDs are `2done` and `fitapp`. Both the declared admin Charge permission and the Asset Charge permission are required. Reuse `request_id` when creating a gift; token copying requires an available vault and an unused gift.
+
+`operations.sandboxBillingQuoteResourcesPost(input)` quotes resources without allocating or debiting. Monetary quote values are decimal strings. `walletBillingWalletSubscriptionsPost` atomically purchases subscriptions from the current wallet with a stable `request_id` and a maximum accepted amount; changed quotes return 409 and insufficient balance returns 402. `walletBillingWalletPurchaseShowGet` reads only the authenticated owner's receipt. Fitness product publication is server-only and rejects changes to an already published tier.

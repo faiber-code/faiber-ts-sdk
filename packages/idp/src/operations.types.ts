@@ -225,6 +225,14 @@ export interface AuthBrowserHandoffGetQuery extends QueryParams {
 export interface AuthBrowserHandoffGetResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: HandoffExchangeRequest. */
+export interface AuthExchangeHandoffTokenPostInput extends JsonObject {
+  "token": string;
+  "client_id": string;
+}
+/** Backend response type: api. */
+export type AuthExchangeHandoffTokenPostResponse = import("./contracts.types.js").HandoffAccessTokenResponse;
+
 /** Backend response type: LinkedIdentitiesResponse. */
 export interface AuthListLinkedIdentitiesGetResponseDataIdentities extends JsonObject {
   "provider": string;
@@ -249,30 +257,30 @@ export interface AuthLinkedFaiberBillingGetQuery extends QueryParams {
 /** Backend response type: LinkedFaiberBillingResponse. */
 export interface AuthLinkedFaiberBillingGetResponseDataWallet extends JsonObject {
   "profile_id": string;
-  "balance": number;
+  "balance": string;
   "currency": string;
 }
 export interface AuthLinkedFaiberBillingGetResponseDataDailyCostsItems extends JsonObject {
   "date": string;
-  "resource_cost": number;
-  "llm_cost": number;
-  "total_cost": number;
-  "transaction_count": number;
+  "resourceCost": string;
+  "llmCost": string;
+  "totalCost": string;
+  "transactionCount": number;
   "currency": string;
 }
 export interface AuthLinkedFaiberBillingGetResponseDataDailyCosts extends JsonObject {
   "items": AuthLinkedFaiberBillingGetResponseDataDailyCostsItems[];
   "total": number;
   "page": number;
-  "page_size": number;
+  "pageSize": number;
 }
 export interface AuthLinkedFaiberBillingGetResponseDataProjectPricing extends JsonObject {
   "project": string;
   "currency": string;
-  "fixed_monthly_price"?: number | null;
-  "hourly_price": number;
-  "daily_estimate": number;
-  "monthly_estimate": number;
+  "fixed_monthly_price"?: string | null;
+  "hourly_price": string;
+  "daily_estimate": string;
+  "monthly_estimate": string;
 }
 export interface AuthLinkedFaiberBillingGetResponseData extends JsonObject {
   "provider_id": string;
@@ -285,7 +293,7 @@ export interface AuthLinkedFaiberBillingGetResponse extends ApiEnvelope<AuthLink
 
 /** Backend request type: LinkedFaiberTopupRequest. */
 export interface AuthLinkedFaiberWalletTopupPostInput extends JsonObject {
-  "amount": number;
+  "amount": string | number;
   "currency"?: string | null;
 }
 /** Backend response type: LinkedFaiberTopupResponse. */
@@ -338,7 +346,7 @@ export interface AuthTokenPostInput extends JsonObject {
 export interface AuthTokenPostResponseData extends JsonObject {
   "access_token": string;
   "refresh_token": string;
-  "token_type": BackendJson<"&'static str">;
+  "token_type": string;
   "expires_in": number;
   "scope": string;
 }
@@ -375,10 +383,6 @@ export interface AuthOauthProvidersGetResponseData extends JsonObject {
 export interface AuthOauthProvidersGetResponse extends ApiEnvelope<AuthOauthProvidersGetResponseData> {
 }
 
-/** Backend response type: api. */
-export interface AuthRefreshTokenGetResponse extends ApiEnvelope<JsonValue> {
-}
-
 /** Backend request type: OTPTokenRequest. */
 export interface AuthOtpLoginPostInput extends JsonObject {
   "grant_type": string;
@@ -389,12 +393,30 @@ export interface AuthOtpLoginPostInput extends JsonObject {
   "device_id"?: string | null;
 }
 /** Backend response type: api. */
-export interface AuthOtpLoginPostResponse extends ApiEnvelope<JsonValue> {
+export type AuthOtpLoginPostResponse = import("./contracts.types.js").HandoffAccessTokenResponse;
+
+/** Backend response type: api. */
+export interface AuthRefreshTokenGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: OneTimeExchangeRequest. */
+export interface AuthExchangeOneTimeTokenPostInput extends JsonObject {
+  "token": string;
+}
+/** Backend response type: api. */
+export interface AuthExchangeOneTimeTokenPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: api. */
 export interface AuthGenerateSecureOneTimeTokenRoutePostResponse extends ApiEnvelope<JsonValue> {
 }
+
+/** Backend request type: HandoffIssueRequest. */
+export interface AuthIssueHandoffTokenPostInput extends JsonObject {
+  "client_id": string;
+}
+/** Backend response type: api. */
+export type AuthIssueHandoffTokenPostResponse = import("./contracts.types.js").HandoffTokenResponse;
 
 /** Backend response type: Vec<SessionResponse>. */
 export interface AuthListSessionsGetResponseItemClient extends JsonObject {
@@ -474,7 +496,10 @@ export interface OidcAuthorizeGetQuery extends QueryParams {
   "response_type": string;
   "client_id": string;
   "redirect_uri": string;
+  "scope": string;
   "state": string;
+  "nonce"?: string | null;
+  "ui_locales"?: string | null;
   "code_challenge": string;
   "code_challenge_method": string;
 }
@@ -534,9 +559,11 @@ export interface OidcTokenPostInput extends JsonObject {
 /** Backend response type: TokenResponse. */
 export interface OidcTokenPostResponseData extends JsonObject {
   "access_token": string;
-  "refresh_token": string;
+  "token_type": string;
   "expires_in": number;
   "scope": string;
+  "id_token": string;
+  "refresh_token"?: string | null;
 }
 export type OidcTokenPostResponse = OidcTokenPostResponseData;
 
@@ -837,7 +864,7 @@ export interface SettingsLoginPageSettingsShowGetResponseData extends JsonObject
   "trademark"?: string | null;
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
-  "localizations": Record<string, JsonValue>;
+  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
   "mockup_asset_keys": string[];
   "mockup_image_urls": string[];
   "faiber_enabled": boolean;
@@ -851,7 +878,7 @@ export interface SettingsLoginPageSettingsUpdatePutInput extends JsonObject {
   "subtitle"?: string | null;
   "trademark"?: string | null;
   "icon_asset_key"?: string | null;
-  "localizations"?: Record<string, JsonValue>;
+  "localizations"?: Record<string, BackendJson<"LoginPageLocalization">>;
   "mockup_asset_keys"?: string[];
   "faiber_enabled"?: boolean;
 }
@@ -862,7 +889,7 @@ export interface SettingsLoginPageSettingsUpdatePutResponseData extends JsonObje
   "trademark"?: string | null;
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
-  "localizations": Record<string, JsonValue>;
+  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
   "mockup_asset_keys": string[];
   "mockup_image_urls": string[];
   "faiber_enabled": boolean;
@@ -891,7 +918,7 @@ export interface SettingsLoginPageSettingsPublicGetResponseData extends JsonObje
   "trademark"?: string | null;
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
-  "localizations": Record<string, JsonValue>;
+  "localizations": Record<string, BackendJson<"LoginPageLocalization">>;
   "mockup_asset_keys": string[];
   "mockup_image_urls": string[];
   "faiber_enabled": boolean;
@@ -1065,6 +1092,28 @@ export interface OauthClientsRotatePostResponseData extends JsonObject {
 export interface OauthClientsRotatePostResponse extends ApiEnvelope<OauthClientsRotatePostResponseData> {
 }
 
+/** Backend request type: WebsiteBootstrap. */
+export interface OauthClientsBootstrapWebsitePostInput extends JsonObject {
+  "origin": string;
+}
+/** Backend response type: ClientView. */
+export interface OauthClientsBootstrapWebsitePostResponseData extends JsonObject {
+  "id": string;
+  "name": string;
+  "client_id": string;
+  "redirect_uris": string[];
+  "post_logout_redirect_uris": string[];
+  "grant_types": string[];
+  "scopes": string[];
+  "client_type": string;
+  "token_endpoint_auth_method": string;
+  "trusted": boolean;
+  "service_user_id"?: string | null;
+  "status": number;
+}
+export interface OauthClientsBootstrapWebsitePostResponse extends ApiEnvelope<OauthClientsBootstrapWebsitePostResponseData> {
+}
+
 /** Backend query type: UsersQuery. */
 export interface UserUsersIndexGetQuery extends QueryParams {
   "search"?: string | null;
@@ -1080,6 +1129,7 @@ export interface UserUsersIndexGetResponseDataUsersRoles extends JsonObject {
 }
 export interface UserUsersIndexGetResponseDataUsers extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1113,6 +1163,7 @@ export interface UserUserCreatePostResponseDataUserRoles extends JsonObject {
 }
 export interface UserUserCreatePostResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1135,6 +1186,7 @@ export interface UserUserDeleteDeleteResponseDataUserRoles extends JsonObject {
 }
 export interface UserUserDeleteDeleteResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1157,6 +1209,7 @@ export interface UserUserFindGetResponseDataUserRoles extends JsonObject {
 }
 export interface UserUserFindGetResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1185,6 +1238,7 @@ export interface UserUserUpdatePatchResponseDataUserRoles extends JsonObject {
 }
 export interface UserUserUpdatePatchResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1213,6 +1267,7 @@ export interface UserUserUpdatePutResponseDataUserRoles extends JsonObject {
 }
 export interface UserUserUpdatePutResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1239,6 +1294,7 @@ export interface UserChangePasswordPatchResponseDataUserRoles extends JsonObject
 }
 export interface UserChangePasswordPatchResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1265,6 +1321,7 @@ export interface UserChangePasswordPutResponseDataUserRoles extends JsonObject {
 }
 export interface UserChangePasswordPutResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1291,6 +1348,7 @@ export interface UserChangeRolesPatchResponseDataUserRoles extends JsonObject {
 }
 export interface UserChangeRolesPatchResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1317,6 +1375,7 @@ export interface UserChangeRolesPutResponseDataUserRoles extends JsonObject {
 }
 export interface UserChangeRolesPutResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1339,6 +1398,7 @@ export interface UserUserLogoutGetResponseDataUserRoles extends JsonObject {
 }
 export interface UserUserLogoutGetResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1365,6 +1425,7 @@ export interface UserUserSetStatusPatchResponseDataUserRoles extends JsonObject 
 }
 export interface UserUserSetStatusPatchResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1391,6 +1452,7 @@ export interface UserUserSetStatusPutResponseDataUserRoles extends JsonObject {
 }
 export interface UserUserSetStatusPutResponseDataUser extends JsonObject {
   "id": string;
+  "created_at": string;
   "display_name"?: string | null;
   "phone"?: string | null;
   "email"?: string | null;
@@ -1538,6 +1600,17 @@ export interface UserUserUpdateSelfPatchResponseData extends JsonObject {
 }
 export interface UserUserUpdateSelfPatchResponse extends ApiEnvelope<UserUserUpdateSelfPatchResponseData> {
 }
+
+/** Backend response type: serde_json::Value. */
+export type UserStatusGetResponse = import("./contracts.types.js").PasswordStatusResponse;
+
+/** Backend request type: PasswordInput. */
+export interface UserSavePutInput extends JsonObject {
+  "current_password"?: string | null;
+  "password": string;
+}
+/** Backend response type: serde_json::Value. */
+export type UserSavePutResponse = import("./contracts.types.js").PasswordStatusResponse;
 
 /** Backend response type: UserStatsResponse. */
 export interface UserUsersStatsGetResponseData extends JsonObject {

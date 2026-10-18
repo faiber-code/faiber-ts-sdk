@@ -150,3 +150,7 @@ See the Chat package guide for bounds, cancellation and storage tradeoffs.
 Profile supports generic dynamic filtering through `sdk.profile.filterProfiles`
 with typed core, property and trusted-event paths, any role name, operators,
 sorting and pagination. See the [profile package guide](packages/profile/README.md#dynamic-profile-filters).
+
+### Expanded service operations
+
+The service `operations` clients include typed storefront checkout, product trial gifts, paid fitness coaching, handoff/password flows, provider readiness, v2 games and matchmaking, room presence/moderation, and APK publishing. HTTP calls preserve the complete Axios response and configured authorization. Match and room realtime operations perform WebSocket upgrades using scoped tickets obtained from authenticated HTTP calls; they return the connected socket/client. Package READMEs describe the required permissions, dedicated server credentials, request casing and response envelopes.

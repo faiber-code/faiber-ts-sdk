@@ -4,5 +4,8 @@
     "composite": false,
     "noEmit": true
   },
-  "include": ["type-consumer.ts"]
+  "include": [
+    "type-consumer.ts",
+    "release-type-consumer.ts"
+  ]
 }

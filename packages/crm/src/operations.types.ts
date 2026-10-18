@@ -1153,7 +1153,6 @@ export interface ApiDailyStatsGetResponseDataWorkflows extends JsonObject {
   "hint"?: string | null;
   "daily_tasks": number;
   "leads_count": number;
-  "lead_count": number;
 }
 export interface ApiDailyStatsGetResponseData extends JsonObject {
   "workflows": ApiDailyStatsGetResponseDataWorkflows[];
@@ -1170,9 +1169,9 @@ export interface ApiLeadStatsGetResponseDataWorkflows extends JsonObject {
   "name": string;
   "slug": string;
   "priority": number;
-  "total": number;
-  "active": number;
-  "inactive": number;
+  "count": number;
+  "activeLeadCount": number;
+  "deActiveLeadCount": number;
 }
 export interface ApiLeadStatsGetResponseData extends JsonObject {
   "total": number;

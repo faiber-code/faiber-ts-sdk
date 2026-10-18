@@ -78,3 +78,9 @@ try {
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
 
 Managed user responses include `created_at`, the UTC registration timestamp (optional for compatibility with older deployments). Registration statistics remain available through the typed user registration-stats operation.
+
+### Handoff and current-user passwords
+
+`operations.authExchangeHandoffTokenPost({token, client_id})` consumes a single-use handoff code and returns a token envelope. `authIssueHandoffTokenPost` is server-only and requires `x-infera-handoff-secret`; never put that secret into browser code. `authOtpLoginPost` sends its named input as URL-encoded form data, including `otp_code`.
+
+`operations.userStatusGet()` returns `{data:{has_password}}`. `userSavePut({password})` replaces only the authenticated account's password and preserves OAuth identities; passwords must contain 8–128 characters. Website OAuth bootstrap accepts a canonical HTTPS origin and requires an administrator or the trusted federation service.

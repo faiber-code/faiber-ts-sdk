@@ -8,7 +8,7 @@ export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
 /** Backend response type: Branding. */
 export interface BrandingShowGetResponseData extends JsonObject {
   "title"?: string | null;
-  "localizations": Record<string, JsonValue>;
+  "localizations": Record<string, BackendJson<"BrandText">>;
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
 }
@@ -18,14 +18,14 @@ export interface BrandingShowGetResponse extends ApiEnvelope<BrandingShowGetResp
 /** Backend request type: Branding. */
 export interface BrandingUpdatePutInput extends JsonObject {
   "title"?: string | null;
-  "localizations": Record<string, JsonValue>;
+  "localizations": Record<string, BackendJson<"BrandText">>;
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
 }
 /** Backend response type: Branding. */
 export interface BrandingUpdatePutResponseData extends JsonObject {
   "title"?: string | null;
-  "localizations": Record<string, JsonValue>;
+  "localizations": Record<string, BackendJson<"BrandText">>;
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
 }
@@ -59,7 +59,7 @@ export interface ConfigurationLivekitConfigShowGetResponseData extends JsonObjec
   "audio_model_ref"?: string | null;
   "audio_language": string;
   "chat_model_ref"?: string | null;
-  "chat_assistant_id"?: BackendJson<"uuid::Uuid"> | null;
+  "chat_assistant_id"?: string | null;
   "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
@@ -88,7 +88,7 @@ export interface ConfigurationLivekitConfigUpdatePutInput extends JsonObject {
   "audio_model_ref"?: string | null;
   "audio_language"?: string;
   "chat_model_ref"?: string | null;
-  "chat_assistant_id"?: BackendJson<"uuid::Uuid"> | null;
+  "chat_assistant_id"?: string | null;
   "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
@@ -115,7 +115,7 @@ export interface ConfigurationLivekitConfigUpdatePutResponseData extends JsonObj
   "audio_model_ref"?: string | null;
   "audio_language": string;
   "chat_model_ref"?: string | null;
-  "chat_assistant_id"?: BackendJson<"uuid::Uuid"> | null;
+  "chat_assistant_id"?: string | null;
   "task_validation_model_ref"?: string | null;
   "archive_delay_minutes": number;
   "processing_window_start": string;
@@ -177,7 +177,7 @@ export interface IntegrationPerformanceContextPostResponse extends ApiEnvelope<J
 /** Backend response type: Branding. */
 export interface BrandingPublicShowGetResponseData extends JsonObject {
   "title"?: string | null;
-  "localizations": Record<string, JsonValue>;
+  "localizations": Record<string, BackendJson<"BrandText">>;
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
 }
@@ -221,17 +221,6 @@ export interface RecordingRecordingsIndexGetResponseData extends JsonObject {
   "meta": RecordingRecordingsIndexGetResponseDataMeta;
 }
 export interface RecordingRecordingsIndexGetResponse extends ApiEnvelope<RecordingRecordingsIndexGetResponseData> {
-}
-
-/** Backend response type: Vec<AudioModel>. */
-export interface RecordingAudioModelsGetResponseItem extends JsonObject {
-  "model_ref": string;
-  "model": string;
-  "provider_label": string;
-  "source": string;
-  "capabilities": string[];
-}
-export interface RecordingAudioModelsGetResponse extends ApiEnvelope<RecordingAudioModelsGetResponseItem[]> {
 }
 
 /** Backend response type: RecordingManifestResponse. */
@@ -316,6 +305,17 @@ export interface RecordingRecordingSchedulePostResponseData extends JsonObject {
   "audio_analyses": RecordingRecordingSchedulePostResponseDataAudioAnalyses[];
 }
 export interface RecordingRecordingSchedulePostResponse extends ApiEnvelope<RecordingRecordingSchedulePostResponseData> {
+}
+
+/** Backend response type: Vec<AudioModel>. */
+export interface RecordingAudioModelsGetResponseItem extends JsonObject {
+  "model_ref": string;
+  "model": string;
+  "provider_label": string;
+  "source": string;
+  "capabilities": string[];
+}
+export interface RecordingAudioModelsGetResponse extends ApiEnvelope<RecordingAudioModelsGetResponseItem[]> {
 }
 
 /** Backend request type: RoomStateRespond. */
@@ -593,25 +593,6 @@ export interface RoomRoomsCreatePostResponseData extends JsonObject {
 }
 export interface RoomRoomsCreatePostResponse extends ApiEnvelope<RoomRoomsCreatePostResponseData> {
 }
-
-/** Backend response type: RoomAnalyticsResponse. */
-export interface RoomRoomsAnalyticsGetResponseData extends JsonObject {
-  "ongoing_sessions": number;
-  "sessions_today": number;
-  "ongoing_users": number;
-  "connected_users_today": number;
-}
-export interface RoomRoomsAnalyticsGetResponse extends ApiEnvelope<RoomRoomsAnalyticsGetResponseData> {
-}
-
-/** Backend request type: binary byte stream. */
-export type RoomLivekitWebhookPostInput = Blob | ArrayBuffer | ArrayBufferView;
-/** Backend response type: APIEmptyResponse. */
-export interface RoomLivekitWebhookPostResponseData extends JsonObject {
-  "status": string;
-  "message": string;
-}
-export type RoomLivekitWebhookPostResponse = RoomLivekitWebhookPostResponseData;
 
 /** Backend response type: RoomSingleResponse. */
 export interface RoomRoomsDeleteDeleteResponseDataRoomClients extends JsonObject {
@@ -1404,6 +1385,26 @@ export interface RoomRoomsLivekitTokenGetResponseData extends JsonObject {
 export interface RoomRoomsLivekitTokenGetResponse extends ApiEnvelope<RoomRoomsLivekitTokenGetResponseData> {
 }
 
+/** Backend response type: ParticipantMuteResponse. */
+export interface RoomRoomsSelfModerationGetResponseData extends JsonObject {
+  "profile_id": string;
+  "muted_until"?: string | null;
+}
+export interface RoomRoomsSelfModerationGetResponse extends ApiEnvelope<RoomRoomsSelfModerationGetResponseData> {
+}
+
+/** Backend request type: ParticipantMuteUpdate. */
+export interface RoomRoomsParticipantMutePutInput extends JsonObject {
+  "muted": boolean;
+}
+/** Backend response type: ParticipantMuteResponse. */
+export interface RoomRoomsParticipantMutePutResponseData extends JsonObject {
+  "profile_id": string;
+  "muted_until"?: string | null;
+}
+export interface RoomRoomsParticipantMutePutResponse extends ApiEnvelope<RoomRoomsParticipantMutePutResponseData> {
+}
+
 /** Backend response type: RoomSingleFullResponse. */
 export interface RoomRoomsPlaybackShowGetResponseDataRoomClients extends JsonObject {
   "id": string;
@@ -1538,6 +1539,9 @@ export interface RoomRoomsPlaybackShowGetResponseData extends JsonObject {
 }
 export interface RoomRoomsPlaybackShowGetResponse extends ApiEnvelope<RoomRoomsPlaybackShowGetResponseData> {
 }
+
+/** Backend response type: Vec<RoomPresenceEvent>. */
+export type RoomRoomsPresenceEventsGetResponse = import("./contracts.types.js").SessionPresenceResponse;
 
 /** Backend response type: RoomRecordingResponse. */
 export interface RoomRoomsRecordingsGetResponseDataRoom extends JsonObject {
@@ -1708,3 +1712,22 @@ export interface RoomRoomsStopGetResponseData extends JsonObject {
 }
 export interface RoomRoomsStopGetResponse extends ApiEnvelope<RoomRoomsStopGetResponseData> {
 }
+
+/** Backend response type: RoomAnalyticsResponse. */
+export interface RoomRoomsAnalyticsGetResponseData extends JsonObject {
+  "ongoing_sessions": number;
+  "sessions_today": number;
+  "ongoing_users": number;
+  "connected_users_today": number;
+}
+export interface RoomRoomsAnalyticsGetResponse extends ApiEnvelope<RoomRoomsAnalyticsGetResponseData> {
+}
+
+/** Backend request type: binary byte stream. */
+export type RoomLivekitWebhookPostInput = Blob | ArrayBuffer | ArrayBufferView;
+/** Backend response type: APIEmptyResponse. */
+export interface RoomLivekitWebhookPostResponseData extends JsonObject {
+  "status": string;
+  "message": string;
+}
+export type RoomLivekitWebhookPostResponse = RoomLivekitWebhookPostResponseData;

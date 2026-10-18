@@ -20,7 +20,7 @@ export interface RoutesListManagedAssistantsGetResponse extends ApiEnvelope<Json
 /** Backend request type: CreateAssistant. */
 export interface RoutesCreateAssistantPostInputCustomerActions extends JsonObject {
   "id": string;
-  "label": Record<string, JsonValue>;
+  "label": Record<string, string>;
   "kind": string;
   "content_type"?: string | null;
   "content_id"?: string | null;
@@ -68,7 +68,7 @@ export interface RoutesGetManagedAssistantGetResponse extends ApiEnvelope<JsonVa
 /** Backend request type: UpdateAssistant. */
 export interface RoutesUpdateAssistantPutInputCustomerActions extends JsonObject {
   "id": string;
-  "label": Record<string, JsonValue>;
+  "label": Record<string, string>;
   "kind": string;
   "content_type"?: string | null;
   "content_id"?: string | null;

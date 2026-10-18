@@ -165,3 +165,17 @@ comma-separated paths, with `-` for descending. Application concepts such as
 `double_debt`, supporter `owner` and `work_id` require stored configured
 properties or their actual trusted-service paths; the SDK does not calculate them.
 These capabilities require a service version supporting dynamic list filters.
+
+### Fitness coaching
+
+The `operations.fitness*` methods cover intake drafts, product offers, paid orders, coach assignments, plan revisions, catalogs, settings, notifications and trial redemption. Exported `FitnessIntake`, `FitnessPlan`, `FitnessOrder`, `FitnessRevision` and gift types describe the wire models.
+
+```ts
+const self = await api.operations.fitnessMeGet();
+const saved = await api.operations.fitnessSaveSettingsPut({
+  model_ref: modelRef, stt_model_ref: speechInputRef, tts_model_ref: speechOutputRef,
+  expected_version: currentVersion,
+});
+```
+
+The service authorizes gym membership, managers, assigned coaches and order ownership independently of profile editing. Admin provisioning/import requires `fitness:admin`. Settings and drafts use optimistic versions; stale changes return 409. Purchase requests require a stable `idempotency_key`, and plan assignment/proposals use `base_revision_id`. Trusted gift administration and chat-credit reserve/settle operations are server-only and require dedicated bearer credentials. A user token does not mint credits or grant internal gift access. Directory `workspaceResolvePeople` continues to resolve 1–200 explicit UUIDs with `profile:lookup`; its results do not grant collaborator eligibility.

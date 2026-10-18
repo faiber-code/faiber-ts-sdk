@@ -418,9 +418,9 @@ export type ApiCreateReportPostResponse = import("./types.js").SocialReportRespo
 
 /** Backend response type: Health. */
 export interface MainHealthGetResponseData extends JsonObject {
-  "service": BackendJson<"&'static str">;
-  "version": BackendJson<"&'static str">;
-  "status": BackendJson<"&'static str">;
+  "service": string;
+  "version": string;
+  "status": string;
 }
 export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
 }

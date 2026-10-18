@@ -55,3 +55,5 @@ export * from "./types.js";
 export * from "@faiber/sdk-core";
 export * from "./operations.js";
 export * from "./operations.types.js";
+
+export * from "./contracts.types.js";

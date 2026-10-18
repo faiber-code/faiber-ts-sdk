@@ -10,7 +10,7 @@ const result = await lms.transferUserData(
 console.log(result.data.data.transfer_id, result.data.data.moved);
 ```
 
-This supported `POST /api/v1/idp/option/transfer-user-data` requires `lms:user_data:transfer` and an `Idempotency-Key` header (1–128 printable ASCII characters, no spaces). Both IDs must be distinct, non-nil UUIDs with active Profile records. `TransferUserDataInput`, `TransferUserDataResponse`, `EducationalTransferCounts`, and `TransferUserDataErrorResponse` are exported types.
+This supported `POST /api/v1/idp/option/transfer-user-data` requires `user_data:transfer` and an `Idempotency-Key` header (1–128 printable ASCII characters, no spaces). Both IDs must be distinct, non-nil UUIDs with active Profile records. `TransferUserDataInput`, `TransferUserDataResponse`, `EducationalTransferCounts`, and `TransferUserDataErrorResponse` are exported types.
 
 The transaction changes learner ownership of classroom enrollments, attendance, homework assignments, exam attempts, grades, certificates, classroom notes/evaluations, academy enrollments, and interactive runs. For session evaluations it changes the target learner of teacher ratings and the author of student feedback. Record IDs, status, scores, submissions, question snapshots and foreign-key links are preserved; academy progress/attempts, exam answers and interactive attempts therefore follow their unchanged parent records. Response `moved` counts directly updated rows by category, not linked children. Profile classroom-cache synchronization is queued in the same transaction (`profile_sync: "queued"`).
 

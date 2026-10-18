@@ -68,3 +68,12 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 ### Realtime through Sockudo
 
 Use `subscribeRealtime` from `@faiber/sdk-core` for private Sockudo subscriptions. Chat configuration comes from `ChatApi.realtimeConfig(conversationId)` and authorization from `ChatApi.realtimeAuth`; both require conversation membership and `chat:read`. Notification configuration and authorization use `MessengerApi.operations.notificationNotificationsRealtimeConfigGet` and `notificationNotificationsRealtimeAuthPost` with `notification:self:read`; the backend permits only the signed-in recipient's channel. Keep these service responsibilities separate. Reload persisted records on subscription/reconnect, close subscriptions on logout, and keep all Sockudo secrets server-side. See the [core subscription example](https://github.com/faiber-code/faiber-ts-sdk/tree/main/packages/core#sockudo-realtime-subscriptions).
+
+### Provider setup and OTP readiness
+
+```ts
+const report = await api.operations.serviceSetupCheckPost();
+console.log(report.data.data.channels, report.data.data.providerVerified);
+```
+
+This read-only inspection requires `admin:service:read` and sends no notifications. Each provider result names its channel, configuration and verification status. `serviceReadinessPost` is a server-only OTP check requiring the `x-website-otp-token` header; its response is the raw `{ready}` object. Standard Axios headers, timeouts, errors and cancellation are preserved.

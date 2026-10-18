@@ -745,9 +745,9 @@ export interface MainReadinessGetHealthResponse extends ApiEnvelope<JsonValue> {
 
 /** Backend response type: Health. */
 export interface MainLivenessGetResponseData extends JsonObject {
-  "service": BackendJson<"&'static str">;
-  "version": BackendJson<"&'static str">;
-  "status": BackendJson<"&'static str">;
+  "service": string;
+  "version": string;
+  "status": string;
 }
 export interface MainLivenessGetResponse extends ApiEnvelope<MainLivenessGetResponseData> {
 }
@@ -768,7 +768,7 @@ export interface MainConvertPostResponseData extends JsonObject {
   "tables": MainConvertPostResponseDataTables[];
   "pages"?: number | null;
   "warnings": string[];
-  "converter_version": BackendJson<"&'static str">;
+  "converter_version": string;
 }
 export interface MainConvertPostResponse extends ApiEnvelope<MainConvertPostResponseData> {
 }
@@ -916,10 +916,10 @@ export interface TaskProjectionsPassagesPostResponseDataBudget extends JsonObjec
   "dropped_count": number;
   "truncated": boolean;
   "estimator": string;
-  "sections": Record<string, JsonValue>;
+  "sections": Record<string, number>;
 }
 export interface TaskProjectionsPassagesPostResponseData extends JsonObject {
-  "candidate_sets": Record<string, JsonValue>;
+  "candidate_sets": Record<string, number>;
   "accepted_results": TaskProjectionsPassagesPostResponseDataAcceptedResults[];
   "excluded_results": TaskProjectionsPassagesPostResponseDataExcludedResults[];
   "memories": TaskProjectionsPassagesPostResponseDataMemories[];
@@ -927,9 +927,9 @@ export interface TaskProjectionsPassagesPostResponseData extends JsonObject {
   "findings": TaskProjectionsPassagesPostResponseDataFindings[];
   "citations": JsonValue[];
   "provenance": JsonValue[];
-  "score_explanations": Record<string, JsonValue>;
+  "score_explanations": Record<string, BackendJson<"ScoreExplanation">>;
   "budget": TaskProjectionsPassagesPostResponseDataBudget;
-  "dependency_state": Record<string, JsonValue>;
+  "dependency_state": Record<string, BackendJson<"DependencyState">>;
   "trace": JsonValue;
 }
 export interface TaskProjectionsPassagesPostResponse extends ApiEnvelope<TaskProjectionsPassagesPostResponseData> {

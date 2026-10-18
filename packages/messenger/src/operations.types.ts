@@ -246,7 +246,11 @@ export interface NotificationNotificationsMyInboxGetQuery extends QueryParams {
 /** Backend response type: crate::models::PagedResult<InboxItem>. */
 export interface NotificationNotificationsMyInboxGetResponseItem extends JsonObject {
   "id": number;
+  "title"?: string | null;
   "description"?: string | null;
+  "path"?: string | null;
+  "work_item_id"?: string | null;
+  "event"?: string | null;
   "read": boolean;
   "created_at": string;
 }
@@ -266,7 +270,11 @@ export interface NotificationNotificationsMyInboxGetResponse extends ApiEnvelope
 /** Backend response type: InboxItem. */
 export interface NotificationNotificationsMyMarkReadPatchResponseData extends JsonObject {
   "id": number;
+  "title"?: string | null;
   "description"?: string | null;
+  "path"?: string | null;
+  "work_item_id"?: string | null;
+  "event"?: string | null;
   "read": boolean;
   "created_at": string;
 }
@@ -379,6 +387,12 @@ export interface ServiceServicesUpdatePatchResponseData extends JsonObject {
 }
 export interface ServiceServicesUpdatePatchResponse extends ApiEnvelope<ServiceServicesUpdatePatchResponseData> {
 }
+
+/** Backend response type: serde_json::Value. */
+export type ServiceSetupCheckPostResponse = import("./contracts.types.js").MessengerSetupResponse;
+
+/** Backend response type: Value. */
+export type ServiceReadinessPostResponse = import("./contracts.types.js").WebsiteOtpReadiness;
 
 /** Backend response type: Vec<TemplateResponse>. */
 export interface TemplateTemplatesIndexGetResponseItem extends JsonObject {

@@ -37,8 +37,8 @@ export interface RoutesGameOperationWorldsGetResponse extends ApiEnvelope<JsonVa
 
 /** Backend request type: UpdateGameEconomy. */
 export interface RoutesUpdateGameOperationEconomyPatchInput extends JsonObject {
-  "entry_coins": number;
-  "burn_percent": number;
+  "entryCoins": number;
+  "burnPercent": number;
   "enabled": boolean;
 }
 /** Backend response type: api. */
@@ -51,17 +51,14 @@ export interface RoutesRealtimeGetQuery extends QueryParams {
   "player_id": string;
   "ticket": string;
 }
-/** Backend response type: api. */
-export interface RoutesRealtimeGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: websocket. */
+export type RoutesRealtimeGetResponse = import("./types.js").ServerEvent;
 
 /** Backend response type: api. */
-export interface RoutesDeleteRoomDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesDeleteRoomDeleteResponse = import("./contracts.types.js").GameResult<boolean>;
 
 /** Backend response type: api. */
-export interface RoutesGetRoomGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetRoomGetResponse = import("./contracts.types.js").GameResult<import("./types.js").Room>;
 
 /** Backend request type: UpdateRoom. */
 export type RoutesUpdateRoomPutInputStatus = "waiting" | "running" | "paused" | "closed";
@@ -71,8 +68,7 @@ export interface RoutesUpdateRoomPutInput extends JsonObject {
   "status"?: RoutesUpdateRoomPutInputStatus | null;
 }
 /** Backend response type: api. */
-export interface RoutesUpdateRoomPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateRoomPutResponse = import("./contracts.types.js").GameResult<import("./types.js").Room>;
 
 /** Backend request type: InvokeWasm. */
 export interface RoutesInvokeEndpointPostInput extends JsonObject {
@@ -81,20 +77,17 @@ export interface RoutesInvokeEndpointPostInput extends JsonObject {
   "inputs"?: number[];
 }
 /** Backend response type: api. */
-export interface RoutesInvokeEndpointPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesInvokeEndpointPostResponse = import("./contracts.types.js").GameResult<import("./types.js").StatePatch>;
 
 /** Backend request type: JoinRoom. */
 export interface RoutesJoinRoomPostInput extends JsonObject {
   "user_id": string;
 }
 /** Backend response type: api. */
-export interface RoutesJoinRoomPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesJoinRoomPostResponse = import("./contracts.types.js").GameResult<import("./types.js").JoinTicket>;
 
 /** Backend response type: api. */
-export interface RoutesListWorldsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListWorldsGetResponse = import("./contracts.types.js").GameResult<import("./types.js").World[]>;
 
 /** Backend request type: CreateWorld. */
 export type RoutesCreateWorldPostInputComponentsPropertiesKind = "boolean" | "integer" | "number" | "string" | "vec2" | "vec3" | "quaternion" | "json";
@@ -120,7 +113,7 @@ export interface RoutesCreateWorldPostInputReplication extends JsonObject {
 export interface RoutesCreateWorldPostInputPhysics extends JsonObject {
   "enabled"?: boolean;
   "dimensions"?: number;
-  "gravity"?: BackendJson<"[f32; 3]">;
+  "gravity"?: [number, number, number];
   "deterministic"?: boolean;
 }
 export interface RoutesCreateWorldPostInput extends JsonObject {
@@ -131,16 +124,13 @@ export interface RoutesCreateWorldPostInput extends JsonObject {
   "physics"?: RoutesCreateWorldPostInputPhysics;
 }
 /** Backend response type: api. */
-export interface RoutesCreateWorldPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateWorldPostResponse = import("./contracts.types.js").GameResult<import("./types.js").World>;
 
 /** Backend response type: api. */
-export interface RoutesDeleteWorldDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesDeleteWorldDeleteResponse = import("./contracts.types.js").GameResult<boolean>;
 
 /** Backend response type: api. */
-export interface RoutesGetWorldGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetWorldGetResponse = import("./contracts.types.js").GameResult<import("./types.js").World>;
 
 /** Backend request type: UpdateWorld. */
 export type RoutesUpdateWorldPutInputComponentsPropertiesKind = "boolean" | "integer" | "number" | "string" | "vec2" | "vec3" | "quaternion" | "json";
@@ -166,7 +156,7 @@ export interface RoutesUpdateWorldPutInputReplication extends JsonObject {
 export interface RoutesUpdateWorldPutInputPhysics extends JsonObject {
   "enabled"?: boolean;
   "dimensions"?: number;
-  "gravity"?: BackendJson<"[f32; 3]">;
+  "gravity"?: [number, number, number];
   "deterministic"?: boolean;
 }
 export interface RoutesUpdateWorldPutInput extends JsonObject {
@@ -176,12 +166,10 @@ export interface RoutesUpdateWorldPutInput extends JsonObject {
   "physics"?: RoutesUpdateWorldPutInputPhysics | null;
 }
 /** Backend response type: api. */
-export interface RoutesUpdateWorldPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateWorldPutResponse = import("./contracts.types.js").GameResult<import("./types.js").World>;
 
 /** Backend response type: api. */
-export interface RoutesListEndpointsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListEndpointsGetResponse = import("./contracts.types.js").GameResult<import("./types.js").WasmEndpoint[]>;
 
 /** Backend request type: CreateWasmEndpoint. */
 export interface RoutesCreateEndpointPostInput extends JsonObject {
@@ -192,16 +180,13 @@ export interface RoutesCreateEndpointPostInput extends JsonObject {
   "reliable"?: boolean;
 }
 /** Backend response type: api. */
-export interface RoutesCreateEndpointPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateEndpointPostResponse = import("./contracts.types.js").GameResult<import("./types.js").WasmEndpoint>;
 
 /** Backend response type: api. */
-export interface RoutesDeleteEndpointDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesDeleteEndpointDeleteResponse = import("./contracts.types.js").GameResult<boolean>;
 
 /** Backend response type: api. */
-export interface RoutesListRoomsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListRoomsGetResponse = import("./contracts.types.js").GameResult<import("./types.js").Room[]>;
 
 /** Backend request type: CreateRoom. */
 export interface RoutesCreateRoomPostInput extends JsonObject {
@@ -209,12 +194,10 @@ export interface RoutesCreateRoomPostInput extends JsonObject {
   "capacity"?: number;
 }
 /** Backend response type: api. */
-export interface RoutesCreateRoomPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateRoomPostResponse = import("./contracts.types.js").GameResult<import("./types.js").Room>;
 
 /** Backend response type: api. */
-export interface RoutesListWasmGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListWasmGetResponse = import("./contracts.types.js").GameResult<import("./types.js").WasmModuleInfo[]>;
 
 /** Backend request type: UploadWasm. */
 export interface RoutesUploadWasmPostInput extends JsonObject {
@@ -223,9 +206,77 @@ export interface RoutesUploadWasmPostInput extends JsonObject {
   "exports"?: string[];
 }
 /** Backend response type: api. */
-export interface RoutesUploadWasmPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUploadWasmPostResponse = import("./contracts.types.js").GameResult<import("./types.js").WasmModuleInfo>;
 
 /** Backend response type: api. */
-export interface RoutesDeleteWasmDeleteResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesDeleteWasmDeleteResponse = import("./contracts.types.js").GameResult<boolean>;
+
+/** Backend response type: Value. */
+export type GamesRoutesHistoryGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameSessionView[]>;
+
+/** Backend response type: Value. */
+export type GamesRoutesLobbyGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameLobbyView>;
+
+/** Backend response type: Value. */
+export type GamesRoutesJoinLobbyPostResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameLobbyJoined>;
+
+/** Backend response type: Value. */
+export type GamesRoutesTicketGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameQueueTicket>;
+
+/** Backend response type: Value. */
+export type GamesRoutesProgressGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameProgress[]>;
+
+/** Backend response type: Value. */
+export type GamesRoutesViewGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameSessionView>;
+
+/** Backend request type: GameCommand. */
+export type GamesRoutesCommandPostInput = import("./contracts.types.js").GameCommandInput;
+/** Backend response type: Value. */
+export type GamesRoutesCommandPostResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameSessionView>;
+
+/** Backend response type: Value. */
+export type GamesRoutesReadyPostResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameSessionView>;
+
+/** Backend response type: Value. */
+export type GamesRoutesWorldProgressGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameWorldProgress[]>;
+
+/** Backend response type: Value. */
+export type GamesRoutesCatalogGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameCatalogEntry[]>;
+
+/** Backend response type: Value. */
+export type GamesRoutesGameGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameCatalogEntry>;
+
+/** Backend request type: EnqueueInput. */
+export type GamesRoutesCreateLobbyPostInput = import("./contracts.types.js").GameQueueInput;
+/** Backend response type: Value. */
+export type GamesRoutesCreateLobbyPostResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameLobbyCreated>;
+
+/** Backend request type: EnqueueInput. */
+export type GamesRoutesEnqueuePostInput = import("./contracts.types.js").GameQueueInput;
+/** Backend response type: Value. */
+export type GamesRoutesEnqueuePostResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameQueueReceipt>;
+
+/** Backend request type: EnqueueMatchmaking. */
+export type KheradgahRoutesEnqueuePostInput = import("./contracts.types.js").KheradgahQueueInput;
+/** Backend response type: Value. */
+export type KheradgahRoutesEnqueuePostResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").KheradgahTicket>;
+
+/** Backend response type: Value. */
+export type KheradgahRoutesCancelDeleteResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").KheradgahTicket>;
+
+/** Backend response type: Value. */
+export type KheradgahRoutesTicketGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").KheradgahTicket>;
+
+/** Backend request type: CreateSession. */
+export type GamesRoutesCreateSessionPostInput = import("./contracts.types.js").GameCreateInput;
+/** Backend response type: Value. */
+export type GamesRoutesCreateSessionPostResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").GameSessionView>;
+
+/** Backend response type: Value. */
+export type KheradgahRoutesConnectionPostResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").KheradgahConnectionTicket>;
+
+/** Backend response type: Value. */
+export type KheradgahRoutesViewGetResponse = import("./contracts.types.js").GameResult<import("./contracts.types.js").KheradgahView>;
+
+/** Backend response type: websocket. */
+export type KheradgahRoutesRealtimeGetResponse = import("./contracts.types.js").KheradgahServerFrame;

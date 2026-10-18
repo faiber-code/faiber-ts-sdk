@@ -300,3 +300,5 @@ export * from "./operations.types.js";
 export * from "./interactive.js";
 
 export * from "./media.js";
+
+export * from "./contracts.types.js";

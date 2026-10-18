@@ -70,17 +70,18 @@ test("generated contracts have exact route coverage, named outputs, and complete
   for (const [service, endpoints] of Object.entries(manifest)) {
     const operations = await readFile(new URL(`../packages/${service}/src/operations.ts`, import.meta.url), "utf8");
     const types = await readFile(new URL(`../packages/${service}/src/operations.types.ts`, import.meta.url), "utf8");
-    assert.equal((operations.match(/@returns The complete Axios response/g) ?? []).length, endpoints.length, `${service} return docs`);
-    assert.equal((operations.match(/@throws AxiosError/g) ?? []).length, endpoints.length, `${service} error docs`);
-    assert.equal((operations.match(/return this\.client\.request</g) ?? []).length, endpoints.length, `${service} transport`);
+    assert.equal((operations.match(/@returns The complete Axios response/g) ?? []).length, endpoints.filter(e => e.responseEnvelope !== "websocket").length, `${service} HTTP return docs`);
+    assert.equal((operations.match(/@throws AxiosError/g) ?? []).length, endpoints.filter(e => e.responseEnvelope !== "websocket").length, `${service} HTTP error docs`);
+    assert.equal((operations.match(/return this\.client\.request</g) ?? []).length, endpoints.filter(e => e.responseEnvelope !== "websocket").length, `${service} HTTP transport`);
     assert.doesNotMatch(types, /handler-defined response/, `${service} response provenance`);
     assert.doesNotMatch(types, /\bany\b/, `${service} any`);
+    assert.equal(((operations).match(/return open(?:Match|Room)Realtime\(this\.client/g) ?? []).length, endpoints.filter(e => e.responseEnvelope === "websocket").length, `${service} ticket-authenticated upgrades`);
     for (const endpoint of endpoints) {
       assert.ok(endpoint.response || endpoint.responseEnvelope, `${service} ${endpoint.method} ${endpoint.path} response contract`);
     }
     total += endpoints.length;
   }
-  assert.equal(total, 1378);
+  assert.equal(total, 1490);
 });
 
 test("every published workspace package includes developer documentation", async () => {

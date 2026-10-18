@@ -1397,6 +1397,7 @@ export interface RouterTranscriptionModelsGetResponseItem extends JsonObject {
   "model": string;
   "provider_label": string;
   "source": string;
+  "capabilities": string[];
 }
 export type RouterTranscriptionModelsGetResponse = RouterTranscriptionModelsGetResponseItem[];
 

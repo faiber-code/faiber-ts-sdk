@@ -35,3 +35,7 @@ const release = await versions.version(versionId);
 Responses retain the backend envelopes: service lists use `data.services`, single services and their complete history use `data.service`, and releases use `data.version`. Exported types include service identity/status, latest version, version code/name, channel, scope, changelog, download URL, status, and timestamps.
 
 All calls return full Axios responses and accept `RequestOptions` for cancellation, timeout, and headers. The version registry routes are public in the inspected service; no token is added unless the configured client has one.
+
+### APK publishing
+
+`versions.operations.routerPublishApkPost({serviceSlug, appName, version, versionCode, downloadUrl}, options)` publishes an idempotent APK release. The download URL must use HTTPS and `versionCode` must be positive. Supply the sandbox's dedicated APK publisher bearer credential through the configured server client; this is not an end-user publishing permission. The raw response is `{status:"success", id}`. Invalid metadata returns 400 and unavailable publisher configuration returns 503.

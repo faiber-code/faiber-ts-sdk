@@ -68,46 +68,6 @@ export interface ActionActionsCreatePostResponseData extends JsonObject {
 export interface ActionActionsCreatePostResponse extends ApiEnvelope<ActionActionsCreatePostResponseData> {
 }
 
-/** Backend request type: CompleteActionRequest. */
-export interface ActionActionsCompletePostInput extends JsonObject {
-  "action_name": string;
-  "profile_id": string;
-  "event_id"?: string | null;
-  "subject_type"?: string | null;
-  "subject_id"?: string | null;
-  "value"?: number | null;
-  "metadata"?: BackendJson<"Json"> | null;
-  "occurred_at"?: string | null;
-}
-/** Backend response type: crate::reward::engine::CompleteActionResult. */
-export type ActionActionsCompletePostResponseDataGrantsAssetType = "Coin" | "Badge" | "XP" | "Charge" | "Gem";
-export interface ActionActionsCompletePostResponseDataGrants extends JsonObject {
-  "asset_id": string;
-  "asset_name": string;
-  "asset_type": ActionActionsCompletePostResponseDataGrantsAssetType;
-  "subject_type": string;
-  "subject_id"?: string | null;
-  "quantity": number;
-}
-export interface ActionActionsCompletePostResponseDataBadgeUpgrades extends JsonObject {
-  "asset_id": string;
-  "asset_name": string;
-  "from_level": number;
-  "to_level": number;
-  "quantity": number;
-}
-export interface ActionActionsCompletePostResponseData extends JsonObject {
-  "action_log_id": string;
-  "action_count": number;
-  "consecutive_days": number;
-  "duplicate": boolean;
-  "daily_cap_applied": boolean;
-  "grants": ActionActionsCompletePostResponseDataGrants[];
-  "badge_upgrades": ActionActionsCompletePostResponseDataBadgeUpgrades[];
-}
-export interface ActionActionsCompletePostResponse extends ApiEnvelope<ActionActionsCompletePostResponseData> {
-}
-
 /** Backend response type: (). */
 export interface ActionActionsDeleteDeleteResponse extends ApiEnvelope<JsonObject> {
 }
@@ -153,15 +113,55 @@ export interface ActionActionsUpdatePatchResponseData extends JsonObject {
 export interface ActionActionsUpdatePatchResponse extends ApiEnvelope<ActionActionsUpdatePatchResponseData> {
 }
 
+/** Backend request type: CompleteActionRequest. */
+export interface ActionActionsCompletePostInput extends JsonObject {
+  "action_name": string;
+  "profile_id": string;
+  "event_id"?: string | null;
+  "subject_type"?: string | null;
+  "subject_id"?: string | null;
+  "value"?: string | number | null;
+  "metadata"?: BackendJson<"Json"> | null;
+  "occurred_at"?: string | null;
+}
+/** Backend response type: crate::reward::engine::CompleteActionResult. */
+export type ActionActionsCompletePostResponseDataGrantsAssetType = "Coin" | "Badge" | "XP" | "Charge" | "Gem";
+export interface ActionActionsCompletePostResponseDataGrants extends JsonObject {
+  "asset_id": string;
+  "asset_name": string;
+  "asset_type": ActionActionsCompletePostResponseDataGrantsAssetType;
+  "subject_type": string;
+  "subject_id"?: string | null;
+  "quantity": string;
+}
+export interface ActionActionsCompletePostResponseDataBadgeUpgrades extends JsonObject {
+  "asset_id": string;
+  "asset_name": string;
+  "from_level": number;
+  "to_level": number;
+  "quantity": string;
+}
+export interface ActionActionsCompletePostResponseData extends JsonObject {
+  "action_log_id": string;
+  "action_count": number;
+  "consecutive_days": number;
+  "duplicate": boolean;
+  "daily_cap_applied": boolean;
+  "grants": ActionActionsCompletePostResponseDataGrants[];
+  "badge_upgrades": ActionActionsCompletePostResponseDataBadgeUpgrades[];
+}
+export interface ActionActionsCompletePostResponse extends ApiEnvelope<ActionActionsCompletePostResponseData> {
+}
+
 /** Backend response type: Vec<methods::PlanProduct>. */
 export interface WalletBillingAdminPlanProductsIndexGetResponseItem extends JsonObject {
   "tier": string;
   "name": string;
   "description"?: string | null;
-  "price": number;
+  "price": string;
   "currency": string;
   "duration_days": number;
-  "points": number;
+  "points": string;
   "storage_gb": number;
   "product_id"?: string | null;
   "metadata": JsonValue;
@@ -175,10 +175,10 @@ export interface WalletBillingAdminPlanProductsUpdatePutInput extends JsonObject
   "tier": string;
   "name": string;
   "description"?: string | null;
-  "price": number;
+  "price": string | number;
   "currency"?: string;
   "duration_days": number;
-  "points": number;
+  "points": string | number;
   "storage_gb": number;
   "product_id"?: string | null;
   "metadata"?: JsonValue;
@@ -189,10 +189,10 @@ export interface WalletBillingAdminPlanProductsUpdatePutResponseData extends Jso
   "tier": string;
   "name": string;
   "description"?: string | null;
-  "price": number;
+  "price": string;
   "currency": string;
   "duration_days": number;
-  "points": number;
+  "points": string;
   "storage_gb": number;
   "product_id"?: string | null;
   "metadata": JsonValue;
@@ -210,9 +210,9 @@ export type WalletBillingAdminPlanProductsDeleteDeleteResponse = WalletBillingAd
 
 /** Backend response type: UnitPrices. */
 export interface SandboxBillingAdminPricesGetResponseData extends JsonObject {
-  "cpu_millicore_hour": number;
-  "ram_mb_hour": number;
-  "disk_mb_hour": number;
+  "cpu_millicore_hour": string;
+  "ram_mb_hour": string;
+  "disk_mb_hour": string;
   "currency": string;
 }
 export interface SandboxBillingAdminPricesGetResponse extends ApiEnvelope<SandboxBillingAdminPricesGetResponseData> {
@@ -220,16 +220,16 @@ export interface SandboxBillingAdminPricesGetResponse extends ApiEnvelope<Sandbo
 
 /** Backend request type: UnitPrices. */
 export interface SandboxBillingAdminPricesUpdatePutInput extends JsonObject {
-  "cpu_millicore_hour": number;
-  "ram_mb_hour": number;
-  "disk_mb_hour": number;
+  "cpu_millicore_hour": string | number;
+  "ram_mb_hour": string | number;
+  "disk_mb_hour": string | number;
   "currency": string;
 }
 /** Backend response type: UnitPrices. */
 export interface SandboxBillingAdminPricesUpdatePutResponseData extends JsonObject {
-  "cpu_millicore_hour": number;
-  "ram_mb_hour": number;
-  "disk_mb_hour": number;
+  "cpu_millicore_hour": string;
+  "ram_mb_hour": string;
+  "disk_mb_hour": string;
   "currency": string;
 }
 export interface SandboxBillingAdminPricesUpdatePutResponse extends ApiEnvelope<SandboxBillingAdminPricesUpdatePutResponseData> {
@@ -237,25 +237,25 @@ export interface SandboxBillingAdminPricesUpdatePutResponse extends ApiEnvelope<
 
 /** Backend request type: AdminProjectPricingInput. */
 export interface SandboxBillingAdminProjectPricingOverridePutInput extends JsonObject {
-  "monthly_price_override"?: number | null;
+  "monthly_price_override"?: string | number | null;
 }
 /** Backend response type: AllocationView. */
 export interface SandboxBillingAdminProjectPricingOverridePutResponseDataPrice extends JsonObject {
-  "cpu": number;
-  "ram": number;
-  "database_storage": number;
-  "minio_storage": number;
-  "app_storage": number;
-  "disk": number;
-  "services": number;
-  "resource_total": number;
-  "total": number;
+  "cpu": string;
+  "ram": string;
+  "database_storage": string;
+  "minio_storage": string;
+  "app_storage": string;
+  "disk": string;
+  "services": string;
+  "resource_total": string;
+  "total": string;
   "currency": string;
 }
 export interface SandboxBillingAdminProjectPricingOverridePutResponseDataUnitPrices extends JsonObject {
-  "cpu_millicore_hour": number;
-  "ram_mb_hour": number;
-  "disk_mb_hour": number;
+  "cpu_millicore_hour": string;
+  "ram_mb_hour": string;
+  "disk_mb_hour": string;
   "currency": string;
 }
 export interface SandboxBillingAdminProjectPricingOverridePutResponseData extends JsonObject {
@@ -269,7 +269,7 @@ export interface SandboxBillingAdminProjectPricingOverridePutResponseData extend
   "app_storage_mb": number;
   "volume_storage_mb": BackendJson<"Json">;
   "bundle_id"?: string | null;
-  "monthly_price_override"?: number | null;
+  "monthly_price_override"?: string | null;
   "status": string;
   "paused_at"?: string | null;
   "purge_at"?: string | null;
@@ -280,9 +280,9 @@ export interface SandboxBillingAdminProjectPricingOverridePutResponseData extend
   "price": SandboxBillingAdminProjectPricingOverridePutResponseDataPrice;
   "unit_prices": SandboxBillingAdminProjectPricingOverridePutResponseDataUnitPrices;
   "currency": string;
-  "hourly_price": number;
-  "daily_estimate": number;
-  "monthly_estimate": number;
+  "hourly_price": string;
+  "daily_estimate": string;
+  "monthly_estimate": string;
   "next_charge_at": string;
 }
 export interface SandboxBillingAdminProjectPricingOverridePutResponse extends ApiEnvelope<SandboxBillingAdminProjectPricingOverridePutResponseData> {
@@ -317,7 +317,7 @@ export interface WalletBillingAdminSubscriptionsIndexGetResponseItem extends Jso
   "project": string;
   "service_name": string;
   "period": string;
-  "unit_price": number;
+  "unit_price": string;
   "currency": string;
   "status": string;
   "purchase_id"?: string | null;
@@ -340,12 +340,40 @@ export interface WalletBillingAdminSubscriptionsIndexGetResponseData extends Jso
 export interface WalletBillingAdminSubscriptionsIndexGetResponse extends ApiEnvelope<WalletBillingAdminSubscriptionsIndexGetResponseData> {
 }
 
+/** Backend query type: GiftQuery. */
+export interface TrialGiftsListGetQuery extends QueryParams {
+  "page"?: number | null;
+  "per_page"?: number | null;
+  "search"?: string | null;
+}
+/** Backend response type: raw-response. */
+export type TrialGiftsListGetResponse = import("./contracts.types.js").ProductTrialGiftPageResponse;
+
+/** Backend request type: GiftWrite. */
+export type TrialGiftsCreatePostInput = import("./contracts.types.js").ProductTrialGiftWriteInput;
+/** Backend response type: raw-response. */
+export type TrialGiftsCreatePostResponse = import("./contracts.types.js").ProductTrialGiftResponse;
+
+/** Backend response type: raw-response. */
+export type TrialGiftsShowGetResponse = import("./contracts.types.js").ProductTrialGiftResponse;
+
+/** Backend request type: GiftWrite. */
+export type TrialGiftsUpdatePutInput = import("./contracts.types.js").ProductTrialGiftWriteInput;
+/** Backend response type: raw-response. */
+export type TrialGiftsUpdatePutResponse = import("./contracts.types.js").ProductTrialGiftResponse;
+
+/** Backend response type: raw-response. */
+export type TrialGiftsCopyTokenGetResponse = import("./contracts.types.js").ProductGiftTokenResponse;
+
+/** Backend response type: raw-response. */
+export type TrialGiftsProductsGetResponse = import("./contracts.types.js").ProductGiftAdaptersResponse;
+
 /** Backend response type: Vec<methods::AdminUserPlan>. */
 export interface WalletBillingAdminUserPlansIndexGetResponseItem extends JsonObject {
-  "profile_id": string;
+  "profileId": string;
   "tier": string;
-  "expires_at"?: string | null;
-  "days_remaining": number;
+  "expiresAt"?: string | null;
+  "daysRemaining": number;
   "enabled": boolean;
 }
 export interface WalletBillingAdminUserPlansIndexGetResponse extends ApiEnvelope<WalletBillingAdminUserPlansIndexGetResponseItem[]> {
@@ -365,10 +393,10 @@ export interface WalletBillingAdminUserPlanUpdatePutInput extends JsonObject {
 }
 /** Backend response type: methods::AdminUserPlan. */
 export interface WalletBillingAdminUserPlanUpdatePutResponseData extends JsonObject {
-  "profile_id": string;
+  "profileId": string;
   "tier": string;
-  "expires_at"?: string | null;
-  "days_remaining": number;
+  "expiresAt"?: string | null;
+  "daysRemaining": number;
   "enabled": boolean;
 }
 export interface WalletBillingAdminUserPlanUpdatePutResponse extends ApiEnvelope<WalletBillingAdminUserPlanUpdatePutResponseData> {
@@ -376,10 +404,10 @@ export interface WalletBillingAdminUserPlanUpdatePutResponse extends ApiEnvelope
 
 /** Backend response type: methods::AdminUserPlan. */
 export interface WalletBillingAdminUserPlanDisablePutResponseData extends JsonObject {
-  "profile_id": string;
+  "profileId": string;
   "tier": string;
-  "expires_at"?: string | null;
-  "days_remaining": number;
+  "expiresAt"?: string | null;
+  "daysRemaining": number;
   "enabled": boolean;
 }
 export interface WalletBillingAdminUserPlanDisablePutResponse extends ApiEnvelope<WalletBillingAdminUserPlanDisablePutResponseData> {
@@ -392,18 +420,18 @@ export interface WalletBillingAdminUserWalletShowGetQuery extends QueryParams {
 /** Backend response type: AdminWalletSnapshot. */
 export interface WalletBillingAdminUserWalletShowGetResponseDataWallet extends JsonObject {
   "profile_id": string;
-  "balance": number;
+  "balance": string;
   "currency": string;
 }
 export interface WalletBillingAdminUserWalletShowGetResponseDataTransactions extends JsonObject {
   "id": string;
   "profile_id": string;
   "direction": string;
-  "amount": number;
+  "amount": string;
   "reason": string;
   "ref_type"?: string | null;
   "ref_id"?: string | null;
-  "balance_after": number;
+  "balance_after": string;
   "created_at": string;
 }
 export interface WalletBillingAdminUserWalletShowGetResponseData extends JsonObject {
@@ -416,24 +444,24 @@ export interface WalletBillingAdminUserWalletShowGetResponse extends ApiEnvelope
 /** Backend request type: AdminWalletAdjustmentRequest. */
 export interface WalletBillingAdminUserWalletAdjustPostInput extends JsonObject {
   "direction"?: string;
-  "amount": number;
+  "amount": string | number;
   "reason": string;
 }
 /** Backend response type: AdminWalletSnapshot. */
 export interface WalletBillingAdminUserWalletAdjustPostResponseDataWallet extends JsonObject {
   "profile_id": string;
-  "balance": number;
+  "balance": string;
   "currency": string;
 }
 export interface WalletBillingAdminUserWalletAdjustPostResponseDataTransactions extends JsonObject {
   "id": string;
   "profile_id": string;
   "direction": string;
-  "amount": number;
+  "amount": string;
   "reason": string;
   "ref_type"?: string | null;
   "ref_id"?: string | null;
-  "balance_after": number;
+  "balance_after": string;
   "created_at": string;
 }
 export interface WalletBillingAdminUserWalletAdjustPostResponseData extends JsonObject {
@@ -448,7 +476,7 @@ export interface AiBillingReservePostInput extends JsonObject {
   "external_id": string;
   "kind": string;
   "model": string;
-  "amount": number;
+  "amount": string | number;
   "currency": string;
   "metadata"?: JsonValue;
 }
@@ -458,8 +486,8 @@ export interface AiBillingReservePostResponseData extends JsonObject {
   "external_id": string;
   "kind": string;
   "model": string;
-  "reserved_amount": number;
-  "settled_amount"?: number | null;
+  "reserved_amount": string;
+  "settled_amount"?: string | null;
   "currency": string;
   "status": string;
   "metadata": JsonValue;
@@ -473,8 +501,8 @@ export interface AiBillingReleasePostResponseData extends JsonObject {
   "external_id": string;
   "kind": string;
   "model": string;
-  "reserved_amount": number;
-  "settled_amount"?: number | null;
+  "reserved_amount": string;
+  "settled_amount"?: string | null;
   "currency": string;
   "status": string;
   "metadata": JsonValue;
@@ -484,7 +512,7 @@ export interface AiBillingReleasePostResponse extends ApiEnvelope<AiBillingRelea
 
 /** Backend request type: SettleAiUsageRequest. */
 export interface AiBillingSettlePostInput extends JsonObject {
-  "actual_amount": number;
+  "actual_amount": string | number;
   "currency": string;
   "metadata"?: JsonValue;
 }
@@ -494,8 +522,8 @@ export interface AiBillingSettlePostResponseData extends JsonObject {
   "external_id": string;
   "kind": string;
   "model": string;
-  "reserved_amount": number;
-  "settled_amount"?: number | null;
+  "reserved_amount": string;
+  "settled_amount"?: string | null;
   "currency": string;
   "status": string;
   "metadata": JsonValue;
@@ -522,7 +550,7 @@ export interface CatalogAssetsIndexGetResponseItem extends JsonObject {
   "subject_type": string;
   "metadata": JsonValue;
   "asset_type": CatalogAssetsIndexGetResponseItemAssetType;
-  "max_quantity": number;
+  "max_quantity": string;
   "status": number;
 }
 export interface CatalogAssetsIndexGetResponsePageMeta extends JsonObject {
@@ -547,7 +575,7 @@ export interface CatalogAssetsCreatePostInput extends JsonObject {
   "subject_type"?: string | null;
   "metadata"?: JsonValue | null;
   "asset_type": CatalogAssetsCreatePostInputAssetType;
-  "max_quantity"?: number | null;
+  "max_quantity"?: string | number | null;
   "status"?: number | null;
 }
 /** Backend response type: AssetResponse. */
@@ -560,7 +588,7 @@ export interface CatalogAssetsCreatePostResponseData extends JsonObject {
   "subject_type": string;
   "metadata": JsonValue;
   "asset_type": CatalogAssetsCreatePostResponseDataAssetType;
-  "max_quantity": number;
+  "max_quantity": string;
   "status": number;
 }
 export interface CatalogAssetsCreatePostResponse extends ApiEnvelope<CatalogAssetsCreatePostResponseData> {
@@ -580,7 +608,7 @@ export interface CatalogAssetsShowGetResponseData extends JsonObject {
   "subject_type": string;
   "metadata": JsonValue;
   "asset_type": CatalogAssetsShowGetResponseDataAssetType;
-  "max_quantity": number;
+  "max_quantity": string;
   "status": number;
 }
 export interface CatalogAssetsShowGetResponse extends ApiEnvelope<CatalogAssetsShowGetResponseData> {
@@ -593,7 +621,7 @@ export interface CatalogAssetsUpdatePatchInput extends JsonObject {
   "description"?: string | null;
   "subject_type"?: string | null;
   "metadata"?: JsonValue | null;
-  "max_quantity"?: number | null;
+  "max_quantity"?: string | number | null;
   "status"?: number | null;
 }
 /** Backend response type: AssetResponse. */
@@ -606,7 +634,7 @@ export interface CatalogAssetsUpdatePatchResponseData extends JsonObject {
   "subject_type": string;
   "metadata": JsonValue;
   "asset_type": CatalogAssetsUpdatePatchResponseDataAssetType;
-  "max_quantity": number;
+  "max_quantity": string;
   "status": number;
 }
 export interface CatalogAssetsUpdatePatchResponse extends ApiEnvelope<CatalogAssetsUpdatePatchResponseData> {
@@ -614,7 +642,7 @@ export interface CatalogAssetsUpdatePatchResponse extends ApiEnvelope<CatalogAss
 
 /** Backend response type: BankSummaryResponse. */
 export interface BankBankSummaryShowGetResponseData extends JsonObject {
-  "bank_value_sum": number;
+  "bank_value_sum": string;
 }
 export interface BankBankSummaryShowGetResponse extends ApiEnvelope<BankBankSummaryShowGetResponseData> {
 }
@@ -637,11 +665,11 @@ export interface BankBankTransactionsIndexGetResponseItem extends JsonObject {
   "profile_name"?: string | null;
   "bank_id": string;
   "bank_transaction_type": BankBankTransactionsIndexGetResponseItemBankTransactionType;
-  "amount": number;
+  "amount": string;
   "metadata": BackendJson<"Json">;
   "status": number;
   "created_at": string;
-  "profile_deposit_total": number;
+  "profile_deposit_total": string;
 }
 export interface BankBankTransactionsIndexGetResponsePageMeta extends JsonObject {
   "page": number;
@@ -658,7 +686,7 @@ export interface BankBankTransactionsIndexGetResponse extends ApiEnvelope<BankBa
 
 /** Backend request type: CreateBankTransactionRequest. */
 export interface BankBankTransactionsCreatePostInput extends JsonObject {
-  "amount": number;
+  "amount": string | number;
   "profile_id": string;
   "bank_id"?: string | null;
   "metadata"?: BackendJson<"Json"> | null;
@@ -669,7 +697,7 @@ export interface BankBankTransactionsCreatePostResponseData extends JsonObject {
   "id": string;
   "bank_id": string;
   "bank_transaction_type": BankBankTransactionsCreatePostResponseDataBankTransactionType;
-  "amount": number;
+  "amount": string;
   "metadata": BackendJson<"Json">;
   "profile_id": string;
   "status": number;
@@ -682,9 +710,9 @@ export interface BankBankTransactionsCreatePostResponse extends ApiEnvelope<Bank
 /** Backend response type: crate::charge::models::ChargeSettingsResponse. */
 export type ChargeChargeSettingsShowGetResponseDataMappingRulesRulesCondition = "always" | "xp_balance" | "coin_balance" | "xp_rank" | "action_count";
 export interface ChargeChargeSettingsShowGetResponseDataMappingRulesRulesValues extends JsonObject {
-  "max_charge": number;
-  "recharge_period": number;
-  "recharge_amount": number;
+  "max_charge": string;
+  "recharge_period": string;
+  "recharge_amount": string;
 }
 export interface ChargeChargeSettingsShowGetResponseDataMappingRulesRules extends JsonObject {
   "label"?: string | null;
@@ -696,7 +724,7 @@ export interface ChargeChargeSettingsShowGetResponseDataMappingRules extends Jso
   "match"?: string;
 }
 export interface ChargeChargeSettingsShowGetResponseData extends JsonObject {
-  "id": BackendJson<"uuid::Uuid">;
+  "id": string;
   "mapping_rules": ChargeChargeSettingsShowGetResponseDataMappingRules;
   "status": number;
 }
@@ -706,9 +734,9 @@ export interface ChargeChargeSettingsShowGetResponse extends ApiEnvelope<ChargeC
 /** Backend request type: UpdateChargeSettingsRequest. */
 export type ChargeChargeSettingsUpdatePatchInputMappingRulesRulesCondition = "always" | "xp_balance" | "coin_balance" | "xp_rank" | "action_count";
 export interface ChargeChargeSettingsUpdatePatchInputMappingRulesRulesValues extends JsonObject {
-  "max_charge": number;
-  "recharge_period": number;
-  "recharge_amount": number;
+  "max_charge": string | number;
+  "recharge_period": string | number;
+  "recharge_amount": string | number;
 }
 export interface ChargeChargeSettingsUpdatePatchInputMappingRulesRules extends JsonObject {
   "label"?: string | null;
@@ -726,9 +754,9 @@ export interface ChargeChargeSettingsUpdatePatchInput extends JsonObject {
 /** Backend response type: crate::charge::models::ChargeSettingsResponse. */
 export type ChargeChargeSettingsUpdatePatchResponseDataMappingRulesRulesCondition = "always" | "xp_balance" | "coin_balance" | "xp_rank" | "action_count";
 export interface ChargeChargeSettingsUpdatePatchResponseDataMappingRulesRulesValues extends JsonObject {
-  "max_charge": number;
-  "recharge_period": number;
-  "recharge_amount": number;
+  "max_charge": string;
+  "recharge_period": string;
+  "recharge_amount": string;
 }
 export interface ChargeChargeSettingsUpdatePatchResponseDataMappingRulesRules extends JsonObject {
   "label"?: string | null;
@@ -740,7 +768,7 @@ export interface ChargeChargeSettingsUpdatePatchResponseDataMappingRules extends
   "match"?: string;
 }
 export interface ChargeChargeSettingsUpdatePatchResponseData extends JsonObject {
-  "id": BackendJson<"uuid::Uuid">;
+  "id": string;
   "mapping_rules": ChargeChargeSettingsUpdatePatchResponseDataMappingRules;
   "status": number;
 }
@@ -750,30 +778,30 @@ export interface ChargeChargeSettingsUpdatePatchResponse extends ApiEnvelope<Cha
 /** Backend response type: CoinSettingsResponse. */
 export interface BankCoinSettingsShowGetResponseData extends JsonObject {
   "id": string;
-  "total_coins": number;
-  "coins_remaining": number;
-  "allocation_percent": number;
-  "bank_value_sum": number;
-  "coin_unit_value": number;
-  "allocated_coins": number;
+  "total_coins": string;
+  "coins_remaining": string;
+  "allocation_percent": string;
+  "bank_value_sum": string;
+  "coin_unit_value": string;
+  "allocated_coins": string;
 }
 export interface BankCoinSettingsShowGetResponse extends ApiEnvelope<BankCoinSettingsShowGetResponseData> {
 }
 
 /** Backend request type: UpdateCoinSettingsRequest. */
 export interface BankCoinSettingsUpdatePatchInput extends JsonObject {
-  "total_coins"?: number | null;
-  "allocation_percent"?: number | null;
+  "total_coins"?: string | number | null;
+  "allocation_percent"?: string | number | null;
 }
 /** Backend response type: CoinSettingsResponse. */
 export interface BankCoinSettingsUpdatePatchResponseData extends JsonObject {
   "id": string;
-  "total_coins": number;
-  "coins_remaining": number;
-  "allocation_percent": number;
-  "bank_value_sum": number;
-  "coin_unit_value": number;
-  "allocated_coins": number;
+  "total_coins": string;
+  "coins_remaining": string;
+  "allocation_percent": string;
+  "bank_value_sum": string;
+  "coin_unit_value": string;
+  "allocated_coins": string;
 }
 export interface BankCoinSettingsUpdatePatchResponse extends ApiEnvelope<BankCoinSettingsUpdatePatchResponseData> {
 }
@@ -785,12 +813,12 @@ export interface DashboardDashboardShowGetQuery extends QueryParams {
 /** Backend response type: DashboardResponse. */
 export interface DashboardDashboardShowGetResponseData extends JsonObject {
   "month": string;
-  "coins_available": number;
-  "coins_owned_by_users": number;
-  "total_coins": number;
-  "bank_value_sum": number;
-  "coin_unit_price": number;
-  "month_budget_balance": number;
+  "coins_available": string;
+  "coins_owned_by_users": string;
+  "total_coins": string;
+  "bank_value_sum": string;
+  "coin_unit_price": string;
+  "month_budget_balance": string;
   "month_bank_transactions_count": number;
   "month_actions_count": number;
 }
@@ -808,6 +836,8 @@ export type EconomyCommandPostResponse = import("./types.js").EconomyCommandResp
 /** Backend query type: JournalQuery. */
 export interface EconomyJournalGetQuery extends QueryParams {
   "after"?: number | null;
+  "before"?: number | null;
+  "descending"?: boolean | null;
   "limit"?: number | null;
 }
 /** Backend response type: Vec<Value>. */
@@ -828,6 +858,8 @@ export type EconomyMeGetResponse = import("./types.js").EconomyObjectsResponse;
 /** Backend query type: JournalQuery. */
 export interface EconomyMyHistoryGetQuery extends QueryParams {
   "after"?: number | null;
+  "before"?: number | null;
+  "descending"?: boolean | null;
   "limit"?: number | null;
 }
 /** Backend response type: Vec<Value>. */
@@ -870,18 +902,6 @@ export type EconomyPolicyPutPutResponse = import("./types.js").EconomyPolicyResp
 /** Backend response type: ValuationResponse. */
 export type EconomyValuationGetResponse = import("./types.js").EconomyValuationResponse;
 
-/** Backend request type: FundRequest. */
-export interface GameEscrowFundPostInputPlayers extends JsonObject {
-  "profile_id": string;
-  "amount": number;
-}
-export interface GameEscrowFundPostInput extends JsonObject {
-  "match_id": string;
-  "players": GameEscrowFundPostInputPlayers[];
-}
-/** Backend response type: Value. */
-export type GameEscrowFundPostResponse = JsonValue;
-
 /** Backend response type: Value. */
 export type GameEscrowShowGetResponse = JsonValue;
 
@@ -890,11 +910,23 @@ export type GameEscrowRefundPostResponse = JsonValue;
 
 /** Backend request type: SettleRequest. */
 export interface GameEscrowSettlePostInput extends JsonObject {
-  "winner_ids": string[];
-  "burn_basis_points"?: number;
+  "winnerIds": string[];
+  "burnBasisPoints"?: number;
 }
 /** Backend response type: Value. */
 export type GameEscrowSettlePostResponse = JsonValue;
+
+/** Backend request type: FundRequest. */
+export interface GameEscrowFundPostInputPlayers extends JsonObject {
+  "profileId": string;
+  "amount": string | number;
+}
+export interface GameEscrowFundPostInput extends JsonObject {
+  "matchId": string;
+  "players": GameEscrowFundPostInputPlayers[];
+}
+/** Backend response type: Value. */
+export type GameEscrowFundPostResponse = JsonValue;
 
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
 export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
@@ -953,6 +985,11 @@ export interface IntegrationRabbitmqIntegrationShowGetResponseData extends JsonO
 export interface IntegrationRabbitmqIntegrationShowGetResponse extends ApiEnvelope<IntegrationRabbitmqIntegrationShowGetResponseData> {
 }
 
+/** Backend request type: PlanProduct. */
+export type FitnessPublishPutInput = import("./contracts.types.js").FitnessAssetProductInput;
+/** Backend response type: PlanProduct. */
+export type FitnessPublishPutResponse = import("./contracts.types.js").FitnessAssetProductResponse;
+
 /** Backend query type: LeaderboardQuery. */
 export interface LeaderboardLeaderboardIndexGetQuery extends QueryParams {
   "profile_ids"?: string | null;
@@ -965,10 +1002,10 @@ export interface LeaderboardLeaderboardIndexGetResponseDataUser extends JsonObje
   "profile_id": string;
   "name"?: string | null;
   "level": number;
-  "coin": number;
-  "blue": number;
-  "red": number;
-  "green": number;
+  "coin": string;
+  "blue": string;
+  "red": string;
+  "green": string;
   "rank": number;
 }
 export interface LeaderboardLeaderboardIndexGetResponseDataTop extends JsonObject {
@@ -976,10 +1013,10 @@ export interface LeaderboardLeaderboardIndexGetResponseDataTop extends JsonObjec
   "profile_id": string;
   "name"?: string | null;
   "level": number;
-  "coin": number;
-  "blue": number;
-  "red": number;
-  "green": number;
+  "coin": string;
+  "blue": string;
+  "red": string;
+  "green": string;
   "rank": number;
 }
 export interface LeaderboardLeaderboardIndexGetResponseDataNeighbors extends JsonObject {
@@ -987,10 +1024,10 @@ export interface LeaderboardLeaderboardIndexGetResponseDataNeighbors extends Jso
   "profile_id": string;
   "name"?: string | null;
   "level": number;
-  "coin": number;
-  "blue": number;
-  "red": number;
-  "green": number;
+  "coin": string;
+  "blue": string;
+  "red": string;
+  "green": string;
   "rank": number;
 }
 export interface LeaderboardLeaderboardIndexGetResponseData extends JsonObject {
@@ -1015,7 +1052,7 @@ export interface LlmUsagePlansIndexGetResponseItem extends JsonObject {
   "profile_id": string;
   "tier": string;
   "expires_at"?: string | null;
-  "plan_points": number;
+  "plan_points": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -1041,7 +1078,7 @@ export interface LlmUsagePlanShowGetResponseData extends JsonObject {
   "profile_id": string;
   "tier": string;
   "expires_at"?: string | null;
-  "plan_points": number;
+  "plan_points": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -1057,7 +1094,7 @@ export interface LlmUsagePlanSetPutResponseData extends JsonObject {
   "profile_id": string;
   "tier": string;
   "expires_at"?: string | null;
-  "plan_points": number;
+  "plan_points": string;
   "created_at": string;
   "updated_at": string;
 }
@@ -1089,7 +1126,7 @@ export interface WalletMeAssetHistoryGetResponseItem extends JsonObject {
   "asset_type"?: WalletMeAssetHistoryGetResponseItemAssetType | null;
   "subject_type": string;
   "subject_id"?: string | null;
-  "quantity": number;
+  "quantity": string;
   "transaction_type": string;
   "created_at": string;
 }
@@ -1111,25 +1148,25 @@ export interface WalletMeAssetsShowGetResponseDataCoin extends JsonObject {
   "asset_id": string;
   "asset_name": string;
   "title"?: string | null;
-  "balance": number;
+  "balance": string;
 }
 export interface WalletMeAssetsShowGetResponseDataXp extends JsonObject {
   "asset_id": string;
   "asset_name": string;
   "title"?: string | null;
-  "balance": number;
+  "balance": string;
 }
 export interface WalletMeAssetsShowGetResponseDataCharge extends JsonObject {
   "asset_id": string;
   "asset_name": string;
   "title"?: string | null;
-  "balance": number;
+  "balance": string;
 }
 export interface WalletMeAssetsShowGetResponseDataGems extends JsonObject {
   "asset_id": string;
   "asset_name": string;
   "title"?: string | null;
-  "balance": number;
+  "balance": string;
 }
 export interface WalletMeAssetsShowGetResponseDataBadges extends JsonObject {
   "asset_id": string;
@@ -1138,7 +1175,7 @@ export interface WalletMeAssetsShowGetResponseDataBadges extends JsonObject {
   "description"?: string | null;
   "subject_type": string;
   "metadata": JsonValue;
-  "balance": number;
+  "balance": string;
   "earned_at"?: string | null;
 }
 export interface WalletMeAssetsShowGetResponseData extends JsonObject {
@@ -1148,9 +1185,9 @@ export interface WalletMeAssetsShowGetResponseData extends JsonObject {
   "charge": WalletMeAssetsShowGetResponseDataCharge;
   "gems": WalletMeAssetsShowGetResponseDataGems[];
   "badges": WalletMeAssetsShowGetResponseDataBadges[];
-  "max_charge"?: number | null;
-  "recharge_period"?: number | null;
-  "xp_to_next_rank"?: number | null;
+  "max_charge"?: string | null;
+  "recharge_period"?: string | null;
+  "xp_to_next_rank"?: string | null;
 }
 export interface WalletMeAssetsShowGetResponse extends ApiEnvelope<WalletMeAssetsShowGetResponseData> {
 }
@@ -1168,7 +1205,7 @@ export interface WalletMeBadgesShowGetResponseDataBadges extends JsonObject {
   "description"?: string | null;
   "subject_type": string;
   "metadata": JsonValue;
-  "balance": number;
+  "balance": string;
   "earned_at"?: string | null;
 }
 export interface WalletMeBadgesShowGetResponseData extends JsonObject {
@@ -1227,33 +1264,33 @@ export interface WalletMeLlmUsageGetQuery extends QueryParams {
 /** Backend response type: crate::llm_usage::models::UsageSummary. */
 export interface WalletMeLlmUsageGetResponseDataChart extends JsonObject {
   "start": string;
-  "input_tokens": number;
-  "output_tokens": number;
-  "points_cost": number;
+  "inputTokens": number;
+  "outputTokens": number;
+  "pointsCost": string;
 }
 export interface WalletMeLlmUsageGetResponseDataBuckets extends JsonObject {
   "start": string;
-  "input_tokens": number;
-  "output_tokens": number;
-  "points_cost": number;
+  "inputTokens": number;
+  "outputTokens": number;
+  "pointsCost": string;
 }
 export interface WalletMeLlmUsageGetResponseDataLast24Hours extends JsonObject {
-  "input_tokens": number;
-  "output_tokens": number;
-  "points_cost": number;
+  "inputTokens": number;
+  "outputTokens": number;
+  "pointsCost": string;
 }
 export interface WalletMeLlmUsageGetResponseDataRangeTotals extends JsonObject {
-  "input_tokens": number;
-  "output_tokens": number;
-  "points_cost": number;
+  "inputTokens": number;
+  "outputTokens": number;
+  "pointsCost": string;
 }
 export interface WalletMeLlmUsageGetResponseData extends JsonObject {
   "currency": string;
   "range": string;
   "chart": WalletMeLlmUsageGetResponseDataChart[];
   "buckets": WalletMeLlmUsageGetResponseDataBuckets[];
-  "last_24_hours": WalletMeLlmUsageGetResponseDataLast24Hours;
-  "range_totals": WalletMeLlmUsageGetResponseDataRangeTotals;
+  "last_24Hours": WalletMeLlmUsageGetResponseDataLast24Hours;
+  "rangeTotals": WalletMeLlmUsageGetResponseDataRangeTotals;
 }
 export interface WalletMeLlmUsageGetResponse extends ApiEnvelope<WalletMeLlmUsageGetResponseData> {
 }
@@ -1274,11 +1311,11 @@ export interface WalletMeTransactionsGetResponseDataItems extends JsonObject {
   "id": string;
   "profile_id": string;
   "direction": string;
-  "amount": number;
+  "amount": string;
   "reason": string;
   "ref_type"?: string | null;
   "ref_id"?: string | null;
-  "balance_after": number;
+  "balance_after": string;
   "created_at": string;
 }
 export interface WalletMeTransactionsGetResponseData extends JsonObject {
@@ -1288,6 +1325,21 @@ export interface WalletMeTransactionsGetResponseData extends JsonObject {
   "page_size": number;
 }
 export interface WalletMeTransactionsGetResponse extends ApiEnvelope<WalletMeTransactionsGetResponseData> {
+}
+
+/** Backend response type: entity::wallet_transaction::Model. */
+export interface WalletMeTransactionShowGetResponseData extends JsonObject {
+  "id": string;
+  "profile_id": string;
+  "direction": string;
+  "amount": string;
+  "reason": string;
+  "ref_type"?: string | null;
+  "ref_id"?: string | null;
+  "balance_after": string;
+  "created_at": string;
+}
+export interface WalletMeTransactionShowGetResponse extends ApiEnvelope<WalletMeTransactionShowGetResponseData> {
 }
 
 /** Backend query type: UsageDaysQuery. */
@@ -1301,17 +1353,17 @@ export interface WalletMeTransactionDaysGetQuery extends QueryParams {
 /** Backend response type: UsageDaysPage. */
 export interface WalletMeTransactionDaysGetResponseDataItems extends JsonObject {
   "date": string;
-  "resource_cost": number;
-  "llm_cost": number;
-  "total_cost": number;
-  "transaction_count": number;
+  "resourceCost": string;
+  "llmCost": string;
+  "totalCost": string;
+  "transactionCount": number;
   "currency": string;
 }
 export interface WalletMeTransactionDaysGetResponseData extends JsonObject {
   "items": WalletMeTransactionDaysGetResponseDataItems[];
   "total": number;
   "page": number;
-  "page_size": number;
+  "pageSize": number;
 }
 export interface WalletMeTransactionDaysGetResponse extends ApiEnvelope<WalletMeTransactionDaysGetResponseData> {
 }
@@ -1323,48 +1375,33 @@ export interface WalletMeTransactionDayGetQuery extends QueryParams {
 /** Backend response type: UsageDayDetail. */
 export interface WalletMeTransactionDayGetResponseDataResources extends JsonObject {
   "project": string;
-  "amount": number;
-  "transaction_count": number;
+  "amount": string;
+  "transactionCount": number;
 }
 export interface WalletMeTransactionDayGetResponseDataLlm extends JsonObject {
   "id": string;
   "project"?: string | null;
   "provider"?: string | null;
-  "cached_input_tokens": number;
-  "cache_write_tokens": number;
+  "cachedInputTokens": number;
+  "cacheWriteTokens": number;
   "model": string;
-  "input_tokens": number;
-  "output_tokens": number;
-  "amount": number;
+  "inputTokens": number;
+  "outputTokens": number;
+  "amount": string;
   "currency": string;
-  "request_id"?: string | null;
-  "created_at": string;
+  "requestId"?: string | null;
+  "createdAt": string;
 }
 export interface WalletMeTransactionDayGetResponseData extends JsonObject {
   "date": string;
   "currency": string;
-  "resource_cost": number;
-  "llm_cost": number;
-  "total_cost": number;
+  "resourceCost": string;
+  "llmCost": string;
+  "totalCost": string;
   "resources": WalletMeTransactionDayGetResponseDataResources[];
   "llm": WalletMeTransactionDayGetResponseDataLlm[];
 }
 export interface WalletMeTransactionDayGetResponse extends ApiEnvelope<WalletMeTransactionDayGetResponseData> {
-}
-
-/** Backend response type: entity::wallet_transaction::Model. */
-export interface WalletMeTransactionShowGetResponseData extends JsonObject {
-  "id": string;
-  "profile_id": string;
-  "direction": string;
-  "amount": number;
-  "reason": string;
-  "ref_type"?: string | null;
-  "ref_id"?: string | null;
-  "balance_after": number;
-  "created_at": string;
-}
-export interface WalletMeTransactionShowGetResponse extends ApiEnvelope<WalletMeTransactionShowGetResponseData> {
 }
 
 /** Backend response type: Vec<methods::PlanProduct>. */
@@ -1372,10 +1409,10 @@ export interface WalletBillingPlansIndexGetResponseItem extends JsonObject {
   "tier": string;
   "name": string;
   "description"?: string | null;
-  "price": number;
+  "price": string;
   "currency": string;
   "duration_days": number;
-  "points": number;
+  "points": string;
   "storage_gb": number;
   "product_id"?: string | null;
   "metadata": JsonValue;
@@ -1387,9 +1424,9 @@ export interface WalletBillingPlansIndexGetResponse extends ApiEnvelope<WalletBi
 /** Backend response type: methods::CurrentPlan. */
 export interface WalletBillingCurrentPlanGetResponseData extends JsonObject {
   "tier": string;
-  "expires_at"?: string | null;
-  "days_remaining": number;
-  "renewal_allowed": boolean;
+  "expiresAt"?: string | null;
+  "daysRemaining": number;
+  "renewalAllowed": boolean;
 }
 export interface WalletBillingCurrentPlanGetResponse extends ApiEnvelope<WalletBillingCurrentPlanGetResponseData> {
 }
@@ -1409,8 +1446,8 @@ export interface WalletBillingPlansPurchasePostResponse extends ApiEnvelope<Wall
 /** Backend response type: Vec<methods::PointsPack>. */
 export interface WalletBillingPointsPacksIndexGetResponseItem extends JsonObject {
   "id": string;
-  "price": number;
-  "points": number;
+  "price": string;
+  "points": string;
 }
 export interface WalletBillingPointsPacksIndexGetResponse extends ApiEnvelope<WalletBillingPointsPacksIndexGetResponseItem[]> {
 }
@@ -1418,7 +1455,7 @@ export interface WalletBillingPointsPacksIndexGetResponse extends ApiEnvelope<Wa
 /** Backend request type: PackPurchaseBody. */
 export interface WalletBillingPointsPacksPurchasePostInput extends JsonObject {
   "pack_id"?: string | null;
-  "points"?: number | null;
+  "points"?: string | number | null;
 }
 /** Backend response type: PurchaseInitResponse. */
 export interface WalletBillingPointsPacksPurchasePostResponseData extends JsonObject {
@@ -1442,7 +1479,7 @@ export interface RankRanksIndexGetResponseItem extends JsonObject {
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
-  "min_xp": number;
+  "min_xp": string;
   "status": number;
 }
 export interface RankRanksIndexGetResponsePageMeta extends JsonObject {
@@ -1463,7 +1500,7 @@ export interface RankRanksCreatePostInput extends JsonObject {
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
-  "min_xp": number;
+  "min_xp": string | number;
   "status"?: number | null;
 }
 /** Backend response type: RankResponse. */
@@ -1472,7 +1509,7 @@ export interface RankRanksCreatePostResponseData extends JsonObject {
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
-  "min_xp": number;
+  "min_xp": string;
   "status": number;
 }
 export interface RankRanksCreatePostResponse extends ApiEnvelope<RankRanksCreatePostResponseData> {
@@ -1488,7 +1525,7 @@ export interface RankRanksShowGetResponseData extends JsonObject {
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
-  "min_xp": number;
+  "min_xp": string;
   "status": number;
 }
 export interface RankRanksShowGetResponse extends ApiEnvelope<RankRanksShowGetResponseData> {
@@ -1499,7 +1536,7 @@ export interface RankRanksUpdatePatchInput extends JsonObject {
   "name"?: string | null;
   "title"?: string | null;
   "description"?: string | null;
-  "min_xp"?: number | null;
+  "min_xp"?: string | number | null;
   "status"?: number | null;
 }
 /** Backend response type: RankResponse. */
@@ -1508,7 +1545,7 @@ export interface RankRanksUpdatePatchResponseData extends JsonObject {
   "name": string;
   "title"?: string | null;
   "description"?: string | null;
-  "min_xp": number;
+  "min_xp": string;
   "status": number;
 }
 export interface RankRanksUpdatePatchResponse extends ApiEnvelope<RankRanksUpdatePatchResponseData> {
@@ -1523,21 +1560,21 @@ export type SandboxBillingPurgeDeleteResponse = SandboxBillingPurgeDeleteRespons
 
 /** Backend response type: AllocationView. */
 export interface SandboxBillingShowGetResponseDataPrice extends JsonObject {
-  "cpu": number;
-  "ram": number;
-  "database_storage": number;
-  "minio_storage": number;
-  "app_storage": number;
-  "disk": number;
-  "services": number;
-  "resource_total": number;
-  "total": number;
+  "cpu": string;
+  "ram": string;
+  "database_storage": string;
+  "minio_storage": string;
+  "app_storage": string;
+  "disk": string;
+  "services": string;
+  "resource_total": string;
+  "total": string;
   "currency": string;
 }
 export interface SandboxBillingShowGetResponseDataUnitPrices extends JsonObject {
-  "cpu_millicore_hour": number;
-  "ram_mb_hour": number;
-  "disk_mb_hour": number;
+  "cpu_millicore_hour": string;
+  "ram_mb_hour": string;
+  "disk_mb_hour": string;
   "currency": string;
 }
 export interface SandboxBillingShowGetResponseData extends JsonObject {
@@ -1551,7 +1588,7 @@ export interface SandboxBillingShowGetResponseData extends JsonObject {
   "app_storage_mb": number;
   "volume_storage_mb": BackendJson<"Json">;
   "bundle_id"?: string | null;
-  "monthly_price_override"?: number | null;
+  "monthly_price_override"?: string | null;
   "status": string;
   "paused_at"?: string | null;
   "purge_at"?: string | null;
@@ -1562,9 +1599,9 @@ export interface SandboxBillingShowGetResponseData extends JsonObject {
   "price": SandboxBillingShowGetResponseDataPrice;
   "unit_prices": SandboxBillingShowGetResponseDataUnitPrices;
   "currency": string;
-  "hourly_price": number;
-  "daily_estimate": number;
-  "monthly_estimate": number;
+  "hourly_price": string;
+  "daily_estimate": string;
+  "monthly_estimate": string;
   "next_charge_at": string;
 }
 export interface SandboxBillingShowGetResponse extends ApiEnvelope<SandboxBillingShowGetResponseData> {
@@ -1572,31 +1609,33 @@ export interface SandboxBillingShowGetResponse extends ApiEnvelope<SandboxBillin
 
 /** Backend request type: AllocationInput. */
 export interface SandboxBillingUpdatePutInput extends JsonObject {
+  "max_hourly_amount"?: string | number | null;
+  "accepted_currency"?: string | null;
   "bundle_id"?: string | null;
   "cpu_millicores": number;
   "ram_mb": number;
   "database_storage_mb": number;
   "minio_storage_mb"?: number;
   "app_storage_mb"?: number;
-  "volume_storage_mb"?: Record<string, JsonValue>;
+  "volume_storage_mb"?: Record<string, number>;
 }
 /** Backend response type: AllocationView. */
 export interface SandboxBillingUpdatePutResponseDataPrice extends JsonObject {
-  "cpu": number;
-  "ram": number;
-  "database_storage": number;
-  "minio_storage": number;
-  "app_storage": number;
-  "disk": number;
-  "services": number;
-  "resource_total": number;
-  "total": number;
+  "cpu": string;
+  "ram": string;
+  "database_storage": string;
+  "minio_storage": string;
+  "app_storage": string;
+  "disk": string;
+  "services": string;
+  "resource_total": string;
+  "total": string;
   "currency": string;
 }
 export interface SandboxBillingUpdatePutResponseDataUnitPrices extends JsonObject {
-  "cpu_millicore_hour": number;
-  "ram_mb_hour": number;
-  "disk_mb_hour": number;
+  "cpu_millicore_hour": string;
+  "ram_mb_hour": string;
+  "disk_mb_hour": string;
   "currency": string;
 }
 export interface SandboxBillingUpdatePutResponseData extends JsonObject {
@@ -1610,7 +1649,7 @@ export interface SandboxBillingUpdatePutResponseData extends JsonObject {
   "app_storage_mb": number;
   "volume_storage_mb": BackendJson<"Json">;
   "bundle_id"?: string | null;
-  "monthly_price_override"?: number | null;
+  "monthly_price_override"?: string | null;
   "status": string;
   "paused_at"?: string | null;
   "purge_at"?: string | null;
@@ -1621,9 +1660,9 @@ export interface SandboxBillingUpdatePutResponseData extends JsonObject {
   "price": SandboxBillingUpdatePutResponseDataPrice;
   "unit_prices": SandboxBillingUpdatePutResponseDataUnitPrices;
   "currency": string;
-  "hourly_price": number;
-  "daily_estimate": number;
-  "monthly_estimate": number;
+  "hourly_price": string;
+  "daily_estimate": string;
+  "monthly_estimate": string;
   "next_charge_at": string;
 }
 export interface SandboxBillingUpdatePutResponse extends ApiEnvelope<SandboxBillingUpdatePutResponseData> {
@@ -1631,21 +1670,21 @@ export interface SandboxBillingUpdatePutResponse extends ApiEnvelope<SandboxBill
 
 /** Backend response type: AllocationView. */
 export interface SandboxBillingPausePostResponseDataPrice extends JsonObject {
-  "cpu": number;
-  "ram": number;
-  "database_storage": number;
-  "minio_storage": number;
-  "app_storage": number;
-  "disk": number;
-  "services": number;
-  "resource_total": number;
-  "total": number;
+  "cpu": string;
+  "ram": string;
+  "database_storage": string;
+  "minio_storage": string;
+  "app_storage": string;
+  "disk": string;
+  "services": string;
+  "resource_total": string;
+  "total": string;
   "currency": string;
 }
 export interface SandboxBillingPausePostResponseDataUnitPrices extends JsonObject {
-  "cpu_millicore_hour": number;
-  "ram_mb_hour": number;
-  "disk_mb_hour": number;
+  "cpu_millicore_hour": string;
+  "ram_mb_hour": string;
+  "disk_mb_hour": string;
   "currency": string;
 }
 export interface SandboxBillingPausePostResponseData extends JsonObject {
@@ -1659,7 +1698,7 @@ export interface SandboxBillingPausePostResponseData extends JsonObject {
   "app_storage_mb": number;
   "volume_storage_mb": BackendJson<"Json">;
   "bundle_id"?: string | null;
-  "monthly_price_override"?: number | null;
+  "monthly_price_override"?: string | null;
   "status": string;
   "paused_at"?: string | null;
   "purge_at"?: string | null;
@@ -1670,9 +1709,9 @@ export interface SandboxBillingPausePostResponseData extends JsonObject {
   "price": SandboxBillingPausePostResponseDataPrice;
   "unit_prices": SandboxBillingPausePostResponseDataUnitPrices;
   "currency": string;
-  "hourly_price": number;
-  "daily_estimate": number;
-  "monthly_estimate": number;
+  "hourly_price": string;
+  "daily_estimate": string;
+  "monthly_estimate": string;
   "next_charge_at": string;
 }
 export interface SandboxBillingPausePostResponse extends ApiEnvelope<SandboxBillingPausePostResponseData> {
@@ -1682,31 +1721,31 @@ export interface SandboxBillingPausePostResponse extends ApiEnvelope<SandboxBill
 export interface SandboxBillingShowPricingGetResponseData extends JsonObject {
   "project": string;
   "currency": string;
-  "fixed_monthly_price"?: number | null;
-  "hourly_price": number;
-  "daily_estimate": number;
-  "monthly_estimate": number;
+  "fixed_monthly_price"?: string | null;
+  "hourly_price": string;
+  "daily_estimate": string;
+  "monthly_estimate": string;
 }
 export interface SandboxBillingShowPricingGetResponse extends ApiEnvelope<SandboxBillingShowPricingGetResponseData> {
 }
 
 /** Backend response type: AllocationView. */
 export interface SandboxBillingResumePostResponseDataPrice extends JsonObject {
-  "cpu": number;
-  "ram": number;
-  "database_storage": number;
-  "minio_storage": number;
-  "app_storage": number;
-  "disk": number;
-  "services": number;
-  "resource_total": number;
-  "total": number;
+  "cpu": string;
+  "ram": string;
+  "database_storage": string;
+  "minio_storage": string;
+  "app_storage": string;
+  "disk": string;
+  "services": string;
+  "resource_total": string;
+  "total": string;
   "currency": string;
 }
 export interface SandboxBillingResumePostResponseDataUnitPrices extends JsonObject {
-  "cpu_millicore_hour": number;
-  "ram_mb_hour": number;
-  "disk_mb_hour": number;
+  "cpu_millicore_hour": string;
+  "ram_mb_hour": string;
+  "disk_mb_hour": string;
   "currency": string;
 }
 export interface SandboxBillingResumePostResponseData extends JsonObject {
@@ -1720,7 +1759,7 @@ export interface SandboxBillingResumePostResponseData extends JsonObject {
   "app_storage_mb": number;
   "volume_storage_mb": BackendJson<"Json">;
   "bundle_id"?: string | null;
-  "monthly_price_override"?: number | null;
+  "monthly_price_override"?: string | null;
   "status": string;
   "paused_at"?: string | null;
   "purge_at"?: string | null;
@@ -1731,13 +1770,28 @@ export interface SandboxBillingResumePostResponseData extends JsonObject {
   "price": SandboxBillingResumePostResponseDataPrice;
   "unit_prices": SandboxBillingResumePostResponseDataUnitPrices;
   "currency": string;
-  "hourly_price": number;
-  "daily_estimate": number;
-  "monthly_estimate": number;
+  "hourly_price": string;
+  "daily_estimate": string;
+  "monthly_estimate": string;
   "next_charge_at": string;
 }
 export interface SandboxBillingResumePostResponse extends ApiEnvelope<SandboxBillingResumePostResponseData> {
 }
+
+/** Backend request type: AllocationInput. */
+export interface SandboxBillingQuoteResourcesPostInput extends JsonObject {
+  "max_hourly_amount"?: string | number | null;
+  "accepted_currency"?: string | null;
+  "bundle_id"?: string | null;
+  "cpu_millicores": number;
+  "ram_mb": number;
+  "database_storage_mb": number;
+  "minio_storage_mb"?: number;
+  "app_storage_mb"?: number;
+  "volume_storage_mb"?: Record<string, number>;
+}
+/** Backend response type: serde_json::Value. */
+export type SandboxBillingQuoteResourcesPostResponse = import("./contracts.types.js").ResourceQuoteResponse;
 
 /** Backend query type: SubscriptionListQuery. */
 export interface WalletBillingSubscriptionsIndexGetQuery extends QueryParams {
@@ -1750,7 +1804,7 @@ export interface WalletBillingSubscriptionsIndexGetResponseDataSubscriptions ext
   "project": string;
   "service_name": string;
   "period": string;
-  "unit_price": number;
+  "unit_price": string;
   "currency": string;
   "status": string;
   "purchase_id"?: string | null;
@@ -1764,24 +1818,6 @@ export interface WalletBillingSubscriptionsIndexGetResponseData extends JsonObje
   "subscriptions": WalletBillingSubscriptionsIndexGetResponseDataSubscriptions[];
 }
 export interface WalletBillingSubscriptionsIndexGetResponse extends ApiEnvelope<WalletBillingSubscriptionsIndexGetResponseData> {
-}
-
-/** Backend request type: SubscriptionPurchaseRequest. */
-export interface WalletBillingSubscriptionsPurchasePostInputItems extends JsonObject {
-  "service_name": string;
-  "period": string;
-}
-export interface WalletBillingSubscriptionsPurchasePostInput extends JsonObject {
-  "project": string;
-  "items": WalletBillingSubscriptionsPurchasePostInputItems[];
-  "currency"?: string | null;
-}
-/** Backend response type: PurchaseInitResponse. */
-export interface WalletBillingSubscriptionsPurchasePostResponseData extends JsonObject {
-  "purchase_id": string;
-  "payment_url": string;
-}
-export interface WalletBillingSubscriptionsPurchasePostResponse extends ApiEnvelope<WalletBillingSubscriptionsPurchasePostResponseData> {
 }
 
 /** Backend response type: APIEmptyResponse. */
@@ -1825,6 +1861,24 @@ export interface ServiceLifecycleResumePostResponseData extends JsonObject {
 }
 export type ServiceLifecycleResumePostResponse = ServiceLifecycleResumePostResponseData;
 
+/** Backend request type: SubscriptionPurchaseRequest. */
+export interface WalletBillingSubscriptionsPurchasePostInputItems extends JsonObject {
+  "service_name": string;
+  "period": string;
+}
+export interface WalletBillingSubscriptionsPurchasePostInput extends JsonObject {
+  "project": string;
+  "items": WalletBillingSubscriptionsPurchasePostInputItems[];
+  "currency"?: string | null;
+}
+/** Backend response type: PurchaseInitResponse. */
+export interface WalletBillingSubscriptionsPurchasePostResponseData extends JsonObject {
+  "purchase_id": string;
+  "payment_url": string;
+}
+export interface WalletBillingSubscriptionsPurchasePostResponse extends ApiEnvelope<WalletBillingSubscriptionsPurchasePostResponseData> {
+}
+
 /** Backend query type: LogListQuery. */
 export interface LogsUserActionLogsIndexGetQuery extends QueryParams {
   "page[number]"?: number | null;
@@ -1849,7 +1903,7 @@ export interface LogsUserActionLogsIndexGetResponseItem extends JsonObject {
   "event_id"?: string | null;
   "subject_type": string;
   "subject_id"?: string | null;
-  "value"?: number | null;
+  "value"?: string | null;
   "metadata": JsonValue;
   "occurred_at": string;
   "status": number;
@@ -1898,7 +1952,7 @@ export interface LogsUserAssetLogsIndexGetResponseItem extends JsonObject {
   "asset_type"?: LogsUserAssetLogsIndexGetResponseItemAssetType | null;
   "subject_type": string;
   "subject_id"?: string | null;
-  "quantity": number;
+  "quantity": string;
   "transaction_type": string;
   "created_at": string;
 }
@@ -1918,15 +1972,34 @@ export interface LogsUserAssetLogsIndexGetResponse extends ApiEnvelope<LogsUserA
 /** Backend response type: WalletResponse. */
 export interface WalletBillingWalletShowGetResponseData extends JsonObject {
   "profile_id": string;
-  "balance": number;
+  "balance": string;
   "currency": string;
 }
 export interface WalletBillingWalletShowGetResponse extends ApiEnvelope<WalletBillingWalletShowGetResponseData> {
 }
 
+/** Backend response type: serde_json::Value. */
+export type WalletBillingWalletPurchaseShowGetResponse = import("./contracts.types.js").WalletPurchaseReceiptResponse;
+
+/** Backend request type: WalletSubscriptionPurchaseRequest. */
+export interface WalletBillingWalletSubscriptionsPostInputItems extends JsonObject {
+  "service_name": string;
+  "period": string;
+}
+export interface WalletBillingWalletSubscriptionsPostInput extends JsonObject {
+  "request_id": string;
+  "project": string;
+  "items": WalletBillingWalletSubscriptionsPostInputItems[];
+  "currency": string;
+  "max_amount": string | number;
+}
+/** Backend response type: serde_json::Value. */
+export type WalletBillingWalletSubscriptionsPostResponse = import("./contracts.types.js").WalletSubscriptionReceiptResponse;
+
 /** Backend request type: TopupRequest. */
 export interface WalletBillingWalletTopupPostInput extends JsonObject {
-  "amount": number;
+  "request_id"?: string | null;
+  "amount": string | number;
   "currency"?: string | null;
 }
 /** Backend response type: PurchaseInitResponse. */

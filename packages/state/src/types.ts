@@ -26,6 +26,7 @@ export interface UploadWasmInput { name:string; wasm_base64:string; exports?:str
 export interface WasmEndpoint { id:string; world_id:string; module_id:string; slug:string; export:string; component:string; reliable:boolean }
 export interface CreateWasmEndpointInput { module_id:string; slug:string; export:string; component:string; reliable?:boolean }
 export interface InvokeWasmInput { player_id:string; entity_id:string; inputs?:number[] }
-export type WorldListResponse=ApiEnvelope<World[]>; export type WorldResponse=ApiEnvelope<World>; export type RoomListResponse=ApiEnvelope<Room[]>; export type RoomResponse=ApiEnvelope<Room>; export type JoinResponse=ApiEnvelope<JoinTicket>; export type StatePatchResponse=ApiEnvelope<StatePatch>;
+export interface StateResponse<T> { data:T }
+export type WorldListResponse=StateResponse<World[]>; export type WorldResponse=StateResponse<World>; export type RoomListResponse=StateResponse<Room[]>; export type RoomResponse=StateResponse<Room>; export type JoinResponse=StateResponse<JoinTicket>; export type StatePatchResponse=StateResponse<StatePatch>;
 export interface StateHealthData extends JsonObject { service: "infera-state"; status: "healthy"; transports: ("websocket" | "udp")[]; wasm: boolean }
 export interface StateHealthResponse extends JsonObject { data: StateHealthData }

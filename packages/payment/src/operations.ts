@@ -89,6 +89,16 @@ export class PaymentOperations extends ServiceApi {
     return this.client.request<T.GatewayOptionsGetResponse>({ ...options, method: "GET", url: `/api/v1/gateways/options` });
   }
   /**
+   * Verify live gateway configuration with a read-only provider check. Does not expose merchant secrets.
+   * Calls `POST /api/v1/gateways/setup-check` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:gateway:read.
+   */
+  gatewaySetupCheckPost(options?: RequestOptions) {
+    return this.client.request<T.GatewaySetupCheckPostResponse>({ ...options, method: "POST", url: `/api/v1/gateways/setup-check` });
+  }
+  /**
    * Performs the integration docs show operation for the integration capability.
    * Calls `GET /api/v1/integration/docs` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -107,6 +117,114 @@ export class PaymentOperations extends ServiceApi {
    */
   integrationFlowIntegrationShowGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/flow` });
+  }
+  /**
+   * Performs the availability operation for the product plans capability.
+   * Calls `GET /api/v1/internal/2done/availability` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only PRODUCT_PAYMENT_TOKEN bearer credential.
+   */
+  productPlansAvailabilityGet(options?: RequestOptions) {
+    return this.client.request<T.ProductPlansAvailabilityGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/2done/availability` });
+  }
+  /**
+   * Performs the create operation for the product plans capability.
+   * Calls `POST /api/v1/internal/2done/payment` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   */
+  productPlansCreatePost(data: T.ProductPlansCreatePostInput, options?: RequestOptions<T.ProductPlansCreatePostInput>) {
+    return this.client.request<T.ProductPlansCreatePostResponse, T.ProductPlansCreatePostInput>({ ...options, method: "POST", url: `/api/v1/internal/2done/payment`, data: data });
+  }
+  /**
+   * Performs the receipt operation for the product plans capability.
+   * Calls `GET /api/v1/internal/2done/transactions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only product payment bearer credential; restricted service and transaction ownership.
+   */
+  productPlansReceiptGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ProductPlansReceiptGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/2done/transactions/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the receipt operation for the asset checkout capability.
+   * Calls `GET /api/v1/internal/asset/purchases/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only Asset payment bearer credential; validates checkout allocation and provider proof.
+   */
+  assetCheckoutReceiptGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.AssetCheckoutReceiptGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/asset/purchases/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the create operation for the fitness capability.
+   * Calls `POST /api/v1/internal/fitness/payment` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   */
+  fitnessCreatePost(data: T.FitnessCreatePostInput, options?: RequestOptions<T.FitnessCreatePostInput>) {
+    return this.client.request<T.FitnessCreatePostResponse, T.FitnessCreatePostInput>({ ...options, method: "POST", url: `/api/v1/internal/fitness/payment`, data: data });
+  }
+  /**
+   * Performs the receipt operation for the fitness capability.
+   * Calls `GET /api/v1/internal/fitness/transactions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only product payment bearer credential; restricted service and transaction ownership.
+   */
+  fitnessReceiptGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FitnessReceiptGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/fitness/transactions/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the retry operation for the fitness capability.
+   * Calls `POST /api/v1/internal/fitness/transactions/{id}/retry` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   */
+  fitnessRetryPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FitnessRetryPostResponse>({ ...options, method: "POST", url: `/api/v1/internal/fitness/transactions/${encodeURIComponent(id)}/retry` });
+  }
+  /**
+   * Performs the create operation for the shop checkout capability.
+   * Calls `POST /api/v1/internal/shop/payment` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted backend service credential and tenant scope; not a public browser endpoint.
+   */
+  shopCheckoutCreatePost(data: T.ShopCheckoutCreatePostInput, options?: RequestOptions<T.ShopCheckoutCreatePostInput>) {
+    return this.client.request<T.ShopCheckoutCreatePostResponse, T.ShopCheckoutCreatePostInput>({ ...options, method: "POST", url: `/api/v1/internal/shop/payment`, data: data });
+  }
+  /**
+   * Performs the readiness operation for the shop checkout capability.
+   * Calls `GET /api/v1/internal/shop/readiness` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only shop payment bearer credential and website scope.
+   */
+  shopCheckoutReadinessGet(options?: RequestOptions) {
+    return this.client.request<T.ShopCheckoutReadinessGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/shop/readiness` });
+  }
+  /**
+   * Performs the receipt operation for the shop checkout capability.
+   * Calls `GET /api/v1/internal/shop/transactions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only shop payment bearer credential and website scope.
+   */
+  shopCheckoutReceiptGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ShopCheckoutReceiptGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/shop/transactions/${encodeURIComponent(id)}` });
   }
   /**
    * Performs the create payment operation for the payment capability.

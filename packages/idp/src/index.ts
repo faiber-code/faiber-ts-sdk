@@ -78,3 +78,5 @@ export * from "@faiber/sdk-core";
 export * from "./types.js";
 export * from "./operations.js";
 export * from "./operations.types.js";
+
+export * from "./contracts.types.js";

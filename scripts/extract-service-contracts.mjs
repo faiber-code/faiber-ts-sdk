@@ -1,3 +1,5 @@
+import { productionRust } from "./rust-source.mjs";
+import { serviceSources } from "./service-source-snapshots.mjs";
 import { access, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, relative, resolve } from "node:path";
 
@@ -9,7 +11,7 @@ const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async 
   }
   return siblingRoots[0];
 })();
-const servicesRoot = resolve(discoveredServicesRoot);
+const servicesRoot = resolve(serviceSources(sdkRoot, discoveredServicesRoot));
 const services = [
   "asset", "chat", "crm", "drm", "flow", "idp", "knowledge", "lms", "messenger",
   "modules", "payment", "profile", "reservation", "session", "social", "state", "task", "version",
@@ -80,11 +82,11 @@ function enclosingFactory(source, position) {
 
 function annotations(source) {
   const result = new Map();
-  for (const match of source.matchAll(/#\[utoipa::path\(([\s\S]*?)\)\]\s*(?:#\[[\s\S]*?\]\s*)*(?:pub\s+)?async\s+fn\s+(\w+)/g)) {
+  for (const match of source.matchAll(/#\[utoipa::path\(([\s\S]*?)\)\]\s*(?:#\[[\s\S]*?\]\s*)*(?:pub(?:\([^)]*\))?\s+)?async\s+fn\s+(\w+)/g)) {
     const path = match[1].match(/\bpath\s*=\s*"([^"]+)"/)?.[1];
     if (path) result.set(match[2], path);
   }
-  for (const match of source.matchAll(/#\[should_have_permissions\(([\s\S]*?)\)\]\s*(?:pub\s+)?async\s+fn\s+(\w+)/g)) {
+  for (const match of source.matchAll(/#\[(?:infera_idp_macro::)?should_have_permissions\(([\s\S]*?)\)\]\s*(?:pub(?:\([^)]*\))?\s+)?async\s+fn\s+(\w+)/g)) {
     const path = match[1].match(/\bpath\s*\(\s*"([^"]+)"/)?.[1];
     if (path && !result.has(match[2])) result.set(match[2], path.startsWith("/") ? path : `/${path}`);
   }
@@ -93,11 +95,11 @@ function annotations(source) {
 
 function permissionAnnotations(source) {
   const result = new Map();
-  for (const match of source.matchAll(/#\[should_have_permissions\(([\s\S]*?)\)\]\s*(?:pub\s+)?async\s+fn\s+(\w+)/g)) {
+  for (const match of source.matchAll(/#\[(?:infera_idp_macro::)?should_have_permissions\(([\s\S]*?)\)\]\s*(?:pub(?:\([^)]*\))?\s+)?async\s+fn\s+(\w+)/g)) {
     const permissions = [...match[1].matchAll(/permissions\s*\(([^)]*)\)/g)].flatMap(group => [...group[1].matchAll(/"([^"]+)"/g)].map(item => item[1]));
     result.set(match[2], permissions);
   }
-  for (const match of source.matchAll(/(?:pub\s+)?async\s+fn\s+(\w+)\s*\(/g)) {
+  for (const match of source.matchAll(/(?:pub(?:\([^)]*\))?\s+)?async\s+fn\s+(\w+)\s*\(/g)) {
     const open = source.indexOf("{", match.index);
     if (open === -1) continue;
     let depth = 0;
@@ -220,6 +222,7 @@ function handlerSignature(source, handler) {
   else if (!response && /\bRedirect\b/.test(after)) responseEnvelope = "redirect";
   else if (!response && /\b(?:Sse|WebSocketUpgrade)\b/.test(after)) responseEnvelope = "stream";
   else if (!response && /\bResponse\b/.test(after)) responseEnvelope = "raw-response";
+  if (/WebSocketUpgrade/.test(params)) responseEnvelope = "websocket";
   return { body, query, pathParam, response, responseMeta, responseEnvelope, multipart: /Multipart/.test(params), ...(binary ? { binary: true } : {}), formUrlEncoded: /Form\s*<|Form\s*\([^)]*\)\s*:\s*Form\s*</.test(params) };
 }
 
@@ -288,7 +291,7 @@ for (const service of services) {
     mountedModules.add("main");
   }
   const files = await walk(srcRoot);
-  const fileSources = new Map(await Promise.all(files.map(async file => [file, await readFile(file, "utf8")])));
+  const fileSources = new Map(await Promise.all(files.map(async file => [file, productionRust(await readFile(file, "utf8"))])));
   let discovered = true;
   while (discovered) {
     discovered = false;
@@ -313,7 +316,8 @@ for (const service of services) {
       const permissions = permissionAnnotations(source);
       for (const route of routeCalls(source)) {
       if (route.method === "ANY") continue;
-      const annotated = canonical.get(route.handler);
+      const resolvedSource = qualifiedHandlerSource(fileSources, srcRoot, file, route.qualifier, route.handler) ?? source;
+      const annotated = annotations(resolvedSource).get(route.handler) ?? canonical.get(route.handler);
       const prefix = service === "drm" && module === "router"
         ? "/api/v1"
         : service === "task" && ["/health/live", "/health/ready", "/health/dependencies", "/metrics", "/api/openapi.json"].includes(route.localPath)
@@ -331,12 +335,12 @@ for (const service of services) {
         unresolved.push(`${relativeSource(file)}:${route.method}:${route.localPath}:${route.handler}`);
         continue;
       }
-      const path = annotated
-        ? annotated.startsWith("/api/v1") || module === "router"
-          ? cleanPath(annotated)
-          : cleanPath(`/api/v1${annotated}`)
-        : joinPath(prefix, route.localPath);
-      const resolvedSource = qualifiedHandlerSource(fileSources, srcRoot, file, route.qualifier, route.handler) ?? source;
+      const path = module === "router" && route.localPath.startsWith("/api/")
+        ? cleanPath(route.localPath)
+        : annotated
+          ? annotated.startsWith("/api/") ? cleanPath(annotated)
+            : module === "router" ? joinPath(prefix, annotated) : cleanPath(`/api/v1${annotated}`)
+          : joinPath(prefix, route.localPath);
       let signature = handlerSignature(resolvedSource, route.handler);
       if (service === "chat" && route.handler === "events") {
         signature = { ...signature, responseEnvelope: "stream" };

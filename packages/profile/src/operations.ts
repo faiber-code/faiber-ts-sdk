@@ -1,41 +1,7 @@
-import type * as W from "./types.js";
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
 
 export class ProfileOperations extends ServiceApi {
-  /**
-   * Calls `GET /api/v1/education` for active education lookup options.
-   * @returns The complete Axios response.
-   * @throws AxiosError; requires profile:read.
-   */
-  educationIndexGet(options?: RequestOptions) {
-    return this.client.request<W.EducationLookupResponse>({ ...options, method: "GET", url: "/api/v1/education" });
-  }
-  /**
-   * Calls `POST /api/v1/education` to create an education lookup option.
-   * @returns The complete Axios response.
-   * @throws AxiosError; requires profile:update.
-   */
-  educationStorePost(data: W.CreateEducationOptionInput, options?: RequestOptions<W.CreateEducationOptionInput>) {
-    return this.client.request<W.EducationOptionResponse, W.CreateEducationOptionInput>({ ...options, method: "POST", url: "/api/v1/education", data });
-  }
-  /**
-   * Calls `GET /api/v1/education/dependencies` for attendance and referral options.
-   * @returns The complete Axios response.
-   * @throws AxiosError; requires profile:read.
-   */
-  educationDependenciesGet(options?: RequestOptions) {
-    return this.client.request<W.EducationDependenciesResponse>({ ...options, method: "GET", url: "/api/v1/education/dependencies" });
-  }
-  /**
-   * Calls `PUT /api/v1/profile/update/education-information/{uuid}` using an IDP user UUID.
-   * Omitted fields are unchanged; null clears a field. Level is nonempty free text, max 64 characters.
-   * @returns The complete Axios response.
-   * @throws AxiosError; requires profile:update.
-   */
-  educationUpdatePut(uuid: Identifier, data: W.EducationInformationInput, options?: RequestOptions<W.EducationInformationInput>) {
-    return this.client.request<W.ProfileResponse, W.EducationInformationInput>({ ...options, method: "PUT", url: `/api/v1/profile/update/education-information/${encodeURIComponent(uuid)}`, data });
-  }
   /**
    * Performs the openapi json operation for the router capability.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
@@ -76,6 +42,28 @@ export class ProfileOperations extends ServiceApi {
    */
   sessionGetSelfGet(options?: RequestOptions) {
     return this.client.request<T.SessionGetSelfGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/self` });
+  }
+  /**
+   * Performs the update self name operation for the session capability.
+   * Calls `PATCH /api/v1/auth/self` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  sessionUpdateSelfNamePatch(data: T.SessionUpdateSelfNamePatchInput, options?: RequestOptions<T.SessionUpdateSelfNamePatchInput>) {
+    return this.client.request<T.SessionUpdateSelfNamePatchResponse, T.SessionUpdateSelfNamePatchInput>({ ...options, method: "PATCH", url: `/api/v1/auth/self`, data: data });
+  }
+  /**
+   * Performs the complete onboarding operation for the session capability.
+   * Calls `PUT /api/v1/auth/self/onboarding` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  sessionCompleteOnboardingPut(data: T.SessionCompleteOnboardingPutInput, options?: RequestOptions<T.SessionCompleteOnboardingPutInput>) {
+    return this.client.request<T.SessionCompleteOnboardingPutResponse, T.SessionCompleteOnboardingPutInput>({ ...options, method: "PUT", url: `/api/v1/auth/self/onboarding`, data: data });
   }
   /**
    * Performs the index operation for the campaign capability.
@@ -367,6 +355,316 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.OptionDependencyGetResponse>({ ...options, method: "GET", url: `/api/v1/dependency` });
   }
   /**
+   * Performs the index operation for the education capability.
+   * Calls `GET /api/v1/education` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: profile:read.
+   */
+  educationIndexGet(options?: RequestOptions) {
+    return this.client.request<T.EducationIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/education` });
+  }
+  /**
+   * Performs the store operation for the education capability.
+   * Calls `POST /api/v1/education` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: profile:update.
+   */
+  educationStorePost(data: T.EducationStorePostInput, options?: RequestOptions<T.EducationStorePostInput>) {
+    return this.client.request<T.EducationStorePostResponse, T.EducationStorePostInput>({ ...options, method: "POST", url: `/api/v1/education`, data: data });
+  }
+  /**
+   * Performs the dependencies operation for the education capability.
+   * Calls `GET /api/v1/education/dependencies` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: profile:read.
+   */
+  educationDependenciesGet(options?: RequestOptions) {
+    return this.client.request<T.EducationDependenciesGetResponse>({ ...options, method: "GET", url: `/api/v1/education/dependencies` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/admin/catalog` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: fitness:admin plus administrator role.
+   */
+  fitnessImportCatalogPost(data: T.FitnessImportCatalogPostInput, options?: RequestOptions<T.FitnessImportCatalogPostInput>) {
+    return this.client.request<T.FitnessImportCatalogPostResponse, T.FitnessImportCatalogPostInput>({ ...options, method: "POST", url: `/api/v1/fitness/admin/catalog`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/admin/provision` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: fitness:admin plus administrator role.
+   */
+  fitnessProvisionPost(data: T.FitnessProvisionPostInput, options?: RequestOptions<T.FitnessProvisionPostInput>) {
+    return this.client.request<T.FitnessProvisionPostResponse, T.FitnessProvisionPostInput>({ ...options, method: "POST", url: `/api/v1/fitness/admin/provision`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/catalog` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessListCatalogGet(params?: T.FitnessListCatalogGetQuery, options?: RequestOptions) {
+    return this.client.request<T.FitnessListCatalogGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/catalog`, params });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/coaches` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessCoachesGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessCoachesGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/coaches` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/context` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessContextGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessContextGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/context` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/intake` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessIntakeGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessIntakeGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/intake` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `PUT /api/v1/fitness/intake` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessSaveIntakePut(data: T.FitnessSaveIntakePutInput, options?: RequestOptions<T.FitnessSaveIntakePutInput>) {
+    return this.client.request<T.FitnessSaveIntakePutResponse, T.FitnessSaveIntakePutInput>({ ...options, method: "PUT", url: `/api/v1/fitness/intake`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/notifications` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessNotificationsGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessNotificationsGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/notifications` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/notifications/{id}/read` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessReadNotificationPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FitnessReadNotificationPostResponse>({ ...options, method: "POST", url: `/api/v1/fitness/notifications/${encodeURIComponent(id)}/read` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/orders` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessOrdersGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessOrdersGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/orders` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/orders` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessPurchasePost(data: T.FitnessPurchasePostInput, options?: RequestOptions<T.FitnessPurchasePostInput>) {
+    return this.client.request<T.FitnessPurchasePostResponse, T.FitnessPurchasePostInput>({ ...options, method: "POST", url: `/api/v1/fitness/orders`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/orders/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessShowGetApiV1FitnessOrdersId(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FitnessShowGetApiV1FitnessOrdersIdResponse>({ ...options, method: "GET", url: `/api/v1/fitness/orders/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/orders/{id}/action` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessActionPost(id: Identifier, data: T.FitnessActionPostInput, options?: RequestOptions<T.FitnessActionPostInput>) {
+    return this.client.request<T.FitnessActionPostResponse, T.FitnessActionPostInput>({ ...options, method: "POST", url: `/api/v1/fitness/orders/${encodeURIComponent(id)}/action`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/orders/{id}/plan` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessAssignPost(id: Identifier, data: T.FitnessAssignPostInput, options?: RequestOptions<T.FitnessAssignPostInput>) {
+    return this.client.request<T.FitnessAssignPostResponse, T.FitnessAssignPostInput>({ ...options, method: "POST", url: `/api/v1/fitness/orders/${encodeURIComponent(id)}/plan`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/products` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessProductsGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessProductsGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/products` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/proposals` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessProposePost(data: T.FitnessProposePostInput, options?: RequestOptions<T.FitnessProposePostInput>) {
+    return this.client.request<T.FitnessProposePostResponse, T.FitnessProposePostInput>({ ...options, method: "POST", url: `/api/v1/fitness/proposals`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/revisions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessRevisionGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FitnessRevisionGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/revisions/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/revisions/{id}/review` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessReviewPost(id: Identifier, data: T.FitnessReviewPostInput, options?: RequestOptions<T.FitnessReviewPostInput>) {
+    return this.client.request<T.FitnessReviewPostResponse, T.FitnessReviewPostInput>({ ...options, method: "POST", url: `/api/v1/fitness/revisions/${encodeURIComponent(id)}/review`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/self` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessMeGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessMeGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/self` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/settings` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessSettingsGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessSettingsGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/settings` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `PUT /api/v1/fitness/settings` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessSaveSettingsPut(data: T.FitnessSaveSettingsPutInput, options?: RequestOptions<T.FitnessSaveSettingsPutInput>) {
+    return this.client.request<T.FitnessSaveSettingsPutResponse, T.FitnessSaveSettingsPutInput>({ ...options, method: "PUT", url: `/api/v1/fitness/settings`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/tariffs` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessSaveTariffPost(data: T.FitnessSaveTariffPostInput, options?: RequestOptions<T.FitnessSaveTariffPostInput>) {
+    return this.client.request<T.FitnessSaveTariffPostResponse, T.FitnessSaveTariffPostInput>({ ...options, method: "POST", url: `/api/v1/fitness/tariffs`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/team` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessTeamGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessTeamGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/team` });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `PUT /api/v1/fitness/team` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessSaveCoachPut(data: T.FitnessSaveCoachPutInput, options?: RequestOptions<T.FitnessSaveCoachPutInput>) {
+    return this.client.request<T.FitnessSaveCoachPutResponse, T.FitnessSaveCoachPutInput>({ ...options, method: "PUT", url: `/api/v1/fitness/team`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `POST /api/v1/fitness/trial/redeem` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessRedeemPost(data: T.FitnessRedeemPostInput, options?: RequestOptions<T.FitnessRedeemPostInput>) {
+    return this.client.request<T.FitnessRedeemPostResponse, T.FitnessRedeemPostInput>({ ...options, method: "POST", url: `/api/v1/fitness/trial/redeem`, data: data });
+  }
+  /**
+   * Use the paid coaching workflow with server-owned prices, membership and revision checks. Reuse idempotency keys for purchases; stale versions return 409, unauthorized relationships return 403.
+   * Calls `GET /api/v1/fitness/voice-settings` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated gym membership, manager/coach relationship or owned order as required by the operation.
+   */
+  fitnessVoiceSettingsGet(options?: RequestOptions) {
+    return this.client.request<T.FitnessVoiceSettingsGetResponse>({ ...options, method: "GET", url: `/api/v1/fitness/voice-settings` });
+  }
+  /**
    * Performs the identity operation for the option capability.
    * Calls `GET /api/v1/identity` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -395,6 +693,73 @@ export class ProfileOperations extends ServiceApi {
    */
   integrationFlowIntegrationShowGet(options?: RequestOptions) {
     return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/flow` });
+  }
+  /**
+   * Performs the reserve operation for the fitness capability.
+   * Calls `POST /api/v1/internal/fitness-chat/reserve` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only product trial-gift or fitness-chat bearer credential; never browser administration.
+   */
+  fitnessReservePost(data: T.FitnessReservePostInput, options?: RequestOptions<T.FitnessReservePostInput>) {
+    return this.client.request<T.FitnessReservePostResponse, T.FitnessReservePostInput>({ ...options, method: "POST", url: `/api/v1/internal/fitness-chat/reserve`, data: data });
+  }
+  /**
+   * Performs the settle operation for the fitness capability.
+   * Calls `POST /api/v1/internal/fitness-chat/settle` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only product trial-gift or fitness-chat bearer credential; never browser administration.
+   */
+  fitnessSettlePost(data: T.FitnessSettlePostInput, options?: RequestOptions<T.FitnessSettlePostInput>) {
+    return this.client.request<T.FitnessSettlePostResponse, T.FitnessSettlePostInput>({ ...options, method: "POST", url: `/api/v1/internal/fitness-chat/settle`, data: data });
+  }
+  /**
+   * Performs the list operation for the fitness capability.
+   * Calls `GET /api/v1/internal/plans/gifts` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only product trial-gift or fitness-chat bearer credential; never browser administration.
+   */
+  fitnessListGet(params?: T.FitnessListGetQuery, options?: RequestOptions) {
+    return this.client.request<T.FitnessListGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/plans/gifts`, params });
+  }
+  /**
+   * Performs the create operation for the fitness capability.
+   * Calls `POST /api/v1/internal/plans/gifts` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only product trial-gift or fitness-chat bearer credential; never browser administration.
+   */
+  fitnessCreatePost(data: T.FitnessCreatePostInput, options?: RequestOptions<T.FitnessCreatePostInput>) {
+    return this.client.request<T.FitnessCreatePostResponse, T.FitnessCreatePostInput>({ ...options, method: "POST", url: `/api/v1/internal/plans/gifts`, data: data });
+  }
+  /**
+   * Performs the show operation for the fitness capability.
+   * Calls `GET /api/v1/internal/plans/gifts/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only product trial-gift or fitness-chat bearer credential; never browser administration.
+   */
+  fitnessShowGetApiV1InternalPlansGiftsId(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FitnessShowGetApiV1InternalPlansGiftsIdResponse>({ ...options, method: "GET", url: `/api/v1/internal/plans/gifts/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Performs the update operation for the fitness capability.
+   * Calls `PUT /api/v1/internal/plans/gifts/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only product trial-gift or fitness-chat bearer credential; never browser administration.
+   */
+  fitnessUpdatePut(id: Identifier, data: T.FitnessUpdatePutInput, options?: RequestOptions<T.FitnessUpdatePutInput>) {
+    return this.client.request<T.FitnessUpdatePutResponse, T.FitnessUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/internal/plans/gifts/${encodeURIComponent(id)}`, data: data });
   }
   /**
    * Performs the store operation for the log action capability.
@@ -1154,6 +1519,28 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.ProfileParentIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/profile/parent`, params });
   }
   /**
+   * Resolve 1–200 explicit user UUIDs into active directory identities. Returns results and has_more:false; never grants collaborator eligibility.
+   * Calls `POST /api/v1/profile/people/resolve` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: profile:lookup and authenticated directory access.
+   */
+  workspaceResolvePeople(data: T.ProfileSearchResolvePostInput, options?: RequestOptions<T.ProfileSearchResolvePostInput>) {
+    return this.client.request<T.ProfileSearchResolvePostResponse, T.ProfileSearchResolvePostInput>({ ...options, method: "POST", url: `/api/v1/profile/people/resolve`, data: data });
+  }
+  /**
+   * Performs the search operation for the profile search capability.
+   * Calls `POST /api/v1/profile/people/search` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: profile:lookup.
+   */
+  profileSearchSearchPostApiV1ProfilePeopleSearch(data: T.ProfileSearchSearchPostApiV1ProfilePeopleSearchInput, options?: RequestOptions<T.ProfileSearchSearchPostApiV1ProfilePeopleSearchInput>) {
+    return this.client.request<T.ProfileSearchSearchPostApiV1ProfilePeopleSearchResponse, T.ProfileSearchSearchPostApiV1ProfilePeopleSearchInput>({ ...options, method: "POST", url: `/api/v1/profile/people/search`, data: data });
+  }
+  /**
    * Performs the province get operation for the profile capability.
    * Calls `POST /api/v1/profile/province/get` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
@@ -1285,6 +1672,18 @@ export class ProfileOperations extends ServiceApi {
    */
   profileAddMetaPut(uuid: Identifier, data: T.ProfileAddMetaPutInput, options?: RequestOptions<T.ProfileAddMetaPutInput>) {
     return this.client.request<T.ProfileAddMetaPutResponse, T.ProfileAddMetaPutInput>({ ...options, method: "PUT", url: `/api/v1/profile/update/${encodeURIComponent(uuid)}/meta`, data: data });
+  }
+  /**
+   * Performs the update operation for the education capability.
+   * Calls `PUT /api/v1/profile/update/education-information/{uuid}` through the shared IDP-aware Faiber client.
+   * @param uuid Backend path identifier `uuid`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: profile:update.
+   */
+  educationUpdatePut(uuid: Identifier, data: T.EducationUpdatePutInput, options?: RequestOptions<T.EducationUpdatePutInput>) {
+    return this.client.request<T.EducationUpdatePutResponse, T.EducationUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/profile/update/education-information/${encodeURIComponent(uuid)}`, data: data });
   }
   /**
    * Performs the update personal operation for the profile capability.
@@ -1978,15 +2377,5 @@ export class ProfileOperations extends ServiceApi {
    */
   routerHealthGetUp(options?: RequestOptions) {
     return this.client.request<T.RouterHealthGetUpResponse>({ ...options, method: "GET", url: `/up` });
-  }
-  /**
-   * Calls `POST /api/v1/profile/people/resolve` using the authenticated sandbox connection.
-   * Requires `profile:lookup` and current resource access. Supply If-Match for versioned writes.
-   * Proposal writes only create previews; apply commits the explicitly reviewed revision atomically.
-   * @returns The complete Axios response with the typed service envelope.
-   * @throws AxiosError on authentication, validation, access, conflict, or dependency failures.
-   */
-  workspaceResolvePeople(data: W.ResolvePeopleInput, options?: RequestOptions<W.ResolvePeopleInput>) {
-    return this.client.request<W.ResolvePeopleResponse, W.ResolvePeopleInput>({ ...options, method: "POST", url: `/api/v1/profile/people/resolve`, data });
   }
 }

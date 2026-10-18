@@ -73,3 +73,7 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+### Presence and moderation
+
+`operations.roomRoomsPresenceEventsGet(roomId)` returns typed `joined`/`left` events with UTC timestamps. Access requires a room read permission and preview/participant authorization. `roomRoomsSelfModerationGet` reads the current participant's mute state; `roomRoomsParticipantMutePut(roomId, profileId, {muted:true})` requires `room:end` and authorized room ownership. Muted-until timestamps are nullable RFC 3339 strings. Standard authenticated Axios responses and cancellation options are retained.

@@ -139,6 +139,9 @@ export interface GatewayOptionsGetResponseData extends JsonObject {
 export interface GatewayOptionsGetResponse extends ApiEnvelope<GatewayOptionsGetResponseData> {
 }
 
+/** Backend response type: serde_json::Value. */
+export type GatewaySetupCheckPostResponse = import("./contracts.types.js").PaymentSetupResponse;
+
 /** Backend response type: crate::integration::models::IntegrationDocsResponse. */
 export interface IntegrationIntegrationDocsShowGetResponseDataDirectEventsPayloadFields extends JsonObject {
   "name": string;
@@ -176,6 +179,89 @@ export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<I
 export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
+/** Backend response type: Value. */
+export type ProductPlansAvailabilityGetResponse = import("./contracts.types.js").ProductPaymentAvailabilityResponse;
+
+/** Backend request type: crate::payment::models::CreatePaymentRequest. */
+export interface ProductPlansCreatePostInput extends JsonObject {
+  "amount": number;
+  "service_name": string;
+  "description"?: string | null;
+  "callback_url"?: string | null;
+  "service_model": string;
+  "service_id": string;
+  "queue_name": string;
+  "idempotency_key"?: string | null;
+}
+/** Backend response type: crate::payment::models::CreatePaymentResponse. */
+export interface ProductPlansCreatePostResponseData extends JsonObject {
+  "transaction": string;
+  "redirect_url": string;
+}
+export interface ProductPlansCreatePostResponse extends ApiEnvelope<ProductPlansCreatePostResponseData> {
+}
+
+/** Backend response type: Value. */
+export type ProductPlansReceiptGetResponse = import("./contracts.types.js").ProductPaymentReceiptResponse;
+
+/** Backend response type: Value. */
+export type AssetCheckoutReceiptGetResponse = import("./contracts.types.js").VerifiedAssetPurchaseResponse;
+
+/** Backend request type: crate::payment::models::CreatePaymentRequest. */
+export interface FitnessCreatePostInput extends JsonObject {
+  "amount": number;
+  "service_name": string;
+  "description"?: string | null;
+  "callback_url"?: string | null;
+  "service_model": string;
+  "service_id": string;
+  "queue_name": string;
+  "idempotency_key"?: string | null;
+}
+/** Backend response type: crate::payment::models::CreatePaymentResponse. */
+export interface FitnessCreatePostResponseData extends JsonObject {
+  "transaction": string;
+  "redirect_url": string;
+}
+export interface FitnessCreatePostResponse extends ApiEnvelope<FitnessCreatePostResponseData> {
+}
+
+/** Backend response type: Value. */
+export type FitnessReceiptGetResponse = import("./contracts.types.js").ProductPaymentReceiptResponse;
+
+/** Backend response type: crate::payment::models::CreatePaymentResponse. */
+export interface FitnessRetryPostResponseData extends JsonObject {
+  "transaction": string;
+  "redirect_url": string;
+}
+export interface FitnessRetryPostResponse extends ApiEnvelope<FitnessRetryPostResponseData> {
+}
+
+/** Backend request type: crate::payment::models::CreatePaymentRequest. */
+export interface ShopCheckoutCreatePostInput extends JsonObject {
+  "amount": number;
+  "service_name": string;
+  "description"?: string | null;
+  "callback_url"?: string | null;
+  "service_model": string;
+  "service_id": string;
+  "queue_name": string;
+  "idempotency_key"?: string | null;
+}
+/** Backend response type: crate::payment::models::CreatePaymentResponse. */
+export interface ShopCheckoutCreatePostResponseData extends JsonObject {
+  "transaction": string;
+  "redirect_url": string;
+}
+export interface ShopCheckoutCreatePostResponse extends ApiEnvelope<ShopCheckoutCreatePostResponseData> {
+}
+
+/** Backend response type: Value. */
+export type ShopCheckoutReadinessGetResponse = import("./contracts.types.js").ShopPaymentReadiness;
+
+/** Backend response type: Value. */
+export type ShopCheckoutReceiptGetResponse = import("./contracts.types.js").ShopPaymentReceiptResponse;
+
 /** Backend request type: models::CreatePaymentRequest. */
 export interface PaymentCreatePaymentPostInput extends JsonObject {
   "amount": number;
@@ -189,7 +275,7 @@ export interface PaymentCreatePaymentPostInput extends JsonObject {
 }
 /** Backend response type: models::CreatePaymentResponse. */
 export interface PaymentCreatePaymentPostResponseData extends JsonObject {
-  "transaction": BackendJson<"uuid::Uuid">;
+  "transaction": string;
   "redirect_url": string;
 }
 export interface PaymentCreatePaymentPostResponse extends ApiEnvelope<PaymentCreatePaymentPostResponseData> {
