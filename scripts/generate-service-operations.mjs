@@ -56,6 +56,8 @@ const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${e
 // Hand-audited response contracts for handlers that intentionally build serde_json::Value or
 // return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
 const responseOverrides = {
+  asset:{policy_get:"EconomyPolicyResponse",policy_put:"EconomyPolicyResponse",capabilities:"EconomyCapabilitiesResponse",command:"EconomyCommandResponse",objects:"EconomyObjectsResponse",journal:"EconomyJournalResponse",me:"EconomyObjectsResponse",valuation:"EconomyValuationResponse",my_history:"EconomyHistoryResponse",preview:"EconomyCommandResponse",leaderboards:"EconomyLeaderboardResponse",purchase:"EconomyCommandResponse",credit:"EconomyCreditResponse"},
+  session:{interact:"RoomInteractionResponse"},
   chat: { events: "ChatEventStream" },
   task: {
     ensure_personal_project: "ProjectResponse",
@@ -111,6 +113,8 @@ const responseOverrides = {
   },
 };
 const inputOverrides = {
+  asset:{policy_put:"EconomyPolicy",command:"EconomyOperatorCommand",preview:"EconomyPreviewInput",purchase:"EconomyPurchaseInput",credit:"EconomyCreditInput"},
+  session:{interact:"RoomInteractionInput"},
   idp: { browser_login: "BrowserLoginInput" },
   lms: {
     submit_exam: "AcademySubmitExamInput", complete_session: "AcademyCompleteSessionInput",

@@ -43,6 +43,15 @@ This package exposes 35 registered operations from the live sessions service. Co
 
 Room start, stop, end, playback, recording, webhook, and state-response routes are separate operations so their unusual GET/POST verbs are preserved exactly.
 
+When scoped assets are enabled, use `interact(roomId, {event_id, interaction,
+content})` for `emoji`, `raise_hand`, `room_chat` and other configured interactions.
+Reuse the event ID on retry. The server verifies membership, mute state, Charge,
+cooldowns and chat limits before delivery. Room chat is free of Charge but remains
+rate limited. Browser LiveKit data publication is disabled in this mode.
+Participant admission uses RabbitMQ reservations internally; callers must not
+consume free sessions or reset Charge themselves. Broker timeouts reject admission
+and interactions. Cancellation through normal Axios options remains supported.
+
 ## Authentication and authorization
 
 Use a `TokenProvider` to forward the signed-in user's Bearer token, or enable `withCredentials` for secure HttpOnly cookie sessions. Permission requirements copied from service route guards are included in each operation's JSDoc. The SDK does not embed API keys, credentials, localhost URLs, sandbox hosts, or production hosts.

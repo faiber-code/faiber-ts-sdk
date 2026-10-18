@@ -156,6 +156,8 @@ export interface ClassroomCourseSession extends JsonObject {
 
 /** Classroom session returned by list, today, create, show, and update operations. */
 export interface ClassroomSession extends LmsEntity {
+    /** Selected students, or null for the whole classroom. */
+    student_user_ids: string[] | null;
     id: string;
     classroom_id: string;
     classroom_name: string | null;
@@ -500,6 +502,9 @@ export interface CreateClassroomInput extends CreateLmsEntityInput {
 export interface UpdateClassroomInput extends Partial<CreateClassroomInput> {
 }
 export interface CreateClassroomSessionInput extends CreateLmsEntityInput {
+    /** Nonempty subset of enrolled classroom students (UUIDs). Omit/null for the whole class. Duplicates are removed; nonmembers return 422. Requires lms:classroom:create. */
+    student_user_ids?: string[] | null;
+    course_session_type_id?: string;
     classroom_id: string;
     course_session_id?: string;
     name?: string;
@@ -515,7 +520,7 @@ export interface CreateClassroomSessionInput extends CreateLmsEntityInput {
     ends_at?: string;
     status: string;
 }
-export interface UpdateClassroomSessionInput extends Partial<CreateClassroomSessionInput> {
+export interface UpdateClassroomSessionInput extends Partial<Omit<CreateClassroomSessionInput, "student_user_ids">> {
     /** Confirms deletion of recordings when this reschedule resets an existing room generation. */
     confirm_recording_reset?: boolean;
     /** Reassigns every later classroom session to weekly schedule slots after the selected start. */

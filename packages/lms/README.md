@@ -210,3 +210,21 @@ your configured LMS service origin for display. This endpoint currently requires
 `lms:course:update`, including when the image will be used by an exam or homework.
 
 Course creation and updates accept independent `in_person_price` and `online_price` decimal strings (for example, `"1200.50"` and `"800.25"`). Course list and detail responses include both fields. On update, omission preserves the saved price and `null` clears only that price. The existing `price` field remains available for existing consumers; delivery prices do not overwrite it.
+
+### Makeup sessions for selected students
+
+Pass `student_user_ids` when creating a classroom session to select a group of enrolled students. This roster controls attendance, student session visibility, and room provisioning; the teacher and classroom support user remain room members. Omit the field (or pass `null`) for the whole classroom. An empty array or a student outside the classroom returns HTTP 422; duplicate IDs are deduplicated. Selection is set at creation.
+
+```ts
+await lms.classroomSessions.create({
+  classroom_id: classroomId,
+  course_session_type_id: makeupSessionTypeId,
+  name: "Makeup lesson",
+  student_user_ids: [firstStudentId, secondStudentId],
+  starts_at: "2026-10-25T10:00:00+03:30",
+  duration_minutes: 60,
+  status: "active",
+});
+```
+
+Requires `lms:classroom:create` and uses configured authentication and Axios request options. The response includes `student_user_ids` (`null` for whole-class sessions).

@@ -1,0 +1,23 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {AssetApi} from '../packages/asset/dist/index.js';
+import {SessionApi} from '../packages/session/dist/index.js';
+import {FaiberClient,MemoryTokenProvider} from '../packages/core/dist/index.js';
+test('economy operations retain authentication, Axios responses and cancellation',async()=>{
+ const requests=[];
+ const options={authMode:'bearer',tokenProvider:new MemoryTokenProvider({accessToken:'economy-token'}),domains:{asset:'https://asset.example.test',session:'https://session.example.test'},axios:{adapter:async config=>{requests.push(config);return {status:200,statusText:'OK',headers:{'x-request-id':'economy-test'},config,data:{status:'success',data:[]}}}}};
+ const api=new AssetApi(new FaiberClient('asset',options));const session=new SessionApi(new FaiberClient('session',options));
+ const controller=new AbortController();
+ await api.economyPolicy();await api.updateEconomyPolicy({version:2});await api.economyCommand({event_id:'review',type:'scope_close',scope_id:'class'});
+ await api.economyObjects('allocation',{scope_id:'class'});await api.economyJournal({after:5});await api.myEconomy();
+ await api.purchaseEconomyItem({event_id:'purchase',item_id:'pack',payment:'money'});
+ await api.applySessionChargeCredit('room/a',{event_id:'credit'});await api.economyValuation();await api.myEconomyHistory({after:5});
+ await api.previewEconomyReward({action_name:'exercise',scope_id:'class',role:'student',source_id:'review',session_id:null,replay:false});await api.economyLeaderboard({role:'teacher',period_id:'term'});
+ await api.economyCapabilities();
+ const response=await session.interact('room/a',{event_id:'emoji-1',interaction:'emoji',content:{emoji:'wave'}},{signal:controller.signal});
+ assert.equal(response.status,200);assert.equal(response.headers['x-request-id'],'economy-test');
+ assert.equal(requests.at(-1).url,'/api/v1/rooms/room%2Fa/interactions');assert.equal(requests.at(-1).signal,controller.signal);
+ assert.equal(requests[7].url,'/api/v1/economy/me/sessions/room%2Fa/credit');assert.equal(requests[3].params.scope_id,'class');
+ for(const request of requests)assert.equal(request.headers.get('Authorization'),'Bearer economy-token');
+ assert.equal(JSON.parse(requests[6].data).payment,'money');
+});

@@ -53,6 +53,21 @@
       "formUrlEncoded": false
     },
     {
+      "method": "POST",
+      "path": "/api/v1/actions/complete",
+      "module": "action",
+      "handler": "actions_complete",
+      "permissions": [
+        "admin:action:complete"
+      ],
+      "source": "infera-asset/src/action/routes.rs",
+      "body": "CompleteActionRequest",
+      "response": "crate::reward::engine::CompleteActionResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "DELETE",
       "path": "/api/v1/actions/{id}",
       "module": "action",
@@ -94,21 +109,6 @@
       "body": "UpdateActionRequest",
       "pathParam": "Uuid",
       "response": "ActionResponse",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/actions/complete",
-      "module": "action",
-      "handler": "actions_complete",
-      "permissions": [
-        "admin:action:complete"
-      ],
-      "source": "infera-asset/src/action/routes.rs",
-      "body": "CompleteActionRequest",
-      "response": "crate::reward::engine::CompleteActionResult",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -559,6 +559,212 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/economy/capabilities",
+      "module": "economy",
+      "handler": "capabilities",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "response": "Capabilities",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/economy/commands",
+      "module": "economy",
+      "handler": "command",
+      "permissions": [
+        "admin:action:complete"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "body": "CommandEnvelope",
+      "response": "CommandResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/economy/journal",
+      "module": "economy",
+      "handler": "journal",
+      "permissions": [
+        "admin:user_asset_log:read"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "query": "JournalQuery",
+      "response": "Vec<Value>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/economy/leaderboards",
+      "module": "economy",
+      "handler": "leaderboards",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "query": "LeaderboardQuery",
+      "response": "Vec<LeaderboardEntry>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/economy/me",
+      "module": "economy",
+      "handler": "me",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "response": "Vec<ObjectRecord>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/economy/me/history",
+      "module": "economy",
+      "handler": "my_history",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "query": "JournalQuery",
+      "response": "Vec<Value>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/economy/me/purchases",
+      "module": "economy",
+      "handler": "purchase",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "body": "PurchaseInput",
+      "response": "CommandResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/economy/me/rewards/preview",
+      "module": "economy",
+      "handler": "preview",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "body": "PreviewInput",
+      "response": "CommandResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/economy/me/sessions/{session_id}/credit",
+      "module": "economy",
+      "handler": "credit",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "body": "CreditInput",
+      "pathParam": "String",
+      "response": "CommandResult",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/economy/objects/{kind}",
+      "module": "economy",
+      "handler": "objects",
+      "permissions": [
+        "admin:bank_transaction:read"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "query": "ObjectQuery",
+      "pathParam": "String",
+      "response": "Vec<ObjectRecord>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/economy/policy",
+      "module": "economy",
+      "handler": "policy_get",
+      "permissions": [
+        "admin:coin_settings:read"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/economy/policy",
+      "module": "economy",
+      "handler": "policy_put",
+      "permissions": [
+        "admin:coin_settings:update"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "body": "EconomyPolicy",
+      "response": "EconomyPolicy",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/economy/valuation",
+      "module": "economy",
+      "handler": "valuation",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/economy/routes.rs",
+      "response": "ValuationResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/games/escrows/fund",
+      "module": "game_escrow",
+      "handler": "fund",
+      "permissions": [],
+      "source": "infera-asset/src/game_escrow.rs",
+      "body": "FundRequest",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/games/escrows/{match_id}",
       "module": "game_escrow",
       "handler": "show",
@@ -592,19 +798,6 @@
       "source": "infera-asset/src/game_escrow.rs",
       "body": "SettleRequest",
       "pathParam": "Uuid",
-      "response": "Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/games/escrows/fund",
-      "module": "game_escrow",
-      "handler": "fund",
-      "permissions": [],
-      "source": "infera-asset/src/game_escrow.rs",
-      "body": "FundRequest",
       "response": "Value",
       "responseEnvelope": "raw",
       "multipart": false,
@@ -811,21 +1004,6 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/me/transactions/{id}",
-      "module": "wallet",
-      "handler": "me_transaction_show",
-      "permissions": [
-        "admin:wallet:read_own"
-      ],
-      "source": "infera-asset/src/wallet/routes.rs",
-      "pathParam": "Uuid",
-      "response": "entity::wallet_transaction::Model",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
       "path": "/api/v1/me/transactions/days",
       "module": "wallet",
       "handler": "me_transaction_days",
@@ -851,6 +1029,21 @@
       "query": "UsageDayQuery",
       "pathParam": "String",
       "response": "UsageDayDetail",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/transactions/{id}",
+      "module": "wallet",
+      "handler": "me_transaction_show",
+      "permissions": [
+        "admin:wallet:read_own"
+      ],
+      "source": "infera-asset/src/wallet/routes.rs",
+      "pathParam": "Uuid",
+      "response": "entity::wallet_transaction::Model",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -1087,6 +1280,19 @@
     },
     {
       "method": "POST",
+      "path": "/api/v1/subscriptions/purchase",
+      "module": "wallet_billing",
+      "handler": "subscriptions_purchase",
+      "permissions": [],
+      "source": "infera-asset/src/wallet_billing/routes.rs",
+      "body": "SubscriptionPurchaseRequest",
+      "response": "PurchaseInitResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
       "path": "/api/v1/subscriptions/{id}/cancel",
       "module": "wallet_billing",
       "handler": "subscriptions_cancel",
@@ -1143,19 +1349,6 @@
       "source": "infera-asset/src/service_lifecycle.rs",
       "response": "ServiceLifecycleView",
       "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/subscriptions/purchase",
-      "module": "wallet_billing",
-      "handler": "subscriptions_purchase",
-      "permissions": [],
-      "source": "infera-asset/src/wallet_billing/routes.rs",
-      "body": "SubscriptionPurchaseRequest",
-      "response": "PurchaseInitResponse",
-      "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -16038,6 +16231,20 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/recordings/audio-models",
+      "module": "recording",
+      "handler": "audio_models",
+      "permissions": [
+        "config:read"
+      ],
+      "source": "infera-session/src/recording/routes.rs",
+      "response": "Vec<AudioModel>",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/recordings/{recording_id}/manifest",
       "module": "recording",
       "handler": "recording_manifest",
@@ -16063,20 +16270,6 @@
       "body": "ScheduleRecordingRequest",
       "pathParam": "Uuid",
       "response": "RecordingManifestResponse",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/recordings/audio-models",
-      "module": "recording",
-      "handler": "audio_models",
-      "permissions": [
-        "config:read"
-      ],
-      "source": "infera-session/src/recording/routes.rs",
-      "response": "Vec<AudioModel>",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -16125,6 +16318,33 @@
       "response": "RoomSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/rooms/analytics",
+      "module": "room",
+      "handler": "rooms_analytics",
+      "permissions": [
+        "room:read_analytics"
+      ],
+      "source": "infera-session/src/room/routes.rs",
+      "response": "RoomAnalyticsResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/rooms/livekit/webhook",
+      "module": "room",
+      "handler": "livekit_webhook",
+      "permissions": [],
+      "source": "infera-session/src/room/routes.rs",
+      "response": "APIEmptyResponse",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "binary": true,
       "formUrlEncoded": false
     },
     {
@@ -16198,6 +16418,22 @@
       "source": "infera-session/src/room/routes.rs",
       "response": "APIEmptyResponse",
       "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/rooms/{room_id}/interactions",
+      "module": "asset_economy",
+      "handler": "interact",
+      "permissions": [
+        "room:read_own"
+      ],
+      "source": "infera-session/src/asset_economy.rs",
+      "body": "InteractionInput",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -16300,33 +16536,6 @@
       "response": "RoomSingleResponse",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/rooms/analytics",
-      "module": "room",
-      "handler": "rooms_analytics",
-      "permissions": [
-        "room:read_analytics"
-      ],
-      "source": "infera-session/src/room/routes.rs",
-      "response": "RoomAnalyticsResponse",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/rooms/livekit/webhook",
-      "module": "room",
-      "handler": "livekit_webhook",
-      "permissions": [],
-      "source": "infera-session/src/room/routes.rs",
-      "response": "APIEmptyResponse",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "binary": true,
       "formUrlEncoded": false
     }
   ],

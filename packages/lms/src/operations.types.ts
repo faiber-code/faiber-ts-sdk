@@ -805,6 +805,7 @@ export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
   "invited": boolean;
   "session_room_id"?: string | null;
   "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
   "starts_at"?: string | null;
@@ -828,6 +829,8 @@ export interface ClassroomIndexSessionGetResponse extends ApiEnvelope<ClassroomI
 
 /** Backend request type: models::CreateSessionRequest. */
 export interface ClassroomStoreSessionPostInput extends JsonObject {
+  /** Nonempty subset of enrolled students; omit/null for the whole classroom. */
+  "student_user_ids"?: string[] | null;
   "classroom_id": string;
   "course_session_id"?: string | null;
   "course_session_type_id"?: string | null;
@@ -894,6 +897,7 @@ export interface ClassroomStoreSessionPostResponseData extends JsonObject {
   "invited": boolean;
   "session_room_id"?: string | null;
   "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
   "starts_at"?: string | null;
@@ -956,6 +960,7 @@ export interface ClassroomShowSessionGetResponseData extends JsonObject {
   "invited": boolean;
   "session_room_id"?: string | null;
   "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
   "starts_at"?: string | null;
@@ -1037,6 +1042,7 @@ export interface ClassroomUpdateSessionPatchResponseData extends JsonObject {
   "invited": boolean;
   "session_room_id"?: string | null;
   "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
   "starts_at"?: string | null;
@@ -1170,6 +1176,7 @@ export interface ClassroomIndexTodaySessionsGetResponseItem extends JsonObject {
   "invited": boolean;
   "session_room_id"?: string | null;
   "session_lifecycle_status"?: string | null;
+  "student_user_ids": string[] | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
   "starts_at"?: string | null;
@@ -3955,6 +3962,9 @@ export interface HomeworkShowAssignmentGetResponse extends ApiEnvelope<HomeworkS
 
 /** Backend request type: models::UpdateAssignmentRequest. */
 export interface HomeworkUpdateAssignmentPatchInput extends JsonObject {
+  /** Requires reviewed status, owning reviewer authority and verification_reason; tier comes from sandbox configuration. */
+  "reward_tier"?:string|null;
+  "verification_reason"?:string|null;
   "homework_id"?: string | null;
   "classroom_id"?: string | null;
   "user_id"?: string | null;

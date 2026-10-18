@@ -13,6 +13,8 @@ export function roomViewUrl(roomId: Identifier, baseUrl?: string) { return sessi
 export function recordingViewUrl(roomId: Identifier, baseUrl?: string) { return sessionViewUrl(`/view/recording/${encodeURIComponent(roomId)}`, baseUrl); }
 export function playbackViewUrl(roomId: Identifier, baseUrl?: string) { return sessionViewUrl(`/view/playback/${encodeURIComponent(roomId)}`, baseUrl); }
 export class SessionApi extends ServiceApi {
+    /** Sends a server-authorized room interaction after Charge and cooldown checks. Requires room:read_own or room:read. Reuse event_id on retries. */
+    interact(roomId:Identifier,data:T.RoomInteractionInput,options?:RequestOptions<T.RoomInteractionInput>) { return this.client.post<T.RoomInteractionResponse,T.RoomInteractionInput>(`/api/v1/rooms/${encodeURIComponent(roomId)}/interactions`,data,options); }
     readonly operations = new SessionOperations(this.client);
     readonly rooms = new RestResource<T.Room, T.CreateRoomInput, T.UpdateRoomInput, T.RoomListResponse, T.RoomResponse>(this.client, "/api/v1/rooms", { supported: ["list", "show", "create", "update", "replace", "delete"] });
     analytics(options?: RequestOptions) { return this.operations.roomRoomsAnalyticsGet(options); }
