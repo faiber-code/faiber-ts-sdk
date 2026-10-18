@@ -13,13 +13,13 @@ export class UnsupportedOperationError extends Error {
         this.name = "UnsupportedOperationError";
     }
 }
-export class RestResource<Entity extends object = JsonObject, CreateInput = Partial<Entity>, UpdateInput = Partial<Entity>, ListResponse = ResourceListResponse<Entity>, ShowResponse = ResourceResponse<Entity>> {
+export class RestResource<Entity extends object = JsonObject, CreateInput = Partial<Entity>, UpdateInput = Partial<Entity>, ListResponse = ResourceListResponse<Entity>, ShowResponse = ResourceResponse<Entity>, ListQuery extends QueryParams = PageQuery> {
     constructor(readonly client: FaiberClient, readonly path: string, readonly options: RestResourceOptions = {}) { }
     private assertSupported(operation: RestOperation): void {
         if (this.options.supported && !this.options.supported.includes(operation))
             throw new UnsupportedOperationError(operation, this.path);
     }
-    list(params?: PageQuery, options?: RequestOptions): Promise<AxiosResponse<ListResponse>> {
+    list(params?: ListQuery, options?: RequestOptions): Promise<AxiosResponse<ListResponse>> {
         this.assertSupported("list");
         return this.client.get<ListResponse>(this.path, params, options);
     }

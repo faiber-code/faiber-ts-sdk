@@ -113,6 +113,12 @@ async function provePublicContracts(): Promise<void> {
     consultant_user_id: "00000000-0000-0000-0000-000000000003",
     support_user_id: "00000000-0000-0000-0000-000000000004",
   });
+  const homeworkFilters: LmsService.HomeworkListQuery = { teacher_user_id: "teacher-id", support_user_id: "support-id" };
+  const examFilters: LmsService.ExamListQuery = { teacher_user_id: "teacher-id", support_user_id: "support-id" };
+  await apis.lms.homeworks.list(homeworkFilters);
+  await apis.lms.listHomeworks(homeworkFilters);
+  await apis.lms.exams.list(examFilters);
+  await apis.lms.listExams(examFilters);
   await apis.lms.listExamSessions({
     student_user_id: "00000000-0000-0000-0000-000000000001",
     teacher_user_id: "00000000-0000-0000-0000-000000000002",

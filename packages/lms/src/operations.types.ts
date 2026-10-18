@@ -2292,6 +2292,10 @@ export interface ExamIndexExamGetQuery extends QueryParams {
   "course_id"?: string | null;
   "grade_id"?: string | null;
   "user_id"?: string | null;
+  /** Definitions delivered by this explicitly assigned teacher. */
+  "teacher_user_id"?: string | null;
+  /** Definitions delivered by this explicitly assigned support user. */
+  "support_user_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
 }
@@ -3217,6 +3221,8 @@ export interface HomeworkIndexBankGetQuery extends QueryParams {
   "page_size"?: number | null;
   "search"?: string | null;
   "status"?: string | null;
+  "teacher_user_id"?: string | null;
+  "support_user_id"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<models::HomeworkBankResponse>. */
 export interface HomeworkIndexBankGetResponseItem extends JsonObject {
@@ -3495,6 +3501,10 @@ export interface HomeworkIndexHomeworkGetQuery extends QueryParams {
   "difficulty"?: string | null;
   "course_id"?: string | null;
   "user_id"?: string | null;
+  /** Definitions delivered by this explicitly assigned teacher. */
+  "teacher_user_id"?: string | null;
+  /** Definitions delivered by this explicitly assigned support user. */
+  "support_user_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
 }

@@ -128,7 +128,10 @@ await api.classrooms.create({
 
 The weekly `mode` selects each generated primary session type: `online` → `ONLINE_CLASS`, `interactive` → `VIDEO` (composition media), `in_person` → `MEETING`, and `makeup` → `REWIEW_CLASS`. You can instead supply a `course_session_type_id`. Updating `weekly_schedule` on a classroom also reschedules its existing generated sessions. For existing forms, the LMS accepts `day` (Persian or English weekday name) with `start_time`; it normalizes these fields on save. Legacy `delivery_type` and `session_type` are supported when `mode` is absent, with `delivery_type` taking precedence. A Persian day without an explicit offset defaults to Tehran time (`+03:30`).
 
-When moving one classroom session, opt in to shifting every later session onto the next weekly schedule slots after the new start time:
+Complementary videos inherit the time of the preceding session in course `sort_order`,
+including a preceding video or online class. Moving that session also moves its following
+complementary videos. Opt in to shifting later primary sessions onto the next weekly
+schedule slots after the new start time:
 
 ```ts
 await api.classroomSessions.update(sessionId, {
@@ -228,3 +231,22 @@ await lms.classroomSessions.create({
 ```
 
 Requires `lms:classroom:create` and uses configured authentication and Axios request options. The response includes `student_user_ids` (`null` for whole-class sessions).
+
+### Teacher and support filters
+
+`lms.homeworkBanks.list`, `lms.homeworks.list`, `lms.listHomeworks`, `lms.exams.list`, `lms.examBanks.list`, and
+`lms.listExams` accept `teacher_user_id` and `support_user_id`. These definition filters
+match the explicitly assigned staff on delivered homework items or exam sessions.
+Supplying both requires the same delivery to match both staff members. Results retain
+normal permissions and pagination; the filters do not grant access to other classrooms.
+Assignments and exam sessions expose the same filters through `homeworkAssignments.list`
+and `listExamSessions`.
+
+```ts
+const exams = await lms.exams.list({ teacher_user_id: teacherId, support_user_id: supportId, page_size: 20 });
+const homeworks = await lms.homeworks.list({ teacher_user_id: teacherId, page_size: 20 });
+```
+
+Uses configured authentication (`lms:exam:read` / `lms:homework:read` or corresponding own
+scopes). Responses retain Axios metadata; permission, validation, cancellation and network
+failures reject normally. Definition filters require the matching LMS service update.

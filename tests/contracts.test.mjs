@@ -329,3 +329,30 @@ test("State world updates use PUT through the authorized shared client", async (
   assert.equal(seen.url, "/api/v1/worlds/world%2Fid");
   assert.equal(seen.headers.get("Authorization"), "Bearer state-token");
 });
+
+
+test("LMS definition filters preserve staff roles and authenticated transport on every public entry point", async () => {
+  const seen = [];
+  const api = new LmsApi(new FaiberClient("lms", {
+    domains: { lms: "https://lms.example.com" },
+    tokenProvider: new MemoryTokenProvider({ accessToken: "staff-token" }),
+    axios: { adapter: async (config) => {
+      seen.push(config);
+      return { data: { data: {} }, status: 200, statusText: "OK", headers: new AxiosHeaders(), config };
+    } },
+  }));
+  const filters = { teacher_user_id: "teacher-id", support_user_id: "support-id", page_number: 2, page_size: 10 };
+  await api.homeworks.list(filters);
+  await api.homeworkBanks.list(filters);
+  await api.listHomeworks(filters);
+  await api.exams.list(filters);
+  await api.examBanks.list(filters);
+  await api.listExams(filters);
+  await api.operations.homeworkIndexHomeworkGet(filters);
+  await api.operations.examIndexExamGet(filters);
+  assert.equal(seen.length, 8);
+  for (const request of seen) {
+    assert.deepEqual(request.params, filters);
+    assert.equal(request.headers.get("Authorization"), "Bearer staff-token");
+  }
+});

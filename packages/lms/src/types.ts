@@ -227,6 +227,44 @@ export const HOMEWORK_ASSIGNMENT_STATUSES = [
     "inactive",
 ] as const;
 export type HomeworkAssignmentStatus = typeof HOMEWORK_ASSIGNMENT_STATUSES[number];
+/** Filters reusable homework banks by explicitly assigned delivery staff. */
+export interface HomeworkBankListQuery extends QueryParams {
+    page_number?: number | null;
+    page_size?: number | null;
+    search?: string | null;
+    status?: string | null;
+    teacher_user_id?: string | null;
+    support_user_id?: string | null;
+}
+/** Filters reusable homework definitions by their delivery's explicitly assigned staff. */
+export interface HomeworkListQuery extends QueryParams {
+    page_number?: number | null;
+    page_size?: number | null;
+    search?: string | null;
+    status?: string | null;
+    homework_bank_id?: string | null;
+    difficulty?: string | null;
+    course_id?: string | null;
+    user_id?: string | null;
+    teacher_user_id?: string | null;
+    support_user_id?: string | null;
+    from?: string | null;
+    to?: string | null;
+}
+/** Filters exam definitions by staff assigned to their delivered sessions. */
+export interface ExamListQuery extends QueryParams {
+    page_number?: number | null;
+    page_size?: number | null;
+    search?: string | null;
+    status?: string | null;
+    course_id?: string | null;
+    grade_id?: string | null;
+    user_id?: string | null;
+    teacher_user_id?: string | null;
+    support_user_id?: string | null;
+    from?: string | null;
+    to?: string | null;
+}
 /** Filters delivered homework items. `statuses` is encoded as the backend's comma-separated `status` query. */
 export interface HomeworkAssignmentListQuery extends QueryParams {
     page_number?: number;
