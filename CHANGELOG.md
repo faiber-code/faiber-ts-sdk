@@ -5,6 +5,13 @@
 This source version is pending full service, permission, workflow and consumer
 acceptance. It has not been published by the knowledge-brain implementation task.
 
+- Match Version's required nullable response keys and distinct history shape, preserve
+  required success-envelope fields and restrict slug/UUID inputs to strings.
+- Select the tested Session source repair disabling compile-time development identity
+  fallback, and document the actual peer status, configuration and permission boundaries.
+- Preserve tracked shared Rust dependencies in immutable discovery/source snapshots.
+  The incoming four-domain Summary source handoff is independently verified and remains
+  pending composition, mounted HTTP acceptance and canonical integration.
 - Follow the actual mounted router graphs for all18 SDK HTTP service inventories.
   Add explicit dynamic-method Session peer and CRM fallback operations and named State
   process health. Preserve wildcard separators while rejecting traversal/ambiguous escapes.

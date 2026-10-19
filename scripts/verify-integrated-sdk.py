@@ -43,6 +43,18 @@ def external_inputs():
    metadata=json.loads(supplement.read_text());assert metadata['previous_handoff_sha256']==digest(manifest_path.read_bytes())
    for path in supplement.parent.iterdir():
     if path.is_file():capture(path)
+  if os.environ.get('INFERA_SDK_SOURCE_DOMAINS_HANDOFF'):
+   domains_path=Path(os.environ['INFERA_SDK_SOURCE_DOMAINS_HANDOFF']).resolve();capture(domains_path)
+   domains=json.loads(domains_path.read_text());checksum_path=domains_path.parent/'SHA256.json';capture(checksum_path)
+   for name,checksum in json.loads(checksum_path.read_text()).items():
+    artifact=(domains_path.parent/name).resolve();assert artifact.parent==domains_path.parent,'Invalid domain artifact path'
+    capture(artifact);assert files[str(artifact)]==checksum,'Domain artifact changed: '+name
+   for service,candidate in domains['candidates'].items():
+    source=Path(candidate['worktree']).resolve();revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=source,text=True).strip();assert revision==candidate['commit'],'Domain candidate HEAD changed: '+service
+    revisions[str(source)]=revision
+    for name,checksum in json.loads((domains_path.parent/candidate['manifest']).read_text()).items():
+     artifact=(source/name).resolve();assert artifact.is_relative_to(source),'Invalid domain source path'
+     capture(artifact);assert files[str(artifact)]==checksum,'Domain source bytes changed: '+name
   for variable in ['INFERA_VERSION_SDK_TEST_REPO','INFERA_SOCIAL_SDK_TEST_REPO','INFERA_IDP_SDK_TEST_REPO','INFERA_MANAGE_IDP_TEST_REPO','INFERA_CONTROL_IDP_AUTH_REPO','INFERA_CHAT_SDK_TEST_REPO','INFERA_PROFILE_SUMMARY_TEST_REPO','INFERA_STATE_HEALTH_TEST_REPO','INFERA_CRM_FALLBACK_TEST_REPO','INFERA_RESERVATION_SDK_TEST_REPO','INFERA_SESSION_PEER_TEST_REPO']:
    if not os.environ.get(variable):continue
    source=Path(os.environ[variable]).resolve();revisions[str(source)]=subprocess.check_output(['git','rev-parse','HEAD'],cwd=source,text=True).strip()
