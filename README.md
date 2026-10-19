@@ -155,6 +155,6 @@ sorting and pagination. See the [profile package guide](packages/profile/README.
 
 The service `operations` clients include typed storefront checkout, product trial gifts, paid fitness coaching, handoff/password flows, provider readiness, v2 games and matchmaking, room presence/moderation, and APK publishing. HTTP calls preserve the complete Axios response and configured authorization. Match and room realtime operations perform WebSocket upgrades using scoped tickets obtained from authenticated HTTP calls; they return the connected socket/client. Package READMEs describe the required permissions, dedicated server credentials, request casing and response envelopes.
 
-### Feedback, delivery and assigned-contact chat (0.24.0)
+### Feedback, delivery and assigned-contact chat (0.24.1)
 
 Task feedback workflows are configured only in the instance's internal panel and database; no customer presets or role mappings ship with the SDK. The service packages expose typed feedback/capture contracts, self-scoped durable notification feeds and multi-device registration, per-user Chat summaries/read counts, and LMS notification settings and eligible contacts. See the Task, Messenger, Chat and LMS package guides for authenticated workflows, 35-second long-poll timeouts, concurrency errors and rollout requirements. Keep each client's service domains on the intended sandbox.

@@ -216,7 +216,7 @@ Axios metadata and cancellation options.
 
 Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.
 
-## Assigned-contact chat and per-user unread state (0.24.0)
+## Assigned-contact chat and per-user unread state (0.24.1)
 
 Use `chat.personal.conversations()` and `unreadCount()` for authenticated conversation summaries and actual incoming unread-message counts. Own/deleted messages do not count; do not subtract sequence numbers. Initialize `personal.events()` before a snapshot and resume from its cursor. Long polls default to 35 seconds; `realtimeConfig` and `realtimeAuth` authorize only the current organization's private user channel. All methods require `chat:read`, preserve Axios responses/authentication and support cancellation.
 

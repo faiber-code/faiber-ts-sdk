@@ -251,7 +251,7 @@ Uses configured authentication (`lms:exam:read` / `lms:homework:read` or corresp
 scopes). Responses retain Axios metadata; permission, validation, cancellation and network
 failures reject normally. Definition filters require the matching LMS service update.
 
-## Student notification settings and assigned chat contacts (0.24.0)
+## Student notification settings and assigned chat contacts (0.24.1)
 
 `lms.notificationSettings.list()` lists sandbox-wide student rules; editing requires `lms:notification:settings:update`, while reads and read-only previews require `lms:notification:settings:read`. Update with `{enabled,offset_seconds,expected_version}`. Event delays are seconds; before/after domain timing is fixed by each rule. Invalid ordering/ranges return 422, stale versions return 409. Changes recompute pending work without replaying delivered occurrences or backfilling old events. `preview(key)` sends nothing.
 

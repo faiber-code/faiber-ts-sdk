@@ -78,7 +78,7 @@ console.log(report.data.data.channels, report.data.data.providerVerified);
 
 This read-only inspection requires `admin:service:read` and sends no notifications. Each provider result names its channel, configuration and verification status. `serviceReadinessPost` is a server-only OTP check requiring the `x-website-otp-token` header; its response is the raw `{ready}` object. Standard Axios headers, timeouts, errors and cancellation are preserved.
 
-## Durable self delivery (0.24.0)
+## Durable self delivery (0.24.1)
 
 Use `api.delivery.events()` to initialize a cursor **before** loading `api.myInbox()`, then poll from that cursor. Prefer scoped sockets while connected, reconciling missed events through this same durable stream. Deduplicate by notification ID; read changes also enter the stream. A 410 requests a full snapshot resync. `events` defaults to a 35-second Axios timeout for the server's 25-second wait. AbortSignal and explicit timeout overrides work normally.
 

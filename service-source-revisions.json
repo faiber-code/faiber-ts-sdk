@@ -65,7 +65,7 @@
   },
   "task": {
     "directory": "infera-task",
-    "revision": "954e5b80f597e0e2fca55c80484c80193300f762"
+    "revision": "63201e112a1e640cab8454b168bbefe52ebab7bc"
   },
   "version": {
     "directory": "infera_version",

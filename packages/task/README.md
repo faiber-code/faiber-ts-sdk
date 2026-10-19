@@ -107,7 +107,7 @@ request options, including cancellation signals.
 
 Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.
 
-## Configurable feedback requests (0.24.0)
+## Configurable feedback requests (0.24.1)
 
 `task.feedback.capabilities()` returns current verified reporting roles and readiness. A new Task instance has no policy or workflow preset. A workspace manager configures it in `/dashboard/settings/feedback`; it is stored only in that sandbox database. Clients must not encode role mappings or stage counts.
 
