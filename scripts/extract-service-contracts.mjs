@@ -420,7 +420,7 @@ for (const service of services) {
       : {path:"src/router.rs",function:"routes"};
     const graph=mountedRouterOperations(indexed,entry);
     if (graph.unresolved.length || graph.duplicates.length || graph.operations.some(op=>op.unresolved_handler || op.inline_handler)) {
-      throw new Error(`${service}: mounted source graph requires review: ${JSON.stringify(graph.unresolved)} ${JSON.stringify(graph.duplicates)}`);
+      throw new Error(`${service}: mounted source graph requires review: ${JSON.stringify(graph.unresolved)} ${JSON.stringify(graph.duplicates)} ${JSON.stringify(graph.operations.filter(op=>op.unresolved_handler || op.inline_handler))}`);
     }
     const reviewed=[];
     for (const op of graph.operations) {

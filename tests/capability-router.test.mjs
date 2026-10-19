@@ -78,3 +78,10 @@ test('qualified sibling handlers resolve through an explicit parent glob without
  const missing=mountedRouterOperations(files.filter(f=>!f.path.endsWith('/feedback/storage.rs')),{path:'src/feedback/routes.rs',function:'router'});
  assert.equal(missing.operations[0].unresolved_handler,'storage::initialize');
 });
+
+test('an explicit super path is resolved once even beside a parent glob import',()=>{
+ const files=[sourceIndex('use super::*;pub fn routes()->Router{Router::new().route("/redeem",post(super::gifts::redeem))}', 'example/src/fitness/routes.rs'),
+ sourceIndex('pub async fn redeem(){}','example/src/fitness/gifts.rs')];
+ const graph=mountedRouterOperations(files,{path:'src/fitness/routes.rs',function:'routes'});
+ assert.ok(!graph.operations[0].unresolved_handler);assert.equal(graph.operations[0].handlerModule,'fitness::gifts');
+});

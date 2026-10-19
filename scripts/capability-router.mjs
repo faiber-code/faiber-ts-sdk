@@ -34,7 +34,7 @@ function functionFor(files, current, call, resolving=new Set()) {
   const ownCrate=current.path.split('/')[0].replaceAll('-','_');
   if(qualifier===ownCrate)qualifier='crate';
   else if(qualifier.startsWith(`${ownCrate}::`))qualifier=`crate::${qualifier.slice(ownCrate.length+2)}`;
-  const absolute=qualifier==='crate'||qualifier.startsWith('crate::');
+  const absolute=qualifier==='crate'||qualifier.startsWith('crate::')||qualifier.startsWith('super::')||qualifier.startsWith('self::');
   if (qualifier.startsWith('crate::')) qualifier = qualifier.slice(7);
   else if (qualifier === 'crate') qualifier = '';
   else if (qualifier.startsWith('super::')) qualifier = `${moduleOf(current.path).split('::').slice(0,-1).join('::')}::${qualifier.slice(7)}`;
