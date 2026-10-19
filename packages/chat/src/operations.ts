@@ -524,6 +524,59 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesAskPostResponse, T.RoutesAskPostInput>({ ...options, method: "POST", url: `/api/v1/learning/runs/${encodeURIComponent(id)}/questions`, data: data });
   }
   /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/me/conversations` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  humanChatSummariesGet(params?: T.HumanChatSummariesGetQuery, options?: RequestOptions) {
+    return this.client.request<T.HumanChatSummariesGetResponse>({ ...options, method: "GET", url: `/api/v1/me/conversations`, params });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/me/events` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  humanChatEventsGet(params?: T.HumanChatEventsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.HumanChatEventsGetResponse>({ timeout: 35000, ...options, method: "GET", url: `/api/v1/me/events`, params });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/me/realtime/auth` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  humanChatRealtimeAuthPost(data: T.HumanChatRealtimeAuthPostInput, options?: RequestOptions<T.HumanChatRealtimeAuthPostInput>) {
+    return this.client.request<T.HumanChatRealtimeAuthPostResponse, T.HumanChatRealtimeAuthPostInput>({ ...options, method: "POST", url: `/api/v1/me/realtime/auth`, data: data });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/me/realtime/config` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  humanChatRealtimeConfigGet(options?: RequestOptions) {
+    return this.client.request<T.HumanChatRealtimeConfigGetResponse>({ ...options, method: "GET", url: `/api/v1/me/realtime/config` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/me/unread-count` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
+   */
+  humanChatUnreadGet(options?: RequestOptions) {
+    return this.client.request<T.HumanChatUnreadGetResponse>({ ...options, method: "GET", url: `/api/v1/me/unread-count` });
+  }
+  /**
    * Performs the delete message operation for the routes capability.
    * Calls `DELETE /api/v1/messages/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.

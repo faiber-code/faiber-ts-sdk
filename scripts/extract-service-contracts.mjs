@@ -1,3 +1,4 @@
+import { integrationEndpoints } from "./integration-contracts.mjs";
 import { productionRust } from "./rust-source.mjs";
 import { serviceSources } from "./service-source-snapshots.mjs";
 import { access, readFile, readdir, writeFile } from "node:fs/promises";
@@ -360,6 +361,16 @@ for (const service of services) {
         ...signature,
       });
     }
+  }
+  const reviewedSources = new Set(integrationEndpoints.filter(item => item.service === service).map(item => item.endpoint.source));
+  for (let i=endpoints.length-1;i>=0;i--) if (reviewedSources.has(endpoints[i].source)) endpoints.splice(i,1);
+  // Explicitly reviewed module mounts supplement the parser; require actual handler and route source.
+  for (const integration of integrationEndpoints.filter(item => item.service === service)) {
+    const endpoint = integration.endpoint;
+    const sourcePath = join(servicesRoot, endpoint.source);
+    let source; try { source = await readFile(sourcePath, "utf8"); } catch { continue; }
+    if (!source.includes(endpoint.handler)) throw new Error(`Missing integration handler: ${endpoint.source}:${endpoint.handler}`);
+    endpoints.push(endpoint);
   }
   const unique = new Map(endpoints.map(endpoint => [`${endpoint.method} ${endpoint.path}`, endpoint]));
   manifest[service] = [...unique.values()].sort((a, b) => a.path.localeCompare(b.path) || a.method.localeCompare(b.method));

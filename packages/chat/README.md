@@ -31,7 +31,7 @@ await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } })
 
 ## Complete capability
 
-This package exposes 57 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 62 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -215,3 +215,11 @@ an available compatible Faiber worker or relay. All calls retain authenticated t
 Axios metadata and cancellation options.
 
 Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.
+
+## Assigned-contact chat and per-user unread state (0.24.0)
+
+Use `chat.personal.conversations()` and `unreadCount()` for authenticated conversation summaries and actual incoming unread-message counts. Own/deleted messages do not count; do not subtract sequence numbers. Initialize `personal.events()` before a snapshot and resume from its cursor. Long polls default to 35 seconds; `realtimeConfig` and `realtimeAuth` authorize only the current organization's private user channel. All methods require `chat:read`, preserve Axios responses/authentication and support cancellation.
+
+When the instance enables LMS assigned-contact policy, direct creation/sending requires the current student/teacher/support relationship. Obtain eligible contacts from LMS rather than a public directory. Existing pair deduplication remains authoritative. A revoked assignment retains readable history but disables sending. Generic member routes cannot expand these direct conversations. Message retries reuse `client_id` with identical content; a changed body conflicts. Read updates are monotonic, cannot exceed accessible message sequences, and should be sent only after visible messages render.
+
+A web application should keep its chat provider above route changes, preserving conversation/draft/scroll state. Safe Markdown must disable raw HTML and unsafe URL schemes; copying and URL/email/phone detection belong in the client. Chat unread counts and Messenger notification counts are separate.

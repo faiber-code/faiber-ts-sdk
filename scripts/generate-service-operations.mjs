@@ -390,7 +390,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const inputOverride = inputOverrides[service]?.[endpoint.handler];
     const responseOverride = responseOverrides[service]?.[endpoint.handler];
     const optionalChatUpload = service === "chat" && endpoint.handler === "complete_attachment";
-    const binaryDownload = (service === "chat" && ["download_attachment", "tts"].includes(endpoint.handler)) || (service === "task" && endpoint.handlerModule === "attachments" && endpoint.handler === "download");
+    const binaryDownload = reviewed?.binaryDownload || (service === "chat" && ["download_attachment", "tts"].includes(endpoint.handler)) || (service === "task" && endpoint.handlerModule === "attachments" && endpoint.handler === "download");
     if (optionalChatUpload) typeLines.push("export type AttachmentUploadBody = Blob | ArrayBuffer | Uint8Array;");
     if (hasInput) {
       typeLines.push(`/** Backend request type: ${endpoint.binary ? "binary byte stream" : endpoint.body ?? "multipart/form-data"}. */`);
@@ -491,7 +491,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       ? `{ ...data, ${Object.entries(reviewed.pathFields).map(([field, arg]) => `${JSON.stringify(field)}: String(${arg})`).join(", ")} }` : "data";
     if (optionalChatUpload) {
       operationLines.push(`    return this.client.request<T.${base}Response, T.AttachmentUploadBody>({ ...options, method: "POST", url: ${escapedPath(endpoint.path)}, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });`);
-    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
+    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");

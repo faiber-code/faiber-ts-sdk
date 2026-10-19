@@ -467,6 +467,27 @@ export interface RoutesAskPostInput extends JsonObject {
 export interface RoutesAskPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend query type: ReviewedIntegrationQuery. */
+export type HumanChatSummariesGetQuery = import("./personal.js").ConversationSummaryQuery;
+/** Backend response type: api. */
+export type HumanChatSummariesGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ConversationSummaryPage>;
+
+/** Backend query type: ReviewedIntegrationQuery. */
+export type HumanChatEventsGetQuery = import("./personal.js").PersonalChatEventQuery;
+/** Backend response type: api. */
+export type HumanChatEventsGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").PersonalChatEventPage>;
+
+/** Backend request type: ReviewedIntegrationInput. */
+export type HumanChatRealtimeAuthPostInput = import("./personal.js").PersonalChatRealtimeAuthInput;
+/** Backend response type: api. */
+export type HumanChatRealtimeAuthPostResponse = import("./personal.js").PersonalChatRealtimeAuth;
+
+/** Backend response type: api. */
+export type HumanChatRealtimeConfigGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").PersonalChatRealtimeConfig>;
+
+/** Backend response type: api. */
+export type HumanChatUnreadGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ChatUnreadCount>;
+
 /** Backend response type: no-content. */
 export type RoutesDeleteMessageDeleteResponse = void;
 

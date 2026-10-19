@@ -1,3 +1,4 @@
+import { PersonalChatApi } from "./personal.js";
 import { LearningTeacherApi } from "./learning.js";
 import { ChatWorkspaceOperations } from "./workspace.js";
 import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
@@ -6,6 +7,7 @@ import type * as O from "./operations.types.js";
 import { ChatOperations } from "./operations.js";
 const id = (value: Identifier) => encodeURIComponent(value);
 export class ChatApi extends ServiceApi {
+  readonly personal = new PersonalChatApi(this.client);
   /** Metered assistant voice; requires chat:ai and current Task project access.
    * Stable UUIDs and chunk sequences preserve retries. Reserve 65 input seconds or
    * 120 output seconds (max 600 characters), settling actual provider duration.
@@ -106,3 +108,5 @@ export * from "./speech-recorder.js";
 export * from "./speech-playback.js";
 export * from "./speech-live.js";
 export * from "./assistant-voice.js";
+
+export * from "./personal.js";

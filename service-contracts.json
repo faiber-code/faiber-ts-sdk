@@ -2245,6 +2245,74 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/me/conversations",
+      "module": "human_chat",
+      "handler": "summaries",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "ReviewedIntegrationQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/events",
+      "module": "human_chat",
+      "handler": "events",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "ReviewedIntegrationQuery"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/me/realtime/auth",
+      "module": "human_chat",
+      "handler": "realtime_auth",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "ReviewedIntegrationInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/realtime/config",
+      "module": "human_chat",
+      "handler": "realtime_config",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/unread-count",
+      "module": "human_chat",
+      "handler": "unread",
+      "permissions": [
+        "chat:read"
+      ],
+      "source": "infera-chat/src/human_chat.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "DELETE",
       "path": "/api/v1/messages/{id}",
       "module": "routes",
@@ -8379,6 +8447,20 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/chat/contacts",
+      "module": "contacts",
+      "handler": "contacts",
+      "permissions": [
+        "lms:chat:contacts:read"
+      ],
+      "source": "infera-lms/src/notifications/contacts.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "ReviewedIntegrationQuery"
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/classrooms",
       "module": "classroom",
       "handler": "index_classroom",
@@ -10438,6 +10520,47 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/notification-rules",
+      "module": "mod",
+      "handler": "index",
+      "permissions": [
+        "lms:notification:settings:read"
+      ],
+      "source": "infera-lms/src/notifications/mod.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "ReviewedIntegrationQuery"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/notification-rules/{key}",
+      "module": "mod",
+      "handler": "update",
+      "permissions": [
+        "lms:notification:settings:update"
+      ],
+      "source": "infera-lms/src/notifications/mod.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "ReviewedIntegrationInput"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/notification-rules/{key}/preview",
+      "module": "mod",
+      "handler": "preview",
+      "permissions": [
+        "lms:notification:settings:read"
+      ],
+      "source": "infera-lms/src/notifications/mod.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/profiles",
       "module": "profile_routes",
       "handler": "index",
@@ -10922,6 +11045,20 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/notifications/me/events",
+      "module": "inbox_stream",
+      "handler": "events",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/inbox_stream.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "ReviewedIntegrationQuery"
+    },
+    {
       "method": "PATCH",
       "path": "/api/v1/notifications/me/read-all",
       "module": "notification",
@@ -10931,6 +11068,19 @@
       ],
       "source": "infera-messenger/src/notification/routes.rs",
       "response": "MarkAllReadResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/notifications/me/unread-count",
+      "module": "inbox_stream",
+      "handler": "unread",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/inbox_stream.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -10975,6 +11125,33 @@
       ],
       "source": "infera-messenger/src/notification/routes.rs",
       "response": "RealtimeConfigResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/push/devices",
+      "module": "mobile_push",
+      "handler": "register",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/mobile_push.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "ReviewedIntegrationInput"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/push/devices/{id}",
+      "module": "mobile_push",
+      "handler": "revoke",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/mobile_push.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -11199,6 +11376,72 @@
       "body": "UpdateTemplateContentRequest",
       "pathParam": "i64",
       "response": "TemplateContentResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/web-push/config",
+      "module": "web_push",
+      "handler": "config",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/web-push/deliveries/{id}",
+      "module": "web_push",
+      "handler": "delivery",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/web-push/subscriptions",
+      "module": "web_push",
+      "handler": "subscribe",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "ReviewedIntegrationInput"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/web-push/subscriptions/{id}",
+      "module": "web_push",
+      "handler": "unsubscribe",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/web-push/subscriptions/{id}/test",
+      "module": "web_push",
+      "handler": "test_push",
+      "permissions": [
+        "notification:self:read"
+      ],
+      "source": "infera-messenger/src/web_push.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -19560,6 +19803,168 @@
       "responseEnvelope": "stream",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/assignees",
+      "module": "feedback",
+      "handler": "assignees",
+      "permissions": [
+        "task:feedback:assign plus configured local scope"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/feedback/attachments",
+      "module": "feedback",
+      "handler": "initialize",
+      "permissions": [
+        "task:feedback:submit"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "ReviewedIntegrationInput"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/feedback/attachments/{id}/complete",
+      "module": "feedback",
+      "handler": "complete",
+      "permissions": [
+        "task:feedback:submit and attachment ownership"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/feedback/attachments/{id}/content",
+      "module": "feedback",
+      "handler": "upload",
+      "permissions": [
+        "task:feedback:submit and attachment ownership"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "binary": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/capabilities",
+      "module": "feedback",
+      "handler": "capabilities",
+      "permissions": [
+        "task:feedback:submit"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/policy",
+      "module": "feedback",
+      "handler": "get_policy",
+      "permissions": [
+        "task:access:use + local workspace.manage"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/feedback/policy",
+      "module": "feedback",
+      "handler": "put_policy",
+      "permissions": [
+        "task:access:use + local workspace.manage; If-Match header required (0 initializes)"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "ReviewedIntegrationInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/requests",
+      "module": "feedback",
+      "handler": "index",
+      "permissions": [
+        "task:feedback:self:read OR scoped review/assignment permission"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "ReviewedIntegrationQuery"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/feedback/requests",
+      "module": "feedback",
+      "handler": "create",
+      "permissions": [
+        "task:feedback:submit"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "ReviewedIntegrationInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/requests/{id}",
+      "module": "feedback",
+      "handler": "show",
+      "permissions": [
+        "task:feedback:self:read OR scoped review/assignment permission"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/feedback/requests/{id}/attachments/{attachment}/content",
+      "module": "feedback",
+      "handler": "content",
+      "permissions": [
+        "authorized current request access"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/feedback/requests/{id}/decisions",
+      "module": "feedback",
+      "handler": "decision",
+      "permissions": [
+        "task:feedback:review OR task:feedback:assign plus configured local scope"
+      ],
+      "source": "infera-task/src/feedback/routes.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "ReviewedIntegrationInput"
     },
     {
       "method": "POST",

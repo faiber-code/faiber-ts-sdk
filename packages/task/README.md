@@ -106,3 +106,11 @@ when the user requests archived records. All methods preserve Axios responses an
 request options, including cancellation signals.
 
 Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.
+
+## Configurable feedback requests (0.24.0)
+
+`task.feedback.capabilities()` returns current verified reporting roles and readiness. A new Task instance has no policy or workflow preset. A workspace manager configures it in `/dashboard/settings/feedback`; it is stored only in that sandbox database. Clients must not encode role mappings or stage counts.
+
+Use exported `ReportContext` and `SubmitFeedbackRequest` types, initialize/upload/complete private screenshot evidence, then call `task.feedback.submit(input, crypto.randomUUID())`. Keep the same key and body for retries. Screenshots can be unavailable without blocking submission. `list`, `detail`, `decide`, and authorized `attachmentContent` preserve server ownership and local review scope. A decision uses `expected_version`; stale versions return 409. Only the configured final assignment stage creates a task. `current_stage` contains its bilingual label and action kind. Existing reports retain the submitted route snapshot after policy edits. Management methods require local `workspace.manage`; policy writes use the current version (zero initializes).
+
+All calls retain Axios status/headers, authenticated cookies or bearer tokens, AbortSignal cancellation and transport errors. Never submit hidden answers, credentials, signed media URLs or private evidence in broker events.

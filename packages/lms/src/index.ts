@@ -1,3 +1,4 @@
+import { LmsNotificationSettingsApi, LmsEligibleContactsApi } from "./notification-settings.js";
 import { LmsMediaApi } from "./media.js";
 import { InteractiveLearningApi } from "./interactive.js";
 import { RestResource, ServiceApi, type AxiosResponse, type Identifier, type QueryParams, type PageQuery, type RequestOptions } from "@faiber/sdk-core";
@@ -115,6 +116,8 @@ export function classroomSessionRecordingUrl(reference: T.ClassroomSessionRoomRe
 }
 
 export class LmsApi extends ServiceApi {
+    readonly notificationSettings = new LmsNotificationSettingsApi(this.client);
+    readonly eligibleContacts = new LmsEligibleContactsApi(this.client);
     /** Transfer learner-owned LMS records atomically (user_data:transfer).
      * Supply a stable Idempotency-Key through idempotencyKey; repeat the same IDs to replay.
      * 422: invalid/missing users or key; 409: active attempts, collisions or key reuse.
@@ -302,3 +305,5 @@ export * from "./interactive.js";
 export * from "./media.js";
 
 export * from "./contracts.types.js";
+
+export * from "./notification-settings.js";

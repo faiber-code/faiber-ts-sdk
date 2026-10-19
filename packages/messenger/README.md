@@ -29,7 +29,7 @@ if (first) await api.markMyNotificationRead(first.id);
 
 ## Complete capability
 
-This package exposes 36 registered operations from the messaging service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 47 registered operations from the messaging service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -77,3 +77,11 @@ console.log(report.data.data.channels, report.data.data.providerVerified);
 ```
 
 This read-only inspection requires `admin:service:read` and sends no notifications. Each provider result names its channel, configuration and verification status. `serviceReadinessPost` is a server-only OTP check requiring the `x-website-otp-token` header; its response is the raw `{ready}` object. Standard Axios headers, timeouts, errors and cancellation are preserved.
+
+## Durable self delivery (0.24.0)
+
+Use `api.delivery.events()` to initialize a cursor **before** loading `api.myInbox()`, then poll from that cursor. Prefer scoped sockets while connected, reconciling missed events through this same durable stream. Deduplicate by notification ID; read changes also enter the stream. A 410 requests a full snapshot resync. `events` defaults to a 35-second Axios timeout for the server's 25-second wait. AbortSignal and explicit timeout overrides work normally.
+
+`api.delivery.unreadCount()` is the authoritative notification count, independent of chat unread messages. `registerDevice({application_id,installation_id,platform,token,locale})` registers an authenticated Android/iOS installation; reuse the installation UUID when tokens change and revoke before logout. Device tokens are encrypted and transient provider failures have independent durable retries. Background/closed clients require configured OS/Web Push and permission; sockets and polling cannot run in a terminated application. Reconcile after account change, reconnect and resume.
+
+Canonical Web Push operations expose configuration, encrypted subscription registration/removal, test delivery and delivery status. Request permission from a user action. Semantic destinations resolve through approved local client routes; provider acceptance does not prove display or reading. All new delivery operations require `notification:self:read` and derive the recipient from authentication, never an arbitrary recipient parameter.

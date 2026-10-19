@@ -249,6 +249,7 @@ export interface NotificationNotificationsMyInboxGetResponseItem extends JsonObj
   "title"?: string | null;
   "description"?: string | null;
   "path"?: string | null;
+  "destination"?: JsonValue | null;
   "work_item_id"?: string | null;
   "event"?: string | null;
   "read": boolean;
@@ -273,6 +274,7 @@ export interface NotificationNotificationsMyMarkReadPatchResponseData extends Js
   "title"?: string | null;
   "description"?: string | null;
   "path"?: string | null;
+  "destination"?: JsonValue | null;
   "work_item_id"?: string | null;
   "event"?: string | null;
   "read": boolean;
@@ -281,12 +283,20 @@ export interface NotificationNotificationsMyMarkReadPatchResponseData extends Js
 export interface NotificationNotificationsMyMarkReadPatchResponse extends ApiEnvelope<NotificationNotificationsMyMarkReadPatchResponseData> {
 }
 
+/** Backend query type: ReviewedIntegrationQuery. */
+export type InboxStreamEventsGetQuery = import("./delivery.js").InboxStreamQuery;
+/** Backend response type: api. */
+export type InboxStreamEventsGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").InboxStreamPage>;
+
 /** Backend response type: MarkAllReadResponse. */
 export interface NotificationNotificationsMyMarkAllReadPatchResponseData extends JsonObject {
   "updated": number;
 }
 export interface NotificationNotificationsMyMarkAllReadPatchResponse extends ApiEnvelope<NotificationNotificationsMyMarkAllReadPatchResponseData> {
 }
+
+/** Backend response type: api. */
+export type InboxStreamUnreadGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").NotificationUnreadCount>;
 
 /** Backend query type: MarkAllReadQuery. */
 export interface NotificationNotificationsMarkAllReadPatchQuery extends QueryParams {
@@ -319,6 +329,14 @@ export interface NotificationNotificationsRealtimeConfigGetResponseData extends 
 }
 export interface NotificationNotificationsRealtimeConfigGetResponse extends ApiEnvelope<NotificationNotificationsRealtimeConfigGetResponseData> {
 }
+
+/** Backend request type: ReviewedIntegrationInput. */
+export type MobilePushRegisterPostInput = import("./delivery.js").PushDeviceInput;
+/** Backend response type: api. */
+export type MobilePushRegisterPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").PushDevice>;
+
+/** Backend response type: api. */
+export type MobilePushRevokeDeleteResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").PushDeviceRevocation>;
 
 /** Backend response type: Vec<ServiceResponse>. */
 export interface ServiceServicesIndexGetResponseItem extends JsonObject {
@@ -499,6 +517,23 @@ export interface TemplateTemplateContentsUpdatePatchResponseData extends JsonObj
 }
 export interface TemplateTemplateContentsUpdatePatchResponse extends ApiEnvelope<TemplateTemplateContentsUpdatePatchResponseData> {
 }
+
+/** Backend response type: api. */
+export type WebPushConfigGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").WebPushConfig>;
+
+/** Backend response type: api. */
+export type WebPushDeliveryGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").WebPushDelivery>;
+
+/** Backend request type: ReviewedIntegrationInput. */
+export type WebPushSubscribePostInput = import("./delivery.js").WebPushRegistration;
+/** Backend response type: api. */
+export type WebPushSubscribePostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").PushDevice>;
+
+/** Backend response type: api. */
+export type WebPushUnsubscribeDeleteResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").WebPushRemoval>;
+
+/** Backend response type: api. */
+export type WebPushTestPushPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./delivery.js").WebPushTestDelivery>;
 
 /** Backend response type: api. */
 export interface RouterStatusRouteGetHealthResponse extends ApiEnvelope<JsonValue> {

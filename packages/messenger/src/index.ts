@@ -1,8 +1,10 @@
+import { MessengerDeliveryApi } from "./delivery.js";
 import { RestResource, ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 import { MessengerOperations } from "./operations.js";
 export class MessengerApi extends ServiceApi {
+    readonly delivery = new MessengerDeliveryApi(this.client);
     readonly operations = new MessengerOperations(this.client);
     readonly templates = new RestResource<T.MessageTemplate, T.CreateMessageTemplateInput, T.UpdateMessageTemplateInput, T.TemplateListResponse, T.TemplateResponse>(this.client, "/api/v1/templates", { supported: ["list", "show", "create", "update", "delete"] });
     readonly channels = new RestResource<T.Channel, T.CreateChannelInput, T.UpdateChannelInput, T.ChannelListResponse, T.ChannelResponse>(this.client, "/api/v1/channels", { supported: ["list", "show", "create", "update", "delete"] });
@@ -34,3 +36,5 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./contracts.types.js";
+
+export * from "./delivery.js";

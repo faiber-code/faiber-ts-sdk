@@ -291,6 +291,17 @@ export class LmsOperations extends ServiceApi {
     return this.client.request<T.CertificateUpdateTemplatePatchResponse, T.CertificateUpdateTemplatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/certificates/templates/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/chat/contacts` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:chat:contacts:read.
+   */
+  contactsContactsGet(params?: T.ContactsContactsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ContactsContactsGetResponse>({ ...options, method: "GET", url: `/api/v1/chat/contacts`, params });
+  }
+  /**
    * Performs the index classroom operation for the classroom capability.
    * Calls `GET /api/v1/classrooms` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
@@ -1857,6 +1868,40 @@ export class LmsOperations extends ServiceApi {
    */
   mediaDownloadImageGet(filename: Identifier, options?: RequestOptions) {
     return this.client.request<T.MediaDownloadImageGetResponse>({ ...options, method: "GET", url: `/api/v1/media/images/${encodeURIComponent(filename)}` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/notification-rules` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:notification:settings:read.
+   */
+  modIndexGet(params?: T.ModIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ModIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/notification-rules`, params });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `PUT /api/v1/notification-rules/{key}` through the shared IDP-aware Faiber client.
+   * @param key Backend path identifier `key`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:notification:settings:update.
+   */
+  modUpdatePut(key: Identifier, data: T.ModUpdatePutInput, options?: RequestOptions<T.ModUpdatePutInput>) {
+    return this.client.request<T.ModUpdatePutResponse, T.ModUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/notification-rules/${encodeURIComponent(key)}`, data: data });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/notification-rules/{key}/preview` through the shared IDP-aware Faiber client.
+   * @param key Backend path identifier `key`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: lms:notification:settings:read.
+   */
+  modPreviewPost(key: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ModPreviewPostResponse>({ ...options, method: "POST", url: `/api/v1/notification-rules/${encodeURIComponent(key)}/preview` });
   }
   /**
    * Performs the index operation for the profile routes capability.

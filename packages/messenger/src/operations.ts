@@ -186,6 +186,17 @@ export class MessengerOperations extends ServiceApi {
     return this.client.request<T.NotificationNotificationsMyMarkReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/${encodeURIComponent(id)}/read` });
   }
   /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/notifications/me/events` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  inboxStreamEventsGet(params?: T.InboxStreamEventsGetQuery, options?: RequestOptions) {
+    return this.client.request<T.InboxStreamEventsGetResponse>({ timeout: 35000, ...options, method: "GET", url: `/api/v1/notifications/me/events`, params });
+  }
+  /**
    * Performs the notifications my mark all read operation for the notification capability.
    * Calls `PATCH /api/v1/notifications/me/read-all` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -194,6 +205,16 @@ export class MessengerOperations extends ServiceApi {
    */
   notificationNotificationsMyMarkAllReadPatch(options?: RequestOptions) {
     return this.client.request<T.NotificationNotificationsMyMarkAllReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/read-all` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/notifications/me/unread-count` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  inboxStreamUnreadGet(options?: RequestOptions) {
+    return this.client.request<T.InboxStreamUnreadGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/me/unread-count` });
   }
   /**
    * Performs the notifications mark all read operation for the notification capability.
@@ -226,6 +247,28 @@ export class MessengerOperations extends ServiceApi {
    */
   notificationNotificationsRealtimeConfigGet(options?: RequestOptions) {
     return this.client.request<T.NotificationNotificationsRealtimeConfigGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/realtime/config` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/push/devices` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  mobilePushRegisterPost(data: T.MobilePushRegisterPostInput, options?: RequestOptions<T.MobilePushRegisterPostInput>) {
+    return this.client.request<T.MobilePushRegisterPostResponse, T.MobilePushRegisterPostInput>({ ...options, method: "POST", url: `/api/v1/push/devices`, data: data });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `DELETE /api/v1/push/devices/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  mobilePushRevokeDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.MobilePushRevokeDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/push/devices/${encodeURIComponent(id)}` });
   }
   /**
    * Performs the services index operation for the service capability.
@@ -391,6 +434,60 @@ export class MessengerOperations extends ServiceApi {
    */
   templateTemplateContentsUpdatePatch(contentId: Identifier, data: T.TemplateTemplateContentsUpdatePatchInput, options?: RequestOptions<T.TemplateTemplateContentsUpdatePatchInput>) {
     return this.client.request<T.TemplateTemplateContentsUpdatePatchResponse, T.TemplateTemplateContentsUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/templates/contents/${encodeURIComponent(contentId)}`, data: data });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/web-push/config` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  webPushConfigGet(options?: RequestOptions) {
+    return this.client.request<T.WebPushConfigGetResponse>({ ...options, method: "GET", url: `/api/v1/web-push/config` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/web-push/deliveries/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  webPushDeliveryGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.WebPushDeliveryGetResponse>({ ...options, method: "GET", url: `/api/v1/web-push/deliveries/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/web-push/subscriptions` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  webPushSubscribePost(data: T.WebPushSubscribePostInput, options?: RequestOptions<T.WebPushSubscribePostInput>) {
+    return this.client.request<T.WebPushSubscribePostResponse, T.WebPushSubscribePostInput>({ ...options, method: "POST", url: `/api/v1/web-push/subscriptions`, data: data });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `DELETE /api/v1/web-push/subscriptions/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  webPushUnsubscribeDelete(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.WebPushUnsubscribeDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/web-push/subscriptions/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/web-push/subscriptions/{id}/test` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   */
+  webPushTestPushPost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.WebPushTestPushPostResponse>({ ...options, method: "POST", url: `/api/v1/web-push/subscriptions/${encodeURIComponent(id)}/test` });
   }
   /**
    * Performs the status route operation for the router capability.

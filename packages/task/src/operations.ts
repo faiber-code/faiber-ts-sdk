@@ -1,5 +1,6 @@
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
+import { AxiosHeaders, type RawAxiosHeaders } from "axios";
 
 export class TaskOperations extends ServiceApi {
   /**
@@ -120,6 +121,146 @@ export class TaskOperations extends ServiceApi {
    */
   routesEventsGet(options?: RequestOptions) {
     return this.client.request<T.RoutesEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/events`, responseType: "stream" });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/feedback/assignees` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:assign plus configured local scope.
+   */
+  feedbackAssigneesGet(options?: RequestOptions) {
+    return this.client.request<T.FeedbackAssigneesGetResponse>({ ...options, method: "GET", url: `/api/v1/feedback/assignees` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/feedback/attachments` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:submit.
+   */
+  feedbackInitializePost(data: T.FeedbackInitializePostInput, options?: RequestOptions<T.FeedbackInitializePostInput>) {
+    return this.client.request<T.FeedbackInitializePostResponse, T.FeedbackInitializePostInput>({ ...options, method: "POST", url: `/api/v1/feedback/attachments`, data: data });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/feedback/attachments/{id}/complete` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:submit and attachment ownership.
+   */
+  feedbackCompletePost(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FeedbackCompletePostResponse>({ ...options, method: "POST", url: `/api/v1/feedback/attachments/${encodeURIComponent(id)}/complete` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `PUT /api/v1/feedback/attachments/{id}/content` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed binary byte stream.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:submit and attachment ownership.
+   */
+  feedbackUploadPut(id: Identifier, data: T.FeedbackUploadPutInput, options?: RequestOptions<T.FeedbackUploadPutInput>) {
+    return this.client.request<T.FeedbackUploadPutResponse, T.FeedbackUploadPutInput>({ ...options, method: "PUT", url: `/api/v1/feedback/attachments/${encodeURIComponent(id)}/content`, data: data, headers: { "Content-Type": "application/octet-stream", ...options?.headers } });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/feedback/capabilities` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:submit.
+   */
+  feedbackCapabilitiesGet(options?: RequestOptions) {
+    return this.client.request<T.FeedbackCapabilitiesGetResponse>({ ...options, method: "GET", url: `/api/v1/feedback/capabilities` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/feedback/policy` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use + local workspace.manage.
+   */
+  feedbackGetPolicyGet(options?: RequestOptions) {
+    return this.client.request<T.FeedbackGetPolicyGetResponse>({ ...options, method: "GET", url: `/api/v1/feedback/policy` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `PUT /api/v1/feedback/policy` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:access:use + local workspace.manage; If-Match header required (0 initializes).
+   */
+  feedbackPutPolicyPut(data: T.FeedbackPutPolicyPutInput, options?: RequestOptions<T.FeedbackPutPolicyPutInput>) {
+    return this.client.request<T.FeedbackPutPolicyPutResponse, T.FeedbackPutPolicyPutInput>({ ...options, method: "PUT", url: `/api/v1/feedback/policy`, data: data });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/feedback/requests` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:self:read OR scoped review/assignment permission.
+   */
+  feedbackIndexGet(params?: T.FeedbackIndexGetQuery, options?: RequestOptions) {
+    return this.client.request<T.FeedbackIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/feedback/requests`, params });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/feedback/requests` through the shared IDP-aware Faiber client.
+   * @param idempotencyKey Stable printable ASCII key (1–128 characters, without spaces); reuse for identical retries.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:submit.
+   */
+  feedbackCreatePost(data: T.FeedbackCreatePostInput, idempotencyKey: string, options?: RequestOptions<T.FeedbackCreatePostInput>) {
+    if (!/^[\x21-\x7e]{1,128}$/.test(idempotencyKey)) throw new TypeError("Idempotency-Key must be 1–128 printable ASCII characters without spaces");
+    const headers = new AxiosHeaders(options?.headers as RawAxiosHeaders | AxiosHeaders | undefined);
+    headers.set("Idempotency-Key", idempotencyKey);
+    return this.client.request<T.FeedbackCreatePostResponse, T.FeedbackCreatePostInput>({ ...options, method: "POST", url: `/api/v1/feedback/requests`, headers, data: data });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/feedback/requests/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:self:read OR scoped review/assignment permission.
+   */
+  feedbackShowGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FeedbackShowGetResponse>({ ...options, method: "GET", url: `/api/v1/feedback/requests/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `GET /api/v1/feedback/requests/{id}/attachments/{attachment}/content` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param attachment Backend path identifier `attachment`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authorized current request access.
+   */
+  feedbackContentGet(id: Identifier, attachment: Identifier, options?: RequestOptions) {
+    return this.client.request<T.FeedbackContentGetResponse>({ ...options, method: "GET", url: `/api/v1/feedback/requests/${encodeURIComponent(id)}/attachments/${encodeURIComponent(attachment)}/content`, responseType: "arraybuffer" });
+  }
+  /**
+   * Use the authenticated sandbox integration. Server-enforced ownership and scope apply; stale versions return 409. See the package integration guide for cursor, idempotency, and configuration requirements.
+   * Calls `POST /api/v1/feedback/requests/{id}/decisions` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param idempotencyKey Stable printable ASCII key (1–128 characters, without spaces); reuse for identical retries.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: task:feedback:review OR task:feedback:assign plus configured local scope.
+   */
+  feedbackDecisionPost(id: Identifier, data: T.FeedbackDecisionPostInput, idempotencyKey: string, options?: RequestOptions<T.FeedbackDecisionPostInput>) {
+    if (!/^[\x21-\x7e]{1,128}$/.test(idempotencyKey)) throw new TypeError("Idempotency-Key must be 1–128 printable ASCII characters without spaces");
+    const headers = new AxiosHeaders(options?.headers as RawAxiosHeaders | AxiosHeaders | undefined);
+    headers.set("Idempotency-Key", idempotencyKey);
+    return this.client.request<T.FeedbackDecisionPostResponse, T.FeedbackDecisionPostInput>({ ...options, method: "POST", url: `/api/v1/feedback/requests/${encodeURIComponent(id)}/decisions`, headers, data: data });
   }
   /**
    * Performs the use guest link operation for the routes capability.

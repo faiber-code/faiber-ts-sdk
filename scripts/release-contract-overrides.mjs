@@ -1,5 +1,7 @@
+import { integrationContracts } from "./integration-contracts.mjs";
 // Reviewed wire contracts; keyed by the mounted method and path, never ambiguous handler names.
 export const releaseContracts = {
+  ...integrationContracts,
   "idp:POST /api/v1/auth/secure/handoff/{user_id}": {
     "response": "import(\"./contracts.types.js\").HandoffTokenResponse",
     "auth": "server-only x-infera-handoff-secret; configured client allowlist",

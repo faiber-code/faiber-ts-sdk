@@ -53,7 +53,7 @@ const sessions = await api.courseSessions(courseId);
 
 ## Complete capability
 
-This package exposes 165 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 186 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -250,3 +250,9 @@ const homeworks = await lms.homeworks.list({ teacher_user_id: teacherId, page_si
 Uses configured authentication (`lms:exam:read` / `lms:homework:read` or corresponding own
 scopes). Responses retain Axios metadata; permission, validation, cancellation and network
 failures reject normally. Definition filters require the matching LMS service update.
+
+## Student notification settings and assigned chat contacts (0.24.0)
+
+`lms.notificationSettings.list()` lists sandbox-wide student rules; editing requires `lms:notification:settings:update`, while reads and read-only previews require `lms:notification:settings:read`. Update with `{enabled,offset_seconds,expected_version}`. Event delays are seconds; before/after domain timing is fixed by each rule. Invalid ordering/ranges return 422, stale versions return 409. Changes recompute pending work without replaying delivered occurrences or backfilling old events. `preview(key)` sends nothing.
+
+`lms.eligibleContacts.list({cursor,limit})` returns only current assigned student/teacher/support profile IDs, requiring `lms:chat:contacts:read`. Resolve authorized profile display information separately. Chat also checks the relationship server-side; hiding contacts in a client is not authorization. All operations use the configured sandbox transport, keep full Axios responses and support cancellation and standard errors.

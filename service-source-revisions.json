@@ -5,7 +5,7 @@
   },
   "chat": {
     "directory": "infera-chat",
-    "revision": "d495217f85d77270865a040c1328d70c620e6c9d"
+    "revision": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf"
   },
   "crm": {
     "directory": "infera-crm",
@@ -29,11 +29,11 @@
   },
   "lms": {
     "directory": "infera-lms",
-    "revision": "f5030658459f456bb5310f3f460cd348f126930c"
+    "revision": "230453c1471d723af582308e43b5b43b5a0f7b99"
   },
   "messenger": {
     "directory": "infera-messenger",
-    "revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4"
+    "revision": "2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88"
   },
   "modules": {
     "directory": "infera-modules",
@@ -65,7 +65,7 @@
   },
   "task": {
     "directory": "infera-task",
-    "revision": "badfa399a8db6f19d68f63f14b1c67485c4d4903"
+    "revision": "954e5b80f597e0e2fca55c80484c80193300f762"
   },
   "version": {
     "directory": "infera_version",

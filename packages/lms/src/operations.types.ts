@@ -238,6 +238,11 @@ export type CertificateUpdateTemplatePatchInput = import("./types.js").UpdateCer
 /** Backend response type: models::CertificateTemplateResponse. */
 export type CertificateUpdateTemplatePatchResponse = import("./types.js").CertificateTemplateResponse;
 
+/** Backend query type: ReviewedIntegrationQuery. */
+export type ContactsContactsGetQuery = import("./notification-settings.js").EligibleContactQuery;
+/** Backend response type: api. */
+export type ContactsContactsGetResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").EligibleContactPage>;
+
 /** Backend query type: models::ClassroomListQuery. */
 export interface ClassroomIndexClassroomGetQuery extends QueryParams {
   "page_number"?: number | null;
@@ -1659,6 +1664,7 @@ export interface CourseIndexCourseGetQuery extends QueryParams {
   "page_number"?: number | null;
   "page_size"?: number | null;
   "category_ids"?: string | null;
+  "search"?: string | null;
 }
 /** Backend response type: crate::models::PagedResult<models::CourseResponse>. */
 export interface CourseIndexCourseGetResponseItem extends JsonObject {
@@ -2292,9 +2298,7 @@ export interface ExamIndexExamGetQuery extends QueryParams {
   "course_id"?: string | null;
   "grade_id"?: string | null;
   "user_id"?: string | null;
-  /** Definitions delivered by this explicitly assigned teacher. */
   "teacher_user_id"?: string | null;
-  /** Definitions delivered by this explicitly assigned support user. */
   "support_user_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
@@ -3501,9 +3505,7 @@ export interface HomeworkIndexHomeworkGetQuery extends QueryParams {
   "difficulty"?: string | null;
   "course_id"?: string | null;
   "user_id"?: string | null;
-  /** Definitions delivered by this explicitly assigned teacher. */
   "teacher_user_id"?: string | null;
-  /** Definitions delivered by this explicitly assigned support user. */
   "support_user_id"?: string | null;
   "from"?: string | null;
   "to"?: string | null;
@@ -4296,6 +4298,19 @@ export interface MediaUploadImagePostResponse extends ApiEnvelope<MediaUploadIma
 /** Backend response type: raw-response. */
 export interface MediaDownloadImageGetResponse extends ApiEnvelope<JsonValue> {
 }
+
+/** Backend query type: ReviewedIntegrationQuery. */
+export type ModIndexGetQuery = import("./notification-settings.js").NotificationRuleQuery;
+/** Backend response type: api. */
+export type ModIndexGetResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").StudentNotificationRule[]>;
+
+/** Backend request type: ReviewedIntegrationInput. */
+export type ModUpdatePutInput = import("./notification-settings.js").UpdateNotificationRule;
+/** Backend response type: api. */
+export type ModUpdatePutResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").StudentNotificationRule>;
+
+/** Backend response type: api. */
+export type ModPreviewPostResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").NotificationRulePreview>;
 
 /** Backend query type: ProfileSearchQuery. */
 export interface ProfileRoutesIndexGetQuery extends QueryParams {
