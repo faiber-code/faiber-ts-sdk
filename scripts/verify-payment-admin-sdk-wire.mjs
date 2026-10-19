@@ -18,6 +18,10 @@ for(const key of ['options','sandbox','status','created_at','updated_at']){asser
 same(envelope(await api.operations.gatewayShowGet(id)).id,id);
 gateway=envelope(await api.gateways.update(id,{name:'Updated owned gateway',priority:8,sandbox:true}));same(gateway.priority,8);same(gateway.sandbox,true);same(gateway.name,'Updated owned gateway');
 const page=envelope(await api.gateways.list({status:'inactive','page[number]':1,'page[size]':1}));same(page.data.length,1);same(page.meta.page,1);same(page.meta.page_size,1);assert.ok(page.meta.total_items>=2);assertions++;
+const secondPage=envelope(await api.gateways.list({status:'inactive','page[number]':2,'page[size]':1}));same(secondPage.meta.page,2);same(secondPage.data.length,1);same(secondPage.data[0].id,id);
+const bounded=envelope(await api.gateways.list({'page[number]':0,'page[size]':200}));same(bounded.meta.page,1);same(bounded.meta.page_size,100);
+for(const value of ['-1','1.5','abc','18446744073709551616'])await denied(()=>api.gateways.list({'page[size]':value}),400);
+const hugePage=envelope(await api.gateways.list({'page[number]':'18446744073709551615','page[size]':100}));same(hugePage.data.length,0);
 const listed=envelope(await api.transactions.list({service_name:'sdk-seeded-finance','page[number]':1,'page[size]':2}));same(listed.transactions.data.length,2);same(listed.transactions.meta.total_items,3);same(listed.summaries.status.accepted,1200);same(listed.summaries.status.pending,1200);same(listed.summaries.status.rejected,0);
 for(const row of listed.transactions.data){same(typeof row.uuid,'string');same(Object.hasOwn(row,'currency'),false);same(Object.hasOwn(row,'id'),false);same(Object.hasOwn(row,'description'),true);same(Object.hasOwn(row,'gateway'),true);}
 same(envelope(await api.transactionStatus(process.env.INFERA_PAYMENT_SDK_PENDING_ID)),{status:'pending'});
