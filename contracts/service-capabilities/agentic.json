@@ -14,7 +14,7 @@
   ],
   "canonical_revision": "6adb76c4a22e044cb92673ef9104658973c2d766",
   "sdk_source_revision": null,
-  "working_revision": "6adb76c4a22e044cb92673ef9104658973c2d766",
+  "working_revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
   "working_changes": [],
   "source_relationship": "not_in_sdk_lock",
   "source_tree_checksum": "88f13fbfc83d68c64f2b37f82efb6867255224464cadca8458cd9a586d0d4d87",
@@ -936,7 +936,7 @@
       "checksum": "643f87eb849b405e64388bef53935f0bad659fbe92da25c304dbf6bea06d519b"
     }
   ],
-  "working_source_tree_checksum": "d42321b9756dfb95de9f2f223dca0d0c5ffbe67f2b0a6ff82afabdab912a8afc",
+  "working_source_tree_checksum": "dcaf67b2b8b1c5c5c49cfdcaf78a53152d6b159e0a98581ad063d2865daece8b",
   "working_source_files": [
     {
       "path": "infera-agentic/src/account.rs",
@@ -1000,7 +1000,7 @@
     },
     {
       "path": "infera-agentic/src/agent_runtime/service.rs",
-      "checksum": "c6f1fea02ddecc168acb318d8bbdb9808c6a0098df5422d616a6b6bb280163ca"
+      "checksum": "9b831752301ed2140d918a535b956bb6e5a16ff41846889c9cf5dd45a87df809"
     },
     {
       "path": "infera-agentic/src/agent_runtime/tooling.rs",
@@ -1296,7 +1296,7 @@
     },
     {
       "path": "infera-agentic/src/ide/agent_stream.rs",
-      "checksum": "63cb38cd12a432256f6ae46f188cd863e899559afc7b38f036008006878275a4"
+      "checksum": "3b82f896185b5f15325af569dc65b88a2ca1f4a7b7c01c53176b86eb744a2794"
     },
     {
       "path": "infera-agentic/src/ide/auto_planning.rs",
@@ -1355,8 +1355,12 @@
       "checksum": "09607a1f2905d12cce9d0f12c21b9eeb9a4b637ba0aa691b0efbec4302f3b87b"
     },
     {
+      "path": "infera-agentic/src/ide/history_retention.rs",
+      "checksum": "ee6cc37c03bf694f80fbcc21163de951fbf03ed47c6e404c81b77ce245ce0684"
+    },
+    {
       "path": "infera-agentic/src/ide/mod.rs",
-      "checksum": "0e1dae7ab026e853900a3927706174c3ecdbe72c340d6a7707a309506c0e8dc8"
+      "checksum": "15f9345f10b370411bfbe03b8940c0eb5109ed479de70cc59fa1e7e49bfba1b9"
     },
     {
       "path": "infera-agentic/src/ide/patch_sanitize.rs",
@@ -1372,15 +1376,15 @@
     },
     {
       "path": "infera-agentic/src/ide/snapshots.rs",
-      "checksum": "adf362e36796ba121400a5872efe9a2aaee2985fb33d7b3eee5b53d21bd6a1ca"
+      "checksum": "ecd8b151a98e5f9d9c16f0ce2316b824216b452d8aae8c0e6b7d6c0978f3bac1"
     },
     {
       "path": "infera-agentic/src/ide/summarize.rs",
-      "checksum": "2194fcdc631a0b49d0217cf97ccc417c2de590fc598785000f4750549621d691"
+      "checksum": "9dd06fe36a3deeb8043ea08c8e86a1cd4e4a74c2d615007f48fbdb27f424e843"
     },
     {
       "path": "infera-agentic/src/ide/threads.rs",
-      "checksum": "6f595b81f41804960a5b62d3aadd4ab980a2526ed08268f8015ee2debc04b3c4"
+      "checksum": "9e55ff58ae4e214520ed6503194ba401b3016fbc48b9122980e7e4cce7160793"
     },
     {
       "path": "infera-agentic/src/ide/tool_batch.rs",
@@ -1728,7 +1732,7 @@
     },
     {
       "path": "infera-agentic/domain/src/agent_runtime.rs",
-      "checksum": "8af6485687400dbc89d80d262ed3abf7c8586713931fc3734e3eb50f018cfa93"
+      "checksum": "a741848dd6622bbe99db219cd92e29c52a3f4fcf9a277afa23a94d01769098df"
     },
     {
       "path": "infera-agentic/domain/src/agent.rs",

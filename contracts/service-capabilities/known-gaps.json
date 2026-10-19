@@ -326,20 +326,71 @@
       "id": "reservation-generation-limits",
       "owner": "reservation",
       "required": true,
-      "status": "source_review_requires_runtime_verification",
-      "meaning": "Slot generation still needs a bounded date range, explicit reversed-range validation, safe terminal date progression and validation of provider/service availability/assignment. Current code iterates the requested range and defaults malformed stored time strings; verify before complete scheduling certification.",
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Local generation requires active assigned provider/service, validates stored schedules, bounds strict UTC ranges to 366 inclusive days and 100000 unique candidates, deduplicates starts, preserves existing claims, serializes with generators/schedule replacement/slot edits and commits all batches atomically. Real PostgreSQL tests cover concurrent retries, exact boundaries, malformed configuration, excessive output and rollback after a 500-row batch. Canonical/deployed reconciliation remains pending; cross-service provider capacity is not certified.",
       "source_refs": [
         "Service/infera-reservation/src/time_slot/methods.rs"
+      ],
+      "implementation_revision": "83b2ad0f614ed483dad7e5d19432a8c0b6934e38",
+      "test_evidence": [
+        "reservation-generation"
       ]
     },
     {
       "id": "reservation-slot-edit-claim-integrity",
       "owner": "reservation",
       "required": true,
-      "status": "source_review_requires_runtime_verification",
-      "meaning": "Administrative slot updates currently permit independent is_reserved/provider/service/time edits and need lifecycle tests to ensure existing booking claims and historical references remain consistent. Cancellation now fails safely on a mismatched claimant, but that does not certify slot-edit workflows.",
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Local slot PATCH cannot independently change claims or mutate claimed/historically referenced slots; identical requests remain idempotent. Free unreferenced edits validate timestamps, active assignment and duplicate starts under provider serialization. DELETE rejects claims or any booking history instead of cascading it away. Real PostgreSQL booking/deletion and edit/generation races pass. Parent provider/service deletion remains a separate open lifecycle gap; canonical/deployed reconciliation remains pending.",
       "source_refs": [
         "Service/infera-reservation/src/time_slot/methods.rs"
+      ],
+      "implementation_revision": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d",
+      "test_evidence": [
+        "reservation-slot-integrity"
+      ]
+    },
+    {
+      "id": "reservation-parent-delete-history",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Local migration replaces reservation-to-slot ON DELETE CASCADE with RESTRICT, preserving all existing rows and guarding provider/service cascade deletion at the database boundary. Parent deletion returns 409 for historical references and 404 for missing parents. Foreign-key/deadlock/serialization conflicts return 409; unrelated storage errors remain 500. Real PostgreSQL tests cover confirmed/cancelled history, direct SQL, unbooked draft cleanup, concurrent booking versus both parent deletion paths and down/up migration preservation. Canonical/deployed migration remains pending.",
+      "source_refs": [
+        "Service/infera-reservation/src/provider/methods.rs",
+        "Service/infera-reservation/src/reservation_service/methods.rs",
+        "Service/infera-reservation/migration/src"
+      ],
+      "implementation_revision": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+      "test_evidence": [
+        "reservation-parent-history"
+      ]
+    },
+    {
+      "id": "reservation-cross-service-capacity",
+      "owner": "reservation",
+      "required": true,
+      "status": "semantic_decision_required",
+      "meaning": "Capacity/overlap semantics remain unresolved for BOTH same-service shifted or overlapping schedules and different services on one provider, including regeneration after duration/schedule changes. Equal-start BTreeMap deduplication does not eliminate 09:00/09:15 overlapping 30-minute slots. Booking claims only one slot ID. Establish the capacity contract and test concurrent bookings across distinct overlapping slot IDs; do not infer policy from assignment or deduplication.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs",
+        "Service/infera-reservation/src/reservation/methods.rs"
+      ]
+    },
+    {
+      "id": "agentic-source-preservation-a0",
+      "owner": "agentic",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "implementation_revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+      "test_evidence": [
+        "agentic-source-preservation",
+        "agentic-ide-regression"
+      ],
+      "meaning": "Local bounded original-source preservation with full lineage manifests, source correction invalidation, immediate expiry exclusion/TTL, transactional rewind epochs, durable producer replay fencing and legacy orphan withholding through real history HTTP. 13 real Mongo correctness tests plus 160 IDE regressions pass against recorded working source/dependency digests. This does not implement Knowledge adoption, global erasure, Chat correction delivery or full model-request budget. Canonical/deployed reconciliation remains pending.",
+      "source_refs": [
+        "infera-agentic/src/ide/history_retention.rs",
+        "infera-agentic/docs/SOURCE_HISTORY_PRESERVATION.md"
       ]
     }
   ]

@@ -1,0 +1,1260 @@
+
+running 160 tests
+test ide::agent_stream::response_stream_tests::code_and_design_progress_never_exposes_model_drafts ... ok
+test ide::agent_stream::response_stream_tests::chunks_preserve_the_exact_response ... ok
+test ide::agent_stream::response_stream_tests::code_discovery_budget_counts_only_evidence_tools ... ok
+test ide::agent_stream::lifecycle_snapshot_tests::captures_every_path_in_multi_file_patch_before_execution ... ok
+test ide::agent_stream::lifecycle_snapshot_tests::captures_create_page_router_and_navigation_baselines ... ok
+test ide::agent_stream::response_stream_tests::design_tool_turns_disable_ollama_thinking ... ok
+test ide::agent_stream::response_stream_tests::empty_response_has_no_delta_events ... ok
+test ide::agent_stream::response_stream_tests::auto_model_and_plan_are_persisted_before_tool_activity ... ok
+test ide::agent_stream::response_stream_tests::bounded_source_evidence_pass_stops_at_discovery_cap ... ok
+test ide::agent_stream::response_stream_tests::failed_verification_requires_another_code_round ... ok
+test ide::agent_stream::response_stream_tests::design_gate_gets_primary_source_evidence_before_forced_repair ... ok
+test ide::agent_stream::response_stream_tests::code_gets_one_bounded_source_evidence_pass_before_forced_mutation ... ok
+test ide::agent_stream::response_stream_tests::forced_design_repair_excludes_more_discovery_tools ... ok
+test ide::agent_stream::response_stream_tests::manage_destructive_reply_always_states_confirmation_boundary ... ok
+test ide::agent_stream::response_stream_tests::missing_node_runtime_is_a_validation_infrastructure_failure ... ok
+test ide::agent_stream::response_stream_tests::ordinary_targeted_edits_still_require_small_patches ... ok
+test ide::agent_stream::response_stream_tests::forced_mutation_history_preserves_prior_tool_calls ... ok
+test ide::agent_stream::response_stream_tests::design_gate_signature_is_stable_when_check_order_changes ... ok
+test ide::agent_stream::response_stream_tests::preview_tools_always_use_the_browser_action_dispatch ... ok
+test ide::agent_stream::response_stream_tests::provider_errors_do_not_expose_internal_gateway_details ... ok
+test ide::agent_stream::response_stream_tests::provider_start_timeout_summary_is_explicit_and_redacted ... ok
+test ide::agent_stream::response_stream_tests::provider_streamed_text_is_not_emitted_twice_at_completion ... ok
+test ide::agent_stream::response_stream_tests::read_only_budget_allows_a_full_visual_audit_but_stays_bounded ... ok
+test ide::agent_stream::response_stream_tests::read_only_intent_is_explicit_and_does_not_match_scoped_edit_language ... ok
+test ide::agent_stream::response_stream_tests::failed_write_completion_exposes_only_bounded_public_error ... ok
+test ide::agent_stream::response_stream_tests::recovery_keeps_patch_tools_available ... ok
+test ide::agent_stream::response_stream_tests::code_completion_uses_sorted_workspace_evidence ... ok
+test ide::agent_stream::response_stream_tests::code_completion_reports_verified_sdk_write_evidence ... ok
+test ide::agent_stream::response_stream_tests::code_completion_reports_canonical_sdk_helper_usage ... ok
+test ide::agent_stream::response_stream_tests::code_completion_falls_back_to_successful_write_tool_evidence ... ok
+test ide::agent_stream::response_stream_tests::source_diagnostics_are_not_misclassified_as_worker_failures ... ok
+test ide::agent_stream::response_stream_tests::unsafe_component_rejection_is_terminal_after_one_tool_result ... ok
+test ide::agent_stream::response_stream_tests::upstream_provider_failures_have_a_redacted_infrastructure_code ... ok
+test ide::agent_stream::response_stream_tests::rejected_discovery_calls_have_matching_results_without_claiming_execution ... ok
+test ide::agent_stream::response_stream_tests::initial_design_discovery_is_bounded_and_prioritizes_authoritative_files ... ok
+test ide::agent_stream::response_stream_tests::recovered_tool_calls_share_ids_between_history_and_execution ... ok
+test ide::auto_planning::tests::rejects_parent_and_git_paths ... ok
+test ide::content_fallback::tests::extracts_path_labeled_tsx_fence ... ok
+test ide::content_fallback::tests::extracts_tsx_fence_by_export_name ... ok
+test ide::content_fallback::tests::extracts_python_fence ... ok
+test ide::content_fallback::tests::salvages_raw_tsx_from_compatibility_models ... ok
+test ide::agent_stream::response_stream_tests::partial_patch_batch_preserves_successes_and_tracks_its_failed_child ... ok
+test ide::agent_stream::response_stream_tests::passing_checks_and_unrelated_writes_do_not_resolve_a_rejected_page ... ok
+test ide::design_agent::degenerate_write_tests::ignores_non_component_paths ... ok
+test ide::agent_stream::response_stream_tests::trusted_creation_overrides_inferred_business_name_constraints_after_planning ... ok
+test ide::design_completeness::tests::reference_site_requires_explicit_signals ... ok
+test ide::design_agent::degenerate_write_tests::accepts_real_component ... ok
+test ide::design_agent::degenerate_write_tests::accepts_default_export ... ok
+test ide::design_completeness::tests::section_add_is_not_copy_only_incremental ... ok
+test ide::agent_stream::response_stream_tests::completion_does_not_demand_recovery_of_rejected_out_of_scope_edits ... ok
+test ide::design_planning::tests::extract_url_from_message_strips_trailing_slash_path ... ok
+test ide::design_completeness::tests::incremental_edit_does_not_trigger_reference_site ... ok
+test ide::design_completeness::tests::section_add_content_gap_ok_when_home_renders_topic ... ok
+test ide::design_planning::tests::heal_placeholders_adds_nav_entry ... ok
+test ide::design_planning::tests::fix_code_intent_detected ... ok
+test ide::design_planning::tests::fix_code_persian_rules ... ok
+test ide::design_planning::tests::hero_title_is_copy_edit ... ok
+test ide::design_planning::tests::hero_gradient_is_style_edit ... ok
+test ide::design_agent::degenerate_write_tests::rejects_export_less_page ... ok
+test ide::design_agent::degenerate_write_tests::rejects_comment_only_stub ... ok
+test ide::design_planning::tests::microsoft_prompt_reconciled_to_reference_site ... ok
+test ide::design_completeness::tests::section_add_content_gap_detects_orphan_placeholders ... ok
+test ide::design_planning::tests::fix_code_gate_requires_build_pass ... ok
+test ide::design_planning::tests::parses_llm_steps_json ... ok
+test ide::design_planning::tests::nav_link_only_request_detected ... ok
+test ide::design_planning::tests::new_page_wiring_ok_when_disk_has_route ... ok
+test ide::design_planning::tests::new_page_wiring_fails_when_router_missing_route ... ok
+test ide::design_planning::tests::header_about_button_gets_nav_checklist ... ok
+test ide::design_planning::tests::new_page_placeholders_only_incomplete ... ok
+test ide::design_planning::tests::new_page_detected ... ok
+test ide::design_planning::tests::parses_persian_new_page_from_llm_json ... ok
+test ide::design_planning::tests::reconciles_add_about_page_from_add_section_llm ... ok
+test ide::design_planning::tests::style_edit_blocks_placeholders_only_nudge ... ok
+test ide::design_planning::tests::testimonial_add_is_section_not_style ... ok
+test ide::design_planning::tests::nav_step_complete_when_disk_has_navlink ... ok
+test ide::design_validate::tests::rejects_unclosed_jsx_comment ... ok
+test ide::design_validate::tests::valid_page_tsx ... ok
+test ide::design_ui_quality::tests::image_requirement_is_driven_by_the_design_contract ... ok
+test ide::design_ui_quality::tests::status_colors_and_plain_hero_marker_are_real_design_evidence ... ok
+test ide::design_ui_quality::tests::fails_plain_placeholder_page ... ok
+test ide::design_ui_quality::tests::passes_rich_page ... ok
+test ide::routes::git_recovery_route_tests::recovery_commands_require_git_manage_permission ... ok
+test ide::routes::trusted_chat_billing_tests::preserves_native_model_reference_for_worker_dispatch ... ok
+test ide::routes::trusted_chat_billing_tests::production_chat_integration_requires_a_configured_matching_secret ... ok
+test ide::routes::trusted_chat_billing_tests::accepts_only_supported_assistant_wallet_payers ... ok
+test ide::design_xml_validate::tests::rejects_malformed_xml ... ok
+test ide::design_xml_validate::tests::accepts_minimal_valid_document ... ok
+test ide::design_xml_validate::tests::rejects_duplicate_ids ... ok
+test ide::routes::trusted_chat_billing_tests::workspace_protocol_does_not_inherit_conversational_output_rules ... ok
+test ide::routes::trusted_chat_billing_tests::uses_authenticated_caller_without_sandbox_owner_header ... ok
+test ide::routes::trusted_chat_billing_tests::rejects_invalid_sandbox_owner ... ok
+test ide::routes::trusted_chat_billing_tests::selects_sandbox_financial_owner_as_billing_principal ... ok
+test ide::routes::trusted_chat_billing_tests::accepts_legacy_sandbox_owner_header ... ok
+test ide::agent_stream::response_stream_tests::demo_only_constraints_and_context_reads_do_not_restrict_authorized_new_pages ... ok
+test ide::agent_stream::response_stream_tests::extracts_only_explicit_scoped_edit_paths_without_sentence_punctuation ... ok
+test ide::design_validate::tests::rejects_empty_pages ... ok
+test ide::snapshots::tests::review_files_include_empty_baselines_for_created_files ... ok
+test ide::tool_exec::tests::completed_write_bodies_are_compacted_in_ollama_history ... ok
+test ide::snapshots::tests::review_payload_exposes_sorted_unique_changed_files ... ok
+test ide::tool_exec::tests::design_cannot_rewrite_code_owned_service_contracts ... ok
+test ide::design_validate::tests::valid_default_document ... ok
+test ide::tool_exec::tests::design_accepts_an_explicit_named_component_export ... ok
+test ide::tool_exec::tests::design_export_repair_preserves_default_style ... ok
+test ide::tool_batch::tests::global_serial_tools_get_own_stage ... ok
+test ide::tool_batch::tests::grep_and_read_file_batch_planned_parallel ... ok
+test ide::tool_exec::tests::detects_read_file_loop_on_same_path ... ok
+test ide::tool_batch::tests::preview_actions_get_ordered_singleton_stages ... ok
+test ide::tool_batch::tests::plan_groups_same_path_serially_different_paths_parallel ... ok
+test ide::tool_exec::tests::format_paths_disk_context_includes_cached_content ... ok
+test ide::tool_batch::tests::merge_session_combines_patch_counts ... ok
+test ide::tool_exec::tests::incremental_design_theme_edits_have_an_allowed_patch_path ... ok
+test ide::tool_exec::tests::design_export_repair_refuses_ambiguous_nested_and_placeholder_sources ... ok
+test ide::tool_exec::tests::mock_stub_array_vs_object_from_usage ... ok
+test ide::tool_exec::tests::mock_imports_detected_and_export_checked ... ok
+test ide::tool_exec::tests::normalize_openai_compat_converts_orphan_tool_to_user ... ok
+test ide::tool_exec::tests::normalize_openai_compat_converts_tool_results_to_user_messages ... ok
+test ide::tool_exec::tests::normalize_tool_calls_parses_string_arguments ... ok
+test ide::tool_exec::tests::normalize_tool_calls_uses_object_arguments ... ok
+test ide::tool_exec::tests::normalize_tool_calls_uses_string_arguments_for_openai_compat ... ok
+test ide::tool_exec::tests::normalizes_grep_and_search_files_tool_names ... ok
+test ide::tool_exec::tests::normalizes_repo_browser_tool_namespace_used_by_local_models ... ok
+test ide::tool_exec::tests::normalizes_search_tool_name ... ok
+test ide::tool_exec::tests::offset_patch_range_uses_zero_based_lines ... ok
+test ide::tool_exec::tests::openai_history_preserves_parallel_tool_result_ids ... ok
+test ide::tool_exec::tests::openai_sanitizer_preserves_multimodal_user_content ... ok
+test ide::tool_exec::tests::parse_outcome_treats_patch_skipped_as_failure ... ok
+test ide::tool_exec::tests::parses_numeric_patch_arguments_from_numbers_or_strings ... ok
+test ide::tool_exec::tests::partial_reads_do_not_mark_full_file_cache ... ok
+test ide::tool_exec::tests::patch_offset_accepts_one_based_diagnostic_strings ... ok
+test ide::tool_exec::tests::plan_tool_batch_parallelizes_independent_reads ... ok
+test ide::tool_exec::tests::prefers_native_tool_calls_array ... ok
+test ide::tool_exec::tests::provider_start_timeout_is_classified_but_not_automatically_retried ... ok
+test ide::tool_exec::tests::read_only_policy_blocks_every_project_mutation_family ... ok
+test ide::tool_exec::tests::relaxed_patch_matches_trimmed_block ... ok
+test ide::tool_exec::tests::relaxed_patch_uses_first_of_multiple_exact_matches ... ok
+test ide::tool_exec::tests::remove_file_routes_to_files_worker_action ... ok
+test ide::tool_exec::tests::repair_write_rejects_module_truncation_but_allows_complete_rewrite ... ok
+test ide::tool_exec::tests::sanitize_tool_call_includes_function_type ... ok
+test ide::tool_exec::tests::strict_scoped_edit_rejects_an_unrelated_path ... ok
+test ide::tool_exec::tests::strip_planning_comments_from_replace ... ok
+test ide::tool_exec::tests::targeted_fix_allows_a_small_full_file_compatibility_edit ... ok
+test ide::tool_exec::tests::targeted_fix_blocks_full_rewrite_of_existing_file ... ok
+test ide::tool_exec::tests::reasoning_examples_never_become_executable_calls ... ok
+test ide::tool_exec::tests::targeted_write_rejection_preserves_patch_guidance ... ok
+test ide::tool_exec::tests::write_file_tool_message_includes_disk_excerpt ... ok
+test ide::tool_exec::tests::wrapped_partial_batch_keeps_confirmed_and_rejected_file_outcomes ... ok
+test ide::tool_exec::tests::parses_datetime_tool_call_from_compatibility_text ... ok
+test ide::tool_exec::tests::parses_tool_call_json_from_content ... ok
+test ide::tool_exec::tests::mutation_paths_are_validated_before_normalization_or_batch_writes ... ok
+test ide::tool_exec::workspace_research_tests::fallback_requires_nonempty_evidence_and_preserves_search_rank ... ok
+test ide::tsx_parse::tests::rejects_unclosed_tag ... ok
+test ide::tsx_parse::tests::accepts_balanced_tsx ... ok
+test ide::tool_exec::tests::design_export_repair_passes_the_strict_pre_write_pipeline ... ok
+test ide::tool_exec::tests::salvages_write_file_when_path_embedded_in_content ... ok
+test ide::tool_exec::tests::salvages_malformed_write_file_from_ollama_error ... ok
+test ide::tool_exec::tests::component_replacement_preserves_existing_named_and_default_import_contracts ... ok
+test ide::tool_exec::tests::datetime_uses_timezone_rules_and_preserves_legacy_fields ... ok
+test ide::design_completeness::tests::accepts_transitive_component_imports_but_rejects_orphan_subtrees ... ok
+test ide::tool_exec::workspace_research_tests::research_normalizes_source_urls_and_rejects_challenge_only_pages ... ok
+test ide::design_completeness::tests::detects_orphan_component ... ok
+
+test result: ok. 160 passed; 0 failed; 0 ignored; 0 measured; 331 filtered out; finished in 0.03s
+
+warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
+warning: patch `infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-macro)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/de/error.rs:127:33
+    |
+127 |     pub(crate) fn as_unexpected(&self) -> Unexpected {
+    |                                 ^^^^^     ^^^^^^^^^^ the same lifetime is hidden here
+    |                                 |
+    |                                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+127 |     pub(crate) fn as_unexpected(&self) -> Unexpected<'_> {
+    |                                                     ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:260:17
+    |
+260 |     pub fn iter(&self) -> Iter {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+260 |     pub fn iter(&self) -> Iter<'_> {
+    |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:265:21
+    |
+265 |     pub fn iter_mut(&mut self) -> IterMut {
+    |                     ^^^^^^^^^     ^^^^^^^ the same lifetime is hidden here
+    |                     |
+    |                     the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+265 |     pub fn iter_mut(&mut self) -> IterMut<'_> {
+    |                                          ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:539:17
+    |
+539 |     pub fn keys(&self) -> Keys {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+539 |     pub fn keys(&self) -> Keys<'_> {
+    |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:546:19
+    |
+546 |     pub fn values(&self) -> Values {
+    |                   ^^^^^     ^^^^^^ the same lifetime is hidden here
+    |                   |
+    |                   the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+546 |     pub fn values(&self) -> Values<'_> {
+    |                                   ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:575:18
+    |
+575 |     pub fn entry(&mut self, k: String) -> Entry {
+    |                  ^^^^^^^^^                ^^^^^ the same lifetime is hidden here
+    |                  |
+    |                  the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+575 |     pub fn entry(&mut self, k: String) -> Entry<'_> {
+    |                                                ++++
+
+warning: `bson` (lib) generated 6 warnings (run `cargo fix --lib -p bson` to apply 6 suggestions)
+warning: unused import: `HeaderValue`
+ --> /Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-sdk/src/middleware.rs:5:12
+  |
+5 |     http::{HeaderValue, Request},
+  |            ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+ --> code_pipeline/src/tsx/imports.rs:8:9
+  |
+8 |     let mut out = fix_wrong_router_imports(content, &mut fixes);
+  |         ----^^^
+  |         |
+  |         help: remove this `mut`
+  |
+  = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera-idp-sdk` (lib) generated 1 warning (run `cargo fix --lib -p infera-idp-sdk` to apply 1 suggestion)
+warning: `code_pipeline` (lib) generated 1 warning (run `cargo fix --lib -p code_pipeline` to apply 1 suggestion)
+warning: variable does not need to be mutable
+  --> ide_core/src/lib.rs:47:9
+   |
+47 |     let mut command = Command::new(program);
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `root`
+  --> ide_core/src/lib.rs:46:20
+   |
+46 | fn project_command(root: &Path, program: impl AsRef<std::ffi::OsStr>) -> Command {
+   |                    ^^^^ help: if this is intentional, prefix it with an underscore: `_root`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `git_pull` is never used
+    --> ide_core/src/lib.rs:1935:4
+     |
+1935 | fn git_pull(
+     |    ^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `status` is never read
+  --> /Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-profile-sdk/src/models.rs:58:9
+   |
+57 | pub(crate) struct ProfileListEnvelope {
+   |                   ------------------- field in this struct
+58 |     pub status: String,
+   |         ^^^^^^
+   |
+   = note: `ProfileListEnvelope` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `ide_core` (lib) generated 3 warnings (run `cargo fix --lib -p ide_core` to apply 2 suggestions)
+warning: `infera-profile-sdk` (lib) generated 1 warning
+warning: unused import: `require_any_permission`
+ --> src/admin/mod.rs:6:70
+  |
+6 |     can_access_admin_panel, has_permission, is_admin, require_admin, require_any_permission,
+  |                                                                      ^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `resolve_agent_for_user`
+ --> src/agent/mod.rs:7:36
+  |
+7 | pub use registry::{builtin_agents, resolve_agent_for_user};
+  |                                    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `tokio_stream::StreamExt`
+ --> src/ai/stream.rs:3:5
+  |
+3 | use tokio_stream::StreamExt;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `providers::init_llm_clients`
+ --> src/ai/mod.rs:6:9
+  |
+6 | pub use providers::init_llm_clients;
+  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `delete` and `put`
+ --> src/api_services/routes.rs:3:15
+  |
+3 |     routing::{delete, get, post, put},
+  |               ^^^^^^             ^^^
+
+warning: unused import: `AppError`
+  --> src/api_services/routes.rs:13:13
+   |
+13 |     error::{AppError, AppResult},
+   |             ^^^^^^^^
+
+warning: unused import: `post`
+ --> src/bookmarks/routes.rs:3:20
+  |
+3 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused import: `IntoResponse`
+ --> src/browser/routes.rs:5:16
+  |
+5 |     response::{IntoResponse, Response},
+  |                ^^^^^^^^^^^^
+
+warning: unused import: `browser::proxy`
+  --> src/browser/routes.rs:15:5
+   |
+15 |     browser::proxy,
+   |     ^^^^^^^^^^^^^^
+
+warning: unused import: `delete`
+ --> src/deploy/routes.rs:9:15
+  |
+9 |     routing::{delete, get, post, put},
+  |               ^^^^^^
+
+warning: unused import: `tracing::warn`
+  --> src/deploy/routes.rs:26:5
+   |
+26 | use tracing::warn;
+   |     ^^^^^^^^^^^^^
+
+warning: unused import: `crate::config::AppConfig`
+  --> src/deploy/run.rs:38:5
+   |
+38 | use crate::config::AppConfig;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `execution::dispatch::dispatch_ollama_chat` and `truncate_utf8`
+  --> src/ide/auto_planning.rs:10:5
+   |
+10 |     execution::dispatch::dispatch_ollama_chat,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 |     ide::{design_completeness, truncate_utf8},
+   |                                ^^^^^^^^^^^^^
+
+warning: unused imports: `CssAutofixResult`, `autofix_theme_css`, `is_theme_css_path`, and `validate_theme_css`
+ --> src/ide/css_autofix.rs:4:5
+  |
+4 |     autofix_theme_css, is_theme_css_path, validate_theme_css, CssAutofixResult,
+  |     ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^
+
+warning: unused import: `DesignPlan`
+ --> src/ide/design_completeness.rs:6:75
+  |
+6 |     is_reference_site_message, is_section_add_request, plan_from_message, DesignPlan,
+  |                                                                           ^^^^^^^^^^
+
+warning: unused imports: `dispatch_files`, `dispatch_ollama_chat`, and `dispatch_on_files_worker`
+ --> src/ide/dispatch.rs:4:15
+  |
+4 |     dispatch, dispatch_files, dispatch_ollama_chat, dispatch_on_files_worker,
+  |               ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `SanitizeResult` and `strip_planning_comments`
+ --> src/ide/patch_sanitize.rs:3:49
+  |
+3 | pub use code_pipeline::{sanitize_patch_replace, strip_planning_comments, SanitizeResult};
+  |                                                 ^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^
+
+warning: unused imports: `design_codegen` and `summarize`
+  --> src/ide/routes.rs:60:35
+   |
+60 |         code_agent, design_agent, design_codegen, design_completeness, design_planning, dispatch,
+   |                                   ^^^^^^^^^^^^^^
+61 |         snapshots, summarize, threads,
+   |                    ^^^^^^^^^
+
+warning: unused import: `HashSet`
+ --> src/ide/tool_batch.rs:1:33
+  |
+1 | use std::collections::{HashMap, HashSet, VecDeque};
+  |                                 ^^^^^^^
+
+warning: unused imports: `is_global_serial_tool`, `is_parallel_safe_tool`, and `tool_path_key`
+    --> src/ide/tool_exec.rs:5570:27
+     |
+5570 |     assign_tool_call_ids, is_global_serial_tool, is_parallel_safe_tool, merge_session_after_tool,
+     |                           ^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^
+5571 |     plan_tool_batch, tool_path_key,
+     |                      ^^^^^^^^^^^^^
+
+warning: unused imports: `AutofixResult`, `autofix_jsx`, and `autofix_tsx`
+ --> src/ide/tsx_autofix.rs:3:39
+  |
+3 | pub use code_pipeline::tsx::autofix::{autofix_jsx, autofix_tsx, AutofixResult};
+  |                                       ^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^
+
+warning: unused import: `TsxDiagnostic`
+ --> src/ide/tsx_parse.rs:5:37
+  |
+5 | pub use code_pipeline::tsx::check::{TsxDiagnostic, TsxSyntaxReport};
+  |                                     ^^^^^^^^^^^^^
+
+warning: unused imports: `can_access_admin_panel`, `require_admin`, and `require_permission`
+ --> src/template/admin.rs:1:30
+  |
+1 | pub use crate::admin::auth::{can_access_admin_panel, is_admin, require_admin, require_permission};
+  |                              ^^^^^^^^^^^^^^^^^^^^^^            ^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `delete`
+ --> src/template/routes.rs:6:15
+  |
+6 |     routing::{delete, get, patch, post},
+  |               ^^^^^^
+
+warning: unused import: `get_category_by_id`
+  --> src/template/routes.rs:21:60
+   |
+21 |             ensure_category_valid, get_by_id, get_by_slug, get_category_by_id, list_all,
+   |                                                            ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `AppError`
+ --> src/tools/routes.rs:8:13
+  |
+8 |     error::{AppError, AppResult},
+  |             ^^^^^^^^
+
+warning: unused import: `registry::ToolExecutor`
+ --> src/tools/mod.rs:5:9
+  |
+5 | pub use registry::ToolExecutor;
+  |         ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused variable: `cache_path`
+    --> src/ide/tool_exec.rs:3497:21
+     |
+3497 |                 let cache_path = file_cache_key(&write_path);
+     |                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_cache_path`
+     |
+     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `state`
+  --> src/deploy/resources.rs:45:5
+   |
+45 |     state: &SharedState,
+   |     ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: value assigned to `app` is never read
+   --> src/deploy/run.rs:839:58
+    |
+839 |     let mut app: Option<(String, u16, Option<String>)> = None;
+    |                                                          ^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `start_cmd` is never read
+   --> src/deploy/run.rs:840:41
+    |
+840 |     let mut start_cmd: Option<String> = None;
+    |                                         ^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: variable does not need to be mutable
+    --> src/ide/agent_stream.rs:2755:29
+     |
+2755 |                         let mut c = ctx.lock().await;
+     |                             ----^
+     |                             |
+     |                             help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> src/ide/agent_stream.rs:3283:29
+     |
+3283 |                         let mut c = ctx.lock().await;
+     |                             ----^
+     |                             |
+     |                             help: remove this `mut`
+
+warning: unused variable: `round`
+    --> src/ide/agent_stream.rs:2206:43
+     |
+2206 |                     let (messages, tools, round, force_tool_only, cancelled, cancel_notify) = {
+     |                                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_round`
+
+warning: unused variable: `batch`
+   --> src/ide/design_checklist.rs:460:5
+    |
+460 |     batch: &[Value],
+    |     ^^^^^ help: if this is intentional, prefix it with an underscore: `_batch`
+
+warning: unused variable: `router`
+   --> src/ide/design_completeness.rs:111:9
+    |
+111 |     let router = files
+    |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_router`
+
+warning: unused variable: `main`
+   --> src/ide/design_completeness.rs:115:9
+    |
+115 |     let main = files.get("src/main.tsx").map(|s| s.as_str()).unwrap_or("");
+    |         ^^^^ help: if this is intentional, prefix it with an underscore: `_main`
+
+warning: variable does not need to be mutable
+    --> src/ide/design_planning.rs:1312:9
+     |
+1312 |     let mut implementation_steps =
+     |         ----^^^^^^^^^^^^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+
+warning: unused variable: `mentions`
+    --> src/ide/design_planning.rs:1500:39
+     |
+1500 | pub fn plan_from_rules(message: &str, mentions: &[String]) -> DesignPlan {
+     |                                       ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_mentions`
+
+warning: unused variable: `plan`
+    --> src/ide/design_planning.rs:2168:13
+     |
+2168 |         let plan = plan_from_rules("fix build errors", &[]);
+     |             ^^^^ help: if this is intentional, prefix it with an underscore: `_plan`
+
+warning: unused variable: `project`
+    --> src/project/identity.rs:1853:9
+     |
+1853 |     let project = access.project;
+     |         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_project`
+
+warning: function `require_any_permission` is never used
+  --> src/admin/auth.rs:64:8
+   |
+64 | pub fn require_any_permission(
+   |        ^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `CLOUD_PROVIDERS_READ` is never used
+  --> src/admin/permissions.rs:21:11
+   |
+21 | pub const CLOUD_PROVIDERS_READ: &str = "cloud_providers:read";
+   |           ^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `WORKER_RELEASES_READ` is never used
+  --> src/admin/permissions.rs:29:11
+   |
+29 | pub const WORKER_RELEASES_READ: &str = "worker_releases:read";
+   |           ^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `API_SERVICES_READ` is never used
+  --> src/admin/permissions.rs:31:11
+   |
+31 | pub const API_SERVICES_READ: &str = "api_services:read";
+   |           ^^^^^^^^^^^^^^^^^
+
+warning: constant `DOCS_READ` is never used
+  --> src/admin/permissions.rs:34:11
+   |
+34 | pub const DOCS_READ: &str = "docs:read";
+   |           ^^^^^^^^^
+
+warning: constant `AUTH_READ` is never used
+  --> src/admin/permissions.rs:38:11
+   |
+38 | pub const AUTH_READ: &str = "auth:read";
+   |           ^^^^^^^^^
+
+warning: constant `ADMIN_PANEL_READ` is never used
+  --> src/admin/permissions.rs:41:11
+   |
+41 | pub const ADMIN_PANEL_READ: &[&str] = &[
+   |           ^^^^^^^^^^^^^^^^
+
+warning: function `apply_ollama_model_override` is never used
+  --> src/agent/model_settings.rs:49:8
+   |
+49 | pub fn apply_ollama_model_override(
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `list_ollama_models_from_worker` is never used
+   --> src/agent/model_settings.rs:436:14
+    |
+436 | pub async fn list_ollama_models_from_worker(
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `invalidate_file_evidence` is never used
+  --> src/agent_runtime/service.rs:82:14
+   |
+82 | pub async fn invalidate_file_evidence(
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: type alias `LlmClient` is never used
+ --> src/ai/providers.rs:5:10
+  |
+5 | pub type LlmClient = Client<OpenAIConfig>;
+  |          ^^^^^^^^^
+
+warning: struct `LlmClients` is never constructed
+ --> src/ai/providers.rs:7:12
+  |
+7 | pub struct LlmClients {
+  |            ^^^^^^^^^^
+
+warning: function `init_llm_clients` is never used
+  --> src/ai/providers.rs:13:8
+   |
+13 | pub fn init_llm_clients() -> LlmClients {
+   |        ^^^^^^^^^^^^^^^^
+
+warning: function `stub_agent_stream` is never used
+ --> src/ai/stream.rs:8:8
+  |
+8 | pub fn stub_agent_stream(
+  |        ^^^^^^^^^^^^^^^^^
+
+warning: function `load_openapi_spec` is never used
+  --> src/api_services/openapi_import.rs:25:14
+   |
+25 | pub async fn load_openapi_spec(docs_url: &str) -> AppResult<Value> {
+   |              ^^^^^^^^^^^^^^^^^
+
+warning: function `default_poulstar_root` is never used
+   --> src/api_services/seed.rs:300:4
+    |
+300 | fn default_poulstar_root() -> String {
+    |    ^^^^^^^^^^^^^^^^^^^^^
+
+warning: field `slug` is never read
+   --> src/api_services/seed.rs:332:5
+    |
+329 | struct LinkResult {
+    |        ---------- field in this struct
+...
+332 |     slug: String,
+    |     ^^^^
+
+warning: function `link_service` is never used
+   --> src/api_services/seed.rs:335:14
+    |
+335 | pub async fn link_service(
+    |              ^^^^^^^^^^^^
+
+warning: fields `id`, `thread_id`, `question`, and `created_at` are never read
+  --> src/ask/hub.rs:17:9
+   |
+16 | pub struct AskRequest {
+   |            ---------- fields in this struct
+17 |     pub id: Uuid,
+   |         ^^
+18 |     pub thread_id: Uuid,
+   |         ^^^^^^^^^
+19 |     pub user_id: Uuid,
+20 |     pub question: String,
+   |         ^^^^^^^^
+...
+25 |     pub created_at: Instant,
+   |         ^^^^^^^^^^
+   |
+   = note: `AskRequest` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `id`, `thread_id`, `name`, `args`, and `created_at` are never read
+  --> src/browser/actions.rs:17:9
+   |
+16 | pub struct BrowserAction {
+   |            ------------- fields in this struct
+17 |     pub id: Uuid,
+   |         ^^
+18 |     pub thread_id: Uuid,
+   |         ^^^^^^^^^
+19 |     pub user_id: Uuid,
+20 |     pub name: String,
+   |         ^^^^
+21 |     pub args: Value,
+   |         ^^^^
+...
+25 |     pub created_at: Instant,
+   |         ^^^^^^^^^^
+   |
+   = note: `BrowserAction` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: method `gc_stale` is never used
+   --> src/browser/actions.rs:117:12
+    |
+ 33 | impl BrowserActionHub {
+    | --------------------- method in this implementation
+...
+117 |     pub fn gc_stale(&self, max_age: Duration) {
+    |            ^^^^^^^^
+
+warning: field `updated_at` is never read
+  --> src/browser/frames.rs:24:9
+   |
+15 | pub struct BrowserFrame {
+   |            ------------ field in this struct
+...
+24 |     pub updated_at: Instant,
+   |         ^^^^^^^^^^
+   |
+   = note: `BrowserFrame` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+
+warning: methods `frame_json` and `gc_stale` are never used
+   --> src/browser/frames.rs:115:12
+    |
+ 32 | impl BrowserFrameHub {
+    | -------------------- methods in this implementation
+...
+115 |     pub fn frame_json(&self, thread_id: Uuid) -> Value {
+    |            ^^^^^^^^^^
+...
+142 |     pub fn gc_stale(&self, max_age: Duration) {
+    |            ^^^^^^^^
+
+warning: multiple fields are never read
+  --> src/config.rs:51:9
+   |
+43 | pub struct AppConfig {
+   |            --------- fields in this struct
+...
+51 |     pub ollama_base_url: String,
+   |         ^^^^^^^^^^^^^^^
+...
+74 |     pub openai_api_key: Option<String>,
+   |         ^^^^^^^^^^^^^^
+75 |     pub anthropic_api_key: Option<String>,
+   |         ^^^^^^^^^^^^^^^^^
+...
+81 |     pub piper_voice_en: String,
+   |         ^^^^^^^^^^^^^^
+82 |     pub piper_voice_fa: String,
+   |         ^^^^^^^^^^^^^^
+83 |     pub wake_phrases: Vec<String>,
+   |         ^^^^^^^^^^^^
+...
+92 |     pub deploy_payment_required: bool,
+   |         ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `AppConfig` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: function `apply_resource_pack` is never used
+   --> src/deploy/resources.rs:123:21
+    |
+123 | pub(super) async fn apply_resource_pack(
+    |                     ^^^^^^^^^^^^^^^^^^^
+
+warning: field `services` is never read
+    --> src/deploy/routes.rs:2238:5
+     |
+2235 | struct RunRequest {
+     |        ---------- field in this struct
+...
+2238 |     services: Vec<String>,
+     |     ^^^^^^^^
+
+warning: field `total_bytes` is never read
+  --> src/downloader/models.rs:54:9
+   |
+51 | pub struct CompleteWorkerJobRequest {
+   |            ------------------------ field in this struct
+...
+54 |     pub total_bytes: Option<u64>,
+   |         ^^^^^^^^^^^
+   |
+   = note: `CompleteWorkerJobRequest` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+warning: constant `OLLAMA_WORKER_REQUIRED` is never used
+  --> src/execution/dispatch.rs:20:7
+   |
+20 | const OLLAMA_WORKER_REQUIRED: &str =
+   |       ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `token_count` is never used
+   --> src/ide/agent_stream.rs:730:4
+    |
+730 | fn token_count(value: Option<&Value>) -> i64 {
+    |    ^^^^^^^^^^^
+
+warning: field `ui_id` is never read
+   --> src/ide/agent_stream.rs:922:5
+    |
+920 | struct BufferedToolResult {
+    |        ------------------ field in this struct
+921 |     idx: usize,
+922 |     ui_id: usize,
+    |     ^^^^^
+
+warning: function `token_count` is never used
+  --> src/ide/auto_planning.rs:56:4
+   |
+56 | fn token_count(value: Option<&Value>) -> i64 {
+   |    ^^^^^^^^^^^
+
+warning: function `response_usage` is never used
+  --> src/ide/auto_planning.rs:67:4
+   |
+67 | fn response_usage(response: &Value, prompt: &str, reply: &str) -> (i64, i64) {
+   |    ^^^^^^^^^^^^^^
+
+warning: function `filter_fallback_writes` is never used
+  --> src/ide/content_fallback.rs:30:8
+   |
+30 | pub fn filter_fallback_writes(
+   |        ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `summary_without_fences` is never used
+  --> src/ide/content_fallback.rs:72:8
+   |
+72 | pub fn summary_without_fences(content: &str) -> String {
+   |        ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `gate_theme_css_write` is never used
+ --> src/ide/css_autofix.rs:8:8
+  |
+8 | pub fn gate_theme_css_write(content: &str, path: &str) -> Result<String, Vec<String>> {
+  |        ^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `TOKENS_TS_PATH` is never used
+  --> src/ide/design_agent.rs:13:11
+   |
+13 | pub const TOKENS_TS_PATH: &str = "src/design-system/tokens.ts";
+   |           ^^^^^^^^^^^^^^
+
+warning: constant `TSX_SYNTAX_GUIDE` is never used
+  --> src/ide/design_agent.rs:21:7
+   |
+21 | const TSX_SYNTAX_GUIDE: &str = r#"## TSX syntax rules (enforced before write — fix via patch_file)
+   |       ^^^^^^^^^^^^^^^^
+
+warning: constant `PROMPT_EXCERPT_LINES` is never used
+  --> src/ide/design_agent.rs:56:7
+   |
+56 | const PROMPT_EXCERPT_LINES: usize = 60;
+   |       ^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `FEW_SHOT_HOME_EXCERPT` is never used
+  --> src/ide/design_agent.rs:58:7
+   |
+58 | const FEW_SHOT_HOME_EXCERPT: &str = r#"import { Link } from "react-router-dom";
+   |       ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `is_design_path` is never used
+  --> src/ide/design_agent.rs:98:8
+   |
+98 | pub fn is_design_path(path: &str) -> bool {
+   |        ^^^^^^^^^^^^^^
+
+warning: function `load_component_file_list` is never used
+   --> src/ide/design_agent.rs:420:14
+    |
+420 | pub async fn load_component_file_list(
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: field `api_catalog` is never read
+   --> src/ide/design_agent.rs:483:9
+    |
+474 | pub struct DesignProjectContext {
+    |            -------------------- field in this struct
+...
+483 |     pub api_catalog: String,
+    |         ^^^^^^^^^^^
+
+warning: function `format_design_user_message` is never used
+   --> src/ide/design_agent.rs:782:8
+    |
+782 | pub fn format_design_user_message(messages: &[crate::ai::models::ChatMessage]) -> String {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `section_add_patch_nudge` is never used
+   --> src/ide/design_checklist.rs:109:8
+    |
+109 | pub fn section_add_patch_nudge(session: &AgentSessionState, tool_log: &[Value]) -> Option<String> {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `CHECKLIST_PROMPT` is never used
+   --> src/ide/design_checklist.rs:686:11
+    |
+686 | pub const CHECKLIST_PROMPT: &str = r#"## Choose workflow from the user's message
+    |           ^^^^^^^^^^^^^^^^
+
+warning: function `generate_react_tailwind` is never used
+  --> src/ide/design_codegen.rs:14:14
+   |
+14 | pub async fn generate_react_tailwind(
+   |              ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `apply_design_intent_from_message` is never used
+  --> src/ide/design_completeness.rs:83:8
+   |
+83 | pub fn apply_design_intent_from_message(
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `build_planning_brief` is never used
+   --> src/ide/design_planning.rs:570:4
+    |
+570 | fn build_planning_brief(
+    |    ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `build_planning_brief_llm` is never used
+   --> src/ide/design_planning.rs:650:4
+    |
+650 | fn build_planning_brief_llm(
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `step_completed` is never used
+   --> src/ide/design_planning.rs:841:8
+    |
+841 | pub fn step_completed(step: &DesignStep, tool_log: &[Value], session: &AgentSessionState) -> bool {
+    |        ^^^^^^^^^^^^^^
+
+warning: function `first_incomplete_step` is never used
+   --> src/ide/design_planning.rs:943:8
+    |
+943 | pub fn first_incomplete_step<'a>(
+    |        ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `has_carousel_implementation` is never used
+   --> src/ide/design_ui_quality.rs:104:4
+    |
+104 | fn has_carousel_implementation(files: &HashMap<String, String>, home: &str) -> bool {
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `capture_reference_screenshot_meta` is never used
+  --> src/ide/design_visual.rs:57:14
+   |
+57 | pub async fn capture_reference_screenshot_meta(url: &str) -> Option<Value> {
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `format_installed_npm_packages` is never used
+  --> src/ide/project_context.rs:39:8
+   |
+39 | pub fn format_installed_npm_packages(package_json: &str) -> String {
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `default_design_json` is never used
+ --> src/ide/threads.rs:6:8
+  |
+6 | pub fn default_design_json() -> String {
+  |        ^^^^^^^^^^^^^^^^^^^
+
+warning: function `messages_to_turns` is never used
+   --> src/ide/threads.rs:514:8
+    |
+514 | pub fn messages_to_turns(messages: &[IdeChatMessage]) -> Vec<crate::ai::models::ChatMessage> {
+    |        ^^^^^^^^^^^^^^^^^
+
+warning: function `is_parallel_safe_tool` is never used
+  --> src/ide/tool_batch.rs:70:8
+   |
+70 | pub fn is_parallel_safe_tool(name: &str) -> bool {
+   |        ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `design_page_validate_for_pipeline` is never used
+    --> src/ide/tool_exec.rs:3601:8
+     |
+3601 | pub fn design_page_validate_for_pipeline(content: &str, path: &str) -> Vec<String> {
+     |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: field `autofixes` is never read
+    --> src/ide/tool_exec.rs:3890:9
+     |
+3886 | pub struct WriteFileOutcome {
+     |            ---------------- field in this struct
+...
+3890 |     pub autofixes: Vec<String>,
+     |         ^^^^^^^^^
+     |
+     = note: `WriteFileOutcome` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: function `gate_tsx_content` is never used
+  --> src/ide/tsx_parse.rs:14:8
+   |
+14 | pub fn gate_tsx_content(content: &str, path: &str) -> Result<String, Vec<String>> {
+   |        ^^^^^^^^^^^^^^^^
+
+warning: function `cloud_model_access_tiers` is never used
+   --> src/llm_pricing/service.rs:171:10
+    |
+171 | async fn cloud_model_access_tiers(state: &AppState) -> AppResult<BTreeMap<String, Vec<String>>> {
+    |          ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `resolve_pricing` is never used
+   --> src/llm_pricing/service.rs:593:14
+    |
+593 | pub async fn resolve_pricing(
+    |              ^^^^^^^^^^^^^^^
+
+warning: function `compute_usage_charge` is never used
+   --> src/llm_pricing/service.rs:667:14
+    |
+667 | pub async fn compute_usage_charge(
+    |              ^^^^^^^^^^^^^^^^^^^^
+
+warning: field `learner_id` is never read
+   --> src/lms_integration.rs:358:5
+    |
+355 | struct TeachingRequest {
+    |        --------------- field in this struct
+...
+358 |     learner_id: Uuid,
+    |     ^^^^^^^^^^
+    |
+    = note: `TeachingRequest` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+warning: variant `Billing` is never constructed
+  --> src/notifications.rs:22:5
+   |
+20 | pub enum NotificationChannel {
+   |          ------------------- variant in this enum
+21 |     Deployment,
+22 |     Billing,
+   |     ^^^^^^^
+   |
+   = note: `NotificationChannel` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: function `deployment_resource_changed` is never used
+   --> src/notifications.rs:544:14
+    |
+544 | pub async fn deployment_resource_changed(
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `billing_event` is never used
+   --> src/notifications.rs:565:14
+    |
+565 | pub async fn billing_event(
+    |              ^^^^^^^^^^^^^
+
+warning: function `git_cli_path` is never used
+   --> src/project/git.rs:238:4
+    |
+238 | fn git_cli_path(p: &Path) -> String {
+    |    ^^^^^^^^^^^^
+
+warning: function `clone_repository` is never used
+   --> src/project/git.rs:249:8
+    |
+249 | pub fn clone_repository(clone_url: &str, dest: &Path, branch: Option<&str>) -> Result<(), String> {
+    |        ^^^^^^^^^^^^^^^^
+
+warning: function `folder_path_for_worker` is never used
+  --> src/project/paths.rs:54:8
+   |
+54 | pub fn folder_path_for_worker(state: &AppState, project: &Project) -> String {
+   |        ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `folder_path_for_user` is never used
+  --> src/project/paths.rs:60:8
+   |
+60 | pub fn folder_path_for_user(state: &AppState, user_id: &str, slug: &str) -> String {
+   |        ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `provision_on_files_worker` is never used
+   --> src/project/service.rs:382:10
+    |
+382 | async fn provision_on_files_worker(
+    |          ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `delete` is never used
+    --> src/project/service.rs:1591:14
+     |
+1591 | pub async fn delete(state: &AppState, user_id: &str, slug: &str) -> anyhow::Result<()> {
+     |              ^^^^^^
+
+warning: function `numeric_tokens` is never used
+   --> src/session_integration.rs:326:4
+    |
+326 | fn numeric_tokens(value: Option<&Value>) -> i64 {
+    |    ^^^^^^^^^^^^^^
+
+warning: function `estimate_tokens` is never used
+   --> src/session_integration.rs:338:4
+    |
+338 | fn estimate_tokens(value: &Value) -> i64 {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `response_usage` is never used
+   --> src/session_integration.rs:348:4
+    |
+348 | fn response_usage(response: &Value, messages: &Value) -> (i64, i64) {
+    |    ^^^^^^^^^^^^^^
+
+warning: function `dispatch_speech_transcribe` is never used
+   --> src/speech/dispatch.rs:113:14
+    |
+113 | pub async fn dispatch_speech_transcribe(
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `read_preview` is never used
+  --> src/template/storage.rs:67:14
+   |
+67 | pub async fn read_preview(
+   |              ^^^^^^^^^^^^
+
+warning: struct `ToolExecutor` is never constructed
+  --> src/tools/registry.rs:11:12
+   |
+11 | pub struct ToolExecutor;
+   |            ^^^^^^^^^^^^
+
+warning: associated functions `definitions_for_agent` and `execute_on_worker` are never used
+  --> src/tools/registry.rs:14:12
+   |
+13 | impl ToolExecutor {
+   | ----------------- associated functions in this implementation
+14 |     pub fn definitions_for_agent(
+   |            ^^^^^^^^^^^^^^^^^^^^^
+...
+44 |     pub async fn execute_on_worker(
+   |                  ^^^^^^^^^^^^^^^^^
+
+warning: method `manifest_url` is never used
+  --> src/worker/app_release.rs:65:12
+   |
+54 | impl WorkerAppReleaseCache {
+   | -------------------------- method in this implementation
+...
+65 |     pub fn manifest_url(&self) -> Option<&str> {
+   |            ^^^^^^^^^^^^
+
+warning: function `enqueue_speech_transcribe` is never used
+   --> src/worker/jobs.rs:978:14
+    |
+978 | pub async fn enqueue_speech_transcribe(
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: struct `ListJobsQuery` is never constructed
+    --> src/worker/routes.rs:1020:12
+     |
+1020 | pub struct ListJobsQuery {
+     |            ^^^^^^^^^^^^^
+
+warning: function `default_page` is never used
+    --> src/worker/routes.rs:1026:4
+     |
+1026 | fn default_page() -> u64 {
+     |    ^^^^^^^^^^^^
+
+warning: function `default_per_page` is never used
+    --> src/worker/routes.rs:1029:4
+     |
+1029 | fn default_per_page() -> u64 {
+     |    ^^^^^^^^^^^^^^^^
+
+warning: function `list_jobs` is never used
+    --> src/worker/routes.rs:1034:14
+     |
+1034 | pub async fn list_jobs(
+     |              ^^^^^^^^^
+
+warning: unused `axum::Json` that must be used
+   --> src/creation/lifecycle_tests.rs:160:9
+    |
+160 | /         save_domain_draft(
+161 | |             State(restarted.clone()),
+162 | |             Extension(auth_for(user)),
+163 | |             Path(run.to_string()),
+...   |
+170 | |         .await
+171 | |         .unwrap();
+    | |_________________^
+    |
+    = note: `#[warn(unused_must_use)]` (part of `#[warn(unused)]`) on by default
+help: use `let _ = ...` to ignore the resulting value
+    |
+160 |         let _ = save_domain_draft(
+    |         +++++++
+
+warning: unused `axum::Json` that must be used
+   --> src/storage_quota.rs:763:9
+    |
+763 | /         worker_write(
+764 | |             State(state.clone()),
+765 | |             Path(job_id.to_hex()),
+766 | |             headers.clone(),
+...   |
+769 | |         .await
+770 | |         .unwrap();
+    | |_________________^
+    |
+help: use `let _ = ...` to ignore the resulting value
+    |
+763 |         let _ = worker_write(
+    |         +++++++
+
+warning: unused `axum::Json` that must be used
+   --> src/storage_quota.rs:795:9
+    |
+795 | /         worker_write(
+796 | |             State(state.clone()),
+797 | |             Path(job_id.to_hex()),
+798 | |             headers,
+...   |
+801 | |         .await
+802 | |         .unwrap();
+    | |_________________^
+    |
+help: use `let _ = ...` to ignore the resulting value
+    |
+795 |         let _ = worker_write(
+    |         +++++++
+
+warning: `infera_agentic` (bin "infera_agentic" test) generated 130 warnings (run `cargo fix --bin "infera_agentic" -p infera_agentic --tests` to apply 39 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.45s
+     Running unittests src/main.rs (target/debug/deps/infera_agentic-9b195323d603842e)

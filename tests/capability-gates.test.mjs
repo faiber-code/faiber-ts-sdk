@@ -91,3 +91,20 @@ test('workflow evidence must bind both participating source revisions',()=>{
   f.runs['owned-items'].source_revisions.other='old';
   assert.match(evaluateCapabilityGate(f.universe,f.services,[edge],f.runs).failures.join('\n'),/example-other other.*different/);
 });
+
+test('resolved dependency locks must have retained matching bytes before evidence can certify', () => {
+  const root = mkdtempSync(join(tmpdir(), 'capability-lock-'));
+  const digest = value => createHash('sha256').update(value).digest('hex');
+  try {
+    writeFileSync(join(root, 'test.log'), 'actual output');
+    writeFileSync(join(root, 'resolved.lock'), 'tested dependencies');
+    const run = {artifact_path:'test.log', artifact_sha256:digest('actual output'),
+      resolved_cargo_lock_sha256:digest('tested dependencies'), resolved_cargo_lock_artifact_path:'resolved.lock'};
+    assert.equal(verifyRunArtifacts({run}, root).run.artifact_verified, true);
+    writeFileSync(join(root, 'resolved.lock'), 'restored checkout dependencies');
+    assert.equal(verifyRunArtifacts({run}, root).run.artifact_verified, false);
+    assert.equal(verifyRunArtifacts({run:{...run, resolved_cargo_lock_artifact_path:undefined}}, root).run.artifact_verified, false);
+    assert.equal(verifyRunArtifacts({run:{...run, resolved_cargo_lock_sha256:undefined}}, root).run.artifact_verified, false);
+    assert.equal(verifyRunArtifacts({run:{...run, resolved_cargo_lock_artifact_path:'../outside.lock'}}, root).run.artifact_verified, false);
+  } finally { rmSync(root, {recursive:true, force:true}); }
+});

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T09:24:01.146884+00:00",
+  "updated_at": "2026-10-19T10:33:09.952373+00:00",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
@@ -11,7 +11,7 @@
     },
     "sdk_types_and_unit": {
       "exit_code": 0,
-      "tests_executed": 97,
+      "tests_executed": 98,
       "failures": 0,
       "scope": "SDK and discovery tooling; not service workflow certification"
     },
@@ -26,7 +26,7 @@
     },
     "discovery_gate": {
       "status": "blocked",
-      "blocker_count": 2119
+      "blocker_count": 2122
     },
     "knowledge_canonical_unit": {
       "source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
@@ -47,12 +47,67 @@
         "reservation": "868aa40011780194795848fcb60b85972cfd6076"
       },
       "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
+    },
+    "reservation_generation": {
+      "status": "passed",
+      "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+      "exit_code": 0,
+      "tests_executed": 25,
+      "duration_seconds": 2.254,
+      "source_revisions": {
+        "reservation": "83b2ad0f614ed483dad7e5d19432a8c0b6934e38"
+      },
+      "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
+    },
+    "reservation_slot_integrity": {
+      "status": "passed",
+      "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+      "exit_code": 0,
+      "tests_executed": 29,
+      "duration_seconds": 11.716,
+      "source_revisions": {
+        "reservation": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d"
+      },
+      "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
+    },
+    "agentic_source_preservation": {
+      "status": "passed",
+      "command": "cargo test --offline -p infera_agentic ide::history_retention -- --include-ignored --test-threads=1",
+      "exit_code": 0,
+      "tests_executed": 13,
+      "duration_seconds": 16.702,
+      "source_revisions": {
+        "agentic": "working-tree-sha256:996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c"
+      },
+      "scope": "Exact working source/dependency digests verified after local commits; pre-existing dirty lockfile retained. Does not certify old base/canonical revision."
+    },
+    "agentic_ide_regression": {
+      "status": "passed",
+      "command": "cargo test --offline -p infera_agentic ide:: -- --skip ide::history_retention",
+      "exit_code": 0,
+      "tests_executed": 160,
+      "duration_seconds": 0.72,
+      "source_revisions": {
+        "agentic": "working-tree-sha256:996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c"
+      },
+      "scope": "Exact working source/dependency digests verified after local commits; pre-existing dirty lockfile retained. Does not certify old base/canonical revision."
+    },
+    "reservation_parent_history": {
+      "status": "passed",
+      "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+      "exit_code": 0,
+      "tests_executed": 32,
+      "duration_seconds": 18.323,
+      "source_revisions": {
+        "reservation": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2"
+      },
+      "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
     }
   },
   "artifacts": {
     "sdk-tests": {
       "path": "evidence/sdk-tests.log",
-      "sha256": "44c17dd19c16a5fb368ed820b7a85e0aa0e8679d31b48d3b9b1b7b41b8b7358c"
+      "sha256": "7421ec939099e358221f47817c02a6bc4d4d00470574f2a922caffff4539133d"
     },
     "sdk-contract-audit": {
       "path": "evidence/sdk-contract-audit.log",
@@ -60,15 +115,43 @@
     },
     "discovery-gate": {
       "path": "evidence/discovery-gate.log",
-      "sha256": "cff224fff23ff5291b1dcb6507e1539ca771ae273b9df9fc56db8ebeba6161c4"
+      "sha256": "f0ade2f17081f03b5c42b3da677feaf8c07e7a19cf34201d7bf14b5768544cbf"
     },
     "knowledge-canonical-tests": {
       "path": "evidence/knowledge-canonical-tests.log",
       "sha256": "787a5dfa38030cb90147ad30b8f61b92a0d46f231c055beed96fda561f7befb7"
     },
     "reservation-contract-tests": {
-      "path": "evidence/reservation-contract-tests.log",
+      "path": "evidence/reservation-parent-history-tests.log",
+      "sha256": "da136e3587fb93f6e5d22bf40010e6e19310af7ea61bd773c2c5607bf70c69f0"
+    },
+    "reservation-generation": {
+      "path": "evidence/reservation-generation-tests.log",
+      "sha256": "6e6039cb6b24fbfae51fa868e47b90d6bbc2e48c8cac82ac707354bf77aa486f"
+    },
+    "reservation-slot-integrity": {
+      "path": "evidence/reservation-slot-integrity-tests.log",
+      "sha256": "ac4c69009182dafae94ffb37720b151ca3b859bc0f0b6232d9d5f39b12dc2ef9"
+    },
+    "agentic-source-preservation": {
+      "path": "evidence/agentic-history-retention-tests.log",
+      "sha256": "2b67adb101267bba6fa95a973567e142db7f14d3771869e1d735577c01b90fe7"
+    },
+    "agentic-ide-regression": {
+      "path": "evidence/agentic-ide-regression-tests.log",
+      "sha256": "54d21b28a7cbe9266e8202a9c584c777b174208d2470359ca934bfc704685499"
+    },
+    "reservation-parent-history": {
+      "path": "evidence/reservation-parent-history-tests.log",
+      "sha256": "da136e3587fb93f6e5d22bf40010e6e19310af7ea61bd773c2c5607bf70c69f0"
+    },
+    "reservation-contract-integrity": {
+      "path": "evidence/reservation-contract-integrity-868aa.log",
       "sha256": "920451ea0c4851eca1c2c0421d65ce01df88a02d9704182a48aae9667a09de18"
+    },
+    "sdk-build": {
+      "path": "evidence/sdk-build.log",
+      "sha256": "0b04215e28afa3246c77dcf6707a3c86f0586ba9f2d0e3880aaabfb7a7b39e49"
     }
   },
   "pastil": {
@@ -117,7 +200,8 @@
     "Publish verified Knowledge, implement scoped memory/ingestion/forgetting/outage/migration/rollback and measure canaries"
   ],
   "local_backend_commits": {
-    "reservation": "868aa40011780194795848fcb60b85972cfd6076"
+    "reservation": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+    "agentic": "7fe2de869b15b122d3a90486f9ad940742da5fca"
   },
   "local_prerequisites_implemented": [
     "reservation status filter and invalid status rejection",
@@ -125,6 +209,24 @@
     "terminal lifecycle enforcement",
     "atomic validated full schedule replacement and serialized concurrent replacement",
     "strict date parsing and exclusive next-midnight UTC range",
-    "Axum bracket pagination and bounded unsigned offsets"
+    "Axum bracket pagination and bounded unsigned offsets",
+    "bounded atomic serialized slot generation and idempotent claim-preserving retries",
+    "guarded slot edit/delete preserving claims and reservation history",
+    "bounded original IDE source preservation, full lineage checks and rewind producer epochs",
+    "legacy orphan history compatibility without inventing source epochs",
+    "restrictive historical-slot FK protecting provider/service deletion, plus real concurrency and migration round trip"
+  ],
+  "pending_semantic_decisions": [
+    {
+      "id": "reservation-provider-capacity",
+      "status": "awaiting_user_definition",
+      "question": "one concurrent booking per provider across services, or configurable parallel capacity",
+      "scope": [
+        "same-service shifted schedules",
+        "cross-service overlap",
+        "regeneration after duration or schedule changes",
+        "concurrent bookings across distinct slot IDs"
+      ]
+    }
   ]
 }

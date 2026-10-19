@@ -40,8 +40,58 @@ Full schedule replacement now validates every day/time before deletion, normaliz
 
 The full Rust suite executed **21 tests with zero ignored/skipped** against disposable PostgreSQL and RabbitMQ. The HTTP journey uses the real router, authoring/assignment/schedule/slot/booking handlers and forwarded-permission middleware; it checks combined filters, receipts, availability, cancellation, rebooking and denied writes. Pure method tests also cover concurrent claims, simultaneous cancellation, same-user stale retries, completed-state denial and concurrent full schedule replacement.
 
-Evidence: `contracts/service-capabilities/evidence/reservation-contract-tests.json` and its hashed log, bound to the clean local commit plus actual Rust SDK dependency hashes. The canonical matrix remains at the fetched source revision; no deployment, SDK release or Manage completeness is implied. IDP/gateway identity and header sanitization, project routing, bounded slot generation, slot-edit claim integrity, SDK calls and Manage forms remain separate verification work. The earlier characterization contains six defective behavior flags plus a healthy `second_booking_still_confirmed` consistency flag; that consistency flag is not another defect.
+Evidence: the `reservation-contract-integrity` registry entry retains its original hashed `reservation-contract-integrity-868aa.log`, bound to the clean local commit plus actual Rust SDK dependency hashes. The canonical matrix remains at the fetched source revision; no deployment, SDK release or Manage completeness is implied. IDP/gateway identity and header sanitization, project routing, SDK calls and Manage forms remain separate verification work. Subsequent local generation and slot-edit work is recorded below. The earlier characterization contains six defective behavior flags plus a healthy `second_booking_still_confirmed` consistency flag; that consistency flag is not another defect.
 
 ## Review rule
 
 The remaining services retain their own generated source evidence and pending semantic reviews. No operation becomes verified from a method/path count, a route annotation, the existence of a form, or an HTTP adapter that returns a synthetic success. Tests must exercise the owning contract and record the exact revisions and actual outcomes.
+
+## Subsequent local Reservation workflows
+
+Commit `83b2ad0f614ed483dad7e5d19432a8c0b6934e38` bounds generation to strict UTC
+ranges of 1–366 inclusive days and at most 100,000 unique candidate slots per request.
+Provider/service must exist, be active and be assigned; stored schedules and service
+durations/buffers are validated. Provider serialization coordinates schedule replacement,
+generation and slot edits. Existing rows and claims remain unchanged on retry; overlapping
+schedule starts deduplicate. All 500-row insert batches share one transaction. Real
+PostgreSQL tests include a late failure after the first batch, concurrent retries, zero
+schedules, terminal calendar dates and excessive output. The 25-test run is retained
+separately in `evidence/reservation-generation-tests.json` and its hashed log.
+
+Commit `939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d` prevents independent claim-bit
+changes. Claimed or historically referenced slots cannot be moved, rewritten or deleted,
+even after cancellation; equivalent PATCH remains idempotent. Unreferenced edits validate
+RFC3339 start/end order, active provider/service assignment and duplicate starts. The
+29-test run includes real booking/deletion and edit/generation races and is retained in
+`evidence/reservation-slot-integrity-tests.json`. Both tested source digests were checked
+against clean commits after testing; the registry binds those commits rather than the
+older base revision. These are local repairs, with canonical/runtime reconciliation pending.
+
+Same-provider availability across different services remains a distinct unresolved
+capacity rule. Successful claims on different slot IDs do not establish that one provider
+can serve overlapping bookings. No generated operation review or local test count certifies
+that workflow, the gateway, SDK or Manage.
+
+## Parent-deletion lifecycle and retained dependency evidence
+
+Commit `39ad7e7a142486622d4f0dd68658fcbdbe6103e2` adds migration
+`m20261019_000008_preserve_reservation_history`: the reservation-to-slot foreign key
+uses RESTRICT rather than CASCADE. Existing rows remain intact; provider/service deletion
+can clean up unbooked drafts but cannot erase confirmed or cancelled history. Missing
+parent deletion returns 404. PostgreSQL foreign-key and transaction-race errors become
+409, while unrelated storage faults remain 500. All 32 tests pass against real PostgreSQL
+and RabbitMQ, including direct SQL, booking versus both parent deletion routes and a
+down/up migration round trip. The down migration restores the old cascade policy and
+cannot reconstruct previously erased data. This schema change is local only.
+
+The `reservation-parent-history` registry entry binds the clean committed source digest.
+Exact resolved Cargo lock bytes are retained under SHA256-named artifacts for Reservation
+and Agentic; their hashes match the recorded original test resolutions. Offline test-target
+builds recovered those exact bytes without re-executing tests, and restored each original
+checkout lock afterward. The evidence gate now validates the retained lock as well as the
+log, instead of treating a dependency hash without its bytes as reproducible evidence.
+
+Capacity review must include distinct overlapping starts in the same service (for example
+09:00 and 09:15 with 30-minute duration), different services and regeneration after
+duration/schedule changes. Equal-start deduplication proves none of those capacity rules.
+The product capacity decision is pending; no policy has been silently imposed.

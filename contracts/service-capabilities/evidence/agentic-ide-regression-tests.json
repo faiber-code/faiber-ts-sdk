@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "status": "passed",
+  "command": "cargo test --offline -p infera_agentic ide:: -- --skip ide::history_retention",
+  "exit_code": 0,
+  "tests_executed": 160,
+  "tests_passed": 160,
+  "tests_failed": 0,
+  "tests_ignored": 0,
+  "duration_seconds": 0.72,
+  "artifact_path": "evidence/agentic-ide-regression-tests.log",
+  "artifact_sha256": "54d21b28a7cbe9266e8202a9c584c777b174208d2470359ca934bfc704685499",
+  "source_basis": "Exact expanded working-source and local dependency digests; actual resolved lock retained for this run.",
+  "source": {
+    "revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+    "working_tree_status": "M Cargo.lock\n?? templates/validation/empty-live-deployment-browser.json\n?? templates/validation/model-previews/catalog-media-review.jpg\n?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/\n?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/\n?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png",
+    "checkout_sha256": "996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c",
+    "files_hashed": 348,
+    "included_paths": [
+      "src",
+      "domain",
+      "ide_core",
+      "code_pipeline",
+      "faiber-agent-core",
+      "worker_agent",
+      "vendor",
+      "Cargo.toml",
+      "Cargo.lock",
+      ".cargo",
+      "build.rs",
+      "rust-toolchain.toml"
+    ]
+  },
+  "dependency_sources": {
+    "faiber-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+      "checkout_sha256": "cf6a8982ed5cc13c30433dee8a09621a585431fa2127ca179d953857d84edda2",
+      "files_hashed": 64,
+      "included_paths": [
+        "crates",
+        "Cargo.toml",
+        "Cargo.lock",
+        ".cargo"
+      ]
+    }
+  },
+  "artifact_normalization": "Trailing blank lines removed; test output content unchanged",
+  "test_base_source_revisions": {
+    "agentic": "7fe2de869b15b122d3a90486f9ad940742da5fca"
+  },
+  "source_revisions": {
+    "agentic": "working-tree-sha256:996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c"
+  },
+  "local_implementation_commits": [
+    "6a9da3df",
+    "7fe2de869b15b122d3a90486f9ad940742da5fca"
+  ],
+  "canonical_certification": false,
+  "binding_note": "Exact working source/dependency digests verified after local commits; pre-existing dirty lockfile retained. Does not certify old base/canonical revision.",
+  "resolved_cargo_lock_artifact_path": "evidence/agentic-resolved-568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959.Cargo.lock",
+  "resolved_lock_artifact_note": "Captured from this regression run before restoring the pre-existing checkout lock.",
+  "observed_at": "2026-10-19T10:32:50Z",
+  "resolved_cargo_lock_sha256": "568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959"
+}

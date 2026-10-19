@@ -15,45 +15,56 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 running 1 test
 test health_returns_200_with_success_status ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
 
 
 running 2 tests
 test create_provider ... ok
 test list_providers_empty ... ok
 
-test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
 
 
 running 1 test
 test concurrent_claims_create_exactly_one_reservation ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
 
 
-running 8 tests
+running 19 tests
 test available_date_is_strict_utc_and_includes_fractional_last_second_only ... ok
 test axum_query_preserves_bracket_pagination_and_combined_filters ... ok
+test concurrent_booking_and_parent_deletion_keep_every_successful_booking ... ok
+test concurrent_booking_and_slot_deletion_cannot_erase_a_successful_booking ... ok
+test concurrent_generation_and_retries_preserve_claims_and_deduplicate_schedules ... ok
 test concurrent_schedule_replacements_never_mix_sets ... ok
 test database_failure_after_schedule_deletion_rolls_back_the_entire_replacement ... ok
 test every_schedule_entry_is_validated_before_replacement ... ok
+test generation_accepts_range_boundary_but_rejects_excessive_output_without_inserts ... ok
+test generation_is_bounded_validated_and_requires_active_assignment ... ok
+test generation_rolls_back_earlier_bulk_chunks_on_late_storage_failure ... ok
+test history_constraint_migration_round_trip_preserves_existing_records ... ok
+test parent_deletion_and_direct_sql_cannot_cascade_booking_history ... ok
 test patch_delete_and_retries_share_terminal_lifecycle_and_preserve_new_claims ... ok
 test simultaneous_cancellations_are_idempotent_and_inconsistent_ownership_rolls_back ... ok
+test slot_edit_and_generation_serialize_duplicate_start_checks ... ok
+test slot_edits_and_deletes_never_rewrite_or_erase_reservation_history ... ok
 test status_filter_is_applied_and_unknown_values_never_mutate ... ok
+test unreferenced_slot_edits_validate_times_assignment_duplicates_and_claims ... ok
 
-test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.00s
 
 
 running 1 test
 test cannot_reserve_nonexistent_slot ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
 
 
 running 1 test
 test booking_http_journey_checks_filters_receipts_retries_and_current_permissions ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
 
 
 running 4 tests
@@ -62,7 +73,7 @@ test get_service_by_id ... ok
 test list_services_empty ... ok
 test update_service ... ok
 
-test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s
 
 warning: patch `infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-asset-sdk)` was not used in the crate graph
 warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
@@ -95,11 +106,13 @@ warning: unused import: `HeaderValue`
   |
   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
 
+   Compiling migration v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera-reservation/migration)
 warning: `infera-idp-sdk` (lib) generated 1 warning (run `cargo fix --lib -p infera-idp-sdk` to apply 1 suggestion)
+   Compiling infera_reservation v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera-reservation)
 warning: unused import: `sea_orm::QuerySelect`
-  --> src/provider/methods.rs:67:9
+  --> src/provider/methods.rs:70:9
    |
-67 |     use sea_orm::QuerySelect;
+70 |     use sea_orm::QuerySelect;
    |         ^^^^^^^^^^^^^^^^^^^^
    |
    = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
@@ -160,8 +173,8 @@ help: you can alternatively desugar to a normal `fn` that returns `impl Future` 
 3 + pub trait CliCommand { fn run(db: &DatabaseConnection, is_dev: &bool) -> impl std::future::Future<Output = ()> + Send; }
   |
 
-warning: `infera_reservation` (lib) generated 9 warnings (run `cargo fix --lib -p infera_reservation` to apply 8 suggestions)
 warning: `infera_reservation` (lib test) generated 9 warnings (9 duplicates)
+warning: `infera_reservation` (lib) generated 9 warnings (run `cargo fix --lib -p infera_reservation` to apply 8 suggestions)
 warning: unused import: `http_body_util::BodyExt`
  --> tests/common/mod.rs:9:5
   |
@@ -170,15 +183,6 @@ warning: unused import: `http_body_util::BodyExt`
   |
   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
 
-warning: function `parse_api_data` is never used
-  --> tests/common/mod.rs:85:8
-   |
-85 | pub fn parse_api_data(body: &str) -> serde_json::Value {
-   |        ^^^^^^^^^^^^^^
-   |
-   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
-
-   Compiling infera_reservation v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera-reservation)
 warning: function `admin_headers` is never used
   --> tests/common/mod.rs:19:8
    |
@@ -193,12 +197,20 @@ warning: function `parse_api_data` is never used
 85 | pub fn parse_api_data(body: &str) -> serde_json::Value {
    |        ^^^^^^^^^^^^^^
 
-warning: `infera_reservation` (test "provider_api_test") generated 1 warning (run `cargo fix --test "provider_api_test" -p infera_reservation` to apply 1 suggestion)
+warning: function `parse_api_data` is never used
+  --> tests/common/mod.rs:85:8
+   |
+85 | pub fn parse_api_data(body: &str) -> serde_json::Value {
+   |        ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera_reservation` (test "health_test") generated 3 warnings (run `cargo fix --test "health_test" -p infera_reservation` to apply 1 suggestion)
 warning: `infera_reservation` (test "reservation_flow_test") generated 2 warnings (1 duplicate)
-warning: `infera_reservation` (test "health_test") generated 3 warnings (1 duplicate)
 warning: `infera_reservation` (test "service_api_test") generated 1 warning (1 duplicate)
+warning: `infera_reservation` (test "provider_api_test") generated 1 warning (1 duplicate)
 warning: `infera_reservation` (test "reservation_http_contract_test") generated 1 warning (1 duplicate)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.70s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.62s
      Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_reservation-6b8a118f4a8ff418)
      Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_reservation-0a3790e3bd8494e9)
      Running tests/health_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/health_test-09d8350ba882e172)

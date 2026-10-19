@@ -43,3 +43,26 @@ Knowledge's separate `/internal/task-projections` adapter requires its dedicated
 Task project IDs and Agentic project IDs are different domain references until an explicit mapping is verified. No relationship selector may assume identical UUID meaning. Search supports one project plus up to nine additional projects and a 2000-character query; Knowledge candidates cap at 100. Test cross-project denial, permission revocation between both checks, stale versions, delete/replay, service outage and directly selected fresh-note fallback before calling this workflow verified.
 
 Sources: Task `src/note_knowledge.rs` (request, search, process_next), `src/policy.rs`, `src/repository.rs`; Knowledge `src/task_projections.rs` (authority, sync, candidates, passages). No runtime workflow certification has been recorded for this discovery yet.
+
+## Early local Agentic source preservation (A0-P)
+
+Local commits `6a9da3df` and `7fe2de869b15b122d3a90486f9ad940742da5fca` replace
+destructive IDE compaction with bounded retained originals and full expected-source
+manifests. Corrections, missing support, expiry and rewind invalidate derived summaries.
+A durable thread epoch fences actual result producers after rewind; old missing-epoch
+orphan results are withheld without recreating erased sources or breaking the HTTP history
+route. Compaction/rewind require Mongo transactions and fail closed on standalone; normal
+history reads remain available. Retention defaults are 30 days/8 MiB per thread, with
+4,096 retained rows and 512 active capture rows as additional bounds.
+
+The real replica/standalone Mongo suite passed 13 focused correctness tests; 160 IDE
+regressions also passed. Evidence in the verification registry includes expanded code/vendor
+and path-dependency digests, actual lock hashes and normalized hashed logs. The Agentic
+lockfile already had unrelated changes and was preserved. Consequently these entries bind
+the exact tested working digest and deliberately cannot certify the older canonical base
+revision by reusing its Git hash. No model call, Knowledge publication or migration occurred.
+
+Remaining hard gates include full source/scope erasure across worker/event/snapshot payloads,
+current user/project permissions, complete model-request budgets, semantic fact identity,
+Chat correction/delivery, Knowledge lease recovery and rollback. The exact local behavior
+and limits are in `infera-agentic/docs/SOURCE_HISTORY_PRESERVATION.md`.

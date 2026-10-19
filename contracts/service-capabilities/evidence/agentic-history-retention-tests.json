@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "status": "passed",
+  "kind": "source_preservation_correctness",
+  "observed_at": "2026-10-19T10:04:13Z",
+  "command": "cargo test --offline -p infera_agentic ide::history_retention -- --include-ignored --test-threads=1",
+  "exit_code": 0,
+  "tests_executed": 13,
+  "duration_seconds": 16.702,
+  "source": {
+    "revision": "6adb76c4a22e044cb92673ef9104658973c2d766",
+    "working_tree_status": "M .env.example\n M Cargo.lock\n M domain/src/agent_runtime.rs\n M src/agent_runtime/service.rs\n M src/ide/agent_stream.rs\n M src/ide/mod.rs\n M src/ide/snapshots.rs\n M src/ide/summarize.rs\n M src/ide/threads.rs\n?? docs/KNOWLEDGE_BRAIN_IMPLEMENTATION_PLAN.md\n?? docs/verification/\n?? scripts/verify-history-retention.py\n?? src/ide/history_retention.rs\n?? templates/validation/empty-live-deployment-browser.json\n?? templates/validation/model-previews/catalog-media-review.jpg\n?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/\n?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/\n?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png",
+    "checkout_sha256": "996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c",
+    "files_hashed": 348,
+    "included_paths": [
+      "src",
+      "domain",
+      "ide_core",
+      "code_pipeline",
+      "faiber-agent-core",
+      "worker_agent",
+      "vendor",
+      "Cargo.toml",
+      "Cargo.lock",
+      ".cargo",
+      "build.rs",
+      "rust-toolchain.toml"
+    ]
+  },
+  "dependency_sources": {
+    "faiber-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+      "checkout_sha256": "cf6a8982ed5cc13c30433dee8a09621a585431fa2127ca179d953857d84edda2",
+      "files_hashed": 64,
+      "included_paths": [
+        "crates",
+        "Cargo.toml",
+        "Cargo.lock",
+        ".cargo"
+      ]
+    }
+  },
+  "tests_passed": 13,
+  "tests_failed": 0,
+  "tests_ignored": 0,
+  "source_revisions": {
+    "agentic": "working-tree-sha256:996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c"
+  },
+  "resolved_cargo_lock_sha256": "568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959",
+  "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+  "mongodb_image": "sha256:fd61624c38a6ddd1b3b8083edbec23b52b35ff1ff7ad78a74f76e77cfd5fad27",
+  "storage": "owned_disposable_real_replica_and_standalone_mongodb",
+  "artifact_path": "evidence/agentic-history-retention-tests.log",
+  "artifact_sha256": "2b67adb101267bba6fa95a973567e142db7f14d3771869e1d735577c01b90fe7",
+  "limitations": [
+    "No model/provider requests, billing, live deployment or Knowledge memory adoption performed",
+    "Full personal/project memory epochs, Chat delivery, semantic fact identity and complete model-request budgeting remain later hard gates"
+  ],
+  "artifact_normalization": "Trailing blank lines removed; test output content unchanged",
+  "test_base_source_revisions": {
+    "agentic": "6adb76c4a22e044cb92673ef9104658973c2d766"
+  },
+  "local_implementation_commits": [
+    "6a9da3df",
+    "7fe2de869b15b122d3a90486f9ad940742da5fca"
+  ],
+  "canonical_certification": false,
+  "binding_note": "Exact working source/dependency digests verified after local commits; pre-existing dirty lockfile retained. Does not certify old base/canonical revision.",
+  "resolved_cargo_lock_artifact_path": "evidence/agentic-resolved-568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959.Cargo.lock",
+  "resolved_lock_artifact_note": "Exact lock bytes recovered by offline test-target resolution without executing tests; hash matches the recorded test resolution. Pre-existing checkout lock restored."
+}

@@ -2,18 +2,18 @@
   "schema_version": "1.0",
   "kind": "correctness_regression",
   "status": "passed",
-  "observed_at": "2026-10-19T09:20:48Z",
+  "observed_at": "2026-10-19T10:24:15Z",
   "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
   "exit_code": 0,
-  "tests_executed": 21,
-  "duration_seconds": 2.6,
+  "tests_executed": 32,
+  "duration_seconds": 18.323,
   "source_revisions": {
-    "reservation": "868aa40011780194795848fcb60b85972cfd6076"
+    "reservation": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d"
   },
   "source": {
-    "revision": "868aa40011780194795848fcb60b85972cfd6076",
-    "working_tree_status": "",
-    "checkout_sha256": "cb298c26c593455cf0437be722f5e2afde23b9c11be64f01dbf36537b854bef1"
+    "revision": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d",
+    "working_tree_status": "M migration/src/lib.rs\n M src/models.rs\n M src/provider/methods.rs\n M src/reservation_service/methods.rs\n M tests/reservation_contract_test.rs\n?? migration/src/m20261019_000008_preserve_reservation_history.rs",
+    "checkout_sha256": "75d9ee268c8361c91320179c24a6c2541094964b5f7ac11a31416eb65527d3fc"
   },
   "rust_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
   "rust_sdk_working_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
@@ -40,6 +40,14 @@
   "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
   "storage": "disposable_real_postgresql",
   "artifact_path": "evidence/reservation-contract-tests.log",
-  "artifact_sha256": "920451ea0c4851eca1c2c0421d65ce01df88a02d9704182a48aae9667a09de18",
-  "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
+  "artifact_sha256": "da136e3587fb93f6e5d22bf40010e6e19310af7ea61bd773c2c5607bf70c69f0",
+  "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates",
+  "verified_commit": {
+    "revision": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+    "checkout_sha256": "75d9ee268c8361c91320179c24a6c2541094964b5f7ac11a31416eb65527d3fc",
+    "method": "post-test clean committed source digest matched the tested working source; no tests rerun"
+  },
+  "resolved_cargo_lock_artifact_path": "evidence/reservation-resolved-2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f.Cargo.lock",
+  "resolved_lock_artifact_note": "Exact bytes recovered by offline test-target resolution without executing tests; SHA256 matches the originally recorded test resolution. Original checkout lock restored.",
+  "artifact_normalization": "Trailing blank lines removed; test output content unchanged"
 }

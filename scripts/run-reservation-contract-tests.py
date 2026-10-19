@@ -71,7 +71,10 @@ def main():
         executed = sum(int(passed) for passed, _, _ in summaries)
         passed = result.returncode == 0 and len(summaries) >= 4 and executed >= 13 and all(int(failed) == int(ignored) == 0 for _, failed, ignored in summaries) and 'skipped:' not in log
         OUTPUT.mkdir(parents=True, exist_ok=True)
-        log_bytes = log.encode()
+        resolved_lock = (REPO / 'Cargo.lock').read_bytes()
+        lock_artifact = OUTPUT / ('reservation-resolved-' + hashlib.sha256(resolved_lock).hexdigest() + '.Cargo.lock')
+        lock_artifact.write_bytes(resolved_lock)
+        log_bytes = (log.rstrip('\n') + '\n').encode()
         (OUTPUT / 'reservation-contract-tests.log').write_bytes(log_bytes)
         evidence = {'schema_version': '1.0', 'kind': 'correctness_regression', 'status': 'passed' if passed else 'failed',
                     'observed_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'command': ' '.join(COMMAND),
@@ -80,7 +83,8 @@ def main():
                     'rust_sdk_revision': run(['git', 'rev-parse', 'HEAD'], cwd=SDK.parent / 'Service/faiber-sdk'),
                     'rust_sdk_working_status': run(['git', 'status', '--porcelain'], cwd=SDK.parent / 'Service/faiber-sdk'),
                     'rust_sdk_dependencies': {name: source_state(SDK.parent / 'Service/faiber-sdk/crates' / name) for name in ['infera-idp-sdk', 'infera-idp-macro', 'infera-flow-sdk']},
-                    'resolved_cargo_lock_sha256': hashlib.sha256((REPO / 'Cargo.lock').read_bytes()).hexdigest(),
+                    'resolved_cargo_lock_sha256': hashlib.sha256(resolved_lock).hexdigest(),
+                    'resolved_cargo_lock_artifact_path': 'evidence/' + lock_artifact.name,
                     'rustc': run(['rustc', '--version']), 'postgres_image': image, 'rabbitmq_image': rabbit_image, 'storage': 'disposable_real_postgresql',
                     'artifact_path': 'evidence/reservation-contract-tests.log', 'artifact_sha256': hashlib.sha256(log_bytes).hexdigest(),
                     'scope': 'Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates'}
