@@ -5,7 +5,7 @@
 {
   "stage": "discovery",
   "status": "blocked",
-  "blocker_count": 2122,
+  "blocker_count": 2129,
   "blockers": [
     "asset: canonical runtime/source revision is unverified",
     "asset GET /: semantic review missing or stale",

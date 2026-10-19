@@ -35,3 +35,20 @@ The executor finds enabled matching flows, creates a running run, traverses grap
 Required workflow verification: a permitted source event triggers one enabled flow; a typed target action reaches the real owning service; inspect the resulting business resource/ledger receipt; replay/redelivery must not duplicate that effect; failures after an earlier effect must show partial outcome; invalid/revoked target references must fail truthfully. Determine the consumer's actual deduplication/compensation rules before enabling a mutation from a Manage agent proposal.
 
 Sources: `src/event/routes.rs`, `src/engine/{executor,emit,conditions}.rs`, `src/broker.rs`, and each actual target consumer. Existing fixture tests of graph shape or event matching cannot close this cross-service workflow.
+
+## Local history implementation awaiting dependencies
+
+Commit `6fe84352982f97e3f56cd750376a88f4e9ac0a85` adds a compatible array response
+with default limit 50 / accepted range 1–200, before-UUID keyset traversal ordered by
+started_at and UUID, and AND filters for flow/event/status. Missing or differently
+filtered cursors return 404. It adds supporting indexes and explicit current nonnil
+identity plus flow_run:read permission checks on list/detail; the IDP macro alone only
+exports metadata. Live filtered history may need restarting when a cursor's status changes.
+
+The real PostgreSQL/HTTP tests are written, but **zero tests executed and compilation
+was not completed**: the slug crate is absent from the local cache. An explicit online
+fetch failed with crates.io SSL timeout; the repository-documented Nexus mirror is also
+unreachable. The original lockfile is restored, and the failed input lock is labelled
+unresolved rather than passed off as a tested dependency resolution. This code is local,
+unverified and undeployed. Other Flow permission enforcement and external action receipts
+remain separate blockers; no remote action was mocked as successful.

@@ -261,12 +261,14 @@
       "id": "flow-run-pagination",
       "owner": "flow",
       "required": true,
-      "status": "source_review_requires_runtime_verification",
-      "meaning": "Run listing forwards a caller-provided limit without a visible upper clamp, pagination or flow/status filtering. Establish bounded history/query contracts and readable Manage controls before claiming full administrative access.",
+      "status": "implemented_locally_uncompiled_dependency_blocked",
+      "meaning": "Local unverified code adds limit 1\u2013200/default50, before-UUID keyset traversal ordered by started_at/id, AND filters flow/event/status and indexes, preserving the array envelope. Tests are written but zero executed: slug dependency missing, direct crates.io SSL timeout and configured mirror unreachable. No compile, runtime or performance acceptance is claimed.",
       "source_refs": [
         "Service/infera-flow/src/run/routes.rs",
         "Service/infera-flow/src/run/methods.rs"
-      ]
+      ],
+      "implementation_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+      "test_evidence": []
     },
     {
       "id": "flow-notification-after-commit",
@@ -370,8 +372,8 @@
       "id": "reservation-cross-service-capacity",
       "owner": "reservation",
       "required": true,
-      "status": "semantic_decision_required",
-      "meaning": "Capacity/overlap semantics remain unresolved for BOTH same-service shifted or overlapping schedules and different services on one provider, including regeneration after duration/schedule changes. Equal-start BTreeMap deduplication does not eliminate 09:00/09:15 overlapping 30-minute slots. Booking claims only one slot ID. Establish the capacity contract and test concurrent bookings across distinct overlapping slot IDs; do not infer policy from assignment or deduplication.",
+      "status": "approved_policy_implementation_pending",
+      "meaning": "Approved: configurable parallel capacity per provider, DEFAULT 1, enforced across all overlapping booking intervals across ALL services, including distinct overlapping same-service slots and regeneration. Implementation must preserve existing bookings, report legacy over-capacity conflicts, define adjacent interval boundaries and capacity-update rules, and test same/cross-service overlap, concurrent claims, cancellation/rebooking and increases/decreases.",
       "source_refs": [
         "Service/infera-reservation/src/time_slot/methods.rs",
         "Service/infera-reservation/src/reservation/methods.rs"
@@ -391,6 +393,78 @@
       "source_refs": [
         "infera-agentic/src/ide/history_retention.rs",
         "infera-agentic/docs/SOURCE_HISTORY_PRESERVATION.md"
+      ]
+    },
+    {
+      "id": "version-publish-concurrency",
+      "owner": "version",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "implementation_revision": "ed076557d2551b9f3dc9e1eba2d65a8522237f14",
+      "test_evidence": [
+        "version-local-contracts"
+      ],
+      "meaning": "Real parallel first publications returned 500 in the baseline. Local transaction-scoped per-slug serialization now protects first creation and monotonic same-version updates; 10 workspace tests pass with real PostgreSQL/RabbitMQ. Canonical/deployed reconciliation remains pending.",
+      "source_refs": [
+        "Service/infera_version/src/version/publish.rs",
+        "Service/infera_version/src/contract_tests.rs"
+      ]
+    },
+    {
+      "id": "version-malformed-forwarded-identity",
+      "owner": "version",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "implementation_revision": "ed076557d2551b9f3dc9e1eba2d65a8522237f14",
+      "test_evidence": [
+        "version-local-contracts"
+      ],
+      "meaning": "Malformed x-user-id previously panicked in middleware. Local request now returns 400; this does not introduce user authorization for public catalog reads.",
+      "source_refs": [
+        "Service/infera_version/auth/src/axum_middleware.rs"
+      ]
+    },
+    {
+      "id": "version-catalog-audience-and-latest-ties",
+      "owner": "version",
+      "required": true,
+      "status": "semantic_review_requires_acceptance",
+      "meaning": "Closed release metadata is currently anonymously readable, and direct release lookup ignores parent activity. Different release IDs may share one numeric version code with no deterministic latest tie order. The local contract states these behaviors explicitly; do not infer private access, parent visibility inheritance or unique numeric codes without domain acceptance.",
+      "test_evidence": [
+        "version-local-contracts"
+      ],
+      "source_refs": [
+        "Service/infera_version/src/version/methods.rs",
+        "Service/infera_version/SEMANTIC_CONTRACT.md"
+      ]
+    },
+    {
+      "id": "control-version-publication-readback",
+      "owner": "control",
+      "required": true,
+      "status": "partially_fixed_locally_full_workflow_unverified",
+      "meaning": "Local Control publisher validates raw receipt, reads exact release UUID and service slug, checks identity/status/metadata, recognizes newer same-release supersession, and returns a retained failure receipt when publication persists but read-back fails. Actual Node script passes against real Version HTTP/PostgreSQL; all 199 Control core tests and server check pass. Kubernetes namespace authorization, Secret provisioning/rotation/rollout, APK bytes and durable server-side receipt/reconciliation remain unverified; this is not full cross-service completion.",
+      "source_refs": [
+        "Service/infera-control/crates/faiber-core/src/ops/apk.rs:255",
+        "Service/infera-control/crates/faiber-core/src/ops/apk.rs:590",
+        "Service/infera-control/crates/faiber-core/src/ops/workloads.rs:2669"
+      ],
+      "implementation_revision": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
+      "test_evidence": [
+        "version-local-contracts",
+        "control-core-local"
+      ]
+    },
+    {
+      "id": "flow-current-run-permissions",
+      "owner": "flow",
+      "required": true,
+      "status": "implemented_locally_uncompiled_dependency_blocked",
+      "implementation_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+      "meaning": "The IDP macro exports permission metadata, not handler enforcement. Local uncompiled run list/detail code now requires nonnil current identity plus flow_run:read or *, with revocation checks per request. Planned real HTTP tests have not executed because slug dependency is unavailable. Other Flow handlers still need independent explicit enforcement review.",
+      "source_refs": [
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/faiber-sdk/crates/infera-idp-macro/src/lib.rs"
       ]
     }
   ]

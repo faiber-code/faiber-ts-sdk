@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T10:33:09.952373+00:00",
+  "updated_at": "2026-10-19T11:02:44.344523+00:00",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
@@ -11,9 +11,10 @@
     },
     "sdk_types_and_unit": {
       "exit_code": 0,
-      "tests_executed": 98,
+      "tests_executed": 103,
       "failures": 0,
-      "scope": "SDK and discovery tooling; not service workflow certification"
+      "scope": "SDK and discovery tooling; not service workflow certification",
+      "working_source_sha256": "6732ec1adf54a87308a559595499345a151ac1bca9cd1946af561c9192b6de97"
     },
     "reservation_real_postgresql": {
       "exit_code": 0,
@@ -26,7 +27,7 @@
     },
     "discovery_gate": {
       "status": "blocked",
-      "blocker_count": 2122
+      "blocker_count": 2129
     },
     "knowledge_canonical_unit": {
       "source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
@@ -35,7 +36,8 @@
       "online_exit_code": -15,
       "tests_executed": 0,
       "reason": "Missing cached csv dependency; isolated online fetch stopped after repeated crates.io SSL connection timeouts",
-      "local_service_checkout_modified": false
+      "local_service_checkout_modified": false,
+      "cache_recheck": "csv crate remains absent from local cache; tests still unexecuted"
     },
     "reservation_contract_integrity": {
       "status": "passed",
@@ -102,12 +104,52 @@
         "reservation": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2"
       },
       "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
+    },
+    "version_local_contracts": {
+      "status": "passed",
+      "command": "cargo test --offline --workspace -- --include-ignored --test-threads=1",
+      "exit_code": 0,
+      "tests_executed": 11,
+      "duration_seconds": 88.516,
+      "source_revisions": {
+        "version": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39"
+      }
+    },
+    "control_core": {
+      "status": "passed",
+      "command": "cargo test --offline -p faiber-core",
+      "exit_code": 0,
+      "tests_executed": 199,
+      "source_revisions": {
+        "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39"
+      }
+    },
+    "control_server_check": {
+      "command": "cargo check --offline -p faiber-server",
+      "exit_code": 0,
+      "scope": "local compile check only"
+    },
+    "flow_run_history": {
+      "status": "not_executed_dependency_blocked",
+      "tests_executed": 0,
+      "exit_code": 101,
+      "reason": "Missing slug; direct SSL timeout and configured mirror unreachable",
+      "implementation_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85"
+    },
+    "social_canonical_unit": {
+      "source_revision": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
+      "status": "not_executed_dependency_blocked",
+      "command": "cargo test --offline --lib",
+      "exit_code": 101,
+      "tests_executed": 0,
+      "reason": "async-trait 0.1.91 not cached; original checkout lock restored"
     }
   },
   "artifacts": {
     "sdk-tests": {
       "path": "evidence/sdk-tests.log",
-      "sha256": "7421ec939099e358221f47817c02a6bc4d4d00470574f2a922caffff4539133d"
+      "sha256": "2e378d5c982d121fc63739bcc48a743aa75815f8d9f1f7e55ec7d0850b8f6c23"
     },
     "sdk-contract-audit": {
       "path": "evidence/sdk-contract-audit.log",
@@ -115,7 +157,7 @@
     },
     "discovery-gate": {
       "path": "evidence/discovery-gate.log",
-      "sha256": "f0ade2f17081f03b5c42b3da677feaf8c07e7a19cf34201d7bf14b5768544cbf"
+      "sha256": "0658f42485d1e355db7d79ca9a5741805f94351299eddf750ae991e3855b30e1"
     },
     "knowledge-canonical-tests": {
       "path": "evidence/knowledge-canonical-tests.log",
@@ -152,6 +194,22 @@
     "sdk-build": {
       "path": "evidence/sdk-build.log",
       "sha256": "0b04215e28afa3246c77dcf6707a3c86f0586ba9f2d0e3880aaabfb7a7b39e49"
+    },
+    "version-local-contracts": {
+      "path": "evidence/version-contract-tests.log",
+      "sha256": "31ebd0ad5b47cdde915c038392fe13cff0bdd3d8d0ef93a0296979c3da808f9a"
+    },
+    "control-core-local": {
+      "path": "evidence/control-core-tests.log",
+      "sha256": "8f21dc5fb518c0b7b5691d2b2a93c2e5101484590381b5f2ac5a1b3cc1899aa6"
+    },
+    "control-server-check": {
+      "path": "evidence/control-server-check.log",
+      "sha256": "9c7ccb642c233c47a2ff9719a01f341eb5b22d8ec35ea3c405bce00700017156"
+    },
+    "social-canonical-unit-attempt": {
+      "path": "evidence/social-canonical-unit-attempt.log",
+      "sha256": "074ac36286762f4b6351daf499d78bec98266521712a71a824baaddc6176b894"
     }
   },
   "pastil": {
@@ -201,7 +259,10 @@
   ],
   "local_backend_commits": {
     "reservation": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
-    "agentic": "7fe2de869b15b122d3a90486f9ad940742da5fca"
+    "agentic": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+    "version": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+    "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
+    "flow": "6fe84352982f97e3f56cd750376a88f4e9ac0a85"
   },
   "local_prerequisites_implemented": [
     "reservation status filter and invalid status rejection",
@@ -214,18 +275,41 @@
     "guarded slot edit/delete preserving claims and reservation history",
     "bounded original IDE source preservation, full lineage checks and rewind producer epochs",
     "legacy orphan history compatibility without inventing source epochs",
-    "restrictive historical-slot FK protecting provider/service deletion, plus real concurrency and migration round trip"
+    "restrictive historical-slot FK protecting provider/service deletion, plus real concurrency and migration round trip",
+    "Version per-slug publication transaction serialization and bounded exact-token validation",
+    "Version explicit slug/UUID/envelope/enum/lifecycle contracts and seed-preservation regressions",
+    "Version malformed forwarded identity rejection and truthful health/slug metadata paths",
+    "Control APK publisher verifies real Version receipts/read-back and retains partial-outcome identity; provisioning/durable reconciliation still pending"
   ],
-  "pending_semantic_decisions": [
+  "pending_semantic_decisions": [],
+  "local_unverified_changes": [
+    {
+      "service": "flow",
+      "commit": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+      "scope": "bounded indexed cursor history and current run-read permission enforcement",
+      "status": "uncompiled_dependency_blocked"
+    }
+  ],
+  "local_package_versions": {
+    "faiber-ts-sdk": "0.23.0",
+    "infera_version": "0.1.0 (health reports 0.1.1)",
+    "infera-control": "1.0.0",
+    "infera-flow": "0.1.0"
+  },
+  "deployed_release_versions": "not_reconciled_no_deployment_or_release_performed",
+  "approved_semantic_decisions": [
     {
       "id": "reservation-provider-capacity",
-      "status": "awaiting_user_definition",
-      "question": "one concurrent booking per provider across services, or configurable parallel capacity",
-      "scope": [
-        "same-service shifted schedules",
-        "cross-service overlap",
-        "regeneration after duration or schedule changes",
-        "concurrent bookings across distinct slot IDs"
+      "status": "approved_not_yet_implemented",
+      "policy": "Configurable parallel capacity per provider, default 1, across overlapping booking intervals across ALL services, including distinct overlapping same-service slots.",
+      "required_verification": [
+        "adjacent boundaries",
+        "same/cross-service overlap",
+        "concurrent claims at capacity",
+        "cancellation and rebooking",
+        "capacity increases and decreases",
+        "preserve existing bookings and report legacy conflicts",
+        "explicit capacity-change outcomes"
       ]
     }
   ]

@@ -12,10 +12,10 @@
   ],
   "canonical_revision": "88071d0dd49309e0c93aba6238516e95b57e1df5",
   "sdk_source_revision": "88071d0dd49309e0c93aba6238516e95b57e1df5",
-  "working_revision": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+  "working_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
   "working_changes": [],
-  "source_relationship": "same",
-  "source_tree_checksum": "a7992b9ff7887678a747a7a08fbb600bcc2c803bbbf334453ec522e3d908b982",
+  "source_relationship": "working_ahead_of_sdk",
+  "source_tree_checksum": "ab9342d107a0d4b18264004743e1f8a91c7b320fff42f9db28124ec41b5db39a",
   "source_files": [
     {
       "path": "infera_version/src/broker.rs",
@@ -174,6 +174,34 @@
       "checksum": "f6c8f878aea6c8596d2dd9a47360051ec3c033551448b58325708374e5cf925b"
     },
     {
+      "path": "infera_version/auth/src/axum_middleware.rs",
+      "checksum": "a8c3920ccca04dd999c8734f443e815a865e5decbcaf075a824543f691af491e"
+    },
+    {
+      "path": "infera_version/auth/src/export.rs",
+      "checksum": "aae6a32c9a4cd1dea3c792de6ccb7aa2c5e1b21bdfa238838add486a6df7cc26"
+    },
+    {
+      "path": "infera_version/auth/src/lib.rs",
+      "checksum": "9bdb89e1199bb25c8ded7ac71db551b6e1189fcfdf3c873f5e820cb426b850ef"
+    },
+    {
+      "path": "infera_version/auth/src/models.rs",
+      "checksum": "ea2e1d0b95f1970fbbeccaa5096888d87dc16de6ea36d8a0c5c44601662ca110"
+    },
+    {
+      "path": "infera_version/auth/src/profile.rs",
+      "checksum": "5271b878706ef1c83d85c60473dc76820606bf74c02c8463fb172633eda3805c"
+    },
+    {
+      "path": "infera_version/auth/src/utils.rs",
+      "checksum": "e05ced24da053a23ae5ac2d10caeb4346e2009dcf2ebd2ee9189dfbbf7a9391e"
+    },
+    {
+      "path": "infera_version/auth_macro/src/lib.rs",
+      "checksum": "f40c9b500ec2b9dcb57bbb21e7e72d6361a0bb01a436c8608b836d592b2ff4af"
+    },
+    {
       "path": "infera_version/migration/src/lib.rs",
       "checksum": "507b38e00256a974a8d8f8de3506bf8bbf8959155c87b741c561403ff573dd82"
     },
@@ -204,9 +232,21 @@
     {
       "path": "infera_version/migration/Cargo.toml",
       "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
+    },
+    {
+      "path": "infera_version/auth/Cargo.toml",
+      "checksum": "e66b243b831fa9eb468b22397d235944ef859aba396e4a9053b50321495f8dfb"
+    },
+    {
+      "path": "infera_version/auth_macro/Cargo.toml",
+      "checksum": "6ca98f868f149218dbfad373048eaee57027ed397305682b1ae3e85cd6cb5daa"
     }
   ],
-  "working_source_tree_checksum": "a7992b9ff7887678a747a7a08fbb600bcc2c803bbbf334453ec522e3d908b982",
+  "embedded_source_gaps": {
+    "canonical": [],
+    "working": []
+  },
+  "working_source_tree_checksum": "ddf1dff523b08575d71137201f9461c2e3903440920b26212f731f06ace03fa0",
   "working_source_files": [
     {
       "path": "infera_version/src/broker.rs",
@@ -229,6 +269,10 @@
       "checksum": "a558d019c0fd68a318c772f1a49b388a29730e6ec36531f4e7e63c600423d152"
     },
     {
+      "path": "infera_version/src/contract_tests.rs",
+      "checksum": "214a9681d6ca222a7df3cb4810f0b082945db97a40f6bc6eb03b240465a6beb4"
+    },
+    {
       "path": "infera_version/src/cors.rs",
       "checksum": "44441407770a5a491d0c6327f8d1c7f96359598f9fdf2153b0e8b465d6bee71e"
     },
@@ -242,7 +286,7 @@
     },
     {
       "path": "infera_version/src/main.rs",
-      "checksum": "9efdc759aea226fa9c31f92e7c6b2abffe8918476bad5483c8b0c4d18e5ae705"
+      "checksum": "a1fca6b823e0d771b69908c618f18fc769ddc5dfd588caed888091da96268700"
     },
     {
       "path": "infera_version/src/middleware.rs",
@@ -254,7 +298,7 @@
     },
     {
       "path": "infera_version/src/router.rs",
-      "checksum": "6cce6a2aef7a3ebf8280621875149b61bd22077707b201ab13cd15d73c9fb276"
+      "checksum": "17e2f7104e79004ff2b7ace2c37487bd6a4c22aa78dbb57e02964df971fe0b9f"
     },
     {
       "path": "infera_version/src/schedule/jobs.rs",
@@ -282,7 +326,7 @@
     },
     {
       "path": "infera_version/src/service/routes.rs",
-      "checksum": "82df5b0bc7701a45081f882137c0aa88fecc393de96f292c5930e4d3084680ab"
+      "checksum": "814c1580a2c1ff8bfc0aa87ba0ceb769623d1a6adfb34b69365b5b11a52f39e8"
     },
     {
       "path": "infera_version/src/service/transformers.rs",
@@ -314,7 +358,7 @@
     },
     {
       "path": "infera_version/src/version/publish.rs",
-      "checksum": "0687516d70b1954107b737f0d1b20177ca9461174fa83a65f8c47e7c5f7cb8bd"
+      "checksum": "55f30c85efa52093010e0efbc92cbaebe0f8644d8ceca698bd37f689f6713d08"
     },
     {
       "path": "infera_version/src/version/routes.rs",
@@ -365,6 +409,34 @@
       "checksum": "f6c8f878aea6c8596d2dd9a47360051ec3c033551448b58325708374e5cf925b"
     },
     {
+      "path": "infera_version/auth/src/axum_middleware.rs",
+      "checksum": "d3025fdd42a624e019c81994ca4b799bce76a8357992c01402347c5d419af7a8"
+    },
+    {
+      "path": "infera_version/auth/src/export.rs",
+      "checksum": "aae6a32c9a4cd1dea3c792de6ccb7aa2c5e1b21bdfa238838add486a6df7cc26"
+    },
+    {
+      "path": "infera_version/auth/src/lib.rs",
+      "checksum": "9bdb89e1199bb25c8ded7ac71db551b6e1189fcfdf3c873f5e820cb426b850ef"
+    },
+    {
+      "path": "infera_version/auth/src/models.rs",
+      "checksum": "ea2e1d0b95f1970fbbeccaa5096888d87dc16de6ea36d8a0c5c44601662ca110"
+    },
+    {
+      "path": "infera_version/auth/src/profile.rs",
+      "checksum": "5271b878706ef1c83d85c60473dc76820606bf74c02c8463fb172633eda3805c"
+    },
+    {
+      "path": "infera_version/auth/src/utils.rs",
+      "checksum": "e05ced24da053a23ae5ac2d10caeb4346e2009dcf2ebd2ee9189dfbbf7a9391e"
+    },
+    {
+      "path": "infera_version/auth_macro/src/lib.rs",
+      "checksum": "f40c9b500ec2b9dcb57bbb21e7e72d6361a0bb01a436c8608b836d592b2ff4af"
+    },
+    {
       "path": "infera_version/migration/src/lib.rs",
       "checksum": "507b38e00256a974a8d8f8de3506bf8bbf8959155c87b741c561403ff573dd82"
     },
@@ -395,6 +467,14 @@
     {
       "path": "infera_version/migration/Cargo.toml",
       "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
+    },
+    {
+      "path": "infera_version/auth/Cargo.toml",
+      "checksum": "e66b243b831fa9eb468b22397d235944ef859aba396e4a9053b50321495f8dfb"
+    },
+    {
+      "path": "infera_version/auth_macro/Cargo.toml",
+      "checksum": "6ca98f868f149218dbfad373048eaee57027ed397305682b1ae3e85cd6cb5daa"
     }
   ],
   "operations": [
@@ -419,7 +499,7 @@
           }
         ]
       },
-      "source_checksum": "cf6f2c9004fdef3ef02681711281a059e3379f304be4d3133be2a1dc062a1339",
+      "source_checksum": "86595e3e71051b0647a0c275410b09b61cc579b1d39b96e79ad54847b08e1baf",
       "handler": {
         "ref": "infera_version/src/router.rs:146:status_route",
         "path": "infera_version/src/router.rs",
@@ -430,16 +510,70 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "locally_tested_requires_canonical_reconciliation",
+        "source_checksum": "86595e3e71051b0647a0c275410b09b61cc579b1d39b96e79ad54847b08e1baf",
+        "canonical_source_basis": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+        "local_implementation_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "meaning": {
+          "en": "Read the process health envelope and service version; not dependency readiness.",
+          "fa": "خواندن وضعیت فرایند و نسخه سرویس؛ بدون تضمین آمادگی وابستگی‌ها."
+        },
+        "scope": "One deployment/sandbox release catalog; no organization/project column. Gateway and deployment routing are separate verification.",
+        "classification": "public_read",
+        "permissions": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/auth/src/axum_middleware.rs"
+          ],
+          "meaning": "No enforced user permission, membership or tenant authorization in read handlers. Malformed forwarded UUID returns 400 locally. Closed is not an audience ACL."
+        },
+        "filters": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md"
+          ],
+          "meaning": "No query filters. Hardcoded service version 0.1.1; Cargo package version is 0.1.0."
+        },
+        "inputs_outputs": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/src/version/models.rs",
+            "Service/infera_version/entity/src/version.rs"
+          ],
+          "meaning": "OpenAPI is a raw document; other reads use {status,message,data}. Slug is a string, release/service IDs UUIDs. version_code numeric, version_name display string; scope Public/Closed, channel Release/PreRelease. Dates are naive timestamps."
+        },
+        "lifecycle": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/entity/src/seeder/version_seeder.rs"
+          ],
+          "meaning": "Reads do not mutate. Missing/inactive selected entity is 404; malformed release UUID 400. Service detail may have null latest; version UUID lookup ignores parent activity. No generic CRUD/deletion endpoint."
+        },
+        "relationships": {
+          "status": "source_review_requires_cross_service_runtime",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera-control/crates/faiber-core/src/ops/apk.rs"
+          ],
+          "meaning": "Release.service_id refers to Version catalog service UUID. Control project slug selects release serviceSlug within its sandbox namespace, not an IDP/Agentic project UUID. Namespace-local publisher Secret and external HTTPS artifact are separate authorities; live provisioning/download/read-back are unverified."
+        },
+        "test_evidence": [
+          "version-local-contracts"
+        ],
+        "remaining_gates": [
+          "canonical and deployed source reconciliation",
+          "Control sandbox routing/credential provisioning and durable publication read-back",
+          "SDK wire transport and readable Manage workflows"
+        ],
+        "checksum_refresh_reason": "Coverage expanded to local auth crates, build/config inputs and compiler-embedded assets. Canonical Git revision unchanged; local-only review status remains unverified."
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -471,7 +605,7 @@
           }
         ]
       },
-      "source_checksum": "15a54a3a91ba8855285cdf9a7bf361f55512dea23bc971d266afe22a564f461f",
+      "source_checksum": "7d7703e755c2837e847732788cd138977c291f5520482a2ab8846f28723126f0",
       "handler": {
         "ref": "infera_version/src/version/publish.rs:32:publish_apk",
         "path": "infera_version/src/version/publish.rs",
@@ -505,16 +639,70 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "locally_tested_requires_canonical_reconciliation",
+        "source_checksum": "7d7703e755c2837e847732788cd138977c291f5520482a2ab8846f28723126f0",
+        "canonical_source_basis": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+        "local_implementation_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "meaning": {
+          "en": "Publish or update sandbox APK release metadata with a server-only credential and raw identity receipt.",
+          "fa": "ثبت یا به‌روزرسانی فراداده انتشار APK سندباکس با اعتبارنامه سمت سرور و رسید خام شناسه."
+        },
+        "scope": "One deployment/sandbox release catalog; no organization/project column. Gateway and deployment routing are separate verification.",
+        "classification": "trusted_server_mutation",
+        "permissions": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/version/publish.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/auth/src/axum_middleware.rs"
+          ],
+          "meaning": "Exact per-deployment APK_PUBLISH_TOKEN >=32 bytes; 503 if unavailable, 401 if mismatch. Header identity or remembered role cannot substitute."
+        },
+        "filters": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/version/publish.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md"
+          ],
+          "meaning": "Existing service by exact slug, existing release by service UUID plus version string; lower-code retry does not replace a newer same-version record."
+        },
+        "inputs_outputs": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/version/publish.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/src/version/models.rs",
+            "Service/infera_version/entity/src/version.rs"
+          ],
+          "meaning": "CamelCase serviceSlug/appName/version/versionCode/downloadUrl; positive i64, bounded text, HTTPS without URL credentials. Raw {status,id} receipt, no data envelope."
+        },
+        "lifecycle": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/version/publish.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/entity/src/seeder/version_seeder.rs"
+          ],
+          "meaning": "Local transaction-scoped per-slug advisory lock serializes first creation and updates; stable identity, preserved created_at, older same-version code no-op, equal code may update metadata. Existing parent status/title unchanged; release activated. Real insert failure rolls back both service and release; seeding preserves existing catalog. Canonical still lacks this serialization."
+        },
+        "relationships": {
+          "status": "source_review_requires_cross_service_runtime",
+          "source_refs": [
+            "Service/infera_version/src/version/publish.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera-control/crates/faiber-core/src/ops/apk.rs"
+          ],
+          "meaning": "Release.service_id refers to Version catalog service UUID. Control project slug selects release serviceSlug within its sandbox namespace, not an IDP/Agentic project UUID. Namespace-local publisher Secret and external HTTPS artifact are separate authorities; live provisioning/download/read-back are unverified."
+        },
+        "test_evidence": [
+          "version-local-contracts"
+        ],
+        "remaining_gates": [
+          "canonical and deployed source reconciliation",
+          "Control sandbox routing/credential provisioning and durable publication read-back",
+          "SDK wire transport and readable Manage workflows"
+        ],
+        "checksum_refresh_reason": "Coverage expanded to local auth crates, build/config inputs and compiler-embedded assets. Canonical Git revision unchanged; local-only review status remains unverified."
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -544,7 +732,7 @@
           }
         ]
       },
-      "source_checksum": "26e8ee3ef31488c9e1a000a4c51dac2b3ff8ada32178aef8561255ec07836b8e",
+      "source_checksum": "da9a65c7f7e01b3a05d4159f9eff8c842cf63c1b960ae7684fb554654b9a7841",
       "handler": {
         "ref": "infera_version/src/router.rs:130:openapi_json",
         "path": "infera_version/src/router.rs",
@@ -555,16 +743,70 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "locally_tested_requires_canonical_reconciliation",
+        "source_checksum": "da9a65c7f7e01b3a05d4159f9eff8c842cf63c1b960ae7684fb554654b9a7841",
+        "canonical_source_basis": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+        "local_implementation_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "meaning": {
+          "en": "Read the raw, currently health-only OpenAPI document.",
+          "fa": "خواندن سند خام OpenAPI که فعلاً فقط سلامت را ثبت می‌کند."
+        },
+        "scope": "One deployment/sandbox release catalog; no organization/project column. Gateway and deployment routing are separate verification.",
+        "classification": "public_read",
+        "permissions": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/auth/src/axum_middleware.rs"
+          ],
+          "meaning": "No enforced user permission, membership or tenant authorization in read handlers. Malformed forwarded UUID returns 400 locally. Closed is not an audience ACL."
+        },
+        "filters": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md"
+          ],
+          "meaning": "No query filters; document only registers health, not the full mounted API."
+        },
+        "inputs_outputs": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/src/version/models.rs",
+            "Service/infera_version/entity/src/version.rs"
+          ],
+          "meaning": "OpenAPI is a raw document; other reads use {status,message,data}. Slug is a string, release/service IDs UUIDs. version_code numeric, version_name display string; scope Public/Closed, channel Release/PreRelease. Dates are naive timestamps."
+        },
+        "lifecycle": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/entity/src/seeder/version_seeder.rs"
+          ],
+          "meaning": "Reads do not mutate. Missing/inactive selected entity is 404; malformed release UUID 400. Service detail may have null latest; version UUID lookup ignores parent activity. No generic CRUD/deletion endpoint."
+        },
+        "relationships": {
+          "status": "source_review_requires_cross_service_runtime",
+          "source_refs": [
+            "Service/infera_version/src/router.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera-control/crates/faiber-core/src/ops/apk.rs"
+          ],
+          "meaning": "Release.service_id refers to Version catalog service UUID. Control project slug selects release serviceSlug within its sandbox namespace, not an IDP/Agentic project UUID. Namespace-local publisher Secret and external HTTPS artifact are separate authorities; live provisioning/download/read-back are unverified."
+        },
+        "test_evidence": [
+          "version-local-contracts"
+        ],
+        "remaining_gates": [
+          "canonical and deployed source reconciliation",
+          "Control sandbox routing/credential provisioning and durable publication read-back",
+          "SDK wire transport and readable Manage workflows"
+        ],
+        "checksum_refresh_reason": "Coverage expanded to local auth crates, build/config inputs and compiler-embedded assets. Canonical Git revision unchanged; local-only review status remains unverified."
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -600,7 +842,7 @@
           }
         ]
       },
-      "source_checksum": "beaffcbf59533712e7c57a26044c0b900eba17c3f37aed4b7c237f353e57a079",
+      "source_checksum": "d030ffa676577f279129f8f4a658a9e4aae0f85507ff27c13d188413dc357fd6",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:32:services_index",
         "path": "infera_version/src/service/routes.rs",
@@ -623,16 +865,70 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "locally_tested_requires_canonical_reconciliation",
+        "source_checksum": "d030ffa676577f279129f8f4a658a9e4aae0f85507ff27c13d188413dc357fd6",
+        "canonical_source_basis": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+        "local_implementation_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "meaning": {
+          "en": "List active release-catalog services using readable names and distinct slug/UUID identifiers.",
+          "fa": "فهرست سرویس‌های فعال کاتالوگ انتشار با نام خوانا و شناسه اسلاگ و UUID مجزا."
+        },
+        "scope": "One deployment/sandbox release catalog; no organization/project column. Gateway and deployment routing are separate verification.",
+        "classification": "public_read",
+        "permissions": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/auth/src/axum_middleware.rs"
+          ],
+          "meaning": "No enforced user permission, membership or tenant authorization in read handlers. Malformed forwarded UUID returns 400 locally. Closed is not an audience ACL."
+        },
+        "filters": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md"
+          ],
+          "meaning": "Service status=1; no supported pagination, search, sort or scope/channel filters. last_version=null in list."
+        },
+        "inputs_outputs": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/src/version/models.rs",
+            "Service/infera_version/entity/src/version.rs"
+          ],
+          "meaning": "OpenAPI is a raw document; other reads use {status,message,data}. Slug is a string, release/service IDs UUIDs. version_code numeric, version_name display string; scope Public/Closed, channel Release/PreRelease. Dates are naive timestamps."
+        },
+        "lifecycle": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/entity/src/seeder/version_seeder.rs"
+          ],
+          "meaning": "Reads do not mutate. Missing/inactive selected entity is 404; malformed release UUID 400. Service detail may have null latest; version UUID lookup ignores parent activity. No generic CRUD/deletion endpoint."
+        },
+        "relationships": {
+          "status": "source_review_requires_cross_service_runtime",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera-control/crates/faiber-core/src/ops/apk.rs"
+          ],
+          "meaning": "Release.service_id refers to Version catalog service UUID. Control project slug selects release serviceSlug within its sandbox namespace, not an IDP/Agentic project UUID. Namespace-local publisher Secret and external HTTPS artifact are separate authorities; live provisioning/download/read-back are unverified."
+        },
+        "test_evidence": [
+          "version-local-contracts"
+        ],
+        "remaining_gates": [
+          "canonical and deployed source reconciliation",
+          "Control sandbox routing/credential provisioning and durable publication read-back",
+          "SDK wire transport and readable Manage workflows"
+        ],
+        "checksum_refresh_reason": "Coverage expanded to local auth crates, build/config inputs and compiler-embedded assets. Canonical Git revision unchanged; local-only review status remains unverified."
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -669,7 +965,7 @@
           }
         ]
       },
-      "source_checksum": "d949f1a3115b060ae1bd47ef3378985542c3ae2662544d13074792c6cd67b802",
+      "source_checksum": "88fd6171025439aa1481e1189123eecf4a4d0d0ef830ebc3fa2c989192ac1b2b",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:54:service_show",
         "path": "infera_version/src/service/routes.rs",
@@ -696,16 +992,70 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "locally_tested_requires_canonical_reconciliation",
+        "source_checksum": "88fd6171025439aa1481e1189123eecf4a4d0d0ef830ebc3fa2c989192ac1b2b",
+        "canonical_source_basis": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+        "local_implementation_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "meaning": {
+          "en": "Resolve an active service by slug and include its highest numeric active release.",
+          "fa": "یافتن سرویس فعال با اسلاگ و نمایش انتشار فعال با بالاترین کد عددی."
+        },
+        "scope": "One deployment/sandbox release catalog; no organization/project column. Gateway and deployment routing are separate verification.",
+        "classification": "public_read",
+        "permissions": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/auth/src/axum_middleware.rs"
+          ],
+          "meaning": "No enforced user permission, membership or tenant authorization in read handlers. Malformed forwarded UUID returns 400 locally. Closed is not an audience ACL."
+        },
+        "filters": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md"
+          ],
+          "meaning": "Exact slug string and service status=1; active releases ordered by numeric version descending; absent active release yields null; numeric ties have no stable secondary order."
+        },
+        "inputs_outputs": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/src/version/models.rs",
+            "Service/infera_version/entity/src/version.rs"
+          ],
+          "meaning": "OpenAPI is a raw document; other reads use {status,message,data}. Slug is a string, release/service IDs UUIDs. version_code numeric, version_name display string; scope Public/Closed, channel Release/PreRelease. Dates are naive timestamps."
+        },
+        "lifecycle": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/entity/src/seeder/version_seeder.rs"
+          ],
+          "meaning": "Reads do not mutate. Missing/inactive selected entity is 404; malformed release UUID 400. Service detail may have null latest; version UUID lookup ignores parent activity. No generic CRUD/deletion endpoint."
+        },
+        "relationships": {
+          "status": "source_review_requires_cross_service_runtime",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera-control/crates/faiber-core/src/ops/apk.rs"
+          ],
+          "meaning": "Release.service_id refers to Version catalog service UUID. Control project slug selects release serviceSlug within its sandbox namespace, not an IDP/Agentic project UUID. Namespace-local publisher Secret and external HTTPS artifact are separate authorities; live provisioning/download/read-back are unverified."
+        },
+        "test_evidence": [
+          "version-local-contracts"
+        ],
+        "remaining_gates": [
+          "canonical and deployed source reconciliation",
+          "Control sandbox routing/credential provisioning and durable publication read-back",
+          "SDK wire transport and readable Manage workflows"
+        ],
+        "checksum_refresh_reason": "Coverage expanded to local auth crates, build/config inputs and compiler-embedded assets. Canonical Git revision unchanged; local-only review status remains unverified."
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -742,7 +1092,7 @@
           }
         ]
       },
-      "source_checksum": "8dd320227075f36f5312c42e9db34151b80fc83e56ec3693ea228fa8c15e3dc1",
+      "source_checksum": "7ac102527042d0ae1f5bdec29b4bf74165e0db1066c832676692f5ad6c88864a",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:79:service_show_all",
         "path": "infera_version/src/service/routes.rs",
@@ -769,16 +1119,70 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "locally_tested_requires_canonical_reconciliation",
+        "source_checksum": "7ac102527042d0ae1f5bdec29b4bf74165e0db1066c832676692f5ad6c88864a",
+        "canonical_source_basis": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+        "local_implementation_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "meaning": {
+          "en": "Resolve an active service by slug and include all its active release records.",
+          "fa": "یافتن سرویس فعال با اسلاگ و نمایش همه رکوردهای انتشار فعال آن."
+        },
+        "scope": "One deployment/sandbox release catalog; no organization/project column. Gateway and deployment routing are separate verification.",
+        "classification": "public_read",
+        "permissions": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/auth/src/axum_middleware.rs"
+          ],
+          "meaning": "No enforced user permission, membership or tenant authorization in read handlers. Malformed forwarded UUID returns 400 locally. Closed is not an audience ACL."
+        },
+        "filters": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md"
+          ],
+          "meaning": "Exact slug and active service; release status=1; all active releases, no promised sort/pagination."
+        },
+        "inputs_outputs": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/src/version/models.rs",
+            "Service/infera_version/entity/src/version.rs"
+          ],
+          "meaning": "OpenAPI is a raw document; other reads use {status,message,data}. Slug is a string, release/service IDs UUIDs. version_code numeric, version_name display string; scope Public/Closed, channel Release/PreRelease. Dates are naive timestamps."
+        },
+        "lifecycle": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/entity/src/seeder/version_seeder.rs"
+          ],
+          "meaning": "Reads do not mutate. Missing/inactive selected entity is 404; malformed release UUID 400. Service detail may have null latest; version UUID lookup ignores parent activity. No generic CRUD/deletion endpoint."
+        },
+        "relationships": {
+          "status": "source_review_requires_cross_service_runtime",
+          "source_refs": [
+            "Service/infera_version/src/service/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera-control/crates/faiber-core/src/ops/apk.rs"
+          ],
+          "meaning": "Release.service_id refers to Version catalog service UUID. Control project slug selects release serviceSlug within its sandbox namespace, not an IDP/Agentic project UUID. Namespace-local publisher Secret and external HTTPS artifact are separate authorities; live provisioning/download/read-back are unverified."
+        },
+        "test_evidence": [
+          "version-local-contracts"
+        ],
+        "remaining_gates": [
+          "canonical and deployed source reconciliation",
+          "Control sandbox routing/credential provisioning and durable publication read-back",
+          "SDK wire transport and readable Manage workflows"
+        ],
+        "checksum_refresh_reason": "Coverage expanded to local auth crates, build/config inputs and compiler-embedded assets. Canonical Git revision unchanged; local-only review status remains unverified."
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -815,7 +1219,7 @@
           }
         ]
       },
-      "source_checksum": "8a753c9fb5a690770ed492c6619c3ba1139c16854e9cc9163b2e490c6b6cccb8",
+      "source_checksum": "e56640882621f2c29c03d869ac13d5b8e3d0e378750a0860586ecdaf04a9209a",
       "handler": {
         "ref": "infera_version/src/version/routes.rs:29:version_show",
         "path": "infera_version/src/version/routes.rs",
@@ -842,16 +1246,70 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "locally_tested_requires_canonical_reconciliation",
+        "source_checksum": "e56640882621f2c29c03d869ac13d5b8e3d0e378750a0860586ecdaf04a9209a",
+        "canonical_source_basis": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+        "local_implementation_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "meaning": {
+          "en": "Resolve an active release by release UUID independently of parent service status.",
+          "fa": "یافتن انتشار فعال با UUID انتشار مستقل از وضعیت سرویس والد."
+        },
+        "scope": "One deployment/sandbox release catalog; no organization/project column. Gateway and deployment routing are separate verification.",
+        "classification": "public_read",
+        "permissions": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/version/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/auth/src/axum_middleware.rs"
+          ],
+          "meaning": "No enforced user permission, membership or tenant authorization in read handlers. Malformed forwarded UUID returns 400 locally. Closed is not an audience ACL."
+        },
+        "filters": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/version/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md"
+          ],
+          "meaning": "Exact release UUID and release status=1 only; does not filter parent status, channel or scope."
+        },
+        "inputs_outputs": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/version/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/src/version/models.rs",
+            "Service/infera_version/entity/src/version.rs"
+          ],
+          "meaning": "OpenAPI is a raw document; other reads use {status,message,data}. Slug is a string, release/service IDs UUIDs. version_code numeric, version_name display string; scope Public/Closed, channel Release/PreRelease. Dates are naive timestamps."
+        },
+        "lifecycle": {
+          "status": "locally_tested_pending_canonical",
+          "source_refs": [
+            "Service/infera_version/src/version/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera_version/entity/src/seeder/version_seeder.rs"
+          ],
+          "meaning": "Reads do not mutate. Missing/inactive selected entity is 404; malformed release UUID 400. Service detail may have null latest; version UUID lookup ignores parent activity. No generic CRUD/deletion endpoint."
+        },
+        "relationships": {
+          "status": "source_review_requires_cross_service_runtime",
+          "source_refs": [
+            "Service/infera_version/src/version/routes.rs",
+            "Service/infera_version/SEMANTIC_CONTRACT.md",
+            "Service/infera-control/crates/faiber-core/src/ops/apk.rs"
+          ],
+          "meaning": "Release.service_id refers to Version catalog service UUID. Control project slug selects release serviceSlug within its sandbox namespace, not an IDP/Agentic project UUID. Namespace-local publisher Secret and external HTTPS artifact are separate authorities; live provisioning/download/read-back are unverified."
+        },
+        "test_evidence": [
+          "version-local-contracts"
+        ],
+        "remaining_gates": [
+          "canonical and deployed source reconciliation",
+          "Control sandbox routing/credential provisioning and durable publication read-back",
+          "SDK wire transport and readable Manage workflows"
+        ],
+        "checksum_refresh_reason": "Coverage expanded to local auth crates, build/config inputs and compiler-embedded assets. Canonical Git revision unchanged; local-only review status remains unverified."
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1094,11 +1552,11 @@
   "middleware_sources": [
     {
       "path": "infera_version/src/main.rs",
-      "checksum": "9efdc759aea226fa9c31f92e7c6b2abffe8918476bad5483c8b0c4d18e5ae705"
+      "checksum": "a1fca6b823e0d771b69908c618f18fc769ddc5dfd588caed888091da96268700"
     },
     {
       "path": "infera_version/src/router.rs",
-      "checksum": "6cce6a2aef7a3ebf8280621875149b61bd22077707b201ab13cd15d73c9fb276"
+      "checksum": "17e2f7104e79004ff2b7ace2c37487bd6a4c22aa78dbb57e02964df971fe0b9f"
     },
     {
       "path": "infera_version/migration/src/main.rs",

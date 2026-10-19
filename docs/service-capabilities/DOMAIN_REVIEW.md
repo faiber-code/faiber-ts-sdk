@@ -95,3 +95,31 @@ Capacity review must include distinct overlapping starts in the same service (fo
 09:00 and 09:15 with 30-minute duration), different services and regeneration after
 duration/schedule changes. Equal-start deduplication proves none of those capacity rules.
 The product capacity decision is pending; no policy has been silently imposed.
+
+## Version local semantic and Control publisher verification
+
+Version commits `ed076557d2551b9f3dc9e1eba2d65a8522237f14` and
+`92b69f4e85225f87e47258645c6f908a1eb501b4` implement per-slug transaction
+serialization and malformed-identity rejection, correct health/slug metadata paths,
+and provide the explicit `SEMANTIC_CONTRACT.md`. All seven mounted operations now
+have source-reviewed meaning, scope, wire, permissions, filters, lifecycle and relation
+records in `reviews/version.json`. They remain locally tested pending canonical/runtime
+reconciliation; none is automatically promoted to verified knowledge.
+
+The real suite passes 11 tests with zero ignored, including concurrent first creation
+(previously 500), monotonic updates, input/credential failures, actual storage rollback,
+startup seed preservation, public Closed metadata behavior and parent-status boundaries.
+Service index uses `/api/v1/services` with no trailing slash; a SPA 200 at the slash URL
+is not an API response. Scope/channel values are Public/Closed and Release/PreRelease.
+
+Control commit `cd8e79a4681a2c5b1fb688a637d14f69f0078f39` embeds a publisher that
+checks the raw UUID receipt and reads release/service metadata back before reporting
+verified publication. The actual Node 22 script executes against loopback Version HTTP
+and real PostgreSQL, including a persisted partial outcome when parent inactivity prevents
+read-back. Higher-code same-release retries are labelled superseded; equal-code metadata
+must match. All 199 Control core tests and the server compile check pass separately.
+
+This covers a local HTTP component, not sandbox authorization, Secret provisioning/rotation,
+Kubernetes rollout, durable Control receipt storage/reconciliation or APK bytes. Those
+remaining cross-service gates are explicit. Test source/dependency digests and both committed
+revisions are retained; the harness rejects source changes during a run.

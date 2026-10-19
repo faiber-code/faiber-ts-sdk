@@ -24,7 +24,7 @@
     "?? src/web_push.rs"
   ],
   "source_relationship": "same",
-  "source_tree_checksum": "411430de885b81ecf6df094f1e75065294cc2ac81ca88623c1f599f6791071ba",
+  "source_tree_checksum": "de0367004a7c56bd59ceacf042d6448f9a0e73fe94137e6e9054682ed060e8c6",
   "source_files": [
     {
       "path": "infera-messenger/src/broker.rs",
@@ -375,6 +375,10 @@
       "checksum": "819ea61d61c66d4da0e471300f1f5db278843d67bda33b4ba3819cd757072cc8"
     },
     {
+      "path": "infera-messenger/.cargo/config.toml",
+      "checksum": "116bf50934ccc2c108b07490fc4f45aad517c72124c345d0a44305b71c000220"
+    },
+    {
       "path": "infera-messenger/entity/Cargo.toml",
       "checksum": "b585ccfa784f8c63bbf161108e752efde1e166b2a191b3f1d5cf36a3ef0b729d"
     },
@@ -383,7 +387,11 @@
       "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
     }
   ],
-  "working_source_tree_checksum": "e208a3ad10aa076ceaaba3e2c160f4c6563d4bb395973ef81bacaab75ca0f748",
+  "embedded_source_gaps": {
+    "canonical": [],
+    "working": []
+  },
+  "working_source_tree_checksum": "5e9893948289bfdb4e8b1d88069d57b28dc020268a55fc1f1c615043eafa3442",
   "working_source_files": [
     {
       "path": "infera-messenger/src/broker.rs",
@@ -742,6 +750,10 @@
       "checksum": "64d0b72fe304c65832a0ee7d8a8133dbdf72f8e5256bb6f5f710c39550fcf2e1"
     },
     {
+      "path": "infera-messenger/.cargo/config.toml",
+      "checksum": "116bf50934ccc2c108b07490fc4f45aad517c72124c345d0a44305b71c000220"
+    },
+    {
       "path": "infera-messenger/entity/Cargo.toml",
       "checksum": "b585ccfa784f8c63bbf161108e752efde1e166b2a191b3f1d5cf36a3ef0b729d"
     },
@@ -772,7 +784,7 @@
           }
         ]
       },
-      "source_checksum": "12f457c8cac2b6a6e5123ff98d619669d0a16b559854e1d6f27609e5a41096a1",
+      "source_checksum": "a7f3d965f6b8845cbf9a41adf421eebd74e04beca1cc956c14069586f55712b4",
       "handler": {
         "ref": "infera-messenger/src/router.rs:184:status_route",
         "path": "infera-messenger/src/router.rs",
@@ -822,7 +834,7 @@
           }
         ]
       },
-      "source_checksum": "760c05f57030d5f215791c137c1ed5eaa36da6df8ac9292c2d0b4142421173a7",
+      "source_checksum": "cf8e219b573a7e7859c779631db9f60f37bb2aac80226a447e22ae1a678005a9",
       "handler": {
         "ref": "infera-messenger/src/router.rs:184:status_route",
         "path": "infera-messenger/src/router.rs",
@@ -872,7 +884,7 @@
           }
         ]
       },
-      "source_checksum": "2b44954fa93d4d1ceaeb999611efd8d009e19610313ecb4e64b964298ba8d1a7",
+      "source_checksum": "d59080acb2e02ab6fcb9b0b2768ae183107108db909e2be4d99558f0e227ac56",
       "handler": {
         "ref": "infera-messenger/src/router.rs:70:openapi_json",
         "path": "infera-messenger/src/router.rs",
@@ -930,7 +942,7 @@
           }
         ]
       },
-      "source_checksum": "692aff7a299e762377eedc187e396cb1c7a5a7c668971b8b1ddebc1c1c1b3251",
+      "source_checksum": "d47ccf0214a128ee8f8187c57bd483e0e2d8b210bab6519550faff8b9e942663",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:47:templates_index",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1008,7 +1020,7 @@
           }
         ]
       },
-      "source_checksum": "5eaea8969db3016d90aad78773f8010960f7a0ef503483209275797b93560ed8",
+      "source_checksum": "dcb24661bf7ce88b35683a01b228d6ba92ebc05435ff1269823f7c6aa0c71f65",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:89:templates_create",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1103,7 +1115,7 @@
           }
         ]
       },
-      "source_checksum": "d210af372d92d2cd5eadb706b5c56bfd2acfefee0b364f630435d387480aba20",
+      "source_checksum": "3019f4b6f71d69a8e620dd33c7f18a0e98f0f6563acac179e83cb9ca0f2abd89",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:65:templates_show",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1196,7 +1208,7 @@
           }
         ]
       },
-      "source_checksum": "306a7bc91d74e06dbcacf3567c775dcd587de02c34d3b7a8ade453ef1f170774",
+      "source_checksum": "807dec1799d38a34e62e677cfa7962728946e4f8274c8de7355480b0f5398edf",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:108:templates_update",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1295,7 +1307,7 @@
           }
         ]
       },
-      "source_checksum": "6c5519dd90fd6b7946b63923de4c85bd2ee2800f67c7e9c332f8d590bf20f575",
+      "source_checksum": "03d3253dbb8a4f127b384b3f335af4584b5b69ab08556bf678bcb015808b77e9",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:128:templates_delete",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1363,7 +1375,7 @@
           }
         ]
       },
-      "source_checksum": "54959daaefd0578fce2ef823e9b368cfa904f9545a05a9eef7db92992b05c860",
+      "source_checksum": "7d1c53e5b698629ef73291cb7441123d505addb18528f2b484078a027a46206f",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:147:template_contents_index",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1446,7 +1458,7 @@
           }
         ]
       },
-      "source_checksum": "3d79581e81d35d0647a9f3b92b89b8412e10f224f946d3520bd1df563e30ad49",
+      "source_checksum": "7e79b7fd6e38be3f69cb2cf02a83e8130ae08a8f54d98199057043f95dac666e",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:169:template_contents_create",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1540,7 +1552,7 @@
           }
         ]
       },
-      "source_checksum": "ba091aa6dbc102aa5ba48ae34ad5b03e31894012941a0091efced7a2bdbc0d49",
+      "source_checksum": "4f2a0a4ef7dc458479691248a6842e6e97454becefcfe024f0d56466a0b43207",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:189:template_contents_update",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1632,7 +1644,7 @@
           }
         ]
       },
-      "source_checksum": "a48ace6d1248af9f8f434c2ba99a73255449a8c1abc6a2f0b4aba4fb238d9de4",
+      "source_checksum": "f215de36b71164fee5b433ae42a40bba0fdc93ba3b22595f0e05ec985117adb3",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:40:channels_index",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1703,7 +1715,7 @@
           }
         ]
       },
-      "source_checksum": "efcb44e423b8a2d01332b6a04039967b22523b0fe6299224de3ceb6ae799c8db",
+      "source_checksum": "6730ec23d3582eacaacf15dcdd2bc3683148560da32ba0252561382dc8ba705c",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:82:channels_create",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1785,7 +1797,7 @@
           }
         ]
       },
-      "source_checksum": "7613522bd548b3a4d06c1b6971328acda59779265a80ca516517265ee5d08f8d",
+      "source_checksum": "5e58e93326d99e6cb08a43280449a541fab9f7071a5e25370aeb8f25dde694b8",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:58:channels_show",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1880,7 +1892,7 @@
           }
         ]
       },
-      "source_checksum": "a6fc893e12fad4fd7e7f574e013fec96e97f2cab17391614e144a6592e34a0bd",
+      "source_checksum": "5ba4ae2ebf06cba80e9de3fe46f3ae256d5dfcab788a42def10667f408500816",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:101:channels_update",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1966,7 +1978,7 @@
           }
         ]
       },
-      "source_checksum": "4497cc7d7b5c2fae796f3a78d3c6b75e89581b4edc3447a7fe68688355cec604",
+      "source_checksum": "f1464b08844ddf382e6169aec491a9d5390b7701a3b8b3237d0534ba9cae10e2",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:121:channels_delete",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -2033,7 +2045,7 @@
           }
         ]
       },
-      "source_checksum": "4a877f07c783a9fef6a46ae0a0c617f063933e82c9f09818040644fc3b30561e",
+      "source_checksum": "2e65a9e851fdbfddd71449458352d8d100725d308cea25e9e5bbbec42d6d70dd",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:38:services_index",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2104,7 +2116,7 @@
           }
         ]
       },
-      "source_checksum": "3b182476435acaf35c8883bc4180cb105a37f2cfcd255a0c78ced4a783d8b468",
+      "source_checksum": "750c292332856fb5507af6ead024220ec6a85a34e2084b065fe5fb3339f9e2cc",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:80:services_create",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2185,7 +2197,7 @@
           }
         ]
       },
-      "source_checksum": "e35fdec2efaa5363de33002e956a891ed8cf07871ce7afe9d0cfb6fd7c01d2e9",
+      "source_checksum": "daf3066b690492acd31c660d5a08995cce7afce8adf610ab248cf1fdcba714e1",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:133:setup_check",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2256,7 +2268,7 @@
           }
         ]
       },
-      "source_checksum": "b9913f3c6a81d9abfb7ed5e59c114b7291c964a05b127faaf5593f837e36b3a2",
+      "source_checksum": "8b8e730436e32768a01dcb626ef5cd44988b3e2bc4a60ea70ecbd8c3ba033bf8",
       "handler": {
         "ref": "infera-messenger/src/service/website_otp.rs:6:readiness",
         "path": "infera-messenger/src/service/website_otp.rs",
@@ -2330,7 +2342,7 @@
           }
         ]
       },
-      "source_checksum": "a20301ea3472e8f9cfb4164fc892e83a7959bc87ea6874bceedd0aef04198bf8",
+      "source_checksum": "2e22c5f42f513d2c78df2c5949a2f38cb69a450547de274375cf27d5c404f4c0",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:56:services_show",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2416,7 +2428,7 @@
           }
         ]
       },
-      "source_checksum": "9613ca157133d64260fccb7725f2a8e3fdf07db242941b02b875d1a4e8633947",
+      "source_checksum": "f30a3a23f9bc4b63eba5bca49ad4be6fa5979e58c25db26e652665bc18ee60c6",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:99:services_update",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2502,7 +2514,7 @@
           }
         ]
       },
-      "source_checksum": "bb573a0aa9e3a9e14f344d24b8a519666aa2e4b4327034478be56418d645aa71",
+      "source_checksum": "ce12249f519f8315809ffbcccdac234de83264ce20c11ccf27ef52c486ccae0b",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:119:services_delete",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2570,7 +2582,7 @@
           }
         ]
       },
-      "source_checksum": "36dc580cfc82d51180da7f431ae6c080855ec21d4585f4b4c083c417a04b5ee7",
+      "source_checksum": "0ed376d60c2d937ef8e66aa1dd48bdfe567f198f5964b5bcec11265cc47f2434",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:92:notifications_my_inbox",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2664,7 +2676,7 @@
           }
         ]
       },
-      "source_checksum": "27094bc9f18ca14e493e7639471a4a754db0728d634d0a7ebab2f7dd4a13af67",
+      "source_checksum": "a0722d2d4f417c34dbfd61c93c1f9485974791205f6d468286eab8916d3b16ba",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:115:notifications_my_mark_all_read",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2735,7 +2747,7 @@
           }
         ]
       },
-      "source_checksum": "c4c88c506cf5b7ee57f749fa3b7e049d2b3b67ca2e602df79ea0f6cbc458c92e",
+      "source_checksum": "f9050c6c77dacf26e415d988b5c2688b6fd83993ce181435198ab5feecf2db3a",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:133:notifications_my_mark_read",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2817,7 +2829,7 @@
           }
         ]
       },
-      "source_checksum": "de099dbe2e426698372cd41f8f704ea69fc90a4f95f69b4d3c429e16d41099ca",
+      "source_checksum": "294a88db1f174df552ceaab6e4e2d55ef66058856b0ba480432f8ec0ba55d06e",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:241:notifications_index",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2918,7 +2930,7 @@
           }
         ]
       },
-      "source_checksum": "57f26d41b4b64a4874a75e52c69cb35d780dbb91ff9adab4f953e1f46b0f4064",
+      "source_checksum": "fab86f94ed38e2323689377d7a83ebbe476a67871440a1fe860a155979f6b6af",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:314:notifications_mark_all_read",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2999,7 +3011,7 @@
           }
         ]
       },
-      "source_checksum": "9350c1764e0422f687b2b588fa29987126d500f6ccc5c88f394bced838e7926a",
+      "source_checksum": "29c4882b027c4440de7c6c569b96222cf4da65abca10d6bf84f09fa4f05f1452",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:174:notifications_realtime_config",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3080,7 +3092,7 @@
           }
         ]
       },
-      "source_checksum": "30f6de9e89cd8903bac4ee0efcfdaf5456b455c1e3e795b0cc7aa7246ea3db6f",
+      "source_checksum": "8cb438b4b1a5f066484a63d64701c086868dcede6df8983a4dce4756dc1808cd",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:205:notifications_realtime_auth",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3179,7 +3191,7 @@
           }
         ]
       },
-      "source_checksum": "1b593d21382ea998b02d647ed59bda9fc8e44bdea175f28a07103a85d4bb103a",
+      "source_checksum": "2ddfb81e9cedc80f3ef3634d7f527cb70410e8630321ef05d18d5c01b7e07155",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:275:notifications_show",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3268,7 +3280,7 @@
           }
         ]
       },
-      "source_checksum": "c046a7226e594401720bd2d568a9d676bf598732732e9b17fd1d8142b94f3389",
+      "source_checksum": "4b04e6ac342d2ef9bc23032d7031feb0d37632eab76c7ae7cd7c8360250c97d3",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:333:notifications_mark_read",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3366,7 +3378,7 @@
           }
         ]
       },
-      "source_checksum": "7465eca1531dbc7553184c41e806d4dc9e98b27a3c4afefa8dcff9256a64e058",
+      "source_checksum": "6465ea222a53c83b439be44b59c9c7daa461edf8c7e20eb17baed08fda369b60",
       "handler": {
         "ref": "infera-messenger/src/dashboard/routes.rs:21:dashboard_show",
         "path": "infera-messenger/src/dashboard/routes.rs",
@@ -3436,7 +3448,7 @@
           }
         ]
       },
-      "source_checksum": "4d004fcb3f06a5bbfe7c21e444e81ee17a84c3c046ff0c0d0dd945223331cfa5",
+      "source_checksum": "97bad8744e21340bb50727b230a90dabca36821479a920ba206ee5301703379b",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:20:rabbitmq_integration_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3513,7 +3525,7 @@
           }
         ]
       },
-      "source_checksum": "2e17e970537b058fdf690563b219fa5c4ca100f72abd3daa5c50a6630e8f884e",
+      "source_checksum": "52e8c2441aa8f5026bbd4ee5365a7badef9dbc6237c2f18866060fad322238ed",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:35:integration_docs_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3591,7 +3603,7 @@
           }
         ]
       },
-      "source_checksum": "3557d2cfa13b09483858eb97ade850885c45ba929c8f2bb8ea25e0dac8c6af06",
+      "source_checksum": "50f4887275f9b9dcd6775a21d770a913a2130eaf9fbbdad7a3bb68d1623f4c59",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:44:flow_integration_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3669,7 +3681,7 @@
           }
         ]
       },
-      "source_checksum": "92686a587ae5229c67989503265ca0b0336a4cebd7c062f91f5fe36676ff9e1f",
+      "source_checksum": "919ef0ffaa11c3d31c24eb72d38a6eaa19065cf359409f38a444039796c6f0b1",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:353:notifications_send",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3762,7 +3774,7 @@
           }
         ]
       },
-      "source_checksum": "f7c1f1e32698a96cb5e411cadb3498d5204f85631e06e24e7bb8a66fe2748a8f",
+      "source_checksum": "b1b13d018a0425042baa614a8e26083103b1b070eb4a4379c6ed2dfec3aa9c4b",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:134:channels_subscribe",
         "path": "infera-messenger/src/channel/routes.rs",

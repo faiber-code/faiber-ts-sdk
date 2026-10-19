@@ -19,3 +19,9 @@ This is an incomplete implementation of the dependency-ordered Knowledge brain p
 `evidence/reservation-characterization.json` and its hashed log show actual PostgreSQL outcomes. A passing characterization means the probe executed successfully; its true defect flags mean the release is blocked. The concurrent-claim regression also executed against real PostgreSQL, without the missing-DATABASE_URL skip.
 
 The generated summary reports mounted operations and resolved handlers only as inventory. It is explicitly insufficient for semantic discovery completion. Manage readable forms/workflows, exact SDK artifact consumption, Knowledge publication and agent memory integration follow after their prerequisite gates; they remain pending.
+
+Compiler provenance now includes local auth crates, build/config files and statically
+embedded `include!`, `include_str!` and `include_bytes!` inputs. Immutable snapshots retain
+referenced source assets (including server-embedded UI locale/CSS files) from the same
+pinned Git tree. Dynamic, missing or escaping inputs remain explicit release blockers.
+Embedded scripts are hashed as inputs, never parsed into invented Rust handlers.

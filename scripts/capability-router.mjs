@@ -106,7 +106,9 @@ function generic(signature, name) {
 }
 
 export function mountedRouterOperations(files, entry) {
-  const root = files.find(file => file.path.endsWith(entry.path));
+  const candidates = files.filter(file => file.path.endsWith(entry.path));
+  // Prefer the service entry over nested migration/auth crates with the same suffix.
+  const root = candidates.sort((a,b)=>a.path.split('/').length-b.path.split('/').length)[0];
   if (!root) throw new Error(`Missing router source ${entry.path}`);
   const operations = [], unresolved = [], visited = new Set();
   // Match Axum's path_for_nested_route: nesting a root route under /items

@@ -108,3 +108,8 @@ test('resolved dependency locks must have retained matching bytes before evidenc
     assert.equal(verifyRunArtifacts({run:{...run, resolved_cargo_lock_artifact_path:'../outside.lock'}}, root).run.artifact_verified, false);
   } finally { rmSync(root, {recursive:true, force:true}); }
 });
+
+test('unresolved compiler inputs prevent source completion even with otherwise verified operations',()=>{
+ const f=reviewedFixture();f.services.example.embedded_source_gaps={canonical:[{reason:'missing script'}],working:[]};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/compiler-embedded source/);
+});

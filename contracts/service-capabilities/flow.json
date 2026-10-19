@@ -13,10 +13,10 @@
   ],
   "canonical_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
   "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
-  "working_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+  "working_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
   "working_changes": [],
-  "source_relationship": "same",
-  "source_tree_checksum": "87b967fd2d746bb19923bee0599db49d0fdd93ee5b5f107a2c33e09c8d3cdd17",
+  "source_relationship": "working_ahead_of_sdk",
+  "source_tree_checksum": "36365d3a29789e15219032c73c17e6e69aea08a272ca07662e1dad34b320658c",
   "source_files": [
     {
       "path": "infera-flow/src/broker.rs",
@@ -211,6 +211,10 @@
       "checksum": "58dd5392fe5fc737cf68246edb66baae3eb0ec3d9873c2c53a87c57bea39bef6"
     },
     {
+      "path": "infera-flow/.cargo/config.toml",
+      "checksum": "427043be16d127a8a5a6fafc8a4222036ce3eda3097f25c22b03031f45e3c685"
+    },
+    {
       "path": "infera-flow/entity/Cargo.toml",
       "checksum": "b7a0ef7794d49f4d5211869134eaafce47ad7c66d5a8b165cd2c2df4e4393587"
     },
@@ -219,7 +223,11 @@
       "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
     }
   ],
-  "working_source_tree_checksum": "ed11442c6e8113e448cfac79b5801302f67b285f783895addf333a58e7601bf5",
+  "embedded_source_gaps": {
+    "canonical": [],
+    "working": []
+  },
+  "working_source_tree_checksum": "60c0fb1bb5e8c319b702059e9a7999f69d6db87c0a23f6375d9a69a678026aa7",
   "working_source_files": [
     {
       "path": "infera-flow/src/broker.rs",
@@ -351,7 +359,7 @@
     },
     {
       "path": "infera-flow/src/run/methods.rs",
-      "checksum": "1ad8e86a6be538616f0bee97f350a8f52893b8b3e1e7084eefa06bd4e03799e9"
+      "checksum": "faa39a25ca5dcae2645e8543821f6fce9c34b0826f3a69120a2f1f0fb3a8ce16"
     },
     {
       "path": "infera-flow/src/run/mod.rs",
@@ -359,7 +367,7 @@
     },
     {
       "path": "infera-flow/src/run/routes.rs",
-      "checksum": "aa85cb8dee2022ed2d35e6ddaeca71b9ad4d31a174edd140c13e16b124901143"
+      "checksum": "8e8f02088a086b2a21c216f7ede7a9cdfd40be703c0d0790aa9e43d98de8056e"
     },
     {
       "path": "infera-flow/src/state.rs",
@@ -399,11 +407,15 @@
     },
     {
       "path": "infera-flow/migration/src/lib.rs",
-      "checksum": "fa32f2fac9796621e4ae8d7d8170f8582edd633335be17753af4d7de9172dad2"
+      "checksum": "fa66e41fd323e964ef3292370448050d304e6fc4f12adadb327746f076e00c79"
     },
     {
       "path": "infera-flow/migration/src/m20250711_000001_create_flow_tables.rs",
       "checksum": "0d28d496e1973bd5db8d0a490256dabb71fba19929c31c0baa92267c62e56393"
+    },
+    {
+      "path": "infera-flow/migration/src/m20261019_000002_index_run_history.rs",
+      "checksum": "5091a904435b8e22d7ca6da743b6f01846c1e0739adeb826af3a66a8b3f4c96e"
     },
     {
       "path": "infera-flow/migration/src/main.rs",
@@ -416,6 +428,10 @@
     {
       "path": "infera-flow/Cargo.lock",
       "checksum": "64fbd172f83c6b042f3d0d1e601190749c2ac22fdc212a7ca3230cb91c5ccc5c"
+    },
+    {
+      "path": "infera-flow/.cargo/config.toml",
+      "checksum": "427043be16d127a8a5a6fafc8a4222036ce3eda3097f25c22b03031f45e3c685"
     },
     {
       "path": "infera-flow/entity/Cargo.toml",
@@ -449,7 +465,7 @@
           }
         ]
       },
-      "source_checksum": "44bd4165d1a8986e278dcee60638ed51f69e72192397de582851b213ca4cba06",
+      "source_checksum": "9bc96a72f6ca6c25d38e30837c4361a99eddd24ea63c9de4167d9d0b85a90911",
       "handler": {
         "ref": "infera-flow/src/router.rs:77:status_route",
         "path": "infera-flow/src/router.rs",
@@ -512,7 +528,7 @@
           }
         ]
       },
-      "source_checksum": "6a1e50081ad21b6135fc7b1cba381fa82d8077897be818ca0fc4cac79b2e956a",
+      "source_checksum": "4a3b03308797d55f21d2dcc83b750244b6fe68a857af54cfd82e6340674f2525",
       "handler": {
         "ref": "infera-flow/src/router.rs:77:status_route",
         "path": "infera-flow/src/router.rs",
@@ -575,7 +591,7 @@
           }
         ]
       },
-      "source_checksum": "fac8986a3e81ccb6f14c3abb2b223a5bb6f0a481af05f9005f976975719c3185",
+      "source_checksum": "b03de4e233c40dee77b2ceaf6118bf9c56cf33503ea5e11abc7b7d84a0574da1",
       "handler": {
         "ref": "infera-flow/src/router.rs:77:status_route",
         "path": "infera-flow/src/router.rs",
@@ -647,7 +663,7 @@
           }
         ]
       },
-      "source_checksum": "78c1193caee2d76206264557ca40b67431bcb3bbed4e6e4c08c739b14befee05",
+      "source_checksum": "5cd9c48cf4a856e0fda6f9c202390477de16f5d80642cd0e6331b8d58e22fed7",
       "handler": {
         "ref": "infera-flow/src/event/routes.rs:50:emit",
         "path": "infera-flow/src/event/routes.rs",
@@ -728,7 +744,7 @@
           }
         ]
       },
-      "source_checksum": "c77a1754b6013a294e97662ed0cbe56354555f03528e7bad6b1e4edc0008debe",
+      "source_checksum": "9d03455c1778f2147477ca9cb530b988ef62ec40ca5dbc1b494d587278e91b46",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:52:index",
         "path": "infera-flow/src/flow/routes.rs",
@@ -799,7 +815,7 @@
           }
         ]
       },
-      "source_checksum": "a0b30c9c29529c3f49bd4c8638abdf043a75a43c05a49462de054af131812177",
+      "source_checksum": "f143e381a53a43bde34b7885565b4988a13afee03a4acb193f26a42270904b84",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:65:store",
         "path": "infera-flow/src/flow/routes.rs",
@@ -882,7 +898,7 @@
           }
         ]
       },
-      "source_checksum": "dbde17b85116bf9b8cca9ea86fd668ca9e7c9f2c85b5a921a2fdea328e7fbe91",
+      "source_checksum": "a40c6a6bd0dd11658f86c4243dff377a378053e746161bed515c5766f698d50f",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:38:import",
         "path": "infera-flow/src/flow/routes.rs",
@@ -964,7 +980,7 @@
           }
         ]
       },
-      "source_checksum": "c53a93d4e96c523b67e35dfd0cb1ac5aaba5671b1fe3e4d040dea8d33e478454",
+      "source_checksum": "484131f0bffb373d809e5732f24afa6a58c1e5602c807d7073b33797b828ac78",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:79:show",
         "path": "infera-flow/src/flow/routes.rs",
@@ -1040,7 +1056,7 @@
           }
         ]
       },
-      "source_checksum": "79514f9f968a48d25d22c304c9034fd9468e182aaddb2a10089a99449ba4eaec",
+      "source_checksum": "1030d3af6048044cfa36a5edff828479cd3f294a8562025dd126229a50c22e64",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:93:update",
         "path": "infera-flow/src/flow/routes.rs",
@@ -1126,7 +1142,7 @@
           }
         ]
       },
-      "source_checksum": "ca83499486c795e14e55df5e98fe907fd3fe0fde9d5b5c0ea9e243d133179ade",
+      "source_checksum": "fb418c8fe880ef62aae9139cf7042e2c2264a34ac7d8591026511b3f756d864b",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:108:destroy",
         "path": "infera-flow/src/flow/routes.rs",
@@ -1194,7 +1210,7 @@
           }
         ]
       },
-      "source_checksum": "c6f8ef5079bfddcdaad92caa52c10cfe4df42e0e88852631c941dccc5bbc4a7f",
+      "source_checksum": "61ad1c7f574e1fbd2ed4ae29d28c5a556e2b77d36de02c8933cbb72da52dc9d9",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:122:validate",
         "path": "infera-flow/src/flow/routes.rs",
@@ -1260,7 +1276,7 @@
           }
         ]
       },
-      "source_checksum": "4dbd5fd2c682a56d2e918af38b8f8a5a76c049149c2228d1b6393276553e172d",
+      "source_checksum": "dc8594010dfa4caf5163aa58e91c63eccaa00b8d16ce1d15eb716a16eade1c75",
       "handler": {
         "ref": "infera-flow/src/registry/routes.rs:19:active_triggers",
         "path": "infera-flow/src/registry/routes.rs",
@@ -1341,7 +1357,7 @@
           }
         ]
       },
-      "source_checksum": "e63db1ca1c852ac0e6ce6a3c17fb102d60c292468b3e6b5b0823eeb412302d7e",
+      "source_checksum": "9fd1ea82729c4ecc969a806e9fa5c4a2de84a0917a58a063741e214f472eee82",
       "handler": {
         "ref": "infera-flow/src/catalog/routes.rs:27:triggers",
         "path": "infera-flow/src/catalog/routes.rs",
@@ -1411,7 +1427,7 @@
           }
         ]
       },
-      "source_checksum": "1ab92d6bf31292a253e2b59f7406e54b722887ad9e52631ece5f375c9571845e",
+      "source_checksum": "bc180cad9888fff3ea401a4cc2ac0f55e008004d9b82bad323dd7c2e2328c1d8",
       "handler": {
         "ref": "infera-flow/src/catalog/routes.rs:43:actions",
         "path": "infera-flow/src/catalog/routes.rs",
@@ -1481,7 +1497,7 @@
           }
         ]
       },
-      "source_checksum": "e4fc7a5967b5c7601397af9974fa5ba3c8701d4d5df8b962a84f84a86984b6df",
+      "source_checksum": "bc2540f2b4fb5529682c3151955a81e63e30a7090d74dd08a2f1e7b9a5152f8c",
       "handler": {
         "ref": "infera-flow/src/catalog/routes.rs:59:sync",
         "path": "infera-flow/src/catalog/routes.rs",
@@ -1545,7 +1561,7 @@
           }
         ]
       },
-      "source_checksum": "5bf438563077051575e91153d45c6292b5843669d0b845ec2bf5e9bb9f8a3bbe",
+      "source_checksum": "8ffcb5186bddde9e2662660640b60ee8a498de83a87817ac01f1becdb0e7abad",
       "handler": {
         "ref": "infera-flow/src/run/routes.rs:46:index",
         "path": "infera-flow/src/run/routes.rs",
@@ -1640,7 +1656,7 @@
           }
         ]
       },
-      "source_checksum": "b92cac2bb05e9bfc669df919baf73f8ee7e7fe7bc1fb81e4fc76b9ec886faa55",
+      "source_checksum": "851fce7fdf1059bcc541aac5c845eec7e0ebcb5efd473484084e4434da3d4a5d",
       "handler": {
         "ref": "infera-flow/src/run/routes.rs:33:show",
         "path": "infera-flow/src/run/routes.rs",
@@ -1707,7 +1723,7 @@
           }
         ]
       },
-      "source_checksum": "3a4315e868ea78d8ffc32ee02641878a49e399179da4a5015a3932d5f8006cc8",
+      "source_checksum": "9fd26e2cb875cf4f6619e6bfa0bfab8795f9c846809369a865e2ab50c2c6f584",
       "handler": {
         "ref": "infera-flow/src/router.rs:83:integration_flow",
         "path": "infera-flow/src/router.rs",
@@ -2329,13 +2345,13 @@
     {
       "local_path": "/",
       "source": "infera-flow/src/run/routes.rs",
-      "line": 23,
+      "line": 48,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/{id}",
       "source": "infera-flow/src/run/routes.rs",
-      "line": 24,
+      "line": 49,
       "mount_status": "requires_router_reconciliation"
     }
   ],

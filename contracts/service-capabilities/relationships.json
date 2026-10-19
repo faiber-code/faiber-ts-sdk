@@ -139,6 +139,54 @@
         ],
         "compensation": "Cross-service thread creation and conversation save are not one transaction; orphan/retry reconciliation requires verification"
       }
+    },
+    {
+      "id": "control-sandbox-apk-version-publication",
+      "from_service": "control",
+      "to_service": "version",
+      "source_entity": "sandbox APK build/job",
+      "target_entity": "catalog service and release",
+      "id_type": "Control project slug string \u2192 Version service slug; service/release UUIDs are Version identities",
+      "scope": "Control sandbox namespace and namespace-local publisher Secret; never select by remembered user/project role",
+      "cardinality": "one sandbox project to catalog service; many version-name release records",
+      "lookup": "POST /api/v1/apk/releases returns release UUID; GET /api/v1/services/{service_slug} and /api/v1/versions/{version_id} verify metadata",
+      "status": "partially_verified_local_http_full_workflow_pending",
+      "source_refs": [
+        "Service/infera-control/crates/faiber-core/src/ops/apk.rs:255",
+        "Service/infera-control/crates/faiber-core/src/ops/apk.rs:590",
+        "Service/infera_version/src/version/publish.rs",
+        "Service/infera_version/SEMANTIC_CONTRACT.md"
+      ],
+      "source_revisions": {
+        "version": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39"
+      },
+      "test_evidence": [],
+      "workflow": {
+        "preconditions": [
+          "Current Control project authorization and exact sandbox namespace",
+          "Version deployment present and namespace-local publisher credential installed",
+          "APK bytes available at the intended HTTPS URL"
+        ],
+        "sequence": [
+          "Build and upload APK",
+          "Provision/reuse sandbox Secret and preserve binding on reconciliation",
+          "Publish bounded metadata using server-only token",
+          "Validate raw receipt and durable terminal outcome",
+          "Read back exact release UUID and service slug, compare code/URL and verify bytes"
+        ],
+        "idempotency": "Version local per-slug transaction protects repeated and concurrent publication; Control job receipt/reconciliation is still unverified",
+        "failure_handling": [
+          "Distinguish build/upload success from catalog publication",
+          "Wait for credential rollout readiness",
+          "Local script now validates receipt/read-back and retains partial-outcome identity; durable Control storage/reconciliation remains pending."
+        ],
+        "compensation": "Preserve prior published release; reconcile upload/catalog partial outcomes without deleting history"
+      },
+      "local_component_test_evidence": [
+        "version-local-contracts",
+        "control-core-local"
+      ]
     }
   ]
 }

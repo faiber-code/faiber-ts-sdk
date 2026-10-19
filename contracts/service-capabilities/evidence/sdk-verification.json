@@ -1,0 +1,26 @@
+{
+  "kind": "sdk_types_and_tooling_regression",
+  "status": "passed",
+  "command": "npm run build && npm test",
+  "exit_code": 0,
+  "tests_executed": 103,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "source_base_revision": "c58dffee63eb67f1688a3b05618b318267b537fe",
+  "working_source_sha256": "6732ec1adf54a87308a559595499345a151ac1bca9cd1946af561c9192b6de97",
+  "included_paths": [
+    "scripts",
+    "tests",
+    "packages",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json"
+  ],
+  "node": "v22.13.1",
+  "package_lock_sha256": "ec23409df957b1f1e8ac8f9987e2bba450c57f77f2391d22060c15d909968b6a",
+  "artifact_path": "evidence/sdk-tests.log",
+  "artifact_sha256": "2e378d5c982d121fc63739bcc48a743aa75815f8d9f1f7e55ec7d0850b8f6c23",
+  "build_artifact_path": "evidence/sdk-build.log",
+  "build_artifact_sha256": "0b04215e28afa3246c77dcf6707a3c86f0586ba9f2d0e3880aaabfb7a7b39e49",
+  "scope": "SDK build/types and source/discovery tooling, not complete service wire or Manage acceptance."
+}

@@ -14,9 +14,13 @@ test('source snapshots retain exact pinned bytes without changing a dirty servic
     mkdirSync(join(repo,'src'),{recursive:true});mkdirSync(sdk);
     const git=(...args)=>execFileSync('git',args,{cwd:repo,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
     git('init');git('config','user.name','Source Fixture');git('config','user.email','fixture@example.invalid');
-    const pinned='pub const VERSION: &str = "pinned";\n'+'// padding\n'.repeat(20000);
+    const pinned='pub const VERSION: &str = "pinned";\nconst LOCALE:&str=include_str!("../ui/locale.json");\n'+'// padding\n'.repeat(20000);
+    mkdirSync(join(repo,'ui'),{recursive:true});writeFileSync(join(repo,'ui/locale.json'),'{"title":"pinned"}');
     mkdirSync(join(repo,'migration/sql'),{recursive:true});
     writeFileSync(join(repo,'migration/sql/schema.sql'),'CREATE TABLE pinned (id integer);');
+    mkdirSync(join(repo,'auth/src'),{recursive:true});
+    writeFileSync(join(repo,'auth/src/lib.rs'),'pub fn authorize() {}');
+    writeFileSync(join(repo,'auth/Cargo.toml'),'[package]\nname="local-auth"');
     writeFileSync(join(repo,'Cargo.toml'),'[package]\nname="fixture"\nversion="0.1.0"\n');
     writeFileSync(join(repo,'src/lib.rs'),pinned);git('add','.');git('commit','-m','Pinned fixture');
     const revision=git('rev-parse','HEAD');
@@ -27,6 +31,8 @@ test('source snapshots retain exact pinned bytes without changing a dirty servic
     for(let attempt=0;attempt<3;attempt++){
       const snapshot=serviceSources(sdk,join(root,'services'),{lockPath:lock});
       assert.equal(readFileSync(join(snapshot,'infera-example/src/lib.rs'),'utf8'),pinned);
+      assert.equal(readFileSync(join(snapshot,'infera-example/auth/src/lib.rs'),'utf8'),'pub fn authorize() {}');
+      assert.equal(readFileSync(join(snapshot,'infera-example/ui/locale.json'),'utf8'),'{"title":"pinned"}');
       assert.equal(readFileSync(join(snapshot,'infera-example/migration/sql/schema.sql'),'utf8'),'CREATE TABLE pinned (id integer);');
       assert.match(readFileSync(join(snapshot,'infera-example/Cargo.toml'),'utf8'),/name="fixture"/);
     }

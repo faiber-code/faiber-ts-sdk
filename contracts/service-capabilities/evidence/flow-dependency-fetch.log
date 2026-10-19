@@ -1,0 +1,9 @@
+Bounded dependency fetch observation (terminal output captured by the task):
+Command: CARGO_NET_OFFLINE=false CARGO_NET_RETRY=0 CARGO_HTTP_TIMEOUT=15 CARGO_HTTP_LOW_SPEED_LIMIT=1 cargo fetch
+Exit code: 101
+Updating crates.io index
+error: failed to get `slug` as a dependency of package `infera_flow v0.1.0`
+Caused by: download of sl/ug/slug failed
+Caused by: failed to download from `https://index.crates.io/sl/ug/slug`
+Caused by: [28] Timeout was reached (SSL connection timeout)
+The original checkout Cargo.lock was restored byte-for-byte.

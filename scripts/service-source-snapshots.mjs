@@ -1,21 +1,38 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { embeddedSourceEvidence } from './embedded-source-evidence.mjs';
 
 /** Include schemas, migrations and dependency configuration in immutable evidence. */
 export function archiveSourceRevision(repository, revision, destination) {
   if (!/^[a-f0-9]{40}$/.test(revision)) throw new Error('Invalid source revision');
   const entries = execFileSync('git', ['ls-tree', '--name-only', revision], { cwd: repository, encoding: 'utf8' }).split('\n');
-  const paths = ['src','entity','migration','crates','domain','faiber-agent-core','Cargo.toml','Cargo.lock'].filter(path=>entries.includes(path));
+  const paths = ['src','entity','migration','crates','domain','faiber-agent-core','auth','auth_macro','Cargo.toml','Cargo.lock','build.rs','rust-toolchain.toml'].filter(path=>entries.includes(path));
+  if (entries.includes('.cargo') && execFileSync('git',['ls-tree','--name-only',revision,'--','.cargo/config.toml'],{cwd:repository,encoding:'utf8'}).trim()) paths.push('.cargo/config.toml');
   if (!paths.some(path=>['src','crates'].includes(path))) throw new Error(`Missing runtime source: ${repository}@${revision}`);
-  const archive = execFileSync('git', ['archive', revision, '--', ...paths], { cwd: repository, maxBuffer: 128 * 1024 * 1024 });
   mkdirSync(destination,{recursive:true});
-  // A file avoids macOS tar's early-stdin-close/EPIPE race on archive padding.
-  const archivePath=join(destination,'.source-snapshot.tar');
-  writeFileSync(archivePath,archive);
-  try { execFileSync('tar',['-xf',archivePath,'-C',destination]); }
-  finally { rmSync(archivePath,{force:true}); }
+  const extract = selected => {
+    const archive = execFileSync('git',['archive',revision,'--',...selected],{cwd:repository,maxBuffer:128*1024*1024});
+    const archivePath=join(destination,'.source-snapshot.tar');
+    writeFileSync(archivePath,archive);
+    try {execFileSync('tar',['-xf',archivePath,'-C',destination]);}
+    finally {rmSync(archivePath,{force:true});}
+  };
+  extract(paths);
+  // Preserve compiler inputs outside the ordinary Rust roots (for example UI
+  // locale/CSS assets embedded by the server), using only the pinned Git tree.
+  const rustFiles = directory => readdirSync(directory,{withFileTypes:true}).flatMap(item=>{
+    const path=join(directory,item.name);
+    return item.isDirectory()?rustFiles(path):item.isFile()&&item.name.endsWith('.rs')?[path]:[];
+  });
+  for(let depth=0;depth<8;depth++) {
+    const sources=rustFiles(destination).map(path=>({path,text:readFileSync(path,'utf8')}));
+    const missing=embeddedSourceEvidence(destination,sources).gaps.filter(gap=>gap.asset_path).map(gap=>gap.asset_path);
+    const tracked=[...new Set(missing)].filter(path=>execFileSync('git',['ls-tree','--name-only',revision,'--',path],{cwd:repository,encoding:'utf8'}).trim());
+    if(!tracked.length)break;
+    extract(tracked);
+  }
 }
 
 /** Resolve immutable audited source revisions without touching consumers' service working trees. */

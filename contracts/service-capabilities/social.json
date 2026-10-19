@@ -152,6 +152,10 @@
       "checksum": "12255eeba22bc053ee1ae238472c0e66f8358fe2a1d2bba5f96d962b640cded0"
     }
   ],
+  "embedded_source_gaps": {
+    "canonical": [],
+    "working": []
+  },
   "working_source_tree_checksum": "14441d304a8e2377ca9b9c6a4a68ea27e20136554fcaf4d12bc8928dd98e73ba",
   "working_source_files": [
     {

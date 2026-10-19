@@ -43,6 +43,7 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
   for (const [service, descriptor] of Object.entries(universe.services)) {
     const data = services[service];
     if (!data) { failures.push(`${service}: missing discovery matrix`); continue; }
+    if (Object.values(data.embedded_source_gaps ?? {}).some(gaps=>gaps.length)) failures.push(`${service}: compiler-embedded source inputs remain unresolved`);
     if (data.missing_meaning_sources?.length) failures.push(`${service}: missing source references`);
     if (!data.operations?.length) {
       failures.push(`${service}: registered routes have not been reconciled into a mounted operation inventory`);

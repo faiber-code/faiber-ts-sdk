@@ -1,0 +1,287 @@
+    Blocking waiting for file lock on package cache
+warning: patch `infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-asset-sdk)` was not used in the crate graph
+warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
+warning: patch `infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-macro)` was not used in the crate graph
+warning: patch `infera-idp-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-sdk)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+warning: patch `infera-profile-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-profile-sdk)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling faiber-core v1.0.0 (/Users/mohammadralizadeh/Infera/Service/infera-control/crates/faiber-core)
+warning: methods `delete_a_records`, `ensure_mx_record`, `ensure_txt_record`, `arvan_delete`, and `cf_delete` are never used
+   --> crates/faiber-core/src/dns.rs:299:25
+    |
+131 | impl Faiber {
+    | ----------- methods in this implementation
+...
+299 |     pub(crate) async fn delete_a_records(&self, name: &str) {
+    |                         ^^^^^^^^^^^^^^^^
+...
+381 |     pub(crate) async fn ensure_mx_record(&self, name: &str, priority: u16, target: &str) {
+    |                         ^^^^^^^^^^^^^^^^
+...
+407 |     pub(crate) async fn ensure_txt_record(&self, name: &str, value: &str) {
+    |                         ^^^^^^^^^^^^^^^^^
+...
+546 |     async fn arvan_delete(&self, zone: &str, key: &str, name: &str) {
+    |              ^^^^^^^^^^^^
+...
+655 |     async fn cf_delete(&self, zone: &str, token: &str, name: &str) {
+    |              ^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `arvan_a_is_current` is never used
+  --> crates/faiber-core/src/dns.rs:95:4
+   |
+95 | fn arvan_a_is_current(item: &serde_json::Value, ip: &str) -> bool {
+   |    ^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `dns_fqdn` is never used
+   --> crates/faiber-core/src/dns.rs:104:4
+    |
+104 | fn dns_fqdn(zone: &str, name: &str) -> String {
+    |    ^^^^^^^^
+
+warning: methods `delete_a_records`, `ensure_mx_record`, `ensure_txt_record`, `arvan_delete`, and `cf_delete` are never used
+   --> crates/faiber-core/src/dns.rs:299:25
+    |
+131 | impl Faiber {
+    | ----------- methods in this implementation
+...
+299 |     pub(crate) async fn delete_a_records(&self, name: &str) {
+    |                         ^^^^^^^^^^^^^^^^
+...
+381 |     pub(crate) async fn ensure_mx_record(&self, name: &str, priority: u16, target: &str) {
+    |                         ^^^^^^^^^^^^^^^^
+...
+407 |     pub(crate) async fn ensure_txt_record(&self, name: &str, value: &str) {
+    |                         ^^^^^^^^^^^^^^^^^
+...
+546 |     async fn arvan_delete(&self, zone: &str, key: &str, name: &str) {
+    |              ^^^^^^^^^^^^
+...
+655 |     async fn cf_delete(&self, zone: &str, token: &str, name: &str) {
+    |              ^^^^^^^^^
+
+warning: `faiber-core` (lib test) generated 1 warning
+warning: `faiber-core` (lib) generated 3 warnings
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 39s
+     Running unittests src/lib.rs (target/debug/deps/faiber_core-462aaab292d8a272)
+
+running 199 tests
+test dns::tests::arvan_apex_match_ignores_non_a_records ... ok
+test kube_ext::placement_tests::namespace_pin_overrides_catalog_role_and_affinity ... ok
+test kube_ext::placement_tests::placement_covers_jobs_and_does_not_modify_non_workloads ... ok
+test kube_ext::placement_tests::merge_patch_removes_roles_and_preserves_explicit_selector_removals ... ok
+test dns::tests::current_records_are_idempotent_but_stale_or_proxied_records_need_repair ... ok
+test dns::tests::custom_mail_domain_is_resolved_relative_to_credential_zone ... ok
+test dns::tests::cloudflare_apex_and_record_ownership ... ok
+test dns::tests::arvan_ownership_requires_identity_and_unchanged_address ... ok
+test kube_ext::job_wait_tests::ignores_other_pending_conditions ... ok
+test kube_ext::job_wait_tests::returns_scheduler_message_for_unschedulable_pod ... ok
+test manifests::placement_tests::buildkit_runs_on_the_builder_node ... ok
+test manifests::placement_tests::catalog_builds_have_a_finite_deadline ... ok
+test manifests::placement_tests::long_catalog_names_keep_build_labels_within_kubernetes_limits ... ok
+test manifests::placement_tests::catalog_service_in_sandbox_defaults_to_sandbox_node ... ok
+test manifests::placement_tests::catalog_builds_forward_git_credentials_as_a_buildkit_secret ... ok
+test manifests::placement_tests::catalog_builds_only_import_an_existing_registry_cache ... ok
+test manifests::placement_tests::catalog_builds_retry_transient_failures_and_tolerate_cache_export_failure ... ok
+test manifests::placement_tests::livekit_uses_host_network_and_distinct_persisted_ports ... ok
+test manifests::placement_tests::postgres_preserves_alpine_volume_ownership_with_the_pgvector_image ... ok
+test manifests::application_readiness_tests::only_network_services_wait_for_the_declared_listener ... ok
+test manifests::placement_tests::sandbox_infrastructure_defaults_to_sandbox_node ... ok
+test manifests::placement_tests::self_update_uses_a_writable_cargo_home ... ok
+test manifests::placement_tests::redis_uses_password_auth_and_durable_append_only_storage ... ok
+test manifests::placement_tests::node_cleanup_is_bounded_and_disk_pressure_tolerant ... ok
+test manifests::placement_tests::worker_catalog_builds_have_an_extended_deadline ... ok
+test manifests::state_service_tests::core_services_roll_without_needing_surge_capacity ... ok
+test manifests::postgis_tests::postgis_keeps_debian_volume_ownership_and_is_labeled_as_data ... ok
+test manifests::placement_tests::stalwart_maps_standard_mail_ports_and_persists_config_and_data ... ok
+test manifests::state_service_tests::core_state_exposes_http_and_host_udp ... ok
+test manifests::state_service_tests::immutable_images_reuse_cache_but_floating_images_always_pull ... ok
+test manifests::state_service_tests::sandbox_apps_roll_without_needing_surge_capacity ... ok
+test ops::apk::tests::apk_builder_uses_pinned_reachable_dependencies ... ok
+test manifests::state_service_tests::sandbox_state_does_not_claim_the_shared_udp_host_port ... ok
+test ops::apk::tests::generated_activity_keeps_web_content_inside_android_system_bars ... ok
+test ops::apk::tests::generated_activity_routes_android_back_through_webview_history ... ok
+test ops::apk::tests::generated_activity_persists_cookie_sessions_across_app_restarts ... ok
+test manifests::placement_tests::sockudo_uses_secret_backends_health_probes_and_schema_v1 ... ok
+test ops::apk::tests::generated_activity_opens_verified_two_done_order_inside_app_session ... ok
+test ops::bootstrap::buildkit_reconcile_tests::compliant_buildkit_is_not_recreated ... ok
+test ops::bootstrap::buildkit_reconcile_tests::builder_and_core_selector_drift_is_reconciled ... ok
+test ops::bootstrap::buildkit_reconcile_tests::legacy_core_placement_is_reconciled ... ok
+test ops::apk::tests::apk_failure_message_keeps_the_end_of_the_gradle_log ... ok
+test ops::bootstrap::buildkit_reconcile_tests::host_network_buildkit_without_cluster_dns_is_reconciled ... ok
+test ops::bootstrap::buildkit_reconcile_tests::legacy_empty_dir_buildkit_is_reconciled ... ok
+test ops::builds::enqueue_tests::newer_request_cancels_all_older_work_for_the_service ... ok
+test ops::builds::package_registry_args_tests::explicit_service_values_win_and_all_ecosystems_are_injected ... ok
+test ops::builds::propagate_tests::cancels_queued_and_active_legacy_worker_app_builds ... ok
+test ops::builds::propagate_tests::maps_control_plane_catalog_name_to_live_deployment ... ok
+test ops::builds::propagate_tests::core_broker_url_is_not_replaced_with_a_literal_during_auto_deploy ... ok
+test ops::builds::propagate_tests::propagates_platform_services ... ok
+test ops::apk::tests::apk_requires_the_deployed_https_app_route ... ok
+test ops::builds::propagate_tests::sandbox_pin_requires_an_explicit_true_annotation ... ok
+test ops::builds::propagate_tests::skips_user_app_builds ... ok
+test ops::builds::propagate_tests::tasks_rollout_updates_api_and_outbox_worker_images ... ok
+test dns::tests::repair_is_scoped_to_owned_web_hosts_including_expiry_routes ... ok
+test ops::builds::enqueue_tests::stale_pipeline_tick_cannot_revive_a_cancelled_build ... ok
+test ops::builds::propagate_tests::agentic_push_targets_agentic_and_only_the_cloud_worker ... ok
+test ops::builds::enqueue_tests::pipeline_keeps_only_the_newest_work_for_each_service ... ok
+test ops::builds::propagate_tests::scheduler_serializes_each_service_but_allows_different_services ... ok
+test ops::catalog::tests::idp_seed_has_canonical_public_url_environment ... ok
+test ops::builds::propagate_tests::knowledge_rollout_requires_control_provisioned_database_capabilities ... ok
+test ops::catalog::tests::migrates_legacy_tasks_domain_and_memory_limit ... ok
+test ops::catalog::tests::migrates_missing_empty_and_local_idp_public_urls ... ok
+test ops::catalog::tests::preserves_custom_idp_public_urls ... ok
+test ops::catalog::tests::preserves_operator_custom_tasks_values ... ok
+test ops::catalog::tests::removes_the_retired_worker_app_from_persisted_catalogs ... ok
+test ops::expired::tests::expiry_cannot_claim_another_projects_hostname ... ok
+test ops::catalog::tests::upgrades_existing_cloud_worker_for_persistent_resident_speech_models ... ok
+test ops::expired::tests::expiry_route_survives_namespace_purge_without_exposing_control_apis ... ok
+test ops::cluster::tests::completed_pods_do_not_count_toward_node_requests ... ok
+test ops::infra::tests::rabbitmq_credentials_are_encoded_for_secret_backed_urls ... ok
+test ops::infra::tests::sockudo_companions_follow_instance_stem_with_safe_fallbacks ... ok
+test ops::infra::tests::sockudo_runtime_is_durable_and_never_allows_memory_push_drivers ... ok
+test ops::cluster::tests::shared_pvc_is_counted_once_per_node ... ok
+test ops::manage_domains::tests::alias_names_are_stable_and_domain_specific ... ok
+test ops::cluster::tests::bound_local_pv_identifies_its_claim_and_storage_node ... ok
+test ops::package_cache::tests::images_are_immutable ... ok
+test ops::infra::tests::livekit_allocations_are_stable_and_distinct_between_sandboxes ... ok
+test ops::package_cache::tests::managed_endpoints_are_internal ... ok
+test ops::infra::tests::livekit_config_advertises_reachable_tcp_and_udp_mux_ports ... ok
+test ops::manage_domains::tests::domains_are_normalized_and_validated ... ok
+test ops::play_routes::tests::only_canonical_first_party_play_route_is_valid ... ok
+test ops::registry::tests::image_size_counts_unique_config_and_layer_blobs ... ok
+test ops::registry::tests::image_index_returns_child_manifest_digests ... ok
+test ops::registry::tests::registry_prune_counts_all_disposable_aliases_once ... ok
+test ops::package_cache::tests::disabled_manifest_scales_to_zero ... ok
+test ops::registry::tests::registry_prune_keeps_digest_shared_with_live_tag ... ok
+test ops::package_cache::tests::engine_configs_enable_mirroring_without_client_publish_access ... ok
+test ops::package_cache::tests::package_metadata_is_effectively_non_expiring ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::advanced_plan_uses_stable_name_after_data_preserving_resize ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::advanced_plan_requires_each_data_service ... ok
+test ops::sandboxes::gis_data_tests::gis_always_provisions_its_own_engine_and_other_services_do_not ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::app_only_request_without_engine_selection_provisions_none ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::catalog_minimums_survive_shared_resource_updates ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::catalog_s3_environment_marks_other_services_as_storage_dependent ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::explicit_workload_resource_overrides_are_durable_minimums ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::interrupted_resize_restores_the_preserved_replica_count ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::knowledge_database_extensions_are_control_owned_and_allow_listed ... ok
+test dns::tests::arvan_ownership_survives_restart_without_credentials ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::completed_setup_jobs_do_not_block_volume_resize_or_backup ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::livekit_egress_keeps_web_composition_runtime_headroom ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::lms_always_requires_managed_object_storage ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::modules_always_requires_managed_object_storage ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::non_divisible_envelopes_never_put_requests_above_limits ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::ordinary_workloads_keep_the_shared_resource_values ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::platform_services_honor_explicit_managed_minio ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::platform_services_without_override_keep_required_engines_only ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::platform_services_keep_required_engines_without_forcing_storage ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::postgres_keeps_safe_request_and_runtime_floors ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::profile_always_requires_managed_object_storage ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::quick_plan_is_shared_across_data_services ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::request_distribution_includes_minimums_inside_the_envelope ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::resource_updates_never_allocate_service_local_disk ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::resource_updates_use_zero_surge_but_preserve_recreate_engines ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::session_always_requires_managed_object_storage ... ok
+test ops::sandboxes::sandbox_engine_selection_tests::unsupported_pvc_expansion_uses_data_preserving_migration ... ok
+test ops::sandboxes::sandbox_url_tests::app_aliases_are_normalized_and_get_stable_ingress_names ... ok
+test ops::sandboxes::sandbox_url_tests::app_aliases_reject_wildcards_ips_and_invalid_labels ... ok
+test ops::sandboxes::sandbox_url_tests::asset_uses_project_local_profile_sdk_endpoints ... ok
+test ops::sandboxes::sandbox_url_tests::cdn_host_follows_the_project_domain ... ok
+test ops::sandboxes::sandbox_url_tests::chat_alias_resolves_to_the_catalog_service_with_dependencies ... ok
+test ops::sandboxes::sandbox_url_tests::chat_automatically_includes_knowledge_before_chat ... ok
+test ops::sandboxes::sandbox_url_tests::chat_cors_includes_custom_app_and_service_origins ... ok
+test ops::sandboxes::sandbox_url_tests::chat_uses_project_local_profile_knowledge_and_session_peers ... ok
+test ops::sandboxes::sandbox_url_tests::core_service_auth_patch_uses_secret_ref_without_embedding_the_token ... ok
+test ops::sandboxes::sandbox_url_tests::core_service_auth_secret_is_opaque_and_contains_only_the_requested_key ... ok
+test ops::sandboxes::sandbox_url_tests::crm_uses_project_local_profile_endpoints_for_history_enrichment ... ok
+test ops::sandboxes::sandbox_url_tests::core_service_auth_wiring_requires_the_exact_secret_reference ... ok
+test ops::sandboxes::sandbox_url_tests::data_lifecycle_accepts_only_named_project_engines ... ok
+test ops::sandboxes::sandbox_url_tests::does_not_corrupt_sandbox_base_domain ... ok
+test ops::sandboxes::sandbox_url_tests::drm_uses_managed_agentic_credentials_without_livekit ... ok
+test ops::sandboxes::sandbox_url_tests::domain_change_preserves_custom_mcp_paths_and_backends ... ok
+test ops::sandboxes::sandbox_url_tests::drm_uses_project_local_chat_and_knowledge_peers ... ok
+test ops::sandboxes::sandbox_url_tests::explicit_knowledge_is_not_duplicated ... ok
+test ops::sandboxes::sandbox_url_tests::flow_advertises_its_local_registry_without_publishing_endpoint_events ... ok
+test ops::sandboxes::sandbox_url_tests::linked_identity_uses_the_registered_product_acl_service ... ok
+test ops::sandboxes::sandbox_url_tests::lms_uses_managed_agentic_and_session_credentials ... ok
+test ops::sandboxes::sandbox_url_tests::knowledge_service_auth_uses_a_secret_reference ... ok
+test ops::sandboxes::sandbox_url_tests::lms_uses_project_local_profile_and_session_peers ... ok
+test ops::sandboxes::sandbox_url_tests::rewrites_idp_platform_host_to_sandbox_ingress ... ok
+test ops::sandboxes::sandbox_url_tests::ingress_uses_livekit_service_port_instead_of_host_network_target ... ok
+test ops::sandboxes::sandbox_url_tests::sandbox_activity_distinguishes_running_suspended_and_terminating ... ok
+test ops::sandboxes::sandbox_url_tests::sandbox_cors_keeps_app_and_local_development_origins ... ok
+test ops::sandboxes::sandbox_url_tests::sandbox_hosting_nodes_exclude_finished_jobs_and_unassigned_pods ... ok
+test ops::sandboxes::sandbox_url_tests::sandbox_list_query_normalizes_bounds_and_search ... ok
+test ops::sandboxes::sandbox_url_tests::sandbox_peer_urls_replace_stale_request_overrides ... ok
+test ops::sandboxes::sandbox_url_tests::sandbox_placement_requires_the_sandbox_role_exclusively ... ok
+test ops::sandboxes::sandbox_url_tests::sandbox_services_use_the_project_local_flow_registry ... ok
+test ops::sandboxes::sandbox_url_tests::service_host_ignores_managed_app_domain ... ok
+test ops::sandboxes::sandbox_url_tests::session_chat_and_messenger_use_private_sockudo_credentials ... ok
+test ops::sandboxes::sandbox_url_tests::session_includes_viewer_dependencies ... ok
+test ops::sandboxes::sandbox_url_tests::session_uses_managed_livekit_storage_and_agentic_credentials ... ok
+test ops::sandboxes::sandbox_url_tests::session_uses_project_local_profile_chat_and_asset_peers ... ok
+test ops::sandboxes::sandbox_url_tests::stalwart_jmap_payloads_configure_hostname_domain_and_dkim ... ok
+test ops::sandboxes::sandbox_url_tests::state_game_service_receives_managed_cors_origins ... ok
+test ops::sandboxes::sandbox_url_tests::task_reconciliation_prefers_an_explicit_owner_and_reasserts_platform_env ... ok
+test ops::sandboxes::sandbox_url_tests::task_reconciliation_recovers_the_existing_owner_when_request_env_is_omitted ... ok
+test ops::sandboxes::sandbox_url_tests::task_reconciliation_rejects_a_missing_or_invalid_owner_before_provisioning ... ok
+test ops::self_update::auth_tests::control_ingress_requires_admin_before_forward_auth ... ok
+test ops::self_update::auth_tests::explicit_local_opt_out_remains_available ... ok
+test ops::sandboxes::sandbox_url_tests::template_service_slugs_resolve_real_catalog_entries_and_never_silently_disappear ... ok
+test ops::self_update::auth_tests::production_auth_cannot_be_disabled_by_saved_settings ... ok
+test ops::workloads::forward_auth_service_key_tests::control_requires_the_admin_role_without_an_idp_permission ... ok
+test ops::workloads::apk_publisher_reconciliation_tests::version_reconciliation_retains_secret_reference_without_overriding_other_env ... ok
+test ops::workloads::forward_auth_service_key_tests::manage_uses_its_project_scoped_sso_instead_of_core_forward_auth ... ok
+test ops::workloads::forward_auth_service_key_tests::managed_security_headers_enable_hsts_and_nosniff ... ok
+test ops::workloads::forward_auth_service_key_tests::modules_catalog_name_uses_modules_acl_service ... ok
+test ops::workloads::forward_auth_service_key_tests::office_scopes_forwarded_permissions_to_its_own_service ... ok
+test ops::workloads::forward_auth_service_key_tests::only_authenticated_core_agentic_gets_a_public_worker_router ... ok
+test ops::workloads::forward_auth_service_key_tests::only_authenticated_core_panel_gets_a_public_apk_router ... ok
+test ops::workloads::forward_auth_service_key_tests::public_apk_router_bypasses_auth_for_only_the_tokenized_prefix ... ok
+test ops::workloads::http_port_update_tests::missing_probe_checks_selected_port_and_zero_is_rejected ... ok
+test ops::workloads::http_port_update_tests::user_port_updates_http_probes_without_changing_other_listeners_or_settings ... ok
+test ops::workloads::ingress_tls_tests::custom_domains_start_with_http_challenge ... ok
+test ops::workloads::ingress_tls_tests::managed_domains_keep_dns_challenge ... ok
+test ops::workloads::ingress_tls_tests::unrelated_custom_zones_never_use_platform_dns_credentials ... ok
+test ops::workloads::resource_override_redeployment_tests::full_redeployment_retains_session_resources_and_annotations ... ok
+test ops::workloads::resource_override_redeployment_tests::partial_override_preserves_unspecified_defaults ... ok
+test ops::workloads::runtime_env_tests::agentic_credential_key_is_secret_backed_in_the_pod_template ... ok
+test ops::workloads::runtime_env_tests::agentic_credential_secret_is_namespace_local ... ok
+test ops::workloads::runtime_env_tests::core_environment_updates_preserve_broker_secret_and_clear_replaced_sources ... ok
+test ops::workloads::runtime_env_tests::core_event_services_bind_to_production_rabbitmq ... ok
+test ops::workloads::runtime_env_tests::infrastructure_values_replace_duplicate_editable_values ... ok
+test ops::workloads::runtime_env_tests::messenger_sockudo_patch_uses_internal_url_and_secret_credentials ... ok
+test ops::workloads::runtime_env_tests::oidc_signing_key_is_secret_backed_in_the_pod_template ... ok
+test ops::workloads::runtime_env_tests::oidc_signing_secret_is_namespace_local ... ok
+test ops::workloads::runtime_env_tests::rejects_concatenated_broker_urls ... ok
+test types::sockudo_catalog_tests::livekit_egress_catalog_pins_the_release_container_tag ... ok
+test types::frontend_catalog_tests::frontend_services_have_distinct_canonical_hosts_and_deploy_specs ... ok
+test types::sockudo_catalog_tests::sockudo_catalog_pins_the_release_container_tag ... ok
+test types::gis_catalog_tests::postgis_is_a_distinct_postgres_compatible_catalog_engine ... ok
+test types::watch_path_tests::empty_watch_paths_always_builds ... ok
+test types::watch_path_tests::gitlab_webhook_exposes_checkout_commit_for_queued_builds ... ok
+test types::watch_path_tests::webhook_commit_falls_back_to_after_and_rejects_delete_marker ... ok
+test types::watch_path_tests::worker_watch_matches_worker_agent_change ... ok
+test types::watch_path_tests::worker_watch_skips_panel_only_push ... ok
+test ops::apk::tests::signing_rejects_missing_password_invalid_encoding_and_oversized_keystore ... ok
+test manifests::placement_tests::node_cleanup_prunes_images_on_healthy_disks_and_reports_runtime_failures ... ok
+test ops::infra::postgis_adoption_tests::adoption_recovers_secret_without_replacing_existing_pod_or_volume ... ok
+
+test result: ok. 199 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+   Doc-tests faiber_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

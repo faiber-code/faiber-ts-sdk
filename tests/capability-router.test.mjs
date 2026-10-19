@@ -60,3 +60,10 @@ test('nested root paths follow Axum semantics without erasing explicit trailing 
  const graph=mountedRouterOperations(files,{path:'src/router.rs',function:'app'});
  assert.deepEqual(graph.operations.map(op=>op.path),['/items','/other/']);
 });
+
+test('service main remains the entry when a nested migration crate sorts first',()=>{
+ const files=[sourceIndex('fn main() {}','example/migration/src/main.rs'),
+ sourceIndex('fn main() { let app=Router::new().route("/live",get(check)); } async fn check() {}','example/src/main.rs')];
+ const graph=mountedRouterOperations(files,{path:'src/main.rs',function:'main',variable:'app'});
+ assert.deepEqual(graph.operations.map(x=>x.path),['/live']);
+});

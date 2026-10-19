@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "kind": "failed_correctness_regression",
+  "status": "failed",
+  "observed_at": "2026-10-19T10:37:12Z",
+  "command": "cargo test --offline --workspace -- --include-ignored --test-threads=1",
+  "exit_code": 101,
+  "tests_executed": 6,
+  "duration_seconds": 6.101,
+  "source_revisions": {
+    "version": "88071d0dd49309e0c93aba6238516e95b57e1df5"
+  },
+  "source": {
+    "revision": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+    "working_tree_status": "M src/main.rs\n?? src/contract_tests.rs",
+    "checkout_sha256": "5c1d0977f914ef2f5b6c7b4e8759fdabfe2be5802cf09b768349d3c15d76ffcc"
+  },
+  "resolved_cargo_lock_sha256": "adfa7ef967ae50333efebb1edc1a634b55ddd4edc262756b7b1e198ae4745383",
+  "resolved_cargo_lock_artifact_path": "evidence/version-resolved-adfa7ef967ae50333efebb1edc1a634b55ddd4edc262756b7b1e198ae4745383.Cargo.lock",
+  "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+  "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+  "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+  "storage": "disposable_real_postgresql",
+  "artifact_path": "evidence/version-pre-repair-tests.log",
+  "artifact_sha256": "951bcf8a932005e67dcff01c210f1e078fb45dee1725dc2e1b06e5bbee927dcf",
+  "scope": "Version workspace tests, real PostgreSQL/RabbitMQ and mounted HTTP router: health, slug/UUID, enum/envelope, trusted publication, retry/concurrency and rollback. Gateway, deployed sandbox routing, SDK and Manage acceptance remain separate gates",
+  "tests_passed": 4,
+  "tests_failed": 2,
+  "interpretation": "One confirmed production defect: concurrent first publication returns 500. The second failure was a harness assumption: service index uses /api/v1/services without trailing slash; trailing slash falls through to SPA. No passing certification."
+}

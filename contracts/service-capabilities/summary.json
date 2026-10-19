@@ -42,7 +42,7 @@
       "working_route_candidates": 15,
       "resolved_handlers": 18,
       "reviewed_operations": 0,
-      "source_relationship": "same",
+      "source_relationship": "working_ahead_of_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
@@ -102,7 +102,7 @@
     },
     "profile": {
       "mounted_operations": 215,
-      "working_route_candidates": 138,
+      "working_route_candidates": 155,
       "resolved_handlers": 215,
       "reviewed_operations": 0,
       "source_relationship": "diverged",
@@ -159,7 +159,7 @@
       "working_route_candidates": 7,
       "resolved_handlers": 7,
       "reviewed_operations": 0,
-      "source_relationship": "same",
+      "source_relationship": "working_ahead_of_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },

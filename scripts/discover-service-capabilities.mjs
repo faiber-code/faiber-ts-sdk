@@ -4,6 +4,7 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, 
 import { dirname, join, relative, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
+import { embeddedSourceEvidence } from './embedded-source-evidence.mjs';
 import { sourceIndex, resolveSymbol, functionEvidence } from './capability-source.mjs';
 import { mountedRouterOperations } from './capability-router.mjs';
 import { serviceSources, archiveSourceRevision } from './service-source-snapshots.mjs';
@@ -34,13 +35,27 @@ function walk(directory) {
 }
 
 function sourceFiles(root, directory) {
-  return [...walk(join(root, 'src')), ...walk(join(root, 'entity/src')),
+  const paths = [...new Set([...walk(join(root, 'src')), ...walk(join(root, 'entity/src')),
+    ...walk(join(root,'auth')), ...walk(join(root,'auth_macro')),
     ...walk(join(root, 'crates/faiber-server/src')), ...walk(join(root, 'crates/faiber-core/src')),
     ...walk(join(root, 'domain/src')), ...walk(join(root, 'faiber-agent-core/src')),
-    ...walk(join(root,'migration')), ...['Cargo.toml','Cargo.lock','entity/Cargo.toml','migration/Cargo.toml'].map(path=>join(root,path)).filter(existsSync)].map(path => {
+    ...walk(join(root,'migration')), ...['Cargo.toml','Cargo.lock','build.rs','rust-toolchain.toml',
+      '.cargo/config.toml','entity/Cargo.toml','migration/Cargo.toml','auth/Cargo.toml','auth_macro/Cargo.toml',
+      'crates/faiber-core/Cargo.toml','crates/faiber-server/Cargo.toml'].map(path=>join(root,path)).filter(existsSync)])];
+  const files = paths.map(path => {
     const text = readFileSync(path, 'utf8'), index = sourceIndex(text, `${directory}/${relative(root, path)}`);
     return { ...index, checksum: hash(text) };
   });
+  const embedded = embeddedSourceEvidence(root, paths.filter(path=>path.endsWith('.rs')).map(path=>({path,text:readFileSync(path,'utf8')})));
+  for (const asset of embedded.assets) {
+    const path = join(root,asset.path);
+    if (paths.includes(path)) continue;
+    const bytes = readFileSync(path);
+    files.push({...sourceIndex(asset.path.endsWith('.rs')?bytes.toString('utf8'):'',`${directory}/${asset.path}`),
+      checksum:asset.checksum,embedded_by:`${directory}/${asset.embedded_by}`});
+  }
+  files.embedded_source_gaps = embedded.gaps;
+  return files;
 }
 
 function modelsFor(files, endpoint) {
@@ -167,9 +182,10 @@ for(const [service,entry] of Object.entries(universe.services)) {
     working_changes:git(root,'status','--short','--','src','entity','migration','crates').split('\n').filter(Boolean),
     source_relationship:relationship,
     source_tree_checksum:treeChecksum,
-    source_files:files.map(({path,checksum})=>({path,checksum})),
+    source_files:files.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),
+    embedded_source_gaps:{canonical:files.embedded_source_gaps,working:currentFiles.embedded_source_gaps},
     working_source_tree_checksum:hash(JSON.stringify(currentFiles.map(({path,checksum})=>({path,checksum})))),
-    working_source_files:currentFiles.map(({path,checksum})=>({path,checksum})),
+    working_source_files:currentFiles.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),
     operations:endpoints.map(endpoint=>operationEvidence(files,endpoint,reviews[`${endpoint.method} ${endpoint.path}`],treeChecksum)),
     sdk_contract_drift:{missing:[...old.keys()].filter(k=>!sdk.has(k)),extra:[...sdk.keys()].filter(k=>!old.has(k)),changed:[...old.keys()].filter(k=>sdk.has(k)&&JSON.stringify(old.get(k))!==JSON.stringify(sdk.get(k)))},
     router_reconciliation:mounted?{unresolved:mounted.unresolved,duplicates:mounted.duplicates,
