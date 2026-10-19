@@ -1607,5 +1607,2876 @@
       ],
       "meaning": "Private Martin and restricted security-definer tile function must honor dataset/tenant/revision boundaries. This does not certify renderer ACL or current live identity."
     }
+  },
+  "GET /api/v1/maps": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "9326f3574fcfcec399953b16682db502718a12b2467facf3c3af759bb3a7f55b",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "List accessible map records.",
+      "fa": "فهرست نقشه‌های قابل دسترسی."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "No body. Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "List has no operative query filters/pagination/cap; ordered name. Detail path UUID."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; unauthorized/missing dataset404."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
+    }
+  },
+  "POST /api/v1/maps": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "41c29b2362e1c06ade09626a980f07648e71f27e0cee86f5c079e48d135ddb39",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Create a draft map over an authorized dataset.",
+      "fa": "ایجاد نقشهٔ پیش‌نویس برای مجموعه‌دادهٔ مجاز."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "slug lowercase ASCII letters/digits/hyphen1..80bytes, nonblank name<=200bytes, dataset_id UUID, finite center/bounds, longitude±180 latitude±85, ordered enclosing bounds, zoom0..20. Response Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "No caller owner/status/revision accepted by Input."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Dataset write access, map insert and map.create audit/outbox transaction; schema unique(organization_id,slug), default draft/revision1. Duplicate DB error must be verified."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
+    }
+  },
+  "GET /api/v1/maps/{id}": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "e5f426c1264d62fa3f48e8b19c348359806c0d151c34972d7515dc837833a3b9",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read an accessible map record.",
+      "fa": "خواندن نقشهٔ قابل دسترسی."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "No body. Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path map UUID; no query filters."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; unauthorized/missing dataset404."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
+    }
+  },
+  "PATCH /api/v1/maps/{id}": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "75db6da1112f64ac99dc00dbaa77a2ad1ee6088bce30a8457841e11bbe1f377c",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Edit a map using its current revision.",
+      "fa": "ویرایش نقشه با نسخهٔ جاری."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "slug lowercase ASCII letters/digits/hyphen1..80bytes, nonblank name<=200bytes, dataset_id UUID, finite center/bounds, longitude±180 latitude±85, ordered enclosing bounds, zoom0..20. Plus expected_revision:i64 and reason trimmed>=3/untrimmed<=1000bytes. Response Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path UUID; dataset_id must equal existing dataset, no transfer."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Atomic revision-conditional update increment+audit/outbox; stale revision409. Does not change publication status."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
+    }
+  },
+  "GET /api/v1/maps/{id}/style": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "0151289c2c0cd070e679709ebfe4cf7a6e46317060207e4b983bd01c912f618e",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read a private map preview style.",
+      "fa": "خواندن سبک پیش‌نمایش خصوصی نقشه."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Raw MapLibre style JSON, no data envelope. Theme exactly light selects daylight, all other/missing selects dark. Rewrites tile source to configured public_url and current dataset revision; includes attribution/center/zoom."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Private UUID or public slug; optional theme:string only."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read authorization rechecked; returned tile URLs separately reauthorize current dataset on each tile, query revision does not override current source revision."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route. Private source uses /datasets/{id}/tiles; public uses /public/datasets/{id}/tiles; no raw caller URL."
+    }
+  },
+  "PUT /api/v1/maps/{id}/publish": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "cf3088414d6e55c79df793fc27fa3c38d1704f4bf3f9e325f699d913f7460130",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Change map publication status with a reason.",
+      "fa": "تغییر وضعیت انتشار نقشه همراه دلیل."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Body {status:draft|published|archived,expected_revision:i64,reason:string(trimmed>=3,bytes<=1000)}. Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "No dataset mutation."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Atomic conditional revision increment+map.publication history/outbox, stale409. Can publish while dataset private but that remains unreadable publicly."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
+    }
+  },
+  "GET /api/v1/public/maps": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "81edd9b4c164121b5ef98c6f844ddb2c19ef02bf4701b6f61c18dfdbbf155470",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "List published maps for public delivery.",
+      "fa": "فهرست نقشه‌های منتشرشدهٔ عمومی."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "{data:map rows[]}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Ordered map name, hard LIMIT100; no cursor, offset, filter parameters."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; requires both publication boundaries at query time."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
+    }
+  },
+  "GET /api/v1/public/maps/{slug}": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "48006e85c561439f83e6c994affd43e88628ef1d1d8a2939de302ffaa3aa17b3",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read a published public map by slug.",
+      "fa": "خواندن نقشهٔ عمومی با نامک."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map row: id/organization_id/dataset_id UUID, slug,name,center[longitude,latitude],zoom,bounds[west,south,east,north], status draft|published|archived, style_family,revision. {data:row}, no generic status/message envelope."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "slug string; matching deployment organization preferred over global dataset fallback, LIMIT1."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; no published match404; slug overlap across organizations can resolve preferred local map."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
+    }
+  },
+  "GET /api/v1/public/maps/{slug}/style": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "9ecaf8bb0469ce3a1c9dad5ab57d0b24642a40fdcdcad2e58d1afc1f7965c8d1",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read the style of a published public map.",
+      "fa": "خواندن سبک نقشهٔ عمومی منتشرشده."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Raw MapLibre style JSON, no data envelope. Theme exactly light selects daylight, all other/missing selects dark. Rewrites tile source to configured public_url and current dataset revision; includes attribution/center/zoom."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Private UUID or public slug; optional theme:string only."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read authorization rechecked; returned tile URLs separately reauthorize current dataset on each tile, query revision does not override current source revision."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route. Private source uses /datasets/{id}/tiles; public uses /public/datasets/{id}/tiles; no raw caller URL."
+    }
+  },
+  "GET /api/v1/public/maps/{slug}/geojson": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "528a7ccbb11d158ea3d815c540c2760800175c552f71e3f44a33a07002f9204a",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read bounded geometry for a public map.",
+      "fa": "خواندن هندسهٔ محدود نقشهٔ عمومی."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Anonymous handler. /api/v1/public/* bypasses cookie validation; map and dataset publication are checked at read time."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Raw GeoJSON FeatureCollection, no data envelope."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path slug; fixed internal limit5000 and no bbox; caller query not extracted."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current public map resolution then shared GeoJSON reader rechecks dataset public access; at most5000, not full dataset export."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Map retains dataset authorization boundary; public delivery needs map published plus dataset published/public and deployment organization or global scope. GIS audit transaction writes history and outbox. No ownership reassignment route."
+    }
+  },
+  "GET /api/v1/imports": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "a973c38173b4a1d2b888ace6e0b921763b3676b590518cb81295983cb65f1972",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "List visible persistent import jobs.",
+      "fa": "فهرست کارهای پایدار ورود داده."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "{data:job rows[]} id,organization_id,owner_id,dataset_id,bounds,state,error,imported_count,attempts,created_at,updated_at."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same organization and owner or gis:dataset:manage; newest-first LIMIT100; no paging/query."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; states queued|running|complete|failed|cancelled in schema, no public cancellation endpoint."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Persistent gis_import_jobs references newly created gis_datasets; worker uses configured Overpass only (65s,24MiB), optional enabled OSM tiny-area fallback<=.001deg². Converts valid nodes/ways to preserved OSM IDs, batches500 audited feature upserts and creates draft area-job map. No social/Profile identity inference."
+    }
+  },
+  "POST /api/v1/imports": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "5db7658a35c2980b8996003bcb2849af5373da164cb741c4eb7bcbf5a8310d30",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Queue a bounded OpenStreetMap area import.",
+      "fa": "قرار دادن ورود محدودهٔ محدود اوپن‌استریت‌مپ در صف."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Body name:string,scope:user|organization|global,bounds:[west,south,east,north], finite ordered longitude±180 latitude±85, area<=.04deg². Dataset create checks native scope permissions/name. {data:{id,dataset_id,state:queued}}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Concurrent queued/running count per ownerUUID across organizations>=2 returns429 import_limit; count/insert not atomic."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Dataset then job inserted separately, not one transaction. Worker claims with SKIP LOCKED, requeues running older5min; no lease token/heartbeat/fenced completion. Partial batch writes persist after failure. Worker synthesizes dataset/global manage permissions instead of refreshing current owner grants: release-blocking authorization gap."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Persistent gis_import_jobs references newly created gis_datasets; worker uses configured Overpass only (65s,24MiB), optional enabled OSM tiny-area fallback<=.001deg². Converts valid nodes/ways to preserved OSM IDs, batches500 audited feature upserts and creates draft area-job map. No social/Profile identity inference."
+    }
+  },
+  "POST /api/v1/imports/{id}/retry": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "9b6820c260ce02c3d075fb4545471960fd4834c9f0df8f5a5846ce50ca0f89a7",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Retry an owned failed import job.",
+      "fa": "تلاش مجدد برای ورود ناموفق متعلق به کاربر."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path job UUID, no JSON body; {data:{id,state:queued}}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Exact organization+owner+failed state; even dataset manager cannot retry another owner job. Dataset write access rechecked."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Sets queued,error null,updated_at; reuses persistent job and dataset. No active-job limit check here and no conditional state on final UPDATE after initial read; concurrency needs real tests."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Persistent gis_import_jobs references newly created gis_datasets; worker uses configured Overpass only (65s,24MiB), optional enabled OSM tiny-area fallback<=.001deg². Converts valid nodes/ways to preserved OSM IDs, batches500 audited feature upserts and creates draft area-job map. No social/Profile identity inference."
+    }
+  },
+  "GET /api/v1/places": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "b13d22e0c482467a0aec4dce77d993b7772587bf20a2b4afc15fee9600a662ed",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Search public places in the deployment tenant.",
+      "fa": "جست‌وجوی مکان‌های عمومی در قلمرو استقرار."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "{data:place projections[]}. Place projection includes UUID id,slug,translated name/description/address JSON,category,tags,district nullable,latitude/longitude,media,sources,opening_info nullable,contact,verification,status,canonical_id nullable,created_at; omits creator/tenant/updated_at."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "q normalized Persian/Arabic letters,digits,whitespace and literal wildcard escaping; category exact except all ignored; bbox comma west,south,east,north ordered±180/±90. Paired lat/lon enables distance, finite radius default5000 clamped50..50000m; unpaired lat/lon ignored. limit:u64 default100 clamped1..100; no offset."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Only published|closed|moved; proximity orders geography distance, otherwise created_at,id."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "POST /api/v1/places": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "8c855b6822b3ff828e3a052f246eadf41156c929eafc2433eb0961b721f1d88a",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Submit a place proposal for moderation.",
+      "fa": "ارسال پیشنهاد مکان برای بررسی."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Body name:string(trimmed chars>=2,untrimmed chars<=160),description?:string<=12000bytes,category:cafe|food|historic|nature|market|culture|faith|shop|venue|hotel|street|neighborhood|facility,latitude/longitude finite±90/±180,address?:string. {data:{id,status:pending}}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "No user/tenant/status selectors. Address has no explicit application length cap."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Creates proposal-UUID slug, creator=currentactor, pending/unverified, name/description/address stored under fa only. No proposal audit/outbox insert in handler."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "GET /api/v1/places/{id}": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "8dd61896b59a33dfab527be3f84fb2090c5661c234a38af193ef2b0eaf627641",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Resolve a visible place by UUID or slug.",
+      "fa": "خواندن مکان قابل مشاهده با شناسه یا نامک."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "{data:place}. Place projection includes UUID id,slug,translated name/description/address JSON,category,tags,district nullable,latitude/longitude,media,sources,opening_info nullable,contact,verification,status,canonical_id nullable,created_at; omits creator/tenant/updated_at."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path string matches slug OR UUID text, no deterministic ordering for potential namespace collision."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Visible published|closed|moved|merged; one canonical_id hop must resolve visible published|closed|moved target else404. Not permanent HTTP redirect."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "PUT /api/v1/places/{id}/save": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "bfc5df8f3d8b381ab136040b916ba49f489c70ab0bc75bc90a2545a46d5db96f",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Save a visible place for the current user.",
+      "fa": "ذخیرهٔ مکان قابل مشاهده برای کاربر جاری."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path UUID; no body. {saved:true,changed:boolean}, no data envelope."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same tenant, target published|closed|moved only."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Idempotent insert ON CONFLICT DO NOTHING; absent target404; no current identity claim from input."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "DELETE /api/v1/places/{id}/save": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "8a9912e58831ace2c0e805c812781dfe3d56ef4d4f0f2735f6fb86ef798bf89f",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Remove a saved place for the current user.",
+      "fa": "حذف مکان از ذخیره‌های کاربر جاری."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path UUID; no body. {saved:false}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same tenant/currentuser/place only."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Idempotent delete; no target existence requirement, no changed count."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "POST /api/v1/places/{id}/reports": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "b7382855cf597157aaa087ce76e5aec8cc576a47ac186f9b1800ddb7f64e715d",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Report a place for moderator review.",
+      "fa": "گزارش مکان برای بررسی ناظر."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Body reason:closed|wrong_location|wrong_phone|duplicate|category|correction|abuse,details?:string<=6000bytes. {data:{id,status:pending}}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path UUID; insert SELECT any same-tenant place including nonpublic, no public-state check."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "No target404; inserts pending report, no dedup/rate limit/audit/outbox here."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "POST /api/v1/places/{id}/assertion": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "b60782bfdb56201ce753f3be8d38187bd2c5641b12e47a27ad6bed98276fecfc",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Issue a short-lived Social subject assertion for a place.",
+      "fa": "صدور گواهی کوتاه‌عمر مکان برای شبکهٔ اجتماعی."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "No body. {subject_type:place,subject_ref:UUID,assertion:{issuer:infera-places,token:string}}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Target same-tenant published only. No ownership/creation requirement."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Missing PLACES_ASSERTION_KEY503. HS256 default JWT iss=infera-places,aud=infera-social,sub/placeUUID,jti,exp=now+120s,organization_id,owner_user_id=currentactor,resource_type=place,resource_ref,public_snapshot(id/name/slug). No one-time consume at issuer."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion. Social verifier/audience/key/expiry/current revocation behavior remains cross-service gate; do not treat caller as place owner from assertion label."
+    }
+  },
+  "GET /api/v1/me/saves": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "28486d374be470e335a9607983e3c82549907cd0fcfefc514f8bd9996337ba7b",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read the current user’s saved visible places.",
+      "fa": "خواندن مکان‌های ذخیره‌شدهٔ قابل مشاهدهٔ کاربر جاری."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "{data:place projections[]}. Place projection includes UUID id,slug,translated name/description/address JSON,category,tags,district nullable,latitude/longitude,media,sources,opening_info nullable,contact,verification,status,canonical_id nullable,created_at; omits creator/tenant/updated_at."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same tenant/user saves and place state published|closed|moved, ordered name JSON text; no limit/paging."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; hidden places omitted, saved relationship may remain."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "GET /api/v1/me/contributions": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "61c3abea234744c80ad62c1bbf2fa73675a9f3d38852fb54e8fedd55f4e0e3d9",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read places proposed by the current user.",
+      "fa": "خواندن مکان‌های پیشنهادشده توسط کاربر جاری."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "{data:place projections[]}. Place projection includes UUID id,slug,translated name/description/address JSON,category,tags,district nullable,latitude/longitude,media,sources,opening_info nullable,contact,verification,status,canonical_id nullable,created_at; omits creator/tenant/updated_at."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same tenant+creator=currentactor, all statuses newest first, no limit/paging."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; includes pending/rejected own submissions."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "GET /api/v1/internal/outbox": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "9589c2ade027747aada61cc42b3a8242e88af47737b73ad34e4d12ed2da8fdbd",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read pending place integration events.",
+      "fa": "خواندن رویدادهای منتظر ارسال برای یکپارچه‌سازی مکان‌ها."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Exact comma element places:integrations:read required; no wildcard match or whitespace trimming in worker predicate."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "{data:outbox rows[]} id,tenant,event,payload,created_at,delivered_at(nullable)."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Fixedtenant delivered_at NULL oldest-first LIMIT50, no cursor or claim parameters."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; no lease/claim/retry/backoff or exclusive consumer state. At-least-once polling requires downstream dedup; events currently moderation only."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "PUT /api/v1/internal/outbox/{id}/ack": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "eba538bbcb9953dc1f45cef0478a1338f1ed1062b36fc1703d645e8066d2266b",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Acknowledge a place integration event.",
+      "fa": "تأیید دریافت رویداد یکپارچه‌سازی مکان."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Exact comma element places:integrations:read required; no wildcard match or whitespace trimming in worker predicate."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path event UUID; no body; {ok:true}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same tenant/event only."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Sets delivered_at now even if already acknowledged, no rows-affected check; unknown event also success. No consumer-scoped delivery state or token fence."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "GET /api/v1/places/{id}/references": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "e461b978a18c893d700add6334471d9b4bb474742f66eee16d9b69164d6c3a51",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read public canonical place references.",
+      "fa": "خواندن ارجاع‌های عمومی مکان اصلی."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Anonymous handler, fixed deployment tenant. Unlike /public/*, a supplied cookie still invokes global IDP validation: transport outage can return503. No caller-selected tenant."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path UUID; {data:UUID[]} not full place rows."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same tenant rows id=target OR canonical_id=target, state published|closed|moved|merged. No paging."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; returns [] for absent/hidden target, no target existence check."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "GET /api/v1/moderation/{id}/history": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "e4f8e52d1af082cc9e2979c293f100eeb80868eaad1a2d1949141b71b2fe3f12",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read moderation history for a place.",
+      "fa": "خواندن تاریخچهٔ بررسی مکان."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path UUID; {data:history rows[]} id,tenant,place_id,actor,action,reason,previous JSON nullable,created_at."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same tenant/place, newest first, no pagination/cap."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only; unknown target [] not404; history previous snapshots contain internal fields."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "POST /api/v1/moderation/reports/{id}": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "91cde6646c3ad5c3eae3e0863abd1a1df53eca34e8dfa6e80bdb95f1439ec56e",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Resolve a place report with a moderation reason.",
+      "fa": "بستن گزارش مکان با دلیل ناظر."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Body reuses Report {reason:string(trimmed>=3),details?:string ignored}; {ok:true}. No enumerated reason or length cap in this handler."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Same tenant/reportUUID."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Sets resolved,resolution,resolved_by, resolved_at; no rows-affected/existence or pending check, so unknown/already-resolved also success. No history/outbox. Must not invent stricter completion semantics."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "GET /api/v1/moderation": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "c7c3bf020814fdc19bcc855803507176ea1c85f6d26f2fe2a7dfb7c10cf1fb01",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Read pending proposals and place reports.",
+      "fa": "خواندن پیشنهادها و گزارش‌های منتظر بررسی."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "{data:{proposals:place projections[],reports:raw report rows[]}}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Fixed tenant, status pending only; no pagination/order cap."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Read only. Reports include actor/details; disclosure limited to current native moderation permission."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
+  },
+  "POST /api/v1/moderation/{id}": {
+    "status": "source_reviewed_runtime_pending",
+    "source_checksum": "134b11300a61f17a0db0583c237ad37bdf4f2fe1d82665fe03941e830f075708",
+    "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "meaning": {
+      "en": "Moderate and optionally correct or merge a place.",
+      "fa": "بررسی و اصلاح اختیاری یا ادغام مکان."
+    },
+    "scope": "Native deployment tenant, current actor or explicitly public projection; no invented project/role ownership.",
+    "classification": "manually_reviewed_native_operation",
+    "test_evidence": [],
+    "source_review_artifact": "evidence/gis-maps-imports-places-source-review-v1.json",
+    "remaining_gates": [
+      "Actual full-router/PostGIS/IDP current permission and mutation tests",
+      "Concrete SDK and readable localized Manage workflows",
+      "Canonical/deployed Rasht branch and social assertion/outbox lifecycle reconciliation",
+      "Import current-owner authorization, lease fencing and partial-write correctness"
+    ],
+    "permissions": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Current actor via trusted BFF bearer and exact configured organization plus UUID, or global current cookie validation which injects BFF credentials. End-user Bearer/forged headers stripped. No separate feature permission. Also comma-separated permission must match places:moderate, places:place:moderate, places:*, gis:place:manage, gis:* or *."
+    },
+    "inputs_outputs": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Body status:published|rejected|closed|moved|merged,reason trimmed>=3/untrimmed<=2000bytes,canonical_id?:UUID only merged and required then,changes?:object<=20000serializedbytes. Allowed changes name/description/address/opening_info/contact object|null; category knownenum string, paired latitude/longitude finite. {ok:true}."
+    },
+    "filters": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Path UUID; locks same-tenant row; merge target must be distinct same-tenant published. No expected_revision or transition matrix."
+    },
+    "lifecycle": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "One transaction: optional field changes, canonical merge remaps aliases/transfers saves, status update, previous-state history and place.updated outbox. Verification field unchanged. Published target can later be re-moderated; concurrency/deadlock cases require tests."
+    },
+    "relationships": {
+      "status": "source_reviewed_runtime_pending",
+      "source_refs": [
+        "Service/infera-gis/src/auth.rs",
+        "Service/infera-gis/src/router.rs",
+        "Service/infera-gis/src/maps/routes.rs",
+        "Service/infera-gis/src/imports/mod.rs",
+        "Service/infera-gis/src/places.rs",
+        "Service/infera-gis/src/geometry/methods.rs",
+        "Service/infera-gis/src/geometry/routes.rs",
+        "Service/infera-gis/src/geometry/models.rs",
+        "Service/infera-gis/src/error.rs",
+        "Service/infera-gis/migration/schema.sql"
+      ],
+      "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion."
+    }
   }
 }
