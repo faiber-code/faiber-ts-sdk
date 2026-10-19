@@ -45,8 +45,8 @@ def sdk_state():
 
 def main():
     import shutil
-    if shutil.disk_usage(SDK).free < 1.25*1024**3:
-        raise RuntimeError('Less than 1.25 GiB free; no cleanup authorized')
+    if shutil.disk_usage(SDK).free < 3*1024**3:
+        raise RuntimeError('Less than 3 GiB free; no cleanup authorized')
     source = source_state(REPO)
     sdk_before = sdk_state()
     control = SDK.parent / 'Service/infera-control'
@@ -93,7 +93,7 @@ def main():
         with TemporaryFile(mode='w+') as captured:
             process = subprocess.Popen(COMMAND, cwd=REPO, env=env, stdout=captured, stderr=subprocess.STDOUT, start_new_session=True)
             while process.poll() is None:
-                stop = shutil.disk_usage(REPO).free < 1024**3 or time.monotonic()-started > 900
+                stop = shutil.disk_usage(REPO).free < 2*1024**3 or time.monotonic()-started > 900
                 if stop:
                     os.killpg(process.pid,signal.SIGTERM)
                     try:process.wait(timeout=10)

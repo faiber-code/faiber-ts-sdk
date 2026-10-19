@@ -22,7 +22,7 @@ def sdk_state():
 
 def main():
  assert not run(['git','status','--porcelain']),'Service must be a clean explicit commit'
- assert shutil.disk_usage(REPO).free>1.25*1024**3,'Need1.25GiB free before owned build; no cache cleanup authorized'
+ assert shutil.disk_usage(REPO).free>3*1024**3,'Need3GiB free before owned build; no cache cleanup authorized'
  lock=(REPO/'Cargo.lock').read_bytes();revision=run(['git','rev-parse','HEAD'])
  host=next(x.split(': ',1)[1]for x in run(['rustc','-vV']).splitlines()if x.startswith('host: '))
  meta=json.loads(run(['cargo','metadata','--locked','--offline','--format-version=1','--filter-platform',host]));before=dependencies(meta['packages']);sdk_before=sdk_state()
@@ -53,7 +53,7 @@ def main():
   with log.open('w')as stream:
    process=subprocess.Popen(args,cwd=REPO,env=env,stdout=stream,stderr=subprocess.STDOUT,start_new_session=True)
    while process.poll()is None:
-    if shutil.disk_usage(REPO).free<1024**3:reason='Stopped owned process group below1GiB free; no cache deletion'
+    if shutil.disk_usage(REPO).free<2*1024**3:reason='Stopped owned process group below2GiB free; no cache deletion'
     elif time.monotonic()-started>900:reason='Stopped owned process group after900seconds'
     if reason:
      os.killpg(process.pid,signal.SIGTERM)
