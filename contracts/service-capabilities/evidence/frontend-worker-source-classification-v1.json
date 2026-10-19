@@ -1,0 +1,59 @@
+{
+  "status": "source-classification-only-not-proxy-worker-runtime-certification",
+  "source_files_sha256": {
+    "infera-agentic/Dockerfile.worker": "d19d018389ac1e45d12b45bc663477c57855fa523d8158b9717d6baa18c566a4",
+    "infera-agentic/worker_agent/Cargo.toml": "3809eb0c71fff3b2f02011568f6534fcb7b221c01c1fbac73b286f9dff08c420",
+    "infera-agentic/worker_agent/src/main.rs": "bee45cfefed3b0f02dec230cd9951731c50e6f804aae9d57dcb6269fb1bafdd2",
+    "infera-panel/Dockerfile": "b6a463c6b6c4e91a8ea99a07e0d38cbdaf0c364af720d0c8660c41c137f975e0",
+    "infera-panel/nginx.conf": "4533c2554d2d9cd31b9983d7f38b8d8a8893f7333d925851cceccf433623a1ff",
+    "infera-website/Dockerfile": "0e6f55892461298fbc60ba2ceec8dd1a2f64a6608225535c390b606d6405487c",
+    "infera-website/nginx.conf": "60fdffbf7f3d4663e518b05a741a2a31a9d81e2e5a9ad385cd9d8fc7f61f1ac6"
+  },
+  "classification": {
+    "panel": {
+      "directory": "infera-panel",
+      "classification": "frontend_proxy",
+      "service_owner": "agentic",
+      "source_refs": [
+        "infera-panel/Dockerfile",
+        "infera-panel/nginx.conf"
+      ],
+      "review_status": "source_reviewed",
+      "reason": "Static Vite/React frontend served by Nginx. /api/ and /admin/ proxy to Agentic; /health is static Nginx health, not Agentic readiness. Proxy auth/request and UI compatibility remain separate gates, no duplicate business service/package."
+    },
+    "website": {
+      "directory": "infera-website",
+      "classification": "frontend_proxy",
+      "service_owner": "agentic",
+      "source_refs": [
+        "infera-website/Dockerfile",
+        "infera-website/nginx.conf"
+      ],
+      "review_status": "source_reviewed",
+      "reason": "Prerendered marketing website served by Nginx. Explicit plans/currency/app-release/play APIs proxy to Agentic after identity header stripping; dashboard/admin/login redirect to panel. Static /health is process health. Separate UI and proxy tests remain required."
+    },
+    "worker": {
+      "directory": "infera-agentic/worker_agent",
+      "classification": "execution_worker",
+      "service_owner": "agentic",
+      "source_refs": [
+        "infera-agentic/Dockerfile.worker",
+        "infera-agentic/worker_agent/Cargo.toml",
+        "infera-agentic/worker_agent/src/main.rs"
+      ],
+      "review_status": "source_reviewed",
+      "reason": "Agentic workspace infera_worker binary, outbound registration/heartbeat/job long-poll/progress/leases. Pairing/execution/billing API authority is Agentic. LAN port8765 diagnostic responds with worker name, not project administration or instruction/memory authority; no duplicate business package."
+    },
+    "android-app": {
+      "classification": "external_diagnostic",
+      "service_owner": "control",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json"
+      ],
+      "review_status": "source_reviewed",
+      "reason": "Observed deployment is external traefik/whoami:latest with no Infera catalog source; diagnostic placeholder, not evidence of a completed Android application or another business SDK. Keep explicitly classified; image provenance/release ownership remain unverified."
+    }
+  },
+  "limits": "Inspected current checkout source; hashes bind reviewed bytes. Does not certify deployed images match these files or frontend/worker business workflows. Catalog aliases with no source URL remain unresolved.",
+  "inventory_sha256": "e47a42cbab37a9f07ca2dbd222bf5f0f0c20d9d97d08ae827c0df51d0ac02c98"
+}

@@ -281,6 +281,49 @@
       "state_service": "state",
       "source": "faiber-ts-sdk/packages/game/README.md",
       "reason": "Game is a client engine/runtime with State replication bindings, not a missing standalone infera-game HTTP service."
+    },
+    "panel": {
+      "directory": "infera-panel",
+      "classification": "frontend_proxy",
+      "service_owner": "agentic",
+      "source_refs": [
+        "infera-panel/Dockerfile",
+        "infera-panel/nginx.conf"
+      ],
+      "review_status": "source_reviewed",
+      "reason": "Static Vite/React frontend served by Nginx. /api/ and /admin/ proxy to Agentic; /health is static Nginx health, not Agentic readiness. Proxy auth/request and UI compatibility remain separate gates, no duplicate business service/package."
+    },
+    "website": {
+      "directory": "infera-website",
+      "classification": "frontend_proxy",
+      "service_owner": "agentic",
+      "source_refs": [
+        "infera-website/Dockerfile",
+        "infera-website/nginx.conf"
+      ],
+      "review_status": "source_reviewed",
+      "reason": "Prerendered marketing website served by Nginx. Explicit plans/currency/app-release/play APIs proxy to Agentic after identity header stripping; dashboard/admin/login redirect to panel. Static /health is process health. Separate UI and proxy tests remain required."
+    },
+    "worker": {
+      "directory": "infera-agentic/worker_agent",
+      "classification": "execution_worker",
+      "service_owner": "agentic",
+      "source_refs": [
+        "infera-agentic/Dockerfile.worker",
+        "infera-agentic/worker_agent/Cargo.toml",
+        "infera-agentic/worker_agent/src/main.rs"
+      ],
+      "review_status": "source_reviewed",
+      "reason": "Agentic workspace infera_worker binary, outbound registration/heartbeat/job long-poll/progress/leases. Pairing/execution/billing API authority is Agentic. LAN port8765 diagnostic responds with worker name, not project administration or instruction/memory authority; no duplicate business package."
+    },
+    "android-app": {
+      "classification": "external_diagnostic",
+      "service_owner": "control",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json"
+      ],
+      "review_status": "source_reviewed",
+      "reason": "Observed deployment is external traefik/whoami:latest with no Infera catalog source; diagnostic placeholder, not evidence of a completed Android application or another business SDK. Keep explicitly classified; image provenance/release ownership remain unverified."
     }
   },
   "excluded_directories": {
@@ -308,5 +351,10 @@
       "classification": "worktree",
       "canonical": "Service/infera-manage"
     }
+  },
+  "runtime_inventory": {
+    "artifact_path": "evidence/active-runtime-catalog-deployments-v1.json",
+    "sha256": "e47a42cbab37a9f07ca2dbd222bf5f0f0c20d9d97d08ae827c0df51d0ac02c98",
+    "meaning": "Read-only serving Control catalog and all-namespace deployment inventory. Names require explicit business-service or source-backed runtime ownership classification; this alone does not certify any capability."
   }
 }

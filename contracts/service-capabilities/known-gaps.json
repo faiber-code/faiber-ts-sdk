@@ -721,6 +721,16 @@
         "infera-agentic/Dockerfile.worker",
         "evidence/active-runtime-universe-review-v1.json"
       ]
+    },
+    {
+      "id": "catalog-release-alias-source-reconciliation",
+      "owner": "discovery",
+      "required": true,
+      "status": "unresolved_runtime_aliases",
+      "meaning": "Fresh serving catalog includes six fit8 release aliases. Explicitly reconcile each alias to its canonical service/source and deployed behavior; Profile/Chat alias records omit repository URLs. Names and image tags alone do not certify branch compatibility. Preserve unrelated release/catalog state.",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json"
+      ]
     }
   ]
 }

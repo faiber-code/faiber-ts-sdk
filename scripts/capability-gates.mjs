@@ -1,3 +1,4 @@
+import {reconcileRuntimeInventory} from './runtime-inventory.mjs';
 /** Evaluate evidence-backed completion. Counts and generated declarations cannot pass these gates. */
 import { readFileSync, realpathSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -30,9 +31,9 @@ export function verifyRunArtifacts(runs, evidenceRoot) {
   }));
 }
 
-export function evaluateCapabilityGate(universe, services, relationships = [], verificationRuns = {}, gaps = [], { stage = 'complete' } = {}) {
+export function evaluateCapabilityGate(universe, services, relationships = [], verificationRuns = {}, gaps = [], { stage = 'complete', runtimeInventory = null } = {}) {
   if (!['discovery', 'sdk', 'manage', 'complete'].includes(stage)) throw new Error(`Unknown capability gate stage: ${stage}`);
-  const failures = [];
+  const failures = universe.runtime_inventory ? reconcileRuntimeInventory(universe,runtimeInventory) : [];
   const downstreamGaps = [];
   const requireEvidence = (ids, context, requiredSource) => {
     if (!Array.isArray(ids) || !ids.length) { failures.push(`${context}: missing verification evidence`); return; }
