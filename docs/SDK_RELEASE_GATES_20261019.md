@@ -41,17 +41,19 @@ subsequent generic runner output no longer invalidates that historical record.
 
 ## Combined verification and open release gates
 
-At `93cd663f14fb846157e6c545d5f09914b3fa96e3`, combined run
-`mounted-http-profile-state-crm-v6` passed build, 124 SDK tests/types, contract audit,
-Version12, Social11 with real S3-compatible storage, IDP111/actual Manage caller,
-Chat21, Profile348, State26/9 and CRM12/56, plus all22 actual tarball installs/imports/
-strict consumers. Source, dependency and compiled-input fences remained unchanged.
-The overall result **failed** on a fresh npm security-audit timeout (156.614 seconds).
-A direct curl probe also failed the registry TLS handshake, independently of npm auth.
+At `8811162b2d1251ad8c26c7b8a6c7bc5deb67d16b`, combined run
+`reservation-capacity-aligned-v7` passed build,125 SDK tests/types, structural contract
+audit, Version12, Social11 with real S3-compatible storage, IDP111/actual Manage caller,
+Chat21, Profile348, State26/9, CRM12/59 and Reservation42/188 across30 operations,
+plus all22 actual tarball installs/imports/strict consumers. Source, dependency and
+compiled-input fences remained unchanged. Each command log hash was rechecked in
+`evidence/combined-8811162-v7.json`.
 
-The later registered-path guard passed125 SDK tests and59 actual CRM assertions.
-It prevents a not-found diagnostic from resolving to a known native resource with a
-different response model. Its final combined freeze must still be verified.
+The overall result **failed** on a fresh npm security-audit read ETIMEDOUT
+(173.988 seconds overall; audit22.468 seconds). A previous direct curl probe also
+failed the registry TLS handshake, independently of npm authentication. No audit
+waiver or authentication attempt has been made. Subsequent Session documentation
+corrections require their own checks and a later frozen combined run before release.
 
 The refreshed canonical matrix is intentionally unverified where semantic/wire or
 cross-service evidence is missing. All 21 service origins fetched successfully in the
@@ -98,3 +100,24 @@ mutation receipts. Cancellation is idempotent and cannot release a rebooked clai
 The initial real legacy-claim regression and both invalid fixture assumptions
 (cancellation returns a booking object; repeated cancellation returns409) remain retained.
 No wrong fixture assumption was labeled a backend defect.
+
+## Session proxy source review
+
+Canonical `bb6b725f2c35fc27bd04b84897523fca77d2854b` is checked out independently
+at `.task-worktrees/session-sdk-peer/infera-session`. Standalone locked offline Cargo
+metadata resolves without changing its tracked lock. The ordinary Session tree remains
+untouched. Source review corrects missing required peer configuration from503 to502;
+Asset/Profile retain system-namespace fallback URLs. Scoped Chat grants use room checks;
+DRM read grants are path-based for authenticated actors without a proxy room-membership
+lookup. Actual target-resource permissions, project peer configuration, namespace
+isolation and browser preflight remain separate release gates. This is source evidence,
+not a successful multi-service acceptance claim.
+
+Canonical Session's68 baseline tests passed in131.123 seconds. The actual Session/Chat
+pair exposed compile-time IDP development fallback despite DEV=false. Production repair
+`6cdedd4303f4612143ae6bae54edff464a7aa08d` disables default/dev-fallback features;
+test-only descendant `82b9ef8d6ad8077b3fb1154d99ded7d66d17b701` preserves every
+other production source. The original red and later receipt-parser failure are retained.
+A fresh report must validate the source fences,69 Session tests, nested real Chat test
+and26 SDK assertions before this scoped local workflow is accepted. Room-scoped Chat,
+other peer success and current deployed authorization remain open.

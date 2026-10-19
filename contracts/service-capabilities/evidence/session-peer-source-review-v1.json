@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "service": "session",
+  "operation": "ANY /api/v1/view/{service}/{*path}",
+  "source_revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+  "status": "source_reviewed_actual_workflow_pending",
+  "release_certification": false,
+  "meaning": {
+    "en": "Forward a selected HTTP method and opaque request bytes through Session to an explicitly supported peer API, using Session’s extracted actor and selectively delegated permissions.",
+    "fa": "ارسال روش HTTP و بدنهٔ درخواست از مسیر نشست به رابط سرویس همکار با هویت استخراج‌شدهٔ نشست و مجوزهای محدود واگذارشده."
+  },
+  "source_files": {
+    "src/router.rs": {
+      "revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+      "sha256": "df7dcec77e7dcdf0a8dd17bf0911b06672568bd3109bc4c5ebb3ef1c02ec3810"
+    },
+    "src/main.rs": {
+      "revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+      "sha256": "ce218380c1cca5b3923ea8d1d7c317eba8bde0806ba163f4460af4ab33d0fc96"
+    },
+    "src/room/routes.rs": {
+      "revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+      "sha256": "8ece2f8efe9bb26c5eb6bb3fd37805746d5bdcf1ce5d26ef8fbb692e736dfbb8"
+    },
+    "src/room/methods.rs": {
+      "revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+      "sha256": "96b97d6999ad13a060d92daff8e9cacf399518f3d11873e76dc0ccd4965db529"
+    }
+  },
+  "scope": {
+    "request_path": "/api/v1/view/{service}/{*path}",
+    "peer_path": "/api/v1/{path}",
+    "services": [
+      "chat",
+      "asset",
+      "profile",
+      "drm",
+      "lms"
+    ],
+    "unknown_peer_status": 404,
+    "missing_required_peer_status": 502,
+    "required_urls": [
+      "CHAT_SERVICE_URL",
+      "DRM_SERVICE_URL",
+      "LMS_SERVICE_URL"
+    ],
+    "fallback_urls": {
+      "ASSET_SERVICE_URL": "http://infera-asset.infera-system.svc.cluster.local:8043",
+      "PROFILE_SERVICE_URL": "http://infera-profile.infera-system.svc.cluster.local:8003"
+    },
+    "configuration_requirement": "Explicit project peers and namespace reconciliation are required before claiming isolation; absent Asset/Profile URLs use the system namespace."
+  },
+  "inputs_filters": {
+    "method": "Axum ANY; SDK exposes nine standard methods and requires an explicit CONNECT-capable adapter. This is not proof that every peer accepts all nine.",
+    "path": "Axum String path; SDK rejects empty/dot/encoded/traversal/query/fragment/backslash components and retains nested slashes.",
+    "query": "Original raw query forwarded unchanged; names/defaults/filters belong to the target API.",
+    "body": "Read at most 2MiB; body read/limit failure maps to413. Group creation may rewrite member_ids.",
+    "forwarded_request_headers": [
+      "accept",
+      "authorization",
+      "content-type",
+      "range",
+      "x-organization-id",
+      "x-request-id"
+    ],
+    "cookie": "Forwarded only when service != chat. x-user-id/roles/permissions are reconstructed from Session extractor context; caller headers are not directly forwarded.",
+    "not_forwarded_credentials": [
+      "x-infera-lms-token",
+      "x-session-room-id"
+    ],
+    "request_timeout": "main middleware20s by default; matching Chat AI message POST300s. Router-only acceptance must not be described as whole-main timeout acceptance."
+  },
+  "permissions": {
+    "generic": "No additional universal target permission gate in this proxy. Downstream service and gateway remain authoritative.",
+    "chat_scope": "For allowed Chat collection/messages/realtime-auth/events paths, x-session-room-id triggers Session participant/preview checks. Individual conversation lookup requires active Chat membership and matching group room_id, or the source AI branch. Collection filtering retains bound group/AI entries only.",
+    "chat_group_create": "Requires session-{room_id} slug and room participant/preview check. Member IDs are rebuilt from Session clients and LMS staff, sorted/deduplicated. Adds chat:manage/read/write only after this branch succeeds.",
+    "chat_ai": "Create requires existing composition-backed room. AI path performs conversation lookup and composition room check. This does not prove live model/billing or every membership boundary.",
+    "drm_catalog": "Authenticated actor receives drm:composition:read for GET compositions and composition-categories, without a proxy room-membership lookup.",
+    "drm_package": "Authenticated actor receives drm:package:read for source-matching GET media/.../packages and packages/.../files/... paths, without a proxy room-membership lookup.",
+    "drm_license": "Authenticated actor receives drm:license:read for GET licenses/clearkey prefix, without a proxy room-membership lookup. Resource authorization must be verified in DRM; do not describe these grants as room-bound."
+  },
+  "lifecycle_relationships": {
+    "session_room_id": "Session room UUID referenced by settings.room_id; not a Chat conversation ID.",
+    "chat_conversation_id": "Chat conversation UUID looked up separately; current membership/org checks belong to Chat.",
+    "member_profile_id": "Session room-client profile_id is compared to auth.user_id; canonical IDP mapping must be verified, not inferred from UUID shape.",
+    "lms_classroom_session_id": "Optional room link; LMS teacher/support users are queried with forwarded actor; failed staff lookup currently becomes an empty list in the group branch.",
+    "response": "Preserves upstream status and allowlisted cache/content/range/x-accel-buffering headers. Does not forward all headers such as Set-Cookie.",
+    "streaming": "Chat events suffix and DRM package files forward bytes_stream; other bodies buffer. The SDK helper always requests buffered bytes; explicit client transport is required for streaming.",
+    "chat_collection": "Successful scoped collection is parsed as JSON data array and filtered; malformed upstream shape returns502; this transformed response does not retain every original peer header.",
+    "transport_failure_status": 502
+  },
+  "pending_acceptance": [
+    "Actual paired-service current gateway identities/header stripping and namespace selection",
+    "Chat room group creation/rejoin, cross-room collection and AI boundaries against actual participants",
+    "Actual DRM resource/license checks for delegated path-based permissions",
+    "Actual Asset/Profile/LMS success workflows and fallback/configuration isolation",
+    "Browser cross-origin preflight with x-session-room-id and native permission headers",
+    "SSE/media streaming, cancellation after first bytes and whole-main timeout behavior"
+  ],
+  "prohibited_inferences": [
+    "Canonical metadata resolution is not deployed source acceptance",
+    "Unit tests or transport adapters do not certify actual peer business workflows",
+    "The actual Session/Chat paired test uses trusted gateway fixtures, not live IDP authorization"
+  ],
+  "selected_production_repair": "6cdedd4303f4612143ae6bae54edff464a7aa08d",
+  "authentication_reconciliation": {
+    "canonical_defect": "Canonical Session enables IDP dev-fallback at compile time. It synthesizes Some(nil UUID) when x-user-id is absent, even with DEV=false. The actual pair red returned403 instead of401.",
+    "repair": "Selected production removes default and dev-fallback features; cargo feature tree shows neither. Missing principal then reaches actual Chat as unauthenticated.",
+    "source_refs": [
+      "Session bb6 Cargo.toml:13",
+      "Rust SDK291c81a crates/infera-idp-sdk/src/middleware.rs:21",
+      "Rust SDK291c81a crates/infera-idp-sdk/src/utils.rs:5"
+    ],
+    "canonical_integration": "pending",
+    "current_gateway_identity": "not certified by header fixtures"
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.0",
+  "status": "failed",
+  "failure": "audit failed; retained log",
+  "sdk_source_revision": "8811162b2d1251ad8c26c7b8a6c7bc5deb67d16b",
+  "candidate_version": "1.0.0",
+  "published": false,
+  "duration_seconds": 173.988,
+  "source_unchanged_during_run": true,
+  "compiled_unchanged": true,
+  "external_inputs_unchanged": true,
+  "package_count": 22,
+  "commands": [
+    {
+      "id": "install",
+      "exit_code": 0,
+      "duration_seconds": 22.859,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/install.log",
+      "sha256": "1e24f6eaf9d321c1bcf734da830224fa83782c4a2b25149eb047e5fba2db4b82"
+    },
+    {
+      "id": "build",
+      "exit_code": 0,
+      "duration_seconds": 0.905,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/build.log",
+      "sha256": "ba1d13e113ff487ce6af907c97d1f4cb18e8476ffc52b703f0757cf0fa9f200c"
+    },
+    {
+      "id": "types-and-tests",
+      "exit_code": 0,
+      "duration_seconds": 6.892,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/types-and-tests.log",
+      "sha256": "f588a0eabca45923c12eea32c229f59bf88cc3d7f3b3d35af136b930bbeeb10b"
+    },
+    {
+      "id": "extracted-contracts",
+      "exit_code": 0,
+      "duration_seconds": 4.956,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/extracted-contracts.log",
+      "sha256": "f4c324eb6e872956e44cc690f3d97582c8646079b8c7d6128720d227a4e0d1a9"
+    },
+    {
+      "id": "pack-dry-run",
+      "exit_code": 0,
+      "duration_seconds": 3.893,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-dry-run.log",
+      "sha256": "d4fda4a4459336ab9fa350740f9fe595c6ab925d4fffa61510973789a4acaa58"
+    },
+    {
+      "id": "source-whitespace",
+      "exit_code": 0,
+      "duration_seconds": 0.211,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/source-whitespace.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "actual-version-sdk-wire",
+      "exit_code": 0,
+      "duration_seconds": 10.649,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/actual-version-sdk-wire.log",
+      "sha256": "4a163ac08f3d6e9712b0b85a5859ec77dffce3e8f4ac55dc2f76676ab7f754b5"
+    },
+    {
+      "id": "actual-social-sdk-wire",
+      "exit_code": 0,
+      "duration_seconds": 7.422,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/actual-social-sdk-wire.log",
+      "sha256": "cdf7a0d1bfe3ff3fe463e0958914ae39e627229e29d1d4d9d584e47593206edf"
+    },
+    {
+      "id": "actual-idp-manage-sdk-wire",
+      "exit_code": 0,
+      "duration_seconds": 22.597,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/actual-idp-manage-sdk-wire.log",
+      "sha256": "80473fe354cf821e8921a5cf8ebf8dc31431d704467655a4a51a3e548f229f5b"
+    },
+    {
+      "id": "actual-chat-personal-sdk-wire",
+      "exit_code": 0,
+      "duration_seconds": 5.006,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/actual-chat-personal-sdk-wire.log",
+      "sha256": "3f2737cfa547bc2c66a11a3c7358151403bda98b20a7aca0f84f0a00da4287f8"
+    },
+    {
+      "id": "actual-profile-summary-sdk-wire",
+      "exit_code": 0,
+      "duration_seconds": 10.682,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/actual-profile-summary-sdk-wire.log",
+      "sha256": "273ee4d5acd7e0030f93ceaf0b52cbb20a990175410d19585c6be7fa4351f62b"
+    },
+    {
+      "id": "actual-state-health-sdk-wire",
+      "exit_code": 0,
+      "duration_seconds": 3.581,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/actual-state-health-sdk-wire.log",
+      "sha256": "b3cc42dc52a4e94ad5cee2e2f2bf5896d2acc05fb05c2f333f0e6928f694dd1b"
+    },
+    {
+      "id": "actual-crm-fallback-sdk-wire",
+      "exit_code": 0,
+      "duration_seconds": 3.53,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/actual-crm-fallback-sdk-wire.log",
+      "sha256": "b423ffadddfc598890ef5f4e0f9933019d2175053dbbcf92aa1c4a7eae87a4ea"
+    },
+    {
+      "id": "actual-reservation-sdk-wire",
+      "exit_code": 0,
+      "duration_seconds": 17.749,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/actual-reservation-sdk-wire.log",
+      "sha256": "693db5467a8baaf0a21b11e7d334eefc8ecd215551ec455309ca625067316b45"
+    },
+    {
+      "id": "pack-asset",
+      "exit_code": 0,
+      "duration_seconds": 0.205,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-asset.log",
+      "sha256": "c229ead88020a69bf641bb23cff5b3d15561fe7cc79febc911ff9d7038645717"
+    },
+    {
+      "id": "pack-chat",
+      "exit_code": 0,
+      "duration_seconds": 0.2,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-chat.log",
+      "sha256": "528492330ef059226f35ab96e36114f8b777d19f052a3daac97a1405beae0c6f"
+    },
+    {
+      "id": "pack-core",
+      "exit_code": 0,
+      "duration_seconds": 0.21,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-core.log",
+      "sha256": "de509b1090cd7bbbe9420a83206dda18e0e782f4ab58ec80f3e9426d1452da2a"
+    },
+    {
+      "id": "pack-crm",
+      "exit_code": 0,
+      "duration_seconds": 0.187,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-crm.log",
+      "sha256": "90bf62959666de791187d5ec2971ba49cb32633e1b1d951f352047f4506b7619"
+    },
+    {
+      "id": "pack-drm",
+      "exit_code": 0,
+      "duration_seconds": 0.198,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-drm.log",
+      "sha256": "fe256c7e860835c683b88e83a433d9954add904aa92d16d2ed16d03cf49fc145"
+    },
+    {
+      "id": "pack-flow",
+      "exit_code": 0,
+      "duration_seconds": 0.208,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-flow.log",
+      "sha256": "af2603fb29c22c92dd04af3f99a60ed0c2b6fea69042dbe9a207fed79e1a6c9f"
+    },
+    {
+      "id": "pack-game",
+      "exit_code": 0,
+      "duration_seconds": 0.207,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-game.log",
+      "sha256": "9484f5d2eed72f461c916e406bf884731d3e4fb5c9a154d7b244122800ece2bb"
+    },
+    {
+      "id": "pack-idp",
+      "exit_code": 0,
+      "duration_seconds": 0.202,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-idp.log",
+      "sha256": "e495fe7df002cd96a2171454f034ed49a8d6527b5a92629194015039a37f533e"
+    },
+    {
+      "id": "pack-knowledge",
+      "exit_code": 0,
+      "duration_seconds": 0.194,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-knowledge.log",
+      "sha256": "6aa368948354f1f47c547324b09e09b93fbce20b3dad956edede310e182fca1e"
+    },
+    {
+      "id": "pack-lms",
+      "exit_code": 0,
+      "duration_seconds": 0.197,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-lms.log",
+      "sha256": "c8a0c510d26fde6c1a960f683b024afc392ff983adf9a90b10f5e21cfe091ab4"
+    },
+    {
+      "id": "pack-manage",
+      "exit_code": 0,
+      "duration_seconds": 0.179,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-manage.log",
+      "sha256": "bdf898952e813b5490f7ac9e9865259246fa95f1d7c9ad8286e1916cf1e7fa39"
+    },
+    {
+      "id": "pack-messenger",
+      "exit_code": 0,
+      "duration_seconds": 0.196,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-messenger.log",
+      "sha256": "c81988a9919c82b4bbcfa687828380dd748fe66044184b637c8221795e9d4df4"
+    },
+    {
+      "id": "pack-modules",
+      "exit_code": 0,
+      "duration_seconds": 0.204,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-modules.log",
+      "sha256": "f76facf13c5f3792f0dacbc8a9a5292e0bf2d8e5c0e6fbb4904ed967757d2c18"
+    },
+    {
+      "id": "pack-payment",
+      "exit_code": 0,
+      "duration_seconds": 0.209,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-payment.log",
+      "sha256": "2e69d1804d1159946fe12c41d10fe79cec34295fc9094c68b0b0fb92f252ea5b"
+    },
+    {
+      "id": "pack-profile",
+      "exit_code": 0,
+      "duration_seconds": 0.205,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-profile.log",
+      "sha256": "5e8d5b2cd354f9ba29387b268d522bbc37034ed344c2be0c518ac9a6bd1cedec"
+    },
+    {
+      "id": "pack-reservation",
+      "exit_code": 0,
+      "duration_seconds": 0.207,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-reservation.log",
+      "sha256": "abdccb18e651974fd213ce2b1b194768075afedfb3d7a60878c42f323485e17c"
+    },
+    {
+      "id": "pack-sdk",
+      "exit_code": 0,
+      "duration_seconds": 0.198,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-sdk.log",
+      "sha256": "07c46c02db3ae208dfe05c867fb7835d8af7a8ddbc20fb0d9fcaaf4f1ac9ea60"
+    },
+    {
+      "id": "pack-session",
+      "exit_code": 0,
+      "duration_seconds": 0.205,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-session.log",
+      "sha256": "a7acdd4155492e86e07ea9b8297df0bd684faae95806abf5709b303983fa33da"
+    },
+    {
+      "id": "pack-social",
+      "exit_code": 0,
+      "duration_seconds": 0.193,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-social.log",
+      "sha256": "3f59f1752c1f01148c79100a0d684a5e23cb3d4b14c9385f0414b3523820d57f"
+    },
+    {
+      "id": "pack-state",
+      "exit_code": 0,
+      "duration_seconds": 0.209,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-state.log",
+      "sha256": "2b07f95a8a270b96235b6178d24dc1faa6f74e825588cb74e83c4a6bba6f816d"
+    },
+    {
+      "id": "pack-task",
+      "exit_code": 0,
+      "duration_seconds": 0.207,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-task.log",
+      "sha256": "53c0182b193874b356d99b91fcbdd86b56a1ca845cf56a960c1380d8518b4a56"
+    },
+    {
+      "id": "pack-version",
+      "exit_code": 0,
+      "duration_seconds": 0.192,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/pack-version.log",
+      "sha256": "dd5649b7bc4cde0a60a2dcb0a8018429009355b3d525c4ec3b41ef7f78bd0b00"
+    },
+    {
+      "id": "tarball-consumer-install",
+      "exit_code": 0,
+      "duration_seconds": 22.625,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/tarball-consumer-install.log",
+      "sha256": "10dd17ea333a370ccc9adb510794e0e309754bf6595296e58488ab9d2e1fe4ba"
+    },
+    {
+      "id": "tarball-consumer-exports",
+      "exit_code": 0,
+      "duration_seconds": 0.149,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/tarball-consumer-exports.log",
+      "sha256": "efd7f9d30749b9e4c6fc2be92b0b878d33723df3dcd1cf716b2f6973c7334b3c"
+    },
+    {
+      "id": "tarball-consumer-types",
+      "exit_code": 0,
+      "duration_seconds": 0.751,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/tarball-consumer-types.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "audit",
+      "exit_code": 1,
+      "duration_seconds": 22.468,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/audit.log",
+      "sha256": "61f7ecd7517a4c834d6e51bb0bf7b592823cd8178c28be13e21810b7c1916249"
+    }
+  ],
+  "full_report": {
+    "path": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/verification.json",
+    "sha256": "0882c50c83d57d4827e61f2926866dbadb69cc91579cda3d56f0b3a59ab46d2b"
+  },
+  "scope": "Private unpublished1.0.0 technical integration verification. Builds/types/tests/audit/actual tarballs/exports/consumer compilation and scoped Manage wire test do not certify every service capability, current deployed permissions, readable Manage workflows or live Summary provider/billing/browser acceptance. No publication, tag, deployment, instruction publication or memory migration. Credential scan covers listed high-confidence patterns and paths, not every possible secret.",
+  "release_certified": false
+}

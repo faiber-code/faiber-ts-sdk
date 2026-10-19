@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T17:27:39.030132+00:00",
+  "updated_at": "2026-10-19T18:34:23.268515+00:00",
   "program_status": "incomplete_sdk_source_and_semantic_release_gates",
   "release_version": "1.0.0",
   "new_release_published": false,
@@ -24,13 +24,14 @@
     "crm_library_tests": 12,
     "crm_fallback_http_assertions": 59,
     "latest_combined_technical_run": {
-      "sdk_commit": "93cd663f14fb846157e6c545d5f09914b3fa96e3",
+      "sdk_commit": "8811162b2d1251ad8c26c7b8a6c7bc5deb67d16b",
       "status": "failed",
-      "reason": "All local runtime/pack/consumer checks passed; fresh npm registry audit failed TLS/read timeout",
-      "duration_seconds": 156.614,
+      "reason": "All included local runtime,125 SDK tests/types,22 actual tarballs and consumer checks passed; fresh npm registry audit failed read ETIMEDOUT",
+      "duration_seconds": 173.988,
       "source_unchanged_during_run": true,
-      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/mounted-http-profile-state-crm-v6/verification.json",
-      "note": "Subsequent CRM registered-path guard passed125 SDK tests and59 real HTTP assertions; final combined source freeze still required."
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/verification.json",
+      "receipt": "evidence/combined-8811162-v7.json",
+      "note": "Technical verification only. Per-capability semantics, current deployed authorization, canonical source and cross-service gates remain open."
     },
     "remaining": [
       "per-capability semantic/wire and cross-service acceptance",

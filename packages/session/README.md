@@ -106,8 +106,26 @@ This is opaque transport: use the target service's named business types when pre
 a JSON string, set the target Content-Type and keep requests under2MiB. This method
 returns buffered `ArrayBuffer`/`Uint8Array` bytes with full Axios status and headers.
 Use the shared client's explicit streaming transport for SSE or media streams.
-Session applies current room/participant rules and the target still checks access;
-this operation does not grant peer membership.
+Session forwards its extracted actor rather than caller-supplied `x-user-*` headers.
+Chat receives no browser cookie; other peers receive the cookie when supplied.
+Room-scoped Chat grants check participation or preview access, then Chat membership.
+The `x-session-room-id` header scopes supported Chat reads/message writes; it does not
+grant arbitrary conversation administration. Session rewrites group members from its
+room roster and LMS staff and filters scoped collections to the requested room.
+
+DRM read grants are different: an authenticated actor receives path-based catalog,
+package and ClearKey read permissions without a room-membership lookup at this proxy.
+The target service must enforce resource access; this transport is not membership,
+license ownership or attendance proof. Do not treat it as a universal permission bypass.
+
+Missing Chat/DRM/LMS configuration and upstream transport failures return502. Asset
+and Profile retain system-namespace defaults when their URL variables are absent;
+set explicit project peer URLs before relying on sandbox isolation. Unknown peers
+return404 and requests over2MiB return413. Peer status codes are retained; response
+headers are an allowlisted subset, not all upstream headers. Session streams Chat
+events and DRM package files upstream, but this SDK helper buffers their bytes.
+Cross-origin `x-session-room-id` support and actual participating-service permission
+checks require separate verification; a successful proxy request alone proves neither.
 
 `CONNECT` requires an explicitly supplied tunnel-capable Axios adapter. The default
 Node Axios adapter does not consume CONNECT response events, and browsers restrict

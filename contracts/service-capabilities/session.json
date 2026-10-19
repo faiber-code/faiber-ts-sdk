@@ -5,7 +5,7 @@
   "scope": "business",
   "purpose": {
     "en": "Live rooms, participants, recordings and server-timed sessions backed by published DRM compositions.",
-    "fa": "اتاق زنده، شرکت‌کننده، ضبط و جلسه زمان‌بندی‌شده متکی به ترکیب منتشرشده رسانه."
+    "fa": "\u0627\u062a\u0627\u0642 \u0632\u0646\u062f\u0647\u060c \u0634\u0631\u06a9\u062a\u200c\u06a9\u0646\u0646\u062f\u0647\u060c \u0636\u0628\u0637 \u0648 \u062c\u0644\u0633\u0647 \u0632\u0645\u0627\u0646\u200c\u0628\u0646\u062f\u06cc\u200c\u0634\u062f\u0647 \u0645\u062a\u06a9\u06cc \u0628\u0647 \u062a\u0631\u06a9\u06cc\u0628 \u0645\u0646\u062a\u0634\u0631\u0634\u062f\u0647 \u0631\u0633\u0627\u0646\u0647."
   },
   "sources": [
     "README.md",
@@ -13,7 +13,7 @@
     "src/drm.rs"
   ],
   "canonical_revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
-  "sdk_source_revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+  "sdk_source_revision": "6cdedd4303f4612143ae6bae54edff464a7aa08d",
   "working_revision": "edefa6463fe1877661cc62ef4752515262c71e00",
   "working_changes": [
     "M migration/src/lib.rs",
@@ -11282,5 +11282,12 @@
         }
       ]
     }
+  },
+  "local_auth_repair": {
+    "production_revision": "6cdedd4303f4612143ae6bae54edff464a7aa08d",
+    "test_only_revision": "82b9ef8d6ad8077b3fb1154d99ded7d66d17b701",
+    "canonical_parent": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+    "meaning": "Disable compile-time IDP dev-fallback so DEV=false cannot synthesize a nil user. Actual paired HTTP red preserved; local repair pending canonical integration.",
+    "canonical_certification": false
   }
 }

@@ -653,13 +653,18 @@
       "id": "remaining-wildcard-and-inline-mounts",
       "owner": "sdk",
       "required": true,
-      "status": "source_mounted_and_sdk_contracts_implemented_runtime_pending",
-      "meaning": "All18 SDK HTTP service inventories now follow their actual mounted source graphs, including Session dynamic peer proxy, CRM explicit legacy404 ANY handlers and exact source-checked State health closure. Named typed operations and safe wildcard encoding are implemented. Actual mounted proxy/fallback/State health runtime acceptance and full per-capability semantics remain pending; generator/transport regression tests alone do not close this gap.",
+      "status": "local_crm_state_verified_session_peer_workflows_pending",
+      "meaning": "All18 SDK HTTP service inventories follow their mounted source graphs. CRM fallback/CORS and State health now have actual scoped HTTP/SDK acceptance. Session canonical baseline passes68 tests, but real paired-service verification remains pending after the3GiB guard stopped compilation before tests. Source review corrects missing required peer configuration to502, distinguishes path-based DRM grants from room-scoped Chat checks and records Asset/Profile system-namespace fallbacks. These are not deployed identity, namespace isolation or whole-service acceptance. Generator/transport tests cannot close the remaining semantic and cross-service gates.",
       "source_refs": [
         "Service/infera-session/src/router.rs",
         "Service/infera-crm/src/router.rs",
         "Service/infera-state/src/main.rs"
-      ]
+      ],
+      "local_test_evidence": [
+        "crm-fallback-sdk-routing-guard",
+        "state-health-sdk-workspace"
+      ],
+      "source_review_artifact": "evidence/session-peer-source-review-v1.json"
     },
     {
       "id": "reservation-legacy-user-held-availability",
