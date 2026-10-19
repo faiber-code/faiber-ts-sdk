@@ -275,7 +275,7 @@
       "owner": "flow",
       "required": true,
       "status": "implemented_locally_uncompiled_dependency_blocked",
-      "meaning": "Local unverified code adds limit 1–200/default50, before-UUID keyset traversal ordered by started_at/id, AND filters flow/event/status and indexes, preserving the array envelope. Tests are written but zero executed: slug dependency missing, direct crates.io SSL timeout and configured mirror unreachable. No compile, runtime or performance acceptance is claimed.",
+      "meaning": "Local unverified code adds limit 1\u2013200/default50, before-UUID keyset traversal ordered by started_at/id, AND filters flow/event/status and indexes, preserving the array envelope. Tests are written but zero executed: slug dependency missing, direct crates.io SSL timeout and configured mirror unreachable. No compile, runtime or performance acceptance is claimed.",
       "source_refs": [
         "Service/infera-flow/src/run/routes.rs",
         "Service/infera-flow/src/run/methods.rs"
@@ -602,7 +602,7 @@
       "owner": "social",
       "required": true,
       "status": "isolated_combined_source_sdk_postgres_object_store_verified_canonical_image_release_pending",
-      "meaning": "An active Rasht Social image contains four commits absent from canonical main: public/subject discovery, follows/blocks, notification preferences/outbox/place events, category publication entitlement and story expiry. Its SQL uses graph/notification tables not defined in the canonical service migrations. Generic main image and full SDK capability verification must reconcile this source/schema before release; canonical admin tests do not certify the variant. The active branch includes its own migrations5–9. They are now merged only into an isolated source integration; all fourteen extra SDK operations are exercised, including actual production S3 PUT and binary GET through a real loopback object store. Canonical main, image and deployed project authority acceptance remain open.",
+      "meaning": "An active Rasht Social image contains four commits absent from canonical main: public/subject discovery, follows/blocks, notification preferences/outbox/place events, category publication entitlement and story expiry. Its SQL uses graph/notification tables not defined in the canonical service migrations. Generic main image and full SDK capability verification must reconcile this source/schema before release; canonical admin tests do not certify the variant. The active branch includes its own migrations5\u20139. They are now merged only into an isolated source integration; all fourteen extra SDK operations are exercised, including actual production S3 PUT and binary GET through a real loopback object store. Canonical main, image and deployed project authority acceptance remain open.",
       "source_refs": [
         "infera-social@5e6d6addd4088a839c636c2ba52a45db4ed3057f:src/discovery.rs",
         "infera-social@5e6d6addd4088a839c636c2ba52a45db4ed3057f:src/repository.rs",
@@ -759,6 +759,22 @@
       "local_source_revision": "ae97bfa8b5085de1cfd78fcf2b2d548ccaf793a7",
       "local_test_revision": "144cf32596a34942d2a5ac1ac52a03f860605992",
       "test_evidence": []
+    },
+    {
+      "id": "summary-branding-candidate-contract-adoption",
+      "owner": "sdk",
+      "required": true,
+      "status": "candidate_types_implemented_frozen_source_and_native_sdk_http_adoption_pending",
+      "meaning": "Profile source capability metadata and persisted resolved-unit provenance, plus LMS PublicBranding required nullable runtime Task origin, now have named candidate SDK DTOs. The pinned service sources still predate those candidate changes. Do not infer source compatibility, certification or release readiness from TypeScript compilation; adopt exact composed native source only after full source/consumer gates.",
+      "source_refs": [
+        "Service/infera-profile/src/ai_summary/routes.rs",
+        "Service/infera-lms/src/branding.rs",
+        "packages/profile/src/summaries.types.ts",
+        "packages/lms/src/branding.types.ts",
+        "scripts/lms-branding-contracts.mjs"
+      ],
+      "local_source_revision": "470949b36bd2bdad24951b05683cf73e87d29bf1",
+      "local_test_evidence": []
     }
   ]
 }

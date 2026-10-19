@@ -302,3 +302,7 @@ export * from "./media.js";
 export * from "./contracts.types.js";
 
 export * from "./notification-settings.js";
+
+export * from "./branding.types.js";
+// Preserve public DTO names when the reviewed operation generator emits aliases.
+export type { LmsBranding as BrandingShowGetResponseData, LmsBranding as BrandingUpdatePutResponseData, LmsPublicBranding as BrandingPublicShowGetResponseData } from "./branding.types.js";

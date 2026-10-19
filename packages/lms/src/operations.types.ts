@@ -1158,16 +1158,10 @@ export interface BrandingShowGetResponseData extends JsonObject {
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
 }
-export interface BrandingShowGetResponse extends ApiEnvelope<BrandingShowGetResponseData> {
-}
+export type BrandingShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsBranding>;
 
 /** Backend request type: Branding. */
-export interface BrandingUpdatePutInput extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
+export type BrandingUpdatePutInput = import("./branding.types.js").LmsBrandingInput;
 /** Backend response type: Branding. */
 export interface BrandingUpdatePutResponseData extends JsonObject {
   "title"?: string | null;
@@ -1175,8 +1169,7 @@ export interface BrandingUpdatePutResponseData extends JsonObject {
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
 }
-export interface BrandingUpdatePutResponse extends ApiEnvelope<BrandingUpdatePutResponseData> {
-}
+export type BrandingUpdatePutResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsBranding>;
 
 /** Backend request type: multipart/form-data. */
 export type BrandingUploadPostInput = FormData;
@@ -4230,8 +4223,7 @@ export interface BrandingPublicShowGetResponseData extends JsonObject {
   "icon_asset_key"?: string | null;
   "icon_url"?: string | null;
 }
-export interface BrandingPublicShowGetResponse extends ApiEnvelope<BrandingPublicShowGetResponseData> {
-}
+export type BrandingPublicShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsPublicBranding>;
 
 /** Backend response type: raw-response. */
 export interface BrandingAssetGetResponse extends ApiEnvelope<JsonValue> {
