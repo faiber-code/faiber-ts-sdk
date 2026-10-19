@@ -14174,7 +14174,7 @@
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/configurations",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "configurations",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14183,12 +14183,12 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "response": "Vec<Value>"
     },
     {
       "method": "POST",
       "path": "/api/v1/ai-summaries/configurations",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "create",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14197,12 +14197,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "body": "ConfigurationWrite",
+      "response": "Value"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/configurations/{id}",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "configuration",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14211,12 +14212,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "Uuid",
+      "response": "Value"
     },
     {
       "method": "PUT",
       "path": "/api/v1/ai-summaries/configurations/{id}",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "update",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14225,12 +14227,14 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "Uuid",
+      "body": "ConfigurationWrite",
+      "response": "Value"
     },
     {
       "method": "POST",
       "path": "/api/v1/ai-summaries/configurations/{id}/preview",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "preview",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14239,12 +14243,14 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "Uuid",
+      "body": "PreviewWrite",
+      "response": "Value"
     },
     {
       "method": "POST",
       "path": "/api/v1/ai-summaries/configurations/{id}/publish",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "publish",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14253,12 +14259,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "Uuid",
+      "response": "Value"
     },
     {
       "method": "PATCH",
       "path": "/api/v1/ai-summaries/configurations/{id}/status",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "status",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14267,12 +14274,14 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "Uuid",
+      "body": "StatusWrite",
+      "response": "Value"
     },
     {
       "method": "POST",
       "path": "/api/v1/ai-summaries/configurations/{id}/validate",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "validate",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14281,12 +14290,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "Uuid",
+      "response": "Value"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/jobs",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "jobs",
       "permissions": [
         "profile:ai_summary:manage"
@@ -14295,12 +14305,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "response": "Page",
+      "query": "ListQuery"
     },
     {
       "method": "POST",
       "path": "/api/v1/ai-summaries/jobs/{id}/retry",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "retry",
       "permissions": [
         "profile:ai_summary:manage"
@@ -14309,12 +14320,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "Uuid",
+      "response": "Value"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/latest",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "latest",
       "permissions": [
         "profile:ai_summary:read_own"
@@ -14323,12 +14335,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "response": "Value",
+      "query": "ListQuery"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/models",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "models",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14337,12 +14350,12 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "response": "Vec<Value>"
     },
     {
       "method": "POST",
       "path": "/api/v1/ai-summaries/refresh",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "refresh",
       "permissions": [
         "profile:ai_summary:manage"
@@ -14351,12 +14364,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "body": "RefreshWrite",
+      "response": "Value"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/roles",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "roles",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14365,12 +14379,12 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "response": "Vec<Value>"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/runs/{id}",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "run",
       "permissions": [
         "profile:ai_summary:read_own"
@@ -14379,12 +14393,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "Uuid",
+      "response": "Value"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/settings",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "settings",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14393,12 +14408,12 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "response": "Settings"
     },
     {
       "method": "PUT",
       "path": "/api/v1/ai-summaries/settings",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "save_settings",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14407,12 +14422,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "body": "Settings",
+      "response": "Settings"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/sources",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "sources",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14421,12 +14437,12 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "response": "Vec<Value>"
     },
     {
       "method": "POST",
       "path": "/api/v1/ai-summaries/sources/{source}/check",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "check_source",
       "permissions": [
         "profile:ai_summary:configure"
@@ -14435,12 +14451,13 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "pathParam": "String",
+      "response": "Value"
     },
     {
       "method": "GET",
       "path": "/api/v1/ai-summaries/summaries",
-      "module": "ai_summary::routes",
+      "module": "ai_summary",
       "handler": "summaries",
       "permissions": [
         "profile:ai_summary:read_own"
@@ -14449,7 +14466,8 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false,
-      "sdkClient": "ProfileApi.summaries"
+      "response": "Page",
+      "query": "ListQuery"
     },
     {
       "method": "GET",

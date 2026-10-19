@@ -464,7 +464,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     }
     const args = ids.map(id => `${camel(id)}: Identifier`);
     if (hasInput && !optionalChatUpload) args.push(`data: T.${base}Input`);
-    if (hasQuery) args.push(`params?: T.${base}Query`);
+    if (hasQuery) args.push(`params${reviewed?.requiredQuery ? "" : "?"}: T.${base}Query`);
     if (reviewed?.idempotencyKey) args.push("idempotencyKey: string");
     args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : endpoint.formUrlEncoded ? "<URLSearchParams>" : hasInput ? `<T.${base}Input>` : ""}`);
     if (optionalChatUpload) args.push("data?: T.AttachmentUploadBody");

@@ -20,8 +20,21 @@ def snapshot(compiled=False):
   if path.exists():files[name]=digest(path.read_bytes())
  encoded=json.dumps(files,sort_keys=True,separators=(',',':')).encode()
  return {'sha256':digest(encoded),'files':files}
+def external_inputs():
+ manifest_path=Path(os.environ['INFERA_SDK_ROLE_HANDOFF']).resolve()
+ handoff=json.loads(manifest_path.read_text());files={}
+ for repository in handoff['repositories']:
+  root=Path(repository['repository'])
+  for entry in repository['files']:
+   name=entry['path']
+   if '__pycache__' in Path(name).parts or name.endswith('.pyc') or name.endswith('.log'):continue
+   if root.name=='faiber-ts-sdk' and name.startswith('contracts/service-capabilities/'):continue
+   path=root/name;files[str(path)]=digest(path.read_bytes()) if path.exists() else None
+ override=Path(handoff['cargo_override']['path']);files[str(override)]=digest(override.read_bytes())
+ return {'handoff':str(manifest_path),'handoff_sha256':digest(manifest_path.read_bytes()),'files':files,'sha256':digest(json.dumps(files,sort_keys=True,separators=(',',':')).encode()),'scope':'Current observed contribution files and Service Cargo overrides, independently fenced. Historical handoff logs are not automatically acceptance of changed files or unexecuted workflows.'}
+
 def main():
- OUT.mkdir(parents=True,exist_ok=False);commands=[];started=time.monotonic();failure=None;before=None;compiled=None;packages=[]
+ OUT.mkdir(parents=True,exist_ok=False);commands=[];started=time.monotonic();failure=None;before=None;compiled=None;external_before=None;packages=[]
  def run(identifier,args,cwd=SDK):
   path=OUT/(identifier+'.log');begin=time.monotonic()
   with path.open('w') as stream:r=subprocess.run(args,cwd=cwd,stdout=stream,stderr=subprocess.STDOUT)
@@ -31,7 +44,7 @@ def main():
   return log.decode()
  try:
   run('install',['npm','ci','--ignore-scripts','--prefer-offline'])
-  before=snapshot()
+  before=snapshot();external_before=external_inputs()
   run('build',['npm','run','build']);compiled=snapshot(True)
   run('types-and-tests',['npm','test'])
   audit=run('audit',['npm','audit','--json']);assert json.loads(audit)['metadata']['vulnerabilities']['total']==0
@@ -79,9 +92,9 @@ console.log('All22 actual tarball exports import; published helpers and new Prof
   (consumer/'tsconfig.json').write_text(json.dumps({'compilerOptions':{'target':'ES2022','module':'NodeNext','moduleResolution':'NodeNext','strict':True,'exactOptionalPropertyTypes':True,'noEmit':True,'lib':['ES2022','DOM'],'skipLibCheck':False},'include':['*.ts']},indent=2)+'\n')
   run('tarball-consumer-types',['node',str(SDK/'node_modules/typescript/bin/tsc'),'-p','tsconfig.json','--pretty','false'],consumer)
  except Exception as error:failure=str(error)
- after=snapshot();compiled_after=snapshot(True) if compiled else None
- same=before==after and compiled==compiled_after
- report={'schema_version':'1.0','status':'passed' if not failure and same else 'failed','failure':failure,'source_revision':subprocess.check_output(['git','rev-parse','HEAD'],cwd=SDK,text=True).strip(),'working_status':subprocess.check_output(['git','status','--porcelain'],cwd=SDK,text=True).strip(),'checkout':str(SDK),'duration_seconds':round(time.monotonic()-started,3),'source_unchanged_during_run':same,'inputs_before':before,'inputs_after':after,'compiled_before':compiled,'compiled_after':compiled_after,'packages':packages,'commands':commands,'runner_sha256':digest(Path(__file__).read_bytes()),'scope':'Private unpublished1.0.0 technical integration verification. Builds/types/tests/audit/actual tarballs/exports/consumer compilation and scoped Manage wire test do not certify every service capability, current deployed permissions, readable Manage workflows or live Summary provider/billing/browser acceptance. No publication, tag, deployment, instruction publication or memory migration. Credential scan covers listed high-confidence patterns and paths, not every possible secret.'}
+ after=snapshot();compiled_after=snapshot(True) if compiled else None;external_after=external_inputs()
+ same=before==after and compiled==compiled_after and external_before==external_after
+ report={'schema_version':'1.0','status':'passed' if not failure and same else 'failed','failure':failure,'source_revision':subprocess.check_output(['git','rev-parse','HEAD'],cwd=SDK,text=True).strip(),'working_status':subprocess.check_output(['git','status','--porcelain'],cwd=SDK,text=True).strip(),'checkout':str(SDK),'duration_seconds':round(time.monotonic()-started,3),'source_unchanged_during_run':same,'inputs_before':before,'inputs_after':after,'compiled_before':compiled,'compiled_after':compiled_after,'external_inputs_before':external_before,'external_inputs_after':external_after,'packages':packages,'commands':commands,'runner_sha256':digest(Path(__file__).read_bytes()),'scope':'Private unpublished1.0.0 technical integration verification. Builds/types/tests/audit/actual tarballs/exports/consumer compilation and scoped Manage wire test do not certify every service capability, current deployed permissions, readable Manage workflows or live Summary provider/billing/browser acceptance. No publication, tag, deployment, instruction publication or memory migration. Credential scan covers listed high-confidence patterns and paths, not every possible secret.'}
  (OUT/'verification.json').write_text(json.dumps(report,indent=2)+'\n');(OUT/'PRIVATE-NOT-PUBLISHED.txt').write_text(report['scope']+'\n');print(json.dumps({k:report[k] for k in ['status','failure','source_unchanged_during_run','duration_seconds']},indent=2))
  if report['status']!='passed':raise SystemExit(1)
 if __name__=='__main__':main()
