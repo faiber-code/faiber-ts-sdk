@@ -9,9 +9,9 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `f7cd709510458083d10a1b79a5ad3d7cd29196bd`
-- SDK source revision: `f7cd709510458083d10a1b79a5ad3d7cd29196bd`
+- SDK source revision: `80aef6037cec20bb808903f15737160cef5f6a66`
 - Working HEAD: `4ece677c98c48070fcdc3de77a714b783f73bacc`
-- Source relationship: working_ahead_of_sdk
+- Source relationship: working_behind_sdk
 
 ## Operation review matrix
 
@@ -19,7 +19,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 |---|---|---|---|
 | `GET /health` | `infera-reservation/src/router.rs:151` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
 | `GET /` | `infera-reservation/src/router.rs:151` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
-| `GET /api/openapi.json` | `infera-reservation/src/router.rs:68` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/openapi.json` | `infera-reservation/src/router.rs:68` | inspect middleware/local scope | stale |
 | `GET /api/v1/services` | `infera-reservation/src/reservation_service/routes.rs:13` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
 | `POST /api/v1/services` | `infera-reservation/src/reservation_service/routes.rs:27` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
 | `GET /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:22` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |

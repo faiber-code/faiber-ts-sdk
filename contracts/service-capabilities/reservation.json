@@ -12,10 +12,10 @@
     "src/router.rs"
   ],
   "canonical_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-  "sdk_source_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
+  "sdk_source_revision": "80aef6037cec20bb808903f15737160cef5f6a66",
   "working_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
   "working_changes": [],
-  "source_relationship": "working_ahead_of_sdk",
+  "source_relationship": "working_behind_sdk",
   "source_tree_checksum": "ec9ffd698e8ca41daa15c7abed9d73e3b04f492b20710eb198bb3ffd8c841fd6",
   "source_files": [
     {
@@ -754,6 +754,7 @@
         "handler": "openapi_json",
         "permissions": [],
         "source": "infera-reservation/src/router.rs",
+        "response": "utoipa::openapi::OpenApi",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -766,7 +767,7 @@
           }
         ]
       },
-      "source_checksum": "20371881859bb59eab0af3115ff0d46fec08f3b66c4cf244de10eed557f10199",
+      "source_checksum": "d391cf331a1a4fbdf3e6bd7192362585dc3109395e9ccf2452863bc9ef8a204c",
       "handler": {
         "ref": "infera-reservation/src/router.rs:68:openapi_json",
         "path": "infera-reservation/src/router.rs",
@@ -774,79 +775,29 @@
         "name": "openapi_json"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "utoipa::openapi::OpenApi",
+          "models": [
+            {
+              "name": "OpenApi",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "20371881859bb59eab0af3115ff0d46fec08f3b66c4cf244de10eed557f10199",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Read the documented API subset.",
-          "fa": "خواندن بخش مستند رابط برنامه‌نویسی."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "public_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Public read handler; no customer-specific authorization."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Raw OpenAPI document; mounted slot show/edit, capacity report and integration routes are not fully represented by the declared paths."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Raw OpenAPI document; mounted slot show/edit, capacity report and integration routes are not fully represented by the declared paths."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Raw OpenAPI document; mounted slot show/edit, capacity report and integration routes are not fully represented by the declared paths."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -4658,7 +4609,9 @@
   ],
   "sdk_contract_drift": {
     "missing": [],
-    "extra": [],
+    "extra": [
+      "GET /api/v1/providers/{id}/capacity"
+    ],
     "changed": [
       "GET /health",
       "GET /",

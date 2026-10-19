@@ -3,21 +3,21 @@ import type * as T from "./operations.types.js";
 
 export class ReservationOperations extends ServiceApi {
   /**
-   * Performs the health operation for the router capability.
+   * Read the process package version; does not verify database, broker, tenant binding or booking availability.
    * Calls `GET /` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public static process version; no downstream readiness guarantee.
    */
   routerHealthGet(options?: RequestOptions) {
     return this.client.request<T.RouterHealthGetResponse>({ ...options, method: "GET", url: `/` });
   }
   /**
-   * Performs the openapi json operation for the router capability.
+   * Read raw generated OpenAPI. It omits some actual mounted operations and is not authoritative endpoint-completeness evidence.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public generated documentation; deployed gateway policy remains separate.
    */
   routerOpenapiJsonGet(options?: RequestOptions) {
     return this.client.request<T.RouterOpenapiJsonGetResponse>({ ...options, method: "GET", url: `/api/openapi.json` });
@@ -55,12 +55,12 @@ export class ReservationOperations extends ServiceApi {
     return this.client.request<T.ProviderStorePostResponse, T.ProviderStorePostInput>({ ...options, method: "POST", url: `/api/v1/providers`, data: data });
   }
   /**
-   * Performs the destroy operation for the provider capability.
+   * Apply the named Reservation resource mutation. Success has data:null. Native conflict/history and current sandbox-scoped authorization checks remain authoritative; history-preserving parent/slot deletion can return409.
    * Calls `DELETE /api/v1/providers/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted current user and organization context plus matching admin resource action/manage permission, reservation action/manage wildcard as accepted by the source middleware.
    */
   providerDestroyDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ProviderDestroyDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/providers/${encodeURIComponent(id)}` });
@@ -89,6 +89,18 @@ export class ReservationOperations extends ServiceApi {
     return this.client.request<T.ProviderUpdatePatchResponse, T.ProviderUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/providers/${encodeURIComponent(id)}`, data: data });
   }
   /**
+   * Read a provider-locked capacity/occupancy snapshot and paged legacy conflicts. Capacity is1..1000 and shared across all services and overlapping intervals; timestamps are RFC3339 and observed_at is database time. Pagination uses page[number]/page[size], defaults1/20 and clamps1..100. This is a snapshot, not an admission reservation; booking rechecks and locks. Missing providers404; invalid pagination400; no IDP user lookup or live gateway binding is established by the DTO.
+   * Calls `GET /api/v1/providers/{id}/capacity` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted non-nil user/organization plus admin:provider:read, admin:provider:manage, reservation:read/manage/* or *; organization data isolation depends on trusted project routing.
+   */
+  providerCapacityReportGet(id: Identifier, params?: T.ProviderCapacityReportGetQuery, options?: RequestOptions) {
+    return this.client.request<T.ProviderCapacityReportGetResponse>({ ...options, method: "GET", url: `/api/v1/providers/${encodeURIComponent(id)}/capacity`, params });
+  }
+  /**
    * Performs the list services operation for the provider capability.
    * Calls `GET /api/v1/providers/{id}/services` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -100,25 +112,25 @@ export class ReservationOperations extends ServiceApi {
     return this.client.request<T.ProviderListServicesGetResponse>({ ...options, method: "GET", url: `/api/v1/providers/${encodeURIComponent(id)}/services` });
   }
   /**
-   * Performs the assign service operation for the provider capability.
+   * Apply the named Reservation resource mutation. Success has data:null. Native conflict/history and current sandbox-scoped authorization checks remain authoritative; history-preserving parent/slot deletion can return409.
    * Calls `POST /api/v1/providers/{id}/services` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted current user and organization context plus matching admin resource action/manage permission, reservation action/manage wildcard as accepted by the source middleware.
    */
   providerAssignServicePost(id: Identifier, data: T.ProviderAssignServicePostInput, options?: RequestOptions<T.ProviderAssignServicePostInput>) {
     return this.client.request<T.ProviderAssignServicePostResponse, T.ProviderAssignServicePostInput>({ ...options, method: "POST", url: `/api/v1/providers/${encodeURIComponent(id)}/services`, data: data });
   }
   /**
-   * Performs the remove service operation for the provider capability.
+   * Apply the named Reservation resource mutation. Success has data:null. Native conflict/history and current sandbox-scoped authorization checks remain authoritative; history-preserving parent/slot deletion can return409.
    * Calls `DELETE /api/v1/providers/{id}/services/{service_id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param serviceId Backend path identifier `service_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted current user and organization context plus matching admin resource action/manage permission, reservation action/manage wildcard as accepted by the source middleware.
    */
   providerRemoveServiceDelete(id: Identifier, serviceId: Identifier, options?: RequestOptions) {
     return this.client.request<T.ProviderRemoveServiceDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/providers/${encodeURIComponent(id)}/services/${encodeURIComponent(serviceId)}` });
@@ -169,12 +181,12 @@ export class ReservationOperations extends ServiceApi {
     return this.client.request<T.ReservationStorePostResponse, T.ReservationStorePostInput>({ ...options, method: "POST", url: `/api/v1/reservations`, data: data });
   }
   /**
-   * Performs the cancel operation for the reservation capability.
+   * Cancel a booking while retaining its history. Returns data:null. Repeated cancellation succeeds without releasing a newer claim; cancelled bookings cannot be reopened. Missing booking404, invalid transition409, and a claim no longer owned by this booking409.
    * Calls `DELETE /api/v1/reservations/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted non-nil current user/organization and reservation delete/manage permission as accepted by source middleware.
    */
   reservationCancelDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ReservationCancelDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/reservations/${encodeURIComponent(id)}` });
@@ -225,12 +237,12 @@ export class ReservationOperations extends ServiceApi {
     return this.client.request<T.ReservationServiceStorePostResponse, T.ReservationServiceStorePostInput>({ ...options, method: "POST", url: `/api/v1/services`, data: data });
   }
   /**
-   * Performs the destroy operation for the reservation service capability.
+   * Apply the named Reservation resource mutation. Success has data:null. Native conflict/history and current sandbox-scoped authorization checks remain authoritative; history-preserving parent/slot deletion can return409.
    * Calls `DELETE /api/v1/services/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted current user and organization context plus matching admin resource action/manage permission, reservation action/manage wildcard as accepted by the source middleware.
    */
   reservationServiceDestroyDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.ReservationServiceDestroyDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/services/${encodeURIComponent(id)}` });
@@ -270,12 +282,12 @@ export class ReservationOperations extends ServiceApi {
     return this.client.request<T.TimeSlotGeneratePostResponse, T.TimeSlotGeneratePostInput>({ ...options, method: "POST", url: `/api/v1/slots`, data: data });
   }
   /**
-   * Performs the destroy operation for the time slot capability.
+   * Apply the named Reservation resource mutation. Success has data:null. Native conflict/history and current sandbox-scoped authorization checks remain authoritative; history-preserving parent/slot deletion can return409.
    * Calls `DELETE /api/v1/slots/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted current user and organization context plus matching admin resource action/manage permission, reservation action/manage wildcard as accepted by the source middleware.
    */
   timeSlotDestroyDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.TimeSlotDestroyDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/slots/${encodeURIComponent(id)}` });
@@ -315,11 +327,11 @@ export class ReservationOperations extends ServiceApi {
     return this.client.request<T.TimeSlotAvailableGetResponse>({ ...options, method: "GET", url: `/api/v1/slots/available`, params });
   }
   /**
-   * Performs the health operation for the router capability.
+   * Read the process package version; does not verify database, broker, tenant binding or booking availability.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public static process version; no downstream readiness guarantee.
    */
   routerHealthGetHealth(options?: RequestOptions) {
     return this.client.request<T.RouterHealthGetHealthResponse>({ ...options, method: "GET", url: `/health` });

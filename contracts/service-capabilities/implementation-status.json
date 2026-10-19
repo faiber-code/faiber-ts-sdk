@@ -15,7 +15,7 @@
     "sdk_tests": 125,
     "sdk_types_and_build": "passed",
     "all18_http_source_graphs_followed": true,
-    "structural_operation_count": 1600,
+    "structural_operation_count": 1601,
     "structural_counts_are_completion": false,
     "profile_summary_http_assertions": 348,
     "profile_summary_operations": 20,
@@ -39,7 +39,8 @@
       "compose immutable Task/Session/Chat/CRM Summary adapters with existing repairs",
       "current deployed identity/permissions and coordinated IDP configuration/reconciliation",
       "npm registry audit connectivity; SDK origin SSH fetch timed out",
-      "readable Manage workflows, Knowledge publication and memory cutover remain gated"
+      "readable Manage workflows, Knowledge publication and memory cutover remain gated",
+      "Canonical integration of selected Reservation/Version fixes; full cross-service meanings/current identity and Manage workflows remain gated."
     ],
     "npm_auth_started": false,
     "published_packages": [],
@@ -57,6 +58,10 @@
       "CRM durable Office command source"
     ],
     "source_has_subsequent_changes": true,
-    "latest_network_probe": "Direct curl to registry.npmjs.org also failed TLS handshake (HTTP000, SSL connection timeout)."
+    "latest_network_probe": "Direct curl to registry.npmjs.org also failed TLS handshake (HTTP000, SSL connection timeout).",
+    "reservation_backend_tests": 42,
+    "reservation_sdk_http_assertions": 188,
+    "reservation_operations_verified_locally": 30,
+    "reservation_production_source": "80aef6037cec20bb808903f15737160cef5f6a66"
   }
 }

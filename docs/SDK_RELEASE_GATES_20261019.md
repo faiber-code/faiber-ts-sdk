@@ -8,7 +8,7 @@ Knowledge publication and agent memory adoption remain downstream of SDK accepta
 
 - All 18 SDK HTTP service inventories follow mounted source graphs. Named dynamic
   operations cover Session's peer proxy, CRM's two legacy fallbacks and State health.
-  The1600-operation structural count is not a completion criterion.
+  The1601-operation structural count is not a completion criterion.
 - SDK build, strict types and 125 tests pass. Wildcard path components retain directory
   separators and reject traversal/ambiguous encoding before transport. CONNECT requires
   an explicit tunnel-capable Axios adapter; default CONNECT rejects before hanging.
@@ -67,10 +67,11 @@ Still required:
    verify six-domain interoperability/current principals and remotely available Rust SDK pins.
 3. Verify Session peer proxy workflows with actual participating services. Preserve
    current Session reconnect/Pastil and CRM durable Office fixes.
-4. Reconcile SDK source pins with accepted backend repairs. Reservation's latest local
-   capacity/history source4ece677c98c48070fcdc3de77a714b783f73bacc has40 local tests;
-   SDK source currently remains canonicalf7cd709. Version's actual tested repairb5fb6904
-   differs from canonical88071d0. Do not certify those different sources as interchangeable.
+4. Integrate the selected backend repairs canonically. SDK now selects Reservation
+   `80aef6037cec20bb808903f15737160cef5f6a66` (test-only descendant
+   `2f6595825607c36474ef92d38d94c601a202d849`) and Version
+   `b5fb6904e9ac005c9437012bf19e9bc3587ef65e`. These differ from current remote
+   canonical bases; do not claim a deployed fix or source availability from local tests.
 5. Finish current deployment/permission/configuration reconciliation and reproducible
    source acceptance where required; do not infer it from forwarded-header fixtures.
 6. Obtain a passing fresh npm security audit and run the final22-package/source-bound
@@ -81,3 +82,19 @@ No published version, Git tag/push, deployment or agent-memory migration is clai
 No subjects, events or facts have been adopted into the new brain. Model defaults and
 unrelated ordinary source changes were preserved; model quality/response latency gains
 have not been measured because that cutover has not happened.
+
+## Reservation source reconciliation
+
+Selected production repair `80aef6037cec20bb808903f15737160cef5f6a66` preserves all
+prior capacity/history fixes and excludes legacy user-held slots from public availability.
+Test-only descendant `2f6595825607c36474ef92d38d94c601a202d849` passed42 tests and188
+compiled-SDK assertions over all30 mounted operations with real PostgreSQL/RabbitMQ,
+standalone locked canonical-URL dependencies and no Service-level Cargo overrides.
+Current permission headers are an explicit trusted-gateway fixture; live namespace/IDP
+binding and customer existence lookup are separate gates.
+
+The SDK exposes provider capacity inputs/reports, correct raw OpenAPI and data:null
+mutation receipts. Cancellation is idempotent and cannot release a rebooked claim.
+The initial real legacy-claim regression and both invalid fixture assumptions
+(cancellation returns a booking object; repeated cancellation returns409) remain retained.
+No wrong fixture assumption was labeled a backend defect.

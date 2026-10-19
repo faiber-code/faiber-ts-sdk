@@ -898,5 +898,30 @@
     "scope": "Actual production CRM legacy fallback and production CORS through compiled SDK, explicit nine HTTP methods (CONNECT with a real custom adapter; default CONNECT rejects), response/error/header behavior. No mocked handler responses. Not native CRM domain permissions/data or whole-main API normalization/live deployment acceptance.",
     "canonical_certification": false,
     "assertions": 59
+  },
+  "reservation-standalone-sdk-capacity": {
+    "kind": "real_sdk_http_postgres_rabbitmq_contract",
+    "status": "passed",
+    "command": "cargo test --locked --offline --lib --tests -- --include-ignored --test-threads=1 --nocapture",
+    "exit_code": 0,
+    "tests_executed": 42,
+    "assertions": 188,
+    "source_revisions": {
+      "reservation": "80aef6037cec20bb808903f15737160cef5f6a66"
+    },
+    "test_source_revision": "2f6595825607c36474ef92d38d94c601a202d849",
+    "source_unchanged_during_run": true,
+    "artifact_path": "evidence/reservation-sdk-42-188/reservation-sdk-tests.json",
+    "artifact_sha256": "b9f2b32b72d3d019bf0d684c3fea378090f9f17575093d5486e18e2428df12ad",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/reservation-sdk-42-188/reservation-sdk-tests.log",
+        "sha256": "ee815de7e8eb89128cf03fc4df3656ed3c775c9f3bbfb83e34d26355b5f389c1"
+      }
+    ],
+    "resolved_cargo_lock_artifact_path": "evidence/reservation-sdk-42-188/reservation-resolved-Cargo.lock",
+    "resolved_cargo_lock_sha256": "8b36bd28032c388760780bccb82d04d0dab88c2d6003eedcfe84b40637913961",
+    "scope": "actual mounted Reservation router and compiled SDK, real PostgreSQL/RabbitMQ; trusted gateway fixture; provider capacity shared across offerings, lifecycle/history, filters and native request permissions; not live IDP/gateway binding or cross-service user identity lookup",
+    "canonical_certification": false
   }
 }

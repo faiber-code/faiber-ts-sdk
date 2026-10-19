@@ -447,7 +447,7 @@ for (const service of services) {
         const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
         if (/data\s*:\s*HealthResponse\s*\{/.test(fn?.body??"")) signature.response="HealthResponse";
       }
-      if (["asset", "idp", "modules", "payment", "profile", "lms", "version"].includes(service) && op.path==="/api/openapi.json") {
+      if (["asset", "idp", "modules", "payment", "profile", "lms", "version", "reservation"].includes(service) && op.path==="/api/openapi.json") {
         const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
         if (/Json\s*\(\s*ApiDoc::openapi\s*\(/.test(fn?.body??"")) {
           signature.response="utoipa::openapi::OpenApi";signature.responseEnvelope="raw";

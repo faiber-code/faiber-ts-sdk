@@ -13,6 +13,9 @@ acceptance. It has not been published by the knowledge-brain implementation task
   OIDC discovery and `/oauth2/*` use the service root; secure single-use token
   generation requires its target user UUID. Preserve nested shop/inventory/public
   routes, the daily-income route, and macro-defined role-list queries/permissions.
+- Align Reservation with tested provider capacity/history repairs, expose capacity reports,
+  preserve legacy claims while excluding them from public availability, and type
+  unit-valued mutation/cancellation receipts as data:null. Cancellation is idempotent.
 - Give process health, raw OpenAPI, OIDC discovery/JWKS/user-info/introspection and
   forward-auth their actual named wire shapes. CORS OPTIONS returns an empty body;
   forward-auth carries its principal in response headers.

@@ -385,7 +385,7 @@
       "id": "reservation-cross-service-capacity",
       "owner": "reservation",
       "required": true,
-      "status": "fixed_locally_pending_canonical_sdk_manage",
+      "status": "local_standalone_sdk_postgres_verified_canonical_manage_pending",
       "meaning": "Approved provider-wide capacity implemented locally: integer 1..1000 default 1, half-open stored booking intervals across every service; buffers space generation only. Generation fills single-claim pools; booking/limit changes serialize. Insufficient changed limits return 409 without cancelling bookings. Legacy conflicts remain reportable; rollback refuses nondefault limits. 40 real PostgreSQL/RabbitMQ regressions pass, including booking versus decrease race. Canonical/deployed, gateway/project isolation, SDK and readable Manage workflows remain unverified.",
       "source_refs": [
         "Service/infera-reservation/src/time_slot/methods.rs",
@@ -395,7 +395,7 @@
       ],
       "implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
       "test_evidence": [
-        "reservation-provider-capacity"
+        "reservation-standalone-sdk-capacity"
       ]
     },
     {
@@ -659,6 +659,20 @@
         "Service/infera-session/src/router.rs",
         "Service/infera-crm/src/router.rs",
         "Service/infera-state/src/main.rs"
+      ]
+    },
+    {
+      "id": "reservation-legacy-user-held-availability",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_local_postgres_sdk_verified_pending_canonical",
+      "meaning": "A legacy reserved_by_user_id-only claim appeared in public availability when provider capacity exceeded one, although booking rejected it. A real PostgreSQL regression reproduced this; selected repair excludes held rows without rewriting claims/history. Actual SDK availability and lifecycle workflows pass. Canonical rollout/current gateway and cross-service identity binding remain unverified.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs",
+        "Service/infera-reservation/tests/provider_capacity_test.rs"
+      ],
+      "test_evidence": [
+        "reservation-standalone-sdk-capacity"
       ]
     }
   ]

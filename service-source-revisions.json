@@ -49,7 +49,7 @@
   },
   "reservation": {
     "directory": "infera-reservation",
-    "revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd"
+    "revision": "80aef6037cec20bb808903f15737160cef5f6a66"
   },
   "session": {
     "directory": "infera-session",
@@ -69,6 +69,6 @@
   },
   "version": {
     "directory": "infera_version",
-    "revision": "88071d0dd49309e0c93aba6238516e95b57e1df5"
+    "revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e"
   }
 }

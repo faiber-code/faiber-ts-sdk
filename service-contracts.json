@@ -17751,7 +17751,8 @@
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera-reservation/src/router.rs",
-      "responseEnvelope": "api",
+      "response": "utoipa::openapi::OpenApi",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -17829,6 +17830,20 @@
       "body": "UpdateProviderRequest",
       "pathParam": "i64",
       "response": "ProviderResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/providers/{id}/capacity",
+      "module": "provider",
+      "handler": "capacity_report",
+      "permissions": [],
+      "source": "infera-reservation/src/provider/routes.rs",
+      "query": "PaginationQuery",
+      "pathParam": "i64",
+      "response": "super::capacity::CapacityReport",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

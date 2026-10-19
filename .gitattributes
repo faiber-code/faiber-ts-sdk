@@ -13,3 +13,4 @@ contracts/service-capabilities/evidence/version-sdk-wire-accepted-4bb3902f/*.log
 contracts/service-capabilities/working-contract-extraction.stderr.log -whitespace
 contracts/service-capabilities/evidence/lms-retirement-http-v1/*.log -whitespace
 contracts/service-capabilities/evidence/crm-fallback-routing-guard-v2/*.log -whitespace
+contracts/service-capabilities/evidence/reservation-sdk-42-188/*.log -whitespace

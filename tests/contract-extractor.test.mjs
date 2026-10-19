@@ -57,6 +57,8 @@ test("contract extraction finds the sibling services tree and emits portable mou
     assert.ok(manifest.session.some(e=>e.path==="/api/v1/integrations/lms/rooms/{id}/notification-state"));
     assert.ok(manifest.session.some(e=>e.path==="/integration/flow"));
     assert.ok(!manifest.session.some(e=>e.path==="/api/v1/integration/flow"));
+    assert.ok(manifest.reservation.some(e=>e.path==="/api/v1/providers/{id}/capacity"));
+    assert.equal(manifest.reservation.find(e=>e.path==="/api/openapi.json").responseEnvelope,"raw");
     const upload = manifest.task.find(endpoint => endpoint.method === "POST" && endpoint.path === "/api/v1/work-items/{id}/attachments");
     assert.equal(upload.handlerModule, "attachments", "qualified type resolution must use the owning handler module");
     const drmOperationsSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/api/v1/operations/settings");
