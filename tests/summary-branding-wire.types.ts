@@ -18,3 +18,8 @@ const binary=task.feedback.attachmentContent('r','a',{responseType:'arraybuffer'
 const bytes:Promise<ArrayBuffer|Uint8Array>=binary.then(r=>r.data);
 const browser:Promise<Blob>=task.feedback.attachmentContent('r','a').then(r=>r.data);
 void [bytes,browser];
+
+import type {ChatApi} from '@faiber/faiber-chat';
+declare const chat:ChatApi;
+const audio:Promise<ArrayBuffer|Uint8Array>=chat.synthesize({text:'Hello'},{responseType:'arraybuffer'}).then(r=>r.data);
+void audio;

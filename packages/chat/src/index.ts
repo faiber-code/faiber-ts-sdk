@@ -1,7 +1,7 @@
 import { PersonalChatApi } from "./personal.js";
 import { LearningTeacherApi } from "./learning.js";
 import { ChatWorkspaceOperations } from "./workspace.js";
-import { ServiceApi, type Identifier, type RequestOptions } from "@faiber/sdk-core";
+import { ServiceApi, type Identifier, type RequestOptions, type AxiosResponse } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 import { ChatOperations } from "./operations.js";
@@ -40,9 +40,12 @@ export class ChatApi extends ServiceApi {
 
   /** Synthesize speech through the configured metered provider; requires chat:ai.
    * Returns compact MP3 by default, or explicit WAV. Preserves Axios metadata and cancellation.
+   * Browser default is Blob; Node callers select arraybuffer for lossless bytes.
    * Disabled voices return 400; unavailable/mismatched provider output returns 502. */
+  synthesize(input:T.SpeechSynthesisInput, options:RequestOptions<T.SpeechSynthesisInput>&{responseType:'arraybuffer'}):Promise<AxiosResponse<ArrayBuffer|Uint8Array,T.SpeechSynthesisInput>>;
+  synthesize(input:T.SpeechSynthesisInput, options?:RequestOptions<T.SpeechSynthesisInput>):Promise<AxiosResponse<Blob,T.SpeechSynthesisInput>>;
   synthesize(input:T.SpeechSynthesisInput, options?:RequestOptions<T.SpeechSynthesisInput>) {
-    return this.client.request<Blob,T.SpeechSynthesisInput>({...options,method:'POST',url:'/api/v1/speech/tts',data:{...input,format:input.format ?? 'mp3'},responseType:'blob'});
+    return this.client.request<Blob|ArrayBuffer|Uint8Array,T.SpeechSynthesisInput>({responseType:'blob',...options,method:'POST',url:'/api/v1/speech/tts',data:{...input,format:input.format ?? 'mp3'}});
   }
   conversations(options?: RequestOptions) { return this.client.get<T.ConversationListResponse>("/api/v1/conversations", undefined, options); }
   createConversation(data: T.CreateConversationInput, options?: RequestOptions<T.CreateConversationInput>) { return this.client.post<T.ConversationResponse, T.CreateConversationInput>("/api/v1/conversations", data, options); }

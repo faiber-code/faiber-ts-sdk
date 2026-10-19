@@ -1,4 +1,4 @@
-import type {JsonObject} from "@faiber/sdk-core";
+import type {JsonObject,JsonValue} from "@faiber/sdk-core";
 import type {QueryParams} from "@faiber/sdk-core";
 export type SummarySource = 'lms'|'task'|'accounting'|'session'|'chat'|'crm'
 export type SummaryMetricType = 'number'|'integer'|'boolean'|'enum'
@@ -34,7 +34,7 @@ export interface SummaryValidation {valid:boolean}
 /** available establishes authenticated connectivity only; evidence_ready=false or
  * preview_required=true still requires an eligible subject preview before activation.
  */
-export interface SummarySourceCheck {source:SummarySource;available:boolean;evidence_ready?:boolean;preview_required?:boolean;status?:string}
+export interface SummarySourceCheck {source:SummarySource;available:boolean;evidence_ready?:boolean;preview_required?:boolean;status?:string;tools?:JsonValue[]}
 export interface SummaryRefreshWrite {subjects:{user_id:string;role_id:string}[]}
 export interface SummaryRefreshResponse {queued:{job_id:string;user_id:string;role_id:string}[]}
 export interface SummaryRetryResponse {job_id:string}
