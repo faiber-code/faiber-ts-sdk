@@ -40,7 +40,11 @@ for await (const event of parseManageAgentEvents(stream.data)) {
 ```
 
 `listAgentModels` returns the Agentic model catalog used by helper settings and chat
-composition. Durable chat management is available through `listAgentThreads`,
+composition. Manage conversations belong to the signed session’s current project and
+active user; personal Ask history and other projects are excluded. Current project
+settings permission is required on every request, and creation/execution additionally
+requires agent permission. Execution retains normal Agentic billing/model checks.
+Durable chat management is available through `listAgentThreads`,
 `getAgentMessages`, `cancelAgentChat`, and `deleteAgentThread`.
 
 `domainsFromManageProxy` configures normal Faiber service clients through Manage's
@@ -57,3 +61,23 @@ incremental; consumers may supply another streaming adapter.
 Axios errors retain HTTP status, response headers, request IDs, and backend details. Agent
 event parsing is transport-only: it never auto-executes an action. The complete facade is
 available from [`@faiber/faiber-ts-sdk`](https://www.npmjs.com/package/@faiber/faiber-ts-sdk).
+
+History is paged (default20, maximum100). Axios retains the `x-has-more` and
+`x-next-before` response headers:
+
+```ts
+const page = await manage.listAgentThreadsPage({ limit: 20 });
+const cursor = page.headers.get("x-next-before");
+if (page.headers.get("x-has-more") === "true" && typeof cursor === "string") {
+  const next = await manage.listAgentThreadsPage({ limit: 20, before: cursor });
+  console.log(next.data);
+}
+```
+
+`openAgentChatStream` accepts `context` preferences with `enabled_helpers`
+(`seo`, `reportSummary`, `writing`, `smartForms`) and `locale` (`en` or `fa`).
+`enabled_services` is optional for compatibility: Manage replaces it with current
+server-authorized services. Agent and project are bound by the server; conflicting
+values, assistant configuration, unknown preferences, and forged trusted-chat context
+are rejected. Cross-project thread operations return404; invalid preferences return400.
+These preferences never grant service, execution, model, or billing permissions.

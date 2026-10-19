@@ -80,7 +80,7 @@ test("Manage durable Agent APIs retain exact methods, encoded identifiers, bodie
     model_ref: "cloud:zai:glm-4.7",
     client_message_id: "message-1",
     surface: { route: "/m/modules/products" },
-    context: { selection: ["product-1"] },
+    context: { enabled_services: ["modules"], enabled_helpers: ["reportSummary"], locale: "en" },
   }, { adapter });
   await sdk.manage.cancelAgentChat("thread/one", { client_message_id: "message-1" });
   await sdk.manage.completeAgentAction("action/one", { ok: true, result: { count: 3 } });
@@ -135,4 +135,21 @@ test("Manage image responses support both current envelopes", () => {
   assert.equal(managedImageUrl({ data: { url: "https://cdn.test/a.png" } }), "https://cdn.test/a.png");
   assert.equal(managedImageUrl({ url: "https://cdn.test/b.png" }), "https://cdn.test/b.png");
   assert.throws(() => managedImageUrl({}), /without a URL/);
+});
+
+// Client contract verification only; real authorization/pagination is covered by the
+// separately source-fenced Manage/Agentic HTTP and Mongo regression.
+test("Manage history pages preserve cursor query and upstream pagination headers", async () => {
+  let captured;
+  const sdk = new FaiberSDK({ domains: { manage: "https://manage.test" }, axios: {
+    adapter: async config => {
+      captured = config;
+      return { ...response(config, [{ id: "thread-1" }]), headers: new AxiosHeaders({ "x-has-more": "true", "x-next-before": "cursor-2" }) };
+    },
+  } });
+  const page = await sdk.manage.listAgentThreadsPage({ limit: 1, before: "cursor-1" });
+  assert.deepEqual(captured.params, { limit: 1, before: "cursor-1" });
+  assert.equal(page.headers.get("x-next-before"), "cursor-2");
+  assert.equal(page.headers.get("x-has-more"), "true");
+  assert.equal(page.data[0].id, "thread-1");
 });

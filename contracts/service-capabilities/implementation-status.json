@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T12:11:28.586873+00:00",
+  "updated_at": "2026-10-19T12:45:29Z",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
@@ -189,6 +189,52 @@
       "exit_code": 0,
       "tests_executed": 16,
       "scope": "Focused source inclusion, manifest binding, multi-artifact tamper and evidence-gate tests; not full SDK acceptance."
+    },
+    "manage_project_bridge": {
+      "schema_version": "1.0",
+      "kind": "local_cross_service_authority_regression",
+      "status": "passed",
+      "command": "python3 scripts/run-manage-authority-tests.py (isolated Agentic commit checkout)",
+      "exit_code": 0,
+      "tests_executed": 31,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "source_unchanged_during_run": true,
+      "source_revisions": {
+        "manage": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
+        "agentic": "ab11e179b3f843728c82cd5a39739aca6502e51a"
+      },
+      "source_fingerprints": {
+        "manage": "44e043c2e66e9a1570cbeb4b28c95efb32d4b50c84ee121efe37f72a11ebc04e",
+        "agentic": "825f4e2a039a273944c681bd3dbd8037ae1db407606bdeb585d574c8b2527a8a"
+      },
+      "artifact_path": "evidence/manage-authority-tests-bfb5096-ab11e179.json",
+      "artifact_sha256": "c73f55894deace61b7dab9345a384c6fcfe75ea0dcff767987cfce1f7e6a48b1",
+      "additional_artifacts": [
+        {
+          "artifact_path": "evidence/manage-authority-components-bfb5096-ab11e179.log",
+          "sha256": "afde9cd88a340995d86fc89ce8ccc4a6ea738530dcb028d7270b207c83d96ce7"
+        },
+        {
+          "artifact_path": "evidence/manage-authority-binary-bfb5096-ab11e179.log",
+          "sha256": "9476ac17f31f8455f379a5bce98a76bfd4542540ca9f2590a57de4334c9c807a"
+        },
+        {
+          "artifact_path": "evidence/agentic-manage-authority-bfb5096-ab11e179.log",
+          "sha256": "bcd0ab91752ce9a4c3972ea06f5f4a8d6cddb5bf7770f23a7af0fa5dddd70587"
+        },
+        {
+          "artifact_path": "evidence/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+          "sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f"
+        },
+        {
+          "artifact_path": "evidence/infera-agentic-authority-resolved-251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77.Cargo.lock",
+          "sha256": "251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77"
+        }
+      ],
+      "duration_seconds": 37.426,
+      "scope": "Actual Manage process and Agentic handlers with real disposable Mongo: current authority/restart/revocation plus project-bound Manage create/list/history, tied timestamp pagination after cursor-row deletion, personal/foreign thread restrictions on messages/delete/cancel/stream/review, forged context denial, and normal billing.spend denial. No model call; pending review uses existing in-memory hubs and is not durable receipt acceptance. Control lifecycle is an explicit fixture. Production gateway, Control lifecycle, IDP exchange/refresh, SDK/UI and deployment remain unverified.",
+      "canonical_certification": false
     }
   },
   "artifacts": {
@@ -265,8 +311,8 @@
       "sha256": "dc1f13f26c790d4fc70d92b04f7e7100c0696769eebeaef681c0c4573848c5ac"
     },
     "manage-current-authority": {
-      "path": "evidence/manage-authority-tests.json",
-      "sha256": "3dc7b7748a879c043b28c144ec594083466e2335f79d4b999cde16b6bc31748a"
+      "path": "evidence/manage-authority-tests-4dd4bf0-6cd75ebc.json",
+      "sha256": "2edd826c7145e0354e4c347b53072a15bf6ef4c68f2e1079652939c237402970"
     },
     "authority-evidence-tooling": {
       "path": "evidence/authority-evidence-tooling-tests.log",

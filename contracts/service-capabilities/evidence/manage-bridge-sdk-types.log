@@ -1,0 +1,4 @@
+
+> faiber-ts-sdk-monorepo@1.0.0 test:types
+> tsc -p tests/tsconfig.json --pretty false
+

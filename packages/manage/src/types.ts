@@ -2,6 +2,7 @@ import type {
   JsonObject,
   JsonValue,
   ServiceName,
+  QueryParams,
 } from "@faiber/sdk-core";
 
 export type ManageProxyService = Exclude<ServiceName, "manage">;
@@ -80,8 +81,24 @@ export interface ManageImageUploadResponse extends JsonObject {
 }
 
 export interface ManageAgentThreadInput extends JsonObject {
-  title: string;
-  ide_mode?: string;
+  title?: string;
+  ide_mode?: "code";
+}
+
+/** Cursor ordering is updated_at then ID, both descending; cursors survive deletion. */
+export interface ManageAgentThreadQuery extends QueryParams {
+  /** Integer from1 through100; defaults to20. */
+  limit?: number;
+  before?: string;
+}
+
+export type ManageAgentHelper = "seo" | "reportSummary" | "writing" | "smartForms";
+
+/** Preferences only. The server replaces enabled_services with current authorized grants. */
+export interface ManageAgentPreferences extends JsonObject {
+  enabled_services?: string[];
+  enabled_helpers?: ManageAgentHelper[];
+  locale?: "en" | "fa";
 }
 
 export interface ManageAgentThreadResponse extends JsonObject {
@@ -130,7 +147,7 @@ export interface ManageAgentChatInput extends JsonObject {
   client_message_id?: string;
   surface?: JsonValue;
   agent_slug?: string;
-  context?: JsonValue;
+  context?: ManageAgentPreferences;
   project_slug?: string;
   selected_node_ids?: string[];
   model_ref?: string;

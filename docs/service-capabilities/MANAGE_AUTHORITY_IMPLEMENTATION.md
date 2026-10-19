@@ -28,7 +28,7 @@ or refresh during outage. The response receipt is bounded to 64 KiB and 30 secon
 
 Concurrency in the original Agentic checkout invalidated earlier source fences.
 The accepted run therefore uses the detached checkout recorded in
-`evidence/manage-authority-tests.json` at the exact Agentic commit. Its original
+`evidence/manage-authority-tests-4dd4bf0-6cd75ebc.json` at the exact Agentic commit. Its original
 lock was restored after retaining resolved bytes. Manage's pre-existing dirty
 Cargo lock is unchanged and retained; its fingerprint is part of the tested input.
 Original unrelated Agentic/SDK changes were not staged, reset or included in these
@@ -61,3 +61,28 @@ No agent memory migration/publication occurred; reconciled migrated records rema
 zero and agent quality/latency canaries remain unmeasured. Compilation/test duration
 is not agent-response latency. Canonical/deployed and owning-service workflow gates
 must still pass in dependency order before SDK/Manage completion or cutover.
+
+## Project-bound conversation bridge
+
+Manage `bfb5096432bd72bb5d8b920c304309bab9c2928b` and Agentic
+`ab11e179` add dedicated Manage thread creation/listing using the stable project UUID
+and current membership, while preserving personal Ask storage and existing Code/Design
+defaults. The signed Manage session binds project/agent and replaces browser-supplied
+service preferences. History, deletion, cancellation, streaming and pending review
+operations recheck project ownership before work. Trusted Chat context remains restricted.
+
+The isolated complete backend run passed31 checks with unchanged sources, dependency
+fingerprints and restored input locks. Its immutable record is
+`evidence/manage-authority-tests-bfb5096-ab11e179.json`. Tied timestamp pagination
+survives deletion of the cursor row; other-project and personal operations are denied.
+Valid Manage context reaches the existing billing.spend permission denial, without a
+model/provider call. Existing process-local pending hubs are used for the scope test;
+this does not certify durable human review, idempotency or executed SDK receipts.
+
+The local SDK now exposes `listAgentThreadsPage` with full Axios pagination headers
+and typed Manage preferences. Its workspace build and five focused transport/parser
+tests passed in the current mixed working tree; those are not integrated release or
+real SDK/backend acceptance. UI pagination and readable action workflows remain pending.
+The first isolated compile attempt failed against stale local domain metadata; a
+source-timestamp-triggered rebuild resolved it without content changes or cache deletion.
+The failed attempt remains retained and is not counted as passing evidence.

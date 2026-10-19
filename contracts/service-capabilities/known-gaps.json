@@ -564,7 +564,7 @@
       "id": "manage-agent-project-thread-contract",
       "owner": "agentic",
       "required": true,
-      "status": "confirmed_source_contract_defects_require_real_workflow_repair",
+      "status": "locally_repaired_source_fenced_backend_verified_sdk_ui_canonical_pending",
       "meaning": "Manage proxies home /chat/threads, whose actual response is a personal-only paginated object and whose created threads have no project. Manage SDK expects an array and UI filters project_slug; current UI therefore cannot restore its project history through that contract. UI also sends manage agent context, while the IDE handler treats any context as trusted Chat configuration and rejects non-chat agents. Signed x-infera-project is currently not consumed by the inspected thread routes. Bind Manage creation/list/history/review to current project and stable project IDs, preserve personal Ask scope, and verify body/header/thread forgery and actual stream/review behavior before SDK/UI completion. Do not bypass Chat service authentication or remove normal Agentic billing/access rules.",
       "source_refs": [
         "Service/infera-manage/src/agent.rs",
@@ -573,7 +573,16 @@
         "infera-agentic/src/chat/routes.rs",
         "infera-agentic/src/ide/threads.rs",
         "infera-agentic/src/ide/routes.rs"
-      ]
+      ],
+      "local_evidence": "manage-project-bridge",
+      "remaining": "Local backend project binding and context repair passed31 checks. SDK bindings have focused build/transport checks only. Canonical/main integration, actual SDK-to-backend and readable/paged UI journeys remain pending. No model success, billing bypass or durable review claim."
+    },
+    {
+      "id": "manage-durable-review-receipt",
+      "owner": "agentic",
+      "required": true,
+      "status": "confirmed_requires_durable_idempotent_completion",
+      "meaning": "Current browser/Ask pending review hubs are process-local; duplicate completion can replace state, and Ask ignores durable runtime-input completion errors. Project isolation is locally repaired but does not establish durable task receipts. Persist requests/results with project/actor/run scope, compare-and-set completion, idempotency and actual SDK execution receipts; verify restart/replay/denial without relying on browser reports as proof."
     }
   ]
 }
