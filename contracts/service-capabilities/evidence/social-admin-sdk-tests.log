@@ -1,22 +1,25 @@
    Compiling infera_social v0.2.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.25s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.81s
      Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_social-93ea22e412721aea)
 
-running 6 tests
+running 8 tests
 test api::routes::tests::self_identity_returns_gateway_roles_and_permissions ... ok
 test capabilities::tests::amount_rejects_non_positive_values ... ok
 test capabilities::tests::exact_coordinates_are_not_part_of_public_location_shape ... ok
 test models::tests::category_has_independent_moderation_controls ... ok
 test models::tests::moderation_audit_pagination_is_bounded ... ok
 test models::tests::post_payload_cannot_choose_moderation ... ok
+test repository::publication_entitlement_tests::exact_entitlement_is_required_even_with_service_wildcard ... ok
+test repository::publication_entitlement_tests::public_categories_remain_compatible ... ok
 
-test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
      Running tests/sdk_admin_wire.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/sdk_admin_wire-a6131d614feb8e6a)
 
-running 2 tests
+running 3 tests
 test actual_sdk_admin_workflows_and_organization_permission_boundaries ... ok
+test public_discovery_graph_events_and_visibility_use_actual_sdk ... ok
 test replay_audit_failure_is_atomic_and_terminal_claim_decisions_conflict ... ok
 
-test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.78s
 

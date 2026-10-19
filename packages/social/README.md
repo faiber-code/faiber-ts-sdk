@@ -95,3 +95,15 @@ Creating categories, draft policies and restrictions returns201. Category archiv
 Replay only accepts failed/dead-letter events, requires a reason, and returns a pending receipt rather than proof that another service applied the effect. The matching reviewed service repair commits its reset and audit together. Claim decisions reject terminal states with409 in that repair. These repaired behaviors require the coordinated service version; installing the SDK alone does not upgrade a service runtime.
 
 All methods accept request cancellation and timeout options and retain full Axios responses. Handle400 validation,401 missing actor,403 missing permission,404 missing scoped record,409 lifecycle conflict and transport/server errors without treating a failed request as proof that an older service rolled back its writes.
+
+## Public discovery and server-side social graph
+
+`operations.discoveryFeedGet(query)`, `discoveryPostDetailGet(id)` and `discoveryCommentsGet(id)` return public projections scoped to the service runtime's configured organization/category. Private, moderated, deleted, blocked and expired story records are excluded. The public feed accepts text, author and subject filters; `subject_refs` is a comma-separated place UUID list (up to100 parsed entries). Limits clamp to1–100 and pages to1–10000. Feed responses are arrays in `{status:"success",data}` without a total. Comments are oldest-first and capped at100.
+
+`discoveryMediaGet(id)` returns binary bytes, not JSON, after checking parent visibility. Respect its `private, no-cache` header. Missing/unpublished records return404; object-storage failures propagate as server errors.
+
+Follow/block, notification preferences and worker routes use a **server-only** runtime `BFF_SERVICE_KEY` and a verified actor UUID. Keep that credential in the trusted composition server's in-memory configuration. Never put it in a browser bundle or accept actor/permission headers from model output or an untrusted request. Graph targets use the exported `SocialFollowTargetKind` (`user` or `place`). Graph and preference reads return `{data}`, rather than the public Social success envelope. Follow/block mutations return204; a blocked relationship prevents user follow and hides the public author's content.
+
+The worker additionally needs exact `social:integrations:write` context. `discoveryOutboxGet()` returns the oldest50 undelivered notifications without acquiring a lease. Deduplicate downstream effects before `discoveryAckPut(id)`: acknowledgment marks delivery and is not proof of a downstream business effect. `discoveryPlaceEventPost({id,place_id,status})` uses the event UUID for transactional duplicate suppression and queues only opted-in place followers. Notification preferences support `follow`, `comment`, `place`, and `quest`, defaulting to enabled.
+
+These operations require the coordinated service image that includes discovery migrations5–9. Each project retains its separate runtime, configuration and data boundary. The SDK exposes server workflows; it does not provision credentials, grant permissions, or move project data.

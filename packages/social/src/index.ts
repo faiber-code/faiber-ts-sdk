@@ -57,3 +57,5 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./admin.types.js";
+
+export * from "./discovery.types.js";

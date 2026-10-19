@@ -30,7 +30,7 @@ export interface SocialReaction {
   user_id: string; reaction_type: ReactionType; created_at: string; updated_at: string;
 }
 export interface SocialReport {
-  id: string; reporter_user_id: string; target_type: SocialTargetType; target_id: string;
+  id: string; reporter_user_id: string; target_type: SocialTargetType | "user"; target_id: string;
   reason: string; details?: string | null; status: "open" | "reviewing" | "resolved" | "dismissed";
   created_at: string;
 }
@@ -38,14 +38,14 @@ export interface SocialListMeta { total: number; page: number; limit: number; }
 export interface FeedQuery extends QueryParams { q?: string; author_id?: string; category_id?: string; kind?: SocialPostKind; page?: number; limit?: number; }
 export interface FeedLocationPreference { latitude: number; longitude: number; range_km: number; }
 export type SetFeedLocationInput = FeedLocationPreference;
-export interface CreatePostInput { category_id?: string; kind?: SocialPostKind; visibility?: SocialVisibility; title?: string; body: string; media?: JsonValue; metadata?: JsonValue; }
-export interface UpdatePostInput extends Partial<CreatePostInput> {}
+export interface CreatePostInput { request_key?:string; category_id?: string; kind?: SocialPostKind; visibility?: SocialVisibility; title?: string; body: string; media?: JsonValue; metadata?: JsonValue; capabilities?: SocialCreateCapabilitiesInput; }
+export interface UpdatePostInput extends Partial<Omit<CreatePostInput,"request_key"|"capabilities">> {}
 export interface CreateCategoryInput { slug: string; name: JsonValue; description?: JsonValue; icon?: string; color?: string; sort_order?: number; status?: SocialCategoryStatus; moderate_posts?: boolean; moderate_comments?: boolean; metadata?: JsonValue; }
 export interface UpdateCategoryInput extends Partial<CreateCategoryInput> {}
 export interface CreateCommentInput { parent_id?: string; body: string; }
 export interface UpdateCommentInput { body: string; }
 export interface SetReactionInput { reaction_type: ReactionType; }
-export interface CreateReportInput { target_type: SocialTargetType; target_id: string; reason: string; details?: string; }
+export interface CreateReportInput { target_type: SocialTargetType | "user"; target_id: string; reason: string; details?: string; }
 export interface ModerateTargetInput { target_type: SocialTargetType | "report"; target_id: string; action: "approve" | "reject" | "hide" | "resolve" | "dismiss"; reason?: string; }
 export interface ReactionSummary { total: number; by_type: Partial<Record<ReactionType, number>>; viewer_reaction?: ReactionType | null; }
 export interface ShareEventInput { channel?: string; idempotency_key?: string; }
@@ -87,3 +87,11 @@ export type ModerationActionResponse = ApiEnvelope<ModerationActionResult>;
 export type LegacyImportResponse = ApiEnvelope<LegacyImportReport>;
 /** Used by endpoints that deliberately return 204 or an HTTP redirect without a JSON envelope. */
 export type NoContentResponse = void;
+
+/** Signed resource assertions are verified by the service; never accept an unverified resource claim as a relationship. */
+export interface SocialSignedAssertionInput {issuer:string;token:string;}
+export interface SocialSubjectCapabilityInput {subject_type:string;subject_ref:string;assertion:SocialSignedAssertionInput;}
+export interface SocialLocationCapabilityInput {latitude:number;longitude:number;public_label:string;public_precision?:"none"|"area"|"district"|"city";access_policy?:"author_only"|"authenticated_after_moderation"|"moderators";navigation_enabled?:boolean;}
+export interface SocialBountyCapabilityInput {unit:"money"|"asset";code:string;amount:string;expires_at?:string|null;}
+export interface SocialLinkedActionInput {action_type:string;resource_ref:string;assertion:SocialSignedAssertionInput;}
+export interface SocialCreateCapabilitiesInput {version?:1;subject?:SocialSubjectCapabilityInput|null;location?:SocialLocationCapabilityInput|null;bounty?:SocialBountyCapabilityInput|null;linked_actions?:SocialLinkedActionInput[];}

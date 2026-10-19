@@ -10624,8 +10624,12 @@
   "lock_sha256": "42a80aa0fe4a56aba1417312ab4e386aee159df1f8d4faa6f9ebe110c24a7f05",
   "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
   "duration_seconds": 5.422,
-  "artifact_path": "evidence/social-admin-sdk-tests.log",
+  "artifact_path": "evidence/social-admin-sdk-tests-3fa7afc-before-fix.log",
   "artifact_sha256": "d3d8b4b47a717db7be9f5e77232a5d32fa00fe02193b19157db94ab791e8bece",
   "runner_sha256": "8162043cf2c72bf51e624f291fa8cb3e94661a5d25db72084aef8a14eb1b0fa0",
-  "scope": "Six existing units plus two real PostgreSQL tests, including an actual Axios HTTP workflow exercising37 admin operations and37 missing-permission denials, organization predicates, mutations, lifecycle and receipts. Trusted forwarded fixture context is not deployed IDP/gateway or current project membership verification. No external provider effect or deployment acceptance."
+  "scope": "Six existing units plus two real PostgreSQL tests, including an actual Axios HTTP workflow exercising37 admin operations and37 missing-permission denials, organization predicates, mutations, lifecycle and receipts. Trusted forwarded fixture context is not deployed IDP/gateway or current project membership verification. No external provider effect or deployment acceptance.",
+  "archive_metadata": {
+    "original_report_sha256": "9d4098e760efb6dd1ce6936d010183dfc37187023df5a000f11ca978d1ada622",
+    "correction": "Retained output log path only; executed counts, input fingerprints and log hash unchanged."
+  }
 }

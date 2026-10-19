@@ -13,3 +13,14 @@ const mime:AdminMediaGetQuery={status:'image/jpeg'};
 declare const replay:AdminReplayIntegrationPostResponse;
 const pending:'pending'=replay.data.status;
 void [policy,invalidPolicy,restriction,invalidRestriction,total,encryptedProjectionAbsent,mime,pending];
+
+import type {SocialFollowTargetKind,SocialDiscoveryPost,DiscoveryRelationshipGetResponse,CreatePostInput} from '@faiber/faiber-social';
+const kind:SocialFollowTargetKind='place';
+// @ts-expect-error graph targets have exact supported kinds
+const badKind:SocialFollowTargetKind='organization';
+const idempotentPost:CreatePostInput={body:'Publish once',request_key:'request-uuid',capabilities:{version:1,location:{latitude:35.7,longitude:51.4,public_label:'Area',access_policy:'author_only'}}};
+declare const publicPost:SocialDiscoveryPost;
+const expires:string|null=publicPost.expires_at;
+declare const relationship:DiscoveryRelationshipGetResponse;
+const following:boolean=relationship.data.following;
+void [kind,badKind,idempotentPost,expires,following];

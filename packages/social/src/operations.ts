@@ -1089,4 +1089,159 @@ export class SocialOperations extends ServiceApi {
   adminSettingsGet(options?: RequestOptions) {
     return this.client.request<T.AdminSettingsGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/social/settings` });
   }
+  /**
+   * Public projection; runtime-configured organization/category, only public published non-deleted posts and non-expired24hour stories. Valid trusted actor enables following/liked/bookmarked and bidirectional blocking. Page1..10000/limit1..100; subject pair, comma-separated place references, author UUID and normalized text filters.
+   * Calls `GET /api/v1/public/posts` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public; following=true requires a trusted BFF actor.
+   */
+  discoveryFeedGet(params?: T.DiscoveryFeedGetQuery, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryFeedGetResponse>({ ...options, method: "GET", url: `/api/v1/public/posts`, params });
+  }
+  /**
+   * Read the same public, unexpired and non-blocked post projection; hidden, private, wrong-category or blocked records return404.
+   * Calls `GET /api/v1/public/posts/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public projection.
+   */
+  discoveryPostDetailGet(id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryPostDetailGetResponse>({ ...options, method: "GET", url: `/api/v1/public/posts/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Read at most100 published non-deleted comments, oldest first, after verifying parent post visibility and bidirectional actor blocks.
+   * Calls `GET /api/v1/public/posts/{id}/comments` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public projection.
+   */
+  discoveryCommentsGet(id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryCommentsGetResponse>({ ...options, method: "GET", url: `/api/v1/public/posts/${encodeURIComponent(id)}/comments` });
+  }
+  /**
+   * Download published media bytes after parent visibility and blocking checks. Response has private,no-cache. Unpublished media404, unavailable object storage500.
+   * Calls `GET /api/v1/public/media/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public projection.
+   */
+  discoveryMediaGet(id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryMediaGetResponse>({ ...options, method: "GET", url: `/api/v1/public/media/${encodeURIComponent(id)}`, responseType: "arraybuffer" });
+  }
+  /**
+   * Read whether the current BFF actor follows or blocks a user/place target. kind is place or user.
+   * Calls `GET /api/v1/follow/{kind}/{id}` through the shared IDP-aware Faiber client.
+   * @param kind Backend path identifier `kind`.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted server BFF_SERVICE_KEY bearer plus actor UUID.
+   */
+  discoveryRelationshipGet(kind: import("./discovery.types.js").SocialFollowTargetKind, id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryRelationshipGetResponse>({ ...options, method: "GET", url: `/api/v1/follow/${encodeURIComponent(kind)}/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Idempotently follow a user/place. Self-follow400 and blocked user403. Returns204; may emit a durable follow notification.
+   * Calls `PUT /api/v1/follow/{kind}/{id}` through the shared IDP-aware Faiber client.
+   * @param kind Backend path identifier `kind`.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted server BFF_SERVICE_KEY bearer plus actor UUID.
+   */
+  discoveryFollowPut(kind: import("./discovery.types.js").SocialFollowTargetKind, id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryFollowPutResponse>({ ...options, method: "PUT", url: `/api/v1/follow/${encodeURIComponent(kind)}/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Remove the current actor follow edge; returns204 even when no edge existed.
+   * Calls `DELETE /api/v1/follow/{kind}/{id}` through the shared IDP-aware Faiber client.
+   * @param kind Backend path identifier `kind`.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted server BFF_SERVICE_KEY bearer plus actor UUID.
+   */
+  discoveryUnfollowDelete(kind: import("./discovery.types.js").SocialFollowTargetKind, id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryUnfollowDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/follow/${encodeURIComponent(kind)}/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Block a user and remove user-follow edges in both directions; self-block400, success204. Current handler uses separate statements.
+   * Calls `PUT /api/v1/block/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted server BFF_SERVICE_KEY bearer plus actor UUID.
+   */
+  discoveryBlockPut(id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryBlockPutResponse>({ ...options, method: "PUT", url: `/api/v1/block/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Remove the current actor block edge; idempotent204.
+   * Calls `DELETE /api/v1/block/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted server BFF_SERVICE_KEY bearer plus actor UUID.
+   */
+  discoveryUnblockDelete(id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryUnblockDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/block/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Read follow/comment/place/quest notification preferences, defaulting to enabled.
+   * Calls `GET /api/v1/me/notification-preferences` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted server BFF_SERVICE_KEY bearer plus actor UUID.
+   */
+  discoveryPreferencesGet(options?: RequestOptions) {
+    return this.client.request<T.DiscoveryPreferencesGetResponse>({ ...options, method: "GET", url: `/api/v1/me/notification-preferences` });
+  }
+  /**
+   * Update supplied boolean preferences; absent fields stay unchanged. Current handler writes supplied preferences separately.
+   * Calls `PUT /api/v1/me/notification-preferences` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted server BFF_SERVICE_KEY bearer plus actor UUID.
+   */
+  discoverySetPreferencesPut(data: T.DiscoverySetPreferencesPutInput, options?: RequestOptions<T.DiscoverySetPreferencesPutInput>) {
+    return this.client.request<T.DiscoverySetPreferencesPutResponse, T.DiscoverySetPreferencesPutInput>({ ...options, method: "PUT", url: `/api/v1/me/notification-preferences`, data: data });
+  }
+  /**
+   * Read oldest50 undelivered notification events for the configured organization. No lease or claim is acquired; consumers must deduplicate.
+   * Calls `GET /api/v1/internal/notification-outbox` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted BFF actor plus exact social:integrations:write permission.
+   */
+  discoveryOutboxGet(options?: RequestOptions) {
+    return this.client.request<T.DiscoveryOutboxGetResponse>({ ...options, method: "GET", url: `/api/v1/internal/notification-outbox` });
+  }
+  /**
+   * Mark an organization-scoped notification as delivered; returns204 even for missing/already-acknowledged rows. Ack is not a downstream business-effect receipt.
+   * Calls `PUT /api/v1/internal/notification-outbox/{id}/ack` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted BFF actor plus exact social:integrations:write permission.
+   */
+  discoveryAckPut(id: string, options?: RequestOptions) {
+    return this.client.request<T.DiscoveryAckPutResponse>({ ...options, method: "PUT", url: `/api/v1/internal/notification-outbox/${encodeURIComponent(id)}/ack` });
+  }
+  /**
+   * Record a unique organization/event UUID and queue place.updated notifications for followers who did not disable place notifications, in one transaction. Repeated ID has no new effect; returns204.
+   * Calls `POST /api/v1/internal/place-events` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: trusted BFF actor plus exact social:integrations:write permission.
+   */
+  discoveryPlaceEventPost(data: T.DiscoveryPlaceEventPostInput, options?: RequestOptions<T.DiscoveryPlaceEventPostInput>) {
+    return this.client.request<T.DiscoveryPlaceEventPostResponse, T.DiscoveryPlaceEventPostInput>({ ...options, method: "POST", url: `/api/v1/internal/place-events`, data: data });
+  }
 }

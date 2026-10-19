@@ -4,11 +4,11 @@
   "command": "cargo --config profile.test.package.infera_social.debug=0 --config profile.test.package.infera_social.strip=\"debuginfo\" test --locked --offline --lib --test sdk_admin_wire -- --include-ignored --test-threads=1",
   "reason": null,
   "exit_code": 0,
-  "tests_executed": 8,
+  "tests_executed": 11,
   "tests_failed": 0,
   "tests_ignored": 0,
   "source_revisions": {
-    "social": "d2164984ff588811ce01baba5f8fbd7cb7091cd3"
+    "social": "f998eea7ca415038b9b3af903b4aba5c8fb302fc"
   },
   "source_and_dependencies_before": {
     "registry+https://github.com/rust-lang/crates.io-index#aead@0.5.2": {
@@ -1106,8 +1106,8 @@
     "path+file:///Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social#infera_social@0.2.0": {
       "manifest_path": "/Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social/Cargo.toml",
       "source": null,
-      "sha256": "b23ae18ce411b2240802a0c41b5205be18f4fadb53b4ab7397849fa2de764b82",
-      "files": 77
+      "sha256": "9e82494ddae9dfbae92fb5e59fe53c36b19f882aae885f06819cc3b12301f2d9",
+      "files": 83
     },
     "registry+https://github.com/rust-lang/crates.io-index#inherent@1.0.14": {
       "manifest_path": "/Users/mohammadralizadeh/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/inherent-1.0.14/Cargo.toml",
@@ -1256,8 +1256,8 @@
     "path+file:///Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social/migration#0.1.0": {
       "manifest_path": "/Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social/migration/Cargo.toml",
       "source": null,
-      "sha256": "4c9b34bd5efa211affd700a02e4e870c2e968faefe1c92d032906bb8047a8cdf",
-      "files": 7
+      "sha256": "bdcd9d5e70c0dfb0441388d8637ead5e67c3587b0f6b9ff6f704db0ada5e29ac",
+      "files": 12
     },
     "registry+https://github.com/rust-lang/crates.io-index#mime@0.3.17": {
       "manifest_path": "/Users/mohammadralizadeh/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/mime-0.3.17/Cargo.toml",
@@ -3574,8 +3574,8 @@
     "path+file:///Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social#infera_social@0.2.0": {
       "manifest_path": "/Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social/Cargo.toml",
       "source": null,
-      "sha256": "b23ae18ce411b2240802a0c41b5205be18f4fadb53b4ab7397849fa2de764b82",
-      "files": 77
+      "sha256": "9e82494ddae9dfbae92fb5e59fe53c36b19f882aae885f06819cc3b12301f2d9",
+      "files": 83
     },
     "registry+https://github.com/rust-lang/crates.io-index#inherent@1.0.14": {
       "manifest_path": "/Users/mohammadralizadeh/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/inherent-1.0.14/Cargo.toml",
@@ -3724,8 +3724,8 @@
     "path+file:///Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social/migration#0.1.0": {
       "manifest_path": "/Users/mohammadralizadeh/Infera/.task-worktrees/social-sdk-admin/infera-social/migration/Cargo.toml",
       "source": null,
-      "sha256": "4c9b34bd5efa211affd700a02e4e870c2e968faefe1c92d032906bb8047a8cdf",
-      "files": 7
+      "sha256": "bdcd9d5e70c0dfb0441388d8637ead5e67c3587b0f6b9ff6f704db0ada5e29ac",
+      "files": 12
     },
     "registry+https://github.com/rust-lang/crates.io-index#mime@0.3.17": {
       "manifest_path": "/Users/mohammadralizadeh/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/mime-0.3.17/Cargo.toml",
@@ -4948,12 +4948,12 @@
   },
   "sdk_before": {
     "packages": {
-      "sha256": "c64040dfc53c9e11c45ff2d2be81e63019ddbe9cb0b8c6cf2bc7988df106a3c5",
-      "files": 723
+      "sha256": "18d7a2d53917e1b06efeeee962aba483fbd6d4a02325d34305f5e50306547303",
+      "files": 728
     },
     "scripts": {
-      "sha256": "84bd1eb5fe4c1d2e3e1267678dca1a5e2c7b56fd2adb5ffdfb459e1e831d9783",
-      "files": 31
+      "sha256": "769946bcacbaa85b3a335374123acd2604e3a6b0f2bd0345e3d2a31fbbb32429",
+      "files": 33
     },
     "node_modules": {
       ".package-lock.json": "e83364513740b1defb4de014fbd6acdf08a38555eed804482f163fe12a5d6f19",
@@ -7781,16 +7781,16 @@
       "yargs-parser/package.json": "b6ee1fa4e1881d6f5388a3a52e34c2499a4c01d81615b69f08f12ca35289880b"
     },
     "package-lock.json": "0ac2181267d514bb7f091450e70009031fad3af37e982f7e2d75c0e0d822eee7",
-    "service-contracts.json": "44567f9c550dfb661d2cea540b6dfcaed24441b276978a222801f215486b1ea7"
+    "service-contracts.json": "5080fe1eb5525d728b78a952b4278aed5b6d1a326f635dcabf08ab16c4a793a2"
   },
   "sdk_after": {
     "packages": {
-      "sha256": "c64040dfc53c9e11c45ff2d2be81e63019ddbe9cb0b8c6cf2bc7988df106a3c5",
-      "files": 723
+      "sha256": "18d7a2d53917e1b06efeeee962aba483fbd6d4a02325d34305f5e50306547303",
+      "files": 728
     },
     "scripts": {
-      "sha256": "84bd1eb5fe4c1d2e3e1267678dca1a5e2c7b56fd2adb5ffdfb459e1e831d9783",
-      "files": 31
+      "sha256": "769946bcacbaa85b3a335374123acd2604e3a6b0f2bd0345e3d2a31fbbb32429",
+      "files": 33
     },
     "node_modules": {
       ".package-lock.json": "e83364513740b1defb4de014fbd6acdf08a38555eed804482f163fe12a5d6f19",
@@ -10618,14 +10618,24 @@
       "yargs-parser/package.json": "b6ee1fa4e1881d6f5388a3a52e34c2499a4c01d81615b69f08f12ca35289880b"
     },
     "package-lock.json": "0ac2181267d514bb7f091450e70009031fad3af37e982f7e2d75c0e0d822eee7",
-    "service-contracts.json": "44567f9c550dfb661d2cea540b6dfcaed24441b276978a222801f215486b1ea7"
+    "service-contracts.json": "5080fe1eb5525d728b78a952b4278aed5b6d1a326f635dcabf08ab16c4a793a2"
   },
   "source_unchanged_during_run": true,
   "lock_sha256": "42a80aa0fe4a56aba1417312ab4e386aee159df1f8d4faa6f9ebe110c24a7f05",
   "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
-  "duration_seconds": 12.205,
+  "object_store": {
+    "version": "v1.75.2",
+    "download_url": "https://downloads.rclone.org/v1.75.2/rclone-v1.75.2-osx-arm64.zip",
+    "sha256": "610ab7d48615135dfc60b763858b11a426a0d3d1160c1bb76fb0ae6011b02edd",
+    "binary_sha256": "af0257730173748dc9706ad3c83288bf3a0c5d5e9768fef20235e375e9d835e1",
+    "binary": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-runtime-tools/rclone-v1.75.2-osx-arm64",
+    "purpose": "Owned loopback S3-compatible actual filesystem object store for media acceptance; not deployed provider certification"
+  },
+  "object_store_binary_unchanged": true,
+  "object_store_version": "rclone v1.75.2\n- os/version: darwin 26.5.2 (64 bit)\n- os/kernel: 25.5.0 (arm64)\n- os/type: darwin\n- os/arch: arm64 (ARMv8 compatible)\n- go/version: go1.26.9\n- go/linking: dynamic\n- go/tags: cmount",
+  "duration_seconds": 8.742,
   "artifact_path": "evidence/social-admin-sdk-tests.log",
-  "artifact_sha256": "2b1e62a7dedd06b17d3cb0208bdc127712b92dad58f8891b9503517c4b424d95",
-  "runner_sha256": "8162043cf2c72bf51e624f291fa8cb3e94661a5d25db72084aef8a14eb1b0fa0",
-  "scope": "Six existing units plus two real PostgreSQL tests, including an actual Axios HTTP workflow exercising37 admin operations and37 missing-permission denials, organization predicates, mutations, lifecycle and receipts. Trusted forwarded fixture context is not deployed IDP/gateway or current project membership verification. No external provider effect or deployment acceptance."
+  "artifact_sha256": "2f4f55eb698617b61897b2658dcb8af06a07199babebfb41e3f17a3deee2da40",
+  "runner_sha256": "73eb57f3fad3656ee8f41a9f58354d9bcc90866e67ac6a2e6569e89ce43eda7b",
+  "scope": "Eight units plus three real PostgreSQL tests, including actual Axios HTTP workflows for37 admin and14 active discovery operations; real S3-compatible file-backed object persistence via production AWS SDK PUT and public media Axios GET plus missing-object error exercising37 admin operations and37 missing-permission denials, organization predicates, mutations, lifecycle and receipts. Trusted forwarded fixture context is not deployed IDP/gateway or current project membership verification. No external provider effect or deployment acceptance."
 }

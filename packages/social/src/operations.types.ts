@@ -275,6 +275,7 @@ export interface ApiCreatePostPostInputCapabilities extends JsonObject {
   "linked_actions"?: ApiCreatePostPostInputCapabilitiesLinkedActions[];
 }
 export interface ApiCreatePostPostInput extends JsonObject {
+  "request_key"?: string | null;
   "category_id"?: string | null;
   "kind"?: string;
   "visibility"?: string;
@@ -575,3 +576,51 @@ export type AdminReplayIntegrationPostResponse = import("./admin.types.js").Soci
 
 /** Backend response type: serde_json::Value. */
 export type AdminSettingsGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminSettings>;
+
+/** Backend query type: Feed. */
+export type DiscoveryFeedGetQuery = import("./discovery.types.js").SocialDiscoveryFeedQuery;
+/** Backend response type: serde_json::Value. */
+export type DiscoveryFeedGetResponse = import("./discovery.types.js").SocialDiscoveryResponse<import("./discovery.types.js").SocialDiscoveryPost[]>;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryPostDetailGetResponse = import("./discovery.types.js").SocialDiscoveryResponse<import("./discovery.types.js").SocialDiscoveryPost>;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryCommentsGetResponse = import("./discovery.types.js").SocialDiscoveryResponse<import("./discovery.types.js").SocialDiscoveryComment[]>;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryMediaGetResponse = ArrayBuffer | Uint8Array;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryRelationshipGetResponse = import("./discovery.types.js").SocialGraphResponse<import("./discovery.types.js").SocialRelationship>;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryFollowPutResponse = void;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryUnfollowDeleteResponse = void;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryBlockPutResponse = void;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryUnblockDeleteResponse = void;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryPreferencesGetResponse = import("./discovery.types.js").SocialGraphResponse<import("./discovery.types.js").SocialNotificationPreferences>;
+
+/** Backend request type: SocialNotificationPreferencesInput. */
+export type DiscoverySetPreferencesPutInput = import("./discovery.types.js").SocialNotificationPreferencesInput;
+/** Backend response type: serde_json::Value. */
+export type DiscoverySetPreferencesPutResponse = import("./discovery.types.js").SocialGraphResponse<import("./discovery.types.js").SocialNotificationPreferences>;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryOutboxGetResponse = import("./discovery.types.js").SocialGraphResponse<import("./discovery.types.js").SocialNotificationOutboxEvent[]>;
+
+/** Backend response type: serde_json::Value. */
+export type DiscoveryAckPutResponse = void;
+
+/** Backend request type: SocialPlaceEventInput. */
+export type DiscoveryPlaceEventPostInput = import("./discovery.types.js").SocialPlaceEventInput;
+/** Backend response type: serde_json::Value. */
+export type DiscoveryPlaceEventPostResponse = void;

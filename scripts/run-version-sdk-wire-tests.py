@@ -7,6 +7,8 @@ from pathlib import Path
 import re
 import subprocess
 import time
+import signal
+from types import SimpleNamespace
 import uuid
 
 SDK = Path(__file__).resolve().parents[1]
@@ -43,8 +45,8 @@ def sdk_state():
 
 def main():
     import shutil
-    if shutil.disk_usage(SDK).free < 3*1024**3:
-        raise RuntimeError('Less than 3 GiB free; no cleanup authorized')
+    if shutil.disk_usage(SDK).free < 1.25*1024**3:
+        raise RuntimeError('Less than 1.25 GiB free; no cleanup authorized')
     source = source_state(REPO)
     sdk_before = sdk_state()
     control = SDK.parent / 'Service/infera-control'
@@ -87,7 +89,18 @@ def main():
         port = run(['docker', 'port', name, '5432/tcp']).rsplit(':', 1)[1]
         env = dict(os.environ, INFERA_CONTROL_PUBLISHER_SCRIPT=str(publisher.resolve()), INFERA_VERSION_SDK_TEST_PROBE=str((SDK/'scripts/verify-version-sdk-wire.mjs').resolve()), CARGO_BUILD_JOBS='2', CARGO_INCREMENTAL='0', CARGO_TARGET_DIR='/Users/mohammadralizadeh/Infera/Service/target', AUTH_ID='', AUTH_ROLES='', AUTH_PERMISSIONS='', DATABASE_URL=f'postgresql://postgres@127.0.0.1:{port}/infera_version_contracts', BROKER_URL=f'amqp://guest:guest@127.0.0.1:{rabbit_port}/%2f', DEV='false', FLOW_EVENTS_ENABLED='false')
         started = time.monotonic()
-        result = subprocess.run(COMMAND, cwd=REPO, env=env, capture_output=True, text=True, timeout=900)
+        from tempfile import TemporaryFile
+        with TemporaryFile(mode='w+') as captured:
+            process = subprocess.Popen(COMMAND, cwd=REPO, env=env, stdout=captured, stderr=subprocess.STDOUT, start_new_session=True)
+            while process.poll() is None:
+                stop = shutil.disk_usage(REPO).free < 1024**3 or time.monotonic()-started > 900
+                if stop:
+                    os.killpg(process.pid,signal.SIGTERM)
+                    try:process.wait(timeout=10)
+                    except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL);process.wait()
+                    break
+                time.sleep(1)
+            captured.seek(0); result=SimpleNamespace(returncode=process.returncode,stdout=captured.read(),stderr='')
         elapsed = time.monotonic() - started
         # Build resolution may temporarily rewrite the checkout lock. Preserve it
         # as dependency evidence, then restore the input before checking source.

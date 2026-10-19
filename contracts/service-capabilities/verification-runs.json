@@ -707,12 +707,74 @@
     "duration_seconds": 12.205,
     "scope": "Six existing units plus two real PostgreSQL tests, including an actual Axios HTTP workflow exercising37 admin operations and37 missing-permission denials, organization predicates, mutations, lifecycle and receipts. Trusted forwarded fixture context is not deployed IDP/gateway or current project membership verification. No external provider effect or deployment acceptance.",
     "kind": "real_sdk_http_postgres_contract",
-    "artifact_path": "evidence/social-admin-sdk-tests.json",
-    "artifact_sha256": "c03aa6d2fda59e4fe48439684a8addc56950e3785a26d502eea89af70207b975",
+    "artifact_path": "evidence/social-admin-sdk-tests-d216498.json",
+    "artifact_sha256": "66c606d46ea19422d1b2059c796dbbaa1cff0f77084f8a5ae1adba2360e53b23",
     "additional_artifacts": [
       {
-        "artifact_path": "evidence/social-admin-sdk-tests.log",
+        "artifact_path": "evidence/social-admin-sdk-tests-d216498.log",
         "sha256": "2b1e62a7dedd06b17d3cb0208bdc127712b92dad58f8891b9503517c4b424d95"
+      }
+    ],
+    "canonical_certification": false
+  },
+  "social-active-integration-sdk-wire": {
+    "schema_version": "1.0",
+    "status": "passed",
+    "command": "cargo --config profile.test.package.infera_social.debug=0 --config profile.test.package.infera_social.strip=\"debuginfo\" test --locked --offline --lib --test sdk_admin_wire -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 11,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_unchanged_during_run": true,
+    "source_revisions": {
+      "social": "f506012c7a78071e7dd27df68418253ad5850d84"
+    },
+    "duration_seconds": 12.645,
+    "scope": "Eight units plus three real PostgreSQL tests, including actual Axios HTTP workflows for37 admin and14 active discovery operations; media storage outage only, no successful object download acceptance exercising37 admin operations and37 missing-permission denials, organization predicates, mutations, lifecycle and receipts. Trusted forwarded fixture context is not deployed IDP/gateway or current project membership verification. No external provider effect or deployment acceptance.",
+    "kind": "real_sdk_http_postgres_contract",
+    "artifact_path": "evidence/social-admin-sdk-tests-f506012-combined.json",
+    "artifact_sha256": "a0de725360f914d3564b07940415760e7e9135e70ac144fb120efcbbe60d69a4",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/social-admin-sdk-tests-f506012-combined.log",
+        "sha256": "cddf3865b4b44f8a585e4fb548f3f2c60137f9b15113dbe079d845107ae9ae4b"
+      }
+    ],
+    "canonical_certification": false
+  },
+  "social-active-integration-sdk-wire-with-storage": {
+    "schema_version": "1.0",
+    "status": "passed",
+    "command": "cargo --config profile.test.package.infera_social.debug=0 --config profile.test.package.infera_social.strip=\"debuginfo\" test --locked --offline --lib --test sdk_admin_wire -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 11,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_unchanged_during_run": true,
+    "source_revisions": {
+      "social": "f998eea7ca415038b9b3af903b4aba5c8fb302fc"
+    },
+    "duration_seconds": 8.742,
+    "scope": "Eight units plus three real PostgreSQL tests, including actual Axios HTTP workflows for37 admin and14 active discovery operations; real S3-compatible file-backed object persistence via production AWS SDK PUT and public media Axios GET plus missing-object error exercising37 admin operations and37 missing-permission denials, organization predicates, mutations, lifecycle and receipts. Trusted forwarded fixture context is not deployed IDP/gateway or current project membership verification. No external provider effect or deployment acceptance.",
+    "kind": "real_sdk_http_postgres_object_store_contract",
+    "artifact_path": "evidence/social-admin-sdk-tests-f998eea-with-storage.json",
+    "artifact_sha256": "1648a42fc7a97d0e2f8c171df41fd33a9f0df233e3e1590cab29e5e5f49d478e",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/social-admin-sdk-tests-f998eea-with-storage.log",
+        "sha256": "2f4f55eb698617b61897b2658dcb8af06a07199babebfb41e3f17a3deee2da40"
+      },
+      {
+        "artifact_path": "evidence/social-object-store-f998eea.log",
+        "sha256": "c54b2332d9d00e976c9ddc3032bc67d406fbf6eba1400a294cfa5d75a9a726bc"
+      },
+      {
+        "artifact_path": "evidence/social-object-store-tool.json",
+        "sha256": "cc3a7729af2d78bc2872f6a50e8cc63ea1cef1e099839e5c224d678999a5c6b3"
+      },
+      {
+        "artifact_path": "evidence/social-object-store-SHA256SUMS",
+        "sha256": "73ede5aab2b8f2dd4b1315f7f063cdd5df10de6338749bba49cbc0c240bda976"
       }
     ],
     "canonical_certification": false

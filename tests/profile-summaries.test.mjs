@@ -24,3 +24,10 @@ test('Profile summaries preserve authentication, independent state, precision an
  const refresh=await api.operations.aiSummaryRefreshPost({subjects:[{user_id:'subject',role_id:'canonical-role'}]});assert.equal(refresh.status,202);assert.equal(calls[2].url,'/api/v1/ai-summaries/refresh');
  assert.equal(typeof LmsApi.prototype.latestAiSummary,'undefined');assert.equal(typeof LmsApi.prototype.aiSummarySettings,'undefined');
 });
+test('CRM source check uses the authenticated Profile transport and exact source identity',async()=>{
+ const {api,calls}=fixture();
+ await api.summaries.checkSource('crm');
+ assert.equal(calls[0].url,'/api/v1/ai-summaries/sources/crm/check');
+ assert.equal(calls[0].method,'post');
+ assert.equal(calls[0].headers.get('Authorization'),'Bearer caller');
+});

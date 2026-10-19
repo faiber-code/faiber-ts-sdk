@@ -15,7 +15,7 @@ def snapshot(compiled=False):
    if not compiled and folder=='packages' and 'dist' in relative.parts:continue
    if path.suffix=='.tsbuildinfo':continue
    files[str(relative)]=digest(path.read_bytes())
- for name in ['README.md','CHANGELOG.md','package.json','package-lock.json','service-contracts.json','tsconfig.json','tsconfig.base.json','.gitattributes']:
+ for name in ['README.md','CHANGELOG.md','package.json','package-lock.json','service-contracts.json','service-source-revisions.json','tsconfig.json','tsconfig.base.json','.gitattributes']:
   path=SDK/name
   if path.exists():files[name]=digest(path.read_bytes())
  encoded=json.dumps(files,sort_keys=True,separators=(',',':')).encode()
@@ -31,13 +31,26 @@ def external_inputs():
    if root.name=='faiber-ts-sdk' and name.startswith('contracts/service-capabilities/'):continue
    path=root/name;files[str(path)]=digest(path.read_bytes()) if path.exists() else None
  override=Path(handoff['cargo_override']['path']);files[str(override)]=digest(override.read_bytes())
+ crm=Path(os.environ['INFERA_SDK_CRM_HANDOFF']).resolve()
+ crm_manifest=json.loads((crm/'source-dependency-before.json').read_text())
+ workspace=Path('/Users/mohammadralizadeh/Infera')
+ for relative in crm_manifest:
+  path=workspace/relative
+  files[str(path)]=digest(path.read_bytes()) if path.exists() else None
+ for manifest in [crm/'handoff.json',crm/'frozen-verification.json',crm/'source-dependency-before.json']:
+  files[str(manifest)]=digest(manifest.read_bytes())
+ for variable in ['INFERA_VERSION_SDK_TEST_REPO','INFERA_SOCIAL_SDK_TEST_REPO']:
+  source=Path(os.environ[variable]).resolve()
+  for name in subprocess.check_output(['git','ls-files'],cwd=source,text=True).splitlines():
+   path=source/name
+   if path.is_file():files[str(path)]=digest(path.read_bytes())
  return {'handoff':str(manifest_path),'handoff_sha256':digest(manifest_path.read_bytes()),'files':files,'sha256':digest(json.dumps(files,sort_keys=True,separators=(',',':')).encode()),'scope':'Current observed contribution files and Service Cargo overrides, independently fenced. Historical handoff logs are not automatically acceptance of changed files or unexecuted workflows.'}
 
 def main():
  OUT.mkdir(parents=True,exist_ok=False);commands=[];started=time.monotonic();failure=None;before=None;compiled=None;external_before=None;packages=[]
  def run(identifier,args,cwd=SDK):
   path=OUT/(identifier+'.log');begin=time.monotonic()
-  with path.open('w') as stream:r=subprocess.run(args,cwd=cwd,stdout=stream,stderr=subprocess.STDOUT)
+  with path.open('w') as stream:r=subprocess.run(args,cwd=cwd,stdout=stream,stderr=subprocess.STDOUT,timeout=600)
   log=path.read_bytes();commands.append({'id':identifier,'command':args,'cwd':str(cwd),'exit_code':r.returncode,'duration_seconds':round(time.monotonic()-begin,3),'artifact':str(path),'sha256':digest(log)})
   print(identifier,r.returncode,flush=True)
   if r.returncode:raise RuntimeError(identifier+' failed; retained log')
@@ -50,6 +63,8 @@ def main():
   audit=run('audit',['npm','audit','--json']);assert json.loads(audit)['metadata']['vulnerabilities']['total']==0
   run('pack-dry-run',['npm','run','pack:check'])
   run('source-whitespace',['git','diff','--check','b11672d'])
+  run('actual-version-sdk-wire',['python3','scripts/run-version-sdk-wire-tests.py'])
+  run('actual-social-sdk-wire',['python3','scripts/run-social-admin-sdk-tests.py'])
   if os.environ.get('INFERA_AUTHORITY_AGENTIC_REPO'):
    run('actual-manage-sdk-wire',['python3','scripts/run-manage-authority-tests.py'])
   packs=OUT/'tarballs';packs.mkdir();version=json.loads((SDK/'package.json').read_text())['version']
@@ -82,13 +97,13 @@ const manifest=JSON.parse(readFileSync(new URL('./package.json',import.meta.url)
 for(const name of Object.keys(manifest.dependencies)) await import(name);
 const {FaiberSDK,domainsFromManageProxy}=await import('@faiber/faiber-ts-sdk');
 const sdk=new FaiberSDK({domains:domainsFromManageProxy('https://manage.example.test')});
-for(const method of [sdk.chat.personal.events,sdk.lms.notificationSettings.list,sdk.lms.eligibleContacts.list,sdk.messenger.delivery.events,sdk.task.feedback.submit,sdk.profile.summaries.latest,sdk.manage.listAgentThreadsPage]) assert.equal(typeof method,'function');
+for(const method of [sdk.chat.personal.events,sdk.lms.notificationSettings.list,sdk.lms.eligibleContacts.list,sdk.messenger.delivery.events,sdk.task.feedback.submit,sdk.profile.summaries.latest,sdk.manage.listAgentThreadsPage,sdk.social.operations.adminOverviewGet,sdk.social.operations.discoveryFeedGet,sdk.version.operations.routerStatusRouteGet]) assert.equal(typeof method,'function');
 assert.equal(typeof sdk.lms.latestAiSummary,'undefined');
 console.log('All22 actual tarball exports import; published helpers and new Profile/Manage APIs exist; retired LMS summary convenience absent. No network request.');
 ''')
   run('tarball-consumer-exports',['node','exports.mjs'],consumer)
   import shutil
-  for name in ['type-consumer.ts','release-type-consumer.ts','lms-classroom-counts.types.ts','transport-options.types.ts']:shutil.copyfile(SDK/'tests'/name,consumer/name)
+  for name in ['type-consumer.ts','release-type-consumer.ts','lms-classroom-counts.types.ts','transport-options.types.ts','version-wire.types.ts','social-admin-wire.types.ts']:shutil.copyfile(SDK/'tests'/name,consumer/name)
   (consumer/'tsconfig.json').write_text(json.dumps({'compilerOptions':{'target':'ES2022','module':'NodeNext','moduleResolution':'NodeNext','strict':True,'exactOptionalPropertyTypes':True,'noEmit':True,'lib':['ES2022','DOM'],'skipLibCheck':False},'include':['*.ts']},indent=2)+'\n')
   run('tarball-consumer-types',['node',str(SDK/'node_modules/typescript/bin/tsc'),'-p','tsconfig.json','--pretty','false'],consumer)
  except Exception as error:failure=str(error)

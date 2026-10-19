@@ -1,6 +1,6 @@
 import type {JsonObject} from "@faiber/sdk-core";
 import type {QueryParams} from "@faiber/sdk-core";
-export type SummarySource = 'lms'|'task'|'accounting'|'session'|'chat'
+export type SummarySource = 'lms'|'task'|'accounting'|'session'|'chat'|'crm'
 export type SummaryMetricType = 'number'|'integer'|'boolean'|'enum'
 export type SummaryLocalized = { en:string; fa:string }
 export interface SummaryAggregateRef {source:SummarySource;category:string;key:string}

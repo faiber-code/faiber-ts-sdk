@@ -462,7 +462,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
         `    return ${roomSocket ? "openRoomRealtime" : "openMatchRealtime"}(this.client, ticket, options);`, "  }");
       continue;
     }
-    const args = ids.map(id => `${camel(id)}: Identifier`);
+    const args = ids.map(id => `${camel(id)}: ${reviewed?.pathTypes?.[id] ?? "Identifier"}`);
     if (hasInput && !optionalChatUpload) args.push(`data: T.${base}Input`);
     if (hasQuery) args.push(`params${reviewed?.requiredQuery ? "" : "?"}: T.${base}Query`);
     if (reviewed?.idempotencyKey) args.push("idempotencyKey: string");

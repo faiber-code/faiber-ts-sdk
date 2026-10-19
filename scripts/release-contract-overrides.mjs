@@ -1,9 +1,11 @@
+import { socialDiscoveryContracts } from "./social-discovery-contracts.mjs";
 import { socialAdminContracts } from "./social-admin-contracts.mjs";
 import { integrationContracts } from "./integration-contracts.mjs";
 import { profileSummaryContracts } from "./profile-summary-contracts.mjs";
 // Reviewed wire contracts; keyed by the mounted method and path, never ambiguous handler names.
 export const releaseContracts = {
   ...socialAdminContracts,
+  ...socialDiscoveryContracts,
   ...integrationContracts,
   ...profileSummaryContracts,
   "idp:POST /api/v1/auth/secure/handoff/{user_id}": {
