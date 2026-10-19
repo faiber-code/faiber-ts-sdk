@@ -87,4 +87,4 @@ Managed user responses include `created_at`, the UTC registration timestamp (opt
 
 ## OIDC service paths
 
-Discovery uses `/.well-known/openid-configuration`; authorization, token, user-info, JWKS, revocation, introspection and logout use `/oauth2/*` at the service root. These paths do not have an `/api/v1` prefix. The generated OIDC methods use the shared client and form-encode token/revocation inputs. Internal single-use token generation requires the target user UUID in the URL and a server-only internal credential; never expose that credential in a browser.
+Discovery uses `/.well-known/openid-configuration`; authorization, token, user-info, JWKS, revocation, introspection and logout use `/oauth2/*` at the service root. These paths do not have an `/api/v1` prefix. The generated OIDC methods use the shared client and form-encode token/revocation inputs. Internal single-use token generation requires the target user UUID in the URL. Its current Rust middleware checks the Host header only; that is not proof of caller identity. Use it only behind a separately enforced and verified internal network/gateway boundary.

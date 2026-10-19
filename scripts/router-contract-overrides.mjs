@@ -21,8 +21,8 @@ for (const service of ["asset", "idp", "modules", "payment"]) {
 routerContracts["idp:POST /api/v1/auth/secure/generate/one-time/{user_id}"] = {
   pathTypes: {user_id:"string"},
   response:'import("./contracts.types.js").OneTimeTokenResponse',
-  auth:"server-only internal-service guard; never expose internal credentials in a browser",
-  purpose:"Issue a single-use login token for the user UUID in the URL. Missing users return 401; the route is protected by the internal-service middleware."
+  auth:"server-only Host-header allowlist in the resolved Rust SDK; this guard does not authenticate a service credential",
+  purpose:"Issue a single-use login token for the user UUID in the URL. Missing users return 401; the existing internal-service middleware checks Host only. Deployment network and gateway restrictions require separate verification."
 };
 
 for (const method of ["GET", "OPTIONS"]) routerContracts[`idp:${method} /api/v1/auth/validate`] = {
@@ -40,3 +40,9 @@ for (const method of ["GET","POST"]) {
   oidc(method,"/oauth2/logout","void","End the current session and propagate back-channel logout; returns 204 even when no current session is found.","current Bearer token or secure browser cookie when present");
 }
 oidc("POST","/oauth2/introspect",'import("./contracts.types.js").OidcIntrospection',"Inspect an access or refresh token as a raw active/inactive union using form-encoded client credentials or HTTP Basic authentication.","valid active OAuth client and its configured authentication method");
+
+routerContracts["idp:POST /api/v1/auth/secure/exchange/one-time"]={
+  response:'import("./types.js").AuthTokensResponse',
+  auth:"server-only Host-header allowlist in the resolved Rust SDK; this guard does not authenticate a service credential",
+  purpose:"Consume a single-use token and issue access/refresh tokens for its active matching session. Reuse returns 400; invalid session ownership returns 401. Caller-identity protection requires an independently verified boundary."
+};

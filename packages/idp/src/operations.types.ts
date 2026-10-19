@@ -399,8 +399,7 @@ export interface AuthExchangeOneTimeTokenPostInput extends JsonObject {
   "token": string;
 }
 /** Backend response type: api. */
-export interface AuthExchangeOneTimeTokenPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthExchangeOneTimeTokenPostResponse = import("./types.js").AuthTokensResponse;
 
 /** Backend response type: api. */
 export type AuthGenerateSecureOneTimeTokenRoutePostResponse = import("./contracts.types.js").OneTimeTokenResponse;

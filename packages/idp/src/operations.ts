@@ -360,23 +360,23 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AuthRefreshTokenGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/refresh` });
   }
   /**
-   * Performs the exchange one time token operation for the auth capability.
+   * Consume a single-use token and issue access/refresh tokens for its active matching session. Reuse returns 400; invalid session ownership returns 401. Caller-identity protection requires an independently verified boundary.
    * Calls `POST /api/v1/auth/secure/exchange/one-time` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only Host-header allowlist in the resolved Rust SDK; this guard does not authenticate a service credential.
    */
   authExchangeOneTimeTokenPost(data: T.AuthExchangeOneTimeTokenPostInput, options?: RequestOptions<T.AuthExchangeOneTimeTokenPostInput>) {
     return this.client.request<T.AuthExchangeOneTimeTokenPostResponse, T.AuthExchangeOneTimeTokenPostInput>({ ...options, method: "POST", url: `/api/v1/auth/secure/exchange/one-time`, data: data });
   }
   /**
-   * Issue a single-use login token for the user UUID in the URL. Missing users return 401; the route is protected by the internal-service middleware.
+   * Issue a single-use login token for the user UUID in the URL. Missing users return 401; the existing internal-service middleware checks Host only. Deployment network and gateway restrictions require separate verification.
    * Calls `POST /api/v1/auth/secure/generate/one-time/{user_id}` through the shared IDP-aware Faiber client.
    * @param userId Backend path identifier `user_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only internal-service guard; never expose internal credentials in a browser.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only Host-header allowlist in the resolved Rust SDK; this guard does not authenticate a service credential.
    */
   authGenerateSecureOneTimeTokenRoutePost(userId: string, options?: RequestOptions) {
     return this.client.request<T.AuthGenerateSecureOneTimeTokenRoutePostResponse>({ ...options, method: "POST", url: `/api/v1/auth/secure/generate/one-time/${encodeURIComponent(userId)}` });
