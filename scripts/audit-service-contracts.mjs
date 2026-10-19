@@ -25,7 +25,7 @@ try {
   let total = 0;
   for (const [service, endpoints] of Object.entries(scoped(committed))) {
     const source = await readFile(join(root, "packages", service, "src", "operations.ts"), "utf8");
-    const generated = [...source.matchAll(/\* Calls `((?:GET|POST|PUT|PATCH|DELETE)) ([^`]+)`/g)]
+    const generated = [...source.matchAll(/\* Calls `((?:GET|POST|PUT|PATCH|DELETE|OPTIONS|HEAD)) ([^`]+)`/g)]
       .map(match => `${match[1]} ${match[2]}`);
     const expected = endpoints.map(endpoint => `${endpoint.method} ${endpoint.path}`);
     const generatedSet = new Set(generated);

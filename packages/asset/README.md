@@ -28,7 +28,7 @@ const wallet = await api.operations.walletBillingWalletShowGet();
 
 ## Complete capability
 
-This package exposes 86 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 110 registered operations from the assets and billing service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -38,17 +38,20 @@ This package exposes 86 registered operations from the assets and billing servic
 | `catalog` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `charge` | 2 | `GET`, `PATCH` |
 | `dashboard` | 1 | `GET` |
+| `economy` | 13 | `GET`, `POST`, `PUT` |
+| `fitness` | 1 | `PUT` |
 | `game-escrow` | 4 | `GET`, `POST` |
 | `integration` | 3 | `GET` |
 | `leaderboard` | 1 | `GET` |
 | `llm-usage` | 4 | `DELETE`, `GET`, `PUT` |
 | `logs` | 2 | `GET` |
 | `rank` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
-| `router` | 2 | `GET` |
-| `sandbox-billing` | 10 | `DELETE`, `GET`, `POST`, `PUT` |
+| `router` | 3 | `GET` |
+| `sandbox-billing` | 11 | `DELETE`, `GET`, `POST`, `PUT` |
 | `service-lifecycle` | 4 | `DELETE`, `POST` |
+| `trial-gifts` | 6 | `GET`, `POST`, `PUT` |
 | `wallet` | 9 | `GET` |
-| `wallet-billing` | 20 | `DELETE`, `GET`, `POST`, `PUT` |
+| `wallet-billing` | 22 | `DELETE`, `GET`, `POST`, `PUT` |
 
 Administrative and self-service billing routes are distinct operations. Purchase, top-up, pause, resume, removal, and permanent-data deletion methods preserve the backend verbs and permission annotations.
 

@@ -31,7 +31,7 @@ const posts = await api.posts.list();
 
 ## Complete capability
 
-This package exposes 171 registered operations from the content and commerce modules service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 179 registered operations from the content and commerce modules service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -48,12 +48,12 @@ This package exposes 171 registered operations from the content and commerce mod
 | `inventory` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `management-api` | 17 | `GET`, `POST`, `PUT` |
 | `media` | 3 | `GET`, `POST` |
-| `order` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `order` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `podcast` | 8 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `product` | 13 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `reaction` | 3 | `DELETE`, `GET`, `POST` |
-| `request` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `router` | 3 | `GET` |
+| `request` | 13 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `router` | 6 | `GET`, `POST` |
 | `search` | 1 | `GET` |
 | `seo-content` | 9 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `service-pricing` | 6 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |

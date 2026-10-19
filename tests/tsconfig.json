@@ -10,6 +10,7 @@
     "transport-options.types.ts",
     "lms-classroom-counts.types.ts",
     "version-wire.types.ts",
-    "social-admin-wire.types.ts"
+    "social-admin-wire.types.ts",
+    "router-wire.types.ts"
   ]
 }

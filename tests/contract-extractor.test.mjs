@@ -31,6 +31,20 @@ test("contract extraction finds the sibling services tree and emits portable mou
     assert.ok(!manifest.social.some(endpoint => endpoint.path === "/api/v1/overview"), "nested admin routes must keep their complete mount prefix");
     assert.ok(manifest.version.some(endpoint=>endpoint.path==='/health'&&endpoint.handler==='status_route'));
     assert.ok(!manifest.version.some(endpoint=>endpoint.path==='/'&&endpoint.handler==='status_route'), 'stale OpenAPI annotations cannot override the mounted health path');
+    for (const service of ["asset", "idp", "modules", "payment"]) {
+      assert.ok(manifest[service].some(endpoint=>endpoint.path==="/health" && endpoint.response==="HealthResponse"),service);
+      assert.equal(manifest[service].find(endpoint=>endpoint.path==="/api/openapi.json").responseEnvelope,"raw",service);
+    }
+    assert.ok(manifest.idp.some(endpoint=>endpoint.path==="/.well-known/openid-configuration"));
+    assert.ok(!manifest.idp.some(endpoint=>endpoint.path==="/api/v1/oauth2/token"));
+    assert.ok(manifest.idp.some(endpoint=>endpoint.path==="/oauth2/token"));
+    assert.ok(manifest.idp.some(endpoint=>endpoint.path==="/api/v1/auth/validate" && endpoint.method==="OPTIONS"));
+    assert.equal(manifest.idp.find(endpoint=>endpoint.path==="/api/v1/auth/secure/generate/one-time/{user_id}").pathParam,"(Uuid)");
+    assert.ok(manifest.modules.some(endpoint=>endpoint.path==="/api/v1/shop/cart"));
+    assert.ok(manifest.modules.some(endpoint=>endpoint.path==="/api/v1/inventory/stock-movements"));
+    assert.ok(manifest.modules.some(endpoint=>endpoint.path==="/api/v1/public/requests/{key}"));
+    assert.ok(manifest.payment.some(endpoint=>endpoint.path==="/api/v1/transactions/daily-income"));
+    assert.ok(!manifest.payment.some(endpoint=>endpoint.path.includes("/transactions/transactions/")));
     const upload = manifest.task.find(endpoint => endpoint.method === "POST" && endpoint.path === "/api/v1/work-items/{id}/attachments");
     assert.equal(upload.handlerModule, "attachments", "qualified type resolution must use the owning handler module");
     const drmOperationsSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/api/v1/operations/settings");

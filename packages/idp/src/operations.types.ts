@@ -1,16 +1,11 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: api. */
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
-
 /** Backend response type: Value. */
-export type OidcDiscoveryGetResponse = JsonValue;
+export type OidcDiscoveryGetResponse = import("./contracts.types.js").OidcDiscoveryDocument;
+
+/** Backend response type: utoipa::openapi::OpenApi. */
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: PermissionTemplateListResponse. */
 export type AclPermissionTemplatesIndexGetResponseDataTemplatesCategory = "quick" | "service";
@@ -408,8 +403,7 @@ export interface AuthExchangeOneTimeTokenPostResponse extends ApiEnvelope<JsonVa
 }
 
 /** Backend response type: api. */
-export interface AuthGenerateSecureOneTimeTokenRoutePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthGenerateSecureOneTimeTokenRoutePostResponse = import("./contracts.types.js").OneTimeTokenResponse;
 
 /** Backend request type: HandoffIssueRequest. */
 export interface AuthIssueHandoffTokenPostInput extends JsonObject {
@@ -456,8 +450,10 @@ export interface AuthLoginTokenGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: raw-response. */
-export interface AuthValidateGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type AuthValidateGetResponse = import("./types.js").ValidateSessionResponse;
+
+/** Backend response type: raw-response. */
+export type AuthValidateOptionsResponse = import("./types.js").ValidateSessionResponse;
 
 /** Backend request type: PasswordTokenRequest. */
 export interface AuthLoginWebPostInput extends JsonObject {
@@ -486,92 +482,6 @@ export interface IdentityAuthorityEnrollPostResponseData extends JsonObject {
 }
 export interface IdentityAuthorityEnrollPostResponse extends ApiEnvelope<IdentityAuthorityEnrollPostResponseData> {
 }
-
-/** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
-
-/** Backend query type: AuthorizeQuery. */
-export interface OidcAuthorizeGetQuery extends QueryParams {
-  "response_type": string;
-  "client_id": string;
-  "redirect_uri": string;
-  "scope": string;
-  "state": string;
-  "nonce"?: string | null;
-  "ui_locales"?: string | null;
-  "code_challenge": string;
-  "code_challenge_method": string;
-}
-/** Backend response type: redirect. */
-export type OidcAuthorizeGetResponse = void;
-
-/** Backend request type: BackchannelLogoutForm. */
-export interface OidcBackchannelLogoutPostInput extends JsonObject {
-  "logout_token": string;
-}
-/** Backend response type: no-content. */
-export type OidcBackchannelLogoutPostResponse = void;
-
-/** Backend request type: TokenOnly. */
-export interface OidcIntrospectPostInput extends JsonObject {
-  "token": string;
-  "client_id"?: string | null;
-  "client_secret"?: string | null;
-}
-/** Backend response type: Value. */
-export type OidcIntrospectPostResponse = JsonValue;
-
-/** Backend response type: Value. */
-export type OidcJwksGetResponse = JsonValue;
-
-/** Backend response type: api. */
-export interface OidcLogoutGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: api. */
-export interface OidcLogoutPostResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend request type: TokenOnly. */
-export interface OidcRevokePostInput extends JsonObject {
-  "token": string;
-  "client_id"?: string | null;
-  "client_secret"?: string | null;
-}
-/** Backend response type: no-content. */
-export type OidcRevokePostResponse = void;
-
-/** Backend request type: TokenForm. */
-export interface OidcTokenPostInput extends JsonObject {
-  "grant_type": string;
-  "code"?: string | null;
-  "redirect_uri"?: string | null;
-  "client_id"?: string | null;
-  "client_secret"?: string | null;
-  "code_verifier"?: string | null;
-  "refresh_token"?: string | null;
-  "device_id"?: string | null;
-  "subject_token"?: string | null;
-  "subject_token_type"?: string | null;
-  "scope"?: string | null;
-}
-/** Backend response type: TokenResponse. */
-export interface OidcTokenPostResponseData extends JsonObject {
-  "access_token": string;
-  "token_type": string;
-  "expires_in": number;
-  "scope": string;
-  "id_token": string;
-  "refresh_token"?: string | null;
-}
-export type OidcTokenPostResponse = OidcTokenPostResponseData;
-
-/** Backend response type: Value. */
-export type OidcUserinfoGetResponse = JsonValue;
-
-/** Backend response type: Value. */
-export type OidcUserinfoPostResponse = JsonValue;
 
 /** Backend response type: Vec<ProviderView>. */
 export interface CustomOauthListGetResponseItem extends JsonObject {
@@ -1624,3 +1534,90 @@ export interface UserUsersStatsGetResponse extends ApiEnvelope<UserUsersStatsGet
 /** Backend response type: bool. */
 export interface UserSyncUsersGetResponse extends ApiEnvelope<boolean> {
 }
+
+/** Backend response type: HealthResponse. */
+export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
+export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
+}
+
+/** Backend query type: AuthorizeQuery. */
+export interface OidcAuthorizeGetQuery extends QueryParams {
+  "response_type": string;
+  "client_id": string;
+  "redirect_uri": string;
+  "scope": string;
+  "state": string;
+  "nonce"?: string | null;
+  "ui_locales"?: string | null;
+  "code_challenge": string;
+  "code_challenge_method": string;
+}
+/** Backend response type: redirect. */
+export type OidcAuthorizeGetResponse = void;
+
+/** Backend request type: BackchannelLogoutForm. */
+export interface OidcBackchannelLogoutPostInput extends JsonObject {
+  "logout_token": string;
+}
+/** Backend response type: no-content. */
+export type OidcBackchannelLogoutPostResponse = void;
+
+/** Backend request type: TokenOnly. */
+export interface OidcIntrospectPostInput extends JsonObject {
+  "token": string;
+  "client_id"?: string | null;
+  "client_secret"?: string | null;
+}
+/** Backend response type: Value. */
+export type OidcIntrospectPostResponse = import("./contracts.types.js").OidcIntrospection;
+
+/** Backend response type: Value. */
+export type OidcJwksGetResponse = import("./contracts.types.js").OidcJwks;
+
+/** Backend response type: api. */
+export type OidcLogoutGetResponse = void;
+
+/** Backend response type: api. */
+export type OidcLogoutPostResponse = void;
+
+/** Backend request type: TokenOnly. */
+export interface OidcRevokePostInput extends JsonObject {
+  "token": string;
+  "client_id"?: string | null;
+  "client_secret"?: string | null;
+}
+/** Backend response type: no-content. */
+export type OidcRevokePostResponse = void;
+
+/** Backend request type: TokenForm. */
+export interface OidcTokenPostInput extends JsonObject {
+  "grant_type": string;
+  "code"?: string | null;
+  "redirect_uri"?: string | null;
+  "client_id"?: string | null;
+  "client_secret"?: string | null;
+  "code_verifier"?: string | null;
+  "refresh_token"?: string | null;
+  "device_id"?: string | null;
+  "subject_token"?: string | null;
+  "subject_token_type"?: string | null;
+  "scope"?: string | null;
+}
+/** Backend response type: TokenResponse. */
+export interface OidcTokenPostResponseData extends JsonObject {
+  "access_token": string;
+  "token_type": string;
+  "expires_in": number;
+  "scope": string;
+  "id_token": string;
+  "refresh_token"?: string | null;
+}
+export type OidcTokenPostResponse = OidcTokenPostResponseData;
+
+/** Backend response type: Value. */
+export type OidcUserinfoGetResponse = import("./contracts.types.js").OidcUserInfo;
+
+/** Backend response type: Value. */
+export type OidcUserinfoPostResponse = import("./contracts.types.js").OidcUserInfo;

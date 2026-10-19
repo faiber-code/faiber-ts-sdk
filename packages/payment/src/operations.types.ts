@@ -1,9 +1,11 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: HealthResponse. */
+export type RouterRootStatusGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: utoipa::openapi::OpenApi. */
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: SessionResponse. */
 export interface SessionGetSelfGetResponseData extends JsonObject {
@@ -459,9 +461,8 @@ export interface TransactionDailyIncomeGetResponseItem extends JsonObject {
 export interface TransactionDailyIncomeGetResponse extends ApiEnvelope<TransactionDailyIncomeGetResponseItem[]> {
 }
 
-/** Backend response type: api. */
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: HealthResponse. */
+export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: api. */
 export interface PaymentWebRedirectGetResponse extends ApiEnvelope<JsonValue> {
@@ -486,3 +487,6 @@ export interface PaymentWebCallbackPostQuery extends QueryParams {
 /** Backend response type: raw-response. */
 export interface PaymentWebCallbackPostResponse extends ApiEnvelope<JsonValue> {
 }
+
+/** Backend response type: HealthResponse. */
+export type RouterUpGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;

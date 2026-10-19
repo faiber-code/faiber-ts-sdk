@@ -186,8 +186,8 @@ export interface AuthTokensResponse extends ApiEnvelope<AuthTokens> {
 export interface ValidateSessionData {
     user_id: string;
 }
-export interface ValidateSessionResponse extends ApiEnvelope<ValidateSessionData> {
-}
+/** Forward-auth success contains no data/user object; the principal is in response headers. */
+export interface ValidateSessionResponse { status: string; message: string }
 export interface UserData extends JsonObject { user: User; }
 export interface UserResponse extends ApiEnvelope<UserData> {
 }

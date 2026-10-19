@@ -3,21 +3,21 @@ import type * as T from "./operations.types.js";
 
 export class AssetOperations extends ServiceApi {
   /**
-   * Performs the status route operation for the router capability.
+   * Read process health and the reported service version. Does not verify database, broker or downstream readiness.
    * Calls `GET /` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   routerStatusRouteGet(options?: RequestOptions) {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
   }
   /**
-   * Performs the openapi json operation for the router capability.
+   * Read the raw generated OpenAPI document. Annotations may omit mounted routes; this document is not an endpoint-completeness guarantee.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   routerOpenapiJsonGet(options?: RequestOptions) {
     return this.client.request<T.RouterOpenapiJsonGetResponse>({ ...options, method: "GET", url: `/api/openapi.json` });
@@ -1205,5 +1205,15 @@ export class AssetOperations extends ServiceApi {
    */
   walletBillingWalletTopupPost(data: T.WalletBillingWalletTopupPostInput, options?: RequestOptions<T.WalletBillingWalletTopupPostInput>) {
     return this.client.request<T.WalletBillingWalletTopupPostResponse, T.WalletBillingWalletTopupPostInput>({ ...options, method: "POST", url: `/api/v1/wallet/topup`, data: data });
+  }
+  /**
+   * Read process health and the reported service version. Does not verify database, broker or downstream readiness.
+   * Calls `GET /health` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
+   */
+  routerHealthGet(options?: RequestOptions) {
+    return this.client.request<T.RouterHealthGetResponse>({ ...options, method: "GET", url: `/health` });
   }
 }

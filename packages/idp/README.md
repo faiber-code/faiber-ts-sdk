@@ -38,20 +38,20 @@ await tokens.setTokens({
 
 ## Complete capability
 
-This package exposes 97 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 104 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `acl` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `auth` | 23 | `DELETE`, `GET`, `POST` |
+| `auth` | 27 | `DELETE`, `GET`, `OPTIONS`, `POST` |
 | `custom-oauth` | 8 | `DELETE`, `GET`, `POST`, `PUT` |
 | `identity-authority` | 10 | `GET`, `POST`, `PUT` |
 | `integration` | 1 | `GET` |
-| `oauth-clients` | 5 | `DELETE`, `GET`, `POST`, `PUT` |
+| `oauth-clients` | 6 | `DELETE`, `GET`, `POST`, `PUT` |
 | `oidc` | 11 | `GET`, `POST` |
 | `router` | 2 | `GET` |
 | `settings` | 7 | `GET`, `POST`, `PUT` |
-| `user` | 22 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `user` | 24 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 
 Legacy token login, web login, account login, and OTP login are encoded as `application/x-www-form-urlencoded`. `api.operations.authBrowserLoginPost` accepts a registered public client, a password or OTP credential, and a matching HTTPS Origin; it returns an HttpOnly session cookie without a client secret or bearer token in the response. Persist and reuse a stable, non-secret `device_id` for legacy token login so the IDP can distinguish physical devices. Use `api.sessions()` to list active sessions and `api.revokeSession(sessionId)` to revoke one. Role assignment uses role UUIDs.
 
@@ -84,3 +84,7 @@ Managed user responses include `created_at`, the UTC registration timestamp (opt
 `operations.authExchangeHandoffTokenPost({token, client_id})` consumes a single-use handoff code and returns a token envelope. `authIssueHandoffTokenPost` is server-only and requires `x-infera-handoff-secret`; never put that secret into browser code. `authOtpLoginPost` sends its named input as URL-encoded form data, including `otp_code`.
 
 `operations.userStatusGet()` returns `{data:{has_password}}`. `userSavePut({password})` replaces only the authenticated account's password and preserves OAuth identities; passwords must contain 8–128 characters. Website OAuth bootstrap accepts a canonical HTTPS origin and requires an administrator or the trusted federation service.
+
+## OIDC service paths
+
+Discovery uses `/.well-known/openid-configuration`; authorization, token, user-info, JWKS, revocation, introspection and logout use `/oauth2/*` at the service root. These paths do not have an `/api/v1` prefix. The generated OIDC methods use the shared client and form-encode token/revocation inputs. Internal single-use token generation requires the target user UUID in the URL and a server-only internal credential; never expose that credential in a browser.

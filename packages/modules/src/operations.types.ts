@@ -1,17 +1,15 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: api. */
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: HealthResponse. */
+export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: api. */
 export interface RouterBeautifiedOpenapiGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: utoipa::openapi::OpenApi. */
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend response type: Vec<models::AccessResponseDTO>. */
 export type AccessListOnTargetGetResponseItemAccessLevel = "Maintainer" | "Editor" | "Viewer";
@@ -785,10 +783,6 @@ export interface ContentUpdateContentPutResponseData extends JsonObject {
   "updated_at": string;
 }
 export interface ContentUpdateContentPutResponse extends ApiEnvelope<ContentUpdateContentPutResponseData> {
-}
-
-/** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }
 
 /** Backend query type: models::InventoryListQuery. */
@@ -3150,4 +3144,11 @@ export interface TagUpdateTagPutResponseData extends JsonObject {
   "updated_at": string;
 }
 export interface TagUpdateTagPutResponse extends ApiEnvelope<TagUpdateTagPutResponseData> {
+}
+
+/** Backend response type: HealthResponse. */
+export type RouterHealthGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
+export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
 }

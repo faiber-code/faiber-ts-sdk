@@ -3,34 +3,24 @@ import type * as T from "./operations.types.js";
 
 export class IdpOperations extends ServiceApi {
   /**
-   * Performs the status route operation for the router capability.
-   * Calls `GET /` through the shared IDP-aware Faiber client.
+   * Read raw OIDC issuer metadata and supported grants, scopes, claims and PKCE methods.
+   * Calls `GET /.well-known/openid-configuration` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public discovery handler; deployment gateway policy is separate.
    */
-  routerStatusRouteGet(options?: RequestOptions) {
-    return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
+  oidcDiscoveryGet(options?: RequestOptions) {
+    return this.client.request<T.OidcDiscoveryGetResponse>({ ...options, method: "GET", url: `/.well-known/openid-configuration` });
   }
   /**
-   * Performs the openapi json operation for the router capability.
+   * Read the raw generated OpenAPI document. Annotations may omit mounted routes; this document is not an endpoint-completeness guarantee.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   routerOpenapiJsonGet(options?: RequestOptions) {
     return this.client.request<T.RouterOpenapiJsonGetResponse>({ ...options, method: "GET", url: `/api/openapi.json` });
-  }
-  /**
-   * Performs the discovery operation for the oidc capability.
-   * Calls `GET /api/v1/.well-known/openid-configuration` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcDiscoveryGet(options?: RequestOptions) {
-    return this.client.request<T.OidcDiscoveryGetResponse>({ ...options, method: "GET", url: `/api/v1/.well-known/openid-configuration` });
   }
   /**
    * Performs the permission templates index operation for the acl capability.
@@ -381,14 +371,15 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AuthExchangeOneTimeTokenPostResponse, T.AuthExchangeOneTimeTokenPostInput>({ ...options, method: "POST", url: `/api/v1/auth/secure/exchange/one-time`, data: data });
   }
   /**
-   * Performs the generate secure one time token route operation for the auth capability.
-   * Calls `POST /api/v1/auth/secure/generate/one-time` through the shared IDP-aware Faiber client.
+   * Issue a single-use login token for the user UUID in the URL. Missing users return 401; the route is protected by the internal-service middleware.
+   * Calls `POST /api/v1/auth/secure/generate/one-time/{user_id}` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only internal-service guard; never expose internal credentials in a browser.
    */
-  authGenerateSecureOneTimeTokenRoutePost(options?: RequestOptions) {
-    return this.client.request<T.AuthGenerateSecureOneTimeTokenRoutePostResponse>({ ...options, method: "POST", url: `/api/v1/auth/secure/generate/one-time` });
+  authGenerateSecureOneTimeTokenRoutePost(userId: string, options?: RequestOptions) {
+    return this.client.request<T.AuthGenerateSecureOneTimeTokenRoutePostResponse>({ ...options, method: "POST", url: `/api/v1/auth/secure/generate/one-time/${encodeURIComponent(userId)}` });
   }
   /**
    * Issue a single-use handoff code for an allowed OAuth client. Requires the server secret header; never expose it in a browser.
@@ -435,14 +426,24 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AuthLoginTokenGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/token-login`, params });
   }
   /**
-   * Performs the validate operation for the auth capability.
+   * Validate a forwarded request. Success has status/message and principal headers, not a data.user_id body; HTML failures may redirect to login. OPTIONS is a preflight check, not proof of an authenticated session.
    * Calls `GET /api/v1/auth/validate` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: forward-auth policy for the original method/URI/service, or CORS preflight; invalid credentials fail closed.
    */
   authValidateGet(options?: RequestOptions) {
     return this.client.request<T.AuthValidateGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/validate` });
+  }
+  /**
+   * Validate a forwarded request. Success has status/message and principal headers, not a data.user_id body; HTML failures may redirect to login. OPTIONS is a preflight check, not proof of an authenticated session.
+   * Calls `OPTIONS /api/v1/auth/validate` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: forward-auth policy for the original method/URI/service, or CORS preflight; invalid credentials fail closed.
+   */
+  authValidateOptions(options?: RequestOptions) {
+    return this.client.request<T.AuthValidateOptionsResponse>({ ...options, method: "OPTIONS", url: `/api/v1/auth/validate` });
   }
   /**
    * Performs the login web operation for the auth capability.
@@ -465,121 +466,6 @@ export class IdpOperations extends ServiceApi {
    */
   identityAuthorityEnrollPost(data: T.IdentityAuthorityEnrollPostInput, options?: RequestOptions<T.IdentityAuthorityEnrollPostInput>) {
     return this.client.request<T.IdentityAuthorityEnrollPostResponse, T.IdentityAuthorityEnrollPostInput>({ ...options, method: "POST", url: `/api/v1/federation/enroll`, data: data });
-  }
-  /**
-   * Performs the flow integration show operation for the integration capability.
-   * Calls `GET /api/v1/integration/flow` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  integrationFlowIntegrationShowGet(options?: RequestOptions) {
-    return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/flow` });
-  }
-  /**
-   * Performs the authorize operation for the oidc capability.
-   * Calls `GET /api/v1/oauth2/authorize` through the shared IDP-aware Faiber client.
-   * @param params Typed query parameters; omitted members retain backend defaults.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcAuthorizeGet(params?: T.OidcAuthorizeGetQuery, options?: RequestOptions) {
-    return this.client.request<T.OidcAuthorizeGetResponse>({ ...options, method: "GET", url: `/api/v1/oauth2/authorize`, params });
-  }
-  /**
-   * Performs the backchannel logout operation for the oidc capability.
-   * Calls `POST /api/v1/oauth2/backchannel-logout` through the shared IDP-aware Faiber client.
-   * @param data Typed URL-encoded form.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcBackchannelLogoutPost(data: T.OidcBackchannelLogoutPostInput, options?: RequestOptions<URLSearchParams>) {
-    return this.client.request<T.OidcBackchannelLogoutPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/oauth2/backchannel-logout`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
-  }
-  /**
-   * Performs the introspect operation for the oidc capability.
-   * Calls `POST /api/v1/oauth2/introspect` through the shared IDP-aware Faiber client.
-   * @param data Typed URL-encoded form.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcIntrospectPost(data: T.OidcIntrospectPostInput, options?: RequestOptions<URLSearchParams>) {
-    return this.client.request<T.OidcIntrospectPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/oauth2/introspect`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
-  }
-  /**
-   * Performs the jwks operation for the oidc capability.
-   * Calls `GET /api/v1/oauth2/jwks` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcJwksGet(options?: RequestOptions) {
-    return this.client.request<T.OidcJwksGetResponse>({ ...options, method: "GET", url: `/api/v1/oauth2/jwks` });
-  }
-  /**
-   * Performs the logout operation for the oidc capability.
-   * Calls `GET /api/v1/oauth2/logout` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcLogoutGet(options?: RequestOptions) {
-    return this.client.request<T.OidcLogoutGetResponse>({ ...options, method: "GET", url: `/api/v1/oauth2/logout` });
-  }
-  /**
-   * Performs the logout operation for the oidc capability.
-   * Calls `POST /api/v1/oauth2/logout` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcLogoutPost(options?: RequestOptions) {
-    return this.client.request<T.OidcLogoutPostResponse>({ ...options, method: "POST", url: `/api/v1/oauth2/logout` });
-  }
-  /**
-   * Performs the revoke operation for the oidc capability.
-   * Calls `POST /api/v1/oauth2/revoke` through the shared IDP-aware Faiber client.
-   * @param data Typed URL-encoded form.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcRevokePost(data: T.OidcRevokePostInput, options?: RequestOptions<URLSearchParams>) {
-    return this.client.request<T.OidcRevokePostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/oauth2/revoke`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
-  }
-  /**
-   * Performs the token operation for the oidc capability.
-   * Calls `POST /api/v1/oauth2/token` through the shared IDP-aware Faiber client.
-   * @param data Typed URL-encoded form.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcTokenPost(data: T.OidcTokenPostInput, options?: RequestOptions<URLSearchParams>) {
-    return this.client.request<T.OidcTokenPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/oauth2/token`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
-  }
-  /**
-   * Performs the userinfo operation for the oidc capability.
-   * Calls `GET /api/v1/oauth2/userinfo` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcUserinfoGet(options?: RequestOptions) {
-    return this.client.request<T.OidcUserinfoGetResponse>({ ...options, method: "GET", url: `/api/v1/oauth2/userinfo` });
-  }
-  /**
-   * Performs the userinfo operation for the oidc capability.
-   * Calls `POST /api/v1/oauth2/userinfo` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  oidcUserinfoPost(options?: RequestOptions) {
-    return this.client.request<T.OidcUserinfoPostResponse>({ ...options, method: "POST", url: `/api/v1/oauth2/userinfo` });
   }
   /**
    * Performs the list operation for the custom oauth capability.
@@ -1117,5 +1003,130 @@ export class IdpOperations extends ServiceApi {
    */
   userSyncUsersGet(options?: RequestOptions) {
     return this.client.request<T.UserSyncUsersGetResponse>({ ...options, method: "GET", url: `/api/v1/users/sync` });
+  }
+  /**
+   * Read process health and the reported service version. Does not verify database, broker or downstream readiness.
+   * Calls `GET /health` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
+   */
+  routerStatusRouteGet(options?: RequestOptions) {
+    return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/health` });
+  }
+  /**
+   * Performs the flow integration show operation for the integration capability.
+   * Calls `GET /integration/flow` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  integrationFlowIntegrationShowGet(options?: RequestOptions) {
+    return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/integration/flow` });
+  }
+  /**
+   * Performs the authorize operation for the oidc capability.
+   * Calls `GET /oauth2/authorize` through the shared IDP-aware Faiber client.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  oidcAuthorizeGet(params?: T.OidcAuthorizeGetQuery, options?: RequestOptions) {
+    return this.client.request<T.OidcAuthorizeGetResponse>({ ...options, method: "GET", url: `/oauth2/authorize`, params });
+  }
+  /**
+   * Performs the backchannel logout operation for the oidc capability.
+   * Calls `POST /oauth2/backchannel-logout` through the shared IDP-aware Faiber client.
+   * @param data Typed URL-encoded form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  oidcBackchannelLogoutPost(data: T.OidcBackchannelLogoutPostInput, options?: RequestOptions<URLSearchParams>) {
+    return this.client.request<T.OidcBackchannelLogoutPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/oauth2/backchannel-logout`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
+  }
+  /**
+   * Inspect an access or refresh token as a raw active/inactive union using form-encoded client credentials or HTTP Basic authentication.
+   * Calls `POST /oauth2/introspect` through the shared IDP-aware Faiber client.
+   * @param data Typed URL-encoded form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: valid active OAuth client and its configured authentication method.
+   */
+  oidcIntrospectPost(data: T.OidcIntrospectPostInput, options?: RequestOptions<URLSearchParams>) {
+    return this.client.request<T.OidcIntrospectPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/oauth2/introspect`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
+  }
+  /**
+   * Read public RSA signing keys as a raw JWKS document; key configuration errors propagate.
+   * Calls `GET /oauth2/jwks` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public signing-key handler; contains no private key material.
+   */
+  oidcJwksGet(options?: RequestOptions) {
+    return this.client.request<T.OidcJwksGetResponse>({ ...options, method: "GET", url: `/oauth2/jwks` });
+  }
+  /**
+   * End the current session and propagate back-channel logout; returns 204 even when no current session is found.
+   * Calls `GET /oauth2/logout` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current Bearer token or secure browser cookie when present.
+   */
+  oidcLogoutGet(options?: RequestOptions) {
+    return this.client.request<T.OidcLogoutGetResponse>({ ...options, method: "GET", url: `/oauth2/logout` });
+  }
+  /**
+   * End the current session and propagate back-channel logout; returns 204 even when no current session is found.
+   * Calls `POST /oauth2/logout` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current Bearer token or secure browser cookie when present.
+   */
+  oidcLogoutPost(options?: RequestOptions) {
+    return this.client.request<T.OidcLogoutPostResponse>({ ...options, method: "POST", url: `/oauth2/logout` });
+  }
+  /**
+   * Performs the revoke operation for the oidc capability.
+   * Calls `POST /oauth2/revoke` through the shared IDP-aware Faiber client.
+   * @param data Typed URL-encoded form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  oidcRevokePost(data: T.OidcRevokePostInput, options?: RequestOptions<URLSearchParams>) {
+    return this.client.request<T.OidcRevokePostResponse, URLSearchParams>({ ...options, method: "POST", url: `/oauth2/revoke`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
+  }
+  /**
+   * Performs the token operation for the oidc capability.
+   * Calls `POST /oauth2/token` through the shared IDP-aware Faiber client.
+   * @param data Typed URL-encoded form.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  oidcTokenPost(data: T.OidcTokenPostInput, options?: RequestOptions<URLSearchParams>) {
+    return this.client.request<T.OidcTokenPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/oauth2/token`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
+  }
+  /**
+   * Read the token subject and only claims allowed by its scopes. No API envelope; nullable identity values remain nullable.
+   * Calls `GET /oauth2/userinfo` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: valid Bearer access token; missing/invalid tokens or users return 401.
+   */
+  oidcUserinfoGet(options?: RequestOptions) {
+    return this.client.request<T.OidcUserinfoGetResponse>({ ...options, method: "GET", url: `/oauth2/userinfo` });
+  }
+  /**
+   * Read the token subject and only claims allowed by its scopes. No API envelope; nullable identity values remain nullable.
+   * Calls `POST /oauth2/userinfo` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: valid Bearer access token; missing/invalid tokens or users return 401.
+   */
+  oidcUserinfoPost(options?: RequestOptions) {
+    return this.client.request<T.OidcUserinfoPostResponse>({ ...options, method: "POST", url: `/oauth2/userinfo` });
   }
 }

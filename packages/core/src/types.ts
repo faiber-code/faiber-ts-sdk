@@ -156,3 +156,21 @@ export type RequestOptionsContext<D = unknown> = Omit<InternalAxiosRequestConfig
 export type RequestOptions<D = unknown> = Omit<AxiosRequestConfig<D>, "url" | "method" | "data" | "params" | "withXSRFToken"> & {
     withXSRFToken?: boolean | ((config: RequestOptionsContext<D>) => boolean | undefined);
 };
+
+/** Process-only health returned by the mounted Asset, IDP, Modules and Payment routers. */
+export interface ServiceHealth { version: string }
+export type ServiceHealthResponse = ApiEnvelope<ServiceHealth>;
+/** OpenAPI's extension and schema objects are dynamic JSON by specification. */
+export interface ServiceOpenApiInfo extends JsonObject { title: string; version: string; description?: string }
+export interface ServiceOpenApiServer extends JsonObject { url: string; description?: string }
+export interface ServiceOpenApiTag extends JsonObject { name: string; description?: string }
+/** Raw Utoipa OpenAPI document, not an ApiEnvelope. */
+export interface ServiceOpenApiDocument extends JsonObject {
+    openapi: string;
+    info: ServiceOpenApiInfo;
+    paths: Record<string, JsonObject>;
+    components?: JsonObject;
+    servers?: ServiceOpenApiServer[];
+    tags?: ServiceOpenApiTag[];
+    security?: Record<string, string[]>[];
+}

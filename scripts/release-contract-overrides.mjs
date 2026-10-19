@@ -1,9 +1,11 @@
+import { routerContracts } from "./router-contract-overrides.mjs";
 import { socialDiscoveryContracts } from "./social-discovery-contracts.mjs";
 import { socialAdminContracts } from "./social-admin-contracts.mjs";
 import { integrationContracts } from "./integration-contracts.mjs";
 import { profileSummaryContracts } from "./profile-summary-contracts.mjs";
 // Reviewed wire contracts; keyed by the mounted method and path, never ambiguous handler names.
 export const releaseContracts = {
+  ...routerContracts,
   ...socialAdminContracts,
   ...socialDiscoveryContracts,
   ...integrationContracts,

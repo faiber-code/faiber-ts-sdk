@@ -188,7 +188,10 @@ function handlerSignature(source, handler) {
     ?? params.match(/Form\s*\([^)]*\)\s*:\s*Form\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
   const binary = /(?:^|,)\s*(?:\w+\s*:\s*)?(?:axum::body::)?Bytes\s*(?:,|$)/m.test(params);
   const query = /(?:super::dynamic::)?DynamicListQuery\s*\(/.test(params) ? "models::ListQuery" : params.match(/Query\s*\([^)]*\)\s*:\s*Query\s*<\s*([^>]+)\s*>/)?.[1]?.trim();
-  const pathParam = params.match(/Path\s*\([^)]*\)\s*:\s*Path\s*<\s*([^>]+(?:<[^>]+>)?[^>]*)\s*>/)?.[1]?.trim();
+  const pathType = params.match(/\bPath\s*</);
+  const pathOpen = pathType ? params.indexOf("<", pathType.index) : -1;
+  const pathClose = pathOpen < 0 ? -1 : matchingAngle(params, pathOpen);
+  const pathParam = pathClose < 0 ? undefined : params.slice(pathOpen + 1, pathClose).trim();
   const responseMatch = after.match(/(?:APIResponse|ApiResponse)(WithMeta)?\s*</);
   let response;
   let responseMeta;
@@ -403,10 +406,10 @@ for (const service of services) {
     if (!source.includes(endpoint.handler)) throw new Error(`Missing integration handler: ${endpoint.source}:${endpoint.handler}`);
     endpoints.push(endpoint);
   }
-  // These service routers have source-reviewed runtime acceptance. Follow their actual
+  // These service router graphs have source-reviewed mounts. Follow their actual
   // main/router graph rather than annotation paths or module-prefix guesses. Other
   // services retain their existing extraction until their mounted graphs are reviewed.
-  if (["social", "version"].includes(service)) {
+  if (["asset", "idp", "modules", "payment", "social", "version"].includes(service)) {
     const indexed = [...fileSources].map(([file,source])=>sourceIndex(source,relativeSource(file)));
     const main=indexed.find(file=>file.path.endsWith("/src/main.rs"));
     const entry=service==="social" && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
@@ -425,11 +428,11 @@ for (const service of services) {
       const previous=exact??(candidates.length===1?candidates[0]:null);
       const routeModule=op.module.split("::")[0];
       const signature=handlerSignature(handlerFile.source,op.handler);
-      if (service==="version" && op.path==="/health") {
+      if (["asset", "idp", "modules", "payment", "version"].includes(service) && op.handler==="status_route") {
         const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
         if (/data\s*:\s*HealthResponse\s*\{/.test(fn?.body??"")) signature.response="HealthResponse";
       }
-      if (service==="version" && op.path==="/api/openapi.json") {
+      if (["asset", "idp", "modules", "payment", "version"].includes(service) && op.path==="/api/openapi.json") {
         const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
         if (/Json\s*\(\s*ApiDoc::openapi\s*\(/.test(fn?.body??"")) {
           signature.response="utoipa::openapi::OpenApi";signature.responseEnvelope="raw";
