@@ -302,7 +302,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "f782c9ea6b2c642613c209d9f78347e1b7c39b301012dcfb98b8523387466614",
+  "working_source_tree_checksum": "2b2309ddf945d3f7d03c6dbfaad0fb5e416010bc696b1c109dac695672e87528",
   "working_source_files": [
     {
       "path": "infera-chat/src/agentic.rs",
@@ -386,7 +386,7 @@
     },
     {
       "path": "infera-chat/src/summary_evidence.sql",
-      "checksum": "e80b8339b9537951ed36fe0d6473157376e3f05fbd802308b31d4f3801257bd7"
+      "checksum": "9821ee56c041872acc324541b3240d8cb848ad84654b831ca6675f02156e75c0"
     },
     {
       "path": "infera-chat/src/workspace_answers.rs",
@@ -514,7 +514,7 @@
     },
     {
       "path": "infera-chat/migration/src/m20261019_000050_summary_activity_outbox.rs",
-      "checksum": "b13a119484f1391461fbe1de75e03eef90b960e7178bc20dced9c570dbd75c4b"
+      "checksum": "afdb307bf2c71112da229db651159ff3ec40543289638bab5a7f2bb02012a180"
     },
     {
       "path": "infera-chat/Cargo.toml",
@@ -534,7 +534,7 @@
     },
     {
       "path": "infera-chat/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "3d5397a39133f200efe66ae7f39a7a4570dc4d809864381be36955ab45998401",
+      "checksum": "af729774fec2b0d20ebed127f3e38bebb2ba258b048fc1a1f05ce96aa2775413",
       "embedded_by": "infera-chat/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],

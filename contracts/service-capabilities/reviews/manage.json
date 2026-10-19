@@ -1,6 +1,6 @@
 {
   "GET /health": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "75a222b565043d7e30f2e5869144002e98933d5429de931b8ae491150873480e",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -91,16 +91,25 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   },
   "GET /sso": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "543fe5754a71a4322233df5951036af82d0696d7533db89a072018b023ee2014",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -191,16 +200,25 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   },
   "POST /api/v1/dev/login": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "869694e792e10864be10f5b780ba4526d38abe39284467851a54368a8b4420a5",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -291,16 +309,25 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   },
   "POST /logout": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "a822ec172769033e26aaf9f8c79ed2275a1c735d6c4e9ffe04a1d97a10db5a16",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -391,16 +418,25 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   },
   "GET /api/v1/me": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "ba1d4cc23dbfd2d757434c5a521b8c8949398c2d9f09fdeb7c81269846db551b",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -491,16 +527,25 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   },
   "POST /api/v1/setup/check": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "9db3d9108dd111b845cc381bdc84c8b651f8136bdf50ab0535790f2d75640bd0",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -591,16 +636,25 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   },
   "GET /api/v1/health/services": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "fd4f8c4ed678c6fc2790fa7455056d2212a651bfd63d064a83b0cd3aed0f6776",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -691,16 +745,25 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   },
   "ANY /api/v1/proxy/{*rest}": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "1908491fadc753741d408a6e40fc8ec2bd6626cce9f04d9e0fc31b0726f195a9",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -791,16 +854,25 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   },
   "ANY /api/v1/agent/{*rest}": {
-    "status": "source_reviewed_requires_runtime_verification",
+    "status": "locally_tested_requires_canonical_and_operation_verification",
     "source_checksum": "bbcecc8809d66fe62ce52b03f059aae492349793ba65798b5ba2109a7857db46",
     "canonical_source_basis": "a13caa6019e3648a1f84766d7ee5034c7147a123",
     "meaning": {
@@ -891,12 +963,21 @@
     },
     "test_evidence": [],
     "remaining_gates": [
-      "nondevelopment signing configuration and rotation",
+      "canonical signing provisioning, entropy and rotation reconciliation",
       "live project membership/settings-manage revocation",
       "current identity revision/service enablement across restart",
       "IDP refresh and identity mapping",
       "real SDK-backed service and human-review workflows",
       "readable localized accessible UI and negative permissions acceptance"
-    ]
+    ],
+    "local_implementation_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+    "local_boundary_evidence": [
+      "manage-current-authority"
+    ],
+    "local_contract_overrides": {
+      "current_authority": "Fresh30second signed nonce/user-bound Agentic authority before SSO, refresh or dispatch; current revision/identity and grant intersection; no fixed signing fallback. Explicit deployed empty sets grant no services; desired declarations only for inactive predeployment guidance.",
+      "source": "Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md",
+      "evidence_limit": "Named local authority cases are tested; this does not certify every operation, deployed secrets/gateway/IDP or UI."
+    }
   }
 }

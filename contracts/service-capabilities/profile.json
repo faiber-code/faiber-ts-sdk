@@ -22,6 +22,7 @@
     " M src/broker/mod.rs",
     " M src/custom_type/methods.rs",
     " M src/custom_type/routes.rs",
+    " M src/handler.rs",
     " M src/lib.rs",
     " M src/profile/dynamic.rs",
     " M src/profile/filters.rs",
@@ -809,15 +810,15 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "a37fdd40f5fcfa8b766bed5f54be2278a6af3baad1448674df119f985af36176",
+  "working_source_tree_checksum": "b94ee7476ce7afb5edb0bfb0ef72763ea6b8172e645b2f01b7d454ab23298c92",
   "working_source_files": [
     {
       "path": "infera-profile/src/ai_summary/identity.rs",
-      "checksum": "e86bc25f27dfdcec563219392d4b3e87f7321b0821e0b9b4bb228a8358ffbd7e"
+      "checksum": "30b9a9575f50b80480eda95ccd28c679eb71143a2ff7d1d110d0b0e242de4927"
     },
     {
       "path": "infera-profile/src/ai_summary/methods.rs",
-      "checksum": "95a16bf2cb740ee1f1ab786bbff5b7b93ee3c2df2feb7b47a5c491f0e74cbed7"
+      "checksum": "1631d46443d29339cdbc1d8af9f3b9184c373a44400762da00200cb25d756969"
     },
     {
       "path": "infera-profile/src/ai_summary/mod.rs",
@@ -833,19 +834,19 @@
     },
     {
       "path": "infera-profile/src/ai_summary/routes.rs",
-      "checksum": "bf6f2f05bae4bcb17c89786e6fbadd2ecdef089703c2e6bcaca639d59103a215"
+      "checksum": "267b84f3c3a4e56b50feab1a5481e839bf08946dc08e4a869ab7afe494807811"
     },
     {
       "path": "infera-profile/src/ai_summary/worker.rs",
-      "checksum": "00caedd9417721387825636974f3d4aa44ff665cddd0f1f389443a96aabe8e8e"
+      "checksum": "a387fa264b30b975d9044e3a5da9a453bdd2d9e81b6c7ba1367aa98070fa9243"
     },
     {
       "path": "infera-profile/src/broker/handlers.rs",
-      "checksum": "f8efee55e7d92323a818d2f0a9907814ef85a00792c9a63372c891a62b106893"
+      "checksum": "883e99198c51e483a72676241007108c0a6b24d18ca079019dc4fbffbe8bf0c1"
     },
     {
       "path": "infera-profile/src/broker/mod.rs",
-      "checksum": "6a9f8439c11303117e4b1a90b92d0b2c6fb60eb88ecce8e39883d1659bb81dd9"
+      "checksum": "5017ae6d81ca237c98ac383e238960e36be96ef87ca72e6e63cc29824966b2a8"
     },
     {
       "path": "infera-profile/src/campaign/mod.rs",
@@ -969,7 +970,7 @@
     },
     {
       "path": "infera-profile/src/handler.rs",
-      "checksum": "4a7e209d2d642dad211a28a7ee6f55300028ed753b73ea0eaf1bfa699b0f76dd"
+      "checksum": "b81f82a43bd06e1362822a26e4df97a730a5ec1260b196af98df05a90c45324b"
     },
     {
       "path": "infera-profile/src/integration/flow.rs",
@@ -1429,7 +1430,7 @@
     },
     {
       "path": "infera-profile/entity/src/summary_event.rs",
-      "checksum": "1fc3c532fff6347011d9e6757053dc3fab36b4824aaed1813aa60a5375290ef4"
+      "checksum": "b2b25e3e7ffdc7ff063f3dc47581db2d98a5beb71a814eaa0403f6ccb7df698e"
     },
     {
       "path": "infera-profile/entity/src/summary_job.rs",
@@ -1569,7 +1570,7 @@
     },
     {
       "path": "infera-profile/migration/src/m20261019_000021_role_summaries.sql",
-      "checksum": "2dd1b9506a02ca288118195fd7214ea42e816aa72365db43665bc51740a73de3"
+      "checksum": "3996bb0a266425813de6f7cdae2f3ea558dee3a08924223a116e3ee8011b564f"
     },
     {
       "path": "infera-profile/migration/src/main.rs",
@@ -1577,7 +1578,7 @@
     },
     {
       "path": "infera-profile/Cargo.toml",
-      "checksum": "4eb2c3cba88bf690cd0b03e3dac0a8ea4f846e5fa789510638a24d3fd3d96a46"
+      "checksum": "0105ef8b273f02c180998ce681791ac879fa58bd79ccb7077f99ac1f3f8ee7c7"
     },
     {
       "path": "infera-profile/Cargo.lock",
@@ -26046,6 +26047,26 @@
       "GET /campaign-profile/me/contributions"
     ],
     "extra": [
+      "GET /api/v1/ai-summaries/configurations",
+      "POST /api/v1/ai-summaries/configurations",
+      "GET /api/v1/ai-summaries/configurations/{id}",
+      "PUT /api/v1/ai-summaries/configurations/{id}",
+      "POST /api/v1/ai-summaries/configurations/{id}/preview",
+      "POST /api/v1/ai-summaries/configurations/{id}/publish",
+      "PATCH /api/v1/ai-summaries/configurations/{id}/status",
+      "POST /api/v1/ai-summaries/configurations/{id}/validate",
+      "GET /api/v1/ai-summaries/jobs",
+      "POST /api/v1/ai-summaries/jobs/{id}/retry",
+      "GET /api/v1/ai-summaries/latest",
+      "GET /api/v1/ai-summaries/models",
+      "POST /api/v1/ai-summaries/refresh",
+      "GET /api/v1/ai-summaries/roles",
+      "GET /api/v1/ai-summaries/runs/{id}",
+      "GET /api/v1/ai-summaries/settings",
+      "PUT /api/v1/ai-summaries/settings",
+      "GET /api/v1/ai-summaries/sources",
+      "POST /api/v1/ai-summaries/sources/{source}/check",
+      "GET /api/v1/ai-summaries/summaries",
       "GET /api/v1/campaign",
       "GET /api/v1/campaign-profile/me/contributions",
       "GET /api/v1/campaign/{id}",

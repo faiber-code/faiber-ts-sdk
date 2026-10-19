@@ -36,3 +36,17 @@ test('included Rust inputs recursively retain their embedded runtime data',()=>{
   assert.deepEqual(result.assets.map(x=>x.path),['generated.rs','runtime.js']);assert.deepEqual(result.gaps,[]);
  } finally {rmSync(root,{recursive:true,force:true});}
 });
+
+
+test('Cargo manifest concat resolves only with an explicit verified target binding',()=>{
+ const root=mkdtempSync(join(tmpdir(),'infera-manifest-input-'));
+ try {
+  mkdirSync(join(root,'src'));writeFileSync(join(root,'README.md'),'compiler documentation');
+  const source={path:join(root,'src/lib.rs'),text:'#![doc=include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/README.md"))]'};
+  assert.equal(embeddedSourceEvidence(root,[source]).gaps.length,1);
+  const bound=embeddedSourceEvidence(root,[{...source,manifestDir:root}]);
+  assert.deepEqual(bound.gaps,[]);assert.deepEqual(bound.assets.map(x=>x.path),['README.md']);
+  const escape=embeddedSourceEvidence(root,[{...source,manifestDir:root,text:'include_str!(concat!(env!("CARGO_MANIFEST_DIR"),"/../outside"))'}]);
+  assert.equal(escape.assets.length,0);assert.ok(escape.gaps[0].reason.includes('escapes'));
+ } finally {rmSync(root,{recursive:true,force:true});}
+});

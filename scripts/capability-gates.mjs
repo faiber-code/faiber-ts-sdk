@@ -21,7 +21,12 @@ export function verifyRunArtifacts(runs, evidenceRoot) {
     // actual lock bytes too. A restored checkout lock is not that artifact.
     const declaresLock = run.resolved_cargo_lock_sha256 !== undefined || run.resolved_cargo_lock_artifact_path !== undefined;
     const lockVerified = !declaresLock || verify(run.resolved_cargo_lock_artifact_path, run.resolved_cargo_lock_sha256);
-    return [id, {...run, artifact_verified: logVerified && lockVerified}];
+    // Cross-service runs retain more than one lock/log. Validate every declared
+    // supporting artifact instead of trusting only the aggregate report.
+    const extrasVerified = run.additional_artifacts === undefined ||
+      (Array.isArray(run.additional_artifacts) && run.additional_artifacts.every(artifact=>
+        verify(artifact?.artifact_path, artifact?.sha256)));
+    return [id, {...run, artifact_verified: logVerified && lockVerified && extrasVerified}];
   }));
 }
 

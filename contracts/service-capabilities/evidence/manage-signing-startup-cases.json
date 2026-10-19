@@ -1,0 +1,21 @@
+{
+  "observed_at": "2026-10-19T12:06:39.878613+00:00",
+  "cases": [
+    {
+      "dev": "false",
+      "worker_seed_state": "absent",
+      "cloud_seed_state": "absent",
+      "actual_exit_code": 101,
+      "configuration_guard_observed": true
+    },
+    {
+      "dev": "true",
+      "worker_seed_state": "blank",
+      "cloud_seed_state": "empty",
+      "actual_exit_code": 101,
+      "configuration_guard_observed": true
+    }
+  ],
+  "binary_sha256": "4e23d1546b61ab89a0e99da4143a69f3031415c04ec821256508586f7614357b",
+  "scope": "Recheck of the same two startup cases for explicit retained case evidence; not two additional distinct regressions."
+}

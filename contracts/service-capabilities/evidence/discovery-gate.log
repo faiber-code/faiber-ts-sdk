@@ -1,7 +1,7 @@
 {
   "stage": "discovery",
   "status": "blocked",
-  "blocker_count": 2169,
+  "blocker_count": 2170,
   "blockers": [
     "asset: canonical runtime/source revision is unverified",
     "asset GET /: semantic review missing or stale",
@@ -46,7 +46,8 @@
     "chat-memory-event-publication",
     "manage-production-signing-secret",
     "manage-current-identity-service-snapshot",
-    "manage-readable-paginated-workflows"
+    "manage-readable-paginated-workflows",
+    "sdk-working-lms-contract-drift"
   ],
   "next": "Resolve evidence in each service matrix; source counts do not satisfy semantic/wire verification."
 }

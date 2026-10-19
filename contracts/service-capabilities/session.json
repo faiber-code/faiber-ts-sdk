@@ -18,6 +18,8 @@
   "working_changes": [
     "M migration/src/lib.rs",
     " M src/broker.rs",
+    " D src/integration/lms.rs",
+    " M src/integration/mod.rs",
     " M src/likekit.rs",
     " M src/main.rs",
     " M src/room/asset_actions.rs",
@@ -468,7 +470,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "e7d4afe3e12ded90b2efb498c4ae2234063c155f4add5a905b0abd789a261e9e",
+  "working_source_tree_checksum": "4e996acb09c57897909cb843647dcf74364e8a0de166e03256357d14725d1d47",
   "working_source_files": [
     {
       "path": "infera-session/src/asset_economy.rs",
@@ -543,12 +545,8 @@
       "checksum": "f9e68aa52ce827247b334689a6247737d68fe501011ad0a035034b055e32960d"
     },
     {
-      "path": "infera-session/src/integration/lms.rs",
-      "checksum": "810a2bd847a23cd2c87cdf62ff8e9185df4bcbe0bde932a664dab990d9d81466"
-    },
-    {
       "path": "infera-session/src/integration/mod.rs",
-      "checksum": "e7ce5218961bd38e57d26426e74a7f80ba5c62ef0fe9aae068a06e2287b5316d"
+      "checksum": "dc0cb9dc7f64cc9318ebdc08557744de382e89919282cd6e12d709cdb65922b3"
     },
     {
       "path": "infera-session/src/integration/models.rs",
@@ -652,7 +650,7 @@
     },
     {
       "path": "infera-session/src/router.rs",
-      "checksum": "87ddfed25ae8ebefeca795f3f2f036e2018cb946dfd7a46d12b26dcb4126e920"
+      "checksum": "b6270d6a5f21eacfabceeb6144da20ea49ec30da05d122c7c7b54fd441767e13"
     },
     {
       "path": "infera-session/src/s3.rs",
@@ -704,7 +702,7 @@
     },
     {
       "path": "infera-session/src/summary_evidence.sql",
-      "checksum": "6a1add7845da9c705503d554a56ffea450825af58d716ac1201ad5fdacd3ebd9"
+      "checksum": "73712ff2ecca26d0fab4bc7b45710b07ca8a4b6634d8178df48a0c2665c410c7"
     },
     {
       "path": "infera-session/src/validators.rs",
@@ -904,7 +902,7 @@
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "3d5397a39133f200efe66ae7f39a7a4570dc4d809864381be36955ab45998401",
+      "checksum": "af729774fec2b0d20ebed127f3e38bebb2ba258b048fc1a1f05ce96aa2775413",
       "embedded_by": "infera-session/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
@@ -5320,7 +5318,8 @@
     ],
     "absent": [
       "ANY /api/v1/view/{service}/{*path}",
-      "GET /integration/flow"
+      "GET /integration/flow",
+      "POST /api/v1/integrations/lms/performance-context"
     ],
     "changed": [
       "GET /",
@@ -5333,7 +5332,6 @@
       "GET /api/v1/integrations/chat/tool-schema",
       "GET /api/v1/integrations/chat/users/{user_id}/sessions",
       "GET /api/v1/integrations/chat/users/{user_id}/sessions/{room_id}",
-      "POST /api/v1/integrations/lms/performance-context",
       "GET /api/v1/public/branding",
       "GET /api/v1/public/branding/assets/{key}",
       "GET /api/v1/recordings",
@@ -5417,12 +5415,6 @@
       "local_path": "/livekit",
       "source": "infera-session/src/configuration/routes.rs",
       "line": 16,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/api/v1/integrations/lms/performance-context",
-      "source": "infera-session/src/integration/lms.rs",
-      "line": 84,
       "mount_status": "requires_router_reconciliation"
     },
     {
@@ -5607,7 +5599,7 @@
     },
     {
       "path": "infera-session/src/router.rs",
-      "checksum": "87ddfed25ae8ebefeca795f3f2f036e2018cb946dfd7a46d12b26dcb4126e920"
+      "checksum": "b6270d6a5f21eacfabceeb6144da20ea49ec30da05d122c7c7b54fd441767e13"
     },
     {
       "path": "infera-session/migration/src/main.rs",

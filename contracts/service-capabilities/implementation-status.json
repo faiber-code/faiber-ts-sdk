@@ -1,21 +1,23 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T11:38:47.586602+00:00",
+  "updated_at": "2026-10-19T12:11:28.586873+00:00",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
   "committed_source_base": "9c5bccaa4cbbfe934d0ed093d81387c48d91234e",
   "tests": {
     "sdk_build": {
-      "exit_code": 0
+      "exit_code": 0,
+      "scope": "Fenced working0.23.0 build before later unrelated1.0.0 version edits; no SDK release acceptance."
     },
     "sdk_types_and_unit": {
-      "exit_code": 0,
-      "tests_executed": 103,
-      "failures": 0,
-      "scope": "SDK and discovery tooling; not service workflow certification",
-      "working_source_sha256": "9693e03c180749cb352db02682879314f7b73a238cd2f4380df8c79497b1acbf",
-      "source_capture_note": "Tracked and untracked source paths, excluding Python bytecode caches. Includes preserved unrelated working changes; this is not a clean committed SDK certification."
+      "exit_code": 1,
+      "tests_executed": 104,
+      "failures": 3,
+      "scope": "SDK build passed; the fenced104-test run passed101 and failed3 on concurrent unrelated LMS operation/documentation compatibility drift. New evidence-tooling tests are retained separately; full SDK/service completion remains blocked.",
+      "working_source_sha256": "433cdf068112b93c685ed8360fa96ba9e4fa4716ca70142e151a2def5cc4b970",
+      "source_capture_note": "Tracked and untracked source paths, excluding Python bytecode caches. Includes preserved unrelated working changes; this is not a clean committed SDK certification.",
+      "status": "failed"
     },
     "reservation_real_postgresql": {
       "exit_code": 0,
@@ -28,7 +30,7 @@
     },
     "discovery_gate": {
       "status": "blocked",
-      "blocker_count": 2169
+      "blocker_count": 2170
     },
     "knowledge_canonical_unit": {
       "source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
@@ -167,12 +169,32 @@
         "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123"
       },
       "scope": "Existing Manage component/unit tests, some using local fixture HTTP handlers; not real IDP/Agentic/service workflow acceptance or UI completion. Original unrelated dirty lock preserved."
+    },
+    "manage_current_authority": {
+      "status": "passed",
+      "command": "python3 scripts/run-manage-authority-tests.py (isolated Agentic commit checkout)",
+      "exit_code": 0,
+      "tests_executed": 29,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "duration_seconds": 59.84,
+      "source_revisions": {
+        "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+        "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83"
+      },
+      "scope": "Actual Manage process and Agentic admin-status handler, real disposable Mongo current membership/configuration; Control lifecycle HTTP is an explicit fixture. Production gateway, Control lifecycle itself, IDP exchange/refresh, SDK/Manage UI and deployment remain unverified. No live configuration or migration."
+    },
+    "authority_evidence_tooling": {
+      "status": "passed",
+      "exit_code": 0,
+      "tests_executed": 16,
+      "scope": "Focused source inclusion, manifest binding, multi-artifact tamper and evidence-gate tests; not full SDK acceptance."
     }
   },
   "artifacts": {
     "sdk-tests": {
       "path": "evidence/sdk-tests.log",
-      "sha256": "df8d64492e4b7e61d7924f189acb6146eaa70aae81438767ab878e3245dd111f"
+      "sha256": "241586edb3aaf269791decd11d63a98653aa5af6edaa2a6c2728c495fd8a9c32"
     },
     "sdk-contract-audit": {
       "path": "evidence/sdk-contract-audit.log",
@@ -180,7 +202,7 @@
     },
     "discovery-gate": {
       "path": "evidence/discovery-gate.log",
-      "sha256": "2748e8dbcc44fce72662dae1718809098929066d6664057e93de81c1f12f76a6"
+      "sha256": "d71f52a4b16202f4208b350e9bd2e8e33fe2fd400bf5520e130d1fe606154b67"
     },
     "knowledge-canonical-tests": {
       "path": "evidence/knowledge-canonical-tests.log",
@@ -241,6 +263,14 @@
     "manage-component-tests": {
       "path": "evidence/manage-canonical-unit.log",
       "sha256": "dc1f13f26c790d4fc70d92b04f7e7100c0696769eebeaef681c0c4573848c5ac"
+    },
+    "manage-current-authority": {
+      "path": "evidence/manage-authority-tests.json",
+      "sha256": "3dc7b7748a879c043b28c144ec594083466e2335f79d4b999cde16b6bc31748a"
+    },
+    "authority-evidence-tooling": {
+      "path": "evidence/authority-evidence-tooling-tests.log",
+      "sha256": "152724c613e24b02cbc49a26be62f518539795bde93bf7954c5ec04b49730caa"
     }
   },
   "pastil": {
@@ -257,7 +287,13 @@
     "deferred_by_existing_scope": [
       "payment/SMS credentials",
       "signed-in customer-club tests"
-    ]
+    ],
+    "fresh_recheck": {
+      "method": "compact wait_threads snapshot (read_thread rejects oversized single turn)",
+      "latest_turn_id": "01a14e78-000f-7453-aac4-1cef7aba5351",
+      "latest_turn_status": "completed",
+      "defaults_and_prior_deferred_scope": "unchanged in source completion snapshot; no production test or messaging performed"
+    }
   },
   "gates": {
     "discovery": "blocked",
@@ -290,10 +326,11 @@
   ],
   "local_backend_commits": {
     "reservation": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-    "agentic": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+    "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83",
     "version": "92b69f4e85225f87e47258645c6f908a1eb501b4",
     "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
-    "flow": "6fe84352982f97e3f56cd750376a88f4e9ac0a85"
+    "flow": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+    "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21"
   },
   "local_prerequisites_implemented": [
     "reservation status filter and invalid status rejection",
@@ -311,7 +348,9 @@
     "Version explicit slug/UUID/envelope/enum/lifecycle contracts and seed-preservation regressions",
     "Version malformed forwarded identity rejection and truthful health/slug metadata paths",
     "Control APK publisher verifies real Version receipts/read-back and retains partial-outcome identity; provisioning/durable reconciliation still pending",
-    "Provider-wide configurable interval capacity, default one, with same-start pools, serialized limit changes, preserved legacy conflicts, reporting and guarded schema rollback; 40 real database regressions passed"
+    "Provider-wide configurable interval capacity, default one, with same-start pools, serialized limit changes, preserved legacy conflicts, reporting and guarded schema rollback; 40 real database regressions passed",
+    "Manage/Agentic explicit configured signing with no fixed fallback; fresh nonce/user-bound current authority before SSO, refresh or dispatch",
+    "Monotonic observed current revision, cold restart rejection of stale identity, current grants intersection, final-service revocation and predeployment-only desired-service guidance"
   ],
   "pending_semantic_decisions": [],
   "local_unverified_changes": [
@@ -323,7 +362,7 @@
     }
   ],
   "local_package_versions": {
-    "faiber-ts-sdk": "0.23.0",
+    "faiber-ts-sdk": "1.0.0 (concurrent uncommitted working version; last tested working version0.23.0; not published by this task)",
     "infera_version": "0.1.0 (health reports 0.1.1)",
     "infera-control": "1.0.0",
     "infera-flow": "0.1.0"
@@ -362,7 +401,7 @@
     "reservation": "29 pinned mounted operations manually reviewed against local implementation with canonical-drift and per-operation verification still required; new local capacity endpoint documented separately.",
     "chat": "Pinned repository trace identifies absent tracked outbox dispatcher and non-atomic memory event after reply commit. External delivery remains unreconciled.",
     "all_services": "Discovery gate blocked; no verified Knowledge published.",
-    "manage": "Nine server operations reviewed from pinned source, plus typed relationship boundaries to Agentic and each catalogue service.18 existing component tests passed with preserved original dirty lock; full cross-service/UI acceptance unverified."
+    "manage": "Local authority prerequisites repaired and tested against actual Manage process + Agentic handler + real Mongo; full deployed, IDP, service ACL, SDK and UI acceptance still open."
   },
   "working_source_refresh": {
     "status": "unverified_observations_only",
@@ -376,5 +415,7 @@
     ],
     "meaning": "Discovery refreshed fingerprints of concurrently changing source checkouts. Their edits are preserved and are not certified by capacity or Manage component tests. SDK Profile summaries edits are unrelated and left uncommitted by this task.",
     "service_universe": "Fresh directory inventory still maps to the21 active services already catalogued; recovery/worktree aliases remain excluded. New Rust summary SDK directory is not evidence of an active standalone service."
-  }
+  },
+  "release_version_note": "Task baseline only. Concurrent working version1.0.0 and any external registry publication are not certified here.",
+  "isolated_agentic_verification_checkout": "/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic"
 }

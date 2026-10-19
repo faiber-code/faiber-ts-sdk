@@ -511,5 +511,56 @@
     "resolved_cargo_lock_sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f",
     "resolved_cargo_lock_artifact_path": "evidence/manage-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
     "source_capture_note": "Code at pinned revision; pre-existing dirty lock retained byte for byte. Source fence includes that exact local lock; not canonical dependency or deployed acceptance."
+  },
+  "manage-current-authority": {
+    "schema_version": "1.0",
+    "kind": "local_cross_service_authority_regression",
+    "status": "passed",
+    "command": "python3 scripts/run-manage-authority-tests.py (isolated Agentic commit checkout)",
+    "exit_code": 0,
+    "tests_executed": 29,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_unchanged_during_run": true,
+    "source_revisions": {
+      "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+      "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83"
+    },
+    "source_fingerprints": {
+      "manage": "3efd7c07d232c3338460dcab4050257a1410ea1ecc3e42d681c5c37ce6aab555",
+      "agentic": "6e27e826a63c5250e87070223381aea4b6a86b9429290bdecd05b53ff81a5341"
+    },
+    "artifact_path": "evidence/manage-authority-tests.json",
+    "artifact_sha256": "3dc7b7748a879c043b28c144ec594083466e2335f79d4b999cde16b6bc31748a",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/manage-authority-components.log",
+        "sha256": "e78c1099da08e1c4d352d9c230e1ca4f696720f8f036030ef103b7ad2419f1c9"
+      },
+      {
+        "artifact_path": "evidence/manage-authority-binary.log",
+        "sha256": "ab9300781903e2f625e859526019bea82fb90331cae0f6ae5d812208ae762878"
+      },
+      {
+        "artifact_path": "evidence/agentic-manage-authority.log",
+        "sha256": "7f4660b958d2da80c89dc56525feae37b75ed02fffc7c6ae726280286d17b333"
+      },
+      {
+        "artifact_path": "evidence/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+        "sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f"
+      },
+      {
+        "artifact_path": "evidence/infera-agentic-authority-resolved-251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77.Cargo.lock",
+        "sha256": "251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77"
+      },
+      {
+        "artifact_path": "evidence/manage-signing-startup-cases.json",
+        "sha256": "574d67f124ddabc4f32432952df27151fa3a49726bcbc70b7015ced41083e181"
+      }
+    ],
+    "duration_seconds": 59.84,
+    "scope": "Actual Manage process and Agentic admin-status handler, real disposable Mongo current membership/configuration; Control lifecycle HTTP is an explicit fixture. Production gateway, Control lifecycle itself, IDP exchange/refresh, SDK/Manage UI and deployment remain unverified. No live configuration or migration.",
+    "canonical_certification": false,
+    "input_note": "Agentic clean isolated commit; Manage code committed with its preserved pre-existing dirty lock. Exact input/resolved bytes and dependency working fingerprints retained.29 distinct checks =24 Manage +3 Agentic (one actual HTTP/Mongo workflow) +2 missing-signing startup cases; repeated startup capture not double-counted."
   }
 }

@@ -66,7 +66,7 @@
     },
     "lms": {
       "mounted_operations": 184,
-      "working_route_candidates": 124,
+      "working_route_candidates": 117,
       "resolved_handlers": 184,
       "reviewed_operations": 0,
       "source_relationship": "diverged",
@@ -120,7 +120,7 @@
     },
     "session": {
       "mounted_operations": 41,
-      "working_route_candidates": 39,
+      "working_route_candidates": 38,
       "resolved_handlers": 41,
       "reviewed_operations": 0,
       "source_relationship": "working_behind_sdk",
@@ -165,7 +165,7 @@
     },
     "manage": {
       "mounted_operations": 9,
-      "working_route_candidates": 9,
+      "working_route_candidates": 10,
       "resolved_handlers": 9,
       "reviewed_operations": 0,
       "source_relationship": "not_in_sdk_lock",
@@ -174,7 +174,7 @@
     },
     "agentic": {
       "mounted_operations": 405,
-      "working_route_candidates": 354,
+      "working_route_candidates": 355,
       "resolved_handlers": 405,
       "reviewed_operations": 0,
       "source_relationship": "not_in_sdk_lock",

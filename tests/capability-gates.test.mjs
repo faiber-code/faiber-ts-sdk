@@ -113,3 +113,18 @@ test('unresolved compiler inputs prevent source completion even with otherwise v
  const f=reviewedFixture();f.services.example.embedded_source_gaps={canonical:[{reason:'missing script'}],working:[]};
  assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/compiler-embedded source/);
 });
+
+
+test('cross-service supporting locks and logs are all integrity checked',()=>{
+ const root=mkdtempSync(join(tmpdir(),'capability-multiple-artifacts-'));
+ const digest=value=>createHash('sha256').update(value).digest('hex');
+ try {
+  writeFileSync(join(root,'report.json'),'aggregate');writeFileSync(join(root,'manage.lock'),'manage dependencies');writeFileSync(join(root,'agentic.log'),'real boundary output');
+  const run={artifact_path:'report.json',artifact_sha256:digest('aggregate'),additional_artifacts:[
+   {artifact_path:'manage.lock',sha256:digest('manage dependencies')},{artifact_path:'agentic.log',sha256:digest('real boundary output')} ]};
+  assert.equal(verifyRunArtifacts({run},root).run.artifact_verified,true);
+  writeFileSync(join(root,'agentic.log'),'changed output');assert.equal(verifyRunArtifacts({run},root).run.artifact_verified,false);
+  assert.equal(verifyRunArtifacts({run:{...run,additional_artifacts:{}}},root).run.artifact_verified,false);
+  assert.equal(verifyRunArtifacts({run:{...run,additional_artifacts:[null]}},root).run.artifact_verified,false);
+ } finally {rmSync(root,{recursive:true,force:true});}
+});

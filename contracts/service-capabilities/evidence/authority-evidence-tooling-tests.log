@@ -1,0 +1,90 @@
+TAP version 13
+# Subtest: route counts and unreviewed generated operation metadata cannot satisfy discovery
+ok 1 - route counts and unreviewed generated operation metadata cannot satisfy discovery
+  ---
+  duration_ms: 0.546541
+  ...
+# Subtest: a review becomes invalid when the handler or wire evidence changes
+ok 2 - a review becomes invalid when the handler or wire evidence changes
+  ---
+  duration_ms: 0.133041
+  ...
+# Subtest: verification cannot be satisfied by a zero-test command or failed run
+ok 3 - verification cannot be satisfied by a zero-test command or failed run
+  ---
+  duration_ms: 0.112333
+  ...
+# Subtest: characterizing a known defect never certifies its correctness
+ok 4 - characterizing a known defect never certifies its correctness
+  ---
+  duration_ms: 0.183208
+  ...
+# Subtest: artifact integrity is recomputed and stale, missing or outside files cannot certify a run
+ok 5 - artifact integrity is recomputed and stale, missing or outside files cannot certify a run
+  ---
+  duration_ms: 2.054792
+  ...
+# Subtest: reviewed source-bound fixture passes and an unresolved extra service blocks it
+ok 6 - reviewed source-bound fixture passes and an unresolved extra service blocks it
+  ---
+  duration_ms: 0.46775
+  ...
+# Subtest: a previously passing test run against another source revision cannot close a review
+ok 7 - a previously passing test run against another source revision cannot close a review
+  ---
+  duration_ms: 0.102
+  ...
+# Subtest: discovery defers downstream SDK/panel gaps without concealing backend gaps or allowing completion
+ok 8 - discovery defers downstream SDK/panel gaps without concealing backend gaps or allowing completion
+  ---
+  duration_ms: 0.297083
+  ...
+# Subtest: workflow evidence must bind both participating source revisions
+ok 9 - workflow evidence must bind both participating source revisions
+  ---
+  duration_ms: 0.312292
+  ...
+# Subtest: resolved dependency locks must have retained matching bytes before evidence can certify
+ok 10 - resolved dependency locks must have retained matching bytes before evidence can certify
+  ---
+  duration_ms: 1.628125
+  ...
+# Subtest: unresolved compiler inputs prevent source completion even with otherwise verified operations
+ok 11 - unresolved compiler inputs prevent source completion even with otherwise verified operations
+  ---
+  duration_ms: 0.1685
+  ...
+# Subtest: cross-service supporting locks and logs are all integrity checked
+ok 12 - cross-service supporting locks and logs are all integrity checked
+  ---
+  duration_ms: 1.265625
+  ...
+# Subtest: embedded runtime scripts change source evidence independently of the Rust wrapper
+ok 13 - embedded runtime scripts change source evidence independently of the Rust wrapper
+  ---
+  duration_ms: 2.842417
+  ...
+# Subtest: missing, dynamic and escaping compiler inputs remain explicit gaps
+ok 14 - missing, dynamic and escaping compiler inputs remain explicit gaps
+  ---
+  duration_ms: 1.245
+  ...
+# Subtest: included Rust inputs recursively retain their embedded runtime data
+ok 15 - included Rust inputs recursively retain their embedded runtime data
+  ---
+  duration_ms: 6.847792
+  ...
+# Subtest: Cargo manifest concat resolves only with an explicit verified target binding
+ok 16 - Cargo manifest concat resolves only with an explicit verified target binding
+  ---
+  duration_ms: 0.760542
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59.222125

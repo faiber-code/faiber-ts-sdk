@@ -1,5 +1,11 @@
 # Manage administration and review authority
 
+Local implementation update: the missing-secret and stale-revision findings below
+were subsequently repaired and locally tested. See
+[implementation evidence](MANAGE_AUTHORITY_IMPLEMENTATION.md). The following
+source observations retain their original pinned baseline; they are not claims
+about the repaired local commits or deployed configuration.
+
 Source review at pinned Manage `a13caa6019e3648a1f84766d7ee5034c7147a123`.
 The checkout matches that revision apart from its pre-existing dirty Cargo lock,
 which is preserved. This is a discovery record, not service or UI certification.

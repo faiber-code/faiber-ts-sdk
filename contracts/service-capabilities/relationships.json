@@ -202,7 +202,7 @@
         "name",
         "slug"
       ],
-      "status": "source_review_requires_runtime_verification",
+      "status": "local_authority_boundary_tested_pending_deployed_reconciliation",
       "source_refs": [
         "Service/infera-manage/src/runtime.rs",
         "Service/infera-manage/src/router.rs",
@@ -216,7 +216,14 @@
       "local_component_test_evidence": [
         "manage-component-tests"
       ],
-      "meaning": "Signed session is checked against live project status before administration except /me. Actual internal trust/current access and deployment must be reconciled; local fixture tests are not cross-service certification."
+      "meaning": "Actual Manage process reads current Agentic settings-manage authority through signed nonce/user-bound receipts; Mongo membership, identity and service revocation survive Manage restart.29 local checks passed; Control lifecycle is fixture-backed and deployed gateway/IDP/Control remain unverified. Canonical source decision remains open.",
+      "local_implementation_revisions": {
+        "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+        "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83"
+      },
+      "local_boundary_test_evidence": [
+        "manage-current-authority"
+      ]
     },
     {
       "id": "manage-agent-chat-human-review",

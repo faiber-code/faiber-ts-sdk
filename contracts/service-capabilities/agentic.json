@@ -14,10 +14,12 @@
   ],
   "canonical_revision": "6adb76c4a22e044cb92673ef9104658973c2d766",
   "sdk_source_revision": null,
-  "working_revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+  "working_revision": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83",
   "working_changes": [
-    "M src/main.rs",
+    "M src/lms_integration.rs",
+    " M src/main.rs",
     " M src/router.rs",
+    " M src/worker/jobs.rs",
     "?? src/profile_summary/"
   ],
   "source_relationship": "not_in_sdk_lock",
@@ -953,7 +955,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "98a66667fdf7da09206d54c2866889b7f3bf7b59c33f33a8f673cc1fb1b6d5da",
+  "working_source_tree_checksum": "c212b8b177b740814d75ab1b38d3143d3be423d4cedab9905e35380fcfc837e0",
   "working_source_files": [
     {
       "path": "infera-agentic/src/account.rs",
@@ -1185,7 +1187,7 @@
     },
     {
       "path": "infera-agentic/src/creation/setup.rs",
-      "checksum": "41b13070a7ade6e6f7a3958e8364dcec35a0407de524b0cb428a818c71b796a9"
+      "checksum": "9137c2e9365325f06749fee91f61dafeb599aea8f35cffec029e65502c2df3a6"
     },
     {
       "path": "infera-agentic/src/creation/tools.rs",
@@ -1453,7 +1455,7 @@
     },
     {
       "path": "infera-agentic/src/lms_integration.rs",
-      "checksum": "5a79c196921823e503db3d1e3ee783e5e7e922f858d74e53c3bf4c06893a6764"
+      "checksum": "0ad978fbe3f51ec28c9246a35094414b2f1aae94bff317364516366d0c775604"
     },
     {
       "path": "infera-agentic/src/main.rs",
@@ -1501,19 +1503,23 @@
     },
     {
       "path": "infera-agentic/src/profile_summary/mod.rs",
-      "checksum": "8a04f65837cd377cc8ff3a6762fb80395714d67addfeb5cf82230be65874ec56"
+      "checksum": "ffa179d7378f4e26bde2a38658561f9941dae7b57cadb1ea0c8110f70e35b37f"
     },
     {
       "path": "infera-agentic/src/profile_summary/runner.rs",
-      "checksum": "793b131c60aa607a7edc2a3048ffd08d7dc2f90e22edba91b5c4105c6d670eed"
+      "checksum": "7f031717710f22f5419dd0feb652ff110980485c14597da8ec631728626aa44c"
     },
     {
       "path": "infera-agentic/src/project/access.rs",
       "checksum": "f978068ce0c1662abd860ff1300f32e8bb8b37ecec46ccaab0c3d1504c5ed65a"
     },
     {
+      "path": "infera-agentic/src/project/admin_authority_tests.rs",
+      "checksum": "054e21bfa3702898c0f72c059be399febdeaf87bdf8575a5f9c63486eec04aa1"
+    },
+    {
       "path": "infera-agentic/src/project/admin_open.rs",
-      "checksum": "cfeaf25adb038aa82289d666333a93ca48e0a6e5d74bf515025c3dd1e8ff6fbe"
+      "checksum": "c3e1be63e0b2a7c0bd49cce746f0377a09ebec327f89f6e523fd9937862f50e1"
     },
     {
       "path": "infera-agentic/src/project/admin_session.rs",
@@ -1737,7 +1743,7 @@
     },
     {
       "path": "infera-agentic/src/worker/jobs.rs",
-      "checksum": "4cf9ebce61a6e6937cf631458d21c37c762a6a9527a363bebf5927d1068e7030"
+      "checksum": "0577b4384944bd68f0184cdbf0546a3e69f8694791ff026531bf29c691aee520"
     },
     {
       "path": "infera-agentic/src/worker/mod.rs",
@@ -1881,7 +1887,7 @@
     },
     {
       "path": "infera-agentic/Cargo.lock",
-      "checksum": "196ae6dd8e2de0636e1ad121a60f26ac271c9107455f0bade63a9ae56b949c97"
+      "checksum": "66d6d7f3b4bc90032445f9cf33f98c4ccd068b2a5b96c5d848c0dcf843ac4782"
     },
     {
       "path": "infera-agentic/.cargo/config.toml",
@@ -42456,13 +42462,7 @@
     {
       "local_path": "/api/v1/integrations/learning/teach",
       "source": "infera-agentic/src/lms_integration.rs",
-      "line": 309,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/api/v1/integrations/lms/performance/summarize",
-      "source": "infera-agentic/src/lms_integration.rs",
-      "line": 310,
+      "line": 47,
       "mount_status": "requires_router_reconciliation"
     },
     {
@@ -42714,25 +42714,25 @@
     {
       "local_path": "/api/v1/integrations/profile/summaries/models",
       "source": "infera-agentic/src/profile_summary/mod.rs",
-      "line": 9,
+      "line": 10,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/integrations/profile/summaries/runs",
       "source": "infera-agentic/src/profile_summary/mod.rs",
-      "line": 10,
+      "line": 11,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/integrations/profile/summaries/runs/{id}",
       "source": "infera-agentic/src/profile_summary/mod.rs",
-      "line": 11,
+      "line": 12,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/integrations/profile/summaries/runs/{id}/cancel",
       "source": "infera-agentic/src/profile_summary/mod.rs",
-      "line": 12,
+      "line": 13,
       "mount_status": "requires_router_reconciliation"
     },
     {
@@ -42769,6 +42769,18 @@
       "local_path": "/api/v1/users/directory",
       "source": "infera-agentic/src/project/access.rs",
       "line": 717,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/api/sandboxes/site",
+      "source": "infera-agentic/src/project/admin_authority_tests.rs",
+      "line": 123,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/api/v1/projects/{slug}/admin/status",
+      "source": "infera-agentic/src/project/admin_authority_tests.rs",
+      "line": 134,
       "mount_status": "requires_router_reconciliation"
     },
     {

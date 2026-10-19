@@ -15,7 +15,14 @@
   "sdk_source_revision": "9965e90a81fa3c4844a00e710d8d31b20527fede",
   "working_revision": "9965e90a81fa3c4844a00e710d8d31b20527fede",
   "working_changes": [
-    "M entity/config/acl/profile_service.yaml"
+    "M entity/config/acl/lms_service.yaml",
+    " M entity/config/acl/profile_service.yaml",
+    " M migration/src/lib.rs",
+    " M src/acl/methods.rs",
+    " M src/main.rs",
+    "?? migration/src/m20261019_000033_summary_identity_events.rs",
+    "?? migration/src/m20261019_000033_summary_identity_events.sql",
+    "?? src/summary_identity.rs"
   ],
   "source_relationship": "same",
   "source_tree_checksum": "9c8790d8ede57a7efa5fb428ab89f7c098a3ed9581dd07e4c9ab27e21e17b45a",
@@ -477,11 +484,11 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "c972681198b270f284f744bdd62e6fa348e3cf6d345a612bda35277ceafe644d",
+  "working_source_tree_checksum": "0d22e1db3e863af79f3a21c3769e8d2b1f4f7fb9b639d935f3cca27f78dd595f",
   "working_source_files": [
     {
       "path": "infera-idp/src/acl/methods.rs",
-      "checksum": "5ef3573f5644aa3e6bd88eb86601bd24a029ad12027b195646f560971584ebb2"
+      "checksum": "4a23bf3610f88a804f42faa78edd9747156c9ad029e2d349ab12ad86fc68f0c7"
     },
     {
       "path": "infera-idp/src/acl/mod.rs",
@@ -585,7 +592,7 @@
     },
     {
       "path": "infera-idp/src/main.rs",
-      "checksum": "f7d37e30de89ae2b8d12184337e47de7b8eec96213dd721307d0e29e07edecc6"
+      "checksum": "cc404845937cd8a211f461148549da6bf78028912ddfcf1961a52fdafaef95e8"
     },
     {
       "path": "infera-idp/src/middleware.rs",
@@ -626,6 +633,10 @@
     {
       "path": "infera-idp/src/state.rs",
       "checksum": "ceeb58b2113515ce8836b8693b9dfffafbcae7e57612774ccb7325eecf134713"
+    },
+    {
+      "path": "infera-idp/src/summary_identity.rs",
+      "checksum": "c117f6f9704a2cfe63440c58dbdead58811e740f4a2482c10e1c749a223d1d3e"
     },
     {
       "path": "infera-idp/src/user/methods.rs",
@@ -793,7 +804,7 @@
     },
     {
       "path": "infera-idp/migration/src/lib.rs",
-      "checksum": "2f1f6b45fee5789e0cbecce03eaa53a956a795af62021067232f3e983c27360f"
+      "checksum": "92a695b99281befede132a26a7cf4465b11cee084e8c1adb5c6c85d8b41dc070"
     },
     {
       "path": "infera-idp/migration/src/m20220101_000001_create_users_table.rs",
@@ -912,6 +923,14 @@
       "checksum": "1f8147da6b932259ac774b9c840e296c448625746f3903d4be4a12924a0d63ef"
     },
     {
+      "path": "infera-idp/migration/src/m20261019_000033_summary_identity_events.rs",
+      "checksum": "e3256d5fdfdfe72c68a5a93db368edf834f67161c9c7380c84c6f754eb3faf7b"
+    },
+    {
+      "path": "infera-idp/migration/src/m20261019_000033_summary_identity_events.sql",
+      "checksum": "30c1859cbcef786de25e39108f420f5bcec5a877ff27c40e5b5fd1be03878bfa"
+    },
+    {
       "path": "infera-idp/migration/src/main.rs",
       "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
     },
@@ -921,7 +940,7 @@
     },
     {
       "path": "infera-idp/Cargo.lock",
-      "checksum": "51975101e03dbadd9f58cd05b6c3c612e1b6f54a2df2585e303c324482cad6fb"
+      "checksum": "a9520d3dc9e65db5070fc7c651ef5e12b4023fad83212bb77e0a582cfca50e4e"
     },
     {
       "path": "infera-idp/.cargo/config.toml",
@@ -12368,7 +12387,7 @@
     },
     {
       "path": "infera-idp/src/main.rs",
-      "checksum": "f7d37e30de89ae2b8d12184337e47de7b8eec96213dd721307d0e29e07edecc6"
+      "checksum": "cc404845937cd8a211f461148549da6bf78028912ddfcf1961a52fdafaef95e8"
     },
     {
       "path": "infera-idp/src/router.rs",

@@ -494,20 +494,28 @@
       "id": "manage-production-signing-secret",
       "owner": "manage",
       "required": true,
-      "status": "source_review_requires_implementation_and_runtime_verification",
+      "status": "fixed_locally_pending_canonical_deployed_reconciliation",
       "meaning": "Manage signing-secret derivation has a fixed fallback and startup does not fail on missing configured secrets. Reconcile actual deployment, implement explicit nondevelopment fail-closed behavior with compatible Agentic derivation/rotation, and verify invalid/expired/replayed handoffs. No deployed secret absence is asserted.",
       "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
       "source_refs": [
         "Service/infera-manage/src/config.rs",
         "Service/infera-manage/src/main.rs",
         "Service/infera-manage/src/session.rs"
-      ]
+      ],
+      "implementation_revisions": {
+        "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+        "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83"
+      },
+      "test_evidence": [
+        "manage-current-authority"
+      ],
+      "local_result": "Explicit configured signing, fresh signed nonce/user-bound authority, current identity/grant checks across restart, last-service revocation and predeployment-only fallback passed29 distinct local checks. See MANAGE_AUTHORITY_IMPLEMENTATION.md. Secret entropy/provisioning/rotation, gateway, real Control/IDP and full per-operation service workflows remain open."
     },
     {
       "id": "manage-current-identity-service-snapshot",
       "owner": "manage",
       "required": true,
-      "status": "source_review_requires_implementation_and_runtime_verification",
+      "status": "fixed_locally_pending_canonical_deployed_reconciliation",
       "meaning": "Signed12hour sessions retain enabled service snapshots. Identity revisions are process-local observations overwritten by handoffs, not durable monotonic current configuration. Verify service removal, permission revocation, old handoff ordering and restart against live Agentic/settings-manage authority before certifying current access.",
       "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
       "source_refs": [
@@ -515,7 +523,15 @@
         "Service/infera-manage/src/sso.rs",
         "Service/infera-manage/src/state.rs",
         "Service/infera-manage/src/session.rs"
-      ]
+      ],
+      "implementation_revisions": {
+        "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+        "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83"
+      },
+      "test_evidence": [
+        "manage-current-authority"
+      ],
+      "local_result": "Explicit configured signing, fresh signed nonce/user-bound authority, current identity/grant checks across restart, last-service revocation and predeployment-only fallback passed29 distinct local checks. See MANAGE_AUTHORITY_IMPLEMENTATION.md. Secret entropy/provisioning/rotation, gateway, real Control/IDP and full per-operation service workflows remain open."
     },
     {
       "id": "manage-readable-paginated-workflows",
@@ -527,6 +543,36 @@
       "source_refs": [
         "Service/infera-manage/panel/src/pages/LmsOwnedResourceFormPage.tsx",
         "Service/infera-manage/panel/src/pages/reservation/ReservationDashboardPage.tsx"
+      ]
+    },
+    {
+      "id": "sdk-working-lms-contract-drift",
+      "owner": "sdk",
+      "required": true,
+      "status": "concurrent_working_contract_reconciliation_required",
+      "meaning": "Fenced SDK build passed,104 tests ran:101 passed/3 failed. Current LMS operations contain174 documented operations versus182 in the contract manifest, and published aiSummaryJobsGet et al were removed. These are preserved unrelated working changes, not fixed by weakening compatibility/count tests. Later uncommitted1.0.0 version edits are not verified by that0.23.0 run. Complete source/SDK contract and breaking-version reconciliation before release.",
+      "source_refs": [
+        "faiber-ts-sdk/packages/lms/src/operations.ts",
+        "faiber-ts-sdk/service-contracts.json",
+        "faiber-ts-sdk/tests/contracts.test.mjs",
+        "faiber-ts-sdk/tests/facade-completeness.test.mjs",
+        "faiber-ts-sdk/tests/release-contract-regressions.test.mjs"
+      ],
+      "artifact_path": "evidence/sdk-tests.log"
+    },
+    {
+      "id": "manage-agent-project-thread-contract",
+      "owner": "agentic",
+      "required": true,
+      "status": "confirmed_source_contract_defects_require_real_workflow_repair",
+      "meaning": "Manage proxies home /chat/threads, whose actual response is a personal-only paginated object and whose created threads have no project. Manage SDK expects an array and UI filters project_slug; current UI therefore cannot restore its project history through that contract. UI also sends manage agent context, while the IDE handler treats any context as trusted Chat configuration and rejects non-chat agents. Signed x-infera-project is currently not consumed by the inspected thread routes. Bind Manage creation/list/history/review to current project and stable project IDs, preserve personal Ask scope, and verify body/header/thread forgery and actual stream/review behavior before SDK/UI completion. Do not bypass Chat service authentication or remove normal Agentic billing/access rules.",
+      "source_refs": [
+        "Service/infera-manage/src/agent.rs",
+        "Service/infera-manage/panel/src/components/ManageChatImpl.tsx",
+        "faiber-ts-sdk/packages/manage/src/index.ts",
+        "infera-agentic/src/chat/routes.rs",
+        "infera-agentic/src/ide/threads.rs",
+        "infera-agentic/src/ide/routes.rs"
       ]
     }
   ]

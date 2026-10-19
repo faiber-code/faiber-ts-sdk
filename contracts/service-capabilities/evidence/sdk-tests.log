@@ -10,524 +10,573 @@ TAP version 13
 # Subtest: attachment transfers preserve auth, binary bytes, cancellation and media metadata
 ok 1 - attachment transfers preserve auth, binary bytes, cancellation and media metadata
   ---
-  duration_ms: 2.148167
+  duration_ms: 2.111708
   ...
 # Subtest: route counts and unreviewed generated operation metadata cannot satisfy discovery
 ok 2 - route counts and unreviewed generated operation metadata cannot satisfy discovery
   ---
-  duration_ms: 0.550333
+  duration_ms: 0.539542
   ...
 # Subtest: a review becomes invalid when the handler or wire evidence changes
 ok 3 - a review becomes invalid when the handler or wire evidence changes
   ---
-  duration_ms: 0.14525
+  duration_ms: 0.141708
   ...
 # Subtest: verification cannot be satisfied by a zero-test command or failed run
 ok 4 - verification cannot be satisfied by a zero-test command or failed run
   ---
-  duration_ms: 0.10775
+  duration_ms: 0.107459
   ...
 # Subtest: characterizing a known defect never certifies its correctness
 ok 5 - characterizing a known defect never certifies its correctness
   ---
-  duration_ms: 0.19475
+  duration_ms: 0.184708
   ...
 # Subtest: artifact integrity is recomputed and stale, missing or outside files cannot certify a run
 ok 6 - artifact integrity is recomputed and stale, missing or outside files cannot certify a run
   ---
-  duration_ms: 2.059208
+  duration_ms: 3.7965
   ...
 # Subtest: reviewed source-bound fixture passes and an unresolved extra service blocks it
 ok 7 - reviewed source-bound fixture passes and an unresolved extra service blocks it
   ---
-  duration_ms: 0.090209
+  duration_ms: 0.261209
   ...
 # Subtest: a previously passing test run against another source revision cannot close a review
 ok 8 - a previously passing test run against another source revision cannot close a review
   ---
-  duration_ms: 0.099875
+  duration_ms: 0.224042
   ...
 # Subtest: discovery defers downstream SDK/panel gaps without concealing backend gaps or allowing completion
 ok 9 - discovery defers downstream SDK/panel gaps without concealing backend gaps or allowing completion
   ---
-  duration_ms: 0.473666
+  duration_ms: 4.295916
   ...
 # Subtest: workflow evidence must bind both participating source revisions
 ok 10 - workflow evidence must bind both participating source revisions
   ---
-  duration_ms: 0.376959
+  duration_ms: 0.925875
   ...
 # Subtest: resolved dependency locks must have retained matching bytes before evidence can certify
 ok 11 - resolved dependency locks must have retained matching bytes before evidence can certify
   ---
-  duration_ms: 1.942125
+  duration_ms: 4.2005
   ...
 # Subtest: unresolved compiler inputs prevent source completion even with otherwise verified operations
 ok 12 - unresolved compiler inputs prevent source completion even with otherwise verified operations
   ---
-  duration_ms: 0.141334
+  duration_ms: 0.155834
   ...
 # Subtest: mounted graph follows merged variables and nested aliases while excluding unused routers
 ok 13 - mounted graph follows merged variables and nested aliases while excluding unused routers
   ---
-  duration_ms: 3.358291
+  duration_ms: 3.469291
   ...
 # Subtest: unknown dynamic nesting is recorded instead of invented as a fixed mounted path
 ok 14 - unknown dynamic nesting is recorded instead of invented as a fixed mounted path
   ---
-  duration_ms: 0.742584
+  duration_ms: 0.164667
   ...
 # Subtest: handler import renames and trailing slashes retain exact runtime contracts
 ok 15 - handler import renames and trailing slashes retain exact runtime contracts
   ---
-  duration_ms: 1.458334
+  duration_ms: 0.672958
   ...
 # Subtest: crate reexports, shadowed routers, inline handlers and comments reconcile through actual mounts
 ok 16 - crate reexports, shadowed routers, inline handlers and comments reconcile through actual mounts
   ---
-  duration_ms: 1.203375
+  duration_ms: 2.755792
   ...
 # Subtest: nested root paths follow Axum semantics without erasing explicit trailing slashes
 ok 17 - nested root paths follow Axum semantics without erasing explicit trailing slashes
   ---
-  duration_ms: 0.389958
+  duration_ms: 0.853208
   ...
 # Subtest: service main remains the entry when a nested migration crate sorts first
 ok 18 - service main remains the entry when a nested migration crate sorts first
   ---
-  duration_ms: 0.189625
+  duration_ms: 0.206375
   ...
 # Subtest: source evidence ignores braces and fake declarations in raw strings, nested comments and test fixtures
 ok 19 - source evidence ignores braces and fake declarations in raw strings, nested comments and test fixtures
   ---
-  duration_ms: 2.184334
+  duration_ms: 3.124666
   ...
 # Subtest: schema evidence retains renamed filters, flattening, default and nullable distinctions
 ok 20 - schema evidence retains renamed filters, flattening, default and nullable distinctions
   ---
-  duration_ms: 0.51925
+  duration_ms: 0.594792
   ...
 # Subtest: ambiguous handler names stay unresolved and module qualifiers resolve exactly
 ok 21 - ambiguous handler names stay unresolved and module qualifiers resolve exactly
   ---
-  duration_ms: 0.207625
+  duration_ms: 0.216208
   ...
 # Subtest: permission and mutation evidence retains its source location and never implies verification
 ok 22 - permission and mutation evidence retains its source location and never implies verification
   ---
-  duration_ms: 0.659375
+  duration_ms: 0.684708
   ...
 # Subtest: simple role wrapper macros retain the actual invocation and substituted permission
 ok 23 - simple role wrapper macros retain the actual invocation and substituted permission
   ---
-  duration_ms: 0.514
+  duration_ms: 0.521459
   ...
 # Subtest: test-module stripping preserves runtime handlers after literals with unmatched braces and fake cfg attributes
 ok 24 - test-module stripping preserves runtime handlers after literals with unmatched braces and fake cfg attributes
   ---
-  duration_ms: 0.109291
+  duration_ms: 0.113041
   ...
 # Subtest: private attachment download uses authenticated Chat transport and raw bytes
 ok 25 - private attachment download uses authenticated Chat transport and raw bytes
   ---
-  duration_ms: 2.017625
+  duration_ms: 2.041541
   ...
 # Subtest: private note uploads retain binary transfer options, delete versions and server receipts
 ok 26 - private note uploads retain binary transfer options, delete versions and server receipts
   ---
-  duration_ms: 4.719292
+  duration_ms: 2.880833
   ...
 # Subtest: import approval, scoped retrieval and voice preserve distinct versions and stable retry IDs
 ok 27 - import approval, scoped retrieval and voice preserve distinct versions and stable retry IDs
   ---
-  duration_ms: 0.721209
+  duration_ms: 0.724209
   ...
 # Subtest: contract extraction finds the sibling services tree and emits portable mounted paths
 ok 28 - contract extraction finds the sibling services tree and emits portable mounted paths
   ---
-  duration_ms: 2238.660542
+  duration_ms: 3220.569667
   ...
 # Subtest: every extracted endpoint has one documented operation using the shared client
-ok 29 - every extracted endpoint has one documented operation using the shared client
+not ok 29 - every extracted endpoint has one documented operation using the shared client
   ---
-  duration_ms: 39.257708
+  duration_ms: 8.2925
+  location: '/Users/mohammadralizadeh/Infera/faiber-ts-sdk/tests/contracts.test.mjs:14:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    lms documentation/operation count
+    
+    174 !== 182
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 182
+  actual: 174
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/mohammadralizadeh/Infera/faiber-ts-sdk/tests/contracts.test.mjs:18:12)
+    async Test.run (node:internal/test_runner/test:932:9)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
   ...
 # Subtest: generated concrete inputs and queries are never empty placeholders
 ok 30 - generated concrete inputs and queries are never empty placeholders
   ---
-  duration_ms: 10.303167
+  duration_ms: 37.693875
   ...
 # Subtest: LMS academy and question deletion preserve routes, bodies, and Bearer authorization
 ok 31 - LMS academy and question deletion preserve routes, bodies, and Bearer authorization
   ---
-  duration_ms: 2.005667
+  duration_ms: 10.097958
   ...
 # Subtest: LMS bank hierarchy keeps definitions separate from assignments and exam delivery
 ok 32 - LMS bank hierarchy keeps definitions separate from assignments and exam delivery
   ---
-  duration_ms: 1.471083
+  duration_ms: 3.92325
   ...
 # Subtest: LMS classroom sessions expose types, today filtering, and Session UI links
 ok 33 - LMS classroom sessions expose types, today filtering, and Session UI links
   ---
-  duration_ms: 0.539167
+  duration_ms: 4.051541
   ...
 # Subtest: LMS classroom create and update forward interactive weekly rules unchanged
 ok 34 - LMS classroom create and update forward interactive weekly rules unchanged
   ---
-  duration_ms: 0.355708
+  duration_ms: 1.0835
   ...
 # Subtest: LMS certificate management exposes typed template, issuance, verification, and SVG routes
 ok 35 - LMS certificate management exposes typed template, issuance, verification, and SVG routes
   ---
-  duration_ms: 0.513084
+  duration_ms: 1.189417
   ...
 # Subtest: LMS student statistics use user-scoped server totals instead of truncated arrays
 ok 36 - LMS student statistics use user-scoped server totals instead of truncated arrays
   ---
-  duration_ms: 0.370625
+  duration_ms: 1.651708
   ...
 # Subtest: IDP and Profile update helpers route canonical user UUIDs to their owning services
 ok 37 - IDP and Profile update helpers route canonical user UUIDs to their owning services
   ---
-  duration_ms: 1.710875
+  duration_ms: 1.438958
   ...
 # Subtest: Social moderation audit uses typed query routing in cookie mode
 ok 38 - Social moderation audit uses typed query routing in cookie mode
   ---
-  duration_ms: 1.208625
+  duration_ms: 1.334333
   ...
 # Subtest: State world updates use PUT through the authorized shared client
 ok 39 - State world updates use PUT through the authorized shared client
   ---
-  duration_ms: 0.644167
+  duration_ms: 1.248208
   ...
 # Subtest: LMS definition filters preserve staff roles and authenticated transport on every public entry point
 ok 40 - LMS definition filters preserve staff roles and authenticated transport on every public entry point
   ---
-  duration_ms: 1.507791
+  duration_ms: 1.582625
   ...
 # Subtest: economy operations retain authentication, Axios responses and cancellation
 ok 41 - economy operations retain authentication, Axios responses and cancellation
   ---
-  duration_ms: 3.040041
+  duration_ms: 8.671167
   ...
 # Subtest: embedded runtime scripts change source evidence independently of the Rust wrapper
 ok 42 - embedded runtime scripts change source evidence independently of the Rust wrapper
   ---
-  duration_ms: 2.704166
+  duration_ms: 3.935708
   ...
 # Subtest: missing, dynamic and escaping compiler inputs remain explicit gaps
 ok 43 - missing, dynamic and escaping compiler inputs remain explicit gaps
   ---
-  duration_ms: 1.310334
+  duration_ms: 1.395583
   ...
 # Subtest: included Rust inputs recursively retain their embedded runtime data
 ok 44 - included Rust inputs recursively retain their embedded runtime data
   ---
-  duration_ms: 8.414959
+  duration_ms: 9.202875
+  ...
+# Subtest: Cargo manifest concat resolves only with an explicit verified target binding
+ok 45 - Cargo manifest concat resolves only with an explicit verified target binding
+  ---
+  duration_ms: 0.885375
   ...
 # Subtest: the facade and AI catalog cover every sandbox service exactly once
-ok 45 - the facade and AI catalog cover every sandbox service exactly once
+ok 46 - the facade and AI catalog cover every sandbox service exactly once
   ---
-  duration_ms: 0.70475
+  duration_ms: 2.783958
   ...
 # Subtest: all public service connections share auth, transport, and facade configuration
-ok 46 - all public service connections share auth, transport, and facade configuration
+ok 47 - all public service connections share auth, transport, and facade configuration
   ---
-  duration_ms: 4.165333
+  duration_ms: 20.922167
   ...
 # Subtest: DRM preserves typed filtering, identifiers, cookie auth, and route semantics
-ok 47 - DRM preserves typed filtering, identifiers, cookie auth, and route semantics
+ok 48 - DRM preserves typed filtering, identifiers, cookie auth, and route semantics
   ---
-  duration_ms: 0.254625
+  duration_ms: 0.313083
   ...
 # Subtest: generated contracts have exact route coverage, named outputs, and complete JSDoc
-ok 48 - generated contracts have exact route coverage, named outputs, and complete JSDoc
+not ok 49 - generated contracts have exact route coverage, named outputs, and complete JSDoc
   ---
-  duration_ms: 44.211667
+  duration_ms: 93.446625
+  location: '/Users/mohammadralizadeh/Infera/faiber-ts-sdk/tests/facade-completeness.test.mjs:68:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    lms HTTP return docs
+    
+    174 !== 182
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 182
+  actual: 174
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/mohammadralizadeh/Infera/faiber-ts-sdk/tests/facade-completeness.test.mjs:73:12)
+    async Test.run (node:internal/test_runner/test:932:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:629:7)
   ...
 # Subtest: every published workspace package includes developer documentation
-ok 49 - every published workspace package includes developer documentation
+ok 50 - every published workspace package includes developer documentation
   ---
-  duration_ms: 15.666084
+  duration_ms: 85.408875
   ...
 # Subtest: project-owned Office is not a platform service
-ok 50 - project-owned Office is not a platform service
+ok 51 - project-owned Office is not a platform service
   ---
-  duration_ms: 0.576375
+  duration_ms: 0.165291
   ...
 # Subtest: prediction replays pending inputs after an authoritative acknowledgement
-ok 51 - prediction replays pending inputs after an authoritative acknowledgement
+ok 52 - prediction replays pending inputs after an authoritative acknowledgement
   ---
-  duration_ms: 0.326458
+  duration_ms: 0.890333
   ...
 # Subtest: ECS queries only return entities with the requested components
-ok 52 - ECS queries only return entities with the requested components
+ok 53 - ECS queries only return entities with the requested components
   ---
-  duration_ms: 0.325917
+  duration_ms: 0.840833
   ...
 # Subtest: IDP session helpers use the self-service session routes
-ok 53 - IDP session helpers use the self-service session routes
+ok 54 - IDP session helpers use the self-service session routes
   ---
-  duration_ms: 1.846458
+  duration_ms: 1.849292
   ...
 # Subtest: generated IDP session operations use the same routes
-ok 54 - generated IDP session operations use the same routes
+ok 55 - generated IDP session operations use the same routes
   ---
-  duration_ms: 0.511083
+  duration_ms: 23.041875
   ...
 # Subtest: Learning transcript and questions preserve scoped routes, transport and cancellation
-ok 55 - Learning transcript and questions preserve scoped routes, transport and cancellation
+ok 56 - Learning transcript and questions preserve scoped routes, transport and cancellation
   ---
-  duration_ms: 2.034125
+  duration_ms: 1.918125
   ...
 # Subtest: assignment creation uses exercise id rather than its parent bank id
-ok 56 - assignment creation uses exercise id rather than its parent bank id
+ok 57 - assignment creation uses exercise id rather than its parent bank id
   ---
-  duration_ms: 1.925
+  duration_ms: 2.926125
   ...
 # Subtest: LMS image upload forwards progress and cancellation and sends native multipart with authorization
-ok 57 - LMS image upload forwards progress and cancellation and sends native multipart with authorization
+ok 58 - LMS image upload forwards progress and cancellation and sends native multipart with authorization
   ---
-  duration_ms: 1.86925
+  duration_ms: 2.053667
   ...
 # Subtest: Node upload sends a valid multipart boundary and actual byte progress
-ok 58 - Node upload sends a valid multipart boundary and actual byte progress
+ok 59 - Node upload sends a valid multipart boundary and actual byte progress
   ---
-  duration_ms: 38.694875
+  duration_ms: 112.147458
   ...
 # Subtest: LMS upload preserves server validation and storage failures
-ok 59 - LMS upload preserves server validation and storage failures
+ok 60 - LMS upload preserves server validation and storage failures
   ---
-  duration_ms: 0.718625
+  duration_ms: 0.941708
   ...
 # Subtest: session creation APIs send selected students with authentication and cancellation
-ok 60 - session creation APIs send selected students with authentication and cancellation
+ok 61 - session creation APIs send selected students with authentication and cancellation
   ---
-  duration_ms: 2.064167
+  duration_ms: 2.133166
   ...
 # Subtest: Manage proxy domains preserve project scope for every typed service client
-ok 61 - Manage proxy domains preserve project scope for every typed service client
+ok 62 - Manage proxy domains preserve project scope for every typed service client
   ---
-  duration_ms: 2.327834
+  duration_ms: 2.538875
   ...
 # Subtest: Manage durable Agent APIs retain exact methods, encoded identifiers, bodies, and stream options
-ok 62 - Manage durable Agent APIs retain exact methods, encoded identifiers, bodies, and stream options
+ok 63 - Manage durable Agent APIs retain exact methods, encoded identifiers, bodies, and stream options
   ---
-  duration_ms: 1.184416
+  duration_ms: 1.199625
   ...
 # Subtest: Manage SSE parser handles chunk boundaries, CRLF, multiline data, and typed guards
-ok 63 - Manage SSE parser handles chunk boundaries, CRLF, multiline data, and typed guards
+ok 64 - Manage SSE parser handles chunk boundaries, CRLF, multiline data, and typed guards
   ---
-  duration_ms: 1.199083
+  duration_ms: 1.2145
   ...
 # Subtest: Manage image responses support both current envelopes
-ok 64 - Manage image responses support both current envelopes
+ok 65 - Manage image responses support both current envelopes
   ---
-  duration_ms: 0.066958
+  duration_ms: 0.066709
   ...
 # Subtest: Modules management and public clients use only v1 API routes
-ok 65 - Modules management and public clients use only v1 API routes
+ok 66 - Modules management and public clients use only v1 API routes
   ---
-  duration_ms: 0.367209
+  duration_ms: 0.910083
   ...
 # Subtest: Modules settings updates send optimistic concurrency through If-Match
-ok 66 - Modules settings updates send optimistic concurrency through If-Match
+ok 67 - Modules settings updates send optimistic concurrency through If-Match
   ---
-  duration_ms: 0.064041
+  duration_ms: 0.156791
   ...
 # Subtest: Modules public content methods encode exact legacy SEO slugs
-ok 67 - Modules public content methods encode exact legacy SEO slugs
+ok 68 - Modules public content methods encode exact legacy SEO slugs
   ---
-  duration_ms: 0.0535
+  duration_ms: 0.0795
   ...
 # Subtest: generic profile filters preserve JSON clauses, arbitrary roles, authorization and cancellation
-ok 68 - generic profile filters preserve JSON clauses, arbitrary roles, authorization and cancellation
+ok 69 - generic profile filters preserve JSON clauses, arbitrary roles, authorization and cancellation
   ---
-  duration_ms: 2.531833
+  duration_ms: 2.69975
   ...
 # Subtest: education, select custom types and transfers preserve typed routes, auth and cancellation
-ok 69 - education, select custom types and transfers preserve typed routes, auth and cancellation
+ok 70 - education, select custom types and transfers preserve typed routes, auth and cancellation
   ---
-  duration_ms: 5.355625
+  duration_ms: 2.7625
   ...
 # Subtest: job and delivery prices preserve values and explicit nulls through both SDK APIs
-ok 70 - job and delivery prices preserve values and explicit nulls through both SDK APIs
+ok 71 - job and delivery prices preserve values and explicit nulls through both SDK APIs
   ---
-  duration_ms: 2.292958
+  duration_ms: 11.742583
   ...
 # Subtest: private realtime rejects unsafe transports and public channels before connecting
-ok 71 - private realtime rejects unsafe transports and public channels before connecting
+ok 72 - private realtime rejects unsafe transports and public channels before connecting
   ---
-  duration_ms: 0.4265
+  duration_ms: 0.398875
   ...
 # Subtest: Chat and Messenger authorize their own channels through credentialed SDK clients
-ok 72 - Chat and Messenger authorize their own channels through credentialed SDK clients
+ok 73 - Chat and Messenger authorize their own channels through credentialed SDK clients
   ---
-  duration_ms: 2.357792
+  duration_ms: 3.8455
   ...
 # Subtest: contract synchronization preserves existing operation method names
-ok 73 - contract synchronization preserves existing operation method names
+not ok 74 - contract synchronization preserves existing operation method names
   ---
-  duration_ms: 32.425792
+  duration_ms: 7.203916
+  location: '/Users/mohammadralizadeh/Infera/faiber-ts-sdk/tests/release-contract-regressions.test.mjs:10:1'
+  failureType: 'testCodeFailure'
+  error: 'lms.aiSummaryJobsGet was removed'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/mohammadralizadeh/Infera/faiber-ts-sdk/tests/release-contract-regressions.test.mjs:14:38)
+    async Test.run (node:internal/test_runner/test:932:9)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
   ...
 # Subtest: Rust fixtures cannot become production endpoints, including braces inside literals
-ok 74 - Rust fixtures cannot become production endpoints, including braces inside literals
+ok 75 - Rust fixtures cannot become production endpoints, including braces inside literals
   ---
-  duration_ms: 0.4525
+  duration_ms: 1.475833
   ...
 # Subtest: extraction respects pub(crate), nested qualified handlers and namespaced permissions
-ok 75 - extraction respects pub(crate), nested qualified handlers and namespaced permissions
+ok 76 - extraction respects pub(crate), nested qualified handlers and namespaced permissions
   ---
-  duration_ms: 117.061292
+  duration_ms: 202.825667
   ...
 # Subtest: checkout uses the mounted shop path, camelCase shipping and raw checkout response
-ok 76 - checkout uses the mounted shop path, camelCase shipping and raw checkout response
+ok 77 - checkout uses the mounted shop path, camelCase shipping and raw checkout response
   ---
-  duration_ms: 2.328125
+  duration_ms: 10.247917
   ...
 # Subtest: game session creation binds the path identity and preserves versioned commands
-ok 77 - game session creation binds the path identity and preserves versioned commands
+ok 78 - game session creation binds the path identity and preserves versioned commands
   ---
-  duration_ms: 0.56925
+  duration_ms: 2.08425
   ...
 # Subtest: handoff, OTP forms, password and fitness updates retain their distinct wire models
-ok 78 - handoff, OTP forms, password and fitness updates retain their distinct wire models
+ok 79 - handoff, OTP forms, password and fitness updates retain their distinct wire models
   ---
-  duration_ms: 0.909333
+  duration_ms: 1.967208
   ...
 # Subtest: internal receipts and readiness keep raw responses and server credential headers
-ok 79 - internal receipts and readiness keep raw responses and server credential headers
+ok 80 - internal receipts and readiness keep raw responses and server credential headers
   ---
-  duration_ms: 0.604041
+  duration_ms: 0.677833
   ...
 # Subtest: v2 realtime sends scoped tickets in the hello frame and supports cancellation
-ok 80 - v2 realtime sends scoped tickets in the hello frame and supports cancellation
+ok 81 - v2 realtime sends scoped tickets in the hello frame and supports cancellation
   ---
-  duration_ms: 1.5505
+  duration_ms: 10.748958
   ...
 # Subtest: absolute URLs cannot escape the configured service origin
-ok 81 - absolute URLs cannot escape the configured service origin
+ok 82 - absolute URLs cannot escape the configured service origin
   ---
-  duration_ms: 0.92625
+  duration_ms: 1.022416
   ...
 # Subtest: concurrent unauthorized requests share refresh and use the replacement token
-ok 82 - concurrent unauthorized requests share refresh and use the replacement token
+ok 83 - concurrent unauthorized requests share refresh and use the replacement token
   ---
-  duration_ms: 1.689917
+  duration_ms: 20.830583
   ...
 # Subtest: cookie mode preserves credentials without requiring a token provider
-ok 83 - cookie mode preserves credentials without requiring a token provider
+ok 84 - cookie mode preserves credentials without requiring a token provider
   ---
-  duration_ms: 0.213375
+  duration_ms: 1.551375
   ...
 # Subtest: cookie refresh can rotate an HttpOnly cookie without returning tokens
-ok 84 - cookie refresh can rotate an HttpOnly cookie without returning tokens
+ok 85 - cookie refresh can rotate an HttpOnly cookie without returning tokens
   ---
-  duration_ms: 3.100458
+  duration_ms: 0.396375
   ...
 # Subtest: refresh failure preserves the original protected-request Axios error
-ok 85 - refresh failure preserves the original protected-request Axios error
+ok 86 - refresh failure preserves the original protected-request Axios error
   ---
-  duration_ms: 0.947667
+  duration_ms: 1.317667
   ...
 # Subtest: CRM convenience client supports panel-compatible and nested workflow routes
-ok 86 - CRM convenience client supports panel-compatible and nested workflow routes
+ok 87 - CRM convenience client supports panel-compatible and nested workflow routes
   ---
-  duration_ms: 4.307041
+  duration_ms: 4.920584
   ...
 # Subtest: LMS Office integration uses UUID classroom batches and an explicit legacy-ID bridge
-ok 87 - LMS Office integration uses UUID classroom batches and an explicit legacy-ID bridge
+ok 88 - LMS Office integration uses UUID classroom batches and an explicit legacy-ID bridge
   ---
-  duration_ms: 0.38375
+  duration_ms: 0.450333
   ...
 # Subtest: DRM management facade uses the mounted API prefix and supports binary multipart chunks
-ok 88 - DRM management facade uses the mounted API prefix and supports binary multipart chunks
+ok 89 - DRM management facade uses the mounted API prefix and supports binary multipart chunks
   ---
-  duration_ms: 0.580458
+  duration_ms: 0.5695
   ...
 # Subtest: Session facade covers room lifecycle, recordings, integrations, and canonical views
-ok 89 - Session facade covers room lifecycle, recordings, integrations, and canonical views
+ok 90 - Session facade covers room lifecycle, recordings, integrations, and canonical views
   ---
-  duration_ms: 0.55175
+  duration_ms: 0.568541
   ...
 # Subtest: Chat facade exposes assistant administration and AI conversation management
-ok 90 - Chat facade exposes assistant administration and AI conversation management
+ok 91 - Chat facade exposes assistant administration and AI conversation management
   ---
-  duration_ms: 0.506667
+  duration_ms: 0.509875
   ...
 # Subtest: Messenger and Payment facades expose their management surfaces
-ok 91 - Messenger and Payment facades expose their management surfaces
+ok 92 - Messenger and Payment facades expose their management surfaces
   ---
-  duration_ms: 0.62075
+  duration_ms: 0.624917
   ...
 # Subtest: Task client covers protected workspace, grant, proposal, comments, and SSE routes
-ok 92 - Task client covers protected workspace, grant, proposal, comments, and SSE routes
+ok 93 - Task client covers protected workspace, grant, proposal, comments, and SSE routes
   ---
-  duration_ms: 0.638792
+  duration_ms: 0.668375
   ...
 # Subtest: source snapshots retain exact pinned bytes without changing a dirty service checkout
-ok 93 - source snapshots retain exact pinned bytes without changing a dirty service checkout
+ok 94 - source snapshots retain exact pinned bytes without changing a dirty service checkout
   ---
-  duration_ms: 395.289625
+  duration_ms: 535.2355
   ...
 # Subtest: native denoising and compact mono Opus; deterministic cleanup
-ok 94 - native denoising and compact mono Opus; deterministic cleanup
+ok 95 - native denoising and compact mono Opus; deterministic cleanup
   ---
-  duration_ms: 1.005292
+  duration_ms: 1.104166
   ...
 # Subtest: AAC fallback is 64k and works without Web Audio
-ok 95 - AAC fallback is 64k and works without Web Audio
+ok 96 - AAC fallback is 64k and works without Web Audio
   ---
-  duration_ms: 0.118584
+  duration_ms: 0.1305
   ...
 # Subtest: cancelling pending permission closes tracks when acquisition completes
-ok 96 - cancelling pending permission closes tracks when acquisition completes
+ok 97 - cancelling pending permission closes tracks when acquisition completes
   ---
-  duration_ms: 0.341459
+  duration_ms: 0.359041
   ...
 # Subtest: active abort releases microphone; invalid bitrate never requests access
-ok 97 - active abort releases microphone; invalid bitrate never requests access
+ok 98 - active abort releases microphone; invalid bitrate never requests access
   ---
-  duration_ms: 0.265083
+  duration_ms: 0.281291
   ...
 # Subtest: TTS requests MP3 by default, preserves explicit WAV and authenticated transport
-ok 98 - TTS requests MP3 by default, preserves explicit WAV and authenticated transport
+ok 99 - TTS requests MP3 by default, preserves explicit WAV and authenticated transport
   ---
-  duration_ms: 1.454875
+  duration_ms: 1.612041
   ...
 # Subtest: progressive speech preserves English/Persian text with a short first phrase
-ok 99 - progressive speech preserves English/Persian text with a short first phrase
+ok 100 - progressive speech preserves English/Persian text with a short first phrase
   ---
-  duration_ms: 0.83175
+  duration_ms: 2.673625
   ...
 # Subtest: live speech chunks inherit auth, signal, ordering and preserve server revision metadata
-ok 100 - live speech chunks inherit auth, signal, ordering and preserve server revision metadata
+ok 101 - live speech chunks inherit auth, signal, ordering and preserve server revision metadata
   ---
-  duration_ms: 0.433166
+  duration_ms: 0.532833
   ...
 # Subtest: progressive playback starts before later synthesis finishes and abort releases audio
-ok 101 - progressive playback starts before later synthesis finishes and abort releases audio
+ok 102 - progressive playback starts before later synthesis finishes and abort releases audio
   ---
-  duration_ms: 11.758125
+  duration_ms: 11.825375
   ...
 # Subtest: preloads multiple phrases during playback, schedules contiguous audio and replays locally
-ok 102 - preloads multiple phrases during playback, schedules contiguous audio and replays locally
+ok 103 - preloads multiple phrases during playback, schedules contiguous audio and replays locally
   ---
-  duration_ms: 128.671
+  duration_ms: 131.082375
   ...
 # Subtest: workspace contracts, role discovery and review revisions use authenticated SDK transport
-ok 103 - workspace contracts, role discovery and review revisions use authenticated SDK transport
+ok 104 - workspace contracts, role discovery and review revisions use authenticated SDK transport
   ---
-  duration_ms: 2.722666
+  duration_ms: 2.803791
   ...
-1..103
-# tests 103
+1..104
+# tests 104
 # suites 0
-# pass 103
-# fail 0
+# pass 101
+# fail 3
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 2291.08825
+# duration_ms 3311.140041

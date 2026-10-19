@@ -301,7 +301,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "dfbf2a23dd61bb15d01986566b4940f37ec95434a35304a8e3505f270a8f9869",
+  "working_source_tree_checksum": "1abdca38e15898af76baba297099fec75e81650a2e542c77fdcbf378acfb83de",
   "working_source_files": [
     {
       "path": "infera-task/src/assistant.rs",
@@ -369,7 +369,7 @@
     },
     {
       "path": "infera-task/src/summary_evidence.sql",
-      "checksum": "d94252af317cf953f2ecde4b7895408be1ec21c2a4efacf4e215cfb812f00b4b"
+      "checksum": "29d54032ba803696a9e050f2711cc851814eac747f4b7c6e946c9099e84dfe5b"
     },
     {
       "path": "infera-task/src/trial_gifts.rs",
@@ -473,7 +473,7 @@
     },
     {
       "path": "infera-task/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "3d5397a39133f200efe66ae7f39a7a4570dc4d809864381be36955ab45998401",
+      "checksum": "af729774fec2b0d20ebed127f3e38bebb2ba258b048fc1a1f05ce96aa2775413",
       "embedded_by": "infera-task/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],

@@ -18,13 +18,17 @@
     "M entity/src/classroom_session.rs",
     " M migration/src/lib.rs",
     " M src/access.rs",
-    " M src/ai_summary/methods.rs",
-    " M src/ai_summary/scheduler.rs",
+    " D src/ai_summary/methods.rs",
+    " D src/ai_summary/mod.rs",
+    " D src/ai_summary/models.rs",
+    " D src/ai_summary/routes.rs",
+    " D src/ai_summary/scheduler.rs",
     " M src/broker.rs",
     " M src/classroom/methods.rs",
     " M src/classroom/models.rs",
     " M src/classroom/scheduler.rs",
     " M src/cli.rs",
+    " M src/evaluation/methods.rs",
     " M src/exam/methods.rs",
     " M src/exam/models.rs",
     " M src/homework/methods.rs",
@@ -32,6 +36,7 @@
     " M src/homework/routes.rs",
     " M src/lib.rs",
     " M src/main.rs",
+    " M src/router.rs",
     "?? migration/src/m20261007_000033_asset_outbox_retry.rs",
     "?? migration/src/m20261018_000034_session_students.rs",
     "?? migration/src/m20261019_000050_summary_activity_outbox.rs",
@@ -688,7 +693,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "04682733329a34a974c9f72170920eda9bcaadc9af878ab6c0f103a46f2fb2f1",
+  "working_source_tree_checksum": "5076d181857c6d264bf584beeaca44c87cae5bd592be0f7d8a8bc817734de713",
   "working_source_files": [
     {
       "path": "infera-lms/src/academy/mod.rs",
@@ -701,26 +706,6 @@
     {
       "path": "infera-lms/src/access.rs",
       "checksum": "85bc00a8d3741d92eb801e3a3392c619d0e6ede43e7a66338a0b71cc13f6e167"
-    },
-    {
-      "path": "infera-lms/src/ai_summary/methods.rs",
-      "checksum": "6e429fc17935653dd9dc7c0a3807bdc88a30b4a528c0bfc8fea609931ad11831"
-    },
-    {
-      "path": "infera-lms/src/ai_summary/mod.rs",
-      "checksum": "29d83cbddbc8f51684689be77832625b096e33ef1a35cc4be4cc9c94bd41a314"
-    },
-    {
-      "path": "infera-lms/src/ai_summary/models.rs",
-      "checksum": "b82b66de0254f60ffc202be06d0526982451721aa5f8be44567bd276f7da59ed"
-    },
-    {
-      "path": "infera-lms/src/ai_summary/routes.rs",
-      "checksum": "a5ab9940e4adecf54e1e493c89daf258271a1c748b4e5ccfc278f8b5546d9bb0"
-    },
-    {
-      "path": "infera-lms/src/ai_summary/scheduler.rs",
-      "checksum": "74c7bf1d5a638e27ea770b1740dfd52dff5425aa698ac2b7e75240ff4bb23322"
     },
     {
       "path": "infera-lms/src/asset_economy.rs",
@@ -868,7 +853,7 @@
     },
     {
       "path": "infera-lms/src/evaluation/methods.rs",
-      "checksum": "e9806edbb8957f83afaf92c56b3652be9481bd44e1bd4eff4db80bea1157c8b4"
+      "checksum": "5adbff1597482e12fb0b2ec939ea5ee68c6eedb08561ebd7d411d634582d6da1"
     },
     {
       "path": "infera-lms/src/evaluation/mod.rs",
@@ -948,11 +933,11 @@
     },
     {
       "path": "infera-lms/src/lib.rs",
-      "checksum": "11742a1ab036c39f61e35ee1bfa6719c24ed331afae01ee98961b3ab5840dadf"
+      "checksum": "43ec08202ea8b749a99b3f1598a5b57d4f7f3275206cb32b3e918a8c27cfc3d8"
     },
     {
       "path": "infera-lms/src/main.rs",
-      "checksum": "5e6d47ed39b9b3fcb4e4d5da075ea55c64cc60310c8863fabd97bca5b674546f"
+      "checksum": "70356aa0f707200637cb5c2f4860b5c9727fa83259e1a862be0bd7326fe2887a"
     },
     {
       "path": "infera-lms/src/media.rs",
@@ -1000,7 +985,7 @@
     },
     {
       "path": "infera-lms/src/router.rs",
-      "checksum": "1eb93cfaa1fccebdc14c94d9ca67d6d1aad52b7c4469d66a0dc809e3cf531927"
+      "checksum": "4856dde2ed848a13e2711a186679d59468250ee5f28a24a07eee50d71b6d6b33"
     },
     {
       "path": "infera-lms/src/service/mod.rs",
@@ -1032,7 +1017,7 @@
     },
     {
       "path": "infera-lms/src/summary_evidence.sql",
-      "checksum": "f2f461e8b94eadaf6a0771443d5989b37085c95bc97d8aeff4dadacc27555f16"
+      "checksum": "4e1f66d5c4312a4bd78fa19b943d4bf7d5014ebfe6c844dc2328b9ab673ad29c"
     },
     {
       "path": "infera-lms/src/test_support/mod.rs",
@@ -1340,7 +1325,7 @@
     },
     {
       "path": "infera-lms/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "3d5397a39133f200efe66ae7f39a7a4570dc4d809864381be36955ab45998401",
+      "checksum": "af729774fec2b0d20ebed127f3e38bebb2ba258b048fc1a1f05ce96aa2775413",
       "embedded_by": "infera-lms/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
@@ -19126,7 +19111,15 @@
   "sdk_contract_drift": {
     "missing": [
       "GET /",
-      "GET /up"
+      "GET /up",
+      "GET /api/v1/ai-summaries/settings",
+      "PUT /api/v1/ai-summaries/settings",
+      "GET /api/v1/ai-summaries/models",
+      "GET /api/v1/ai-summaries/latest",
+      "GET /api/v1/ai-summaries/jobs",
+      "GET /api/v1/ai-summaries/summaries",
+      "POST /api/v1/ai-summaries/refresh",
+      "POST /api/v1/ai-summaries/users/{user_id}/{role}/refresh"
     ],
     "extra": [],
     "changed": [
@@ -19215,14 +19208,6 @@
       "PUT /api/v1/evaluations/settings",
       "GET /api/v1/evaluations/sessions/{id}",
       "POST /api/v1/evaluations/sessions/{id}",
-      "GET /api/v1/ai-summaries/settings",
-      "PUT /api/v1/ai-summaries/settings",
-      "GET /api/v1/ai-summaries/models",
-      "GET /api/v1/ai-summaries/latest",
-      "GET /api/v1/ai-summaries/jobs",
-      "GET /api/v1/ai-summaries/summaries",
-      "POST /api/v1/ai-summaries/refresh",
-      "POST /api/v1/ai-summaries/users/{user_id}/{role}/refresh",
       "POST /api/v1/media/images",
       "GET /api/v1/media/images/{filename}",
       "GET /api/v1/homeworks",
@@ -24030,6 +24015,14 @@
       "GET /api/v1/certificates/{code}/image.svg"
     ],
     "absent": [
+      "GET /api/v1/ai-summaries/settings",
+      "PUT /api/v1/ai-summaries/settings",
+      "GET /api/v1/ai-summaries/models",
+      "GET /api/v1/ai-summaries/latest",
+      "GET /api/v1/ai-summaries/jobs",
+      "GET /api/v1/ai-summaries/summaries",
+      "POST /api/v1/ai-summaries/refresh",
+      "POST /api/v1/ai-summaries/users/{user_id}/{role}/refresh",
       "GET /api/v1/public/certificates/{code}/image.svg",
       "GET /api/v1/public/certificates/{code}"
     ],
@@ -24044,14 +24037,6 @@
       "GET /api/v1/academy/enrollments",
       "POST /api/v1/academy/enrollments/{id}/exams/{exam_id}/attempts",
       "POST /api/v1/academy/enrollments/{id}/sessions/{session_id}/complete",
-      "GET /api/v1/ai-summaries/jobs",
-      "GET /api/v1/ai-summaries/latest",
-      "GET /api/v1/ai-summaries/models",
-      "POST /api/v1/ai-summaries/refresh",
-      "GET /api/v1/ai-summaries/settings",
-      "PUT /api/v1/ai-summaries/settings",
-      "GET /api/v1/ai-summaries/summaries",
-      "POST /api/v1/ai-summaries/users/{user_id}/{role}/refresh",
       "GET /api/v1/auth/self",
       "GET /api/v1/certificates",
       "POST /api/v1/certificates",
@@ -24265,48 +24250,6 @@
       "local_path": "/attempts/{id}/submit",
       "source": "infera-lms/src/academy/routes.rs",
       "line": 48,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/settings",
-      "source": "infera-lms/src/ai_summary/routes.rs",
-      "line": 20,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/models",
-      "source": "infera-lms/src/ai_summary/routes.rs",
-      "line": 21,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/latest",
-      "source": "infera-lms/src/ai_summary/routes.rs",
-      "line": 22,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/jobs",
-      "source": "infera-lms/src/ai_summary/routes.rs",
-      "line": 23,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/summaries",
-      "source": "infera-lms/src/ai_summary/routes.rs",
-      "line": 24,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/refresh",
-      "source": "infera-lms/src/ai_summary/routes.rs",
-      "line": 25,
-      "mount_status": "requires_router_reconciliation"
-    },
-    {
-      "local_path": "/users/{user_id}/{role}/refresh",
-      "source": "infera-lms/src/ai_summary/routes.rs",
-      "line": 26,
       "mount_status": "requires_router_reconciliation"
     },
     {
@@ -24924,25 +24867,25 @@
     {
       "local_path": "/",
       "source": "infera-lms/src/router.rs",
-      "line": 258,
+      "line": 257,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/health",
       "source": "infera-lms/src/router.rs",
-      "line": 259,
+      "line": 258,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/up",
       "source": "infera-lms/src/router.rs",
-      "line": 260,
+      "line": 259,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/openapi.json",
       "source": "infera-lms/src/router.rs",
-      "line": 261,
+      "line": 260,
       "mount_status": "requires_router_reconciliation"
     },
     {
@@ -24967,11 +24910,11 @@
   "middleware_sources": [
     {
       "path": "infera-lms/src/main.rs",
-      "checksum": "5e6d47ed39b9b3fcb4e4d5da075ea55c64cc60310c8863fabd97bca5b674546f"
+      "checksum": "70356aa0f707200637cb5c2f4860b5c9727fa83259e1a862be0bd7326fe2887a"
     },
     {
       "path": "infera-lms/src/router.rs",
-      "checksum": "1eb93cfaa1fccebdc14c94d9ca67d6d1aad52b7c4469d66a0dc809e3cf531927"
+      "checksum": "4856dde2ed848a13e2711a186679d59468250ee5f28a24a07eee50d71b6d6b33"
     },
     {
       "path": "infera-lms/entity/src/classroom_session.rs",
