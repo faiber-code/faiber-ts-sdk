@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "status": "local_source_review_backend_and_scoped_sdk_wire_verified_canonical_ui_pending",
+  "source_refs": [
+    {
+      "repository": "infera-agentic",
+      "revision": "84a0e9a95d274a655aae052988915ffc74401942",
+      "path": "src/project/manage_threads.rs",
+      "symbols": "create/list/require_thread_scope/validate_context",
+      "sha256": "72562d070cebb7190a1eb2a374f9b34e6985308db9c040b453b8fef8a67dcf2b"
+    },
+    {
+      "repository": "infera-agentic",
+      "revision": "84a0e9a95d274a655aae052988915ffc74401942",
+      "path": "src/ide/threads.rs",
+      "symbols": "create_bound",
+      "sha256": "d9df1d0273fae447d0a0323fc25891b2150d6f1a965cc9c61584518611bb6267"
+    },
+    {
+      "repository": "infera-agentic",
+      "revision": "84a0e9a95d274a655aae052988915ffc74401942",
+      "path": "src/ide/routes.rs",
+      "symbols": "thread_messages/delete_thread/cancel_chat/chat_stream_inner",
+      "sha256": "1ff2dbd808daae9060c746c430db9a83bc3ae380447de36743c206fc6f23b0f4"
+    },
+    {
+      "repository": "Service/infera-manage",
+      "revision": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
+      "path": "src/agent.rs",
+      "symbols": "proxy_agent/bind_manage_body",
+      "sha256": "f0d99422f76e55cbd1621f8a5552f32dc0a4d25c1b0a14b69b7eefea6d10da3b"
+    }
+  ],
+  "meaning": {
+    "en": "Manage conversations are private to an actor within a currently authorized project, separate from personal Ask and Code/Design conversations.",
+    "fa": "گفت‌وگوهای مدیریت برای هر کاربر در پروژه مجاز جاری خصوصی هستند و از گفت‌وگوهای شخصی و کدنویسی و طراحی جدا می‌مانند."
+  },
+  "authority": {
+    "conversation_owner": "Agentic for these IDE-backed conversations; this does not transfer a Chat-owned conversation.",
+    "project_scope": "Stable project UUID plus current slug and active_agent_slug=manage; no user-supplied project or service grants.",
+    "permissions": "Current project.settings.manage for every access. Creation additionally agents.run. Execution retains normal agents.run/billing.spend/model policy.",
+    "manage_session": "Current signed authority is rechecked before proxy. x-infera-project restricts all thread/review operations; it never grants membership.",
+    "identity": "Actor is signed session sub, normal Agentic gateway identity enforced again. organization/identity authority remains independently checked."
+  },
+  "operations": [
+    {
+      "id": "manage-conversations-create",
+      "method": "POST",
+      "public_manage_path": "/api/v1/agent/chat/threads",
+      "agentic_path": "/api/v1/projects/{slug}/manage/threads",
+      "inputs": {
+        "title": {
+          "type": "nullable optional string",
+          "default": "New session for absent/blank",
+          "max_unicode_characters": 200
+        },
+        "ide_mode": {
+          "type": "optional nullable string",
+          "allowed": [
+            "code"
+          ],
+          "default": "code"
+        },
+        "unknown_fields": "422; forged project/agent fields are not accepted as creation inputs"
+      },
+      "output": "Raw ChatThreadView object, UUID identifiers and RFC3339 timestamps; project_id nonnull and ide_mode code for this operation. Summary/runtime fields are not returned.",
+      "side_effects": "Insert one owner/project-bound IDE thread. No model request or charge.",
+      "idempotency": "No idempotency key; retries may create multiple threads. UI must prevent duplicate submits and reconcile uncertainty rather than claim exactly-once."
+    },
+    {
+      "id": "manage-conversations-list",
+      "method": "GET",
+      "public_manage_path": "/api/v1/agent/chat/threads",
+      "agentic_path": "/api/v1/projects/{slug}/manage/threads",
+      "filters": {
+        "fixed": "owner_user_id=current actor AND project_id=authorized UUID AND project_slug=current slug AND active_agent_slug=manage",
+        "search": "Not supported by this route. Unknown query fields are currently ignored, not applied.",
+        "limit": "Optional unsigned integer1..100; default20. Noninteger/negative extractor errors, out-of-range400.",
+        "before": "Optional base64url-no-pad JSON cursor {at:UTC timestamp,id:UUID}; max256bytes. Invalid400. No lookup of cursor record required.",
+        "sort": "updated_at DESC, id DESC. Cursor selects older timestamp OR same timestamp with smaller BSON UUID. Concurrently updated rows may move to newer pages; this is not a snapshot."
+      },
+      "output": "Raw array, not personal ChatThreadPage. x-has-more true/false; x-next-before only when more rows. Summary projected out.",
+      "sdk": "listAgentThreads first page; listAgentThreadsPage({limit,before}) preserves Axios headers.",
+      "side_effects": "None"
+    }
+  ],
+  "lifecycle": {
+    "read_delete_cancel_stream_review": "Current project and owner checked before operation; personal/foreign/other-agent thread IDs404.",
+    "stream_preferences": "Manage server binds manage/project/surface; strict context preferences accept four helper names and en/fa locale. Browser service list is replaced by current signed grants, then checked against current project configuration by Agentic. Trusted Chat source/assistant data is rejected.",
+    "deletion": "Existing Agentic delete behavior applies; this test does not prove Knowledge forgetting, derived-source purge or durable review cancellation.",
+    "review": "Existing in-memory pending hubs remain; no durable/idempotent execution-receipt claim.",
+    "outage": "Current authority unavailable fails closed; no fallback to stale service grants. No model provider outage/canary claim."
+  },
+  "relationships": [
+    {
+      "from": "Manage signed session.project",
+      "to": "Agentic project.slug → project.id",
+      "cardinality": "one current project",
+      "label": "project name/slug through current authorized project metadata",
+      "cross_project_navigation": "New current signed authority required for a different project."
+    },
+    {
+      "from": "Manage thread.owner_user_id",
+      "to": "authenticated actor UUID",
+      "cardinality": "one owner; not shared project history",
+      "lookup": "Current authenticated identity, no arbitrary directory request."
+    }
+  ],
+  "evidence": [
+    "manage-project-bridge",
+    "manage-project-sdk-wire"
+  ],
+  "remaining": [
+    "Fresh canonical/main integration with other contributions",
+    "Paged and readable localized UI workflows",
+    "Durable review/receipt and thread deletion/forgetting workflows",
+    "Every other capability and cross-service workflow before publication"
+  ]
+}

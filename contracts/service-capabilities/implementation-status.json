@@ -235,6 +235,61 @@
       "duration_seconds": 37.426,
       "scope": "Actual Manage process and Agentic handlers with real disposable Mongo: current authority/restart/revocation plus project-bound Manage create/list/history, tied timestamp pagination after cursor-row deletion, personal/foreign thread restrictions on messages/delete/cancel/stream/review, forged context denial, and normal billing.spend denial. No model call; pending review uses existing in-memory hubs and is not durable receipt acceptance. Control lifecycle is an explicit fixture. Production gateway, Control lifecycle, IDP exchange/refresh, SDK/UI and deployment remain unverified.",
       "canonical_certification": false
+    },
+    "manage_project_sdk_wire": {
+      "schema_version": "1.0",
+      "kind": "actual_sdk_manage_agentic_wire_regression",
+      "status": "passed",
+      "command": "python3 scripts/run-manage-authority-tests.py (isolated Agentic checkout; actual compiled SDK probe required)",
+      "exit_code": 0,
+      "tests_executed": 31,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "source_unchanged_during_run": true,
+      "source_revisions": {
+        "manage": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
+        "agentic": "84a0e9a95d274a655aae052988915ffc74401942"
+      },
+      "source_fingerprints": {
+        "manage": "44e043c2e66e9a1570cbeb4b28c95efb32d4b50c84ee121efe37f72a11ebc04e",
+        "agentic": "708bf3b6949a7d4fe3c4624c58b1eed8db71d6f4f81a630bc62e56fc3af83643"
+      },
+      "sdk_working_fingerprint": "fbd91c661ffa264bc8e5c6b6fc5aa8988f63bb3008964ac7633de5c7ce0dfaa3",
+      "artifact_path": "evidence/manage-authority-tests-bfb5096-84a0e9a9-sdk.json",
+      "artifact_sha256": "db95671293eb6bff3dd57732005ac8f85af58c4ded386b0126f9dfc8eeca0448",
+      "additional_artifacts": [
+        {
+          "artifact_path": "evidence/manage-authority-components-bfb5096-84a0e9a9-sdk.log",
+          "sha256": "f4f852072681ed10e875616e640e64ef20e2d906472e566cfd75fe71d3002ae9"
+        },
+        {
+          "artifact_path": "evidence/manage-authority-binary-bfb5096-84a0e9a9-sdk.log",
+          "sha256": "ab9300781903e2f625e859526019bea82fb90331cae0f6ae5d812208ae762878"
+        },
+        {
+          "artifact_path": "evidence/agentic-manage-authority-bfb5096-84a0e9a9-sdk.log",
+          "sha256": "f7ac62e05909f5f1e963a040a6d8429f4723e97b75f8e7318edfc8c8cac6903a"
+        },
+        {
+          "artifact_path": "evidence/run-manage-authority-tests-bfb5096-84a0e9a9-sdk.py",
+          "sha256": "7c41544753e609994e8eb817b1519af0696336cda98d2185016fb07ed867efe7"
+        },
+        {
+          "artifact_path": "evidence/verify-manage-bridge-sdk-bfb5096-84a0e9a9-sdk.mjs",
+          "sha256": "fbf6413ab7dd1e642ae855e5343943e9f4993404960eb81401d261a8e0dd97bc"
+        },
+        {
+          "artifact_path": "evidence/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+          "sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f"
+        },
+        {
+          "artifact_path": "evidence/infera-agentic-authority-resolved-251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77.Cargo.lock",
+          "sha256": "251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77"
+        }
+      ],
+      "duration_seconds": 29.059,
+      "scope": "Source-fenced actual Manage process plus Agentic handlers and real disposable Mongo, including real compiled SDK Axios/fetch creation, paging/headers, messages/deletion and invalid-query/foreign-project/billing denials.31 tests comprise26 Manage +3 Agentic (expanded workflow with required SDK success marker) +2 startup rejection cases, not31 additional tests over the prior bridge run. No model call or actual service mutation receipt; pending review remains process-local. Control lifecycle is a fixture. Canonical/main integration, production gateway/IDP/Control, full SDK/UI and deployment unverified.",
+      "canonical_certification": false
     }
   },
   "artifacts": {
@@ -462,6 +517,22 @@
     "meaning": "Discovery refreshed fingerprints of concurrently changing source checkouts. Their edits are preserved and are not certified by capacity or Manage component tests. SDK Profile summaries edits are unrelated and left uncommitted by this task.",
     "service_universe": "Fresh directory inventory still maps to the21 active services already catalogued; recovery/worktree aliases remain excluded. New Rust summary SDK directory is not evidence of an active standalone service."
   },
-  "release_version_note": "Task baseline only. Concurrent working version1.0.0 and any external registry publication are not certified here.",
-  "isolated_agentic_verification_checkout": "/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic"
+  "release_version_note": "release_version0.23.0 denotes task-start baseline only. All22 prior published0.24.1 registry versions/checksums now independently match. Current1.0.0 working changes remain unintegrated and unaccepted; no new release by this task.",
+  "isolated_agentic_verification_checkout": "/Users/mohammadralizadeh/Infera/.task-worktrees/manage-authority-7284dade/infera-agentic",
+  "task_start_release_baseline": "0.23.0",
+  "verified_prior_published_sdk": "0.24.1",
+  "prior_publication_reconciliation": {
+    "path": "evidence/published-sdk-0241-reconciliation.json",
+    "sha256": "5c09ab409cdd41a3fb34036e81917e6d0f62753cc0acef7b53d0b497b10d0c9d",
+    "packages_checksum_matched": 22,
+    "new_publication_by_this_task": false,
+    "final_1_0_0_integration_status": "pending active summary handoff, published API reconciliation and all semantic/wire/UI gates"
+  },
+  "fresh_remote_main_baseline": {
+    "path": "evidence/remote-main-refresh-2026-10-19.json",
+    "sha256": "84e52831efe453e0a66e5ec39f2a68b38c03a013053002a83dc396b8409b34c8",
+    "services_fetched": 21,
+    "failed_fetches": 0,
+    "existing_working_status_preserved": true
+  }
 }

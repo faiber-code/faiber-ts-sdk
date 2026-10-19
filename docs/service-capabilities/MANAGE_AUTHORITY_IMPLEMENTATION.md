@@ -86,3 +86,24 @@ real SDK/backend acceptance. UI pagination and readable action workflows remain 
 The first isolated compile attempt failed against stale local domain metadata; a
 source-timestamp-triggered rebuild resolved it without content changes or cache deletion.
 The failed attempt remains retained and is not counted as passing evidence.
+
+## Actual SDK wire verification
+
+Agentic `84a0e9a95d274a655aae052988915ffc74401942` extends the owned HTTP
+workflow with the compiled Faiber SDK over real Axios/fetch transport. The complete
+run passed the same31 tests with the expanded wire assertions; these are not31
+additional independent tests. Creation, cursor headers, paged lists, history, deletion,
+invalid query and foreign-project/billing denials passed. No model request was made.
+The runner fails unless the real probe reports success. Sources, compiled packages,
+manifests/lock, installed node_modules bytes and probe retained an identical3,520-file
+fingerprint before and after. Backend source/local Rust SDK dependencies were also
+fenced; the report retains input/resolved locks and exact runner/probe bytes. See
+`evidence/manage-authority-tests-bfb5096-84a0e9a9-sdk.json`.
+
+Read-only refresh succeeded for all21 active service main refs without working-status
+changes. SDK origin/main is the previously published0.24.1 commit `b11672d`; all22
+registry versions/checksums independently match. Current working1.0.0 still lacks
+published personal chat, LMS notification/contacts, Messenger delivery and Task
+feedback helpers. Reconcile those with current canonical sources and the active
+Profile summary migration before final integration, packaging and consumer checks.
+No new publication, tag, push, deployment or migration occurred in this work.
