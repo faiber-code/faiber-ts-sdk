@@ -18363,6 +18363,560 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/admin/social/actors",
+      "module": "admin",
+      "handler": "actors",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/actors/{id}",
+      "module": "admin",
+      "handler": "actor_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/analytics",
+      "module": "admin",
+      "handler": "analytics",
+      "permissions": [
+        "social:analytics:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/audit",
+      "module": "admin",
+      "handler": "audit",
+      "permissions": [
+        "social:audit:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/bounties",
+      "module": "admin",
+      "handler": "bounties",
+      "permissions": [
+        "social:funding:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/bounties/{id}",
+      "module": "admin",
+      "handler": "bounty_detail",
+      "permissions": [
+        "social:funding:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/capability-policies",
+      "module": "admin",
+      "handler": "policies",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/capability-policies",
+      "module": "admin",
+      "handler": "create_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "PolicyInput",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/capability-policies/{id}",
+      "module": "admin",
+      "handler": "policy_detail",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/social/capability-policies/{id}",
+      "module": "admin",
+      "handler": "update_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "PolicyInput",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/capability-policies/{id}/publish",
+      "module": "admin",
+      "handler": "publish_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/categories",
+      "module": "admin",
+      "handler": "categories",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/categories",
+      "module": "admin",
+      "handler": "create_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "CreateCategory",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "archive_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "category_detail",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "update_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "UpdateCategory",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/claims",
+      "module": "admin",
+      "handler": "claims",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/claims/{id}",
+      "module": "admin",
+      "handler": "claim_detail",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/claims/{id}/approve",
+      "module": "admin",
+      "handler": "approve_claim",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "AdminReason",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/claims/{id}/reject",
+      "module": "admin",
+      "handler": "reject_claim",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "AdminReason",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/comments",
+      "module": "admin",
+      "handler": "comments",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/comments/{id}",
+      "module": "admin",
+      "handler": "comment_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/integrations",
+      "module": "admin",
+      "handler": "integrations",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/integrations/{id}",
+      "module": "admin",
+      "handler": "integration_detail",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/integrations/{id}/replay",
+      "module": "admin",
+      "handler": "replay_integration",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "IntegrationReplay",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/locations/{post_id}/reveal",
+      "module": "admin",
+      "handler": "reveal_location",
+      "permissions": [
+        "social:location:reveal"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "AdminReason",
+      "pathParam": "Uuid",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/media",
+      "module": "admin",
+      "handler": "media",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/moderation/queue",
+      "module": "admin",
+      "handler": "moderation_queue",
+      "permissions": [
+        "social:moderation:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/overview",
+      "module": "admin",
+      "handler": "overview",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/posts",
+      "module": "admin",
+      "handler": "posts",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/posts/{id}",
+      "module": "admin",
+      "handler": "post_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/reports",
+      "module": "admin",
+      "handler": "reports",
+      "permissions": [
+        "social:reports:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/reports/{id}",
+      "module": "admin",
+      "handler": "report_detail",
+      "permissions": [
+        "social:reports:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/restrictions",
+      "module": "admin",
+      "handler": "restrictions",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "query": "AdminListQuery",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/restrictions",
+      "module": "admin",
+      "handler": "create_restriction",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "CreateRestriction",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/restrictions/{id}/revoke",
+      "module": "admin",
+      "handler": "revoke_restriction",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "body": "AdminReason",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/settings",
+      "module": "admin",
+      "handler": "settings",
+      "permissions": [
+        "social:settings:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/auth/self",
       "module": "api",
       "handler": "self_identity",
@@ -18370,6 +18924,30 @@
       "source": "infera-social/src/api/routes.rs",
       "response": "SessionIdentity",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/block/{id}",
+      "module": "discovery",
+      "handler": "unblock",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/block/{id}",
+      "module": "discovery",
+      "handler": "block",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -18644,6 +19222,40 @@
       "formUrlEncoded": false
     },
     {
+      "method": "DELETE",
+      "path": "/api/v1/follow/{kind}/{id}",
+      "module": "discovery",
+      "handler": "unfollow",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/follow/{kind}/{id}",
+      "module": "discovery",
+      "handler": "relationship",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/follow/{kind}/{id}",
+      "module": "discovery",
+      "handler": "follow",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/integrations/funding-events",
       "module": "api",
@@ -18655,6 +19267,42 @@
       "body": "FundingEventInput",
       "response": "Value",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/internal/notification-outbox",
+      "module": "discovery",
+      "handler": "outbox",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/internal/notification-outbox/{id}/ack",
+      "module": "discovery",
+      "handler": "ack",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/internal/place-events",
+      "module": "discovery",
+      "handler": "place_event",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "body": "PlaceEvent",
+      "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -18741,6 +19389,31 @@
       "body": "SetFeedLocation",
       "response": "Value",
       "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/notification-preferences",
+      "module": "discovery",
+      "handler": "preferences",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/me/notification-preferences",
+      "module": "discovery",
+      "handler": "set_preferences",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "body": "Value",
+      "response": "Value",
+      "responseEnvelope": "raw",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -19173,6 +19846,57 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/public/media/{id}",
+      "module": "discovery",
+      "handler": "media",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "responseEnvelope": "raw-response",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/posts",
+      "module": "discovery",
+      "handler": "feed",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "query": "Feed",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/posts/{id}",
+      "module": "discovery",
+      "handler": "post_detail",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/public/posts/{id}/comments",
+      "module": "discovery",
+      "handler": "comments",
+      "permissions": [],
+      "source": "infera-social/src/discovery.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "DELETE",
       "path": "/api/v1/reactions/post/{id}",
       "module": "api",
@@ -19243,715 +19967,6 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/overview",
-      "module": "admin",
-      "handler": "overview",
-      "permissions": [
-        "social:panel:view"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/posts",
-      "module": "admin",
-      "handler": "posts",
-      "permissions": [
-        "social:content:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/posts/{id}",
-      "module": "admin",
-      "handler": "post_detail",
-      "permissions": [
-        "social:content:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/comments",
-      "module": "admin",
-      "handler": "comments",
-      "permissions": [
-        "social:content:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/comments/{id}",
-      "module": "admin",
-      "handler": "comment_detail",
-      "permissions": [
-        "social:content:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/media",
-      "module": "admin",
-      "handler": "media",
-      "permissions": [
-        "social:content:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/categories",
-      "module": "admin",
-      "handler": "categories",
-      "permissions": [
-        "social:panel:view"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/categories",
-      "module": "admin",
-      "handler": "create_category",
-      "permissions": [
-        "social:categories:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialAdminCreateCategoryInput"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/categories/{id}",
-      "module": "admin",
-      "handler": "category_detail",
-      "permissions": [
-        "social:panel:view"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/admin/social/categories/{id}",
-      "module": "admin",
-      "handler": "update_category",
-      "permissions": [
-        "social:categories:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialAdminUpdateCategoryInput"
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/admin/social/categories/{id}",
-      "module": "admin",
-      "handler": "archive_category",
-      "permissions": [
-        "social:categories:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/capability-policies",
-      "module": "admin",
-      "handler": "policies",
-      "permissions": [
-        "social:panel:view"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/capability-policies",
-      "module": "admin",
-      "handler": "create_policy",
-      "permissions": [
-        "social:capabilities:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "PolicyInput"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/capability-policies/{id}",
-      "module": "admin",
-      "handler": "policy_detail",
-      "permissions": [
-        "social:panel:view"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PATCH",
-      "path": "/api/v1/admin/social/capability-policies/{id}",
-      "module": "admin",
-      "handler": "update_policy",
-      "permissions": [
-        "social:capabilities:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "PolicyInput"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/capability-policies/{id}/publish",
-      "module": "admin",
-      "handler": "publish_policy",
-      "permissions": [
-        "social:capabilities:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/moderation/queue",
-      "module": "admin",
-      "handler": "moderation_queue",
-      "permissions": [
-        "social:moderation:review"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/reports",
-      "module": "admin",
-      "handler": "reports",
-      "permissions": [
-        "social:reports:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/reports/{id}",
-      "module": "admin",
-      "handler": "report_detail",
-      "permissions": [
-        "social:reports:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/claims",
-      "module": "admin",
-      "handler": "claims",
-      "permissions": [
-        "social:claims:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/claims/{id}",
-      "module": "admin",
-      "handler": "claim_detail",
-      "permissions": [
-        "social:claims:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/claims/{id}/approve",
-      "module": "admin",
-      "handler": "approve_claim",
-      "permissions": [
-        "social:claims:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialAdminReasonInput"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/claims/{id}/reject",
-      "module": "admin",
-      "handler": "reject_claim",
-      "permissions": [
-        "social:claims:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialAdminReasonInput"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/bounties",
-      "module": "admin",
-      "handler": "bounties",
-      "permissions": [
-        "social:funding:review"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/bounties/{id}",
-      "module": "admin",
-      "handler": "bounty_detail",
-      "permissions": [
-        "social:funding:review"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/locations/{post_id}/reveal",
-      "module": "admin",
-      "handler": "reveal_location",
-      "permissions": [
-        "social:location:reveal"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialAdminReasonInput"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/actors",
-      "module": "admin",
-      "handler": "actors",
-      "permissions": [
-        "social:content:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/actors/{id}",
-      "module": "admin",
-      "handler": "actor_detail",
-      "permissions": [
-        "social:content:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/restrictions",
-      "module": "admin",
-      "handler": "restrictions",
-      "permissions": [
-        "social:actors:restrict"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/restrictions",
-      "module": "admin",
-      "handler": "create_restriction",
-      "permissions": [
-        "social:actors:restrict"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialAdminCreateRestrictionInput"
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/restrictions/{id}/revoke",
-      "module": "admin",
-      "handler": "revoke_restriction",
-      "permissions": [
-        "social:actors:restrict"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialAdminReasonInput"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/analytics",
-      "module": "admin",
-      "handler": "analytics",
-      "permissions": [
-        "social:analytics:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/audit",
-      "module": "admin",
-      "handler": "audit",
-      "permissions": [
-        "social:audit:read"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/integrations",
-      "module": "admin",
-      "handler": "integrations",
-      "permissions": [
-        "social:integrations:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "AdminListQuery"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/integrations/{id}",
-      "module": "admin",
-      "handler": "integration_detail",
-      "permissions": [
-        "social:integrations:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/admin/social/integrations/{id}/replay",
-      "module": "admin",
-      "handler": "replay_integration",
-      "permissions": [
-        "social:integrations:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialAdminReasonInput"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/admin/social/settings",
-      "module": "admin",
-      "handler": "settings",
-      "permissions": [
-        "social:settings:manage"
-      ],
-      "source": "infera-social/src/admin.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/public/posts",
-      "module": "discovery",
-      "handler": "feed",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "query": "Feed"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/public/posts/{id}",
-      "module": "discovery",
-      "handler": "post_detail",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/public/posts/{id}/comments",
-      "module": "discovery",
-      "handler": "comments",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/public/media/{id}",
-      "module": "discovery",
-      "handler": "media",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "binary",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/follow/{kind}/{id}",
-      "module": "discovery",
-      "handler": "relationship",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/follow/{kind}/{id}",
-      "module": "discovery",
-      "handler": "follow",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/follow/{kind}/{id}",
-      "module": "discovery",
-      "handler": "unfollow",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/block/{id}",
-      "module": "discovery",
-      "handler": "block",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/v1/block/{id}",
-      "module": "discovery",
-      "handler": "unblock",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/me/notification-preferences",
-      "module": "discovery",
-      "handler": "preferences",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/me/notification-preferences",
-      "module": "discovery",
-      "handler": "set_preferences",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialNotificationPreferencesInput"
-    },
-    {
-      "method": "GET",
-      "path": "/api/v1/internal/notification-outbox",
-      "module": "discovery",
-      "handler": "outbox",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "raw",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "PUT",
-      "path": "/api/v1/internal/notification-outbox/{id}/ack",
-      "module": "discovery",
-      "handler": "ack",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
-      "method": "POST",
-      "path": "/api/v1/internal/place-events",
-      "module": "discovery",
-      "handler": "place_event",
-      "permissions": [],
-      "source": "infera-social/src/discovery.rs",
-      "response": "serde_json::Value",
-      "responseEnvelope": "no-content",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "body": "SocialPlaceEventInput"
     }
   ],
   "state": [
@@ -22276,27 +22291,15 @@
   "version": [
     {
       "method": "GET",
-      "path": "/health",
-      "module": "router",
-      "handler": "status_route",
-      "permissions": [],
-      "source": "infera_version/src/router.rs",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false,
-      "response": "HealthResponse"
-    },
-    {
-      "method": "GET",
       "path": "/api/openapi.json",
       "module": "router",
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera_version/src/router.rs",
+      "response": "utoipa::openapi::OpenApi",
       "responseEnvelope": "raw",
       "multipart": false,
-      "formUrlEncoded": false,
-      "response": "VersionOpenApiDocument"
+      "formUrlEncoded": false
     },
     {
       "method": "POST",
@@ -22356,6 +22359,18 @@
       "permissions": [],
       "source": "infera_version/src/version/routes.rs",
       "response": "VersionSingleResponse",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "router",
+      "handler": "status_route",
+      "permissions": [],
+      "source": "infera_version/src/router.rs",
+      "response": "HealthResponse",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

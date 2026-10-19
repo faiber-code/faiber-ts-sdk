@@ -3,16 +3,6 @@ import type * as T from "./operations.types.js";
 
 export class VersionOperations extends ServiceApi {
   /**
-   * Read the Version service process health envelope. This does not verify database, broker or gateway readiness.
-   * Calls `GET /health` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public at the service router; deployed gateway rules may add restrictions.
-   */
-  routerStatusRouteGet(options?: RequestOptions) {
-    return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/health` });
-  }
-  /**
    * Read the raw generated OpenAPI document, without an API envelope. The current document describes health only and is not the complete mounted API inventory.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -75,5 +65,15 @@ export class VersionOperations extends ServiceApi {
    */
   versionVersionShowGet(versionId: Identifier, options?: RequestOptions) {
     return this.client.request<T.VersionVersionShowGetResponse>({ ...options, method: "GET", url: `/api/v1/versions/${encodeURIComponent(versionId)}` });
+  }
+  /**
+   * Read the Version service process health envelope. This does not verify database, broker or gateway readiness.
+   * Calls `GET /health` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public at the service router; deployed gateway rules may add restrictions.
+   */
+  routerStatusRouteGet(options?: RequestOptions) {
+    return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/health` });
   }
 }

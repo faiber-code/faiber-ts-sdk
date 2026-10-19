@@ -60,6 +60,7 @@ def main():
   before=snapshot();external_before=external_inputs()
   run('build',['npm','run','build']);compiled=snapshot(True)
   run('types-and-tests',['npm','test'])
+  run('reviewed-mounted-contracts',['env','FAIBER_CONTRACT_SERVICES=social,version','npm','run','contracts:audit'])
   audit=run('audit',['npm','audit','--json']);assert json.loads(audit)['metadata']['vulnerabilities']['total']==0
   run('pack-dry-run',['npm','run','pack:check'])
   run('source-whitespace',['git','diff','--check','b11672d'])

@@ -1,3 +1,5 @@
+import { sourceIndex } from "./capability-source.mjs";
+import { mountedRouterOperations } from "./capability-router.mjs";
 import { integrationEndpoints } from "./integration-contracts.mjs";
 import { productionRust } from "./rust-source.mjs";
 import { serviceSources } from "./service-source-snapshots.mjs";
@@ -400,6 +402,44 @@ for (const service of services) {
     let source; try { source = await readFile(sourcePath, "utf8"); } catch { continue; }
     if (!source.includes(endpoint.handler)) throw new Error(`Missing integration handler: ${endpoint.source}:${endpoint.handler}`);
     endpoints.push(endpoint);
+  }
+  // These service routers have source-reviewed runtime acceptance. Follow their actual
+  // main/router graph rather than annotation paths or module-prefix guesses. Other
+  // services retain their existing extraction until their mounted graphs are reviewed.
+  if (["social", "version"].includes(service)) {
+    const indexed = [...fileSources].map(([file,source])=>sourceIndex(source,relativeSource(file)));
+    const main=indexed.find(file=>file.path.endsWith("/src/main.rs"));
+    const entry=service==="social" && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
+      ? {path:"src/main.rs",function:"main",variable:"app"}
+      : {path:"src/router.rs",function:"routes"};
+    const graph=mountedRouterOperations(indexed,entry);
+    if (graph.unresolved.length || graph.duplicates.length || graph.operations.some(op=>op.unresolved_handler || op.inline_handler)) {
+      throw new Error(`${service}: mounted source graph requires review: ${JSON.stringify(graph.unresolved)} ${JSON.stringify(graph.duplicates)}`);
+    }
+    const reviewed=[];
+    for (const op of graph.operations) {
+      const handlerFile=indexed.find(file=>file.path.replace(/^.*?\/src\//,"").replace(/\.rs$/,"").replace(/\/mod$/,"").replaceAll("/","::")===op.handlerModule);
+      if (!handlerFile) throw new Error(`${service}: missing mounted handler source ${op.handlerModule}::${op.handler}`);
+      const candidates=endpoints.filter(old=>old.method===op.method && old.handler===op.handler && old.source===op.source);
+      const exact=candidates.find(old=>old.path===op.path);
+      const previous=exact??(candidates.length===1?candidates[0]:null);
+      const routeModule=op.module.split("::")[0];
+      const signature=handlerSignature(handlerFile.source,op.handler);
+      if (service==="version" && op.path==="/health") {
+        const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
+        if (/data\s*:\s*HealthResponse\s*\{/.test(fn?.body??"")) signature.response="HealthResponse";
+      }
+      if (service==="version" && op.path==="/api/openapi.json") {
+        const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
+        if (/Json\s*\(\s*ApiDoc::openapi\s*\(/.test(fn?.body??"")) {
+          signature.response="utoipa::openapi::OpenApi";signature.responseEnvelope="raw";
+        }
+      }
+      reviewed.push({method:op.method,path:op.path,module:previous?.module??routeModule,handler:op.handler,
+        permissions:permissionAnnotations(handlerFile.source).get(op.handler)??[],source:op.source,
+        ...(op.handlerModule!==op.module?{handlerModule:op.handlerModule.split("::").at(-1)}:{}),...signature});
+    }
+    endpoints.splice(0,endpoints.length,...reviewed);
   }
   const unique = new Map(endpoints.map(endpoint => [`${endpoint.method} ${endpoint.path}`, endpoint]));
   manifest[service] = [...unique.values()].sort((a, b) => a.path.localeCompare(b.path) || a.method.localeCompare(b.method));
