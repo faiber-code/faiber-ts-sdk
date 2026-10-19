@@ -1,0 +1,251 @@
+[
+  {
+    "id": "@faiber/faiber-chat@1.0.0",
+    "name": "@faiber/faiber-chat",
+    "version": "1.0.0",
+    "size": 50076,
+    "unpackedSize": 291548,
+    "shasum": "f5fbb1e66c702805e29ec9df0e4f923043885927",
+    "integrity": "sha512-5SJPn6vPEy0Iik0DBlIwX6WwoyV1KQMhLAnLJ1X48E89lKYMlwmcH0zlrcySXt02RTWDBBAyZL7NBtffX7nBsw==",
+    "filename": "faiber-faiber-chat-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 16356,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 15833,
+        "mode": 420
+      },
+      {
+        "path": "dist/assistant-voice.d.ts",
+        "size": 704,
+        "mode": 420
+      },
+      {
+        "path": "dist/assistant-voice.d.ts.map",
+        "size": 814,
+        "mode": 420
+      },
+      {
+        "path": "dist/assistant-voice.js",
+        "size": 54,
+        "mode": 420
+      },
+      {
+        "path": "dist/assistant-voice.js.map",
+        "size": 122,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 11786,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 4270,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 8999,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 7121,
+        "mode": 420
+      },
+      {
+        "path": "dist/learning.d.ts",
+        "size": 1570,
+        "mode": 420
+      },
+      {
+        "path": "dist/learning.d.ts.map",
+        "size": 1070,
+        "mode": 420
+      },
+      {
+        "path": "dist/learning.js",
+        "size": 785,
+        "mode": 420
+      },
+      {
+        "path": "dist/learning.js.map",
+        "size": 559,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts",
+        "size": 50635,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts.map",
+        "size": 6050,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js",
+        "size": 49273,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js.map",
+        "size": 12797,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts",
+        "size": 19300,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts.map",
+        "size": 13669,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js",
+        "size": 55,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js.map",
+        "size": 124,
+        "mode": 420
+      },
+      {
+        "path": "dist/personal.d.ts",
+        "size": 3052,
+        "mode": 420
+      },
+      {
+        "path": "dist/personal.d.ts.map",
+        "size": 1840,
+        "mode": 420
+      },
+      {
+        "path": "dist/personal.js",
+        "size": 1332,
+        "mode": 420
+      },
+      {
+        "path": "dist/personal.js.map",
+        "size": 884,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-live.d.ts",
+        "size": 1697,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-live.d.ts.map",
+        "size": 1123,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-live.js",
+        "size": 4728,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-live.js.map",
+        "size": 4625,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-playback.d.ts",
+        "size": 1856,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-playback.d.ts.map",
+        "size": 706,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-playback.js",
+        "size": 8668,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-playback.js.map",
+        "size": 8880,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-recorder.d.ts",
+        "size": 1883,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-recorder.d.ts.map",
+        "size": 650,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-recorder.js",
+        "size": 4818,
+        "mode": 420
+      },
+      {
+        "path": "dist/speech-recorder.js.map",
+        "size": 4142,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 5722,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts.map",
+        "size": 5270,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 44,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js.map",
+        "size": 102,
+        "mode": 420
+      },
+      {
+        "path": "dist/workspace.d.ts",
+        "size": 3285,
+        "mode": 420
+      },
+      {
+        "path": "dist/workspace.d.ts.map",
+        "size": 2322,
+        "mode": 420
+      },
+      {
+        "path": "dist/workspace.js",
+        "size": 959,
+        "mode": 420
+      },
+      {
+        "path": "dist/workspace.js.map",
+        "size": 605,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 409,
+        "mode": 420
+      }
+    ],
+    "entryCount": 47,
+    "bundled": []
+  }
+]

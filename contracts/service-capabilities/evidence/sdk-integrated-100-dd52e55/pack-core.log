@@ -1,0 +1,191 @@
+[
+  {
+    "id": "@faiber/sdk-core@1.0.0",
+    "name": "@faiber/sdk-core",
+    "version": "1.0.0",
+    "size": 25213,
+    "unpackedSize": 91401,
+    "shasum": "55cda37bc9ecf30959440716667b7f111c9a1181",
+    "integrity": "sha512-W+wv7JeHfC9ozv/Up70A+QQin1PlTWAnDI/I9XdSnHo0+nPVavHymfWM7B/qkYsYz8HG0H0x7+RXqaYpmeMiJg==",
+    "filename": "faiber-sdk-core-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 5518,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 23845,
+        "mode": 420
+      },
+      {
+        "path": "dist/auth.d.ts",
+        "size": 784,
+        "mode": 420
+      },
+      {
+        "path": "dist/auth.d.ts.map",
+        "size": 710,
+        "mode": 420
+      },
+      {
+        "path": "dist/auth.js",
+        "size": 957,
+        "mode": 420
+      },
+      {
+        "path": "dist/auth.js.map",
+        "size": 1085,
+        "mode": 420
+      },
+      {
+        "path": "dist/client.d.ts",
+        "size": 1167,
+        "mode": 420
+      },
+      {
+        "path": "dist/client.d.ts.map",
+        "size": 1449,
+        "mode": 420
+      },
+      {
+        "path": "dist/client.js",
+        "size": 5154,
+        "mode": 420
+      },
+      {
+        "path": "dist/client.js.map",
+        "size": 4998,
+        "mode": 420
+      },
+      {
+        "path": "dist/env.d.ts",
+        "size": 664,
+        "mode": 420
+      },
+      {
+        "path": "dist/env.d.ts.map",
+        "size": 495,
+        "mode": 420
+      },
+      {
+        "path": "dist/env.js",
+        "size": 1168,
+        "mode": 420
+      },
+      {
+        "path": "dist/env.js.map",
+        "size": 1141,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 307,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 323,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 277,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 298,
+        "mode": 420
+      },
+      {
+        "path": "dist/openapi.d.ts",
+        "size": 3566,
+        "mode": 420
+      },
+      {
+        "path": "dist/openapi.d.ts.map",
+        "size": 4570,
+        "mode": 420
+      },
+      {
+        "path": "dist/openapi.js",
+        "size": 2520,
+        "mode": 420
+      },
+      {
+        "path": "dist/openapi.js.map",
+        "size": 3069,
+        "mode": 420
+      },
+      {
+        "path": "dist/realtime.d.ts",
+        "size": 1481,
+        "mode": 420
+      },
+      {
+        "path": "dist/realtime.d.ts.map",
+        "size": 884,
+        "mode": 420
+      },
+      {
+        "path": "dist/realtime.js",
+        "size": 2740,
+        "mode": 420
+      },
+      {
+        "path": "dist/realtime.js.map",
+        "size": 2702,
+        "mode": 420
+      },
+      {
+        "path": "dist/resource.d.ts",
+        "size": 2228,
+        "mode": 420
+      },
+      {
+        "path": "dist/resource.d.ts.map",
+        "size": 2054,
+        "mode": 420
+      },
+      {
+        "path": "dist/resource.js",
+        "size": 2074,
+        "mode": 420
+      },
+      {
+        "path": "dist/resource.js.map",
+        "size": 2337,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 5113,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts.map",
+        "size": 4674,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 329,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js.map",
+        "size": 332,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 388,
+        "mode": 420
+      }
+    ],
+    "entryCount": 35,
+    "bundled": []
+  }
+]

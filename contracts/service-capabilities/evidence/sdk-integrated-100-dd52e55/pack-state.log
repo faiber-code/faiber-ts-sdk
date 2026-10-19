@@ -1,0 +1,231 @@
+[
+  {
+    "id": "@faiber/faiber-state-sdk@1.0.0",
+    "name": "@faiber/faiber-state-sdk",
+    "version": "1.0.0",
+    "size": 32449,
+    "unpackedSize": 209044,
+    "shasum": "1878182f98f7bbd85323ab56c4745f0f1e9b6d1f",
+    "integrity": "sha512-rFUcRle/09TgW7O6nUHAfEpFt6Y6W4Qymp0mJFPYe0GRpHmyPx6EfjGnO/WGcI92xjU5SDbrYqMKRole6fu1uQ==",
+    "filename": "faiber-faiber-state-sdk-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 2209,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 14551,
+        "mode": 420
+      },
+      {
+        "path": "dist/api.d.ts",
+        "size": 7202,
+        "mode": 420
+      },
+      {
+        "path": "dist/api.d.ts.map",
+        "size": 2326,
+        "mode": 420
+      },
+      {
+        "path": "dist/api.js",
+        "size": 6298,
+        "mode": 420
+      },
+      {
+        "path": "dist/api.js.map",
+        "size": 3388,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.d.ts",
+        "size": 5269,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.d.ts.map",
+        "size": 5351,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.js",
+        "size": 54,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.js.map",
+        "size": 122,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 291,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 278,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 289,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 276,
+        "mode": 420
+      },
+      {
+        "path": "dist/match-realtime.d.ts",
+        "size": 875,
+        "mode": 420
+      },
+      {
+        "path": "dist/match-realtime.d.ts.map",
+        "size": 625,
+        "mode": 420
+      },
+      {
+        "path": "dist/match-realtime.js",
+        "size": 4131,
+        "mode": 420
+      },
+      {
+        "path": "dist/match-realtime.js.map",
+        "size": 4613,
+        "mode": 420
+      },
+      {
+        "path": "dist/match.d.ts",
+        "size": 2830,
+        "mode": 420
+      },
+      {
+        "path": "dist/match.d.ts.map",
+        "size": 2825,
+        "mode": 420
+      },
+      {
+        "path": "dist/match.js",
+        "size": 2416,
+        "mode": 420
+      },
+      {
+        "path": "dist/match.js.map",
+        "size": 2676,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts",
+        "size": 40671,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts.map",
+        "size": 4422,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js",
+        "size": 38172,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js.map",
+        "size": 9391,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts",
+        "size": 12929,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts.map",
+        "size": 8526,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js",
+        "size": 55,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js.map",
+        "size": 124,
+        "mode": 420
+      },
+      {
+        "path": "dist/prediction.d.ts",
+        "size": 1107,
+        "mode": 420
+      },
+      {
+        "path": "dist/prediction.d.ts.map",
+        "size": 1187,
+        "mode": 420
+      },
+      {
+        "path": "dist/prediction.js",
+        "size": 1268,
+        "mode": 420
+      },
+      {
+        "path": "dist/prediction.js.map",
+        "size": 1917,
+        "mode": 420
+      },
+      {
+        "path": "dist/realtime.d.ts",
+        "size": 1297,
+        "mode": 420
+      },
+      {
+        "path": "dist/realtime.d.ts.map",
+        "size": 1403,
+        "mode": 420
+      },
+      {
+        "path": "dist/realtime.js",
+        "size": 2991,
+        "mode": 420
+      },
+      {
+        "path": "dist/realtime.js.map",
+        "size": 3890,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 4960,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts.map",
+        "size": 5315,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 44,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js.map",
+        "size": 102,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 378,
+        "mode": 420
+      }
+    ],
+    "entryCount": 43,
+    "bundled": []
+  }
+]

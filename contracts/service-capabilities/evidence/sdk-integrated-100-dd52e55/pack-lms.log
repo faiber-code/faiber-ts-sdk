@@ -1,0 +1,191 @@
+[
+  {
+    "id": "@faiber/faiber-lms@1.0.0",
+    "name": "@faiber/faiber-lms",
+    "version": "1.0.0",
+    "size": 77975,
+    "unpackedSize": 828870,
+    "shasum": "b9c835302ceb8f390515c45ad63eb585e2c3902a",
+    "integrity": "sha512-brW+n57pX4kO1Umu8Wk4RpF38+vW5wg+wvxqX6mLy+xfmRY5VgG5dRnjEtwX6/SiWJqwn8lQj33fmGQIkWt8jA==",
+    "filename": "faiber-faiber-lms-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 19282,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 14126,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.d.ts",
+        "size": 563,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.d.ts.map",
+        "size": 504,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.js",
+        "size": 54,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.js.map",
+        "size": 122,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 19797,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 9560,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 19369,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 13949,
+        "mode": 420
+      },
+      {
+        "path": "dist/interactive.d.ts",
+        "size": 7345,
+        "mode": 420
+      },
+      {
+        "path": "dist/interactive.d.ts.map",
+        "size": 4661,
+        "mode": 420
+      },
+      {
+        "path": "dist/interactive.js",
+        "size": 3188,
+        "mode": 420
+      },
+      {
+        "path": "dist/interactive.js.map",
+        "size": 2332,
+        "mode": 420
+      },
+      {
+        "path": "dist/media.d.ts",
+        "size": 1239,
+        "mode": 420
+      },
+      {
+        "path": "dist/media.d.ts.map",
+        "size": 421,
+        "mode": 420
+      },
+      {
+        "path": "dist/media.js",
+        "size": 1118,
+        "mode": 420
+      },
+      {
+        "path": "dist/media.js.map",
+        "size": 598,
+        "mode": 420
+      },
+      {
+        "path": "dist/notification-settings.d.ts",
+        "size": 2761,
+        "mode": 420
+      },
+      {
+        "path": "dist/notification-settings.d.ts.map",
+        "size": 1615,
+        "mode": 420
+      },
+      {
+        "path": "dist/notification-settings.js",
+        "size": 1368,
+        "mode": 420
+      },
+      {
+        "path": "dist/notification-settings.js.map",
+        "size": 878,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts",
+        "size": 151142,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts.map",
+        "size": 17489,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js",
+        "size": 144781,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js.map",
+        "size": 36528,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts",
+        "size": 163631,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts.map",
+        "size": 134002,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js",
+        "size": 55,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js.map",
+        "size": 124,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 29440,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts.map",
+        "size": 25918,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 280,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js.map",
+        "size": 258,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 372,
+        "mode": 420
+      }
+    ],
+    "entryCount": 35,
+    "bundled": []
+  }
+]

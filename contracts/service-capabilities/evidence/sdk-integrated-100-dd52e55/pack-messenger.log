@@ -1,0 +1,151 @@
+[
+  {
+    "id": "@faiber/faiber-messenger@1.0.0",
+    "name": "@faiber/faiber-messenger",
+    "version": "1.0.0",
+    "size": 23983,
+    "unpackedSize": 176348,
+    "shasum": "cbab78905a9711936420d23099ed7a3215d992d3",
+    "integrity": "sha512-sFpjtoxkRD9ZM0BVRuAJ2a8yLqUq7liRuHtev+wN7ZaaoewFsLbBycWCF9G8WD293JErSQsUlbg/emDQkhHh4w==",
+    "filename": "faiber-faiber-messenger-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 5999,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 13691,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.d.ts",
+        "size": 732,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.d.ts.map",
+        "size": 660,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.js",
+        "size": 54,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.js.map",
+        "size": 122,
+        "mode": 420
+      },
+      {
+        "path": "dist/delivery.d.ts",
+        "size": 3970,
+        "mode": 420
+      },
+      {
+        "path": "dist/delivery.d.ts.map",
+        "size": 2912,
+        "mode": 420
+      },
+      {
+        "path": "dist/delivery.js",
+        "size": 1304,
+        "mode": 420
+      },
+      {
+        "path": "dist/delivery.js.map",
+        "size": 778,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 4914,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 1875,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 3229,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 3113,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts",
+        "size": 39922,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts.map",
+        "size": 4123,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js",
+        "size": 37861,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js.map",
+        "size": 9129,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts",
+        "size": 20715,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts.map",
+        "size": 13696,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js",
+        "size": 55,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js.map",
+        "size": 124,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 3573,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts.map",
+        "size": 3273,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 44,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js.map",
+        "size": 102,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 378,
+        "mode": 420
+      }
+    ],
+    "entryCount": 27,
+    "bundled": []
+  }
+]

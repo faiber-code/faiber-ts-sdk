@@ -1,0 +1,62 @@
+    Updating crates.io index
+    Updating git repository `https://hamgit.ir/faiber/faiber-sdk.git`
+    Blocking waiting for file lock on package cache
+     Locking 459 packages to latest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding lapin v3.7.2 (available: v4.12.3)
+      Adding matchit v0.8.4 (available: v0.8.6)
+      Adding reqwest v0.12.28 (available: v0.13.5)
+      Adding sea-orm v1.1.20 (available: v2.0.4, requires Rust 1.94.0)
+      Adding sea-orm-migration v1.1.20 (available: v2.0.4)
+      Adding tower-http v0.6.11 (available: v0.7.1)
+      Adding utoipa v5.5.0 (available: v6.0.0)
+      Adding validator v0.20.0 (available: v0.21.0)
+    Blocking waiting for file lock on package cache
+ Downloading crates ...
+  Downloaded value-bag v1.14.1
+  Downloaded lazy_static v1.5.1
+  Downloaded deranged v0.5.9
+  Downloaded wasm-bindgen-macro v0.2.129
+  Downloaded wasm-bindgen-shared v0.2.129
+  Downloaded wasm-bindgen-futures v0.4.79
+  Downloaded borsh v1.8.1
+  Downloaded equivalent v1.0.3
+  Downloaded crossbeam-queue v0.3.14
+  Downloaded find-msvc-tools v0.1.15
+  Downloaded pin-utils v0.1.1
+  Downloaded libredox v0.1.25
+  Downloaded validator_derive v0.20.1
+  Downloaded multiversion_no_op v1.0.0
+  Downloaded slug v0.1.6
+  Downloaded proc-macro-error-attr3 v3.1.1
+  Downloaded either v1.19.0
+  Downloaded zeroize v1.9.1
+  Downloaded mac_address v1.2.1
+  Downloaded inventory v0.3.25
+  Downloaded cpufeatures v0.3.1
+  Downloaded proc-macro-error3 v3.1.1
+  Downloaded toml_datetime v1.1.2+spec-1.1.0
+  Downloaded borsh-derive v1.8.1
+  Downloaded hermit-abi v0.5.3
+  Downloaded core_detect v1.0.0
+  Downloaded rustls-native-certs v0.8.5
+  Downloaded blocking v1.7.0
+  Downloaded wasm-bindgen v0.2.129
+  Downloaded uuid v1.28.0
+  Downloaded toml_parser v1.1.5+spec-1.1.0
+  Downloaded schannel v0.1.30
+  Downloaded redox_syscall v0.9.5
+  Downloaded toml_edit v0.25.17+spec-1.1.0
+  Downloaded js-sys v0.3.106
+  Downloaded wasm-bindgen-macro-support v0.2.129
+  Downloaded cc v1.9.0
+  Downloaded rust_decimal v1.43.0
+  Downloaded unicode-normalization v0.1.26
+  Downloaded bigdecimal v0.4.11
+  Downloaded h2 v0.4.20
+  Downloaded aws-lc-rs v1.18.2
+  Downloaded rustls v0.23.46
+  Downloaded encoding_rs v0.8.42
+  Downloaded web-sys v0.3.106
+  Downloaded libc v0.2.191
+  Downloaded aws-lc-sys v0.46.0

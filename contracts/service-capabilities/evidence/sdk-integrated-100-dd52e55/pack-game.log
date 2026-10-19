@@ -1,0 +1,211 @@
+[
+  {
+    "id": "@faiber/faiber-game-sdk@1.0.0",
+    "name": "@faiber/faiber-game-sdk",
+    "version": "1.0.0",
+    "size": 17746,
+    "unpackedSize": 61120,
+    "shasum": "e3f30e6444502b5a48a93eacefad8840e35842d2",
+    "integrity": "sha512-koGvGLhCK2iXq2FWuhD2gQlkpEvAJdDFRqqMC2AzPc/ZfPRXB54IL6Heg/AXFFwQCWCuXPhFd+UBGwNkipwmhQ==",
+    "filename": "faiber-faiber-game-sdk-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 995,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 15523,
+        "mode": 420
+      },
+      {
+        "path": "dist/assets.d.ts",
+        "size": 541,
+        "mode": 420
+      },
+      {
+        "path": "dist/assets.d.ts.map",
+        "size": 616,
+        "mode": 420
+      },
+      {
+        "path": "dist/assets.js",
+        "size": 437,
+        "mode": 420
+      },
+      {
+        "path": "dist/assets.js.map",
+        "size": 674,
+        "mode": 420
+      },
+      {
+        "path": "dist/ecs.d.ts",
+        "size": 973,
+        "mode": 420
+      },
+      {
+        "path": "dist/ecs.d.ts.map",
+        "size": 1256,
+        "mode": 420
+      },
+      {
+        "path": "dist/ecs.js",
+        "size": 1138,
+        "mode": 420
+      },
+      {
+        "path": "dist/ecs.js.map",
+        "size": 1799,
+        "mode": 420
+      },
+      {
+        "path": "dist/engine.d.ts",
+        "size": 1142,
+        "mode": 420
+      },
+      {
+        "path": "dist/engine.d.ts.map",
+        "size": 1101,
+        "mode": 420
+      },
+      {
+        "path": "dist/engine.js",
+        "size": 2916,
+        "mode": 420
+      },
+      {
+        "path": "dist/engine.js.map",
+        "size": 3652,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 263,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 270,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 261,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 268,
+        "mode": 420
+      },
+      {
+        "path": "dist/match.d.ts",
+        "size": 1000,
+        "mode": 420
+      },
+      {
+        "path": "dist/match.d.ts.map",
+        "size": 855,
+        "mode": 420
+      },
+      {
+        "path": "dist/match.js",
+        "size": 1621,
+        "mode": 420
+      },
+      {
+        "path": "dist/match.js.map",
+        "size": 1681,
+        "mode": 420
+      },
+      {
+        "path": "dist/quality.d.ts",
+        "size": 1176,
+        "mode": 420
+      },
+      {
+        "path": "dist/quality.d.ts.map",
+        "size": 1096,
+        "mode": 420
+      },
+      {
+        "path": "dist/quality.js",
+        "size": 2562,
+        "mode": 420
+      },
+      {
+        "path": "dist/quality.js.map",
+        "size": 3376,
+        "mode": 420
+      },
+      {
+        "path": "dist/renderer.d.ts",
+        "size": 1426,
+        "mode": 420
+      },
+      {
+        "path": "dist/renderer.d.ts.map",
+        "size": 1248,
+        "mode": 420
+      },
+      {
+        "path": "dist/renderer.js",
+        "size": 2270,
+        "mode": 420
+      },
+      {
+        "path": "dist/renderer.js.map",
+        "size": 2801,
+        "mode": 420
+      },
+      {
+        "path": "dist/state.d.ts",
+        "size": 712,
+        "mode": 420
+      },
+      {
+        "path": "dist/state.d.ts.map",
+        "size": 682,
+        "mode": 420
+      },
+      {
+        "path": "dist/state.js",
+        "size": 629,
+        "mode": 420
+      },
+      {
+        "path": "dist/state.js.map",
+        "size": 800,
+        "mode": 420
+      },
+      {
+        "path": "dist/wasm.d.ts",
+        "size": 454,
+        "mode": 420
+      },
+      {
+        "path": "dist/wasm.d.ts.map",
+        "size": 538,
+        "mode": 420
+      },
+      {
+        "path": "dist/wasm.js",
+        "size": 814,
+        "mode": 420
+      },
+      {
+        "path": "dist/wasm.js.map",
+        "size": 1169,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 385,
+        "mode": 420
+      }
+    ],
+    "entryCount": 39,
+    "bundled": []
+  }
+]

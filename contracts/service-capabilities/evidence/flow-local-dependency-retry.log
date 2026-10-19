@@ -1,0 +1,10 @@
+error: failed to load source for dependency `infera-flow-sdk`
+
+Caused by:
+  Unable to update /Users/mohammadralizadeh/Infera/.task-worktrees/flow-local-6fe84352/faiber-sdk/crates/infera-flow-sdk
+
+Caused by:
+  failed to read `/Users/mohammadralizadeh/Infera/.task-worktrees/flow-local-6fe84352/faiber-sdk/crates/infera-flow-sdk/Cargo.toml`
+
+Caused by:
+  No such file or directory (os error 2)

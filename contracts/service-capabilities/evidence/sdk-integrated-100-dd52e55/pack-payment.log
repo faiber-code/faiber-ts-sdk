@@ -1,0 +1,131 @@
+[
+  {
+    "id": "@faiber/faiber-payment@1.0.0",
+    "name": "@faiber/faiber-payment",
+    "version": "1.0.0",
+    "size": 18150,
+    "unpackedSize": 127154,
+    "shasum": "921605925a6d5d7c68b81b1884c6a5c5a4fc5cd9",
+    "integrity": "sha512-dq8goo1d2UURScAKSFr7CIch0eKLNcW+mgq/Mz4StugOicBPcY69w9aHsglbcK8U8TfkD6YgvrYWxXv3WcthLw==",
+    "filename": "faiber-faiber-payment-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 3786,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 13389,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.d.ts",
+        "size": 1793,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.d.ts.map",
+        "size": 1585,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.js",
+        "size": 54,
+        "mode": 420
+      },
+      {
+        "path": "dist/contracts.types.js.map",
+        "size": 122,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 2649,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 1222,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 1649,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 1745,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts",
+        "size": 27540,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts.map",
+        "size": 2984,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js",
+        "size": 26919,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js.map",
+        "size": 6648,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts",
+        "size": 18193,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts.map",
+        "size": 12638,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js",
+        "size": 55,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js.map",
+        "size": 124,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 1819,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts.map",
+        "size": 1718,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 44,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js.map",
+        "size": 102,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 376,
+        "mode": 420
+      }
+    ],
+    "entryCount": 23,
+    "bundled": []
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "name": "infera-private-sdk-verification",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@faiber/faiber-asset": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-asset-1.0.0.tgz",
+    "@faiber/faiber-chat": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-chat-1.0.0.tgz",
+    "@faiber/sdk-core": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-sdk-core-1.0.0.tgz",
+    "@faiber/faiber-crm": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-crm-1.0.0.tgz",
+    "@faiber/faiber-drm": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-drm-1.0.0.tgz",
+    "@faiber/faiber-flow": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-flow-1.0.0.tgz",
+    "@faiber/faiber-game-sdk": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-game-sdk-1.0.0.tgz",
+    "@faiber/faiber-idp": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-idp-1.0.0.tgz",
+    "@faiber/faiber-knowledge": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-knowledge-1.0.0.tgz",
+    "@faiber/faiber-lms": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-lms-1.0.0.tgz",
+    "@faiber/faiber-manage": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-manage-1.0.0.tgz",
+    "@faiber/faiber-messenger": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-messenger-1.0.0.tgz",
+    "@faiber/faiber-modules": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-modules-1.0.0.tgz",
+    "@faiber/faiber-payment": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-payment-1.0.0.tgz",
+    "@faiber/faiber-profile": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-profile-1.0.0.tgz",
+    "@faiber/faiber-reservation": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-reservation-1.0.0.tgz",
+    "@faiber/faiber-ts-sdk": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-ts-sdk-1.0.0.tgz",
+    "@faiber/faiber-session": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-session-1.0.0.tgz",
+    "@faiber/faiber-social": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-social-1.0.0.tgz",
+    "@faiber/faiber-state-sdk": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-state-sdk-1.0.0.tgz",
+    "@faiber/faiber-task": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-task-1.0.0.tgz",
+    "@faiber/faiber-version": "file:/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/tarballs/faiber-faiber-version-1.0.0.tgz"
+  }
+}

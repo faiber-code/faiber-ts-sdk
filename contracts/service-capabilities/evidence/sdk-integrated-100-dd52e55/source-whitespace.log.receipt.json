@@ -1,0 +1,21 @@
+{
+  "kind": "successful_silent_command_receipt",
+  "command": {
+    "id": "source-whitespace",
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "b11672d"
+    ],
+    "cwd": "/Users/mohammadralizadeh/Infera/.task-worktrees/sdk-integration-20261019/faiber-ts-sdk",
+    "exit_code": 0,
+    "duration_seconds": 0.152,
+    "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-integrated-1.0.0-2026-10-19/generation-safe/source-whitespace.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "original_empty_log": "evidence/sdk-integrated-100-dd52e55/source-whitespace.log",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "meaning": "The captured successful command emitted no output; its original empty stdout/stderr log remains retained unchanged."
+}

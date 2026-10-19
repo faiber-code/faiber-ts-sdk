@@ -1,0 +1,4 @@
+    Updating crates.io index
+    Updating git repository `https://hamgit.ir/faiber/faiber-sdk.git`
+error: the lock file /Users/mohammadralizadeh/Infera/.task-worktrees/flow-local-6fe84352/infera-flow/Cargo.lock needs to be updated but --locked was passed to prevent this
+If you want to try to generate the lock file without accessing the network, remove the --locked flag and use --offline instead.

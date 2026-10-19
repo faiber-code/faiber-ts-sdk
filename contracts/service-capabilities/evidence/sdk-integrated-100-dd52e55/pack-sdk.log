@@ -1,0 +1,71 @@
+[
+  {
+    "id": "@faiber/faiber-ts-sdk@1.0.0",
+    "name": "@faiber/faiber-ts-sdk",
+    "version": "1.0.0",
+    "size": 24789,
+    "unpackedSize": 109790,
+    "shasum": "830f49e9d67bce09db0a2a7e2f581519ebbbdc7f",
+    "integrity": "sha512-yvqWPLyBP99NVkH9KPeCkrUk4dOwMtlcVuRhxsmC1V2NnoDEif7aMn3Qc9ukESh9XVVh7yU0lHgdTbnPnRGwlQ==",
+    "filename": "faiber-faiber-ts-sdk-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 3692,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 30281,
+        "mode": 420
+      },
+      {
+        "path": "dist/capabilities.d.ts",
+        "size": 13123,
+        "mode": 420
+      },
+      {
+        "path": "dist/capabilities.d.ts.map",
+        "size": 985,
+        "mode": 420
+      },
+      {
+        "path": "dist/capabilities.js",
+        "size": 10491,
+        "mode": 420
+      },
+      {
+        "path": "dist/capabilities.js.map",
+        "size": 4204,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 30142,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 4404,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 5623,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 5708,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 1137,
+        "mode": 420
+      }
+    ],
+    "entryCount": 11,
+    "bundled": []
+  }
+]

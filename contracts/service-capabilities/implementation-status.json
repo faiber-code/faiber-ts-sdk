@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T13:12:20Z",
+  "updated_at": "2026-10-19T13:30:19Z",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
@@ -30,7 +30,8 @@
     },
     "discovery_gate": {
       "status": "blocked",
-      "blocker_count": 2170
+      "blocker_count": 2171,
+      "latest_artifact": "evidence/discovery-gate-after-sdk-integration.json"
     },
     "knowledge_canonical_unit": {
       "schema_version": "1.0",
@@ -150,19 +151,60 @@
       "scope": "local compile check only"
     },
     "flow_run_history": {
-      "status": "not_executed_dependency_blocked",
-      "tests_executed": 0,
-      "exit_code": 101,
-      "reason": "Missing slug; direct SSL timeout and configured mirror unreachable",
-      "implementation_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85"
+      "schema_version": "1.0",
+      "kind": "local_unit_regression",
+      "status": "passed",
+      "command": "cargo test --locked --offline --lib",
+      "exit_code": 0,
+      "tests_executed": 13,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "source_unchanged_during_run": true,
+      "source_revisions": {
+        "flow": "6fe84352982f97e3f56cd750376a88f4e9ac0a85"
+      },
+      "artifact_path": "evidence/flow-source-unit-retry.json",
+      "artifact_sha256": "371fcefb0d344d59570cf8f7990cf45797609ad82973e06ac0e7f70368d61a35",
+      "additional_artifacts": [
+        {
+          "artifact_path": "evidence/flow-source-unit-retry.log",
+          "sha256": "4145f0c98c1f8c7b5bd1b273004334eca499a62c403043b65f868ecd9868366c"
+        },
+        {
+          "artifact_path": "evidence/flow-source-unit-resolved.Cargo.lock",
+          "sha256": "9f185e6b78b467cab9414b6101452aeee84484513225608edf143958da17f180"
+        }
+      ],
+      "duration_seconds": 128.131,
+      "scope": "Explicit immutable service source revision plus recorded resolved lock when required; actual resolved package directories including git/local RustSDK and registry inputs. Unit tests only; not real database, gateway, crash/replay, cross-service workflow, migration, canonical merge or rollout acceptance.",
+      "canonical_certification": false,
+      "canonical_source_tests": false
     },
     "social_canonical_unit": {
-      "source_revision": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
-      "status": "not_executed_dependency_blocked",
-      "command": "cargo test --offline --lib",
-      "exit_code": 101,
-      "tests_executed": 0,
-      "reason": "async-trait 0.1.91 not cached; original checkout lock restored"
+      "schema_version": "1.0",
+      "kind": "canonical_unit_regression",
+      "status": "passed",
+      "command": "cargo test --locked --offline --lib",
+      "exit_code": 0,
+      "tests_executed": 6,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "source_unchanged_during_run": true,
+      "source_revisions": {
+        "social": "79462976a1c07e7ef8eb913d7cc7015dd50f936e"
+      },
+      "artifact_path": "evidence/social-source-unit-retry.json",
+      "artifact_sha256": "6216b067c9c80d9da4b27cf20efcbf0b36ece00163494b83f0a9c049672ab317",
+      "additional_artifacts": [
+        {
+          "artifact_path": "evidence/social-source-unit-retry.log",
+          "sha256": "9819cda343c55712e8318c70a8a43584aeab885a1da2a14619b943837cf491ef"
+        }
+      ],
+      "duration_seconds": 101.688,
+      "scope": "Explicit immutable service source revision plus recorded resolved lock when required; actual resolved package directories including git/local RustSDK and registry inputs. Unit tests only; not real database, gateway, crash/replay, cross-service workflow, migration, canonical merge or rollout acceptance.",
+      "canonical_certification": false,
+      "canonical_source_tests": true
     },
     "reservation_provider_capacity": {
       "status": "passed",
@@ -316,6 +358,328 @@
       "reason": "Missing cached csv dependency; isolated online fetch stopped after repeated crates.io SSL connection timeouts",
       "local_service_checkout_modified": false,
       "cache_recheck": "csv crate remains absent from local cache; tests still unexecuted"
+    },
+    "sdk_integrated_100_technical": {
+      "schema_version": "1.0",
+      "kind": "sdk_frozen_technical_integration",
+      "status": "passed",
+      "command": "python3 scripts/verify-integrated-sdk.py",
+      "exit_code": 0,
+      "tests_executed": 111,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "source_revisions": {
+        "sdk": "dd52e5597f53d4a16c1c9d0e4b2bc43a6eaa5726",
+        "agentic": "84a0e9a95d274a655aae052988915ffc74401942",
+        "manage": "bfb5096432bd72bb5d8b920c304309bab9c2928b"
+      },
+      "source_unchanged_during_run": true,
+      "artifact_path": "evidence/sdk-integrated-100-dd52e55/verification.json",
+      "artifact_sha256": "4c54208957fdc3eaf437de98a2bc139432a6dd4a052680ebe227ad3d6a83b3e6",
+      "additional_artifacts": [
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/install.log",
+          "sha256": "74b5e167c5eacf2c4a683bd7558960640bddbd5e30f88efb24afdbad1b1f5feb"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/build.log",
+          "sha256": "ba1d13e113ff487ce6af907c97d1f4cb18e8476ffc52b703f0757cf0fa9f200c"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/types-and-tests.log",
+          "sha256": "52613c8e6e70d7a11f961247ed6483231b815c5d169830710a631d8787bf72cc"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/audit.log",
+          "sha256": "1b8ad3596055b38ae45725c7c64173a56c8479e09b564f4024604e450f183d09"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-dry-run.log",
+          "sha256": "31f3c2602e749f2748f8f3ec2a18c78fa578d6ca32b91c7fc0a30283756f650d"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/source-whitespace.log.receipt.json",
+          "sha256": "dc35c8951667545ef314a7c7e982b97f14647bdc1c5698989e742db2a8d32226"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/actual-manage-sdk-wire.log",
+          "sha256": "0576d92dececf47422a9ee7969667f05c6f2f8c122f89edbc498f7e1498d0b18"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-asset.log",
+          "sha256": "65cace472651d840bc39a48f67a6bf160be0eb2c2b020cc686c7c641d4c0acd3"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-chat.log",
+          "sha256": "df003008a735da676931f8b11be434573f45bce3a782366e12ddd4916b4d5509"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-core.log",
+          "sha256": "cc203ae2b1fb8b01b208fe9de744147ae79a0e5e139cd36b03d800a1ae077303"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-crm.log",
+          "sha256": "d23895f6d2fa3c481007015c889d91326efdac2d02a9b982e9f6654d78de56ae"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-drm.log",
+          "sha256": "3f6eaeefed54168c771eb201c10afeef21945d5300cf627e82cbb3ccf9600d05"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-flow.log",
+          "sha256": "325c75bc8e96b35b4acb6a872ab4ef162e46d844fd962f0fa6adba06a1d2d15d"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-game.log",
+          "sha256": "4e648203e0e2624902c072bcf8994018e32b893dea8b3e05b7ca6306111da096"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-idp.log",
+          "sha256": "f0f8e5905f8e8b8ef7a061cae9fadabdf999ca329d7dbebacd1ab13d5a4243ac"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-knowledge.log",
+          "sha256": "6e77cb15ffa02505e54c1d2249f6010619675bc96c412161c7143c60bb026ab8"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-lms.log",
+          "sha256": "4e2b0dc4dfb94f6465609eab24f4e6980346ad17d0fbd553af0008dde995653e"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-manage.log",
+          "sha256": "b95a4905a8fb0c60064934b4817681e660d93c9fa7a7793c922da8552b779bdc"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-messenger.log",
+          "sha256": "97e4d6ffa89e3eb08ab6eb844711f87e746fa4c3eb96f9e98d5144cdc2f676e1"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-modules.log",
+          "sha256": "fb6e332c5788f1fe0b554143cccd248b1ca8d81aa207db2af873e2e1aca887b6"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-payment.log",
+          "sha256": "3c53a5e8304cd430cd3ec612a54c91492f96d60ecf0ea5ba35f1561f12c6cedd"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-profile.log",
+          "sha256": "8e5453751f7e27a4e9e0bc26debe7d38fa3a5350ae7a98bc3e9140da53b8eb3d"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-reservation.log",
+          "sha256": "cf50c9f589e380b08865ef98caa947a7a09ed68b4db96e9a061866e842224dc1"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-sdk.log",
+          "sha256": "397c585a3c9b74b36ddebbd23a72c6b5b52eb6ac9f92119dee9e5c1801cbc1bc"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-session.log",
+          "sha256": "e7fab46bf00860b974809a75bf00b3436acfbb4a565d5586ead1c9f21d26bd88"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-social.log",
+          "sha256": "ba4f3fe4833ed44d36cb64bb4d2ea1517b2f9a5162da132a3149c97c57a01fc2"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-state.log",
+          "sha256": "c1a2b642c65b38081c5a37953aba896cc478a943bb3e9b4daa8ecff0cbe27ecc"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-task.log",
+          "sha256": "0cf2eeaec03b554a7fcd1396e687513c87a014eaf4f0ac33747d50d818ce0534"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/pack-version.log",
+          "sha256": "cf708b12427d86bb1162c290465d0e989fdffae41f0534cf2ad40c50b30c5a21"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarball-consumer-install.log",
+          "sha256": "bd4645f4e20fc72cf64f7279054ae19cccfe2b499f08f3fb8563808d6050a661"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarball-consumer-exports.log",
+          "sha256": "efd7f9d30749b9e4c6fc2be92b0b878d33723df3dcd1cf716b2f6973c7334b3c"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarball-consumer-types.log.receipt.json",
+          "sha256": "ce7c7c2561017cca91456a972cf805bcfa9adda54b78f8254360a1ed24d6bd39"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-asset-1.0.0.tgz",
+          "sha256": "dcc38ceab758fcf5242702b5c88e6065cb8c6d851e0d762f0d9f7cede0438d8c"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-chat-1.0.0.tgz",
+          "sha256": "57bcf62f6e5178aebecf94af1847a28cd594fc809e93dfdea240a45795646bac"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-sdk-core-1.0.0.tgz",
+          "sha256": "234f0b11d138dc58b64e3a13317809321bda0338ec35f0ea0c817e6093f0c061"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-crm-1.0.0.tgz",
+          "sha256": "84197f2c3650993463cbd4f3d972d15938f344e5080020a0c1186d02a6d260ea"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-drm-1.0.0.tgz",
+          "sha256": "66e9699ec08bdb8482de78697d1c077d7a611ebc2d32a6d411308dc75ea19b9a"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-flow-1.0.0.tgz",
+          "sha256": "30d4fa323eb06e35fa431c4fe261c9c9d99cf3db9140be4b95ebffa1c4122d70"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-game-sdk-1.0.0.tgz",
+          "sha256": "8864816622ec5e06caca86d6102bcfded770eccfc67ef01d32cbc447c24aa549"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-idp-1.0.0.tgz",
+          "sha256": "3b7196dd33e48b03bd1154d804bdc1851cdae3177ab3dfdc25a378f16145c7ce"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-knowledge-1.0.0.tgz",
+          "sha256": "57221f7043ad85678237362afb230c54fef1a08126791ca9f96ea2d313c7c099"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-lms-1.0.0.tgz",
+          "sha256": "eb89e35a28c2cc8dcc7f859fb3fe029585866bba8d97bc2b464145677a0c14e8"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-manage-1.0.0.tgz",
+          "sha256": "7b7588bf7411a61063b54bf194b8ff0e297202f39434716862efe1dff8f2dbb4"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-messenger-1.0.0.tgz",
+          "sha256": "e8619b6f5a7d7219065b1a488f032ac6f8b02bff6f592d26a488b6b546770db0"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-modules-1.0.0.tgz",
+          "sha256": "bca0b688d088eca89d7d5282a17cfc63cbef1bed914bbd87c9e27fb20f837f00"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-payment-1.0.0.tgz",
+          "sha256": "026764dd2d604d2e6d311eabbce5b4ec54295d63f0eb7f15ee0b8cb3e905e652"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-profile-1.0.0.tgz",
+          "sha256": "a0630d06ff6dbc941da00e6c4e734f3764751208f1bd120ca04b966b7155e16d"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-reservation-1.0.0.tgz",
+          "sha256": "9f1a1a27421a9c60a8665890df5e7acaa1c9bf4e1e94c828e6eeeed8e972fcc6"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-ts-sdk-1.0.0.tgz",
+          "sha256": "309114330b70194f63786ac4cd15eb99dd650cb82fed8217f7a33fa416e21d5b"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-session-1.0.0.tgz",
+          "sha256": "b4bce2411939527d53932a9dc718e83f2effd6d35b07235ade8220c3b530f903"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-social-1.0.0.tgz",
+          "sha256": "ff19836e85e1abcdefeda8f7336a541068e7a6fbdb8493e15c8ea522a9598259"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-state-sdk-1.0.0.tgz",
+          "sha256": "e4e1bfbdb87377eee3b9b2a0e195ca1a40534acc48d527fc3bd8e8b67ba6203e"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-task-1.0.0.tgz",
+          "sha256": "e69c8eaebbc7d3c437c94c86eabe653ced0c84adbae303a740796291dba9652c"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/tarballs/faiber-faiber-version-1.0.0.tgz",
+          "sha256": "0bff4e0b960468632eb5f6447df41c77bb67001b761d1ddb7eccc39448324095"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/consumer/package.json",
+          "sha256": "0d3481713ecd3762a8202cd763bfe5ee232ae31e856397c9d332f30f159fb5b1"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/consumer/package-lock.json",
+          "sha256": "e06ad284662a77146c0f7721828c517d069ff2080509f8b036e0ecbcb1146a3d"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/consumer/tsconfig.json",
+          "sha256": "590508250d4420ecdbe202a8074f43d02dc0753560e28e1eeb1819067f6d15d5"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/consumer/exports.mjs",
+          "sha256": "c34432ed9bbf3f2723a06758e438d8dd48806e44ac65f85603b373a5a4ac31aa"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/PRIVATE-NOT-PUBLISHED.txt",
+          "sha256": "152a275c06280af6a8b2294636e28aaea4dcc55edda5febaee1bea8f33e662a6"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/manage-wire.json",
+          "sha256": "00312a5c88922fd0502496460376d12d410558600958c5195705181e7d2ba505"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/backend/manage-authority-components.log",
+          "sha256": "1ec7c8145936fb136f5992db5cb6aba08aa2d68081e67cb6105b56ca7b2f4822"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/backend/manage-authority-binary.log",
+          "sha256": "9c79ec61106d66761e6040af2a5c29517f6817a3367d1e3c8abe5b840c2c674d"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/backend/agentic-manage-authority.log",
+          "sha256": "0db6190148b17cb398471e9c461f136b4f25041f1a38a14afacadce574d798b2"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/backend/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+          "sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f"
+        },
+        {
+          "artifact_path": "evidence/sdk-integrated-100-dd52e55/backend/infera-agentic-authority-resolved-251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77.Cargo.lock",
+          "sha256": "251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77"
+        }
+      ],
+      "duration_seconds": 35.32,
+      "scope": "Private unpublished1.0.0 technical integration verification. Builds/types/tests/audit/actual tarballs/exports/consumer compilation and scoped Manage wire test do not certify every service capability, current deployed permissions, readable Manage workflows or live Summary provider/billing/browser acceptance. No publication, tag, deployment, instruction publication or memory migration. Credential scan covers listed high-confidence patterns and paths, not every possible secret.111 SDK tests and31 backend tests (not additive to previous repeated runs);22 actual private1.0.0 tarballs and strict installed consumers. Role-handoff current source files/config also remained unchanged. Full semantic/service/Manage and live provider/browser gates remain blocked.",
+      "canonical_certification": false,
+      "package_versions": {
+        "@faiber/faiber-asset": "1.0.0",
+        "@faiber/faiber-chat": "1.0.0",
+        "@faiber/sdk-core": "1.0.0",
+        "@faiber/faiber-crm": "1.0.0",
+        "@faiber/faiber-drm": "1.0.0",
+        "@faiber/faiber-flow": "1.0.0",
+        "@faiber/faiber-game-sdk": "1.0.0",
+        "@faiber/faiber-idp": "1.0.0",
+        "@faiber/faiber-knowledge": "1.0.0",
+        "@faiber/faiber-lms": "1.0.0",
+        "@faiber/faiber-manage": "1.0.0",
+        "@faiber/faiber-messenger": "1.0.0",
+        "@faiber/faiber-modules": "1.0.0",
+        "@faiber/faiber-payment": "1.0.0",
+        "@faiber/faiber-profile": "1.0.0",
+        "@faiber/faiber-reservation": "1.0.0",
+        "@faiber/faiber-ts-sdk": "1.0.0",
+        "@faiber/faiber-session": "1.0.0",
+        "@faiber/faiber-social": "1.0.0",
+        "@faiber/faiber-state-sdk": "1.0.0",
+        "@faiber/faiber-task": "1.0.0",
+        "@faiber/faiber-version": "1.0.0"
+      }
+    },
+    "social_canonical_unit_prior_dependency_attempt": {
+      "source_revision": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
+      "status": "not_executed_dependency_blocked",
+      "command": "cargo test --offline --lib",
+      "exit_code": 101,
+      "tests_executed": 0,
+      "reason": "async-trait 0.1.91 not cached; original checkout lock restored"
+    },
+    "flow_run_history_prior_dependency_attempt": {
+      "status": "not_executed_dependency_blocked",
+      "tests_executed": 0,
+      "exit_code": 101,
+      "reason": "Missing slug; direct SSL timeout and configured mirror unreachable",
+      "implementation_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85"
     }
   },
   "artifacts": {
@@ -489,7 +853,7 @@
     }
   ],
   "local_package_versions": {
-    "faiber-ts-sdk": "1.0.0 (concurrent uncommitted working version; last tested working version0.23.0; not published by this task)",
+    "faiber-ts-sdk": "1.0.0 isolated integration dd52e5597f53d4a16c1c9d0e4b2bc43a6eaa5726: technical checks passed, unpublished; original contributor working tree preserved",
     "infera_version": "0.1.0 (health reports 0.1.1)",
     "infera-control": "1.0.0",
     "infera-flow": "0.1.0"
@@ -561,5 +925,14 @@
     "failed_fetches": 0,
     "existing_working_status_preserved": true
   },
-  "knowledge_canonical_test_note": "The prior missing-csv dependency block is superseded for canonical70b8a217: locked fetch succeeded; all43 unit tests passed at unchanged clean source and436 resolved package directory hashes. No database/crash-recovery/memory migration acceptance follows from these unit tests."
+  "knowledge_canonical_test_note": "The prior missing-csv dependency block is superseded for canonical70b8a217: locked fetch succeeded; all43 unit tests passed at unchanged clean source and436 resolved package directory hashes. No database/crash-recovery/memory migration acceptance follows from these unit tests.",
+  "sdk_integration_checkout": {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/sdk-integration-20261019/faiber-ts-sdk",
+    "branch": "work/knowledge-brain-sdk-integration-20261019",
+    "revision": "dd52e5597f53d4a16c1c9d0e4b2bc43a6eaa5726",
+    "version": "1.0.0",
+    "published": false,
+    "status": "technical_checks_passed_semantic_service_ui_and_live_summary_gates_open",
+    "original_working_tree_preserved": true
+  }
 }

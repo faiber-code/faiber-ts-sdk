@@ -1,0 +1,171 @@
+[
+  {
+    "id": "@faiber/faiber-task@1.0.0",
+    "name": "@faiber/faiber-task",
+    "version": "1.0.0",
+    "size": 55084,
+    "unpackedSize": 472921,
+    "shasum": "9445a13a13771e5cca3bc6baf596d748688f236b",
+    "integrity": "sha512-2APax8JhCTtgZW+h2nyjnxvtgFry91+8O41FRc5JLTJVUBAeHDR1kYPk0D4u08Dv2bWD9LpM4eEZPgw93dw3KQ==",
+    "filename": "faiber-faiber-task-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 8802,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 13908,
+        "mode": 420
+      },
+      {
+        "path": "dist/collaboration.d.ts",
+        "size": 13496,
+        "mode": 420
+      },
+      {
+        "path": "dist/collaboration.d.ts.map",
+        "size": 7996,
+        "mode": 420
+      },
+      {
+        "path": "dist/collaboration.js",
+        "size": 7179,
+        "mode": 420
+      },
+      {
+        "path": "dist/collaboration.js.map",
+        "size": 4270,
+        "mode": 420
+      },
+      {
+        "path": "dist/feedback.d.ts",
+        "size": 8904,
+        "mode": 420
+      },
+      {
+        "path": "dist/feedback.d.ts.map",
+        "size": 6281,
+        "mode": 420
+      },
+      {
+        "path": "dist/feedback.js",
+        "size": 3351,
+        "mode": 420
+      },
+      {
+        "path": "dist/feedback.js.map",
+        "size": 2471,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 10353,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 3705,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 9351,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 6217,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts",
+        "size": 111178,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts.map",
+        "size": 12536,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js",
+        "size": 106534,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js.map",
+        "size": 26625,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts",
+        "size": 43331,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts.map",
+        "size": 30293,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js",
+        "size": 55,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js.map",
+        "size": 124,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 7738,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts.map",
+        "size": 8213,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 44,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js.map",
+        "size": 102,
+        "mode": 420
+      },
+      {
+        "path": "dist/workspace.d.ts",
+        "size": 8513,
+        "mode": 420
+      },
+      {
+        "path": "dist/workspace.d.ts.map",
+        "size": 6264,
+        "mode": 420
+      },
+      {
+        "path": "dist/workspace.js",
+        "size": 2731,
+        "mode": 420
+      },
+      {
+        "path": "dist/workspace.js.map",
+        "size": 1983,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 373,
+        "mode": 420
+      }
+    ],
+    "entryCount": 31,
+    "bundled": []
+  }
+]

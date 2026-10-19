@@ -1,0 +1,111 @@
+[
+  {
+    "id": "@faiber/faiber-flow@1.0.0",
+    "name": "@faiber/faiber-flow",
+    "version": "1.0.0",
+    "size": 13263,
+    "unpackedSize": 77495,
+    "shasum": "699ba5f753bb19859071bb22497c825ed61a0cc7",
+    "integrity": "sha512-uQCYEwFJRHDG1399fUpy6odiqZ4+9zqT/CGlmPNL9LFAx7s1eCRrpEz+2859NhotjRKxKmig/UCEByGelvOrwA==",
+    "filename": "faiber-faiber-flow-1.0.0.tgz",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 2779,
+        "mode": 420
+      },
+      {
+        "path": "dist/.tsbuildinfo",
+        "size": 13171,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts",
+        "size": 1429,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.d.ts.map",
+        "size": 675,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js",
+        "size": 1141,
+        "mode": 420
+      },
+      {
+        "path": "dist/index.js.map",
+        "size": 1250,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts",
+        "size": 13468,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.d.ts.map",
+        "size": 1639,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js",
+        "size": 13152,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.js.map",
+        "size": 3506,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts",
+        "size": 11962,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.d.ts.map",
+        "size": 9128,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js",
+        "size": 55,
+        "mode": 420
+      },
+      {
+        "path": "dist/operations.types.js.map",
+        "size": 124,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts",
+        "size": 1809,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.d.ts.map",
+        "size": 1688,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js",
+        "size": 44,
+        "mode": 420
+      },
+      {
+        "path": "dist/types.js.map",
+        "size": 102,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 373,
+        "mode": 420
+      }
+    ],
+    "entryCount": 19,
+    "bundled": []
+  }
+]
