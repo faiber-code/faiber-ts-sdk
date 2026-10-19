@@ -653,8 +653,8 @@
       "id": "remaining-wildcard-and-inline-mounts",
       "owner": "sdk",
       "required": true,
-      "status": "discovered",
-      "meaning": "Full mounted acceptance must include Session ANY /api/v1/view/{service}/{*path}, CRM ANY /api and /api/{*path} not-found routes, and State inline GET /health. Legacy extraction skips ANY/closures; structural contract audit cannot certify those operations. Typed dynamic-method/path/body/response contracts and actual routing/authorization checks are pending.",
+      "status": "source_mounted_and_sdk_contracts_implemented_runtime_pending",
+      "meaning": "All18 SDK HTTP service inventories now follow their actual mounted source graphs, including Session dynamic peer proxy, CRM explicit legacy404 ANY handlers and exact source-checked State health closure. Named typed operations and safe wildcard encoding are implemented. Actual mounted proxy/fallback/State health runtime acceptance and full per-capability semantics remain pending; generator/transport regression tests alone do not close this gap.",
       "source_refs": [
         "Service/infera-session/src/router.rs",
         "Service/infera-crm/src/router.rs",

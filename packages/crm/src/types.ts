@@ -196,3 +196,6 @@ export interface CrmErrorBody extends JsonObject {
   message: string;
   details: JsonValue;
 }
+
+/** Legacy API fallback always returns404, including for non-GET methods. */
+export interface CrmApiRouteNotFound { error: { code: "api_route_not_found"; message: string } }

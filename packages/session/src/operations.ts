@@ -1,5 +1,10 @@
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
+function wildcardPath(path: Identifier): string {
+  const parts = String(path).split("/");
+  if (parts.some(part => !part || part === "." || part === ".." || /[%?#\\]/.test(part))) throw new TypeError("Wildcard paths require nonempty raw segments without dot traversal, percent escapes, query, fragment or backslash");
+  return parts.map(part => encodeURIComponent(part)).join("/");
+}
 
 export class SessionOperations extends ServiceApi {
   /**
@@ -431,6 +436,22 @@ export class SessionOperations extends ServiceApi {
    */
   roomLivekitWebhookPost(data: T.RoomLivekitWebhookPostInput, options?: RequestOptions<T.RoomLivekitWebhookPostInput>) {
     return this.client.request<T.RoomLivekitWebhookPostResponse, T.RoomLivekitWebhookPostInput>({ ...options, method: "POST", url: `/api/v1/rooms/livekit/webhook`, data: data, headers: { "Content-Type": "application/octet-stream", ...options?.headers } });
+  }
+  /**
+   * Proxy a peer API path through Session with the selected method and at most2MiB request bytes. Supply raw nonempty path segments, not percent-encoded paths, query strings or traversal. Query parameters retain the target API semantics. Returns buffered bytes and full Axios status/headers; use explicit shared-client streaming transport for SSE or media streams. Unknown peers404, missing peer configuration503, oversized bodies413, and upstream transport failures502. This grants no independent peer membership or attendance proof.
+   * Calls `ANY /api/v1/view/{service}/{*path}` through the shared IDP-aware Faiber client.
+   * @param service Backend path identifier `service`.
+   * @param path Backend path identifier `*path`.
+   * @param method HTTP method accepted by the mounted ANY handler; the SDK never sends an ANY verb.
+   * @param data Typed JSON request body.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: authenticated Session actor and current peer permissions; room-scoped Chat/DRM grants are source-limited and downstream checks still apply.
+   */
+  routerProxyViewServiceAny(service: "chat" | "asset" | "profile" | "drm" | "lms", path: string, method: import("@faiber/sdk-core").HttpRequestMethod, data: T.RouterProxyViewServiceAnyInput, params?: T.RouterProxyViewServiceAnyQuery, options?: RequestOptions<T.RouterProxyViewServiceAnyInput>) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    return this.client.request<T.RouterProxyViewServiceAnyResponse, T.RouterProxyViewServiceAnyInput>({ ...options, method: method, url: `/api/v1/view/${encodeURIComponent(service)}/${wildcardPath(path)}`, data: data, params, responseType: "arraybuffer" });
   }
   /**
    * Read the Session process version; does not verify database or media-provider readiness.

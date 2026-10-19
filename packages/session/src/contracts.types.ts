@@ -14,3 +14,11 @@ export interface SessionNotificationState {
   ended: boolean;
 }
 export type SessionNotificationStateResponse = import('@faiber/sdk-core').ApiEnvelope<SessionNotificationState>;
+
+/** Opaque peer transport, not a JSON business model. Set Content-Type for the target API. */
+export type SessionPeerProxyBody = string | Blob | ArrayBuffer | Uint8Array | undefined;
+/** Buffered peer bytes. Streaming peers require explicit streaming transport on the shared client. */
+export type SessionPeerProxyResponse = ArrayBuffer | Uint8Array;
+
+/** Peer query names and value types are defined by the target service operation. */
+export type SessionPeerProxyQuery = import('@faiber/sdk-core').QueryParams;

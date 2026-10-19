@@ -33,6 +33,7 @@ test('extraction respects pub(crate), nested qualified handlers and namespaced p
       await mkdir(join(root, directory, 'src'), { recursive: true });
       await writeFile(join(root, directory, 'src/router.rs'), 'pub fn routes()->Router{Router::new().route("/health",get(status))}\nasync fn status()->Json<String>{unimplemented!()}');
     }
+    await writeFile(join(root, 'infera-task/src/routes.rs'), 'pub fn app()->Router{Router::new().route("/health",get(status))} async fn status()->Json<String>{unimplemented!()}');
     await mkdir(join(root, 'infera-lms/src/report'), { recursive: true });
     await writeFile(join(root, 'infera-lms/src/router.rs'), 'pub fn routes()->Router{Router::new().nest("/api/v1/reports",crate::report::routes::routes())}');
     await writeFile(join(root, 'infera-lms/src/report/routes.rs'), `

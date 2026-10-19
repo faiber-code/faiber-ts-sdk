@@ -499,4 +499,14 @@ export class StateOperations extends ServiceApi {
   connectMatchRealtime(ticket: import("./contracts.types.js").KheradgahConnectionTicket, options?: import("./contracts.types.js").KheradgahRealtimeOptions) {
     return openMatchRealtime(this.client, ticket, options);
   }
+  /**
+   * Read the static State transport and ruleset advertisement. This does not verify persistence, gateway authentication, matches or WebSocket readiness.
+   * Calls `GET /health` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public static process advertisement; deployment gateway policy remains separate.
+   */
+  mainProcessHealthGet(options?: RequestOptions) {
+    return this.client.request<T.MainProcessHealthGetResponse>({ ...options, method: "GET", url: `/health` });
+  }
 }

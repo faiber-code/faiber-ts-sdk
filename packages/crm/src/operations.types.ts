@@ -4,6 +4,12 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 /** Backend response type: api. */
 export type RouterStatusRouteGetResponse = import("./types.js").CrmApiResponse<JsonValue>;
 
+/** Backend response type: api. */
+export type RouterApiNotFoundAnyResponse = import("./types.js").CrmApiRouteNotFound;
+
+/** Backend response type: api. */
+export type RouterApiPathNotFoundAnyResponse = import("./types.js").CrmApiRouteNotFound;
+
 /** Backend query type: ListQuery. */
 export interface ApiActivitiesGetQuery extends QueryParams {
   "cursor"?: string | null;

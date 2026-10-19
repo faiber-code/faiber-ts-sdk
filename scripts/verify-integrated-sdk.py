@@ -43,7 +43,7 @@ def external_inputs():
    metadata=json.loads(supplement.read_text());assert metadata['previous_handoff_sha256']==digest(manifest_path.read_bytes())
    for path in supplement.parent.iterdir():
     if path.is_file():capture(path)
-  for variable in ['INFERA_VERSION_SDK_TEST_REPO','INFERA_SOCIAL_SDK_TEST_REPO','INFERA_IDP_SDK_TEST_REPO','INFERA_MANAGE_IDP_TEST_REPO','INFERA_CONTROL_IDP_AUTH_REPO','INFERA_CHAT_SDK_TEST_REPO']:
+  for variable in ['INFERA_VERSION_SDK_TEST_REPO','INFERA_SOCIAL_SDK_TEST_REPO','INFERA_IDP_SDK_TEST_REPO','INFERA_MANAGE_IDP_TEST_REPO','INFERA_CONTROL_IDP_AUTH_REPO','INFERA_CHAT_SDK_TEST_REPO','INFERA_PROFILE_SUMMARY_TEST_REPO']:
    if not os.environ.get(variable):continue
    source=Path(os.environ[variable]).resolve();revisions[str(source)]=subprocess.check_output(['git','rev-parse','HEAD'],cwd=source,text=True).strip()
    for name in subprocess.check_output(['git','ls-files'],cwd=source,text=True).splitlines():
@@ -99,6 +99,8 @@ def main():
    run('actual-idp-manage-sdk-wire',['python3','scripts/run-idp-sdk-router-tests.py'])
   if os.environ.get('INFERA_CHAT_SDK_TEST_REPO'):
    run('actual-chat-personal-sdk-wire',['python3','scripts/run-chat-personal-sdk-tests.py'])
+  if os.environ.get('INFERA_PROFILE_SUMMARY_TEST_REPO'):
+   run('actual-profile-summary-sdk-wire',['python3','scripts/run-profile-summary-sdk-tests.py'])
   if os.environ.get('INFERA_AUTHORITY_AGENTIC_REPO'):
    run('actual-manage-sdk-wire',['python3','scripts/run-manage-authority-tests.py'])
   packs=OUT/'tarballs';packs.mkdir();version=json.loads((SDK/'package.json').read_text())['version']

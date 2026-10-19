@@ -100,3 +100,7 @@ await api.operations.orderPayPost(checkoutId, { max_total: quote.data.total }, {
 These owner-scoped operations use `/api/v1/shop/checkout/*` and return raw `ShopCheckout` records. Shipping uses camelCase; checkout amounts are integer IRR. Reuse the checkout UUID on retries and retain the configured website Origin for quote, pay and cancel. The server owns prices and rejects stale accepted totals.
 
 `operations.routerListGet({page:1})` lists published storefront products, 100 per page with `hasMore`. `requestSubmitPost` retains administrative request-log behavior; the separate public-form operation submits an idempotent `submission_id` to `website_contact`, `website_newsletter`, or `website_waitlist`. Public forms validate email and field bounds, reject honeypot content and return 429 when rate limited. Website defaults provisioning requires `modules:request:create`.
+
+Wildcard file paths use raw nonempty segments and preserve directory separators.
+Do not pre-encode paths or include dot traversal, percent escapes, query/fragment
+syntax or backslashes; invalid paths fail locally before transport.

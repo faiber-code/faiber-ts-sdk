@@ -54,7 +54,7 @@ const stableOperationNames = {
 };
 const operationPurpose = endpoint => endpoint.handler.replace(/_/g, " ");
 const placeholders = path => [...path.matchAll(/\{([^}]+)\}/g)].map(match => match[1]);
-const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${encodeURIComponent(${camel(name)})}`)}\``;
+const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${${name.startsWith('*')?'wildcardPath':'encodeURIComponent'}(${camel(name)})}`)}\``;
 
 // Hand-audited response contracts for handlers that intentionally build serde_json::Value or
 // return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
@@ -371,6 +371,13 @@ for (const [service, endpoints] of Object.entries(manifest)) {
   const operationLines = [
     'import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";',
     'import type * as T from "./operations.types.js";',
+    ...(endpoints.some(endpoint=>endpoint.path.includes('{*')) ? [
+      'function wildcardPath(path: Identifier): string {',
+      '  const parts = String(path).split("/");',
+      '  if (parts.some(part => !part || part === "." || part === ".." || /[%?#\\\\]/.test(part))) throw new TypeError("Wildcard paths require nonempty raw segments without dot traversal, percent escapes, query, fragment or backslash");',
+      '  return parts.map(part => encodeURIComponent(part)).join("/");',
+      '}',
+    ] : []),
     ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.websocket) ? ['import { openMatchRealtime, openRoomRealtime } from "./match-realtime.js";'] : []),
     ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.idempotencyKey) ? ['import { AxiosHeaders, type RawAxiosHeaders } from "axios";'] : []),
     "",
@@ -383,6 +390,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const methodName = reviewedRelease?.methodName ?? (["task", "chat", "knowledge"].includes(service) ? stableOperationNames[`${endpoint.method} ${endpoint.path}`] : undefined) ?? camel(operationName(endpoint));
     const ids = placeholders(endpoint.path);
     const reviewed = reviewedRelease ?? collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`];
+    if (endpoint.method === "ANY" && !reviewed?.dynamicMethod) throw new Error(`Unreviewed dynamic HTTP method: ${service} ${endpoint.path}`);
     const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
     const dynamicProfileList = service === "profile" && endpoint.module === "profile" &&
       /^(index|manager_index|accountant_index|support_index|consultant_index|teacher_index|student_index|parent_index|other_index)$/.test(endpoint.handler);
@@ -463,6 +471,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       continue;
     }
     const args = ids.map(id => `${camel(id)}: ${reviewed?.pathTypes?.[id] ?? "Identifier"}`);
+    if (endpoint.method === "ANY") args.push('method: import("@faiber/sdk-core").HttpRequestMethod');
     if (hasInput && !optionalChatUpload) args.push(`data: T.${base}Input`);
     if (hasQuery) args.push(`params${reviewed?.requiredQuery ? "" : "?"}: T.${base}Query`);
     if (reviewed?.idempotencyKey) args.push("idempotencyKey: string");
@@ -474,6 +483,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push(`   * Calls \`${endpoint.method} ${endpoint.path}\` through the shared IDP-aware Faiber client.`);
     if (dynamicProfileList) operationLines.push("   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.");
     for (const id of ids) operationLines.push(`   * @param ${camel(id)} Backend path identifier \`${id}\`.`);
+    if (endpoint.method === "ANY") operationLines.push("   * @param method HTTP method accepted by the mounted ANY handler; the SDK never sends an ANY verb.");
     if (reviewed?.idempotencyKey) operationLines.push("   * @param idempotencyKey Stable printable ASCII key (1–128 characters, without spaces); reuse for identical retries.");
     if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.binary ? "binary byte stream" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
     if (hasQuery) operationLines.push("   * @param params Typed query parameters; omitted members retain backend defaults.");
@@ -482,6 +492,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push(`   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: ${permissions}.`);
     operationLines.push("   */");
     operationLines.push(`  ${methodName}(${args.join(", ")}) {`);
+    if (endpoint.method === "ANY") operationLines.push('    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");');
     if (reviewed?.idempotencyKey) {
       operationLines.push('    if (!/^[\\x21-\\x7e]{1,128}$/.test(idempotencyKey)) throw new TypeError("Idempotency-Key must be 1–128 printable ASCII characters without spaces");');
       operationLines.push('    const headers = new AxiosHeaders(options?.headers as RawAxiosHeaders | AxiosHeaders | undefined);');
@@ -491,7 +502,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       ? `{ ...data, ${Object.entries(reviewed.pathFields).map(([field, arg]) => `${JSON.stringify(field)}: String(${arg})`).join(", ")} }` : "data";
     if (optionalChatUpload) {
       operationLines.push(`    return this.client.request<T.${base}Response, T.AttachmentUploadBody>({ ...options, method: "POST", url: ${escapedPath(endpoint.path)}, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });`);
-    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: "${endpoint.method}", url: ${escapedPath(endpoint.path)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
+    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: ${endpoint.method === "ANY" ? "method" : `"${endpoint.method}"`}, url: ${escapedPath(endpoint.path)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");

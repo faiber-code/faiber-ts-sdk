@@ -81,3 +81,22 @@ routerContracts["session:GET /api/v1/integrations/lms/rooms/{id}/notification-st
  auth:"server-only x-infera-lms-token matching LMS_SERVICE_TOKEN; missing configuration returns503, invalid token403",
  purpose:"Observe current room presence and persist the first actual learning start with a transactional outbox event when the source rules are satisfied. Live rooms query LiveKit with a five-second timeout; provider failures return503. Composition rooms use recent client activity. Ended rooms return no present users. This GET may persist state; it is not a write-free health check or proof of unique attendance."
 };
+
+routerContracts["session:ANY /api/v1/view/{service}/{*path}"] = {
+ methodName:"routerProxyViewServiceAny",typeBase:"RouterProxyViewServiceAny",dynamicMethod:true,
+ input:'import("./contracts.types.js").SessionPeerProxyBody',response:'import("./contracts.types.js").SessionPeerProxyResponse',binaryDownload:true,
+ query:'import("./contracts.types.js").SessionPeerProxyQuery',
+ pathTypes:{service:'"chat" | "asset" | "profile" | "drm" | "lms"',"*path":"string"},
+ auth:"authenticated Session actor and current peer permissions; room-scoped Chat/DRM grants are source-limited and downstream checks still apply",
+ purpose:"Proxy a peer API path through Session with the selected method and at most2MiB request bytes. Supply raw nonempty path segments, not percent-encoded paths, query strings or traversal. Query parameters retain the target API semantics. Returns buffered bytes and full Axios status/headers; use explicit shared-client streaming transport for SSE or media streams. Unknown peers404, missing peer configuration503, oversized bodies413, and upstream transport failures502. This grants no independent peer membership or attendance proof."
+};
+for (const path of ["/api","/api/{*path}"]) routerContracts[`crm:ANY ${path}`] = {
+ methodName:path==="/api"?"routerApiNotFoundAny":"routerApiPathNotFoundAny",typeBase:path==="/api"?"RouterApiNotFoundAny":"RouterApiPathNotFoundAny",dynamicMethod:true,
+ pathTypes:{"*path":"string"},response:'import("./types.js").CrmApiRouteNotFound',
+ auth:"not-found response only; no success capability or permission grant",
+ purpose:"Return the structured404 for an unregistered legacy API path with the chosen HTTP method. Axios rejects404 by default; use validateStatus only when intentionally inspecting the error envelope. Does not create or modify a CRM resource."
+};
+routerContracts["state:GET /health"]={methodName:"mainProcessHealthGet",typeBase:"MainProcessHealthGet",
+ response:'import("./contracts.types.js").StateProcessHealthResponse',auth:"public static process advertisement; deployment gateway policy remains separate",
+ purpose:"Read the static State transport and ruleset advertisement. This does not verify persistence, gateway authentication, matches or WebSocket readiness."
+};

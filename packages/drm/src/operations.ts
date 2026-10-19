@@ -1,5 +1,10 @@
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
+function wildcardPath(path: Identifier): string {
+  const parts = String(path).split("/");
+  if (parts.some(part => !part || part === "." || part === ".." || /[%?#\\]/.test(part))) throw new TypeError("Wildcard paths require nonempty raw segments without dot traversal, percent escapes, query, fragment or backslash");
+  return parts.map(part => encodeURIComponent(part)).join("/");
+}
 
 export class DrmOperations extends ServiceApi {
   /**
@@ -983,7 +988,7 @@ export class DrmOperations extends ServiceApi {
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: drm:package:read.
    */
   routerPackageFileGet(packageId: Identifier, path: Identifier, options?: RequestOptions) {
-    return this.client.request<T.RouterPackageFileGetResponse>({ ...options, method: "GET", url: `/api/v1/packages/${encodeURIComponent(packageId)}/files/${encodeURIComponent(path)}` });
+    return this.client.request<T.RouterPackageFileGetResponse>({ ...options, method: "GET", url: `/api/v1/packages/${encodeURIComponent(packageId)}/files/${wildcardPath(path)}` });
   }
   /**
    * Performs the status operation for the router capability.

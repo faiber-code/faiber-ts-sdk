@@ -1,0 +1,371 @@
+diff --git a/tests/run-summary-rest-sdk.sh b/tests/run-summary-rest-sdk.sh
+new file mode 100755
+index 0000000..891fad5
+--- /dev/null
++++ b/tests/run-summary-rest-sdk.sh
+@@ -0,0 +1,15 @@
++#!/usr/bin/env bash
++# Real mounted Profile/compiled SDK acceptance. Disposable local dependencies only.
++set -euo pipefail
++repo="$(cd "$(dirname "$0")/.." && pwd)"
++: "${SUMMARY_SDK_PACKAGE_ENTRY:?Set this to the isolated compiled @faiber/faiber-profile dist/index.js}"
++project="profile-rest-sdk-$$"
++compose=(docker compose -p "$project" -f "$repo/tests/summary-services.compose.yml")
++trap '"${compose[@]}" down --remove-orphans' EXIT
++"${compose[@]}" up -d --wait --pull never
++pg_port="$("${compose[@]}" port postgres 5432 | sed 's/.*://')"
++rmq_port="$("${compose[@]}" port rabbitmq 5672 | sed 's/.*://')"
++export SUMMARY_TEST_DATABASE_URL="postgres://postgres:summary-test@127.0.0.1:$pg_port/summary_test"
++export SUMMARY_TEST_BROKER_URL="amqp://guest:guest@127.0.0.1:$rmq_port/%2f"
++export SUMMARY_SDK_CONSUMER="$repo/tests/summary-rest-sdk.mjs"
++cargo test --manifest-path "$repo/Cargo.toml" --locked --offline --test summary_rest_sdk -- --ignored --nocapture
+diff --git a/tests/summary-rest-sdk.mjs b/tests/summary-rest-sdk.mjs
+new file mode 100644
+index 0000000..7709836
+--- /dev/null
++++ b/tests/summary-rest-sdk.mjs
+@@ -0,0 +1,71 @@
++// Actual compiled SDK -> mounted Profile HTTP. All data belongs to disposable fixtures.
++import assert from 'node:assert/strict';
++import {pathToFileURL} from 'node:url';
++const {FaiberClient,ProfileApi}=await import(pathToFileURL(process.env.SUMMARY_SDK_PACKAGE_ENTRY).href);
++const f=JSON.parse(process.env.SUMMARY_REST_FIXTURE);
++let assertions=0;const covered=new Set();const wire=[];
++function check(value,message){assert.ok(value,message);assertions++;}
++function client(permissions,user=f.user_id){return new ProfileApi(new FaiberClient('profile',{domains:{profile:f.url},axios:{proxy:false,timeout:15000,headers:{'x-user-id':user,'x-user-roles':'parent','x-user-permissions':permissions.map(p=>'profile:ai_summary:'+p).join(',')}}})).summaries;}
++const configureOwn=client(['configure','read_own']);
++const admin=client(['configure','manage','read_all']),own=client(['read_own']),all=client(['read_all']),configure=client(['configure']),manage=client(['manage']),none=client([]);
++const expected={settings:['GET','/settings'],updateSettings:['PUT','/settings'],roles:['GET','/roles'],models:['GET','/models'],sources:['GET','/sources'],checkSource:['POST','/sources/lms/check'],configurations:['GET','/configurations'],createConfiguration:['POST','/configurations'],configuration:['GET','/configurations/{id}'],updateConfiguration:['PUT','/configurations/{id}'],validate:['POST','/configurations/{id}/validate'],publish:['POST','/configurations/{id}/publish'],preview:['POST','/configurations/{id}/preview'],setStatus:['PATCH','/configurations/{id}/status'],latest:['GET','/latest'],summaries:['GET','/summaries'],run:['GET','/runs/{id}'],jobs:['GET','/jobs'],refresh:['POST','/refresh'],retry:['POST','/jobs/{id}/retry']};
++async function ok(name,fn,status=200){const r=await fn();check(r.config.method.toUpperCase()===expected[name][0],name+': wire method');check(r.config.url.replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi,'{id}')==='/api/v1/ai-summaries'+expected[name][1],name+': wire path');check(r.status===status,`${name}: status ${r.status}, expected ${status}`);check(r.data.status==='success',`${name}: envelope status`);check(r.data.message==='ok',`${name}: envelope message`);covered.add(name);wire.push({name,status:r.status,method:r.config.method,url:r.config.url,params:r.config.params??null});return r.data.data;}
++async function denied(fn,status=403){try{await fn();assert.fail(`expected ${status}`);}catch(e){check(e.response?.status===status,`error status ${e.response?.status}; expected ${status}: ${e.message}`);check(e.response?.data?.status==='error','business error envelope');check(typeof e.response?.data?.message==='string','business error message retained');}}
++async function fixture(action,data={}){const r=await fetch(f.url+'/__fixture/'+action,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)});check(r.ok,'fixture control success');return r.json();}
++const config={role_id:f.role_id,language:'fa',model_ref:'fixture-model',guidance:'wire fixture only',lookback_days:30,sources:[{source:'lms',required:true,scope:'subject',categories:['attendance'],tools:[],allow_text:false}],metrics:[{key:'attendance',label:{en:'Attendance',fa:'حضور'},description:{en:'Authorized count',fa:'شمارش مجاز'},value_type:'integer',unit:'count',min:null,max:null,enum_values:[],calculation:{mode:'aggregate',aggregate:{source:'lms',category:'attendance',key:'count'}}}],sections:[],refresh:{activity:true,quiet_minutes:10,max_wait_minutes:60,scheduled:false,daily_at:'03:00',timezone:'Asia/Tehran'},budgets:{tool_calls:40,model_rounds:12,timeout_seconds:300,max_input_tokens:64000,max_output_tokens:8000}};
++check((await ok('settings',()=>admin.settings())).globally_enabled===false,'default off');
++const roles=await ok('roles',()=>admin.roles());check(roles.some(r=>r.id===f.role_id),'canonical role UUID returned');
++const models=await ok('models',()=>admin.models());check(models.some(m=>m.model_ref==='fixture-model'&&m.supports_tools),'deterministic catalog');
++const sources=await ok('sources',()=>admin.sources());check(sources.length===6,'six sources');check(sources.find(s=>s.source==='lms').configured===true,'configured URL flag');
++const source=await ok('checkSource',()=>admin.checkSource('lms'));check(source.available&&source.tools.length===4,'real localhost MCP discovery');
++let c=await ok('createConfiguration',()=>admin.createConfiguration({configuration:config}),201);const cid=c.id;check(c.enabled===false&&c.draft_version===1,'new disabled versioned draft');
++await denied(()=>admin.createConfiguration({configuration:config}),409);
++check((await ok('configurations',()=>admin.configurations())).some(x=>x.id===cid),'config list');
++check((await ok('configuration',()=>admin.configuration(cid))).role_id===f.role_id,'configuration id lookup');
++c=await ok('updateConfiguration',()=>admin.updateConfiguration(cid,{configuration:{...config,guidance:'updated over wire'},expected_version:1}));check(c.draft_version===2,'optimistic draft version');
++await denied(()=>admin.updateConfiguration(cid,{configuration:config,expected_version:1}),409);
++await denied(()=>admin.updateConfiguration(cid,{configuration:config}),422);
++check((await ok('validate',()=>admin.validate(cid))).valid===true,'stored draft validation');
++await denied(()=>configure.preview(cid,{user_id:f.user_id}));await denied(()=>configureOwn.preview(cid,{user_id:f.other_user_id}));
++const preview=await ok('preview',()=>admin.preview(cid,{user_id:f.user_id}),202);check(preview.job_id===preview.run_id,'preview receipt IDs');
++check((await ok('run',()=>own.run(preview.run_id))).status==='pending','queued run persisted before execution');
++await fixture('tick');const pr=await ok('run',()=>own.run(preview.run_id));check(pr.preview&&pr.status==='completed','preview completes through deterministic runner');check(pr.result.metrics[0].value==='7','metric envelope persists');
++check((await ok('latest',()=>own.latest({role_id:f.role_id}))).summary===null,'preview did not publish latest while disabled');
++c=await ok('publish',()=>admin.publish(cid));check(c.published_revision===1,'published immutable revision');
++await denied(()=>admin.publish(cid),409);
++const settings=await ok('updateSettings',()=>admin.updateSettings({globally_enabled:true,concurrency_limit:2,retention_days:90}));check(settings.globally_enabled,'PUT persisted settings');
++c=await ok('setStatus',()=>admin.setStatus(cid,{enabled:true}));check(c.enabled,'enable published role');
++const receipt=await ok('refresh',()=>manage.refresh({subjects:[{user_id:f.user_id,role_id:f.role_id}]}),202);check(receipt.queued.length===1,'bounded receipt');
++const duplicate=await ok('refresh',()=>manage.refresh({subjects:[{user_id:f.user_id,role_id:f.role_id}]}),202);check(duplicate.queued[0].job_id===receipt.queued[0].job_id,'duplicates coalesce');
++await denied(()=>manage.refresh({subjects:[]}),422);
++await fixture('tick');await fixture('tick');
++let latest=await ok('latest',()=>own.latest({role_id:f.role_id}));check(latest.summary?.preview===false&&latest.summary?.result?.metrics?.[0]?.value==='7','normal latest from runner');const latestRun=latest.summary.id;
++const seeded=await fixture('seed_history',{configuration_id:cid});const other=seeded.rows.find(x=>x.user_id===f.other_user_id);const foreign=seeded.rows.find(x=>x.deployment==='other-deployment');
++const roleFiltered=await ok('summaries',()=>all.summaries({role_id:f.second_role_id}));check(roleFiltered.total===1&&roleFiltered.items.every(x=>x.role_id===f.second_role_id),'independent role history filter');
++const page=await ok('summaries',()=>own.summaries({role_id:f.role_id,user_id:f.user_id,status:'failed',page:1,per_page:1}));check(page.page===1&&page.per_page===1&&page.total===1&&page.items[0].status==='failed','history filter/count/offset wire');
++const second=await ok('summaries',()=>own.summaries({role_id:f.role_id,status:'failed',page:2,per_page:1}));check(second.total===1&&second.items.length===0,'history second page');
++const scoped=await ok('summaries',()=>all.summaries({user_id:f.other_user_id,role_id:f.role_id,status:'completed'}));check(scoped.items.length>=1&&scoped.items.every(x=>x.subject_user_id===f.other_user_id),'read_all subject filter');
++const ownHistory=await ok('summaries',()=>own.summaries());check(ownHistory.items.every(x=>x.subject_user_id===f.user_id&&x.deployment_id==='integration-test'),'own and deployment forced');check(!ownHistory.items.some(x=>x.id===foreign.id),'foreign deployment omitted');
++await denied(()=>all.run(foreign.id),404);await denied(()=>own.run(other.id));await denied(()=>own.summaries({user_id:f.other_user_id}));await denied(()=>own.latest({user_id:f.other_user_id,role_id:f.role_id}));await denied(()=>configure.run(latestRun));await denied(()=>manage.run(latestRun));
++check((await ok('run',()=>all.run(other.id))).subject_user_id===f.other_user_id,'authorized read_all run');
++await fixture('fail_job',{id:receipt.queued[0].job_id});
++const jobs=await ok('jobs',()=>manage.jobs({user_id:f.user_id,role_id:f.role_id,status:'failed',page:1,per_page:1}));check(jobs.total===1&&jobs.items.length===1,'job query filters');check(!('preview_configuration'in jobs.items[0])&&!('lease_token'in jobs.items[0])&&!('requested_by'in jobs.items[0]),'manage operational redaction');
++check((await ok('jobs',()=>manage.jobs({status:'failed',page:2,per_page:1}))).items.length===0,'job offset page');
++const retry=await ok('retry',()=>manage.retry(receipt.queued[0].job_id),202);check(retry.job_id===receipt.queued[0].job_id,'retry receipt');await denied(()=>manage.retry(retry.job_id),409);
++const pendingJobs=await ok('jobs',()=>manage.jobs({user_id:f.user_id,status:'pending'}));check(pendingJobs.items.some(j=>j.id===retry.job_id&&j.attempts===0&&j.operation_id===null),'retry clears operation and resets attempts');
++await fixture('tick');await fixture('tick');
++const afterRetry=await ok('latest',()=>own.latest({role_id:f.role_id}));check(afterRetry.summary?.id!==latestRun&&afterRetry.summary?.status==='completed','retry completes with new run on coalesced job');
++check((await ok('run',()=>own.run(latestRun))).status==='completed','prior valid run retained after retry');
++const beforePreviewRetry=afterRetry.summary.id;
++await fixture('fail_job',{id:preview.job_id});
++await ok('retry',()=>manage.retry(preview.job_id),202);await fixture('tick');
++const previewJobs=await ok('jobs',()=>manage.jobs({user_id:f.user_id,status:'completed'}));const retriedPreview=previewJobs.items.find(j=>j.id===preview.job_id);
++check(retriedPreview?.preview&&retriedPreview.operation_id!==preview.run_id,'preview retry exposes new operation on job');
++check((await ok('run',()=>own.run(retriedPreview.operation_id))).preview===true,'retried preview is persisted separately');
++check((await ok('latest',()=>own.latest({role_id:f.role_id}))).summary.id===beforePreviewRetry,'preview retry cannot replace latest');
++// All20 public operations deny a subject with no dedicated summary permission.
++const deniedCalls=[()=>none.settings(),()=>none.updateSettings({globally_enabled:false,concurrency_limit:2,retention_days:90}),()=>none.roles(),()=>none.models(),()=>none.sources(),()=>none.checkSource('lms'),()=>none.configurations(),()=>none.createConfiguration({configuration:config}),()=>none.configuration(cid),()=>none.updateConfiguration(cid,{configuration:config,expected_version:2}),()=>none.validate(cid),()=>none.publish(cid),()=>none.preview(cid,{user_id:f.user_id}),()=>none.setStatus(cid,{enabled:false}),()=>none.latest({role_id:f.role_id}),()=>none.summaries(),()=>none.run(latestRun),()=>none.jobs(),()=>none.refresh({subjects:[{user_id:f.user_id,role_id:f.role_id}]}),()=>none.retry(retry.job_id)];
++for(const call of deniedCalls)await denied(call);
++await ok('setStatus',()=>admin.setStatus(cid,{enabled:false}));check((await ok('latest',()=>own.latest({role_id:f.role_id}))).availability==='disabled','disabled latest hides content');check((await ok('run',()=>own.run(latestRun))).id===latestRun,'authorized history survives disable');
++check(covered.size===20,`expected20 SDK methods, got ${covered.size}`);
++console.log(JSON.stringify({status:'passed',assertions,operations:[...covered].sort(),wire,scope:'actual compiled SDK + actual mounted Profile router + real PostgreSQL/RabbitMQ; deterministic IDP/Agentic/evidence fixtures; trusted gateway headers are test identities, not live authentication'},null,2));
+diff --git a/tests/summary_rest_sdk.rs b/tests/summary_rest_sdk.rs
+new file mode 100644
+index 0000000..9404a66
+--- /dev/null
++++ b/tests/summary_rest_sdk.rs
+@@ -0,0 +1,267 @@
++//! Opt-in integration suite: isolated PostgreSQL schema, real RabbitMQ and MCP,
++//! deterministic IDP and Agentic service doubles. Never points at production by default.
++use axum::{
++    extract::{Path, Query},
++    routing::{get, post},
++    Json, Router,
++};
++use infera_profile::{
++    ai_summary::{methods as m, worker},
++    state::AppState,
++};
++use infera_summary_sdk::{
++    rmcp::{
++        model::CallToolRequestParam,
++        transport::{
++            streamable_http_client::StreamableHttpClientTransportConfig,
++            StreamableHttpClientTransport,
++        },
++        ServiceExt,
++    },
++    server::EvidenceReader,
++    *,
++};
++use sea_orm::{ConnectOptions, ConnectionTrait, Database};
++use serde_json::json;
++use std::sync::{
++    atomic::{AtomicBool, Ordering},
++    Arc, Mutex,
++};
++use uuid::Uuid;
++#[derive(Clone)]
++struct Evidence;
++impl EvidenceReader for Evidence {
++    fn source(&self) -> Source {
++        Source::Lms
++    }
++    async fn read(
++        &self,
++        g: EvidenceGrant,
++        _: String,
++        _: ActivityArguments,
++    ) -> Result<EvidenceEnvelope, String> {
++        Ok(EvidenceEnvelope {
++            contract_version: "1".into(),
++            source: Source::Lms,
++            subject_user_id: g.subject_user_id,
++            scope: g.scope,
++            window_start: g.window_start,
++            cutoff: g.cutoff,
++            coverage: Coverage {
++                source: Source::Lms,
++                status: CoverageStatus::Available,
++                revision: "fixture-v1".into(),
++                reason: None,
++                record_count: 7,
++            },
++            aggregates: [("lms.attendance.count".into(), json!(7))].into(),
++            records: vec![],
++            next_cursor: None,
++            truncated: false,
++        })
++    }
++}
++async fn serve(app: Router) -> String {
++    let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
++    let url = format!("http://{}", listener.local_addr().unwrap());
++    tokio::spawn(async move {
++        axum::serve(listener, app).await.unwrap();
++    });
++    url
++}
++async fn force_poll(s: &AppState) {
++    s.db.execute_unprepared("UPDATE profile_summary_jobs SET next_poll_at=now(),due_at=now()")
++        .await
++        .unwrap();
++}
++#[tokio::test(flavor = "multi_thread", worker_threads = 4)]
++#[ignore = "requires SUMMARY_TEST_DATABASE_URL and SUMMARY_TEST_BROKER_URL; creates and drops only its own schema"]
++async fn mounted_profile_rest_with_compiled_typescript_sdk() {
++    let database =
++        std::env::var("SUMMARY_TEST_DATABASE_URL").expect("dedicated test PostgreSQL URL");
++    assert!(
++        database.contains("summary_test"),
++        "test database name must contain summary_test"
++    );
++    let broker_url = std::env::var("SUMMARY_TEST_BROKER_URL").expect("dedicated test RabbitMQ URL");
++    let schema = format!("summary_test_{}", Uuid::new_v4().simple());
++    let admin = Database::connect(&database).await.unwrap();
++    admin
++        .execute_unprepared(&format!("CREATE SCHEMA {schema}"))
++        .await
++        .unwrap();
++    let mut options = ConnectOptions::new(database);
++    options.set_schema_search_path(&schema).sqlx_logging(false);
++    let db = Database::connect(options).await.unwrap();
++    db.execute_unprepared(include_str!(
++        "../migration/src/m20261019_000021_role_summaries.sql"
++    ))
++    .await
++    .unwrap();
++    db.execute_unprepared("CREATE TABLE profiles(id uuid,user_id uuid,deleted_at timestamptz);CREATE TABLE profile_roles(id uuid,profile_id uuid,role_id uuid,role_name text,created_at timestamptz)").await.unwrap();
++    let user = Uuid::new_v4();
++    let role = Uuid::new_v4();
++    let second = Uuid::new_v4();
++    let other = Uuid::new_v4();
++    let role_list = Arc::new(Mutex::new(vec![
++        json!({"id":role,"name":"arbitrary-role"}),
++        json!({"id":second,"name":"second-role"}),
++    ]));
++    let roles = role_list.clone();
++    let directory = role_list.clone();
++    let member = role_list.clone();
++    let directory_ids = Arc::new(Mutex::new(vec![user, other]));
++    let directory_members = directory_ids.clone();
++    let idp = serve(
++        Router::new()
++            .route(
++                "/api/v1/acl/roles",
++                get(move || {
++                    let roles = roles.clone();
++                    async move { Json(json!({"data":{"roles":*roles.lock().unwrap()}})) }
++                }),
++            )
++            .route(
++                "/api/v1/users",
++                get(
++                    move |Query(query): Query<std::collections::HashMap<String, String>>| {
++                        let roles = directory.clone();
++                        let ids = directory_members.clone();
++                        async move {
++                            let ids = ids.lock().unwrap();
++                            let page = query
++                                .get("page")
++                                .and_then(|p| p.parse::<usize>().ok())
++                                .unwrap_or(1);
++                            let users = ids
++                                .iter()
++                                .skip((page - 1) * 100)
++                                .take(100)
++                                .map(|id| json!({"id":id,"roles":*roles.lock().unwrap()}))
++                                .collect::<Vec<_>>();
++                            Json(json!({"data":{"users":users,"total":ids.len()}}))
++                        }
++                    },
++                ),
++            )
++            .route(
++                "/api/v1/users/{id}",
++                get(move |Path(id): Path<Uuid>| {
++                    let roles = member.clone();
++                    async move {
++                        assert!(id == user || id == other);
++                        Json(json!({"data":{"user":{"id":id,"roles":*roles.lock().unwrap()}}}))
++                    }
++                }),
++            ),
++    )
++    .await;
++    let source = serve(infera_summary_sdk::server::router(Evidence)).await;
++    let failed = Arc::new(AtomicBool::new(false));
++    let should_fail = failed.clone();
++    let pending = Arc::new(AtomicBool::new(false));
++    let should_wait = pending.clone();
++    let runner=serve(Router::new().route("/api/v1/integrations/profile/summaries/models",get(||async{Json(json!({"data":{"models":[{"model_ref":"fixture-model","supports_tools":true}]}}))}))
++ .route("/api/v1/integrations/profile/summaries/runs",post(move|Json(request):Json<RunRequest>|{let failed=should_fail.clone();let pending=should_wait.clone();async move{
++  if pending.load(Ordering::SeqCst){return Json(json!({"data":{"operation_id":request.operation_id,"status":"running","result":null,"coverage":[],"completeness":"unavailable","error":null,"usage":{}}}));}
++  if failed.load(Ordering::SeqCst){return Json(json!({"data":{"operation_id":request.operation_id,"status":"failed","result":null,"coverage":[],"completeness":"unavailable","error":"fixture_required_source_failed","usage":{}}}));}
++  assert_eq!(request.bindings.len(),1);assert_eq!(request.bindings[0].source,Source::Lms);
++  let b=&request.bindings[0];let transport=StreamableHttpClientTransport::with_client(reqwest::Client::new(),StreamableHttpClientTransportConfig::with_uri(b.url.clone()).auth_header(b.grant.clone()));let client=().serve(transport).await.unwrap();
++  let result=client.call_tool(CallToolRequestParam{name:"get_activity_overview".into(),arguments:Some(json!({}).as_object().unwrap().clone())}).await.unwrap();client.cancel().await.unwrap();let evidence:EvidenceEnvelope=serde_json::from_value(result.structured_content.unwrap()).unwrap();
++  Json(json!({"data":{"operation_id":request.operation_id,"status":"completed","result":{"metrics":[{"key":"attendance","value":"7","status":"available","explanation":"هفت سابقه ثبت شده است","evidence_refs":["lms:overview:fixture-v1"]}],"sections":[]},"coverage":[evidence.coverage],"completeness":"complete","error":null,"usage":{"model_rounds":1,"tool_calls":1}}}))
++ }}))).await;
++    for (key, value) in [
++        ("SUMMARY_DEPLOYMENT_ID", "integration-test".to_string()),
++        ("SUMMARY_IDP_URL", idp),
++        ("SUMMARY_IDP_TOKEN", "test".into()),
++        ("SUMMARY_AGENTIC_URL", runner),
++        ("SUMMARY_AGENTIC_TOKEN", "test".into()),
++        ("SUMMARY_FINANCIAL_OWNER_ID", user.to_string()),
++        ("SUMMARY_SERVICE_USER_ID", user.to_string()),
++        ("SUMMARY_LMS_MCP_URL", format!("{source}/mcp")),
++        (
++            "SUMMARY_SIGNING_KEY",
++            "CwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCws".into(),
++        ),
++        (
++            "SUMMARY_VERIFYING_KEY",
++            "Zr5-Myx6RTMyvZ0Kf32wVfXF7xoGraZtmLOftoEMRzo".into(),
++        ),
++        ("FLOW_EVENTS_ENABLED", "false".into()),
++        ("BROKER_URL", broker_url.clone()),
++    ] {
++        std::env::set_var(key, value);
++    }
++    let connection = Arc::new(
++        lapin::Connection::connect(&broker_url, lapin::ConnectionProperties::default())
++            .await
++            .unwrap(),
++    );
++    let channel = Arc::new(connection.create_channel().await.unwrap());
++    let flow = infera_flow_sdk::setup_flow_sdk(channel.clone(), "summary-integration-test").await;
++    let s3 = aws_sdk_s3::config::Builder::new()
++        .behavior_version_latest()
++        .region(aws_sdk_s3::config::Region::new("us-east-1"))
++        .credentials_provider(aws_sdk_s3::config::Credentials::new(
++            "test", "test", None, None, "test",
++        ))
++        .build();
++    let state = AppState {
++        db: Arc::new(db),
++        broker: connection.clone(),
++        broker_channel: channel,
++        s3_client: Arc::new(aws_sdk_s3::Client::from_conf(s3)),
++        dev: Arc::new(false),
++        action_locks: Arc::new(Default::default()),
++        aws_bucket: Arc::new(String::new()),
++        aws_url: Arc::new(String::new()),
++        messenger_queue: Arc::new(String::new()),
++        flow_middleware: flow.middleware,
++    };
++    let control_state = state.clone();
++    let control=Router::new().route("/__fixture/{action}",post(move|Path(action):Path<String>,Json(p):Json<serde_json::Value>| {
++        let state=control_state.clone();
++        async move {
++            match action.as_str() {
++                "tick"=>{force_poll(&state).await;worker::tick(&state).await.unwrap();Json(json!({"ok":true}))},
++                "fail_job"=>{
++                    let id=Uuid::parse_str(p["id"].as_str().unwrap()).unwrap();
++                    state.db.execute(m::sql("UPDATE profile_summary_jobs SET status='failed',last_error='fixture_retry',lease_token=$2,requested_by=$2,preview_configuration=CASE WHEN preview THEN preview_configuration ELSE $3 END WHERE id=$1",vec![id.into(),user.into(),json!({"private":"must-redact"}).into()])).await.unwrap();
++                    Json(json!({"ok":true}))
++                },
++                "seed_history"=>{
++                    let cid=Uuid::parse_str(p["configuration_id"].as_str().unwrap()).unwrap();
++                    let config=m::configuration(&state,cid).await.unwrap()["draft"].clone();
++                    let mut rows=vec![];
++                    for (subject,role_id,status,deployment) in [(user,role,"failed","integration-test"),(other,role,"completed","integration-test"),(user,second,"completed","integration-test"),(user,role,"completed","other-deployment")] {
++                        let id=Uuid::new_v4();
++                        state.db.execute(m::sql("INSERT INTO profile_summary_runs(id,deployment_id,job_id,subject_user_id,role_id,config_revision,configuration,preview,status,window_start,cutoff,result) VALUES($1,$2,$1,$3,$4,1,$5,false,$6,now()-interval '1 day',now(),$7)",vec![id.into(),deployment.into(),subject.into(),role_id.into(),config.clone().into(),status.into(),json!({"marker":deployment}).into()])).await.unwrap();
++                        rows.push(json!({"id":id,"user_id":subject,"role_id":role_id,"status":status,"deployment":deployment}));
++                    }
++                    Json(json!({"rows":rows}))
++                },
++                _=>panic!("unknown local fixture action"),
++            }
++        }
++    }));
++    let app = control.merge(infera_profile::router::routes(&state).with_state(state.clone()));
++    let url = serve(app).await;
++    let consumer =
++        std::env::var("SUMMARY_SDK_CONSUMER").expect("compiled SDK consumer script path");
++    let output=std::process::Command::new("node").arg(consumer)
++        .env("SUMMARY_REST_FIXTURE",json!({"url":url,"user_id":user,"other_user_id":other,"role_id":role,"second_role_id":second}).to_string())
++        .output().unwrap();
++    println!("{}", String::from_utf8_lossy(&output.stdout));
++    eprintln!("{}", String::from_utf8_lossy(&output.stderr));
++    // Always release the disposable schema, also after consumer assertion failure.
++    state.db.close_by_ref().await.unwrap();
++    admin
++        .execute_unprepared(&format!("DROP SCHEMA {schema} CASCADE"))
++        .await
++        .unwrap();
++    assert!(
++        output.status.success(),
++        "Compiled SDK consumer failed: {}",
++        output.status
++    );
++}

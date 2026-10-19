@@ -84,52 +84,52 @@ export type RoutesConfigGetApiV1CollaborationConfigResponse = import("./types.js
 export interface RoutesEventsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend response type: api. */
+/** Backend response type: Value. */
 export type FeedbackAssigneesGetResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackAssignees>;
 
-/** Backend request type: ReviewedIntegrationInput. */
+/** Backend request type: InitializeAttachment. */
 export type FeedbackInitializePostInput = import("./feedback.js").InitializeFeedbackAttachment;
-/** Backend response type: api. */
+/** Backend response type: AttachmentView. */
 export type FeedbackInitializePostResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackAttachment>;
 
-/** Backend response type: api. */
+/** Backend response type: AttachmentView. */
 export type FeedbackCompletePostResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackAttachment>;
 
 /** Backend request type: binary byte stream. */
 export type FeedbackUploadPutInput = Blob | ArrayBuffer | ArrayBufferView;
-/** Backend response type: api. */
+/** Backend response type: AttachmentView. */
 export type FeedbackUploadPutResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackAttachment>;
 
-/** Backend response type: api. */
+/** Backend response type: Value. */
 export type FeedbackCapabilitiesGetResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackCapabilities>;
 
-/** Backend response type: api. */
+/** Backend response type: Value. */
 export type FeedbackGetPolicyGetResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackPolicyResult>;
 
-/** Backend request type: ReviewedIntegrationInput. */
+/** Backend request type: FeedbackPolicy. */
 export type FeedbackPutPolicyPutInput = import("./feedback.js").FeedbackPolicy;
-/** Backend response type: api. */
+/** Backend response type: Value. */
 export type FeedbackPutPolicyPutResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackPolicyResult>;
 
-/** Backend query type: ReviewedIntegrationQuery. */
+/** Backend query type: ListQuery. */
 export type FeedbackIndexGetQuery = import("./feedback.js").FeedbackListQuery;
-/** Backend response type: api. */
+/** Backend response type: RequestPage. */
 export type FeedbackIndexGetResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackPage>;
 
-/** Backend request type: ReviewedIntegrationInput. */
+/** Backend request type: SubmitRequest. */
 export type FeedbackCreatePostInput = import("./feedback.js").SubmitFeedbackRequest;
-/** Backend response type: api. */
+/** Backend response type: Value. */
 export type FeedbackCreatePostResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackRequest>;
 
-/** Backend response type: api. */
+/** Backend response type: RequestDetail. */
 export type FeedbackShowGetResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackDetail>;
 
-/** Backend response type: raw. */
+/** Backend response type: raw-response. */
 export type FeedbackContentGetResponse = ArrayBuffer | Uint8Array;
 
-/** Backend request type: ReviewedIntegrationInput. */
+/** Backend request type: DecideRequest. */
 export type FeedbackDecisionPostInput = import("./feedback.js").DecideFeedbackRequest;
-/** Backend response type: api. */
+/** Backend response type: Value. */
 export type FeedbackDecisionPostResponse = import("./types.js").TaskResponse<import("./feedback.js").FeedbackRequest>;
 
 /** Backend request type: UseGuestLink. */

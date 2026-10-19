@@ -412,18 +412,25 @@ for (const service of services) {
   // These service router graphs have source-reviewed mounts. Follow their actual
   // main/router graph rather than annotation paths or module-prefix guesses. Other
   // services retain their existing extraction until their mounted graphs are reviewed.
-  if (["asset", "idp", "modules", "payment", "profile", "lms", "social", "version", "chat"].includes(service)) {
+  if (services.includes(service)) {
     const indexed = [...fileSources].map(([file,source])=>sourceIndex(source,relativeSource(file)));
     const main=indexed.find(file=>file.path.endsWith("/src/main.rs"));
-    const entry=["social","chat"].includes(service) && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
+    const entry=service==="task" ? {path:"src/routes.rs",function:"app"} : ["social","chat","knowledge","state"].includes(service) && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
       ? {path:"src/main.rs",function:"main",variable:"app"}
       : {path:"src/router.rs",function:"routes"};
     const graph=mountedRouterOperations(indexed,entry);
-    if (graph.unresolved.length || graph.duplicates.length || graph.operations.some(op=>op.unresolved_handler || op.inline_handler)) {
+    const stateHealth = op => service==="state" && op.method==="GET" && op.path==="/health" &&
+      op.inline_handler?.body.replace(/\s/g,"") === 'get(||async{Json(json!({"data":{"service":"infera-state","status":"healthy","transports":["websocket"],"rulesets":["kheradgah.v1"],"wasm":true}}))})';
+    if (graph.unresolved.length || graph.duplicates.length || graph.operations.some(op=>op.unresolved_handler || (op.inline_handler && !stateHealth(op)))) {
       throw new Error(`${service}: mounted source graph requires review: ${JSON.stringify(graph.unresolved)} ${JSON.stringify(graph.duplicates)} ${JSON.stringify(graph.operations.filter(op=>op.unresolved_handler || op.inline_handler))}`);
     }
     const reviewed=[];
     for (const op of graph.operations) {
+      if (stateHealth(op)) {
+        reviewed.push({method:op.method,path:op.path,module:"main",handler:"inline",permissions:[],source:op.source,
+          response:"StateProcessHealth",responseEnvelope:"raw",inline_handler:op.inline_handler});
+        continue;
+      }
       const handlerFile=indexed.find(file=>file.path.replace(/^.*?\/src\//,"").replace(/\.rs$/,"").replace(/\/mod$/,"").replaceAll("/","::")===op.handlerModule);
       if (!handlerFile) throw new Error(`${service}: missing mounted handler source ${op.handlerModule}::${op.handler}`);
       const candidates=endpoints.filter(old=>old.method===op.method && old.handler===op.handler && old.source===op.source);
@@ -435,6 +442,7 @@ for (const service of services) {
       // that exact declaration so role-list schemas and permissions survive.
       const declaration=mountedHandler?`${mountedHandler.attributes}\n${mountedHandler.signature}{${mountedHandler.body}}`:handlerFile.source;
       const signature=handlerSignature(declaration,op.handler);
+      if (service==="session" && op.method==="ANY" && op.handler==="proxy_view_service") { signature.body="OpaqueProxyBody"; signature.query="OpaqueProxyQuery"; }
       if (["asset", "idp", "modules", "payment", "profile", "lms", "version"].includes(service) && op.handler==="status_route") {
         const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
         if (/data\s*:\s*HealthResponse\s*\{/.test(fn?.body??"")) signature.response="HealthResponse";
@@ -446,7 +454,7 @@ for (const service of services) {
         }
       }
       reviewed.push({method:op.method,path:op.path,module:previous?.module??routeModule,handler:op.handler,
-        permissions:permissionAnnotations(declaration).get(op.handler)??op.permissions,source:op.source,
+        permissions:permissionAnnotations(declaration).get(op.handler)??(op.permissions.length?op.permissions:previous?.permissions??[]),source:op.source,
         ...(op.handlerModule!==op.module?{handlerModule:op.handlerModule.split("::").at(-1)}:{}),...signature});
     }
     endpoints.splice(0,endpoints.length,...reviewed);

@@ -1730,6 +1730,13 @@ export interface RoomLivekitWebhookPostResponseData extends JsonObject {
 }
 export type RoomLivekitWebhookPostResponse = RoomLivekitWebhookPostResponseData;
 
+/** Backend request type: OpaqueProxyBody. */
+export type RouterProxyViewServiceAnyInput = import("./contracts.types.js").SessionPeerProxyBody;
+/** Backend query type: OpaqueProxyQuery. */
+export type RouterProxyViewServiceAnyQuery = import("./contracts.types.js").SessionPeerProxyQuery;
+/** Backend response type: no-content. */
+export type RouterProxyViewServiceAnyResponse = import("./contracts.types.js").SessionPeerProxyResponse;
+
 /** Backend response type: api. */
 export type RouterStatusRouteGetHealthResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 

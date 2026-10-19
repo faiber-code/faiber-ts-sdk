@@ -28,7 +28,7 @@ const token = await api.livekitToken(roomId);
 
 ## Complete capability
 
-This package exposes 41 extracted operations from the pinned Session source. Common workflows have concise methods on `api`; generated operations and their named types are exported. Extraction is structural coverage, and does not certify all cross-service workflows.
+This package exposes 42 source-mounted operations. Common workflows have concise methods on `api`; named operation types are exported from `operations.types`. A router's `ANY` filter is exposed as one operation taking an explicit HTTP method.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -41,7 +41,7 @@ This package exposes 41 extracted operations from the pinned Session source. Com
 | `recording` | 4 | `GET`, `POST` |
 | `room` | 19 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `room-state` | 1 | `POST` |
-| `router` | 2 | `GET` |
+| `router` | 3 | `ANY`, `GET` |
 
 Room start, stop, end, playback, recording, webhook, and state-response routes are separate operations so their unusual GET/POST verbs are preserved exactly.
 
@@ -93,3 +93,18 @@ Live rooms consult LiveKit with a five-second bound; composition rooms consult r
 client activity. It is not proof of unique attendance or punctuality. The SDK preserves
 Session's room-client IDs; callers must verify their mapping to canonical IDP users.
 `flowIntegration()` calls the mounted root path `/integration/flow`.
+
+### Peer transport
+
+`operations.routerProxyViewServiceAny("chat", "conversations/owned/messages", "GET", undefined,
+{limit: 20})` uses Session's authenticated peer boundary. Supported peers are `chat`,
+`asset`, `profile`, `drm` and `lms`. Give raw nonempty path segments; embedded slashes
+are preserved, while dot traversal, percent escapes, query/fragment syntax and
+backslashes are rejected before sending. Supply queries separately.
+
+This is opaque transport: use the target service's named business types when preparing
+a JSON string, set the target Content-Type and keep requests under2MiB. This method
+returns buffered `ArrayBuffer`/`Uint8Array` bytes with full Axios status and headers.
+Use the shared client's explicit streaming transport for SSE or media streams.
+Session applies current room/participant rules and the target still checks access;
+this operation does not grant peer membership.

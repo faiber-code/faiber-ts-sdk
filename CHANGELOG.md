@@ -5,7 +5,11 @@
 This source version is pending full service, permission, workflow and consumer
 acceptance. It has not been published by the knowledge-brain implementation task.
 
-- Follow mounted router graphs for Asset, IDP, Modules, Payment, Profile and LMS.
+- Follow the actual mounted router graphs for all18 SDK HTTP service inventories.
+  Add explicit dynamic-method Session peer and CRM fallback operations and named State
+  process health. Preserve wildcard separators while rejecting traversal/ambiguous escapes.
+  Session uses the current notification-state source and root `/integration/flow`.
+- Preserve source-reviewed Asset, IDP, Modules, Payment, Profile and LMS mounts.
   OIDC discovery and `/oauth2/*` use the service root; secure single-use token
   generation requires its target user UUID. Preserve nested shop/inventory/public
   routes, the daily-income route, and macro-defined role-list queries/permissions.

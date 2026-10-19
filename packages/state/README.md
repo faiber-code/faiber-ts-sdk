@@ -31,3 +31,9 @@ const socket = await faiber.state.operations.connectMatchRealtime(connected.data
 ```
 
 Protected HTTP operations inherit the configured token/cookie transport and require `state:execute`. `connectMatchRealtime` performs the WebSocket upgrade, validates the configured State origin and sends the 30-second one-use ticket in the initial hello frame. Acquire a new ticket after reconnecting. `routesRealtimeGet` opens v1 room replication using a scoped `JoinTicket`. WebSocket operations return a connected socket/client; HTTP operations preserve complete Axios responses.
+
+### Process advertisement
+
+`operations.mainProcessHealthGet()` reads `/health` as a typed static advertisement:
+`data.service`, `data.status`, `data.transports`, `data.rulesets` and `data.wasm`.
+It is not a database, match engine, WebSocket or gateway readiness guarantee.

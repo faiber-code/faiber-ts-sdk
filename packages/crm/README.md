@@ -28,12 +28,12 @@ await api.markLeadDone(leadId);
 
 ## Complete capability
 
-This package exposes 90 registered operations from the crm service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 92 source-mounted operations. Common workflows have concise methods on `api`; named operation types are exported from `operations.types`. A router's `ANY` filter is exposed as one operation taking an explicit HTTP method.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `api` | 85 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `router` | 5 | `GET` |
+| `router` | 7 | `ANY`, `GET` |
 
 CRM resources update with `PUT`, not `PATCH`. Workflow nodes and members are created under parent-ID routes; those exact operations are available under `api.operations`.
 
@@ -58,3 +58,12 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+### Legacy API fallback
+
+`operations.routerApiNotFoundAny(method)` and
+`operations.routerApiPathNotFoundAny("obsolete/items", method)` represent explicit
+legacy not-found routes. They always return404 and do not mutate CRM records. Axios
+rejects them by default; intentional diagnostics can use `validateStatus` to inspect
+`{error:{code:"api_route_not_found",message}}`. Nested raw path segments retain slashes;
+traversal, percent escapes, query/fragment syntax and backslashes are rejected locally.

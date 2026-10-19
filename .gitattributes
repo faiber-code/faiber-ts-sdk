@@ -5,3 +5,5 @@ contracts/service-capabilities/evidence/summary-crm-handoff/*.log -whitespace
 contracts/service-capabilities/evidence/summary-source-review-v1/*.log -whitespace
 contracts/service-capabilities/evidence/summary-source-review-v2-supplement/*.log -whitespace
 contracts/service-capabilities/evidence/chat-mounted-sdk-21/*.log -whitespace
+contracts/service-capabilities/evidence/profile-summary-rest-sdk-v1/*.log -whitespace
+contracts/service-capabilities/evidence/profile-summary-current-sdk/*.log -whitespace

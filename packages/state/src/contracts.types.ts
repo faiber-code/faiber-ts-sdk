@@ -31,3 +31,8 @@ export interface KheradgahRealtimeOptions { WebSocket?: typeof WebSocket; signal
 
 export interface GameLobbyJoined { sessionId:string;status:"matched" }
 export type StateRoomRealtimeOptions = import("./realtime.js").RealtimeOptions & { signal?:AbortSignal };
+
+/** Static process advertisement; not a persistence or provider readiness check. */
+export interface StateProcessHealthResponse {
+ data: { service: "infera-state"; status: "healthy"; transports: ["websocket"]; rulesets: ["kheradgah.v1"]; wasm: true };
+}

@@ -1,0 +1,1558 @@
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:84:17
+   |
+84 |     pub fn name(&self) -> Name {
+   |                 ^^^^^     ^^^^ the same lifetime is hidden here
+   |                 |
+   |                 the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+   |
+84 |     pub fn name(&self) -> Name<'_> {
+   |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:106:17
+    |
+106 |     pub fn name(&self) -> Name {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+106 |     pub fn name(&self) -> Name<'_> {
+    |                               ++++
+
+warning: `schemars_derive` (lib) generated 2 warnings (run `cargo fix --lib -p schemars_derive` to apply 2 suggestions)
+warning: hiding a lifetime that's elided elsewhere is confusing
+ --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:6:30
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<str> {
+  |                              ^^^^     ^^^^^^^^ the same lifetime is hidden here
+  |                              |
+  |                              the lifetime is elided here
+  |
+  = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+  = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<'_, str> {
+  |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:43:26
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<str>> {
+   |                          ^^^^            ^^^^^^^^ the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<'_, str>> {
+   |                                              +++
+
+warning: `schemars` (lib) generated 2 warnings (run `cargo fix --lib -p schemars` to apply 2 suggestions)
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:84:7
+   |
+84 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:87:7
+   |
+87 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:112:7
+    |
+112 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:115:7
+    |
+115 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs:53:11
+   |
+53 |     #[cfg(feature = "auth")]
+   |           ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs:17:7
+   |
+17 | #[cfg(feature = "auth")]
+   |       ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:61:39
+   |
+61 |         let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+   |                                       ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:136:47
+    |
+136 |                 let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+    |                                               ^^^^^^^^^^^^^^^^
+
+warning: `rmcp` (lib) generated 8 warnings
+warning: unused imports: `Datelike` and `Timelike`
+ --> src/ai_summary/worker.rs:4:24
+  |
+4 | use chrono::{DateTime, Datelike, Duration, Timelike, Utc};
+  |                        ^^^^^^^^            ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/city/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/country/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused import: `Entity`
+  --> src/log_action/routes.rs:12:39
+   |
+12 | use entity::log_action::{ActiveModel, Entity};
+   |                                       ^^^^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/profile_property/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/province/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused import: `ColumnTrait`
+ --> src/setting/methods.rs:3:51
+  |
+3 | use sea_orm::{ActiveModelTrait, ActiveValue::Set, ColumnTrait, EntityTrait, QueryOrder};
+  |                                                   ^^^^^^^^^^^
+
+warning: unused import: `post`
+ --> src/setting/routes.rs:4:20
+  |
+4 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused import: `post`
+ --> src/survey/routes.rs:4:20
+  |
+4 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused imports: `delete`, `post`, and `put`
+ --> src/trusted_service/routes.rs:4:15
+  |
+4 |     routing::{delete, get, post, put},
+  |               ^^^^^^       ^^^^  ^^^
+
+warning: unused import: `TryGetable`
+ --> src/campaign/routes.rs:8:60
+  |
+8 | use sea_orm::{ConnectionTrait, DatabaseBackend, Statement, TryGetable, Value as DbValue};
+  |                                                            ^^^^^^^^^^
+
+warning: `infera_profile` (lib) generated 11 warnings (run `cargo fix --lib -p infera_profile` to apply 10 suggestions)
+warning: unused import: `chrono::Utc`
+ --> tests/summary_rest_sdk.rs:8:5
+  |
+8 | use chrono::Utc;
+  |     ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `models::*`
+  --> tests/summary_rest_sdk.rs:10:32
+   |
+10 |     ai_summary::{methods as m, models::*, worker},
+   |                                ^^^^^^^^^
+
+warning: function `auth` is never used
+  --> tests/summary_rest_sdk.rs:73:4
+   |
+73 | fn auth(user: Uuid, permissions: &[&str]) -> infera_idp_sdk::AuthContext {
+   |    ^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera_profile` (test "summary_rest_sdk") generated 3 warnings (run `cargo fix --test "summary_rest_sdk" -p infera_profile` to apply 2 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.55s
+     Running tests/summary_rest_sdk.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/summary_rest_sdk-59161f3cd41ffdac)
+
+running 1 test
+
+node:internal/modules/run_main:122
+    triggerUncaughtException(
+    ^
+
+AxiosError: Request failed with status code 422
+    at settle (file:///Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/profile-rest-sdk-v1/consumer/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (file:///Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/profile-rest-sdk-v1/consumer/node_modules/axios/lib/adapters/http.js:1318:13)
+    at IncomingMessage.emit (node:events:536:35)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at Axios.request (file:///Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/profile-rest-sdk-v1/consumer/node_modules/axios/lib/core/Axios.js:48:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ok (file:///Users/mohammadralizadeh/Infera/.task-worktrees/profile-rest-sdk-20261019/infera-profile/tests/summary-rest-sdk.mjs:10:47)
+    at async file:///Users/mohammadralizadeh/Infera/.task-worktrees/profile-rest-sdk-20261019/infera-profile/tests/summary-rest-sdk.mjs:26:8 {
+  isAxiosError: true,
+  code: 'ERR_BAD_REQUEST',
+  config: [Object: null prototype] {
+    transitional: {
+      silentJSONParsing: true,
+      forcedJSONParsing: true,
+      clarifyTimeoutError: false,
+      legacyInterceptorReqResOrdering: true,
+      advertiseZstdAcceptEncoding: false,
+      validateStatusUndefinedResolves: true
+    },
+    adapter: [ 'xhr', 'http', 'fetch' ],
+    transformRequest: [ [Function: transformRequest] ],
+    transformResponse: [ [Function: transformResponse] ],
+    timeout: 15000,
+    xsrfCookieName: 'XSRF-TOKEN',
+    xsrfHeaderName: 'X-XSRF-TOKEN',
+    maxContentLength: -1,
+    maxBodyLength: -1,
+    env: {
+      FormData: [Function: FormData] {
+        LINE_BREAK: '\r\n',
+        DEFAULT_CONTENT_TYPE: 'application/octet-stream'
+      },
+      Blob: [class Blob]
+    },
+    validateStatus: [Function: validateStatus],
+    headers: Object [AxiosHeaders] {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'x-user-id': '52093d99-9cbb-4265-8ac0-8959a9a48a02',
+      'x-user-roles': 'parent',
+      'x-user-permissions': 'profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all',
+      'User-Agent': 'axios/1.20.0',
+      'Accept-Encoding': 'gzip, compress, deflate, br'
+    },
+    allowAbsoluteUrls: false,
+    proxy: false,
+    baseURL: 'http://127.0.0.1:61897',
+    method: 'post',
+    url: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+    data: undefined
+  },
+  request: <ref *4> ClientRequest {
+    _events: [Object: null prototype] {
+      abort: [Function (anonymous)],
+      aborted: [Function (anonymous)],
+      connect: [Function (anonymous)],
+      error: [Function (anonymous)],
+      socket: [Function (anonymous)],
+      timeout: [Function (anonymous)],
+      finish: [Function: requestOnFinish]
+    },
+    _eventsCount: 7,
+    _maxListeners: undefined,
+    outputData: [],
+    outputSize: 0,
+    writable: true,
+    destroyed: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: true,
+    maxRequestsOnConnectionReached: false,
+    _defaultKeepAlive: true,
+    useChunkedEncodingByDefault: true,
+    sendDate: false,
+    _removedConnection: false,
+    _removedContLen: false,
+    _removedTE: false,
+    strictContentLength: false,
+    _contentLength: 0,
+    _hasBody: true,
+    _trailer: '',
+    finished: true,
+    _headerSent: true,
+    _closed: true,
+    _header: 'POST /api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate HTTP/1.1\r\n' +
+      'Accept: application/json, text/plain, */*\r\n' +
+      'Content-Type: application/x-www-form-urlencoded\r\n' +
+      'x-user-id: 52093d99-9cbb-4265-8ac0-8959a9a48a02\r\n' +
+      'x-user-roles: parent\r\n' +
+      'x-user-permissions: profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all\r\n' +
+      'User-Agent: axios/1.20.0\r\n' +
+      'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+      'Host: 127.0.0.1:61897\r\n' +
+      'Connection: keep-alive\r\n' +
+      'Content-Length: 0\r\n' +
+      '\r\n',
+    _keepAliveTimeout: 0,
+    _onPendingData: [Function: nop],
+    agent: Agent {
+      _events: [Object: null prototype] {
+        free: [Function (anonymous)],
+        newListener: [Function: maybeEnableKeylog]
+      },
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 80,
+      protocol: 'http:',
+      options: [Object: null prototype] {
+        keepAlive: true,
+        scheduling: 'lifo',
+        timeout: 5000,
+        noDelay: true,
+        path: null
+      },
+      requests: [Object: null prototype] {},
+      sockets: [Object: null prototype] {},
+      freeSockets: [Object: null prototype] {
+        '127.0.0.1:61897:': [
+          Socket {
+            connecting: false,
+            _hadError: false,
+            _parent: null,
+            _host: null,
+            _closeAfterHandlingError: false,
+            _events: [Object],
+            _readableState: [ReadableState],
+            _writableState: [WritableState],
+            allowHalfOpen: false,
+            _maxListeners: undefined,
+            _eventsCount: 6,
+            _sockname: null,
+            _pendingData: null,
+            _pendingEncoding: '',
+            server: null,
+            _server: null,
+            timeout: 5000,
+            parser: null,
+            _httpMessage: null,
+            [Symbol(async_id_symbol)]: -1,
+            [Symbol(kHandle)]: [TCP],
+            [Symbol(lastWriteQueueSize)]: 0,
+            [Symbol(timeout)]: [Timeout],
+            [Symbol(kBuffer)]: null,
+            [Symbol(kBufferCb)]: null,
+            [Symbol(kBufferGen)]: null,
+            [Symbol(shapeMode)]: true,
+            [Symbol(kCapture)]: false,
+            [Symbol(kSetNoDelay)]: true,
+            [Symbol(kSetKeepAlive)]: true,
+            [Symbol(kSetKeepAliveInitialDelay)]: 1,
+            [Symbol(kBytesRead)]: 0,
+            [Symbol(kBytesWritten)]: 0,
+            [Symbol(axios.http.socketListener)]: true,
+            [Symbol(axios.http.currentReq)]: [Writable]
+          }
+        ]
+      },
+      keepAliveMsecs: 1000,
+      keepAlive: true,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 1,
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false
+    },
+    socketPath: undefined,
+    method: 'POST',
+    maxHeaderSize: undefined,
+    insecureHTTPParser: false,
+    joinDuplicateHeaders: undefined,
+    path: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+    _ended: true,
+    res: IncomingMessage {
+      _events: {
+        close: undefined,
+        error: [Function: handleStreamError],
+        data: [Function: handleStreamData],
+        end: [ [Function: responseOnEnd], [Function: handleStreamEnd] ],
+        readable: undefined,
+        aborted: [Function: handlerStreamAborted]
+      },
+      _readableState: ReadableState {
+        highWaterMark: 65536,
+        buffer: [],
+        bufferIndex: 0,
+        length: 0,
+        pipes: [],
+        awaitDrainWriters: null,
+        [Symbol(kState)]: 194779004
+      },
+      _maxListeners: undefined,
+      socket: null,
+      httpVersionMajor: 1,
+      httpVersionMinor: 1,
+      httpVersion: '1.1',
+      complete: true,
+      rawHeaders: [
+        'content-type',
+        'application/json',
+        'vary',
+        'origin, access-control-request-method, access-control-request-headers',
+        'access-control-allow-credentials',
+        'true',
+        'content-length',
+        '59',
+        'date',
+        'Mon, 19 Oct 2026 16:40:37 GMT'
+      ],
+      rawTrailers: [],
+      joinDuplicateHeaders: undefined,
+      aborted: false,
+      upgrade: false,
+      url: '',
+      method: null,
+      statusCode: 422,
+      statusMessage: 'Unprocessable Entity',
+      client: <ref *1> Socket {
+        connecting: false,
+        _hadError: false,
+        _parent: null,
+        _host: null,
+        _closeAfterHandlingError: false,
+        _events: {
+          close: [Function: onClose],
+          error: [ [Function: handleSocketError], [Function] ],
+          prefinish: undefined,
+          finish: undefined,
+          drain: undefined,
+          data: undefined,
+          end: [Function: onReadableStreamEnd],
+          readable: undefined,
+          connect: undefined,
+          free: [Function: onFree],
+          timeout: [ [Function: onTimeout], [Function (anonymous)] ],
+          agentRemove: [Function: onRemove]
+        },
+        _readableState: ReadableState {
+          highWaterMark: 65536,
+          buffer: [],
+          bufferIndex: 0,
+          length: 0,
+          pipes: [],
+          awaitDrainWriters: null,
+          [Symbol(kState)]: 60303620
+        },
+        _writableState: WritableState {
+          highWaterMark: 65536,
+          length: 0,
+          corked: 0,
+          onwrite: [Function: bound onwrite],
+          writelen: 0,
+          bufferedIndex: 0,
+          pendingcb: 0,
+          [Symbol(kState)]: 17563908,
+          [Symbol(kBufferedValue)]: null,
+          [Symbol(kWriteCbValue)]: null,
+          [Symbol(kAfterWriteTickInfoValue)]: null
+        },
+        allowHalfOpen: false,
+        _maxListeners: undefined,
+        _eventsCount: 6,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: null,
+        _server: null,
+        timeout: 5000,
+        parser: null,
+        _httpMessage: null,
+        [Symbol(async_id_symbol)]: -1,
+        [Symbol(kHandle)]: <ref *2> TCP {
+          reading: true,
+          onconnection: null,
+          [Symbol(owner_symbol)]: [Circular *1],
+          [Symbol(resource_symbol)]: ReusedHandle { type: 40, handle: [Circular *2] }
+        },
+        [Symbol(lastWriteQueueSize)]: 0,
+        [Symbol(timeout)]: <ref *3> Timeout {
+          _idleTimeout: 5000,
+          _idlePrev: TimersList {
+            _idleNext: [Circular *3],
+            _idlePrev: [Circular *3],
+            expiry: 5065,
+            id: -9007199254740991,
+            msecs: 5000,
+            priorityQueuePosition: 1
+          },
+          _idleNext: TimersList {
+            _idleNext: [Circular *3],
+            _idlePrev: [Circular *3],
+            expiry: 5065,
+            id: -9007199254740991,
+            msecs: 5000,
+            priorityQueuePosition: 1
+          },
+          _idleStart: 114,
+          _onTimeout: [Function: bound ],
+          _timerArgs: undefined,
+          _repeat: null,
+          _destroyed: false,
+          [Symbol(refed)]: false,
+          [Symbol(kHasPrimitive)]: false,
+          [Symbol(asyncId)]: 656,
+          [Symbol(triggerId)]: 654,
+          [Symbol(kAsyncContextFrame)]: undefined
+        },
+        [Symbol(kBuffer)]: null,
+        [Symbol(kBufferCb)]: null,
+        [Symbol(kBufferGen)]: null,
+        [Symbol(shapeMode)]: true,
+        [Symbol(kCapture)]: false,
+        [Symbol(kSetNoDelay)]: true,
+        [Symbol(kSetKeepAlive)]: true,
+        [Symbol(kSetKeepAliveInitialDelay)]: 1,
+        [Symbol(kBytesRead)]: 0,
+        [Symbol(kBytesWritten)]: 0,
+        [Symbol(axios.http.socketListener)]: true,
+        [Symbol(axios.http.currentReq)]: Writable {
+          _events: {
+            close: [Function],
+            error: [Function: handleRequestError],
+            prefinish: undefined,
+            finish: undefined,
+            drain: undefined,
+            response: [Function: handleResponse],
+            socket: [Array],
+            timeout: undefined,
+            abort: undefined
+          },
+          _writableState: WritableState {
+            highWaterMark: 65536,
+            length: 0,
+            corked: 0,
+            onwrite: [Function: bound onwrite],
+            writelen: 0,
+            bufferedIndex: 0,
+            pendingcb: 0,
+            [Symbol(kState)]: 17580812,
+            [Symbol(kBufferedValue)]: null
+          },
+          _maxListeners: undefined,
+          _options: {
+            maxRedirects: 21,
+            maxBodyLength: Infinity,
+            protocol: 'http:',
+            path: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+            method: 'POST',
+            headers: [Object: null prototype],
+            agents: [Object],
+            auth: undefined,
+            family: undefined,
+            beforeRedirect: [Function: dispatchBeforeRedirect],
+            beforeRedirects: [Object: null prototype],
+            http2Options: undefined,
+            createConnection: undefined,
+            hostname: '127.0.0.1',
+            port: '61897',
+            agent: undefined,
+            sensitiveHeaders: [],
+            insecureHTTPParser: false,
+            nativeProtocols: [Object],
+            pathname: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate'
+          },
+          _ended: true,
+          _ending: true,
+          _redirectCount: 0,
+          _redirects: [],
+          _requestBodyLength: 0,
+          _requestBodyBuffers: [],
+          _eventsCount: 4,
+          _onNativeResponse: [Function (anonymous)],
+          _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+          _currentRequest: [Circular *4],
+          _currentUrl: 'http://127.0.0.1:61897/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+          _timeout: null,
+          [Symbol(shapeMode)]: true,
+          [Symbol(kCapture)]: false
+        }
+      },
+      _consuming: false,
+      _dumped: false,
+      req: [Circular *4],
+      _eventsCount: 4,
+      responseUrl: 'http://127.0.0.1:61897/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+      redirects: [],
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false,
+      [Symbol(kHeaders)]: {
+        'content-type': 'application/json',
+        vary: 'origin, access-control-request-method, access-control-request-headers',
+        'access-control-allow-credentials': 'true',
+        'content-length': '59',
+        date: 'Mon, 19 Oct 2026 16:40:37 GMT'
+      },
+      [Symbol(kHeadersCount)]: 10,
+      [Symbol(kTrailers)]: null,
+      [Symbol(kTrailersCount)]: 0
+    },
+    aborted: false,
+    timeoutCb: null,
+    upgradeOrConnect: false,
+    parser: null,
+    maxHeadersCount: null,
+    reusedSocket: true,
+    host: '127.0.0.1',
+    protocol: 'http:',
+    _redirectable: Writable {
+      _events: {
+        close: [Function: bound onceWrapper] {
+          listener: [Function: clearCurrentReq]
+        },
+        error: [Function: handleRequestError],
+        prefinish: undefined,
+        finish: undefined,
+        drain: undefined,
+        response: [Function: handleResponse],
+        socket: [
+          [Function: handleRequestSocket],
+          [Function: destroyOnTimeout]
+        ],
+        timeout: undefined,
+        abort: undefined
+      },
+      _writableState: WritableState {
+        highWaterMark: 65536,
+        length: 0,
+        corked: 0,
+        onwrite: [Function: bound onwrite],
+        writelen: 0,
+        bufferedIndex: 0,
+        pendingcb: 0,
+        [Symbol(kState)]: 17580812,
+        [Symbol(kBufferedValue)]: null
+      },
+      _maxListeners: undefined,
+      _options: {
+        maxRedirects: 21,
+        maxBodyLength: Infinity,
+        protocol: 'http:',
+        path: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+        method: 'POST',
+        headers: [Object: null prototype] {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'x-user-id': '52093d99-9cbb-4265-8ac0-8959a9a48a02',
+          'x-user-roles': 'parent',
+          'x-user-permissions': 'profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all',
+          'User-Agent': 'axios/1.20.0',
+          'Accept-Encoding': 'gzip, compress, deflate, br'
+        },
+        agents: { http: undefined, https: undefined },
+        auth: undefined,
+        family: undefined,
+        beforeRedirect: [Function: dispatchBeforeRedirect],
+        beforeRedirects: [Object: null prototype] { proxy: [Function: beforeRedirect] },
+        http2Options: undefined,
+        createConnection: undefined,
+        hostname: '127.0.0.1',
+        port: '61897',
+        agent: undefined,
+        sensitiveHeaders: [],
+        insecureHTTPParser: false,
+        nativeProtocols: {
+          'http:': {
+            _connectionListener: [Function: connectionListener],
+            METHODS: [Array],
+            STATUS_CODES: [Object],
+            Agent: [Function],
+            ClientRequest: [Function: ClientRequest],
+            IncomingMessage: [Function: IncomingMessage],
+            OutgoingMessage: [Function: OutgoingMessage],
+            Server: [Function: Server],
+            ServerResponse: [Function: ServerResponse],
+            createServer: [Function: createServer],
+            validateHeaderName: [Function],
+            validateHeaderValue: [Function],
+            get: [Function: get],
+            request: [Function: request],
+            setMaxIdleHTTPParsers: [Function: setMaxIdleHTTPParsers],
+            maxHeaderSize: [Getter],
+            globalAgent: [Getter/Setter],
+            WebSocket: [Getter],
+            CloseEvent: [Getter],
+            MessageEvent: [Getter]
+          },
+          'https:': {
+            Agent: [Function: Agent],
+            globalAgent: [Agent],
+            Server: [Function: Server],
+            createServer: [Function: createServer],
+            get: [Function: get],
+            request: [Function: request]
+          }
+        },
+        pathname: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate'
+      },
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 4,
+      _onNativeResponse: [Function (anonymous)],
+      _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+      _currentRequest: [Circular *4],
+      _currentUrl: 'http://127.0.0.1:61897/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+      _timeout: null,
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false
+    },
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false,
+    [Symbol(kBytesWritten)]: 0,
+    [Symbol(kNeedDrain)]: false,
+    [Symbol(corked)]: 0,
+    [Symbol(kChunkedBuffer)]: [],
+    [Symbol(kChunkedLength)]: 0,
+    [Symbol(kSocket)]: <ref *1> Socket {
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: null,
+      _closeAfterHandlingError: false,
+      _events: {
+        close: [Function: onClose],
+        error: [
+          [Function: handleSocketError],
+          [Function: bound onceWrapper] {
+            listener: [Function: freeSocketErrorListener]
+          }
+        ],
+        prefinish: undefined,
+        finish: undefined,
+        drain: undefined,
+        data: undefined,
+        end: [Function: onReadableStreamEnd],
+        readable: undefined,
+        connect: undefined,
+        free: [Function: onFree],
+        timeout: [ [Function: onTimeout], [Function (anonymous)] ],
+        agentRemove: [Function: onRemove]
+      },
+      _readableState: ReadableState {
+        highWaterMark: 65536,
+        buffer: [],
+        bufferIndex: 0,
+        length: 0,
+        pipes: [],
+        awaitDrainWriters: null,
+        [Symbol(kState)]: 60303620
+      },
+      _writableState: WritableState {
+        highWaterMark: 65536,
+        length: 0,
+        corked: 0,
+        onwrite: [Function: bound onwrite],
+        writelen: 0,
+        bufferedIndex: 0,
+        pendingcb: 0,
+        [Symbol(kState)]: 17563908,
+        [Symbol(kBufferedValue)]: null,
+        [Symbol(kWriteCbValue)]: null,
+        [Symbol(kAfterWriteTickInfoValue)]: null
+      },
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _eventsCount: 6,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: null,
+      _server: null,
+      timeout: 5000,
+      parser: null,
+      _httpMessage: null,
+      [Symbol(async_id_symbol)]: -1,
+      [Symbol(kHandle)]: <ref *2> TCP {
+        reading: true,
+        onconnection: null,
+        [Symbol(owner_symbol)]: [Circular *1],
+        [Symbol(resource_symbol)]: ReusedHandle { type: 40, handle: [Circular *2] }
+      },
+      [Symbol(lastWriteQueueSize)]: 0,
+      [Symbol(timeout)]: <ref *3> Timeout {
+        _idleTimeout: 5000,
+        _idlePrev: TimersList {
+          _idleNext: [Circular *3],
+          _idlePrev: [Circular *3],
+          expiry: 5065,
+          id: -9007199254740991,
+          msecs: 5000,
+          priorityQueuePosition: 1
+        },
+        _idleNext: TimersList {
+          _idleNext: [Circular *3],
+          _idlePrev: [Circular *3],
+          expiry: 5065,
+          id: -9007199254740991,
+          msecs: 5000,
+          priorityQueuePosition: 1
+        },
+        _idleStart: 114,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        [Symbol(refed)]: false,
+        [Symbol(kHasPrimitive)]: false,
+        [Symbol(asyncId)]: 656,
+        [Symbol(triggerId)]: 654,
+        [Symbol(kAsyncContextFrame)]: undefined
+      },
+      [Symbol(kBuffer)]: null,
+      [Symbol(kBufferCb)]: null,
+      [Symbol(kBufferGen)]: null,
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false,
+      [Symbol(kSetNoDelay)]: true,
+      [Symbol(kSetKeepAlive)]: true,
+      [Symbol(kSetKeepAliveInitialDelay)]: 1,
+      [Symbol(kBytesRead)]: 0,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(axios.http.socketListener)]: true,
+      [Symbol(axios.http.currentReq)]: Writable {
+        _events: {
+          close: [Function: bound onceWrapper] {
+            listener: [Function: clearCurrentReq]
+          },
+          error: [Function: handleRequestError],
+          prefinish: undefined,
+          finish: undefined,
+          drain: undefined,
+          response: [Function: handleResponse],
+          socket: [
+            [Function: handleRequestSocket],
+            [Function: destroyOnTimeout]
+          ],
+          timeout: undefined,
+          abort: undefined
+        },
+        _writableState: WritableState {
+          highWaterMark: 65536,
+          length: 0,
+          corked: 0,
+          onwrite: [Function: bound onwrite],
+          writelen: 0,
+          bufferedIndex: 0,
+          pendingcb: 0,
+          [Symbol(kState)]: 17580812,
+          [Symbol(kBufferedValue)]: null
+        },
+        _maxListeners: undefined,
+        _options: {
+          maxRedirects: 21,
+          maxBodyLength: Infinity,
+          protocol: 'http:',
+          path: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+          method: 'POST',
+          headers: [Object: null prototype] {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'x-user-id': '52093d99-9cbb-4265-8ac0-8959a9a48a02',
+            'x-user-roles': 'parent',
+            'x-user-permissions': 'profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all',
+            'User-Agent': 'axios/1.20.0',
+            'Accept-Encoding': 'gzip, compress, deflate, br'
+          },
+          agents: { http: undefined, https: undefined },
+          auth: undefined,
+          family: undefined,
+          beforeRedirect: [Function: dispatchBeforeRedirect],
+          beforeRedirects: [Object: null prototype] {
+            proxy: [Function: beforeRedirect]
+          },
+          http2Options: undefined,
+          createConnection: undefined,
+          hostname: '127.0.0.1',
+          port: '61897',
+          agent: undefined,
+          sensitiveHeaders: [],
+          insecureHTTPParser: false,
+          nativeProtocols: { 'http:': [Object], 'https:': [Object] },
+          pathname: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate'
+        },
+        _ended: true,
+        _ending: true,
+        _redirectCount: 0,
+        _redirects: [],
+        _requestBodyLength: 0,
+        _requestBodyBuffers: [],
+        _eventsCount: 4,
+        _onNativeResponse: [Function (anonymous)],
+        _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+        _currentRequest: [Circular *4],
+        _currentUrl: 'http://127.0.0.1:61897/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+        _timeout: null,
+        [Symbol(shapeMode)]: true,
+        [Symbol(kCapture)]: false
+      }
+    },
+    [Symbol(kOutHeaders)]: [Object: null prototype] {
+      accept: [ 'Accept', 'application/json, text/plain, */*' ],
+      'content-type': [ 'Content-Type', 'application/x-www-form-urlencoded' ],
+      'x-user-id': [ 'x-user-id', '52093d99-9cbb-4265-8ac0-8959a9a48a02' ],
+      'x-user-roles': [ 'x-user-roles', 'parent' ],
+      'x-user-permissions': [
+        'x-user-permissions',
+        'profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all'
+      ],
+      'user-agent': [ 'User-Agent', 'axios/1.20.0' ],
+      'accept-encoding': [ 'Accept-Encoding', 'gzip, compress, deflate, br' ],
+      host: [ 'Host', '127.0.0.1:61897' ]
+    },
+    [Symbol(errored)]: null,
+    [Symbol(kHighWaterMark)]: 65536,
+    [Symbol(kRejectNonStandardBodyWrites)]: false,
+    [Symbol(kUniqueHeaders)]: null
+  },
+  response: {
+    status: 422,
+    statusText: 'Unprocessable Entity',
+    headers: Object [AxiosHeaders] {
+      'content-type': 'application/json',
+      vary: 'origin, access-control-request-method, access-control-request-headers',
+      'access-control-allow-credentials': 'true',
+      'content-length': '59',
+      date: 'Mon, 19 Oct 2026 16:40:37 GMT'
+    },
+    config: [Object: null prototype] {
+      transitional: {
+        silentJSONParsing: true,
+        forcedJSONParsing: true,
+        clarifyTimeoutError: false,
+        legacyInterceptorReqResOrdering: true,
+        advertiseZstdAcceptEncoding: false,
+        validateStatusUndefinedResolves: true
+      },
+      adapter: [ 'xhr', 'http', 'fetch' ],
+      transformRequest: [ [Function: transformRequest] ],
+      transformResponse: [ [Function: transformResponse] ],
+      timeout: 15000,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: {
+        FormData: [Function: FormData] {
+          LINE_BREAK: '\r\n',
+          DEFAULT_CONTENT_TYPE: 'application/octet-stream'
+        },
+        Blob: [class Blob]
+      },
+      validateStatus: [Function: validateStatus],
+      headers: Object [AxiosHeaders] {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'x-user-id': '52093d99-9cbb-4265-8ac0-8959a9a48a02',
+        'x-user-roles': 'parent',
+        'x-user-permissions': 'profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all',
+        'User-Agent': 'axios/1.20.0',
+        'Accept-Encoding': 'gzip, compress, deflate, br'
+      },
+      allowAbsoluteUrls: false,
+      proxy: false,
+      baseURL: 'http://127.0.0.1:61897',
+      method: 'post',
+      url: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+      data: undefined
+    },
+    request: <ref *4> ClientRequest {
+      _events: [Object: null prototype] {
+        abort: [Function (anonymous)],
+        aborted: [Function (anonymous)],
+        connect: [Function (anonymous)],
+        error: [Function (anonymous)],
+        socket: [Function (anonymous)],
+        timeout: [Function (anonymous)],
+        finish: [Function: requestOnFinish]
+      },
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 0,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      _header: 'POST /api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/x-www-form-urlencoded\r\n' +
+        'x-user-id: 52093d99-9cbb-4265-8ac0-8959a9a48a02\r\n' +
+        'x-user-roles: parent\r\n' +
+        'x-user-permissions: profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all\r\n' +
+        'User-Agent: axios/1.20.0\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: 127.0.0.1:61897\r\n' +
+        'Connection: keep-alive\r\n' +
+        'Content-Length: 0\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: Agent {
+        _events: [Object: null prototype] {
+          free: [Function (anonymous)],
+          newListener: [Function: maybeEnableKeylog]
+        },
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        defaultPort: 80,
+        protocol: 'http:',
+        options: [Object: null prototype] {
+          keepAlive: true,
+          scheduling: 'lifo',
+          timeout: 5000,
+          noDelay: true,
+          path: null
+        },
+        requests: [Object: null prototype] {},
+        sockets: [Object: null prototype] {},
+        freeSockets: [Object: null prototype] { '127.0.0.1:61897:': [ [Socket] ] },
+        keepAliveMsecs: 1000,
+        keepAlive: true,
+        maxSockets: Infinity,
+        maxFreeSockets: 256,
+        scheduling: 'lifo',
+        maxTotalSockets: Infinity,
+        totalSocketCount: 1,
+        [Symbol(shapeMode)]: false,
+        [Symbol(kCapture)]: false
+      },
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: false,
+      joinDuplicateHeaders: undefined,
+      path: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+      _ended: true,
+      res: IncomingMessage {
+        _events: {
+          close: undefined,
+          error: [Function: handleStreamError],
+          data: [Function: handleStreamData],
+          end: [ [Function: responseOnEnd], [Function: handleStreamEnd] ],
+          readable: undefined,
+          aborted: [Function: handlerStreamAborted]
+        },
+        _readableState: ReadableState {
+          highWaterMark: 65536,
+          buffer: [],
+          bufferIndex: 0,
+          length: 0,
+          pipes: [],
+          awaitDrainWriters: null,
+          [Symbol(kState)]: 194779004
+        },
+        _maxListeners: undefined,
+        socket: null,
+        httpVersionMajor: 1,
+        httpVersionMinor: 1,
+        httpVersion: '1.1',
+        complete: true,
+        rawHeaders: [
+          'content-type',
+          'application/json',
+          'vary',
+          'origin, access-control-request-method, access-control-request-headers',
+          'access-control-allow-credentials',
+          'true',
+          'content-length',
+          '59',
+          'date',
+          'Mon, 19 Oct 2026 16:40:37 GMT'
+        ],
+        rawTrailers: [],
+        joinDuplicateHeaders: undefined,
+        aborted: false,
+        upgrade: false,
+        url: '',
+        method: null,
+        statusCode: 422,
+        statusMessage: 'Unprocessable Entity',
+        client: <ref *1> Socket {
+          connecting: false,
+          _hadError: false,
+          _parent: null,
+          _host: null,
+          _closeAfterHandlingError: false,
+          _events: {
+            close: [Function: onClose],
+            error: [Array],
+            prefinish: undefined,
+            finish: undefined,
+            drain: undefined,
+            data: undefined,
+            end: [Function: onReadableStreamEnd],
+            readable: undefined,
+            connect: undefined,
+            free: [Function: onFree],
+            timeout: [Array],
+            agentRemove: [Function: onRemove]
+          },
+          _readableState: ReadableState {
+            highWaterMark: 65536,
+            buffer: [],
+            bufferIndex: 0,
+            length: 0,
+            pipes: [],
+            awaitDrainWriters: null,
+            [Symbol(kState)]: 60303620
+          },
+          _writableState: WritableState {
+            highWaterMark: 65536,
+            length: 0,
+            corked: 0,
+            onwrite: [Function: bound onwrite],
+            writelen: 0,
+            bufferedIndex: 0,
+            pendingcb: 0,
+            [Symbol(kState)]: 17563908,
+            [Symbol(kBufferedValue)]: null,
+            [Symbol(kWriteCbValue)]: null,
+            [Symbol(kAfterWriteTickInfoValue)]: null
+          },
+          allowHalfOpen: false,
+          _maxListeners: undefined,
+          _eventsCount: 6,
+          _sockname: null,
+          _pendingData: null,
+          _pendingEncoding: '',
+          server: null,
+          _server: null,
+          timeout: 5000,
+          parser: null,
+          _httpMessage: null,
+          [Symbol(async_id_symbol)]: -1,
+          [Symbol(kHandle)]: <ref *2> TCP {
+            reading: true,
+            onconnection: null,
+            [Symbol(owner_symbol)]: [Circular *1],
+            [Symbol(resource_symbol)]: [ReusedHandle]
+          },
+          [Symbol(lastWriteQueueSize)]: 0,
+          [Symbol(timeout)]: <ref *3> Timeout {
+            _idleTimeout: 5000,
+            _idlePrev: [TimersList],
+            _idleNext: [TimersList],
+            _idleStart: 114,
+            _onTimeout: [Function: bound ],
+            _timerArgs: undefined,
+            _repeat: null,
+            _destroyed: false,
+            [Symbol(refed)]: false,
+            [Symbol(kHasPrimitive)]: false,
+            [Symbol(asyncId)]: 656,
+            [Symbol(triggerId)]: 654,
+            [Symbol(kAsyncContextFrame)]: undefined
+          },
+          [Symbol(kBuffer)]: null,
+          [Symbol(kBufferCb)]: null,
+          [Symbol(kBufferGen)]: null,
+          [Symbol(shapeMode)]: true,
+          [Symbol(kCapture)]: false,
+          [Symbol(kSetNoDelay)]: true,
+          [Symbol(kSetKeepAlive)]: true,
+          [Symbol(kSetKeepAliveInitialDelay)]: 1,
+          [Symbol(kBytesRead)]: 0,
+          [Symbol(kBytesWritten)]: 0,
+          [Symbol(axios.http.socketListener)]: true,
+          [Symbol(axios.http.currentReq)]: Writable {
+            _events: [Object],
+            _writableState: [WritableState],
+            _maxListeners: undefined,
+            _options: [Object],
+            _ended: true,
+            _ending: true,
+            _redirectCount: 0,
+            _redirects: [],
+            _requestBodyLength: 0,
+            _requestBodyBuffers: [],
+            _eventsCount: 4,
+            _onNativeResponse: [Function (anonymous)],
+            _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+            _currentRequest: [Circular *4],
+            _currentUrl: 'http://127.0.0.1:61897/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+            _timeout: null,
+            [Symbol(shapeMode)]: true,
+            [Symbol(kCapture)]: false
+          }
+        },
+        _consuming: false,
+        _dumped: false,
+        req: [Circular *4],
+        _eventsCount: 4,
+        responseUrl: 'http://127.0.0.1:61897/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+        redirects: [],
+        [Symbol(shapeMode)]: true,
+        [Symbol(kCapture)]: false,
+        [Symbol(kHeaders)]: {
+          'content-type': 'application/json',
+          vary: 'origin, access-control-request-method, access-control-request-headers',
+          'access-control-allow-credentials': 'true',
+          'content-length': '59',
+          date: 'Mon, 19 Oct 2026 16:40:37 GMT'
+        },
+        [Symbol(kHeadersCount)]: 10,
+        [Symbol(kTrailers)]: null,
+        [Symbol(kTrailersCount)]: 0
+      },
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: true,
+      host: '127.0.0.1',
+      protocol: 'http:',
+      _redirectable: Writable {
+        _events: {
+          close: [Function: bound onceWrapper] {
+            listener: [Function: clearCurrentReq]
+          },
+          error: [Function: handleRequestError],
+          prefinish: undefined,
+          finish: undefined,
+          drain: undefined,
+          response: [Function: handleResponse],
+          socket: [
+            [Function: handleRequestSocket],
+            [Function: destroyOnTimeout]
+          ],
+          timeout: undefined,
+          abort: undefined
+        },
+        _writableState: WritableState {
+          highWaterMark: 65536,
+          length: 0,
+          corked: 0,
+          onwrite: [Function: bound onwrite],
+          writelen: 0,
+          bufferedIndex: 0,
+          pendingcb: 0,
+          [Symbol(kState)]: 17580812,
+          [Symbol(kBufferedValue)]: null
+        },
+        _maxListeners: undefined,
+        _options: {
+          maxRedirects: 21,
+          maxBodyLength: Infinity,
+          protocol: 'http:',
+          path: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+          method: 'POST',
+          headers: [Object: null prototype] {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'x-user-id': '52093d99-9cbb-4265-8ac0-8959a9a48a02',
+            'x-user-roles': 'parent',
+            'x-user-permissions': 'profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all',
+            'User-Agent': 'axios/1.20.0',
+            'Accept-Encoding': 'gzip, compress, deflate, br'
+          },
+          agents: { http: undefined, https: undefined },
+          auth: undefined,
+          family: undefined,
+          beforeRedirect: [Function: dispatchBeforeRedirect],
+          beforeRedirects: [Object: null prototype] {
+            proxy: [Function: beforeRedirect]
+          },
+          http2Options: undefined,
+          createConnection: undefined,
+          hostname: '127.0.0.1',
+          port: '61897',
+          agent: undefined,
+          sensitiveHeaders: [],
+          insecureHTTPParser: false,
+          nativeProtocols: { 'http:': [Object], 'https:': [Object] },
+          pathname: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate'
+        },
+        _ended: true,
+        _ending: true,
+        _redirectCount: 0,
+        _redirects: [],
+        _requestBodyLength: 0,
+        _requestBodyBuffers: [],
+        _eventsCount: 4,
+        _onNativeResponse: [Function (anonymous)],
+        _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+        _currentRequest: [Circular *4],
+        _currentUrl: 'http://127.0.0.1:61897/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+        _timeout: null,
+        [Symbol(shapeMode)]: true,
+        [Symbol(kCapture)]: false
+      },
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kChunkedBuffer)]: [],
+      [Symbol(kChunkedLength)]: 0,
+      [Symbol(kSocket)]: <ref *1> Socket {
+        connecting: false,
+        _hadError: false,
+        _parent: null,
+        _host: null,
+        _closeAfterHandlingError: false,
+        _events: {
+          close: [Function: onClose],
+          error: [ [Function: handleSocketError], [Function] ],
+          prefinish: undefined,
+          finish: undefined,
+          drain: undefined,
+          data: undefined,
+          end: [Function: onReadableStreamEnd],
+          readable: undefined,
+          connect: undefined,
+          free: [Function: onFree],
+          timeout: [ [Function: onTimeout], [Function (anonymous)] ],
+          agentRemove: [Function: onRemove]
+        },
+        _readableState: ReadableState {
+          highWaterMark: 65536,
+          buffer: [],
+          bufferIndex: 0,
+          length: 0,
+          pipes: [],
+          awaitDrainWriters: null,
+          [Symbol(kState)]: 60303620
+        },
+        _writableState: WritableState {
+          highWaterMark: 65536,
+          length: 0,
+          corked: 0,
+          onwrite: [Function: bound onwrite],
+          writelen: 0,
+          bufferedIndex: 0,
+          pendingcb: 0,
+          [Symbol(kState)]: 17563908,
+          [Symbol(kBufferedValue)]: null,
+          [Symbol(kWriteCbValue)]: null,
+          [Symbol(kAfterWriteTickInfoValue)]: null
+        },
+        allowHalfOpen: false,
+        _maxListeners: undefined,
+        _eventsCount: 6,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: null,
+        _server: null,
+        timeout: 5000,
+        parser: null,
+        _httpMessage: null,
+        [Symbol(async_id_symbol)]: -1,
+        [Symbol(kHandle)]: <ref *2> TCP {
+          reading: true,
+          onconnection: null,
+          [Symbol(owner_symbol)]: [Circular *1],
+          [Symbol(resource_symbol)]: ReusedHandle { type: 40, handle: [Circular *2] }
+        },
+        [Symbol(lastWriteQueueSize)]: 0,
+        [Symbol(timeout)]: <ref *3> Timeout {
+          _idleTimeout: 5000,
+          _idlePrev: TimersList {
+            _idleNext: [Circular *3],
+            _idlePrev: [Circular *3],
+            expiry: 5065,
+            id: -9007199254740991,
+            msecs: 5000,
+            priorityQueuePosition: 1
+          },
+          _idleNext: TimersList {
+            _idleNext: [Circular *3],
+            _idlePrev: [Circular *3],
+            expiry: 5065,
+            id: -9007199254740991,
+            msecs: 5000,
+            priorityQueuePosition: 1
+          },
+          _idleStart: 114,
+          _onTimeout: [Function: bound ],
+          _timerArgs: undefined,
+          _repeat: null,
+          _destroyed: false,
+          [Symbol(refed)]: false,
+          [Symbol(kHasPrimitive)]: false,
+          [Symbol(asyncId)]: 656,
+          [Symbol(triggerId)]: 654,
+          [Symbol(kAsyncContextFrame)]: undefined
+        },
+        [Symbol(kBuffer)]: null,
+        [Symbol(kBufferCb)]: null,
+        [Symbol(kBufferGen)]: null,
+        [Symbol(shapeMode)]: true,
+        [Symbol(kCapture)]: false,
+        [Symbol(kSetNoDelay)]: true,
+        [Symbol(kSetKeepAlive)]: true,
+        [Symbol(kSetKeepAliveInitialDelay)]: 1,
+        [Symbol(kBytesRead)]: 0,
+        [Symbol(kBytesWritten)]: 0,
+        [Symbol(axios.http.socketListener)]: true,
+        [Symbol(axios.http.currentReq)]: Writable {
+          _events: {
+            close: [Function],
+            error: [Function: handleRequestError],
+            prefinish: undefined,
+            finish: undefined,
+            drain: undefined,
+            response: [Function: handleResponse],
+            socket: [Array],
+            timeout: undefined,
+            abort: undefined
+          },
+          _writableState: WritableState {
+            highWaterMark: 65536,
+            length: 0,
+            corked: 0,
+            onwrite: [Function: bound onwrite],
+            writelen: 0,
+            bufferedIndex: 0,
+            pendingcb: 0,
+            [Symbol(kState)]: 17580812,
+            [Symbol(kBufferedValue)]: null
+          },
+          _maxListeners: undefined,
+          _options: {
+            maxRedirects: 21,
+            maxBodyLength: Infinity,
+            protocol: 'http:',
+            path: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+            method: 'POST',
+            headers: [Object: null prototype],
+            agents: [Object],
+            auth: undefined,
+            family: undefined,
+            beforeRedirect: [Function: dispatchBeforeRedirect],
+            beforeRedirects: [Object: null prototype],
+            http2Options: undefined,
+            createConnection: undefined,
+            hostname: '127.0.0.1',
+            port: '61897',
+            agent: undefined,
+            sensitiveHeaders: [],
+            insecureHTTPParser: false,
+            nativeProtocols: [Object],
+            pathname: '/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate'
+          },
+          _ended: true,
+          _ending: true,
+          _redirectCount: 0,
+          _redirects: [],
+          _requestBodyLength: 0,
+          _requestBodyBuffers: [],
+          _eventsCount: 4,
+          _onNativeResponse: [Function (anonymous)],
+          _headerFilter: /^(?:Authorization|Proxy-Authorization|Cookie)$/i,
+          _currentRequest: [Circular *4],
+          _currentUrl: 'http://127.0.0.1:61897/api/v1/ai-summaries/configurations/898e68a2-fef1-4823-b0ad-00cab2f02ee2/validate',
+          _timeout: null,
+          [Symbol(shapeMode)]: true,
+          [Symbol(kCapture)]: false
+        }
+      },
+      [Symbol(kOutHeaders)]: [Object: null prototype] {
+        accept: [ 'Accept', 'application/json, text/plain, */*' ],
+        'content-type': [ 'Content-Type', 'application/x-www-form-urlencoded' ],
+        'x-user-id': [ 'x-user-id', '52093d99-9cbb-4265-8ac0-8959a9a48a02' ],
+        'x-user-roles': [ 'x-user-roles', 'parent' ],
+        'x-user-permissions': [
+          'x-user-permissions',
+          'profile:ai_summary:configure,profile:ai_summary:manage,profile:ai_summary:read_all'
+        ],
+        'user-agent': [ 'User-Agent', 'axios/1.20.0' ],
+        'accept-encoding': [ 'Accept-Encoding', 'gzip, compress, deflate, br' ],
+        host: [ 'Host', '127.0.0.1:61897' ]
+      },
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 65536,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null
+    },
+    data: { status: 'error', message: 'metric_translations_required' }
+  },
+  status: 422
+}
+
+Node.js v22.13.1
+
+
+thread 'mounted_profile_rest_with_compiled_typescript_sdk' (3268859) panicked at tests/summary_rest_sdk.rs:270:5:
+Compiled SDK consumer failed: exit status: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test mounted_profile_rest_with_compiled_typescript_sdk ... FAILED
+
+failures:
+
+failures:
+    mounted_profile_rest_with_compiled_typescript_sdk
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.45s
+
+error: test failed, to rerun pass `--test summary_rest_sdk`

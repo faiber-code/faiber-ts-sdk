@@ -28,3 +28,7 @@ const statuses = await sdk.drm.drmStatuses();
 `FAIBER_DRM_URL` must be the DRM service origin. Bearer and cookie authentication use the shared SDK configuration. Upload accepts `Blob` and sends `multipart/form-data`; only audio and video are accepted by the backend. Playback URLs are signed for 900 seconds. Every call returns the complete Axios response and accepts Axios request options, including `AbortSignal`, headers, timeout, and adapters.
 
 The client covers all 96 mounted REST operations under `/api/v1`. This includes folders, tags, media, DRM statuses, packages and processing jobs, resumable uploads, compositions and mixed-media workflows, manifests, analyses, content libraries, categories, items and attachments, Knowledge synchronization, operational settings, model catalogs, health, dashboards, and audit events. Common panel workflows are available directly on `sdk.drm`; every route remains available on `sdk.drm.operations` with its exact granular DRM permission. Inputs, filters, outputs, and pagination contracts are exported TypeScript types. Axios errors preserve validation, authorization, conflict, not-found, and transport responses.
+
+Wildcard file paths use raw nonempty segments and preserve directory separators.
+Do not pre-encode paths or include dot traversal, percent escapes, query/fragment
+syntax or backslashes; invalid paths fail locally before transport.

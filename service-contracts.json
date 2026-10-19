@@ -2520,6 +2520,28 @@
       "formUrlEncoded": false
     },
     {
+      "method": "ANY",
+      "path": "/api",
+      "module": "router",
+      "handler": "api_not_found",
+      "permissions": [],
+      "source": "infera-crm/src/router.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "ANY",
+      "path": "/api/{*path}",
+      "module": "router",
+      "handler": "api_not_found",
+      "permissions": [],
+      "source": "infera-crm/src/router.rs",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/api/v1/activities",
       "module": "api",
@@ -11087,10 +11109,11 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/inbox_stream.rs",
+      "query": "PollQuery",
+      "response": "EventPage",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "query": "ReviewedIntegrationQuery"
+      "formUrlEncoded": false
     },
     {
       "method": "PATCH",
@@ -11115,6 +11138,7 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/inbox_stream.rs",
+      "response": "UnreadCount",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -11172,10 +11196,11 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/mobile_push.rs",
+      "body": "DeviceRegistration",
+      "response": "RegisteredDevice",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "body": "ReviewedIntegrationInput"
+      "formUrlEncoded": false
     },
     {
       "method": "DELETE",
@@ -11186,6 +11211,8 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/mobile_push.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -11423,6 +11450,7 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/web_push.rs",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -11436,6 +11464,8 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/web_push.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -11449,10 +11479,11 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/web_push.rs",
+      "body": "Registration",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "body": "ReviewedIntegrationInput"
+      "formUrlEncoded": false
     },
     {
       "method": "DELETE",
@@ -11463,6 +11494,8 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/web_push.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -11476,6 +11509,8 @@
         "notification:self:read"
       ],
       "source": "infera-messenger/src/web_push.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -18641,6 +18676,20 @@
       "formUrlEncoded": false
     },
     {
+      "method": "ANY",
+      "path": "/api/v1/view/{service}/{*path}",
+      "module": "router",
+      "handler": "proxy_view_service",
+      "permissions": [],
+      "source": "infera-session/src/router.rs",
+      "body": "OpaqueProxyBody",
+      "query": "OpaqueProxyQuery",
+      "pathParam": "(String, String)",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "GET",
       "path": "/health",
       "module": "router",
@@ -20899,6 +20948,23 @@
       "responseEnvelope": "websocket",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "module": "main",
+      "handler": "inline",
+      "permissions": [],
+      "source": "infera-state/src/main.rs",
+      "response": "StateProcessHealth",
+      "responseEnvelope": "raw",
+      "inline_handler": {
+        "name": "inline",
+        "path": "infera-state/src/main.rs",
+        "line": 43,
+        "signature": "inline route closure",
+        "body": "get(|| async { Json(json!({\"data\":{\"service\":\"infera-state\",\"status\":\"healthy\",\"transports\":[\"websocket\"],\"rulesets\":[\"kheradgah.v1\"],\"wasm\":true}})) })"
+      }
     }
   ],
   "task": [
@@ -21054,6 +21120,7 @@
         "task:feedback:assign plus configured local scope"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -21067,10 +21134,12 @@
         "task:feedback:submit"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "handlerModule": "storage",
+      "body": "InitializeAttachment",
+      "response": "AttachmentView",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "body": "ReviewedIntegrationInput"
+      "formUrlEncoded": false
     },
     {
       "method": "POST",
@@ -21081,6 +21150,9 @@
         "task:feedback:submit and attachment ownership"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "handlerModule": "storage",
+      "pathParam": "Uuid",
+      "response": "AttachmentView",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -21094,10 +21166,13 @@
         "task:feedback:submit and attachment ownership"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "handlerModule": "storage",
+      "pathParam": "Uuid",
+      "response": "AttachmentView",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "binary": true
+      "binary": true,
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -21108,6 +21183,7 @@
         "task:feedback:submit"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -21121,6 +21197,7 @@
         "task:access:use + local workspace.manage"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -21134,10 +21211,11 @@
         "task:access:use + local workspace.manage; If-Match header required (0 initializes)"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "body": "FeedbackPolicy",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "body": "ReviewedIntegrationInput"
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -21148,10 +21226,11 @@
         "task:feedback:self:read OR scoped review/assignment permission"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "query": "ListQuery",
+      "response": "RequestPage",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "query": "ReviewedIntegrationQuery"
+      "formUrlEncoded": false
     },
     {
       "method": "POST",
@@ -21162,10 +21241,11 @@
         "task:feedback:submit"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "body": "SubmitRequest",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "body": "ReviewedIntegrationInput"
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -21176,6 +21256,8 @@
         "task:feedback:self:read OR scoped review/assignment permission"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "pathParam": "Uuid",
+      "response": "RequestDetail",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -21189,7 +21271,9 @@
         "authorized current request access"
       ],
       "source": "infera-task/src/feedback/routes.rs",
-      "responseEnvelope": "raw",
+      "handlerModule": "storage",
+      "pathParam": "(Uuid, Uuid)",
+      "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -21202,10 +21286,12 @@
         "task:feedback:review OR task:feedback:assign plus configured local scope"
       ],
       "source": "infera-task/src/feedback/routes.rs",
+      "body": "DecideRequest",
+      "pathParam": "Uuid",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "body": "ReviewedIntegrationInput"
+      "formUrlEncoded": false
     },
     {
       "method": "POST",

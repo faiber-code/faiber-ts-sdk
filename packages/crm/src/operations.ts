@@ -1,5 +1,10 @@
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
+function wildcardPath(path: Identifier): string {
+  const parts = String(path).split("/");
+  if (parts.some(part => !part || part === "." || part === ".." || /[%?#\\]/.test(part))) throw new TypeError("Wildcard paths require nonempty raw segments without dot traversal, percent escapes, query, fragment or backslash");
+  return parts.map(part => encodeURIComponent(part)).join("/");
+}
 
 export class CrmOperations extends ServiceApi {
   /**
@@ -11,6 +16,31 @@ export class CrmOperations extends ServiceApi {
    */
   routerStatusRouteGet(options?: RequestOptions) {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
+  }
+  /**
+   * Return the structured404 for an unregistered legacy API path with the chosen HTTP method. Axios rejects404 by default; use validateStatus only when intentionally inspecting the error envelope. Does not create or modify a CRM resource.
+   * Calls `ANY /api` through the shared IDP-aware Faiber client.
+   * @param method HTTP method accepted by the mounted ANY handler; the SDK never sends an ANY verb.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: not-found response only; no success capability or permission grant.
+   */
+  routerApiNotFoundAny(method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    return this.client.request<T.RouterApiNotFoundAnyResponse>({ ...options, method: method, url: `/api` });
+  }
+  /**
+   * Return the structured404 for an unregistered legacy API path with the chosen HTTP method. Axios rejects404 by default; use validateStatus only when intentionally inspecting the error envelope. Does not create or modify a CRM resource.
+   * Calls `ANY /api/{*path}` through the shared IDP-aware Faiber client.
+   * @param path Backend path identifier `*path`.
+   * @param method HTTP method accepted by the mounted ANY handler; the SDK never sends an ANY verb.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: not-found response only; no success capability or permission grant.
+   */
+  routerApiPathNotFoundAny(path: string, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions) {
+    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    return this.client.request<T.RouterApiPathNotFoundAnyResponse>({ ...options, method: method, url: `/api/${wildcardPath(path)}` });
   }
   /**
    * Performs the activities operation for the api capability.
