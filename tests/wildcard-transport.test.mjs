@@ -28,3 +28,8 @@ test('CRM fallback operations preserve the supplied verb and retain nested path 
  await api.operations.routerApiNotFoundAny('DELETE');await api.operations.routerApiPathNotFoundAny('old/items','HEAD');
  assert.deepEqual(requests.map(r=>[r.method,r.url]),[['delete','/api'],['head','/api/old/items']]);
 });
+
+ test('CONNECT requires an explicit tunnel-capable transport instead of hanging the default adapter',()=>{
+ const api=new CrmApi(new FaiberClient('crm',{domains:{crm:'https://owned.invalid'}}));
+ assert.throws(()=>api.operations.routerApiNotFoundAny('CONNECT'),/explicit tunnel-capable Axios adapter/);
+ });

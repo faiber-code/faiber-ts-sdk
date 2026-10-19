@@ -9,7 +9,7 @@
   },
   "crm": {
     "directory": "infera-crm",
-    "revision": "1addec42a400ba980b6547060cdcb4d347a7bbd0"
+    "revision": "178f5de3c68fab387abd5294aeceb8dd1843084f"
   },
   "drm": {
     "directory": "infera-drm",
@@ -61,7 +61,7 @@
   },
   "state": {
     "directory": "infera-state",
-    "revision": "6be433e043caddb2d1a5761562cfc42bd0c67190"
+    "revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4"
   },
   "task": {
     "directory": "infera-task",

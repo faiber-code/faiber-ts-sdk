@@ -11,8 +11,8 @@
     "src/router.rs",
     "src/web_push.rs"
   ],
-  "canonical_revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
-  "sdk_source_revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
+  "canonical_revision": "2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88",
+  "sdk_source_revision": "2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88",
   "working_revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
   "working_changes": [
     "M migration/src/lib.rs",
@@ -23,8 +23,8 @@
     "?? migration/src/m20260923_000011_web_push.rs",
     "?? src/web_push.rs"
   ],
-  "source_relationship": "same",
-  "source_tree_checksum": "de0367004a7c56bd59ceacf042d6448f9a0e73fe94137e6e9054682ed060e8c6",
+  "source_relationship": "working_behind_sdk",
+  "source_tree_checksum": "05053336156338fb7f7d16e34ecd3d0d400428cf51cfe57235812d13870291fb",
   "source_files": [
     {
       "path": "infera-messenger/src/broker.rs",
@@ -95,6 +95,10 @@
       "checksum": "01195c438536043f46758c9dc7f9629884cef4f2e8c47d3e3b32274fb59652f1"
     },
     {
+      "path": "infera-messenger/src/inbox_stream.rs",
+      "checksum": "9a127a58d11c7b9cf3e550c278dfaab61c4f272bbe02dd984928eb389f34482d"
+    },
+    {
       "path": "infera-messenger/src/integration/flow.rs",
       "checksum": "065fd3ef1718f1dee56d331fbf12dad0e2a370ff9084049ce35f4f6add18ab37"
     },
@@ -112,11 +116,15 @@
     },
     {
       "path": "infera-messenger/src/lib.rs",
-      "checksum": "e82a4977890f1cd61537e4b2f646eeb9e08b1c0220877ef4dad84d334b35b0de"
+      "checksum": "4141405f5a598389bb193911cbd14750c634ee882c6efe5fa0258ec73e63049e"
     },
     {
       "path": "infera-messenger/src/main.rs",
-      "checksum": "99fdd97fa5fedff65a9c2544371b8e0335dda5e68d5437ff8ded03ffa739ad54"
+      "checksum": "e7522be0e1a8480593d0055762a9dc91daf55c487f77afdd53f7712bd92b25dd"
+    },
+    {
+      "path": "infera-messenger/src/mobile_push.rs",
+      "checksum": "7611473e8c8be033646c8b32312b6564f95a41f009a5810fbc8b595c63b8fe7e"
     },
     {
       "path": "infera-messenger/src/models.rs",
@@ -132,7 +140,7 @@
     },
     {
       "path": "infera-messenger/src/notification/channels/push.rs",
-      "checksum": "6b229341b2e3a2caca35cbf62e22b71faa1838fd39ea4b65cc2ec2f9ba2d073f"
+      "checksum": "ee1f60545458ce94cd2692a7162eff316ccc0c7476047d4c9ea52eb3e8568756"
     },
     {
       "path": "infera-messenger/src/notification/channels/sms.rs",
@@ -144,7 +152,7 @@
     },
     {
       "path": "infera-messenger/src/notification/methods.rs",
-      "checksum": "f71dd6d298fd74b44b12171660707feb10c3c702fc34ebd708aad837e05a2240"
+      "checksum": "99b3c81329169fc407675a56c463ac81c918120d0d846d508bc514567de4cdcb"
     },
     {
       "path": "infera-messenger/src/notification/mod.rs",
@@ -160,15 +168,19 @@
     },
     {
       "path": "infera-messenger/src/notification/routes.rs",
-      "checksum": "d19ef7d48b72d6e637042ef435fb87b249b8d3c8f4831807289cb1cc00183ba9"
+      "checksum": "99fd6d296de2efaef84d76ff1133e8f049fb0190c559e2db75ae3a82b680d040"
     },
     {
       "path": "infera-messenger/src/pagination.rs",
       "checksum": "9c97e92c81f923a2e785aab42af7678b170095fb208eb6476e88a4327d4002bc"
     },
     {
+      "path": "infera-messenger/src/push_applications.rs",
+      "checksum": "ff7465293080dee2e67096ad6f9ff85d134e939c04a79dedf789e6e1273b4e0f"
+    },
+    {
       "path": "infera-messenger/src/router.rs",
-      "checksum": "6e73caf33e953022cc2a7a5efcd521f27ed0ef7d5a6d39a8337f6953fce02fdb"
+      "checksum": "74a82f4f3a3d00ee309e62748d318d758a063a60b1d106d2fbe8ddd53913e35d"
     },
     {
       "path": "infera-messenger/src/schedule/charge_recharge.rs",
@@ -241,6 +253,10 @@
     {
       "path": "infera-messenger/src/validators.rs",
       "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "infera-messenger/src/web_push.rs",
+      "checksum": "69ec5c7aef813f926f64c8f4c8dd0efc06561dfbdd2d337f0ca04109f5facbbc"
     },
     {
       "path": "infera-messenger/entity/src/channel_subscriber.rs",
@@ -316,7 +332,7 @@
     },
     {
       "path": "infera-messenger/migration/src/lib.rs",
-      "checksum": "5caa9195cb69cafacbc09fa3292c7abd56718dd94f4500c1eea6f1a661372fd7"
+      "checksum": "92885e33eb67fc923c3458a3f88cdc1032df2986b7e2b1230525932561c18482"
     },
     {
       "path": "infera-messenger/migration/src/m20220101_000001_create_channels_table.rs",
@@ -359,8 +375,16 @@
       "checksum": "ff3f88d5e03b5570b5e81204e96efdd74219a136e1e6b618eef98b7e2bc7a0db"
     },
     {
+      "path": "infera-messenger/migration/src/m20260923_000011_web_push.rs",
+      "checksum": "7dad309805d4a5001091285c801b25fd726db044237370383f7442e670d799e7"
+    },
+    {
       "path": "infera-messenger/migration/src/m20261013_000012_website_otp_template.rs",
       "checksum": "e042567177caf6378e2d4e4e8928b390a1fdd6d23858e233efdae935168a6349"
+    },
+    {
+      "path": "infera-messenger/migration/src/m20261019_000013_delivery_stream.rs",
+      "checksum": "6d2688d9876121a643418551d00294231d4a8218279e5b1b3c798bbd55105c77"
     },
     {
       "path": "infera-messenger/migration/src/main.rs",
@@ -368,11 +392,11 @@
     },
     {
       "path": "infera-messenger/Cargo.toml",
-      "checksum": "8499cfde5b752e13b1324444e8143633c74c0a0d8713bcbefbd5ec7c4aab1ca3"
+      "checksum": "56aa6ad6033d7a9232ee3c25e7483352ac07c83cd2427c43ebf16ee88aa5c7ba"
     },
     {
       "path": "infera-messenger/Cargo.lock",
-      "checksum": "819ea61d61c66d4da0e471300f1f5db278843d67bda33b4ba3819cd757072cc8"
+      "checksum": "22a14a574f45687e72c467affd2a6bee621c3ba8249035258fa6c0718ac6b9cb"
     },
     {
       "path": "infera-messenger/.cargo/config.toml",
@@ -784,11 +808,11 @@
           }
         ]
       },
-      "source_checksum": "a7f3d965f6b8845cbf9a41adf421eebd74e04beca1cc956c14069586f55712b4",
+      "source_checksum": "df68cf6f9aeddbd78ef252202257001d8b7a7c4b0fc432edbfd47b3229f456a6",
       "handler": {
-        "ref": "infera-messenger/src/router.rs:184:status_route",
+        "ref": "infera-messenger/src/router.rs:187:status_route",
         "path": "infera-messenger/src/router.rs",
-        "line": 184,
+        "line": 187,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -834,11 +858,11 @@
           }
         ]
       },
-      "source_checksum": "cf8e219b573a7e7859c779631db9f60f37bb2aac80226a447e22ae1a678005a9",
+      "source_checksum": "7ac51957268c777fcc94f7d00fb63b07a72c245a373a9c9dd3e24dd7b0b21ea7",
       "handler": {
-        "ref": "infera-messenger/src/router.rs:184:status_route",
+        "ref": "infera-messenger/src/router.rs:187:status_route",
         "path": "infera-messenger/src/router.rs",
-        "line": 184,
+        "line": 187,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -884,7 +908,7 @@
           }
         ]
       },
-      "source_checksum": "d59080acb2e02ab6fcb9b0b2768ae183107108db909e2be4d99558f0e227ac56",
+      "source_checksum": "971808c8794c94c6385d2238dd5709cbdf7ff76e31fd15353823579525f599e4",
       "handler": {
         "ref": "infera-messenger/src/router.rs:70:openapi_json",
         "path": "infera-messenger/src/router.rs",
@@ -942,7 +966,7 @@
           }
         ]
       },
-      "source_checksum": "d47ccf0214a128ee8f8187c57bd483e0e2d8b210bab6519550faff8b9e942663",
+      "source_checksum": "2378a2e68fc22f2cea7015828512bde6f39cb67fc9e0f8947365a2565de8fdcc",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:47:templates_index",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1020,7 +1044,7 @@
           }
         ]
       },
-      "source_checksum": "dcb24661bf7ce88b35683a01b228d6ba92ebc05435ff1269823f7c6aa0c71f65",
+      "source_checksum": "56816c0a85feeb9f8fe52a482bd9753bfef7da6d1313a8ddf8cbb79a47bd01cf",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:89:templates_create",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1115,7 +1139,7 @@
           }
         ]
       },
-      "source_checksum": "3019f4b6f71d69a8e620dd33c7f18a0e98f0f6563acac179e83cb9ca0f2abd89",
+      "source_checksum": "e223b1cbd690f8da12acb177b46ab6ef07d4ef1ef22b07bf64e4b8a5fc9a6047",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:65:templates_show",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1208,7 +1232,7 @@
           }
         ]
       },
-      "source_checksum": "807dec1799d38a34e62e677cfa7962728946e4f8274c8de7355480b0f5398edf",
+      "source_checksum": "628c6ce390d31f987f6807bc1db317256ae4504ee9252558a26d71c1b59a5658",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:108:templates_update",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1307,7 +1331,7 @@
           }
         ]
       },
-      "source_checksum": "03d3253dbb8a4f127b384b3f335af4584b5b69ab08556bf678bcb015808b77e9",
+      "source_checksum": "9e6a6a4a8328924940ce5e52f79155fd4249b600b94add05e4e0eef8cb95b5cf",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:128:templates_delete",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1375,7 +1399,7 @@
           }
         ]
       },
-      "source_checksum": "7d1c53e5b698629ef73291cb7441123d505addb18528f2b484078a027a46206f",
+      "source_checksum": "5c01366e7899f3454fc066689ea700b993e2c901ae9ad3053d75f503fc6f9b5d",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:147:template_contents_index",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1458,7 +1482,7 @@
           }
         ]
       },
-      "source_checksum": "7e79b7fd6e38be3f69cb2cf02a83e8130ae08a8f54d98199057043f95dac666e",
+      "source_checksum": "728c4752dcb6c0bb5af3be5214565deb93f229a796162aae61685ce5aad2ac11",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:169:template_contents_create",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1552,7 +1576,7 @@
           }
         ]
       },
-      "source_checksum": "4f2a0a4ef7dc458479691248a6842e6e97454becefcfe024f0d56466a0b43207",
+      "source_checksum": "e35dbae621b81aa6bf028a0bbbbcb171f1d0584a73dc3edd3f4b38995eea0e06",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:189:template_contents_update",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1644,7 +1668,7 @@
           }
         ]
       },
-      "source_checksum": "f215de36b71164fee5b433ae42a40bba0fdc93ba3b22595f0e05ec985117adb3",
+      "source_checksum": "72e16abd95e217716691c4284ee894478752f4229d468f68bc78e4e54fee87fd",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:40:channels_index",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1715,7 +1739,7 @@
           }
         ]
       },
-      "source_checksum": "6730ec23d3582eacaacf15dcdd2bc3683148560da32ba0252561382dc8ba705c",
+      "source_checksum": "1b7a7479a11e010daf109b5de17c18fc7dd27cb5fb0c39fb9f2a422023badb3f",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:82:channels_create",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1797,7 +1821,7 @@
           }
         ]
       },
-      "source_checksum": "5e58e93326d99e6cb08a43280449a541fab9f7071a5e25370aeb8f25dde694b8",
+      "source_checksum": "89da6b3bdd56057da9e12fd54001cedb85121aede74d3cc9ebd09a9a0f743ffd",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:58:channels_show",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1892,7 +1916,7 @@
           }
         ]
       },
-      "source_checksum": "5ba4ae2ebf06cba80e9de3fe46f3ae256d5dfcab788a42def10667f408500816",
+      "source_checksum": "3cb9d5813b932b51aef36cd0e1b04d7e5cc0b92de61323bb125a6152abe33e44",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:101:channels_update",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1978,7 +2002,7 @@
           }
         ]
       },
-      "source_checksum": "f1464b08844ddf382e6169aec491a9d5390b7701a3b8b3237d0534ba9cae10e2",
+      "source_checksum": "559cc159c422b1c5418d17c02d2bbc1a0decc607f09093c62bee0d4e97e45761",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:121:channels_delete",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -2045,7 +2069,7 @@
           }
         ]
       },
-      "source_checksum": "2e65a9e851fdbfddd71449458352d8d100725d308cea25e9e5bbbec42d6d70dd",
+      "source_checksum": "b3db9d74d3f6528ff90c74f9f3b8efd4e7da0989d6a14ecff3a4f76899407af8",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:38:services_index",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2116,7 +2140,7 @@
           }
         ]
       },
-      "source_checksum": "750c292332856fb5507af6ead024220ec6a85a34e2084b065fe5fb3339f9e2cc",
+      "source_checksum": "518364502fabfebc5866452989ab2ee84deab1247c40edd7bea1bcaa97b5a4ee",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:80:services_create",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2197,7 +2221,7 @@
           }
         ]
       },
-      "source_checksum": "daf3066b690492acd31c660d5a08995cce7afce8adf610ab248cf1fdcba714e1",
+      "source_checksum": "4a0a911b0bb55ff842089e1c62d6ebe2305a5400503ea10b992afda049242ffe",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:133:setup_check",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2268,7 +2292,7 @@
           }
         ]
       },
-      "source_checksum": "8b8e730436e32768a01dcb626ef5cd44988b3e2bc4a60ea70ecbd8c3ba033bf8",
+      "source_checksum": "ed9e712dac7c1027703d83b49db8f3e6f8f91ed651c43b77e36b12beadcbe37e",
       "handler": {
         "ref": "infera-messenger/src/service/website_otp.rs:6:readiness",
         "path": "infera-messenger/src/service/website_otp.rs",
@@ -2342,7 +2366,7 @@
           }
         ]
       },
-      "source_checksum": "2e22c5f42f513d2c78df2c5949a2f38cb69a450547de274375cf27d5c404f4c0",
+      "source_checksum": "01417e044bc5ab283af3b6f41ab2a071dd67d85ba2346f2f42633aef46d244ae",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:56:services_show",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2428,7 +2452,7 @@
           }
         ]
       },
-      "source_checksum": "f30a3a23f9bc4b63eba5bca49ad4be6fa5979e58c25db26e652665bc18ee60c6",
+      "source_checksum": "1676681369df84fe22dff7b4bc34affbffc31da94471f21b4299e987a07cc683",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:99:services_update",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2514,7 +2538,7 @@
           }
         ]
       },
-      "source_checksum": "ce12249f519f8315809ffbcccdac234de83264ce20c11ccf27ef52c486ccae0b",
+      "source_checksum": "ce5aa34a28beba45b8bb9437b4972d673dae6a0a7e6098defabc0b8686cf519c",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:119:services_delete",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2582,7 +2606,7 @@
           }
         ]
       },
-      "source_checksum": "0ed376d60c2d937ef8e66aa1dd48bdfe567f198f5964b5bcec11265cc47f2434",
+      "source_checksum": "b4f13b2d43ec59419a12d7decef989e7ee3c9f17c59cb7ef5163de1782cb8906",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:92:notifications_my_inbox",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2676,7 +2700,7 @@
           }
         ]
       },
-      "source_checksum": "a0722d2d4f417c34dbfd61c93c1f9485974791205f6d468286eab8916d3b16ba",
+      "source_checksum": "fcf4bf541e824dfb3c5528c77757374ad333b1adaa7d3416821cd5f24fac1990",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:115:notifications_my_mark_all_read",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2747,7 +2771,7 @@
           }
         ]
       },
-      "source_checksum": "f9050c6c77dacf26e415d988b5c2688b6fd83993ce181435198ab5feecf2db3a",
+      "source_checksum": "73c25657fea89746af05bc14b0fa83cb25b3992265ac1eeec1034581cb2bef54",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:133:notifications_my_mark_read",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2829,7 +2853,7 @@
           }
         ]
       },
-      "source_checksum": "294a88db1f174df552ceaab6e4e2d55ef66058856b0ba480432f8ec0ba55d06e",
+      "source_checksum": "681e99f1341e16e6ba5279aa6f0add2c420a015a182b77340cd17fbf66a8cb66",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:241:notifications_index",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -2930,7 +2954,7 @@
           }
         ]
       },
-      "source_checksum": "fab86f94ed38e2323689377d7a83ebbe476a67871440a1fe860a155979f6b6af",
+      "source_checksum": "61df198d5b862f8bb759f3d277be8f60ad751a7b97af0bbc69e77e8b929b72fe",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:314:notifications_mark_all_read",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3011,7 +3035,7 @@
           }
         ]
       },
-      "source_checksum": "29c4882b027c4440de7c6c569b96222cf4da65abca10d6bf84f09fa4f05f1452",
+      "source_checksum": "6a79a1f6eafaf39802cbaad70bbff13676d6a36dfa549c03fdf2b5c66b9afb84",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:174:notifications_realtime_config",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3026,6 +3050,15 @@
             "path": "infera-messenger/src/broker.rs",
             "line": 99,
             "name": "socket_public_config"
+          }
+        },
+        {
+          "call": "crate::push_applications::channel",
+          "evidence": {
+            "ref": "infera-messenger/src/push_applications.rs:54:channel",
+            "path": "infera-messenger/src/push_applications.rs",
+            "line": 54,
+            "name": "channel"
           }
         }
       ],
@@ -3092,7 +3125,7 @@
           }
         ]
       },
-      "source_checksum": "8cb438b4b1a5f066484a63d64701c086868dcede6df8983a4dce4756dc1808cd",
+      "source_checksum": "a5957bcda8a09aa3e099c9e0015362456ebe1f2c72708bfc720ec95827ab93eb",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:205:notifications_realtime_auth",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3100,6 +3133,15 @@
         "name": "notifications_realtime_auth"
       },
       "related_implementation": [
+        {
+          "call": "crate::push_applications::channel",
+          "evidence": {
+            "ref": "infera-messenger/src/push_applications.rs:54:channel",
+            "path": "infera-messenger/src/push_applications.rs",
+            "line": 54,
+            "name": "channel"
+          }
+        },
         {
           "call": "crate::broker::authorize_private_channel",
           "evidence": {
@@ -3191,7 +3233,7 @@
           }
         ]
       },
-      "source_checksum": "2ddfb81e9cedc80f3ef3634d7f527cb70410e8630321ef05d18d5c01b7e07155",
+      "source_checksum": "27d0b8e0eabe96813fb1247e51463e5803a107b12c3eb22063d68106a2d497fb",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:275:notifications_show",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3280,7 +3322,7 @@
           }
         ]
       },
-      "source_checksum": "4b04e6ac342d2ef9bc23032d7031feb0d37632eab76c7ae7cd7c8360250c97d3",
+      "source_checksum": "e07d64a0af41e0661d9117a25a52fc5f991589a23f31f04c284116955141ad35",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:333:notifications_mark_read",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3378,7 +3420,7 @@
           }
         ]
       },
-      "source_checksum": "6465ea222a53c83b439be44b59c9c7daa461edf8c7e20eb17baed08fda369b60",
+      "source_checksum": "485c9c64f71317c168744e907accaa95f25f8555d94586810bb8312a760e5096",
       "handler": {
         "ref": "infera-messenger/src/dashboard/routes.rs:21:dashboard_show",
         "path": "infera-messenger/src/dashboard/routes.rs",
@@ -3448,7 +3490,7 @@
           }
         ]
       },
-      "source_checksum": "97bad8744e21340bb50727b230a90dabca36821479a920ba206ee5301703379b",
+      "source_checksum": "8e64e8a959c38d4b00c6bb79c0ccdbbd8ad9019f5d3ecf88165261f37e2120a7",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:20:rabbitmq_integration_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3525,7 +3567,7 @@
           }
         ]
       },
-      "source_checksum": "52e8c2441aa8f5026bbd4ee5365a7badef9dbc6237c2f18866060fad322238ed",
+      "source_checksum": "d9509834524c3a6365f618a0b5a4276ae25a7ee6aadfb363fa3c26d7149035f3",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:35:integration_docs_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3603,7 +3645,7 @@
           }
         ]
       },
-      "source_checksum": "50f4887275f9b9dcd6775a21d770a913a2130eaf9fbbdad7a3bb68d1623f4c59",
+      "source_checksum": "ce38ae3634031fb3fff45d293484918323b9c724e46715d0ccfe3089a89db473",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:44:flow_integration_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3654,6 +3696,690 @@
       }
     },
     {
+      "id": "GET /api/v1/notifications/me/events",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/notifications/me/events",
+        "module": "inbox_stream",
+        "handler": "events",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/inbox_stream.rs",
+        "query": "PollQuery",
+        "response": "EventPage",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "inbox_stream",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/inbox_stream.rs",
+            "line": 18,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "2da07a5c9035ed287760e945ad4224f9b1df976b7c9f595631d0ca11d4818a33",
+      "handler": {
+        "ref": "infera-messenger/src/inbox_stream.rs:68:events",
+        "path": "infera-messenger/src/inbox_stream.rs",
+        "line": 68,
+        "name": "events"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "PollQuery",
+          "models": [
+            {
+              "ref": "infera-messenger/src/inbox_stream.rs:46:PollQuery",
+              "path": "infera-messenger/src/inbox_stream.rs",
+              "line": 46,
+              "name": "PollQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "EventPage",
+          "models": [
+            {
+              "ref": "infera-messenger/src/inbox_stream.rs:57:EventPage",
+              "path": "infera-messenger/src/inbox_stream.rs",
+              "line": 57,
+              "name": "EventPage"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/notifications/me/unread-count",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/notifications/me/unread-count",
+        "module": "inbox_stream",
+        "handler": "unread",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/inbox_stream.rs",
+        "response": "UnreadCount",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "inbox_stream",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/inbox_stream.rs",
+            "line": 18,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "164abe25f5eb91b5698b3a085ce52076d2df87f0b23c4d706d5c68e5b78002ec",
+      "handler": {
+        "ref": "infera-messenger/src/inbox_stream.rs:149:unread",
+        "path": "infera-messenger/src/inbox_stream.rs",
+        "line": 149,
+        "name": "unread"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "UnreadCount",
+          "models": [
+            {
+              "ref": "infera-messenger/src/inbox_stream.rs:140:UnreadCount",
+              "path": "infera-messenger/src/inbox_stream.rs",
+              "line": 140,
+              "name": "UnreadCount"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/push/devices",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/push/devices",
+        "module": "mobile_push",
+        "handler": "register",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/mobile_push.rs",
+        "body": "DeviceRegistration",
+        "response": "RegisteredDevice",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "mobile_push",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/mobile_push.rs",
+            "line": 21,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "2a7b7777337d46e88bda92ddd9bb3ca27740979106485e034d0c661b21c4479e",
+      "handler": {
+        "ref": "infera-messenger/src/mobile_push.rs:45:register",
+        "path": "infera-messenger/src/mobile_push.rs",
+        "line": 45,
+        "name": "register"
+      },
+      "related_implementation": [
+        {
+          "call": "crate::push_applications::application",
+          "evidence": {
+            "ref": "infera-messenger/src/push_applications.rs:12:application",
+            "path": "infera-messenger/src/push_applications.rs",
+            "line": 12,
+            "name": "application"
+          }
+        }
+      ],
+      "schemas": {
+        "body": {
+          "declared_type": "DeviceRegistration",
+          "models": [
+            {
+              "ref": "infera-messenger/src/mobile_push.rs:28:DeviceRegistration",
+              "path": "infera-messenger/src/mobile_push.rs",
+              "line": 28,
+              "name": "DeviceRegistration"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "RegisteredDevice",
+          "models": [
+            {
+              "ref": "infera-messenger/src/mobile_push.rs:36:RegisteredDevice",
+              "path": "infera-messenger/src/mobile_push.rs",
+              "line": 36,
+              "name": "RegisteredDevice"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "application_id",
+          "type": "String",
+          "model": "DeviceRegistration",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "installation_id",
+          "type": "Uuid",
+          "model": "DeviceRegistration",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/push/devices/{id}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/push/devices/{id}",
+        "module": "mobile_push",
+        "handler": "revoke",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/mobile_push.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "mobile_push",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/mobile_push.rs",
+            "line": 21,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "1d380c729f33c6a494581b06765583afdd744eadd2eabefd20b5345543cf3186",
+      "handler": {
+        "ref": "infera-messenger/src/mobile_push.rs:107:revoke",
+        "path": "infera-messenger/src/mobile_push.rs",
+        "line": 107,
+        "name": "revoke"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/web-push/config",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/web-push/config",
+        "module": "web_push",
+        "handler": "config",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "web_push",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "ee8777c4bd26bd013d611647865ec0b3a07877db984e843831ccec3305a6767e",
+      "handler": {
+        "ref": "infera-messenger/src/web_push.rs:114:config",
+        "path": "infera-messenger/src/web_push.rs",
+        "line": 114,
+        "name": "config"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/web-push/subscriptions",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/web-push/subscriptions",
+        "module": "web_push",
+        "handler": "subscribe",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "body": "Registration",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "web_push",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "a79a75b0802663c48e1e601bf1dab84692f49b42cf6066f9b3276093bd69e022",
+      "handler": {
+        "ref": "infera-messenger/src/web_push.rs:129:subscribe",
+        "path": "infera-messenger/src/web_push.rs",
+        "line": 129,
+        "name": "subscribe"
+      },
+      "related_implementation": [
+        {
+          "call": "crate::push_applications::application",
+          "evidence": {
+            "ref": "infera-messenger/src/push_applications.rs:12:application",
+            "path": "infera-messenger/src/push_applications.rs",
+            "line": 12,
+            "name": "application"
+          }
+        }
+      ],
+      "schemas": {
+        "body": {
+          "declared_type": "Registration",
+          "models": [
+            {
+              "ref": "infera-messenger/src/web_push.rs:74:Registration",
+              "path": "infera-messenger/src/web_push.rs",
+              "line": 74,
+              "name": "Registration"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "application_id",
+          "type": "String",
+          "model": "Registration",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/web-push/subscriptions/{id}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/web-push/subscriptions/{id}",
+        "module": "web_push",
+        "handler": "unsubscribe",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "web_push",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "67dea40bc5c62e6a1491a0505495d2e2de567c14fb664aeb42435e0a6da55569",
+      "handler": {
+        "ref": "infera-messenger/src/web_push.rs:169:unsubscribe",
+        "path": "infera-messenger/src/web_push.rs",
+        "line": 169,
+        "name": "unsubscribe"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/web-push/subscriptions/{id}/test",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/web-push/subscriptions/{id}/test",
+        "module": "web_push",
+        "handler": "test_push",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "web_push",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "7c0f232fb21f9651899fa99edaa578f2a49240deb20d0049762ccf7149735acf",
+      "handler": {
+        "ref": "infera-messenger/src/web_push.rs:189:test_push",
+        "path": "infera-messenger/src/web_push.rs",
+        "line": 189,
+        "name": "test_push"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/web-push/deliveries/{id}",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/web-push/deliveries/{id}",
+        "module": "web_push",
+        "handler": "delivery",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "web_push",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "52f970726e0bd2540f1aeb8f15babaee4614712ff3f4419b86ae5eee3234b90a",
+      "handler": {
+        "ref": "infera-messenger/src/web_push.rs:231:delivery",
+        "path": "infera-messenger/src/web_push.rs",
+        "line": 231,
+        "name": "delivery"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
       "id": "POST /api/v1/notifications",
       "registration": {
         "method": "POST",
@@ -3681,7 +4407,7 @@
           }
         ]
       },
-      "source_checksum": "919ef0ffaa11c3d31c24eb72d38a6eaa19065cf359409f38a444039796c6f0b1",
+      "source_checksum": "c2394110697e3acdb845c808e97989777d05ec67516a8d7c44c2e35e76ba0983",
       "handler": {
         "ref": "infera-messenger/src/notification/routes.rs:353:notifications_send",
         "path": "infera-messenger/src/notification/routes.rs",
@@ -3774,7 +4500,7 @@
           }
         ]
       },
-      "source_checksum": "b1b13d018a0425042baa614a8e26083103b1b070eb4a4379c6ed2dfec3aa9c4b",
+      "source_checksum": "83250730c3a585d357b1e862344a0bda0e25c4587c359124a344ae32f96a7cd6",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:134:channels_subscribe",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -3873,6 +4599,15 @@
       "GET /api/v1/integration/rabbitmq",
       "GET /api/v1/integration/docs",
       "GET /api/v1/integration/flow",
+      "GET /api/v1/notifications/me/events",
+      "GET /api/v1/notifications/me/unread-count",
+      "POST /api/v1/push/devices",
+      "DELETE /api/v1/push/devices/{id}",
+      "GET /api/v1/web-push/config",
+      "POST /api/v1/web-push/subscriptions",
+      "DELETE /api/v1/web-push/subscriptions/{id}",
+      "POST /api/v1/web-push/subscriptions/{id}/test",
+      "GET /api/v1/web-push/deliveries/{id}",
       "POST /api/v1/notifications",
       "POST /api/v1/channels/subscribe"
     ]
@@ -4780,6 +5515,238 @@
         ]
       },
       {
+        "method": "GET",
+        "path": "/api/v1/notifications/me/events",
+        "module": "inbox_stream",
+        "handler": "events",
+        "handlerModule": "inbox_stream",
+        "source": "infera-messenger/src/inbox_stream.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "query": "PollQuery",
+        "response": "EventPage",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/inbox_stream.rs",
+            "line": 18,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/notifications/me/unread-count",
+        "module": "inbox_stream",
+        "handler": "unread",
+        "handlerModule": "inbox_stream",
+        "source": "infera-messenger/src/inbox_stream.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "response": "UnreadCount",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/inbox_stream.rs",
+            "line": 18,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/push/devices",
+        "module": "mobile_push",
+        "handler": "register",
+        "handlerModule": "mobile_push",
+        "source": "infera-messenger/src/mobile_push.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "body": "DeviceRegistration",
+        "response": "RegisteredDevice",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/mobile_push.rs",
+            "line": 21,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/push/devices/{id}",
+        "module": "mobile_push",
+        "handler": "revoke",
+        "handlerModule": "mobile_push",
+        "source": "infera-messenger/src/mobile_push.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/mobile_push.rs",
+            "line": 21,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/web-push/config",
+        "module": "web_push",
+        "handler": "config",
+        "handlerModule": "web_push",
+        "source": "infera-messenger/src/web_push.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "response": "Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/web-push/subscriptions",
+        "module": "web_push",
+        "handler": "subscribe",
+        "handlerModule": "web_push",
+        "source": "infera-messenger/src/web_push.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "body": "Registration",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/web-push/subscriptions/{id}",
+        "module": "web_push",
+        "handler": "unsubscribe",
+        "handlerModule": "web_push",
+        "source": "infera-messenger/src/web_push.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/web-push/subscriptions/{id}/test",
+        "module": "web_push",
+        "handler": "test_push",
+        "handlerModule": "web_push",
+        "source": "infera-messenger/src/web_push.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/web-push/deliveries/{id}",
+        "module": "web_push",
+        "handler": "delivery",
+        "handlerModule": "web_push",
+        "source": "infera-messenger/src/web_push.rs",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-messenger/src/router.rs",
+            "line": 94,
+            "function": "routes"
+          },
+          {
+            "path": "infera-messenger/src/web_push.rs",
+            "line": 55,
+            "function": "routes"
+          }
+        ]
+      },
+      {
         "method": "POST",
         "path": "/api/v1/notifications",
         "module": "notification::routes",
@@ -4832,53 +5799,16 @@
     "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/web-push/config",
-      "GET /api/v1/web-push/deliveries/{id}",
-      "POST /api/v1/web-push/subscriptions",
-      "DELETE /api/v1/web-push/subscriptions/{id}",
-      "POST /api/v1/web-push/subscriptions/{id}/test"
-    ],
+    "added": [],
     "absent": [],
-    "changed": [
-      "GET /api/openapi.json",
-      "GET /api/v1/channels",
-      "POST /api/v1/channels",
-      "DELETE /api/v1/channels/{id}",
-      "GET /api/v1/channels/{id}",
-      "PATCH /api/v1/channels/{id}",
-      "POST /api/v1/channels/subscribe",
-      "GET /api/v1/dashboard",
-      "GET /api/v1/integration/docs",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/integration/rabbitmq",
-      "GET /api/v1/notifications",
-      "POST /api/v1/notifications",
-      "GET /api/v1/notifications/{id}",
-      "PATCH /api/v1/notifications/{id}/read",
-      "GET /api/v1/notifications/me",
-      "PATCH /api/v1/notifications/me/{id}/read",
-      "PATCH /api/v1/notifications/me/read-all",
-      "PATCH /api/v1/notifications/read-all",
-      "POST /api/v1/notifications/realtime/auth",
-      "GET /api/v1/notifications/realtime/config",
-      "GET /api/v1/services",
-      "POST /api/v1/services",
-      "DELETE /api/v1/services/{id}",
-      "GET /api/v1/services/{id}",
-      "PATCH /api/v1/services/{id}",
-      "POST /api/v1/services/setup-check",
-      "POST /api/v1/services/website-otp-readiness",
-      "GET /api/v1/templates",
-      "POST /api/v1/templates",
-      "DELETE /api/v1/templates/{id}",
-      "GET /api/v1/templates/{id}",
-      "PATCH /api/v1/templates/{id}",
-      "GET /api/v1/templates/{id}/contents",
-      "POST /api/v1/templates/{id}/contents",
-      "PATCH /api/v1/templates/contents/{content_id}",
-      "GET /health",
-      "GET /up"
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
@@ -5098,11 +6028,11 @@
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {
-    "infera-messenger/src/router.rs:184:status_route": {
+    "infera-messenger/src/router.rs:187:status_route": {
       "name": "status_route",
       "path": "infera-messenger/src/router.rs",
-      "line": 184,
-      "end_line": 192,
+      "line": 187,
+      "end_line": 195,
       "signature": "async fn status_route(State(_pool): State<AppState>) -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [],
@@ -5110,7 +6040,7 @@
       "state": [
         {
           "path": "infera-messenger/src/router.rs",
-          "line": 186,
+          "line": 189,
           "expression": "status: \"success\".to_string(),"
         }
       ],
@@ -6509,6 +7439,15 @@
           "attributes": []
         },
         {
+          "name": "destination",
+          "rust_name": "destination",
+          "rust_type": "Option<serde_json::Value>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
           "name": "work_item_id",
           "rust_name": "work_item_id",
           "rust_type": "Option<String>",
@@ -6954,7 +7893,8 @@
       ],
       "effects": [],
       "calls": [
-        "crate::broker::socket_public_config"
+        "crate::broker::socket_public_config",
+        "crate::push_applications::channel"
       ]
     },
     "infera-messenger/src/broker.rs:99:socket_public_config": {
@@ -6970,6 +7910,41 @@
           "path": "infera-messenger/src/broker.rs",
           "line": 106,
           "expression": "if ws_url.is_empty() || !(ws_url.starts_with(\"ws://\") || ws_url.starts_with(\"wss://\")) {"
+        }
+      ],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-messenger/src/push_applications.rs:54:channel": {
+      "name": "channel",
+      "path": "infera-messenger/src/push_applications.rs",
+      "line": 54,
+      "end_line": 61,
+      "signature": "pub fn channel(user: &str) -> String",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-messenger/src/push_applications.rs",
+          "line": 55,
+          "expression": "let scope = std::env::var(\"MESSENGER_REALTIME_SCOPE\").unwrap_or_default();"
+        },
+        {
+          "path": "infera-messenger/src/push_applications.rs",
+          "line": 56,
+          "expression": "if scope.is_empty() {"
+        },
+        {
+          "path": "infera-messenger/src/push_applications.rs",
+          "line": 59,
+          "expression": "format!(\"private-push-notification.{scope}.{user}\")"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-messenger/src/push_applications.rs",
+          "line": 56,
+          "expression": "if scope.is_empty() {"
         }
       ],
       "state": [],
@@ -7072,6 +8047,7 @@
       ],
       "effects": [],
       "calls": [
+        "crate::push_applications::channel",
         "crate::broker::authorize_private_channel"
       ]
     },
@@ -7476,6 +8452,562 @@
       ],
       "validation": [],
       "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-messenger/src/inbox_stream.rs:68:events": {
+      "name": "events",
+      "path": "infera-messenger/src/inbox_stream.rs",
+      "line": 68,
+      "end_line": 138,
+      "signature": "async fn events(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Query(q): Query<PollQuery>,\n) -> Result<Json<APIResponse<EventPage>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-messenger/src/inbox_stream.rs",
+          "line": 115,
+          "expression": "if !rows.is_empty() || Instant::now() >= deadline {"
+        },
+        {
+          "path": "infera-messenger/src/inbox_stream.rs",
+          "line": 116,
+          "expression": "let has_more = rows.len() > 100;"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-messenger/src/inbox_stream.rs",
+          "line": 75,
+          "expression": "return Err(AppError::new(StatusCode::BAD_REQUEST, \"invalid cursor\"));"
+        },
+        {
+          "path": "infera-messenger/src/inbox_stream.rs",
+          "line": 110,
+          "expression": "StatusCode::GONE,"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-messenger/src/inbox_stream.rs:46:PollQuery": {
+      "name": "PollQuery",
+      "kind": "struct",
+      "path": "infera-messenger/src/inbox_stream.rs",
+      "line": 46,
+      "attributes": "#[derive(Deserialize)]",
+      "fields": [
+        {
+          "name": "cursor",
+          "rust_name": "cursor",
+          "rust_type": "Option<i64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "wait_seconds",
+          "rust_name": "wait_seconds",
+          "rust_type": "Option<u64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-messenger/src/inbox_stream.rs:57:EventPage": {
+      "name": "EventPage",
+      "kind": "struct",
+      "path": "infera-messenger/src/inbox_stream.rs",
+      "line": 57,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "events",
+          "rust_name": "events",
+          "rust_type": "Vec<InboxEvent>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "cursor",
+          "rust_name": "cursor",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "has_more",
+          "rust_name": "has_more",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-messenger/src/inbox_stream.rs:149:unread": {
+      "name": "unread",
+      "path": "infera-messenger/src/inbox_stream.rs",
+      "line": 149,
+      "end_line": 157,
+      "signature": "async fn unread(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n) -> Result<Json<APIResponse<UnreadCount>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-messenger/src/inbox_stream.rs",
+          "line": 153,
+          "expression": "let r=s.db.query_one(sql(\"SELECT count(*) AS n FROM notifications WHERE recipient=$1 AND read_at IS NULL AND deleted_at IS NULL\",vec![user(&a)?.into()])).await.map_err(unavailable)?.ok_or_else(||unavailable(\"missing count\"))?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-messenger/src/inbox_stream.rs",
+          "line": 153,
+          "expression": "let r=s.db.query_one(sql(\"SELECT count(*) AS n FROM notifications WHERE recipient=$1 AND read_at IS NULL AND deleted_at IS NULL\",vec![user(&a)?.into()])).await.map_err(unavailable)?.ok_or_else(||unavailable(\"missing count\"))?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-messenger/src/inbox_stream.rs:140:UnreadCount": {
+      "name": "UnreadCount",
+      "kind": "struct",
+      "path": "infera-messenger/src/inbox_stream.rs",
+      "line": 140,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "unread_count",
+          "rust_name": "unread_count",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-messenger/src/mobile_push.rs:45:register": {
+      "name": "register",
+      "path": "infera-messenger/src/mobile_push.rs",
+      "line": 45,
+      "end_line": 100,
+      "signature": "async fn register(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Json(i): Json<DeviceRegistration>,\n) -> Result<Json<APIResponse<RegisteredDevice>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 53,
+          "expression": "|| i.token.len() < 20"
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 54,
+          "expression": "|| i.token.len() > 4096"
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 56,
+          "expression": "|| i.locale.len() > 32"
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 74,
+          "expression": "return Err(AppError::new(StatusCode::CONFLICT, \"device limit reached\"));"
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 96,
+          "expression": "let row=tx.query_one(sql(\"INSERT INTO mobile_push_devices(id,user_id,application_id,installation_id,platform,token_hash,encrypted_token,locale) VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT(application_id,installation_id) DO UPDATE SET token_hash=excluded.token_hash,encrypted_token=excluded.encrypted_token,platform=excluded.platform,locale=excluded.locale,updated_at=now() WHERE mobile_push_devices.user_id=excluded.user_id RETURNING id\",vec![id.into(),who.into(),i.application_id.into(),i.installation_id.into(),i.platform.into(),token_hash.into(),encrypted.into(),i.locale.into()])).await.map_err(unavailable)?.ok_or_else(||AppError::new(StatusCode::CONFLICT,\"installation is unavailable\"))?;"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 59,
+          "expression": "StatusCode::BAD_REQUEST,"
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 74,
+          "expression": "return Err(AppError::new(StatusCode::CONFLICT, \"device limit reached\"));"
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 96,
+          "expression": "let row=tx.query_one(sql(\"INSERT INTO mobile_push_devices(id,user_id,application_id,installation_id,platform,token_hash,encrypted_token,locale) VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT(application_id,installation_id) DO UPDATE SET token_hash=excluded.token_hash,encrypted_token=excluded.encrypted_token,platform=excluded.platform,locale=excluded.locale,updated_at=now() WHERE mobile_push_devices.user_id=excluded.user_id RETURNING id\",vec![id.into(),who.into(),i.application_id.into(),i.installation_id.into(),i.platform.into(),token_hash.into(),encrypted.into(),i.locale.into()])).await.map_err(unavailable)?.ok_or_else(||AppError::new(StatusCode::CONFLICT,\"installation is unavailable\"))?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 76,
+          "expression": "// Token reuse after an account switch transfers only this installation; queued old-user deliveries are deleted."
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 77,
+          "expression": "let old=tx.query_all(sql(\"SELECT id,user_id,installation_id FROM mobile_push_devices WHERE application_id=$1 AND (installation_id=$2 OR token_hash=$3) FOR UPDATE\",vec![i.application_id.clone().into(),i.installation_id.into(),token_hash.clone().into()])).await.map_err(unavailable)?;"
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 88,
+          "expression": "\"DELETE FROM mobile_push_devices WHERE id=$1\","
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 96,
+          "expression": "let row=tx.query_one(sql(\"INSERT INTO mobile_push_devices(id,user_id,application_id,installation_id,platform,token_hash,encrypted_token,locale) VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT(application_id,installation_id) DO UPDATE SET token_hash=excluded.token_hash,encrypted_token=excluded.encrypted_token,platform=excluded.platform,locale=excluded.locale,updated_at=now() WHERE mobile_push_devices.user_id=excluded.user_id RETURNING id\",vec![id.into(),who.into(),i.application_id.into(),i.installation_id.into(),i.platform.into(),token_hash.into(),encrypted.into(),i.locale.into()])).await.map_err(unavailable)?.ok_or_else(||AppError::new(StatusCode::CONFLICT,\"installation is unavailable\"))?;"
+        },
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 98,
+          "expression": "tx.commit().await.map_err(unavailable)?;"
+        }
+      ],
+      "calls": [
+        "crate::push_applications::application"
+      ]
+    },
+    "infera-messenger/src/push_applications.rs:12:application": {
+      "name": "application",
+      "path": "infera-messenger/src/push_applications.rs",
+      "line": 12,
+      "end_line": 29,
+      "signature": "pub fn application(id: &str) -> Result<PushApplication, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-messenger/src/push_applications.rs",
+          "line": 16,
+          "expression": "StatusCode::SERVICE_UNAVAILABLE,"
+        },
+        {
+          "path": "infera-messenger/src/push_applications.rs",
+          "line": 28,
+          "expression": ".ok_or_else(|| AppError::new(StatusCode::BAD_REQUEST, \"unknown push application\"))"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-messenger/src/mobile_push.rs:28:DeviceRegistration": {
+      "name": "DeviceRegistration",
+      "kind": "struct",
+      "path": "infera-messenger/src/mobile_push.rs",
+      "line": 28,
+      "attributes": "#[derive(Deserialize)]\n#[serde(deny_unknown_fields)]",
+      "fields": [
+        {
+          "name": "application_id",
+          "rust_name": "application_id",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "installation_id",
+          "rust_name": "installation_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "platform",
+          "rust_name": "platform",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "token",
+          "rust_name": "token",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "locale",
+          "rust_name": "locale",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-messenger/src/mobile_push.rs:36:RegisteredDevice": {
+      "name": "RegisteredDevice",
+      "kind": "struct",
+      "path": "infera-messenger/src/mobile_push.rs",
+      "line": 36,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "id",
+          "rust_name": "id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-messenger/src/mobile_push.rs:107:revoke": {
+      "name": "revoke",
+      "path": "infera-messenger/src/mobile_push.rs",
+      "line": 107,
+      "end_line": 119,
+      "signature": "async fn revoke(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<Value>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-messenger/src/mobile_push.rs",
+          "line": 113,
+          "expression": "\"DELETE FROM mobile_push_devices WHERE id=$1 AND user_id=$2\","
+        }
+      ],
+      "calls": []
+    },
+    "infera-messenger/src/web_push.rs:114:config": {
+      "name": "config",
+      "path": "infera-messenger/src/web_push.rs",
+      "line": 114,
+      "end_line": 122,
+      "signature": "async fn config(\n    Extension(auth): Extension<AuthContext>,\n) -> Result<Json<APIResponse<Value>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-messenger/src/web_push.rs:129:subscribe": {
+      "name": "subscribe",
+      "path": "infera-messenger/src/web_push.rs",
+      "line": 129,
+      "end_line": 162,
+      "signature": "async fn subscribe(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Json(input): Json<Registration>,\n) -> Result<Json<APIResponse<Value>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 137,
+          "expression": "if !validate(&input.subscription) {"
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 156,
+          "expression": "return Err(AppError::new(StatusCode::CONFLICT, \"device limit reached\"));"
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 158,
+          "expression": "let row=tx.query_one(sql(\"INSERT INTO web_push_subscriptions(id,user_id,endpoint_hash,encrypted_subscription,locale,application_id) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(endpoint_hash) DO UPDATE SET encrypted_subscription=EXCLUDED.encrypted_subscription,locale=EXCLUDED.locale,application_id=EXCLUDED.application_id,updated_at=now() WHERE web_push_subscriptions.user_id=EXCLUDED.user_id RETURNING id\",vec![id.into(),user.into(),hash.into(),encrypted.into(),if input.locale==\"en\"{\"en\"}else{\"fa\"}.into(),input.application_id.into()])).await.map_err(unavailable)?.ok_or(AppError::new(StatusCode::CONFLICT,\"subscription belongs to another session\"))?;"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 139,
+          "expression": "StatusCode::BAD_REQUEST,"
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 156,
+          "expression": "return Err(AppError::new(StatusCode::CONFLICT, \"device limit reached\"));"
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 158,
+          "expression": "let row=tx.query_one(sql(\"INSERT INTO web_push_subscriptions(id,user_id,endpoint_hash,encrypted_subscription,locale,application_id) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(endpoint_hash) DO UPDATE SET encrypted_subscription=EXCLUDED.encrypted_subscription,locale=EXCLUDED.locale,application_id=EXCLUDED.application_id,updated_at=now() WHERE web_push_subscriptions.user_id=EXCLUDED.user_id RETURNING id\",vec![id.into(),user.into(),hash.into(),encrypted.into(),if input.locale==\"en\"{\"en\"}else{\"fa\"}.into(),input.application_id.into()])).await.map_err(unavailable)?.ok_or(AppError::new(StatusCode::CONFLICT,\"subscription belongs to another session\"))?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 158,
+          "expression": "let row=tx.query_one(sql(\"INSERT INTO web_push_subscriptions(id,user_id,endpoint_hash,encrypted_subscription,locale,application_id) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(endpoint_hash) DO UPDATE SET encrypted_subscription=EXCLUDED.encrypted_subscription,locale=EXCLUDED.locale,application_id=EXCLUDED.application_id,updated_at=now() WHERE web_push_subscriptions.user_id=EXCLUDED.user_id RETURNING id\",vec![id.into(),user.into(),hash.into(),encrypted.into(),if input.locale==\"en\"{\"en\"}else{\"fa\"}.into(),input.application_id.into()])).await.map_err(unavailable)?.ok_or(AppError::new(StatusCode::CONFLICT,\"subscription belongs to another session\"))?;"
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 160,
+          "expression": "tx.commit().await.map_err(unavailable)?;"
+        }
+      ],
+      "calls": [
+        "crate::push_applications::application"
+      ]
+    },
+    "infera-messenger/src/web_push.rs:74:Registration": {
+      "name": "Registration",
+      "kind": "struct",
+      "path": "infera-messenger/src/web_push.rs",
+      "line": 74,
+      "attributes": "#[derive(Deserialize)]",
+      "fields": [
+        {
+          "name": "subscription",
+          "rust_name": "subscription",
+          "rust_type": "Subscription",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "application_id",
+          "rust_name": "application_id",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": true,
+          "flatten": false,
+          "attributes": [
+            "serde(default = \"default_application\")"
+          ]
+        },
+        {
+          "name": "locale",
+          "rust_name": "locale",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": true,
+          "flatten": false,
+          "attributes": [
+            "serde(default)"
+          ]
+        }
+      ]
+    },
+    "infera-messenger/src/web_push.rs:169:unsubscribe": {
+      "name": "unsubscribe",
+      "path": "infera-messenger/src/web_push.rs",
+      "line": 169,
+      "end_line": 182,
+      "signature": "async fn unsubscribe(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<Value>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 176,
+          "expression": "\"DELETE FROM web_push_subscriptions WHERE id=$1 AND user_id=$2\","
+        }
+      ],
+      "calls": []
+    },
+    "infera-messenger/src/web_push.rs:189:test_push": {
+      "name": "test_push",
+      "path": "infera-messenger/src/web_push.rs",
+      "line": 189,
+      "end_line": 224,
+      "signature": "async fn test_push(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<Value>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 204,
+          "expression": ".ok_or(AppError::new(StatusCode::NOT_FOUND, \"device not found\"))?;"
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 208,
+          "expression": "StatusCode::TOO_MANY_REQUESTS,"
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 223,
+          "expression": "Ok(reply(json!({\"id\":job,\"status\":\"pending\"})))"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 199,
+          "expression": "\"SELECT locale FROM web_push_subscriptions WHERE id=$1 AND user_id=$2 FOR UPDATE\","
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 217,
+          "expression": "\"INSERT INTO web_push_deliveries(id,subscription_id,payload) VALUES($1,$2,$3)\","
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 222,
+          "expression": "tx.commit().await.map_err(unavailable)?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-messenger/src/web_push.rs:231:delivery": {
+      "name": "delivery",
+      "path": "infera-messenger/src/web_push.rs",
+      "line": 231,
+      "end_line": 241,
+      "signature": "async fn delivery(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<Value>>, AppError>",
+      "declared_permissions": [
+        "notification:self:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 237,
+          "expression": "let r=s.db.query_one(sql(\"SELECT d.status,d.last_status FROM web_push_deliveries d JOIN web_push_subscriptions s ON s.id=d.subscription_id WHERE d.id=$1 AND s.user_id=$2\",vec![id.into(),user.into()])).await.map_err(unavailable)?.ok_or(AppError::new(StatusCode::NOT_FOUND,\"delivery not found\"))?;"
+        },
+        {
+          "path": "infera-messenger/src/web_push.rs",
+          "line": 239,
+          "expression": "json!({\"id\":id,\"status\":r.try_get::<String>(\"\",\"status\").map_err(unavailable)?,\"provider_status\":r.try_get::<Option<i32>>(\"\",\"last_status\").map_err(unavailable)?}),"
+        }
+      ],
       "effects": [],
       "calls": []
     },

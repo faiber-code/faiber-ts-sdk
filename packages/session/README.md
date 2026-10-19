@@ -108,3 +108,7 @@ returns buffered `ArrayBuffer`/`Uint8Array` bytes with full Axios status and hea
 Use the shared client's explicit streaming transport for SSE or media streams.
 Session applies current room/participant rules and the target still checks access;
 this operation does not grant peer membership.
+
+`CONNECT` requires an explicitly supplied tunnel-capable Axios adapter. The default
+Node Axios adapter does not consume CONNECT response events, and browsers restrict
+tunnel methods; the SDK rejects a default-adapter CONNECT call before transport.

@@ -15,7 +15,7 @@
   ],
   "canonical_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
   "sdk_source_revision": null,
-  "working_revision": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+  "working_revision": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
   "working_changes": [],
   "source_relationship": "not_in_sdk_lock",
   "source_tree_checksum": "a1e15593d6e60b305cc7eefde999df2acb689406736636475dbfbb200ca13b70",
@@ -85,11 +85,11 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "0293379c2135e98de3fdbc52526624924668360aee09d9fc18e41591a37b8b78",
+  "working_source_tree_checksum": "8d6c30d34ba5bc46beca8dc0a94e136acc0793cf8614fc5f1d463633fbe2662a",
   "working_source_files": [
     {
       "path": "infera-manage/src/agent.rs",
-      "checksum": "84aacdf6cfca09a3f318a42fe68bba90d8cf710a547c198e87d5f13aad9c9988"
+      "checksum": "f0d99422f76e55cbd1621f8a5552f32dc0a4d25c1b0a14b69b7eefea6d10da3b"
     },
     {
       "path": "infera-manage/src/authority_tests.rs",
@@ -1756,18 +1756,16 @@
   },
   "working_drift": {
     "added": [],
-    "absent": [
-      "GET /health",
-      "GET /sso",
-      "POST /api/v1/dev/login",
-      "POST /logout",
-      "GET /api/v1/me",
-      "POST /api/v1/setup/check",
-      "GET /api/v1/health/services",
-      "ANY /api/v1/proxy/{*rest}",
-      "ANY /api/v1/agent/{*rest}"
-    ],
-    "changed": []
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
+    ]
   },
   "working_route_candidates": [
     {

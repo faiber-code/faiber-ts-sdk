@@ -11,12 +11,12 @@
     "AGENTS.md",
     "crates/faiber-server/src/routes.rs"
   ],
-  "canonical_revision": "aa72a3ad9a3064949fc1045724419403e58a5ef4",
+  "canonical_revision": "4e30e8158d15d221926de36b6834521af6271674",
   "sdk_source_revision": null,
-  "working_revision": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
+  "working_revision": "e15272c1539eee4c1b183a8b2ec7e0453301d8b3",
   "working_changes": [],
   "source_relationship": "not_in_sdk_lock",
-  "source_tree_checksum": "0cc8bcd316f6ae44de0f60c84890ae11ddba310dbf545e773a40bf6eca957402",
+  "source_tree_checksum": "5912a858c08232a7d169a8fa45c23c65a9e2b750aaa24b100b3810deea6d4008",
   "source_files": [
     {
       "path": "infera-control/crates/faiber-server/src/main.rs",
@@ -68,7 +68,7 @@
     },
     {
       "path": "infera-control/crates/faiber-core/src/manifests.rs",
-      "checksum": "9e881f1435936e187754726bcabd022e370f9e1bf303b755c9f8c0a35a7c1598"
+      "checksum": "99ac67a989a3ba6af2a0365a7d6d6cab498c3a6babac688b81565488768bf235"
     },
     {
       "path": "infera-control/crates/faiber-core/src/ops/admin.rs",
@@ -108,7 +108,7 @@
     },
     {
       "path": "infera-control/crates/faiber-core/src/ops/infra.rs",
-      "checksum": "307aa91899280f6b0635511303a1edabe25eb57a7e163d47ab632e6182daa44b"
+      "checksum": "22f71fa98b7fa8b7c5cc617a598b124bef3c7b0c59d034b108021fd84ff2881b"
     },
     {
       "path": "infera-control/crates/faiber-core/src/ops/logs.rs",
@@ -140,7 +140,7 @@
     },
     {
       "path": "infera-control/crates/faiber-core/src/ops/registry.rs",
-      "checksum": "6f18f398de39ae7cbf374daa23c3093ab0d5795217846887f5a95e9821179c85"
+      "checksum": "96d0d3f4de07a499c77a974297538aebc4102ec1cdcaa76acf16bd9aa433cb14"
     },
     {
       "path": "infera-control/crates/faiber-core/src/ops/sandboxes.rs",
@@ -211,6 +211,11 @@
       "embedded_by": "infera-control/crates/faiber-core/src/ops/package_cache.rs"
     },
     {
+      "path": "infera-control/crates/faiber-core/src/node_cleanup.py",
+      "checksum": "3ff2d40ae52cf6e980eb4ce427b032285906785945dc89352c2966f6b45cb4ce",
+      "embedded_by": "infera-control/crates/faiber-core/src/manifests.rs"
+    },
+    {
       "path": "infera-control/crates/faiber-core/src/ops/apk/android-manifest.cjs",
       "checksum": "fd40bdd6b53c3a58f259905d0d97fb3cf9e3d796915c83a957ad58b4e46a04a1",
       "embedded_by": "infera-control/crates/faiber-core/src/ops/apk.rs"
@@ -255,7 +260,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "041877ae9e5de9e6697d99b7a5b51e54dbf468377e0a10036bea049c8152e14f",
+  "working_source_tree_checksum": "12391fed01972886078bafb1320cdc3b35e05dcd7ad6c138b606b7b39771a826",
   "working_source_files": [
     {
       "path": "infera-control/crates/faiber-server/src/main.rs",
@@ -307,7 +312,7 @@
     },
     {
       "path": "infera-control/crates/faiber-core/src/manifests.rs",
-      "checksum": "9e881f1435936e187754726bcabd022e370f9e1bf303b755c9f8c0a35a7c1598"
+      "checksum": "99ac67a989a3ba6af2a0365a7d6d6cab498c3a6babac688b81565488768bf235"
     },
     {
       "path": "infera-control/crates/faiber-core/src/ops/admin.rs",
@@ -379,7 +384,7 @@
     },
     {
       "path": "infera-control/crates/faiber-core/src/ops/registry.rs",
-      "checksum": "6f18f398de39ae7cbf374daa23c3093ab0d5795217846887f5a95e9821179c85"
+      "checksum": "96d0d3f4de07a499c77a974297538aebc4102ec1cdcaa76acf16bd9aa433cb14"
     },
     {
       "path": "infera-control/crates/faiber-core/src/ops/sandboxes.rs",
@@ -450,6 +455,11 @@
       "embedded_by": "infera-control/crates/faiber-core/src/ops/package_cache.rs"
     },
     {
+      "path": "infera-control/crates/faiber-core/src/node_cleanup.py",
+      "checksum": "3ff2d40ae52cf6e980eb4ce427b032285906785945dc89352c2966f6b45cb4ce",
+      "embedded_by": "infera-control/crates/faiber-core/src/manifests.rs"
+    },
+    {
       "path": "infera-control/crates/faiber-core/src/ops/apk/android-manifest.cjs",
       "checksum": "fd40bdd6b53c3a58f259905d0d97fb3cf9e3d796915c83a957ad58b4e46a04a1",
       "embedded_by": "infera-control/crates/faiber-core/src/ops/apk.rs"
@@ -515,7 +525,7 @@
           }
         ]
       },
-      "source_checksum": "a0f039b32ebca2d7a44f16dd488ea0043cbfe1e47777d045516a3efa466c593b",
+      "source_checksum": "13132f611fa6700a35b413fdfbd97dfecc5853f5beaf09e74325d5ddaec7fe55",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:207:mode",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -563,7 +573,7 @@
           }
         ]
       },
-      "source_checksum": "b6e97ffaa2559fae867113b60287d787fec7575a43be4f9cd782e6f012a0fd93",
+      "source_checksum": "f52b3c48c28e0378fa8ddbe01c20e2adc68a2aea41272a9fef3bb1f1d41c2496",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:214:health",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -612,7 +622,7 @@
           }
         ]
       },
-      "source_checksum": "901ff8586ac5c7a0d4d946c5e73702152a140b92597193541ff726a70b2828cf",
+      "source_checksum": "3b07ef98360175c21a0c15bdef3b4f3241e5bfd11dc52ab802784aae72a7ae70",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/public_expired.rs:47:show",
         "path": "infera-control/crates/faiber-server/src/public_expired.rs",
@@ -672,7 +682,7 @@
           }
         ]
       },
-      "source_checksum": "99ab8e60fa4f4919c406b4eaea202f1fa12b743f050caa471c4da997c747e6a0",
+      "source_checksum": "08c251d816977a63dc9c47781a1b52edf862f169d64e31ccbfa8985b4b774cfc",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:223:cluster",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -720,7 +730,7 @@
           }
         ]
       },
-      "source_checksum": "a6dd2602918a17d5ea8dba66f34ed3abd4e67c03ae0161fd62ce024a73940b8b",
+      "source_checksum": "88b5cc5433589814f48269167a0069ddd748ce216565fca1a088a12c5b907a83",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:227:workloads",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -769,7 +779,7 @@
           }
         ]
       },
-      "source_checksum": "61798ab9eb5d4fb1b64d6d9f3457d68547953352096d7e7861d570dc444b8feb",
+      "source_checksum": "df260cdaac93988ab6817b5d600eaab30dedd873899fb2dfa0ec00b693eba8ec",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:231:deploy",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -831,7 +841,7 @@
           }
         ]
       },
-      "source_checksum": "37975ca496ffa83d65cd979aead0bfeca7a42509c1e1a125f7cd79aa77cfc3fc",
+      "source_checksum": "5f50ef03686c788a112c9f63d2c5370e18dfccd5d862667d4fe4d21e2548408b",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:235:scale",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -897,7 +907,7 @@
           }
         ]
       },
-      "source_checksum": "9a458157b50dcba457f86dece1917d2187dd1eda9b049e0517ca764d6fe8f5cb",
+      "source_checksum": "402e01086142d1a26139d883190057526986581e635ecd22dee789d81efcce03",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:243:update",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -962,7 +972,7 @@
           }
         ]
       },
-      "source_checksum": "9dd9fcf33acbf999d480b9d0cc0af5bb0b0e8e4448e7b0a3bdb41f2ffc3e5623",
+      "source_checksum": "31b6e76668047b75fb0c61a299d8700da24ff544a8f0ebb956285ad7cf29dfd4",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:251:delete_workload",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1016,7 +1026,7 @@
           }
         ]
       },
-      "source_checksum": "d569d9e5c4c27aa03d60b0f15fd29af96d81bfca788feca7b2035c650b9c3ab9",
+      "source_checksum": "2d8e18678afe45afd4617dd32c129b2c5705091e209a078a5faf387de996f909",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:258:restart",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1071,7 +1081,7 @@
           }
         ]
       },
-      "source_checksum": "4c26b77b4b056da635420139f623325f48a9f2a1368a222137a69f323084e9bc",
+      "source_checksum": "9984d281736ba6b42d0d6b58181e607f748e8a8fa50f129d438e2815abb9e44e",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:849:set_domain",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1136,7 +1146,7 @@
           }
         ]
       },
-      "source_checksum": "71bf41b27ef4b86dcb7c32e3a248b8faa40a1bbb20339a8edbe902e03a4834bc",
+      "source_checksum": "3c2503b58defaf4fdd1604a8e0ec263f60720817d3262a8364d436532ae02dd0",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:879:clear_domain",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1191,7 +1201,7 @@
           }
         ]
       },
-      "source_checksum": "5118999c7802c631cb25c0a7dff60129862449bbd35214bb54b1dadb827392ae",
+      "source_checksum": "724f094bcf5809f1ccff398c13cfec9bfd4f14f1d356777ddbbf8fdfa9f56417",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:274:logs",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1256,7 +1266,7 @@
           }
         ]
       },
-      "source_checksum": "d3eeb0240069a6b21ae46a368301ca7722693504fd4e3b7fbc2038ca062db27e",
+      "source_checksum": "b48fe3c9f66f296c27c7058e54589effa9c9736b36dd467e618dd377bfdd1d30",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:314:sandboxes",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1317,7 +1327,7 @@
           }
         ]
       },
-      "source_checksum": "0a3b53c3b63a01ae7cdc999dca81960edab7cbfd34698ba858964e75a7b335c0",
+      "source_checksum": "be306b09db4419d793d1b5d4208678639e3efc869e5bab8687bbe671e48ad19a",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:321:create_sandbox",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1377,7 +1387,7 @@
           }
         ]
       },
-      "source_checksum": "391f0dccf4eba097fec3756f695bb02197c195f092cd78c6a934d3989192abb8",
+      "source_checksum": "e6220e68c1fa085360b74d7ad216f3968ce935495fb763328f0598aaa9acd295",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:380:get_settings",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1426,7 +1436,7 @@
           }
         ]
       },
-      "source_checksum": "e0637bc1dff4f230efb69292bf36ffa59d7a69d0b12f065da167459847b2e4b1",
+      "source_checksum": "5c2a1d7dea735a40af2af754caa1b640fd40dca804250f0f1847398eadf09e34",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:384:update_settings",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1486,7 +1496,7 @@
           }
         ]
       },
-      "source_checksum": "acf1758526abeb1410111652d88e33c090bbbff02710041c8626e146989bc950",
+      "source_checksum": "e696e6afcb1d684e25e8d1e8d13c21c697034b7ed1973d54633b3b09ca53d2ec",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:391:self_update_status",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1534,7 +1544,7 @@
           }
         ]
       },
-      "source_checksum": "73878ff96e90a8f4b874a38fe190855c649dbe9ea06abea3f5afb63b14437d65",
+      "source_checksum": "d48241f2022cd8d2f93eda57a198be0c3698680f40467d78337e4723c799e76e",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:395:self_update_apply",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1582,7 +1592,7 @@
           }
         ]
       },
-      "source_checksum": "fc1ef28d2d297c5cd2094101c05d0810d25cbe85f5f268dcdf711563935b1411",
+      "source_checksum": "7ad101e922e89884d774b01f1f243bffdda4cd7a84aba78bc3bde9cadd0ebb33",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:399:self_update_rollout",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1630,7 +1640,7 @@
           }
         ]
       },
-      "source_checksum": "4dca628ec6c4ccc077f82c1f42f18827eb81e95d98a210dd8b05c4a4539749c6",
+      "source_checksum": "199ebcb56ac54eea30895e07f3822b73f9aaa0a155a8046fa0a5a28c8aba8aff",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:403:self_auth_status",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1679,7 +1689,7 @@
           }
         ]
       },
-      "source_checksum": "8884b2007d0f04191647c8ce8e990f247e292920920aee3805bd48cc7834f83a",
+      "source_checksum": "c2da759569c772ad2de866058e79af344d3da6f014a7e14e3395f5e732aa6c70",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:412:self_auth_set",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1740,7 +1750,7 @@
           }
         ]
       },
-      "source_checksum": "1bdcb59210f8af9b19c2a659662a66fd4c3e3edb64fede1d572e6c96e870bae8",
+      "source_checksum": "3499d2ecd0423389c3022ea9ce21353674ca561998254ba83ca0e1825d3cb389",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:419:provision_sandbox",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1802,7 +1812,7 @@
           }
         ]
       },
-      "source_checksum": "960097b08905f5a7c4df5680d5967b34688877c786850ac0a3adb5c51a5e0252",
+      "source_checksum": "3a5fb4b1a997141ac8718757acbec0963e1a4b5947dd34b34cc1c603fddfffd6",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:436:validate_apk_signing",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1868,7 +1878,7 @@
           }
         ]
       },
-      "source_checksum": "85caf0c31743f94afc7c791f2ceb56368c3abf3148154ce996ab087779e763bf",
+      "source_checksum": "7e6dbc41892cad4af0408f24ec115b894adbb457da3c0372737a8319084839bd",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:446:build_apk",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1933,7 +1943,7 @@
           }
         ]
       },
-      "source_checksum": "d9bc43598450a3223d91bf762fc314b7f613e8f58ce577e1ea49a22331de3a21",
+      "source_checksum": "c7caba9bfe984496984f2e0f67350460d25ab3ad87eb4a33eac2876b4defe755",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:454:apk_build",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -1987,7 +1997,7 @@
           }
         ]
       },
-      "source_checksum": "f2be760ef03277fcf85cde31a8610337e08415b5d65daf72eb3e759ac256f944",
+      "source_checksum": "8e837ecf3355b916e95c3f65e67298999505861ea5756e612a80e000bde0c904",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:328:sandbox_detail",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2041,7 +2051,7 @@
           }
         ]
       },
-      "source_checksum": "da3c838665cc824112ec3ddbbe0f50ea16d125a154c8335d2f98e2aec646c682",
+      "source_checksum": "d34900290632f1719d69a4f27b2391a7e5e4c237ca842a326097b54f88d8d7c1",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:335:delete_sandbox",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2095,7 +2105,7 @@
           }
         ]
       },
-      "source_checksum": "2a2dc6ccc54f13bd574a2e9512d6a6c307a52be5a189fe6ed7c8c1d1e11832ad",
+      "source_checksum": "62a7906924ddb45b384e356ed8ecbb17019dbb74814d2ec13b6667dc70c49e7c",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:461:suspend_sandbox",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2149,7 +2159,7 @@
           }
         ]
       },
-      "source_checksum": "8690bb2d662f424acb62147709f91db1ac2c65afc0208463816cdbdfc0121ec4",
+      "source_checksum": "14ea70790d4d37bc41a8817ab32437138fba284c30caf408d7458ed840d9f116",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:491:resume_sandbox",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2204,7 +2214,7 @@
           }
         ]
       },
-      "source_checksum": "c3a7b9408ed12ef43a894870f1be008b72eaef4b09dd6d2c8d9168dbbc8f38b2",
+      "source_checksum": "991a5b271447e61090e750b1035ec583eb4caba8c57c0228dde00ba3ef8c02fe",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:598:reconcile_sandbox_dns",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2270,7 +2280,7 @@
           }
         ]
       },
-      "source_checksum": "7aa7f9c0f3a03ed87ca3c1e2d345accf45cb21e853b05cdabd075e26985d3c3a",
+      "source_checksum": "67388cee03a32fd14a0b1d9e8f9b7e6eddfd4c5e10ad00a46c01d38be2ebdd74",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:476:expired_sandbox",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2335,7 +2345,7 @@
           }
         ]
       },
-      "source_checksum": "40b3a1354815000b6ec2c1a0842817d74acda908a793c0f586a9affa56656fbf",
+      "source_checksum": "908ba70991be5add09462229d5e387dadf1653e168990f71ce1fc28683fe1e38",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:468:clear_expired_sandbox",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2390,7 +2400,7 @@
           }
         ]
       },
-      "source_checksum": "bd242ec23e661460d03836b7f6ac4db8fa33151dc2afff42f3368af324edd218",
+      "source_checksum": "fd38810993bb214006cd3732a3f93f3a3d2e67e2950e8e4bede4ca71b8a557fc",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:498:update_sandbox_resources",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2455,7 +2465,7 @@
           }
         ]
       },
-      "source_checksum": "dd255152572ca40cd99596db1d5b0a029b6a5ea3b22453e14f588af41babf24f",
+      "source_checksum": "2269bb41fc0f84a7d63a0a956bd394cf4898925ba631781bf81b5301b629e386",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:508:list_sandbox_volume_backups",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2510,7 +2520,7 @@
           }
         ]
       },
-      "source_checksum": "4be1e514f7c47a356cb02f15aec6dd5bf9ba8047bd662670e2e182b9581cd852",
+      "source_checksum": "9b7e4e450f7038541efa7611340cc66f866f148e13a8b044d3cedf5866618b9a",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:517:create_sandbox_volume_backups",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2576,7 +2586,7 @@
           }
         ]
       },
-      "source_checksum": "8405afdad4a1ea924a8b0ccb6707e7807218939cf24957d60ef3b2fd58acd0ca",
+      "source_checksum": "d12b10603dcb758d223d44e2ff86d38b4dc1c9d44eb3598c0448f62858f42dc4",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:527:set_sandbox_domain",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2641,7 +2651,7 @@
           }
         ]
       },
-      "source_checksum": "cfd813a75671d8d615882b46cf08a179f3b91d9b8fec3e347967b3db7dcf40c1",
+      "source_checksum": "712cff3883da5df1f168887c58e3e66b98d13b9fdf47fa8c0af5b350fc34caef",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:542:clear_sandbox_domain",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2696,7 +2706,7 @@
           }
         ]
       },
-      "source_checksum": "6a9a5833b588f10dba3020fc4842cf02a6b45698029d2229a6260ca13d929c36",
+      "source_checksum": "5d60f7de610f884b57547c468c04276c67ad0ad62b83aefbb9220aae877fb384",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:549:set_sandbox_domain_alias",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2762,7 +2772,7 @@
           }
         ]
       },
-      "source_checksum": "48941832c73ff1168e1b4aff1d1535ba0c103dc9507ec000cb4e7c165a5018ff",
+      "source_checksum": "2dc2ce5848dc2fab662e750765d25f2597dfdc99a4fc5b22462ed269f103bf97",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:564:delete_sandbox_domain_alias",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2828,7 +2838,7 @@
           }
         ]
       },
-      "source_checksum": "38f2b4c96c3d61a232f75cdb2689abf92ea74c7e4294a00b7f0b086e35016319",
+      "source_checksum": "1d54845484c3df3717461a372a2b469a0c93d61dda5de74497225bce3b3ece8c",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:579:reconcile_sandbox_routing",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2893,7 +2903,7 @@
           }
         ]
       },
-      "source_checksum": "a76b2b522ea7affc19ff42af90e741846f53435b6f6c47d4e28afc38f8a8e72f",
+      "source_checksum": "9bfc1d0f90a393af46bf4d3c193ff5fed9f4580e944990709f8272275391d1bd",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:617:list_path_routes",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -2947,7 +2957,7 @@
           }
         ]
       },
-      "source_checksum": "3f01863c195c2acff476aa637698181d509e9ef354565b0e7660318f492a9fa8",
+      "source_checksum": "bac90a5383da5f44deabcd8821dc750e455fcfb8641f3718c457ae35ed45f5c1",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:624:get_path_route",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3002,7 +3012,7 @@
           }
         ]
       },
-      "source_checksum": "953d0b969418b2800b7c61c3418f7549f5f847104f87e045494eb4864980bbb3",
+      "source_checksum": "2bd6b534a80a64461e62963d114222de9e871e0415cfb3b7259168f85378e95d",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:631:set_path_route",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3074,7 +3084,7 @@
           }
         ]
       },
-      "source_checksum": "89b9618b3f9c3bedb03f0f730b58f9a8c9fff80de5b19a1f89fb22e44ceddef9",
+      "source_checksum": "b913461b18198ba120223fd930d93ae98d4298ccbc50fd277e5d364527c67f68",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:639:delete_path_route",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3129,7 +3139,7 @@
           }
         ]
       },
-      "source_checksum": "5044a44317b99ef2a378665bd06b2d4d336ebc03e1185d5a4845bcbe3e935ac1",
+      "source_checksum": "0acaff3605576bca32221472313d3a1b36f3cdce8030f47bbbc2d0236edc4b07",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:426:set_sandbox_identity",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3195,7 +3205,7 @@
           }
         ]
       },
-      "source_checksum": "b9af6b8972938491c4b1fa8d7524a766383f09f86fa28f35cf76e3a871236d7f",
+      "source_checksum": "a3dd6cfdb85f56877005e7a27598f604a27167115ad42c2b9fcb5b2588c0682a",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:342:sandbox_service_external",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3260,7 +3270,7 @@
           }
         ]
       },
-      "source_checksum": "6bd05e1d8eac581c48db0807553e1858c34f0ecd9fe40e2ad0a0e063d7423dd6",
+      "source_checksum": "e0d101e7b0e017397c083efc0effd00c74d87d8e862612f43cdef6617af8f412",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:357:sandbox_data_service_lifecycle",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3314,7 +3324,7 @@
           }
         ]
       },
-      "source_checksum": "5406b55b61fead3fd853f42784ec2cba9b9fbd323ef9835d1613377785e52497",
+      "source_checksum": "1fe74de9b40e84ac017d1f27f457bf4ba3c162e0a614a184a2a38d4767526a0b",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:371:purge_sandbox_data_service",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3367,7 +3377,7 @@
           }
         ]
       },
-      "source_checksum": "24a33db8fc883f46872caab9e06d0ad97d4a942adbda0e8f37841c37a528c46d",
+      "source_checksum": "d92147895ca5b14c2d2ca898c667b250b7b3cd9b481fdb749960ab2358dc7d7b",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:648:catalog",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3416,7 +3426,7 @@
           }
         ]
       },
-      "source_checksum": "6fc71c95154a0d420faf2b323418193a063c6adc32946a3711071fe31a9fc132",
+      "source_checksum": "5ba16a02c08bd9f21e75b04538d04b6314c158ae0724bc3fd7c99a851d22437f",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:652:save_catalog",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3470,7 +3480,7 @@
           }
         ]
       },
-      "source_checksum": "5c869f11b5937afc873daf6925b5803ab6dc52eee452ec40818914c3bee20d45",
+      "source_checksum": "dd65359691cc043d4af7adffbb426730415a38cd3896c838d870b3f43730779c",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:665:catalog_env_example",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3524,7 +3534,7 @@
           }
         ]
       },
-      "source_checksum": "760539c1b366de24835eb0682d268de2e858d8bf80127d5b0c3db9ab05a33529",
+      "source_checksum": "352e10419b23b7c0b5bf384e8e12c54d6c3d7f048b06740fe4c4a3da14050167",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:674:dns_ensure",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3577,7 +3587,7 @@
           }
         ]
       },
-      "source_checksum": "0d2f2ee66bc989ec12b8910ff36e0c4e378faa30b7fb11b3393e34e42260c926",
+      "source_checksum": "adacf71068022aba557e51959073790a341dff61909a0eb431232db017a347a7",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:692:events",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3625,7 +3635,7 @@
           }
         ]
       },
-      "source_checksum": "23b1f476091952b084c42eb8e0d2706f228271427b9e513d7a672b234b8e5e9a",
+      "source_checksum": "d9613a64388a5b24ce6f9149ae77460212118ced73b4569c047094b9451a7d67",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:698:infra_catalog",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3673,7 +3683,7 @@
           }
         ]
       },
-      "source_checksum": "e88d94fc31a3205d4a357fa1c95fe96ee3311e47225bc5c0ee7b865101547503",
+      "source_checksum": "624dbf544be1ed549565beff8df128fae077735005903c927cfcf192a059340f",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:702:infra_list",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3722,7 +3732,7 @@
           }
         ]
       },
-      "source_checksum": "8616c717eabfe5edd72c18d79c3deb5fa7b47ddd4350a8285568470981591adf",
+      "source_checksum": "4ad1a6cda70d557ef3d0d45fc4f94f799264d761449a8e9998280e44a03a7e83",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:706:infra_deploy",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3783,7 +3793,7 @@
           }
         ]
       },
-      "source_checksum": "14676e5f8d5a7ad5445afabf05cf595baee58b03afbe6c3bbe75ebf46fd59b55",
+      "source_checksum": "e4058b91b2993c3aaaece3a2ed2de8cd3b4958686cd91d89062d63a68e023957",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:713:infra_get",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3837,7 +3847,7 @@
           }
         ]
       },
-      "source_checksum": "806dedc35d2eda001675ebfb5724eb1bb5773b17412624d3bd6107c11984e8fd",
+      "source_checksum": "4c3dd3acccb44c400121487222fdb05b044685e9978cd114295551f5acc1a89d",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:727:infra_delete",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3892,7 +3902,7 @@
           }
         ]
       },
-      "source_checksum": "7653bd6dba75f73d5e09ac4bf4b4589ff283d9d1e2665183f0856a6971b8016f",
+      "source_checksum": "b94d40d9bda9b4cf13c8241487243a85daa2857f5a6c99cc4e61f0c78a6a7d86",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:717:infra_external",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -3956,7 +3966,7 @@
           }
         ]
       },
-      "source_checksum": "d93d0996f0d7e865091909d2ca989eed71db819e566a73a25461828f2f15e0c4",
+      "source_checksum": "db031fd47b676054f2dc3f1ba46ad2534a6c351ae667172d019a2f6b8ac47ec1",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:733:builds",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4005,7 +4015,7 @@
           }
         ]
       },
-      "source_checksum": "ed7cfadf6a29ced652974cddc6f8734e4658bbfebe26c2c0e8b893044f2631ff",
+      "source_checksum": "fdb5a47f73bcee041d6a2958d566d2fd9ad23c78f839012bb8239c1809171ac9",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:741:build_enqueue",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4066,7 +4076,7 @@
           }
         ]
       },
-      "source_checksum": "e22ee2a5c935fbf16f7b2b6d0a66222ac991ff4dc190bf460b133f5d3af01ff3",
+      "source_checksum": "eb674f675da9d9d20d4e2a7336f5a897753c7fb7d62b023708da4da54c4461c0",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:752:build_logs",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4120,7 +4130,7 @@
           }
         ]
       },
-      "source_checksum": "bcb61813dfc3b69032f18656da2843ab5f8c94a85b8e597fb7e974f38e4496e5",
+      "source_checksum": "17a524ce7afa41acf5e254ad88437dc35289a0aa1a9ee5da2f7abe6baafb46ed",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:748:build_cancel",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4174,7 +4184,7 @@
           }
         ]
       },
-      "source_checksum": "f89bee818787ed301fa6888ce800ac46456ac31a5df88d866c0b0fb5985ff84d",
+      "source_checksum": "5494c6a008e14f2c71a77f271a17fb5e9ca8ab2cbbaecdf0508d2f2c567d38fe",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:737:build_get",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4228,7 +4238,7 @@
           }
         ]
       },
-      "source_checksum": "d9da2b2dce340d51c1fe5dc2385b4753f35a6942edb90ddda702b292d1ef0f1c",
+      "source_checksum": "2f77630a8511af0e5b4dabc6051c6f1e43204f8da62709defda38a8b617e8b87",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:766:webhook_git",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4288,7 +4298,7 @@
           }
         ]
       },
-      "source_checksum": "97ce9278d94696883ef7f240b293c18b4d4e19e7d25d4efe63b65bb8da96347f",
+      "source_checksum": "f2ee69d2da6faf1674897457163429ebe65126140cfee3f7ac1607f5b9e9e536",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:780:system",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4336,7 +4346,7 @@
           }
         ]
       },
-      "source_checksum": "a484c9a6d6f746f3389f7bd0984594e6434f6ccddd6b853b979a373dd5c40249",
+      "source_checksum": "4399a6ca77504803870cba478fa4948d3cb64d0ef94fd4c28cc0679652a3db41",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:787:git_credentials",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4385,7 +4395,7 @@
           }
         ]
       },
-      "source_checksum": "98abfa490273eb6ca98bdddbe01b78f6c9ecca427a298baee5b28541c14548a0",
+      "source_checksum": "c3b13fa8bccebdb46e133a2b879a7e1ddb239c0123bbe24db82018d015818b10",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:791:set_git_credentials",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4445,7 +4455,7 @@
           }
         ]
       },
-      "source_checksum": "db78aade1fafa1ae1b35314e5dbd4c8095717aed293f029de29ccd8a7ea3c996",
+      "source_checksum": "213ff0bb53287dc4ed82c6dcc3bbfbd96043691bf2ea1dee7131f0f53c6bc880",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:798:delete_git_credentials",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4493,7 +4503,7 @@
           }
         ]
       },
-      "source_checksum": "e63d1de834ad925980fd3c1d9d775da83444ceeb178587fbc4e95b587529bcd8",
+      "source_checksum": "95a7064db24af94239bf9783550c08bd6a173951dcdd3b66771cedaed011f621",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:804:registries",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4542,7 +4552,7 @@
           }
         ]
       },
-      "source_checksum": "90242857e90634bc6c36fcbf98a27c7387fa5ddd8f1c7fffc41278193bd26c04",
+      "source_checksum": "db6a150034349d71f2511994621037e38850145119b0c8ed9b1d85fad9d14154",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:808:save_registries",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4602,7 +4612,7 @@
           }
         ]
       },
-      "source_checksum": "323ac14219b286886f80ae3cf30531941ff91379619a28073a670df5f5ef2e1e",
+      "source_checksum": "ae4383733f29c86f8dda482ccf3f55b4cf3d0813e0f539e4f69e41b132f814d5",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:819:package_cache_status",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4651,7 +4661,7 @@
           }
         ]
       },
-      "source_checksum": "330fcc9b13ba58c59fa20cc7f560c9c6c5048303aa5037975da6b7989014749f",
+      "source_checksum": "c0584aefa4e219b45701e76804bbfb0358254cfe4911af142dd30ca24ab5e5bf",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:823:package_cache_settings",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4711,7 +4721,7 @@
           }
         ]
       },
-      "source_checksum": "404370b9ce4247c9ea4ec3713f35d197205e9baed4d0b5e3d106f15449352348",
+      "source_checksum": "755b5d4c3b273807530ddd8f2a0828e876eb2573643d68e4fb9d43786421eea4",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:830:package_cache_reconcile",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4760,7 +4770,7 @@
           }
         ]
       },
-      "source_checksum": "7f53792bd517de0491d292dd498abf768d1cc70e6d96ad561b77f58988659b44",
+      "source_checksum": "cc35f0592ba9148928a4d63f36553f3a5558e558836ee54f401cf1946fb86760",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:834:package_cache_test",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4820,7 +4830,7 @@
           }
         ]
       },
-      "source_checksum": "a6f12f275e92bb20ccdd7fbcb2383559253d14cb3574234fc1bcd4bd753576e1",
+      "source_checksum": "b7c548e07a9ea1297587df7ca152e4103bc0984dc6348d62087d9e9d64d9e2d7",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:815:mark_containerd_applied",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4868,7 +4878,7 @@
           }
         ]
       },
-      "source_checksum": "8e740ea290341525d55c54785a00954913eb9923e5543ad2b7319697f5e2f9bc",
+      "source_checksum": "c53fd24284d6456a8987452b811ddc9147c20a4bc988f03e4c6b5dbfc3cffb46",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:843:registry_images",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4916,7 +4926,7 @@
           }
         ]
       },
-      "source_checksum": "b9b843434c6c8fab2d41bb616c14387841f2be3388261ead51b12cb838068cb3",
+      "source_checksum": "911d05384d89d91ab6556fecdd1003169fc00b1ea4867f35616c30029eb5a29f",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:902:join_token",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -4964,7 +4974,7 @@
           }
         ]
       },
-      "source_checksum": "9ed68bfc23d3e1070b96d433e6ab798463318dfab18d727020ab1fedf703912e",
+      "source_checksum": "88bf13af15d5239188bc02819033598b4891ad8e4aac570b53aab82c64f964bc",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:915:domains",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -5013,7 +5023,7 @@
           }
         ]
       },
-      "source_checksum": "7677a6f3a58ad0cd0a4ad9995273f85bdc720990e26e7e1e8038f58d13408328",
+      "source_checksum": "d72ff16ed57c4c1b39cc48bbb4b6c721ce331b01690d6e6e99c13760ee37851e",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:949:domain_certificates",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -5073,7 +5083,7 @@
           }
         ]
       },
-      "source_checksum": "9deaf1582db17efc5b8ba5578e9ff017b674517c5d6bbbcae16a9f60d891566b",
+      "source_checksum": "7adf1bc48b74e2706fc725df4a28bcdf92a29169d8b7f198404417eb400f15ea",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:889:config_export",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -5122,7 +5132,7 @@
           }
         ]
       },
-      "source_checksum": "a3aaa6d057407526e43c1a2d442098dd9f41e9912c89a2238ec9b2b3223e4af2",
+      "source_checksum": "25308708e7fac97964a76dbcb9e3db909844ed30783d0dd25724202e013a5090",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:893:config_import",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -5182,7 +5192,7 @@
           }
         ]
       },
-      "source_checksum": "125b7bf3aee09aa1a843f853ff45fda28b2d87a61d868e2755eeb2e3f4106f72",
+      "source_checksum": "4cc370b34cad2070ffc9df0e21be21174cee630434f7a3af3e4b2ac1521fb1c7",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:190:bootstrap_status",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -5230,7 +5240,7 @@
           }
         ]
       },
-      "source_checksum": "8a093eabfb1f479d14faeb7914cee554c0e78616e84c24467263db9e75661d49",
+      "source_checksum": "dade579f9f9f77752759d45a3539588941aa9539688096e8d6e27e52879a7b38",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:194:bootstrap",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -5279,7 +5289,7 @@
           }
         ]
       },
-      "source_checksum": "3b66c95d177d4eafd73068a74491e30ce7899262c214acecc81d09b5a9b8664e",
+      "source_checksum": "1de02ac51f0b617721d4678a91c5af0f6ab87da352a881e9ae1c1a6a50ca288d",
       "handler": {
         "ref": "infera-control/crates/faiber-server/src/routes.rs:198:cleanup",
         "path": "infera-control/crates/faiber-server/src/routes.rs",
@@ -7049,95 +7059,16 @@
   },
   "working_drift": {
     "added": [],
-    "absent": [
-      "GET /api/mode",
-      "GET /api/health",
-      "GET /api/public/expired",
-      "GET /api/cluster",
-      "GET /api/workloads",
-      "POST /api/deploy",
-      "PATCH /api/workloads/{ns}/{name}/scale",
-      "PATCH /api/workloads/{ns}/{name}",
-      "DELETE /api/workloads/{ns}/{name}",
-      "POST /api/workloads/{ns}/{name}/restart",
-      "PUT /api/workloads/{ns}/{name}/domain",
-      "DELETE /api/workloads/{ns}/{name}/domain",
-      "GET /api/logs/{ns}/{pod}",
-      "GET /api/sandboxes",
-      "POST /api/sandboxes",
-      "GET /api/settings",
-      "PUT /api/settings",
-      "GET /api/self-update",
-      "POST /api/self-update/apply",
-      "POST /api/self-update/rollout",
-      "GET /api/self-auth",
-      "POST /api/self-auth",
-      "POST /api/sandboxes/provision",
-      "POST /api/sandboxes/{project}/apk/signing/validate",
-      "POST /api/sandboxes/{project}/apk/builds",
-      "GET /api/sandboxes/{project}/apk/builds/{id}",
-      "GET /api/sandboxes/{project}",
-      "DELETE /api/sandboxes/{project}",
-      "POST /api/sandboxes/{project}/suspend",
-      "POST /api/sandboxes/{project}/resume",
-      "POST /api/sandboxes/{project}/dns/reconcile",
-      "POST /api/sandboxes/{project}/expired",
-      "DELETE /api/sandboxes/{project}/expired",
-      "PUT /api/sandboxes/{project}/resources",
-      "GET /api/sandboxes/{project}/volume-backups",
-      "POST /api/sandboxes/{project}/volume-backups",
-      "PUT /api/sandboxes/{project}/domain",
-      "DELETE /api/sandboxes/{project}/domain",
-      "PUT /api/sandboxes/{project}/domain-aliases",
-      "DELETE /api/sandboxes/{project}/domain-aliases",
-      "POST /api/sandboxes/{project}/routing/reconcile",
-      "GET /api/sandboxes/{project}/path-routes",
-      "GET /api/sandboxes/{project}/path-routes/{id}",
-      "PUT /api/sandboxes/{project}/path-routes/{id}",
-      "DELETE /api/sandboxes/{project}/path-routes/{id}",
-      "PUT /api/sandboxes/{project}/identity",
-      "POST /api/sandboxes/{project}/services/{name}/external",
-      "POST /api/sandboxes/{project}/data-services/{name}/{action}",
-      "DELETE /api/sandboxes/{project}/data-services/{name}/data",
-      "GET /api/catalog",
-      "PUT /api/catalog",
-      "GET /api/catalog/{name}/env-example",
-      "POST /api/dns/ensure",
-      "GET /api/events",
-      "GET /api/infra/catalog",
-      "GET /api/infra",
-      "POST /api/infra",
-      "GET /api/infra/{name}",
-      "DELETE /api/infra/{name}",
-      "POST /api/infra/{name}/external",
-      "GET /api/builds",
-      "POST /api/builds",
-      "GET /api/builds/{id}/logs",
-      "POST /api/builds/{id}/cancel",
-      "GET /api/builds/{id}",
-      "POST /api/webhooks/git",
-      "GET /api/system",
-      "GET /api/git-credentials",
-      "PUT /api/git-credentials",
-      "DELETE /api/git-credentials",
-      "GET /api/registries",
-      "PUT /api/registries",
-      "GET /api/registries/packages",
-      "PUT /api/registries/packages/settings",
-      "POST /api/registries/packages/reconcile",
-      "POST /api/registries/packages/test",
-      "POST /api/registries/containerd/applied",
-      "GET /api/registry/images",
-      "GET /api/cluster/join-token",
-      "GET /api/domains",
-      "GET /api/domain-certificates",
-      "GET /api/config/export",
-      "POST /api/config/import",
-      "GET /api/bootstrap",
-      "POST /api/bootstrap",
-      "POST /api/cleanup"
-    ],
-    "changed": []
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
+    ]
   },
   "working_route_candidates": [
     {

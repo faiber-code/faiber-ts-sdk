@@ -8,8 +8,8 @@ Status: evidence inventory; semantic and wire verification remain required.
 
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
-- Canonical source revision: `7a0315c39ac53df3ad6c6ca53fbe574f19046e52`
-- SDK source revision: `f5030658459f456bb5310f3f460cd348f126930c`
+- Canonical source revision: `230453c1471d723af582308e43b5b43b5a0f7b99`
+- SDK source revision: `a2d00df7f1cc34c3b2e356824c49e39c12047a33`
 - Working HEAD: `d94f42a89b344e5b8809f62a4a4324ceda69553a`
 - Source relationship: diverged
 
@@ -17,15 +17,19 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /` | `infera-lms/src/router.rs:276` | inspect middleware/local scope | pending |
-| `GET /health` | `infera-lms/src/router.rs:276` | inspect middleware/local scope | pending |
-| `GET /up` | `infera-lms/src/router.rs:276` | inspect middleware/local scope | pending |
-| `GET /api/openapi.json` | `infera-lms/src/router.rs:270` | inspect middleware/local scope | pending |
+| `GET /` | `infera-lms/src/router.rs:279` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-lms/src/router.rs:279` | inspect middleware/local scope | pending |
+| `GET /up` | `infera-lms/src/router.rs:279` | inspect middleware/local scope | pending |
+| `GET /api/openapi.json` | `infera-lms/src/router.rs:273` | inspect middleware/local scope | pending |
 | `GET /api/v1/config/branding` | `infera-lms/src/branding.rs:172` | lms:config:read | pending |
 | `PUT /api/v1/config/branding` | `infera-lms/src/branding.rs:185` | lms:config:update | pending |
 | `POST /api/v1/config/branding/assets` | `infera-lms/src/branding.rs:231` | lms:config:update | pending |
 | `GET /api/v1/public/branding` | `infera-lms/src/branding.rs:161` | inspect middleware/local scope | pending |
 | `GET /api/v1/public/branding/assets/{key}` | `infera-lms/src/branding.rs:273` | inspect middleware/local scope | pending |
+| `GET /api/v1/notification-rules` | `infera-lms/src/notifications/mod.rs:83` | lms:notification:settings:read | pending |
+| `PUT /api/v1/notification-rules/{key}` | `infera-lms/src/notifications/mod.rs:127` | lms:notification:settings:update | pending |
+| `POST /api/v1/notification-rules/{key}/preview` | `infera-lms/src/notifications/mod.rs:201` | lms:notification:settings:read | pending |
+| `GET /api/v1/chat/contacts` | `infera-lms/src/notifications/contacts.rs:50` | lms:chat:contacts:read | pending |
 | `GET /api/v1/interactive/catalog` | `infera-lms/src/interactive/routes.rs:112` | inspect middleware/local scope | pending |
 | `GET /api/v1/interactive/certificates` | `infera-lms/src/interactive/routes.rs:429` | inspect middleware/local scope | pending |
 | `POST /api/v1/interactive/courses/{id}/certificate` | `infera-lms/src/interactive/routes.rs:415` | inspect middleware/local scope | pending |
@@ -199,6 +203,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `POST /api/v1/classrooms/batch` | `infera-lms/src/integration/office.rs:65` | inspect middleware/local scope | pending |
 | `GET /api/v1/classrooms/users/current` | `infera-lms/src/integration/office.rs:166` | inspect middleware/local scope | pending |
 | `POST /api/v1/classrooms/users/dropout-eligibility` | `infera-lms/src/integration/office.rs:180` | inspect middleware/local scope | pending |
+| `POST /api/v1/integrations/chat/relationship` | `infera-lms/src/notifications/contacts.rs:87` | inspect middleware/local scope | pending |
 | `GET /api/v1/public/certificates/{code}/image.svg` | `infera-lms/src/certificate/routes.rs:231` | lms:certificate:verify | pending |
 | `GET /api/v1/public/certificates/{code}` | `infera-lms/src/certificate/routes.rs:213` | lms:certificate:verify | pending |
 

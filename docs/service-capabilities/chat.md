@@ -8,8 +8,8 @@ Status: evidence inventory; semantic and wire verification remain required.
 
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
-- Canonical source revision: `d495217f85d77270865a040c1328d70c620e6c9d`
-- SDK source revision: `d495217f85d77270865a040c1328d70c620e6c9d`
+- Canonical source revision: `d5b722e2fad3a0585cdc5a24742bfbc6f52118bf`
+- SDK source revision: `ab6ce7461d35414b719f3806df57549339002df5`
 - Working HEAD: `7360ff93ae3f4ff36b7b79e15db8a15ea09e881d`
 - Source relationship: diverged
 
@@ -17,7 +17,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /health` | `infera-chat/src/main.rs:66` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-chat/src/main.rs:68` | inspect middleware/local scope | pending |
 | `GET /api/v1/admin/image-settings` | `infera-chat/src/image_capture.rs:50` | assistant:manage | pending |
 | `PUT /api/v1/admin/image-settings` | `infera-chat/src/image_capture.rs:87` | assistant:manage | pending |
 | `GET /api/v1/admin/image-models` | `infera-chat/src/image_capture.rs:76` | assistant:manage | pending |
@@ -70,6 +70,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `POST /api/v1/conversations/{id}/ai/runtime-inputs/{input_id}/complete` | `infera-chat/src/routes.rs:500` | chat:ai | pending |
 | `POST /api/v1/conversations/{id}/ai/messages` | `infera-chat/src/routes.rs:472` | chat:ai | pending |
 | `GET /api/v1/conversations/{id}/events` | `infera-chat/src/routes.rs:522` | chat:read | pending |
+| `GET /api/v1/integrations/lms/messages/{id}/notification-context` | `infera-chat/src/human_chat.rs:244` | inspect middleware/local scope | pending |
 | `POST /api/v1/fitness/generate` | `infera-chat/src/fitness.rs:220` | inspect middleware/local scope | pending |
 | `PUT /api/v1/fitness/settings` | `infera-chat/src/fitness.rs:267` | inspect middleware/local scope | pending |
 | `POST /api/v1/internal/memory/source` | `infera-chat/src/memory_import.rs:15` | inspect middleware/local scope | pending |

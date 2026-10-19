@@ -4893,11 +4893,11 @@
         "permissions": [],
         "source": "infera-knowledge/src/platform.rs",
         "query": "MemoryClearQuery",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4911,7 +4911,7 @@
           }
         ]
       },
-      "source_checksum": "ea2a6c3e504ce572a5772980d0a905653f3920724d785a967446de0ddeb79eb6",
+      "source_checksum": "2de55fe11fde9518a9468784ce47e5457f2951b98eb72a0c598a70e4d0da7fe3",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2614:forget_memory",
         "path": "infera-knowledge/src/platform.rs",
@@ -5279,11 +5279,11 @@
         ],
         "source": "infera-knowledge/src/routes.rs",
         "handlerModule": "contracts",
+        "pathParam": "(Uuid, String)",
         "response": "Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, String)",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5297,7 +5297,7 @@
           }
         ]
       },
-      "source_checksum": "4b9f20845f0d1f2ecb533cec51d84bbb3bfc41893e5979dd459b890077c328b8",
+      "source_checksum": "52dfcb792f43587bf71f3838da4303fc30260725c25c07f647f4d6f2a7142321",
       "handler": {
         "ref": "infera-knowledge/src/contracts.rs:14:get",
         "path": "infera-knowledge/src/contracts.rs",
@@ -5568,12 +5568,12 @@
         "permissions": [],
         "source": "infera-knowledge/src/platform.rs",
         "body": "AssistantQuery",
+        "pathParam": "Uuid",
         "response": "AssistantRuntimeResult",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
-        "pathParam": "Uuid",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5587,7 +5587,7 @@
           }
         ]
       },
-      "source_checksum": "a73ef9fe54cf1b839dbcd37e13c825177716260b920467872c4c20fc1235dbdd",
+      "source_checksum": "7b17f312316ae8979a34834590fb2715375ef282b9f4f29678f497c925d4927d",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:1667:preview_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5696,12 +5696,12 @@
         "permissions": [],
         "source": "infera-knowledge/src/platform.rs",
         "body": "AssistantQuery",
+        "pathParam": "Uuid",
         "response": "AssistantRuntimeResult",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
-        "pathParam": "Uuid",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5715,7 +5715,7 @@
           }
         ]
       },
-      "source_checksum": "59a3a0805b4c7185b9380465929466819f754bc9c15adcf70dd87d7acce8eefc",
+      "source_checksum": "a57c6b4278870c7d5510ce18f40471044c4d9cafa71affad7417a6c896339c8c",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:1677:evaluate_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -8567,85 +8567,15 @@
   },
   "working_drift": {
     "added": [],
-    "absent": [
-      "POST /internal/task-projections/sync",
-      "POST /internal/task-projections/candidates",
-      "POST /internal/task-projections/passages",
-      "POST /internal/task-conversions"
-    ],
-    "changed": [
-      "GET /api/v1/actions",
-      "PATCH /api/v1/actions/{id}/status",
-      "GET /api/v1/audit",
-      "GET /api/v1/audit-events",
-      "GET /api/v1/chat-bindings",
-      "POST /api/v1/chat-bindings",
-      "DELETE /api/v1/chat-bindings/{id}",
-      "PUT /api/v1/chat-bindings/{id}",
-      "GET /api/v1/documents",
-      "POST /api/v1/documents",
-      "POST /api/v1/documents/{id}/reprocess",
-      "DELETE /api/v1/edges/{id}",
-      "PUT /api/v1/edges/{id}",
-      "GET /api/v1/evaluation-cases",
-      "POST /api/v1/evaluation-cases",
-      "DELETE /api/v1/groups/{id}",
-      "PUT /api/v1/groups/{id}",
-      "DELETE /api/v1/items/{id}",
-      "GET /api/v1/items/{id}",
-      "PUT /api/v1/items/{id}",
-      "GET /api/v1/knowledge-bases",
-      "POST /api/v1/knowledge-bases",
-      "DELETE /api/v1/knowledge-bases/{id}",
-      "GET /api/v1/knowledge-bases/{id}",
-      "PUT /api/v1/knowledge-bases/{id}",
-      "GET /api/v1/knowledge-bases/{id}/edges",
-      "POST /api/v1/knowledge-bases/{id}/edges",
-      "GET /api/v1/knowledge-bases/{id}/export",
-      "GET /api/v1/knowledge-bases/{id}/groups",
-      "POST /api/v1/knowledge-bases/{id}/groups",
-      "GET /api/v1/knowledge-bases/{id}/items",
-      "POST /api/v1/knowledge-bases/{id}/items",
-      "POST /api/v1/knowledge-bases/{id}/publish",
-      "GET /api/v1/knowledge-releases/{id}",
-      "GET /api/v1/match-rules",
-      "POST /api/v1/match-rules",
-      "DELETE /api/v1/match-rules/{id}",
-      "PUT /api/v1/match-rules/{id}",
-      "POST /api/v1/memory-outbox/{id}/replay",
-      "GET /api/v1/memory-subjects",
-      "DELETE /api/v1/memory-subjects/{id}",
-      "PUT /api/v1/memory-subjects/{id}/policy",
-      "DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}",
-      "POST /api/v1/platform/cache/invalidate",
-      "GET /api/v1/platform/catalog",
-      "GET /api/v1/platform/converters",
-      "GET /api/v1/platform/status",
-      "GET /api/v1/processing-jobs",
-      "POST /api/v1/processing-jobs/{id}/cancel",
-      "POST /api/v1/processing-jobs/{id}/retry",
-      "GET /api/v1/recommender-groups",
-      "POST /api/v1/recommender-groups",
-      "POST /api/v1/recommender-groups/{id}/items",
-      "PUT /api/v1/runtime/assistants/{assistant_id}/configure",
-      "GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}",
-      "POST /api/v1/runtime/assistants/{assistant_id}/evaluations",
-      "POST /api/v1/runtime/assistants/{assistant_id}/memory/turn",
-      "POST /api/v1/runtime/assistants/{assistant_id}/preview",
-      "POST /api/v1/runtime/assistants/{assistant_id}/query",
-      "POST /api/v1/runtime/chat/{chat_slug}/query",
-      "GET /api/v1/runtime/evidence/documents/{id}",
-      "GET /api/v1/runtime/evidence/session/{id}",
-      "POST /api/v1/runtime/mcp",
-      "POST /api/v1/runtime/retrieval-traces/{id}/usage",
-      "GET /api/v1/runtime/tool-schema",
-      "GET /api/v1/sources",
-      "POST /api/v1/sources",
-      "POST /api/v1/sources/{id}/pause",
-      "POST /api/v1/sources/{id}/sync",
-      "GET /health",
-      "GET /health/live",
-      "GET /health/ready"
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [

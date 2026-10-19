@@ -1,120 +1,269 @@
 {
-  "captured_at": "2026-10-19T08:34:28.303156+00:00",
+  "observed_at": "2026-10-19T16:57:17.600261+00:00",
   "repositories": {
     "asset": {
+      "directory": "Service/infera-asset",
+      "head_before": "894e73657c0044b54a0bb158fca1cdee77f6d438",
+      "branch": "main",
+      "working_before": "M Cargo.lock\n M migration/src/lib.rs\n M panel/src/app/layout/AppSidebar.tsx\n M panel/src/app/router.tsx\n M panel/src/i18n/locales/en.json\n M panel/src/i18n/locales/fa.json\n M src/bank/methods.rs\n M src/game_escrow.rs\n M src/lib.rs\n M src/main.rs\n M src/reward/engine.rs\n M src/router.rs\n M src/schedule/charge_recharge.rs\n?? migration/sql/\n?? migration/src/m20261007_000036_scoped_reward_economy.rs\n?? panel/src/features/economy/\n?? panel/src/shared/components/EconomyStatusBadge.tsx\n?? src/economy/\n?? tests/economy_postgres.rs",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-asset\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
-      "directory": "Service/infera-asset"
+      "head_after": "894e73657c0044b54a0bb158fca1cdee77f6d438",
+      "working_after": "M Cargo.lock\n M migration/src/lib.rs\n M panel/src/app/layout/AppSidebar.tsx\n M panel/src/app/router.tsx\n M panel/src/i18n/locales/en.json\n M panel/src/i18n/locales/fa.json\n M src/bank/methods.rs\n M src/game_escrow.rs\n M src/lib.rs\n M src/main.rs\n M src/reward/engine.rs\n M src/router.rs\n M src/schedule/charge_recharge.rs\n?? migration/sql/\n?? migration/src/m20261007_000036_scoped_reward_economy.rs\n?? panel/src/features/economy/\n?? panel/src/shared/components/EconomyStatusBadge.tsx\n?? src/economy/\n?? tests/economy_postgres.rs",
+      "working_tree_unchanged": true
     },
     "chat": {
+      "directory": "Service/infera-chat",
+      "head_before": "7360ff93ae3f4ff36b7b79e15db8a15ea09e881d",
+      "branch": "main",
+      "working_before": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M panel/src/i18n.ts\n M panel/src/main.tsx\n M src/lib.rs\n M src/main.rs\n M src/models.rs\n M src/routes.rs\n M src/service.rs\n M src/workspace_answers.rs\n M src/workspace_assistant.rs\n?? migration/src/m20261003_000013_media_retention.rs\n?? migration/src/m20261007_000015_asset_interactions.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? panel/src/MediaRetentionPage.tsx\n?? shared/\n?? src/asset_economy.rs\n?? src/fitness.rs\n?? src/media_retention.rs\n?? src/product_plans.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? src/workspace_json.rs",
       "fetch_exit": 0,
-      "origin_main": "d495217f85d77270865a040c1328d70c620e6c9d",
-      "directory": "Service/infera-chat"
+      "fetch_stderr": "From hamgit.ir:infera/infera-chat\n * branch            main       -> FETCH_HEAD\n",
+      "origin_main": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
+      "head_after": "7360ff93ae3f4ff36b7b79e15db8a15ea09e881d",
+      "working_after": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M panel/src/i18n.ts\n M panel/src/main.tsx\n M src/lib.rs\n M src/main.rs\n M src/models.rs\n M src/routes.rs\n M src/service.rs\n M src/workspace_answers.rs\n M src/workspace_assistant.rs\n?? migration/src/m20261003_000013_media_retention.rs\n?? migration/src/m20261007_000015_asset_interactions.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? panel/src/MediaRetentionPage.tsx\n?? shared/\n?? src/asset_economy.rs\n?? src/fitness.rs\n?? src/media_retention.rs\n?? src/product_plans.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? src/workspace_json.rs",
+      "working_tree_unchanged": true
     },
     "crm": {
+      "directory": "Service/infera-crm",
+      "head_before": "6c763c989216fbecd6cfdb4c98f1067c09d17507",
+      "branch": "main",
+      "working_before": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M README.md\n M migration/src/lib.rs\n M src/api/operations.rs\n M src/api/routes.rs\n M src/common/auth.rs\n M src/lib.rs\n M src/main.rs\n M src/router.rs\n?? SUMMARY_EVIDENCE.md\n?? migration/src/m20261019_000008_summary_activity_outbox.rs\n?? migration/src/summary_activity_outbox.sql\n?? shared/\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? tests/run-summary-evidence.sh\n?? tests/summary-services.compose.yml\n?? tests/summary_evidence.rs",
       "fetch_exit": 0,
-      "origin_main": "6c763c989216fbecd6cfdb4c98f1067c09d17507",
-      "directory": "Service/infera-crm"
+      "fetch_stderr": "From hamgit.ir:infera/infera-crm\n * branch            main       -> FETCH_HEAD\n",
+      "origin_main": "1addec42a400ba980b6547060cdcb4d347a7bbd0",
+      "head_after": "6c763c989216fbecd6cfdb4c98f1067c09d17507",
+      "working_after": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M README.md\n M migration/src/lib.rs\n M src/api/operations.rs\n M src/api/routes.rs\n M src/common/auth.rs\n M src/lib.rs\n M src/main.rs\n M src/router.rs\n?? SUMMARY_EVIDENCE.md\n?? migration/src/m20261019_000008_summary_activity_outbox.rs\n?? migration/src/summary_activity_outbox.sql\n?? shared/\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? tests/run-summary-evidence.sh\n?? tests/summary-services.compose.yml\n?? tests/summary_evidence.rs",
+      "working_tree_unchanged": true
     },
     "drm": {
+      "directory": "Service/infera-drm",
+      "head_before": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+      "branch": "main",
+      "working_before": "",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-drm\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
-      "directory": "Service/infera-drm"
+      "head_after": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+      "working_after": "",
+      "working_tree_unchanged": true
     },
     "flow": {
+      "directory": "Service/infera-flow",
+      "head_before": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+      "branch": "work/flow-run-history-contracts",
+      "working_before": "",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-flow\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
-      "directory": "Service/infera-flow"
+      "head_after": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+      "working_after": "",
+      "working_tree_unchanged": true
     },
     "idp": {
+      "directory": "Service/infera-idp",
+      "head_before": "9965e90a81fa3c4844a00e710d8d31b20527fede",
+      "branch": "main",
+      "working_before": "M entity/config/acl/crm_service.yaml\n M entity/config/acl/lms_service.yaml\n M entity/config/acl/profile_service.yaml\n M entity/src/seeder/acl_seeder.rs\n M migration/src/lib.rs\n M src/acl/methods.rs\n M src/main.rs\n?? entity/tests/profile_summary_acl.rs\n?? migration/src/m20261019_000033_summary_identity_events.rs\n?? migration/src/m20261019_000033_summary_identity_events.sql\n?? src/summary_identity.rs",
       "fetch_exit": 0,
-      "origin_main": "9965e90a81fa3c4844a00e710d8d31b20527fede",
-      "directory": "Service/infera-idp"
+      "fetch_stderr": "From hamgit.ir:infera/infera-idp\n * branch            main       -> FETCH_HEAD\n",
+      "origin_main": "8a841a96c6d03fba9f7baa9e5eb2cc14f0e9747d",
+      "head_after": "9965e90a81fa3c4844a00e710d8d31b20527fede",
+      "working_after": "M entity/config/acl/crm_service.yaml\n M entity/config/acl/lms_service.yaml\n M entity/config/acl/profile_service.yaml\n M entity/src/seeder/acl_seeder.rs\n M migration/src/lib.rs\n M src/acl/methods.rs\n M src/main.rs\n?? entity/tests/profile_summary_acl.rs\n?? migration/src/m20261019_000033_summary_identity_events.rs\n?? migration/src/m20261019_000033_summary_identity_events.sql\n?? src/summary_identity.rs",
+      "working_tree_unchanged": true
     },
     "knowledge": {
+      "directory": "Service/infera-knowledge",
+      "head_before": "92047358a6b4dee1911d47a78621c8359716b7af",
+      "branch": "main",
+      "working_before": "M Cargo.lock\n M src/routes.rs\n?? scripts/build-fit8-dishes.py\n?? scripts/build-fit8-exercises.py\n?? scripts/build-fit8-foods.py\n?? scripts/validate-fit8-catalog.py\n?? seeds/fit8/",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-knowledge\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "70b8a21721dd34125b8f0e167e06da9ad3287223",
-      "directory": "Service/infera-knowledge"
+      "head_after": "92047358a6b4dee1911d47a78621c8359716b7af",
+      "working_after": "M Cargo.lock\n M src/routes.rs\n?? scripts/build-fit8-dishes.py\n?? scripts/build-fit8-exercises.py\n?? scripts/build-fit8-foods.py\n?? scripts/validate-fit8-catalog.py\n?? seeds/fit8/",
+      "working_tree_unchanged": true
     },
     "lms": {
+      "directory": "Service/infera-lms",
+      "head_before": "d94f42a89b344e5b8809f62a4a4324ceda69553a",
+      "branch": "main",
+      "working_before": "M .env.example\n M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M docs/ai-performance-summary-flutter-handoff.json\n M entity/src/classroom_session.rs\n M migration/src/lib.rs\n M panel/src/app/layout/AppSidebar.tsx\n M panel/src/app/router.tsx\n M panel/src/features/classrooms/api/classroomsApi.ts\n M panel/src/features/classrooms/pages/ClassroomSessionFormPage.tsx\n M panel/src/features/classrooms/pages/ClassroomsPage.tsx\n D panel/src/features/config/api/aiSummaryApi.test.ts\n D panel/src/features/config/api/aiSummaryApi.ts\n D panel/src/features/config/pages/AiSummariesPage.tsx\n D panel/src/features/config/pages/AiSummaryDetailPage.tsx\n D panel/src/features/config/pages/AiSummaryQueuePage.tsx\n D panel/src/features/config/pages/AiSummarySettingsPage.tsx\n M panel/src/i18n/locales/en.json\n M panel/src/i18n/locales/fa.json\n M panel/src/shared/types/lms.ts\n M src/access.rs\n D src/ai_summary/methods.rs\n D src/ai_summary/mod.rs\n D src/ai_summary/models.rs\n D src/ai_summary/routes.rs\n D src/ai_summary/scheduler.rs\n M src/broker.rs\n M src/classroom/methods.rs\n M src/classroom/models.rs\n M src/classroom/scheduler.rs\n M src/cli.rs\n M src/evaluation/methods.rs\n M src/exam/methods.rs\n M src/exam/models.rs\n M src/homework/methods.rs\n M src/homework/models.rs\n M src/homework/routes.rs\n M src/lib.rs\n M src/main.rs\n M src/router.rs\n?? migration/src/m20261007_000033_asset_outbox_retry.rs\n?? migration/src/m20261018_000034_session_students.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? panel/src/features/classrooms/components/ClassroomStudentCapacity.tsx\n?? panel/src/features/classrooms/components/SessionStudentPicker.test.tsx\n?? panel/src/features/classrooms/components/SessionStudentPicker.tsx\n?? panel/src/features/classrooms/pages/ClassroomsPage.test.tsx\n?? shared/\n?? src/asset_economy.rs\n?? src/service_billing.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? tests/classroom_session_students_test.rs\n?? tests/classroom_student_counts_test.rs",
       "fetch_exit": 0,
-      "origin_main": "7a0315c39ac53df3ad6c6ca53fbe574f19046e52",
-      "directory": "Service/infera-lms"
+      "fetch_stderr": "From hamgit.ir:infera/infera-lms\n * branch            main       -> FETCH_HEAD\n",
+      "origin_main": "230453c1471d723af582308e43b5b43b5a0f7b99",
+      "head_after": "d94f42a89b344e5b8809f62a4a4324ceda69553a",
+      "working_after": "M .env.example\n M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M docs/ai-performance-summary-flutter-handoff.json\n M entity/src/classroom_session.rs\n M migration/src/lib.rs\n M panel/src/app/layout/AppSidebar.tsx\n M panel/src/app/router.tsx\n M panel/src/features/classrooms/api/classroomsApi.ts\n M panel/src/features/classrooms/pages/ClassroomSessionFormPage.tsx\n M panel/src/features/classrooms/pages/ClassroomsPage.tsx\n D panel/src/features/config/api/aiSummaryApi.test.ts\n D panel/src/features/config/api/aiSummaryApi.ts\n D panel/src/features/config/pages/AiSummariesPage.tsx\n D panel/src/features/config/pages/AiSummaryDetailPage.tsx\n D panel/src/features/config/pages/AiSummaryQueuePage.tsx\n D panel/src/features/config/pages/AiSummarySettingsPage.tsx\n M panel/src/i18n/locales/en.json\n M panel/src/i18n/locales/fa.json\n M panel/src/shared/types/lms.ts\n M src/access.rs\n D src/ai_summary/methods.rs\n D src/ai_summary/mod.rs\n D src/ai_summary/models.rs\n D src/ai_summary/routes.rs\n D src/ai_summary/scheduler.rs\n M src/broker.rs\n M src/classroom/methods.rs\n M src/classroom/models.rs\n M src/classroom/scheduler.rs\n M src/cli.rs\n M src/evaluation/methods.rs\n M src/exam/methods.rs\n M src/exam/models.rs\n M src/homework/methods.rs\n M src/homework/models.rs\n M src/homework/routes.rs\n M src/lib.rs\n M src/main.rs\n M src/router.rs\n?? migration/src/m20261007_000033_asset_outbox_retry.rs\n?? migration/src/m20261018_000034_session_students.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? panel/src/features/classrooms/components/ClassroomStudentCapacity.tsx\n?? panel/src/features/classrooms/components/SessionStudentPicker.test.tsx\n?? panel/src/features/classrooms/components/SessionStudentPicker.tsx\n?? panel/src/features/classrooms/pages/ClassroomsPage.test.tsx\n?? shared/\n?? src/asset_economy.rs\n?? src/service_billing.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? tests/classroom_session_students_test.rs\n?? tests/classroom_student_counts_test.rs",
+      "working_tree_unchanged": true
     },
     "messenger": {
+      "directory": "Service/infera-messenger",
+      "head_before": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
+      "branch": "main",
+      "working_before": "M Cargo.lock\n M Cargo.toml\n M migration/src/lib.rs\n M src/lib.rs\n M src/main.rs\n M src/notification/channels/push.rs\n M src/router.rs\n?? migration/src/m20260923_000011_web_push.rs\n?? src/web_push.rs",
       "fetch_exit": 0,
-      "origin_main": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
-      "directory": "Service/infera-messenger"
+      "fetch_stderr": "From hamgit.ir:infera/infera-messenger\n * branch            main       -> FETCH_HEAD\n",
+      "origin_main": "2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88",
+      "head_after": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
+      "working_after": "M Cargo.lock\n M Cargo.toml\n M migration/src/lib.rs\n M src/lib.rs\n M src/main.rs\n M src/notification/channels/push.rs\n M src/router.rs\n?? migration/src/m20260923_000011_web_push.rs\n?? src/web_push.rs",
+      "working_tree_unchanged": true
     },
     "modules": {
+      "directory": "Service/infera-modules",
+      "head_before": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
+      "branch": "main",
+      "working_before": "",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-modules\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
-      "directory": "Service/infera-modules"
+      "head_after": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
+      "working_after": "",
+      "working_tree_unchanged": true
     },
     "payment": {
+      "directory": "Service/infera-payment",
+      "head_before": "9c9418bfbdb4ce37c0bca86a359e051f138fe17d",
+      "branch": "main",
+      "working_before": "M Cargo.toml\n M migration/src/lib.rs\n M src/handler.rs\n M src/lib.rs\n M src/main.rs\n M src/payment/methods.rs\n M src/payment/models.rs\n M tests/payment_flow_test.rs\n M tests/payment_validation_test.rs\n?? migration/src/m20261007_000007_payment_result_outbox.rs\n?? src/result_outbox.rs",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-payment\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2",
-      "directory": "Service/infera-payment"
+      "head_after": "9c9418bfbdb4ce37c0bca86a359e051f138fe17d",
+      "working_after": "M Cargo.toml\n M migration/src/lib.rs\n M src/handler.rs\n M src/lib.rs\n M src/main.rs\n M src/payment/methods.rs\n M src/payment/models.rs\n M tests/payment_flow_test.rs\n M tests/payment_validation_test.rs\n?? migration/src/m20261007_000007_payment_result_outbox.rs\n?? src/result_outbox.rs",
+      "working_tree_unchanged": true
     },
     "profile": {
+      "directory": "Service/infera-profile",
+      "head_before": "5b32bc1f9b8f762ddbaac2abc16b14dd3d34034b",
+      "branch": "main",
+      "working_before": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M README.md\n M entity/src/lib.rs\n M entity/src/profile.rs\n M migration/src/lib.rs\n M panel/src/app/layout/AppSidebar.tsx\n M panel/src/app/layout/PageHeader.tsx\n M panel/src/app/router.tsx\n M panel/src/features/profiles/pages/ProfileEditPage.tsx\n M panel/src/i18n/locales/en.json\n M panel/src/i18n/locales/fa.json\n M routes_export.yml\n M src/broker/handlers.rs\n M src/broker/mod.rs\n M src/custom_type/methods.rs\n M src/custom_type/routes.rs\n M src/handler.rs\n M src/lib.rs\n M src/profile/dynamic.rs\n M src/profile/filters.rs\n M src/profile/models.rs\n M src/profile/routes.rs\n M src/profile/transformers.rs\n M src/profile_property/validator.rs\n M src/profile_search/methods.rs\n M src/profile_search/planner.rs\n M src/profile_search/rebuild.rs\n M src/router.rs\n M src/session/routes.rs\n M src/trusted_service/methods.rs\n M tests/broker_integration.rs\n M tests/dynamic_filters_postgres.rs\n M tests/partial_search_postgres.rs\n?? deploy/\n?? docs/\n?? entity/src/summary_configuration.rs\n?? entity/src/summary_event.rs\n?? entity/src/summary_identity_quarantine.rs\n?? entity/src/summary_job.rs\n?? entity/src/summary_latest.rs\n?? entity/src/summary_membership.rs\n?? entity/src/summary_reconciliation.rs\n?? entity/src/summary_revision.rs\n?? entity/src/summary_run.rs\n?? entity/src/summary_settings.rs\n?? entity/src/summary_tool_audit.rs\n?? migration/src/m20260922_000017_fitness_coaching.rs\n?? migration/src/m20260922_000017_fitness_coaching.sql\n?? migration/src/m20261003_000018_restore_education.rs\n?? migration/src/m20261018_000020_index_substring_search.rs\n?? migration/src/m20261018_000020_index_substring_search.sql\n?? migration/src/m20261019_000021_role_summaries.rs\n?? migration/src/m20261019_000021_role_summaries.sql\n?? panel/src/features/ai-summaries/\n?? shared/\n?? src/ai_summary/\n?? src/economy_projection.rs\n?? src/education.rs\n?? src/fitness/\n?? tests/education_contract.rs\n?? tests/poulstar_configurations.rs\n?? tests/role_summaries.rs\n?? tests/run-role-summaries.sh\n?? tests/search_performance_postgres.rs\n?? tests/summary-browser-fixture.mjs\n?? tests/summary-services.compose.yml",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-profile\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0",
-      "directory": "Service/infera-profile"
+      "head_after": "5b32bc1f9b8f762ddbaac2abc16b14dd3d34034b",
+      "working_after": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M README.md\n M entity/src/lib.rs\n M entity/src/profile.rs\n M migration/src/lib.rs\n M panel/src/app/layout/AppSidebar.tsx\n M panel/src/app/layout/PageHeader.tsx\n M panel/src/app/router.tsx\n M panel/src/features/profiles/pages/ProfileEditPage.tsx\n M panel/src/i18n/locales/en.json\n M panel/src/i18n/locales/fa.json\n M routes_export.yml\n M src/broker/handlers.rs\n M src/broker/mod.rs\n M src/custom_type/methods.rs\n M src/custom_type/routes.rs\n M src/handler.rs\n M src/lib.rs\n M src/profile/dynamic.rs\n M src/profile/filters.rs\n M src/profile/models.rs\n M src/profile/routes.rs\n M src/profile/transformers.rs\n M src/profile_property/validator.rs\n M src/profile_search/methods.rs\n M src/profile_search/planner.rs\n M src/profile_search/rebuild.rs\n M src/router.rs\n M src/session/routes.rs\n M src/trusted_service/methods.rs\n M tests/broker_integration.rs\n M tests/dynamic_filters_postgres.rs\n M tests/partial_search_postgres.rs\n?? deploy/\n?? docs/\n?? entity/src/summary_configuration.rs\n?? entity/src/summary_event.rs\n?? entity/src/summary_identity_quarantine.rs\n?? entity/src/summary_job.rs\n?? entity/src/summary_latest.rs\n?? entity/src/summary_membership.rs\n?? entity/src/summary_reconciliation.rs\n?? entity/src/summary_revision.rs\n?? entity/src/summary_run.rs\n?? entity/src/summary_settings.rs\n?? entity/src/summary_tool_audit.rs\n?? migration/src/m20260922_000017_fitness_coaching.rs\n?? migration/src/m20260922_000017_fitness_coaching.sql\n?? migration/src/m20261003_000018_restore_education.rs\n?? migration/src/m20261018_000020_index_substring_search.rs\n?? migration/src/m20261018_000020_index_substring_search.sql\n?? migration/src/m20261019_000021_role_summaries.rs\n?? migration/src/m20261019_000021_role_summaries.sql\n?? panel/src/features/ai-summaries/\n?? shared/\n?? src/ai_summary/\n?? src/economy_projection.rs\n?? src/education.rs\n?? src/fitness/\n?? tests/education_contract.rs\n?? tests/poulstar_configurations.rs\n?? tests/role_summaries.rs\n?? tests/run-role-summaries.sh\n?? tests/search_performance_postgres.rs\n?? tests/summary-browser-fixture.mjs\n?? tests/summary-services.compose.yml",
+      "working_tree_unchanged": true
     },
     "reservation": {
+      "directory": "Service/infera-reservation",
+      "head_before": "4ece677c98c48070fcdc3de77a714b783f73bacc",
+      "branch": "work/reservation-contract-integrity",
+      "working_before": "",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-reservation\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-      "directory": "Service/infera-reservation"
+      "head_after": "4ece677c98c48070fcdc3de77a714b783f73bacc",
+      "working_after": "",
+      "working_tree_unchanged": true
     },
     "session": {
+      "directory": "Service/infera-session",
+      "head_before": "edefa6463fe1877661cc62ef4752515262c71e00",
+      "branch": "main",
+      "working_before": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M src/broker.rs\n D src/integration/lms.rs\n M src/integration/mod.rs\n M src/likekit.rs\n M src/main.rs\n M src/room/asset_actions.rs\n M src/room/methods.rs\n M src/room/moderation.rs\n M src/room/routes.rs\n M src/router.rs\n M view/src/api.ts\n M view/src/main.tsx\n?? migration/src/m20261007_000021_asset_interactions.rs\n?? migration/src/m20261007_000022_asset_outbox_retry.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? shared/\n?? src/asset_economy.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql",
       "fetch_exit": 0,
-      "origin_main": "4c5eefc4062e8e522795478c8dd7d55e48a0c9fc",
-      "directory": "Service/infera-session"
+      "fetch_stderr": "From hamgit.ir:infera/infera-session\n * branch            main       -> FETCH_HEAD\n",
+      "origin_main": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+      "head_after": "edefa6463fe1877661cc62ef4752515262c71e00",
+      "working_after": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M src/broker.rs\n D src/integration/lms.rs\n M src/integration/mod.rs\n M src/likekit.rs\n M src/main.rs\n M src/room/asset_actions.rs\n M src/room/methods.rs\n M src/room/moderation.rs\n M src/room/routes.rs\n M src/router.rs\n M view/src/api.ts\n M view/src/main.tsx\n?? migration/src/m20261007_000021_asset_interactions.rs\n?? migration/src/m20261007_000022_asset_outbox_retry.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? shared/\n?? src/asset_economy.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql",
+      "working_tree_unchanged": true
     },
     "social": {
+      "directory": "Service/infera-social",
+      "head_before": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
+      "branch": "main",
+      "working_before": "",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-social\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
-      "directory": "Service/infera-social"
+      "head_after": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
+      "working_after": "",
+      "working_tree_unchanged": true
     },
     "state": {
+      "directory": "Service/infera-state",
+      "head_before": "6be433e043caddb2d1a5761562cfc42bd0c67190",
+      "branch": "main",
+      "working_before": "",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-state\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "6be433e043caddb2d1a5761562cfc42bd0c67190",
-      "directory": "Service/infera-state"
+      "head_after": "6be433e043caddb2d1a5761562cfc42bd0c67190",
+      "working_after": "",
+      "working_tree_unchanged": true
     },
     "task": {
+      "directory": "Service/infera-task",
+      "head_before": "afe576aac58ff0812635dedccfdcaed39519062a",
+      "branch": "main",
+      "working_before": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M migration/src/m20260927_000013_gift_capacity.rs\n M src/lib.rs\n M src/plans.rs\n M src/routes.rs\n M tests/product_plans.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? shared/\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql",
       "fetch_exit": 0,
-      "origin_main": "badfa399a8db6f19d68f63f14b1c67485c4d4903",
-      "directory": "Service/infera-task"
+      "fetch_stderr": "From hamgit.ir:infera/infera-task\n * branch            main       -> FETCH_HEAD\n",
+      "origin_main": "63201e112a1e640cab8454b168bbefe52ebab7bc",
+      "head_after": "afe576aac58ff0812635dedccfdcaed39519062a",
+      "working_after": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M migration/src/m20260927_000013_gift_capacity.rs\n M src/lib.rs\n M src/plans.rs\n M src/routes.rs\n M tests/product_plans.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? shared/\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql",
+      "working_tree_unchanged": true
     },
     "version": {
+      "directory": "Service/infera_version",
+      "head_before": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+      "branch": "work/version-semantic-contracts",
+      "working_before": "",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera_version\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "88071d0dd49309e0c93aba6238516e95b57e1df5",
-      "directory": "Service/infera_version"
+      "head_after": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+      "working_after": "",
+      "working_tree_unchanged": true
     },
     "manage": {
+      "directory": "Service/infera-manage",
+      "head_before": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
+      "branch": "work/manage-current-authority",
+      "working_before": "M Cargo.lock",
       "fetch_exit": 0,
+      "fetch_stderr": "From hamgit.ir:infera/infera-manage\n * branch            main       -> FETCH_HEAD\n",
       "origin_main": "a13caa6019e3648a1f84766d7ee5034c7147a123",
-      "directory": "Service/infera-manage"
+      "head_after": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
+      "working_after": "M Cargo.lock",
+      "working_tree_unchanged": true
     },
     "agentic": {
+      "directory": "infera-agentic",
+      "head_before": "84a0e9a95d274a655aae052988915ffc74401942",
+      "branch": "work/source-history-preservation",
+      "working_before": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M src/agent/model_settings.rs\n M src/ide/routes.rs\n M src/lms_integration.rs\n M src/main.rs\n M src/router.rs\n M src/service_billing.rs\n M src/worker/jobs.rs\n M worker_agent/src/llm/mod.rs\n M worker_agent/src/llm/ollama.rs\n M worker_agent/src/llm/openai_compat.rs\n M worker_agent/src/main.rs\n?? shared/\n?? src/profile_summary/\n?? templates/validation/empty-live-deployment-browser.json\n?? templates/validation/model-previews/catalog-media-review.jpg\n?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/\n?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/\n?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png",
       "fetch_exit": 0,
-      "origin_main": "6adb76c4a22e044cb92673ef9104658973c2d766",
-      "directory": "infera-agentic"
+      "fetch_stderr": "From hamgit.ir:infera/infera-agentic\n * branch              main       -> FETCH_HEAD\n",
+      "origin_main": "308baded8aaf73ae5e16ac3d7ad9763065d93de4",
+      "head_after": "84a0e9a95d274a655aae052988915ffc74401942",
+      "working_after": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M src/agent/model_settings.rs\n M src/ide/routes.rs\n M src/lms_integration.rs\n M src/main.rs\n M src/router.rs\n M src/service_billing.rs\n M src/worker/jobs.rs\n M worker_agent/src/llm/mod.rs\n M worker_agent/src/llm/ollama.rs\n M worker_agent/src/llm/openai_compat.rs\n M worker_agent/src/main.rs\n?? shared/\n?? src/profile_summary/\n?? templates/validation/empty-live-deployment-browser.json\n?? templates/validation/model-previews/catalog-media-review.jpg\n?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/\n?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/\n?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png",
+      "working_tree_unchanged": true
     },
     "control": {
+      "directory": "Service/infera-control",
+      "head_before": "e15272c1539eee4c1b183a8b2ec7e0453301d8b3",
+      "branch": "work/version-publication-readback",
+      "working_before": "?? .vscode/",
       "fetch_exit": 0,
-      "origin_main": "aa72a3ad9a3064949fc1045724419403e58a5ef4",
-      "directory": "Service/infera-control"
+      "fetch_stderr": "From hamgit.ir:infera/infera-control\n * branch            main       -> FETCH_HEAD\n",
+      "origin_main": "4e30e8158d15d221926de36b6834521af6271674",
+      "head_after": "e15272c1539eee4c1b183a8b2ec7e0453301d8b3",
+      "working_after": "?? .vscode/",
+      "working_tree_unchanged": true
     },
-    "sdk": {
-      "fetch_exit": 0,
-      "origin_main": "56e3db403c8beb4eab686448112670a603e609bc",
-      "directory": "faiber-ts-sdk"
-    },
-    "panel": {
-      "fetch_exit": 0,
-      "origin_main": "5d90860cdcec6097a5833d535060c22c2cc0d8f5",
-      "directory": "infera-panel"
+    "typescript-sdk": {
+      "directory": "faiber-ts-sdk",
+      "head_before": "aabd0b1a9240dd758ccda29afda8e4b78fa69e63",
+      "branch": "work/knowledge-brain-discovery",
+      "working_before": "M README.md\n M contracts/service-capabilities/evidence/agentic-manage-authority.log\n M contracts/service-capabilities/evidence/manage-authority-components.log\n M contracts/service-capabilities/evidence/manage-authority-tests.json\n M package-lock.json\n M package.json\n M packages/asset/package.json\n M packages/chat/package.json\n M packages/core/package.json\n M packages/crm/package.json\n M packages/drm/package.json\n M packages/flow/package.json\n M packages/game/package.json\n M packages/idp/package.json\n M packages/knowledge/package.json\n M packages/lms/README.md\n M packages/lms/package.json\n M packages/lms/src/index.ts\n M packages/lms/src/operations.ts\n M packages/lms/src/operations.types.ts\n M packages/lms/src/types.ts\n M packages/manage/package.json\n M packages/messenger/package.json\n M packages/modules/package.json\n M packages/payment/package.json\n M packages/profile/README.md\n M packages/profile/package.json\n M packages/profile/src/index.ts\n M packages/profile/src/operations.ts\n M packages/reservation/package.json\n M packages/sdk/package.json\n M packages/sdk/src/capabilities.ts\n M packages/sdk/src/index.ts\n M packages/session/package.json\n M packages/social/package.json\n M packages/state/package.json\n M packages/task/package.json\n M packages/version/package.json\n M scripts/generate-service-operations.mjs\n M scripts/release-contract-overrides.mjs\n M service-contracts.json\n M tests/facade-completeness.test.mjs\n M tests/release-contract-regressions.test.mjs\n M tests/tsconfig.json\n?? contracts/service-capabilities/evidence/agentic-authority-compile.log\n?? contracts/service-capabilities/evidence/agentic-authority-development.log\n?? contracts/service-capabilities/evidence/flow-source-unit-runner.log\n?? contracts/service-capabilities/evidence/knowledge-canonical-unit-retry-runner.log\n?? contracts/service-capabilities/evidence/knowledge-memory-delivery-runner.log\n?? contracts/service-capabilities/evidence/knowledge-memory-delivery-tests.json\n?? contracts/service-capabilities/evidence/knowledge-memory-delivery-tests.log\n?? contracts/service-capabilities/evidence/manage-authority-development.log\n?? contracts/service-capabilities/evidence/manage-bridge-runner-bridge-attempt-1.log\n?? contracts/service-capabilities/evidence/manage-bridge-runner.log\n?? contracts/service-capabilities/evidence/manage-sdk-runner.log\n?? contracts/service-capabilities/evidence/manage-thread-compile-2.log\n?? contracts/service-capabilities/evidence/manage-thread-compile.log\n?? contracts/service-capabilities/evidence/manage-thread-components.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-build.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-lock.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-tests.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-verification-generation-safe-runner.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-verification-origin-fixed-runner.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-verification-public-consumer-runner.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-verification-runner.log\n?? contracts/service-capabilities/evidence/sdk-integration-axios-types-build-fixed.log\n?? contracts/service-capabilities/evidence/sdk-integration-axios-types-build.log\n?? contracts/service-capabilities/evidence/sdk-integration-axios-types-tests.log\n?? contracts/service-capabilities/evidence/sdk-integration-axios-update.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-audit.json\n?? contracts/service-capabilities/evidence/sdk-integration-base-build.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-install.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-online-install.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-pack-check.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-tests.log\n?? contracts/service-capabilities/evidence/sdk-integration-brace-update.log\n?? contracts/service-capabilities/evidence/sdk-integration-updated-audit.json\n?? contracts/service-capabilities/evidence/sdk-integration-updated-build-failed.log\n?? contracts/service-capabilities/evidence/sdk-summary-generation-delta-tests.log\n?? contracts/service-capabilities/evidence/social-source-unit-runner.log\n?? packages/profile/src/summaries.ts\n?? packages/profile/src/summaries.types.ts\n?? scripts/__pycache__/\n?? scripts/profile-summary-contracts.mjs\n?? tests/lms-classroom-counts.test.mjs\n?? tests/lms-classroom-counts.types.ts\n?? tests/profile-summaries.test.mjs\n?? tests/profile-summary-generation.test.mjs",
+      "fetch_exit": 128,
+      "fetch_stderr": "ssh_dispatch_run_fatal: Connection to 140.82.121.3 port 22: Operation timed out\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n",
+      "origin_main": "b11672d7255de11399ec52ba76b3fa239c81870b",
+      "head_after": "aabd0b1a9240dd758ccda29afda8e4b78fa69e63",
+      "working_after": "M README.md\n M contracts/service-capabilities/evidence/agentic-manage-authority.log\n M contracts/service-capabilities/evidence/manage-authority-components.log\n M contracts/service-capabilities/evidence/manage-authority-tests.json\n M package-lock.json\n M package.json\n M packages/asset/package.json\n M packages/chat/package.json\n M packages/core/package.json\n M packages/crm/package.json\n M packages/drm/package.json\n M packages/flow/package.json\n M packages/game/package.json\n M packages/idp/package.json\n M packages/knowledge/package.json\n M packages/lms/README.md\n M packages/lms/package.json\n M packages/lms/src/index.ts\n M packages/lms/src/operations.ts\n M packages/lms/src/operations.types.ts\n M packages/lms/src/types.ts\n M packages/manage/package.json\n M packages/messenger/package.json\n M packages/modules/package.json\n M packages/payment/package.json\n M packages/profile/README.md\n M packages/profile/package.json\n M packages/profile/src/index.ts\n M packages/profile/src/operations.ts\n M packages/reservation/package.json\n M packages/sdk/package.json\n M packages/sdk/src/capabilities.ts\n M packages/sdk/src/index.ts\n M packages/session/package.json\n M packages/social/package.json\n M packages/state/package.json\n M packages/task/package.json\n M packages/version/package.json\n M scripts/generate-service-operations.mjs\n M scripts/release-contract-overrides.mjs\n M service-contracts.json\n M tests/facade-completeness.test.mjs\n M tests/release-contract-regressions.test.mjs\n M tests/tsconfig.json\n?? contracts/service-capabilities/evidence/agentic-authority-compile.log\n?? contracts/service-capabilities/evidence/agentic-authority-development.log\n?? contracts/service-capabilities/evidence/flow-source-unit-runner.log\n?? contracts/service-capabilities/evidence/knowledge-canonical-unit-retry-runner.log\n?? contracts/service-capabilities/evidence/knowledge-memory-delivery-runner.log\n?? contracts/service-capabilities/evidence/knowledge-memory-delivery-tests.json\n?? contracts/service-capabilities/evidence/knowledge-memory-delivery-tests.log\n?? contracts/service-capabilities/evidence/manage-authority-development.log\n?? contracts/service-capabilities/evidence/manage-bridge-runner-bridge-attempt-1.log\n?? contracts/service-capabilities/evidence/manage-bridge-runner.log\n?? contracts/service-capabilities/evidence/manage-sdk-runner.log\n?? contracts/service-capabilities/evidence/manage-thread-compile-2.log\n?? contracts/service-capabilities/evidence/manage-thread-compile.log\n?? contracts/service-capabilities/evidence/manage-thread-components.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-build.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-lock.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-tests.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-verification-generation-safe-runner.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-verification-origin-fixed-runner.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-verification-public-consumer-runner.log\n?? contracts/service-capabilities/evidence/sdk-integrated-100-verification-runner.log\n?? contracts/service-capabilities/evidence/sdk-integration-axios-types-build-fixed.log\n?? contracts/service-capabilities/evidence/sdk-integration-axios-types-build.log\n?? contracts/service-capabilities/evidence/sdk-integration-axios-types-tests.log\n?? contracts/service-capabilities/evidence/sdk-integration-axios-update.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-audit.json\n?? contracts/service-capabilities/evidence/sdk-integration-base-build.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-install.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-online-install.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-pack-check.log\n?? contracts/service-capabilities/evidence/sdk-integration-base-tests.log\n?? contracts/service-capabilities/evidence/sdk-integration-brace-update.log\n?? contracts/service-capabilities/evidence/sdk-integration-updated-audit.json\n?? contracts/service-capabilities/evidence/sdk-integration-updated-build-failed.log\n?? contracts/service-capabilities/evidence/sdk-summary-generation-delta-tests.log\n?? contracts/service-capabilities/evidence/social-source-unit-runner.log\n?? packages/profile/src/summaries.ts\n?? packages/profile/src/summaries.types.ts\n?? scripts/__pycache__/\n?? scripts/profile-summary-contracts.mjs\n?? tests/lms-classroom-counts.test.mjs\n?? tests/lms-classroom-counts.types.ts\n?? tests/profile-summaries.test.mjs\n?? tests/profile-summary-generation.test.mjs",
+      "working_tree_unchanged": true
     }
   }
 }

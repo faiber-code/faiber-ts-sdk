@@ -1652,6 +1652,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-asset/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1664,7 +1665,7 @@
           }
         ]
       },
-      "source_checksum": "f5631e7947fbb89e3e27c349a80877b65d2979cceedfb25caee200649d90759a",
+      "source_checksum": "78c7f92c36666970d49a95cd6765254433e129ea457820576afa6b86efba3316",
       "handler": {
         "ref": "infera-asset/src/router.rs:227:status_route",
         "path": "infera-asset/src/router.rs",
@@ -1672,7 +1673,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-asset/src/models.rs:77:HealthResponse",
+              "path": "infera-asset/src/models.rs",
+              "line": 77,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1702,6 +1715,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-asset/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1714,7 +1728,7 @@
           }
         ]
       },
-      "source_checksum": "909322d44fd9a5967043e72bc002e84b95a74a9de9d26d27beabbdc8755dac1f",
+      "source_checksum": "4f455e34d48c211aa0c2e2b90298ea4e40b81606c3b2a58812be470464d181c3",
       "handler": {
         "ref": "infera-asset/src/router.rs:227:status_route",
         "path": "infera-asset/src/router.rs",
@@ -1722,7 +1736,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-asset/src/models.rs:77:HealthResponse",
+              "path": "infera-asset/src/models.rs",
+              "line": 77,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1752,6 +1778,7 @@
         "handler": "openapi_json",
         "permissions": [],
         "source": "infera-asset/src/router.rs",
+        "response": "utoipa::openapi::OpenApi",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1764,7 +1791,7 @@
           }
         ]
       },
-      "source_checksum": "e1aa78f0e94e85133e3195b8c30f67183aa756aaf1f7d14cd2f2de14fd2a4cf4",
+      "source_checksum": "fe62b6a571418e555a197fafe3e18dd7029ea524bbe7cc15274162a46cbaf537",
       "handler": {
         "ref": "infera-asset/src/router.rs:217:openapi_json",
         "path": "infera-asset/src/router.rs",
@@ -1772,7 +1799,18 @@
         "name": "openapi_json"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "utoipa::openapi::OpenApi",
+          "models": [
+            {
+              "name": "OpenApi",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -5763,11 +5801,11 @@
           "admin:charge:read"
         ],
         "source": "infera-asset/src/trial_gifts.rs",
+        "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "trial_gifts",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-asset/src/router.rs",
@@ -5781,7 +5819,7 @@
           }
         ]
       },
-      "source_checksum": "c53eaf5a353e356f8bf084c8feeb0e8e65b6893412087d600b60308033320627",
+      "source_checksum": "b448f131b94aefcb29e125afe8c8f502969559958d6f7087b3e42255c2128eeb",
       "handler": {
         "ref": "infera-asset/src/trial_gifts.rs:294:show",
         "path": "infera-asset/src/trial_gifts.rs",
@@ -5827,11 +5865,11 @@
         ],
         "source": "infera-asset/src/trial_gifts.rs",
         "body": "GiftWrite",
+        "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "trial_gifts",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-asset/src/router.rs",
@@ -5845,7 +5883,7 @@
           }
         ]
       },
-      "source_checksum": "08ec5eb5b09adca012ecd71cb41cb3e5f0833e5ee768ce6d13aef3c54ba38f18",
+      "source_checksum": "74786eb8d5e57a6655c4028dc43e62e5cd7937cb3a051e5f64d15fda074b59c5",
       "handler": {
         "ref": "infera-asset/src/trial_gifts.rs:336:update",
         "path": "infera-asset/src/trial_gifts.rs",
@@ -5908,11 +5946,11 @@
           "admin:charge:update"
         ],
         "source": "infera-asset/src/trial_gifts.rs",
+        "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "trial_gifts",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-asset/src/router.rs",
@@ -5926,7 +5964,7 @@
           }
         ]
       },
-      "source_checksum": "0d8a99313ed316c7917052f3e3678f6b45545ef94f7e83160646454b1a9e0b80",
+      "source_checksum": "d1662da09cdef53313d275eda23b627df2852d5aa6f75af8b316cd7696fd653a",
       "handler": {
         "ref": "infera-asset/src/trial_gifts.rs:137:copy_token",
         "path": "infera-asset/src/trial_gifts.rs",
@@ -6124,12 +6162,12 @@
         ],
         "source": "infera-asset/src/sandbox_billing.rs",
         "body": "AdminProjectPricingInput",
+        "pathParam": "(Uuid, String)",
         "response": "AllocationView",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "sandbox_billing",
-        "pathParam": "(Uuid, String)",
         "mounted_via": [
           {
             "path": "infera-asset/src/router.rs",
@@ -6143,7 +6181,7 @@
           }
         ]
       },
-      "source_checksum": "0f9a091707527b4e4f85a57e66c4870aa2531fea3286f44294904d9cf9a23503",
+      "source_checksum": "c5fa1cde6202323740e1b793545581c2ca2dffc4042322afc58575f870f7041a",
       "handler": {
         "ref": "infera-asset/src/sandbox_billing.rs:766:admin_project_pricing_override",
         "path": "infera-asset/src/sandbox_billing.rs",
@@ -10438,12 +10476,12 @@
         "handler": "pause",
         "permissions": [],
         "source": "infera-asset/src/service_lifecycle.rs",
+        "pathParam": "(String, String)",
         "response": "ServiceLifecycleView",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_lifecycle",
-        "pathParam": "(String, String)",
         "mounted_via": [
           {
             "path": "infera-asset/src/router.rs",
@@ -10457,7 +10495,7 @@
           }
         ]
       },
-      "source_checksum": "8cb2610ce57c5549ce0268ec6c5ee72bdc14b1bbfbf4807592810d603a78710d",
+      "source_checksum": "33a316788370a809eedac98874085b91c1d578fbd558163e5d8418f520192921",
       "handler": {
         "ref": "infera-asset/src/service_lifecycle.rs:159:pause",
         "path": "infera-asset/src/service_lifecycle.rs",
@@ -10521,12 +10559,12 @@
         "handler": "resume",
         "permissions": [],
         "source": "infera-asset/src/service_lifecycle.rs",
+        "pathParam": "(String, String)",
         "response": "ServiceLifecycleView",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_lifecycle",
-        "pathParam": "(String, String)",
         "mounted_via": [
           {
             "path": "infera-asset/src/router.rs",
@@ -10540,7 +10578,7 @@
           }
         ]
       },
-      "source_checksum": "89bd79c3d88830542acbb99d10690565f3daa878f0e862038e18b37d75e36529",
+      "source_checksum": "3a780e09ec78f241b4c8175aac19120e6124e293327dbf9eb99a4e5f14f3e937",
       "handler": {
         "ref": "infera-asset/src/service_lifecycle.rs:186:resume",
         "path": "infera-asset/src/service_lifecycle.rs",
@@ -10613,12 +10651,12 @@
         "handler": "remove",
         "permissions": [],
         "source": "infera-asset/src/service_lifecycle.rs",
+        "pathParam": "(String, String)",
         "response": "ServiceLifecycleView",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_lifecycle",
-        "pathParam": "(String, String)",
         "mounted_via": [
           {
             "path": "infera-asset/src/router.rs",
@@ -10632,7 +10670,7 @@
           }
         ]
       },
-      "source_checksum": "f1fb0d20c0099a5d82ed0f1f08a9b19e2826367ac756c67db48989a4093f84ce",
+      "source_checksum": "91c145d47feccb6cacb726d6bdde3a7439549f8b1b40878b099832fb0a290591",
       "handler": {
         "ref": "infera-asset/src/service_lifecycle.rs:240:remove",
         "path": "infera-asset/src/service_lifecycle.rs",
@@ -10696,12 +10734,12 @@
         "handler": "delete_permanently",
         "permissions": [],
         "source": "infera-asset/src/service_lifecycle.rs",
+        "pathParam": "(String, String)",
         "response": "APIEmptyResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_lifecycle",
-        "pathParam": "(String, String)",
         "mounted_via": [
           {
             "path": "infera-asset/src/router.rs",
@@ -10715,7 +10753,7 @@
           }
         ]
       },
-      "source_checksum": "b14fc06b72775acc43d53df18ac43b1a24f0414823598e2a87a88d3dae383c35",
+      "source_checksum": "c0c68a732c6dd67eb9f3c2d75a7698abaf3f25440da6838293dd7641f09d2b8e",
       "handler": {
         "ref": "infera-asset/src/service_lifecycle.rs:267:delete_permanently",
         "path": "infera-asset/src/service_lifecycle.rs",
@@ -11192,12 +11230,11 @@
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
-      "GET /health"
-    ],
+    "missing": [],
     "extra": [],
     "changed": [
       "GET /",
+      "GET /health",
       "GET /api/openapi.json",
       "GET /api/v1/economy/policy",
       "PUT /api/v1/economy/policy",
@@ -14062,117 +14099,14 @@
   "working_drift": {
     "added": [],
     "absent": [],
-    "changed": [
-      "GET /",
-      "GET /api/openapi.json",
-      "GET /api/v1/actions",
-      "POST /api/v1/actions",
-      "DELETE /api/v1/actions/{id}",
-      "GET /api/v1/actions/{id}",
-      "PATCH /api/v1/actions/{id}",
-      "POST /api/v1/actions/complete",
-      "GET /api/v1/admin/plan-products",
-      "PUT /api/v1/admin/plan-products",
-      "DELETE /api/v1/admin/plan-products/{tier}",
-      "GET /api/v1/admin/resource-unit-prices",
-      "PUT /api/v1/admin/resource-unit-prices",
-      "PUT /api/v1/admin/sandbox-projects/{profile_id}/{project}/pricing-override",
-      "PUT /api/v1/admin/sandbox-projects/{project}/financial-owner",
-      "GET /api/v1/admin/subscriptions",
-      "GET /api/v1/admin/trial-gifts/{product}",
-      "POST /api/v1/admin/trial-gifts/{product}",
-      "GET /api/v1/admin/trial-gifts/{product}/{id}",
-      "PUT /api/v1/admin/trial-gifts/{product}/{id}",
-      "GET /api/v1/admin/trial-gifts/{product}/{id}/token",
-      "GET /api/v1/admin/trial-gifts/products",
-      "GET /api/v1/admin/user-plans",
-      "DELETE /api/v1/admin/user-plans/{profile_id}",
-      "PUT /api/v1/admin/user-plans/{profile_id}",
-      "PUT /api/v1/admin/user-plans/{profile_id}/disable",
-      "GET /api/v1/admin/users/{profile_id}/wallet",
-      "POST /api/v1/admin/users/{profile_id}/wallet/adjustments",
-      "POST /api/v1/ai-reservations",
-      "POST /api/v1/ai-reservations/{id}/release",
-      "POST /api/v1/ai-reservations/{id}/settle",
-      "GET /api/v1/assets",
-      "POST /api/v1/assets",
-      "DELETE /api/v1/assets/{id}",
-      "GET /api/v1/assets/{id}",
-      "PATCH /api/v1/assets/{id}",
-      "GET /api/v1/bank-summary",
-      "GET /api/v1/bank-transactions",
-      "POST /api/v1/bank-transactions",
-      "GET /api/v1/charge/settings",
-      "PATCH /api/v1/charge/settings",
-      "GET /api/v1/coin-settings",
-      "PATCH /api/v1/coin-settings",
-      "GET /api/v1/dashboard",
-      "GET /api/v1/economy/capabilities",
-      "POST /api/v1/economy/commands",
-      "GET /api/v1/economy/journal",
-      "GET /api/v1/economy/leaderboards",
-      "GET /api/v1/economy/me",
-      "GET /api/v1/economy/me/history",
-      "POST /api/v1/economy/me/purchases",
-      "POST /api/v1/economy/me/rewards/preview",
-      "POST /api/v1/economy/me/sessions/{session_id}/credit",
-      "GET /api/v1/economy/objects/{kind}",
-      "GET /api/v1/economy/policy",
-      "PUT /api/v1/economy/policy",
-      "GET /api/v1/economy/valuation",
-      "GET /api/v1/games/escrows/{match_id}",
-      "POST /api/v1/games/escrows/{match_id}/refund",
-      "POST /api/v1/games/escrows/{match_id}/settle",
-      "POST /api/v1/games/escrows/fund",
-      "GET /api/v1/integration/docs",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/integration/rabbitmq",
-      "PUT /api/v1/internal/fitness/products",
-      "GET /api/v1/leaderboard",
-      "GET /api/v1/llm-pricing/plans",
-      "DELETE /api/v1/llm-pricing/plans/{profile_id}",
-      "GET /api/v1/llm-pricing/plans/{profile_id}",
-      "PUT /api/v1/llm-pricing/plans/{profile_id}",
-      "GET /api/v1/me/asset-history",
-      "GET /api/v1/me/assets",
-      "GET /api/v1/me/badges",
-      "GET /api/v1/me/badges/todos",
-      "GET /api/v1/me/llm-usage",
-      "GET /api/v1/me/transactions",
-      "GET /api/v1/me/transactions/{id}",
-      "GET /api/v1/me/transactions/days",
-      "GET /api/v1/me/transactions/days/{day}",
-      "GET /api/v1/plans",
-      "GET /api/v1/plans/current",
-      "POST /api/v1/plans/purchase",
-      "GET /api/v1/points-packs",
-      "POST /api/v1/points-packs/purchase",
-      "GET /api/v1/ranks",
-      "POST /api/v1/ranks",
-      "DELETE /api/v1/ranks/{id}",
-      "GET /api/v1/ranks/{id}",
-      "PATCH /api/v1/ranks/{id}",
-      "DELETE /api/v1/sandbox-resources/{project}",
-      "GET /api/v1/sandbox-resources/{project}",
-      "PUT /api/v1/sandbox-resources/{project}",
-      "POST /api/v1/sandbox-resources/{project}/pause",
-      "GET /api/v1/sandbox-resources/{project}/pricing",
-      "POST /api/v1/sandbox-resources/{project}/resume",
-      "POST /api/v1/sandbox-resources/quote",
-      "GET /api/v1/subscriptions",
-      "POST /api/v1/subscriptions/{id}/cancel",
-      "DELETE /api/v1/subscriptions/{project}/{service}/data",
-      "POST /api/v1/subscriptions/{project}/{service}/pause",
-      "POST /api/v1/subscriptions/{project}/{service}/remove",
-      "POST /api/v1/subscriptions/{project}/{service}/resume",
-      "POST /api/v1/subscriptions/purchase",
-      "GET /api/v1/user-action-logs",
-      "GET /api/v1/user-asset-logs",
-      "GET /api/v1/wallet",
-      "GET /api/v1/wallet/purchases/{id}",
-      "POST /api/v1/wallet/subscriptions",
-      "POST /api/v1/wallet/topup",
-      "GET /health"
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
@@ -14818,6 +14752,24 @@
       ],
       "effects": [],
       "calls": []
+    },
+    "infera-asset/src/models.rs:77:HealthResponse": {
+      "name": "HealthResponse",
+      "kind": "struct",
+      "path": "infera-asset/src/models.rs",
+      "line": 77,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
     },
     "infera-asset/src/router.rs:217:openapi_json": {
       "name": "openapi_json",

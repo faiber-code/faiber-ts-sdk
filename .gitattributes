@@ -7,3 +7,8 @@ contracts/service-capabilities/evidence/summary-source-review-v2-supplement/*.lo
 contracts/service-capabilities/evidence/chat-mounted-sdk-21/*.log -whitespace
 contracts/service-capabilities/evidence/profile-summary-rest-sdk-v1/*.log -whitespace
 contracts/service-capabilities/evidence/profile-summary-current-sdk/*.log -whitespace
+contracts/service-capabilities/evidence/state-health-full-workspace/*.log -whitespace
+contracts/service-capabilities/evidence/crm-fallback-full-lib/*.log -whitespace
+contracts/service-capabilities/evidence/version-sdk-wire-accepted-4bb3902f/*.log -whitespace
+contracts/service-capabilities/working-contract-extraction.stderr.log -whitespace
+contracts/service-capabilities/evidence/lms-retirement-http-v1/*.log -whitespace

@@ -2609,11 +2609,11 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
         "body": "CategoryInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "content_category::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2622,7 +2622,7 @@
           }
         ]
       },
-      "source_checksum": "5658137e99d78379a1c7fede01b805429380ce182f2ba814845d7a6ee9efba16",
+      "source_checksum": "14ceeec2da060743b4fc28e3cc14a8e82b527609f5d3b8dcebec1a332e7bbc43",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:228:update_category",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2713,10 +2713,10 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2725,7 +2725,7 @@
           }
         ]
       },
-      "source_checksum": "663248620c37d84f36d09117a2ad2e457a404869d3fe1bb52370ab22671b733a",
+      "source_checksum": "1240975af4afabb88a01bfba08c91aa2d3d4db48541d7bdedbef46198a3692af",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:253:delete_category",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -2910,11 +2910,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "response": "media_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -2923,7 +2923,7 @@
           }
         ]
       },
-      "source_checksum": "9c7db43fbe1725042f553b9ea275c371e0b02a48ad862c5658fbd50bdfca270f",
+      "source_checksum": "a679e71c69622f60cf866a4d8037f5a23b7956ccc12c44bbede7feca218a324a",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:349:get_part",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3016,11 +3016,11 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
         "body": "PartInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "media_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3029,7 +3029,7 @@
           }
         ]
       },
-      "source_checksum": "c76fd52c0ab32b1be3c356c5cb65320e32c606636b426bf79a23e8dc6cff1747",
+      "source_checksum": "da13965152217425a63c50d7177b062b0ecd4fdb353d332267db0f2ea9680f6f",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:363:update_part",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -3156,10 +3156,10 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "editor_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -3168,7 +3168,7 @@
           }
         ]
       },
-      "source_checksum": "5b97cbe0b83a362a69b60f4fd194ccc9fc2218a670783cff818e50fa7f168626",
+      "source_checksum": "fd188d6c436c01aaa1a3bbf55c082a15f0ff75ab6209a672e0193525be91e7a0",
       "handler": {
         "ref": "infera-drm/src/editor_handlers.rs:388:delete_part",
         "path": "infera-drm/src/editor_handlers.rs",
@@ -4636,11 +4636,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "drm_queue",
+        "pathParam": "(String, Uuid)",
         "response": "serde_json::Value",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -4649,7 +4649,7 @@
           }
         ]
       },
-      "source_checksum": "208e61fa88f032762f10718c6a5edceae5157821a859d00c324bc3ee090dd7c0",
+      "source_checksum": "3e3404aaa387d4caec4e1f1f33a81c2de0731bf51b9e327d4a5a3f3aef17a27f",
       "handler": {
         "ref": "infera-drm/src/drm_queue.rs:330:legacy_status",
         "path": "infera-drm/src/drm_queue.rs",
@@ -5481,11 +5481,11 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
         "body": "GenericCategoryInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "content_category::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5494,7 +5494,7 @@
           }
         ]
       },
-      "source_checksum": "bc67622df243503ca7be045d2d5da3348e9f36255db30d2c1a60cfc82c95a3ef",
+      "source_checksum": "d47c160209415dbdcad7ee807347144a85c6922ae31aebc07578665ceaa3d8e3",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:238:update_category",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -5585,10 +5585,10 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -5597,7 +5597,7 @@
           }
         ]
       },
-      "source_checksum": "bfac0fd57c40470f37ddca8fa88adf2a651ed1f5ee2c361e24014760294a4f84",
+      "source_checksum": "7a6d93e4a3105d8bd118dac015f40a1aeddfca1354896eab0f6f49cc875b0467",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:262:archive_category",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6199,11 +6199,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "response": "media_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6212,7 +6212,7 @@
           }
         ]
       },
-      "source_checksum": "019006a27420d5cf5ab681a1861aa69c5dd1550020c67bcdca0ebbbf6fbb938f",
+      "source_checksum": "208952a15658e8d072dc218a93ec12d1ddc4a9f2040e950488c12910a662cc1b",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:491:get_item",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6305,11 +6305,11 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
         "body": "ContentItemInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "media_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6318,7 +6318,7 @@
           }
         ]
       },
-      "source_checksum": "f3529334810477ddde56043912b574c5553ac77b677c52c1cf13efa7b0f5d952",
+      "source_checksum": "03f0b16b32f6cc36b35f4458594b6731609ea6faa548e12ca0837abdfb353b15",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:503:update_item",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6433,10 +6433,10 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6445,7 +6445,7 @@
           }
         ]
       },
-      "source_checksum": "c77171a44892cd3b96e0ab16b1f81f5fc693f59bffd1e4ab3b11ef62eb65facd",
+      "source_checksum": "cdc0de208426d6cb8795c02a78ec411614b90a3ff1b0131c79483e8ce125c446",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:529:archive_item",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6489,11 +6489,11 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
+        "pathParam": "(Uuid, Uuid)",
         "response": "Vec<content_item_media::Model>",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6502,7 +6502,7 @@
           }
         ]
       },
-      "source_checksum": "1c5a9b59d653893941e00593370384ab6ae95ca266ec80a5e4fd8a17b3e77e5a",
+      "source_checksum": "5bb0b925094db7ab555a564379ce700ba2c6c328578e4a4ea6a07d257eeea65d",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:547:item_attachments",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -6658,11 +6658,11 @@
         "source": "infera-drm/src/router.rs",
         "handlerModule": "generic_handlers",
         "body": "AttachmentInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "content_item_media::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -6671,7 +6671,7 @@
           }
         ]
       },
-      "source_checksum": "9ce8c0d997d90c9ea6767a13652318819a388c02ff5478802b3c220d6c01d233",
+      "source_checksum": "e4d73e4e66a6a2b76c5b50c5c4e0a3f1e8b222133d5e2bbdcef3034e3ee884d9",
       "handler": {
         "ref": "infera-drm/src/generic_handlers.rs:568:attach_media",
         "path": "infera-drm/src/generic_handlers.rs",
@@ -8458,12 +8458,12 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "upload_handlers",
+        "pathParam": "(Uuid, i32)",
         "response": "upload_part::Model",
         "responseEnvelope": "raw",
         "multipart": false,
         "binary": true,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, i32)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8472,7 +8472,7 @@
           }
         ]
       },
-      "source_checksum": "dee82d83c289f078e35025dbc772019f5207dc0893d44758489933c1491404a4",
+      "source_checksum": "af50ecbb886e4c3e9d686d4ae8489f8929bd5d414ce069d29992d68d67bc71b2",
       "handler": {
         "ref": "infera-drm/src/upload_handlers.rs:141:put_upload_part",
         "path": "infera-drm/src/upload_handlers.rs",
@@ -8923,10 +8923,10 @@
         "permissions": [],
         "source": "infera-drm/src/router.rs",
         "handlerModule": "package_handlers",
+        "pathParam": "(Uuid, String)",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
-        "pathParam": "(Uuid, String)",
         "mounted_via": [
           {
             "path": "infera-drm/src/router.rs",
@@ -8935,7 +8935,7 @@
           }
         ]
       },
-      "source_checksum": "8a490546de1a2bbed27e954be8fe3b6edbf0fa1269a90026e5e1acb486315870",
+      "source_checksum": "4b3d4a65fa9053aadbae05bee1ea4898aa4cac2cc90b652db535f84dc03655d2",
       "handler": {
         "ref": "infera-drm/src/package_handlers.rs:93:package_file",
         "path": "infera-drm/src/package_handlers.rs",
@@ -11517,103 +11517,14 @@
   "working_drift": {
     "added": [],
     "absent": [],
-    "changed": [
-      "GET /api/v1/audit-events",
-      "GET /api/v1/composition-analyses",
-      "GET /api/v1/composition-categories",
-      "POST /api/v1/composition-categories",
-      "DELETE /api/v1/composition-categories/{id}",
-      "PATCH /api/v1/composition-categories/{id}",
-      "GET /api/v1/compositions",
-      "POST /api/v1/compositions",
-      "GET /api/v1/compositions/{id}/manifests",
-      "POST /api/v1/compositions/{id}/manifests",
-      "POST /api/v1/compositions/{id}/publish",
-      "GET /api/v1/compositions/{id}/workflow",
-      "PUT /api/v1/compositions/{id}/workflow",
-      "GET /api/v1/dashboard/summary",
-      "GET /api/v1/drm/jobs",
-      "POST /api/v1/drm/jobs",
-      "DELETE /api/v1/drm/jobs/{id}",
-      "POST /api/v1/drm/jobs/{id}/retry",
-      "POST /api/v1/drm/jobs/actions/retry-failed",
-      "GET /api/v1/external-references",
-      "POST /api/v1/external-references",
-      "GET /api/v1/folders",
-      "POST /api/v1/folders",
-      "DELETE /api/v1/folders/{id}",
-      "PATCH /api/v1/folders/{id}",
-      "GET /api/v1/libraries",
-      "POST /api/v1/libraries",
-      "DELETE /api/v1/libraries/{id}",
-      "GET /api/v1/libraries/{id}",
-      "PATCH /api/v1/libraries/{id}",
-      "GET /api/v1/libraries/{id}/categories",
-      "POST /api/v1/libraries/{id}/categories",
-      "GET /api/v1/libraries/{id}/items",
-      "POST /api/v1/libraries/{id}/items",
-      "GET /api/v1/libraries/{id}/items/query",
-      "GET /api/v1/libraries/{id}/stats",
-      "DELETE /api/v1/libraries/{library_id}/categories/{id}",
-      "PATCH /api/v1/libraries/{library_id}/categories/{id}",
-      "DELETE /api/v1/libraries/{library_id}/items/{id}",
-      "GET /api/v1/libraries/{library_id}/items/{id}",
-      "PUT /api/v1/libraries/{library_id}/items/{id}",
-      "GET /api/v1/libraries/{library_id}/items/{id}/attachments",
-      "POST /api/v1/libraries/{library_id}/items/{id}/attachments",
-      "GET /api/v1/licenses/clearkey",
-      "GET /api/v1/media",
-      "POST /api/v1/media",
-      "DELETE /api/v1/media/{id}",
-      "GET /api/v1/media/{id}",
-      "PATCH /api/v1/media/{id}",
-      "GET /api/v1/media/{id}/packages",
-      "POST /api/v1/media/{id}/packages",
-      "GET /api/v1/media/{id}/playback",
-      "POST /api/v1/media/batch",
-      "GET /api/v1/media/drm-statuses",
-      "DELETE /api/v1/media/packages/{id}",
-      "POST /api/v1/media/register",
-      "GET /api/v1/mixed-media",
-      "POST /api/v1/mixed-media",
-      "DELETE /api/v1/mixed-media/{id}",
-      "GET /api/v1/mixed-media/{id}",
-      "PATCH /api/v1/mixed-media/{id}",
-      "GET /api/v1/mixed-media/{id}/analysis",
-      "POST /api/v1/mixed-media/{id}/analysis",
-      "POST /api/v1/mixed-media/{id}/categories",
-      "GET /api/v1/mixed-media/{id}/knowledge-sync",
-      "POST /api/v1/mixed-media/{id}/knowledge-sync",
-      "PUT /api/v1/mixed-media/{id}/knowledge-sync",
-      "GET /api/v1/mixed-media/{id}/manifest",
-      "GET /api/v1/mixed-media/{id}/manifests",
-      "POST /api/v1/mixed-media/{id}/parts",
-      "POST /api/v1/mixed-media/{id}/publish",
-      "GET /api/v1/mixed-media/{id}/resources",
-      "GET /api/v1/mixed-media/{id}/workflow",
-      "PUT /api/v1/mixed-media/{id}/workflow",
-      "DELETE /api/v1/mixed-media/{mixed_id}/categories/{id}",
-      "PATCH /api/v1/mixed-media/{mixed_id}/categories/{id}",
-      "DELETE /api/v1/mixed-media/{mixed_id}/parts/{id}",
-      "GET /api/v1/mixed-media/{mixed_id}/parts/{id}",
-      "PUT /api/v1/mixed-media/{mixed_id}/parts/{id}",
-      "GET /api/v1/operations/health",
-      "GET /api/v1/operations/knowledge-catalog",
-      "GET /api/v1/operations/settings",
-      "PATCH /api/v1/operations/settings",
-      "GET /api/v1/operations/transcription-models",
-      "POST /api/v1/packages",
-      "GET /api/v1/packages/{kind}/{media_id}",
-      "GET /api/v1/packages/{package_id}/files/{*path}",
-      "GET /api/v1/status",
-      "GET /api/v1/tags",
-      "POST /api/v1/tags",
-      "DELETE /api/v1/tags/{id}",
-      "POST /api/v1/upload-sessions",
-      "DELETE /api/v1/upload-sessions/{id}",
-      "GET /api/v1/upload-sessions/{id}",
-      "POST /api/v1/upload-sessions/{id}/complete",
-      "PUT /api/v1/upload-sessions/{id}/parts/{part_number}"
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [

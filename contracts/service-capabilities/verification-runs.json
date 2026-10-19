@@ -682,15 +682,16 @@
     "resolved_cargo_lock_sha256": "40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486",
     "resolved_cargo_lock_artifact_path": "evidence/version-resolved-40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486.Cargo.lock",
     "kind": "real_sdk_http_postgres_contract",
-    "artifact_path": "evidence/version-sdk-wire-tests.json",
+    "artifact_path": "evidence/version-sdk-wire-accepted-4bb3902f/version-sdk-wire-tests.json",
     "artifact_sha256": "4bb3902f5ed01626c9ff93a0c38a173441046a03df1c9d26009fd68e0fc43097",
     "additional_artifacts": [
       {
-        "artifact_path": "evidence/version-sdk-wire-tests.log",
+        "artifact_path": "evidence/version-sdk-wire-accepted-4bb3902f/version-sdk-wire-tests.log",
         "sha256": "a8e4c16a6fb94683b461bcd1c9cc9ab818d7b49ed70ebe1e548578c7a3eef67b"
       }
     ],
-    "canonical_certification": false
+    "canonical_certification": false,
+    "artifact_preservation_note": "Original accepted bytes retained from Git before subsequent runtime commands overwrite their generic output paths; checksum/source/test declarations unchanged."
   },
   "social-admin-sdk-wire": {
     "schema_version": "1.0",
@@ -777,6 +778,102 @@
         "sha256": "73ede5aab2b8f2dd4b1315f7f063cdd5df10de6338749bba49cbc0c240bda976"
       }
     ],
+    "canonical_certification": false
+  },
+  "state-health-sdk-workspace": {
+    "kind": "real_production_subrouter_sdk_http",
+    "status": "passed",
+    "command": "cargo test --locked --offline --workspace -- --include-ignored --test-threads=1 --nocapture",
+    "exit_code": 0,
+    "tests_executed": 26,
+    "source_revisions": {
+      "state": "b8d3bfa828878a979a8c8765285bfd3899965bd4"
+    },
+    "artifact_path": "evidence/state-health-full-workspace/state-health-sdk-tests.json",
+    "artifact_sha256": "cc4398ead09368c6c1aecd4536365e8a62b63c003431377a889232e17ad2300d",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/state-health-full-workspace/state-health-sdk-tests.log",
+        "sha256": "e7e7eda69889ff2ceb7f055cda749f0026c216c8404909554060178cfe463e55"
+      }
+    ],
+    "resolved_cargo_lock_artifact_path": "evidence/state-health-full-workspace/state-health-resolved-Cargo.lock",
+    "resolved_cargo_lock_sha256": "f5ce8164db0392479c7e83906888113b207e7a19f650fcc7513d3a2960748010",
+    "scope": "Full State workspace tests plus actual production health subrouter with current compiled Axios SDK, static JSON/status/HEAD/405/cancellation. No mocked handler responses. This is not whole-main startup, persistence, gameplay, WebSocket or live deployed readiness acceptance.",
+    "canonical_certification": false
+  },
+  "crm-fallback-sdk-actual": {
+    "kind": "real_production_subrouter_sdk_http",
+    "status": "passed",
+    "command": "cargo test --locked --offline --lib -- --include-ignored --test-threads=1 --nocapture",
+    "exit_code": 0,
+    "tests_executed": 12,
+    "source_revisions": {
+      "crm": "178f5de3c68fab387abd5294aeceb8dd1843084f"
+    },
+    "artifact_path": "evidence/crm-fallback-full-lib/crm-fallback-sdk-tests.json",
+    "artifact_sha256": "8c31c2000d833c10f9e04402c610dd81252c19ca4634ca50e7f853f5fdc1d3b8",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/crm-fallback-full-lib/crm-fallback-sdk-tests.log",
+        "sha256": "c15e2ff19b4d09f61ead2248af7ee7c33365ff5db3ca68d9149574fde97055a6"
+      }
+    ],
+    "resolved_cargo_lock_artifact_path": "evidence/crm-fallback-full-lib/crm-fallback-resolved-Cargo.lock",
+    "resolved_cargo_lock_sha256": "61663417db5cb44758c4b0789b14364def7f2acb62a57b59082e86b39bb3d8fe",
+    "scope": "Actual production CRM legacy fallback and production CORS through compiled SDK, explicit nine HTTP methods (CONNECT with a real custom adapter; default CONNECT rejects), response/error/header behavior. No mocked handler responses. Not native CRM domain permissions/data or whole-main API normalization/live deployment acceptance.",
+    "canonical_certification": false
+  },
+  "profile-summary-mounted-sdk-http": {
+    "kind": "real_sdk_http_postgres_rabbitmq_deterministic_peers",
+    "status": "passed",
+    "command": "cargo test --locked --offline --test summary_rest_sdk -- --ignored --nocapture",
+    "exit_code": 0,
+    "tests_executed": 1,
+    "assertions": 348,
+    "source_revisions": {
+      "profile": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad"
+    },
+    "test_source_revision": "07279def6aeb91f806d0c32ab811a69ec2b05daf",
+    "artifact_path": "evidence/profile-summary-current-sdk/profile-summary-sdk-tests.json",
+    "artifact_sha256": "8084cfa898aabc06cec54056c4f20a4eb3cf90bf7b896adefbbf789d5de77637",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/profile-summary-current-sdk/profile-summary-sdk-tests.log",
+        "sha256": "c6f679141bec78342b7e676f080f4d493c01b2a533c10de8c21a85f2d83fa697"
+      }
+    ],
+    "scope": "All20 mounted Profile summary operations with compiled current SDK, real PostgreSQL/RabbitMQ and actual worker logic. IDP/Agentic/MCP evidence and gateway identities are deterministic fixtures; minimal identity tables, no live provider/billing, namespace/current gateway verification, six-domain interoperability or deployed acceptance.",
+    "canonical_certification": false
+  },
+  "lms-summary-retirement-http": {
+    "kind": "real_mounted_http_retirement_classification",
+    "status": "passed",
+    "command": "cargo test --locked --offline --test summary_retirement_http -- --ignored --nocapture",
+    "exit_code": 0,
+    "tests_executed": 1,
+    "assertions": 57,
+    "source_revisions": {
+      "lms": "a2d00df7f1cc34c3b2e356824c49e39c12047a33"
+    },
+    "test_source_revision": "1fbba589305088ecc6210a1baf2e4beb07ce5a82",
+    "artifact_path": "evidence/lms-retirement-http-v1/handoff.json",
+    "artifact_sha256": "9ef981716e2a2cdb0ba0cad0025247ce184ce99729533c0f0e0fe67c9dc6b0fd",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/lms-retirement-http-v1/run-final.log",
+        "sha256": "70627b281beb5b374239bab6726e5c360f0976ec5256fac1218efa4259e9e7e5"
+      },
+      {
+        "artifact_path": "evidence/lms-retirement-http-v1/wire-result.json",
+        "sha256": "23abc87990afe8c641f7753dd46f824b905cbdc56dff4a2b9d79591851403071"
+      },
+      {
+        "artifact_path": "evidence/lms-retirement-http-v1/legacy-storage-result.json",
+        "sha256": "7804fe7e0610e9636969cc9273e3a0cad8e0668b372392dd65e039bd6e2153bd"
+      }
+    ],
+    "scope": "Eight retired JSON APIs absent; actual full38 migrations and legacy row preservation. GET uses generic HTML200 with SPA index or404 without; PUT/twoPOST405. Trusted actor and Profile-name fixtures, no live deployment or real provider/billing.",
     "canonical_certification": false
   }
 }

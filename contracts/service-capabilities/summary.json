@@ -11,9 +11,9 @@
       "unresolved_router_edges": 0
     },
     "chat": {
-      "mounted_operations": 57,
+      "mounted_operations": 58,
       "working_route_candidates": 40,
-      "resolved_handlers": 57,
+      "resolved_handlers": 58,
       "reviewed_operations": 0,
       "source_relationship": "diverged",
       "missing_meaning_sources": [],
@@ -24,7 +24,7 @@
       "working_route_candidates": 62,
       "resolved_handlers": 92,
       "reviewed_operations": 0,
-      "source_relationship": "same",
+      "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
@@ -51,7 +51,7 @@
       "working_route_candidates": 90,
       "resolved_handlers": 104,
       "reviewed_operations": 0,
-      "source_relationship": "same",
+      "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
@@ -65,20 +65,20 @@
       "unresolved_router_edges": 0
     },
     "lms": {
-      "mounted_operations": 184,
+      "mounted_operations": 189,
       "working_route_candidates": 117,
-      "resolved_handlers": 184,
+      "resolved_handlers": 189,
       "reviewed_operations": 0,
       "source_relationship": "diverged",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
     "messenger": {
-      "mounted_operations": 38,
+      "mounted_operations": 47,
       "working_route_candidates": 33,
-      "resolved_handlers": 38,
+      "resolved_handlers": 47,
       "reviewed_operations": 0,
-      "source_relationship": "same",
+      "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
@@ -119,9 +119,9 @@
       "unresolved_router_edges": 0
     },
     "session": {
-      "mounted_operations": 41,
+      "mounted_operations": 42,
       "working_route_candidates": 38,
-      "resolved_handlers": 41,
+      "resolved_handlers": 42,
       "reviewed_operations": 0,
       "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
@@ -132,7 +132,7 @@
       "working_route_candidates": 73,
       "resolved_handlers": 97,
       "reviewed_operations": 0,
-      "source_relationship": "same",
+      "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
@@ -141,14 +141,14 @@
       "working_route_candidates": 36,
       "resolved_handlers": 45,
       "reviewed_operations": 0,
-      "source_relationship": "same",
+      "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
     "task": {
-      "mounted_operations": 116,
+      "mounted_operations": 128,
       "working_route_candidates": 65,
-      "resolved_handlers": 116,
+      "resolved_handlers": 128,
       "reviewed_operations": 0,
       "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
@@ -174,7 +174,7 @@
     },
     "agentic": {
       "mounted_operations": 405,
-      "working_route_candidates": 355,
+      "working_route_candidates": 358,
       "resolved_handlers": 405,
       "reviewed_operations": 0,
       "source_relationship": "not_in_sdk_lock",

@@ -7,11 +7,11 @@
     },
     "chat": {
       "directory": "Service/infera-chat",
-      "revision": "d495217f85d77270865a040c1328d70c620e6c9d"
+      "revision": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf"
     },
     "crm": {
       "directory": "Service/infera-crm",
-      "revision": "6c763c989216fbecd6cfdb4c98f1067c09d17507"
+      "revision": "1addec42a400ba980b6547060cdcb4d347a7bbd0"
     },
     "drm": {
       "directory": "Service/infera-drm",
@@ -23,7 +23,7 @@
     },
     "idp": {
       "directory": "Service/infera-idp",
-      "revision": "9965e90a81fa3c4844a00e710d8d31b20527fede"
+      "revision": "8a841a96c6d03fba9f7baa9e5eb2cc14f0e9747d"
     },
     "knowledge": {
       "directory": "Service/infera-knowledge",
@@ -31,11 +31,11 @@
     },
     "lms": {
       "directory": "Service/infera-lms",
-      "revision": "7a0315c39ac53df3ad6c6ca53fbe574f19046e52"
+      "revision": "230453c1471d723af582308e43b5b43b5a0f7b99"
     },
     "messenger": {
       "directory": "Service/infera-messenger",
-      "revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4"
+      "revision": "2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88"
     },
     "modules": {
       "directory": "Service/infera-modules",
@@ -55,7 +55,7 @@
     },
     "session": {
       "directory": "Service/infera-session",
-      "revision": "4c5eefc4062e8e522795478c8dd7d55e48a0c9fc"
+      "revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b"
     },
     "social": {
       "directory": "Service/infera-social",
@@ -67,7 +67,7 @@
     },
     "task": {
       "directory": "Service/infera-task",
-      "revision": "badfa399a8db6f19d68f63f14b1c67485c4d4903"
+      "revision": "63201e112a1e640cab8454b168bbefe52ebab7bc"
     },
     "version": {
       "directory": "Service/infera_version",
@@ -79,11 +79,11 @@
     },
     "agentic": {
       "directory": "infera-agentic",
-      "revision": "6adb76c4a22e044cb92673ef9104658973c2d766"
+      "revision": "308baded8aaf73ae5e16ac3d7ad9763065d93de4"
     },
     "control": {
       "directory": "Service/infera-control",
-      "revision": "aa72a3ad9a3064949fc1045724419403e58a5ef4"
+      "revision": "4e30e8158d15d221926de36b6834521af6271674"
     }
   }
 }

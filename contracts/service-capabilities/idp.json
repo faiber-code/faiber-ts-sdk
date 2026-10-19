@@ -11,21 +11,24 @@
     "README.md",
     "src/router.rs"
   ],
-  "canonical_revision": "9965e90a81fa3c4844a00e710d8d31b20527fede",
-  "sdk_source_revision": "9965e90a81fa3c4844a00e710d8d31b20527fede",
+  "canonical_revision": "8a841a96c6d03fba9f7baa9e5eb2cc14f0e9747d",
+  "sdk_source_revision": "360daa64429c966ed04a8081f700fde9c73d56ac",
   "working_revision": "9965e90a81fa3c4844a00e710d8d31b20527fede",
   "working_changes": [
-    "M entity/config/acl/lms_service.yaml",
+    "M entity/config/acl/crm_service.yaml",
+    " M entity/config/acl/lms_service.yaml",
     " M entity/config/acl/profile_service.yaml",
+    " M entity/src/seeder/acl_seeder.rs",
     " M migration/src/lib.rs",
     " M src/acl/methods.rs",
     " M src/main.rs",
+    "?? entity/tests/profile_summary_acl.rs",
     "?? migration/src/m20261019_000033_summary_identity_events.rs",
     "?? migration/src/m20261019_000033_summary_identity_events.sql",
     "?? src/summary_identity.rs"
   ],
-  "source_relationship": "same",
-  "source_tree_checksum": "9c8790d8ede57a7efa5fb428ab89f7c098a3ed9581dd07e4c9ab27e21e17b45a",
+  "source_relationship": "working_behind_sdk",
+  "source_tree_checksum": "e28f559fe5582d561750f7768e96e84431be76a9a9c8aae9752a1209ab5cebcb",
   "source_files": [
     {
       "path": "infera-idp/src/acl/methods.rs",
@@ -297,7 +300,7 @@
     },
     {
       "path": "infera-idp/entity/src/seeder/acl_seeder.rs",
-      "checksum": "50eb48fa881c07b72e6bae6f483b1ebb799113f8adfa67c83ee5fdf9a0a9e1b1"
+      "checksum": "fe77c3bc04453747e43e8807bd1b4efa7b319b235359c70f1df90be2fd252637"
     },
     {
       "path": "infera-idp/entity/src/seeder/auth_client_seeder.rs",
@@ -484,11 +487,11 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "0d22e1db3e863af79f3a21c3769e8d2b1f4f7fb9b639d935f3cca27f78dd595f",
+  "working_source_tree_checksum": "4b07627181ec122f8098078d06e2925d19ab12b7e5b9e6eb3859f641ee369bab",
   "working_source_files": [
     {
       "path": "infera-idp/src/acl/methods.rs",
-      "checksum": "4a23bf3610f88a804f42faa78edd9747156c9ad029e2d349ab12ad86fc68f0c7"
+      "checksum": "31c162d521f9436c558cd83ebccf020dd7fc77e058c8ef84678dbe6dd0448078"
     },
     {
       "path": "infera-idp/src/acl/mod.rs",
@@ -636,7 +639,7 @@
     },
     {
       "path": "infera-idp/src/summary_identity.rs",
-      "checksum": "c117f6f9704a2cfe63440c58dbdead58811e740f4a2482c10e1c749a223d1d3e"
+      "checksum": "a0d41e0f3168a3e0ff729930c7ef8bead67f18d37b0d13627d64b45876e24810"
     },
     {
       "path": "infera-idp/src/user/methods.rs",
@@ -760,7 +763,7 @@
     },
     {
       "path": "infera-idp/entity/src/seeder/acl_seeder.rs",
-      "checksum": "50eb48fa881c07b72e6bae6f483b1ebb799113f8adfa67c83ee5fdf9a0a9e1b1"
+      "checksum": "c844f9f1b70db1bd388d1578a7ada9ab755e36145086fb2f601bcffc1fed2f77"
     },
     {
       "path": "infera-idp/entity/src/seeder/auth_client_seeder.rs",
@@ -940,7 +943,7 @@
     },
     {
       "path": "infera-idp/Cargo.lock",
-      "checksum": "a9520d3dc9e65db5070fc7c651ef5e12b4023fad83212bb77e0a582cfca50e4e"
+      "checksum": "7f515c849c4a8c03dd000a9e24fa557205e8e7b01edabb00145607a6ee50c189"
     },
     {
       "path": "infera-idp/.cargo/config.toml",
@@ -965,6 +968,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-idp/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -977,7 +981,7 @@
           }
         ]
       },
-      "source_checksum": "9342e8d6d87af70dcfc6abf62ded77e99f08b84e0f04b8ddce2ff556a7258e86",
+      "source_checksum": "465dcd57f368421c6951f10bcebce311b130d5cbba7681b9bf15d5eb813625f3",
       "handler": {
         "ref": "infera-idp/src/router.rs:230:status_route",
         "path": "infera-idp/src/router.rs",
@@ -985,7 +989,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-idp/src/models.rs:15:HealthResponse",
+              "path": "infera-idp/src/models.rs",
+              "line": 15,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1015,6 +1031,7 @@
         "handler": "openapi_json",
         "permissions": [],
         "source": "infera-idp/src/router.rs",
+        "response": "utoipa::openapi::OpenApi",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1027,7 +1044,7 @@
           }
         ]
       },
-      "source_checksum": "91e97ce8870b0c5a0377aa60aad1bfc46eaebfeb033a45e716e1377501e7a667",
+      "source_checksum": "26bcd0f9b019c3f7a9b4163b78ed2694a2bcd67a75ab46a761f1b80fee29cc15",
       "handler": {
         "ref": "infera-idp/src/router.rs:214:openapi_json",
         "path": "infera-idp/src/router.rs",
@@ -1035,7 +1052,18 @@
         "name": "openapi_json"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "utoipa::openapi::OpenApi",
+          "models": [
+            {
+              "name": "OpenApi",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1083,7 +1111,7 @@
           }
         ]
       },
-      "source_checksum": "cd40e42bcb8f7e9786da1b873b635b2e1d838c3e95f0689a36eff39a225ca19d",
+      "source_checksum": "d027187e19fc0ec6002e1fe445ba761b8caefaa84552582dc7c0ef7337db7173",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:105:discovery",
         "path": "infera-idp/src/oidc.rs",
@@ -1144,7 +1172,7 @@
           }
         ]
       },
-      "source_checksum": "1eaf4f4b6c503802747ad6cd66bdb4cdf312399c6d77c9388c2b8900757a7eaa",
+      "source_checksum": "8ae45b36a72fc9cf06f55c82638360bd19cec572ff6d7cc79f922d0d15c528e8",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:142:authorize",
         "path": "infera-idp/src/oidc.rs",
@@ -1220,7 +1248,7 @@
           }
         ]
       },
-      "source_checksum": "86ae6da2f94ea98667fb702d2ac068634850adc2656d4364476011c218f64584",
+      "source_checksum": "f8e3e3369e6cffb121f0f02983dd991b93f0d699298184eb22a3aa31438fbb89",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:282:token",
         "path": "infera-idp/src/oidc.rs",
@@ -1349,7 +1377,7 @@
           }
         ]
       },
-      "source_checksum": "2837e2e67151d34aa092386383e03b422a63235bf134948bc6aa11f47d580860",
+      "source_checksum": "86fbc1110db886ed01d88f0e280c48eb10b01346d925f6dc085e2256339b04f0",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:642:userinfo",
         "path": "infera-idp/src/oidc.rs",
@@ -1410,7 +1438,7 @@
           }
         ]
       },
-      "source_checksum": "91b4019072f19163bc7be8cd83bef6f559fb880db66fb70d142a7f49318b09d4",
+      "source_checksum": "d1fd2ec57b10032d582541e20f79ce918e91258c1c84433bf6725a8c6a9ae448",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:642:userinfo",
         "path": "infera-idp/src/oidc.rs",
@@ -1471,7 +1499,7 @@
           }
         ]
       },
-      "source_checksum": "4c3e2f03d761f6ec3c8b8a635400df49fb5f531297d4f7f1125604e1bd3eec6a",
+      "source_checksum": "3fcc4d20d249faf95dc8e9700d241ec531b0be8a3443754c869891660c5525bf",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:625:jwks",
         "path": "infera-idp/src/oidc.rs",
@@ -1532,7 +1560,7 @@
           }
         ]
       },
-      "source_checksum": "ec6dc96539d660a642d661680b1a7324ee2fe4967f129baf858b308db042865b",
+      "source_checksum": "3650e5a16a032f9ec88fdb14d6601b3756db65acb6efd492f1eb0bea7a9964de",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:705:revoke",
         "path": "infera-idp/src/oidc.rs",
@@ -1608,7 +1636,7 @@
           }
         ]
       },
-      "source_checksum": "f3b1878ac8ee4e03f3b4396dd8763a35d366799cd8f4183f657346b270ea8e5c",
+      "source_checksum": "29e62e241f0dd1f60836a6233393431151e428b2f29fd1a9e5f9c28e0ec79a7f",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:743:introspect",
         "path": "infera-idp/src/oidc.rs",
@@ -1687,7 +1715,7 @@
           }
         ]
       },
-      "source_checksum": "7dd633a3c68302271d9912c57721a864cf6ddfac4c8c218d5b5e0335eb634034",
+      "source_checksum": "8ad3c451d3464a6c8d7c6e9224b06666813b56cd5bdbca2a7b83f14f43ccb35b",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:805:backchannel_logout",
         "path": "infera-idp/src/oidc.rs",
@@ -1800,7 +1828,7 @@
           }
         ]
       },
-      "source_checksum": "5145ef698e24c7221e4fa5f5cb6b7a03dfdeefad3ac0d401a8ccc746eb6d0322",
+      "source_checksum": "611def4714a323d4350c4fd1154d499feadebb02dc39553c85d42ce02c737aa3",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:788:logout",
         "path": "infera-idp/src/oidc.rs",
@@ -1865,7 +1893,7 @@
           }
         ]
       },
-      "source_checksum": "7e382d1b05bd003f87cba47c835cad1335d883e1013b909e7d92c7760d95db4c",
+      "source_checksum": "ea28a89bbf1055c7746f6bb84d70e8deb6f9a6c153ca66c58447a8c0ec8158c1",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:788:logout",
         "path": "infera-idp/src/oidc.rs",
@@ -1931,7 +1959,7 @@
           }
         ]
       },
-      "source_checksum": "a76e50e81f7eb45ed2fe197df2e8acf79f67cce29056a1fa985e1950198c2919",
+      "source_checksum": "a7a0d14e4bd1eb836c259fe37efc4aa7fb2e3225a388d26a0b199b7afaee0a91",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:375:public_show",
         "path": "infera-idp/src/identity_authority.rs",
@@ -2005,7 +2033,7 @@
           }
         ]
       },
-      "source_checksum": "1b05329461fab9373d8b0ccb230bbb9ccbc6b9376c4b1e98975e8e38995ce540",
+      "source_checksum": "340d8c29e06943d10ed49f7c108f209e3ae51438bdf6d52f481f76496a7c217f",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2128:validate",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2041,10 +2069,12 @@
         "path": "/api/v1/auth/validate",
         "module": "auth::routes",
         "handler": "validate",
-        "handlerModule": "auth::routes",
-        "source": "infera-idp/src/auth/routes.rs",
         "permissions": [],
+        "source": "infera-idp/src/auth/routes.rs",
         "responseEnvelope": "raw-response",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "auth::routes",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -2058,7 +2088,7 @@
           }
         ]
       },
-      "source_checksum": "5491616ab71e7dc1343ab46d6bffccec1f294fa0a5a84c16d24c6338deddc8cd",
+      "source_checksum": "833b7abdb8507f24d90b21d75b222b417d3afbf4fb2a3b07d4153579696f2ca8",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2128:validate",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2113,7 +2143,7 @@
           }
         ]
       },
-      "source_checksum": "40a961d02892904ab437b2858d5e5eb4fde850a6299299a89530cbfa7da0860a",
+      "source_checksum": "27d17039fc2a6081512ea706062ccd30b43138b711f1922562cd1844b146221f",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2500:generate_one_time_token_route",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2151,11 +2181,11 @@
         "handler": "generate_secure_one_time_token_route",
         "permissions": [],
         "source": "infera-idp/src/auth/routes.rs",
+        "pathParam": "(Uuid)",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "auth::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -2169,7 +2199,7 @@
           }
         ]
       },
-      "source_checksum": "8c18eef0be0aec02fef020dae2ed88b9181ad5cd0a2ec7b32eb8a7dc812efd07",
+      "source_checksum": "e03fe45798e6bad422c49aa47e57eaba7d6d76c7b6565c8836269493367b5a7f",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2540:generate_secure_one_time_token_route",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2230,7 +2260,7 @@
           }
         ]
       },
-      "source_checksum": "ada38cb4c131af33fcfeafecab8b90d9c961500b17619e0edc68ffd99e2308ff",
+      "source_checksum": "8924b62454ed61c3b2f9ab401e662c8342bb58a067a9344cc6b76e9085fe3256",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1241:login",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2320,7 +2350,7 @@
           }
         ]
       },
-      "source_checksum": "e0308dd3d9c5020ebb313df1c9f32f30040825e8213817d9967550642ec6a91d",
+      "source_checksum": "f7f104b2512b2a9f1e96f5822e18cf5ebab0cc79775a5fa6fb6472f941789cd8",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2660:logout",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2386,7 +2416,7 @@
           }
         ]
       },
-      "source_checksum": "e528216582e91aff17df9b904d6454c4000c6a55a4895ad1e7c09287c0f093a1",
+      "source_checksum": "f029b2a0294a28490b53ba280bbbfa960a4bf218551e40d9ce8524c827bdfcea",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1330:login_web",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2478,7 +2508,7 @@
           }
         ]
       },
-      "source_checksum": "b2e7bb5befae7d5ee3a6ecdd8ed2d061b6a91c0485c0d9f7d4405fc3d83db14f",
+      "source_checksum": "5b23a9e907f6ecefc79ea2be463824f41de5de2069f5e3b2f5a4d9e3dd0265a8",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1447:browser_login",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2574,7 +2604,7 @@
           }
         ]
       },
-      "source_checksum": "1e45fab2233d1054845368a3dcdf55531bbafb2e6413a5bc6c6a2b3dd92739c9",
+      "source_checksum": "3a4bc77a2992821f3296e730af5a84dc4d5e87d741b7070a391dadfd63fc5ba0",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1535:login_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2642,7 +2672,7 @@
           }
         ]
       },
-      "source_checksum": "dad939bfec6caa53b18049f1a9d365725af8d6c622e6e6bc30b970c882482fdb",
+      "source_checksum": "e4cf5a14b777fbb9676ccc34b6d48ab21373206d95063df6c6d1313495b86ce9",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1707:exchange_handoff_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2718,7 +2748,7 @@
           }
         ]
       },
-      "source_checksum": "02bc1c9669757b38c095b0ce1f8a9ee2e745dd1b1f9ab3692f0abd3fc894dc7d",
+      "source_checksum": "d35bcaad77ca3a3d4b6d62aca2a7bb4d008ac67a802a0a194bcbee24b3e39979",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1664:issue_handoff_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2797,7 +2827,7 @@
           }
         ]
       },
-      "source_checksum": "bde1137b86edd1eb2df7410f1c977c8a4ca1f8ff1de6ed9601f4b1b1412c7eb6",
+      "source_checksum": "99c976d81acb2efa243b1cd043db02923b4b3bae189db61f0d1fdcee346ce038",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1593:exchange_one_time_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2865,7 +2895,7 @@
           }
         ]
       },
-      "source_checksum": "9563948d0bd620c7a8463bd9f8c11e26729a7ad554a655a4d719c8fceaf485d5",
+      "source_checksum": "24c062afc674f6ba328fc36ec192d956d7717560c2d0a82de29b39a12ed5c6bb",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1768:browser_handoff",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2933,7 +2963,7 @@
           }
         ]
       },
-      "source_checksum": "8a72db43b9aaa22112514bce633f228efa08581aa6a83e5fccc7000cafeb498d",
+      "source_checksum": "8b292e2db33db26194cbc735321b0eb9bebfc29018c7d7e23f9a0c9698516497",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2581:login_account",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3008,7 +3038,7 @@
           }
         ]
       },
-      "source_checksum": "fdda93dc5178170f199cb16e1a8be32e108e958a172f40557983e155c1915472",
+      "source_checksum": "5a6686c837ba7635b613acc40d5fee8880dfa3ec13f18713e7a9534265cc6eed",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1840:otp_login",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3099,7 +3129,7 @@
           }
         ]
       },
-      "source_checksum": "063d8e77d8aa9554839b91c245332dc7de787ccef2c7f463e5653253eaca233b",
+      "source_checksum": "c68e1c300e2fbc361e20c33ca58df2bc47bda31672d1b1a44866fc35e85271c9",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:223:oauth_providers",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3167,7 +3197,7 @@
           }
         ]
       },
-      "source_checksum": "eaea249b9540e636846e0625381ad018b8fec2cf50067c3c7454bd8b0dadcadd",
+      "source_checksum": "30d208289d14ff3adbd6d6b5e66197b07857c840d7ce7ee39d8423a98dc8b6cb",
       "handler": {
         "ref": "infera-idp/src/auth/native.rs:59:authorize",
         "path": "infera-idp/src/auth/native.rs",
@@ -3243,7 +3273,7 @@
           }
         ]
       },
-      "source_checksum": "751f122d13952c53be926a2ed7a1e6490b33cdbd2ea985c9b7d9aadeadba57f8",
+      "source_checksum": "7dc6940f0a3c682fbde9f26c38e8782b5b8599b2bdd313aaded833b7865b2cf9",
       "handler": {
         "ref": "infera-idp/src/auth/native.rs:130:token",
         "path": "infera-idp/src/auth/native.rs",
@@ -3335,7 +3365,7 @@
           }
         ]
       },
-      "source_checksum": "3baec37896cb6a40c5c86172129a0c2fc429397b8545de4e84e981c5721d9928",
+      "source_checksum": "b076edca531e61d5005bc65ce33bb51e6a19ac821aa8ee8abc5e1b541da8d86f",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:726:list_linked_identities",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3404,7 +3434,7 @@
           }
         ]
       },
-      "source_checksum": "8ce404a0d1a3e4c8646b39fbb538b610e695eb0ce41f115fdfc8aa80c32eb06d",
+      "source_checksum": "a7e23e1abc46069f72ea2ef5a75bfca83d918ab1fbc3f61a364cd6b7630b4327",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:555:linked_faiber_billing",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3491,7 +3521,7 @@
           }
         ]
       },
-      "source_checksum": "5d42c11c683cefd4f7ecc0864338297cd49ffd4783ca0ab75471d3ffdb396d35",
+      "source_checksum": "907fc707ced63dddb6faacecae5e639b43ce84a60c032b7e5bf0a7363c754bfe",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:679:linked_faiber_wallet_topup",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3578,7 +3608,7 @@
           }
         ]
       },
-      "source_checksum": "6ac7d9ffb3ac148ac0fd1290814f78e86291c5406f17ef6c9a2ca5ec1172b0cf",
+      "source_checksum": "29987e4388bee5affa9d78d2e75a9971b69b43c4fb1b3b066a2fe9aa553cafdf",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:234:oauth_start",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3661,7 +3691,7 @@
           }
         ]
       },
-      "source_checksum": "4f5016e973895f85734b382db3f4450211b335968b15f220dd055b544b4d67f8",
+      "source_checksum": "391a967820a80a8d713a79461463b4a6c6b7bdf6f137615b46dde43b5c80a05b",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:809:oauth_unlink",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3734,7 +3764,7 @@
           }
         ]
       },
-      "source_checksum": "43e96985093519ca3272c4f9877168a1527471ace4c21d2c164f150c9c2e6d1a",
+      "source_checksum": "2142c8d6638b7a19d3465e3fbd3228bc96d7ac1175abfb3d796d2a257b2b8509",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:328:oauth_callback",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3805,7 +3835,7 @@
           }
         ]
       },
-      "source_checksum": "2361ef8c29b26189f65cf176e30b8b2091c41d7138fe8f8bd8722c7cbd739562",
+      "source_checksum": "94fadacdfb0e2199a19a7cb7270ee339c239f95049cf851f85aba2ad0fa0d078",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1915:refresh_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3880,7 +3910,7 @@
           }
         ]
       },
-      "source_checksum": "b21a5e7cc5198ab49b59ce8f29e0d82eca2641e922e1b5017fae60c455bd87f2",
+      "source_checksum": "75d330a977004e727e065563e6269a53e598ce6d394c0c7f5eb1df26f09cb02b",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2714:list_sessions",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3956,7 +3986,7 @@
           }
         ]
       },
-      "source_checksum": "c78e0907c8dc4064fa37db5495411502f171fc982c4cea0d211678d40e13550a",
+      "source_checksum": "3b156150214b17dad785aed439994c0e0ed85fdc298ddf2f45ff65c75659c194",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2783:delete_session",
         "path": "infera-idp/src/auth/routes.rs",
@@ -4029,7 +4059,7 @@
           }
         ]
       },
-      "source_checksum": "7335e5c35d3eedd4cb8396ed8bf86a650106514afffceede2279189a72300131",
+      "source_checksum": "797c8f25677c11a853019ea83abe3314e073830530e17f708a6e9ba0e28584a5",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:542:users_index",
         "path": "infera-idp/src/user/routes.rs",
@@ -4116,7 +4146,7 @@
           }
         ]
       },
-      "source_checksum": "20381271c6979908e528cdcbf99f867c508a2215da5526be5676a58f3ff9c333",
+      "source_checksum": "e2be81b42d914911a65f5f05e45a97834656f0e54f549fa8851413484af59045",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:574:user_create",
         "path": "infera-idp/src/user/routes.rs",
@@ -4196,7 +4226,7 @@
           }
         ]
       },
-      "source_checksum": "a53e989ac9a7eb6a83d9e673ee0c6f03c827c4886bb9c88b67191c8164575c65",
+      "source_checksum": "b8f0aff3a2f810d71e944d6a7dacee69a0b71ddad0b165caa8d67023a8cea4d5",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:156:register_with_phone",
         "path": "infera-idp/src/user/routes.rs",
@@ -4302,7 +4332,7 @@
           }
         ]
       },
-      "source_checksum": "053801ac6fa20e398a879663570eb9c46d280515cfb283732197a2b8b02ac203",
+      "source_checksum": "a2e3cab71815ee0904245555260ac69949264e7459fdd2e3844a4ce47f3730de",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:205:register_with_email",
         "path": "infera-idp/src/user/routes.rs",
@@ -4399,7 +4429,7 @@
           }
         ]
       },
-      "source_checksum": "becf977ebc7e4050072e9e40c8fbd8cbefd5f92e6438bb94b82e265163249f5d",
+      "source_checksum": "a28e9d4175beb8eb0df7794dc26c1c1fb63eb922cc47e05c3a83c41d092a79e9",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:246:register",
         "path": "infera-idp/src/user/routes.rs",
@@ -4488,7 +4518,7 @@
           }
         ]
       },
-      "source_checksum": "b7f6b08260a43fc27a944476d37fe4d04f42a8d80a058c4305a7ed1d30a97b4a",
+      "source_checksum": "f4857597a833d8a3f8cc7adf4a9b5dfa67329bf592125c1cd19075031f425e0c",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:318:user_find_self",
         "path": "infera-idp/src/user/routes.rs",
@@ -4557,7 +4587,7 @@
           }
         ]
       },
-      "source_checksum": "7e06d0b4a80fdb4d0a4886d3553b1e2c775e3fd54b942f8df9732043f6ab23f5",
+      "source_checksum": "2e325a3013c14673429bcbdf3668aa748e8220528dcc2af84d36c38e09eeef7a",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:378:user_update_self",
         "path": "infera-idp/src/user/routes.rs",
@@ -4636,7 +4666,7 @@
           }
         ]
       },
-      "source_checksum": "3d102b85b982a15e21e91df2b2645c9575c4b372c0817b933c3d881d58ecb32a",
+      "source_checksum": "136a867901222ceae11839b588ba644553a4520e9ea16502d28533218f0fa2a4",
       "handler": {
         "ref": "infera-idp/src/user/self_password.rs:46:status",
         "path": "infera-idp/src/user/self_password.rs",
@@ -4698,7 +4728,7 @@
           }
         ]
       },
-      "source_checksum": "8d4f85abb15e9d2b2a6af26312e7d90d21ec2c05401b5af7245fae0341c5e67a",
+      "source_checksum": "db9be3a765302c0afb430064ed0a01f4b468d6aea53481c18e8fa5923049af73",
       "handler": {
         "ref": "infera-idp/src/user/self_password.rs:66:save",
         "path": "infera-idp/src/user/self_password.rs",
@@ -4771,7 +4801,7 @@
           }
         ]
       },
-      "source_checksum": "bb8db7d60bbcc42811e6f8ca5577016d853f5e65a96b45b0f133273455838498",
+      "source_checksum": "294ddb6c9f4826c091ed694dcca52f0eb3b7483777ac3cf4809ca12f5e889997",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:86:users_directory",
         "path": "infera-idp/src/user/routes.rs",
@@ -4850,7 +4880,7 @@
           }
         ]
       },
-      "source_checksum": "020c91a35be0fe52f1a52ca9c557946894246e2ec26cd25b1301f125ca0ff870",
+      "source_checksum": "7896f91738bae69c219e104204507ff0d51cbafb1e5c75c3003b33e4a003d378",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:497:users_stats",
         "path": "infera-idp/src/user/routes.rs",
@@ -4919,7 +4949,7 @@
           }
         ]
       },
-      "source_checksum": "081f440858cab4c32a06c2377f67fe9b40595b67143d2b79d5b157011018532b",
+      "source_checksum": "37e56f6b4bca53dab5218a2a7c907ea5863db9320cd68867b22363cf4f0b4283",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:512:users_registration_stats",
         "path": "infera-idp/src/user/routes.rs",
@@ -4998,7 +5028,7 @@
           }
         ]
       },
-      "source_checksum": "1951a8d36bcb310c349856b2c8f60f0d1e2cb6d8642f458552a511d862565312",
+      "source_checksum": "2522508354d68e28dbc9ed246730a42e01f3c825aaece612c17befc9a57a3fda",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:992:sync_users",
         "path": "infera-idp/src/user/routes.rs",
@@ -5041,12 +5071,12 @@
         "handler": "user_find",
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5060,7 +5090,7 @@
           }
         ]
       },
-      "source_checksum": "fc6303afe22c1888d451af740ba1a61401c6583e3de3a2e4848e7f57ea096ab3",
+      "source_checksum": "b2f5e5b70fe3ac449eac160fb71634f2cb9a162914d1b736f86caf5dbb35ef71",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:653:user_find",
         "path": "infera-idp/src/user/routes.rs",
@@ -5115,12 +5145,12 @@
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
         "body": "UpdateUser",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5134,7 +5164,7 @@
           }
         ]
       },
-      "source_checksum": "20ebd6765cb8d353b657d483e94b9ac596751c858394c9b19ddd631f3e4d34d9",
+      "source_checksum": "941b1da6bb573228851abd62fcd1332f88451c640d346a10d6cea649da5b83ef",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:686:user_update",
         "path": "infera-idp/src/user/routes.rs",
@@ -5200,12 +5230,12 @@
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
         "body": "UpdateUser",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5219,7 +5249,7 @@
           }
         ]
       },
-      "source_checksum": "4e65faea1e8d27857a0afa20e931790d8f3f92d55c2a6b8f2eb30de7f8be05fd",
+      "source_checksum": "0cc4e34123cfd1d9bd682c31a61b8af007702b3600479c96458e71f5d907b2f4",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:686:user_update",
         "path": "infera-idp/src/user/routes.rs",
@@ -5285,12 +5315,12 @@
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
         "body": "UpdateUserPassword",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5304,7 +5334,7 @@
           }
         ]
       },
-      "source_checksum": "e3df7a5b9511101a073bea0af631c27fb78336f21a12116f838b0510c3f501ac",
+      "source_checksum": "6b9bdb21d6a1a68436aed32745a431f05f0f1846aaac7627a9a6d0841fbc5d24",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:754:change_password",
         "path": "infera-idp/src/user/routes.rs",
@@ -5370,12 +5400,12 @@
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
         "body": "UpdateUserPassword",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5389,7 +5419,7 @@
           }
         ]
       },
-      "source_checksum": "cbf16e53b94e11f649e65018385b5bc0495852db7c9d4a5adb7d4d1402fac33e",
+      "source_checksum": "5cb6adb8abe7cb45a2a1b4d280b23feb3ddc2d90360c7560e2db659edf7ab4b0",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:754:change_password",
         "path": "infera-idp/src/user/routes.rs",
@@ -5455,12 +5485,12 @@
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
         "body": "UpdateUserRoles",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5474,7 +5504,7 @@
           }
         ]
       },
-      "source_checksum": "3b20c809135d03d8605b4e849f183575f61f472b566c91ea6e1ea8ea6d5e94ee",
+      "source_checksum": "1e46db5cce1e88020d951e9bd1f860da2b1bcb98cc69699c214bd2f8d19e482a",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:805:change_roles",
         "path": "infera-idp/src/user/routes.rs",
@@ -5540,12 +5570,12 @@
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
         "body": "UpdateUserRoles",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5559,7 +5589,7 @@
           }
         ]
       },
-      "source_checksum": "d21e7097e2087037d904e2c0225bd0743309db8aa2a5d9234e784d6195e7b075",
+      "source_checksum": "f150616ad8ec0ee043dd94fbc57726a4cf101c93b7999eb59654e9d81ed336ff",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:805:change_roles",
         "path": "infera-idp/src/user/routes.rs",
@@ -5624,12 +5654,12 @@
         "handler": "user_delete",
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5643,7 +5673,7 @@
           }
         ]
       },
-      "source_checksum": "e42e9dec3cc09fb9d6a78cac05e63be9dfdcf95f0152c8ac6e38b4329c1bd81a",
+      "source_checksum": "e2cf40d132fe32a37f6b4763dc521d0151eea0b57244e85660219b1c7cbdf34c",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:850:user_delete",
         "path": "infera-idp/src/user/routes.rs",
@@ -5697,12 +5727,12 @@
         "handler": "user_logout",
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5716,7 +5746,7 @@
           }
         ]
       },
-      "source_checksum": "6a59f671bb6106b74dd146e1b46a43b9dca5774082c82923f0fe9a15e9474db1",
+      "source_checksum": "0fa9d8a85c1813de39fda3135c0ebc32ad48191e141ab12b91eba15b04f64d54",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:942:user_logout",
         "path": "infera-idp/src/user/routes.rs",
@@ -5771,12 +5801,12 @@
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
         "body": "UpdateUserStatus",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5790,7 +5820,7 @@
           }
         ]
       },
-      "source_checksum": "9ad5b5a0254fc470ad7e6aff7f1217611190e9f1ee30aa043063e6f840fc00e3",
+      "source_checksum": "838f574a76ca70fad43e0d173af118480ad6f4fbfde15748e7c5586274deb4f2",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:891:user_set_status",
         "path": "infera-idp/src/user/routes.rs",
@@ -5856,12 +5886,12 @@
         "permissions": [],
         "source": "infera-idp/src/user/routes.rs",
         "body": "UpdateUserStatus",
+        "pathParam": "(Uuid)",
         "response": "UserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -5875,7 +5905,7 @@
           }
         ]
       },
-      "source_checksum": "0ed0f0e267a186212ad5954cd6209af9a748e47838299697b11620d7b08b1fa4",
+      "source_checksum": "2201ee4a246410b4d0a4d20633b246a1a6a73b74a270b390e390a055b4d2cf6d",
       "handler": {
         "ref": "infera-idp/src/user/routes.rs:891:user_set_status",
         "path": "infera-idp/src/user/routes.rs",
@@ -5958,7 +5988,7 @@
           }
         ]
       },
-      "source_checksum": "b5c184ee73f5e382834ae8dc1971867af79aac75cd2cafcc666b2a996797eba8",
+      "source_checksum": "655479a673d3d8b06ec79fea0c0a2192ff618af25c9df181a1b1bea258a08e57",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:46:roles_index",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6027,7 +6057,7 @@
           }
         ]
       },
-      "source_checksum": "ff72bf52636e2732aee52675fcc1ee47c873e30cec2698e78c981546883d5cb2",
+      "source_checksum": "3e24035d1f1e2c89c30a8a1b213d33d94b84725de2ff63e0b1816f940dc6f939",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:71:roles_create",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6088,12 +6118,12 @@
         "handler": "roles_show",
         "permissions": [],
         "source": "infera-idp/src/acl/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "RoleSingleResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "acl::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -6107,7 +6137,7 @@
           }
         ]
       },
-      "source_checksum": "9be5a67322a6f3166a4d3c33683a0377c7d64bd6af1833dee86528f9db508926",
+      "source_checksum": "a0cdef350a9df1d167dc2d02d360ae268a8cbb5b4767e3b09f728f39d44fd913",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:130:roles_show",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6162,12 +6192,12 @@
         "permissions": [],
         "source": "infera-idp/src/acl/routes.rs",
         "body": "UpdateRole",
+        "pathParam": "(Uuid)",
         "response": "RoleSingleResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "acl::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -6181,7 +6211,7 @@
           }
         ]
       },
-      "source_checksum": "621c0084195100c22ef5b8e870790a796db688b61232949c31b84ba484913aae",
+      "source_checksum": "000ca38045feb220ac3896f9339b5a05a547e0a66ecc6065ff4268f292a57776",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:182:roles_update",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6247,12 +6277,12 @@
         "permissions": [],
         "source": "infera-idp/src/acl/routes.rs",
         "body": "UpdateRole",
+        "pathParam": "(Uuid)",
         "response": "RoleSingleResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "acl::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
@@ -6266,7 +6296,7 @@
           }
         ]
       },
-      "source_checksum": "73d276de230a388005676523f83134e59a8f75d55c6bd450799bd61877063013",
+      "source_checksum": "79974eaacf6fa93acb718302d5bc039ca11a6222f04c52bbddba2c4d7c6edb95",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:182:roles_update",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6350,7 +6380,7 @@
           }
         ]
       },
-      "source_checksum": "70436577f0f281d5be046240c7af4d1e4c5e861bdbed4976482752aad540c2b9",
+      "source_checksum": "6cce946538896f302e7d9017d8dae5be959c20fa46715fc91883bafd236ef5bc",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:93:roles_delete",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6422,7 +6452,7 @@
           }
         ]
       },
-      "source_checksum": "2684893e26e035be8112e1fcd94bf82c9bd9ce73ef1c2797d032382732f519db",
+      "source_checksum": "c9935f6cdb8d762f96d65eb40ccad6f81c580b29daffaaea5d15751bb697465d",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:239:permissions_index",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6490,7 +6520,7 @@
           }
         ]
       },
-      "source_checksum": "a99e02cafbbb60e1d68defe520f99061eb2826fbb193f7c4c0bbbbf92209ec85",
+      "source_checksum": "d4d4f72c61a2f4a1b097c6e90e6d7310db36a07b3ca933b3ff6a373e8b553932",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:307:permission_templates_index",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6558,7 +6588,7 @@
           }
         ]
       },
-      "source_checksum": "b803277f488e2d5b1423b29e984ee10af737f3b66b524deeff6c46e285c5c2b1",
+      "source_checksum": "f8f085f121c3833d5645b5edf4fcd9a3cc2258e9d8634390b346c80cfd7dd469",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:239:oauth_settings_show",
         "path": "infera-idp/src/settings/routes.rs",
@@ -6627,7 +6657,7 @@
           }
         ]
       },
-      "source_checksum": "efed3e4f2f6b2137d806f1c20b4b892ec7b1ae2b1a90fae765d67c567cd204d9",
+      "source_checksum": "f6d032e9a743e98a5dbf065f215a331994527c571eb0d28f7ce4b1b72c13dabf",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:254:oauth_settings_update",
         "path": "infera-idp/src/settings/routes.rs",
@@ -6706,7 +6736,7 @@
           }
         ]
       },
-      "source_checksum": "3061d8bbcfbb79ae9c0ab5c4731aff735721c68f4ee511ae8a27089292537bb8",
+      "source_checksum": "4d93c4fcfa4f713642aa8f845867a83d893ec5ad4179c93d9e4671578ec552d1",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:187:login_page_settings_public",
         "path": "infera-idp/src/settings/routes.rs",
@@ -6774,7 +6804,7 @@
           }
         ]
       },
-      "source_checksum": "ac6dbb9f2b5ca1d660a6ad97548bb6ba2fa5ab9647269a24b13d18f1458c6e5f",
+      "source_checksum": "a2bcf47675f332e927b906ad1d48003bb7154390a99e17f89c4976e3a7781bee",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:50:login_page_asset",
         "path": "infera-idp/src/settings/routes.rs",
@@ -6845,7 +6875,7 @@
           }
         ]
       },
-      "source_checksum": "a709728d19915413e7dc9348979c53121f808d45ae8f14f93d851893a2c975f7",
+      "source_checksum": "659ddef72f22e360219c0f1523f32e7dfecd567f5cddbe296a19def7f3121520",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:97:login_page_asset_upload",
         "path": "infera-idp/src/settings/routes.rs",
@@ -6923,7 +6953,7 @@
           }
         ]
       },
-      "source_checksum": "0dcb176b3c604feae92f6188b1964d921fefeb4e4b1827fd11d964296788b21d",
+      "source_checksum": "5ddceecb5f57fb8a1f9f6628825c2497db98a1bdfc52284458fb080518bfc646",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:198:login_page_settings_show",
         "path": "infera-idp/src/settings/routes.rs",
@@ -6992,7 +7022,7 @@
           }
         ]
       },
-      "source_checksum": "50e7ffb008318b019e5307a78cd551fd9d809711cb0a47fe5e84fa1afd79428f",
+      "source_checksum": "78950d0a42afc1ab1bdb3ee6ee449ebc20641909e749e6327c930f6647c3e227",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:218:login_page_settings_update",
         "path": "infera-idp/src/settings/routes.rs",
@@ -7071,7 +7101,7 @@
           }
         ]
       },
-      "source_checksum": "bc628b1e225dcecf0fe96cf61eae22453a2f6a6aba5892f6ddea99ae053703ea",
+      "source_checksum": "91be4faf5ae45d421c01728748a1a2551c70c233c506c524c0eb379c3ea6c52c",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:385:admin_show",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7147,7 +7177,7 @@
           }
         ]
       },
-      "source_checksum": "2ba75f138caf989f35983904997e0a6d5824e3c811db6a5a6929df32ea7d15f3",
+      "source_checksum": "e5a9fe6c7175b7f10513f51624e5f20403bf74769240192d8c028a6d4d23e764",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:394:update",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7250,7 +7280,7 @@
           }
         ]
       },
-      "source_checksum": "597ce24240ccbeb14ae6a747c1f7f5c020afa4de2bfd4d30df87adcbda2276b8",
+      "source_checksum": "6dfb68b8e5fc0b41a4cb5d95721a1042b62c54c954303c3e97a3db622ca3e6f9",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:591:discover",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7340,7 +7370,7 @@
           }
         ]
       },
-      "source_checksum": "078518dd2aa97575dc8f2ed31e7592ced09cc5e4e449da40f7f7db7f11a95154",
+      "source_checksum": "a5022d8fab559383dcbfb2d32d25edbb3782b27eb4e154892aa21439c66a9add",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:1082:pair_canonical",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7427,7 +7457,7 @@
           }
         ]
       },
-      "source_checksum": "fed4590d09801bc17508d53fe9666d754c00cab25d539b45899930b596813fcb",
+      "source_checksum": "ed1c82ead47ae2eb24fa17670b50d54e4d305cc50cdc5aca7055e3bb841090b6",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:1112:pair_faiber",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7513,7 +7543,7 @@
           }
         ]
       },
-      "source_checksum": "6e0f77bc6559a701f8983ce5599ae19412845ed6bcdfc4c4f3e86bb0f3342685",
+      "source_checksum": "c345588206473475774bac08d8716c336dbe72462d18903a9503e7c4821819c1",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:1215:activate_canonical",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7588,7 +7618,7 @@
           }
         ]
       },
-      "source_checksum": "34a59ed86a0128ad389d273ac64a76bc21127505603773afd69ef417a0fe068a",
+      "source_checksum": "7457f3a67b0acda650179c74678902142ad89102918ea9794ad8c95a0821cc19",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:1228:recover_canonical_mode",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7664,7 +7694,7 @@
           }
         ]
       },
-      "source_checksum": "9444a3796d0c5cadc0c1d4418ab2bbd529eb96f01cfe6b7e03e705bf82abeb0f",
+      "source_checksum": "84e39170efe8c8bbd9f79fb268d7e996761e2c1b34084186d7897cd27c348b96",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:668:create_pairing_invitation",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7744,7 +7774,7 @@
           }
         ]
       },
-      "source_checksum": "d67924512a433d59edaed7ac4c106799512ffde0c98a57c4e7d9cbf95f7f33d6",
+      "source_checksum": "02b59e7faee474ff6bc3b0a56befe94371cc214f8622f3fd4a91d132a3a83cc1",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:731:enroll",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7840,7 +7870,7 @@
           }
         ]
       },
-      "source_checksum": "c57175618472f6525b907470c3e32138e16fc70904c53af1fa3543f1efc15104",
+      "source_checksum": "dab72d42b474be3c12364ef0a9fc6f7f28bc4dc50672663a067ce835b3567bac",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:487:public_providers",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -7937,7 +7967,7 @@
           }
         ]
       },
-      "source_checksum": "d375d7ae17411abe7b567d2e4710e800014697fb838d12d255286ab1771b5d18",
+      "source_checksum": "9aa789a1d83ac04435efdd16ea4e41d8a278d625d1ffe8b67be2d81a5629c3bf",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:705:start",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8029,7 +8059,7 @@
           }
         ]
       },
-      "source_checksum": "0b75dfbdb8843c5043aab414d45ee329150866bc0fbbf78ba6c2d0c3053e8ed7",
+      "source_checksum": "1c1b48cc4df56569fa36ee3c8500a1264d0f9ce50a709ea7325e60fbd286081e",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:1030:callback",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8121,7 +8151,7 @@
           }
         ]
       },
-      "source_checksum": "a07a2d264a51dc5f8688a5fd2a83306c430a6e4dc6a9419e84ad654f33c57c06",
+      "source_checksum": "3a14d17083723b5ed127d3a662d9415adf5916c4075c9886cf5bc61d6263dd64",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:1459:unlink",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8193,7 +8223,7 @@
           }
         ]
       },
-      "source_checksum": "16ac334ab132286f1bedb486ca6c1947038c16f0fb50fb735b52f8ac3d91533b",
+      "source_checksum": "f3ef4fa16eff0ab4e5df39141a60b40e56d029f3c50bef51812edc6cdbd71c50",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:328:list",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8275,7 +8305,7 @@
           }
         ]
       },
-      "source_checksum": "cb9c84b77cec457492178c656f70d4e14c2f4373a9b1b0bb4f632cba5ff28082",
+      "source_checksum": "21b31ccc58534fbbe6c2cebcff98a50f51a32be22271c1d7762182627f4fab8c",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:349:create",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8381,7 +8411,7 @@
           }
         ]
       },
-      "source_checksum": "44991bbdafea84dcb32a2cc6eb4552dd96b30951e9dfea8911565be6e9c2cc61",
+      "source_checksum": "ba8f874344e5cdf9785faad7ae395d4475e716df323aa408038bf24b33278cb4",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:399:update",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8490,7 +8520,7 @@
           }
         ]
       },
-      "source_checksum": "1ad4b5029080c0ece09014c6c66baaa1237d721b8c27a6643d1debfa391c0d96",
+      "source_checksum": "4196ebac31f640c10db84987ce5e8c3cf584ecb3d6b71839a03b0147cce7d53a",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:450:remove",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8562,7 +8592,7 @@
           }
         ]
       },
-      "source_checksum": "8010927085525977cd0ba8da2409baa79cb29e45d4c16872c1535288bf4cde77",
+      "source_checksum": "ad5ffd6f11a0307243c22a8c218d57ea00729295e6b0765d0278489a38db2d55",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:378:list",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -8644,7 +8674,7 @@
           }
         ]
       },
-      "source_checksum": "5bb241481343e94e56fb9623f3d35eecfbe86829491e4ca99ee5677ec4ba48ab",
+      "source_checksum": "aa4fc514c7a0307c2381668d5fb523033fe26ebaa5d3597a013d530efea10fb9",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:394:create",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -8737,7 +8767,7 @@
           }
         ]
       },
-      "source_checksum": "df0a7cb2d7c8683d93ab3f8f1a98ddbab815a7e400a5dd1b50b7770440e263fc",
+      "source_checksum": "dcfc3dc4e8784a096422bbcea5cfae3b0d2521e58214133211d6427e21233dab",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:63:bootstrap_website",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -8831,7 +8861,7 @@
           }
         ]
       },
-      "source_checksum": "3db75f34d6ca5306c16795484ba401d5b1c320d9742cbbf1c665dbdb304903cd",
+      "source_checksum": "b0bf49258e007f224597d40ce50679c1f741bd7ed68d1435d4eb123968ed5cb5",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:449:update",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -8940,7 +8970,7 @@
           }
         ]
       },
-      "source_checksum": "0c03d2f4740ceb2bd2cdf3ca8f81202d9d503a649c8dfbc60e4eec976e4c97b6",
+      "source_checksum": "63ff82f37ee0d28fffca56112ba24bebc33afd147c4a8731f3ab6093273fbfef",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:528:remove",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -9013,7 +9043,7 @@
           }
         ]
       },
-      "source_checksum": "062b7bf390768bb0e9b088b8a2f1d2b5f153d99bc63c63791f338b70a780e38c",
+      "source_checksum": "45473c4e4bd9540a773a12d550a080cc8d2bb2f7fdb9edbda781c245c31a625b",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:491:rotate",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -9085,7 +9115,7 @@
           }
         ]
       },
-      "source_checksum": "844e6d32537d4282ae240052b91744f839e14729baa411b6650b376c98a69e5c",
+      "source_checksum": "6b73a5045fcfd783ee378918e63fd81b291aef64a2824151a406ddc86da3bc90",
       "handler": {
         "ref": "infera-idp/src/integration/routes.rs:9:flow_integration_show",
         "path": "infera-idp/src/integration/routes.rs",
@@ -9127,8 +9157,11 @@
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
+    "missing": [],
+    "extra": [],
+    "changed": [
       "GET /health",
+      "GET /api/openapi.json",
       "GET /.well-known/openid-configuration",
       "GET /oauth2/authorize",
       "POST /oauth2/token",
@@ -9140,31 +9173,11 @@
       "POST /oauth2/backchannel-logout",
       "GET /oauth2/logout",
       "POST /oauth2/logout",
-      "OPTIONS /api/v1/auth/validate",
-      "POST /api/v1/auth/secure/generate/one-time/{user_id}",
-      "GET /integration/flow"
-    ],
-    "extra": [
-      "GET /",
-      "GET /api/v1/.well-known/openid-configuration",
-      "POST /api/v1/auth/secure/generate/one-time",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/oauth2/authorize",
-      "POST /api/v1/oauth2/backchannel-logout",
-      "POST /api/v1/oauth2/introspect",
-      "GET /api/v1/oauth2/jwks",
-      "GET /api/v1/oauth2/logout",
-      "POST /api/v1/oauth2/logout",
-      "POST /api/v1/oauth2/revoke",
-      "POST /api/v1/oauth2/token",
-      "GET /api/v1/oauth2/userinfo",
-      "POST /api/v1/oauth2/userinfo"
-    ],
-    "changed": [
-      "GET /api/openapi.json",
       "GET /api/v1/auth/authority",
       "GET /api/v1/auth/validate",
+      "OPTIONS /api/v1/auth/validate",
       "POST /api/v1/auth/generate/one-time",
+      "POST /api/v1/auth/secure/generate/one-time/{user_id}",
       "POST /api/v1/auth/login",
       "GET /api/v1/auth/logout",
       "POST /api/v1/auth/web-login",
@@ -9249,7 +9262,8 @@
       "POST /api/v1/settings/oauth-clients/website-bootstrap",
       "PUT /api/v1/settings/oauth-clients/{id}",
       "DELETE /api/v1/settings/oauth-clients/{id}",
-      "POST /api/v1/settings/oauth-clients/{id}/rotate-secret"
+      "POST /api/v1/settings/oauth-clients/{id}/rotate-secret",
+      "GET /integration/flow"
     ]
   },
   "router_reconciliation": {
@@ -11684,158 +11698,20 @@
         ]
       }
     ],
-    "missing_from_extracted_manifest": [
-      "GET /.well-known/openid-configuration",
-      "GET /oauth2/authorize",
-      "POST /oauth2/token",
-      "GET /oauth2/userinfo",
-      "POST /oauth2/userinfo",
-      "GET /oauth2/jwks",
-      "POST /oauth2/revoke",
-      "POST /oauth2/introspect",
-      "POST /oauth2/backchannel-logout",
-      "GET /oauth2/logout",
-      "POST /oauth2/logout",
-      "OPTIONS /api/v1/auth/validate",
-      "GET /integration/flow"
-    ],
-    "absent_from_mounted_graph": [
-      "GET /api/v1/.well-known/openid-configuration",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/oauth2/authorize",
-      "POST /api/v1/oauth2/backchannel-logout",
-      "POST /api/v1/oauth2/introspect",
-      "GET /api/v1/oauth2/jwks",
-      "GET /api/v1/oauth2/logout",
-      "POST /api/v1/oauth2/logout",
-      "POST /api/v1/oauth2/revoke",
-      "POST /api/v1/oauth2/token",
-      "GET /api/v1/oauth2/userinfo",
-      "POST /api/v1/oauth2/userinfo"
-    ]
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/.well-known/openid-configuration",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/oauth2/authorize",
-      "POST /api/v1/oauth2/backchannel-logout",
-      "POST /api/v1/oauth2/introspect",
-      "GET /api/v1/oauth2/jwks",
-      "GET /api/v1/oauth2/logout",
-      "POST /api/v1/oauth2/logout",
-      "POST /api/v1/oauth2/revoke",
-      "POST /api/v1/oauth2/token",
-      "GET /api/v1/oauth2/userinfo",
-      "POST /api/v1/oauth2/userinfo"
-    ],
-    "absent": [
-      "GET /.well-known/openid-configuration",
-      "GET /oauth2/authorize",
-      "POST /oauth2/token",
-      "GET /oauth2/userinfo",
-      "POST /oauth2/userinfo",
-      "GET /oauth2/jwks",
-      "POST /oauth2/revoke",
-      "POST /oauth2/introspect",
-      "POST /oauth2/backchannel-logout",
-      "GET /oauth2/logout",
-      "POST /oauth2/logout",
-      "OPTIONS /api/v1/auth/validate",
-      "GET /integration/flow"
-    ],
-    "changed": [
-      "GET /api/openapi.json",
-      "GET /api/v1/acl/permission-templates",
-      "GET /api/v1/acl/permissions",
-      "GET /api/v1/acl/roles",
-      "POST /api/v1/acl/roles",
-      "DELETE /api/v1/acl/roles/{role_id}",
-      "GET /api/v1/acl/roles/{role_id}",
-      "PATCH /api/v1/acl/roles/{role_id}",
-      "PUT /api/v1/acl/roles/{role_id}",
-      "POST /api/v1/auth/account-login",
-      "GET /api/v1/auth/authority",
-      "POST /api/v1/auth/browser-login",
-      "GET /api/v1/auth/custom-oauth/{provider}",
-      "GET /api/v1/auth/custom-oauth/{provider}/callback",
-      "DELETE /api/v1/auth/custom-oauth/{provider}/link",
-      "GET /api/v1/auth/custom-oauth/providers",
-      "POST /api/v1/auth/generate/one-time",
-      "GET /api/v1/auth/handoff",
-      "POST /api/v1/auth/handoff/exchange",
-      "GET /api/v1/auth/identities",
-      "GET /api/v1/auth/linked-faiber/billing",
-      "POST /api/v1/auth/linked-faiber/wallet/topup",
-      "POST /api/v1/auth/login",
-      "GET /api/v1/auth/logout",
-      "GET /api/v1/auth/native/authorize",
-      "POST /api/v1/auth/native/token",
-      "DELETE /api/v1/auth/oauth/{provider}",
-      "GET /api/v1/auth/oauth/{provider}",
-      "GET /api/v1/auth/oauth/{provider}/callback",
-      "GET /api/v1/auth/oauth/providers",
-      "POST /api/v1/auth/otp-login",
-      "GET /api/v1/auth/refresh",
-      "POST /api/v1/auth/secure/exchange/one-time",
-      "POST /api/v1/auth/secure/generate/one-time/{user_id}",
-      "POST /api/v1/auth/secure/handoff/{user_id}",
-      "GET /api/v1/auth/sessions",
-      "DELETE /api/v1/auth/sessions/{session_id}",
-      "GET /api/v1/auth/token-login",
-      "GET /api/v1/auth/validate",
-      "POST /api/v1/auth/web-login",
-      "POST /api/v1/federation/enroll",
-      "GET /api/v1/settings/custom-oauth",
-      "POST /api/v1/settings/custom-oauth",
-      "DELETE /api/v1/settings/custom-oauth/{id}",
-      "PUT /api/v1/settings/custom-oauth/{id}",
-      "GET /api/v1/settings/identity-authority",
-      "PUT /api/v1/settings/identity-authority",
-      "POST /api/v1/settings/identity-authority/activate-canonical",
-      "POST /api/v1/settings/identity-authority/discover",
-      "POST /api/v1/settings/identity-authority/pair",
-      "POST /api/v1/settings/identity-authority/pair-faiber",
-      "POST /api/v1/settings/identity-authority/pairing-invitations",
-      "POST /api/v1/settings/identity-authority/recover-canonical",
-      "GET /api/v1/settings/login-page",
-      "PUT /api/v1/settings/login-page",
-      "POST /api/v1/settings/login-page/assets",
-      "GET /api/v1/settings/login-page/assets/{asset_key}",
-      "GET /api/v1/settings/login-page/public",
-      "GET /api/v1/settings/oauth",
-      "PUT /api/v1/settings/oauth",
-      "GET /api/v1/settings/oauth-clients",
-      "POST /api/v1/settings/oauth-clients",
-      "DELETE /api/v1/settings/oauth-clients/{id}",
-      "PUT /api/v1/settings/oauth-clients/{id}",
-      "POST /api/v1/settings/oauth-clients/{id}/rotate-secret",
-      "POST /api/v1/settings/oauth-clients/website-bootstrap",
-      "GET /api/v1/users",
-      "POST /api/v1/users",
-      "DELETE /api/v1/users/{user_id}",
-      "GET /api/v1/users/{user_id}",
-      "PATCH /api/v1/users/{user_id}",
-      "PUT /api/v1/users/{user_id}",
-      "PATCH /api/v1/users/{user_id}/change-password",
-      "PUT /api/v1/users/{user_id}/change-password",
-      "PATCH /api/v1/users/{user_id}/change-roles",
-      "PUT /api/v1/users/{user_id}/change-roles",
-      "GET /api/v1/users/{user_id}/logout",
-      "PATCH /api/v1/users/{user_id}/status",
-      "PUT /api/v1/users/{user_id}/status",
-      "GET /api/v1/users/directory",
-      "POST /api/v1/users/register",
-      "POST /api/v1/users/register-email",
-      "POST /api/v1/users/register-phone",
-      "GET /api/v1/users/registration-stats",
-      "GET /api/v1/users/self",
-      "PATCH /api/v1/users/self",
-      "GET /api/v1/users/self/password",
-      "PUT /api/v1/users/self/password",
-      "GET /api/v1/users/stats",
-      "GET /api/v1/users/sync",
-      "GET /health"
+    "added": [],
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
@@ -12427,6 +12303,24 @@
       ],
       "effects": [],
       "calls": []
+    },
+    "infera-idp/src/models.rs:15:HealthResponse": {
+      "name": "HealthResponse",
+      "kind": "struct",
+      "path": "infera-idp/src/models.rs",
+      "line": 15,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
     },
     "infera-idp/src/router.rs:214:openapi_json": {
       "name": "openapi_json",

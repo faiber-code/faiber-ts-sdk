@@ -139,14 +139,24 @@ const runExtractor=(root,label,lockFile)=>{
   if(root)environment.FAIBER_SERVICES_ROOT=root;
   else if(lockFile)delete environment.FAIBER_SERVICES_ROOT;
   if(lockFile)environment.FAIBER_SOURCE_REVISIONS_FILE=lockFile;
-  const output=execFileSync(process.execPath,[join(sdkRoot,'scripts/extract-service-contracts.mjs'),path],{
-    cwd:sdkRoot,env:environment,encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:8*1024*1024,
-  });
-  return {manifest:readJson(path),output};
+  try {
+    const output=execFileSync(process.execPath,[join(sdkRoot,'scripts/extract-service-contracts.mjs'),path],{
+      cwd:sdkRoot,env:environment,encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:8*1024*1024,
+    });
+    return {manifest:readJson(path),output};
+  } catch (error) {
+    // An unrelated dirty router must not erase the canonical source inventory.
+    // Retain the failure as unresolved drift; never certify an empty working tree.
+    if (label !== 'working') throw error;
+    const stderr=String(error.stderr??error.message),artifact='working-contract-extraction.stderr.log';
+    writeFileSync(join(target,artifact),stderr);
+    return {manifest:{},error:{status:'failed',artifact_path:artifact,artifact_sha256:hash(stderr),exit_code:error.status??null}};
+  }
 };
 const canonical=runExtractor(null,'canonical',canonicalLock).manifest;
 const published=readJson(join(sdkRoot,'service-contracts.json'));
-const working=runExtractor(join(workspace,'Service'),'working').manifest;
+const workingCapture=runExtractor(join(workspace,'Service'),'working');
+const working=workingCapture.manifest;
 const pinnedRoot=serviceSources(sdkRoot,join(workspace,'Service'),{lockPath:canonicalLock,ignoreWorkingOverride:true});
 const summary={schema_version:'1.0',services:{},gates:{discovery:'blocked',sdk:'blocked_by_discovery',manage:'blocked_by_sdk',knowledge:'blocked_by_manage',memory:'blocked_by_knowledge'}};
 for(const [service,entry] of Object.entries(universe.services)) {
@@ -192,7 +202,7 @@ for(const [service,entry] of Object.entries(universe.services)) {
       independent_mounted_operations:mounted.operations,
       missing_from_extracted_manifest:mounted.operations.filter(op=>!extracted.some(x=>`${x.method} ${x.path}`===`${op.method} ${op.path}`)).map(op=>`${op.method} ${op.path}`),
       absent_from_mounted_graph:extracted.filter(op=>!old.has(`${op.method} ${op.path}`)).map(op=>`${op.method} ${op.path}`)}:null,
-    working_drift:{added:[...now.keys()].filter(k=>!old.has(k)),absent:[...old.keys()].filter(k=>!now.has(k)),changed:[...now.keys()].filter(k=>old.has(k)&&JSON.stringify(old.get(k))!==JSON.stringify(now.get(k)))},
+    working_drift:{added:[...now.keys()].filter(k=>!old.has(k)),absent:workingCapture.error?[]:[...old.keys()].filter(k=>!now.has(k)),changed:[...now.keys()].filter(k=>old.has(k)&&JSON.stringify(old.get(k))!==JSON.stringify(now.get(k))),extraction_errors:workingCapture.error?[workingCapture.error]:[]},
     working_route_candidates:candidateRegistrations(currentFiles),
     middleware_sources:currentFiles.filter(x=>/(?:auth|context|router|main|session|policy)\.rs$/.test(x.path)).map(x=>({path:x.path,checksum:x.checksum})),
     missing_meaning_sources:entry.sources.filter(path=>!existsSync(join(root,path))),

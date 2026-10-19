@@ -197,5 +197,8 @@ export interface CrmErrorBody extends JsonObject {
   details: JsonValue;
 }
 
-/** Legacy API fallback always returns404, including for non-GET methods. */
+/** JSON returned when the legacy API not-found handler is reached. */
 export interface CrmApiRouteNotFound { error: { code: "api_route_not_found"; message: string } }
+
+/** HEAD has no body; the production CORS layer answers OPTIONS with an empty200. */
+export type CrmApiFallbackResponse = CrmApiRouteNotFound | void;

@@ -442,7 +442,7 @@ export class SessionOperations extends ServiceApi {
    * Calls `ANY /api/v1/view/{service}/{*path}` through the shared IDP-aware Faiber client.
    * @param service Backend path identifier `service`.
    * @param path Backend path identifier `*path`.
-   * @param method HTTP method accepted by the mounted ANY handler; the SDK never sends an ANY verb.
+   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
    * @param data Typed JSON request body.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -451,6 +451,7 @@ export class SessionOperations extends ServiceApi {
    */
   routerProxyViewServiceAny(service: "chat" | "asset" | "profile" | "drm" | "lms", path: string, method: import("@faiber/sdk-core").HttpRequestMethod, data: T.RouterProxyViewServiceAnyInput, params?: T.RouterProxyViewServiceAnyQuery, options?: RequestOptions<T.RouterProxyViewServiceAnyInput>) {
     if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
+    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
     return this.client.request<T.RouterProxyViewServiceAnyResponse, T.RouterProxyViewServiceAnyInput>({ ...options, method: method, url: `/api/v1/view/${encodeURIComponent(service)}/${wildcardPath(path)}`, data: data, params, responseType: "arraybuffer" });
   }
   /**

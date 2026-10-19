@@ -483,7 +483,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push(`   * Calls \`${endpoint.method} ${endpoint.path}\` through the shared IDP-aware Faiber client.`);
     if (dynamicProfileList) operationLines.push("   * Supports live core/property/trusted-event filters, repeated date ranges and sorting before pagination; invalid clauses return HTTP 400.");
     for (const id of ids) operationLines.push(`   * @param ${camel(id)} Backend path identifier \`${id}\`.`);
-    if (endpoint.method === "ANY") operationLines.push("   * @param method HTTP method accepted by the mounted ANY handler; the SDK never sends an ANY verb.");
+    if (endpoint.method === "ANY") operationLines.push("   * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.");
     if (reviewed?.idempotencyKey) operationLines.push("   * @param idempotencyKey Stable printable ASCII key (1–128 characters, without spaces); reuse for identical retries.");
     if (hasInput) operationLines.push(`   * @param data Typed ${endpoint.multipart ? "multipart form" : endpoint.binary ? "binary byte stream" : endpoint.formUrlEncoded ? "URL-encoded form" : "JSON request body"}.`);
     if (hasQuery) operationLines.push("   * @param params Typed query parameters; omitted members retain backend defaults.");
@@ -492,7 +492,10 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push(`   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: ${permissions}.`);
     operationLines.push("   */");
     operationLines.push(`  ${methodName}(${args.join(", ")}) {`);
-    if (endpoint.method === "ANY") operationLines.push('    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");');
+    if (endpoint.method === "ANY") {
+      operationLines.push('    if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");');
+      operationLines.push('    if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");');
+    }
     if (reviewed?.idempotencyKey) {
       operationLines.push('    if (!/^[\\x21-\\x7e]{1,128}$/.test(idempotencyKey)) throw new TypeError("Idempotency-Key must be 1–128 printable ASCII characters without spaces");');
       operationLines.push('    const headers = new AxiosHeaders(options?.headers as RawAxiosHeaders | AxiosHeaders | undefined);');

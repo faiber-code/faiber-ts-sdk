@@ -11,8 +11,8 @@
     "README.md",
     "src/service.rs"
   ],
-  "canonical_revision": "d495217f85d77270865a040c1328d70c620e6c9d",
-  "sdk_source_revision": "d495217f85d77270865a040c1328d70c620e6c9d",
+  "canonical_revision": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
+  "sdk_source_revision": "ab6ce7461d35414b719f3806df57549339002df5",
   "working_revision": "7360ff93ae3f4ff36b7b79e15db8a15ea09e881d",
   "working_changes": [
     "M migration/src/lib.rs",
@@ -30,12 +30,13 @@
     "?? src/fitness.rs",
     "?? src/media_retention.rs",
     "?? src/product_plans.rs",
+    "?? src/summary_aggregates.sql",
     "?? src/summary_evidence.rs",
     "?? src/summary_evidence.sql",
     "?? src/workspace_json.rs"
   ],
   "source_relationship": "diverged",
-  "source_tree_checksum": "91b124247d8772c5cdc694c16df5ed7cb6af027b2e564a61e88947a3f320c413",
+  "source_tree_checksum": "1c0d5f9b68c0f3fee5431187c7e2c66317aeefeae19cf1cd5cc4611dfea3a984",
   "source_files": [
     {
       "path": "infera-chat/src/agentic.rs",
@@ -70,6 +71,10 @@
       "checksum": "03f2789dce1a9b4ad299b80762b8c26869a7f8f237052f646eeaef03ad3979be"
     },
     {
+      "path": "infera-chat/src/human_chat.rs",
+      "checksum": "1040668f0a17a1b91485964719058a3d945a475bef00209ff30767db6bd2a021"
+    },
+    {
       "path": "infera-chat/src/image_capture.rs",
       "checksum": "716bcb395fe493f2a3138071cd710813fd6f98113fc19879296c0499b3cfa4a0"
     },
@@ -79,11 +84,11 @@
     },
     {
       "path": "infera-chat/src/lib.rs",
-      "checksum": "0452458e440b2e8fa75d229fadf71ee82d0b2dbcffbb802c19a32f215d73bbd2"
+      "checksum": "69cd3c4c93594c58acb4e1dbeb08419325e31722aefd176153f5b85fe0a983e7"
     },
     {
       "path": "infera-chat/src/main.rs",
-      "checksum": "e324f06fc25cae592505c1e27051908dce46b3237048fd5f4c97db47997a665f"
+      "checksum": "c14b36fba96e1f19469131e0cb69969bfbe47fd5bc89b0f7208d19eb4cdfc0d1"
     },
     {
       "path": "infera-chat/src/media_import.rs",
@@ -110,12 +115,16 @@
       "checksum": "94a9b8d88d4a49627b530905f8e70948d96247bee0c3c3ac73d30aa38d402525"
     },
     {
+      "path": "infera-chat/src/outbox_relay.rs",
+      "checksum": "e8fd9268bfa14a550977413253b799a60e53b916f711e15590efa9764b47a940"
+    },
+    {
       "path": "infera-chat/src/product_plans.rs",
       "checksum": "077872bca2179828bb2c1fba2496b86b43d46085b90c0ce2fb456de18be3123f"
     },
     {
       "path": "infera-chat/src/realtime.rs",
-      "checksum": "9fa2019110cd2fdfc4028783da519640a71d8d3a8ee477a7f39bc55fac0cb68b"
+      "checksum": "0f3e0e7d3eb6b371bbc8ab7e7183677993e6ee9fb78391dc0494934b7887ae0f"
     },
     {
       "path": "infera-chat/src/routes.rs",
@@ -123,7 +132,7 @@
     },
     {
       "path": "infera-chat/src/service.rs",
-      "checksum": "a91a5055457c2c52739432320d5ee2f640e5f859f11415545f6515d9b939b104"
+      "checksum": "8805a22cb033f812effd051b20bab394aa4bf15561f54c5d184ecfa78e44ad32"
     },
     {
       "path": "infera-chat/src/speech.rs",
@@ -203,7 +212,7 @@
     },
     {
       "path": "infera-chat/migration/src/lib.rs",
-      "checksum": "2bfc37585253ac95c3a4a08cbd90a2d3e15222260b17d361993bb8285ba55353"
+      "checksum": "b9f25e5baf86b928fd70574db000e04cb73d8e3cbbe061165a0ef18a1bbee4d3"
     },
     {
       "path": "infera-chat/migration/src/m20260722_000001_create_chat.rs",
@@ -282,12 +291,16 @@
       "checksum": "0ca02b0095455f8b131010ac8fbd0e12144a4151bcea202a50622645d1a74d8e"
     },
     {
+      "path": "infera-chat/migration/src/m20261019_000019_human_chat_delivery.rs",
+      "checksum": "bd42ff003cc2317a14bb0bd0cacf51fc5dab9313ad5a56fc9230b05b3a0139d7"
+    },
+    {
       "path": "infera-chat/Cargo.toml",
-      "checksum": "caaae73ebf33dc3ba724579e346c4d8dac0023822841f465ec59302e59b25bb5"
+      "checksum": "68943031110fcc1fb142122cd5f2b53b0c0750670310fe5766a62815a4d9b73e"
     },
     {
       "path": "infera-chat/Cargo.lock",
-      "checksum": "cf0e65f20d7e7218dee553af1a64aeb8b18d4d001c394161af6a15e6104433a9"
+      "checksum": "a8b95d747da9272fe488658d1a84572cff9414d8490315de07cee1434d9a70b8"
     },
     {
       "path": "infera-chat/entity/Cargo.toml",
@@ -302,7 +315,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "2b2309ddf945d3f7d03c6dbfaad0fb5e416010bc696b1c109dac695672e87528",
+  "working_source_tree_checksum": "6a9be056197b444fb9fb87c5b463c4e736db6dee75c8e98ae7d1ba4b7d49b291",
   "working_source_files": [
     {
       "path": "infera-chat/src/agentic.rs",
@@ -381,12 +394,16 @@
       "checksum": "088af4a73585f21451a76966efcdafa982aa9f9925893c3cad9860dcfd694166"
     },
     {
+      "path": "infera-chat/src/summary_aggregates.sql",
+      "checksum": "601a00d73a75ba3e66b11431ae3657bbad3537829b62aed27b8a31b8e9fd4d5b"
+    },
+    {
       "path": "infera-chat/src/summary_evidence.rs",
-      "checksum": "a7822cd4b15f0ba80320f11d796fab7b8bb443ea3d6bb6653d8ff172314931e9"
+      "checksum": "45ba5ac9e1d694fc1aeb882df4d82865c23367bbf5db2dcda204083e96fe59f0"
     },
     {
       "path": "infera-chat/src/summary_evidence.sql",
-      "checksum": "9821ee56c041872acc324541b3240d8cb848ad84654b831ca6675f02156e75c0"
+      "checksum": "e03a89c6aee7293cb1979bb79be4c388d117ef0e5b27e08194ed02696c6b1d75"
     },
     {
       "path": "infera-chat/src/workspace_answers.rs",
@@ -514,7 +531,7 @@
     },
     {
       "path": "infera-chat/migration/src/m20261019_000050_summary_activity_outbox.rs",
-      "checksum": "afdb307bf2c71112da229db651159ff3ec40543289638bab5a7f2bb02012a180"
+      "checksum": "999b6dd86a46301a7737177bf8cf3d71604ba62d42d308ce9bed8a5a0587cb21"
     },
     {
       "path": "infera-chat/Cargo.toml",
@@ -522,7 +539,7 @@
     },
     {
       "path": "infera-chat/Cargo.lock",
-      "checksum": "c4f504031c027677878e8cf702d9759ad9bc5c98840d3457baec580e9f8e2c7f"
+      "checksum": "48944cd46b78c0f883b42c7c849a5fe0ca6a3bb431ea5f65c1bcf3636fe04326"
     },
     {
       "path": "infera-chat/entity/Cargo.toml",
@@ -534,7 +551,7 @@
     },
     {
       "path": "infera-chat/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "af729774fec2b0d20ebed127f3e38bebb2ba258b048fc1a1f05ce96aa2775413",
+      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a",
       "embedded_by": "infera-chat/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
@@ -561,11 +578,11 @@
           }
         ]
       },
-      "source_checksum": "ff4a40e5b7886e38b433d42162b54333d21b8d3c06684e6dc86718044b7b3ce6",
+      "source_checksum": "616e6b06a583cb6dd6c0ea5a862b5668508f67df635f73eda1522397dc9563b4",
       "handler": {
-        "ref": "infera-chat/src/main.rs:66:health",
+        "ref": "infera-chat/src/main.rs:68:health",
         "path": "infera-chat/src/main.rs",
-        "line": 66,
+        "line": 68,
         "name": "health"
       },
       "related_implementation": [],
@@ -624,7 +641,7 @@
           }
         ]
       },
-      "source_checksum": "30d65d91eecf9e693a14e916e8be82beca79ea5245ff0b0800ff4ccd011ea3df",
+      "source_checksum": "9cdf58d0b4518814f118c71d75a28dd772ead633ca0c8e94235d1006079ac8b4",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:50:settings",
         "path": "infera-chat/src/image_capture.rs",
@@ -695,7 +712,7 @@
           }
         ]
       },
-      "source_checksum": "e07f0c8d762bb82cb698148416d006eb0d2f355c76182d9fa766f7e7ebdc482a",
+      "source_checksum": "66df26eadcc3be5d3db7250b2fdaad9b54d7d547af87df7367bbb18d4743819e",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:87:save",
         "path": "infera-chat/src/image_capture.rs",
@@ -776,7 +793,7 @@
           }
         ]
       },
-      "source_checksum": "5292a1337044e3beb9efb5b8b3a128e4ea002360c6a849826f2032be313825de",
+      "source_checksum": "03b43a62e0fb99528c3ad80e2e5ca93f31fea2cf1c4868bd3ff322507d07eac2",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:76:models",
         "path": "infera-chat/src/image_capture.rs",
@@ -840,7 +857,7 @@
           }
         ]
       },
-      "source_checksum": "9cde7af5afc37ec42fc4e286ab8d0f7949b919a94a61a4bf3fabf16dcf0c12e5",
+      "source_checksum": "33e423e4268481a535165abe20ac9283fc5e4922bbacf46551426064c193de39",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:57:status",
         "path": "infera-chat/src/image_capture.rs",
@@ -902,7 +919,7 @@
           }
         ]
       },
-      "source_checksum": "62ec1b143fc6316f32f4df4b8f404fa88ccaa498e7301eeb7c722d304f725a3c",
+      "source_checksum": "7d77df26a8c02d90ea6252ef978bf3eb756adec44e1f1e3a4c14002d21e011af",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:298:extract_intake",
         "path": "infera-chat/src/fitness.rs",
@@ -974,7 +991,7 @@
           }
         ]
       },
-      "source_checksum": "1714b36ab5b78eec67b119f644b9a891345f9fa0cc6cbaa8b93110a8fb78d0c8",
+      "source_checksum": "ea5eb35698dfd8276ba410c56c5af806b1fae1f80bd6d2ae3041880e70b565df",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:353:models",
         "path": "infera-chat/src/fitness.rs",
@@ -1049,7 +1066,7 @@
           }
         ]
       },
-      "source_checksum": "a3d5a389e96d8b4a35da9c07d177f42574bbe69ac5f045b6fb1f5f48b2420b80",
+      "source_checksum": "e9e0356c0792541b8663ebd08f290c717272e66857ae55258ca97ae0a52d8f60",
       "handler": {
         "ref": "infera-chat/src/learning.rs:11:ask",
         "path": "infera-chat/src/learning.rs",
@@ -1069,27 +1086,27 @@
         {
           "call": "service::list_members",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:919:list_members",
+            "ref": "infera-chat/src/service.rs:924:list_members",
             "path": "infera-chat/src/service.rs",
-            "line": 919,
+            "line": 924,
             "name": "list_members"
           }
         },
         {
           "call": "service::send_message",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1344:send_message",
+            "ref": "infera-chat/src/service.rs:1365:send_message",
             "path": "infera-chat/src/service.rs",
-            "line": 1344,
+            "line": 1365,
             "name": "send_message"
           }
         },
         {
           "call": "service::insert_message",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1238:insert_message",
+            "ref": "infera-chat/src/service.rs:1243:insert_message",
             "path": "infera-chat/src/service.rs",
-            "line": 1238,
+            "line": 1243,
             "name": "insert_message"
           }
         }
@@ -1165,7 +1182,7 @@
           }
         ]
       },
-      "source_checksum": "abacd9a604ea0629deab80e61673fb774714fae06d2841d195a22522f3ecfb65",
+      "source_checksum": "3704d6df681617bd2d36a15ed6c459a3c26d6f74a9cbe313c4c14382e3c9534e",
       "handler": {
         "ref": "infera-chat/src/learning.rs:65:history",
         "path": "infera-chat/src/learning.rs",
@@ -1239,7 +1256,7 @@
           }
         ]
       },
-      "source_checksum": "1f401223b4e0bb06ab2c19a0b36815b30e7519e08221abe56d9979b820a33910",
+      "source_checksum": "3d8df41115527b21bf1813120d1065dfd65291291437f40bb6c0a7274effea93",
       "handler": {
         "ref": "infera-chat/src/speech.rs:148:settings",
         "path": "infera-chat/src/speech.rs",
@@ -1308,7 +1325,7 @@
           }
         ]
       },
-      "source_checksum": "4569403aa2f722f30b950b35ff72f86ee26371dc203eb0c3ffbf8ab4dfe4c0d3",
+      "source_checksum": "560ea0f9bd9305b4e9be7a794c9d264d86a17723e1a0f32ff1c705d6cfe279d9",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:378:public_speech_settings",
         "path": "infera-chat/src/fitness.rs",
@@ -1399,7 +1416,7 @@
           }
         ]
       },
-      "source_checksum": "7be2f08642a0de29d08dbc2f9de667ceac0572657302a09c4d68895e0ffc822a",
+      "source_checksum": "73dfe34e902e721cac28e538c4bd2027eefd7ad278b7ee34ac981a1ac3c02772",
       "handler": {
         "ref": "infera-chat/src/speech.rs:157:models",
         "path": "infera-chat/src/speech.rs",
@@ -1463,7 +1480,7 @@
           }
         ]
       },
-      "source_checksum": "94f6b78ff969520ccbbf3ee773756e1147e873976216fa3611813eb5111db330",
+      "source_checksum": "e4729729f29dbfe0ffd344b3824567f86e26f42554b5ed325f2e3fa6b4d21af8",
       "handler": {
         "ref": "infera-chat/src/speech.rs:444:live",
         "path": "infera-chat/src/speech.rs",
@@ -1544,7 +1561,7 @@
           }
         ]
       },
-      "source_checksum": "5a5689b4899617a547ab9b88f1b3258a4aec081bf5095fc34ec6220da823db4c",
+      "source_checksum": "4b3561cf558a18fec6b0e5697028d8a22b6a9682a0c78f61d95e555cbc929b9d",
       "handler": {
         "ref": "infera-chat/src/speech.rs:238:status",
         "path": "infera-chat/src/speech.rs",
@@ -1618,7 +1635,7 @@
           }
         ]
       },
-      "source_checksum": "1d51904cb0811d2aa96d25bf2b52172b3bfedecd383a5fb6548da9385d8ad848",
+      "source_checksum": "b8c2185fffe10c7fb8fa97156c43f10d465def09d0c8af03401770b24de1e548",
       "handler": {
         "ref": "infera-chat/src/memory_voice.rs:23:handle",
         "path": "infera-chat/src/memory_voice.rs",
@@ -1699,7 +1716,7 @@
           }
         ]
       },
-      "source_checksum": "9627264cc98db11a45e558e8e5569568d4d8ee4409e8245da0c4f67d6c09fce4",
+      "source_checksum": "3640e49390ce4b3155a1413b18c61b17ac0633b84cb4e46cd0f4a359b900432c",
       "handler": {
         "ref": "infera-chat/src/speech.rs:278:synthesize",
         "path": "infera-chat/src/speech.rs",
@@ -1781,7 +1798,7 @@
           }
         ]
       },
-      "source_checksum": "cd515e53cd8a9c8b03de377235195fed60e220cbb0dcd2a8412de918e80e70ed",
+      "source_checksum": "22deb2027de6ccd9f37c342d03779ad4246a30496abb24f0b032b413f308a84d",
       "handler": {
         "ref": "infera-chat/src/speech.rs:331:transcribe",
         "path": "infera-chat/src/speech.rs",
@@ -1865,7 +1882,7 @@
           }
         ]
       },
-      "source_checksum": "a33d0729f4b50a6ba5dc8437627310372ed0040ea0f052252fbae9cda6c7596c",
+      "source_checksum": "d954433bc1065a27afaeee5b304903663d9ffac0f75a8cc1baa100ffdabe5fcd",
       "handler": {
         "ref": "infera-chat/src/routes.rs:108:list_assistants",
         "path": "infera-chat/src/routes.rs",
@@ -1938,7 +1955,7 @@
           }
         ]
       },
-      "source_checksum": "3244127bb03f930c7fac11595937075d1c4906b6ea0b48330b31a802d0acc15a",
+      "source_checksum": "6d529a76cba78d5e36339e5ee67307398b470f8ddbd47fa3a2405c7c226e6a19",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:77:roles",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -2001,7 +2018,7 @@
           }
         ]
       },
-      "source_checksum": "5164c3b91c32a21c97015d319710de6bf86ceee75b35d9b90a723c5dad93f63d",
+      "source_checksum": "9abea40360b7f950e1bf460a4592c382ead3c57e83789a1ef9696673a89c473a",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:1255:managed_roles",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -2066,7 +2083,7 @@
           }
         ]
       },
-      "source_checksum": "b06fdb685336b3c6340491be4c9b6122a414f2b22f2bf0a7bf2660b4e6adf1bb",
+      "source_checksum": "b164cc574c6c084a3c4b9c25b9bea91b700bcc282c165ff067c7f5d115c89cb3",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:94:bind",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -2152,7 +2169,7 @@
           }
         ]
       },
-      "source_checksum": "77340351a8c35abe2e1d245b59c713083254fbe5e1fd168241a127ab409e39e8",
+      "source_checksum": "e01062811e28664947c3d6fb9eac87f232845b52e79d7b89868f8a526b1b6d24",
       "handler": {
         "ref": "infera-chat/src/routes.rs:149:get_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2229,7 +2246,7 @@
           }
         ]
       },
-      "source_checksum": "c238d01d0125378b5e4cfc1972480e4de37b635871af5a170f5510ed83ab0a19",
+      "source_checksum": "9d2145c64f0b47634a83a4fb086f4cda6ca602b0688ffb62ab07cc6279e10f90",
       "handler": {
         "ref": "infera-chat/src/routes.rs:117:list_managed_assistants",
         "path": "infera-chat/src/routes.rs",
@@ -2303,7 +2320,7 @@
           }
         ]
       },
-      "source_checksum": "c49f780f38ef6579773023d7be4868cd06b4b51b38cd737196428cefb7866b19",
+      "source_checksum": "a7396dd91bde63b4921e71cb553726b0ca9969bf49e48b032b350415422f3da3",
       "handler": {
         "ref": "infera-chat/src/routes.rs:126:create_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2401,7 +2418,7 @@
           }
         ]
       },
-      "source_checksum": "336ca8c71592d2d27b30fb2bfb56e021fde97b44a35dc99ee09d1833d1cedb9f",
+      "source_checksum": "40cc3a7f24fb3d99ebaa78a32922e2d312823e2331c093f06d10909b536b3580",
       "handler": {
         "ref": "infera-chat/src/routes.rs:139:get_managed_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2480,7 +2497,7 @@
           }
         ]
       },
-      "source_checksum": "9178b3f98ab3c520a401051930f891c0ec8e2dd6076a10525b635c6380c657b9",
+      "source_checksum": "48e0c075d6d5b72867249cd9f5843c8de04ba7958a3fae0016fdbdcc521d35c5",
       "handler": {
         "ref": "infera-chat/src/routes.rs:162:update_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2590,7 +2607,7 @@
           }
         ]
       },
-      "source_checksum": "8e8d81f14a2cc82c77845958603df533c9029c4008fed5cb241b033996e60d66",
+      "source_checksum": "cff92459beb52bee638b520145bf41de77f3dbcd47bd60e663ee0ceb33fee572",
       "handler": {
         "ref": "infera-chat/src/routes.rs:174:delete_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2673,7 +2690,7 @@
           }
         ]
       },
-      "source_checksum": "461133a72d746dddc06aa1a3d417a335c7dc071ca08a8efeaf2593e9f5bf829e",
+      "source_checksum": "5d52a961b61fc816b21345734294ed2ea2a0f14165441362bf02310a71fb420e",
       "handler": {
         "ref": "infera-chat/src/routes.rs:184:assistant_models",
         "path": "infera-chat/src/routes.rs",
@@ -2757,7 +2774,7 @@
           }
         ]
       },
-      "source_checksum": "4f4d2e21b6d31191083cdafd097822d31ee2357f7ec178baa6cdcd047e4f77c7",
+      "source_checksum": "651d05fb8b3198127ab0349610773a65accb3dd06e9fc2901a72ad9ab6c248b4",
       "handler": {
         "ref": "infera-chat/src/routes.rs:198:assistant_context_catalog",
         "path": "infera-chat/src/routes.rs",
@@ -2831,7 +2848,7 @@
           }
         ]
       },
-      "source_checksum": "f1b7148fcd51ace99cbf729543a1ebb7d9d918ec2acd931bbfeb0c87af8daaac",
+      "source_checksum": "8b089ac95127fbb1cc3a21482dfcb29773ffa1a51a21450c65c32010b5bb3433",
       "handler": {
         "ref": "infera-chat/src/routes.rs:208:customer_action_content",
         "path": "infera-chat/src/routes.rs",
@@ -2915,7 +2932,7 @@
           }
         ]
       },
-      "source_checksum": "a7b1a8a1a0c7bbaf15f3bb735602e5315de4d6841d727b08942eb25afc4590d5",
+      "source_checksum": "55c91870b90b425dad7c42303d6f1f96a9504490b05fcb7df66e5aab13e78a47",
       "handler": {
         "ref": "infera-chat/src/routes.rs:261:list",
         "path": "infera-chat/src/routes.rs",
@@ -2989,7 +3006,7 @@
           }
         ]
       },
-      "source_checksum": "481abacc083f2a874b3c72c35ba562fc5e1f756d6d033bbe122eec7639017002",
+      "source_checksum": "882ba90bcb2c971ccae4f85ac14dfdc5ec347d17c50e545731ce88f2cd71e4ef",
       "handler": {
         "ref": "infera-chat/src/routes.rs:270:create",
         "path": "infera-chat/src/routes.rs",
@@ -3087,7 +3104,7 @@
           }
         ]
       },
-      "source_checksum": "88ee9f306fbc1b2f2b12572bce4a9ac0d3b0f835f78b408270dc118b9af143cc",
+      "source_checksum": "658c2b3b00e3182f6d747921657e204a9851072808d5e0ced90dc79341347fce",
       "handler": {
         "ref": "infera-chat/src/routes.rs:286:get_one",
         "path": "infera-chat/src/routes.rs",
@@ -3166,7 +3183,7 @@
           }
         ]
       },
-      "source_checksum": "0dc41b0a7d2eef6be97c5d0adc7e2562c58dd0e5f66f801dae286a110db17839",
+      "source_checksum": "96425032a64f4716fc6af17efac88da8fd2094a5720558a625944cb15ea4acde",
       "handler": {
         "ref": "infera-chat/src/routes.rs:296:update",
         "path": "infera-chat/src/routes.rs",
@@ -3177,9 +3194,9 @@
         {
           "call": "service::update_conversation",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:824:update_conversation",
+            "ref": "infera-chat/src/service.rs:829:update_conversation",
             "path": "infera-chat/src/service.rs",
-            "line": 824,
+            "line": 829,
             "name": "update_conversation"
           }
         }
@@ -3254,7 +3271,7 @@
           }
         ]
       },
-      "source_checksum": "2a02d86d2b1b78d44d7fb5823ea2fc7bac4b1fe390e40deff133e79b82e80232",
+      "source_checksum": "f75ed8f7578d743d4a8f6a177b852d4f36f6f53cdca75825a8e126ffee711b20",
       "handler": {
         "ref": "infera-chat/src/routes.rs:307:archive",
         "path": "infera-chat/src/routes.rs",
@@ -3265,9 +3282,9 @@
         {
           "call": "service::archive_conversation",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:865:archive_conversation",
+            "ref": "infera-chat/src/service.rs:870:archive_conversation",
             "path": "infera-chat/src/service.rs",
-            "line": 865,
+            "line": 870,
             "name": "archive_conversation"
           }
         }
@@ -3328,7 +3345,7 @@
           }
         ]
       },
-      "source_checksum": "f6c63ca860ba5d8086106d4aad32816058c148423cf4fbde55a276017c3fc1c1",
+      "source_checksum": "724e0041de80a1ab9c4818f92fab6b9e96d784ade115213e9e7b1e381e0c9597",
       "handler": {
         "ref": "infera-chat/src/routes.rs:316:members",
         "path": "infera-chat/src/routes.rs",
@@ -3339,9 +3356,9 @@
         {
           "call": "service::list_members",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:919:list_members",
+            "ref": "infera-chat/src/service.rs:924:list_members",
             "path": "infera-chat/src/service.rs",
-            "line": 919,
+            "line": 924,
             "name": "list_members"
           }
         }
@@ -3407,7 +3424,7 @@
           }
         ]
       },
-      "source_checksum": "4988b629dd0ba731839c96601d14d71f292a5f48fd7ccde964950c072b2486a6",
+      "source_checksum": "fc27a2fa7ce667ed8c5ad4f8df13861a126c5d6dc25a819f2bee351351b8d6cd",
       "handler": {
         "ref": "infera-chat/src/routes.rs:326:add_member",
         "path": "infera-chat/src/routes.rs",
@@ -3418,9 +3435,9 @@
         {
           "call": "service::add_member",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:880:add_member",
+            "ref": "infera-chat/src/service.rs:885:add_member",
             "path": "infera-chat/src/service.rs",
-            "line": 880,
+            "line": 885,
             "name": "add_member"
           }
         }
@@ -3484,11 +3501,11 @@
           "chat:manage"
         ],
         "source": "infera-chat/src/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3502,7 +3519,7 @@
           }
         ]
       },
-      "source_checksum": "ab1dd52bdb0c8ad4e6e6ec180f33433e4e28af0c5831095ae572bc0bc9591164",
+      "source_checksum": "0399783290761b69561209829c8b858df6dc234f794ffffb09dcb2132735373f",
       "handler": {
         "ref": "infera-chat/src/routes.rs:340:remove_member",
         "path": "infera-chat/src/routes.rs",
@@ -3513,9 +3530,9 @@
         {
           "call": "service::remove_member",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:932:remove_member",
+            "ref": "infera-chat/src/service.rs:937:remove_member",
             "path": "infera-chat/src/service.rs",
-            "line": 932,
+            "line": 937,
             "name": "remove_member"
           }
         }
@@ -3577,7 +3594,7 @@
           }
         ]
       },
-      "source_checksum": "7212b6a1e91fc966656df0875e30813a7498db25a1f03ef8ac575ec8790d64a3",
+      "source_checksum": "fa161283b6fee59f0c83ee6b0727b9000fe9c7dcaf53584e48fc119933e25559",
       "handler": {
         "ref": "infera-chat/src/routes.rs:349:messages",
         "path": "infera-chat/src/routes.rs",
@@ -3588,9 +3605,9 @@
         {
           "call": "service::list_messages",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:956:list_messages",
+            "ref": "infera-chat/src/service.rs:961:list_messages",
             "path": "infera-chat/src/service.rs",
-            "line": 956,
+            "line": 961,
             "name": "list_messages"
           }
         }
@@ -3667,7 +3684,7 @@
           }
         ]
       },
-      "source_checksum": "49bb8e7ad8faeb7c26113e987509b36678801722258e1d550d27fcfc675a4421",
+      "source_checksum": "fbde28c5dcf5a18acb614d8a1b1a60347486587f4501bd0f78bbf308f0682862",
       "handler": {
         "ref": "infera-chat/src/routes.rs:362:send",
         "path": "infera-chat/src/routes.rs",
@@ -3678,9 +3695,9 @@
         {
           "call": "service::send_message",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1344:send_message",
+            "ref": "infera-chat/src/service.rs:1365:send_message",
             "path": "infera-chat/src/service.rs",
-            "line": 1344,
+            "line": 1365,
             "name": "send_message"
           }
         }
@@ -3782,7 +3799,7 @@
           }
         ]
       },
-      "source_checksum": "d11f86bda70dbaed26436d6ad1834c433fa624d687c0b8b771643b8c8b9d22bd",
+      "source_checksum": "49b977bcf0c04569306806a383382781151f0323e1ee6e56fcb1ef5d11163ee9",
       "handler": {
         "ref": "infera-chat/src/routes.rs:377:create_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -3793,9 +3810,9 @@
         {
           "call": "service::create_attachment",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1008:create_attachment",
+            "ref": "infera-chat/src/service.rs:1013:create_attachment",
             "path": "infera-chat/src/service.rs",
-            "line": 1008,
+            "line": 1013,
             "name": "create_attachment"
           }
         }
@@ -3877,7 +3894,7 @@
           }
         ]
       },
-      "source_checksum": "33c08b732a58c988e03a929fc7481eaf2674bc84d8dc60075e28fc9686be9b81",
+      "source_checksum": "c044670081230c0637c975ccbd467d78f21a6ca39967a620cd8f247f039f1715",
       "handler": {
         "ref": "infera-chat/src/routes.rs:392:download_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -3888,9 +3905,9 @@
         {
           "call": "service::download_attachment",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1095:download_attachment",
+            "ref": "infera-chat/src/service.rs:1100:download_attachment",
             "path": "infera-chat/src/service.rs",
-            "line": 1095,
+            "line": 1100,
             "name": "download_attachment"
           }
         },
@@ -3961,7 +3978,7 @@
           }
         ]
       },
-      "source_checksum": "324b5df6f0424bd5e75e4593bc02408d78b5fb3126e63b3db1b1a0a2d558ebf1",
+      "source_checksum": "d5ef4e154cc3d32cb08448ebd0631d37641cd464c6b52198c864b9c34e59eebe",
       "handler": {
         "ref": "infera-chat/src/routes.rs:412:complete_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -3972,9 +3989,9 @@
         {
           "call": "service::complete_attachment",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1130:complete_attachment",
+            "ref": "infera-chat/src/service.rs:1135:complete_attachment",
             "path": "infera-chat/src/service.rs",
-            "line": 1130,
+            "line": 1135,
             "name": "complete_attachment"
           }
         }
@@ -4097,7 +4114,7 @@
           }
         ]
       },
-      "source_checksum": "013ff5469b4a5d9642d0a787819e25b5d9db5df0090aad39cdd689bfacc637b0",
+      "source_checksum": "60c4a818153f8e6655db53c6601a273638f08c81a99a447c43fbf4147bb48e51",
       "handler": {
         "ref": "infera-chat/src/routes.rs:243:realtime_auth",
         "path": "infera-chat/src/routes.rs",
@@ -4117,18 +4134,18 @@
         {
           "call": "crate::realtime::conversation_channel",
           "evidence": {
-            "ref": "infera-chat/src/realtime.rs:98:conversation_channel",
+            "ref": "infera-chat/src/realtime.rs:110:conversation_channel",
             "path": "infera-chat/src/realtime.rs",
-            "line": 98,
+            "line": 110,
             "name": "conversation_channel"
           }
         },
         {
           "call": "crate::realtime::publisher",
           "evidence": {
-            "ref": "infera-chat/src/realtime.rs:115:publisher",
+            "ref": "infera-chat/src/realtime.rs:127:publisher",
             "path": "infera-chat/src/realtime.rs",
-            "line": 115,
+            "line": 127,
             "name": "publisher"
           }
         }
@@ -4211,7 +4228,7 @@
           }
         ]
       },
-      "source_checksum": "e5553a69ff54be8dc696b1ace95e0cb34c8087763cef71f14061f3e3ef7e34fa",
+      "source_checksum": "117dc50a9f3f41e0f202c688cb0d5c6026c817aad0289d18875ce7cf5742a5a9",
       "handler": {
         "ref": "infera-chat/src/routes.rs:230:realtime_config",
         "path": "infera-chat/src/routes.rs",
@@ -4231,9 +4248,9 @@
         {
           "call": "crate::realtime::publisher",
           "evidence": {
-            "ref": "infera-chat/src/realtime.rs:115:publisher",
+            "ref": "infera-chat/src/realtime.rs:127:publisher",
             "path": "infera-chat/src/realtime.rs",
-            "line": 115,
+            "line": 127,
             "name": "publisher"
           }
         }
@@ -4298,7 +4315,7 @@
           }
         ]
       },
-      "source_checksum": "75a46bc9c4b1f201f3a0efbc4ac28a854f3c20223116c212cc704cdd9408ef97",
+      "source_checksum": "93e0638da917d90d93d34695f36ed00df2d8e06566725da83937bc23973339ed",
       "handler": {
         "ref": "infera-chat/src/routes.rs:462:read",
         "path": "infera-chat/src/routes.rs",
@@ -4309,9 +4326,9 @@
         {
           "call": "service::mark_read",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1444:mark_read",
+            "ref": "infera-chat/src/service.rs:1465:mark_read",
             "path": "infera-chat/src/service.rs",
-            "line": 1444,
+            "line": 1465,
             "name": "mark_read"
           }
         }
@@ -4391,7 +4408,7 @@
           }
         ]
       },
-      "source_checksum": "2dd40fe24943dfe4a83d50fa9abec86b5e3ad4139c095f8d469725ad4928f748",
+      "source_checksum": "23327b26900eeced469c8c6cfad7b945fefaff284514c007fa5a45e687727f6d",
       "handler": {
         "ref": "infera-chat/src/routes.rs:428:edit",
         "path": "infera-chat/src/routes.rs",
@@ -4402,9 +4419,9 @@
         {
           "call": "service::edit_message",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1372:edit_message",
+            "ref": "infera-chat/src/service.rs:1393:edit_message",
             "path": "infera-chat/src/service.rs",
-            "line": 1372,
+            "line": 1393,
             "name": "edit_message"
           }
         }
@@ -4479,7 +4496,7 @@
           }
         ]
       },
-      "source_checksum": "f7143ce0df8fbeabc960dcb5d484589113ccc3837bc25608226bce1b6360587f",
+      "source_checksum": "0539ad58d6eefbf12ac84decb3160caa3a1debcfc69e40d1d334251bfdbb4a8d",
       "handler": {
         "ref": "infera-chat/src/routes.rs:439:delete_message",
         "path": "infera-chat/src/routes.rs",
@@ -4490,9 +4507,9 @@
         {
           "call": "service::delete_message",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1391:delete_message",
+            "ref": "infera-chat/src/service.rs:1412:delete_message",
             "path": "infera-chat/src/service.rs",
-            "line": 1391,
+            "line": 1412,
             "name": "delete_message"
           }
         }
@@ -4554,7 +4571,7 @@
           }
         ]
       },
-      "source_checksum": "c0db017a398eb256b5ecb5bd4dc3612fe81ab5c2cadaa60250be38574a09f0c1",
+      "source_checksum": "fb28a21dfc798c5d6a2ce145c2ebcb6e797731d315109f961ebb37c3d55ec8bb",
       "handler": {
         "ref": "infera-chat/src/routes.rs:448:react",
         "path": "infera-chat/src/routes.rs",
@@ -4565,9 +4582,9 @@
         {
           "call": "service::react",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1413:react",
+            "ref": "infera-chat/src/service.rs:1434:react",
             "path": "infera-chat/src/service.rs",
-            "line": 1413,
+            "line": 1434,
             "name": "react"
           }
         }
@@ -4643,7 +4660,7 @@
           }
         ]
       },
-      "source_checksum": "fe15ff2811cdb9f1fe1855ebb7615a8e979893ea947b7ca2c654da9ffeb9c50a",
+      "source_checksum": "dedff111ba84db56f899126b54cd1cf303a11bf4712a9d308a6d8652150ec09d",
       "handler": {
         "ref": "infera-chat/src/routes.rs:485:ai_runtime_inputs",
         "path": "infera-chat/src/routes.rs",
@@ -4681,9 +4698,9 @@
         {
           "call": "service::public_pending_runtime_inputs",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1509:public_pending_runtime_inputs",
+            "ref": "infera-chat/src/service.rs:1530:public_pending_runtime_inputs",
             "path": "infera-chat/src/service.rs",
-            "line": 1509,
+            "line": 1530,
             "name": "public_pending_runtime_inputs"
           }
         }
@@ -4730,12 +4747,12 @@
         ],
         "source": "infera-chat/src/routes.rs",
         "body": "CompleteAiRuntimeInput",
+        "pathParam": "(Uuid, Uuid)",
         "response": "Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4749,7 +4766,7 @@
           }
         ]
       },
-      "source_checksum": "4b5855aa11df57ed1abf142e7c17835eccacec75657525f9eac74a8b5eb98348",
+      "source_checksum": "5f26946b5ee43a171f6905be2f195f0d30d64cc693fe5c0db82fdf744a6c63ef",
       "handler": {
         "ref": "infera-chat/src/routes.rs:500:ai_complete_runtime_input",
         "path": "infera-chat/src/routes.rs",
@@ -4866,7 +4883,7 @@
           }
         ]
       },
-      "source_checksum": "98fc081490ebc0385e9d74bc8522f7c797a514dc9791ce9cfca5fadd5e827057",
+      "source_checksum": "7b3b51d210c62b16fc013c7d3a9c2ec1f7903191df5cb4d8ae67403b6d2dfc18",
       "handler": {
         "ref": "infera-chat/src/routes.rs:472:ai_send",
         "path": "infera-chat/src/routes.rs",
@@ -4877,9 +4894,9 @@
         {
           "call": "service::ai_message",
           "evidence": {
-            "ref": "infera-chat/src/service.rs:1566:ai_message",
+            "ref": "infera-chat/src/service.rs:1587:ai_message",
             "path": "infera-chat/src/service.rs",
-            "line": 1566,
+            "line": 1587,
             "name": "ai_message"
           }
         }
@@ -4973,7 +4990,7 @@
           }
         ]
       },
-      "source_checksum": "dd18141c109375e9c201505d4658c9051f5e4bb3a89c270662ed2e693898798b",
+      "source_checksum": "42083daacb00c2d347e814ebb37228f2461d5ae9be7bef1df3b1d06623ea2859",
       "handler": {
         "ref": "infera-chat/src/routes.rs:522:events",
         "path": "infera-chat/src/routes.rs",
@@ -4992,6 +5009,72 @@
         }
       ],
       "schemas": {
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/integrations/lms/messages/{id}/notification-context",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/integrations/lms/messages/{id}/notification-context",
+        "module": "human_chat",
+        "handler": "notification_context",
+        "permissions": [],
+        "source": "infera-chat/src/human_chat.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "human_chat",
+        "mounted_via": [
+          {
+            "path": "infera-chat/src/main.rs",
+            "line": 19,
+            "function": "main"
+          },
+          {
+            "path": "infera-chat/src/human_chat.rs",
+            "line": 238,
+            "function": "internal_routes"
+          }
+        ]
+      },
+      "source_checksum": "b3d13bbd1c566b5689aee65fb2da5a1162d02177cd286e580464ccccd8640a7b",
+      "handler": {
+        "ref": "infera-chat/src/human_chat.rs:244:notification_context",
+        "path": "infera-chat/src/human_chat.rs",
+        "line": 244,
+        "name": "notification_context"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        },
         "pathParam": {
           "declared_type": "Uuid",
           "models": []
@@ -5045,7 +5128,7 @@
           }
         ]
       },
-      "source_checksum": "59a47156139758189098d9ae1330867a19f5400e7c3bae3538282efba04a92d7",
+      "source_checksum": "5f7b25d1ed19d42af889ebfa757ef53c033c3327799ea5c6fbb40cbe1cee826b",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:220:generate",
         "path": "infera-chat/src/fitness.rs",
@@ -5141,7 +5224,7 @@
           }
         ]
       },
-      "source_checksum": "0235cb6d4cc2a03505fd64d94a8cb3fe27bd535bc410797cc096e4706cad5022",
+      "source_checksum": "77dbecf933647d9b65bd01d8db598c50f1aec5f530b7a2774bac8deac2fd08d8",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:267:save_settings",
         "path": "infera-chat/src/fitness.rs",
@@ -5224,7 +5307,7 @@
           }
         ]
       },
-      "source_checksum": "ff2d101eddf29c395afe624961881c441741430ab2ef7e7e28573b36bf1f4c8d",
+      "source_checksum": "1b3306e7a41822296d561ab0483b7a9e4d51ed7b2cf95257243b417f61763a27",
       "handler": {
         "ref": "infera-chat/src/memory_import.rs:15:source",
         "path": "infera-chat/src/memory_import.rs",
@@ -5310,7 +5393,7 @@
           }
         ]
       },
-      "source_checksum": "0a16a5f0d4f4cc2c550fb944d13a0bba7da3194be2496203e76e5eaf3adafdce",
+      "source_checksum": "4589e14c87ad50fe65c6a27169b406519767504e72d2c665368e15731ad762ac",
       "handler": {
         "ref": "infera-chat/src/media_import.rs:32:extract",
         "path": "infera-chat/src/media_import.rs",
@@ -5371,7 +5454,13 @@
   ],
   "sdk_contract_drift": {
     "missing": [],
-    "extra": [],
+    "extra": [
+      "GET /api/v1/me/conversations",
+      "GET /api/v1/me/events",
+      "POST /api/v1/me/realtime/auth",
+      "GET /api/v1/me/realtime/config",
+      "GET /api/v1/me/unread-count"
+    ],
     "changed": [
       "GET /health",
       "GET /api/v1/admin/image-settings",
@@ -5426,6 +5515,7 @@
       "POST /api/v1/conversations/{id}/ai/runtime-inputs/{input_id}/complete",
       "POST /api/v1/conversations/{id}/ai/messages",
       "GET /api/v1/conversations/{id}/events",
+      "GET /api/v1/integrations/lms/messages/{id}/notification-context",
       "POST /api/v1/fitness/generate",
       "PUT /api/v1/fitness/settings",
       "POST /api/v1/internal/memory/source",
@@ -6794,6 +6884,30 @@
         ]
       },
       {
+        "method": "GET",
+        "path": "/api/v1/integrations/lms/messages/{id}/notification-context",
+        "module": "human_chat",
+        "handler": "notification_context",
+        "handlerModule": "human_chat",
+        "source": "infera-chat/src/human_chat.rs",
+        "permissions": [],
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-chat/src/main.rs",
+            "line": 19,
+            "function": "main"
+          },
+          {
+            "path": "infera-chat/src/human_chat.rs",
+            "line": 238,
+            "function": "internal_routes"
+          }
+        ]
+      },
+      {
         "method": "POST",
         "path": "/api/v1/fitness/generate",
         "module": "fitness",
@@ -6894,70 +7008,16 @@
     "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/admin/media-retention",
-      "PUT /api/v1/admin/media-retention"
-    ],
-    "absent": [
-      "GET /api/v1/admin/image-settings",
-      "PUT /api/v1/admin/image-settings",
-      "GET /api/v1/admin/image-models",
-      "GET /api/v1/image-status",
-      "GET /api/v1/learning/runs/{id}/messages",
-      "POST /api/v1/speech/voice",
-      "POST /api/v1/internal/memory/source",
-      "POST /api/v1/internal/memory/media"
-    ],
-    "changed": [
-      "GET /api/v1/admin/assistant-context-catalog",
-      "GET /api/v1/admin/assistant-models",
-      "GET /api/v1/admin/assistants",
-      "POST /api/v1/admin/assistants",
-      "DELETE /api/v1/admin/assistants/{id}",
-      "GET /api/v1/admin/assistants/{id}",
-      "PUT /api/v1/admin/assistants/{id}",
-      "GET /api/v1/admin/customer-action-content",
-      "GET /api/v1/admin/speech-models",
-      "GET /api/v1/admin/speech-settings",
-      "PUT /api/v1/admin/speech-settings",
-      "GET /api/v1/admin/workspace-assistants",
-      "PUT /api/v1/admin/workspace-assistants/{role}",
-      "GET /api/v1/assistants",
-      "GET /api/v1/assistants/{id}",
-      "POST /api/v1/attachments/{id}/complete",
-      "GET /api/v1/attachments/{id}/content",
-      "GET /api/v1/conversations",
-      "POST /api/v1/conversations",
-      "DELETE /api/v1/conversations/{id}",
-      "GET /api/v1/conversations/{id}",
-      "PUT /api/v1/conversations/{id}",
-      "POST /api/v1/conversations/{id}/ai/messages",
-      "GET /api/v1/conversations/{id}/ai/runtime-inputs",
-      "POST /api/v1/conversations/{id}/ai/runtime-inputs/{input_id}/complete",
-      "POST /api/v1/conversations/{id}/attachments",
-      "GET /api/v1/conversations/{id}/events",
-      "GET /api/v1/conversations/{id}/members",
-      "POST /api/v1/conversations/{id}/members",
-      "DELETE /api/v1/conversations/{id}/members/{user_id}",
-      "GET /api/v1/conversations/{id}/messages",
-      "POST /api/v1/conversations/{id}/messages",
-      "POST /api/v1/conversations/{id}/read",
-      "POST /api/v1/conversations/{id}/realtime-auth",
-      "GET /api/v1/conversations/{id}/realtime-config",
-      "POST /api/v1/fitness/generate",
-      "POST /api/v1/fitness/intake-extract",
-      "GET /api/v1/fitness/models",
-      "PUT /api/v1/fitness/settings",
-      "POST /api/v1/learning/runs/{id}/questions",
-      "DELETE /api/v1/messages/{id}",
-      "PUT /api/v1/messages/{id}",
-      "POST /api/v1/messages/{id}/reactions",
-      "POST /api/v1/speech/live",
-      "GET /api/v1/speech/status",
-      "POST /api/v1/speech/transcribe",
-      "POST /api/v1/speech/tts",
-      "GET /api/v1/workspace-assistants",
-      "GET /health"
+    "added": [],
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
@@ -7219,11 +7279,11 @@
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {
-    "infera-chat/src/main.rs:66:health": {
+    "infera-chat/src/main.rs:68:health": {
       "name": "health",
       "path": "infera-chat/src/main.rs",
-      "line": 66,
-      "end_line": 70,
+      "line": 68,
+      "end_line": 72,
       "signature": "async fn health() -> Json<ApiResponse<serde_json::Value>>",
       "declared_permissions": [],
       "guards": [],
@@ -7231,7 +7291,7 @@
       "state": [
         {
           "path": "infera-chat/src/main.rs",
-          "line": 68,
+          "line": 70,
           "expression": "json!({\"service\":\"infera-chat\",\"version\":env!(\"CARGO_PKG_VERSION\"),\"status\":\"healthy\",\"ai_execution\":\"infera-agentic\"}),"
         }
       ],
@@ -7750,7 +7810,7 @@
       "name": "create_conversation",
       "path": "infera-chat/src/service.rs",
       "line": 579,
-      "end_line": 823,
+      "end_line": 828,
       "signature": "pub async fn create_conversation(\n    state: &AppState,\n    ctx: &RequestContext,\n    mut body: CreateConversation,\n) -> Result<conversation::Model, AppError>",
       "declared_permissions": [
         "chat:manage"
@@ -7763,72 +7823,77 @@
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 633,
-          "expression": ".filter(conversation::Column::OrganizationId.eq(ctx.organization_id))"
+          "line": 613,
+          "expression": "crate::human_chat::require_pair(state,ctx,member_ids[0],member_ids[1]).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 644,
-          "expression": "let membership = conversation_member::Entity::find()"
+          "line": 638,
+          "expression": ".filter(conversation::Column::OrganizationId.eq(ctx.organization_id))"
         },
         {
           "path": "infera-chat/src/service.rs",
           "line": 649,
-          "expression": "if membership.as_ref().is_some_and(|row| row.state == \"active\") {"
-        },
-        {
-          "path": "infera-chat/src/service.rs",
-          "line": 652,
-          "expression": "// AI threads are private to their owner. Session group chats may be"
-        },
-        {
-          "path": "infera-chat/src/service.rs",
-          "line": 653,
-          "expression": "// reconciled for an authorized operator, but only with explicit"
+          "expression": "let membership = conversation_member::Entity::find()"
         },
         {
           "path": "infera-chat/src/service.rs",
           "line": 654,
-          "expression": "// chat-management permission so a regular user cannot join a room"
+          "expression": "if membership.as_ref().is_some_and(|row| row.state == \"active\") {"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 657,
+          "expression": "// AI threads are private to their owner. Session group chats may be"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 658,
+          "expression": "// reconciled for an authorized operator, but only with explicit"
         },
         {
           "path": "infera-chat/src/service.rs",
           "line": 659,
+          "expression": "// chat-management permission so a regular user cannot join a room"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 664,
           "expression": "ctx.require(\"chat:manage\")?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 661,
+          "line": 666,
           "expression": "if let Some(stored) = membership {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 689,
+          "line": 694,
           "expression": ".filter(conversation::Column::OrganizationId.eq(ctx.organization_id))"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 726,
+          "line": 731,
           "expression": "[format!(\"{}:{key}\", ctx.organization_id).into()],"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 730,
+          "line": 735,
           "expression": ".filter(conversation::Column::OrganizationId.eq(ctx.organization_id))"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 755,
+          "line": 760,
           "expression": "organization_id: Set(ctx.organization_id),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 761,
+          "line": 766,
           "expression": "owner_id: Set(ctx.user_id),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 791,
+          "line": 796,
           "expression": "\"owner\".into()"
         }
       ],
@@ -7855,215 +7920,221 @@
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 625,
+          "line": 630,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 640,
+          "line": 645,
           "expression": "return Err(AppError::Conflict("
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 618,
+          "line": 613,
+          "expression": "crate::human_chat::require_pair(state,ctx,member_ids[0],member_ids[1]).await?;"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 623,
           "expression": "let value = active_assistant_for(state.db.as_ref(), id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 620,
+          "line": 625,
           "expression": "crate::fitness::guard(state, ctx, id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 636,
+          "line": 641,
           "expression": ".one(state.db.as_ref())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 647,
+          "line": 652,
           "expression": ".one(state.db.as_ref())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 649,
+          "line": 654,
           "expression": "if membership.as_ref().is_some_and(|row| row.state == \"active\") {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 664,
+          "line": 669,
           "expression": "row.state = Set(\"active\".into());"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 667,
+          "line": 672,
           "expression": "row.update(state.db.as_ref()).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 674,
+          "line": 679,
           "expression": "state: Set(\"active\".into()),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 681,
+          "line": 686,
           "expression": ".insert(state.db.as_ref())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 692,
+          "line": 697,
           "expression": ".one(state.db.as_ref())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 698,
+          "line": 703,
           "expression": "return conversation_for(state.db.as_ref(), ctx, existing.id).await;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 704,
+          "line": 709,
           "expression": "state,"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 720,
+          "line": 725,
           "expression": "let txn = state.db.begin().await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 723,
+          "line": 728,
           "expression": "txn.execute(Statement::from_sql_and_values("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 742,
+          "line": 747,
           "expression": "|| existing.status == \"quarantined\""
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 745,
+          "line": 750,
           "expression": ".any(|member| member.user_id == ctx.user_id && member.state == \"active\")"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 775,
+          "line": 780,
           "expression": "status: Set(\"active\".into()),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 779,
+          "line": 784,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 795,
+          "line": 800,
           "expression": "state: Set(\"active\".into()),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 815,
+          "line": 820,
           "expression": "state,"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 635,
+          "line": 640,
           "expression": ".filter(conversation::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 665,
+          "line": 670,
           "expression": "row.updated_at = Set(now);"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 667,
+          "line": 672,
           "expression": "row.update(state.db.as_ref()).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 678,
+          "line": 683,
           "expression": "updated_at: Set(now),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 681,
+          "line": 686,
           "expression": ".insert(state.db.as_ref())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 691,
+          "line": 696,
           "expression": ".filter(conversation::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 722,
+          "line": 727,
           "expression": "// Serialize concurrent creation of the same pair before the unique-key insert."
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 732,
+          "line": 737,
           "expression": ".filter(conversation::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 749,
+          "line": 754,
           "expression": "txn.commit().await?;"
-        },
-        {
-          "path": "infera-chat/src/service.rs",
-          "line": 778,
-          "expression": "updated_at: Set(now),"
-        },
-        {
-          "path": "infera-chat/src/service.rs",
-          "line": 779,
-          "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-chat/src/service.rs",
           "line": 783,
-          "expression": ".insert(&txn)"
-        },
-        {
-          "path": "infera-chat/src/service.rs",
-          "line": 799,
           "expression": "updated_at: Set(now),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 802,
+          "line": 784,
+          "expression": "deleted_at: Set(None),"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 788,
           "expression": ".insert(&txn)"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 805,
+          "line": 804,
+          "expression": "updated_at: Set(now),"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 807,
+          "expression": ".insert(&txn)"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 810,
           "expression": "emit_outbox("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 813,
+          "line": 818,
           "expression": "txn.commit().await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 814,
+          "line": 819,
           "expression": "realtime::emit("
         }
       ],
       "calls": [
         "crate::asset_economy::bound_room",
+        "crate::human_chat::require_pair",
         "crate::guest::guard_assistant",
         "crate::fitness::guard"
       ]
     },
-    "infera-chat/src/service.rs:919:list_members": {
+    "infera-chat/src/service.rs:924:list_members": {
       "name": "list_members",
       "path": "infera-chat/src/service.rs",
-      "line": 919,
-      "end_line": 931,
+      "line": 924,
+      "end_line": 936,
       "signature": "pub async fn list_members(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<Vec<conversation_member::Model>, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -8071,59 +8142,59 @@
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 927,
+          "line": 932,
           "expression": ".filter(conversation_member::Column::State.eq(\"active\"))"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-chat/src/service.rs:1344:send_message": {
+    "infera-chat/src/service.rs:1365:send_message": {
       "name": "send_message",
       "path": "infera-chat/src/service.rs",
-      "line": 1344,
-      "end_line": 1371,
+      "line": 1365,
+      "end_line": 1392,
       "signature": "pub async fn send_message(\n    state: &AppState,\n    ctx: &RequestContext,\n    id: Uuid,\n    body: SendMessage,\n) -> Result<message::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1359,
+          "line": 1380,
           "expression": "return Err(AppError::Conflict(\"client_id already used for another message\".into()));"
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1350,
+          "line": 1371,
           "expression": "let conversation=conversation_for(state.db.as_ref(),ctx,id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1357,
+          "line": 1378,
           "expression": ".filter(message::Column::ClientId.eq(client_id)).one(state.db.as_ref()).await? {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1367,
+          "line": 1388,
           "expression": "let reservation=if conversation.kind!=\"ai\" {crate::asset_economy::reserve(state,ctx,id,room,interaction,body.client_id.as_deref()).await?}else{None};"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1368,
+          "line": 1389,
           "expression": "let result=insert_message(state, ctx, id, Some(ctx.user_id), \"user\", &body).await;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1369,
+          "line": 1390,
           "expression": "if let Some(id)=reservation{crate::asset_economy::finish(state,&id,result.is_ok()).await?;}"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1368,
+          "line": 1389,
           "expression": "let result=insert_message(state, ctx, id, Some(ctx.user_id), \"user\", &body).await;"
         }
       ],
@@ -8134,152 +8205,199 @@
         "crate::asset_economy::finish"
       ]
     },
-    "infera-chat/src/service.rs:1238:insert_message": {
+    "infera-chat/src/service.rs:1243:insert_message": {
       "name": "insert_message",
       "path": "infera-chat/src/service.rs",
-      "line": 1238,
-      "end_line": 1343,
+      "line": 1243,
+      "end_line": 1364,
       "signature": "pub(crate) async fn insert_message(\n    state: &AppState,\n    ctx: &RequestContext,\n    id: Uuid,\n    sender_id: Option<Uuid>,\n    sender_kind: &str,\n    body: &SendMessage,\n) -> Result<message::Model, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1251,
+          "line": 1255,
+          "expression": "crate::human_chat::require_pair(state,ctx,participants[0].user_id,participants[1].user_id).await?;"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1262,
           "expression": "require_message_in_conversation(state.db.as_ref(), id, reference).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1310,
+          "line": 1288,
+          "expression": "txn.query_one(Statement::from_sql_and_values(sea_orm::DatabaseBackend::Postgres,\"SELECT id FROM chat_conversations WHERE id=$1 AND organization_id=$2 FOR UPDATE\",[id.into(),ctx.organization_id.into()])).await?.ok_or(AppError::NotFound)?;"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1331,
           "expression": "if attachment.organization_id != ctx.organization_id"
         }
       ],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1253,
+          "line": 1254,
+          "expression": "if participants.len()!=2 {return Err(AppError::Forbidden)}"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1264,
           "expression": "if body.attachment_ids.len() > 20 {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1254,
+          "line": 1265,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1259,
+          "line": 1270,
           "expression": "if unique_attachment_ids.len() != body.attachment_ids.len() {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1260,
+          "line": 1271,
           "expression": "return Err(AppError::BadRequest(\"duplicate attachment IDs\".into()));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1309,
+          "line": 1282,
+          "expression": "return Err(AppError::Conflict(\"client_id reused with a different message\".into()));"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1291,
+          "expression": "if existing.content!=body.content||existing.message_type!=body.message_type {return Err(AppError::Conflict(\"client_id reused with a different message\".into()))}"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1330,
           "expression": ".ok_or_else(|| AppError::BadRequest(\"attachment not found\".into()))?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1316,
+          "line": 1337,
           "expression": "return Err(AppError::BadRequest("
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1246,
-          "expression": "conversation_for(state.db.as_ref(), ctx, id).await?;"
+          "line": 1251,
+          "expression": "let room=conversation_for(state.db.as_ref(), ctx, id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1251,
+          "line": 1253,
+          "expression": "let participants=conversation_member::Entity::find().filter(conversation_member::Column::ConversationId.eq(id)).filter(conversation_member::Column::State.eq(\"active\")).all(state.db.as_ref()).await?;"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1255,
+          "expression": "crate::human_chat::require_pair(state,ctx,participants[0].user_id,participants[1].user_id).await?;"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1262,
           "expression": "require_message_in_conversation(state.db.as_ref(), id, reference).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1267,
+          "line": 1278,
           "expression": ".one(state.db.as_ref())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1273,
+          "line": 1287,
           "expression": "let txn = state.db.begin().await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1274,
+          "line": 1288,
+          "expression": "txn.query_one(Statement::from_sql_and_values(sea_orm::DatabaseBackend::Postgres,\"SELECT id FROM chat_conversations WHERE id=$1 AND organization_id=$2 FOR UPDATE\",[id.into(),ctx.organization_id.into()])).await?.ok_or(AppError::NotFound)?;"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1295,
           "expression": "let sql=\"UPDATE chat_conversations SET last_sequence=last_sequence+1,last_message_at=NOW(),updated_at=NOW() WHERE id=$1 AND deleted_at IS NULL RETURNING last_sequence\";"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1276,
+          "line": 1297,
           "expression": ".query_one(Statement::from_sql_and_values("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1296,
+          "line": 1317,
           "expression": "status: Set(\"sent\".into()),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1299,
+          "line": 1320,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1314,
+          "line": 1335,
           "expression": "|| attachment.status != \"ready\""
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1335,
+          "line": 1356,
           "expression": "state,"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1274,
+          "line": 1288,
+          "expression": "txn.query_one(Statement::from_sql_and_values(sea_orm::DatabaseBackend::Postgres,\"SELECT id FROM chat_conversations WHERE id=$1 AND organization_id=$2 FOR UPDATE\",[id.into(),ctx.organization_id.into()])).await?.ok_or(AppError::NotFound)?;"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1295,
           "expression": "let sql=\"UPDATE chat_conversations SET last_sequence=last_sequence+1,last_message_at=NOW(),updated_at=NOW() WHERE id=$1 AND deleted_at IS NULL RETURNING last_sequence\";"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1299,
+          "line": 1320,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1303,
+          "line": 1324,
           "expression": ".insert(&txn)"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1322,
+          "line": 1343,
           "expression": "active.updated_at = Set(Utc::now());"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1323,
+          "line": 1344,
           "expression": "active.update(&txn).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1325,
+          "line": 1346,
           "expression": "emit_outbox("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1333,
+          "line": 1354,
           "expression": "txn.commit().await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1334,
+          "line": 1355,
           "expression": "realtime::emit("
         }
       ],
-      "calls": []
+      "calls": [
+        "crate::human_chat::require_pair"
+      ]
     },
     "infera-chat/src/learning.rs:10:Question": {
       "name": "Question",
@@ -11151,68 +11269,68 @@
         "service::update_conversation"
       ]
     },
-    "infera-chat/src/service.rs:824:update_conversation": {
+    "infera-chat/src/service.rs:829:update_conversation": {
       "name": "update_conversation",
       "path": "infera-chat/src/service.rs",
-      "line": 824,
-      "end_line": 864,
+      "line": 829,
+      "end_line": 869,
       "signature": "pub async fn update_conversation(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    body: UpdateConversation,\n) -> Result<conversation::Model, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 835,
+          "line": 840,
           "expression": "let membership = member(db, id, ctx.user_id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 836,
+          "line": 841,
           "expression": "if ![\"owner\", \"admin\"].contains(&membership.role.as_str()) {"
         }
       ],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 836,
+          "line": 841,
           "expression": "if ![\"owner\", \"admin\"].contains(&membership.role.as_str()) {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 839,
+          "line": 844,
           "expression": "if body.expected_version.is_some_and(|v| v != old.version) {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 840,
+          "line": 845,
           "expression": "return Err(AppError::Conflict(\"version conflict\".into()));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 853,
+          "line": 858,
           "expression": "return Err(AppError::BadRequest(\"session conversation binding is immutable\".into()));"
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 858,
+          "line": 863,
           "expression": "if let Some(v) = body.status {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 859,
+          "line": 864,
           "expression": "row.status = Set(v)"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 862,
+          "line": 867,
           "expression": "row.updated_at = Set(Utc::now());"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 863,
+          "line": 868,
           "expression": "Ok(row.update(db).await?)"
         }
       ],
@@ -11309,17 +11427,17 @@
         "service::archive_conversation"
       ]
     },
-    "infera-chat/src/service.rs:865:archive_conversation": {
+    "infera-chat/src/service.rs:870:archive_conversation": {
       "name": "archive_conversation",
       "path": "infera-chat/src/service.rs",
-      "line": 865,
-      "end_line": 879,
+      "line": 870,
+      "end_line": 884,
       "signature": "pub async fn archive_conversation(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(), AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 871,
+          "line": 876,
           "expression": "if old.owner_id != ctx.user_id {"
         }
       ],
@@ -11327,24 +11445,24 @@
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 875,
+          "line": 880,
           "expression": "row.deleted_at = Set(Some(Utc::now()));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 876,
+          "line": 881,
           "expression": "row.status = Set(\"archived\".into());"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 875,
+          "line": 880,
           "expression": "row.deleted_at = Set(Some(Utc::now()));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 877,
+          "line": 882,
           "expression": "row.update(db).await?;"
         }
       ],
@@ -11402,58 +11520,58 @@
         "service::add_member"
       ]
     },
-    "infera-chat/src/service.rs:880:add_member": {
+    "infera-chat/src/service.rs:885:add_member": {
       "name": "add_member",
       "path": "infera-chat/src/service.rs",
-      "line": 880,
-      "end_line": 918,
+      "line": 885,
+      "end_line": 923,
       "signature": "pub async fn add_member(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    input: MemberInput,\n) -> Result<conversation_member::Model, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 893,
+          "line": 898,
           "expression": "if ![\"owner\", \"admin\"].contains(&actor.role.as_str()) {"
         }
       ],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 888,
+          "line": 893,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 893,
+          "line": 898,
           "expression": "if ![\"owner\", \"admin\"].contains(&actor.role.as_str()) {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 912,
+          "line": 917,
           "expression": "if e.to_string().contains(\"unique\") {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 913,
+          "line": 918,
           "expression": "AppError::Conflict(\"member already exists\".into())"
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 902,
+          "line": 907,
           "expression": "state: Set(\"active\".into()),"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 906,
+          "line": 911,
           "expression": "updated_at: Set(now),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 909,
+          "line": 914,
           "expression": ".insert(db)"
         }
       ],
@@ -11517,63 +11635,63 @@
         "service::remove_member"
       ]
     },
-    "infera-chat/src/service.rs:932:remove_member": {
+    "infera-chat/src/service.rs:937:remove_member": {
       "name": "remove_member",
       "path": "infera-chat/src/service.rs",
-      "line": 932,
-      "end_line": 955,
+      "line": 937,
+      "end_line": 960,
       "signature": "pub async fn remove_member(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    user: Uuid,\n) -> Result<(), AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 940,
+          "line": 945,
           "expression": "if user != ctx.user_id && ![\"owner\", \"admin\"].contains(&actor.role.as_str()) {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 943,
+          "line": 948,
           "expression": "if user == conversation.owner_id {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 945,
+          "line": 950,
           "expression": "\"transfer ownership before removing the owner\".into(),"
         }
       ],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 940,
+          "line": 945,
           "expression": "if user != ctx.user_id && ![\"owner\", \"admin\"].contains(&actor.role.as_str()) {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 944,
+          "line": 949,
           "expression": "return Err(AppError::Conflict("
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 950,
+          "line": 955,
           "expression": "row.state = Set(\"left\".into());"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 945,
+          "line": 950,
           "expression": "\"transfer ownership before removing the owner\".into(),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 952,
+          "line": 957,
           "expression": "row.updated_at = Set(Utc::now());"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 953,
+          "line": 958,
           "expression": "row.update(db).await?;"
         }
       ],
@@ -11608,42 +11726,42 @@
         "service::list_messages"
       ]
     },
-    "infera-chat/src/service.rs:956:list_messages": {
+    "infera-chat/src/service.rs:961:list_messages": {
       "name": "list_messages",
       "path": "infera-chat/src/service.rs",
-      "line": 956,
-      "end_line": 1006,
+      "line": 961,
+      "end_line": 1011,
       "signature": "pub async fn list_messages(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    q: &ListQuery,\n) -> Result<Vec<Value>, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 978,
+          "line": 983,
           "expression": "let attachments = if message_ids.is_empty() {"
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 983,
+          "line": 988,
           "expression": ".filter(attachment::Column::Status.eq(\"ready\"))"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 965,
+          "line": 970,
           "expression": ".filter(message::Column::DeletedAt.is_null());"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 984,
+          "line": 989,
           "expression": ".filter(attachment::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1001,
+          "line": 1006,
           "expression": "object.insert(\"attachments\".into(), json!(attachments));"
         }
       ],
@@ -11830,113 +11948,113 @@
         "service::create_attachment"
       ]
     },
-    "infera-chat/src/service.rs:1008:create_attachment": {
+    "infera-chat/src/service.rs:1013:create_attachment": {
       "name": "create_attachment",
       "path": "infera-chat/src/service.rs",
-      "line": 1008,
-      "end_line": 1093,
+      "line": 1013,
+      "end_line": 1098,
       "signature": "pub async fn create_attachment(\n    state: &AppState,\n    ctx: &RequestContext,\n    conversation_id: Uuid,\n    input: CreateAttachment,\n) -> Result<AttachmentUpload, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1044,
+          "line": 1049,
           "expression": "ctx.organization_id,"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1062,
+          "line": 1067,
           "expression": "organization_id: Set(ctx.organization_id),"
         }
       ],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1021,
+          "line": 1026,
           "expression": "if file_name.is_empty() || file_name.chars().count() > 512 {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1022,
+          "line": 1027,
           "expression": "return Err(AppError::BadRequest(\"invalid attachment file name\".into()));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1024,
+          "line": 1029,
           "expression": "if media_type.is_empty() || media_type.len() > 255 || !media_type.contains('/') {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1025,
+          "line": 1030,
           "expression": "return Err(AppError::BadRequest(\"invalid attachment media type\".into()));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1027,
+          "line": 1032,
           "expression": "if !(0..=100 * 1024 * 1024).contains(&input.byte_size) {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1028,
+          "line": 1033,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1033,
+          "line": 1038,
           "expression": "value.len() != 64 || !value.bytes().all(|byte| byte.is_ascii_hexdigit())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1035,
+          "line": 1040,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1049,
+          "line": 1054,
           "expression": "if safe_name.is_empty() {"
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1014,
+          "line": 1019,
           "expression": "conversation_for(state.db.as_ref(), ctx, conversation_id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1015,
+          "line": 1020,
           "expression": "let storage = state"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1076,
+          "line": 1081,
           "expression": "status: Set(\"pending\".into()),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1082,
+          "line": 1087,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1084,
+          "line": 1089,
           "expression": ".insert(state.db.as_ref())"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1081,
+          "line": 1086,
           "expression": "updated_at: Set(now),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1082,
+          "line": 1087,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1084,
+          "line": 1089,
           "expression": ".insert(state.db.as_ref())"
         }
       ],
@@ -12062,17 +12180,17 @@
         "crate::storage::sanitize_file_name"
       ]
     },
-    "infera-chat/src/service.rs:1095:download_attachment": {
+    "infera-chat/src/service.rs:1100:download_attachment": {
       "name": "download_attachment",
       "path": "infera-chat/src/service.rs",
-      "line": 1095,
-      "end_line": 1128,
+      "line": 1100,
+      "end_line": 1133,
       "signature": "pub async fn download_attachment(\n    state: &AppState,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(attachment::Model, reqwest::Response), AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1101,
+          "line": 1106,
           "expression": ".filter(attachment::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
@@ -12080,44 +12198,44 @@
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1102,
+          "line": 1107,
           "expression": ".filter(attachment::Column::Status.eq(\"ready\"))"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1104,
+          "line": 1109,
           "expression": ".one(state.db.as_ref())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1107,
+          "line": 1112,
           "expression": "conversation_for(state.db.as_ref(), ctx, row.conversation_id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1111,
+          "line": 1116,
           "expression": "let storage = state"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1116,
+          "line": 1121,
           "expression": "let upstream = state"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1122,
+          "line": 1127,
           "expression": "if !upstream.status().is_success() {"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1103,
+          "line": 1108,
           "expression": ".filter(attachment::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1119,
+          "line": 1124,
           "expression": ".send()"
         }
       ],
@@ -12161,138 +12279,138 @@
         "service::complete_attachment"
       ]
     },
-    "infera-chat/src/service.rs:1130:complete_attachment": {
+    "infera-chat/src/service.rs:1135:complete_attachment": {
       "name": "complete_attachment",
       "path": "infera-chat/src/service.rs",
-      "line": 1130,
-      "end_line": 1215,
+      "line": 1135,
+      "end_line": 1220,
       "signature": "pub async fn complete_attachment(\n    state: &AppState,\n    ctx: &RequestContext,\n    id: Uuid,\n    upload_bytes: Option<&[u8]>,\n) -> Result<attachment::Model, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1137,
+          "line": 1142,
           "expression": ".filter(attachment::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1150,
+          "line": 1155,
           "expression": "return Err(AppError::Conflict("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1159,
+          "line": 1164,
           "expression": "if bytes.len() as i64 != row.byte_size {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1160,
+          "line": 1165,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1169,
+          "line": 1174,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1197,
+          "line": 1202,
           "expression": "return Err(AppError::Conflict("
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1207,
+          "line": 1212,
           "expression": "return Err(AppError::Conflict("
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1139,
+          "line": 1144,
           "expression": ".one(state.db.as_ref())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1142,
+          "line": 1147,
           "expression": "conversation_for(state.db.as_ref(), ctx, row.conversation_id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1146,
+          "line": 1151,
           "expression": "if row.status == \"ready\" {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1149,
+          "line": 1154,
           "expression": "if row.status != \"pending\" {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1154,
+          "line": 1159,
           "expression": "let storage = state"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1174,
+          "line": 1179,
           "expression": "let uploaded = state"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1182,
+          "line": 1187,
           "expression": "if !uploaded.status().is_success() {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1185,
+          "line": 1190,
           "expression": "uploaded.status()"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1190,
+          "line": 1195,
           "expression": "let response = state"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1196,
+          "line": 1201,
           "expression": "if !response.status().is_success() {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1212,
+          "line": 1217,
           "expression": "active.status = Set(\"ready\".into());"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1214,
+          "line": 1219,
           "expression": "Ok(active.update(state.db.as_ref()).await?)"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1138,
+          "line": 1143,
           "expression": ".filter(attachment::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1179,
+          "line": 1184,
           "expression": ".send()"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1193,
+          "line": 1198,
           "expression": ".send()"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1213,
+          "line": 1218,
           "expression": "active.updated_at = Set(Utc::now());"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1214,
+          "line": 1219,
           "expression": "Ok(active.update(state.db.as_ref()).await?)"
         }
       ],
@@ -12348,11 +12466,11 @@
         "crate::realtime::publisher"
       ]
     },
-    "infera-chat/src/realtime.rs:98:conversation_channel": {
+    "infera-chat/src/realtime.rs:110:conversation_channel": {
       "name": "conversation_channel",
       "path": "infera-chat/src/realtime.rs",
-      "line": 98,
-      "end_line": 100,
+      "line": 110,
+      "end_line": 112,
       "signature": "pub fn conversation_channel(id: Uuid) -> String",
       "declared_permissions": [],
       "guards": [],
@@ -12361,11 +12479,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-chat/src/realtime.rs:115:publisher": {
+    "infera-chat/src/realtime.rs:127:publisher": {
       "name": "publisher",
       "path": "infera-chat/src/realtime.rs",
-      "line": 115,
-      "end_line": 117,
+      "line": 127,
+      "end_line": 129,
       "signature": "pub fn publisher(state: &AppState) -> Option<Arc<SockudoPublisher>>",
       "declared_permissions": [],
       "guards": [],
@@ -12373,7 +12491,7 @@
       "state": [
         {
           "path": "infera-chat/src/realtime.rs",
-          "line": 116,
+          "line": 128,
           "expression": "state.realtime.clone()"
         }
       ],
@@ -12471,36 +12589,63 @@
         "service::mark_read"
       ]
     },
-    "infera-chat/src/service.rs:1444:mark_read": {
+    "infera-chat/src/service.rs:1465:mark_read": {
       "name": "mark_read",
       "path": "infera-chat/src/service.rs",
-      "line": 1444,
-      "end_line": 1471,
+      "line": 1465,
+      "end_line": 1492,
       "signature": "pub async fn mark_read(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    input: ReadInput,\n) -> Result<(), AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1452,
+          "line": 1473,
           "expression": "require_message_in_conversation(db, id, message_id).await?;"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1478,
+          "expression": "let updated=db.execute(Statement::from_sql_and_values(sea_orm::DatabaseBackend::Postgres,\"UPDATE chat_conversation_members m SET last_read_sequence=greatest(m.last_read_sequence,$3),updated_at=now() FROM chat_conversations c WHERE m.conversation_id=$1 AND m.user_id=$2 AND m.state='active' AND c.id=m.conversation_id AND c.organization_id=$4 AND $3<=c.last_sequence\",[id.into(),ctx.user_id.into(),input.sequence.into(),ctx.organization_id.into()])).await?;"
         }
       ],
-      "validation": [],
-      "state": [],
+      "validation": [
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1475,
+          "expression": "if referenced.sequence!=input.sequence {return Err(AppError::BadRequest(\"read message and sequence do not match\".into()))}"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1477,
+          "expression": "if input.sequence<0 {return Err(AppError::BadRequest(\"invalid read sequence\".into()))}"
+        },
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1479,
+          "expression": "if updated.rows_affected()!=1 {return Err(AppError::BadRequest(\"read sequence exceeds conversation\".into()))}"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-chat/src/service.rs",
+          "line": 1478,
+          "expression": "let updated=db.execute(Statement::from_sql_and_values(sea_orm::DatabaseBackend::Postgres,\"UPDATE chat_conversation_members m SET last_read_sequence=greatest(m.last_read_sequence,$3),updated_at=now() FROM chat_conversations c WHERE m.conversation_id=$1 AND m.user_id=$2 AND m.state='active' AND c.id=m.conversation_id AND c.organization_id=$4 AND $3<=c.last_sequence\",[id.into(),ctx.user_id.into(),input.sequence.into(),ctx.organization_id.into()])).await?;"
+        }
+      ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1457,
-          "expression": "row.updated_at = Set(Utc::now());"
+          "line": 1478,
+          "expression": "let updated=db.execute(Statement::from_sql_and_values(sea_orm::DatabaseBackend::Postgres,\"UPDATE chat_conversation_members m SET last_read_sequence=greatest(m.last_read_sequence,$3),updated_at=now() FROM chat_conversations c WHERE m.conversation_id=$1 AND m.user_id=$2 AND m.state='active' AND c.id=m.conversation_id AND c.organization_id=$4 AND $3<=c.last_sequence\",[id.into(),ctx.user_id.into(),input.sequence.into(),ctx.organization_id.into()])).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1458,
-          "expression": "row.update(db).await?;"
+          "line": 1479,
+          "expression": "if updated.rows_affected()!=1 {return Err(AppError::BadRequest(\"read sequence exceeds conversation\".into()))}"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1467,
+          "line": 1488,
           "expression": ".insert(db)"
         }
       ],
@@ -12556,11 +12701,11 @@
         "service::edit_message"
       ]
     },
-    "infera-chat/src/service.rs:1372:edit_message": {
+    "infera-chat/src/service.rs:1393:edit_message": {
       "name": "edit_message",
       "path": "infera-chat/src/service.rs",
-      "line": 1372,
-      "end_line": 1390,
+      "line": 1393,
+      "end_line": 1411,
       "signature": "pub async fn edit_message(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    body: EditMessage,\n) -> Result<message::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -12569,7 +12714,7 @@
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1389,
+          "line": 1410,
           "expression": "Ok(row.update(db).await?)"
         }
       ],
@@ -12633,53 +12778,53 @@
         "service::delete_message"
       ]
     },
-    "infera-chat/src/service.rs:1391:delete_message": {
+    "infera-chat/src/service.rs:1412:delete_message": {
       "name": "delete_message",
       "path": "infera-chat/src/service.rs",
-      "line": 1391,
-      "end_line": 1412,
+      "line": 1412,
+      "end_line": 1433,
       "signature": "pub async fn delete_message(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(), AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1401,
+          "line": 1422,
           "expression": "let membership = member(db, old.conversation_id, ctx.user_id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1403,
+          "line": 1424,
           "expression": "&& ![\"owner\", \"admin\", \"moderator\"].contains(&membership.role.as_str())"
         }
       ],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1403,
+          "line": 1424,
           "expression": "&& ![\"owner\", \"admin\", \"moderator\"].contains(&membership.role.as_str())"
         }
       ],
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1408,
+          "line": 1429,
           "expression": "row.deleted_at = Set(Some(Utc::now()));"
         }
       ],
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1408,
+          "line": 1429,
           "expression": "row.deleted_at = Set(Some(Utc::now()));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1409,
+          "line": 1430,
           "expression": "row.content = Set(json!({\"deleted\":true}));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1410,
+          "line": 1431,
           "expression": "row.update(db).await?;"
         }
       ],
@@ -12714,28 +12859,28 @@
         "service::react"
       ]
     },
-    "infera-chat/src/service.rs:1413:react": {
+    "infera-chat/src/service.rs:1434:react": {
       "name": "react",
       "path": "infera-chat/src/service.rs",
-      "line": 1413,
-      "end_line": 1443,
+      "line": 1434,
+      "end_line": 1464,
       "signature": "pub async fn react(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    input: ReactionInput,\n) -> Result<message_reaction::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1420,
+          "line": 1441,
           "expression": "return Err(AppError::BadRequest(\"reaction is too long\".into()));"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1437,
+          "line": 1458,
           "expression": "if e.to_string().contains(\"unique\") {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1438,
+          "line": 1459,
           "expression": "AppError::Conflict(\"reaction already exists\".into())"
         }
       ],
@@ -12743,7 +12888,7 @@
       "effects": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1434,
+          "line": 1455,
           "expression": ".insert(db)"
         }
       ],
@@ -12846,11 +12991,11 @@
       ],
       "calls": []
     },
-    "infera-chat/src/service.rs:1509:public_pending_runtime_inputs": {
+    "infera-chat/src/service.rs:1530:public_pending_runtime_inputs": {
       "name": "public_pending_runtime_inputs",
       "path": "infera-chat/src/service.rs",
-      "line": 1509,
-      "end_line": 1528,
+      "line": 1530,
+      "end_line": 1549,
       "signature": "pub(crate) fn public_pending_runtime_inputs(value: &Value) -> Value",
       "declared_permissions": [],
       "guards": [],
@@ -12858,12 +13003,12 @@
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1522,
+          "line": 1543,
           "expression": "\"status\": input.get(\"status\"),"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1523,
+          "line": 1544,
           "expression": "\"expires_at\": input.get(\"expires_at\"),"
         }
       ],
@@ -12990,11 +13135,11 @@
         "service::ai_message"
       ]
     },
-    "infera-chat/src/service.rs:1566:ai_message": {
+    "infera-chat/src/service.rs:1587:ai_message": {
       "name": "ai_message",
       "path": "infera-chat/src/service.rs",
-      "line": 1566,
-      "end_line": 1593,
+      "line": 1587,
+      "end_line": 1614,
       "signature": "pub async fn ai_message(state:&AppState,ctx:&RequestContext,id:Uuid,input:AiMessage)->Result<(message::Model,message::Model,ai_turn::Model),AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -13002,42 +13147,42 @@
       "state": [
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1567,
+          "line": 1588,
           "expression": "let conversation=conversation_for(state.db.as_ref(),ctx,id).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1575,
+          "line": 1596,
           "expression": ".one(state.db.as_ref()).await? {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1577,
+          "line": 1598,
           "expression": ".filter(ai_turn::Column::Status.eq(\"completed\")).order_by_desc(ai_turn::Column::CreatedAt)"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1578,
+          "line": 1599,
           "expression": ".one(state.db.as_ref()).await? {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1580,
+          "line": 1601,
           "expression": "if let Some(assistant) = message::Entity::find_by_id(assistant_id).one(state.db.as_ref()).await? {"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1588,
+          "line": 1609,
           "expression": "let reservation=crate::asset_economy::reserve(state,ctx,id,room,\"ai_chat\",input.client_id.as_deref()).await?;"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1589,
+          "line": 1610,
           "expression": "let result=tokio::time::timeout(std::time::Duration::from_secs(900),ai_message_with_plan(state,ctx,id,input)).await"
         },
         {
           "path": "infera-chat/src/service.rs",
-          "line": 1591,
+          "line": 1612,
           "expression": "if let Some(id)=reservation{crate::asset_economy::finish(state,&id,result.is_ok()).await?;}"
         }
       ],
@@ -13201,6 +13346,48 @@
       "calls": [
         "service::conversation_for"
       ]
+    },
+    "infera-chat/src/human_chat.rs:244:notification_context": {
+      "name": "notification_context",
+      "path": "infera-chat/src/human_chat.rs",
+      "line": 244,
+      "end_line": 264,
+      "signature": "async fn notification_context(\n    State(s): State<AppState>,\n    h: axum::http::HeaderMap,\n    axum::extract::Path(id): axum::extract::Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-chat/src/human_chat.rs",
+          "line": 256,
+          "expression": "let r=s.db.query_one(sql(\"SELECT x.id,x.conversation_id,x.sender_id,x.sequence,c.kind,c.organization_id FROM chat_messages x JOIN chat_conversations c ON c.id=x.conversation_id WHERE x.id=$1 AND x.deleted_at IS NULL AND c.deleted_at IS NULL AND x.status='sent'\",vec![id.into()])).await?.ok_or(AppError::NotFound)?;"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-chat/src/human_chat.rs",
+          "line": 251,
+          "expression": ".filter(|v| !v.is_empty())"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-chat/src/human_chat.rs",
+          "line": 256,
+          "expression": "let r=s.db.query_one(sql(\"SELECT x.id,x.conversation_id,x.sender_id,x.sequence,c.kind,c.organization_id FROM chat_messages x JOIN chat_conversations c ON c.id=x.conversation_id WHERE x.id=$1 AND x.deleted_at IS NULL AND c.deleted_at IS NULL AND x.status='sent'\",vec![id.into()])).await?.ok_or(AppError::NotFound)?;"
+        },
+        {
+          "path": "infera-chat/src/human_chat.rs",
+          "line": 260,
+          "expression": "let recipients=s.db.query_all(sql(\"SELECT user_id,last_read_sequence<$2 AS unread FROM chat_conversation_members WHERE conversation_id=$1 AND state='active' AND user_id IS DISTINCT FROM $3\",vec![conversation.into(),sequence.into(),sender.into()])).await?.iter().map(|r|Ok(json!({\"user_id\":r.try_get::<Uuid>(\"\",\"user_id\")?,\"unread\":r.try_get::<bool>(\"\",\"unread\")?}))).collect::<Result<Vec<_>,sea_orm::DbErr>>()?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-chat/src/human_chat.rs",
+          "line": 256,
+          "expression": "let r=s.db.query_one(sql(\"SELECT x.id,x.conversation_id,x.sender_id,x.sequence,c.kind,c.organization_id FROM chat_messages x JOIN chat_conversations c ON c.id=x.conversation_id WHERE x.id=$1 AND x.deleted_at IS NULL AND c.deleted_at IS NULL AND x.status='sent'\",vec![id.into()])).await?.ok_or(AppError::NotFound)?;"
+        }
+      ],
+      "calls": []
     },
     "infera-chat/src/fitness.rs:220:generate": {
       "name": "generate",

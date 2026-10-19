@@ -1,0 +1,21 @@
+asset: unresolved registrations
+infera-asset/src/asset/routes.rs:GET:/:rooms_index:not-mounted
+infera-asset/src/asset/routes.rs:POST:/:rooms_create:not-mounted
+infera-asset/src/asset/routes.rs:GET:/{room_id}:rooms_show:not-mounted
+infera-asset/src/asset/routes.rs:GET:/{room_id}/playback:rooms_playback_show:not-mounted
+infera-asset/src/asset/routes.rs:GET:/{room_id}/start:rooms_start:not-mounted
+infera-asset/src/asset/routes.rs:GET:/{room_id}/stop:rooms_stop:not-mounted
+infera-asset/src/asset/routes.rs:PUT:/{room_id}:rooms_update:not-mounted
+infera-asset/src/asset/routes.rs:PATCH:/{room_id}:rooms_update:not-mounted
+infera-asset/src/asset/routes.rs:DELETE:/{room_id}:rooms_delete:not-mounted
+infera-asset/src/asset/routes.rs:POST:/livekit/webhook:livekit_webhook:not-mounted
+infera-asset/src/budget/routes.rs:POST:/{room_state_id}/respond:room_state_respond:not-mounted
+infera-asset/src/season/routes.rs:POST:/{room_state_id}/respond:room_state_respond:not-mounted
+file:///Users/mohammadralizadeh/Infera/.task-worktrees/sdk-release-gates/faiber-ts-sdk/scripts/extract-service-contracts.mjs:425
+      throw new Error(`${service}: mounted source graph requires review: ${JSON.stringify(graph.unresolved)} ${JSON.stringify(graph.duplicates)} ${JSON.stringify(graph.operations.filter(op=>op.unresolved_handler || op.inline_handler))}`);
+            ^
+
+Error: chat: mounted source graph requires review: [{"kind":"router_call","call":"infera_summary_sdk::server::router","path":"infera-chat/src/summary_evidence.rs","line":28}] [] []
+    at file:///Users/mohammadralizadeh/Infera/.task-worktrees/sdk-release-gates/faiber-ts-sdk/scripts/extract-service-contracts.mjs:425:13
+
+Node.js v22.13.1

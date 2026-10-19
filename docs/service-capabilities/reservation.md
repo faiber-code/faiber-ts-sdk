@@ -32,7 +32,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `DELETE /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:39` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
 | `GET /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:45` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
 | `POST /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:51` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
-| `DELETE /api/v1/providers/{id}/services/{service_id}` | `infera-reservation/src/provider/routes.rs:57` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `DELETE /api/v1/providers/{id}/services/{service_id}` | `infera-reservation/src/provider/routes.rs:57` | inspect middleware/local scope | stale |
 | `GET /api/v1/providers/{provider_id}/schedules` | `infera-reservation/src/work_schedule/routes.rs:10` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
 | `PUT /api/v1/providers/{provider_id}/schedules` | `infera-reservation/src/work_schedule/routes.rs:16` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
 | `POST /api/v1/slots` | `infera-reservation/src/time_slot/routes.rs:19` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |

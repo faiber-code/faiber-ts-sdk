@@ -63,7 +63,12 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 
 `operations.routerApiNotFoundAny(method)` and
 `operations.routerApiPathNotFoundAny("obsolete/items", method)` represent explicit
-legacy not-found routes. They always return404 and do not mutate CRM records. Axios
-rejects them by default; intentional diagnostics can use `validateStatus` to inspect
+legacy not-found routes. The handler returns404 and does not mutate CRM records. HEAD has no body; the CORS
+layer can answer OPTIONS with an empty200. Axios rejects404 by default; intentional
+diagnostics can use `validateStatus` and check for a body before inspecting
 `{error:{code:"api_route_not_found",message}}`. Nested raw path segments retain slashes;
 traversal, percent escapes, query/fragment syntax and backslashes are rejected locally.
+
+`CONNECT` requires an explicitly supplied tunnel-capable Axios adapter. The default
+Node Axios adapter does not consume CONNECT response events, and browsers restrict
+tunnel methods; the SDK rejects a default-adapter CONNECT call before transport.

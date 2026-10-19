@@ -1,0 +1,71 @@
+{
+  "after": {
+    "lms_ai_performance_summaries": {
+      "count": 1,
+      "fingerprint": "d63cf21a93f61ba950fc463ddf0e25e3"
+    },
+    "lms_ai_summary_jobs": {
+      "count": 1,
+      "fingerprint": "95478c7842ff6c0b2a01a70ef14048c2"
+    },
+    "lms_ai_summary_settings": {
+      "count": 3,
+      "fingerprint": "abe15e0fd02ce7e20b19d9cf610f6dc5"
+    }
+  },
+  "before": {
+    "lms_ai_performance_summaries": {
+      "count": 1,
+      "fingerprint": "d63cf21a93f61ba950fc463ddf0e25e3"
+    },
+    "lms_ai_summary_jobs": {
+      "count": 1,
+      "fingerprint": "95478c7842ff6c0b2a01a70ef14048c2"
+    },
+    "lms_ai_summary_settings": {
+      "count": 3,
+      "fingerprint": "abe15e0fd02ce7e20b19d9cf610f6dc5"
+    }
+  },
+  "migration_count": 38,
+  "migrations": [
+    "m20250617_000001_create_lms_schema",
+    "m20260722_000002_add_session_video_sources",
+    "m20260726_000003_add_course_sort_order",
+    "m20260728_000004_add_academy_learning",
+    "m20260729_000005_add_drm_media_uuid",
+    "m20260810_000006_add_course_category_image",
+    "m20260823_000007_complete_lms_domain",
+    "m20260823_000008_enrich_homework_questions",
+    "m20260824_000009_add_import_key_constraints",
+    "m20260827_000010_add_own_access_support",
+    "m20260828_000011_complete_certificate_workflow",
+    "m20260829_000012_use_uuid_domain_ids",
+    "m20260901_000013_add_course_session_external_video",
+    "m20260902_000014_add_course_successors",
+    "m20260906_000015_add_session_access_lifecycle",
+    "m20260908_000016_remove_classroom_user_status",
+    "m20260908_000017_learner_branding",
+    "m20260909_000018_localize_session_type_name",
+    "m20260909_000019_restore_classroom_user_status",
+    "m20260912_000020_session_evaluations",
+    "m20260916_000021_ai_performance_summaries",
+    "m20260916_000022_evaluation_question_controls",
+    "m20260916_000023_ai_summary_concurrency",
+    "m20260916_000024_refresh_persian_ai_summaries",
+    "m20260922_000025_homework_banks",
+    "m20260922_000026_separate_legacy_homeworks_from_banks",
+    "m20260922_000027_interactive_learning",
+    "m20260923_000028_add_homework_question_kind",
+    "m20260923_000029_assign_homework_items",
+    "m20260923_000030_add_homework_question_name",
+    "m20260923_000031_restore_assignment_question_links",
+    "m20261003_000032_educational_transfers",
+    "m20261005_000033_add_course_delivery_prices",
+    "m20261007_000033_asset_outbox_retry",
+    "m20261007_000034_asset_configuration",
+    "m20261018_000034_session_students",
+    "m20261019_000035_notifications",
+    "m20261019_000050_summary_activity_outbox"
+  ]
+}

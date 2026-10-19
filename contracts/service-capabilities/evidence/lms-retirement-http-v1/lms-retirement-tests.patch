@@ -1,0 +1,226 @@
+diff --git a/tests/run-summary-retirement-http.sh b/tests/run-summary-retirement-http.sh
+new file mode 100755
+index 0000000..f3a05d3
+--- /dev/null
++++ b/tests/run-summary-retirement-http.sh
+@@ -0,0 +1,14 @@
++#!/usr/bin/env bash
++set -euo pipefail
++repo="$(cd "$(dirname "$0")/.." && pwd)"
++: "${SUMMARY_LMS_SDK_ENTRY:?Set isolated compiled @faiber/faiber-lms dist/index.js}"
++project="lms-retirement-http-$$"
++compose=(docker compose -p "$project" -f "$repo/tests/summary-retirement-services.compose.yml")
++trap '"${compose[@]}" down --remove-orphans' EXIT
++"${compose[@]}" up -d --wait --pull never
++pg_port="$("${compose[@]}" port postgres 5432 | sed 's/.*://')"
++rmq_port="$("${compose[@]}" port rabbitmq 5672 | sed 's/.*://')"
++export SUMMARY_TEST_DATABASE_URL="postgres://postgres:summary-test@127.0.0.1:$pg_port/summary_test"
++export SUMMARY_TEST_BROKER_URL="amqp://guest:guest@127.0.0.1:$rmq_port/%2f"
++export SUMMARY_LMS_RETIREMENT_CONSUMER="$repo/tests/summary-retirement-http.mjs"
++cargo test --manifest-path "$repo/Cargo.toml" --locked --offline --test summary_retirement_http -- --ignored --nocapture
+diff --git a/tests/summary-retirement-http.mjs b/tests/summary-retirement-http.mjs
+new file mode 100644
+index 0000000..dbc4ebc
+--- /dev/null
++++ b/tests/summary-retirement-http.mjs
+@@ -0,0 +1,23 @@
++// Retired wrappers do not exist: use the actual SDK's generic transport to probe old URLs.
++import assert from 'node:assert/strict';import {pathToFileURL} from 'node:url';
++const {LmsApi,FaiberClient}=await import(pathToFileURL(process.env.SUMMARY_LMS_SDK_ENTRY).href);
++const f=JSON.parse(process.env.SUMMARY_LMS_RETIREMENT_FIXTURE);let assertions=0;const observations=[];
++function check(v,message){assert.ok(v,message);assertions++;}
++const permissions='lms:config:read,lms:config:update,lms:ai_summary:read,lms:ai_summary:read_own,lms:ai_summary:read_related,lms:ai_summary:manage';
++const api=new LmsApi(new FaiberClient('lms',{domains:{lms:f.url},axios:{proxy:false,timeout:10000,headers:{'x-user-id':f.user_id,'x-user-roles':'admin','x-user-permissions':permissions}}}));
++check(api.aiSummaries===undefined&&api.aiSummary===undefined,'no obsolete LMS summary facade');
++check(![...Object.getOwnPropertyNames(api),...Object.getOwnPropertyNames(Object.getPrototypeOf(api)),...Object.getOwnPropertyNames(Object.getPrototypeOf(api.operations))].some(k=>/ai.?summar/i.test(k)),'no retired summary facade or operation method exposed');
++const health=await api.request({method:'GET',url:'/health'});check(health.status===200&&health.data.status==='success','actual LMS server health');
++const self=await api.request({method:'GET',url:'/api/v1/auth/self'});check(self.status===200&&self.data.data.user_id===f.user_id,'valid trusted actor extracted');check(self.data.data.permissions.includes('lms:ai_summary:manage'),'legacy grants are present so absence is not permission denial');
++for(const url of ['/api/v1/config/grades','/api/v1/evaluations/settings']){const r=await api.request({method:'GET',url});check(r.status===200&&r.data.status==='success','ordinary education/config endpoint preserved: '+url);}
++const openapi=await api.request({method:'GET',url:'/api/openapi.json'});check(!Object.keys(openapi.data.paths).some(p=>p.includes('ai-summaries')),'generated OpenAPI has no retired routes');
++const roles=['student','teacher','support'].map(role=>({role,enabled:false,model_ref:'fixture-retired',language:'fa',guidance:'fixture',quiet_minutes:10,max_wait_minutes:60}));
++const operations=[['GET','/settings',null,null],['PUT','/settings',{globally_enabled:true,concurrency_limit:1,roles},null],['GET','/models',null,null],['GET','/latest',null,{role:'student',user_id:f.user_id}],['GET','/jobs',null,{role:'student',page:1,page_size:20}],['GET','/summaries',null,{role:'student',page:1,page_size:20}],['POST','/refresh',{role:'student',user_ids:[f.user_id]},null],['POST',`/users/${f.user_id}/student/refresh`,null,null]];
++function classify(r){const contentType=String(r.headers['content-type']??'');if([401,403].includes(r.status))return'auth';if(r.status===404)return'not_found';if(r.status===405)return'method_not_allowed';if(typeof r.data==='string'&&r.data.includes(f.spa_marker)&&contentType.includes('text/html'))return'spa_fallback';if(contentType.includes('json')||typeof r.data==='object')return'json_api';return'other';}
++for(const phase of ['index_present','index_absent']){
++ if(phase==='index_absent'){const r=await fetch(f.url+'/__fixture/remove-index',{method:'POST'});check(r.ok,'remove only test SPA file');}
++ for(const[method,path,data,params]of operations){const r=await api.request({method,url:'/api/v1/ai-summaries'+path,...(data?{data}:{}),...(params?{params}:{}),validateStatus:()=>true});const kind=classify(r);observations.push({phase,method,path:'/api/v1/ai-summaries'+path,status:r.status,classification:kind,content_type:r.headers['content-type']??null,allow:r.headers.allow??null,body:r.data});check(kind!=='auth','not a login/permission response');check(kind!=='json_api','no old JSON summary API or compatibility proxy');
++ if(method==='GET')check(kind===(phase==='index_present'?'spa_fallback':'not_found'),'GET uses generic SPA fallback only when index exists');else check(kind==='method_not_allowed','removed non-GET uses generic GET fallback405');
++ }
++}
++console.log(JSON.stringify({status:'passed',assertions,retired_operations:8,observations,scope:'actual compiled SDK generic transport to mounted immutable LMS router; trusted gateway actor fixture; real PostgreSQL full historical migrations and RabbitMQ; synthetic SPA index and Profile name lookup only; no model/provider/billing'},null,2));
+diff --git a/tests/summary-retirement-services.compose.yml b/tests/summary-retirement-services.compose.yml
+new file mode 100644
+index 0000000..94f2378
+--- /dev/null
++++ b/tests/summary-retirement-services.compose.yml
+@@ -0,0 +1,22 @@
++services:
++  postgres:
++    image: postgres:16-alpine
++    environment:
++      POSTGRES_DB: summary_test
++      POSTGRES_USER: postgres
++      POSTGRES_PASSWORD: summary-test
++    ports: ["127.0.0.1::5432"]
++    tmpfs: [/var/lib/postgresql/data]
++    healthcheck:
++      test: [CMD-SHELL, "pg_isready -U postgres -d summary_test"]
++      interval: 1s
++      timeout: 5s
++      retries: 30
++  rabbitmq:
++    image: rabbitmq:3-alpine
++    ports: ["127.0.0.1::5672"]
++    healthcheck:
++      test: [CMD, rabbitmq-diagnostics, -q, ping]
++      interval: 2s
++      timeout: 5s
++      retries: 30
+diff --git a/tests/summary_retirement_http.rs b/tests/summary_retirement_http.rs
+new file mode 100644
+index 0000000..1f8a55c
+--- /dev/null
++++ b/tests/summary_retirement_http.rs
+@@ -0,0 +1,143 @@
++//! Real HTTP/compiled SDK retirement check. No production summaries or live identities.
++use axum::{routing::post, Json, Router};
++use infera_lms::{router, state::AppState};
++use migration::{Migrator, MigratorTrait};
++use sea_orm::{ConnectionTrait, Database, DatabaseBackend, Statement};
++use serde_json::{json, Value};
++use std::sync::Arc;
++use uuid::Uuid;
++async fn serve(app: Router) -> String {
++    let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
++    let url = format!("http://{}", listener.local_addr().unwrap());
++    tokio::spawn(async move { axum::serve(listener, app).await.unwrap() });
++    url
++}
++async fn legacy_snapshot(db: &sea_orm::DatabaseConnection) -> Value {
++    let mut values = serde_json::Map::new();
++    for table in [
++        "lms_ai_summary_settings",
++        "lms_ai_performance_summaries",
++        "lms_ai_summary_jobs",
++    ] {
++        let row=db.query_one(Statement::from_string(DatabaseBackend::Postgres,format!("SELECT COUNT(*)::bigint AS n,md5(COALESCE(string_agg(to_jsonb(t)::text,'' ORDER BY to_jsonb(t)::text),'')) AS fingerprint FROM {table} t"))).await.unwrap().unwrap();
++        values.insert(table.into(),json!({"count":row.try_get::<i64>("","n").unwrap(),"fingerprint":row.try_get::<String>("","fingerprint").unwrap()}));
++    }
++    json!(values)
++}
++#[tokio::test(flavor = "multi_thread", worker_threads = 4)]
++#[ignore = "requires dedicated SUMMARY_TEST_DATABASE_URL, SUMMARY_TEST_BROKER_URL and compiled SDK entry"]
++async fn retired_summary_routes_are_not_json_apis_and_legacy_storage_is_inert() {
++    let database = std::env::var("SUMMARY_TEST_DATABASE_URL").unwrap();
++    assert!(database.contains("summary_test"));
++    let db = Database::connect(&database).await.unwrap();
++    // Whole historical migration chain, including the combined summary/evaluation migration.
++    Migrator::up(&db, None).await.unwrap();
++    let names = db
++        .query_all(Statement::from_string(
++            DatabaseBackend::Postgres,
++            "SELECT version FROM seaql_migrations ORDER BY version",
++        ))
++        .await
++        .unwrap()
++        .into_iter()
++        .map(|r| r.try_get::<String>("", "version").unwrap())
++        .collect::<Vec<_>>();
++    assert!(names
++        .iter()
++        .any(|n| n.contains("000021_ai_performance_summaries")));
++    assert!(names
++        .iter()
++        .any(|n| n.contains("000020_session_evaluations")));
++    let user = Uuid::new_v4();
++    db.execute(Statement::from_sql_and_values(DatabaseBackend::Postgres,"INSERT INTO lms_ai_performance_summaries(subject_user_id,role,state,freshness,language,model_ref,evidence_fingerprint,evidence_cutoff,source_revision,config_revision,result) VALUES($1,'student','completed','fresh','fa','fixture-retired','fixture',now(),1,1,$2)",vec![user.into(),json!({"marker":"legacy-storage-must-remain"}).into()])).await.unwrap();
++    db.execute(Statement::from_sql_and_values(DatabaseBackend::Postgres,"INSERT INTO lms_ai_summary_jobs(subject_user_id,role,first_changed_at,last_changed_at,due_at) VALUES($1,'student',now(),now(),now())",vec![user.into()])).await.unwrap();
++    let before = legacy_snapshot(&db).await;
++    let profile = serve(Router::new().route(
++        "/get",
++        post(|| async { Json(json!({"data":{"profiles":[]}})) }),
++    ))
++    .await;
++    for key in [
++        "PROFILE_BASE_URL",
++        "DRM_BASE_URL",
++        "AGENTIC_URL",
++        "AGENTIC_BASE_URL",
++        "SUMMARY_AGENTIC_URL",
++    ] {
++        std::env::set_var(key, &profile);
++    }
++    std::env::set_var("FLOW_EVENTS_ENABLED", "false");
++    let connection = Arc::new(
++        lapin::Connection::connect(
++            &std::env::var("SUMMARY_TEST_BROKER_URL").unwrap(),
++            lapin::ConnectionProperties::default(),
++        )
++        .await
++        .unwrap(),
++    );
++    let channel = Arc::new(connection.create_channel().await.unwrap());
++    let flow = infera_flow_sdk::setup_flow_sdk(channel.clone(), "lms-retirement-local-test").await;
++    let state = AppState {
++        db: Arc::new(db),
++        broker_channel: channel,
++        dev: Arc::new(false),
++        flow_middleware: flow.middleware,
++        profile_client: Arc::new(infera_lms::profile::ProfileClient::from_env()),
++        drm_client: Arc::new(infera_lms::drm::DrmClient::from_env()),
++    };
++    // The production fallback reads panel/dist/index.html relative to cwd. Test it
++    // with a deterministic index, then with that file absent. Production source untouched.
++    let original = std::env::current_dir().unwrap();
++    let dir = std::env::temp_dir().join(format!("lms-retirement-{}", Uuid::new_v4().simple()));
++    std::fs::create_dir_all(dir.join("panel/dist")).unwrap();
++    let index = dir.join("panel/dist/index.html");
++    let marker = "<!doctype html><html><body>LMS_RETIREMENT_SPA_FIXTURE</body></html>";
++    std::fs::write(&index, marker).unwrap();
++    std::env::set_current_dir(&dir).unwrap();
++    let app = Router::new()
++        .merge(router::routes(&state))
++        .with_state(state.clone())
++        .merge(infera_lms::summary_evidence::routes(state.clone()));
++    let control = Router::new().route(
++        "/__fixture/remove-index",
++        post(move || {
++            let index = index.clone();
++            async move {
++                std::fs::remove_file(index).unwrap();
++                Json(json!({"ok":true}))
++            }
++        }),
++    );
++    let url = serve(app.merge(control)).await;
++    let output = std::process::Command::new("node")
++        .arg(std::env::var("SUMMARY_LMS_RETIREMENT_CONSUMER").unwrap())
++        .env(
++            "SUMMARY_LMS_RETIREMENT_FIXTURE",
++            json!({"url":url,"user_id":user,"spa_marker":"LMS_RETIREMENT_SPA_FIXTURE"}).to_string(),
++        )
++        .output()
++        .unwrap();
++    println!("{}", String::from_utf8_lossy(&output.stdout));
++    eprintln!("{}", String::from_utf8_lossy(&output.stderr));
++    let after = legacy_snapshot(state.db.as_ref()).await;
++    println!(
++        "LEGACY_STORAGE {}",
++        json!({"before":before,"after":after,"migration_count":names.len(),"migrations":names})
++    );
++    std::env::set_current_dir(original).unwrap();
++    std::fs::remove_dir_all(dir).unwrap();
++    assert_eq!(
++        before, after,
++        "Retired requests must not read-modify/queue legacy summaries"
++    );
++    assert!(
++        output.status.success(),
++        "compiled SDK retirement consumer failed: {}",
++        output.status
++    );
++    state.db.close_by_ref().await.unwrap();
++    connection
++        .close(200, "local retirement test finished")
++        .await
++        .unwrap();
++}

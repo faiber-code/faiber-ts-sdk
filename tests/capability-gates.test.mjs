@@ -128,3 +128,8 @@ test('cross-service supporting locks and logs are all integrity checked',()=>{
   assert.equal(verifyRunArtifacts({run:{...run,additional_artifacts:[null]}},root).run.artifact_verified,false);
  } finally {rmSync(root,{recursive:true,force:true});}
 });
+
+test('a retained dirty-working extraction failure remains unresolved drift rather than an empty verified tree',()=>{
+ const f=reviewedFixture();f.services.example.working_drift={added:[],absent:[],changed:[],extraction_errors:[{status:'failed',artifact_path:'working.stderr.log'}]};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/unresolved working\/pinned contract drift/);
+});

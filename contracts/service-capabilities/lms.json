@@ -11,8 +11,8 @@
     "README.md",
     "src/router.rs"
   ],
-  "canonical_revision": "7a0315c39ac53df3ad6c6ca53fbe574f19046e52",
-  "sdk_source_revision": "f5030658459f456bb5310f3f460cd348f126930c",
+  "canonical_revision": "230453c1471d723af582308e43b5b43b5a0f7b99",
+  "sdk_source_revision": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
   "working_revision": "d94f42a89b344e5b8809f62a4a4324ceda69553a",
   "working_changes": [
     "M entity/src/classroom_session.rs",
@@ -42,11 +42,12 @@
     "?? migration/src/m20261019_000050_summary_activity_outbox.rs",
     "?? src/asset_economy.rs",
     "?? src/service_billing.rs",
+    "?? src/summary_aggregates.sql",
     "?? src/summary_evidence.rs",
     "?? src/summary_evidence.sql"
   ],
   "source_relationship": "diverged",
-  "source_tree_checksum": "d35fde85e30d0ba3425c0731ec6b241a2e6ea1a15c637a2c67674b4d8f523083",
+  "source_tree_checksum": "2a9897a564bb8683cd10be6ffea205f584a3873c16e42e0f14fa3ccdea3a08b2",
   "source_files": [
     {
       "path": "infera-lms/src/academy/mod.rs",
@@ -90,7 +91,7 @@
     },
     {
       "path": "infera-lms/src/broker.rs",
-      "checksum": "143515d5cdf9ed52190b7581877e676108d209ed36bb183cdff9ca5c26e9ff44"
+      "checksum": "4f8aa784089c60853191a95ceae08cbff48c558e862d4368d3c3e9690d731c8b"
     },
     {
       "path": "infera-lms/src/certificate/methods.rs",
@@ -258,7 +259,7 @@
     },
     {
       "path": "infera-lms/src/homework/methods.rs",
-      "checksum": "a8add2ed72683ec42bddc59a8be6d397d149e4ed36e7c651db46eabb7cbed55c"
+      "checksum": "b739ab1fad0c35515a5cb31bb4396bfdf5b3d7fc17e1095eaafbeff03fce3e7c"
     },
     {
       "path": "infera-lms/src/homework/mod.rs",
@@ -306,11 +307,11 @@
     },
     {
       "path": "infera-lms/src/lib.rs",
-      "checksum": "4898fdf7449c85a153146063ea12e341dc5d45cd47800d01547a05bd40b9a915"
+      "checksum": "5c876b7d0eb72f0ae164eac43363cad7e87652bd5d43f12f9ad53196628c0f59"
     },
     {
       "path": "infera-lms/src/main.rs",
-      "checksum": "79fa700e74e9086fabadef801fd003830ad9ba4f1038d467d00a4ac7d8513cbb"
+      "checksum": "0c0b7d4a7125db7238952351023cfcf80504ccce3424ddcbf34dda3c6d40f5a9"
     },
     {
       "path": "infera-lms/src/media.rs",
@@ -319,6 +320,22 @@
     {
       "path": "infera-lms/src/models.rs",
       "checksum": "30e23fc2164bcc496530e449e38d75d9c7c66afd0fc2f579cdf858d4c75ef4f8"
+    },
+    {
+      "path": "infera-lms/src/notifications/contacts.rs",
+      "checksum": "e7b867712c777127049e074d98cd00a06ce3ac65092e14343ac37a79f1372864"
+    },
+    {
+      "path": "infera-lms/src/notifications/mod.rs",
+      "checksum": "fd8c5cd12dee9bbb8c29322c70bccbc950baab9b30fd31cc6bb2c619435ce2ff"
+    },
+    {
+      "path": "infera-lms/src/notifications/scheduler.rs",
+      "checksum": "a05f338c7577556fc69e1fd1f146c2148e5a6d3d2ea463dd774f89eba8d6bf14"
+    },
+    {
+      "path": "infera-lms/src/notifications/source_events.rs",
+      "checksum": "14c96cf064531b1afd2fabfcade8ecf466c862bb985f0c978cd617c534fbb5bc"
     },
     {
       "path": "infera-lms/src/pagination.rs",
@@ -358,7 +375,7 @@
     },
     {
       "path": "infera-lms/src/router.rs",
-      "checksum": "1eb93cfaa1fccebdc14c94d9ca67d6d1aad52b7c4469d66a0dc809e3cf531927"
+      "checksum": "91f97b09341bffbf3a9d633c641e5585b58ba31a5dd9e1820d13a1ee57c14a49"
     },
     {
       "path": "infera-lms/src/service/mod.rs",
@@ -514,7 +531,7 @@
     },
     {
       "path": "infera-lms/migration/src/lib.rs",
-      "checksum": "76e8384111e8e5df488fa7a9ee0df628bb8b3a9ba6998e0e3dfa1ee77ab1fb8e"
+      "checksum": "a668d357225afa93b5c2d574d35e8c1f21d45360662391433bdae773f256523d"
     },
     {
       "path": "infera-lms/migration/src/m20250617_000001_create_lms_schema.rs",
@@ -665,16 +682,20 @@
       "checksum": "821c7175a87fa210eeace0005f41012e8f2852cdaff3b91b62b8ccb5814d0f81"
     },
     {
+      "path": "infera-lms/migration/src/m20261019_000035_notifications.rs",
+      "checksum": "a87fcc5646117f69c677aae7d8657c754ad61f005c1bedd4d40755a0159e73b2"
+    },
+    {
       "path": "infera-lms/migration/src/main.rs",
       "checksum": "6a9e7c82244ea3b2eab1a9da36d20fc7df609569da9ec2214bfe6a838c5ba99d"
     },
     {
       "path": "infera-lms/Cargo.toml",
-      "checksum": "3168ff2182008fe928f2861365ec666b6d2611d010c5b0bd5b04734cd0751653"
+      "checksum": "5767e8e7b724eb9665d03ed85c801b35ae5b17961f78c54b1ffabe77fc1b6672"
     },
     {
       "path": "infera-lms/Cargo.lock",
-      "checksum": "f8e0ea0a964505b174080a6dbf1bd0661bad2aace9d934a53583d84513c05aca"
+      "checksum": "8956cf55fee364965e95444db8b8b2c314f38c7ea22907bf02cf67619180e744"
     },
     {
       "path": "infera-lms/.cargo/config.toml",
@@ -693,7 +714,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "5076d181857c6d264bf584beeaca44c87cae5bd592be0f7d8a8bc817734de713",
+  "working_source_tree_checksum": "996eadfb5b933f181200b2d9d563a27edb0de124ca7790ef57bdc126317ae902",
   "working_source_files": [
     {
       "path": "infera-lms/src/academy/mod.rs",
@@ -737,7 +758,7 @@
     },
     {
       "path": "infera-lms/src/classroom/methods.rs",
-      "checksum": "e21750d2cc3f87e0e4bd55a34137323b1f426d7f7f6ec8df06e4895ef40dd981"
+      "checksum": "4795e37630fa14ef80e36f40816adf8a62640c7942f441e9dcddede36afae736"
     },
     {
       "path": "infera-lms/src/classroom/mod.rs",
@@ -745,7 +766,7 @@
     },
     {
       "path": "infera-lms/src/classroom/models.rs",
-      "checksum": "673227523f9e9a359b9a3029d5fab24f25bb537e9c31772aa9af84f9d4622ce5"
+      "checksum": "11be277b463ad97b6b512e058680d36867edcb58ff3aa43928d30349b1d69ef1"
     },
     {
       "path": "infera-lms/src/classroom/routes.rs",
@@ -1012,8 +1033,12 @@
       "checksum": "f5eef4321d7d3ff67f266a8e07eed313f7dfbe4e6091417757ff6ff84fa6542f"
     },
     {
+      "path": "infera-lms/src/summary_aggregates.sql",
+      "checksum": "8656acc219d389bf2b8e6ba4b266e6918a1fbf761d75ac2b24518eb81294247c"
+    },
+    {
       "path": "infera-lms/src/summary_evidence.rs",
-      "checksum": "6667f1a3a32257a601cd5afa530d28d72fe2f755b4aedd7059d295be0121037f"
+      "checksum": "121a60ab896fecd42d2f8b51569df7718e9f7f21de9ced94a8452329c6d9e6d9"
     },
     {
       "path": "infera-lms/src/summary_evidence.sql",
@@ -1297,7 +1322,7 @@
     },
     {
       "path": "infera-lms/migration/src/m20261019_000050_summary_activity_outbox.rs",
-      "checksum": "52a7dcefca814b50483126264d5ddb93cd54b507a8b19256c1474da77ea8c3a5"
+      "checksum": "6cb4a433b38fa142c95ccd8e501318d5915b91a0403298cd7fef0eeb20af63e6"
     },
     {
       "path": "infera-lms/migration/src/main.rs",
@@ -1309,7 +1334,7 @@
     },
     {
       "path": "infera-lms/Cargo.lock",
-      "checksum": "8b98a4150ba4f59b7f61a8b83510a7c452bda7068605ee81eb5ada726037925c"
+      "checksum": "bf9fa72ac0c250ec41b05e348828291864b98f2d33736d327517b6f91f6c35a3"
     },
     {
       "path": "infera-lms/.cargo/config.toml",
@@ -1325,7 +1350,7 @@
     },
     {
       "path": "infera-lms/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "af729774fec2b0d20ebed127f3e38bebb2ba258b048fc1a1f05ce96aa2775413",
+      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a",
       "embedded_by": "infera-lms/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
@@ -1339,6 +1364,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-lms/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1351,15 +1377,27 @@
           }
         ]
       },
-      "source_checksum": "e0949462d1da8e62171222882c92727ef6e837289222e0bcbdba93c48f1f0eff",
+      "source_checksum": "2892cb7f72bc3fa195901b00b87e70ded315d94bda4c219d89c0fe08e58e3bc1",
       "handler": {
-        "ref": "infera-lms/src/router.rs:276:status_route",
+        "ref": "infera-lms/src/router.rs:279:status_route",
         "path": "infera-lms/src/router.rs",
-        "line": 276,
+        "line": 279,
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-lms/src/models.rs:52:HealthResponse",
+              "path": "infera-lms/src/models.rs",
+              "line": 52,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1389,6 +1427,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-lms/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1401,15 +1440,27 @@
           }
         ]
       },
-      "source_checksum": "240c2d8f54187385eb4c7424d5173896a96368ffa3b74fc3f9ab5e4a94b045c4",
+      "source_checksum": "8bf355d503ec7b52d096ddf776dff4d3cb39b19d5252f734441670cc50053d01",
       "handler": {
-        "ref": "infera-lms/src/router.rs:276:status_route",
+        "ref": "infera-lms/src/router.rs:279:status_route",
         "path": "infera-lms/src/router.rs",
-        "line": 276,
+        "line": 279,
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-lms/src/models.rs:52:HealthResponse",
+              "path": "infera-lms/src/models.rs",
+              "line": 52,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1439,6 +1490,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-lms/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1451,15 +1503,27 @@
           }
         ]
       },
-      "source_checksum": "71cb90a53b5eef2012d9ab8fe839570ab963fe5764b94c70cd79c226a72eee1c",
+      "source_checksum": "5f5b134eea81b01b30dd701a45dedc359530e7dadac2ab4fa2536e9026a304e1",
       "handler": {
-        "ref": "infera-lms/src/router.rs:276:status_route",
+        "ref": "infera-lms/src/router.rs:279:status_route",
         "path": "infera-lms/src/router.rs",
-        "line": 276,
+        "line": 279,
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-lms/src/models.rs:52:HealthResponse",
+              "path": "infera-lms/src/models.rs",
+              "line": 52,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1489,6 +1553,7 @@
         "handler": "openapi_json",
         "permissions": [],
         "source": "infera-lms/src/router.rs",
+        "response": "utoipa::openapi::OpenApi",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1501,15 +1566,26 @@
           }
         ]
       },
-      "source_checksum": "1dc20f6d99a5304b37ad59c05a8adceb4b4e4c66368dc791f819f865c338b87f",
+      "source_checksum": "e10b484f62004f492a55ca101285728ee5eee8b25e304c92ccdae499031cc4c0",
       "handler": {
-        "ref": "infera-lms/src/router.rs:270:openapi_json",
+        "ref": "infera-lms/src/router.rs:273:openapi_json",
         "path": "infera-lms/src/router.rs",
-        "line": 270,
+        "line": 273,
         "name": "openapi_json"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "utoipa::openapi::OpenApi",
+          "models": [
+            {
+              "name": "OpenApi",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1559,7 +1635,7 @@
           }
         ]
       },
-      "source_checksum": "3a8b65f0a9262a6ddf51ffe00578ddce2ea7308a40c6cb4bddd381956fc633da",
+      "source_checksum": "b6cea29b4c1c27c3e610726f2a0fc8277e6d48e540613b1489d4da9509a148fa",
       "handler": {
         "ref": "infera-lms/src/branding.rs:172:show",
         "path": "infera-lms/src/branding.rs",
@@ -1630,7 +1706,7 @@
           }
         ]
       },
-      "source_checksum": "38f3294b3347a27ff90e5e0534cb74494dd4a147cf73b6124277b27606199844",
+      "source_checksum": "eea71c78fce68853fa79a0f09a563bf0e257ae79a97115c91d0b03654c61e5c0",
       "handler": {
         "ref": "infera-lms/src/branding.rs:185:update",
         "path": "infera-lms/src/branding.rs",
@@ -1711,7 +1787,7 @@
           }
         ]
       },
-      "source_checksum": "e7dac3d90d0b45667a7b1f45b58b63dd6746d7e46b6f1f2c63bc86cfca36de0a",
+      "source_checksum": "40bc2769e02191c1af97ce40b5e0fe5d77dbee6ec7cbee98d6097bab95d0b695",
       "handler": {
         "ref": "infera-lms/src/branding.rs:231:upload",
         "path": "infera-lms/src/branding.rs",
@@ -1772,7 +1848,7 @@
           }
         ]
       },
-      "source_checksum": "da613666921e08db7acdc0aa2738140a19d39612107c88e8c04efcbbbc763ec1",
+      "source_checksum": "b19a237ab6d11311466f3f0427cfe460ea62553d63b8c8604b25f636e395ee37",
       "handler": {
         "ref": "infera-lms/src/branding.rs:161:public_show",
         "path": "infera-lms/src/branding.rs",
@@ -1840,7 +1916,7 @@
           }
         ]
       },
-      "source_checksum": "c5fd7ccd671722f010a68d8a9a54beac342f64742720e9158d8eb9ded9874e0a",
+      "source_checksum": "98ecd401f48f5009bff0d06b50612e8d3ad5ff6dbaaeb8ff7cd1098bd09a21bd",
       "handler": {
         "ref": "infera-lms/src/branding.rs:273:asset",
         "path": "infera-lms/src/branding.rs",
@@ -1852,6 +1928,332 @@
         "pathParam": {
           "declared_type": "String",
           "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/notification-rules",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/notification-rules",
+        "module": "notifications",
+        "handler": "index",
+        "permissions": [
+          "lms:notification:settings:read"
+        ],
+        "source": "infera-lms/src/notifications/mod.rs",
+        "query": "RulesQuery",
+        "response": "Vec<NotificationRule>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "notifications",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/mod.rs",
+            "line": 39,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "1cc17388d273cd344147dfacfdaaaf4b32b3ac482eaab60ffadb6fc4ad47192a",
+      "handler": {
+        "ref": "infera-lms/src/notifications/mod.rs:83:index",
+        "path": "infera-lms/src/notifications/mod.rs",
+        "line": 83,
+        "name": "index"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "RulesQuery",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/mod.rs:74:RulesQuery",
+              "path": "infera-lms/src/notifications/mod.rs",
+              "line": 74,
+              "name": "RulesQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "Vec<NotificationRule>",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/mod.rs:49:NotificationRule",
+              "path": "infera-lms/src/notifications/mod.rs",
+              "line": 49,
+              "name": "NotificationRule"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "PUT /api/v1/notification-rules/{key}",
+      "registration": {
+        "method": "PUT",
+        "path": "/api/v1/notification-rules/{key}",
+        "module": "notifications",
+        "handler": "update",
+        "permissions": [
+          "lms:notification:settings:update"
+        ],
+        "source": "infera-lms/src/notifications/mod.rs",
+        "body": "UpdateRule",
+        "pathParam": "String",
+        "response": "NotificationRule",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "notifications",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/mod.rs",
+            "line": 39,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "461ef9d87d9ba4961d51518fc7385f0a63dd730fca3c44b8d494d4469bc2014c",
+      "handler": {
+        "ref": "infera-lms/src/notifications/mod.rs:127:update",
+        "path": "infera-lms/src/notifications/mod.rs",
+        "line": 127,
+        "name": "update"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "UpdateRule",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/mod.rs:106:UpdateRule",
+              "path": "infera-lms/src/notifications/mod.rs",
+              "line": 106,
+              "name": "UpdateRule"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "NotificationRule",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/mod.rs:49:NotificationRule",
+              "path": "infera-lms/src/notifications/mod.rs",
+              "line": 49,
+              "name": "NotificationRule"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "String",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/notification-rules/{key}/preview",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/notification-rules/{key}/preview",
+        "module": "notifications",
+        "handler": "preview",
+        "permissions": [
+          "lms:notification:settings:read"
+        ],
+        "source": "infera-lms/src/notifications/mod.rs",
+        "pathParam": "String",
+        "response": "RulePreview",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "notifications",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/mod.rs",
+            "line": 39,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "efa015cdca26cac99db4b4102d64f44ab996d6b907b4696fad02bb2f02cc4cc4",
+      "handler": {
+        "ref": "infera-lms/src/notifications/mod.rs:201:preview",
+        "path": "infera-lms/src/notifications/mod.rs",
+        "line": 201,
+        "name": "preview"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "RulePreview",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/mod.rs:188:RulePreview",
+              "path": "infera-lms/src/notifications/mod.rs",
+              "line": 188,
+              "name": "RulePreview"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "String",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/chat/contacts",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/chat/contacts",
+        "module": "notifications::contacts",
+        "handler": "contacts",
+        "permissions": [
+          "lms:chat:contacts:read"
+        ],
+        "source": "infera-lms/src/notifications/contacts.rs",
+        "query": "ContactsQuery",
+        "response": "ContactPage",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "notifications::contacts",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/contacts.rs",
+            "line": 20,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "4644d74261de493b87c216265a3c5ca3e24bc81ddfda21302d92a7465b57e359",
+      "handler": {
+        "ref": "infera-lms/src/notifications/contacts.rs:50:contacts",
+        "path": "infera-lms/src/notifications/contacts.rs",
+        "line": 50,
+        "name": "contacts"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "ContactsQuery",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/contacts.rs:31:ContactsQuery",
+              "path": "infera-lms/src/notifications/contacts.rs",
+              "line": 31,
+              "name": "ContactsQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ContactPage",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/contacts.rs:40:ContactPage",
+              "path": "infera-lms/src/notifications/contacts.rs",
+              "line": 40,
+              "name": "ContactPage"
+            }
+          ]
         }
       },
       "relation_candidates": [],
@@ -1901,7 +2303,7 @@
           }
         ]
       },
-      "source_checksum": "01cda075e3285453ff9c7eba906a0cdc72d303c0bde086c8001ac71588b13520",
+      "source_checksum": "688581d7bb6dfd3829f37e0a535c609182b3054b48c78cd5f86ae64e25ad8678",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:112:catalog",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -1962,7 +2364,7 @@
           }
         ]
       },
-      "source_checksum": "84a64930d9f341c136934867393864bbe2a87b2cf8016e6fc3f4e91c5b5ea96a",
+      "source_checksum": "4a7cdbcdfe441bb1fee4e5f66d529f1497bb6f6569116740d78d39ea96db8f57",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:429:my_certificates",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2024,7 +2426,7 @@
           }
         ]
       },
-      "source_checksum": "9f96ddc9d8837e721cc0a3b278c0eec5430b3c27f0892085670e1a93804dfadc",
+      "source_checksum": "47b5887eb7e6f218cd804e6c2c2eb03f1e67cd0a26f078a9ce861ab178743be0",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:415:claim_certificate",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2089,7 +2491,7 @@
           }
         ]
       },
-      "source_checksum": "bcdd7a544a404792aefe177fcff6c986ea4fb41c3b93bc728865546b44f9d05d",
+      "source_checksum": "36d976198a34f07db894e6866ad6fb9c3d9f92a5ae1550af7183982e57312be3",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:121:definitions",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2165,7 +2567,7 @@
           }
         ]
       },
-      "source_checksum": "fa5f8a5d7e9c8c281caf3105f814181ac209b53f66941333099649999452c9c4",
+      "source_checksum": "88e75869ce552c410675f53ad31607ecca3863cfb443a64d43dddc2bd659bf43",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:137:definition",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2245,7 +2647,7 @@
           }
         ]
       },
-      "source_checksum": "4af4b716fa776ef73617aade8c00cf9fd5d5b9c6b06df0556ee4b4b46760a64d",
+      "source_checksum": "0935762e0505863c827625fe9aa2dfa8ffd46d4d5fcd03cf8908b6ed68185ef9",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:171:publish",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2325,7 +2727,7 @@
           }
         ]
       },
-      "source_checksum": "6bdd94dfed233c13fe9db4c2bd378bbcc51ae930ec6620454be4633a24a2622c",
+      "source_checksum": "3c0530dabd7adbdc5b364802b25713ae80c1b2e48119c265ae5f6d188f5b95f9",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:199:lesson",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2406,7 +2808,7 @@
           }
         ]
       },
-      "source_checksum": "4024a8620f82b7cb66c3ff82c121d2a77e92342e29457b06f24a67ac7568c7bc",
+      "source_checksum": "7b1df29265749be7e6d3a010f1617438aa8fba0cf4d706e05214d06f66058468",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:152:save_definition",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2498,7 +2900,7 @@
           }
         ]
       },
-      "source_checksum": "d0ccb62293cf5098f4113ef7259117ad6fcb48445cb752b8b18265ede1a23498",
+      "source_checksum": "cf8625481e91805efdf0468d3921c778e23def12b5ea847128ad6d00367eca7b",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:210:start",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2588,7 +2990,7 @@
           }
         ]
       },
-      "source_checksum": "96b093e04f61fee8d3fe5495e4a95ec5c4b89ffb4799b1d869fd144dd47dd442",
+      "source_checksum": "0ce896230c8903ffc929489e79314864832c1d892c72950f48c1309b2fb04299",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:241:runs",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2676,7 +3078,7 @@
           }
         ]
       },
-      "source_checksum": "566fa66191ad3adbf0334b0449fe75ae74ebd7120696098659743d7c5665da7d",
+      "source_checksum": "1aa81e62c4722ec5ae3ba647cd3ab388648a0af8f5d52937751dc02d85c5853a",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:253:run",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2750,7 +3152,7 @@
           }
         ]
       },
-      "source_checksum": "1417959942c0c56a90f82b032d781bd45ed5d7db66aaf01ed5cf517e5f8326c2",
+      "source_checksum": "fbca0a8f8bd0d3e3767baa693fa83cc3daa77a7bdaa88e15ada8cc3ef45d75be",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:262:draft",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2842,7 +3244,7 @@
           }
         ]
       },
-      "source_checksum": "749c247fc629802dea127152da51c7e896800435bd582b1ec28ad29cd495ec2a",
+      "source_checksum": "dfa685c220950dbf14f710d0f8e533a72e68878d7226e301c551e629f5b2c100",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:278:hint",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -2934,7 +3336,7 @@
           }
         ]
       },
-      "source_checksum": "c37c218ba7fabc609da0bdaac4a956717a0f8971ce6371da02e32e8103254e81",
+      "source_checksum": "fa56536a9dacbef772d48272da53b656447f06d4026aec5bb3ae236598db29e9",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:341:submit",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -3025,7 +3427,7 @@
           }
         ]
       },
-      "source_checksum": "f8b50d763d50d8334fe5b64577ee35055d56f1ed8e9d4023f151c3b60fda9325",
+      "source_checksum": "cffd05577d5d91c97303057ca55a8ec79c222caa961a8b4f1adc4f33dc1cc7d3",
       "handler": {
         "ref": "infera-lms/src/interactive/routes.rs:379:teacher_context",
         "path": "infera-lms/src/interactive/routes.rs",
@@ -3093,7 +3495,7 @@
           }
         ]
       },
-      "source_checksum": "51fd8f9d21e611d084d314538a1703f574d807ba9f3b1c7c33b3ea51e9bb1e75",
+      "source_checksum": "6c9716bec4658b0d450a5e260125333e0490aed06c25bb0862585ed123be5775",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:108:index_category",
         "path": "infera-lms/src/course/routes.rs",
@@ -3181,7 +3583,7 @@
           }
         ]
       },
-      "source_checksum": "28b9f768271ee73f0241672f2844082171073003f05cb4adbcdc074e35542634",
+      "source_checksum": "c90cc80099028b6f8c164896f686f8d703d3f1ee80d735e2b42f7a57465292c9",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:126:store_category",
         "path": "infera-lms/src/course/routes.rs",
@@ -3263,7 +3665,7 @@
           }
         ]
       },
-      "source_checksum": "3273c47d4a00e8e2f0fbe705793a2be7d74dd2af3cb610d39553659e62b1dfa8",
+      "source_checksum": "58bd36523eb3e512e9b87cfaf672c8d452ba53c3caa00808b328dab250b50ffd",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:70:reorder_categories",
         "path": "infera-lms/src/course/routes.rs",
@@ -3351,7 +3753,7 @@
           }
         ]
       },
-      "source_checksum": "d62d30d4e400cbebf8663bc9e6373fcde983c10b316652461c64848de9a049fd",
+      "source_checksum": "572f5e5375af4cea622666ec50ff7df22c8a6c0ad956af4efae74d813fbc1cee",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:147:show_category",
         "path": "infera-lms/src/course/routes.rs",
@@ -3427,7 +3829,7 @@
           }
         ]
       },
-      "source_checksum": "cff512ecbf72b52a7b692ca4cdbeb3def2bbe32db458d4f62345fc0fe29f0139",
+      "source_checksum": "970787dab125d16c9d776f25d614492774f8e711cdb8592248c6a5c2228d072b",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:165:update_category",
         "path": "infera-lms/src/course/routes.rs",
@@ -3513,7 +3915,7 @@
           }
         ]
       },
-      "source_checksum": "5066d6744a8405df7e0f3ef510a8971530f7625f97f06bdd1431a80723c34e89",
+      "source_checksum": "4054c91bab621e86f366688c9f0274babc73db56056aba61f1d9e3cbc8b6a34b",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:187:destroy_category",
         "path": "infera-lms/src/course/routes.rs",
@@ -3581,7 +3983,7 @@
           }
         ]
       },
-      "source_checksum": "cf101af2afaa87e91260be1075c6238b5ff73c3ce658350a5e1fc48c5a030422",
+      "source_checksum": "39c7d6b851cdc03f5fead0fb065e47c7e2a42f40fdc8b0f2e06c858bc053062c",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:206:index_course",
         "path": "infera-lms/src/course/routes.rs",
@@ -3698,7 +4100,7 @@
           }
         ]
       },
-      "source_checksum": "f023c5bcbe88b8b9b9d74b3ab61cb830b0b97022fd6410ee449ed1c326eb0c43",
+      "source_checksum": "b7d481f2afffc97e86a8b5a68e0bc8128bdb6e1217cfc2291a74d511d153e955",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:250:store_course",
         "path": "infera-lms/src/course/routes.rs",
@@ -3805,7 +4207,7 @@
           }
         ]
       },
-      "source_checksum": "b7e8135a66890e061ea28d470afeaddf95a02a580f3a69dd6c036235041b26cd",
+      "source_checksum": "ce3ccd8d5828730dfb8ff5e3f60c10dd357310597ddf9f678412eae5f396d826",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:89:reorder_courses",
         "path": "infera-lms/src/course/routes.rs",
@@ -3893,7 +4295,7 @@
           }
         ]
       },
-      "source_checksum": "8135a2485be932af0a52f9b4e1b6b3cd5aa41037731e4495ed0550c7e6d1da9a",
+      "source_checksum": "caa5f72ada77eb17008d8f966815ab15d54c234c90b4abd13425d7d3a6b27638",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:271:show_course",
         "path": "infera-lms/src/course/routes.rs",
@@ -3992,7 +4394,7 @@
           }
         ]
       },
-      "source_checksum": "67e9121c1b829e7ee7b34b3a381c9fb6d33b5b37a7ec185b7ceb2b85475d117b",
+      "source_checksum": "294a1f264cab5b8a341287a66175e7920ca44e9bc20b8a76345d239199c83776",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:295:update_course",
         "path": "infera-lms/src/course/routes.rs",
@@ -4103,7 +4505,7 @@
           }
         ]
       },
-      "source_checksum": "1b9adfc8f8ef4581bacedd4e9a7ca93e3547dcbc276c3d9e6f441396c435a56d",
+      "source_checksum": "87122952ead3ec251283cc5463f1b98199cde27ee775ec50ed1d07973f6ea84a",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:317:destroy_course",
         "path": "infera-lms/src/course/routes.rs",
@@ -4172,7 +4574,7 @@
           }
         ]
       },
-      "source_checksum": "560c5e2a049625cb02da1a2689a215f16f48eac226d982a83409f7e7de54f484",
+      "source_checksum": "bad7811a20ac1d091eecd186a9d652a976699e005f37326a8c44889bbcc18723",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:336:index_session",
         "path": "infera-lms/src/course/routes.rs",
@@ -4300,7 +4702,7 @@
           }
         ]
       },
-      "source_checksum": "729c0132bdde71fd94e5cb2e0f593cff94cbbcacbee8c67aa47e94ad2e85bbb4",
+      "source_checksum": "a744de48233d755c90ae94e04096881409add17804b763fb9a052f95afbe97f8",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:361:store_session",
         "path": "infera-lms/src/course/routes.rs",
@@ -4416,12 +4818,12 @@
           "lms:course:read"
         ],
         "source": "infera-lms/src/course/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "models::SessionResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "course::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -4435,7 +4837,7 @@
           }
         ]
       },
-      "source_checksum": "ec849489d276ba3b3ebf6b28c811c3b488ec9643fb3a056ab3775945c8294fe8",
+      "source_checksum": "19c5f8ef98ac05fb5f0abc0b235c3b572c7528f759c74fb9e55d7d9a87e0ebac",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:384:show_session",
         "path": "infera-lms/src/course/routes.rs",
@@ -4527,12 +4929,12 @@
         ],
         "source": "infera-lms/src/course/routes.rs",
         "body": "models::UpdateSessionRequest",
+        "pathParam": "(Uuid, Uuid)",
         "response": "models::SessionResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "course::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -4546,7 +4948,7 @@
           }
         ]
       },
-      "source_checksum": "de95f85945220aead01387bc96f2286c8c133bb09c5e28d9fc12d78187f0840e",
+      "source_checksum": "ab10418044834756a4c80610d1919bba5f82be756bd5e2b673f11976df72bee8",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:408:update_session",
         "path": "infera-lms/src/course/routes.rs",
@@ -4656,12 +5058,12 @@
           "lms:course:delete"
         ],
         "source": "infera-lms/src/course/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "course::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -4675,7 +5077,7 @@
           }
         ]
       },
-      "source_checksum": "9b5aba8ab0afc65563c001743d0cfe2a699249ba52b7535c6eb95d73b53ec6de",
+      "source_checksum": "bc3cf35544ff622216ef3a0b6ed3088d599c0507525e20eb95cdb998fedb54e9",
       "handler": {
         "ref": "infera-lms/src/course/routes.rs:431:destroy_session",
         "path": "infera-lms/src/course/routes.rs",
@@ -4743,7 +5145,7 @@
           }
         ]
       },
-      "source_checksum": "23ed37b4d79297da882cf974ee3edf763719d9757f57385c386a2e686c7c2040",
+      "source_checksum": "b67a0650288643e7ad3e75ac063e464b999750cca065d13d92f7f6a594af7dd5",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:386:index_absences",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -4853,7 +5255,7 @@
           }
         ]
       },
-      "source_checksum": "7cdd386833f29dc9ec12c41d3cd2a7cfe7019e652c837976b9c1b1fe14ba2c37",
+      "source_checksum": "a8c137ce60d104908a9404e874b6740b7b4a9b6073eb220502dcbd8d8a0aede6",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:60:index_session_types",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -4924,7 +5326,7 @@
           }
         ]
       },
-      "source_checksum": "ea66a0abb60c18e63ca341b5012b778bea8e4c750eb3129f8aa6d738f424f0f7",
+      "source_checksum": "05d20485928c6d20ebf17bb433e25ae8bbc8efd237d08a441f542954493e273e",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:77:index_today_sessions",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -5065,7 +5467,7 @@
           }
         ]
       },
-      "source_checksum": "4ae40c1c2653549411f5866703e22eca18e36afc2d36f2ec39133235c83cba78",
+      "source_checksum": "90dd1abedfa0d41ca0ed68418a975ac220442f929f805b56f8a823a202e22654",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:204:index_session",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -5218,7 +5620,7 @@
           }
         ]
       },
-      "source_checksum": "0c3e6868c9a41eaae6f11e96c915f14f3571833336939c44f8a9bbd45e5c36dd",
+      "source_checksum": "20f1f96f409df7bd90cd2cf3f77f94f9846d1943b350bd7e21693bcf7603278e",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:225:store_session",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -5373,7 +5775,7 @@
           }
         ]
       },
-      "source_checksum": "73d95657dc185f22ae438cf78fc69beadef7dcf43395bf6f478793fe1bd9b67f",
+      "source_checksum": "4a40a815a40c4633fd5af4482940d7ac58bc8847e6e222ddc902f81bd5296a0a",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:247:show_session",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -5502,7 +5904,7 @@
           }
         ]
       },
-      "source_checksum": "05fc3936fa5420695978a8a21dd3d2c014896bd49e03bb307537d84f94656c22",
+      "source_checksum": "ab6f4f9d8d5ee7812968ac5b076ba2ebc60038bca8a81662dad9d15032fa8bed",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:268:update_session",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -5656,7 +6058,7 @@
           }
         ]
       },
-      "source_checksum": "3350512b0548b5b6ba2f367b91eac866aa5b66c2b8ad002819b0cc5965bb1e52",
+      "source_checksum": "8072a2ee7c633b7e8c2606724bfa67b65e019772e276c73fdc8405ee38847203",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:429:index_attendance",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -5772,7 +6174,7 @@
           }
         ]
       },
-      "source_checksum": "3b4e13e219a25d6748eb4b45b39fad6751074de207a91a650c241af9c94e11c6",
+      "source_checksum": "a7eebe003e24ab20f50f361bfaa386ca07845df634123e32ff4acecab6d094ea",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:407:record_attendance",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -5866,7 +6268,7 @@
           }
         ]
       },
-      "source_checksum": "71cc472dd9277bf05b404dbcec3f98d8f6e4b9bf30c9d2822e89950041c2c55d",
+      "source_checksum": "f07d3afe3898be9abb2ae2faa1fe56f0eec987e9a5443325003af73b19d00560",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:291:index_classroom_users",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -5982,7 +6384,7 @@
           }
         ]
       },
-      "source_checksum": "d62983c4339668b564d4c265293d85d98656eb4afdc32ac11e30d17c8ff7dba2",
+      "source_checksum": "cbb18e23bf343bc80b16e3f9d4071c7883ab4c3b6c5b058167d57c6310e3c258",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:314:enroll_classroom_user",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -6080,12 +6482,12 @@
         ],
         "source": "infera-lms/src/classroom/routes.rs",
         "body": "models::UpdateClassroomUserRequest",
+        "pathParam": "(Uuid, Uuid)",
         "response": "models::ClassroomUserResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "classroom::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -6099,7 +6501,7 @@
           }
         ]
       },
-      "source_checksum": "ee4001dc3695b3851fd94f62d759f3bcf52dcebf1804a372fe89e4e904ad28d6",
+      "source_checksum": "9f3ce311d17e75e739d155d85f40801cd6364dd34ee231ca7f1f9b5b20951cdd",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:342:update_classroom_user",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -6189,12 +6591,12 @@
           "lms:classroom:update"
         ],
         "source": "infera-lms/src/classroom/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "()",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "classroom::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -6208,7 +6610,7 @@
           }
         ]
       },
-      "source_checksum": "e29041f4ab21cdc1bd67269fd6f5d226a7aecb944bc8a6c2ae0edae67d3381c0",
+      "source_checksum": "4b24fd6726417d9ff2833791a2096712ab3e9c8fa2d9b24645f3dc8339cdd7c4",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:367:remove_classroom_user",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -6276,7 +6678,7 @@
           }
         ]
       },
-      "source_checksum": "5b1cb7112ff560b6e3848810662d327ab13a35c85d2aa2827d328b51ff59a3cf",
+      "source_checksum": "541922ce4486cc5131a47d1e7706613e637bf9c942d10a91095b9d7a234f2ab7",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:98:index_classroom",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -6453,7 +6855,7 @@
           }
         ]
       },
-      "source_checksum": "3ad95b92c8f8f721ecaa166d21227cb215cda17abdf385d0ca33147ea027d7ff",
+      "source_checksum": "7efbf18b48e19d372dc85c0bca68e31547264cdcb4b1acd3a7bc0feb54b33dd7",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:119:store_classroom",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -6626,7 +7028,7 @@
           }
         ]
       },
-      "source_checksum": "5883e1dc6d25cc3a45d504ef63289d3ececcb5c914eaa5c697c43da862cca312",
+      "source_checksum": "9e58f39fa0162ed0511f74aacda66d3757ab46432ed62d568311cace6a37573d",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:482:show_completion",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -6725,7 +7127,7 @@
           }
         ]
       },
-      "source_checksum": "a90be8c5593f701e7e3571eb9b4accc642d1dd502563a0fd864f26e765d7b359",
+      "source_checksum": "c19896113a81fc95a33e7d0c0d1252d9e966c0f752dfc10db2113ef7c35007a3",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:450:finalize_classroom",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -6828,7 +7230,7 @@
           }
         ]
       },
-      "source_checksum": "070181a76f976fdfd6dae6d9ef4a388cd712abb43286f83b8978b19668a71dbe",
+      "source_checksum": "69272c396e9a1bec2c8decc0c93de62672296175505e095b29fbb9ad3e3f1b09",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:141:show_classroom",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -6963,7 +7365,7 @@
           }
         ]
       },
-      "source_checksum": "e24e16c5e852f6d88d877136502cfade9145c0713e17447686e5a4f421c04e6c",
+      "source_checksum": "a28bf9486e8c4d90f0eebc432dbe70345aff955d66a9ae028b80a6b2bb318985",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:162:update_classroom",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -7140,7 +7542,7 @@
           }
         ]
       },
-      "source_checksum": "33f7a4b6d7a335eb7dc5efd922eae78f5073f0d52faf0563f189d8be5be16568",
+      "source_checksum": "4ab6fe19ce3ecb1bb4ad0b236ad2962a57f960b7e9185a3d3b25bcb7b8b4a097",
       "handler": {
         "ref": "infera-lms/src/classroom/routes.rs:185:destroy_classroom",
         "path": "infera-lms/src/classroom/routes.rs",
@@ -7208,7 +7610,7 @@
           }
         ]
       },
-      "source_checksum": "fdb01aaa42310e3fc27e12327f9a7603024eda93f72913fe3e658d100f66933e",
+      "source_checksum": "fbd782ba09f5e389aa6c30c0ecfabc55d61f743fa4a5a4f3e63a38a8f1319872",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:159:index_exam",
         "path": "infera-lms/src/exam/routes.rs",
@@ -7349,7 +7751,7 @@
           }
         ]
       },
-      "source_checksum": "4aed0460dfd19f5cb65d03a226fd0f6e6aee907999fbe80af1a9022cbdad87d6",
+      "source_checksum": "497508d417b8a7d29b09ac4e6b85bc348fbd4e537379eea490d25a2e43c409b9",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:179:store_exam",
         "path": "infera-lms/src/exam/routes.rs",
@@ -7456,7 +7858,7 @@
           }
         ]
       },
-      "source_checksum": "7c275ec5e85f5291879b494efd2e70d7a81ec6b5444f7f1206d2cdd9c4ab6ba8",
+      "source_checksum": "0187cb576f529f23ba1bff97e319f791a14caa756135dd3a082c910c2129a2a0",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:200:show_exam",
         "path": "infera-lms/src/exam/routes.rs",
@@ -7555,7 +7957,7 @@
           }
         ]
       },
-      "source_checksum": "1e67edf9fc4adf36ad507a14bd6749f5cc00dda60f44badbb3ddf34b6c75e2d1",
+      "source_checksum": "b462ff1dbc1bba26c3f1c5ae4a420c3aed7576a96eed4259273c0ef86a535fe9",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:220:update_exam",
         "path": "infera-lms/src/exam/routes.rs",
@@ -7666,7 +8068,7 @@
           }
         ]
       },
-      "source_checksum": "c1a3bb9b3f3557dfd2d0a522938956e30f36677395fc676d15feab4903aea727",
+      "source_checksum": "0656de4c4df1537d2f1c94176c463b5672fee6872be1ea0fd885425c218ce6b3",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:242:destroy_exam",
         "path": "infera-lms/src/exam/routes.rs",
@@ -7734,7 +8136,7 @@
           }
         ]
       },
-      "source_checksum": "51d97f72caeb5f4542ce1d6be2a8a646959c52b03726b1348d893219ee131baf",
+      "source_checksum": "0a235c3f0db32c9a1b144ba349af6e6ac7ea51319507e9ecca618d071949eeea",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:261:index_session",
         "path": "infera-lms/src/exam/routes.rs",
@@ -7911,7 +8313,7 @@
           }
         ]
       },
-      "source_checksum": "f771c3b223656f782534d65e61b6b44d154ae0429619dd0543d36827cda8a3e9",
+      "source_checksum": "58ff27fea63771329b325eedfd3b7ba13f2f7f731122d13a0e2875e0172f38bf",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:281:store_session",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8066,7 +8468,7 @@
           }
         ]
       },
-      "source_checksum": "f4551c07a17ceb39f41e188aba11aa1e5e9b03fa520e6d25ee789093760eeff4",
+      "source_checksum": "6a48366eb56e79e242c3e67aa3343edc96ae448cd828def04616bbe47ba38cfe",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:302:show_session",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8189,7 +8591,7 @@
           }
         ]
       },
-      "source_checksum": "3d0398bf07693c57bdd65eae65abbb6272a96d3ae640c70d96bdd654b9cb4b64",
+      "source_checksum": "1c90fbc644b369742368c4664a54c4ee18bc1dd655d225c695cbef2eede9d3bb",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:322:update_session",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8348,7 +8750,7 @@
           }
         ]
       },
-      "source_checksum": "84eb31c7d7811cd44f6f3f259325134e80bc65e83ac02a84f462953a65a76b43",
+      "source_checksum": "b6725e6da0a953c8b928bdd16656f7024264f895a6d74a385f757f870b8852b3",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:345:destroy_session",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8416,7 +8818,7 @@
           }
         ]
       },
-      "source_checksum": "8ef41de0a535e5c8910dd4e0f9c907a01a189a9a570453dc0c0f4467fa906c76",
+      "source_checksum": "e5c40b592b96f5e91935b8674af91323861a994492733d1434db4020db62450e",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:364:index_attempt",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8557,7 +8959,7 @@
           }
         ]
       },
-      "source_checksum": "5bd0fced3d1def23dd2fd603706d2ff879e12743f02609dced4aede4355ec9e0",
+      "source_checksum": "bf9b84b6f69f94e8cf695205f76afe345dcb3c5ae643d969ae53456526b8b22a",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:385:show_attempt",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8674,7 +9076,7 @@
           }
         ]
       },
-      "source_checksum": "9e32818c71b5c3af2078c4460dc5180866cc74fe6bb131d57e6d418d78622bd1",
+      "source_checksum": "f25fb494af9b80625b876fb075cdbd9c8afe1d59aedc8f8c928e57e6e6bbc04c",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:406:update_attempt",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8791,7 +9193,7 @@
           }
         ]
       },
-      "source_checksum": "819fb30756402f314538a185583603a2b990921393bce6fd80565ddc306abf01",
+      "source_checksum": "7f51b29c5e9ecf7560041032ac0b88c78450c0eaffcf8e940941452f75c97037",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:59:show_attempt_delivery",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8907,7 +9309,7 @@
           }
         ]
       },
-      "source_checksum": "a65c142a3c7e25cf19a60f486e7147b1578249a49a344828533fbd7fa73763fe",
+      "source_checksum": "96a08c1772e449a36cf11e51f1940b09da017882bd3bb59f91bf408dd95d5fa3",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:80:start_attempt",
         "path": "infera-lms/src/exam/routes.rs",
@@ -8995,12 +9397,12 @@
         ],
         "source": "infera-lms/src/exam/routes.rs",
         "body": "models::SaveAttemptAnswerRequest",
+        "pathParam": "(Uuid, i32)",
         "response": "models::SavedAttemptAnswerResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "exam::routes",
-        "pathParam": "(Uuid, i32)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -9014,7 +9416,7 @@
           }
         ]
       },
-      "source_checksum": "a86dd55ac9527819c1826825315ec85b001ec028077c73e08abc9192153bfdc1",
+      "source_checksum": "1f8b359709bee9082b35c71747b3591ba09b25446c5c4f10cb26e4655da056dd",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:106:save_attempt_answer",
         "path": "infera-lms/src/exam/routes.rs",
@@ -9100,7 +9502,7 @@
           }
         ]
       },
-      "source_checksum": "b1dc2feb6465f4fd3492537880ba81fcda4a9879bd5d2ba28daccc34ed43f1e4",
+      "source_checksum": "546f6ef320536c304cf8ad3efe3e8456656f67c68cca3c9c0b15f0140733d061",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:133:submit_attempt",
         "path": "infera-lms/src/exam/routes.rs",
@@ -9206,7 +9608,7 @@
           }
         ]
       },
-      "source_checksum": "5da0e379719e0f6def6ba544638faa741f7332179488977a246c3a4a4ad010b1",
+      "source_checksum": "f20a83c9022e5ba2b95a995b6fb6248bc742aa454bab2420f472b608b622115b",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:429:index_question",
         "path": "infera-lms/src/exam/routes.rs",
@@ -9317,7 +9719,7 @@
           }
         ]
       },
-      "source_checksum": "a8f42b3865a0bb3c74316c3dbe21b023a0bc9a6de672bbea81004ed9765fe3d5",
+      "source_checksum": "999d9f1753fed571459205d5f69aafed622db1ccf912f2a43d0d54dff12b9a65",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:449:store_question",
         "path": "infera-lms/src/exam/routes.rs",
@@ -9412,7 +9814,7 @@
           }
         ]
       },
-      "source_checksum": "c49082ac1169a4d6e81be18739038d5b0be073ef47951444e49713f409d3fcab",
+      "source_checksum": "93e1b186fb1ada5c326659a6638bd00e77022aa58873ff67f977f0f5243e9a3c",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:470:show_question",
         "path": "infera-lms/src/exam/routes.rs",
@@ -9505,7 +9907,7 @@
           }
         ]
       },
-      "source_checksum": "a8dd3d85b1ccdd1eee02ae02a4c85f47a06896a57a0925c6496af0cfe0f7cc0d",
+      "source_checksum": "a1751f421640568e251f9fac71192bc0fa2a7b654062439fba3bcc2f898f429e",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:490:update_question",
         "path": "infera-lms/src/exam/routes.rs",
@@ -9604,7 +10006,7 @@
           }
         ]
       },
-      "source_checksum": "0a1a1e655e5066db029740f207ceaad22e1cb83f2642d81a02dc3970015b1f12",
+      "source_checksum": "2a940dd7b143b67488bb1f3b2ae6cd9d3fa075cf706f5dba12d18aa0abb3bf41",
       "handler": {
         "ref": "infera-lms/src/exam/routes.rs:512:destroy_question",
         "path": "infera-lms/src/exam/routes.rs",
@@ -9671,7 +10073,7 @@
           }
         ]
       },
-      "source_checksum": "b1bfdd5b4b2c84f5c3d98867b0c12b0c5d51db49632c9a45aa915ebccb5b0cbe",
+      "source_checksum": "4aeade5614052ccf6211fa54ea373c216a32d62a51c73f29f4eb83822d6b88fa",
       "handler": {
         "ref": "infera-lms/src/evaluation/routes.rs:31:get_settings",
         "path": "infera-lms/src/evaluation/routes.rs",
@@ -9742,7 +10144,7 @@
           }
         ]
       },
-      "source_checksum": "7dcee8f58b9c7ab3b0038bc2280325c12500ee5d86a1c0cd1039fbf1356e6e5f",
+      "source_checksum": "d24167a9315af1b8b12d524cefdca28e0a5f11724331a9eb5bf53c874c20b0e0",
       "handler": {
         "ref": "infera-lms/src/evaluation/routes.rs:47:update_settings",
         "path": "infera-lms/src/evaluation/routes.rs",
@@ -9822,7 +10224,7 @@
           }
         ]
       },
-      "source_checksum": "0ab7fdbbd1bdf9fbff236db2996de01e114ac464f942fb6e1fba73d9c68a737a",
+      "source_checksum": "c7c34de7b37fea6de72ab8f4bbf4add96e65dbb6336684df1411c74e139435ed",
       "handler": {
         "ref": "infera-lms/src/evaluation/routes.rs:64:get_context",
         "path": "infera-lms/src/evaluation/routes.rs",
@@ -9903,7 +10305,7 @@
           }
         ]
       },
-      "source_checksum": "1845f5532479505c6b99cb8b195b1800abc2bbbf6bed1597f3061670b8566074",
+      "source_checksum": "5527b8b9de2a4ad1e91962090d08166aa4eaa2712d4c3fc56de60d4b8c564b57",
       "handler": {
         "ref": "infera-lms/src/evaluation/routes.rs:88:submit",
         "path": "infera-lms/src/evaluation/routes.rs",
@@ -9995,7 +10397,7 @@
           }
         ]
       },
-      "source_checksum": "27dd19a470bc51b9eaa2b2278c15bb7e7a44ae72c23cfaf91c054a6d54ce813c",
+      "source_checksum": "a881f5e7dc3b225a8eac0c25ec000e7e13db246282151eaeb882b1a1a9347884",
       "handler": {
         "ref": "infera-lms/src/ai_summary/routes.rs:38:settings",
         "path": "infera-lms/src/ai_summary/routes.rs",
@@ -10073,7 +10475,7 @@
           }
         ]
       },
-      "source_checksum": "2f1483631941d4206aeecc67961ce9b81d1edf4b66a86700f4f18765530aebde",
+      "source_checksum": "44598ed6aee688167546055fd6a06b32e135f0c563e8a81b73f11d1bf8b940e3",
       "handler": {
         "ref": "infera-lms/src/ai_summary/routes.rs:53:update_settings",
         "path": "infera-lms/src/ai_summary/routes.rs",
@@ -10161,7 +10563,7 @@
           }
         ]
       },
-      "source_checksum": "3194225fc9ac55e3abd9a928cc3a71f8515977f1e8e1b2eeac1a8046bbb80334",
+      "source_checksum": "1f5c7cd76af6ecfba68ecc75a04ee6be842f1f9244dd0b0d3a882ee6cb518760",
       "handler": {
         "ref": "infera-lms/src/ai_summary/routes.rs:69:models",
         "path": "infera-lms/src/ai_summary/routes.rs",
@@ -10232,7 +10634,7 @@
           }
         ]
       },
-      "source_checksum": "de72b40f9186b44a6e3c6a244be03310b60b9c0a570199aec9965e4eb98924fa",
+      "source_checksum": "faa22ab38892c1db51a6d23f71d8088b0948f48c8c68aea56b959212573ac461",
       "handler": {
         "ref": "infera-lms/src/ai_summary/routes.rs:89:latest",
         "path": "infera-lms/src/ai_summary/routes.rs",
@@ -10333,7 +10735,7 @@
           }
         ]
       },
-      "source_checksum": "af16934faecceaf31683cc67146af2eef13ae1eaea3d2cb1b6a79d2eb4e98b16",
+      "source_checksum": "93133409b81f8a7f2853bcd3e2cf894cc3f43b3cbed23c5771daf1e909b4125b",
       "handler": {
         "ref": "infera-lms/src/ai_summary/routes.rs:106:jobs",
         "path": "infera-lms/src/ai_summary/routes.rs",
@@ -10415,7 +10817,7 @@
           }
         ]
       },
-      "source_checksum": "396f02a66f9bed843de3bd85b75b4d8e75e242b4aaa43a9706d25cb94828f428",
+      "source_checksum": "0659b2db3f8a931fa24ce0fe3c47703af13067cf8a2526dd33d49d60331a13e0",
       "handler": {
         "ref": "infera-lms/src/ai_summary/routes.rs:122:summaries",
         "path": "infera-lms/src/ai_summary/routes.rs",
@@ -10497,7 +10899,7 @@
           }
         ]
       },
-      "source_checksum": "9883f3f569661a5631ba6092b0aadbe083013c2853fa85cb251e8a12cfa66446",
+      "source_checksum": "513dcb8058b452a9c53259577bd250e1e044c468eaca1706c81188e5de1d89e2",
       "handler": {
         "ref": "infera-lms/src/ai_summary/routes.rs:138:refresh_many",
         "path": "infera-lms/src/ai_summary/routes.rs",
@@ -10567,12 +10969,12 @@
           "lms:ai_summary:manage"
         ],
         "source": "infera-lms/src/ai_summary/routes.rs",
+        "pathParam": "(Uuid, String)",
         "response": "RefreshResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "ai_summary::routes",
-        "pathParam": "(Uuid, String)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -10586,7 +10988,7 @@
           }
         ]
       },
-      "source_checksum": "f0d1f5a49c273f6697041220d6f0302ee2543f22bd7302e3d473b03b210a4a4e",
+      "source_checksum": "73c3cf2d2341ced33c24dbcab44bf46715e8cb73ad9b31e28813850a2dd4cd5d",
       "handler": {
         "ref": "infera-lms/src/ai_summary/routes.rs:154:refresh",
         "path": "infera-lms/src/ai_summary/routes.rs",
@@ -10667,7 +11069,7 @@
           }
         ]
       },
-      "source_checksum": "255f7b1bf8f905d3da073e817405b9b1bf89817c841c15acf7de9a1dc6d3bb2a",
+      "source_checksum": "964e8fe9123cdc01a00fb1d5dd0cf851f0ac5e45dacdd5b0c2ea9090f86185a8",
       "handler": {
         "ref": "infera-lms/src/media.rs:88:upload_image",
         "path": "infera-lms/src/media.rs",
@@ -10737,7 +11139,7 @@
           }
         ]
       },
-      "source_checksum": "3cac2f00f0a5330eae462d131b2f5a12883e70a4b7191613ffb196533b577acc",
+      "source_checksum": "b8b4301a074ff6cda8f73f7eb79c7e1407bf43f2f53102a00b13e3748b6c0dbb",
       "handler": {
         "ref": "infera-lms/src/media.rs:159:download_image",
         "path": "infera-lms/src/media.rs",
@@ -10801,7 +11203,7 @@
           }
         ]
       },
-      "source_checksum": "89f172fb72586f15594778ad8fba4646f5f78ead71011fb33c01c994709fcae4",
+      "source_checksum": "2360ec419613e39fa6513c2c11120114d520d34d2c8688fa90dc03a20e2ee67e",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:73:index_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -10954,7 +11356,7 @@
           }
         ]
       },
-      "source_checksum": "e3e85a70ff2040155e527f4eb44af76afbdd1c47d24da2f492e6f2755d7ad0d1",
+      "source_checksum": "59247c9344b2ee05eceec3887087c3be0e9a52aac9ad0667b0b157f69c59e81e",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:93:store_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -11085,7 +11487,7 @@
           }
         ]
       },
-      "source_checksum": "c3e9b717ed9871bd693493083ef3f40fb34f48754b1412e172e5c13d4ea9e1de",
+      "source_checksum": "4f956d637b93db373d3ef9fd0dce9c09165a2ba5e52cebf0afc3be24b09f1252",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:415:index_current_term_assignment",
         "path": "infera-lms/src/homework/routes.rs",
@@ -11286,7 +11688,7 @@
           }
         ]
       },
-      "source_checksum": "9391aecc1cdedcd8dd41950408c6cf886db441d8c42aa7af5a80be1b8f216ab6",
+      "source_checksum": "508d0dc3ae7f0f3eacaa997fcf42037daf6fd3e38ee894fb582e8326473985bb",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:114:show_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -11397,7 +11799,7 @@
           }
         ]
       },
-      "source_checksum": "13fff927357bc9dbfb9d321dac18eef9928a1cef046e28c76acf1442f041d4cb",
+      "source_checksum": "a5cd9bcd3c14420b54bc2268ed72e0420aefb0e8c3058d82fe5107f170c23914",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:134:update_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -11532,7 +11934,7 @@
           }
         ]
       },
-      "source_checksum": "251e94ebc6687a0e84556056e3cc231decde945b38b9ab83f505d6c5ef05f19a",
+      "source_checksum": "05320056948a4b89619807ee0db8d536b5ad83add48d2b2053df47b2fd3b6004",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:157:destroy_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -11600,7 +12002,7 @@
           }
         ]
       },
-      "source_checksum": "e4fac8868ff06d3de27d788a773ce18432cb577f23afdd879deb9189b59658a5",
+      "source_checksum": "62dbc33747456de9f631511261327fd0452ac28578ce5b32ee81d493849434b6",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:394:index_assignment",
         "path": "infera-lms/src/homework/routes.rs",
@@ -11801,7 +12203,7 @@
           }
         ]
       },
-      "source_checksum": "f31d99adb0dbdc55bb31aedf205145691ff80f6e56f5289139a70aa1e515021a",
+      "source_checksum": "af806f364564778afb94b21418b458a4a17e84bbed4b8c0f822972f9681091b2",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:436:store_assignment",
         "path": "infera-lms/src/homework/routes.rs",
@@ -11974,7 +12376,7 @@
           }
         ]
       },
-      "source_checksum": "9ebf1a79a2585aa65c7051b42f32b2bc50ce23a091b6d5bd29fd4390e003ff95",
+      "source_checksum": "98c616190ae17ca8a13fe8728cf9dac4b5c6a27f94fe772340c92c013938a1df",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:457:show_assignment",
         "path": "infera-lms/src/homework/routes.rs",
@@ -12115,7 +12517,7 @@
           }
         ]
       },
-      "source_checksum": "4f150f5589f1d028dfdcb778783643b4a1b9486ceffa012293cbeac4cf2df813",
+      "source_checksum": "ae2810749a4e2aed634071d431c9339e5b229a597e804889d0a37c5937fb9139",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:477:update_assignment",
         "path": "infera-lms/src/homework/routes.rs",
@@ -12298,7 +12700,7 @@
           }
         ]
       },
-      "source_checksum": "d1b635fc821ee915f9e65db1395a10b44739bfcc800cd7059e3d4f6d52c00c16",
+      "source_checksum": "6c0af11861e94d4bcc0a4825677c309be0c2cd0e5a1a7c82869e150808146f79",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:502:destroy_assignment",
         "path": "infera-lms/src/homework/routes.rs",
@@ -12366,7 +12768,7 @@
           }
         ]
       },
-      "source_checksum": "92845bf223b8e895fc60ed82dd4217544ccaad3a43885d758d0a3b14ff9f337c",
+      "source_checksum": "01b654f8a6d21072f6235848253f6202b5f53168ad915717071aa325c746891f",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:604:index_question",
         "path": "infera-lms/src/homework/routes.rs",
@@ -12477,7 +12879,7 @@
           }
         ]
       },
-      "source_checksum": "ca809238743beb9f19c5e926885bb18fcd3532ef3918b11cf6e230f0b0d8135b",
+      "source_checksum": "6cb50d40b61a5effb6176e108c5145bbd42d37eff9333443bca07ebb7f0fb736",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:624:store_question",
         "path": "infera-lms/src/homework/routes.rs",
@@ -12572,7 +12974,7 @@
           }
         ]
       },
-      "source_checksum": "dac79a584a4cb1561feef8f68bb5e0598a0457e1f487a6ea9c24c9f59410d4c8",
+      "source_checksum": "83c5e6d083a8fe881e18c0eeebcf926c5e2c06961936e8c8f41a7cb045a6bf72",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:645:show_question",
         "path": "infera-lms/src/homework/routes.rs",
@@ -12665,7 +13067,7 @@
           }
         ]
       },
-      "source_checksum": "00903cad84e39faaf5a4c5106ccb9bb6873437de2f15a167b73015819f3b3439",
+      "source_checksum": "95c2afe8a112882d0bd752e92f216862166ecd0dbe64dfa70afcac282b8a52ff",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:665:update_question",
         "path": "infera-lms/src/homework/routes.rs",
@@ -12764,7 +13166,7 @@
           }
         ]
       },
-      "source_checksum": "39941f3bb29225b7d4e181e969336f4142ea92b6673cf1d504b610d2665ca2ab",
+      "source_checksum": "19d67a5eed83c35f3f969c31d6fa34f107c3f00f52c62a7395de4d44d44d2035",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:176:index_bank",
         "path": "infera-lms/src/homework/routes.rs",
@@ -12893,7 +13295,7 @@
           }
         ]
       },
-      "source_checksum": "fa14da58f53585c5370107142921507932da485c12c42a9ba1d3ab5b83846df6",
+      "source_checksum": "8b69f4de95ad3f73aaf504f7cdb42862c1a01f67bcb8901f3d30653687c99309",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:197:store_bank",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13012,7 +13414,7 @@
           }
         ]
       },
-      "source_checksum": "b28d143c36cf1554849113b1aae6194d841addd9cb556dd379b067c1b49c6086",
+      "source_checksum": "806637e248ce7a2afe242416150bc027860c12657a90e9956fc7f466eef899bd",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:219:show_bank",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13117,7 +13519,7 @@
           }
         ]
       },
-      "source_checksum": "7d2a8d82c47619c859ee42600c8ea7f01d826edeb8e824d4de538c59a58b3699",
+      "source_checksum": "1fca21badb712706f6a9757d210dedb5a4245453ba143dc92670c7aa01b9a906",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:240:update_bank",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13240,7 +13642,7 @@
           }
         ]
       },
-      "source_checksum": "affaa7811b3dc5e689c8a04307fb2d21c0b59815128f7bae03d638cc6677f5dc",
+      "source_checksum": "22f7c9fb4f98a3f2b34e4308f0863cf61baeb54e701c1f942af1fc41b08d8cea",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:263:destroy_bank",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13309,7 +13711,7 @@
           }
         ]
       },
-      "source_checksum": "9ce7f6ccff94f14cdab91eb8dc95794c44acc4038465ced4ecfdf2c7034c2f28",
+      "source_checksum": "8f2bd1c42d8f4a6bb5bc6afe862e6f82d153cd9bad4550311379c871e0455a33",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:282:index_bank_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13419,7 +13821,7 @@
           }
         ]
       },
-      "source_checksum": "22d3c6124e299b4f06db061312fc87bd158099ffdcd5973b1dfd648ea530c5a4",
+      "source_checksum": "b2e0fc4c6505645a805a2188e896a72910a4d41fd3566119e073c0921e6dc37c",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:305:store_bank_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13493,12 +13895,12 @@
           "lms:homework:read"
         ],
         "source": "infera-lms/src/homework/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "models::QuestionResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "homework::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -13512,7 +13914,7 @@
           }
         ]
       },
-      "source_checksum": "b6b9837c6e91f98a15b94105dd7bcf618ef1b0dafb54112b0ee9fa8711e8e704",
+      "source_checksum": "948139ede5e8346c8967dd6d57df71511cdebe6edf95518939d0648cbf659271",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:329:show_bank_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13586,12 +13988,12 @@
         ],
         "source": "infera-lms/src/homework/routes.rs",
         "body": "models::UpdateBankHomeworkRequest",
+        "pathParam": "(Uuid, Uuid)",
         "response": "models::QuestionResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "homework::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -13605,7 +14007,7 @@
           }
         ]
       },
-      "source_checksum": "516f63a12b47fac6051102732fc3fe8db0e00d669aed57b5796448603bf942a8",
+      "source_checksum": "8b0f585d538b944bdfa304a61d9e09259a77bfb2037bd91b6387ac94f6d3ea01",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:351:update_bank_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13679,12 +14081,12 @@
           "lms:homework:delete"
         ],
         "source": "infera-lms/src/homework/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "homework::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -13698,7 +14100,7 @@
           }
         ]
       },
-      "source_checksum": "75cd3191bb26e29abe79d1344c60524d7ef84cac2358a4e1cf0067ebc377702e",
+      "source_checksum": "aeb30a4d136991060dd88a81a60b0ffbc63a02cbddef64786644467c932914c3",
       "handler": {
         "ref": "infera-lms/src/homework/routes.rs:375:destroy_bank_homework",
         "path": "infera-lms/src/homework/routes.rs",
@@ -13766,7 +14168,7 @@
           }
         ]
       },
-      "source_checksum": "09dbca3790896f99c953396262a3bfa334d4528bd249d3539c7cc82a83f942d0",
+      "source_checksum": "2f6cf6089098ee7396a8c988e0f09c4be563a9b9b3f8e5bb32be8eb4e5a0a6f7",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:43:index_template",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -13854,7 +14256,7 @@
           }
         ]
       },
-      "source_checksum": "5dc6ae849ab374130a5d8001c7d368f17098e131f9a7fbead54565d9f33c4d77",
+      "source_checksum": "d3412ddfac7c1cca24944a3f5ff76ed753e8b7471f6d5c96d6cefd6994ba4c66",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:64:store_template",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -13936,7 +14338,7 @@
           }
         ]
       },
-      "source_checksum": "0afc0ff8f77ab383e47ca786230dd92d7220c189052faa8a2cddf80a0a846ef4",
+      "source_checksum": "6201dab869f7866d1c43b89c3a1a98cbdb1863c52753e198be345fe7f9539d9c",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:88:show_template",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -14012,7 +14414,7 @@
           }
         ]
       },
-      "source_checksum": "4f419de802e9728ba3c7a71cbfb5da29857544d4543496b776ac41e1f6cb4c49",
+      "source_checksum": "8e8029ac567a05cc72471302a3bfe265b83c8807f7eb59353cddd7e613accdbe",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:106:update_template",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -14098,7 +14500,7 @@
           }
         ]
       },
-      "source_checksum": "f734893db17e4c456c65775a566098b742fbfc200d88079f56f55b2fcfa6b12a",
+      "source_checksum": "b77ba7771201e5ca7a6283511831b4ba7fabcb3928f42e8c7bb13da957307317",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:131:index_certificate",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -14233,7 +14635,7 @@
           }
         ]
       },
-      "source_checksum": "452228f0dab7807b9e2462ef0a8f5d97b40fa4871711bdc88ebf8dbab7b5b144",
+      "source_checksum": "a4064d91753f9b2f76c0832eb11dc9f6d951e81430692064bdc47d4ecb3241ac",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:151:store_certificate",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -14382,7 +14784,7 @@
           }
         ]
       },
-      "source_checksum": "b8add145c81af0b5e75bcda1feba30b53db4eacd4db7d80bd55933e3d36614f7",
+      "source_checksum": "517c03ab60ade17de9a15d1436ff0ee27860fe09e4025481acfe3523850a4522",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:172:show_certificate",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -14495,7 +14897,7 @@
           }
         ]
       },
-      "source_checksum": "292b4972491e8eaa5be89249be4b8c3048a6ed4f6984f83693ed085f2a44b71e",
+      "source_checksum": "2a9938d6b935c88084a9bf3f6e26eefb05dedb775fe80c90dbd4e194341d4b6c",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:190:update_certificate",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -14642,7 +15044,7 @@
           }
         ]
       },
-      "source_checksum": "ec3abbed10cc78f654b8832d0b8fdb07b0f4586fbd19c1829fb80035385a13a2",
+      "source_checksum": "b704d70bb76194f2a95dd14f554ed30429b0a22d63acd0b2a383e918fb556db8",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:127:index_grade",
         "path": "infera-lms/src/config/routes.rs",
@@ -14730,7 +15132,7 @@
           }
         ]
       },
-      "source_checksum": "8f5d2ac89460c12abbf62a65dd00821df0dc6cd223ffc6aa83e5140f8d8dcc27",
+      "source_checksum": "a46cc2a42934a146f2bd85ed51c54088fca9470d5517e543748ee9532a0a57c2",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:145:store_grade",
         "path": "infera-lms/src/config/routes.rs",
@@ -14812,7 +15214,7 @@
           }
         ]
       },
-      "source_checksum": "08926a394b337fc589aad37eaa46d0710cce9db770988150d56d9c6b1d88cd1a",
+      "source_checksum": "8f0a316ae63637cbc6f215ae223302274bac56a5633d66e7df00c3394dd86190",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:166:show_grade",
         "path": "infera-lms/src/config/routes.rs",
@@ -14888,7 +15290,7 @@
           }
         ]
       },
-      "source_checksum": "56ad62aabb6cec1edff9b71d78a3e7d11269489cc9101c47ec53821a6030d874",
+      "source_checksum": "6b03c977a7aa392083e6553ef42bd870c3553631d85e878e70ed8c0bdb13230c",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:184:update_grade",
         "path": "infera-lms/src/config/routes.rs",
@@ -14974,7 +15376,7 @@
           }
         ]
       },
-      "source_checksum": "cde2c507f60305940b05a0832eb8addd669ca2f58e55c9ac4840666d6af5384e",
+      "source_checksum": "70897b2b3e940bce0bf3736d7225c2b54fb27952b1c1f8da0ad1bfe9df92b1bf",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:207:index_weekend",
         "path": "infera-lms/src/config/routes.rs",
@@ -15062,7 +15464,7 @@
           }
         ]
       },
-      "source_checksum": "5546e5e32ce9d9d42d4b34fec9eaf5cd552b17e009f4d41cf5e6fc0502e2697d",
+      "source_checksum": "5749c10c93c68b731280b538270489f579054668752e943fe16ba4d541b337ba",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:225:store_weekend",
         "path": "infera-lms/src/config/routes.rs",
@@ -15144,7 +15546,7 @@
           }
         ]
       },
-      "source_checksum": "62540df52f4aa994bfc3ce09bd71ab8e4c87c0e125cc1bb79b02e1e7a285950f",
+      "source_checksum": "43d7e5afac219e6445e8d23b243445a2795b50aa5d063b0154f5ea3eeadbb34c",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:246:show_weekend",
         "path": "infera-lms/src/config/routes.rs",
@@ -15220,7 +15622,7 @@
           }
         ]
       },
-      "source_checksum": "56ecc118fc6baa4c66be59dbcca3343064c5890e2251c9a5282812317a230c4e",
+      "source_checksum": "d3a5b0a91dd92f9db0812c5aac4947caf16f7488278cb7b7b600440482845380",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:264:update_weekend",
         "path": "infera-lms/src/config/routes.rs",
@@ -15306,7 +15708,7 @@
           }
         ]
       },
-      "source_checksum": "5298270557f37f27e701b72c28b7ea4e436b1a3924bd5eff8ed724cd75844604",
+      "source_checksum": "1e9b2b7ad13f57193b78610e8ab2372b2ed04cfdd9a4b8a455bcd13f8eed3222",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:51:index_holiday",
         "path": "infera-lms/src/config/routes.rs",
@@ -15394,7 +15796,7 @@
           }
         ]
       },
-      "source_checksum": "256e1eb404b8675393df8d3f37b0fda2a76014784b199df109a227f424c68673",
+      "source_checksum": "5609e41047328c1b6dec6269987a2eb67f114a717673b2b15f669c82d6baaf2b",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:68:store_holiday",
         "path": "infera-lms/src/config/routes.rs",
@@ -15476,7 +15878,7 @@
           }
         ]
       },
-      "source_checksum": "0b42f2746678372a6144243b73f3c73f9dec056dd01bb9293f1f1070c1cb9432",
+      "source_checksum": "8bc80a1659a041b79ef2b378456878328a226bfad7ffcef35124aa32f462cc18",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:88:show_holiday",
         "path": "infera-lms/src/config/routes.rs",
@@ -15552,7 +15954,7 @@
           }
         ]
       },
-      "source_checksum": "620101e9b08cd43bd0fab108e774231b23af937f540fc10c300d47d3a721f756",
+      "source_checksum": "a1baee0ba4c275e9a46c007283dfda2826e785c55684a02e43452b502a4ad56d",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:105:update_holiday",
         "path": "infera-lms/src/config/routes.rs",
@@ -15638,7 +16040,7 @@
           }
         ]
       },
-      "source_checksum": "b49d4d908f379223e20c5b4494b086efdd53ce9e165710fdccb8f27069a80130",
+      "source_checksum": "97127018fae8fbe9450813c65d64dd6bee4008cff7de715ad7dce2fc779adf76",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:287:index_classroom_type",
         "path": "infera-lms/src/config/routes.rs",
@@ -15726,7 +16128,7 @@
           }
         ]
       },
-      "source_checksum": "8cfb6192487f796bbbb3b99010068cad48f081d0ffd2972200e3c38e69848275",
+      "source_checksum": "2dd2a0c66068b08011e46fa33460b3d9cd5b630eaf575f42b2a8676b922ff195",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:306:store_classroom_type",
         "path": "infera-lms/src/config/routes.rs",
@@ -15808,7 +16210,7 @@
           }
         ]
       },
-      "source_checksum": "60f6964402cb7233defae4fb17079f8b7eb88c980a84330516a53a548f5adea9",
+      "source_checksum": "11537f31a9807347bc82008e7b35502e548f1ad0940bccfa8546618e1407f1f3",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:327:show_classroom_type",
         "path": "infera-lms/src/config/routes.rs",
@@ -15884,7 +16286,7 @@
           }
         ]
       },
-      "source_checksum": "dc63abbd249f624e659d8ce3dedc7780602cdbfbe47c002b00b04802d409fae0",
+      "source_checksum": "abd5fcfa4ce98782883669ed2da82d7fa4a494def34059d91bdd3036f868e15c",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:345:update_classroom_type",
         "path": "infera-lms/src/config/routes.rs",
@@ -15970,7 +16372,7 @@
           }
         ]
       },
-      "source_checksum": "1259f5576a7d95e8856f25cc1e78f7369942a590e0a907201f49ad5f44409817",
+      "source_checksum": "282a471b97ea25963893b30df4cb5bb3c21f59e68b0f28609cfb964539a6c308",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:368:index_education_day",
         "path": "infera-lms/src/config/routes.rs",
@@ -16058,7 +16460,7 @@
           }
         ]
       },
-      "source_checksum": "96d7c3bcd2a1344ccc683d31fc14d2b333008252259d35dcfadef9a5512654c0",
+      "source_checksum": "fbc4fb7bcab3b8195423c0c39e43388818407981918c87584973f773e27a9e71",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:386:store_education_day",
         "path": "infera-lms/src/config/routes.rs",
@@ -16140,7 +16542,7 @@
           }
         ]
       },
-      "source_checksum": "ae8c54f72edee7114c98536d89419f2a50695f766d97475862c081b835e26c12",
+      "source_checksum": "bd62c77746e8aae174d95597ddd329be6809e90d9f488b7fe1119a3224d887e1",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:407:show_education_day",
         "path": "infera-lms/src/config/routes.rs",
@@ -16216,7 +16618,7 @@
           }
         ]
       },
-      "source_checksum": "236bafbbd3885df394d3e4bb9f011c6f15e242f03dc8158f5b4a2b0dfe1762b8",
+      "source_checksum": "87b8228af421c0d59830146ed5d7a712ad20af1384e73bb99e4ddff502b9baef",
       "handler": {
         "ref": "infera-lms/src/config/routes.rs:425:update_education_day",
         "path": "infera-lms/src/config/routes.rs",
@@ -16302,7 +16704,7 @@
           }
         ]
       },
-      "source_checksum": "99d337470f09f55f2ca6598dde6c2ab53428f80636a33694b5ce88291247a433",
+      "source_checksum": "6c72c62e338a88955fb3c049839c47c6c7c256dae1835b91f49144f050f06691",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:196:teachers",
         "path": "infera-lms/src/report/routes.rs",
@@ -16401,7 +16803,7 @@
           }
         ]
       },
-      "source_checksum": "3a2e53c17dc687e213f02172e09bdd88c9e705718f7b6b34d2d0dc9add9c81d5",
+      "source_checksum": "08740b12ce25bb496e219af5d07b622bdfaf0c15ec14cde19d23657336722977",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:217:consultants",
         "path": "infera-lms/src/report/routes.rs",
@@ -16500,7 +16902,7 @@
           }
         ]
       },
-      "source_checksum": "670ed4bd2e2081890edaf92246d83e33cb1bf00a11735fba7db71ac74fe6a49a",
+      "source_checksum": "4998e92dd1471be0e83f2235e3d18f1e2ae8f51a5fc67b43288fa671b1b6fe3a",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:238:courses",
         "path": "infera-lms/src/report/routes.rs",
@@ -16599,7 +17001,7 @@
           }
         ]
       },
-      "source_checksum": "81542c114074c7456246c1b8d30a9fe241ec00579b31b7c9c6d37b05a6ae4e52",
+      "source_checksum": "afb18c8aa273811b1e46288af399ecfff5e6f274e0b5a1796d8261dded948ec0",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:259:classrooms",
         "path": "infera-lms/src/report/routes.rs",
@@ -16716,7 +17118,7 @@
           }
         ]
       },
-      "source_checksum": "4d978924600e2f28e74a552b296b6849ca61135c3e2777c5e2f15c4da865e993",
+      "source_checksum": "f28dc2c5ce084f7f8a9097bdb144dd454021a2f0bfe23263ae5331a5ca993367",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:280:students",
         "path": "infera-lms/src/report/routes.rs",
@@ -16814,7 +17216,7 @@
           }
         ]
       },
-      "source_checksum": "39f325063a086b0c8b5d2393ab5fa3b03dab1f6d898342cf19f058c928893813",
+      "source_checksum": "6ba787932c5ed1f83b4032410eb78d54170d1f42988fc7d154eca49a24114464",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:101:my_students",
         "path": "infera-lms/src/report/routes.rs",
@@ -16902,7 +17304,7 @@
           }
         ]
       },
-      "source_checksum": "777a14e93cd1ff3aa609c75646a364c775f9c304701d8a741bda158199d442f7",
+      "source_checksum": "27fd228c2772d1d0be09e8b39154d3e732fe4a628f43688be0b6ce75b0295ddc",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:39:assigned_students",
         "path": "infera-lms/src/report/routes.rs",
@@ -17007,7 +17409,7 @@
           }
         ]
       },
-      "source_checksum": "abd835bde7b184170b8147d670656b317a58c9cc0c5688a87f4c714099721441",
+      "source_checksum": "91a83fe10d8276cb1226f8c0de87eb8fcce27de83407375bba81e207e0efce50",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:71:assigned_chat_contacts",
         "path": "infera-lms/src/report/routes.rs",
@@ -17105,7 +17507,7 @@
           }
         ]
       },
-      "source_checksum": "da72e5c15f714f8d7e787642541f7596d553871a88d7ca88d793f6527b5f8896",
+      "source_checksum": "fe976d093a523facc79ec65483f8dcb6cf5ae30dcdc2c62576cbc1421596d5d1",
       "handler": {
         "ref": "infera-lms/src/report/routes.rs:141:student_summary",
         "path": "infera-lms/src/report/routes.rs",
@@ -17210,7 +17612,7 @@
           }
         ]
       },
-      "source_checksum": "33a80fc0708cd54a96895bce2eb09ad975e7ef8b6fe3512f708c3d5e7937d7e5",
+      "source_checksum": "76c6e307402a31796ced4b83050e347311a7f818fd89b1d552fdb8cf40bea59d",
       "handler": {
         "ref": "infera-lms/src/dashboard/routes.rs:31:index",
         "path": "infera-lms/src/dashboard/routes.rs",
@@ -17301,7 +17703,7 @@
           }
         ]
       },
-      "source_checksum": "c15f76a766c37c0743bc85f323f6731246a39f7193c64117f4ba2fa974ac783f",
+      "source_checksum": "ab75c87f0c2a1567b95d28a868777dbc2fe4c5f36b70159ae2cee59643a7e58f",
       "handler": {
         "ref": "infera-lms/src/docs/routes.rs:25:integration",
         "path": "infera-lms/src/docs/routes.rs",
@@ -17370,7 +17772,7 @@
           }
         ]
       },
-      "source_checksum": "96e84ab993f3352d9b9e35c79d04cbd1c7ac2802a4eb000d624fbf43d8a825f7",
+      "source_checksum": "c4033b76d6f332633ee6743b899ebb7a14b14439452d2141aca0eab49911dd38",
       "handler": {
         "ref": "infera-lms/src/service/routes.rs:46:check_licence",
         "path": "infera-lms/src/service/routes.rs",
@@ -17462,7 +17864,7 @@
           }
         ]
       },
-      "source_checksum": "68488f353c57d7beb257f4475c13d571146ae1a174cdaa46fb306ca50a65affd",
+      "source_checksum": "65119ddeaad2229909b1f974c45d7149a61330832c2e452da8999c4fae82dc9a",
       "handler": {
         "ref": "infera-lms/src/session/routes.rs:33:get_self",
         "path": "infera-lms/src/session/routes.rs",
@@ -17550,7 +17952,7 @@
           }
         ]
       },
-      "source_checksum": "095e32fd08c8aefc59880182d043583296bd30f847c630353b81491c6f1c8b8b",
+      "source_checksum": "a237f00d2f47a939bbd7fa14d8b860c14c813e594fdc7c5bbc690f9ed8818894",
       "handler": {
         "ref": "infera-lms/src/profile_routes.rs:60:index",
         "path": "infera-lms/src/profile_routes.rs",
@@ -17645,7 +18047,7 @@
           }
         ]
       },
-      "source_checksum": "126ad8bbde20bee2fd9cc160626ac46ee352a0e343b0407e1812c654d7c50991",
+      "source_checksum": "27f765f190df49a66bfa0b50c21274cba2317250f6f390fbc451523729b270cc",
       "handler": {
         "ref": "infera-lms/src/profile_routes.rs:31:show",
         "path": "infera-lms/src/profile_routes.rs",
@@ -17727,7 +18129,7 @@
           }
         ]
       },
-      "source_checksum": "f7e2624fc853447ca88bb0a2955b1948cfcd3e30583eced45af3d37712cb9248",
+      "source_checksum": "5c268ec15b4f16288801828fa7c6d0c88e924f52ac12261d74f511c0cd74cfd1",
       "handler": {
         "ref": "infera-lms/src/transfer.rs:137:transfer_user_data",
         "path": "infera-lms/src/transfer.rs",
@@ -17841,7 +18243,7 @@
           }
         ]
       },
-      "source_checksum": "db3d66b9fd51a15b4786d989ac8f817bea09462792ac7a7680adeec53c29834f",
+      "source_checksum": "7d935c58a61effd3e256cd4166176228a0f81e3d0c740bb618ef7e6524b58e2a",
       "handler": {
         "ref": "infera-lms/src/drm_routes.rs:30:index_compositions",
         "path": "infera-lms/src/drm_routes.rs",
@@ -17933,7 +18335,7 @@
           }
         ]
       },
-      "source_checksum": "05a0fc295dfa2b2164064f111b25b2f15e0b78bd077535b2358044f3c0737b6f",
+      "source_checksum": "00dadef3ae1b3367172e077fb231676d271d41e5cc44cb43f12d088ada955e3b",
       "handler": {
         "ref": "infera-lms/src/academy/routes.rs:63:categories",
         "path": "infera-lms/src/academy/routes.rs",
@@ -17995,7 +18397,7 @@
           }
         ]
       },
-      "source_checksum": "032296e2b95108c9a85fccffd0c018aaf4add1631fb66db13bbc249247f7da87",
+      "source_checksum": "9b702f1429555d5c9d4b304d02c714bf68193b52a325e18653722a248476bea3",
       "handler": {
         "ref": "infera-lms/src/academy/routes.rs:86:courses",
         "path": "infera-lms/src/academy/routes.rs",
@@ -18075,7 +18477,7 @@
           }
         ]
       },
-      "source_checksum": "21a77dd7d3a89196d74965aa1b3ebc14f295b4908d40a390231e10fe41ab251c",
+      "source_checksum": "42cef32ef481ca562e97b7403890d843dfd232ff034d5783ff1061e099a95b08",
       "handler": {
         "ref": "infera-lms/src/academy/routes.rs:123:course",
         "path": "infera-lms/src/academy/routes.rs",
@@ -18141,7 +18543,7 @@
           }
         ]
       },
-      "source_checksum": "23454224b92f5668abbe2e7a79f6fd7080f5384d902f8ad63e60d12181ae63d2",
+      "source_checksum": "253650c6a8726b3db8a08ed53df5846a1cd33f061904b149a77e4f95c83ec9bf",
       "handler": {
         "ref": "infera-lms/src/academy/routes.rs:148:enroll",
         "path": "infera-lms/src/academy/routes.rs",
@@ -18206,7 +18608,7 @@
           }
         ]
       },
-      "source_checksum": "09e75d9923d1e11a12ab55d62f2ddacef4580f0c19fcc3889daad06705acb9f0",
+      "source_checksum": "b811e8c6440bdadcf81f4bb31e6cf22ab16966f5a95331258ff389b4ee8cc073",
       "handler": {
         "ref": "infera-lms/src/academy/routes.rs:174:my_enrollments",
         "path": "infera-lms/src/academy/routes.rs",
@@ -18250,12 +18652,12 @@
         "permissions": [],
         "source": "infera-lms/src/academy/routes.rs",
         "body": "CompleteRequest",
+        "pathParam": "(Uuid, Uuid)",
         "response": "Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "academy::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -18269,7 +18671,7 @@
           }
         ]
       },
-      "source_checksum": "feb362e2acef94368ab978f4c7c9dfd9fbfba6815edd6995e1b4ef0cc271fa4c",
+      "source_checksum": "49e700215f0957a3c529d84e5868290ddd29af7a6c2719f074275c1de09a4182",
       "handler": {
         "ref": "infera-lms/src/academy/routes.rs:188:complete_session",
         "path": "infera-lms/src/academy/routes.rs",
@@ -18327,12 +18729,12 @@
         "handler": "start_exam",
         "permissions": [],
         "source": "infera-lms/src/academy/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "academy::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-lms/src/router.rs",
@@ -18346,7 +18748,7 @@
           }
         ]
       },
-      "source_checksum": "12091024ea460fa96e1fe19d020579117f2139d94a1fea4b34c08d5f8ae7f157",
+      "source_checksum": "820a182fa17a0ea5f235f180580d97b82c80b4f5cb7b8d8798fe825775a0ec79",
       "handler": {
         "ref": "infera-lms/src/academy/routes.rs:232:start_exam",
         "path": "infera-lms/src/academy/routes.rs",
@@ -18413,7 +18815,7 @@
           }
         ]
       },
-      "source_checksum": "648408a4fe7e0458cc8c20c212151eda6879cfd35f45cc98e6fa33389f5a9496",
+      "source_checksum": "5feb2e1a9dbb6fb8031c6d70ec7ff8944849c24721687ebba42f8fe12b0d2de4",
       "handler": {
         "ref": "infera-lms/src/academy/routes.rs:388:submit_exam",
         "path": "infera-lms/src/academy/routes.rs",
@@ -18489,7 +18891,7 @@
           }
         ]
       },
-      "source_checksum": "2285e28169df5d9067add5ec9fc53caabc90e7329b3558b3145520276077a9ad",
+      "source_checksum": "4d31180394fe90a408f35b91f7669d2689a11fa0a9ab757c4e616214b8513942",
       "handler": {
         "ref": "infera-lms/src/integration/routes.rs:31:flow_integration_show",
         "path": "infera-lms/src/integration/routes.rs",
@@ -18557,7 +18959,7 @@
           }
         ]
       },
-      "source_checksum": "56e8545612505c6275099733c3adfb593ae5648bcd6b1b6e816e46d710f93cbd",
+      "source_checksum": "c335c66f5d5178f11258d3886b2dbc718c4a6bcb0cab09d35e8980f579f75b4e",
       "handler": {
         "ref": "infera-lms/src/integration/office.rs:201:resolve_legacy_ids",
         "path": "infera-lms/src/integration/office.rs",
@@ -18630,7 +19032,7 @@
           }
         ]
       },
-      "source_checksum": "87ac2b84354852dd1b1012dc9c735327a305e7883d3c4e9b35dabd420e522c34",
+      "source_checksum": "d4f96a7a2fc864d1a384d822dcbe276e4e37cb21c358ba1858902d7b6c2c1f46",
       "handler": {
         "ref": "infera-lms/src/integration/office.rs:36:batch_courses",
         "path": "infera-lms/src/integration/office.rs",
@@ -18703,7 +19105,7 @@
           }
         ]
       },
-      "source_checksum": "7e4d6f523ba11fc0df498db14b74542a3b6bb2ea52a3ebde73f91659814dfde6",
+      "source_checksum": "b040e350f28f2ca167c8f27d1edb1e7fc416b8bddd4438d63f30ddc8954f1742",
       "handler": {
         "ref": "infera-lms/src/integration/office.rs:117:batch_course_successors",
         "path": "infera-lms/src/integration/office.rs",
@@ -18776,7 +19178,7 @@
           }
         ]
       },
-      "source_checksum": "0d34a8bcfbd3fe0a36e78c6823ad5ebd3d1f4644cee4e3144e8e7297e60ef3f5",
+      "source_checksum": "82e64f4f29e65a63a291abeb66c257144761ab9c2fc23f12cd281fb29bc7dbeb",
       "handler": {
         "ref": "infera-lms/src/integration/office.rs:65:batch_classrooms",
         "path": "infera-lms/src/integration/office.rs",
@@ -18848,7 +19250,7 @@
           }
         ]
       },
-      "source_checksum": "8ad7187cdd778b94e890e5c235da0fdbab5bbe4b093dd38311edded5a9033a87",
+      "source_checksum": "8e871856cbdd6d4bfb79d231907210b78f3d276b952fbd9cc6de9f8303bca3fa",
       "handler": {
         "ref": "infera-lms/src/integration/office.rs:166:current_classroom_users",
         "path": "infera-lms/src/integration/office.rs",
@@ -18910,7 +19312,7 @@
           }
         ]
       },
-      "source_checksum": "21944e3f53fdc2d3b15281102c95d31a89c3723260a8a7684906d9c7353b4601",
+      "source_checksum": "3644dc3ce53f4ac6a544dd2a47c4d348ce9240e1e84da1c7645bd6157c17da45",
       "handler": {
         "ref": "infera-lms/src/integration/office.rs:180:dropout_eligibility",
         "path": "infera-lms/src/integration/office.rs",
@@ -18963,6 +19365,99 @@
       }
     },
     {
+      "id": "POST /api/v1/integrations/chat/relationship",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/integrations/chat/relationship",
+        "module": "notifications::contacts",
+        "handler": "relationship",
+        "permissions": [],
+        "source": "infera-lms/src/notifications/contacts.rs",
+        "body": "RelationshipRequest",
+        "response": "RelationshipResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "notifications::contacts",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/contacts.rs",
+            "line": 27,
+            "function": "internal_routes"
+          }
+        ]
+      },
+      "source_checksum": "15220daaad3e086b051d52eb6d6f9a120a7c2aeff6439c628f285db27762e137",
+      "handler": {
+        "ref": "infera-lms/src/notifications/contacts.rs:87:relationship",
+        "path": "infera-lms/src/notifications/contacts.rs",
+        "line": 87,
+        "name": "relationship"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "RelationshipRequest",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/contacts.rs:79:RelationshipRequest",
+              "path": "infera-lms/src/notifications/contacts.rs",
+              "line": 79,
+              "name": "RelationshipRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "RelationshipResponse",
+          "models": [
+            {
+              "ref": "infera-lms/src/notifications/contacts.rs:84:RelationshipResponse",
+              "path": "infera-lms/src/notifications/contacts.rs",
+              "line": 84,
+              "name": "RelationshipResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "first_user_id",
+          "type": "Uuid",
+          "model": "RelationshipRequest",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "second_user_id",
+          "type": "Uuid",
+          "model": "RelationshipRequest",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
       "id": "GET /api/v1/public/certificates/{code}/image.svg",
       "registration": {
         "method": "GET",
@@ -18991,7 +19486,7 @@
           }
         ]
       },
-      "source_checksum": "c64942d73a6ff21c7d15166ca0e2e9f9b1555ce70832ca366256b414265ff650",
+      "source_checksum": "39ab69be2aa5a36aa9c101329108ee5a1ff1d90ec549d108bc1d9dcb895deb7d",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:231:render_certificate_image",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -19055,7 +19550,7 @@
           }
         ]
       },
-      "source_checksum": "5cbb9a365d717465dca3fd28f881eb0733f5fe2ca79acdc84f996711ee7eac39",
+      "source_checksum": "a49763b021dcb065a8252a624a6d7743eb642b161433453a743ec67683fdf28b",
       "handler": {
         "ref": "infera-lms/src/certificate/routes.rs:213:verify_certificate",
         "path": "infera-lms/src/certificate/routes.rs",
@@ -19110,8 +19605,6 @@
   ],
   "sdk_contract_drift": {
     "missing": [
-      "GET /",
-      "GET /up",
       "GET /api/v1/ai-summaries/settings",
       "PUT /api/v1/ai-summaries/settings",
       "GET /api/v1/ai-summaries/models",
@@ -19123,13 +19616,19 @@
     ],
     "extra": [],
     "changed": [
+      "GET /",
       "GET /health",
+      "GET /up",
       "GET /api/openapi.json",
       "GET /api/v1/config/branding",
       "PUT /api/v1/config/branding",
       "POST /api/v1/config/branding/assets",
       "GET /api/v1/public/branding",
       "GET /api/v1/public/branding/assets/{key}",
+      "GET /api/v1/notification-rules",
+      "PUT /api/v1/notification-rules/{key}",
+      "POST /api/v1/notification-rules/{key}/preview",
+      "GET /api/v1/chat/contacts",
       "GET /api/v1/interactive/catalog",
       "GET /api/v1/interactive/certificates",
       "POST /api/v1/interactive/courses/{id}/certificate",
@@ -19295,6 +19794,7 @@
       "POST /api/v1/classrooms/batch",
       "GET /api/v1/classrooms/users/current",
       "POST /api/v1/classrooms/users/dropout-eligibility",
+      "POST /api/v1/integrations/chat/relationship",
       "GET /api/v1/public/certificates/{code}/image.svg",
       "GET /api/v1/public/certificates/{code}"
     ]
@@ -19490,6 +19990,111 @@
             "path": "infera-lms/src/branding.rs",
             "line": 136,
             "function": "public_routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/notification-rules",
+        "module": "notifications",
+        "handler": "index",
+        "handlerModule": "notifications",
+        "source": "infera-lms/src/notifications/mod.rs",
+        "permissions": [
+          "lms:notification:settings:read"
+        ],
+        "query": "RulesQuery",
+        "response": "Vec<NotificationRule>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/mod.rs",
+            "line": 39,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/notification-rules/{key}",
+        "module": "notifications",
+        "handler": "update",
+        "handlerModule": "notifications",
+        "source": "infera-lms/src/notifications/mod.rs",
+        "permissions": [
+          "lms:notification:settings:update"
+        ],
+        "body": "UpdateRule",
+        "pathParam": "String",
+        "response": "NotificationRule",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/mod.rs",
+            "line": 39,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/notification-rules/{key}/preview",
+        "module": "notifications",
+        "handler": "preview",
+        "handlerModule": "notifications",
+        "source": "infera-lms/src/notifications/mod.rs",
+        "permissions": [
+          "lms:notification:settings:read"
+        ],
+        "pathParam": "String",
+        "response": "RulePreview",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/mod.rs",
+            "line": 39,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/chat/contacts",
+        "module": "notifications::contacts",
+        "handler": "contacts",
+        "handlerModule": "notifications::contacts",
+        "source": "infera-lms/src/notifications/contacts.rs",
+        "permissions": [
+          "lms:chat:contacts:read"
+        ],
+        "query": "ContactsQuery",
+        "response": "ContactPage",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/contacts.rs",
+            "line": 20,
+            "function": "routes"
           }
         ]
       },
@@ -23949,6 +24554,30 @@
         ]
       },
       {
+        "method": "POST",
+        "path": "/api/v1/integrations/chat/relationship",
+        "module": "notifications::contacts",
+        "handler": "relationship",
+        "handlerModule": "notifications::contacts",
+        "source": "infera-lms/src/notifications/contacts.rs",
+        "permissions": [],
+        "body": "RelationshipRequest",
+        "response": "RelationshipResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-lms/src/router.rs",
+            "line": 165,
+            "function": "routes"
+          },
+          {
+            "path": "infera-lms/src/notifications/contacts.rs",
+            "line": 27,
+            "function": "internal_routes"
+          }
+        ]
+      },
+      {
         "method": "GET",
         "path": "/api/v1/public/certificates/{code}/image.svg",
         "module": "certificate::routes",
@@ -24000,207 +24629,20 @@
         ]
       }
     ],
-    "missing_from_extracted_manifest": [
-      "GET /api/v1/public/certificates/{code}/image.svg",
-      "GET /api/v1/public/certificates/{code}"
-    ],
-    "absent_from_mounted_graph": [
-      "GET /api/v1/certificates/{code}",
-      "GET /api/v1/certificates/{code}/image.svg"
-    ]
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/certificates/{code}",
-      "GET /api/v1/certificates/{code}/image.svg"
-    ],
-    "absent": [
-      "GET /api/v1/ai-summaries/settings",
-      "PUT /api/v1/ai-summaries/settings",
-      "GET /api/v1/ai-summaries/models",
-      "GET /api/v1/ai-summaries/latest",
-      "GET /api/v1/ai-summaries/jobs",
-      "GET /api/v1/ai-summaries/summaries",
-      "POST /api/v1/ai-summaries/refresh",
-      "POST /api/v1/ai-summaries/users/{user_id}/{role}/refresh",
-      "GET /api/v1/public/certificates/{code}/image.svg",
-      "GET /api/v1/public/certificates/{code}"
-    ],
-    "changed": [
-      "GET /",
-      "GET /api/openapi.json",
-      "POST /api/v1/academy/attempts/{id}/submit",
-      "GET /api/v1/academy/categories",
-      "GET /api/v1/academy/courses",
-      "GET /api/v1/academy/courses/{id}",
-      "POST /api/v1/academy/courses/{id}/enroll",
-      "GET /api/v1/academy/enrollments",
-      "POST /api/v1/academy/enrollments/{id}/exams/{exam_id}/attempts",
-      "POST /api/v1/academy/enrollments/{id}/sessions/{session_id}/complete",
-      "GET /api/v1/auth/self",
-      "GET /api/v1/certificates",
-      "POST /api/v1/certificates",
-      "GET /api/v1/certificates/{id}",
-      "PATCH /api/v1/certificates/{id}",
-      "GET /api/v1/certificates/templates",
-      "POST /api/v1/certificates/templates",
-      "GET /api/v1/certificates/templates/{id}",
-      "PATCH /api/v1/certificates/templates/{id}",
-      "GET /api/v1/classrooms",
-      "POST /api/v1/classrooms",
-      "DELETE /api/v1/classrooms/{id}",
-      "GET /api/v1/classrooms/{id}",
-      "PATCH /api/v1/classrooms/{id}",
-      "GET /api/v1/classrooms/{id}/completion",
-      "POST /api/v1/classrooms/{id}/finalize",
-      "GET /api/v1/classrooms/{id}/users",
-      "POST /api/v1/classrooms/{id}/users",
-      "DELETE /api/v1/classrooms/{id}/users/{user_id}",
-      "PATCH /api/v1/classrooms/{id}/users/{user_id}",
-      "POST /api/v1/classrooms/batch",
-      "GET /api/v1/classrooms/session-types",
-      "GET /api/v1/classrooms/sessions",
-      "POST /api/v1/classrooms/sessions",
-      "GET /api/v1/classrooms/sessions/{id}",
-      "PATCH /api/v1/classrooms/sessions/{id}",
-      "GET /api/v1/classrooms/sessions/{id}/attendance",
-      "PUT /api/v1/classrooms/sessions/{id}/attendance",
-      "GET /api/v1/classrooms/sessions/today",
-      "GET /api/v1/classrooms/users/current",
-      "POST /api/v1/classrooms/users/dropout-eligibility",
-      "GET /api/v1/classrooms/users/sessions/absences",
-      "GET /api/v1/config/branding",
-      "PUT /api/v1/config/branding",
-      "POST /api/v1/config/branding/assets",
-      "GET /api/v1/config/classroom-types",
-      "POST /api/v1/config/classroom-types",
-      "GET /api/v1/config/classroom-types/{id}",
-      "PATCH /api/v1/config/classroom-types/{id}",
-      "GET /api/v1/config/education-days",
-      "POST /api/v1/config/education-days",
-      "GET /api/v1/config/education-days/{id}",
-      "PATCH /api/v1/config/education-days/{id}",
-      "GET /api/v1/config/grades",
-      "POST /api/v1/config/grades",
-      "GET /api/v1/config/grades/{id}",
-      "PATCH /api/v1/config/grades/{id}",
-      "GET /api/v1/config/holidays",
-      "POST /api/v1/config/holidays",
-      "GET /api/v1/config/holidays/{id}",
-      "PATCH /api/v1/config/holidays/{id}",
-      "GET /api/v1/config/weekends",
-      "POST /api/v1/config/weekends",
-      "GET /api/v1/config/weekends/{id}",
-      "PATCH /api/v1/config/weekends/{id}",
-      "GET /api/v1/courses",
-      "POST /api/v1/courses",
-      "GET /api/v1/courses/{course_id}/sessions",
-      "POST /api/v1/courses/{course_id}/sessions",
-      "DELETE /api/v1/courses/{course_id}/sessions/{id}",
-      "GET /api/v1/courses/{course_id}/sessions/{id}",
-      "PATCH /api/v1/courses/{course_id}/sessions/{id}",
-      "DELETE /api/v1/courses/{id}",
-      "GET /api/v1/courses/{id}",
-      "PATCH /api/v1/courses/{id}",
-      "POST /api/v1/courses/batch",
-      "GET /api/v1/courses/categories",
-      "POST /api/v1/courses/categories",
-      "DELETE /api/v1/courses/categories/{id}",
-      "GET /api/v1/courses/categories/{id}",
-      "PATCH /api/v1/courses/categories/{id}",
-      "PATCH /api/v1/courses/categories/reorder",
-      "PATCH /api/v1/courses/reorder",
-      "POST /api/v1/courses/successors/batch",
-      "GET /api/v1/dashboard",
-      "GET /api/v1/docs/integration",
-      "GET /api/v1/drm/compositions",
-      "GET /api/v1/evaluations/sessions/{id}",
-      "POST /api/v1/evaluations/sessions/{id}",
-      "GET /api/v1/evaluations/settings",
-      "PUT /api/v1/evaluations/settings",
-      "GET /api/v1/exams",
-      "POST /api/v1/exams",
-      "DELETE /api/v1/exams/{id}",
-      "GET /api/v1/exams/{id}",
-      "PATCH /api/v1/exams/{id}",
-      "GET /api/v1/exams/attempts",
-      "GET /api/v1/exams/attempts/{id}",
-      "PATCH /api/v1/exams/attempts/{id}",
-      "PUT /api/v1/exams/attempts/{id}/answers/{position}",
-      "GET /api/v1/exams/attempts/{id}/delivery",
-      "POST /api/v1/exams/attempts/{id}/start",
-      "POST /api/v1/exams/attempts/{id}/submit",
-      "GET /api/v1/exams/questions",
-      "POST /api/v1/exams/questions",
-      "DELETE /api/v1/exams/questions/{id}",
-      "GET /api/v1/exams/questions/{id}",
-      "PATCH /api/v1/exams/questions/{id}",
-      "GET /api/v1/exams/sessions",
-      "POST /api/v1/exams/sessions",
-      "DELETE /api/v1/exams/sessions/{id}",
-      "GET /api/v1/exams/sessions/{id}",
-      "PATCH /api/v1/exams/sessions/{id}",
-      "GET /api/v1/homework-banks",
-      "POST /api/v1/homework-banks",
-      "GET /api/v1/homework-banks/{homework_bank_id}/homeworks",
-      "POST /api/v1/homework-banks/{homework_bank_id}/homeworks",
-      "DELETE /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
-      "GET /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
-      "PATCH /api/v1/homework-banks/{homework_bank_id}/homeworks/{homework_id}",
-      "DELETE /api/v1/homework-banks/{id}",
-      "GET /api/v1/homework-banks/{id}",
-      "PATCH /api/v1/homework-banks/{id}",
-      "GET /api/v1/homeworks",
-      "POST /api/v1/homeworks",
-      "DELETE /api/v1/homeworks/{id}",
-      "GET /api/v1/homeworks/{id}",
-      "PATCH /api/v1/homeworks/{id}",
-      "GET /api/v1/homeworks/assignments",
-      "POST /api/v1/homeworks/assignments",
-      "DELETE /api/v1/homeworks/assignments/{id}",
-      "GET /api/v1/homeworks/assignments/{id}",
-      "PATCH /api/v1/homeworks/assignments/{id}",
-      "GET /api/v1/homeworks/assignments/current-term",
-      "GET /api/v1/homeworks/questions",
-      "POST /api/v1/homeworks/questions",
-      "GET /api/v1/homeworks/questions/{id}",
-      "PATCH /api/v1/homeworks/questions/{id}",
-      "POST /api/v1/idp/option/transfer-user-data",
-      "GET /api/v1/integration/flow",
-      "POST /api/v1/integration/legacy-ids/resolve",
-      "GET /api/v1/interactive/catalog",
-      "GET /api/v1/interactive/certificates",
-      "POST /api/v1/interactive/courses/{id}/certificate",
-      "GET /api/v1/interactive/definitions",
-      "GET /api/v1/interactive/definitions/{id}",
-      "POST /api/v1/interactive/definitions/{id}/publish",
-      "GET /api/v1/interactive/lessons/{id}",
-      "POST /api/v1/interactive/lessons/{id}",
-      "POST /api/v1/interactive/lessons/{id}/start",
-      "GET /api/v1/interactive/runs",
-      "GET /api/v1/interactive/runs/{id}",
-      "POST /api/v1/interactive/runs/{id}/attempts",
-      "PUT /api/v1/interactive/runs/{id}/draft",
-      "POST /api/v1/interactive/runs/{id}/hints",
-      "GET /api/v1/interactive/runs/{id}/teacher-context",
-      "POST /api/v1/media/images",
-      "GET /api/v1/media/images/{filename}",
-      "GET /api/v1/profiles",
-      "GET /api/v1/profiles/{user_id}",
-      "GET /api/v1/public/branding",
-      "GET /api/v1/public/branding/assets/{key}",
-      "GET /api/v1/reports/assigned-chat-contacts",
-      "GET /api/v1/reports/assigned-students",
-      "GET /api/v1/reports/classrooms",
-      "GET /api/v1/reports/consultants",
-      "GET /api/v1/reports/courses",
-      "GET /api/v1/reports/my-students",
-      "GET /api/v1/reports/student-summary",
-      "GET /api/v1/reports/students",
-      "GET /api/v1/reports/teachers",
-      "GET /api/v1/service/licence/check",
-      "GET /health",
-      "GET /up"
+    "added": [],
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
@@ -24948,11 +25390,11 @@
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {
-    "infera-lms/src/router.rs:276:status_route": {
+    "infera-lms/src/router.rs:279:status_route": {
       "name": "status_route",
       "path": "infera-lms/src/router.rs",
-      "line": 276,
-      "end_line": 284,
+      "line": 279,
+      "end_line": 287,
       "signature": "async fn status_route(State(_pool): State<AppState>) -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [],
@@ -24960,18 +25402,36 @@
       "state": [
         {
           "path": "infera-lms/src/router.rs",
-          "line": 278,
+          "line": 281,
           "expression": "status: \"success\".to_string(),"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-lms/src/router.rs:270:openapi_json": {
+    "infera-lms/src/models.rs:52:HealthResponse": {
+      "name": "HealthResponse",
+      "kind": "struct",
+      "path": "infera-lms/src/models.rs",
+      "line": 52,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-lms/src/router.rs:273:openapi_json": {
       "name": "openapi_json",
       "path": "infera-lms/src/router.rs",
-      "line": 270,
-      "end_line": 273,
+      "line": 273,
+      "end_line": 276,
       "signature": "async fn openapi_json() -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [],
@@ -25280,6 +25740,468 @@
         }
       ],
       "calls": []
+    },
+    "infera-lms/src/notifications/mod.rs:83:index": {
+      "name": "index",
+      "path": "infera-lms/src/notifications/mod.rs",
+      "line": 83,
+      "end_line": 103,
+      "signature": "async fn index(\n    State(s): State<AppState>,\n    Extension(_): Extension<AuthContext>,\n    Query(q): Query<RulesQuery>,\n) -> Result<Json<APIResponse<Vec<NotificationRule>>>, AppError>",
+      "declared_permissions": [
+        "lms:notification:settings:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 91,
+          "expression": "StatusCode::BAD_REQUEST,"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-lms/src/notifications/mod.rs:74:RulesQuery": {
+      "name": "RulesQuery",
+      "kind": "struct",
+      "path": "infera-lms/src/notifications/mod.rs",
+      "line": 74,
+      "attributes": "#[derive(Deserialize)]",
+      "fields": [
+        {
+          "name": "audience",
+          "rust_name": "audience",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-lms/src/notifications/mod.rs:49:NotificationRule": {
+      "name": "NotificationRule",
+      "kind": "struct",
+      "path": "infera-lms/src/notifications/mod.rs",
+      "line": 49,
+      "attributes": "#[derive(Debug, Serialize, Deserialize, Clone)]",
+      "fields": [
+        {
+          "name": "rule_key",
+          "rust_name": "rule_key",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "audience",
+          "rust_name": "audience",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "source_kind",
+          "rust_name": "source_kind",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "timing",
+          "rust_name": "timing",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "offset_seconds",
+          "rust_name": "offset_seconds",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "enabled",
+          "rust_name": "enabled",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "updated_at",
+          "rust_name": "updated_at",
+          "rust_type": "chrono::DateTime<chrono::Utc>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "updated_by",
+          "rust_name": "updated_by",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-lms/src/notifications/mod.rs:127:update": {
+      "name": "update",
+      "path": "infera-lms/src/notifications/mod.rs",
+      "line": 127,
+      "end_line": 186,
+      "signature": "async fn update(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Path(key): Path<String>,\n    Json(i): Json<UpdateRule>,\n) -> Result<Json<APIResponse<NotificationRule>>, AppError>",
+      "declared_permissions": [
+        "lms:notification:settings:update"
+      ],
+      "guards": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 135,
+          "expression": ".require_user_id()"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 136,
+          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 133,
+          "expression": "validate_update(&i)?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 143,
+          "expression": "if before.version != i.expected_version {"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 145,
+          "expression": "StatusCode::CONFLICT,"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 170,
+          "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 136,
+          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 141,
+          "expression": "let previous=tx.query_one(sql(\"SELECT * FROM lms_notification_rules WHERE rule_key=$1 AND audience='student' FOR UPDATE\",vec![key.clone().into()])).await.map_err(db)?.ok_or_else(||AppError::new(StatusCode::NOT_FOUND,\"rule not found\"))?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 145,
+          "expression": "StatusCode::CONFLICT,"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 170,
+          "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 180,
+          "expression": "tx.execute(sql(\"UPDATE lms_notification_jobs SET status='cancelled',leased_until=NULL WHERE rule_key=$1 AND status='pending' AND (source_revision<>'event' OR NOT $2)\",vec![key.clone().into(),i.enabled.into()])).await.map_err(db)?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 182,
+          "expression": "tx.execute(sql(\"UPDATE lms_notification_jobs SET due_at=source_occurred_at+make_interval(secs=>$2),policy_version=$3,leased_until=NULL WHERE rule_key=$1 AND status='pending' AND source_revision='event' AND enqueued_at IS NULL\",vec![key.into(),i.offset_seconds.into(),after.version.into()])).await.map_err(db)?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 133,
+          "expression": "validate_update(&i)?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 141,
+          "expression": "let previous=tx.query_one(sql(\"SELECT * FROM lms_notification_rules WHERE rule_key=$1 AND audience='student' FOR UPDATE\",vec![key.clone().into()])).await.map_err(db)?.ok_or_else(||AppError::new(StatusCode::NOT_FOUND,\"rule not found\"))?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 176,
+          "expression": "let row=tx.query_one(sql(\"UPDATE lms_notification_rules SET enabled=$2,offset_seconds=$3,version=version+1,enabled_since=CASE WHEN NOT enabled AND $2 THEN now() ELSE enabled_since END,updated_at=now(),updated_by=$4 WHERE rule_key=$1 RETURNING *\",vec![key.clone().into(),i.enabled.into(),i.offset_seconds.into(),actor.into()])).await.map_err(db)?.unwrap();"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 178,
+          "expression": "tx.execute(sql(\"INSERT INTO lms_notification_rule_audit(id,rule_key,actor_id,before_value,after_value) VALUES($1,$2,$3,$4,$5)\",vec![Uuid::new_v4().into(),key.clone().into(),actor.into(),json!(before).into(),json!(after).into()])).await.map_err(db)?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 180,
+          "expression": "tx.execute(sql(\"UPDATE lms_notification_jobs SET status='cancelled',leased_until=NULL WHERE rule_key=$1 AND status='pending' AND (source_revision<>'event' OR NOT $2)\",vec![key.clone().into(),i.enabled.into()])).await.map_err(db)?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 182,
+          "expression": "tx.execute(sql(\"UPDATE lms_notification_jobs SET due_at=source_occurred_at+make_interval(secs=>$2),policy_version=$3,leased_until=NULL WHERE rule_key=$1 AND status='pending' AND source_revision='event' AND enqueued_at IS NULL\",vec![key.into(),i.offset_seconds.into(),after.version.into()])).await.map_err(db)?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 184,
+          "expression": "tx.commit().await.map_err(db)?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-lms/src/notifications/mod.rs:106:UpdateRule": {
+      "name": "UpdateRule",
+      "kind": "struct",
+      "path": "infera-lms/src/notifications/mod.rs",
+      "line": 106,
+      "attributes": "#[derive(Debug, Serialize, Deserialize)]\n#[serde(deny_unknown_fields)]",
+      "fields": [
+        {
+          "name": "enabled",
+          "rust_name": "enabled",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "offset_seconds",
+          "rust_name": "offset_seconds",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "expected_version",
+          "rust_name": "expected_version",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-lms/src/notifications/mod.rs:201:preview": {
+      "name": "preview",
+      "path": "infera-lms/src/notifications/mod.rs",
+      "line": 201,
+      "end_line": 224,
+      "signature": "async fn preview(\n    State(s): State<AppState>,\n    Extension(_): Extension<AuthContext>,\n    Path(key): Path<String>,\n) -> Result<Json<APIResponse<RulePreview>>, AppError>",
+      "declared_permissions": [
+        "lms:notification:settings:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-lms/src/notifications/mod.rs",
+          "line": 214,
+          "expression": "return Err(AppError::new(StatusCode::NOT_FOUND, \"rule not found\"));"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-lms/src/notifications/mod.rs:188:RulePreview": {
+      "name": "RulePreview",
+      "kind": "struct",
+      "path": "infera-lms/src/notifications/mod.rs",
+      "line": 188,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "rule_key",
+          "rust_name": "rule_key",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "title_en",
+          "rust_name": "title_en",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "title_fa",
+          "rust_name": "title_fa",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "body_en",
+          "rust_name": "body_en",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "body_fa",
+          "rust_name": "body_fa",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-lms/src/notifications/contacts.rs:50:contacts": {
+      "name": "contacts",
+      "path": "infera-lms/src/notifications/contacts.rs",
+      "line": 50,
+      "end_line": 76,
+      "signature": "async fn contacts(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Query(q): Query<ContactsQuery>,\n) -> Result<Json<APIResponse<ContactPage>>, AppError>",
+      "declared_permissions": [
+        "lms:chat:contacts:read"
+      ],
+      "guards": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 56,
+          "expression": ".require_user_id()"
+        },
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 57,
+          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 58,
+          "expression": "let limit = q.limit.unwrap_or(50).clamp(1, 100) as usize;"
+        },
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 60,
+          "expression": "let more = rows.len() > limit;"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 57,
+          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
+        },
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 59,
+          "expression": "let rows=s.db.query_all(sql(\"WITH contacts AS (SELECT cu.user_id FROM classrooms c JOIN classroom_users cu ON cu.classroom_id=c.id WHERE c.deleted_at IS NULL AND c.status<>'cancelled' AND cu.status IN ('active','inactive','disabled','enrolled') AND (c.teacher_user_id=$1 OR c.support_user_id=$1) UNION SELECT c.teacher_user_id FROM classrooms c JOIN classroom_users cu ON cu.classroom_id=c.id AND cu.user_id=$1 WHERE c.deleted_at IS NULL AND c.status<>'cancelled' AND cu.status IN ('active','inactive','disabled','enrolled') UNION SELECT c.support_user_id FROM classrooms c JOIN classroom_users cu ON cu.classroom_id=c.id AND cu.user_id=$1 WHERE c.deleted_at IS NULL AND c.status<>'cancelled' AND cu."
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 59,
+          "expression": "let rows=s.db.query_all(sql(\"WITH contacts AS (SELECT cu.user_id FROM classrooms c JOIN classroom_users cu ON cu.classroom_id=c.id WHERE c.deleted_at IS NULL AND c.status<>'cancelled' AND cu.status IN ('active','inactive','disabled','enrolled') AND (c.teacher_user_id=$1 OR c.support_user_id=$1) UNION SELECT c.teacher_user_id FROM classrooms c JOIN classroom_users cu ON cu.classroom_id=c.id AND cu.user_id=$1 WHERE c.deleted_at IS NULL AND c.status<>'cancelled' AND cu.status IN ('active','inactive','disabled','enrolled') UNION SELECT c.support_user_id FROM classrooms c JOIN classroom_users cu ON cu.classroom_id=c.id AND cu.user_id=$1 WHERE c.deleted_at IS NULL AND c.status<>'cancelled' AND cu."
+        }
+      ],
+      "calls": []
+    },
+    "infera-lms/src/notifications/contacts.rs:31:ContactsQuery": {
+      "name": "ContactsQuery",
+      "kind": "struct",
+      "path": "infera-lms/src/notifications/contacts.rs",
+      "line": 31,
+      "attributes": "#[derive(Deserialize)]",
+      "fields": [
+        {
+          "name": "cursor",
+          "rust_name": "cursor",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "limit",
+          "rust_name": "limit",
+          "rust_type": "Option<u64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-lms/src/notifications/contacts.rs:40:ContactPage": {
+      "name": "ContactPage",
+      "kind": "struct",
+      "path": "infera-lms/src/notifications/contacts.rs",
+      "line": 40,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "contacts",
+          "rust_name": "contacts",
+          "rust_type": "Vec<Contact>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "next_cursor",
+          "rust_name": "next_cursor",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
     },
     "infera-lms/src/interactive/routes.rs:112:catalog": {
       "name": "catalog",
@@ -44422,6 +45344,87 @@
           "attributes": [
             "serde(default)"
           ]
+        }
+      ]
+    },
+    "infera-lms/src/notifications/contacts.rs:87:relationship": {
+      "name": "relationship",
+      "path": "infera-lms/src/notifications/contacts.rs",
+      "line": 87,
+      "end_line": 111,
+      "signature": "async fn relationship(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Json(i): Json<RelationshipRequest>,\n) -> Result<Json<APIResponse<RelationshipResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 106,
+          "expression": "\"trusted chat authentication required\","
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 94,
+          "expression": ".filter(|v| !v.is_empty())"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 97,
+          "expression": "StatusCode::SERVICE_UNAVAILABLE,"
+        },
+        {
+          "path": "infera-lms/src/notifications/contacts.rs",
+          "line": 105,
+          "expression": "StatusCode::FORBIDDEN,"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-lms/src/notifications/contacts.rs:79:RelationshipRequest": {
+      "name": "RelationshipRequest",
+      "kind": "struct",
+      "path": "infera-lms/src/notifications/contacts.rs",
+      "line": 79,
+      "attributes": "#[derive(Deserialize)]\n#[serde(deny_unknown_fields)]",
+      "fields": [
+        {
+          "name": "first_user_id",
+          "rust_name": "first_user_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "second_user_id",
+          "rust_name": "second_user_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-lms/src/notifications/contacts.rs:84:RelationshipResponse": {
+      "name": "RelationshipResponse",
+      "kind": "struct",
+      "path": "infera-lms/src/notifications/contacts.rs",
+      "line": 84,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "allowed",
+          "rust_name": "allowed",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
         }
       ]
     },

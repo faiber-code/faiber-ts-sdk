@@ -281,5 +281,5 @@ export type KheradgahRoutesViewGetResponse = import("./contracts.types.js").Game
 /** Backend response type: websocket. */
 export type KheradgahRoutesRealtimeGetResponse = import("./contracts.types.js").KheradgahServerFrame;
 
-/** Backend response type: StateProcessHealth. */
+/** Backend response type: ProcessHealthResponse. */
 export type MainProcessHealthGetResponse = import("./contracts.types.js").StateProcessHealthResponse;

@@ -12,8 +12,8 @@
     "src/handler.rs",
     "src/drm.rs"
   ],
-  "canonical_revision": "4c5eefc4062e8e522795478c8dd7d55e48a0c9fc",
-  "sdk_source_revision": "831dde454084a05920441091a8305a7a972d9804",
+  "canonical_revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
+  "sdk_source_revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
   "working_revision": "edefa6463fe1877661cc62ef4752515262c71e00",
   "working_changes": [
     "M migration/src/lib.rs",
@@ -31,11 +31,12 @@
     "?? migration/src/m20261007_000022_asset_outbox_retry.rs",
     "?? migration/src/m20261019_000050_summary_activity_outbox.rs",
     "?? src/asset_economy.rs",
+    "?? src/summary_aggregates.sql",
     "?? src/summary_evidence.rs",
     "?? src/summary_evidence.sql"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "720681f47e8898eec6430cb01646fb44da2f717c5e51f144cafd60a40821bbda",
+  "source_tree_checksum": "a5756423240ea1d68f2c3853eeed36b40a87659ba8f3dd324534a4b36f822bc0",
   "source_files": [
     {
       "path": "infera-session/src/asset_economy.rs",
@@ -135,7 +136,7 @@
     },
     {
       "path": "infera-session/src/main.rs",
-      "checksum": "df12244d8ed00077c6497a27ddfc5fd8c6d3a13cf723c7318a9af5b4f2573b87"
+      "checksum": "ce218380c1cca5b3923ea8d1d7c317eba8bde0806ba163f4460af4ab33d0fc96"
     },
     {
       "path": "infera-session/src/middleware.rs",
@@ -144,6 +145,10 @@
     {
       "path": "infera-session/src/models.rs",
       "checksum": "3ccffc5cf4bd8381b0e9554126f0778192fc78f8b4ae8ba8944d4856f4a7d38e"
+    },
+    {
+      "path": "infera-session/src/notification_state.rs",
+      "checksum": "71ddc174187992bc8a2590f923fd06677b6d0cfdf8622ea8823298d8201b0c2d"
     },
     {
       "path": "infera-session/src/recording/methods.rs",
@@ -191,7 +196,7 @@
     },
     {
       "path": "infera-session/src/room/routes.rs",
-      "checksum": "a5ac77fde7172f94bc0b259b856be7c155f0eddf4a6ae344c2143fc288517c11"
+      "checksum": "8ece2f8efe9bb26c5eb6bb3fd37805746d5bdcf1ce5d26ef8fbb692e736dfbb8"
     },
     {
       "path": "infera-session/src/room/transformers.rs",
@@ -223,7 +228,7 @@
     },
     {
       "path": "infera-session/src/router.rs",
-      "checksum": "87ddfed25ae8ebefeca795f3f2f036e2018cb946dfd7a46d12b26dcb4126e920"
+      "checksum": "df7dcec77e7dcdf0a8dd17bf0911b06672568bd3109bc4c5ebb3ef1c02ec3810"
     },
     {
       "path": "infera-session/src/s3.rs",
@@ -347,7 +352,7 @@
     },
     {
       "path": "infera-session/migration/src/lib.rs",
-      "checksum": "39f5c1d0fd1327699489c1f01eb2b528a77138f99ac9f260b8ac9e5e1f708861"
+      "checksum": "1fc92f1df5b4e13692beed26a0a940afee8791eacfafef1332fa830a0fc63a3c"
     },
     {
       "path": "infera-session/migration/src/m20220101_000001_create_rooms_table.rs",
@@ -442,6 +447,10 @@
       "checksum": "a239dbf7766b5f5f50e7ee5d499fa7153234a83a8e204d9744838f6953c6db44"
     },
     {
+      "path": "infera-session/migration/src/m20261019_000024_learning_start.rs",
+      "checksum": "dad8886b6f9d272a2767905d9e6ed7e4cfb1897473b0873778dbee28d2d4680e"
+    },
+    {
       "path": "infera-session/migration/src/main.rs",
       "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
     },
@@ -470,7 +479,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "4e996acb09c57897909cb843647dcf74364e8a0de166e03256357d14725d1d47",
+  "working_source_tree_checksum": "0742dadaa5dd44f690c8963202620334f44d25673ddf83d2e7239dd7577d9d34",
   "working_source_files": [
     {
       "path": "infera-session/src/asset_economy.rs",
@@ -697,12 +706,16 @@
       "checksum": "a944bb00c522ed5e7e81f1cf89de7bca29db710136d88a30dec48dfca457a430"
     },
     {
+      "path": "infera-session/src/summary_aggregates.sql",
+      "checksum": "6f61eb9f855a0423c6bfb567019e598a0ebe8b4fba94cc4ad2148ec43d48b219"
+    },
+    {
       "path": "infera-session/src/summary_evidence.rs",
-      "checksum": "a8f3754d6a61e8b3162ccc03eea06128123352b912205d09b03b67ef55ddd703"
+      "checksum": "548a107ef3144934f56122f87de2e6eb5b403b6d42399de71b0602f9dcd7c99d"
     },
     {
       "path": "infera-session/src/summary_evidence.sql",
-      "checksum": "73712ff2ecca26d0fab4bc7b45710b07ca8a4b6634d8178df48a0c2665c410c7"
+      "checksum": "d746d39cc68745bfee138b2e6e2574d4f1f7dd98cd174a8205db83f8707325e1"
     },
     {
       "path": "infera-session/src/validators.rs",
@@ -874,7 +887,7 @@
     },
     {
       "path": "infera-session/migration/src/m20261019_000050_summary_activity_outbox.rs",
-      "checksum": "f8a6a16c570e99af0e86eb9364011b0e334faf8b782272626098eddf5aa259de"
+      "checksum": "6b2a83e1b141b9d4004dc1af889d10563118deea01d388320360c581c77c1dd1"
     },
     {
       "path": "infera-session/migration/src/main.rs",
@@ -886,7 +899,7 @@
     },
     {
       "path": "infera-session/Cargo.lock",
-      "checksum": "cadf3745b7adee8783990728d5149eca7340ec6756a1bbf5a81ee4b37cb2d832"
+      "checksum": "7e4aa111516d1d9cf2a3ad525dfc3eb07b94ed6940fe4606de4a769030d7b093"
     },
     {
       "path": "infera-session/.cargo/config.toml",
@@ -902,7 +915,7 @@
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "af729774fec2b0d20ebed127f3e38bebb2ba258b048fc1a1f05ce96aa2775413",
+      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a",
       "embedded_by": "infera-session/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
@@ -936,7 +949,7 @@
           }
         ]
       },
-      "source_checksum": "6c85ebb28867c1246319aaf7f7fe7e8b5b5be86a0b7ec33d5b92548f58302c65",
+      "source_checksum": "2534a9bd2f9fa6cd20af94f616380689deab955353d89fcc1a77203366119ef4",
       "handler": {
         "ref": "infera-session/src/branding.rs:172:show",
         "path": "infera-session/src/branding.rs",
@@ -1007,7 +1020,7 @@
           }
         ]
       },
-      "source_checksum": "1b6ee5485b19857462dc6baa660d4c4a9e7f244090d7749f67bc78bb6194e910",
+      "source_checksum": "5c9a2271a5b2eb7686b6a6f31ef17d822f7569e4ff297799119a0ab5fdf9b5b9",
       "handler": {
         "ref": "infera-session/src/branding.rs:185:update",
         "path": "infera-session/src/branding.rs",
@@ -1088,7 +1101,7 @@
           }
         ]
       },
-      "source_checksum": "d16a97874212727bd0ae2313275d7244e385f3e1f7dbe81e5ddfbcf2e6fe782f",
+      "source_checksum": "f36fc502bf7407f1b2f93966422056877e1c7e53294acd9a2956980b8f259b1f",
       "handler": {
         "ref": "infera-session/src/branding.rs:231:upload",
         "path": "infera-session/src/branding.rs",
@@ -1149,7 +1162,7 @@
           }
         ]
       },
-      "source_checksum": "2cc6a08be718b3b0f82dcb73261e49fcc8446fe7679e4f0d8ca1ee7c64472ca4",
+      "source_checksum": "6548ce572516f1368fbda75138e964e038f215230b5caaa8ea1403f0fe4883f4",
       "handler": {
         "ref": "infera-session/src/branding.rs:161:public_show",
         "path": "infera-session/src/branding.rs",
@@ -1217,7 +1230,7 @@
           }
         ]
       },
-      "source_checksum": "706c847d1794bc2876becd577121325de5dc849e91ced0848c21a4a03acd68a2",
+      "source_checksum": "c7122aa10c12caec38b073a541558bca46c81f3ca4d3ea12515fa6aaf35db41f",
       "handler": {
         "ref": "infera-session/src/branding.rs:273:asset",
         "path": "infera-session/src/branding.rs",
@@ -1272,11 +1285,11 @@
           }
         ]
       },
-      "source_checksum": "77f35ff7555d73bd5861ff9cb488fc606d0ae384c50cd502d2a5528b68b5265c",
+      "source_checksum": "e6dd580d56e11037abf2612571bd4b8ae696a7acbc7d32266980557d6d20450b",
       "handler": {
-        "ref": "infera-session/src/router.rs:702:status_route",
+        "ref": "infera-session/src/router.rs:703:status_route",
         "path": "infera-session/src/router.rs",
-        "line": 702,
+        "line": 703,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -1322,11 +1335,11 @@
           }
         ]
       },
-      "source_checksum": "ce20624f4e3a7ae87f927181434085e10b638846f73168e34e375fe3b277cc1b",
+      "source_checksum": "28c83e2d5d1f19715f3b20ab6246bb623a7e7019da83169675645085616f9950",
       "handler": {
-        "ref": "infera-session/src/router.rs:702:status_route",
+        "ref": "infera-session/src/router.rs:703:status_route",
         "path": "infera-session/src/router.rs",
-        "line": 702,
+        "line": 703,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -1382,7 +1395,7 @@
           }
         ]
       },
-      "source_checksum": "3cd55301737f0f2f35d78b8f5a7810362488d5705d8d4719f38ae40db8debdfc",
+      "source_checksum": "ef1a3086589b178438ba69d92ce68d94b1123e0e0d6e1bb7a482b3c2af383326",
       "handler": {
         "ref": "infera-session/src/asset_economy.rs:116:interact",
         "path": "infera-session/src/asset_economy.rs",
@@ -1486,7 +1499,7 @@
           }
         ]
       },
-      "source_checksum": "199e02f91b7d68e5f649c367b91181ec8caba8a74cf34a9ee5ff567b38c5f57a",
+      "source_checksum": "1f2e9acf0a3721e5c0275eb01f2d05ba16e3704175d89e89b1fcf4608f465754",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:466:rooms_analytics",
         "path": "infera-session/src/room/routes.rs",
@@ -1557,7 +1570,7 @@
           }
         ]
       },
-      "source_checksum": "b16cddc36e7d98b5ff454e41930f00babb29270fa47c72543662cce277b29f8a",
+      "source_checksum": "b9b2e34fb5c49658888e075dab5efa0228b57150bbb660d8eae44e8adfb9fe65",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:511:rooms_index",
         "path": "infera-session/src/room/routes.rs",
@@ -1639,7 +1652,7 @@
           }
         ]
       },
-      "source_checksum": "1d2253875b88ce39eb69c3f1eb8904e885df4b38f292b48665dbf2e27b57d4f4",
+      "source_checksum": "aeb38a9165ef0bd8b59b85fdfb73bd0b47cd7cbbed31d1510a6d9494ebfe1381",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:414:rooms_create",
         "path": "infera-session/src/room/routes.rs",
@@ -1715,12 +1728,12 @@
           "room:read"
         ],
         "source": "infera-session/src/room/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "RoomSingleResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "room::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -1734,7 +1747,7 @@
           }
         ]
       },
-      "source_checksum": "7501b5bcc7764c29dbe6d7f1ece1bc562d210e33803caed813569977c7948b16",
+      "source_checksum": "908da2453b664830f0e133176952735b760d8ec657130731cbc9ccbf4a324670",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:671:rooms_show",
         "path": "infera-session/src/room/routes.rs",
@@ -1790,12 +1803,12 @@
           "room_recording:read"
         ],
         "source": "infera-session/src/room/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "RoomRecordingResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "room::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -1809,7 +1822,7 @@
           }
         ]
       },
-      "source_checksum": "dbb963b1fa87d33ca5dd0a022bf2d8a80cb54667ac00a96b7e841bf541ecd229",
+      "source_checksum": "c6a90093a67361ceb7fdccca7aa7ad1cfd3ac75d5861ba17196d2f8399d83d38",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1091:rooms_recordings",
         "path": "infera-session/src/room/routes.rs",
@@ -1884,7 +1897,7 @@
           }
         ]
       },
-      "source_checksum": "a253f806fc9a79acb90a7ea850aa86085cac5d62b0805b12d7c6c905ff628723",
+      "source_checksum": "01c3fd7bb369d89c2ea10f9fbbaac9bd34781f8cfa454b2d9f7d08ff01e85f34",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:242:rooms_presence_events",
         "path": "infera-session/src/room/routes.rs",
@@ -1947,12 +1960,12 @@
           "room:read_livekit_token"
         ],
         "source": "infera-session/src/room/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "LiveKitTokenResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "room::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -1966,7 +1979,7 @@
           }
         ]
       },
-      "source_checksum": "1db1de050636324f7fc9fa750ce2b461eb1b1b9f50416bd9cd2de86067919ff6",
+      "source_checksum": "bc7fe12c1028105c33ad39f53ecfced94f7194b9e0ebfa81e6735676864e6ad2",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:871:rooms_livekit_token",
         "path": "infera-session/src/room/routes.rs",
@@ -2069,7 +2082,7 @@
           }
         ]
       },
-      "source_checksum": "1aa446ca03a2e9441a84ccb3a4a4e71f969f2759feea326a2d64c45812c44539",
+      "source_checksum": "f88ff71ad56d29096c945abe1aa5034d14cc1485d2c794ae0496b7da65885cb5",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:935:rooms_join",
         "path": "infera-session/src/room/routes.rs",
@@ -2179,7 +2192,7 @@
           }
         ]
       },
-      "source_checksum": "d295a899406bbc9355ecaa72f76f06d7ce2e7b474358661aa7e49e4a219df1ab",
+      "source_checksum": "29db7d1c7f2e747b57097f7d135cf1409df0ab5d962ad8bcaf51b4a1b2fe716f",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:484:rooms_leaderboard",
         "path": "infera-session/src/room/routes.rs",
@@ -2254,7 +2267,7 @@
           }
         ]
       },
-      "source_checksum": "7006766811f7690232aa51a194d8143d8b1f75b47c4f8d29c8e1bfb6d964a123",
+      "source_checksum": "4f3cbc8b73efab215fc80e56e3a849d27888201ab1f82914f55dc77d12b5f98b",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1042:rooms_interactive_start",
         "path": "infera-session/src/room/routes.rs",
@@ -2310,12 +2323,12 @@
           "room:end"
         ],
         "source": "infera-session/src/room/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "APIEmptyResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "room::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -2329,7 +2342,7 @@
           }
         ]
       },
-      "source_checksum": "904eb72bea24720ab7958e7a5346c0c39e2e30752069c1fd90abbbc33d79374b",
+      "source_checksum": "bfed546a451487a1086219f848da22536e4f2aed400d52aee9112e8a4cd5421b",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:721:rooms_end",
         "path": "infera-session/src/room/routes.rs",
@@ -2386,12 +2399,12 @@
         ],
         "source": "infera-session/src/room/routes.rs",
         "body": "ParticipantMuteUpdate",
+        "pathParam": "(Uuid, Uuid)",
         "response": "ParticipantMuteResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "room::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -2405,7 +2418,7 @@
           }
         ]
       },
-      "source_checksum": "518bfab88a2179183e6e38b94b548b4d6a900593328b61dfcc82caa1354ce576",
+      "source_checksum": "18eb25847e47e9b81eb4794fa113850007a780baefc19df0d9e06923a5850d54",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:332:rooms_participant_mute",
         "path": "infera-session/src/room/routes.rs",
@@ -2508,7 +2521,7 @@
           }
         ]
       },
-      "source_checksum": "960835b7435162b98cfa39ac70ece5d602f7a45a5b4dd0ae42591ccf8e418f03",
+      "source_checksum": "925dab3830f2a3dd78df8a8d2fa834fa9d74ecbc3a920d4fda9c1ed1cbe192a6",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:293:rooms_self_moderation",
         "path": "infera-session/src/room/routes.rs",
@@ -2571,12 +2584,12 @@
           "room:read_playback"
         ],
         "source": "infera-session/src/room/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "RoomSingleFullResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "room::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -2590,7 +2603,7 @@
           }
         ]
       },
-      "source_checksum": "baee0fe3821fe2266ddfa0ad8fcbe55a1d34b00658293d96d8a7a692f0a42740",
+      "source_checksum": "8fec366391538056a7af1668937126c18dfeb9196771f10538bdf6a200f46ff1",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:767:rooms_playback_show",
         "path": "infera-session/src/room/routes.rs",
@@ -2665,12 +2678,12 @@
           "room:stop"
         ],
         "source": "infera-session/src/room/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "RoomSingleResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "room::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -2684,7 +2697,7 @@
           }
         ]
       },
-      "source_checksum": "a5786275e0232998ceffb27b628c2e5e7fbf566056cd30a70edbb54a3397b3e1",
+      "source_checksum": "4ddf0ff3f16e4fafee18ee493ed16fe58cb040626db5b8fdda59ae92245c68b9",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1357:rooms_stop",
         "path": "infera-session/src/room/routes.rs",
@@ -2760,7 +2773,7 @@
           }
         ]
       },
-      "source_checksum": "7e0e68f33833788f8daba9c9210317400c1115e27b7d73aa5fa76cef162933a4",
+      "source_checksum": "b0ff108e0e324fe0d53f0b20d70115cce4175dcdabee5f1ff04d29ee7fc214e2",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:567:rooms_update",
         "path": "infera-session/src/room/routes.rs",
@@ -2854,7 +2867,7 @@
           }
         ]
       },
-      "source_checksum": "5518f6f47c327f09178fbd287b38b3e9ea6f029061434d89a2cedb88d42d1c2f",
+      "source_checksum": "816ed9bdab57324c53a1281be34471ff3111ec696a569c30c9ffd664d737de19",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:567:rooms_update",
         "path": "infera-session/src/room/routes.rs",
@@ -2928,12 +2941,12 @@
           "room:delete"
         ],
         "source": "infera-session/src/room/routes.rs",
+        "pathParam": "(Uuid)",
         "response": "RoomSingleResponse",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "room::routes",
-        "pathParam": "(Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -2947,7 +2960,7 @@
           }
         ]
       },
-      "source_checksum": "2fdc74e28d695e31d0aae247db7a36b8484cb0b94a48776ef3a16a51ec57fa93",
+      "source_checksum": "39dc4c53d272e408eb20cc50247b2e4951204efd61585d63d6f8d281971d84af",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:626:rooms_delete",
         "path": "infera-session/src/room/routes.rs",
@@ -3020,7 +3033,7 @@
           }
         ]
       },
-      "source_checksum": "ab6775380ff419206f7822638873cc2f693097d5702b3bddaaa748ca35eb4ccb",
+      "source_checksum": "421761e508d24e410d24b25bebfb79b6442e77996a8107e25d09864e32df0c8f",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1388:livekit_webhook",
         "path": "infera-session/src/room/routes.rs",
@@ -3062,6 +3075,15 @@
             "path": "infera-session/src/asset_economy.rs",
             "line": 77,
             "name": "activity"
+          }
+        },
+        {
+          "call": "crate::notification_state::state",
+          "evidence": {
+            "ref": "infera-session/src/notification_state.rs:62:state",
+            "path": "infera-session/src/notification_state.rs",
+            "line": 62,
+            "name": "state"
           }
         }
       ],
@@ -3129,7 +3151,7 @@
           }
         ]
       },
-      "source_checksum": "4ef2ae227c9f16eee58db54c77db263bf90d034d34d752ae956c7d1357c0347a",
+      "source_checksum": "c853569464b28adccde72f318df79174e1a5c56459ad8b1e6661ee41ba10e4bc",
       "handler": {
         "ref": "infera-session/src/room_state/routes.rs:178:room_state_respond",
         "path": "infera-session/src/room_state/routes.rs",
@@ -3224,7 +3246,7 @@
           }
         ]
       },
-      "source_checksum": "e3e858336a67ff18afcfafe07b8288adeeae6abaa110f8ca5f0a51a5a62ed8d7",
+      "source_checksum": "3b98c9524029bb791583e026e1a3a26a39cfb5c31c674291a800abf0e6655187",
       "handler": {
         "ref": "infera-session/src/configuration/routes.rs:28:livekit_config_show",
         "path": "infera-session/src/configuration/routes.rs",
@@ -3302,7 +3324,7 @@
           }
         ]
       },
-      "source_checksum": "9342a4ef3b389816e6f3f1ab9b961b4f5056574eb6dbe666d7292fd569469dcc",
+      "source_checksum": "2e668f2378742598f7e23d6bf1b7cc69883afdebda09a359d2ef38778b935727",
       "handler": {
         "ref": "infera-session/src/configuration/routes.rs:45:livekit_config_update",
         "path": "infera-session/src/configuration/routes.rs",
@@ -3397,7 +3419,7 @@
           }
         ]
       },
-      "source_checksum": "a2368ca22c60b7e9f77ddd427938c11a9d937f70fad791ab6004d87fe5e167bf",
+      "source_checksum": "ef6a87101186eafd435e73ad37e5b113807c37481bdaafe31a8e26a1ea632ac3",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:107:recordings_index",
         "path": "infera-session/src/recording/routes.rs",
@@ -3478,7 +3500,7 @@
           }
         ]
       },
-      "source_checksum": "74cdadeaff7777dea44687cf7c2d3bacb3b925eb56d84403329f01f50f11a856",
+      "source_checksum": "e28a6798586251e0acadfb37c38470dd050aa0e00fde104e6a596ec9cbb0037d",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:132:audio_models",
         "path": "infera-session/src/recording/routes.rs",
@@ -3559,7 +3581,7 @@
           }
         ]
       },
-      "source_checksum": "273b16d153bc39dbc293a4e11e1cebb50a9f92ca3cf90749af7347a0e4508acd",
+      "source_checksum": "9e07948ab6067111df8afc463882340e5493c0c32e8aaadc9b0b5918027f7c7b",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:229:recording_manifest",
         "path": "infera-session/src/recording/routes.rs",
@@ -3648,7 +3670,7 @@
           }
         ]
       },
-      "source_checksum": "8e6ca46b27739f55b41f536d8ee7792ea572ed7f754ea5aaa8fe8a547a68d927",
+      "source_checksum": "7da01d4cd90e249b014739795fa6c4b58c3b3218ffe491fdf86fbf7eff54a326",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:258:recording_schedule",
         "path": "infera-session/src/recording/routes.rs",
@@ -3746,7 +3768,7 @@
           }
         ]
       },
-      "source_checksum": "c8ca3efd971736731b142783ba578cd777e28d4b4bbc1b5e68b6ff0f474a77c9",
+      "source_checksum": "b148f6bf909ccf5986ec9dd10596ecd05029e6402accfa30361bde9d26db7166",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:59:list_user_sessions",
         "path": "infera-session/src/assistant_tools.rs",
@@ -3804,12 +3826,12 @@
         "handler": "user_session_detail",
         "permissions": [],
         "source": "infera-session/src/assistant_tools.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "assistant_tools",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -3823,7 +3845,7 @@
           }
         ]
       },
-      "source_checksum": "4f75e26f19c3c87e793eeb80218ad5184c2125fd591df611d7fb93ae70043387",
+      "source_checksum": "089390e5ae697ebfb813ee29f663f7b9767524b867afbe01936a24c19f1a631e",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:103:user_session_detail",
         "path": "infera-session/src/assistant_tools.rs",
@@ -3888,7 +3910,7 @@
           }
         ]
       },
-      "source_checksum": "1da1570a122288a75f793fa65f015a4a1de3009875a6213f4da633d136d67711",
+      "source_checksum": "aba28195bf29372103b26008ce4062a945e4c521847e9cfb46dbd25f23500e34",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:145:tool_schema",
         "path": "infera-session/src/assistant_tools.rs",
@@ -3929,11 +3951,15 @@
         "path": "/api/v1/view/{service}/{*path}",
         "module": "router",
         "handler": "proxy_view_service",
-        "handlerModule": "router",
-        "source": "infera-session/src/router.rs",
         "permissions": [],
+        "source": "infera-session/src/router.rs",
+        "body": "OpaqueProxyBody",
+        "query": "OpaqueProxyQuery",
         "pathParam": "(String, String)",
         "responseEnvelope": "raw-response",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "router",
         "mounted_via": [
           {
             "path": "infera-session/src/router.rs",
@@ -3942,7 +3968,7 @@
           }
         ]
       },
-      "source_checksum": "ea9417430e152f6ed0bada0b71cecba2cf0eb4de3ff9b920b05fcb2bef3d06c2",
+      "source_checksum": "cd6ca4216f739996a751550cc90e1cdec5ef9ed6e3eea43f25ceceba08094aa0",
       "handler": {
         "ref": "infera-session/src/router.rs:281:proxy_view_service",
         "path": "infera-session/src/router.rs",
@@ -3979,6 +4005,26 @@
         }
       ],
       "schemas": {
+        "body": {
+          "declared_type": "OpaqueProxyBody",
+          "models": [
+            {
+              "name": "OpaqueProxyBody",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        },
+        "query": {
+          "declared_type": "OpaqueProxyQuery",
+          "models": [
+            {
+              "name": "OpaqueProxyQuery",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        },
         "pathParam": {
           "declared_type": "(String, String)",
           "models": []
@@ -4031,7 +4077,7 @@
           }
         ]
       },
-      "source_checksum": "0fb0ee7694476dea2af9f8d1ea95dad9c3ce5ab028d9976fd1d10e6f9ed4c05b",
+      "source_checksum": "190c051e6dbad54e4987c1b783f25ffe4bd8a9bb3c8ca009e42d6c2973afcfee",
       "handler": {
         "ref": "infera-session/src/integration/routes.rs:29:flow_integration_show",
         "path": "infera-session/src/integration/routes.rs",
@@ -4100,7 +4146,7 @@
           }
         ]
       },
-      "source_checksum": "2ba5049cda2a594710e828f99bd3a65a3298453c99f7ac38661513f823e26665",
+      "source_checksum": "9559d40cb268734f3db593aac2ba1fb40795848c0225916b45331f4d237690bc",
       "handler": {
         "ref": "infera-session/src/integration/routes.rs:18:integration_docs_show",
         "path": "infera-session/src/integration/routes.rs",
@@ -4179,7 +4225,7 @@
           }
         ]
       },
-      "source_checksum": "9f01574e32b9bcc4d5fa0808565eaea4407a72b537674d9aceae48be7cd45459",
+      "source_checksum": "dcbf45a3f7274d51ad5e57854324a49d9cba53e9e25203fdd5392b2917fbd0d2",
       "handler": {
         "ref": "infera-session/src/integration/lms.rs:40:performance_context",
         "path": "infera-session/src/integration/lms.rs",
@@ -4230,17 +4276,103 @@
       "manage": {
         "status": "requires_workflow_verification"
       }
+    },
+    {
+      "id": "GET /api/v1/integrations/lms/rooms/{id}/notification-state",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/integrations/lms/rooms/{id}/notification-state",
+        "module": "notification_state",
+        "handler": "snapshot",
+        "permissions": [],
+        "source": "infera-session/src/notification_state.rs",
+        "pathParam": "Uuid",
+        "response": "NotificationState",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "notification_state",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/router.rs",
+            "line": 594,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/src/notification_state.rs",
+            "line": 34,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "3092ccb7f0e516897321bcad5f6c91e073682932b7080fd37d41e5ea3d1e0678",
+      "handler": {
+        "ref": "infera-session/src/notification_state.rs:40:snapshot",
+        "path": "infera-session/src/notification_state.rs",
+        "line": 40,
+        "name": "snapshot"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "NotificationState",
+          "models": [
+            {
+              "ref": "infera-session/src/notification_state.rs:26:NotificationState",
+              "path": "infera-session/src/notification_state.rs",
+              "line": 26,
+              "name": "NotificationState"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "room_id",
+          "type": "Uuid",
+          "model": "NotificationState",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "classroom_session_id",
+          "type": "Option<Uuid>",
+          "model": "NotificationState",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "present_user_ids",
+          "type": "Vec<Uuid>",
+          "model": "NotificationState",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
-      "GET /health",
-      "ANY /api/v1/view/{service}/{*path}",
-      "GET /integration/flow"
-    ],
-    "extra": [
-      "GET /api/v1/integration/flow"
-    ],
+    "missing": [],
+    "extra": [],
     "changed": [
       "GET /api/v1/config/branding",
       "PUT /api/v1/config/branding",
@@ -4248,6 +4380,7 @@
       "GET /api/v1/public/branding",
       "GET /api/v1/public/branding/assets/{key}",
       "GET /",
+      "GET /health",
       "POST /api/v1/rooms/{room_id}/interactions",
       "GET /api/v1/rooms/analytics",
       "GET /api/v1/rooms",
@@ -4278,8 +4411,11 @@
       "GET /api/v1/integrations/chat/users/{user_id}/sessions",
       "GET /api/v1/integrations/chat/users/{user_id}/sessions/{room_id}",
       "GET /api/v1/integrations/chat/tool-schema",
+      "ANY /api/v1/view/{service}/{*path}",
+      "GET /integration/flow",
       "GET /api/v1/integration/docs",
-      "POST /api/v1/integrations/lms/performance-context"
+      "POST /api/v1/integrations/lms/performance-context",
+      "GET /api/v1/integrations/lms/rooms/{id}/notification-state"
     ]
   },
   "router_reconciliation": {
@@ -5302,64 +5438,46 @@
             "function": "routes"
           }
         ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/integrations/lms/rooms/{id}/notification-state",
+        "module": "notification_state",
+        "handler": "snapshot",
+        "handlerModule": "notification_state",
+        "source": "infera-session/src/notification_state.rs",
+        "permissions": [],
+        "pathParam": "Uuid",
+        "response": "NotificationState",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/router.rs",
+            "line": 594,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/src/notification_state.rs",
+            "line": 34,
+            "function": "routes"
+          }
+        ]
       }
     ],
-    "missing_from_extracted_manifest": [
-      "ANY /api/v1/view/{service}/{*path}",
-      "GET /integration/flow"
-    ],
-    "absent_from_mounted_graph": [
-      "GET /api/v1/integration/flow"
-    ]
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/integration/flow"
-    ],
-    "absent": [
-      "ANY /api/v1/view/{service}/{*path}",
-      "GET /integration/flow",
-      "POST /api/v1/integrations/lms/performance-context"
-    ],
-    "changed": [
-      "GET /",
-      "GET /api/v1/config/branding",
-      "PUT /api/v1/config/branding",
-      "POST /api/v1/config/branding/assets",
-      "GET /api/v1/config/livekit",
-      "PUT /api/v1/config/livekit",
-      "GET /api/v1/integration/docs",
-      "GET /api/v1/integrations/chat/tool-schema",
-      "GET /api/v1/integrations/chat/users/{user_id}/sessions",
-      "GET /api/v1/integrations/chat/users/{user_id}/sessions/{room_id}",
-      "GET /api/v1/public/branding",
-      "GET /api/v1/public/branding/assets/{key}",
-      "GET /api/v1/recordings",
-      "GET /api/v1/recordings/{recording_id}/manifest",
-      "POST /api/v1/recordings/{recording_id}/schedule",
-      "GET /api/v1/recordings/audio-models",
-      "POST /api/v1/room_states/{room_state_id}/respond",
-      "GET /api/v1/rooms",
-      "POST /api/v1/rooms",
-      "DELETE /api/v1/rooms/{room_id}",
-      "GET /api/v1/rooms/{room_id}",
-      "PATCH /api/v1/rooms/{room_id}",
-      "PUT /api/v1/rooms/{room_id}",
-      "POST /api/v1/rooms/{room_id}/end",
-      "POST /api/v1/rooms/{room_id}/interactions",
-      "POST /api/v1/rooms/{room_id}/interactive/start",
-      "GET /api/v1/rooms/{room_id}/join",
-      "GET /api/v1/rooms/{room_id}/leaderboard",
-      "GET /api/v1/rooms/{room_id}/livekit-token",
-      "GET /api/v1/rooms/{room_id}/moderation",
-      "PUT /api/v1/rooms/{room_id}/participants/{profile_id}/mute",
-      "GET /api/v1/rooms/{room_id}/playback",
-      "GET /api/v1/rooms/{room_id}/presence-events",
-      "GET /api/v1/rooms/{room_id}/recordings",
-      "GET /api/v1/rooms/{room_id}/stop",
-      "GET /api/v1/rooms/analytics",
-      "POST /api/v1/rooms/livekit/webhook",
-      "GET /health"
+    "added": [],
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
@@ -5910,11 +6028,11 @@
       ],
       "calls": []
     },
-    "infera-session/src/router.rs:702:status_route": {
+    "infera-session/src/router.rs:703:status_route": {
       "name": "status_route",
       "path": "infera-session/src/router.rs",
-      "line": 702,
-      "end_line": 710,
+      "line": 703,
+      "end_line": 711,
       "signature": "async fn status_route(State(_pool): State<AppState>) -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [],
@@ -5922,7 +6040,7 @@
       "state": [
         {
           "path": "infera-session/src/router.rs",
-          "line": 704,
+          "line": 705,
           "expression": "status: \"success\".to_string(),"
         }
       ],
@@ -8303,7 +8421,7 @@
       "name": "livekit_webhook",
       "path": "infera-session/src/room/routes.rs",
       "line": 1388,
-      "end_line": 1576,
+      "end_line": 1579,
       "signature": "pub async fn livekit_webhook(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    body: Bytes,\n) -> Result<Json<APIEmptyResponse>, AppError>",
       "declared_permissions": [],
       "guards": [
@@ -8417,57 +8535,62 @@
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1489,
+          "line": 1490,
+          "expression": "if let Err(error)=crate::notification_state::state(&state,room.id).await {tracing::warn!(error=%error.message,\"learning start observation deferred\");}"
+        },
+        {
+          "path": "infera-session/src/room/routes.rs",
+          "line": 1492,
           "expression": "advance_if_all_active_responded(&state, &room).await?;"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1491,
+          "line": 1494,
           "expression": "&state,"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1522,
+          "line": 1525,
           "expression": "room_client_activity_left(&state, &room.id, &client.id).await?;"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1523,
+          "line": 1526,
           "expression": "advance_if_all_active_responded(&state, &room).await?;"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1524,
+          "line": 1527,
           "expression": "if let Err(error) = sync_lms_attendance_for_room(&state, &room).await {"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1530,
+          "line": 1533,
           "expression": "\"track_published\" => {"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1540,
+          "line": 1543,
           "expression": "&state,"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1553,
+          "line": 1556,
           "expression": "\"track_unpublished\" => {"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1555,
+          "line": 1558,
           "expression": "finish_track_capture(&state, &track.sid).await?;"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1565,
+          "line": 1568,
           "expression": "finish_room_recording(&state, room.id).await?;"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1573,
+          "line": 1576,
           "expression": "status: \"success\".to_string(),"
         }
       ],
@@ -8479,17 +8602,17 @@
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1525,
+          "line": 1528,
           "expression": "tracing::error!(room_id = %room.id, %error, \"failed to enqueue LMS attendance after disconnect\");"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1530,
+          "line": 1533,
           "expression": "\"track_published\" => {"
         },
         {
           "path": "infera-session/src/room/routes.rs",
-          "line": 1553,
+          "line": 1556,
           "expression": "\"track_unpublished\" => {"
         }
       ],
@@ -8497,7 +8620,8 @@
         "crate::recording::methods::record_track_egress_event",
         "crate::asset_economy::enabled",
         "crate::asset_economy::finish_admission",
-        "crate::asset_economy::activity"
+        "crate::asset_economy::activity",
+        "crate::notification_state::state"
       ]
     },
     "infera-session/src/recording/methods.rs:316:record_track_egress_event": {
@@ -8621,6 +8745,79 @@
       "state": [],
       "effects": [],
       "calls": []
+    },
+    "infera-session/src/notification_state.rs:62:state": {
+      "name": "state",
+      "path": "infera-session/src/notification_state.rs",
+      "line": 62,
+      "end_line": 147,
+      "signature": "pub async fn state(s: &AppState, id: Uuid) -> Result<NotificationState, AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 121,
+          "expression": "tx.execute(sql(\"INSERT INTO integration_outbox_events(id,event_type,aggregate_type,aggregate_id,idempotency_key,payload) VALUES($1,'session.learning.started.v1','room',$2,$3,$4)\",vec![event.into(),id.to_string().into(),format!(\"learning-start:{id}\").into(),json!({\"room_id\":id,\"classroom_session_id\":room.lms_classroom_session_id,\"actual_started_at\":chrono::Utc::now()}).into()])).await.map_err(|_|unavailable())?;"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 114,
+          "expression": "\"INSERT INTO session_learning_starts(room_id) VALUES($1) ON CONFLICT DO NOTHING\","
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 65,
+          "expression": ".ok_or_else(|| AppError::new(reqwest::StatusCode::NOT_FOUND, \"room not found\"))?;"
+        },
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 136,
+          "expression": "Ok(NotificationState {"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 94,
+          "expression": "c.updated_at.is_some_and(|t| {"
+        },
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 112,
+          "expression": "let inserted = tx"
+        },
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 114,
+          "expression": "\"INSERT INTO session_learning_starts(room_id) VALUES($1) ON CONFLICT DO NOTHING\","
+        },
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 119,
+          "expression": "if inserted.rows_affected() == 1 {"
+        },
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 121,
+          "expression": "tx.execute(sql(\"INSERT INTO integration_outbox_events(id,event_type,aggregate_type,aggregate_id,idempotency_key,payload) VALUES($1,'session.learning.started.v1','room',$2,$3,$4)\",vec![event.into(),id.to_string().into(),format!(\"learning-start:{id}\").into(),json!({\"room_id\":id,\"classroom_session_id\":room.lms_classroom_session_id,\"actual_started_at\":chrono::Utc::now()}).into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 123,
+          "expression": "tx.commit().await.map_err(|_| unavailable())?;"
+        }
+      ],
+      "calls": [
+        "crate::room::methods::get_room",
+        "crate::room::methods::get_room_clients",
+        "crate::likekit::init_livekit_client",
+        "crate::room::methods::get_room_name",
+        "crate::likekit::profile_id_from_participant"
+      ]
     },
     "infera-session/src/room_state/routes.rs:178:room_state_respond": {
       "name": "room_state_respond",
@@ -10974,6 +11171,110 @@
           "name": "room_ids",
           "rust_name": "room_ids",
           "rust_type": "Vec<Uuid>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-session/src/notification_state.rs:40:snapshot": {
+      "name": "snapshot",
+      "path": "infera-session/src/notification_state.rs",
+      "line": 40,
+      "end_line": 61,
+      "signature": "async fn snapshot(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<NotificationState>>, AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 52,
+          "expression": "\"trusted LMS authentication required\","
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 47,
+          "expression": ".filter(|v| !v.trim().is_empty())"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 51,
+          "expression": "reqwest::StatusCode::FORBIDDEN,"
+        },
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 55,
+          "expression": "let value = state(&s, id).await?;"
+        },
+        {
+          "path": "infera-session/src/notification_state.rs",
+          "line": 57,
+          "expression": "status: \"success\".into(),"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-session/src/notification_state.rs:26:NotificationState": {
+      "name": "NotificationState",
+      "kind": "struct",
+      "path": "infera-session/src/notification_state.rs",
+      "line": 26,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "room_id",
+          "rust_name": "room_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "classroom_session_id",
+          "rust_name": "classroom_session_id",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "present_user_ids",
+          "rust_name": "present_user_ids",
+          "rust_type": "Vec<Uuid>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "actual_started_at",
+          "rust_name": "actual_started_at",
+          "rust_type": "Option<chrono::DateTime<chrono::Utc>>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "entry_available",
+          "rust_name": "entry_available",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "ended",
+          "rust_name": "ended",
+          "rust_type": "bool",
           "optional": false,
           "defaulted": false,
           "flatten": false,

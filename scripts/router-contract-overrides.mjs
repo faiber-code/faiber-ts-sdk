@@ -92,9 +92,9 @@ routerContracts["session:ANY /api/v1/view/{service}/{*path}"] = {
 };
 for (const path of ["/api","/api/{*path}"]) routerContracts[`crm:ANY ${path}`] = {
  methodName:path==="/api"?"routerApiNotFoundAny":"routerApiPathNotFoundAny",typeBase:path==="/api"?"RouterApiNotFoundAny":"RouterApiPathNotFoundAny",dynamicMethod:true,
- pathTypes:{"*path":"string"},response:'import("./types.js").CrmApiRouteNotFound',
+ pathTypes:{"*path":"string"},response:'import("./types.js").CrmApiFallbackResponse',
  auth:"not-found response only; no success capability or permission grant",
- purpose:"Return the structured404 for an unregistered legacy API path with the chosen HTTP method. Axios rejects404 by default; use validateStatus only when intentionally inspecting the error envelope. Does not create or modify a CRM resource."
+ purpose:"Reach the legacy API not-found boundary with the chosen method. The handler returns structured404; HEAD has no body and production CORS answers OPTIONS with empty200. Axios rejects404 by default; use validateStatus only for intentional diagnostics and check for an empty body. Does not create or modify CRM records."
 };
 routerContracts["state:GET /health"]={methodName:"mainProcessHealthGet",typeBase:"MainProcessHealthGet",
  response:'import("./contracts.types.js").StateProcessHealthResponse',auth:"public static process advertisement; deployment gateway policy remains separate",

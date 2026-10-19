@@ -12,7 +12,7 @@
     "src/router.rs"
   ],
   "canonical_revision": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0",
-  "sdk_source_revision": "f5f3d63e02e5af915f40411bb829290089f30f39",
+  "sdk_source_revision": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
   "working_revision": "5b32bc1f9b8f762ddbaac2abc16b14dd3d34034b",
   "working_changes": [
     "M entity/src/lib.rs",
@@ -38,9 +38,11 @@
     " M src/trusted_service/methods.rs",
     "?? entity/src/summary_configuration.rs",
     "?? entity/src/summary_event.rs",
+    "?? entity/src/summary_identity_quarantine.rs",
     "?? entity/src/summary_job.rs",
     "?? entity/src/summary_latest.rs",
     "?? entity/src/summary_membership.rs",
+    "?? entity/src/summary_reconciliation.rs",
     "?? entity/src/summary_revision.rs",
     "?? entity/src/summary_run.rs",
     "?? entity/src/summary_settings.rs",
@@ -810,39 +812,39 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "b94ee7476ce7afb5edb0bfb0ef72763ea6b8172e645b2f01b7d454ab23298c92",
+  "working_source_tree_checksum": "593720b98d9df9f93a891f3a0c9f59556c32fdeeeeb67e23d38031b1bf686bc3",
   "working_source_files": [
     {
       "path": "infera-profile/src/ai_summary/identity.rs",
-      "checksum": "30b9a9575f50b80480eda95ccd28c679eb71143a2ff7d1d110d0b0e242de4927"
+      "checksum": "02645779fe141f3556f26fc989950a85a00d0e5b7d8759f75d556931766207e3"
     },
     {
       "path": "infera-profile/src/ai_summary/methods.rs",
-      "checksum": "1631d46443d29339cdbc1d8af9f3b9184c373a44400762da00200cb25d756969"
+      "checksum": "4b016cae7d0ffee04aeb63f291bc7395e62c6924d9b17bf003d1171689d49acd"
     },
     {
       "path": "infera-profile/src/ai_summary/mod.rs",
-      "checksum": "eee70d5dcd2035a6d63bbe923169406438ee7117efe75fbb3777c404a15cbb87"
+      "checksum": "2796d9eeb6814e2474d41180219b2da2f7d1bb826a7e212c5afdda731d9a67b8"
     },
     {
       "path": "infera-profile/src/ai_summary/models.rs",
-      "checksum": "86e98771bc5f780676d63259011ee2421dbc6f73d369be3f01d53d99b30de716"
+      "checksum": "15d238e31e2b6d7b8ba2582ea48b8c0ea2606e57e34056d73300c56407c016ae"
     },
     {
       "path": "infera-profile/src/ai_summary/openapi.rs",
-      "checksum": "19cf44bace8d966ef55e2ca349e7c61a04bc7737bc78bc7ebb8fa7167f34fd76"
+      "checksum": "d339de604f48fef4fff2a00bcd8cad70710be40b6e4fda9b8ec76efd841af1c3"
     },
     {
       "path": "infera-profile/src/ai_summary/routes.rs",
-      "checksum": "267b84f3c3a4e56b50feab1a5481e839bf08946dc08e4a869ab7afe494807811"
+      "checksum": "3bbf6f17c305c3b43453ea018d52002d108da62f6e698a6886d53bfc09f983fa"
     },
     {
       "path": "infera-profile/src/ai_summary/worker.rs",
-      "checksum": "a387fa264b30b975d9044e3a5da9a453bdd2d9e81b6c7ba1367aa98070fa9243"
+      "checksum": "8a51ebbdb73281094d6b7af2ccbf5b4c9844d8ec06dbcc5ed74eda7e6256dc19"
     },
     {
       "path": "infera-profile/src/broker/handlers.rs",
-      "checksum": "883e99198c51e483a72676241007108c0a6b24d18ca079019dc4fbffbe8bf0c1"
+      "checksum": "e9eb74b653f8d20d9512b085cb003005eb62b5a4125c177a50c913bc561c0dc1"
     },
     {
       "path": "infera-profile/src/broker/mod.rs",
@@ -1262,7 +1264,7 @@
     },
     {
       "path": "infera-profile/entity/src/lib.rs",
-      "checksum": "e3c99e62a1feb22fd1c79b88557c7bb9c17cb49332309321bf94abb969205760"
+      "checksum": "2c308d9bebde2971a695dc55e85a3bf0a3ad98f0e35f592640cb2baf0f40f108"
     },
     {
       "path": "infera-profile/entity/src/log_action.rs",
@@ -1426,39 +1428,47 @@
     },
     {
       "path": "infera-profile/entity/src/summary_configuration.rs",
-      "checksum": "811699aa1f9df41248a5022a823b7bdbee52ab61feb2798630f10e9e0ec5258f"
+      "checksum": "46d28238c1782bb9948c19d5f41ef8bccb2750357676952865b715c0d3c1b450"
     },
     {
       "path": "infera-profile/entity/src/summary_event.rs",
-      "checksum": "b2b25e3e7ffdc7ff063f3dc47581db2d98a5beb71a814eaa0403f6ccb7df698e"
+      "checksum": "50d68e3fddfac713fadf4ccfcf8230048e2d3b51097c995d987997b476e79aa5"
+    },
+    {
+      "path": "infera-profile/entity/src/summary_identity_quarantine.rs",
+      "checksum": "b94da1e9a6b8b1fa976847b5debeb914723f82ddcf5097cca2c1234f5812318e"
     },
     {
       "path": "infera-profile/entity/src/summary_job.rs",
-      "checksum": "587959e4b806943f62a9c1ace4dc9f1fa1ebc647c525532f04d54b9d0f1b1fa0"
+      "checksum": "6a290f3aa69d6d883e9ba2ecdf88564fa13c6ae9d4e6c8f9398da83163cc6f56"
     },
     {
       "path": "infera-profile/entity/src/summary_latest.rs",
-      "checksum": "ad443bbc0fbaa34bf901cf46d53ee36d3ba1f017bda5404ee9fda14910080428"
+      "checksum": "193a582e83cc868aa5b482086c65598cc6fc5ce1bb3eff4ec95279f8252c9903"
     },
     {
       "path": "infera-profile/entity/src/summary_membership.rs",
-      "checksum": "5cb6c46ee8d3973440ab9b1acf7a86424dc050c417d25cb499ea76c3e56010d3"
+      "checksum": "c81e1dbbd85cf9ffbec7fe48288317a7b82eeffe5eab278ff999ccea89a0c7d8"
+    },
+    {
+      "path": "infera-profile/entity/src/summary_reconciliation.rs",
+      "checksum": "4e9d766c3507daf227abb78200378ceb9f8ffe104701bc5ea41051ce82762c86"
     },
     {
       "path": "infera-profile/entity/src/summary_revision.rs",
-      "checksum": "4ebf52f52ea8c3f95eb6cde5c103f9e31ec88b8f0886560d8026f81347a03c29"
+      "checksum": "e89ca4b3f71cdbac3741351048c91ee51a803bad7ef7ce56fe91c5559d79e497"
     },
     {
       "path": "infera-profile/entity/src/summary_run.rs",
-      "checksum": "80b3247ef16a237a3d38f4b8c833809f4a1185ae7c0927ed4771f9110b0e5e18"
+      "checksum": "c6f93f637e48cf8c6db70c240b0f733caa52b9b10015b94015d81684c50aeffc"
     },
     {
       "path": "infera-profile/entity/src/summary_settings.rs",
-      "checksum": "fe02b9b7d5fb2d1a5c1d3963b74f201350927e17a327dce5457ccb5be0b9e510"
+      "checksum": "df331323771ca3b59696d002399e50b4656fb4ffd5992c25b16eeddfe23560e9"
     },
     {
       "path": "infera-profile/entity/src/summary_tool_audit.rs",
-      "checksum": "c0c19d0b3b7421c131c41807cc9252105087f384d55f82c42c5980561a8587ea"
+      "checksum": "4716f85fe8fa9b81cb46355d16febf375a3fee3dd485fe9dc589310364c27359"
     },
     {
       "path": "infera-profile/entity/src/survey.rs",
@@ -1570,7 +1580,7 @@
     },
     {
       "path": "infera-profile/migration/src/m20261019_000021_role_summaries.sql",
-      "checksum": "3996bb0a266425813de6f7cdae2f3ea558dee3a08924223a116e3ee8011b564f"
+      "checksum": "48b29a75a211773d6c6c038298c0f0b2be74fa4e2a41b1d9f36f651192f136d9"
     },
     {
       "path": "infera-profile/migration/src/main.rs",
@@ -1582,7 +1592,7 @@
     },
     {
       "path": "infera-profile/Cargo.lock",
-      "checksum": "9a5ca57b1b94cf53605ee544ad87a7c49a3a44e9c45b806110be879c8589bf3a"
+      "checksum": "50b5aea074d929312cc0cd598489034468d23b3f886d0559eedb1d0f5c89f600"
     },
     {
       "path": "infera-profile/.cargo/config.toml",
@@ -1734,6 +1744,7 @@
         "handler": "openapi_json",
         "permissions": [],
         "source": "infera-profile/src/router.rs",
+        "response": "utoipa::openapi::OpenApi",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1751,7 +1762,7 @@
           }
         ]
       },
-      "source_checksum": "cb7cdbc8636abd509be6ea05abc0744b1ce2b93a5e92de2bff1040a2568800d8",
+      "source_checksum": "48ad45810e238dfd5690723bdfe2fb15de37ae81c421b3a8c24b4260adb4dd5c",
       "handler": {
         "ref": "infera-profile/src/router.rs:168:openapi_json",
         "path": "infera-profile/src/router.rs",
@@ -1759,7 +1770,18 @@
         "name": "openapi_json"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "utoipa::openapi::OpenApi",
+          "models": [
+            {
+              "name": "OpenApi",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -5234,6 +5256,8 @@
         "response": "models::ListData",
         "responseMeta": "crate::models::PaginationMeta",
         "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
         "handlerModule": "profile::routes",
         "mounted_via": [
           {
@@ -5253,7 +5277,7 @@
           }
         ]
       },
-      "source_checksum": "3d3eb50a5911a483ed271e41f1cf6b5f62a8b16351ff1bc1a1a08f3ca48267bf",
+      "source_checksum": "410f8948785405cdcb77491853f537b633e391f4601ac7a823ee8d0038fc73fe",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:120:manager_index",
         "path": "infera-profile/src/profile/routes.rs",
@@ -5320,6 +5344,8 @@
         "response": "models::ListData",
         "responseMeta": "crate::models::PaginationMeta",
         "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
         "handlerModule": "profile::routes",
         "mounted_via": [
           {
@@ -5339,7 +5365,7 @@
           }
         ]
       },
-      "source_checksum": "d6e033aeff794b1229dedd7d753232c6b6bbfc1c6cc497e26bc6bac337a4218d",
+      "source_checksum": "85498af83ae4697782b8847731c5c0deb8e2291e07b4e2bd48e797a5f87661b9",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:120:accountant_index",
         "path": "infera-profile/src/profile/routes.rs",
@@ -5406,6 +5432,8 @@
         "response": "models::ListData",
         "responseMeta": "crate::models::PaginationMeta",
         "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
         "handlerModule": "profile::routes",
         "mounted_via": [
           {
@@ -5425,7 +5453,7 @@
           }
         ]
       },
-      "source_checksum": "121a96c762343420f199b8cd480fb013a5fa2c49d959426b5208412e457ffeb2",
+      "source_checksum": "321aefce53f1636f9bde64c52fe7d917abd2ba2baec717724c33ec05859d104b",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:120:support_index",
         "path": "infera-profile/src/profile/routes.rs",
@@ -5492,6 +5520,8 @@
         "response": "models::ListData",
         "responseMeta": "crate::models::PaginationMeta",
         "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
         "handlerModule": "profile::routes",
         "mounted_via": [
           {
@@ -5511,7 +5541,7 @@
           }
         ]
       },
-      "source_checksum": "6ba75d38bbc5ac5066f800b6a8e276cea48042ebcc2137d3470d8d2718d6bf79",
+      "source_checksum": "9fc330223ca0b799ef0f48ae98ab86c40dbadf1500ef26e49df42305eea75c3b",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:120:consultant_index",
         "path": "infera-profile/src/profile/routes.rs",
@@ -5578,6 +5608,8 @@
         "response": "models::ListData",
         "responseMeta": "crate::models::PaginationMeta",
         "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
         "handlerModule": "profile::routes",
         "mounted_via": [
           {
@@ -5597,7 +5629,7 @@
           }
         ]
       },
-      "source_checksum": "f384ede34fb1c10a819dca151f78aa82d4e6f889421eca2485016f564e3baa06",
+      "source_checksum": "169a53ff534a3118d6e3defcb473dea34e02774553558c0459830280b5ed4cd2",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:120:teacher_index",
         "path": "infera-profile/src/profile/routes.rs",
@@ -5664,6 +5696,8 @@
         "response": "models::ListData",
         "responseMeta": "crate::models::PaginationMeta",
         "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
         "handlerModule": "profile::routes",
         "mounted_via": [
           {
@@ -5683,7 +5717,7 @@
           }
         ]
       },
-      "source_checksum": "8c3aee84cac7d0e4eb2a7774edac54034b3488bfcd053e11327a5885457959fd",
+      "source_checksum": "ca68ce9606f40b2dd5369f508637e5a0679fdd704e0b4893e76957f2084c830a",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:120:student_index",
         "path": "infera-profile/src/profile/routes.rs",
@@ -5750,6 +5784,8 @@
         "response": "models::ListData",
         "responseMeta": "crate::models::PaginationMeta",
         "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
         "handlerModule": "profile::routes",
         "mounted_via": [
           {
@@ -5769,7 +5805,7 @@
           }
         ]
       },
-      "source_checksum": "079e7925e677f9c9e28977391595b3600e2552fb99accd4eb2de4234d84eca44",
+      "source_checksum": "dcb8355f7c7b4c45f79a2b907e717d7dd09cd43adb2ad27240f1c983065f289b",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:120:parent_index",
         "path": "infera-profile/src/profile/routes.rs",
@@ -5836,6 +5872,8 @@
         "response": "models::ListData",
         "responseMeta": "crate::models::PaginationMeta",
         "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
         "handlerModule": "profile::routes",
         "mounted_via": [
           {
@@ -5855,7 +5893,7 @@
           }
         ]
       },
-      "source_checksum": "c34dfd6c4d052079a0c17eae19e696aa15dc43457a6a2cce782e56619b246216",
+      "source_checksum": "3661963ddf68dc99aaba95851c1e178f4b720d266b04b221f5706aeb4c642bd9",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:120:other_index",
         "path": "infera-profile/src/profile/routes.rs",
@@ -7601,12 +7639,12 @@
           "profile:update"
         ],
         "source": "infera-profile/src/profile/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "profile::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-profile/src/router.rs",
@@ -7625,7 +7663,7 @@
           }
         ]
       },
-      "source_checksum": "8d2e2efbe9db4e7c5bd998cf5f542fc5208271bd9ff6d2417cad0bf49a280f6b",
+      "source_checksum": "df8fc5fa00395dd4c14152ba1e3a3e70be05290bddeddb013fba2c13dbf4b389",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:572:delete_parent",
         "path": "infera-profile/src/profile/routes.rs",
@@ -7917,12 +7955,12 @@
           "profile:update"
         ],
         "source": "infera-profile/src/profile/routes.rs",
+        "pathParam": "(Uuid, String)",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "profile::routes",
-        "pathParam": "(Uuid, String)",
         "mounted_via": [
           {
             "path": "infera-profile/src/router.rs",
@@ -7941,7 +7979,7 @@
           }
         ]
       },
-      "source_checksum": "d3ce2e22e458f52663a3f5597f0c9e9ecd4dd1ff4a5828fcf6e30d1ef34c6045",
+      "source_checksum": "3c7a54e94b53d9694fc85a5f565b089fa6ae903d8c768cc81bc6584f6fa2e05d",
       "handler": {
         "ref": "infera-profile/src/profile/routes.rs:629:delete_address",
         "path": "infera-profile/src/profile/routes.rs",
@@ -23995,12 +24033,12 @@
           "trusted_service:read"
         ],
         "source": "infera-profile/src/trusted_service/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "models::EventSingleData",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "trusted_service::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-profile/src/router.rs",
@@ -24019,7 +24057,7 @@
           }
         ]
       },
-      "source_checksum": "65507ea3070c787287bf0989e058d9ef0c69fa46fc9ec5c271c3ff9bff434303",
+      "source_checksum": "daa32187274130374ba741b7a83e35db508921ffb9b77bb5a2b22d7619dc3858",
       "handler": {
         "ref": "infera-profile/src/trusted_service/routes.rs:184:event_show",
         "path": "infera-profile/src/trusted_service/routes.rs",
@@ -24076,12 +24114,12 @@
         ],
         "source": "infera-profile/src/trusted_service/routes.rs",
         "body": "models::EventUpdate",
+        "pathParam": "(Uuid, Uuid)",
         "response": "models::EventSingleData",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "trusted_service::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-profile/src/router.rs",
@@ -24100,7 +24138,7 @@
           }
         ]
       },
-      "source_checksum": "718e814411f422f9dad3f1db67c0a6fe3a1bfea4f0d720f3230506515a94cf98",
+      "source_checksum": "cccd8cec836c8430b14bfe56705924bd85ef0c1429744793f3e63903a0481413",
       "handler": {
         "ref": "infera-profile/src/trusted_service/routes.rs:203:event_update",
         "path": "infera-profile/src/trusted_service/routes.rs",
@@ -24168,12 +24206,12 @@
         ],
         "source": "infera-profile/src/trusted_service/routes.rs",
         "body": "models::EventUpdate",
+        "pathParam": "(Uuid, Uuid)",
         "response": "models::EventSingleData",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "trusted_service::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-profile/src/router.rs",
@@ -24192,7 +24230,7 @@
           }
         ]
       },
-      "source_checksum": "59e73b48ac6ecae699ea8e3214d320bf17584064f6a535825a90d7ae6465d13f",
+      "source_checksum": "54673f7d95f3d5386b14f304ef0d5ed0f32357bb2a989033a05eebe9bd6419a7",
       "handler": {
         "ref": "infera-profile/src/trusted_service/routes.rs:203:event_update",
         "path": "infera-profile/src/trusted_service/routes.rs",
@@ -24259,12 +24297,12 @@
           "trusted_service:delete"
         ],
         "source": "infera-profile/src/trusted_service/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "trusted_service::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-profile/src/router.rs",
@@ -24283,7 +24321,7 @@
           }
         ]
       },
-      "source_checksum": "69da0bf40d7cf531de58bec6243d488c0fcb06ed1d683fe4eb8aab6f80114f46",
+      "source_checksum": "5b3f58fe0f7940e00601acbd041578a6f20c93ecc2a9b0fb822ab533551bd8ca",
       "handler": {
         "ref": "infera-profile/src/trusted_service/routes.rs:225:event_destroy",
         "path": "infera-profile/src/trusted_service/routes.rs",
@@ -26038,14 +26076,7 @@
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
-      "POST /api/v1/profile/{uuid}/images",
-      "GET /api/v1/profile-media/{uuid}/images",
-      "GET /campaign",
-      "GET /campaign/{id}",
-      "POST /campaign/{id}/contributions",
-      "GET /campaign-profile/me/contributions"
-    ],
+    "missing": [],
     "extra": [
       "GET /api/v1/ai-summaries/configurations",
       "POST /api/v1/ai-summaries/configurations",
@@ -26066,11 +26097,7 @@
       "PUT /api/v1/ai-summaries/settings",
       "GET /api/v1/ai-summaries/sources",
       "POST /api/v1/ai-summaries/sources/{source}/check",
-      "GET /api/v1/ai-summaries/summaries",
-      "GET /api/v1/campaign",
-      "GET /api/v1/campaign-profile/me/contributions",
-      "GET /api/v1/campaign/{id}",
-      "POST /api/v1/campaign/{id}/contributions"
+      "GET /api/v1/ai-summaries/summaries"
     ],
     "changed": [
       "GET /health",
@@ -26133,6 +26160,7 @@
       "GET /api/v1/profile/{uuid}/admin",
       "POST /api/v1/profile/{uuid}/avatar",
       "DELETE /api/v1/profile/{uuid}/avatar",
+      "POST /api/v1/profile/{uuid}/images",
       "GET /api/v1/profile/{uuid}/media",
       "PUT /api/v1/profile/{uuid}/freemium-session-limit",
       "PATCH /api/v1/profile/{uuid}/freemium-session-limit",
@@ -26169,6 +26197,7 @@
       "POST /api/v1/profile/people/search",
       "POST /api/v1/profile/people/resolve",
       "GET /api/v1/profile-media/{uuid}/avatar",
+      "GET /api/v1/profile-media/{uuid}/images",
       "GET /api/v1/country",
       "POST /api/v1/country",
       "GET /api/v1/country/{id}",
@@ -26281,7 +26310,11 @@
       "GET /api/v1/dependency",
       "GET /api/v1/identity",
       "GET /api/v1/integration/docs",
-      "GET /api/v1/integration/flow"
+      "GET /api/v1/integration/flow",
+      "GET /campaign",
+      "GET /campaign/{id}",
+      "POST /campaign/{id}/contributions",
+      "GET /campaign-profile/me/contributions"
     ]
   },
   "router_reconciliation": {
@@ -32716,382 +32749,123 @@
         ]
       }
     ],
-    "missing_from_extracted_manifest": [
-      "POST /api/v1/internal/fitness-chat/reserve",
-      "POST /api/v1/internal/fitness-chat/settle",
-      "GET /api/v1/internal/plans/gifts",
-      "POST /api/v1/internal/plans/gifts",
-      "GET /api/v1/internal/plans/gifts/{id}",
-      "PUT /api/v1/internal/plans/gifts/{id}",
-      "PUT /api/v1/profile/update/education-information/{uuid}",
-      "GET /campaign",
-      "GET /campaign/{id}",
-      "POST /campaign/{id}/contributions",
-      "GET /campaign-profile/me/contributions"
-    ],
-    "absent_from_mounted_graph": [
-      "GET /api/v1/campaign",
-      "GET /api/v1/campaign-profile/me/contributions",
-      "GET /api/v1/campaign/{id}",
-      "POST /api/v1/campaign/{id}/contributions",
-      "PUT /api/v1/education/update/education-information/{uuid}",
-      "GET /api/v1/fitness/gifts",
-      "POST /api/v1/fitness/gifts",
-      "GET /api/v1/fitness/gifts/{id}",
-      "PUT /api/v1/fitness/gifts/{id}",
-      "POST /api/v1/fitness/reserve",
-      "POST /api/v1/fitness/settle"
-    ]
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/ai-summaries/configurations",
-      "POST /api/v1/ai-summaries/configurations",
-      "GET /api/v1/ai-summaries/configurations/{id}",
-      "PUT /api/v1/ai-summaries/configurations/{id}",
-      "POST /api/v1/ai-summaries/configurations/{id}/preview",
-      "POST /api/v1/ai-summaries/configurations/{id}/publish",
-      "PATCH /api/v1/ai-summaries/configurations/{id}/status",
-      "POST /api/v1/ai-summaries/configurations/{id}/validate",
-      "GET /api/v1/ai-summaries/jobs",
-      "POST /api/v1/ai-summaries/jobs/{id}/retry",
-      "GET /api/v1/ai-summaries/latest",
-      "GET /api/v1/ai-summaries/models",
-      "POST /api/v1/ai-summaries/refresh",
-      "GET /api/v1/ai-summaries/roles",
-      "GET /api/v1/ai-summaries/runs/{id}",
-      "GET /api/v1/ai-summaries/settings",
-      "PUT /api/v1/ai-summaries/settings",
-      "GET /api/v1/ai-summaries/sources",
-      "POST /api/v1/ai-summaries/sources/{source}/check",
-      "GET /api/v1/ai-summaries/summaries",
-      "GET /api/v1/campaign",
-      "GET /api/v1/campaign-profile/me/contributions",
-      "GET /api/v1/campaign/{id}",
-      "POST /api/v1/campaign/{id}/contributions",
-      "PUT /api/v1/education/update/education-information/{uuid}"
-    ],
-    "absent": [
-      "GET /api/v1/fitness/products",
-      "POST /api/v1/fitness/trial/redeem",
-      "GET /api/v1/fitness/voice-settings",
-      "POST /api/v1/internal/fitness-chat/reserve",
-      "POST /api/v1/internal/fitness-chat/settle",
-      "GET /api/v1/internal/plans/gifts",
-      "POST /api/v1/internal/plans/gifts",
-      "GET /api/v1/internal/plans/gifts/{id}",
-      "PUT /api/v1/internal/plans/gifts/{id}",
-      "POST /api/v1/profile/{uuid}/images",
-      "PUT /api/v1/profile/update/education-information/{uuid}",
-      "GET /api/v1/profile-media/{uuid}/images",
-      "GET /campaign",
-      "GET /campaign/{id}",
-      "POST /campaign/{id}/contributions",
-      "GET /campaign-profile/me/contributions"
-    ],
-    "changed": [
-      "GET /api/openapi.json",
-      "POST /api/v1/address/get",
-      "GET /api/v1/auth/chat-context",
-      "GET /api/v1/auth/self",
-      "PATCH /api/v1/auth/self",
-      "PUT /api/v1/auth/self/onboarding",
-      "GET /api/v1/city",
-      "POST /api/v1/city",
-      "DELETE /api/v1/city/{id}",
-      "GET /api/v1/city/{id}",
-      "PATCH /api/v1/city/{id}",
-      "PUT /api/v1/city/{id}",
-      "DELETE /api/v1/city/force/{id}",
-      "GET /api/v1/city/undo/{id}",
-      "GET /api/v1/country",
-      "POST /api/v1/country",
-      "DELETE /api/v1/country/{id}",
-      "GET /api/v1/country/{id}",
-      "PATCH /api/v1/country/{id}",
-      "PUT /api/v1/country/{id}",
-      "DELETE /api/v1/country/force/{id}",
-      "GET /api/v1/country/undo/{id}",
-      "GET /api/v1/custom-type",
-      "POST /api/v1/custom-type",
-      "DELETE /api/v1/custom-type/{id}",
-      "GET /api/v1/custom-type/{id}",
-      "PATCH /api/v1/custom-type/{id}",
-      "GET /api/v1/dependency",
-      "GET /api/v1/education",
-      "POST /api/v1/education",
-      "GET /api/v1/education/dependencies",
-      "POST /api/v1/fitness/admin/catalog",
-      "POST /api/v1/fitness/admin/provision",
-      "GET /api/v1/fitness/catalog",
-      "GET /api/v1/fitness/coaches",
-      "GET /api/v1/fitness/context",
-      "GET /api/v1/fitness/intake",
-      "PUT /api/v1/fitness/intake",
-      "GET /api/v1/fitness/notifications",
-      "POST /api/v1/fitness/notifications/{id}/read",
-      "GET /api/v1/fitness/orders",
-      "POST /api/v1/fitness/orders",
-      "GET /api/v1/fitness/orders/{id}",
-      "POST /api/v1/fitness/orders/{id}/action",
-      "POST /api/v1/fitness/orders/{id}/plan",
-      "POST /api/v1/fitness/proposals",
-      "GET /api/v1/fitness/revisions/{id}",
-      "POST /api/v1/fitness/revisions/{id}/review",
-      "GET /api/v1/fitness/self",
-      "GET /api/v1/fitness/settings",
-      "PUT /api/v1/fitness/settings",
-      "POST /api/v1/fitness/tariffs",
-      "GET /api/v1/fitness/team",
-      "PUT /api/v1/fitness/team",
-      "GET /api/v1/identity",
-      "GET /api/v1/integration/docs",
-      "GET /api/v1/integration/flow",
-      "POST /api/v1/log-action",
-      "POST /api/v1/log-action/{slug}",
-      "POST /api/v1/log-action/direct/{slug}",
-      "GET /api/v1/logger",
-      "GET /api/v1/logger/{log}",
-      "POST /api/v1/parent/children/get",
-      "POST /api/v1/parent/get",
-      "GET /api/v1/profile",
-      "GET /api/v1/profile-media/{uuid}/avatar",
-      "GET /api/v1/profile-property-definition",
-      "POST /api/v1/profile-property-definition",
-      "DELETE /api/v1/profile-property-definition/{id}",
-      "GET /api/v1/profile-property-definition/{id}",
-      "PATCH /api/v1/profile-property-definition/{id}",
-      "PUT /api/v1/profile-property-definition/{id}",
-      "DELETE /api/v1/profile-property-definition/force/{id}",
-      "GET /api/v1/profile-property-definition/undo/{id}",
-      "GET /api/v1/profile-referral/{profile_id}",
-      "PUT /api/v1/profile-referral/{profile_id}",
-      "GET /api/v1/profile-relation",
-      "POST /api/v1/profile-relation",
-      "DELETE /api/v1/profile-relation/{id}",
-      "GET /api/v1/profile-relation/{id}",
-      "PUT /api/v1/profile-relation/{id}",
-      "DELETE /api/v1/profile/{student_uuid}/delete/parent/{parent_uuid}",
-      "DELETE /api/v1/profile/{uuid}",
-      "GET /api/v1/profile/{uuid}",
-      "PATCH /api/v1/profile/{uuid}",
-      "GET /api/v1/profile/{uuid}/admin",
-      "DELETE /api/v1/profile/{uuid}/avatar",
-      "GET /api/v1/profile/{uuid}/avatar",
-      "POST /api/v1/profile/{uuid}/avatar",
-      "DELETE /api/v1/profile/{uuid}/delete/address/{title}",
-      "PATCH /api/v1/profile/{uuid}/employee-type",
-      "PUT /api/v1/profile/{uuid}/employee-type",
-      "PATCH /api/v1/profile/{uuid}/freemium-session-limit",
-      "PUT /api/v1/profile/{uuid}/freemium-session-limit",
-      "GET /api/v1/profile/{uuid}/full",
-      "GET /api/v1/profile/{uuid}/media",
-      "PATCH /api/v1/profile/{uuid}/properties",
-      "PUT /api/v1/profile/{uuid}/properties",
-      "PATCH /api/v1/profile/{uuid}/status",
-      "PUT /api/v1/profile/{uuid}/status",
-      "GET /api/v1/profile/accountant",
-      "PATCH /api/v1/profile/add/address/{uuid}",
-      "PUT /api/v1/profile/add/address/{uuid}",
-      "PATCH /api/v1/profile/add/app/{uuid}",
-      "PUT /api/v1/profile/add/app/{uuid}",
-      "PATCH /api/v1/profile/add/parent/{uuid}",
-      "PUT /api/v1/profile/add/parent/{uuid}",
-      "POST /api/v1/profile/city/get",
-      "GET /api/v1/profile/consultant",
-      "POST /api/v1/profile/country/get",
-      "DELETE /api/v1/profile/force/{uuid}",
-      "POST /api/v1/profile/get",
-      "GET /api/v1/profile/get-chat-list/{uuid}",
-      "GET /api/v1/profile/get/address/{uuid}",
-      "GET /api/v1/profile/get/app/{uuid}",
-      "GET /api/v1/profile/get/parent/{uuid}",
-      "GET /api/v1/profile/manager",
-      "GET /api/v1/profile/me/addresses",
-      "PATCH /api/v1/profile/me/addresses",
-      "PUT /api/v1/profile/me/addresses",
-      "DELETE /api/v1/profile/me/addresses/{title}",
-      "GET /api/v1/profile/other",
-      "GET /api/v1/profile/parent",
-      "POST /api/v1/profile/people/resolve",
-      "POST /api/v1/profile/people/search",
-      "POST /api/v1/profile/province/get",
-      "POST /api/v1/profile/search",
-      "GET /api/v1/profile/student",
-      "GET /api/v1/profile/students/pes",
-      "GET /api/v1/profile/students/pes/schema",
-      "GET /api/v1/profile/support",
-      "GET /api/v1/profile/supports/pes",
-      "GET /api/v1/profile/supports/pes/schema",
-      "GET /api/v1/profile/teacher",
-      "GET /api/v1/profile/undo/{uuid}",
-      "PATCH /api/v1/profile/update/{uuid}/meta",
-      "PUT /api/v1/profile/update/{uuid}/meta",
-      "PATCH /api/v1/profile/update/personal-information/{uuid}",
-      "PUT /api/v1/profile/update/personal-information/{uuid}",
-      "GET /api/v1/province",
-      "POST /api/v1/province",
-      "DELETE /api/v1/province/{id}",
-      "GET /api/v1/province/{id}",
-      "PATCH /api/v1/province/{id}",
-      "PUT /api/v1/province/{id}",
-      "DELETE /api/v1/province/force/{id}",
-      "GET /api/v1/province/undo/{id}",
-      "GET /api/v1/referral-source",
-      "POST /api/v1/referral-source",
-      "DELETE /api/v1/referral-source/{id}",
-      "GET /api/v1/referral-source/{id}",
-      "PUT /api/v1/referral-source/{id}",
-      "GET /api/v1/relation-type",
-      "POST /api/v1/relation-type",
-      "DELETE /api/v1/relation-type/{id}",
-      "GET /api/v1/relation-type/{id}",
-      "PUT /api/v1/relation-type/{id}",
-      "GET /api/v1/setting",
-      "POST /api/v1/setting",
-      "GET /api/v1/state-action",
-      "POST /api/v1/state-action",
-      "DELETE /api/v1/state-action/{id}",
-      "GET /api/v1/state-action/{id}",
-      "PUT /api/v1/state-action/{id}",
-      "POST /api/v1/state-action/dry-run",
-      "GET /api/v1/state-definition",
-      "POST /api/v1/state-definition",
-      "DELETE /api/v1/state-definition/{id}",
-      "GET /api/v1/state-definition/{id}",
-      "PUT /api/v1/state-definition/{id}",
-      "GET /api/v1/state-evaluation/action-attempts",
-      "POST /api/v1/state-evaluation/evaluate",
-      "GET /api/v1/state-evaluation/outbox",
-      "POST /api/v1/state-evaluation/outbox/{id}/retry",
-      "POST /api/v1/state-evaluation/outbox/process",
-      "POST /api/v1/state-evaluation/preview",
-      "GET /api/v1/state-evaluation/transitions",
-      "POST /api/v1/state-evaluation/validate-rule",
-      "GET /api/v1/state-system",
-      "POST /api/v1/state-system",
-      "DELETE /api/v1/state-system/{id}",
-      "GET /api/v1/state-system/{id}",
-      "PUT /api/v1/state-system/{id}",
-      "GET /api/v1/survey",
-      "POST /api/v1/survey",
-      "GET /api/v1/trusted-service",
-      "POST /api/v1/trusted-service",
-      "DELETE /api/v1/trusted-service/{id}",
-      "GET /api/v1/trusted-service/{id}",
-      "PATCH /api/v1/trusted-service/{id}",
-      "PUT /api/v1/trusted-service/{id}",
-      "GET /api/v1/trusted-service/{id}/event",
-      "POST /api/v1/trusted-service/{id}/event",
-      "DELETE /api/v1/trusted-service/{id}/event/{event_id}",
-      "GET /api/v1/trusted-service/{id}/event/{event_id}",
-      "PATCH /api/v1/trusted-service/{id}/event/{event_id}",
-      "PUT /api/v1/trusted-service/{id}/event/{event_id}",
-      "GET /health",
-      "GET /up"
+    "added": [],
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
     {
       "local_path": "/settings",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 13,
+      "line": 32,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/roles",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 14,
+      "line": 33,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/models",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 14,
+      "line": 34,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/sources",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 14,
+      "line": 35,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/sources/{source}/check",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 15,
+      "line": 36,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/configurations",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 16,
+      "line": 37,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/configurations/{id}",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 17,
+      "line": 38,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/configurations/{id}/validate",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 18,
+      "line": 39,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/configurations/{id}/publish",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 19,
+      "line": 40,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/configurations/{id}/preview",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 20,
+      "line": 41,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/configurations/{id}/status",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 21,
+      "line": 42,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/latest",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 22,
+      "line": 43,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/summaries",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 22,
+      "line": 44,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/runs/{id}",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 23,
+      "line": 45,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/jobs",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 23,
+      "line": 46,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/refresh",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 24,
+      "line": 47,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/jobs/{id}/retry",
       "source": "infera-profile/src/ai_summary/routes.rs",
-      "line": 24,
+      "line": 48,
       "mount_status": "requires_router_reconciliation"
     },
     {

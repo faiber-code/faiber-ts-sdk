@@ -657,6 +657,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-payment/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -669,7 +670,7 @@
           }
         ]
       },
-      "source_checksum": "702b71581aaa1a37cc0eacf8955acd7a372868126da5e3665a04d4ae63958e11",
+      "source_checksum": "c72126278dbfe950f20c12834b05ade6211163a2769fe089cce9bf3e1ec5e41e",
       "handler": {
         "ref": "infera-payment/src/router.rs:182:status_route",
         "path": "infera-payment/src/router.rs",
@@ -677,7 +678,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-payment/src/models.rs:35:HealthResponse",
+              "path": "infera-payment/src/models.rs",
+              "line": 35,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -707,6 +720,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-payment/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -719,7 +733,7 @@
           }
         ]
       },
-      "source_checksum": "7615e9f45e26a5c389ec93b67a3d2aa8f66777ed3dbc059565d1ae09914ea23f",
+      "source_checksum": "3de7111c4f86bbd04924389d35549102bb58df87bb6a4d93b2bc1fb00ea93c42",
       "handler": {
         "ref": "infera-payment/src/router.rs:182:status_route",
         "path": "infera-payment/src/router.rs",
@@ -727,7 +741,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-payment/src/models.rs:35:HealthResponse",
+              "path": "infera-payment/src/models.rs",
+              "line": 35,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -757,6 +783,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-payment/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -769,7 +796,7 @@
           }
         ]
       },
-      "source_checksum": "07455487a7f4253f2913871fbe596754f5f793b4669bb05c50e38888b9b6e568",
+      "source_checksum": "970742e5701238a6981ad7500d1fbb6ffc1ee26080b1da080ae59b343920b557",
       "handler": {
         "ref": "infera-payment/src/router.rs:182:status_route",
         "path": "infera-payment/src/router.rs",
@@ -777,7 +804,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-payment/src/models.rs:35:HealthResponse",
+              "path": "infera-payment/src/models.rs",
+              "line": 35,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -807,6 +846,7 @@
         "handler": "openapi_json",
         "permissions": [],
         "source": "infera-payment/src/router.rs",
+        "response": "utoipa::openapi::OpenApi",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -819,7 +859,7 @@
           }
         ]
       },
-      "source_checksum": "7620fe3284c02b1340789f623eaeae9d3c99f6bab473e4bffaebec498ca91ff1",
+      "source_checksum": "7095c92e348aa01650ee898a49a01c78fe0a0abb424301f21819584f8d584a4a",
       "handler": {
         "ref": "infera-payment/src/router.rs:176:openapi_json",
         "path": "infera-payment/src/router.rs",
@@ -827,7 +867,18 @@
         "name": "openapi_json"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "utoipa::openapi::OpenApi",
+          "models": [
+            {
+              "name": "OpenApi",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -3428,13 +3479,12 @@
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
-      "GET /",
-      "GET /up"
-    ],
+    "missing": [],
     "extra": [],
     "changed": [
+      "GET /",
       "GET /health",
+      "GET /up",
       "GET /api/openapi.json",
       "GET /payments/{uuid}/redirect",
       "GET /payments/callbacks/{provider}",
@@ -4326,56 +4376,20 @@
         ]
       }
     ],
-    "missing_from_extracted_manifest": [
-      "GET /api/v1/transactions/daily-income"
-    ],
-    "absent_from_mounted_graph": [
-      "GET /api/v1/transactions/transactions/daily-income"
-    ]
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/transactions/transactions/daily-income"
-    ],
-    "absent": [
-      "GET /api/v1/transactions/daily-income"
-    ],
-    "changed": [
-      "GET /",
-      "GET /api/openapi.json",
-      "GET /api/v1/auth/self",
-      "GET /api/v1/gateways",
-      "POST /api/v1/gateways",
-      "DELETE /api/v1/gateways/{id}",
-      "GET /api/v1/gateways/{id}",
-      "PATCH /api/v1/gateways/{id}",
-      "GET /api/v1/gateways/options",
-      "POST /api/v1/gateways/setup-check",
-      "GET /api/v1/integration/docs",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/internal/2done/availability",
-      "POST /api/v1/internal/2done/payment",
-      "GET /api/v1/internal/2done/transactions/{id}",
-      "GET /api/v1/internal/asset/purchases/{id}",
-      "POST /api/v1/internal/fitness/payment",
-      "GET /api/v1/internal/fitness/transactions/{id}",
-      "POST /api/v1/internal/fitness/transactions/{id}/retry",
-      "POST /api/v1/internal/shop/payment",
-      "GET /api/v1/internal/shop/readiness",
-      "GET /api/v1/internal/shop/transactions/{id}",
-      "POST /api/v1/payment",
-      "GET /api/v1/settings",
-      "PATCH /api/v1/settings",
-      "GET /api/v1/transactions",
-      "GET /api/v1/transactions/{uuid}",
-      "POST /api/v1/transactions/{uuid}/reject",
-      "GET /api/v1/transactions/{uuid}/verifications",
-      "POST /api/v1/transactions/{uuid}/verify",
-      "GET /health",
-      "GET /payments/{uuid}/redirect",
-      "GET /payments/callbacks/{provider}",
-      "POST /payments/callbacks/{provider}",
-      "GET /up"
+    "added": [],
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
@@ -4601,6 +4615,24 @@
       ],
       "effects": [],
       "calls": []
+    },
+    "infera-payment/src/models.rs:35:HealthResponse": {
+      "name": "HealthResponse",
+      "kind": "struct",
+      "path": "infera-payment/src/models.rs",
+      "line": 35,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
     },
     "infera-payment/src/router.rs:176:openapi_json": {
       "name": "openapi_json",

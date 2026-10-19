@@ -2522,10 +2522,10 @@
     {
       "method": "ANY",
       "path": "/api",
-      "module": "router",
+      "module": "api_fallback",
       "handler": "api_not_found",
       "permissions": [],
-      "source": "infera-crm/src/router.rs",
+      "source": "infera-crm/src/api_fallback.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2533,10 +2533,10 @@
     {
       "method": "ANY",
       "path": "/api/{*path}",
-      "module": "router",
+      "module": "api_fallback",
       "handler": "api_not_found",
       "permissions": [],
-      "source": "infera-crm/src/router.rs",
+      "source": "infera-crm/src/api_fallback.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -20952,19 +20952,14 @@
     {
       "method": "GET",
       "path": "/health",
-      "module": "main",
-      "handler": "inline",
+      "module": "process_health",
+      "handler": "process_health",
       "permissions": [],
-      "source": "infera-state/src/main.rs",
-      "response": "StateProcessHealth",
+      "source": "infera-state/src/process_health.rs",
+      "response": "ProcessHealthResponse",
       "responseEnvelope": "raw",
-      "inline_handler": {
-        "name": "inline",
-        "path": "infera-state/src/main.rs",
-        "line": 43,
-        "signature": "inline route closure",
-        "body": "get(|| async { Json(json!({\"data\":{\"service\":\"infera-state\",\"status\":\"healthy\",\"transports\":[\"websocket\"],\"rulesets\":[\"kheradgah.v1\"],\"wasm\":true}})) })"
-      }
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "task": [

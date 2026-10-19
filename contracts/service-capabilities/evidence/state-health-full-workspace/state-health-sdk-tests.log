@@ -1,0 +1,49 @@
+   Compiling infera_state v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/state-sdk-health/infera-state)
+    Finished `test` profile [unoptimized] target(s) in 2.87s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_state-62e470c119c108bf)
+
+running 25 tests
+test context::tests::admin_manage_grants_all_state_management_and_execution_gates ... ok
+test context::tests::rejects_missing_or_nil_organization_instead_of_falling_back ... ok
+test context::tests::requires_idp_user_and_explicit_permission ... ok
+test games::tests::all_challenges_are_deterministic_and_have_hidden_answers ... ok
+test games::tests::catalog_has_ten_unique_games_and_expected_prices ... ok
+test games_v2::tests::boards_are_deterministic_and_hide_stars ... ok
+test games_v2::tests::circuit_requires_connected_placement ... ok
+test games_v2::tests::every_first_cohort_board_has_a_winning_plan ... ok
+test games_v2::tests::foundry_templates_are_solvable_in_every_age_band ... ok
+test games_v2::tests::lab_hides_rule_and_rewards_informed_prediction ... ok
+test games_v2::tests::robot_has_legal_routes_and_rejects_illegal_moves ... ok
+test games_v2_multi::tests::both_rescue_routes_can_succeed_after_hazards_spread ... ok
+test games_v2_multi::tests::every_world_is_deterministic_and_all_private_answers_stay_hidden ... ok
+test games_v2_multi::tests::number_target_has_a_valid_recipe_and_heat_is_limited ... ok
+test games_v2_multi::tests::public_logic_clues_support_a_correct_claim_without_revealing_solution ... ok
+test games_v2_multi::tests::route_choices_have_distinct_costs_and_weather_is_authoritative ... ok
+test games_v2_multi::tests::scarce_transport_shortens_a_rescue_route_without_skipping_hazards ... ok
+test games_v2_multi::tests::simultaneous_actions_resolve_once_and_change_resources ... ok
+test games_v2_multi::tests::tied_results_extend_with_a_fresh_scene ... ok
+test kheradgah::tests::duel_is_created_once_and_hides_opponent_hand ... ok
+test kheradgah::tests::durable_snapshot_recovers_match_without_connection_secrets ... ok
+test kheradgah::tests::learning_bank_exposes_three_thousand_stable_revision_slots ... ok
+test process_health::sdk_tests::mounted_process_health_uses_compiled_sdk ... {"status":"passed","assertions":9,"scope":"actual production State health subrouter over loopback HTTP; static advertisement, not whole-app startup, persistence or gameplay readiness"}
+
+
+ok
+test state::tests::room_join_and_input_are_authoritative_and_sequenced ... ok
+test wasm::tests::guest_reads_input_and_records_a_world_write ... ok
+
+test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_state-dade448fb854acf9)
+
+running 1 test
+test tests::credentialed_cors_configuration_is_valid ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests infera_state
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

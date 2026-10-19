@@ -12,10 +12,10 @@
     "src/routes.rs"
   ],
   "canonical_revision": "6be433e043caddb2d1a5761562cfc42bd0c67190",
-  "sdk_source_revision": "6be433e043caddb2d1a5761562cfc42bd0c67190",
+  "sdk_source_revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4",
   "working_revision": "6be433e043caddb2d1a5761562cfc42bd0c67190",
   "working_changes": [],
-  "source_relationship": "same",
+  "source_relationship": "working_behind_sdk",
   "source_tree_checksum": "4460796db62247bdd6fbbb56efaa07818577a87a06bcc43831d57c1928f0be12",
   "source_files": [
     {
@@ -170,25 +170,26 @@
         "path": "/health",
         "module": "main",
         "handler": "|",
-        "handlerModule": "",
-        "source": "infera-state/src/main.rs",
         "permissions": [],
+        "source": "infera-state/src/main.rs",
+        "response": "StateProcessHealth",
         "responseEnvelope": "requires_review",
+        "inline_handler": {
+          "ref": "infera-state/src/main.rs:43:inline",
+          "path": "infera-state/src/main.rs",
+          "line": 43,
+          "name": "inline"
+        },
+        "handlerModule": "",
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
             "line": 43,
             "function": "main"
           }
-        ],
-        "inline_handler": {
-          "ref": "infera-state/src/main.rs:43:inline",
-          "path": "infera-state/src/main.rs",
-          "line": 43,
-          "name": "inline"
-        }
+        ]
       },
-      "source_checksum": "b1f78a42a61d96386374970ebd6e648fa485357ceb26f786d6e0fd0701e6c31c",
+      "source_checksum": "5be5f068cf514f42584760cdfe3c6794b319a74509a70f1e5e8c3a613a9029ce",
       "handler": {
         "ref": "infera-state/src/main.rs:43:inline",
         "path": "infera-state/src/main.rs",
@@ -196,7 +197,18 @@
         "name": "inline"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "StateProcessHealth",
+          "models": [
+            {
+              "name": "StateProcessHealth",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1178,11 +1190,11 @@
           "state:write"
         ],
         "source": "infera-state/src/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
@@ -1196,7 +1208,7 @@
           }
         ]
       },
-      "source_checksum": "284dde37a2fe5affadcae672b98fc0ed3e105dfe7b906b6542eeb222cee31173",
+      "source_checksum": "28c29bfb04ca894263727b0df07b695a2fa26a3500c926f0169b33d99e1727ca",
       "handler": {
         "ref": "infera-state/src/routes.rs:446:delete_wasm",
         "path": "infera-state/src/routes.rs",
@@ -1241,11 +1253,11 @@
           "state:write"
         ],
         "source": "infera-state/src/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
@@ -1259,7 +1271,7 @@
           }
         ]
       },
-      "source_checksum": "873a4384002c21cc28eb1c9f9fee2415652be872eec6085b12cf5fa3e005348f",
+      "source_checksum": "5baddeb18c734072d364562212883e382f7ee84640c6d313792b6dfa4bcd14c7",
       "handler": {
         "ref": "infera-state/src/routes.rs:549:delete_endpoint",
         "path": "infera-state/src/routes.rs",
@@ -1387,11 +1399,11 @@
         ],
         "source": "infera-state/src/routes.rs",
         "body": "InvokeWasm",
+        "pathParam": "(Uuid, String)",
         "responseEnvelope": "requires_review",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
-        "pathParam": "(Uuid, String)",
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
@@ -1405,7 +1417,7 @@
           }
         ]
       },
-      "source_checksum": "a803525191b6bc4c62b7abc8d697a5c7272767a990a12e06f70870a5e0763c73",
+      "source_checksum": "4956835b4ceb48b631990b71b992d0a6aa1ea74525fcab966a6a2426a364df4e",
       "handler": {
         "ref": "infera-state/src/routes.rs:575:invoke_endpoint",
         "path": "infera-state/src/routes.rs",
@@ -1991,12 +2003,12 @@
         "handler": "ticket",
         "permissions": [],
         "source": "infera-state/src/kheradgah_routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Value",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "kheradgah_routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
@@ -2010,7 +2022,7 @@
           }
         ]
       },
-      "source_checksum": "91dcfa9722e095294d76ec4973e7c11bf49313ba7a2f888a6364b593b52e0b0e",
+      "source_checksum": "55a6ae0cd9b41cf38a930228ccc5722689c59f3365327c5f02a7c1f3b5aede55",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:61:ticket",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2057,12 +2069,12 @@
         "handler": "cancel",
         "permissions": [],
         "source": "infera-state/src/kheradgah_routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Value",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "kheradgah_routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
@@ -2076,7 +2088,7 @@
           }
         ]
       },
-      "source_checksum": "4520ebbeb4bb701f28aee52cf3ff3969c4babd7d23371489a5058b9dddefdf18",
+      "source_checksum": "89f905b4b425f8cd3ebe944257b0abae0fe6abf63ac4799dc60dfb1dd6f9a853",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:76:cancel",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -3272,11 +3284,10 @@
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
-      "GET /health"
-    ],
+    "missing": [],
     "extra": [],
     "changed": [
+      "GET /health",
       "GET /api/v1/worlds",
       "POST /api/v1/worlds",
       "GET /api/v1/worlds/{world_id}",
@@ -4415,61 +4426,20 @@
         ]
       }
     ],
-    "missing_from_extracted_manifest": [
-      "GET /health"
-    ],
+    "missing_from_extracted_manifest": [],
     "absent_from_mounted_graph": []
   },
   "working_drift": {
     "added": [],
-    "absent": [
-      "GET /health"
-    ],
-    "changed": [
-      "GET /api/v1/game-operations/sessions",
-      "GET /api/v1/game-operations/sessions/{session_id}/events",
-      "GET /api/v1/game-operations/summary",
-      "GET /api/v1/game-operations/worlds",
-      "PATCH /api/v1/game-operations/worlds/{game_id}/economy",
-      "GET /api/v1/realtime",
-      "DELETE /api/v1/rooms/{room_id}",
-      "GET /api/v1/rooms/{room_id}",
-      "PUT /api/v1/rooms/{room_id}",
-      "POST /api/v1/rooms/{room_id}/endpoints/{slug}",
-      "POST /api/v1/rooms/{room_id}/join",
-      "GET /api/v1/worlds",
-      "POST /api/v1/worlds",
-      "DELETE /api/v1/worlds/{world_id}",
-      "GET /api/v1/worlds/{world_id}",
-      "PUT /api/v1/worlds/{world_id}",
-      "GET /api/v1/worlds/{world_id}/endpoints",
-      "POST /api/v1/worlds/{world_id}/endpoints",
-      "DELETE /api/v1/worlds/{world_id}/endpoints/{endpoint_id}",
-      "GET /api/v1/worlds/{world_id}/rooms",
-      "POST /api/v1/worlds/{world_id}/rooms",
-      "GET /api/v1/worlds/{world_id}/wasm",
-      "POST /api/v1/worlds/{world_id}/wasm",
-      "DELETE /api/v1/worlds/{world_id}/wasm/{module_id}",
-      "GET /api/v2/game-history",
-      "GET /api/v2/game-lobbies/{code}",
-      "POST /api/v2/game-lobbies/{code}/join",
-      "GET /api/v2/game-matchmaking/{ticket_id}",
-      "GET /api/v2/game-progress",
-      "GET /api/v2/game-sessions/{session_id}",
-      "POST /api/v2/game-sessions/{session_id}/commands",
-      "POST /api/v2/game-sessions/{session_id}/ready",
-      "GET /api/v2/game-world-progress",
-      "GET /api/v2/games",
-      "GET /api/v2/games/{game_id}",
-      "POST /api/v2/games/{game_id}/lobbies",
-      "POST /api/v2/games/{game_id}/matchmaking",
-      "POST /api/v2/games/{game_id}/matchmaking/tickets",
-      "DELETE /api/v2/games/{game_id}/matchmaking/tickets/{ticket_id}",
-      "GET /api/v2/games/{game_id}/matchmaking/tickets/{ticket_id}",
-      "POST /api/v2/games/{game_id}/sessions",
-      "POST /api/v2/matches/{match_id}/connections",
-      "GET /api/v2/matches/{match_id}/view",
-      "GET /api/v2/realtime"
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [

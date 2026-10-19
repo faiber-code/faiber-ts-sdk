@@ -35,7 +35,7 @@ session.operations.routerProxyViewServiceAny('chat','items','POST',{arbitrary:tr
 declare const state:StateApi;
 state.operations.mainProcessHealthGet().then(r=>{const service:'infera-state'=r.data.data.service;void service;});
 declare const crm:CrmApi;
-crm.operations.routerApiPathNotFoundAny('obsolete/items','HEAD',{validateStatus:()=>true}).then(r=>{const code:'api_route_not_found'=r.data.error.code;void code;});
+crm.operations.routerApiPathNotFoundAny('obsolete/items','HEAD',{validateStatus:()=>true}).then(r=>{if(r.data){const code:'api_route_not_found'=r.data.error.code;void code;}});
 declare const notification:SessionNotificationStateResponse;
 const started:string|null=notification.data.actual_started_at;
 void started;

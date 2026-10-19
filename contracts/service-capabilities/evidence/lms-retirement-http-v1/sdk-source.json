@@ -1,0 +1,4 @@
+{
+  "source_commit": "40b58b73f1482f49925e34180cee8f7452fc0972",
+  "source": "git archive core/lms+tsconfig; isolated compile; copied runtime dependency closure from previous hashed Profile case"
+}

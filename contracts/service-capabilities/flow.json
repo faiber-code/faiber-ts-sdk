@@ -2242,25 +2242,14 @@
   "working_drift": {
     "added": [],
     "absent": [],
-    "changed": [
-      "GET /",
-      "GET /api/v1/catalog/actions",
-      "POST /api/v1/catalog/sync",
-      "GET /api/v1/catalog/triggers",
-      "POST /api/v1/events/{event_key}",
-      "GET /api/v1/flows",
-      "POST /api/v1/flows",
-      "DELETE /api/v1/flows/{id}",
-      "GET /api/v1/flows/{id}",
-      "PUT /api/v1/flows/{id}",
-      "POST /api/v1/flows/{id}/validate",
-      "POST /api/v1/flows/import",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/registry/active-triggers",
-      "GET /api/v1/runs",
-      "GET /api/v1/runs/{id}",
-      "GET /health",
-      "GET /up"
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [

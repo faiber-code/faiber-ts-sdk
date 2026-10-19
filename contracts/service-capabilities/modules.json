@@ -1796,6 +1796,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-modules/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1808,7 +1809,7 @@
           }
         ]
       },
-      "source_checksum": "d9ac5c41e200a32f6347f7c28e73474235f1bfe3f14154beb2aa00931e568723",
+      "source_checksum": "00434b119a18d685fc07c21e41746a02daa6106531aacad595eb570a93a1ca68",
       "handler": {
         "ref": "infera-modules/src/router.rs:463:status_route",
         "path": "infera-modules/src/router.rs",
@@ -1816,7 +1817,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-modules/src/models.rs:42:HealthResponse",
+              "path": "infera-modules/src/models.rs",
+              "line": 42,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -1846,6 +1859,7 @@
         "handler": "status_route",
         "permissions": [],
         "source": "infera-modules/src/router.rs",
+        "response": "HealthResponse",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -1858,7 +1872,7 @@
           }
         ]
       },
-      "source_checksum": "8258602610762dcc6e785f1e615fa0bbe0e1f44b810bac5758875b9f14c3d006",
+      "source_checksum": "d28b22a6630f07ddf46f57909b8fcabaf8536cbfb1b057268db615026b006daa",
       "handler": {
         "ref": "infera-modules/src/router.rs:463:status_route",
         "path": "infera-modules/src/router.rs",
@@ -1866,7 +1880,19 @@
         "name": "status_route"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-modules/src/models.rs:42:HealthResponse",
+              "path": "infera-modules/src/models.rs",
+              "line": 42,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -3585,12 +3611,12 @@
         "permissions": [],
         "source": "infera-modules/src/podcast/routes.rs",
         "body": "models::EpisodeUpdate",
+        "pathParam": "(Uuid, Uuid)",
         "response": "entity::podcast_episode::Model",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -3604,7 +3630,7 @@
           }
         ]
       },
-      "source_checksum": "031776c09352f12b7a86acd690976362e4615ba27d1c7776bc9892ed3cdb9100",
+      "source_checksum": "37c7626345b411eb7b500f3bab10ed80b9a06907f5e7ca3a7bcf5d148591b988",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:85:update_episode",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -3831,12 +3857,12 @@
         "handler": "remove_episode",
         "permissions": [],
         "source": "infera-modules/src/podcast/routes.rs",
+        "pathParam": "(Uuid, Uuid)",
         "response": "EmptyAPIResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
-        "pathParam": "(Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -3850,7 +3876,7 @@
           }
         ]
       },
-      "source_checksum": "5134cd9d2be467dc009b0028a6b939b8814db7dbcbd463840992c09be55e2019",
+      "source_checksum": "62fa5ec920489125cc5e1d71f40a0a1d98a9813b9bdfde2fa9d8ce697461229f",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:95:remove_episode",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -8292,12 +8318,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/category/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::CategoryAttachmentDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8311,7 +8337,7 @@
           }
         ]
       },
-      "source_checksum": "ccd1cc5e8191d75873ac3aae76f8027f355d6aa0690ff45c31871876800fc696",
+      "source_checksum": "fc08403ff07bb9cf18bb05e1d591f5b8ce316db5fd8eac8f01c0b8516d265e49",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:210:list_on_target",
         "path": "infera-modules/src/category/routes.rs",
@@ -8379,12 +8405,12 @@
         "permissions": [],
         "source": "infera-modules/src/category/routes.rs",
         "body": "models::CategoryAttachRequest",
+        "pathParam": "(String, Uuid)",
         "response": "models::CategoryAttachmentDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8398,7 +8424,7 @@
           }
         ]
       },
-      "source_checksum": "1995b7d2e198174ffec01625a0f8666c868a873a24c035f3a6b24554ece60dee",
+      "source_checksum": "0b40921588f3ee515e14c7d76dac5660c7919f5323172a2e61bac2dff0e676d8",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:244:attach_to_target",
         "path": "infera-modules/src/category/routes.rs",
@@ -8483,12 +8509,12 @@
         "permissions": [],
         "source": "infera-modules/src/category/routes.rs",
         "query": "models::CategoryDetachQuery",
+        "pathParam": "(String, Uuid)",
         "response": "EmptyAPIResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8502,7 +8528,7 @@
           }
         ]
       },
-      "source_checksum": "97f4168458f36ef5b37039a64e47885b50fc27b2e16744c32278ac7832b3cbc0",
+      "source_checksum": "199a91a0cd50bbb45c2611460c9bd0868a39b1bf6dcb6d51018dc74b1f91acde",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:279:detach_from_target",
         "path": "infera-modules/src/category/routes.rs",
@@ -9096,12 +9122,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/tag/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::TagAttachmentDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9115,7 +9141,7 @@
           }
         ]
       },
-      "source_checksum": "2f13d280be52e9166f95912450bb936f951d49c3f36c13bfe324e4262c77f2ea",
+      "source_checksum": "b0eacbe3b0bfb0d6173c184ed8edfdf4dfc9e36c3525af0605af20df492f9507",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:196:list_on_target",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9183,12 +9209,12 @@
         "permissions": [],
         "source": "infera-modules/src/tag/routes.rs",
         "body": "models::TagAttachRequest",
+        "pathParam": "(String, Uuid)",
         "response": "models::TagAttachmentDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9202,7 +9228,7 @@
           }
         ]
       },
-      "source_checksum": "2292a4a271ef6494806dafdd8098888892a1ac96dba2d9c630d2631471b68b49",
+      "source_checksum": "a265e8a745949c13a36614cd245271babd9d10c833a5ffc3adf8ab8ef625ae66",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:230:attach_to_target",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9287,12 +9313,12 @@
         "permissions": [],
         "source": "infera-modules/src/tag/routes.rs",
         "query": "models::TagDetachQuery",
+        "pathParam": "(String, Uuid)",
         "response": "EmptyAPIResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9306,7 +9332,7 @@
           }
         ]
       },
-      "source_checksum": "00b399816a55e38d94e61b70fb65d4980cecb36842bf871e3d934906e1d184bb",
+      "source_checksum": "f202d30a524c77b187044593eac0b151dc1f9ee182585520319e22d30884f555",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:265:detach_from_target",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9854,12 +9880,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/comment/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::CommentAttachmentDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9873,7 +9899,7 @@
           }
         ]
       },
-      "source_checksum": "885689fd55e5a5e4d931d14b144c52158af4423eaca037ed538d05fdde8f1ec2",
+      "source_checksum": "9db047fdcaa5b8e2b7c1a58ecd24190be1721962a6487ea561d3253fc3d7cb23",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:199:list_on_target",
         "path": "infera-modules/src/comment/routes.rs",
@@ -9941,12 +9967,12 @@
         "permissions": [],
         "source": "infera-modules/src/comment/routes.rs",
         "body": "models::CommentOnTargetRequest",
+        "pathParam": "(String, Uuid)",
         "response": "models::CommentAttachmentDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9960,7 +9986,7 @@
           }
         ]
       },
-      "source_checksum": "d6dfd5621206e4474f9ab56f9259bd67a63a3484d7f7879e93e9a53b078960d0",
+      "source_checksum": "1a174c80b4bdf778c5e2d131092348e3eb1ed6e10d25436213f1b14a7c98526e",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:234:create_on_target",
         "path": "infera-modules/src/comment/routes.rs",
@@ -10614,12 +10640,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/content/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::ContentAttachmentDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10633,7 +10659,7 @@
           }
         ]
       },
-      "source_checksum": "70f7622cb7f9e8a6923b8753b7d451609cedfd9d79168dae23060b35c75d5cef",
+      "source_checksum": "0bcc7d4478b7d670237ddbc2583271a2d8818af8198933114e82d99377ab40fa",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:218:list_on_target",
         "path": "infera-modules/src/content/routes.rs",
@@ -10701,12 +10727,12 @@
         "permissions": [],
         "source": "infera-modules/src/content/routes.rs",
         "body": "models::ContentAttachRequest",
+        "pathParam": "(String, Uuid)",
         "response": "models::ContentAttachmentDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10720,7 +10746,7 @@
           }
         ]
       },
-      "source_checksum": "310dc8f1ae521906e33ce73da9f9cb6d91ad468f2c2152106c25e86a524ac97f",
+      "source_checksum": "51634a91b6029fb5151cc2e345f9eade29551358a6d973cf77e899d47b8e1390",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:252:attach_to_target",
         "path": "infera-modules/src/content/routes.rs",
@@ -10805,12 +10831,12 @@
         "permissions": [],
         "source": "infera-modules/src/content/routes.rs",
         "query": "models::ContentDetachQuery",
+        "pathParam": "(String, Uuid)",
         "response": "EmptyAPIResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10824,7 +10850,7 @@
           }
         ]
       },
-      "source_checksum": "723de703a076a9379ed33acb22eaae8fce66c4e620d56d7e40177cd0dcbd899e",
+      "source_checksum": "577394dfb5bfe6dcd93f244e0540e25cc734e9483dfd17e0fab2de6de4f0a2ce",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:287:detach_from_target",
         "path": "infera-modules/src/content/routes.rs",
@@ -11466,12 +11492,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/seo_content/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::SeoContentAttachmentDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11485,7 +11511,7 @@
           }
         ]
       },
-      "source_checksum": "67874f563d308f448cb151bba0507d096ae0f85a9044f5a8df330775dbecd54e",
+      "source_checksum": "3cfa9a472eee0024c4011a80a33519852b109e2126ca7ff792f001b7a26ab6fa",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:206:list_on_target",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -11553,12 +11579,12 @@
         "permissions": [],
         "source": "infera-modules/src/seo_content/routes.rs",
         "body": "models::SeoContentAttachRequest",
+        "pathParam": "(String, Uuid)",
         "response": "models::SeoContentAttachmentDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11572,7 +11598,7 @@
           }
         ]
       },
-      "source_checksum": "b892f3eb8cc1a63149a5007a62357199b4c959f351eb57cc8946486ac4dae657",
+      "source_checksum": "3ff56e99b7bce21db47f88b7332dfdb3854fece0c316e61063d2821bd16e871f",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:240:attach_to_target",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -11657,12 +11683,12 @@
         "permissions": [],
         "source": "infera-modules/src/seo_content/routes.rs",
         "query": "models::SeoContentDetachQuery",
+        "pathParam": "(String, Uuid)",
         "response": "EmptyAPIResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11676,7 +11702,7 @@
           }
         ]
       },
-      "source_checksum": "1a05d1c20bf4888403bc80665a369b7864b19eea11d72f952879f9b8bad404c3",
+      "source_checksum": "7906f44c0c59820b9f822da0fe6db451d7659e37d440d35e939bbb1592d10cda",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:275:detach_from_target",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -12224,12 +12250,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/audit_log/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::AuditLogResponseDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "audit_log::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12243,7 +12269,7 @@
           }
         ]
       },
-      "source_checksum": "980e97a16e14f0b7fb7c3e1c57bda83d269b02d763c6d851fc1f593ef5fda6da",
+      "source_checksum": "6723077dd25fdb18643e6c64bf98cfa3344d9d95553a1dc36b5a3b7e884a3380",
       "handler": {
         "ref": "infera-modules/src/audit_log/routes.rs:37:list_on_target",
         "path": "infera-modules/src/audit_log/routes.rs",
@@ -12310,12 +12336,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/reaction/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::ReactionResponseDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reaction::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12329,7 +12355,7 @@
           }
         ]
       },
-      "source_checksum": "e67e2104816f77e3eb1c6010847c11aa3c6af46572c824cbef542fa46735ee71",
+      "source_checksum": "06cb7c7a05cfefc5afe476ffa98cb9c4ba7fefc1af0c025c87c1030838072826",
       "handler": {
         "ref": "infera-modules/src/reaction/routes.rs:43:list_on_target",
         "path": "infera-modules/src/reaction/routes.rs",
@@ -12397,12 +12423,12 @@
         "permissions": [],
         "source": "infera-modules/src/reaction/routes.rs",
         "body": "models::ReactionCreateRequest",
+        "pathParam": "(String, Uuid)",
         "response": "models::ReactionResponseDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reaction::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12416,7 +12442,7 @@
           }
         ]
       },
-      "source_checksum": "05f2216990b7d6594b9ded13d6f6ba77cab2221762bb15866b9ce721d2c22d03",
+      "source_checksum": "93ef21756c8942fc491eac5e4f31276650d204f87e367cf1e4f92bc4821b610e",
       "handler": {
         "ref": "infera-modules/src/reaction/routes.rs:78:create_on_target",
         "path": "infera-modules/src/reaction/routes.rs",
@@ -12495,12 +12521,12 @@
         "permissions": [],
         "source": "infera-modules/src/reaction/routes.rs",
         "query": "models::ReactionDeleteQuery",
+        "pathParam": "(String, Uuid)",
         "response": "EmptyAPIResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reaction::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12514,7 +12540,7 @@
           }
         ]
       },
-      "source_checksum": "9c6725a34982bad120ad8d3177143926481c8815ed0a63dec02bd7d99ea14280",
+      "source_checksum": "dc2a6754a04e9e7f1f5b2ef514f484c6931548258bc5816e95a990a95ea73132",
       "handler": {
         "ref": "infera-modules/src/reaction/routes.rs:115:delete_on_target",
         "path": "infera-modules/src/reaction/routes.rs",
@@ -12586,12 +12612,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/access/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::AccessResponseDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "access::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12605,7 +12631,7 @@
           }
         ]
       },
-      "source_checksum": "9a2d29bf26e4efb836c9d988ffe8eafb12bccc3a82b4cfd1be187530a0ac2cee",
+      "source_checksum": "dcfe6639d76b9c651db1ac52e2aba84ac7d85fc8229563bfff6245306043d2e0",
       "handler": {
         "ref": "infera-modules/src/access/routes.rs:46:list_on_target",
         "path": "infera-modules/src/access/routes.rs",
@@ -12679,12 +12705,12 @@
         "permissions": [],
         "source": "infera-modules/src/access/routes.rs",
         "body": "models::AccessGrantRequest",
+        "pathParam": "(String, Uuid)",
         "response": "models::AccessResponseDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "access::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12698,7 +12724,7 @@
           }
         ]
       },
-      "source_checksum": "fd65efee957adb6ad285cab07c43d816c15b7d103c1813a47fbc46bac19f10fd",
+      "source_checksum": "ec0f62277c99eccf93d1c08007a5e68c80709a4cceccce620386fb03d6aee6c2",
       "handler": {
         "ref": "infera-modules/src/access/routes.rs:81:grant_on_target",
         "path": "infera-modules/src/access/routes.rs",
@@ -12789,12 +12815,12 @@
         "permissions": [],
         "source": "infera-modules/src/access/routes.rs",
         "body": "models::AccessUpdateRequest",
+        "pathParam": "(String, Uuid, Uuid)",
         "response": "models::AccessResponseDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "access::routes",
-        "pathParam": "(String, Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12808,7 +12834,7 @@
           }
         ]
       },
-      "source_checksum": "b2553c12a447a0a813edfc7ebc7a7b6edb79b9184949b1c3725236c282d6c8c6",
+      "source_checksum": "6717dea550fc8445e69fb041717c588371c5d804f2da99fdff2ac24ca6bc85c6",
       "handler": {
         "ref": "infera-modules/src/access/routes.rs:118:update_on_target",
         "path": "infera-modules/src/access/routes.rs",
@@ -12892,12 +12918,12 @@
         "handler": "revoke_on_target",
         "permissions": [],
         "source": "infera-modules/src/access/routes.rs",
+        "pathParam": "(String, Uuid, Uuid)",
         "response": "EmptyAPIResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "access::routes",
-        "pathParam": "(String, Uuid, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12911,7 +12937,7 @@
           }
         ]
       },
-      "source_checksum": "3bc2b71fbb238660cc99289d9621e5053bd5c0763f4c0c461877f486395f1c46",
+      "source_checksum": "4b51588963bb26e1b6cf0ba2736bcf3aa6115bb4c03cceb5319d79a8d498a55c",
       "handler": {
         "ref": "infera-modules/src/access/routes.rs:153:revoke_on_target",
         "path": "infera-modules/src/access/routes.rs",
@@ -13255,12 +13281,12 @@
         "handler": "list_on_target",
         "permissions": [],
         "source": "infera-modules/src/request/routes.rs",
+        "pathParam": "(String, Uuid)",
         "response": "Vec<models::RequestAttachmentDTO>",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13274,7 +13300,7 @@
           }
         ]
       },
-      "source_checksum": "a127160eca9c9695e2adf0655a507dc18de4d81b02e2e12f1b85f3652e969e57",
+      "source_checksum": "b105ab107201f2ac91b936ebeac1f333892de3aae5af4235434f7a7960efce76",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:206:list_on_target",
         "path": "infera-modules/src/request/routes.rs",
@@ -13342,12 +13368,12 @@
         "permissions": [],
         "source": "infera-modules/src/request/routes.rs",
         "body": "models::RequestAttachRequest",
+        "pathParam": "(String, Uuid)",
         "response": "models::RequestAttachmentDTO",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13361,7 +13387,7 @@
           }
         ]
       },
-      "source_checksum": "2974980f5bb55743be8f03032399c2a8b1a69c0ccb194b17c32831132b5e0e62",
+      "source_checksum": "7c55cdc765a853e9d812813e4a3735fc2b1548ce037aa6a238837b1e37111379",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:240:attach_to_target",
         "path": "infera-modules/src/request/routes.rs",
@@ -13446,12 +13472,12 @@
         "permissions": [],
         "source": "infera-modules/src/request/routes.rs",
         "query": "models::RequestDetachQuery",
+        "pathParam": "(String, Uuid)",
         "response": "EmptyAPIResponse",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
-        "pathParam": "(String, Uuid)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13465,7 +13491,7 @@
           }
         ]
       },
-      "source_checksum": "c3b982048980a7458aa92253bc042329063ac33b258e1396dbbbac56e29dd986",
+      "source_checksum": "46f59743b8f9f1792c685b55d7471056839f1c1b44d47245a5228fe6e9f064f5",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:275:detach_from_target",
         "path": "infera-modules/src/request/routes.rs",
@@ -16078,11 +16104,11 @@
         "handler": "public_content",
         "permissions": [],
         "source": "infera-modules/src/management_api/mod.rs",
+        "pathParam": "(String, String, String)",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
-        "pathParam": "(String, String, String)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16096,7 +16122,7 @@
           }
         ]
       },
-      "source_checksum": "744fd86d9a22ddde3f0561065f3c09f402d7c9b7af4c61a97a8688ad1356bd0b",
+      "source_checksum": "bd544e19628ba7cfffde087f6b683d143090775b21b0ace7dd4fa152e11bd20a",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:379:public_content",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16514,11 +16540,11 @@
         "handler": "restore_content_revision",
         "permissions": [],
         "source": "infera-modules/src/management_api/mod.rs",
+        "pathParam": "(Uuid, i32)",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
-        "pathParam": "(Uuid, i32)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16532,7 +16558,7 @@
           }
         ]
       },
-      "source_checksum": "65980576e182ba40226fc89ce387741702c2e93a3aa45783b6bfc3bb851cb00f",
+      "source_checksum": "6072ab574eaebb1eea487d4688104783d07144bf88b457eea42a79ab026b438c",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:566:restore_content_revision",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -17265,12 +17291,12 @@
         "permissions": [],
         "source": "infera-modules/src/content_transfer/mod.rs",
         "query": "PublicContentQuery",
+        "pathParam": "(String, String)",
         "response": "PublicContentList",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content_transfer",
-        "pathParam": "(String, String)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17284,7 +17310,7 @@
           }
         ]
       },
-      "source_checksum": "744f88fad540dbec249ae602747188d34abbb772ebe6c815ccc4dfe3e51c9530",
+      "source_checksum": "9bb64e4ba71e3b812967533b3682774dbe844f71f5d75aa5dcf9369a82687251",
       "handler": {
         "ref": "infera-modules/src/content_transfer/mod.rs:276:list_public_content",
         "path": "infera-modules/src/content_transfer/mod.rs",
@@ -17349,12 +17375,12 @@
         "handler": "list_public_categories",
         "permissions": [],
         "source": "infera-modules/src/content_transfer/mod.rs",
+        "pathParam": "(String, String)",
         "response": "Vec<CategoryRecord>",
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content_transfer",
-        "pathParam": "(String, String)",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17368,7 +17394,7 @@
           }
         ]
       },
-      "source_checksum": "cf0d7ab435d014d3429d77f50d846ae6ef9b43603ed0d670363fff31afefa298",
+      "source_checksum": "630e94788ef84f270ed80754cc262c8b2969c6c44111dcb2c7ee3ee032b58604",
       "handler": {
         "ref": "infera-modules/src/content_transfer/mod.rs:154:list_public_categories",
         "path": "infera-modules/src/content_transfer/mod.rs",
@@ -17699,6 +17725,7 @@
         "handler": "openapi_json",
         "permissions": [],
         "source": "infera-modules/src/router.rs",
+        "response": "utoipa::openapi::OpenApi",
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
@@ -17711,7 +17738,7 @@
           }
         ]
       },
-      "source_checksum": "6cf5a32c1e4f43d8f9e5cacbea2852767e97c7124f87669261f4af251d5e99ff",
+      "source_checksum": "7ef1b2ec99ca37bc3ee66628395d8b71db53868249aed9d8fddb17451629971d",
       "handler": {
         "ref": "infera-modules/src/router.rs:436:openapi_json",
         "path": "infera-modules/src/router.rs",
@@ -17719,7 +17746,18 @@
         "name": "openapi_json"
       },
       "related_implementation": [],
-      "schemas": {},
+      "schemas": {
+        "response": {
+          "declared_type": "utoipa::openapi::OpenApi",
+          "models": [
+            {
+              "name": "OpenApi",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
       "relation_candidates": [],
       "review": {
         "status": "pending",
@@ -17742,15 +17780,11 @@
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
-      "GET /health",
-      "GET /integration/flow"
-    ],
-    "extra": [
-      "GET /api/v1/integration/flow"
-    ],
+    "missing": [],
+    "extra": [],
     "changed": [
       "GET /",
+      "GET /health",
       "GET /api/v1/auth/self",
       "GET /api/v1/blog/posts",
       "POST /api/v1/blog/posts",
@@ -17904,6 +17938,7 @@
       "PATCH /api/v1/samples/{id}",
       "DELETE /api/v1/samples/{id}",
       "GET /api/v1/public/search/autocomplete",
+      "GET /integration/flow",
       "GET /api/v1/public/routes",
       "GET /api/v1/public/content/{kind}/{locale}/{slug}",
       "GET /api/v1/manage/content",
@@ -22216,250 +22251,20 @@
         ]
       }
     ],
-    "missing_from_extracted_manifest": [
-      "POST /api/v1/shop/checkout/quote",
-      "GET /api/v1/shop/checkout/{id}",
-      "POST /api/v1/shop/checkout/{id}/pay",
-      "POST /api/v1/shop/checkout/{id}/cancel",
-      "GET /api/v1/shop/orders",
-      "POST /api/v1/shop/orders",
-      "GET /api/v1/shop/orders/{id}",
-      "PUT /api/v1/shop/orders/{id}",
-      "PATCH /api/v1/shop/orders/{id}",
-      "DELETE /api/v1/shop/orders/{id}",
-      "GET /api/v1/shop/orders/{order_id}/items",
-      "POST /api/v1/shop/orders/{order_id}/items",
-      "GET /api/v1/shop/cart",
-      "PUT /api/v1/shop/cart",
-      "GET /api/v1/inventory/stock-movements",
-      "POST /api/v1/inventory/stock-movements",
-      "POST /api/v1/public/requests/{key}",
-      "GET /integration/flow"
-    ],
-    "absent_from_mounted_graph": [
-      "GET /api/v1/cart",
-      "PUT /api/v1/cart",
-      "GET /api/v1/checkout/{id}",
-      "POST /api/v1/checkout/{id}/cancel",
-      "POST /api/v1/checkout/{id}/pay",
-      "POST /api/v1/checkout/quote",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/orders",
-      "POST /api/v1/orders",
-      "DELETE /api/v1/orders/{id}",
-      "GET /api/v1/orders/{id}",
-      "PATCH /api/v1/orders/{id}",
-      "PUT /api/v1/orders/{id}",
-      "GET /api/v1/orders/{order_id}/items",
-      "POST /api/v1/orders/{order_id}/items",
-      "POST /api/v1/requests/{key}",
-      "GET /api/v1/stock-movements",
-      "POST /api/v1/stock-movements"
-    ]
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/cart",
-      "PUT /api/v1/cart",
-      "GET /api/v1/checkout/{id}",
-      "POST /api/v1/checkout/{id}/cancel",
-      "POST /api/v1/checkout/{id}/pay",
-      "POST /api/v1/checkout/quote",
-      "GET /api/v1/integration/flow",
-      "GET /api/v1/orders",
-      "POST /api/v1/orders",
-      "DELETE /api/v1/orders/{id}",
-      "GET /api/v1/orders/{id}",
-      "PATCH /api/v1/orders/{id}",
-      "PUT /api/v1/orders/{id}",
-      "GET /api/v1/orders/{order_id}/items",
-      "POST /api/v1/orders/{order_id}/items",
-      "POST /api/v1/requests/{key}",
-      "GET /api/v1/stock-movements",
-      "POST /api/v1/stock-movements"
-    ],
-    "absent": [
-      "POST /api/v1/shop/checkout/quote",
-      "GET /api/v1/shop/checkout/{id}",
-      "POST /api/v1/shop/checkout/{id}/pay",
-      "POST /api/v1/shop/checkout/{id}/cancel",
-      "GET /api/v1/shop/orders",
-      "POST /api/v1/shop/orders",
-      "GET /api/v1/shop/orders/{id}",
-      "PUT /api/v1/shop/orders/{id}",
-      "PATCH /api/v1/shop/orders/{id}",
-      "DELETE /api/v1/shop/orders/{id}",
-      "GET /api/v1/shop/orders/{order_id}/items",
-      "POST /api/v1/shop/orders/{order_id}/items",
-      "GET /api/v1/shop/cart",
-      "PUT /api/v1/shop/cart",
-      "GET /api/v1/inventory/stock-movements",
-      "POST /api/v1/inventory/stock-movements",
-      "POST /api/v1/public/requests/{key}",
-      "GET /integration/flow"
-    ],
-    "changed": [
-      "GET /",
-      "GET /api-doc/openapi.json",
-      "GET /api/openapi.json",
-      "GET /api/v1/access/{host}/{target_id}",
-      "POST /api/v1/access/{host}/{target_id}",
-      "DELETE /api/v1/access/{host}/{target_id}/{access_id}",
-      "PUT /api/v1/access/{host}/{target_id}/{access_id}",
-      "GET /api/v1/audit-logs/{host}/{target_id}",
-      "GET /api/v1/auth/self",
-      "GET /api/v1/authors",
-      "POST /api/v1/authors",
-      "DELETE /api/v1/authors/{id}",
-      "GET /api/v1/authors/{id}",
-      "PATCH /api/v1/authors/{id}",
-      "PUT /api/v1/authors/{id}",
-      "GET /api/v1/blog/posts",
-      "POST /api/v1/blog/posts",
-      "DELETE /api/v1/blog/posts/{id}",
-      "GET /api/v1/blog/posts/{id}",
-      "PATCH /api/v1/blog/posts/{id}",
-      "PUT /api/v1/blog/posts/{id}",
-      "GET /api/v1/categories",
-      "POST /api/v1/categories",
-      "DELETE /api/v1/categories/{host}/{target_id}",
-      "GET /api/v1/categories/{host}/{target_id}",
-      "POST /api/v1/categories/{host}/{target_id}",
-      "DELETE /api/v1/categories/{id}",
-      "GET /api/v1/categories/{id}",
-      "PATCH /api/v1/categories/{id}",
-      "PUT /api/v1/categories/{id}",
-      "GET /api/v1/comments",
-      "POST /api/v1/comments",
-      "GET /api/v1/comments/{host}/{target_id}",
-      "POST /api/v1/comments/{host}/{target_id}",
-      "DELETE /api/v1/comments/{id}",
-      "GET /api/v1/comments/{id}",
-      "PATCH /api/v1/comments/{id}",
-      "PUT /api/v1/comments/{id}",
-      "GET /api/v1/contents",
-      "POST /api/v1/contents",
-      "DELETE /api/v1/contents/{host}/{target_id}",
-      "GET /api/v1/contents/{host}/{target_id}",
-      "POST /api/v1/contents/{host}/{target_id}",
-      "DELETE /api/v1/contents/{id}",
-      "GET /api/v1/contents/{id}",
-      "PATCH /api/v1/contents/{id}",
-      "PUT /api/v1/contents/{id}",
-      "GET /api/v1/inventory/inventories",
-      "POST /api/v1/inventory/inventories",
-      "DELETE /api/v1/inventory/inventories/{id}",
-      "GET /api/v1/inventory/inventories/{id}",
-      "PATCH /api/v1/inventory/inventories/{id}",
-      "PUT /api/v1/inventory/inventories/{id}",
-      "GET /api/v1/inventory/warehouses",
-      "POST /api/v1/inventory/warehouses",
-      "DELETE /api/v1/inventory/warehouses/{id}",
-      "GET /api/v1/inventory/warehouses/{id}",
-      "PATCH /api/v1/inventory/warehouses/{id}",
-      "PUT /api/v1/inventory/warehouses/{id}",
-      "GET /api/v1/manage/agents/models",
-      "GET /api/v1/manage/agents/proposals",
-      "GET /api/v1/manage/agents/proposals/{id}",
-      "POST /api/v1/manage/agents/proposals/{id}/approve",
-      "POST /api/v1/manage/agents/proposals/{id}/reject",
-      "POST /api/v1/manage/agents/runs",
-      "GET /api/v1/manage/content",
-      "POST /api/v1/manage/content",
-      "GET /api/v1/manage/content/{id}",
-      "PUT /api/v1/manage/content/{id}",
-      "POST /api/v1/manage/content/{id}/publish",
-      "GET /api/v1/manage/content/{id}/revisions",
-      "POST /api/v1/manage/content/{id}/revisions/{revision}/restore",
-      "PUT /api/v1/manage/import/categories/{id}",
-      "PUT /api/v1/manage/import/content/{id}",
-      "GET /api/v1/manage/settings",
-      "PUT /api/v1/manage/settings",
-      "POST /api/v1/media/assets",
-      "GET /api/v1/media/files/{*key}",
-      "POST /api/v1/media/images",
-      "GET /api/v1/podcasts",
-      "POST /api/v1/podcasts",
-      "DELETE /api/v1/podcasts/{id}",
-      "GET /api/v1/podcasts/{id}",
-      "PATCH /api/v1/podcasts/{id}",
-      "POST /api/v1/podcasts/{id}/episodes",
-      "DELETE /api/v1/podcasts/{podcast_id}/episodes/{id}",
-      "PATCH /api/v1/podcasts/{podcast_id}/episodes/{id}",
-      "GET /api/v1/pricing",
-      "POST /api/v1/pricing",
-      "DELETE /api/v1/pricing/{id}",
-      "GET /api/v1/pricing/{id}",
-      "PATCH /api/v1/pricing/{id}",
-      "PUT /api/v1/pricing/{id}",
-      "GET /api/v1/public/categories/{scope}/{locale}",
-      "GET /api/v1/public/content/{kind}/{locale}",
-      "GET /api/v1/public/content/{kind}/{locale}/{slug}",
-      "GET /api/v1/public/routes",
-      "GET /api/v1/public/search/autocomplete",
-      "GET /api/v1/public/shop/products",
-      "DELETE /api/v1/reactions/{host}/{target_id}",
-      "GET /api/v1/reactions/{host}/{target_id}",
-      "POST /api/v1/reactions/{host}/{target_id}",
-      "GET /api/v1/requests",
-      "POST /api/v1/requests",
-      "DELETE /api/v1/requests/{host}/{target_id}",
-      "GET /api/v1/requests/{host}/{target_id}",
-      "POST /api/v1/requests/{host}/{target_id}",
-      "DELETE /api/v1/requests/{id}",
-      "GET /api/v1/requests/{id}",
-      "PATCH /api/v1/requests/{id}",
-      "PUT /api/v1/requests/{id}",
-      "GET /api/v1/requests/{request_id}/logs",
-      "POST /api/v1/requests/{request_id}/logs",
-      "GET /api/v1/requests/category/{category_id}/logs",
-      "POST /api/v1/requests/website-defaults",
-      "GET /api/v1/samples",
-      "POST /api/v1/samples",
-      "DELETE /api/v1/samples/{id}",
-      "GET /api/v1/samples/{id}",
-      "PATCH /api/v1/samples/{id}",
-      "PUT /api/v1/samples/{id}",
-      "GET /api/v1/samples/{sample_id}/variables",
-      "POST /api/v1/samples/{sample_id}/variables",
-      "GET /api/v1/samples/by-slug/{slug}/variables-map",
-      "GET /api/v1/samples/variables",
-      "DELETE /api/v1/samples/variables/{id}",
-      "GET /api/v1/samples/variables/{id}",
-      "PATCH /api/v1/samples/variables/{id}",
-      "PUT /api/v1/samples/variables/{id}",
-      "GET /api/v1/seo-contents",
-      "POST /api/v1/seo-contents",
-      "DELETE /api/v1/seo-contents/{host}/{target_id}",
-      "GET /api/v1/seo-contents/{host}/{target_id}",
-      "POST /api/v1/seo-contents/{host}/{target_id}",
-      "DELETE /api/v1/seo-contents/{id}",
-      "GET /api/v1/seo-contents/{id}",
-      "PATCH /api/v1/seo-contents/{id}",
-      "PUT /api/v1/seo-contents/{id}",
-      "GET /api/v1/shop/products",
-      "POST /api/v1/shop/products",
-      "DELETE /api/v1/shop/products/{id}",
-      "GET /api/v1/shop/products/{id}",
-      "PATCH /api/v1/shop/products/{id}",
-      "PUT /api/v1/shop/products/{id}",
-      "GET /api/v1/shop/products/{product_id}/variants",
-      "POST /api/v1/shop/products/{product_id}/variants",
-      "GET /api/v1/shop/variants",
-      "DELETE /api/v1/shop/variants/{id}",
-      "GET /api/v1/shop/variants/{id}",
-      "PATCH /api/v1/shop/variants/{id}",
-      "PUT /api/v1/shop/variants/{id}",
-      "GET /api/v1/tags",
-      "POST /api/v1/tags",
-      "DELETE /api/v1/tags/{host}/{target_id}",
-      "GET /api/v1/tags/{host}/{target_id}",
-      "POST /api/v1/tags/{host}/{target_id}",
-      "DELETE /api/v1/tags/{id}",
-      "GET /api/v1/tags/{id}",
-      "PATCH /api/v1/tags/{id}",
-      "PUT /api/v1/tags/{id}",
-      "GET /health"
+    "added": [],
+    "absent": [],
+    "changed": [],
+    "extraction_errors": [
+      {
+        "status": "failed",
+        "artifact_path": "working-contract-extraction.stderr.log",
+        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
+        "exit_code": 1
+      }
     ]
   },
   "working_route_candidates": [
@@ -23061,6 +22866,24 @@
       ],
       "effects": [],
       "calls": []
+    },
+    "infera-modules/src/models.rs:42:HealthResponse": {
+      "name": "HealthResponse",
+      "kind": "struct",
+      "path": "infera-modules/src/models.rs",
+      "line": 42,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
     },
     "infera-modules/src/session/routes.rs:33:get_self": {
       "name": "get_self",

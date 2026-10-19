@@ -8,17 +8,17 @@ Status: evidence inventory; semantic and wire verification remain required.
 
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
-- Canonical source revision: `0038f19eb1d78b744b3d9829c1a05331657a9fa4`
-- SDK source revision: `0038f19eb1d78b744b3d9829c1a05331657a9fa4`
+- Canonical source revision: `2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88`
+- SDK source revision: `2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88`
 - Working HEAD: `0038f19eb1d78b744b3d9829c1a05331657a9fa4`
-- Source relationship: same
+- Source relationship: working_behind_sdk
 
 ## Operation review matrix
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /health` | `infera-messenger/src/router.rs:184` | inspect middleware/local scope | pending |
-| `GET /up` | `infera-messenger/src/router.rs:184` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-messenger/src/router.rs:187` | inspect middleware/local scope | pending |
+| `GET /up` | `infera-messenger/src/router.rs:187` | inspect middleware/local scope | pending |
 | `GET /api/openapi.json` | `infera-messenger/src/router.rs:70` | inspect middleware/local scope | pending |
 | `GET /api/v1/templates` | `infera-messenger/src/template/routes.rs:47` | admin:template:read | pending |
 | `POST /api/v1/templates` | `infera-messenger/src/template/routes.rs:89` | admin:template:create | pending |
@@ -53,6 +53,15 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `GET /api/v1/integration/rabbitmq` | `infera-messenger/src/integration/routes.rs:20` | admin:integration:read | pending |
 | `GET /api/v1/integration/docs` | `infera-messenger/src/integration/routes.rs:35` | admin:integration:read | pending |
 | `GET /api/v1/integration/flow` | `infera-messenger/src/integration/routes.rs:44` | inspect middleware/local scope | pending |
+| `GET /api/v1/notifications/me/events` | `infera-messenger/src/inbox_stream.rs:68` | notification:self:read | pending |
+| `GET /api/v1/notifications/me/unread-count` | `infera-messenger/src/inbox_stream.rs:149` | notification:self:read | pending |
+| `POST /api/v1/push/devices` | `infera-messenger/src/mobile_push.rs:45` | notification:self:read | pending |
+| `DELETE /api/v1/push/devices/{id}` | `infera-messenger/src/mobile_push.rs:107` | notification:self:read | pending |
+| `GET /api/v1/web-push/config` | `infera-messenger/src/web_push.rs:114` | notification:self:read | pending |
+| `POST /api/v1/web-push/subscriptions` | `infera-messenger/src/web_push.rs:129` | notification:self:read | pending |
+| `DELETE /api/v1/web-push/subscriptions/{id}` | `infera-messenger/src/web_push.rs:169` | notification:self:read | pending |
+| `POST /api/v1/web-push/subscriptions/{id}/test` | `infera-messenger/src/web_push.rs:189` | notification:self:read | pending |
+| `GET /api/v1/web-push/deliveries/{id}` | `infera-messenger/src/web_push.rs:231` | notification:self:read | pending |
 | `POST /api/v1/notifications` | `infera-messenger/src/notification/routes.rs:353` | inspect middleware/local scope | pending |
 | `POST /api/v1/channels/subscribe` | `infera-messenger/src/channel/routes.rs:134` | inspect middleware/local scope | pending |
 
