@@ -11,3 +11,10 @@ const compatible:BrandingPublicShowGetResponseData=branding;
 // @ts-expect-error runtime discovery is not writable branding configuration
 const admin:LmsBrandingInput={feedback_task_origin:'https://task.invalid'};
 void [optional,scopes,currency,origin,compatible,admin];
+
+import type {TaskApi} from '@faiber/faiber-task';
+declare const task:TaskApi;
+const binary=task.feedback.attachmentContent('r','a',{responseType:'arraybuffer'});
+const bytes:Promise<ArrayBuffer|Uint8Array>=binary.then(r=>r.data);
+const browser:Promise<Blob>=task.feedback.attachmentContent('r','a').then(r=>r.data);
+void [bytes,browser];

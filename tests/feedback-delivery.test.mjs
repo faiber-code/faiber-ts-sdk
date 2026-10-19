@@ -29,3 +29,13 @@ test('feedback and durable streams keep sandbox auth, idempotency, cursors and c
   assert.equal(seen[1].url, '/api/v1/notifications/me/events');
   assert.equal(seen[2].url, '/api/v1/me/events');
 });
+
+test('private feedback downloads honor binary response type and retain authorization and cancellation',async()=>{
+ const seen=[];const client=new FaiberClient('task',{domains:{task:'https://task.example'},axios:{adapter:async config=>{seen.push(config);return {status:200,statusText:'OK',headers:{},config,data:new Uint8Array([137,80,78,71])};}}});
+ const api=new TaskApi(client);const controller=new AbortController();
+ await api.feedback.attachmentContent('request/a','image/b',{responseType:'arraybuffer',signal:controller.signal,headers:{'X-Feedback-Reporter-Id':'bound-user'}});
+ assert.equal(seen[0].responseType,'arraybuffer');assert.equal(seen[0].signal,controller.signal);
+ assert.equal(seen[0].headers.get('X-Feedback-Reporter-Id'),'bound-user');
+ assert.equal(seen[0].url,'/api/v1/feedback/requests/request%2Fa/attachments/image%2Fb/content');
+ await api.feedback.attachmentContent('request','image');assert.equal(seen[1].responseType,'blob');
+});

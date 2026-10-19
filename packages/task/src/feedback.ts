@@ -1,4 +1,4 @@
-import { ServiceApi, type RequestOptions, type QueryParams } from '@faiber/sdk-core';
+import { ServiceApi, type RequestOptions, type QueryParams, type AxiosResponse } from '@faiber/sdk-core';
 import type { TaskResponse, Project } from './types.js';
 
 export interface FeedbackApplicationContext { version:string;locale:string;timezone:string;platform:string;device?:string|null;browser?:string|null;viewport?:{width:number;height:number}|null }
@@ -53,8 +53,10 @@ export class FeedbackApi extends ServiceApi {
  uploadAttachment(id:string,bytes:Blob,options?:RequestOptions<Blob>){return this.client.put<TaskResponse<FeedbackAttachment>,Blob>(`/api/v1/feedback/attachments/${encodeURIComponent(id)}/content`,bytes,{...options,headers:{...options?.headers,'Content-Type':bytes.type}});}
  /** Verify the private object before report submission. Screenshot failures need not block a text report. Preserve X-Feedback-Reporter-Id from capture through completion. */
  completeAttachment(id:string,options?:RequestOptions){return this.client.post<TaskResponse<FeedbackAttachment>>(`/api/v1/feedback/attachments/${encodeURIComponent(id)}/complete`,undefined,options);}
- /** Download evidence with current report authorization; object-storage URLs are never public. */
- attachmentContent(id:string,attachment:string,options?:RequestOptions){return this.client.request<Blob>({...options,url:`${path(id)}/attachments/${encodeURIComponent(attachment)}/content`,method:'GET',responseType:'blob'});}
+ /** Download evidence with current report authorization; object-storage URLs are never public. Browser default is Blob; Node callers must select responseType='arraybuffer' for lossless bytes (Node Uint8Array/Buffer or browser ArrayBuffer). */
+ attachmentContent(id:string,attachment:string,options:RequestOptions&{responseType:'arraybuffer'}):Promise<AxiosResponse<ArrayBuffer|Uint8Array>>;
+ attachmentContent(id:string,attachment:string,options?:RequestOptions):Promise<AxiosResponse<Blob>>;
+ attachmentContent(id:string,attachment:string,options?:RequestOptions){return this.client.request<Blob|ArrayBuffer|Uint8Array>({responseType:'blob',...options,url:`${path(id)}/attachments/${encodeURIComponent(attachment)}/content`,method:'GET'});}
  /** List active developers and authorized software projects; requires feedback:assign and local assignment scope. */
  assignees(options?:RequestOptions){return this.client.get<TaskResponse<FeedbackAssignees>>('/api/v1/feedback/assignees',undefined,options);}
  /** Read workspace routing policy; requires workspace.manage. */
