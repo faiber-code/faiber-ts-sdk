@@ -21,7 +21,12 @@ export interface InitializeFeedbackAttachment {content_type:FeedbackAttachment['
 export interface FeedbackDetail {request:FeedbackRequest;decisions:FeedbackDecision[];attachments:FeedbackAttachment[];can_decide:boolean}
 export interface FeedbackListQuery extends QueryParams {cursor?:string;limit?:number;status?:FeedbackStatus;mine?:boolean;reporting_role?:string;source_client?:string}
 export interface FeedbackPage {items:FeedbackRequest[];next_cursor:string|null}
-export interface FeedbackCapabilities {enabled:boolean;context_schema_version:1;reporting_roles:string[];can_submit:boolean;can_review:boolean;can_manage_policy:boolean;max_context_bytes:number;max_screenshot_bytes:number}
+/** Native /api/v1/feedback/capabilities reporter binding (Task 576f181).
+ * Freeze reporter_id before capture. Send X-Feedback-Reporter-Id on attachment
+ * and submission calls; 409 reporter_identity_changed requires discarding the
+ * captured context/screenshot and obtaining a fresh binding. No credential is implied.
+ */
+export interface FeedbackCapabilities {reporter_id:string;identity_binding_version:1;enabled:boolean;context_schema_version:1;reporting_roles:string[];can_submit:boolean;can_review:boolean;can_manage_policy:boolean;max_context_bytes:number;max_screenshot_bytes:number}
 export interface FeedbackReviewStage {key:string;role:string;kind:'review'|'assign_task';label:{en:string;fa:string}}
 export interface FeedbackRoute {reporting_roles:string[];branch:string;stages:FeedbackReviewStage[]}
 export interface FeedbackReviewGrant {role:string;branch:string;stage:number}
@@ -34,7 +39,7 @@ const path=(id:string)=>`/api/v1/feedback/requests/${encodeURIComponent(id)}`;
 export class FeedbackApi extends ServiceApi {
  /** Get current user's verified reporting roles; requires tenant login. Disabled/unconfigured services return 404 or enabled=false. */
  capabilities(options?:RequestOptions){return this.client.get<TaskResponse<FeedbackCapabilities>>('/api/v1/feedback/capabilities',undefined,options);}
- /** Submit a bug or feature report. Requires feedback:submit; retries must reuse the same key/body. 409 means key reuse. */
+ /** Submit a bug or feature report. Requires feedback:submit; retries must reuse the same key/body. 409 can mean key reuse or a stale X-Feedback-Reporter-Id precondition; stale identity requires a fresh capture. */
  submit(input:SubmitFeedbackRequest,key:string,options?:RequestOptions<SubmitFeedbackRequest>){return this.client.post<TaskResponse<FeedbackRequest>,SubmitFeedbackRequest>('/api/v1/feedback/requests',input,{...options,headers:{...options?.headers,'Idempotency-Key':key}});}
  /** List SQL-scoped reports; requires self-read or review permission plus local grants. */
  list(query?:FeedbackListQuery,options?:RequestOptions){return this.client.get<TaskResponse<FeedbackPage>>('/api/v1/feedback/requests',query,options);}
@@ -46,7 +51,7 @@ export class FeedbackApi extends ServiceApi {
  initializeAttachment(input:InitializeFeedbackAttachment,options?:RequestOptions<InitializeFeedbackAttachment>){return this.client.post<TaskResponse<FeedbackAttachment>,InitializeFeedbackAttachment>('/api/v1/feedback/attachments',input,options);}
  /** Upload raw PNG/JPEG/WebP bytes through the authenticated API. Content, dimensions, size and checksum are checked. */
  uploadAttachment(id:string,bytes:Blob,options?:RequestOptions<Blob>){return this.client.put<TaskResponse<FeedbackAttachment>,Blob>(`/api/v1/feedback/attachments/${encodeURIComponent(id)}/content`,bytes,{...options,headers:{...options?.headers,'Content-Type':bytes.type}});}
- /** Verify the private object before report submission. Screenshot failures need not block a text report. */
+ /** Verify the private object before report submission. Screenshot failures need not block a text report. Preserve X-Feedback-Reporter-Id from capture through completion. */
  completeAttachment(id:string,options?:RequestOptions){return this.client.post<TaskResponse<FeedbackAttachment>>(`/api/v1/feedback/attachments/${encodeURIComponent(id)}/complete`,undefined,options);}
  /** Download evidence with current report authorization; object-storage URLs are never public. */
  attachmentContent(id:string,attachment:string,options?:RequestOptions){return this.client.request<Blob>({...options,url:`${path(id)}/attachments/${encodeURIComponent(attachment)}/content`,method:'GET',responseType:'blob'});}
