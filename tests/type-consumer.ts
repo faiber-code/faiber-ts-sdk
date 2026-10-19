@@ -345,7 +345,7 @@ const clearOnlinePrice: import('@faiber/faiber-lms').UpdateCourseInput = { onlin
 void [jobUpdate, clearJob, deliveryPrices, clearOnlinePrice];
 
 // Generic list clauses and backwards-compatible student query filters.
-import type { ProfileStudentIndexGetQuery, FilterProfilesInput } from '../packages/profile/src/index.js';
+import type { ProfileStudentIndexGetQuery, FilterProfilesInput } from '@faiber/faiber-profile';
 const dynamicStudentQuery: ProfileStudentIndexGetQuery = {
   'filter[account_balance]': -100, 'filter[double_debt]': true,
   'filter[created_at][]': ['2026-01-01', '2026-10-07'],
