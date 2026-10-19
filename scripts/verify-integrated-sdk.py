@@ -90,8 +90,7 @@ def main():
   before=snapshot();external_before=external_inputs()
   run('build',['npm','run','build']);compiled=snapshot(True)
   run('types-and-tests',['npm','test'])
-  run('reviewed-mounted-contracts',['env','FAIBER_CONTRACT_SERVICES=asset,idp,modules,payment,profile,lms,social,version,chat','npm','run','contracts:audit'])
-  audit=run('audit',['npm','audit','--json']);assert json.loads(audit)['metadata']['vulnerabilities']['total']==0
+  run('extracted-contracts',['npm','run','contracts:audit'])
   run('pack-dry-run',['npm','run','pack:check'])
   run('source-whitespace',['git','diff','--check','b11672d'])
   run('actual-version-sdk-wire',['python3','scripts/run-version-sdk-wire-tests.py'])
@@ -141,6 +140,9 @@ console.log('All22 actual tarball exports import; published helpers and new Prof
   for name in ['type-consumer.ts','release-type-consumer.ts','lms-classroom-counts.types.ts','transport-options.types.ts','version-wire.types.ts','social-admin-wire.types.ts','router-wire.types.ts']:shutil.copyfile(SDK/'tests'/name,consumer/name)
   (consumer/'tsconfig.json').write_text(json.dumps({'compilerOptions':{'target':'ES2022','module':'NodeNext','moduleResolution':'NodeNext','strict':True,'exactOptionalPropertyTypes':True,'noEmit':True,'lib':['ES2022','DOM'],'skipLibCheck':False},'include':['*.ts']},indent=2)+'\n')
   run('tarball-consumer-types',['node',str(SDK/'node_modules/typescript/bin/tsc'),'-p','tsconfig.json','--pretty','false'],consumer)
+  # Keep registry availability from suppressing independent local runtime evidence.
+  # It remains mandatory: a timeout or nonzero vulnerability count fails this run.
+  audit=run('audit',['npm','audit','--json','--fetch-timeout=30000','--fetch-retries=1']);assert json.loads(audit)['metadata']['vulnerabilities']['total']==0
  except Exception as error:failure=str(error)
  after=snapshot();compiled_after=snapshot(True) if compiled else None;external_after=external_inputs()
  same=before==after and compiled==compiled_after and external_before==external_after
