@@ -489,6 +489,45 @@
         "Service/infera-chat/src/memory_settlement.rs",
         "Service/infera-chat/entity/src/outbox_event.rs"
       ]
+    },
+    {
+      "id": "manage-production-signing-secret",
+      "owner": "manage",
+      "required": true,
+      "status": "source_review_requires_implementation_and_runtime_verification",
+      "meaning": "Manage signing-secret derivation has a fixed fallback and startup does not fail on missing configured secrets. Reconcile actual deployment, implement explicit nondevelopment fail-closed behavior with compatible Agentic derivation/rotation, and verify invalid/expired/replayed handoffs. No deployed secret absence is asserted.",
+      "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "source_refs": [
+        "Service/infera-manage/src/config.rs",
+        "Service/infera-manage/src/main.rs",
+        "Service/infera-manage/src/session.rs"
+      ]
+    },
+    {
+      "id": "manage-current-identity-service-snapshot",
+      "owner": "manage",
+      "required": true,
+      "status": "source_review_requires_implementation_and_runtime_verification",
+      "meaning": "Signed12hour sessions retain enabled service snapshots. Identity revisions are process-local observations overwritten by handoffs, not durable monotonic current configuration. Verify service removal, permission revocation, old handoff ordering and restart against live Agentic/settings-manage authority before certifying current access.",
+      "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "source_refs": [
+        "Service/infera-manage/src/router.rs",
+        "Service/infera-manage/src/sso.rs",
+        "Service/infera-manage/src/state.rs",
+        "Service/infera-manage/src/session.rs"
+      ]
+    },
+    {
+      "id": "manage-readable-paginated-workflows",
+      "owner": "manage",
+      "required": true,
+      "status": "source_review_requires_implementation_and_runtime_verification",
+      "meaning": "LMS owned question form exposes JSON options textarea and computes ordering from a size10000 list; Reservation dashboard requests10000 against an API capped100. Complete readable typed SDK editors and real pagination/totals after semantic discovery; no raw JSON or capped-page totals may satisfy completion.",
+      "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "source_refs": [
+        "Service/infera-manage/panel/src/pages/LmsOwnedResourceFormPage.tsx",
+        "Service/infera-manage/panel/src/pages/reservation/ReservationDashboardPage.tsx"
+      ]
     }
   ]
 }

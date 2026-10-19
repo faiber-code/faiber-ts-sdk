@@ -1,7 +1,11 @@
+
+> faiber-ts-sdk-monorepo@0.23.0 capabilities:check
+> node scripts/check-service-capabilities.mjs --stage=discovery
+
 {
   "stage": "discovery",
   "status": "blocked",
-  "blocker_count": 2129,
+  "blocker_count": 2169,
   "blockers": [
     "asset: canonical runtime/source revision is unverified",
     "asset GET /: semantic review missing or stale",
@@ -43,7 +47,10 @@
     "knowledge-forget-ingestion-fence",
     "chat-memory-source-corrections",
     "chat-memory-http-receipt",
-    "chat-memory-event-publication"
+    "chat-memory-event-publication",
+    "manage-production-signing-secret",
+    "manage-current-identity-service-snapshot",
+    "manage-readable-paginated-workflows"
   ],
   "next": "Resolve evidence in each service matrix; source counts do not satisfy semantic/wire verification."
 }

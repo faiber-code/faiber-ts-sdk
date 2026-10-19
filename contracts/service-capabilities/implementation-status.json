@@ -156,6 +156,17 @@
         "reservation": "4ece677c98c48070fcdc3de77a714b783f73bacc"
       },
       "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
+    },
+    "manage_component": {
+      "status": "passed",
+      "command": "cargo test --offline --bin infera_manage",
+      "exit_code": 0,
+      "tests_executed": 18,
+      "duration_seconds": 7.553,
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123"
+      },
+      "scope": "Existing Manage component/unit tests, some using local fixture HTTP handlers; not real IDP/Agentic/service workflow acceptance or UI completion. Original unrelated dirty lock preserved."
     }
   },
   "artifacts": {
@@ -226,6 +237,10 @@
     "reservation-provider-capacity": {
       "path": "evidence/reservation-capacity-tests.log",
       "sha256": "36a04f950a1f89b26866009857e6176f98a400895b8e8cbc6f97cfbb7804de53"
+    },
+    "manage-component-tests": {
+      "path": "evidence/manage-canonical-unit.log",
+      "sha256": "dc1f13f26c790d4fc70d92b04f7e7100c0696769eebeaef681c0c4573848c5ac"
     }
   },
   "pastil": {
@@ -346,6 +361,7 @@
   "semantic_review_progress": {
     "reservation": "29 pinned mounted operations manually reviewed against local implementation with canonical-drift and per-operation verification still required; new local capacity endpoint documented separately.",
     "chat": "Pinned repository trace identifies absent tracked outbox dispatcher and non-atomic memory event after reply commit. External delivery remains unreconciled.",
-    "all_services": "Discovery gate blocked; no verified Knowledge published."
+    "all_services": "Discovery gate blocked; no verified Knowledge published.",
+    "manage": "Nine server operations reviewed from pinned source, plus typed relationship boundaries to Agentic and each catalogue service.18 existing component tests passed with preserved original dirty lock; full cross-service/UI acceptance unverified."
   }
 }

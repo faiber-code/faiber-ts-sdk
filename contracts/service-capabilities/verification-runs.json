@@ -490,5 +490,26 @@
       "method": "Post-test clean committed source digest matches fenced test inputs; no rerun after commit."
     },
     "canonical_certification": false
+  },
+  "manage-component-tests": {
+    "status": "passed",
+    "command": "cargo test --offline --bin infera_manage",
+    "exit_code": 0,
+    "tests_executed": 18,
+    "duration_seconds": 7.553,
+    "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+    "working_source_sha256": "c364c9e3a099cd5ed699a7f12593ce1bff56366fec3ee2e63276bc2197dece61",
+    "source_unchanged_during_run": true,
+    "input_lock_sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f",
+    "artifact_path": "evidence/manage-canonical-unit.log",
+    "artifact_sha256": "dc1f13f26c790d4fc70d92b04f7e7100c0696769eebeaef681c0c4573848c5ac",
+    "scope": "Existing Manage component/unit tests, some using local fixture HTTP handlers; not real IDP/Agentic/service workflow acceptance or UI completion. Original unrelated dirty lock preserved.",
+    "kind": "component_regression",
+    "source_revisions": {
+      "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123"
+    },
+    "resolved_cargo_lock_sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f",
+    "resolved_cargo_lock_artifact_path": "evidence/manage-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+    "source_capture_note": "Code at pinned revision; pre-existing dirty lock retained byte for byte. Source fence includes that exact local lock; not canonical dependency or deployed acceptance."
   }
 }

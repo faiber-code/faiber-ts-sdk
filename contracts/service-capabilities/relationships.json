@@ -187,6 +187,623 @@
         "version-local-contracts",
         "control-core-local"
       ]
+    },
+    {
+      "id": "manage-project-live-admin-authority",
+      "from_service": "manage",
+      "to_service": "agentic",
+      "source_entity": "signed_project_session",
+      "target_entity": "project_admin_status",
+      "id_type": "project_slug plus authenticated user UUID",
+      "scope": "Current Agentic project settings-manage authority, distinct from remembered permissions",
+      "cardinality": "many-to-one",
+      "lookup": "GET /api/v1/projects/{slug}/admin/status on configured internal Agentic origin",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/runtime.rs",
+        "Service/infera-manage/src/router.rs",
+        "infera-agentic/src/project/admin_open.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "agentic": "6adb76c4a22e044cb92673ef9104658973c2d766"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Signed session is checked against live project status before administration except /me. Actual internal trust/current access and deployment must be reconciled; local fixture tests are not cross-service certification."
+    },
+    {
+      "id": "manage-agent-chat-human-review",
+      "from_service": "manage",
+      "to_service": "agentic",
+      "source_entity": "project_administration_review",
+      "target_entity": "thread and pending review action",
+      "id_type": "thread UUID or ask/action UUID plus project slug",
+      "scope": "Signed Manage project, authenticated user; Agentic owns execution/billing and action lifecycle",
+      "cardinality": "many-to-one",
+      "lookup": "Exact allowlisted /api/v1/agent methods map to Agentic chat/threads, ide thread messages/stream/cancel/delete, ask complete and browser action complete",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/agent.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "agentic": "6adb76c4a22e044cb92673ef9104658973c2d766"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Streaming narrow bridge preserves execution authority. Verify cross-project thread access, current membership revocation, stale/duplicate/expired review decisions and actual receipts before enabling final Manage knowledge."
+    },
+    {
+      "id": "manage-sandbox-proxy-idp",
+      "from_service": "manage",
+      "to_service": "idp",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "idp_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/idp/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "idp": "9965e90a81fa3c4844a00e710d8d31b20527fede"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-profile",
+      "from_service": "manage",
+      "to_service": "profile",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "profile_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/profile/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "profile": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-session",
+      "from_service": "manage",
+      "to_service": "session",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "session_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/session/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "session": "4c5eefc4062e8e522795478c8dd7d55e48a0c9fc"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-asset",
+      "from_service": "manage",
+      "to_service": "asset",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "asset_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/asset/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "asset": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-payment",
+      "from_service": "manage",
+      "to_service": "payment",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "payment_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/payment/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "payment": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-modules",
+      "from_service": "manage",
+      "to_service": "modules",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "modules_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/modules/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "modules": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-crm",
+      "from_service": "manage",
+      "to_service": "crm",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "crm_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/crm/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "crm": "6c763c989216fbecd6cfdb4c98f1067c09d17507"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-lms",
+      "from_service": "manage",
+      "to_service": "lms",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "lms_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/lms/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "lms": "7a0315c39ac53df3ad6c6ca53fbe574f19046e52"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-messenger",
+      "from_service": "manage",
+      "to_service": "messenger",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "messenger_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/messenger/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "messenger": "0038f19eb1d78b744b3d9829c1a05331657a9fa4"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-reservation",
+      "from_service": "manage",
+      "to_service": "reservation",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "reservation_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/reservation/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "reservation": "f7cd709510458083d10a1b79a5ad3d7cd29196bd"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-version",
+      "from_service": "manage",
+      "to_service": "version",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "version_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/version/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "version": "88071d0dd49309e0c93aba6238516e95b57e1df5"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-flow",
+      "from_service": "manage",
+      "to_service": "flow",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "flow_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/flow/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "flow": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-social",
+      "from_service": "manage",
+      "to_service": "social",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "social_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/social/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "social": "79462976a1c07e7ef8eb913d7cc7015dd50f936e"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-chat",
+      "from_service": "manage",
+      "to_service": "chat",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "chat_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/chat/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "chat": "d495217f85d77270865a040c1328d70c620e6c9d"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-knowledge",
+      "from_service": "manage",
+      "to_service": "knowledge",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "knowledge_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/knowledge/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "knowledge": "70b8a21721dd34125b8f0e167e06da9ad3287223"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-state",
+      "from_service": "manage",
+      "to_service": "state",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "state_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/state/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "state": "6be433e043caddb2d1a5761562cfc42bd0c67190"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-drm",
+      "from_service": "manage",
+      "to_service": "drm",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "drm_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/drm/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "drm": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
+    },
+    {
+      "id": "manage-sandbox-proxy-task",
+      "from_service": "manage",
+      "to_service": "task",
+      "source_entity": "signed_project_service_access",
+      "target_entity": "task_sandbox_api",
+      "id_type": "project slug; signed organization UUID or derived project UUIDv5; owning-service resource IDs remain distinct",
+      "scope": "Project sandbox; IDP can use signed distinct identity project",
+      "cardinality": "many-to-one",
+      "lookup": "/api/v1/proxy/task/{owning service path}; exact method/query retained",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-manage/src/services.rs",
+        "Service/infera-manage/src/session.rs",
+        "Service/infera-manage/src/proxy.rs",
+        "Service/infera-manage/src/router.rs"
+      ],
+      "source_revisions": {
+        "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+        "task": "badfa399a8db6f19d68f63f14b1c67485c4d4903"
+      },
+      "test_evidence": [],
+      "local_component_test_evidence": [
+        "manage-component-tests"
+      ],
+      "meaning": "Only enabled catalogue service; strips browser identity and credentials, injects session user/effective org/static catalogue permissions and captured bearer. No resource-specific authorization or relationship meaning is invented at proxy. Verify actual SDK wire paths/envelopes, current service enablement, role policy, sandbox isolation, IDP/org mapping and full readable workflows with real owning-service state."
     }
   ]
 }
