@@ -1,8 +1,8 @@
 /** Source-reviewed mounted router aliases; semantic acceptance remains separate. */
 export const routerContracts = {};
-for (const service of ["asset", "idp", "modules", "payment"]) {
+for (const service of ["asset", "idp", "modules", "payment", "lms"]) {
   const original = service === "asset" || service === "modules" ? "/" : "/health";
-  const aliases = service === "payment" ? ["/", "/health", "/up"] : service === "idp" ? ["/health"] : ["/", "/health"];
+  const aliases = ["payment","lms"].includes(service) ? ["/", "/health", "/up"] : service === "idp" ? ["/health"] : ["/", "/health"];
   for (const path of aliases) {
     const name = path === original ? "RouterStatusRouteGet" : path === "/" ? "RouterRootStatusGet" : path === "/up" ? "RouterUpGet" : "RouterHealthGet";
     routerContracts[`${service}:GET ${path}`] = {
@@ -21,8 +21,8 @@ for (const service of ["asset", "idp", "modules", "payment"]) {
 routerContracts["idp:POST /api/v1/auth/secure/generate/one-time/{user_id}"] = {
   pathTypes: {user_id:"string"},
   response:'import("./contracts.types.js").OneTimeTokenResponse',
-  auth:"server-only Host-header allowlist in the resolved Rust SDK; this guard does not authenticate a service credential",
-  purpose:"Issue a single-use login token for the user UUID in the URL. Missing users return 401; the existing internal-service middleware checks Host only. Deployment network and gateway restrictions require separate verification."
+  auth:"server-only x-infera-idp-service-token credential for the current identity project plus the configured internal Host",
+  purpose:"Issue a single-use login token for the user UUID in the URL. Missing users return 401; missing/invalid credentials return 401, a wrong internal Host returns 403, and missing/short server credential configuration returns 503. Never expose the credential to browsers."
 };
 
 for (const method of ["GET", "OPTIONS"]) routerContracts[`idp:${method} /api/v1/auth/validate`] = {
@@ -43,6 +43,17 @@ oidc("POST","/oauth2/introspect",'import("./contracts.types.js").OidcIntrospecti
 
 routerContracts["idp:POST /api/v1/auth/secure/exchange/one-time"]={
   response:'import("./types.js").AuthTokensResponse',
-  auth:"server-only Host-header allowlist in the resolved Rust SDK; this guard does not authenticate a service credential",
-  purpose:"Consume a single-use token and issue access/refresh tokens for its active matching session. Reuse returns 400; invalid session ownership returns 401. Caller-identity protection requires an independently verified boundary."
+  auth:"server-only x-infera-idp-service-token credential for the current identity project plus the configured internal Host",
+  purpose:"Consume a single-use token and issue access/refresh tokens for its active matching session. Reuse returns 400; invalid session ownership returns 401. The same configured identity-project service credential is required; Host alone cannot authorize the call."
+};
+
+for (const path of ["/health","/up"]) routerContracts[`profile:GET ${path}`]={
+  response:'import("@faiber/sdk-core").ServiceHealthResponse',
+  auth:"no handler permission check; deployment gateway policy is separate",
+  purpose:"Read process health and the reported service version; this is not a downstream readiness check."
+};
+routerContracts["profile:GET /api/openapi.json"]={
+  response:'import("@faiber/sdk-core").ServiceOpenApiDocument',
+  auth:"no handler permission check; deployment gateway policy is separate",
+  purpose:"Read the raw generated OpenAPI document; annotations do not prove complete mounted operation coverage."
 };

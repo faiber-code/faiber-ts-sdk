@@ -1,0 +1,13 @@
+{
+  "fixture": true,
+  "live_acceptance": false,
+  "url": "http://127.0.0.1:5355/dashboard/ai-summaries/runs/40000000-0000-4000-8000-000000000001",
+  "language": "fa",
+  "direction": "rtl",
+  "metric": true,
+  "narrative": true,
+  "coverage": true,
+  "model": true,
+  "revision": true,
+  "observation": "Fresh CUA browser DOM check on the candidate production panel build; synthetic data only."
+}

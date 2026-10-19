@@ -617,14 +617,21 @@
       "id": "idp-internal-one-time-host-only-guard",
       "owner": "backend",
       "required": true,
-      "status": "source_confirmed_runtime_boundary_unverified",
-      "meaning": "The canonical IDP one-time generation/exchange middleware in resolved infera-idp-sdk git291c81a authenticates only by Host header; Manage SSO deliberately supplies that Host. A service credential or an independently verified network/gateway boundary is required before certifying current caller authorization.",
+      "status": "local_scoped_credential_and_real_manage_flow_verified_remote_and_runtime_reconciliation_pending",
+      "meaning": "Canonical IDP used a Host-only internal one-time guard. The isolated IDP/Manage/Control source candidates replace it with a dedicated platform-seeded identity-project credential; real receiver/Manage issue/exchange and spoofed/missing/invalid/other-project denials pass locally. Source publication, existing runtime credential reconciliation and deployed acceptance remain required.",
       "source_refs": [
-        "Service/infera-idp/src/auth/routes.rs:69",
-        "Service/faiber-sdk/crates/infera-idp-sdk/src/guard.rs:9",
-        "Service/infera-manage/src/sso.rs:225"
+        "Service/infera-idp/src/internal_service_auth.rs",
+        "Service/infera-manage/src/idp_service_credential.rs",
+        "Service/infera-manage/src/sso.rs",
+        "Service/infera-control/crates/faiber-core/src/idp_service_credential.rs",
+        "Service/infera-control/crates/faiber-core/src/ops/sandboxes.rs"
       ],
-      "test_evidence": []
+      "test_evidence": [],
+      "local_source_revisions": {
+        "idp": "360daa6",
+        "manage": "02ca8711d457f463727b1678a6b699894709c24b",
+        "control": "46d863d"
+      }
     }
   ]
 }

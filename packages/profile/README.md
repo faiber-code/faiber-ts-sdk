@@ -32,29 +32,30 @@ console.log(updated.data.data.profile);
 
 ## Complete capability
 
-This package exposes 233 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 235 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `ai_summary` | 20 | `GET`, `POST`, `PUT`, `PATCH` |
+| `ai-summary` | 20 | `GET`, `PATCH`, `POST`, `PUT` |
 | `campaign` | 4 | `GET`, `POST` |
 | `city` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `country` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `custom-type` | 5 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `education` | 4 | `GET`, `POST`, `PUT` |
+| `fitness` | 32 | `GET`, `POST`, `PUT` |
 | `integration` | 2 | `GET` |
 | `lifecycle` | 24 | `DELETE`, `GET`, `POST`, `PUT` |
 | `log-action` | 3 | `POST` |
 | `logger` | 2 | `GET` |
 | `option` | 5 | `GET`, `POST` |
-| `profile` | 57 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `profile` | 59 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `profile-property` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `profile-search` | 1 | `POST` |
+| `profile-search` | 3 | `POST` |
 | `province` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `referral` | 7 | `DELETE`, `GET`, `POST`, `PUT` |
 | `relation` | 10 | `DELETE`, `GET`, `POST`, `PUT` |
 | `router` | 3 | `GET` |
-| `session` | 2 | `GET` |
+| `session` | 4 | `GET`, `PATCH`, `PUT` |
 | `setting` | 2 | `GET`, `POST` |
 | `survey` | 2 | `GET`, `POST` |
 | `trusted-service` | 12 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |

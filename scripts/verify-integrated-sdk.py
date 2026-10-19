@@ -21,6 +21,36 @@ def snapshot(compiled=False):
  encoded=json.dumps(files,sort_keys=True,separators=(',',':')).encode()
  return {'sha256':digest(encoded),'files':files}
 def external_inputs():
+ if os.environ.get('INFERA_SDK_SOURCE_HANDOFF'):
+  manifest_path=Path(os.environ['INFERA_SDK_SOURCE_HANDOFF']).resolve();handoff=json.loads(manifest_path.read_text());files={};revisions={}
+  def capture(path):
+   path=Path(path).resolve();files[str(path)]=digest(path.read_bytes())
+  capture(manifest_path)
+  for repository in handoff['repositories']:
+   source=Path(repository['candidate']).resolve()
+   revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=source,text=True).strip()
+   assert revision==repository['head'],'Handoff source revision changed: '+repository['repository']
+   revisions[str(source)]=revision
+   for key in ['bundle','patch','source_manifest']:
+    capture(repository[key]);assert files[str(Path(repository[key]).resolve())]==repository[key+'_sha256'],'Handoff artifact mismatch: '+key
+   declared=json.loads(Path(repository['source_manifest']).read_text())
+   for name,checksum in declared.items():
+    capture(source/name);assert files[str((source/name).resolve())]==checksum,'Handoff source bytes changed: '+name
+  for entry in handoff['logs'].values():
+   capture(entry['file']);assert files[str(Path(entry['file']).resolve())]==entry['sha256'],'Handoff log mismatch'
+  if os.environ.get('INFERA_SDK_SOURCE_SUPPLEMENT'):
+   supplement=Path(os.environ['INFERA_SDK_SOURCE_SUPPLEMENT']).resolve();capture(supplement)
+   metadata=json.loads(supplement.read_text());assert metadata['previous_handoff_sha256']==digest(manifest_path.read_bytes())
+   for path in supplement.parent.iterdir():
+    if path.is_file():capture(path)
+  for variable in ['INFERA_VERSION_SDK_TEST_REPO','INFERA_SOCIAL_SDK_TEST_REPO','INFERA_IDP_SDK_TEST_REPO','INFERA_MANAGE_IDP_TEST_REPO','INFERA_CONTROL_IDP_AUTH_REPO']:
+   if not os.environ.get(variable):continue
+   source=Path(os.environ[variable]).resolve();revisions[str(source)]=subprocess.check_output(['git','rev-parse','HEAD'],cwd=source,text=True).strip()
+   for name in subprocess.check_output(['git','ls-files'],cwd=source,text=True).splitlines():
+    path=source/name
+    if path.is_file():capture(path)
+  encoded=json.dumps({'files':files,'revisions':revisions},sort_keys=True,separators=(',',':')).encode()
+  return {'handoff':str(manifest_path),'handoff_sha256':digest(manifest_path.read_bytes()),'revisions':revisions,'files':files,'sha256':digest(encoded),'scope':'Exact immutable source-review handoff plus independent local auth/service candidates; local object resolution is not canonical remote availability or deployed acceptance.'}
  manifest_path=Path(os.environ['INFERA_SDK_ROLE_HANDOFF']).resolve()
  handoff=json.loads(manifest_path.read_text());files={}
  for repository in handoff['repositories']:
@@ -60,12 +90,14 @@ def main():
   before=snapshot();external_before=external_inputs()
   run('build',['npm','run','build']);compiled=snapshot(True)
   run('types-and-tests',['npm','test'])
-  run('reviewed-mounted-contracts',['env','FAIBER_CONTRACT_SERVICES=social,version','npm','run','contracts:audit'])
+  run('reviewed-mounted-contracts',['env','FAIBER_CONTRACT_SERVICES=asset,idp,modules,payment,profile,lms,social,version','npm','run','contracts:audit'])
   audit=run('audit',['npm','audit','--json']);assert json.loads(audit)['metadata']['vulnerabilities']['total']==0
   run('pack-dry-run',['npm','run','pack:check'])
   run('source-whitespace',['git','diff','--check','b11672d'])
   run('actual-version-sdk-wire',['python3','scripts/run-version-sdk-wire-tests.py'])
   run('actual-social-sdk-wire',['python3','scripts/run-social-admin-sdk-tests.py'])
+  if os.environ.get('INFERA_IDP_SDK_TEST_REPO') and os.environ.get('INFERA_MANAGE_IDP_TEST_REPO'):
+   run('actual-idp-manage-sdk-wire',['python3','scripts/run-idp-sdk-router-tests.py'])
   if os.environ.get('INFERA_AUTHORITY_AGENTIC_REPO'):
    run('actual-manage-sdk-wire',['python3','scripts/run-manage-authority-tests.py'])
   packs=OUT/'tarballs';packs.mkdir();version=json.loads((SDK/'package.json').read_text())['version']
@@ -104,7 +136,7 @@ console.log('All22 actual tarball exports import; published helpers and new Prof
 ''')
   run('tarball-consumer-exports',['node','exports.mjs'],consumer)
   import shutil
-  for name in ['type-consumer.ts','release-type-consumer.ts','lms-classroom-counts.types.ts','transport-options.types.ts','version-wire.types.ts','social-admin-wire.types.ts']:shutil.copyfile(SDK/'tests'/name,consumer/name)
+  for name in ['type-consumer.ts','release-type-consumer.ts','lms-classroom-counts.types.ts','transport-options.types.ts','version-wire.types.ts','social-admin-wire.types.ts','router-wire.types.ts']:shutil.copyfile(SDK/'tests'/name,consumer/name)
   (consumer/'tsconfig.json').write_text(json.dumps({'compilerOptions':{'target':'ES2022','module':'NodeNext','moduleResolution':'NodeNext','strict':True,'exactOptionalPropertyTypes':True,'noEmit':True,'lib':['ES2022','DOM'],'skipLibCheck':False},'include':['*.ts']},indent=2)+'\n')
   run('tarball-consumer-types',['node',str(SDK/'node_modules/typescript/bin/tsc'),'-p','tsconfig.json','--pretty','false'],consumer)
  except Exception as error:failure=str(error)

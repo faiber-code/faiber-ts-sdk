@@ -21,7 +21,7 @@
   },
   "idp": {
     "directory": "infera-idp",
-    "revision": "8a841a96c6d03fba9f7baa9e5eb2cc14f0e9747d"
+    "revision": "360daa64429c966ed04a8081f700fde9c73d56ac"
   },
   "knowledge": {
     "directory": "infera-knowledge",
@@ -29,7 +29,7 @@
   },
   "lms": {
     "directory": "infera-lms",
-    "revision": "230453c1471d723af582308e43b5b43b5a0f7b99"
+    "revision": "a2d00df7f1cc34c3b2e356824c49e39c12047a33"
   },
   "messenger": {
     "directory": "infera-messenger",
@@ -45,7 +45,7 @@
   },
   "profile": {
     "directory": "infera-profile",
-    "revision": "f5f3d63e02e5af915f40411bb829290089f30f39"
+    "revision": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad"
   },
   "reservation": {
     "directory": "infera-reservation",

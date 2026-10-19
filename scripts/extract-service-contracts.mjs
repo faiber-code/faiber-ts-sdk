@@ -177,9 +177,10 @@ function relativeSource(file) {
 }
 
 function handlerSignature(source, handler) {
-  const start = source.search(new RegExp(`(?:pub\\s+)?async\\s+fn\\s+${handler}\\s*\\(`));
-  if (start === -1) return {};
-  const open = source.indexOf("(", start);
+  const declaration = new RegExp(`(?:pub(?:\\([^)]*\\))?\\s+)?async\\s+fn\\s+${handler}\\s*\\(`).exec(source);
+  if (!declaration) return {};
+  // pub(crate) has its own parentheses before the argument list.
+  const open = declaration.index + declaration[0].lastIndexOf("(");
   const close = matchingParen(source, open);
   const params = source.slice(open + 1, close);
   const after = source.slice(close + 1, source.indexOf("{", close));
@@ -409,7 +410,7 @@ for (const service of services) {
   // These service router graphs have source-reviewed mounts. Follow their actual
   // main/router graph rather than annotation paths or module-prefix guesses. Other
   // services retain their existing extraction until their mounted graphs are reviewed.
-  if (["asset", "idp", "modules", "payment", "social", "version"].includes(service)) {
+  if (["asset", "idp", "modules", "payment", "profile", "lms", "social", "version"].includes(service)) {
     const indexed = [...fileSources].map(([file,source])=>sourceIndex(source,relativeSource(file)));
     const main=indexed.find(file=>file.path.endsWith("/src/main.rs"));
     const entry=service==="social" && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
@@ -427,19 +428,23 @@ for (const service of services) {
       const exact=candidates.find(old=>old.path===op.path);
       const previous=exact??(candidates.length===1?candidates[0]:null);
       const routeModule=op.module.split("::")[0];
-      const signature=handlerSignature(handlerFile.source,op.handler);
-      if (["asset", "idp", "modules", "payment", "version"].includes(service) && op.handler==="status_route") {
+      const mountedHandler=handlerFile.functions.find(fn=>fn.name===op.handler);
+      // Source-defined declaration macros are expanded by sourceIndex. Parse
+      // that exact declaration so role-list schemas and permissions survive.
+      const declaration=mountedHandler?`${mountedHandler.attributes}\n${mountedHandler.signature}{${mountedHandler.body}}`:handlerFile.source;
+      const signature=handlerSignature(declaration,op.handler);
+      if (["asset", "idp", "modules", "payment", "profile", "lms", "version"].includes(service) && op.handler==="status_route") {
         const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
         if (/data\s*:\s*HealthResponse\s*\{/.test(fn?.body??"")) signature.response="HealthResponse";
       }
-      if (["asset", "idp", "modules", "payment", "version"].includes(service) && op.path==="/api/openapi.json") {
+      if (["asset", "idp", "modules", "payment", "profile", "lms", "version"].includes(service) && op.path==="/api/openapi.json") {
         const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
         if (/Json\s*\(\s*ApiDoc::openapi\s*\(/.test(fn?.body??"")) {
           signature.response="utoipa::openapi::OpenApi";signature.responseEnvelope="raw";
         }
       }
       reviewed.push({method:op.method,path:op.path,module:previous?.module??routeModule,handler:op.handler,
-        permissions:permissionAnnotations(handlerFile.source).get(op.handler)??[],source:op.source,
+        permissions:permissionAnnotations(declaration).get(op.handler)??op.permissions,source:op.source,
         ...(op.handlerModule!==op.module?{handlerModule:op.handlerModule.split("::").at(-1)}:{}),...signature});
     }
     endpoints.splice(0,endpoints.length,...reviewed);

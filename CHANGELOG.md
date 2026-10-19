@@ -5,6 +5,16 @@
 This source version is pending full service, permission, workflow and consumer
 acceptance. It has not been published by the knowledge-brain implementation task.
 
+- Follow mounted router graphs for Asset, IDP, Modules, Payment, Profile and LMS.
+  OIDC discovery and `/oauth2/*` use the service root; secure single-use token
+  generation requires its target user UUID. Preserve nested shop/inventory/public
+  routes, the daily-income route, and macro-defined role-list queries/permissions.
+- Give process health, raw OpenAPI, OIDC discovery/JWKS/user-info/introspection and
+  forward-auth their actual named wire shapes. CORS OPTIONS returns an empty body;
+  forward-auth carries its principal in response headers.
+- The coordinated IDP source candidate requires a server-only identity-project
+  service credential for internal one-time-token calls. Host alone no longer
+  authorizes issuance/exchange; missing configuration fails closed.
 - Role summaries move from LMS to Profile (`sdk.profile.summaries`), using canonical
   role UUIDs and explicit Profile read/configuration permissions. The eight LMS
   summary operation methods and their fixed-role convenience methods are removed.

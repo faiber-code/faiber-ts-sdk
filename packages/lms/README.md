@@ -53,7 +53,7 @@ const sessions = await api.courseSessions(courseId);
 
 ## Complete capability
 
-This package exposes 178 registered operations through typed bindings, including notification rules/contacts and excluding the eight retired LMS summary operations. Binding counts describe inventory only; service permissions and workflow verification remain separate requirements. Common workflows use concise methods, while named operation clients retain exact wire contracts.
+This package exposes 181 registered operations through typed bindings, including notification rules/contacts and excluding the eight retired LMS summary operations. Binding counts describe inventory only; service permissions and workflow verification remain separate requirements. Common workflows use concise methods, while named operation clients retain exact wire contracts.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
@@ -74,9 +74,10 @@ This package exposes 178 registered operations through typed bindings, including
 | `interactive` | 15 | `GET`, `POST`, `PUT` |
 | `media` | 2 | `GET`, `POST` |
 | `mod` | 3 | `GET`, `POST`, `PUT` |
+| `notifications` | 1 | `POST` |
 | `profile-routes` | 2 | `GET` |
 | `report` | 9 | `GET` |
-| `router` | 2 | `GET` |
+| `router` | 4 | `GET` |
 | `service` | 1 | `GET` |
 | `session` | 1 | `GET` |
 | `transfer` | 1 | `POST` |

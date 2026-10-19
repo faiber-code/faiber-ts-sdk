@@ -2,3 +2,5 @@
 # enabled for source; terminal output may contain indentation-only lines.
 contracts/service-capabilities/evidence/*.log -whitespace
 contracts/service-capabilities/evidence/summary-crm-handoff/*.log -whitespace
+contracts/service-capabilities/evidence/summary-source-review-v1/*.log -whitespace
+contracts/service-capabilities/evidence/summary-source-review-v2-supplement/*.log -whitespace

@@ -1,0 +1,160 @@
+{
+  "at": "2026-10-19T15:38:19.781483+00:00",
+  "sources": [
+    {
+      "repository": "faiber-sdk",
+      "head": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+      "tree": "906a60a5ae8f373ba7d841cccd9028a0b33bf56e",
+      "checked_source_files": 303,
+      "mismatches": [],
+      "tracked_status": "",
+      "manifest_sha256": "3ae6927dd1baa7bf942b26d26db3450c3296babff3a42669d7b3b65d58afc68a"
+    },
+    {
+      "repository": "infera-profile",
+      "head": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+      "tree": "b05d1705b4b9ea4c982d82c4f58c003821aec502",
+      "checked_source_files": 626,
+      "mismatches": [],
+      "tracked_status": "",
+      "manifest_sha256": "e7710ca6c3018c69c6555dfe6ff5ce0f4feff7cb82263cf2e69e0549763535b4"
+    },
+    {
+      "repository": "infera-lms",
+      "head": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "tree": "35a230592c3072bf3e28890fcaa50293fc83b6e2",
+      "checked_source_files": 688,
+      "mismatches": [],
+      "tracked_status": "",
+      "manifest_sha256": "729ff336f0fbff906f1980669f4e0a558f16856376321315f4a97f5451e77fd2"
+    },
+    {
+      "repository": "poulstar-accounting-backend",
+      "head": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b",
+      "tree": "2dbeebc4e1d84cc3f691fc2400d6d5c9851ddf09",
+      "checked_source_files": 1277,
+      "mismatches": [],
+      "tracked_status": "",
+      "manifest_sha256": "85620968f378e9482aae48bc8be2dfb24091590d333e45c7124dde3dc60aa620"
+    },
+    {
+      "repository": "infera-idp",
+      "head": "1983731640c4542391eeed2599347b45ab6caf4b",
+      "tree": "e615d06fa2ff2896599d66460ed04efa1e0ce685",
+      "checked_source_files": 353,
+      "mismatches": [],
+      "tracked_status": "",
+      "manifest_sha256": "be40ccd301df19d4959c0984eece883ea2c275b175fa566f685a2b1634f324a8"
+    }
+  ],
+  "v1_handoff_sha256": "f4e206e5833797dfcfbe4f4bae479557d29f51e01e8e13bab11e038b64655308",
+  "v1_logs": [
+    {
+      "name": "accounting-native-http-test.log",
+      "sha256": "a90178e1cd93a0378fb395903ead278459e5a57f11911f07566eaa335c63aad4"
+    },
+    {
+      "name": "idp-acl-test.log",
+      "sha256": "61d84df4829f34f70fb3aae5dd9339be7110e4df7f70f3eac718b54156ec0a9c"
+    },
+    {
+      "name": "idp-locked-final-test.log",
+      "sha256": "8035317dd8a3a1ccacf0ab193895806b17e1716a0992728485b984f58e0a8613"
+    },
+    {
+      "name": "lms-classroom-contract-test.log",
+      "sha256": "991e8c9e17ff0b2e96d5714dafdfb54a7f2278a0675df0ef295383762ed5d0ed"
+    },
+    {
+      "name": "lms-locked-final-check.log",
+      "sha256": "69696b8741059425ac51af210bc868ec431f00a61699d3153042b554c14e8725"
+    },
+    {
+      "name": "lms-native-test.log",
+      "sha256": "e5c3897c73bd151ef4e17cf2d4b00b4a5ab3e760ecb3ec209e50a43a7fa3f5d8"
+    },
+    {
+      "name": "lms-panel-build.log",
+      "sha256": "5196d246ccff19cab853eef8941d41a290cba9eb99d1747241697447cfa2eda8"
+    },
+    {
+      "name": "lms-panel-test.log",
+      "sha256": "ea4c9472ba1c1b1fb5c5c5d3a700d39a6ead8749d4445cd935df895927e3903c"
+    },
+    {
+      "name": "lms-pinned-check.log",
+      "sha256": "50110579de128cecb9c06f85754fcf5362fe1e691f0d89834f0242e7647be526"
+    },
+    {
+      "name": "profile-applicator-test.log",
+      "sha256": "065c7d15facfd20f14fb9182747be315f3349fa1d5e1a0e966047509f4bfa9b1"
+    },
+    {
+      "name": "profile-contract-durability-test.log",
+      "sha256": "0bff351313b6a35bf3001b80b4a96daf11e9091b08beb18c704b3b0b34f65fcf"
+    },
+    {
+      "name": "profile-durability-test.log",
+      "sha256": "791f0bbd210281dd6263d95361e74b956dc5ba000b7c5b6721857ea9b546a114"
+    },
+    {
+      "name": "profile-locked-final-check.log",
+      "sha256": "727ac5749ae5fdce09eb0ec87bce36bf9db9ba73f11c212e9ca79b43c4194871"
+    },
+    {
+      "name": "profile-panel-all-test-final.log",
+      "sha256": "034fce75a6022f517017efb0f83e19a7b8407aed0df6f1caf43f281aea7b316b"
+    },
+    {
+      "name": "profile-panel-all-test.log",
+      "sha256": "2ca91843f9037a8a927abed029689c482ac8c9bfaf81e1b4e2841720838935cf"
+    },
+    {
+      "name": "profile-panel-build-final.log",
+      "sha256": "45d5042b02bf68ddf023e21cb379cf7e55e7d829e02474d847701f0e3762d12a"
+    },
+    {
+      "name": "profile-panel-build.log",
+      "sha256": "f7e376421756915ae8a2bc923d8c838835c94733c59eeb4c58bd3acac235988e"
+    },
+    {
+      "name": "profile-panel-lint-final.log",
+      "sha256": "84026745e537fdbdc49173341911beeca47b25eaed85862c0ec743e12bbe47ad"
+    },
+    {
+      "name": "profile-panel-lint.log",
+      "sha256": "84026745e537fdbdc49173341911beeca47b25eaed85862c0ec743e12bbe47ad"
+    },
+    {
+      "name": "profile-panel-test.log",
+      "sha256": "f2b65fcc6805f0011c7377c9a5601c66428941253376b30e6df9f73952d73291"
+    },
+    {
+      "name": "profile-pinned-check.log",
+      "sha256": "d553ae1b54adea78cad81fcfd9a267f045830cda578a17be0b5f9065886386d6"
+    },
+    {
+      "name": "profile-production-check.log",
+      "sha256": "a2ddd8c3d80acd618c6ad987783891e051fa71dfa22d79e76d2948fd103b3909"
+    },
+    {
+      "name": "sdk-laravel-interop-test.log",
+      "sha256": "808a2ce1e33641d9206f405299894ab7c111f12aeb9cf1cdbd37e0cd8821b947"
+    },
+    {
+      "name": "sdk-mcp-test.log",
+      "sha256": "49846c2c5179fdf0d25ec5ddc7d49ea76271f4dac4a7d0b6a929bba2ddfbe6c1"
+    },
+    {
+      "name": "sdk-profile-test.log",
+      "sha256": "236cf9b2cf57f32fcd1ca6a9387591acd45a561ced21fb71d65cefa1d06c6dae"
+    }
+  ],
+  "historical_rebased_log": {
+    "source": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/lms-native-rebased-test.log",
+    "copy": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v2-supplement/lms-native-rebased-test.log",
+    "sha256": "d81c1894b917ae8b6002406d74f706149c4885817a17780c259f32db2dabebd5",
+    "test_result": "1 passed, 0 failed;89filtered",
+    "provenance_limit": "Historical log lacks an embedded git tree attestation. New final-pin rerun below provides explicit before/after source capture; do not assign the historical pre-rebase log to the final source pin."
+  }
+}

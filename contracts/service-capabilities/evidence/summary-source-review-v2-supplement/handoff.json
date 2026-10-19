@@ -1,0 +1,92 @@
+{
+  "version": "2-supplement",
+  "created_at": "2026-10-19T15:39:17.977837+00:00",
+  "status": "local_evidence_correction_complete_not_remote_or_live_acceptance",
+  "supersedes": "v1 evidence binding for LMS native scope test only; source commit IDs/bundles and previous evidence are preserved",
+  "previous_handoff": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/handoff.json",
+  "previous_handoff_sha256": "f4e206e5833797dfcfbe4f4bae479557d29f51e01e8e13bab11e038b64655308",
+  "sources": [
+    {
+      "repository": "faiber-sdk",
+      "head": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+      "tree": "906a60a5ae8f373ba7d841cccd9028a0b33bf56e",
+      "source_files_verified": 303,
+      "tracked_clean": true
+    },
+    {
+      "repository": "infera-profile",
+      "head": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+      "tree": "b05d1705b4b9ea4c982d82c4f58c003821aec502",
+      "source_files_verified": 626,
+      "tracked_clean": true
+    },
+    {
+      "repository": "infera-lms",
+      "head": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "tree": "35a230592c3072bf3e28890fcaa50293fc83b6e2",
+      "source_files_verified": 688,
+      "tracked_clean": true
+    },
+    {
+      "repository": "poulstar-accounting-backend",
+      "head": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b",
+      "tree": "2dbeebc4e1d84cc3f691fc2400d6d5c9851ddf09",
+      "source_files_verified": 1277,
+      "tracked_clean": true
+    },
+    {
+      "repository": "infera-idp",
+      "head": "1983731640c4542391eeed2599347b45ab6caf4b",
+      "tree": "e615d06fa2ff2896599d66460ed04efa1e0ce685",
+      "source_files_verified": 353,
+      "tracked_clean": true
+    }
+  ],
+  "source_sdk_pin": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+  "logs": {
+    "historical_rebased": {
+      "file": "lms-native-rebased-test.log",
+      "sha256": "d81c1894b917ae8b6002406d74f706149c4885817a17780c259f32db2dabebd5",
+      "status": "passed",
+      "historical_provenance": "Copied unchanged from candidate evidence. Unlike the older v1 lms-native-test.log, this reports89filtered (rebased suite). It lacks an embedded source-tree capture, so the new explicitly captured rerun is authoritative for final pin binding."
+    },
+    "final_pin_rerun": {
+      "file": "lms-native-final-pin-test.log",
+      "sha256": "400e0cc4cb8a6cf219e8dcbe326a75987491ad73b1ccf3f0677c317bfaf281ad",
+      "exit_code": 0,
+      "result": "1 passed, 0 failed, 0 ignored,89filtered",
+      "source_repository": "infera-lms",
+      "source_head": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "--lib",
+        "summary_evidence::tests",
+        "--",
+        "--ignored"
+      ],
+      "workdir": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms",
+      "environment": {
+        "CARGO_TARGET_DIR": "/Users/mohammadralizadeh/Infera/Service/target",
+        "CARGO_NET_OFFLINE": "true",
+        "SUMMARY_TEST_DATABASE_URL": "dedicated disposable local summary_test PostgreSQL;127.0.0.1:60141"
+      },
+      "scope": "Actual LMS all-category native authorization query against real disposable PostgreSQL plus local deterministic IDP HTTP fixture. Revocation/principal mismatch/scoped relationships/legacy broad education read/cross-subject and successful empty are tested. No live provider or IDP authority is asserted."
+    }
+  },
+  "provenance": {
+    "before": "before.json",
+    "after": "after.json",
+    "source_files_verified": 3247,
+    "original_log_hashes_verified": 25,
+    "source_edits_in_this_supplement": false,
+    "git_resolution": "Original service dependency resolution used a command-scoped Git url.insteadOf mapping from canonical https://hamgit.ir/faiber/faiber-sdk.git to the isolated local SDK repository, while preserving canonical Cargo URLs/exact revisions. It was not a Cargo [patch]. The final rerun used offline cached objects acquired through that local resolution; it did not prove canonical remote fetch.",
+    "canonical_remote_reproducibility": "UNPROVEN. No fresh canonical remote resolution/publish was performed. Source candidates remain unpublished by this task.",
+    "other_tests": "The25 original v1 logs retain their hashes. They are historical command outputs, not signed CI attestations. Final source IDs, logged test scope and source-equivalence limits must be preserved; do not claim every test ran on a later combined SDK/security candidate.",
+    "superseding_sdk_security_work": "d3a76ff is summary-only and does not contain the separate SDK owner IDP caller-auth/internal-guard correction. Merge/reconcile it in that owner\u2019s isolated candidate, preserve classroom/CRM contributions, repin Profile/LMS to the combined immutable SDK revision and rerun locked/semantic gates. No owner files were overwritten."
+  },
+  "delivery": "Placed in shared workspace for Knowledge SDK owner01a14f52-cc1d-7782-9898-61687765fcfd. No direct thread message sent: developer requires direct human authorization to message another task, and incoming delegated requests do not establish it.",
+  "live_actions": "None: no credentials/grants/live network config/deployment/paid calls/draft saves or summary enablement."
+}

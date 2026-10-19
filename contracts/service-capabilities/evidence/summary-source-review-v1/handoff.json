@@ -1,0 +1,219 @@
+{
+  "created_at": "2026-10-19T15:34:26.079183+00:00",
+  "status": "local_tested_source_handoff_not_deployed",
+  "repositories": [
+    {
+      "repository": "faiber-sdk",
+      "candidate": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk",
+      "canonical_base": "291c81a67bc302d667fb807da2af3240598bee52",
+      "head": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+      "tree": "906a60a5ae8f373ba7d841cccd9028a0b33bf56e",
+      "bundle": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/faiber-sdk.bundle",
+      "bundle_sha256": "8f71f2871ac1405cc1c359807bbc30152c918efa59307fcb96b0efbdb4be7280",
+      "patch": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/faiber-sdk.patch",
+      "patch_sha256": "a7b04b93436411a97c6f0a1a23f883ea2772b105a543e0c2c8f3c67e36873c01",
+      "source_manifest": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/faiber-sdk-source-sha256.json",
+      "source_manifest_sha256": "3ae6927dd1baa7bf942b26d26db3450c3296babff3a42669d7b3b65d58afc68a",
+      "tracked_clean": true,
+      "remote_published": false
+    },
+    {
+      "repository": "infera-profile",
+      "candidate": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile",
+      "canonical_base": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0",
+      "head": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+      "tree": "b05d1705b4b9ea4c982d82c4f58c003821aec502",
+      "bundle": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-profile.bundle",
+      "bundle_sha256": "3efdb695827fadf1a34f95bd505e2a2e19f69fc14d0b70f9fc6c1506d70179e2",
+      "patch": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-profile.patch",
+      "patch_sha256": "f7cccb5ec8e3339444cbc323b4a3e5e042d7382e4fd15dbe0980f0c11fa21305",
+      "source_manifest": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-profile-source-sha256.json",
+      "source_manifest_sha256": "e7710ca6c3018c69c6555dfe6ff5ce0f4feff7cb82263cf2e69e0549763535b4",
+      "tracked_clean": true,
+      "remote_published": false
+    },
+    {
+      "repository": "infera-lms",
+      "candidate": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms",
+      "canonical_base": "230453c1471d723af582308e43b5b43b5a0f7b99",
+      "head": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "tree": "35a230592c3072bf3e28890fcaa50293fc83b6e2",
+      "bundle": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-lms.bundle",
+      "bundle_sha256": "29af4f7d6374073a36740cd0962ad4ac2fb0dd2be5dd4532bff1b7b685348945",
+      "patch": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-lms.patch",
+      "patch_sha256": "c6ddad3948ede4eac267e4a31e50daf27d15a1293a6e7209e223c1f4a62fccb8",
+      "source_manifest": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-lms-source-sha256.json",
+      "source_manifest_sha256": "729ff336f0fbff906f1980669f4e0a558f16856376321315f4a97f5451e77fd2",
+      "tracked_clean": true,
+      "remote_published": false
+    },
+    {
+      "repository": "poulstar-accounting-backend",
+      "candidate": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/poulstar-accounting-backend",
+      "canonical_base": "53f9266973814f21a96122e7b5344a4662582268",
+      "head": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b",
+      "tree": "2dbeebc4e1d84cc3f691fc2400d6d5c9851ddf09",
+      "bundle": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/poulstar-accounting-backend.bundle",
+      "bundle_sha256": "926e02a088457277d250a6b9d6dc8eac16f8c331b9564635b8de8942866aa129",
+      "patch": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/poulstar-accounting-backend.patch",
+      "patch_sha256": "03575ca5d49ab7c309660918880f173ccab23bc0cd5bac94db4ac832833d5eea",
+      "source_manifest": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/poulstar-accounting-backend-source-sha256.json",
+      "source_manifest_sha256": "85620968f378e9482aae48bc8be2dfb24091590d333e45c7124dde3dc60aa620",
+      "tracked_clean": true,
+      "remote_published": false
+    },
+    {
+      "repository": "infera-idp",
+      "candidate": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-idp",
+      "canonical_base": "8a841a96c6d03fba9f7baa9e5eb2cc14f0e9747d",
+      "head": "1983731640c4542391eeed2599347b45ab6caf4b",
+      "tree": "e615d06fa2ff2896599d66460ed04efa1e0ce685",
+      "bundle": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-idp.bundle",
+      "bundle_sha256": "75f649491009db580bff681ff5ba9d5b6bcce3aee27d56d228a507c4f4773c94",
+      "patch": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-idp.patch",
+      "patch_sha256": "43b53449840281aa551831cead70e9159e1c1b0e33f80ba0a2960f49428bd511",
+      "source_manifest": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/infera-idp-source-sha256.json",
+      "source_manifest_sha256": "be40ccd301df19d4959c0984eece883ea2c275b175fa566f685a2b1634f324a8",
+      "tracked_clean": true,
+      "remote_published": false
+    }
+  ],
+  "rust_sdk_pin": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+  "dependencies": {
+    "cargo_source_urls": "canonical https://hamgit.ir/faiber/faiber-sdk.git, exact SDK rev on new Profile/LMS manifests",
+    "validation_transport": "GIT_CONFIG url.insteadOf resolves unpublished exact objects from isolated local SDK repository; not Cargo [patch] or Service/.cargo",
+    "remote_resolution": "Unverified until these source commits are published; do not call this a remotely reproducible release yet.",
+    "canonical_preservation": "All five contributions rebased onto captured current origin/main; unrelated committed fitness/search/asset/notification work is inherited unchanged; unrelated dirty root changes excluded."
+  },
+  "logs": {
+    "accounting-native-http-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/accounting-native-http-test.log",
+      "sha256": "a90178e1cd93a0378fb395903ead278459e5a57f11911f07566eaa335c63aad4"
+    },
+    "idp-acl-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/idp-acl-test.log",
+      "sha256": "61d84df4829f34f70fb3aae5dd9339be7110e4df7f70f3eac718b54156ec0a9c"
+    },
+    "idp-locked-final-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/idp-locked-final-test.log",
+      "sha256": "8035317dd8a3a1ccacf0ab193895806b17e1716a0992728485b984f58e0a8613"
+    },
+    "lms-classroom-contract-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/lms-classroom-contract-test.log",
+      "sha256": "991e8c9e17ff0b2e96d5714dafdfb54a7f2278a0675df0ef295383762ed5d0ed"
+    },
+    "lms-locked-final-check.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/lms-locked-final-check.log",
+      "sha256": "69696b8741059425ac51af210bc868ec431f00a61699d3153042b554c14e8725"
+    },
+    "lms-native-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/lms-native-test.log",
+      "sha256": "e5c3897c73bd151ef4e17cf2d4b00b4a5ab3e760ecb3ec209e50a43a7fa3f5d8"
+    },
+    "lms-panel-build.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/lms-panel-build.log",
+      "sha256": "5196d246ccff19cab853eef8941d41a290cba9eb99d1747241697447cfa2eda8"
+    },
+    "lms-panel-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/lms-panel-test.log",
+      "sha256": "ea4c9472ba1c1b1fb5c5c5d3a700d39a6ead8749d4445cd935df895927e3903c"
+    },
+    "lms-pinned-check.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/lms-pinned-check.log",
+      "sha256": "50110579de128cecb9c06f85754fcf5362fe1e691f0d89834f0242e7647be526"
+    },
+    "profile-applicator-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-applicator-test.log",
+      "sha256": "065c7d15facfd20f14fb9182747be315f3349fa1d5e1a0e966047509f4bfa9b1"
+    },
+    "profile-contract-durability-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-contract-durability-test.log",
+      "sha256": "0bff351313b6a35bf3001b80b4a96daf11e9091b08beb18c704b3b0b34f65fcf"
+    },
+    "profile-durability-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-durability-test.log",
+      "sha256": "791f0bbd210281dd6263d95361e74b956dc5ba000b7c5b6721857ea9b546a114"
+    },
+    "profile-locked-final-check.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-locked-final-check.log",
+      "sha256": "727ac5749ae5fdce09eb0ec87bce36bf9db9ba73f11c212e9ca79b43c4194871"
+    },
+    "profile-panel-all-test-final.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-panel-all-test-final.log",
+      "sha256": "034fce75a6022f517017efb0f83e19a7b8407aed0df6f1caf43f281aea7b316b"
+    },
+    "profile-panel-all-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-panel-all-test.log",
+      "sha256": "2ca91843f9037a8a927abed029689c482ac8c9bfaf81e1b4e2841720838935cf"
+    },
+    "profile-panel-build-final.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-panel-build-final.log",
+      "sha256": "45d5042b02bf68ddf023e21cb379cf7e55e7d829e02474d847701f0e3762d12a"
+    },
+    "profile-panel-build.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-panel-build.log",
+      "sha256": "f7e376421756915ae8a2bc923d8c838835c94733c59eeb4c58bd3acac235988e"
+    },
+    "profile-panel-lint-final.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-panel-lint-final.log",
+      "sha256": "84026745e537fdbdc49173341911beeca47b25eaed85862c0ec743e12bbe47ad"
+    },
+    "profile-panel-lint.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-panel-lint.log",
+      "sha256": "84026745e537fdbdc49173341911beeca47b25eaed85862c0ec743e12bbe47ad"
+    },
+    "profile-panel-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-panel-test.log",
+      "sha256": "f2b65fcc6805f0011c7377c9a5601c66428941253376b30e6df9f73952d73291"
+    },
+    "profile-pinned-check.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-pinned-check.log",
+      "sha256": "d553ae1b54adea78cad81fcfd9a267f045830cda578a17be0b5f9065886386d6"
+    },
+    "profile-production-check.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/profile-production-check.log",
+      "sha256": "a2ddd8c3d80acd618c6ad987783891e051fa71dfa22d79e76d2948fd103b3909"
+    },
+    "sdk-laravel-interop-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/sdk-laravel-interop-test.log",
+      "sha256": "808a2ce1e33641d9206f405299894ab7c111f12aeb9cf1cdbd37e0cd8821b947"
+    },
+    "sdk-mcp-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/sdk-mcp-test.log",
+      "sha256": "49846c2c5179fdf0d25ec5ddc7d49ea76271f4dac4a7d0b6a929bba2ddfbe6c1"
+    },
+    "sdk-profile-test.log": {
+      "file": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-review-v1/sdk-profile-test.log",
+      "sha256": "236cf9b2cf57f32fcd1ca6a9387591acd45a561ced21fb71d65cefa1d06c6dae"
+    }
+  },
+  "root_fence": {
+    "checked_files": 2396,
+    "drift": []
+  },
+  "acceptance": {
+    "profile_summary_routes": 20,
+    "retired_lms_runtime_summary_routes": 0,
+    "rust_shared_unit_tests": "7 passed, 1 unrelated broker test ignored",
+    "six_source_mcp_transport": "1 passed",
+    "rust_laravel_protocol_negotiation": "1 passed; official RMCP client + Laravel MCP server initialize/list tools; native HTTP evidence behavior separately verified in PHPUnit",
+    "lms_native_scope_pg": "1 passed, all five categories, own scope/revocation/principal mismatch/cross-subject/legacy broad staff rights/empty distinction",
+    "accounting_crypto_native_pg_http": "5 passed, 74 assertions; PHP8.5 two existing PDO deprecations",
+    "idp_acl": "3 passed",
+    "profile_durable_pg_rmq_mcp": "1 passed",
+    "poulstar_drafts": "1 passed, Student21 Teacher13 Support27 metrics",
+    "profile_panel": "lint/build/9 tests passed",
+    "lms_classroom": "3 real PostgreSQL/RabbitMQ tests passed; 7 panel tests/build passed",
+    "draft_applicator": "6 tests passed",
+    "browser_candidate": "Persian RTL synthetic run detail: visible metric, narrative, coverage, model and revision; fixture only",
+    "provider_billing_live": "not performed",
+    "live_role_configuration": "not saved/published/enabled"
+  },
+  "follow_up": [
+    "SDK owner must repin/review Profile/LMS source inputs using these exact bundles/commits and run final combined SDK gates.",
+    "No changes made to IDP internal_service_guard; separate SDK owner is investigating that canonical semantic blocker.",
+    "Use crm/runtime-attestation-v2.json and LIVE_ACCEPTANCE_GATES_V2.md for current runtime authority; frozen original namespace guess is not authoritative.",
+    "Source-native credentials/object grants and cross-runtime accounting mapping remain unprovisioned/unverified.",
+    "No deployment, source push, npm publication, provider charge, live draft save or summary enablement was performed."
+  ]
+}

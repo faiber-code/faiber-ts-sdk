@@ -3,8 +3,7 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend request type: BulkAddressGet. */
 export interface OptionAddressGetPostInput extends JsonObject {
@@ -13,6 +12,84 @@ export interface OptionAddressGetPostInput extends JsonObject {
 /** Backend response type: Value. */
 export interface OptionAddressGetPostResponse extends ApiEnvelope<JsonValue> {
 }
+
+/** Backend response type: Vec<Value>. */
+export type AiSummaryConfigurationsGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord[]>;
+
+/** Backend request type: ConfigurationWrite. */
+export type AiSummaryConfigurationCreatePostInput = import("./summaries.types.js").SummaryConfigurationWrite;
+/** Backend response type: Value. */
+export type AiSummaryConfigurationCreatePostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord>;
+
+/** Backend response type: Value. */
+export type AiSummaryConfigurationGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord>;
+
+/** Backend request type: ConfigurationWrite. */
+export type AiSummaryConfigurationPutInput = import("./summaries.types.js").SummaryConfigurationWrite;
+/** Backend response type: Value. */
+export type AiSummaryConfigurationPutResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord>;
+
+/** Backend request type: PreviewWrite. */
+export type AiSummaryPreviewPostInput = import("./summaries.types.js").SummaryPreviewWrite;
+/** Backend response type: Value. */
+export type AiSummaryPreviewPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryPreviewResponse>;
+
+/** Backend response type: Value. */
+export type AiSummaryPublishPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord>;
+
+/** Backend request type: StatusWrite. */
+export type AiSummaryStatusPatchInput = import("./summaries.types.js").SummaryStatusWrite;
+/** Backend response type: Value. */
+export type AiSummaryStatusPatchResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryConfigurationRecord>;
+
+/** Backend response type: Value. */
+export type AiSummaryValidatePostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryValidation>;
+
+/** Backend query type: ListQuery. */
+export type AiSummaryJobsGetQuery = import("./summaries.types.js").SummaryListQuery;
+/** Backend response type: Page. */
+export type AiSummaryJobsGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryPage<import("./summaries.types.js").SummaryJob>>;
+
+/** Backend response type: Value. */
+export type AiSummaryRetryPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryRetryResponse>;
+
+/** Backend query type: ListQuery. */
+export type AiSummaryLatestGetQuery = import("./summaries.types.js").SummaryLatestQuery;
+/** Backend response type: Value. */
+export type AiSummaryLatestGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryLatest>;
+
+/** Backend response type: Vec<Value>. */
+export type AiSummaryModelsGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryModel[]>;
+
+/** Backend request type: RefreshWrite. */
+export type AiSummaryRefreshPostInput = import("./summaries.types.js").SummaryRefreshWrite;
+/** Backend response type: Value. */
+export type AiSummaryRefreshPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryRefreshResponse>;
+
+/** Backend response type: Vec<Value>. */
+export type AiSummaryRolesGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryRole[]>;
+
+/** Backend response type: Value. */
+export type AiSummaryRunGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryRun>;
+
+/** Backend response type: Settings. */
+export type AiSummarySettingsGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummarySettings>;
+
+/** Backend request type: Settings. */
+export type AiSummarySettingsPutInput = import("./summaries.types.js").SummarySettings;
+/** Backend response type: Settings. */
+export type AiSummarySettingsPutResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummarySettings>;
+
+/** Backend response type: Vec<Value>. */
+export type AiSummarySourcesGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryCapability[]>;
+
+/** Backend response type: Value. */
+export type AiSummarySourceCheckPostResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummarySourceCheck>;
+
+/** Backend query type: ListQuery. */
+export type AiSummarySummariesGetQuery = import("./summaries.types.js").SummaryListQuery;
+/** Backend response type: Page. */
+export type AiSummarySummariesGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./summaries.types.js").SummaryPage<import("./summaries.types.js").SummaryRun>>;
 
 /** Backend response type: profile_methods::ChatContext. */
 export interface SessionGetChatContextGetResponseData extends JsonObject {
@@ -456,29 +533,6 @@ export interface SessionCompleteOnboardingPutResponseData extends JsonObject {
   "profile": SessionCompleteOnboardingPutResponseDataProfile;
 }
 export interface SessionCompleteOnboardingPutResponse extends ApiEnvelope<SessionCompleteOnboardingPutResponseData> {
-}
-
-/** Backend response type: Value. */
-export interface CampaignIndexGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: Value. */
-export interface CampaignMyContributionsGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend response type: Value. */
-export interface CampaignShowGetResponse extends ApiEnvelope<JsonValue> {
-}
-
-/** Backend request type: ContributionRequest. */
-export interface CampaignContributePostInput extends JsonObject {
-  "method": string;
-  "amount": number;
-  "unit": string;
-  "idempotency_key": string;
-}
-/** Backend response type: Value. */
-export interface CampaignContributePostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: models::ListQuery. */
@@ -1302,6 +1356,14 @@ export interface ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarQuery extends Qu
 }
 /** Backend response type: raw-response. */
 export interface ProfileAvatarShowGetApiV1ProfileMediaUuidAvatarResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend query type: MediaQuery. */
+export interface ProfileImageShowGetQuery extends QueryParams {
+  "key": string;
+}
+/** Backend response type: raw-response. */
+export interface ProfileImageShowGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: models::ListQuery. */
@@ -2869,6 +2931,12 @@ export interface ProfileShowFullGetResponseData extends JsonObject {
   "profile": ProfileShowFullGetResponseDataProfile;
 }
 export interface ProfileShowFullGetResponse extends ApiEnvelope<ProfileShowFullGetResponseData> {
+}
+
+/** Backend request type: multipart/form-data. */
+export type ProfileImageStorePostInput = FormData;
+/** Backend response type: serde_json::Value. */
+export interface ProfileImageStorePostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend query type: MediaQuery. */
@@ -6627,10 +6695,31 @@ export interface TrustedServiceEventUpdatePutResponseData extends JsonObject {
 export interface TrustedServiceEventUpdatePutResponse extends ApiEnvelope<TrustedServiceEventUpdatePutResponseData> {
 }
 
-/** Backend response type: serde_json::Value. */
-export interface RouterHealthGetHealthResponse extends ApiEnvelope<JsonValue> {
+/** Backend response type: Value. */
+export interface CampaignIndexGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface CampaignMyContributionsGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend response type: Value. */
+export interface CampaignShowGetResponse extends ApiEnvelope<JsonValue> {
+}
+
+/** Backend request type: ContributionRequest. */
+export interface CampaignContributePostInput extends JsonObject {
+  "method": string;
+  "amount": number;
+  "unit": string;
+  "idempotency_key": string;
+}
+/** Backend response type: Value. */
+export interface CampaignContributePostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: serde_json::Value. */
-export interface RouterHealthGetUpResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterHealthGetHealthResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: serde_json::Value. */
+export type RouterHealthGetUpResponse = import("@faiber/sdk-core").ServiceHealthResponse;

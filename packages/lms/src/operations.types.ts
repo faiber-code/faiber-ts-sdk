@@ -1,9 +1,11 @@
 import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, QueryValue } from "@faiber/sdk-core";
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
-/** Backend response type: api. */
-export interface RouterOpenapiJsonGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: HealthResponse. */
+export type RouterRootStatusGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: utoipa::openapi::OpenApi. */
+export type RouterOpenapiJsonGetResponse = import("@faiber/sdk-core").ServiceOpenApiDocument;
 
 /** Backend request type: SubmitExamRequest. */
 export type AcademySubmitExamPostInput = import("./types.js").AcademySubmitExamInput;
@@ -36,14 +38,6 @@ export type AcademyStartExamPostResponse = import("./types.js").AcademyExamAttem
 export type AcademyCompleteSessionPostInput = import("./types.js").AcademyCompleteSessionInput;
 /** Backend response type: Value. */
 export type AcademyCompleteSessionPostResponse = import("./types.js").AcademySessionCompletionResponse;
-
-
-
-
-
-
-
-
 
 /** Backend response type: SessionResponse. */
 export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
@@ -106,9 +100,9 @@ export type CertificateUpdateTemplatePatchInput = import("./types.js").UpdateCer
 /** Backend response type: models::CertificateTemplateResponse. */
 export type CertificateUpdateTemplatePatchResponse = import("./types.js").CertificateTemplateResponse;
 
-/** Backend query type: ReviewedIntegrationQuery. */
+/** Backend query type: ContactsQuery. */
 export type ContactsContactsGetQuery = import("./notification-settings.js").EligibleContactQuery;
-/** Backend response type: api. */
+/** Backend response type: ContactPage. */
 export type ContactsContactsGetResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").EligibleContactPage>;
 
 /** Backend query type: models::ClassroomListQuery. */
@@ -154,8 +148,6 @@ export interface ClassroomIndexClassroomGetResponseItemSupportProfile extends Js
   "gender"?: string | null;
 }
 export interface ClassroomIndexClassroomGetResponseItem extends JsonObject {
-  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
-  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -180,6 +172,7 @@ export interface ClassroomIndexClassroomGetResponseItem extends JsonObject {
   "consultant_profile"?: ClassroomIndexClassroomGetResponseItemConsultantProfile | null;
   "support_user_id"?: string | null;
   "support_profile"?: ClassroomIndexClassroomGetResponseItemSupportProfile | null;
+  "student_count": number;
   "capacity"?: number | null;
   "notifications": JsonValue;
   "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
@@ -253,8 +246,6 @@ export interface ClassroomStoreClassroomPostResponseDataSupportProfile extends J
   "gender"?: string | null;
 }
 export interface ClassroomStoreClassroomPostResponseData extends JsonObject {
-  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
-  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -279,6 +270,7 @@ export interface ClassroomStoreClassroomPostResponseData extends JsonObject {
   "consultant_profile"?: ClassroomStoreClassroomPostResponseDataConsultantProfile | null;
   "support_user_id"?: string | null;
   "support_profile"?: ClassroomStoreClassroomPostResponseDataSupportProfile | null;
+  "student_count": number;
   "capacity"?: number | null;
   "notifications": JsonValue;
   "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
@@ -325,8 +317,6 @@ export interface ClassroomShowClassroomGetResponseDataSupportProfile extends Jso
   "gender"?: string | null;
 }
 export interface ClassroomShowClassroomGetResponseData extends JsonObject {
-  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
-  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -351,6 +341,7 @@ export interface ClassroomShowClassroomGetResponseData extends JsonObject {
   "consultant_profile"?: ClassroomShowClassroomGetResponseDataConsultantProfile | null;
   "support_user_id"?: string | null;
   "support_profile"?: ClassroomShowClassroomGetResponseDataSupportProfile | null;
+  "student_count": number;
   "capacity"?: number | null;
   "notifications": JsonValue;
   "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
@@ -414,8 +405,6 @@ export interface ClassroomUpdateClassroomPatchResponseDataSupportProfile extends
   "gender"?: string | null;
 }
 export interface ClassroomUpdateClassroomPatchResponseData extends JsonObject {
-  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
-  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -440,6 +429,7 @@ export interface ClassroomUpdateClassroomPatchResponseData extends JsonObject {
   "consultant_profile"?: ClassroomUpdateClassroomPatchResponseDataConsultantProfile | null;
   "support_user_id"?: string | null;
   "support_profile"?: ClassroomUpdateClassroomPatchResponseDataSupportProfile | null;
+  "student_count": number;
   "capacity"?: number | null;
   "notifications": JsonValue;
   "weekly_schedule": import("./types.js").ClassroomWeeklyScheduleRule[];
@@ -4106,6 +4096,18 @@ export interface IntegrationResolveLegacyIdsPostInput extends JsonObject {
 export interface IntegrationResolveLegacyIdsPostResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend request type: RelationshipRequest. */
+export interface NotificationsRelationshipPostInput extends JsonObject {
+  "first_user_id": string;
+  "second_user_id": string;
+}
+/** Backend response type: RelationshipResponse. */
+export interface NotificationsRelationshipPostResponseData extends JsonObject {
+  "allowed": boolean;
+}
+export interface NotificationsRelationshipPostResponse extends ApiEnvelope<NotificationsRelationshipPostResponseData> {
+}
+
 /** Backend response type: Value. */
 export type InteractiveCatalogGetResponse = import("./interactive.js").LearningEnvelope<import("./interactive.js").LearningCatalogItem[]>;
 
@@ -4175,17 +4177,17 @@ export interface MediaUploadImagePostResponse extends ApiEnvelope<MediaUploadIma
 export interface MediaDownloadImageGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend query type: ReviewedIntegrationQuery. */
+/** Backend query type: RulesQuery. */
 export type ModIndexGetQuery = import("./notification-settings.js").NotificationRuleQuery;
-/** Backend response type: api. */
+/** Backend response type: Vec<NotificationRule>. */
 export type ModIndexGetResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").StudentNotificationRule[]>;
 
-/** Backend request type: ReviewedIntegrationInput. */
+/** Backend request type: UpdateRule. */
 export type ModUpdatePutInput = import("./notification-settings.js").UpdateNotificationRule;
-/** Backend response type: api. */
+/** Backend response type: NotificationRule. */
 export type ModUpdatePutResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").StudentNotificationRule>;
 
-/** Backend response type: api. */
+/** Backend response type: RulePreview. */
 export type ModPreviewPostResponse = import("./notification-settings.js").LmsNotificationResponse<import("./notification-settings.js").NotificationRulePreview>;
 
 /** Backend query type: ProfileSearchQuery. */
@@ -4499,6 +4501,8 @@ export interface ServiceCheckLicenceGetResponseData extends JsonObject {
 export interface ServiceCheckLicenceGetResponse extends ApiEnvelope<ServiceCheckLicenceGetResponseData> {
 }
 
-/** Backend response type: api. */
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
-}
+/** Backend response type: HealthResponse. */
+export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: HealthResponse. */
+export type RouterUpGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
