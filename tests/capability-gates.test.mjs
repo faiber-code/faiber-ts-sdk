@@ -10,12 +10,14 @@ function reviewedFixture(){
   const aspect={status:'verified',source_refs:['infera-example/src/routes.rs:5']};
   return {
     universe:{services:{example:{scope:'business'}}},
-    services:{example:{source_decision:{status:'verified',revision:'abc',reason:'Fixture runtime'},relationship_review:aspect,operations:[{
+    services:{manage:{source_decision:{revision:'manage-fixture'}},example:{source_decision:{status:'verified',revision:'abc',reason:'Fixture runtime'},relationship_review:aspect,operations:[{
       id:'GET /api/v1/items',source_checksum:'hash',handler:{path:'src/routes.rs',line:1},
+      sdk:{status:'verified',source_checksum:'hash',source_refs:['packages/example/src/index.ts'],package:'@faiber/faiber-example',exported_operation:'ExampleApi.list',test_evidence:['owned-items']},
+      manage:{status:'verified',source_checksum:'hash',source_refs:['manage/src/items.tsx'],workflow:'Routed translated item list with project filter',raw_json_form:false,test_evidence:['owned-items']},
       review:{status:'verified',source_checksum:'hash',meaning:{en:'List owned items',fa:'فهرست موارد شخصی'},scope:'owner',classification:'public_authenticated',
         permissions:aspect,filters:aspect,inputs_outputs:aspect,lifecycle:aspect,relationships:aspect,test_evidence:['owned-items']},
     }]}},
-    runs:{'owned-items':{status:'passed',exit_code:0,command:'node --test fixture',artifact_verified:true,artifact_sha256:'1'.repeat(64),source_revisions:{example:'abc'},covered_operations:{example:['GET /api/v1/items'],other:['GET /api/v1/items']},tests_executed:3}},
+    runs:{'owned-items':{status:'passed',exit_code:0,command:'node --test fixture',artifact_verified:true,artifact_sha256:'1'.repeat(64),source_revisions:{example:'abc',manage:'manage-fixture'},boundaries:['typescript_sdk_http','readable_manage_workflow'],source_unchanged_during_run:true,sdk_revision:'a'.repeat(40),covered_operations:{example:['GET /api/v1/items'],other:['GET /api/v1/items']},tests_executed:3}},
   };
 }
 
@@ -143,4 +145,43 @@ test('passing source test counts cannot certify an operation outside the declare
  assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/does not declare this exact operation/);
  f.runs['owned-items'].covered_operations={example:['GET /api/v1/items']};
  assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'passed');
+});
+
+
+test('source-only acceptance cannot certify a missing SDK or Manage consumer',()=>{
+ const f=reviewedFixture();delete f.services.example.operations[0].sdk;delete f.services.example.operations[0].manage;
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).status,'passed');
+ const sdk=evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'sdk'});
+ assert.match(sdk.failures.join('\n'),/SDK wire review missing/);
+ const manage=evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'manage'});
+ assert.match(manage.failures.join('\n'),/readable Manage workflow is absent/);
+});
+
+test('source unit tests and transport adapters cannot stand in for actual consumer boundaries',()=>{
+ const f=reviewedFixture();f.runs['owned-items'].boundaries=[];
+ const result=evaluateCapabilityGate(f.universe,f.services,[],f.runs);
+ assert.match(result.failures.join('\n'),/does not prove SDK wire/);
+ assert.match(result.failures.join('\n'),/does not prove Manage workflow/);
+ f.runs['owned-items'].boundaries=['typescript_sdk_http','readable_manage_workflow'];
+ f.runs['owned-items'].source_unchanged_during_run=false;
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'blocked');
+});
+
+test('raw JSON forms, stale consumer reviews and another Manage source block downstream completion',()=>{
+ const f=reviewedFixture();const op=f.services.example.operations[0];
+ op.manage.raw_json_form=true;
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/raw JSON form/);
+ op.manage.raw_json_form=false;op.sdk.source_checksum='stale';
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/SDK wire review missing or stale/);
+ op.sdk.source_checksum='hash';f.runs['owned-items'].source_revisions.manage='different';
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/does not bind the selected Manage source/);
+});
+
+
+test('malformed consumer evidence fails closed without crashing the release checker',()=>{
+ for(const evidence of [{},'a',null]) {
+  const f=reviewedFixture();const op=f.services.example.operations[0];
+  op.sdk.test_evidence=evidence;op.manage.test_evidence=evidence;
+  assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'blocked');
+ }
 });

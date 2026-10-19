@@ -74,6 +74,41 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
         if (!review[key] || review[key].status !== 'verified' || !review[key].source_refs?.length) failures.push(`${context}: ${key} is unverified`);
       }
       requireEvidence(review.test_evidence,context,{service,revision:source?.revision},op.id);
+      // Source semantics can pass while the callable SDK or readable Manage
+      // workflow is absent. Each later stage must prove its own exact boundary.
+      const requireConsumerBoundary = (record, boundary, label) => {
+        if (record?.status !== 'verified' || record.source_checksum !== op.source_checksum ||
+            !Array.isArray(record.source_refs) || !record.source_refs.length) {
+          failures.push(`${context}: ${label} review missing or stale`);
+          return;
+        }
+        requireEvidence(record.test_evidence,`${context} ${label}`,{service,revision:source?.revision},op.id);
+        for (const id of Array.isArray(record.test_evidence) ? record.test_evidence : []) {
+          const run = verificationRuns[id];
+          if (!Array.isArray(run?.boundaries) || !run.boundaries.includes(boundary) ||
+              run.source_unchanged_during_run !== true || !/^[a-f0-9]{40}$/.test(run.sdk_revision ?? '')) {
+            failures.push(`${context}: ${id} does not prove ${label} on a frozen SDK source`);
+          }
+        }
+      };
+      if (stage !== 'discovery') {
+        requireConsumerBoundary(op.sdk,'typescript_sdk_http','SDK wire');
+        if (!/^@faiber\/[a-z0-9-]+$/.test(op.sdk?.package ?? '') || typeof op.sdk?.exported_operation !== 'string' || !op.sdk.exported_operation.trim()) {
+          failures.push(`${context}: missing concrete SDK package/export mapping`);
+        }
+      }
+      if (stage === 'manage' || stage === 'complete') {
+        requireConsumerBoundary(op.manage,'readable_manage_workflow','Manage workflow');
+        if (typeof op.manage?.workflow !== 'string' || !op.manage.workflow.trim() || op.manage.raw_json_form !== false) {
+          failures.push(`${context}: readable Manage workflow is absent or uses a raw JSON form`);
+        }
+        for (const id of Array.isArray(op.manage?.test_evidence) ? op.manage.test_evidence : []) {
+          const revision = services.manage?.source_decision?.revision;
+          if (!revision || verificationRuns[id]?.source_revisions?.manage !== revision) {
+            failures.push(`${context}: ${id} does not bind the selected Manage source`);
+          }
+        }
+      }
     }
     if (descriptor.scope === 'business' && (data.relationship_review?.status !== 'verified' || !data.relationship_review?.source_refs?.length)) failures.push(`${service}: cross-service relationship audit is unverified`);
     if (data.working_drift && Object.values(data.working_drift).some(rows=>rows.length) && !source?.drift_resolution) failures.push(`${service}: unresolved working/pinned contract drift`);
