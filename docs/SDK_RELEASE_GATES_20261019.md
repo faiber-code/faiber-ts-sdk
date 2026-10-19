@@ -233,3 +233,14 @@ review hashes twelve exact pinned Rust files and records open runtime gates in
 regeneration and package checks are useful incremental evidence; **v10's40/41 frozen
 commands do not certify these newer changes**, and no Payment business-runtime or
 whole-service semantic completion is claimed.
+
+Active-service inventory correction: the deployed Control inventory includes
+`infera-gis`. Its canonical `d07b4facd1f73d40a20291dde479365845ec4023` was freshly
+fetched into a new clean source checkout, and discovery now includes it as service22.
+The independently walked48 mounted operations are an inventory aid, not verified
+semantics or runtime completion. All GIS reviews, current access/lifecycle, relations,
+public/internal classifications, SDK package ownership/types and Manage workflows
+remain open; its Rasht feature/image difference is preserved. The current22 packages
+therefore do not establish active-service SDK completeness. Panel/Website/worker/app
+runtime classifications are also explicit discovery gaps. No release/authentication
+can proceed on the old21-service inventory claim.

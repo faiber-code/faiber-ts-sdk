@@ -1,0 +1,49 @@
+{
+  "status": "additional-active-service-discovered-not-complete",
+  "inventory_observed_at": "2026-10-19T14:14:41.460087+00:00",
+  "inventory_source": "/Users/mohammadralizadeh/Infera/ops/poulstar-integration/deployment-receipts/image-exceptions-readonly.json",
+  "inventory_sha256": "37f8bcf31d2a36fe6053420491bc92dcdaa711f2ef35c6f6565e9121b45cf5be",
+  "observed_infera_runtime_names": [
+    "infera-agentic",
+    "infera-android-app",
+    "infera-asset",
+    "infera-chat",
+    "infera-crm",
+    "infera-drm",
+    "infera-flow",
+    "infera-gis",
+    "infera-idp",
+    "infera-knowledge",
+    "infera-lms",
+    "infera-manage",
+    "infera-messenger",
+    "infera-modules",
+    "infera-panel",
+    "infera-payment",
+    "infera-profile",
+    "infera-reservation",
+    "infera-session",
+    "infera-social",
+    "infera-state",
+    "infera-task",
+    "infera-version",
+    "infera-website",
+    "infera-worker"
+  ],
+  "gis": {
+    "canonical_revision": "d07b4facd1f73d40a20291dde479365845ec4023",
+    "fresh_fetch_observed_at": "2026-10-19T20:19:55.335299+00:00",
+    "new_checkout": true,
+    "source_clean": true,
+    "fetch_result": 0,
+    "sdk_package_added": false,
+    "feature_branch_reconciled": false
+  },
+  "other_surfaces_pending_source_classification": [
+    "infera-panel",
+    "infera-website",
+    "infera-worker",
+    "infera-android-app"
+  ],
+  "limits": "Historical deployed inventory identifies additional active services. Git fetch/clean checkout does not certify semantics, remote build reproducibility, current permissions, live rollout or SDK completion."
+}
