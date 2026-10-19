@@ -127,3 +127,5 @@ export * as SocialService from "@faiber/faiber-social";
 export * as StateService from "@faiber/faiber-state-sdk";
 export * as DrmService from "@faiber/faiber-drm";
 export * as TaskService from "@faiber/faiber-task";
+
+export { ProfileSummariesApi } from "@faiber/faiber-profile";

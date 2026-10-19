@@ -37,145 +37,13 @@ export type AcademyCompleteSessionPostInput = import("./types.js").AcademyComple
 /** Backend response type: Value. */
 export type AcademyCompleteSessionPostResponse = import("./types.js").AcademySessionCompletionResponse;
 
-/** Backend query type: JobQuery. */
-export interface AiSummaryJobsGetQuery extends QueryParams {
-  "page"?: number | null;
-  "page_size"?: number | null;
-  "status"?: string | null;
-  "role"?: string | null;
-  "user_id"?: string | null;
-}
-/** Backend response type: Value. */
-export interface AiSummaryJobsGetResponse extends ApiEnvelope<JsonValue> {
-}
 
-/** Backend query type: LatestQuery. */
-export interface AiSummaryLatestGetQuery extends QueryParams {
-  "role": string;
-  "user_id"?: string | null;
-}
-/** Backend response type: LatestSummary. */
-export interface AiSummaryLatestGetResponseData extends JsonObject {
-  "subject_user_id": string;
-  "role": string;
-  "enabled": boolean;
-  "state": string;
-  "freshness": string;
-  "language"?: string | null;
-  "model_ref"?: string | null;
-  "classroom_ids": string[];
-  "evidence_cutoff"?: string | null;
-  "generated_at"?: string | null;
-  "next_refresh_at"?: string | null;
-  "summary"?: JsonValue | null;
-}
-export interface AiSummaryLatestGetResponse extends ApiEnvelope<AiSummaryLatestGetResponseData> {
-}
 
-/** Backend response type: Vec<ModelOption>. */
-export interface AiSummaryModelsGetResponseItem extends JsonObject {
-  "model_ref": string;
-  "model": string;
-  "provider_label": string;
-  "source": string;
-}
-export interface AiSummaryModelsGetResponse extends ApiEnvelope<AiSummaryModelsGetResponseItem[]> {
-}
 
-/** Backend request type: BulkRefreshRequest. */
-export interface AiSummaryRefreshManyPostInput extends JsonObject {
-  "role": string;
-  "user_ids": string[];
-}
-/** Backend response type: BulkRefreshResponse. */
-export interface AiSummaryRefreshManyPostResponseDataQueued extends JsonObject {
-  "subject_user_id": string;
-  "role": string;
-  "state": string;
-  "due_at": string;
-}
-export interface AiSummaryRefreshManyPostResponseData extends JsonObject {
-  "queued": AiSummaryRefreshManyPostResponseDataQueued[];
-}
-export interface AiSummaryRefreshManyPostResponse extends ApiEnvelope<AiSummaryRefreshManyPostResponseData> {
-}
 
-/** Backend response type: SummarySettings. */
-export interface AiSummarySettingsGetResponseDataRoles extends JsonObject {
-  "role": string;
-  "enabled": boolean;
-  "model_ref"?: string | null;
-  "language": string;
-  "guidance": string;
-  "quiet_minutes": number;
-  "max_wait_minutes": number;
-  "config_revision": number;
-}
-export interface AiSummarySettingsGetResponseData extends JsonObject {
-  "globally_enabled": boolean;
-  "concurrency_limit": number;
-  "financial_owner_user_id"?: string | null;
-  "roles": AiSummarySettingsGetResponseDataRoles[];
-}
-export interface AiSummarySettingsGetResponse extends ApiEnvelope<AiSummarySettingsGetResponseData> {
-}
 
-/** Backend request type: UpdateSummarySettings. */
-export interface AiSummaryUpdateSettingsPutInputRoles extends JsonObject {
-  "role": string;
-  "enabled": boolean;
-  "model_ref"?: string | null;
-  "language": string;
-  "guidance"?: string;
-  "quiet_minutes": number;
-  "max_wait_minutes": number;
-}
-export interface AiSummaryUpdateSettingsPutInput extends JsonObject {
-  "globally_enabled": boolean;
-  "concurrency_limit"?: number;
-  "roles": AiSummaryUpdateSettingsPutInputRoles[];
-}
-/** Backend response type: SummarySettings. */
-export interface AiSummaryUpdateSettingsPutResponseDataRoles extends JsonObject {
-  "role": string;
-  "enabled": boolean;
-  "model_ref"?: string | null;
-  "language": string;
-  "guidance": string;
-  "quiet_minutes": number;
-  "max_wait_minutes": number;
-  "config_revision": number;
-}
-export interface AiSummaryUpdateSettingsPutResponseData extends JsonObject {
-  "globally_enabled": boolean;
-  "concurrency_limit": number;
-  "financial_owner_user_id"?: string | null;
-  "roles": AiSummaryUpdateSettingsPutResponseDataRoles[];
-}
-export interface AiSummaryUpdateSettingsPutResponse extends ApiEnvelope<AiSummaryUpdateSettingsPutResponseData> {
-}
 
-/** Backend query type: JobQuery. */
-export interface AiSummarySummariesGetQuery extends QueryParams {
-  "page"?: number | null;
-  "page_size"?: number | null;
-  "status"?: string | null;
-  "role"?: string | null;
-  "user_id"?: string | null;
-}
-/** Backend response type: Value. */
-export interface AiSummarySummariesGetResponse extends ApiEnvelope<JsonValue> {
-}
 
-/** Backend response type: RefreshResponse. */
-export interface AiSummaryRefreshPostResponseData extends JsonObject {
-  "subject_user_id": string;
-  "role": string;
-  "state": string;
-  "due_at": string;
-}
-export interface AiSummaryRefreshPostResponse extends ApiEnvelope<AiSummaryRefreshPostResponseData> {
-}
 
 /** Backend response type: SessionResponse. */
 export interface SessionGetSelfGetResponseDataProfile extends JsonObject {
@@ -286,6 +154,8 @@ export interface ClassroomIndexClassroomGetResponseItemSupportProfile extends Js
   "gender"?: string | null;
 }
 export interface ClassroomIndexClassroomGetResponseItem extends JsonObject {
+  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
+  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -383,6 +253,8 @@ export interface ClassroomStoreClassroomPostResponseDataSupportProfile extends J
   "gender"?: string | null;
 }
 export interface ClassroomStoreClassroomPostResponseData extends JsonObject {
+  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
+  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -453,6 +325,8 @@ export interface ClassroomShowClassroomGetResponseDataSupportProfile extends Jso
   "gender"?: string | null;
 }
 export interface ClassroomShowClassroomGetResponseData extends JsonObject {
+  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
+  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;
@@ -540,6 +414,8 @@ export interface ClassroomUpdateClassroomPatchResponseDataSupportProfile extends
   "gender"?: string | null;
 }
 export interface ClassroomUpdateClassroomPatchResponseData extends JsonObject {
+  /** Distinct current members: active, inactive, disabled, enrolled; excludes withdrawn/removed history. */
+  "student_count": number;
   "id": string;
   "course_id": string;
   "course_name"?: string | null;

@@ -1,8 +1,10 @@
+import {ProfileSummariesApi} from "./summaries.js";
 import { RestResource, ServiceApi, UnsupportedOperationError, multipart, type Identifier, type QueryParams, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./types.js";
 type R<E extends T.ProfileRecord, C, U, L, S> = RestResource<E, C, U, L, S>;
 import { ProfileOperations } from "./operations.js";
 export class ProfileApi extends ServiceApi {
+    readonly summaries = new ProfileSummariesApi(this.client);
     /** Resolves 1–200 authenticated sandbox user IDs to active profile names. Requires profile:lookup; invalid batches return 400. Scope eligible membership through Task before calling. */
     resolvePeople(data: T.ResolvePeopleInput, options?: RequestOptions<T.ResolvePeopleInput>) { return this.client.post<T.ResolvePeopleResponse, T.ResolvePeopleInput>("/api/v1/profile/people/resolve", data, options); }
     readonly operations = new ProfileOperations(this.client);
@@ -77,3 +79,6 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./contracts.types.js";
+
+export * from "./summaries.js";
+export * from "./summaries.types.js";

@@ -32,10 +32,11 @@ console.log(updated.data.data.profile);
 
 ## Complete capability
 
-This package exposes 178 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 233 registered operations from the profiles service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
+| `ai_summary` | 20 | `GET`, `POST`, `PUT`, `PATCH` |
 | `campaign` | 4 | `GET`, `POST` |
 | `city` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `country` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
@@ -179,3 +180,23 @@ const saved = await api.operations.fitnessSaveSettingsPut({
 ```
 
 The service authorizes gym membership, managers, assigned coaches and order ownership independently of profile editing. Admin provisioning/import requires `fitness:admin`. Settings and drafts use optimistic versions; stale changes return 409. Purchase requests require a stable `idempotency_key`, and plan assignment/proposals use `base_revision_id`. Trusted gift administration and chat-credit reserve/settle operations are server-only and require dedicated bearer credentials. A user token does not mint credits or grant internal gift access. Directory `workspaceResolvePeople` continues to resolve 1–200 explicit UUIDs with `profile:lookup`; its results do not grant collaborator eligibility.
+
+## Configurable role summaries
+
+Role summary configuration and persisted results belong to Profile. The authenticated caller needs
+`profile:ai_summary:read_own` for their own results or `profile:ai_summary:read_all` for other subjects
+in the same deployment. Parent relationships do not grant access. Configuration (`configure`) and
+queue management (`manage`) are separate permissions.
+
+```ts
+const response = await api.summaries.latest({ role_id: canonicalRoleId }, { signal });
+console.log(response.status, response.data.data.freshness, response.data.data.summary);
+```
+
+Read the canonical role catalog with `api.summaries.roles()`, then create/edit a structured draft,
+validate it, preview an eligible subject, publish it, and enable it with `setStatus(id, { enabled: true })`.
+GET requests only read stored data. Refresh and preview return HTTP 202; poll run/job state separately.
+A failed refresh can leave an older result available and stale. Disabled configurations hide latest
+content while explicitly authorized history reads remain available. Decimal metric values may be
+strings to preserve financial precision. Standard Axios errors, response headers and cancellation
+options are retained. These operations are also available as `api.operations.aiSummary…` methods.

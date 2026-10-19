@@ -129,20 +129,10 @@ export class LmsApi extends ServiceApi {
     readonly media = new LmsMediaApi(this.client);
     readonly interactive = new InteractiveLearningApi(this.client);
     readonly operations = new LmsOperations(this.client);
-    /** Reads AI performance-summary configuration. Requires `lms:config:read`. */
-    aiSummarySettings(options?: RequestOptions) { return this.client.get<T.AiSummarySettingsResponse>("/api/v1/ai-summaries/settings", undefined, options); }
-    /** Saves independently enabled student, teacher, and support summary settings. Requires `lms:config:update`. */
-    updateAiSummarySettings(data: T.AiSummarySettingsInput, options?: RequestOptions<T.AiSummarySettingsInput>) { return this.client.put<T.AiSummarySettingsResponse, T.AiSummarySettingsInput>("/api/v1/ai-summaries/settings", data, options); }
-    /** Lists cloud and worker language models available to the project's financial owner. */
-    aiSummaryModels(options?: RequestOptions) { return this.client.get<T.AiSummaryModelsResponse>("/api/v1/ai-summaries/models", undefined, options); }
-    /** Reads the latest authorized summary. Pass a child UUID after selecting a verified child in the parent app. This read never starts generation. */
-    latestAiSummary(role: T.AiSummaryRole, userId?: Identifier, options?: RequestOptions) { return this.client.get<T.AiLatestSummaryResponse>("/api/v1/ai-summaries/latest", { role, ...(userId ? { user_id: String(userId) } : {}) }, options); }
-    /** Queues an administrative summary refresh. Requires `lms:ai_summary:manage`. */
-    refreshAiSummary(userId: Identifier, role: T.AiSummaryRole, options?: RequestOptions) { return this.client.post<T.AiRefreshSummaryResponse, Record<string, never>>(`/api/v1/ai-summaries/users/${encodeURIComponent(userId)}/${role}/refresh`, {}, options); }
     readonly courses: R<T.Course, T.CreateCourseInput, T.UpdateCourseInput> = new RestResource(this.client, "/api/v1/courses", { supported: ["list", "show", "create", "update"] });
     readonly courseCategories: R<T.CourseCategory, T.CreateCourseCategoryInput, T.UpdateCourseCategoryInput> = new RestResource(this.client, "/api/v1/courses/categories", { supported: ["list", "show", "create", "update"] });
     readonly videoSections: R<T.VideoSection, T.CreateVideoSectionInput, T.UpdateVideoSectionInput> = new RestResource(this.client, "/api/v1/courses/video-sections", { supported: ["list", "show", "create", "update"] });
-    readonly classrooms: R<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update", "delete"] });
+    readonly classrooms: RestResource<T.Classroom, T.CreateClassroomInput, T.UpdateClassroomInput, O.ClassroomIndexClassroomGetResponse, T.LmsResponse<T.Classroom>, O.ClassroomIndexClassroomGetQuery> = new RestResource(this.client, "/api/v1/classrooms", { supported: ["list", "show", "create", "update", "delete"] });
     readonly classroomSessions: RestResource<T.ClassroomSession, T.CreateClassroomSessionInput, T.UpdateClassroomSessionInput, T.ClassroomSessionPageResponse, T.LmsResponse<T.ClassroomSession>> = new RestResource(this.client, "/api/v1/classrooms/sessions", { supported: ["list", "show", "create", "update"] });
     readonly exams: R<T.Exam, T.CreateExamInput, T.UpdateExamInput, T.ExamListQuery> = new RestResource(this.client, "/api/v1/exams", { supported: ["list", "show", "create", "update", "delete"] });
     /** Exam definitions, explicitly named as the exam-bank layer. */
@@ -163,7 +153,12 @@ export class LmsApi extends ServiceApi {
     readonly grades: R<T.Grade, T.CreateGradeInput, T.UpdateGradeInput> = new RestResource(this.client, "/api/v1/config/grades", { supported: ["list", "show", "create", "update"] });
     readonly classroomTypes: R<T.ClassroomType, T.CreateClassroomTypeInput, T.UpdateClassroomTypeInput> = new RestResource(this.client, "/api/v1/config/classroom-types", { supported: ["list", "show", "create", "update"] });
     readonly textTemplates: R<T.TextTemplate, T.CreateTextTemplateInput, T.UpdateTextTemplateInput> = new RestResource(this.client, "/api/v1/config/text-templates", { supported: ["list", "show", "create", "update"] });
-    /** Lists classrooms with relationship, role-assignment, status, course, and time filters. */
+    /** Lists authorized classrooms with relationship, role-assignment, status, course, and time filters.
+     * Each row includes student_count (distinct current members) alongside nullable capacity.
+     * Requires lms:classroom:read or scoped lms:classroom:read_own; authorization and validation
+     * failures retain the backend HTTP error through Axios. Counts cover the whole classroom,
+     * independently of page size; the service batches counts for the returned page.
+     */
     listClassrooms(params?: O.ClassroomIndexClassroomGetQuery, options?: RequestOptions) { return this.operations.classroomIndexClassroomGet(params, options); }
     /** Reads one classroom with its course and teacher, consultant, and support profiles. */
     classroom(id: Identifier, options?: RequestOptions) { return this.operations.classroomShowClassroomGet(id, options); }

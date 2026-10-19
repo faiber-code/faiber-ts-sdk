@@ -13,23 +13,8 @@ export interface TransferUserDataResponse extends ApiEnvelope<EducationalTransfe
 export type TransferErrorCode = "invalid_user_id" | "same_user" | "invalid_idempotency_key" | "invalid_payload" | "unauthenticated" | "user_not_found" | "profile_unavailable" | "idempotency_conflict" | "destination_conflict" | "active_attempt" | "transfer_busy" | "database_error" | "invalid_saved_response";
 export interface TransferUserDataErrorResponse { status: "error"; error: { code: TransferErrorCode; message: string; details: { user_id?: string } } }
 
-export type AiSummaryRole = "student" | "teacher" | "support";
-export type AiSummaryState = "disabled" | "pending" | "generating" | "ready" | "no_data" | "blocked" | "failed";
-export type AiMetricStatus = "available" | "insufficient_evidence" | "not_applicable";
-export interface AiPerformanceMetric extends JsonObject { id:string; label:string; description:string; value:number|null; min:0; max:100; unit:"percent"|"score"; method:"calculated"|"ai_assessed"|"derived"; status:AiMetricStatus; explanation:string; supporting_data:JsonValue; evidence_count:number; evidence_refs:string[]; rubric_version:string; confidence:string|null; improvement_advice:string|null }
-export interface AiImprovementAction extends JsonObject { metric_id:string; action:string; reason:string; success_criterion:string }
-export interface AiPerformanceSummaryContent extends JsonObject { metrics:AiPerformanceMetric[]; short_summary:string; detailed_summary:string; improvement_actions:AiImprovementAction[] }
-export interface AiLatestSummary extends JsonObject { subject_user_id:string; role:AiSummaryRole; enabled:boolean; state:AiSummaryState; freshness:"fresh"|"stale"|"unavailable"; language:"fa"|"en"|null; model_ref:string|null; classroom_ids:string[]; evidence_cutoff:string|null; generated_at:string|null; next_refresh_at:string|null; summary:AiPerformanceSummaryContent|null }
-export interface AiRoleSummarySettings extends JsonObject { role:AiSummaryRole; enabled:boolean; model_ref:string|null; language:"fa"|"en"; guidance:string; quiet_minutes:number; max_wait_minutes:number; config_revision:number }
-export interface AiSummarySettings extends JsonObject { globally_enabled:boolean; financial_owner_user_id:string|null; roles:AiRoleSummarySettings[] }
-export interface AiSummarySettingsInput extends JsonObject { globally_enabled:boolean; roles:Omit<AiRoleSummarySettings,"config_revision">[] }
-export interface AiSummaryModel extends JsonObject { model_ref:string; model:string; provider_label:string; source:string }
 export interface EvaluationQuestion extends JsonObject { stable_id:string; version:number; kind:"teacher_rating"|"student_feedback"; metric_id:string; label_en:string; label_fa:string; description_en:string; description_fa:string; allow_not_applicable:boolean; enabled:boolean; archived:boolean; sort_order:number }
 export interface EvaluationQuestionInput extends JsonObject { stable_id?:string|null; kind:"teacher_rating"|"student_feedback"; metric_id:string; label_en:string; label_fa:string; description_en:string; description_fa:string; allow_not_applicable:boolean; enabled:boolean; archived?:boolean; sort_order:number }
-export type AiSummarySettingsResponse = ApiEnvelope<AiSummarySettings>;
-export type AiSummaryModelsResponse = ApiEnvelope<AiSummaryModel[]>;
-export type AiLatestSummaryResponse = ApiEnvelope<AiLatestSummary>;
-export type AiRefreshSummaryResponse = ApiEnvelope<{subject_user_id:string;role:AiSummaryRole;state:"pending";due_at:string}>;
 export interface LmsEntity extends JsonObject {
     id: string;
     name?: string | null;
@@ -72,6 +57,10 @@ export interface VideoSection extends LmsEntity {
     video_url?: string;
 }
 export interface Classroom extends LmsEntity {
+    /** Distinct enrolled user IDs (active, inactive, disabled, enrolled); excludes withdrawn/removed history. */
+    student_count: number;
+    /** Configured capacity; null means no limit is configured. Zero is preserved. */
+    capacity: number | null;
     course_id?: string;
     course_name?: string | null;
     teacher_user_id?: string | null;

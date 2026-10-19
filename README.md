@@ -158,3 +158,10 @@ The service `operations` clients include typed storefront checkout, product tria
 ### Feedback, delivery and assigned-contact chat (0.24.1)
 
 Task feedback workflows are configured only in the instance's internal panel and database; no customer presets or role mappings ship with the SDK. The service packages expose typed feedback/capture contracts, self-scoped durable notification feeds and multi-device registration, per-user Chat summaries/read counts, and LMS notification settings and eligible contacts. See the Task, Messenger, Chat and LMS package guides for authenticated workflows, 35-second long-poll timeouts, concurrency errors and rollout requirements. Keep each client's service domains on the intended sandbox.
+
+### Role summary migration (1.0.0)
+
+Use `sdk.profile.summaries` for configurable IDP role summaries. LMS summary APIs and fixed-role
+types were removed in this breaking release. Supply canonical role UUIDs, explicitly grant Profile
+summary permissions, and distinguish job status from persisted result availability/freshness.
+See the [Profile package guide](packages/profile/README.md#configurable-role-summaries).

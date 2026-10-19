@@ -7,11 +7,12 @@ import { test } from 'node:test';
 import { productionRust } from '../scripts/rust-source.mjs';
 
 const baseline = JSON.parse(await readFile(new URL('./fixtures/published-operation-names.json', import.meta.url), 'utf8'));
-test('contract synchronization preserves existing operation method names', async () => {
+const retiredLmsSummaryMethods=new Set(['aiSummaryJobsGet','aiSummaryLatestGet','aiSummaryModelsGet','aiSummaryRefreshManyPost','aiSummarySettingsGet','aiSummaryUpdateSettingsPut','aiSummarySummariesGet','aiSummaryRefreshPost']);
+test('contract synchronization preserves existing operation names except the documented 1.0.0 LMS summary removal', async () => {
   for (const [service, names] of Object.entries(baseline)) {
     const source = await readFile(new URL(`../packages/${service}/src/operations.ts`, import.meta.url), 'utf8');
     const methods = new Set([...source.matchAll(/^  (\w+)\(/gm)].map(m => m[1]));
-    for (const name of names) assert.ok(methods.has(name), `${service}.${name} was removed`);
+    for (const name of names) {if(service==='lms'&&retiredLmsSummaryMethods.has(name)){assert.ok(!methods.has(name),`retired LMS summary method ${name}`);continue;}assert.ok(methods.has(name), `${service}.${name} was removed`);}
   }
 });
 

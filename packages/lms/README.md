@@ -53,30 +53,33 @@ const sessions = await api.courseSessions(courseId);
 
 ## Complete capability
 
-This package exposes 186 registered operations from the learning management service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 178 registered operations through typed bindings, including notification rules/contacts and excluding the eight retired LMS summary operations. Binding counts describe inventory only; service permissions and workflow verification remain separate requirements. Common workflows use concise methods, while named operation clients retain exact wire contracts.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `academy` | 8 | `GET`, `POST` |
-| `ai-summary` | 8 | `GET`, `POST`, `PUT` |
 | `branding` | 5 | `GET`, `POST`, `PUT` |
 | `certificate` | 10 | `GET`, `PATCH`, `POST` |
 | `classroom` | 20 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `config` | 20 | `GET`, `PATCH`, `POST` |
+| `contacts` | 1 | `GET` |
 | `course` | 17 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `dashboard` | 1 | `GET` |
 | `docs` | 1 | `GET` |
 | `drm-routes` | 1 | `GET` |
 | `evaluation` | 4 | `GET`, `POST`, `PUT` |
 | `exam` | 22 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `homework` | 24 | `DELETE`, `GET`, `PATCH`, `POST` |
+| `homework` | 25 | `DELETE`, `GET`, `PATCH`, `POST` |
 | `integration` | 7 | `GET`, `POST` |
+| `interactive` | 15 | `GET`, `POST`, `PUT` |
 | `media` | 2 | `GET`, `POST` |
+| `mod` | 3 | `GET`, `POST`, `PUT` |
 | `profile-routes` | 2 | `GET` |
-| `report` | 8 | `GET` |
+| `report` | 9 | `GET` |
 | `router` | 2 | `GET` |
 | `service` | 1 | `GET` |
 | `session` | 1 | `GET` |
+| `transfer` | 1 | `POST` |
 
 Course sessions, classroom users and absences, assignments, invitations, club projects, support interactions, and work-time records have dedicated typed operations. Most LMS updates use `PATCH`; unsupported generic deletes are guarded locally.
 
@@ -256,3 +259,36 @@ failures reject normally. Definition filters require the matching LMS service up
 `lms.notificationSettings.list()` lists sandbox-wide student rules; editing requires `lms:notification:settings:update`, while reads and read-only previews require `lms:notification:settings:read`. Update with `{enabled,offset_seconds,expected_version}`. Event delays are seconds; before/after domain timing is fixed by each rule. Invalid ordering/ranges return 422, stale versions return 409. Changes recompute pending work without replaying delivered occurrences or backfilling old events. `preview(key)` sends nothing.
 
 `lms.eligibleContacts.list({cursor,limit})` returns only current assigned student/teacher/support profile IDs, requiring `lms:chat:contacts:read`. Resolve authorized profile display information separately. Chat also checks the relationship server-side; hiding contacts in a client is not authorization. All operations use the configured sandbox transport, keep full Axios responses and support cancellation and standard errors.
+
+## Summary API migration in 1.0.0
+
+LMS AI summary settings, generation, queue and result methods have been removed. Use
+`ProfileApi.summaries` from `@faiber/faiber-profile`, or `sdk.profile.summaries` from
+`@faiber/faiber-ts-sdk`. Role UUIDs replace the old student/teacher/support enum.
+The new Profile summary read permissions must be explicitly granted; parent status gives no access.
+Ordinary LMS student reports, attendance, assessments, feedback and evaluations remain available.
+Legacy summary data is not imported and there is no compatibility proxy.
+
+## Classroom student counts
+
+```ts
+const response = await api.listClassrooms({ "page[number]": 1, "page[size]": 20 });
+for (const classroom of response.data.data.data) {
+  console.log(classroom.name, classroom.student_count, classroom.capacity);
+}
+```
+
+`student_count` is a number on classroom list, detail, create and update responses,
+including `api.operations.classroomIndexClassroomGet`, `api.classrooms.list`, and
+`faiber.lms.listClassrooms` through `@faiber/faiber-ts-sdk`. It counts distinct user IDs
+with an `active`, `inactive`, `disabled`, or `enrolled` classroom membership. Legacy
+activation flags do not revoke membership; IDP controls account activation. Removed,
+withdrawn-after-completion and pending records do not count. Staff assignments and
+session attendance do not add students. Duplicate enrollment rows count once.
+
+Counts cover the whole classroom, regardless of enrollment pagination, and are batched
+for the authorized classroom page. Empty classrooms return `0`. `capacity: null`
+means no limit is configured; a numeric zero remains zero. A UI may display `18 / 25`
+or a localized `0 / Unlimited`. This does not change enrollment or capacity rules.
+The list requires `lms:classroom:read` or `lms:classroom:read_own` with existing record
+scoping. Normal Axios response, error, authentication and cancellation behavior applies.
