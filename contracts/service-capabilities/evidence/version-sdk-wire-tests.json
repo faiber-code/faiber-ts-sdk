@@ -28403,7 +28403,12 @@
   "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
   "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
   "storage": "disposable_real_postgresql",
-  "artifact_path": "evidence/version-contract-tests.log",
+  "artifact_path": "evidence/version-sdk-wire-tests.log",
   "artifact_sha256": "a8e4c16a6fb94683b461bcd1c9cc9ab818d7b49ed70ebe1e548578c7a3eef67b",
-  "scope": "Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates"
+  "scope": "Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates",
+  "report_metadata_correction": {
+    "original_report_sha256": "b385ffde83a1d91a68bfc03d4b3e81c41c61974f08fc3273145d2b043ffd258f",
+    "field": "artifact_path",
+    "reason": "Runner filename was updated but its nested log path retained the previous runner name. Executed log bytes, hash, test results and snapshot fingerprints are unchanged."
+  }
 }
