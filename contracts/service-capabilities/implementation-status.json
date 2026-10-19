@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T11:33:17.509757+00:00",
+  "updated_at": "2026-10-19T11:37:51.868817+00:00",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
@@ -28,7 +28,7 @@
     },
     "discovery_gate": {
       "status": "blocked",
-      "blocker_count": 2129
+      "blocker_count": 2169
     },
     "knowledge_canonical_unit": {
       "source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
@@ -180,7 +180,7 @@
     },
     "discovery-gate": {
       "path": "evidence/discovery-gate.log",
-      "sha256": "6d5b6ebac2c801ab75048e1d828a94f7b7352c3ab741b0ea975b59c0d5136194"
+      "sha256": "2748e8dbcc44fce72662dae1718809098929066d6664057e93de81c1f12f76a6"
     },
     "knowledge-canonical-tests": {
       "path": "evidence/knowledge-canonical-tests.log",

@@ -1,7 +1,3 @@
-
-> faiber-ts-sdk-monorepo@0.23.0 capabilities:check
-> node scripts/check-service-capabilities.mjs --stage=discovery
-
 {
   "stage": "discovery",
   "status": "blocked",
