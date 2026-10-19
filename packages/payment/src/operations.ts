@@ -62,7 +62,7 @@ export class PaymentOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:gateway:delete.
    */
-  gatewayDestroyDelete(id: Identifier, options?: RequestOptions) {
+  gatewayDestroyDelete(id: number, options?: RequestOptions) {
     return this.client.request<T.GatewayDestroyDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/gateways/${encodeURIComponent(id)}` });
   }
   /**
@@ -73,7 +73,7 @@ export class PaymentOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:gateway:read.
    */
-  gatewayShowGet(id: Identifier, options?: RequestOptions) {
+  gatewayShowGet(id: number, options?: RequestOptions) {
     return this.client.request<T.GatewayShowGetResponse>({ ...options, method: "GET", url: `/api/v1/gateways/${encodeURIComponent(id)}` });
   }
   /**
@@ -85,7 +85,7 @@ export class PaymentOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:gateway:update.
    */
-  gatewayUpdatePatch(id: Identifier, data: T.GatewayUpdatePatchInput, options?: RequestOptions<T.GatewayUpdatePatchInput>) {
+  gatewayUpdatePatch(id: number, data: T.GatewayUpdatePatchInput, options?: RequestOptions<T.GatewayUpdatePatchInput>) {
     return this.client.request<T.GatewayUpdatePatchResponse, T.GatewayUpdatePatchInput>({ ...options, method: "PATCH", url: `/api/v1/gateways/${encodeURIComponent(id)}`, data: data });
   }
   /**
@@ -287,7 +287,7 @@ export class PaymentOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  routerShowStatusGet(uuid: Identifier, options?: RequestOptions) {
+  routerShowStatusGet(uuid: string, options?: RequestOptions) {
     return this.client.request<T.RouterShowStatusGetResponse>({ ...options, method: "GET", url: `/api/v1/transactions/${encodeURIComponent(uuid)}` });
   }
   /**
@@ -298,7 +298,7 @@ export class PaymentOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:verify.
    */
-  transactionRejectPaymentPost(uuid: Identifier, options?: RequestOptions) {
+  transactionRejectPaymentPost(uuid: string, options?: RequestOptions) {
     return this.client.request<T.TransactionRejectPaymentPostResponse>({ ...options, method: "POST", url: `/api/v1/transactions/${encodeURIComponent(uuid)}/reject` });
   }
   /**
@@ -309,7 +309,7 @@ export class PaymentOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:read.
    */
-  transactionVerificationLogsGet(uuid: Identifier, options?: RequestOptions) {
+  transactionVerificationLogsGet(uuid: string, options?: RequestOptions) {
     return this.client.request<T.TransactionVerificationLogsGetResponse>({ ...options, method: "GET", url: `/api/v1/transactions/${encodeURIComponent(uuid)}/verifications` });
   }
   /**
@@ -320,7 +320,7 @@ export class PaymentOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: admin:transaction:verify.
    */
-  transactionVerifyPaymentPost(uuid: Identifier, options?: RequestOptions) {
+  transactionVerifyPaymentPost(uuid: string, options?: RequestOptions) {
     return this.client.request<T.TransactionVerifyPaymentPostResponse>({ ...options, method: "POST", url: `/api/v1/transactions/${encodeURIComponent(uuid)}/verify` });
   }
   /**

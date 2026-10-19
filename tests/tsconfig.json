@@ -11,6 +11,7 @@
     "lms-classroom-counts.types.ts",
     "version-wire.types.ts",
     "social-admin-wire.types.ts",
-    "router-wire.types.ts"
+    "router-wire.types.ts",
+    "payment-wire.types.ts"
   ]
 }
