@@ -1,0 +1,485 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 11 tests
+test contract_tests::active_filters_and_closed_metadata_visibility_are_explicit ... ok
+test contract_tests::concurrent_first_publication_is_idempotent_and_updates_never_regress ... ok
+test contract_tests::health_slug_uuid_enums_and_envelopes_match_real_router ... ok
+test contract_tests::malformed_forwarded_identity_is_rejected_without_panicking ... ok
+test contract_tests::metadata_paths_use_health_and_service_slug_without_invented_crud ... ok
+test contract_tests::publication_retries_preserve_identity_creation_and_newest_code ... ok
+test contract_tests::publication_storage_failure_rolls_back_new_service_and_release ... ok
+test contract_tests::publisher_configuration_auth_and_inputs_fail_without_creating_rows ... ok
+test contract_tests::real_control_publisher_verifies_receipt_and_readback_over_http ... ok
+test contract_tests::startup_seed_retries_preserve_managed_service_and_published_release ... ok
+test version::publish::tests::publisher_requires_exact_sandbox_token ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.26s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+warning: patch `infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-asset-sdk)` was not used in the crate graph
+warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
+warning: patch `infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-macro)` was not used in the crate graph
+warning: patch `infera-idp-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-sdk)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+warning: patch `infera-profile-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-profile-sdk)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+    Blocking waiting for file lock on build directory
+warning: field `status` is never read
+  --> entity/src/seeder/version_seeder.rs:64:5
+   |
+53 | struct Version {
+   |        ------- field in this struct
+...
+64 |     status: i16,
+   |     ^^^^^^
+   |
+   = note: `Version` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `entity` (lib) generated 1 warning
+warning: unused import: `fmt::format`
+ --> auth/src/profile.rs:1:33
+  |
+1 | use std::{collections::HashMap, fmt::format};
+  |                                 ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `auth` (lib) generated 1 warning (run `cargo fix --lib -p auth` to apply 1 suggestion)
+   Compiling infera_version v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera_version)
+warning: `auth` (lib test) generated 1 warning (1 duplicate)
+warning: `entity` (lib test) generated 1 warning (1 duplicate)
+warning: unused imports: `Role` and `WebSocket`
+ --> src/handler.rs:5:37
+  |
+5 | use fastwebsockets::{Frame, OpCode, Role, WebSocket};
+  |                                     ^^^^  ^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `upgrade::Upgraded`
+  --> src/handler.rs:10:5
+   |
+10 |     upgrade::Upgraded,
+   |     ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Deserialize`
+ --> src/service/models.rs:1:13
+  |
+1 | use serde::{Deserialize, Serialize};
+  |             ^^^^^^^^^^^
+
+warning: unused import: `uuid::Uuid`
+ --> src/service/routes.rs:8:5
+  |
+8 | use uuid::Uuid;
+  |     ^^^^^^^^^^
+
+warning: unused imports: `find_service_by_id`, `get_latest_version_by_service_id`, and `get_versions_by_service_id`
+  --> src/service/routes.rs:13:19
+   |
+13 |         methods::{find_service_by_id, find_service_by_slug, get_services},
+   |                   ^^^^^^^^^^^^^^^^^^
+...
+19 |         get_latest_version_by_service_id, get_latest_version_by_service_slug,
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+20 |         get_versions_by_service_id, get_versions_by_service_slug,
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unnecessary parentheses around type
+  --> src/service/routes.rs:56:32
+   |
+56 |     Path((service_slug)): Path<(String)>,
+   |                                ^      ^
+   |
+   = note: `#[warn(unused_parens)]` (part of `#[warn(unused)]`) on by default
+help: remove these parentheses
+   |
+56 -     Path((service_slug)): Path<(String)>,
+56 +     Path((service_slug)): Path<String >,
+   |
+
+warning: unnecessary parentheses around pattern
+  --> src/service/routes.rs:56:10
+   |
+56 |     Path((service_slug)): Path<(String)>,
+   |          ^            ^
+   |
+help: remove these parentheses
+   |
+56 -     Path((service_slug)): Path<(String)>,
+56 +     Path(service_slug ): Path<(String)>,
+   |
+
+warning: unnecessary parentheses around type
+  --> src/service/routes.rs:81:32
+   |
+81 |     Path((service_slug)): Path<(String)>,
+   |                                ^      ^
+   |
+help: remove these parentheses
+   |
+81 -     Path((service_slug)): Path<(String)>,
+81 +     Path((service_slug)): Path<String >,
+   |
+
+warning: unnecessary parentheses around pattern
+  --> src/service/routes.rs:81:10
+   |
+81 |     Path((service_slug)): Path<(String)>,
+   |          ^            ^
+   |
+help: remove these parentheses
+   |
+81 -     Path((service_slug)): Path<(String)>,
+81 +     Path(service_slug ): Path<(String)>,
+   |
+
+warning: unused import: `Deserialize`
+ --> src/version/models.rs:3:13
+  |
+3 | use serde::{Deserialize, Serialize};
+  |             ^^^^^^^^^^^
+
+warning: unused import: `VersionListResponse`
+  --> src/version/routes.rs:15:18
+   |
+15 |         models::{VersionListResponse, VersionSingleResponse},
+   |                  ^^^^^^^^^^^^^^^^^^^
+
+warning: unnecessary parentheses around type
+  --> src/version/routes.rs:31:30
+   |
+31 |     Path((version_id)): Path<(Uuid)>,
+   |                              ^    ^
+   |
+help: remove these parentheses
+   |
+31 -     Path((version_id)): Path<(Uuid)>,
+31 +     Path((version_id)): Path<Uuid >,
+   |
+
+warning: unnecessary parentheses around pattern
+  --> src/version/routes.rs:31:10
+   |
+31 |     Path((version_id)): Path<(Uuid)>,
+   |          ^          ^
+   |
+help: remove these parentheses
+   |
+31 -     Path((version_id)): Path<(Uuid)>,
+31 +     Path(version_id ): Path<(Uuid)>,
+   |
+
+warning: unused variable: `db`
+ --> src/cli/commands/routes_export.rs:9:18
+  |
+9 |     async fn run(db: &sea_orm::DatabaseConnection, _: &bool) {
+  |                  ^^ help: if this is intentional, prefix it with an underscore: `_db`
+  |
+  = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `api`
+  --> src/cli/commands/routes_export.rs:10:13
+   |
+10 |         let api = ApiDoc::openapi();
+   |             ^^^ help: if this is intentional, prefix it with an underscore: `_api`
+
+warning: unused variable: `state`
+   --> src/handler.rs:142:34
+    |
+142 | async fn handle_incoming_message(state: &AppState, text: &str) -> Result<(), DbErr> {
+    |                                  ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: variable does not need to be mutable
+   --> src/router.rs:113:9
+    |
+113 |     let mut router = Router::new()
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `state`
+  --> src/router.rs:56:15
+   |
+56 | pub fn routes(state: &AppState) -> Router<AppState> {
+   |               ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: unused variable: `state`
+  --> src/schedule/mod.rs:10:27
+   |
+10 | pub async fn schedule_run(state: Arc<AppState>) {
+   |                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: unused variable: `second`
+  --> src/schedule/mod.rs:13:9
+   |
+13 |     let second = now.second();
+   |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_second`
+
+warning: type alias `HmacSha256` is never used
+  --> src/broker.rs:12:6
+   |
+12 | type HmacSha256 = Hmac<Sha256>;
+   |      ^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `send_socket_broadcast` is never used
+  --> src/broker.rs:33:14
+   |
+33 | pub async fn send_socket_broadcast<T: Serialize>(event: EventData<T>) -> &'static str {
+   |              ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `socket_consume` is never used
+  --> src/handler.rs:51:14
+   |
+51 | pub async fn socket_consume(state: &AppState) -> Result<(), DbErr> {
+   |              ^^^^^^^^^^^^^^
+
+warning: struct `SpawnExecutor` is never constructed
+  --> src/handler.rs:63:8
+   |
+63 | struct SpawnExecutor;
+   |        ^^^^^^^^^^^^^
+
+warning: function `connect_and_listen` is never used
+  --> src/handler.rs:75:10
+   |
+75 | async fn connect_and_listen(state: AppState) -> anyhow::Result<()> {
+   |          ^^^^^^^^^^^^^^^^^^
+
+warning: function `handle_incoming_message` is never used
+   --> src/handler.rs:142:10
+    |
+142 | async fn handle_incoming_message(state: &AppState, text: &str) -> Result<(), DbErr> {
+    |          ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `parse_host_port` is never used
+   --> src/handler.rs:153:4
+    |
+153 | fn parse_host_port(url: &str) -> anyhow::Result<(String, u16)> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: struct `PaginationQuery` is never constructed
+ --> src/models.rs:9:12
+  |
+9 | pub struct PaginationQuery {
+  |            ^^^^^^^^^^^^^^^
+
+warning: struct `PagedResult` is never constructed
+  --> src/models.rs:15:12
+   |
+15 | pub struct PagedResult<T> {
+   |            ^^^^^^^^^^^
+
+warning: struct `PagedPaginationMeta` is never constructed
+  --> src/models.rs:21:12
+   |
+21 | pub struct PagedPaginationMeta {
+   |            ^^^^^^^^^^^^^^^^^^^
+
+warning: struct `EventData` is never constructed
+  --> src/models.rs:29:12
+   |
+29 | pub struct EventData<T: Serialize> {
+   |            ^^^^^^^^^
+
+warning: struct `APIEmptyResponse` is never constructed
+  --> src/models.rs:36:12
+   |
+36 | pub struct APIEmptyResponse {
+   |            ^^^^^^^^^^^^^^^^
+
+warning: associated function `internal` is never used
+  --> src/models.rs:78:12
+   |
+74 | impl AppError {
+   | ------------- associated function in this implementation
+...
+78 |     pub fn internal(message: &'static str) -> Self {
+   |            ^^^^^^^^
+
+warning: struct `LaravelJobPayload` is never constructed
+  --> src/models.rs:84:12
+   |
+84 | pub struct LaravelJobPayload<T> {
+   |            ^^^^^^^^^^^^^^^^^
+
+warning: struct `LaravelJobData` is never constructed
+  --> src/models.rs:92:12
+   |
+92 | pub struct LaravelJobData<T> {
+   |            ^^^^^^^^^^^^^^
+
+warning: struct `BrokerEvent` is never constructed
+  --> src/models.rs:98:12
+   |
+98 | pub struct BrokerEvent<T> {
+   |            ^^^^^^^^^^^
+
+warning: struct `LmsRole` is never constructed
+   --> src/models.rs:104:12
+    |
+104 | pub struct LmsRole {
+    |            ^^^^^^^
+
+warning: struct `LmsUserSyncEvent` is never constructed
+   --> src/models.rs:110:12
+    |
+110 | pub struct LmsUserSyncEvent {
+    |            ^^^^^^^^^^^^^^^^
+
+warning: function `fallback` is never used
+   --> src/router.rs:135:10
+    |
+135 | async fn fallback() -> (StatusCode, &'static str) {
+    |          ^^^^^^^^
+
+warning: trait `ScheduleJob` is never used
+ --> src/schedule/jobs.rs:5:11
+  |
+5 | pub trait ScheduleJob {
+  |           ^^^^^^^^^^^
+
+warning: struct `ScheduleError` is never constructed
+ --> src/schedule/models.rs:7:12
+  |
+7 | pub struct ScheduleError {
+  |            ^^^^^^^^^^^^^
+
+warning: associated function `new` is never used
+  --> src/schedule/models.rs:13:12
+   |
+12 | impl ScheduleError {
+   | ------------------ associated function in this implementation
+13 |     pub fn new(message: &'static str) -> Self {
+   |            ^^^
+
+warning: struct `ProfileExtract` is never constructed
+  --> src/schedule/models.rs:22:12
+   |
+22 | pub struct ProfileExtract {
+   |            ^^^^^^^^^^^^^^
+
+warning: function `find_service_by_id` is never used
+  --> src/service/methods.rs:15:14
+   |
+15 | pub async fn find_service_by_id(
+   |              ^^^^^^^^^^^^^^^^^^
+
+warning: fields `broker`, `broadcast`, and `action_locks` are never read
+  --> src/state.rs:15:9
+   |
+13 | pub struct AppState {
+   |            -------- fields in this struct
+14 |     pub db: Arc<DatabaseConnection>,
+15 |     pub broker: Arc<Connection>,
+   |         ^^^^^^
+...
+18 |     pub broadcast: Arc<broadcast::Sender<String>>,
+   |         ^^^^^^^^^
+19 |     pub action_locks: Arc<ActionLockMap>,
+   |         ^^^^^^^^^^^^
+   |
+   = note: `AppState` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: function `contains_any` is never used
+ --> src/utils.rs:1:8
+  |
+1 | pub fn contains_any<T: PartialEq>(haystack: &[T], needles: &[T]) -> bool {
+  |        ^^^^^^^^^^^^
+
+warning: function `get_versions_by_service_id` is never used
+ --> src/version/methods.rs:8:14
+  |
+8 | pub async fn get_versions_by_service_id(
+  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `get_latest_version_by_service_id` is never used
+  --> src/version/methods.rs:44:14
+   |
+44 | pub async fn get_latest_version_by_service_id(
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: struct `VersionListResponse` is never constructed
+  --> src/version/models.rs:30:12
+   |
+30 | pub struct VersionListResponse {
+   |            ^^^^^^^^^^^^^^^^^^^
+
+warning: structure field `displayName` should have a snake case name
+  --> src/models.rs:86:9
+   |
+86 |     pub displayName: String,
+   |         ^^^^^^^^^^^ help: convert the identifier to snake case: `display_name`
+   |
+   = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: structure field `commandName` should have a snake case name
+  --> src/models.rs:93:9
+   |
+93 |     pub commandName: String,
+   |         ^^^^^^^^^^^ help: convert the identifier to snake case: `command_name`
+
+warning: `infera_version` (bin "infera_version" test) generated 51 warnings (run `cargo fix --bin "infera_version" -p infera_version --tests` to apply 20 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 25s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/auth-fb35657adde6ff07)
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/auth_macro-02f46df982497e1f)
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/entity-8b1a988bd744f621)
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_version-460aec1dbbc450e9)
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/migration-caa12e93835d2013)
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/migration-0e3bea1123969370)
+   Doc-tests auth
+   Doc-tests auth_macro
+   Doc-tests entity
+   Doc-tests migration

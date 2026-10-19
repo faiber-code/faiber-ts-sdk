@@ -1,0 +1,465 @@
+warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
+warning: patch `infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-idp-macro)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+    Blocking waiting for file lock on build directory
+   Compiling tree-sitter-scss v1.0.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/infera-agentic/vendor/tree-sitter-scss)
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/de/error.rs:127:33
+    |
+127 |     pub(crate) fn as_unexpected(&self) -> Unexpected {
+    |                                 ^^^^^     ^^^^^^^^^^ the same lifetime is hidden here
+    |                                 |
+    |                                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+127 |     pub(crate) fn as_unexpected(&self) -> Unexpected<'_> {
+    |                                                     ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:260:17
+    |
+260 |     pub fn iter(&self) -> Iter {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+260 |     pub fn iter(&self) -> Iter<'_> {
+    |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:265:21
+    |
+265 |     pub fn iter_mut(&mut self) -> IterMut {
+    |                     ^^^^^^^^^     ^^^^^^^ the same lifetime is hidden here
+    |                     |
+    |                     the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+265 |     pub fn iter_mut(&mut self) -> IterMut<'_> {
+    |                                          ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:539:17
+    |
+539 |     pub fn keys(&self) -> Keys {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+539 |     pub fn keys(&self) -> Keys<'_> {
+    |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:546:19
+    |
+546 |     pub fn values(&self) -> Values {
+    |                   ^^^^^     ^^^^^^ the same lifetime is hidden here
+    |                   |
+    |                   the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+546 |     pub fn values(&self) -> Values<'_> {
+    |                                   ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> vendor/bson/src/document.rs:575:18
+    |
+575 |     pub fn entry(&mut self, k: String) -> Entry {
+    |                  ^^^^^^^^^                ^^^^^ the same lifetime is hidden here
+    |                  |
+    |                  the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+575 |     pub fn entry(&mut self, k: String) -> Entry<'_> {
+    |                                                ++++
+
+warning: `bson` (lib) generated 6 warnings (run `cargo fix --lib -p bson` to apply 6 suggestions)
+   Compiling infera-idp-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-idp-sdk)
+   Compiling infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-asset-sdk)
+warning: variable does not need to be mutable
+  --> ide_core/src/lib.rs:47:9
+   |
+47 |     let mut command = Command::new(program);
+   |         ----^^^^^^^
+   |         |
+   |         help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `root`
+  --> ide_core/src/lib.rs:46:20
+   |
+46 | fn project_command(root: &Path, program: impl AsRef<std::ffi::OsStr>) -> Command {
+   |                    ^^^^ help: if this is intentional, prefix it with an underscore: `_root`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `git_pull` is never used
+    --> ide_core/src/lib.rs:1935:4
+     |
+1935 | fn git_pull(
+     |    ^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `ide_core` (lib) generated 3 warnings (run `cargo fix --lib -p ide_core` to apply 2 suggestions)
+   Compiling infera-profile-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-profile-sdk)
+warning: unused import: `HeaderValue`
+ --> /Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-idp-sdk/src/middleware.rs:5:12
+  |
+5 |     http::{HeaderValue, Request},
+  |            ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera-idp-sdk` (lib) generated 1 warning (run `cargo fix --lib -p infera-idp-sdk` to apply 1 suggestion)
+warning: field `status` is never read
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/Service/faiber-sdk/crates/infera-profile-sdk/src/models.rs:58:9
+   |
+57 | pub(crate) struct ProfileListEnvelope {
+   |                   ------------------- field in this struct
+58 |     pub status: String,
+   |         ^^^^^^
+   |
+   = note: `ProfileListEnvelope` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera-profile-sdk` (lib) generated 1 warning
+   Compiling code_pipeline v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/infera-agentic/code_pipeline)
+warning: variable does not need to be mutable
+ --> code_pipeline/src/tsx/imports.rs:8:9
+  |
+8 |     let mut out = fix_wrong_router_imports(content, &mut fixes);
+  |         ----^^^
+  |         |
+  |         help: remove this `mut`
+  |
+  = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: `code_pipeline` (lib) generated 1 warning (run `cargo fix --lib -p code_pipeline` to apply 1 suggestion)
+   Compiling infera_agentic v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/manage-bridge-ab11e179/infera-agentic)
+warning: unused import: `require_any_permission`
+ --> src/admin/mod.rs:6:70
+  |
+6 |     can_access_admin_panel, has_permission, is_admin, require_admin, require_any_permission,
+  |                                                                      ^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `resolve_agent_for_user`
+ --> src/agent/mod.rs:7:36
+  |
+7 | pub use registry::{builtin_agents, resolve_agent_for_user};
+  |                                    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `tokio_stream::StreamExt`
+ --> src/ai/stream.rs:3:5
+  |
+3 | use tokio_stream::StreamExt;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `providers::init_llm_clients`
+ --> src/ai/mod.rs:6:9
+  |
+6 | pub use providers::init_llm_clients;
+  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `delete` and `put`
+ --> src/api_services/routes.rs:3:15
+  |
+3 |     routing::{delete, get, post, put},
+  |               ^^^^^^             ^^^
+
+warning: unused import: `AppError`
+  --> src/api_services/routes.rs:13:13
+   |
+13 |     error::{AppError, AppResult},
+   |             ^^^^^^^^
+
+warning: unused import: `post`
+ --> src/bookmarks/routes.rs:3:20
+  |
+3 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused import: `IntoResponse`
+ --> src/browser/routes.rs:5:16
+  |
+5 |     response::{IntoResponse, Response},
+  |                ^^^^^^^^^^^^
+
+warning: unused import: `browser::proxy`
+  --> src/browser/routes.rs:15:5
+   |
+15 |     browser::proxy,
+   |     ^^^^^^^^^^^^^^
+
+warning: unused import: `delete`
+ --> src/deploy/routes.rs:9:15
+  |
+9 |     routing::{delete, get, post, put},
+  |               ^^^^^^
+
+warning: unused import: `tracing::warn`
+  --> src/deploy/routes.rs:26:5
+   |
+26 | use tracing::warn;
+   |     ^^^^^^^^^^^^^
+
+warning: unused import: `crate::config::AppConfig`
+  --> src/deploy/run.rs:38:5
+   |
+38 | use crate::config::AppConfig;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `execution::dispatch::dispatch_ollama_chat` and `truncate_utf8`
+  --> src/ide/auto_planning.rs:10:5
+   |
+10 |     execution::dispatch::dispatch_ollama_chat,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 |     ide::{design_completeness, truncate_utf8},
+   |                                ^^^^^^^^^^^^^
+
+warning: unused imports: `CssAutofixResult`, `autofix_theme_css`, `is_theme_css_path`, and `validate_theme_css`
+ --> src/ide/css_autofix.rs:4:5
+  |
+4 |     autofix_theme_css, is_theme_css_path, validate_theme_css, CssAutofixResult,
+  |     ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^
+
+warning: unused import: `DesignPlan`
+ --> src/ide/design_completeness.rs:6:75
+  |
+6 |     is_reference_site_message, is_section_add_request, plan_from_message, DesignPlan,
+  |                                                                           ^^^^^^^^^^
+
+warning: unused imports: `dispatch_files`, `dispatch_ollama_chat`, and `dispatch_on_files_worker`
+ --> src/ide/dispatch.rs:4:15
+  |
+4 |     dispatch, dispatch_files, dispatch_ollama_chat, dispatch_on_files_worker,
+  |               ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `SanitizeResult` and `strip_planning_comments`
+ --> src/ide/patch_sanitize.rs:3:49
+  |
+3 | pub use code_pipeline::{sanitize_patch_replace, strip_planning_comments, SanitizeResult};
+  |                                                 ^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^
+
+warning: unused imports: `design_codegen` and `summarize`
+  --> src/ide/routes.rs:60:35
+   |
+60 |         code_agent, design_agent, design_codegen, design_completeness, design_planning, dispatch,
+   |                                   ^^^^^^^^^^^^^^
+61 |         snapshots, summarize, threads,
+   |                    ^^^^^^^^^
+
+warning: unused import: `HashSet`
+ --> src/ide/tool_batch.rs:1:33
+  |
+1 | use std::collections::{HashMap, HashSet, VecDeque};
+  |                                 ^^^^^^^
+
+warning: unused imports: `is_global_serial_tool`, `is_parallel_safe_tool`, and `tool_path_key`
+    --> src/ide/tool_exec.rs:5570:27
+     |
+5570 |     assign_tool_call_ids, is_global_serial_tool, is_parallel_safe_tool, merge_session_after_tool,
+     |                           ^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^
+5571 |     plan_tool_batch, tool_path_key,
+     |                      ^^^^^^^^^^^^^
+
+warning: unused imports: `AutofixResult`, `autofix_jsx`, and `autofix_tsx`
+ --> src/ide/tsx_autofix.rs:3:39
+  |
+3 | pub use code_pipeline::tsx::autofix::{autofix_jsx, autofix_tsx, AutofixResult};
+  |                                       ^^^^^^^^^^^  ^^^^^^^^^^^  ^^^^^^^^^^^^^
+
+warning: unused import: `TsxDiagnostic`
+ --> src/ide/tsx_parse.rs:5:37
+  |
+5 | pub use code_pipeline::tsx::check::{TsxDiagnostic, TsxSyntaxReport};
+  |                                     ^^^^^^^^^^^^^
+
+warning: unused imports: `can_access_admin_panel`, `require_admin`, and `require_permission`
+ --> src/template/admin.rs:1:30
+  |
+1 | pub use crate::admin::auth::{can_access_admin_panel, is_admin, require_admin, require_permission};
+  |                              ^^^^^^^^^^^^^^^^^^^^^^            ^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `delete`
+ --> src/template/routes.rs:6:15
+  |
+6 |     routing::{delete, get, patch, post},
+  |               ^^^^^^
+
+warning: unused import: `get_category_by_id`
+  --> src/template/routes.rs:21:60
+   |
+21 |             ensure_category_valid, get_by_id, get_by_slug, get_category_by_id, list_all,
+   |                                                            ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `AppError`
+ --> src/tools/routes.rs:8:13
+  |
+8 |     error::{AppError, AppResult},
+  |             ^^^^^^^^
+
+warning: unused import: `registry::ToolExecutor`
+ --> src/tools/mod.rs:5:9
+  |
+5 | pub use registry::ToolExecutor;
+  |         ^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0560]: struct `AgentRun` has no field named `source_epoch`
+   --> src/agent_runtime/service.rs:133:9
+    |
+133 |         source_epoch: Some(source_epoch),
+    |         ^^^^^^^^^^^^ `AgentRun` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0609]: no field `source_epoch` on type `&AgentRun`
+    --> src/ide/agent_stream.rs:1208:18
+     |
+1208 |         _ if run.source_epoch.is_none() => "legacy_inflight_source_epoch_unverified",
+     |                  ^^^^^^^^^^^^ unknown field
+     |
+     = note: available fields are: `id`, `thread_id`, `owner_user_id`, `actor_user_id`, `agent_slug` ... and 8 others
+
+error[E0609]: no field `source_epoch` on type `AgentRun`
+    --> src/ide/history_retention.rs:1483:29
+     |
+1483 |             assert_eq!(next.source_epoch, Some(1));
+     |                             ^^^^^^^^^^^^ unknown field
+     |
+     = note: available fields are: `id`, `thread_id`, `owner_user_id`, `actor_user_id`, `agent_slug` ... and 8 others
+
+error[E0609]: no field `source_epoch` on type `AgentRun`
+    --> src/ide/history_retention.rs:1587:29
+     |
+1587 |             assert_eq!(next.source_epoch, Some(0));
+     |                             ^^^^^^^^^^^^ unknown field
+     |
+     = note: available fields are: `id`, `thread_id`, `owner_user_id`, `actor_user_id`, `agent_slug` ... and 8 others
+
+warning: unused variable: `state`
+  --> src/deploy/resources.rs:45:5
+   |
+45 |     state: &SharedState,
+   |     ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `app` is never read
+   --> src/deploy/run.rs:839:58
+    |
+839 |     let mut app: Option<(String, u16, Option<String>)> = None;
+    |                                                          ^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `start_cmd` is never read
+   --> src/deploy/run.rs:840:41
+    |
+840 |     let mut start_cmd: Option<String> = None;
+    |                                         ^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: unused variable: `cache_path`
+    --> src/ide/tool_exec.rs:3497:21
+     |
+3497 |                 let cache_path = file_cache_key(&write_path);
+     |                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_cache_path`
+
+warning: variable does not need to be mutable
+    --> src/ide/agent_stream.rs:2755:29
+     |
+2755 |                         let mut c = ctx.lock().await;
+     |                             ----^
+     |                             |
+     |                             help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> src/ide/agent_stream.rs:3283:29
+     |
+3283 |                         let mut c = ctx.lock().await;
+     |                             ----^
+     |                             |
+     |                             help: remove this `mut`
+
+warning: unused variable: `round`
+    --> src/ide/agent_stream.rs:2206:43
+     |
+2206 |                     let (messages, tools, round, force_tool_only, cancelled, cancel_notify) = {
+     |                                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_round`
+
+warning: unused variable: `batch`
+   --> src/ide/design_checklist.rs:460:5
+    |
+460 |     batch: &[Value],
+    |     ^^^^^ help: if this is intentional, prefix it with an underscore: `_batch`
+
+warning: unused variable: `router`
+   --> src/ide/design_completeness.rs:111:9
+    |
+111 |     let router = files
+    |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_router`
+
+warning: unused variable: `main`
+   --> src/ide/design_completeness.rs:115:9
+    |
+115 |     let main = files.get("src/main.tsx").map(|s| s.as_str()).unwrap_or("");
+    |         ^^^^ help: if this is intentional, prefix it with an underscore: `_main`
+
+warning: variable does not need to be mutable
+    --> src/ide/design_planning.rs:1312:9
+     |
+1312 |     let mut implementation_steps =
+     |         ----^^^^^^^^^^^^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+
+warning: unused variable: `mentions`
+    --> src/ide/design_planning.rs:1500:39
+     |
+1500 | pub fn plan_from_rules(message: &str, mentions: &[String]) -> DesignPlan {
+     |                                       ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_mentions`
+
+warning: unused variable: `plan`
+    --> src/ide/design_planning.rs:2168:13
+     |
+2168 |         let plan = plan_from_rules("fix build errors", &[]);
+     |             ^^^^ help: if this is intentional, prefix it with an underscore: `_plan`
+
+warning: unused variable: `project`
+    --> src/project/identity.rs:1853:9
+     |
+1853 |     let project = access.project;
+     |         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_project`
+
+Some errors have detailed explanations: E0560, E0609.
+For more information about an error, try `rustc --explain E0560`.
+warning: `infera_agentic` (bin "infera_agentic" test) generated 41 warnings
+error: could not compile `infera_agentic` (bin "infera_agentic" test) due to 4 previous errors; 41 warnings emitted

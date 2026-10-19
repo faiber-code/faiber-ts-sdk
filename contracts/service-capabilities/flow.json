@@ -1,0 +1,3409 @@
+{
+  "schema_version": "1.0",
+  "service": "flow",
+  "directory": "Service/infera-flow",
+  "scope": "business",
+  "purpose": {
+    "en": "Discover service triggers/actions, validate flow graphs, execute flows and inspect run steps.",
+    "fa": "کشف محرک و عمل سرویس‌ها، اعتبارسنجی گردش، اجرا و بررسی مراحل."
+  },
+  "sources": [
+    "README.md",
+    "src/router.rs"
+  ],
+  "canonical_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+  "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+  "working_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+  "working_changes": [],
+  "source_relationship": "working_ahead_of_sdk",
+  "source_tree_checksum": "36365d3a29789e15219032c73c17e6e69aea08a272ca07662e1dad34b320658c",
+  "source_files": [
+    {
+      "path": "infera-flow/src/broker.rs",
+      "checksum": "d93a33964e3bbfad081288ffded23d204cb62ebb8e6a5e414a93eed9a913d7b5"
+    },
+    {
+      "path": "infera-flow/src/catalog/methods.rs",
+      "checksum": "eae65d0002e5a73abcdb3f25d009a39f5061cd263a58d5c42c851ca247ff121a"
+    },
+    {
+      "path": "infera-flow/src/catalog/mod.rs",
+      "checksum": "446af28ec082ba35af38b1180eb6d3f009575d563412233887140d7c97b961e0"
+    },
+    {
+      "path": "infera-flow/src/catalog/routes.rs",
+      "checksum": "a2db1deb870232e6237ab75c7a5444a6c9dcaa467efe03768a03d6bbbe1f33b0"
+    },
+    {
+      "path": "infera-flow/src/catalog/services.rs",
+      "checksum": "d708df64373ddeaf2ec901f24b8261fc1036f4d738f04184a0479b528b322774"
+    },
+    {
+      "path": "infera-flow/src/cli/commands/routes_export.rs",
+      "checksum": "e817cea7b6aa06072a082b61263c890a4371a84ac268e1106ed5be802627c1e9"
+    },
+    {
+      "path": "infera-flow/src/cli/commands/seed_commands.rs",
+      "checksum": "209a17d2ebeead8bedd47d6bad861fb35aaf182c0c07ca9fd64930527d44461c"
+    },
+    {
+      "path": "infera-flow/src/cli.rs",
+      "checksum": "a4f2054df7f32433b6bd5be0fd2f3f035509d3d7c5a6812ad40e9d02f6247456"
+    },
+    {
+      "path": "infera-flow/src/cors.rs",
+      "checksum": "44441407770a5a491d0c6327f8d1c7f96359598f9fdf2153b0e8b465d6bee71e"
+    },
+    {
+      "path": "infera-flow/src/db.rs",
+      "checksum": "6d5b016d2b26c50f58e8a5d99423feac1603cb10c9a9ca65024f44b665293153"
+    },
+    {
+      "path": "infera-flow/src/encryption.rs",
+      "checksum": "6b3d081cd26a64795c1bde85b7206b948cb91eaeba7cfcd160256e6119dd192e"
+    },
+    {
+      "path": "infera-flow/src/engine/conditions.rs",
+      "checksum": "beec918f7664ea07f929a15317dea2afa97779962383e524168504491e87db7d"
+    },
+    {
+      "path": "infera-flow/src/engine/emit.rs",
+      "checksum": "06d981237da06f214869973f2108602e4f80a44d0039460208375c93dccb60b0"
+    },
+    {
+      "path": "infera-flow/src/engine/executor.rs",
+      "checksum": "3a1da0a205e21d8f5e5487a7ed1e91c9b68682080ef6482a71874aadde3425ff"
+    },
+    {
+      "path": "infera-flow/src/engine/mod.rs",
+      "checksum": "3d2e6e15d1d60cbf1261bd7d892da41e280d99e1886e8828a0b398a15ed3a7ea"
+    },
+    {
+      "path": "infera-flow/src/event/mod.rs",
+      "checksum": "18cb4e1a253f7cb8df60400fcf0dd6adc86a1fad5c9d64d69a7e57df230682ff"
+    },
+    {
+      "path": "infera-flow/src/event/routes.rs",
+      "checksum": "322e6e020c1b88bdc011f806abd547192adc0f4f46fb1af2c60db5cd2d49ee21"
+    },
+    {
+      "path": "infera-flow/src/flow/methods.rs",
+      "checksum": "4b3c96ed8ae9fdff41e65c1af813db9686adf00f394cbe2241f80b341552d2ff"
+    },
+    {
+      "path": "infera-flow/src/flow/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-flow/src/flow/models.rs",
+      "checksum": "9a435e8393a9ba806df8e513dc1375836390d07c68e34720ba17dc41bd6886b2"
+    },
+    {
+      "path": "infera-flow/src/flow/routes.rs",
+      "checksum": "ad9984b83406c6d993ac026d3cbeca257e585c265801947c87293a8acec87e4d"
+    },
+    {
+      "path": "infera-flow/src/handler.rs",
+      "checksum": "2b53542a75fbadb30a80755c183cf8a40348f49db26f48f5b1f9435bea809f6a"
+    },
+    {
+      "path": "infera-flow/src/integration/flow.rs",
+      "checksum": "9a6644b3155b476f1858e2509f41230ee7cd7e0500b2fb16cd23074ed939f138"
+    },
+    {
+      "path": "infera-flow/src/integration/mod.rs",
+      "checksum": "1668b91f5574cb09ce4fed44f877ca7b8c075f45c8797fe1e6eb4724265d08d3"
+    },
+    {
+      "path": "infera-flow/src/lib.rs",
+      "checksum": "2d21a80a6270c25cf6d9b47f8a1e0cd13bbfa40d4fb2bb84f1c5ff7e401b5e6d"
+    },
+    {
+      "path": "infera-flow/src/main.rs",
+      "checksum": "8447ecec70d2cc3b047bd8aaa3ce99ab0896d51c5ad917cebee0ec7581e45dd7"
+    },
+    {
+      "path": "infera-flow/src/models.rs",
+      "checksum": "8bf092ea034360a7ce0e5c2a89551462f810b72f2d433a8fd4aa39321f6d7722"
+    },
+    {
+      "path": "infera-flow/src/pagination.rs",
+      "checksum": "9c97e92c81f923a2e785aab42af7678b170095fb208eb6476e88a4327d4002bc"
+    },
+    {
+      "path": "infera-flow/src/registry/methods.rs",
+      "checksum": "fc5eaf9981640321fc1540bb5c0114409552cce44dc68943df4758cc1bceb0b1"
+    },
+    {
+      "path": "infera-flow/src/registry/mod.rs",
+      "checksum": "a5184910c6a68703d8d76b7fb6cda8d96b3757b687a46dba4c8d0ad7388dc53d"
+    },
+    {
+      "path": "infera-flow/src/registry/routes.rs",
+      "checksum": "979b48eb5d450c5d5dabb60237635fcdf7e5699f8627e66ec0afa4af0c04824f"
+    },
+    {
+      "path": "infera-flow/src/router.rs",
+      "checksum": "bf7ca10b32804780f7f51e56673952d93ce36858eaf5abeb66d26c0f7520f346"
+    },
+    {
+      "path": "infera-flow/src/run/methods.rs",
+      "checksum": "1ad8e86a6be538616f0bee97f350a8f52893b8b3e1e7084eefa06bd4e03799e9"
+    },
+    {
+      "path": "infera-flow/src/run/mod.rs",
+      "checksum": "a5184910c6a68703d8d76b7fb6cda8d96b3757b687a46dba4c8d0ad7388dc53d"
+    },
+    {
+      "path": "infera-flow/src/run/routes.rs",
+      "checksum": "aa85cb8dee2022ed2d35e6ddaeca71b9ad4d31a174edd140c13e16b124901143"
+    },
+    {
+      "path": "infera-flow/src/state.rs",
+      "checksum": "5d6681101ecbc4938cb5f6d38c29a34a3b11f68b3339d2b5fbe3c140c72ad019"
+    },
+    {
+      "path": "infera-flow/src/test_support/mod.rs",
+      "checksum": "4a4e6ce6110ce2372367d7834396e4359b894b0b003efc32045ca54e0d504b75"
+    },
+    {
+      "path": "infera-flow/entity/src/catalog_action.rs",
+      "checksum": "c580fa61257f82ded762f428812def6fbf4ee4328dbec64c127e072b4781a3b6"
+    },
+    {
+      "path": "infera-flow/entity/src/catalog_trigger.rs",
+      "checksum": "497a7298e00721d39ca65e3c50590d9999a1fc6c9b4819528823cdc59b1db730"
+    },
+    {
+      "path": "infera-flow/entity/src/flow_run_step.rs",
+      "checksum": "3021487ba395261d0daf96439d94535c8bc895d4a3a1de8ff392a8b51bade4df"
+    },
+    {
+      "path": "infera-flow/entity/src/flow_run.rs",
+      "checksum": "8998b8498856d22bc8a2ff1c4ca03835d17878b55ae667d20add8bbef4b25759"
+    },
+    {
+      "path": "infera-flow/entity/src/flow.rs",
+      "checksum": "f4fb2e926d8e5b207b64ff9a599cba7e7b5aeece395710db88e9eb6bfd2177b9"
+    },
+    {
+      "path": "infera-flow/entity/src/lib.rs",
+      "checksum": "870a69142dcad52e3543feb88492fead5b612eda00cb873a27b0df82be48067e"
+    },
+    {
+      "path": "infera-flow/entity/src/settings.rs",
+      "checksum": "610956e1da3a758cad6de363430e617e18e1f3c639581ecea77f7270c03b4fd0"
+    },
+    {
+      "path": "infera-flow/migration/src/lib.rs",
+      "checksum": "fa32f2fac9796621e4ae8d7d8170f8582edd633335be17753af4d7de9172dad2"
+    },
+    {
+      "path": "infera-flow/migration/src/m20250711_000001_create_flow_tables.rs",
+      "checksum": "0d28d496e1973bd5db8d0a490256dabb71fba19929c31c0baa92267c62e56393"
+    },
+    {
+      "path": "infera-flow/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    },
+    {
+      "path": "infera-flow/Cargo.toml",
+      "checksum": "58dd5392fe5fc737cf68246edb66baae3eb0ec3d9873c2c53a87c57bea39bef6"
+    },
+    {
+      "path": "infera-flow/.cargo/config.toml",
+      "checksum": "427043be16d127a8a5a6fafc8a4222036ce3eda3097f25c22b03031f45e3c685"
+    },
+    {
+      "path": "infera-flow/entity/Cargo.toml",
+      "checksum": "b7a0ef7794d49f4d5211869134eaafce47ad7c66d5a8b165cd2c2df4e4393587"
+    },
+    {
+      "path": "infera-flow/migration/Cargo.toml",
+      "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
+    }
+  ],
+  "embedded_source_gaps": {
+    "canonical": [],
+    "working": []
+  },
+  "working_source_tree_checksum": "60c0fb1bb5e8c319b702059e9a7999f69d6db87c0a23f6375d9a69a678026aa7",
+  "working_source_files": [
+    {
+      "path": "infera-flow/src/broker.rs",
+      "checksum": "d93a33964e3bbfad081288ffded23d204cb62ebb8e6a5e414a93eed9a913d7b5"
+    },
+    {
+      "path": "infera-flow/src/catalog/methods.rs",
+      "checksum": "eae65d0002e5a73abcdb3f25d009a39f5061cd263a58d5c42c851ca247ff121a"
+    },
+    {
+      "path": "infera-flow/src/catalog/mod.rs",
+      "checksum": "446af28ec082ba35af38b1180eb6d3f009575d563412233887140d7c97b961e0"
+    },
+    {
+      "path": "infera-flow/src/catalog/routes.rs",
+      "checksum": "a2db1deb870232e6237ab75c7a5444a6c9dcaa467efe03768a03d6bbbe1f33b0"
+    },
+    {
+      "path": "infera-flow/src/catalog/services.rs",
+      "checksum": "d708df64373ddeaf2ec901f24b8261fc1036f4d738f04184a0479b528b322774"
+    },
+    {
+      "path": "infera-flow/src/cli/commands/routes_export.rs",
+      "checksum": "e817cea7b6aa06072a082b61263c890a4371a84ac268e1106ed5be802627c1e9"
+    },
+    {
+      "path": "infera-flow/src/cli/commands/seed_commands.rs",
+      "checksum": "209a17d2ebeead8bedd47d6bad861fb35aaf182c0c07ca9fd64930527d44461c"
+    },
+    {
+      "path": "infera-flow/src/cli.rs",
+      "checksum": "a4f2054df7f32433b6bd5be0fd2f3f035509d3d7c5a6812ad40e9d02f6247456"
+    },
+    {
+      "path": "infera-flow/src/cors.rs",
+      "checksum": "44441407770a5a491d0c6327f8d1c7f96359598f9fdf2153b0e8b465d6bee71e"
+    },
+    {
+      "path": "infera-flow/src/db.rs",
+      "checksum": "6d5b016d2b26c50f58e8a5d99423feac1603cb10c9a9ca65024f44b665293153"
+    },
+    {
+      "path": "infera-flow/src/encryption.rs",
+      "checksum": "6b3d081cd26a64795c1bde85b7206b948cb91eaeba7cfcd160256e6119dd192e"
+    },
+    {
+      "path": "infera-flow/src/engine/conditions.rs",
+      "checksum": "beec918f7664ea07f929a15317dea2afa97779962383e524168504491e87db7d"
+    },
+    {
+      "path": "infera-flow/src/engine/emit.rs",
+      "checksum": "06d981237da06f214869973f2108602e4f80a44d0039460208375c93dccb60b0"
+    },
+    {
+      "path": "infera-flow/src/engine/executor.rs",
+      "checksum": "3a1da0a205e21d8f5e5487a7ed1e91c9b68682080ef6482a71874aadde3425ff"
+    },
+    {
+      "path": "infera-flow/src/engine/mod.rs",
+      "checksum": "3d2e6e15d1d60cbf1261bd7d892da41e280d99e1886e8828a0b398a15ed3a7ea"
+    },
+    {
+      "path": "infera-flow/src/event/mod.rs",
+      "checksum": "18cb4e1a253f7cb8df60400fcf0dd6adc86a1fad5c9d64d69a7e57df230682ff"
+    },
+    {
+      "path": "infera-flow/src/event/routes.rs",
+      "checksum": "322e6e020c1b88bdc011f806abd547192adc0f4f46fb1af2c60db5cd2d49ee21"
+    },
+    {
+      "path": "infera-flow/src/flow/methods.rs",
+      "checksum": "4b3c96ed8ae9fdff41e65c1af813db9686adf00f394cbe2241f80b341552d2ff"
+    },
+    {
+      "path": "infera-flow/src/flow/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-flow/src/flow/models.rs",
+      "checksum": "9a435e8393a9ba806df8e513dc1375836390d07c68e34720ba17dc41bd6886b2"
+    },
+    {
+      "path": "infera-flow/src/flow/routes.rs",
+      "checksum": "ad9984b83406c6d993ac026d3cbeca257e585c265801947c87293a8acec87e4d"
+    },
+    {
+      "path": "infera-flow/src/handler.rs",
+      "checksum": "2b53542a75fbadb30a80755c183cf8a40348f49db26f48f5b1f9435bea809f6a"
+    },
+    {
+      "path": "infera-flow/src/integration/flow.rs",
+      "checksum": "9a6644b3155b476f1858e2509f41230ee7cd7e0500b2fb16cd23074ed939f138"
+    },
+    {
+      "path": "infera-flow/src/integration/mod.rs",
+      "checksum": "1668b91f5574cb09ce4fed44f877ca7b8c075f45c8797fe1e6eb4724265d08d3"
+    },
+    {
+      "path": "infera-flow/src/lib.rs",
+      "checksum": "2d21a80a6270c25cf6d9b47f8a1e0cd13bbfa40d4fb2bb84f1c5ff7e401b5e6d"
+    },
+    {
+      "path": "infera-flow/src/main.rs",
+      "checksum": "8447ecec70d2cc3b047bd8aaa3ce99ab0896d51c5ad917cebee0ec7581e45dd7"
+    },
+    {
+      "path": "infera-flow/src/models.rs",
+      "checksum": "8bf092ea034360a7ce0e5c2a89551462f810b72f2d433a8fd4aa39321f6d7722"
+    },
+    {
+      "path": "infera-flow/src/pagination.rs",
+      "checksum": "9c97e92c81f923a2e785aab42af7678b170095fb208eb6476e88a4327d4002bc"
+    },
+    {
+      "path": "infera-flow/src/registry/methods.rs",
+      "checksum": "fc5eaf9981640321fc1540bb5c0114409552cce44dc68943df4758cc1bceb0b1"
+    },
+    {
+      "path": "infera-flow/src/registry/mod.rs",
+      "checksum": "a5184910c6a68703d8d76b7fb6cda8d96b3757b687a46dba4c8d0ad7388dc53d"
+    },
+    {
+      "path": "infera-flow/src/registry/routes.rs",
+      "checksum": "979b48eb5d450c5d5dabb60237635fcdf7e5699f8627e66ec0afa4af0c04824f"
+    },
+    {
+      "path": "infera-flow/src/router.rs",
+      "checksum": "bf7ca10b32804780f7f51e56673952d93ce36858eaf5abeb66d26c0f7520f346"
+    },
+    {
+      "path": "infera-flow/src/run/methods.rs",
+      "checksum": "faa39a25ca5dcae2645e8543821f6fce9c34b0826f3a69120a2f1f0fb3a8ce16"
+    },
+    {
+      "path": "infera-flow/src/run/mod.rs",
+      "checksum": "a5184910c6a68703d8d76b7fb6cda8d96b3757b687a46dba4c8d0ad7388dc53d"
+    },
+    {
+      "path": "infera-flow/src/run/routes.rs",
+      "checksum": "8e8f02088a086b2a21c216f7ede7a9cdfd40be703c0d0790aa9e43d98de8056e"
+    },
+    {
+      "path": "infera-flow/src/state.rs",
+      "checksum": "5d6681101ecbc4938cb5f6d38c29a34a3b11f68b3339d2b5fbe3c140c72ad019"
+    },
+    {
+      "path": "infera-flow/src/test_support/mod.rs",
+      "checksum": "4a4e6ce6110ce2372367d7834396e4359b894b0b003efc32045ca54e0d504b75"
+    },
+    {
+      "path": "infera-flow/entity/src/catalog_action.rs",
+      "checksum": "c580fa61257f82ded762f428812def6fbf4ee4328dbec64c127e072b4781a3b6"
+    },
+    {
+      "path": "infera-flow/entity/src/catalog_trigger.rs",
+      "checksum": "497a7298e00721d39ca65e3c50590d9999a1fc6c9b4819528823cdc59b1db730"
+    },
+    {
+      "path": "infera-flow/entity/src/flow_run_step.rs",
+      "checksum": "3021487ba395261d0daf96439d94535c8bc895d4a3a1de8ff392a8b51bade4df"
+    },
+    {
+      "path": "infera-flow/entity/src/flow_run.rs",
+      "checksum": "8998b8498856d22bc8a2ff1c4ca03835d17878b55ae667d20add8bbef4b25759"
+    },
+    {
+      "path": "infera-flow/entity/src/flow.rs",
+      "checksum": "f4fb2e926d8e5b207b64ff9a599cba7e7b5aeece395710db88e9eb6bfd2177b9"
+    },
+    {
+      "path": "infera-flow/entity/src/lib.rs",
+      "checksum": "870a69142dcad52e3543feb88492fead5b612eda00cb873a27b0df82be48067e"
+    },
+    {
+      "path": "infera-flow/entity/src/settings.rs",
+      "checksum": "610956e1da3a758cad6de363430e617e18e1f3c639581ecea77f7270c03b4fd0"
+    },
+    {
+      "path": "infera-flow/migration/src/lib.rs",
+      "checksum": "fa66e41fd323e964ef3292370448050d304e6fc4f12adadb327746f076e00c79"
+    },
+    {
+      "path": "infera-flow/migration/src/m20250711_000001_create_flow_tables.rs",
+      "checksum": "0d28d496e1973bd5db8d0a490256dabb71fba19929c31c0baa92267c62e56393"
+    },
+    {
+      "path": "infera-flow/migration/src/m20261019_000002_index_run_history.rs",
+      "checksum": "5091a904435b8e22d7ca6da743b6f01846c1e0739adeb826af3a66a8b3f4c96e"
+    },
+    {
+      "path": "infera-flow/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    },
+    {
+      "path": "infera-flow/Cargo.toml",
+      "checksum": "58dd5392fe5fc737cf68246edb66baae3eb0ec3d9873c2c53a87c57bea39bef6"
+    },
+    {
+      "path": "infera-flow/Cargo.lock",
+      "checksum": "64fbd172f83c6b042f3d0d1e601190749c2ac22fdc212a7ca3230cb91c5ccc5c"
+    },
+    {
+      "path": "infera-flow/.cargo/config.toml",
+      "checksum": "427043be16d127a8a5a6fafc8a4222036ce3eda3097f25c22b03031f45e3c685"
+    },
+    {
+      "path": "infera-flow/entity/Cargo.toml",
+      "checksum": "b7a0ef7794d49f4d5211869134eaafce47ad7c66d5a8b165cd2c2df4e4393587"
+    },
+    {
+      "path": "infera-flow/migration/Cargo.toml",
+      "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
+    }
+  ],
+  "operations": [
+    {
+      "id": "GET /",
+      "registration": {
+        "method": "GET",
+        "path": "/",
+        "module": "router",
+        "handler": "status_route",
+        "permissions": [],
+        "source": "infera-flow/src/router.rs",
+        "response": "HealthResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "router",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "9bc96a72f6ca6c25d38e30837c4361a99eddd24ea63c9de4167d9d0b85a90911",
+      "handler": {
+        "ref": "infera-flow/src/router.rs:77:status_route",
+        "path": "infera-flow/src/router.rs",
+        "line": 77,
+        "name": "status_route"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-flow/src/models.rs:77:HealthResponse",
+              "path": "infera-flow/src/models.rs",
+              "line": 77,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /health",
+      "registration": {
+        "method": "GET",
+        "path": "/health",
+        "module": "router",
+        "handler": "status_route",
+        "permissions": [],
+        "source": "infera-flow/src/router.rs",
+        "response": "HealthResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "router",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "4a3b03308797d55f21d2dcc83b750244b6fe68a857af54cfd82e6340674f2525",
+      "handler": {
+        "ref": "infera-flow/src/router.rs:77:status_route",
+        "path": "infera-flow/src/router.rs",
+        "line": 77,
+        "name": "status_route"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-flow/src/models.rs:77:HealthResponse",
+              "path": "infera-flow/src/models.rs",
+              "line": 77,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /up",
+      "registration": {
+        "method": "GET",
+        "path": "/up",
+        "module": "router",
+        "handler": "status_route",
+        "permissions": [],
+        "source": "infera-flow/src/router.rs",
+        "response": "HealthResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "router",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "b03de4e233c40dee77b2ceaf6118bf9c56cf33503ea5e11abc7b7d84a0574da1",
+      "handler": {
+        "ref": "infera-flow/src/router.rs:77:status_route",
+        "path": "infera-flow/src/router.rs",
+        "line": 77,
+        "name": "status_route"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "HealthResponse",
+          "models": [
+            {
+              "ref": "infera-flow/src/models.rs:77:HealthResponse",
+              "path": "infera-flow/src/models.rs",
+              "line": 77,
+              "name": "HealthResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/events/{event_key}",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/events/{event_key}",
+        "module": "event::routes",
+        "handler": "emit",
+        "permissions": [
+          "flow:execute"
+        ],
+        "source": "infera-flow/src/event/routes.rs",
+        "body": "serde_json::Value",
+        "pathParam": "String",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "event::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/event/routes.rs",
+            "line": 16,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "5cd9c48cf4a856e0fda6f9c202390477de16f5d80642cd0e6331b8d58e22fed7",
+      "handler": {
+        "ref": "infera-flow/src/event/routes.rs:50:emit",
+        "path": "infera-flow/src/event/routes.rs",
+        "line": 50,
+        "name": "emit"
+      },
+      "related_implementation": [
+        {
+          "call": "crate::models::AppError::new",
+          "evidence": {
+            "ref": "infera-flow/src/models.rs:37:new",
+            "path": "infera-flow/src/models.rs",
+            "line": 37,
+            "name": "new"
+          }
+        }
+      ],
+      "schemas": {
+        "body": {
+          "declared_type": "serde_json::Value",
+          "models": []
+        },
+        "response": {
+          "declared_type": "serde_json::Value",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "String",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/flows",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/flows",
+        "module": "flow::routes",
+        "handler": "index",
+        "permissions": [
+          "flow:read"
+        ],
+        "source": "infera-flow/src/flow/routes.rs",
+        "response": "Vec<FlowResponse>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "flow::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "9d03455c1778f2147477ca9cb530b988ef62ec40ca5dbc1b494d587278e91b46",
+      "handler": {
+        "ref": "infera-flow/src/flow/routes.rs:52:index",
+        "path": "infera-flow/src/flow/routes.rs",
+        "line": 52,
+        "name": "index"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Vec<FlowResponse>",
+          "models": [
+            {
+              "ref": "infera-flow/src/flow/models.rs:95:FlowResponse",
+              "path": "infera-flow/src/flow/models.rs",
+              "line": 95,
+              "name": "FlowResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/flows",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/flows",
+        "module": "flow::routes",
+        "handler": "store",
+        "permissions": [
+          "flow:create"
+        ],
+        "source": "infera-flow/src/flow/routes.rs",
+        "body": "CreateFlowRequest",
+        "response": "FlowResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "flow::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "f143e381a53a43bde34b7885565b4988a13afee03a4acb193f26a42270904b84",
+      "handler": {
+        "ref": "infera-flow/src/flow/routes.rs:65:store",
+        "path": "infera-flow/src/flow/routes.rs",
+        "line": 65,
+        "name": "store"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "CreateFlowRequest",
+          "models": [
+            {
+              "ref": "infera-flow/src/flow/models.rs:10:CreateFlowRequest",
+              "path": "infera-flow/src/flow/models.rs",
+              "line": 10,
+              "name": "CreateFlowRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "FlowResponse",
+          "models": [
+            {
+              "ref": "infera-flow/src/flow/models.rs:95:FlowResponse",
+              "path": "infera-flow/src/flow/models.rs",
+              "line": 95,
+              "name": "FlowResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/flows/import",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/flows/import",
+        "module": "flow::routes",
+        "handler": "import",
+        "permissions": [
+          "flow:create",
+          "flow:update"
+        ],
+        "source": "infera-flow/src/flow/routes.rs",
+        "body": "ImportFlowsRequest",
+        "response": "ImportFlowsResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "flow::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "a40c6a6bd0dd11658f86c4243dff377a378053e746161bed515c5766f698d50f",
+      "handler": {
+        "ref": "infera-flow/src/flow/routes.rs:38:import",
+        "path": "infera-flow/src/flow/routes.rs",
+        "line": 38,
+        "name": "import"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "ImportFlowsRequest",
+          "models": [
+            {
+              "ref": "infera-flow/src/flow/models.rs:30:ImportFlowsRequest",
+              "path": "infera-flow/src/flow/models.rs",
+              "line": 30,
+              "name": "ImportFlowsRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ImportFlowsResponse",
+          "models": [
+            {
+              "ref": "infera-flow/src/flow/models.rs:86:ImportFlowsResponse",
+              "path": "infera-flow/src/flow/models.rs",
+              "line": 86,
+              "name": "ImportFlowsResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/flows/{id}",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/flows/{id}",
+        "module": "flow::routes",
+        "handler": "show",
+        "permissions": [
+          "flow:read"
+        ],
+        "source": "infera-flow/src/flow/routes.rs",
+        "pathParam": "Uuid",
+        "response": "FlowResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "flow::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "484131f0bffb373d809e5732f24afa6a58c1e5602c807d7073b33797b828ac78",
+      "handler": {
+        "ref": "infera-flow/src/flow/routes.rs:79:show",
+        "path": "infera-flow/src/flow/routes.rs",
+        "line": 79,
+        "name": "show"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "FlowResponse",
+          "models": [
+            {
+              "ref": "infera-flow/src/flow/models.rs:95:FlowResponse",
+              "path": "infera-flow/src/flow/models.rs",
+              "line": 95,
+              "name": "FlowResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "PUT /api/v1/flows/{id}",
+      "registration": {
+        "method": "PUT",
+        "path": "/api/v1/flows/{id}",
+        "module": "flow::routes",
+        "handler": "update",
+        "permissions": [
+          "flow:update"
+        ],
+        "source": "infera-flow/src/flow/routes.rs",
+        "body": "UpdateFlowRequest",
+        "pathParam": "Uuid",
+        "response": "FlowResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "flow::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "1030d3af6048044cfa36a5edff828479cd3f294a8562025dd126229a50c22e64",
+      "handler": {
+        "ref": "infera-flow/src/flow/routes.rs:93:update",
+        "path": "infera-flow/src/flow/routes.rs",
+        "line": 93,
+        "name": "update"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "UpdateFlowRequest",
+          "models": [
+            {
+              "ref": "infera-flow/src/flow/models.rs:21:UpdateFlowRequest",
+              "path": "infera-flow/src/flow/models.rs",
+              "line": 21,
+              "name": "UpdateFlowRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "FlowResponse",
+          "models": [
+            {
+              "ref": "infera-flow/src/flow/models.rs:95:FlowResponse",
+              "path": "infera-flow/src/flow/models.rs",
+              "line": 95,
+              "name": "FlowResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/flows/{id}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/flows/{id}",
+        "module": "flow::routes",
+        "handler": "destroy",
+        "permissions": [
+          "flow:delete"
+        ],
+        "source": "infera-flow/src/flow/routes.rs",
+        "pathParam": "Uuid",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "flow::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "fb418c8fe880ef62aae9139cf7042e2c2264a34ac7d8591026511b3f756d864b",
+      "handler": {
+        "ref": "infera-flow/src/flow/routes.rs:108:destroy",
+        "path": "infera-flow/src/flow/routes.rs",
+        "line": 108,
+        "name": "destroy"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "serde_json::Value",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/flows/{id}/validate",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/flows/{id}/validate",
+        "module": "flow::routes",
+        "handler": "validate",
+        "permissions": [
+          "flow:update"
+        ],
+        "source": "infera-flow/src/flow/routes.rs",
+        "pathParam": "Uuid",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "flow::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "61ad1c7f574e1fbd2ed4ae29d28c5a556e2b77d36de02c8933cbb72da52dc9d9",
+      "handler": {
+        "ref": "infera-flow/src/flow/routes.rs:122:validate",
+        "path": "infera-flow/src/flow/routes.rs",
+        "line": 122,
+        "name": "validate"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "serde_json::Value",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/registry/active-triggers",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/registry/active-triggers",
+        "module": "registry::routes",
+        "handler": "active_triggers",
+        "permissions": [],
+        "source": "infera-flow/src/registry/routes.rs",
+        "query": "RegistryQuery",
+        "response": "ActiveTriggersResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "registry::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/registry/routes.rs",
+            "line": 15,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "dc8594010dfa4caf5163aa58e91c63eccaa00b8d16ce1d15eb716a16eade1c75",
+      "handler": {
+        "ref": "infera-flow/src/registry/routes.rs:19:active_triggers",
+        "path": "infera-flow/src/registry/routes.rs",
+        "line": 19,
+        "name": "active_triggers"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "RegistryQuery",
+          "models": [
+            {
+              "ref": "infera-flow/src/registry/routes.rs:11:RegistryQuery",
+              "path": "infera-flow/src/registry/routes.rs",
+              "line": 11,
+              "name": "RegistryQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ActiveTriggersResponse",
+          "models": [
+            {
+              "ref": "infera-flow/src/models.rs:131:ActiveTriggersResponse",
+              "path": "infera-flow/src/models.rs",
+              "line": 131,
+              "name": "ActiveTriggersResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/catalog/triggers",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/catalog/triggers",
+        "module": "catalog::routes",
+        "handler": "triggers",
+        "permissions": [
+          "flow:read"
+        ],
+        "source": "infera-flow/src/catalog/routes.rs",
+        "response": "Vec<crate::catalog::methods::CatalogTriggerView>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "catalog::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/catalog/routes.rs",
+            "line": 14,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "9fd1ea82729c4ecc969a806e9fa5c4a2de84a0917a58a063741e214f472eee82",
+      "handler": {
+        "ref": "infera-flow/src/catalog/routes.rs:27:triggers",
+        "path": "infera-flow/src/catalog/routes.rs",
+        "line": 27,
+        "name": "triggers"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Vec<crate::catalog::methods::CatalogTriggerView>",
+          "models": [
+            {
+              "ref": "infera-flow/src/catalog/methods.rs:11:CatalogTriggerView",
+              "path": "infera-flow/src/catalog/methods.rs",
+              "line": 11,
+              "name": "CatalogTriggerView"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/catalog/actions",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/catalog/actions",
+        "module": "catalog::routes",
+        "handler": "actions",
+        "permissions": [
+          "flow:read"
+        ],
+        "source": "infera-flow/src/catalog/routes.rs",
+        "response": "Vec<crate::catalog::methods::CatalogActionView>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "catalog::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/catalog/routes.rs",
+            "line": 14,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "bc180cad9888fff3ea401a4cc2ac0f55e008004d9b82bad323dd7c2e2328c1d8",
+      "handler": {
+        "ref": "infera-flow/src/catalog/routes.rs:43:actions",
+        "path": "infera-flow/src/catalog/routes.rs",
+        "line": 43,
+        "name": "actions"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Vec<crate::catalog::methods::CatalogActionView>",
+          "models": [
+            {
+              "ref": "infera-flow/src/catalog/methods.rs:19:CatalogActionView",
+              "path": "infera-flow/src/catalog/methods.rs",
+              "line": 19,
+              "name": "CatalogActionView"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/catalog/sync",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/catalog/sync",
+        "module": "catalog::routes",
+        "handler": "sync",
+        "permissions": [
+          "catalog:sync"
+        ],
+        "source": "infera-flow/src/catalog/routes.rs",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "catalog::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/catalog/routes.rs",
+            "line": 14,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "bc2540f2b4fb5529682c3151955a81e63e30a7090d74dd08a2f1e7b9a5152f8c",
+      "handler": {
+        "ref": "infera-flow/src/catalog/routes.rs:59:sync",
+        "path": "infera-flow/src/catalog/routes.rs",
+        "line": 59,
+        "name": "sync"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "serde_json::Value",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/runs",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/runs",
+        "module": "run::routes",
+        "handler": "index",
+        "permissions": [
+          "flow_run:read"
+        ],
+        "source": "infera-flow/src/run/routes.rs",
+        "query": "RunsQuery",
+        "response": "Vec<crate::run::methods::FlowRunView>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "run::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/run/routes.rs",
+            "line": 21,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "8ffcb5186bddde9e2662660640b60ee8a498de83a87817ac01f1becdb0e7abad",
+      "handler": {
+        "ref": "infera-flow/src/run/routes.rs:46:index",
+        "path": "infera-flow/src/run/routes.rs",
+        "line": 46,
+        "name": "index"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "RunsQuery",
+          "models": [
+            {
+              "ref": "infera-flow/src/run/routes.rs:17:RunsQuery",
+              "path": "infera-flow/src/run/routes.rs",
+              "line": 17,
+              "name": "RunsQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "Vec<crate::run::methods::FlowRunView>",
+          "models": [
+            {
+              "ref": "infera-flow/src/run/methods.rs:8:FlowRunView",
+              "path": "infera-flow/src/run/methods.rs",
+              "line": 8,
+              "name": "FlowRunView"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "flow_id",
+          "type": "Uuid",
+          "model": "FlowRunView",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "trigger_event_id",
+          "type": "Uuid",
+          "model": "FlowRunView",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/runs/{id}",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/runs/{id}",
+        "module": "run::routes",
+        "handler": "show",
+        "permissions": [
+          "flow_run:read"
+        ],
+        "source": "infera-flow/src/run/routes.rs",
+        "pathParam": "Uuid",
+        "response": "crate::run::methods::FlowRunDetailView",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "run::routes",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/run/routes.rs",
+            "line": 21,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "851fce7fdf1059bcc541aac5c845eec7e0ebcb5efd473484084e4434da3d4a5d",
+      "handler": {
+        "ref": "infera-flow/src/run/routes.rs:33:show",
+        "path": "infera-flow/src/run/routes.rs",
+        "line": 33,
+        "name": "show"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "crate::run::methods::FlowRunDetailView",
+          "models": [
+            {
+              "ref": "infera-flow/src/run/methods.rs:29:FlowRunDetailView",
+              "path": "infera-flow/src/run/methods.rs",
+              "line": 29,
+              "name": "FlowRunDetailView"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/integration/flow",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/integration/flow",
+        "module": "router",
+        "handler": "integration_flow",
+        "permissions": [],
+        "source": "infera-flow/src/router.rs",
+        "response": "infera_flow_sdk::FlowIntegrationResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "router",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "9fd26e2cb875cf4f6619e6bfa0bfab8795f9c846809369a865e2ab50c2c6f584",
+      "handler": {
+        "ref": "infera-flow/src/router.rs:83:integration_flow",
+        "path": "infera-flow/src/router.rs",
+        "line": 83,
+        "name": "integration_flow"
+      },
+      "related_implementation": [
+        {
+          "call": "crate::integration::flow::integration_meta",
+          "evidence": {
+            "ref": "infera-flow/src/integration/flow.rs:3:integration_meta",
+            "path": "infera-flow/src/integration/flow.rs",
+            "line": 3,
+            "name": "integration_meta"
+          }
+        }
+      ],
+      "schemas": {
+        "response": {
+          "declared_type": "infera_flow_sdk::FlowIntegrationResponse",
+          "models": [
+            {
+              "name": "FlowIntegrationResponse",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    }
+  ],
+  "sdk_contract_drift": {
+    "missing": [],
+    "extra": [],
+    "changed": [
+      "GET /",
+      "GET /health",
+      "GET /up",
+      "POST /api/v1/events/{event_key}",
+      "GET /api/v1/flows",
+      "POST /api/v1/flows",
+      "POST /api/v1/flows/import",
+      "GET /api/v1/flows/{id}",
+      "PUT /api/v1/flows/{id}",
+      "DELETE /api/v1/flows/{id}",
+      "POST /api/v1/flows/{id}/validate",
+      "GET /api/v1/registry/active-triggers",
+      "GET /api/v1/catalog/triggers",
+      "GET /api/v1/catalog/actions",
+      "POST /api/v1/catalog/sync",
+      "GET /api/v1/runs",
+      "GET /api/v1/runs/{id}",
+      "GET /api/v1/integration/flow"
+    ]
+  },
+  "router_reconciliation": {
+    "unresolved": [],
+    "duplicates": [],
+    "independent_mounted_operations": [
+      {
+        "method": "GET",
+        "path": "/",
+        "module": "router",
+        "handler": "status_route",
+        "handlerModule": "router",
+        "source": "infera-flow/src/router.rs",
+        "permissions": [],
+        "response": "HealthResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/health",
+        "module": "router",
+        "handler": "status_route",
+        "handlerModule": "router",
+        "source": "infera-flow/src/router.rs",
+        "permissions": [],
+        "response": "HealthResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/up",
+        "module": "router",
+        "handler": "status_route",
+        "handlerModule": "router",
+        "source": "infera-flow/src/router.rs",
+        "permissions": [],
+        "response": "HealthResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/events/{event_key}",
+        "module": "event::routes",
+        "handler": "emit",
+        "handlerModule": "event::routes",
+        "source": "infera-flow/src/event/routes.rs",
+        "permissions": [
+          "flow:execute"
+        ],
+        "body": "serde_json::Value",
+        "pathParam": "String",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/event/routes.rs",
+            "line": 16,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/flows",
+        "module": "flow::routes",
+        "handler": "index",
+        "handlerModule": "flow::routes",
+        "source": "infera-flow/src/flow/routes.rs",
+        "permissions": [
+          "flow:read"
+        ],
+        "response": "Vec<FlowResponse>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/flows",
+        "module": "flow::routes",
+        "handler": "store",
+        "handlerModule": "flow::routes",
+        "source": "infera-flow/src/flow/routes.rs",
+        "permissions": [
+          "flow:create"
+        ],
+        "body": "CreateFlowRequest",
+        "response": "FlowResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/flows/import",
+        "module": "flow::routes",
+        "handler": "import",
+        "handlerModule": "flow::routes",
+        "source": "infera-flow/src/flow/routes.rs",
+        "permissions": [
+          "flow:create",
+          "flow:update"
+        ],
+        "body": "ImportFlowsRequest",
+        "response": "ImportFlowsResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/flows/{id}",
+        "module": "flow::routes",
+        "handler": "show",
+        "handlerModule": "flow::routes",
+        "source": "infera-flow/src/flow/routes.rs",
+        "permissions": [
+          "flow:read"
+        ],
+        "pathParam": "Uuid",
+        "response": "FlowResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/flows/{id}",
+        "module": "flow::routes",
+        "handler": "update",
+        "handlerModule": "flow::routes",
+        "source": "infera-flow/src/flow/routes.rs",
+        "permissions": [
+          "flow:update"
+        ],
+        "body": "UpdateFlowRequest",
+        "pathParam": "Uuid",
+        "response": "FlowResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/flows/{id}",
+        "module": "flow::routes",
+        "handler": "destroy",
+        "handlerModule": "flow::routes",
+        "source": "infera-flow/src/flow/routes.rs",
+        "permissions": [
+          "flow:delete"
+        ],
+        "pathParam": "Uuid",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/flows/{id}/validate",
+        "module": "flow::routes",
+        "handler": "validate",
+        "handlerModule": "flow::routes",
+        "source": "infera-flow/src/flow/routes.rs",
+        "permissions": [
+          "flow:update"
+        ],
+        "pathParam": "Uuid",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/flow/routes.rs",
+            "line": 24,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/registry/active-triggers",
+        "module": "registry::routes",
+        "handler": "active_triggers",
+        "handlerModule": "registry::routes",
+        "source": "infera-flow/src/registry/routes.rs",
+        "permissions": [],
+        "query": "RegistryQuery",
+        "response": "ActiveTriggersResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/registry/routes.rs",
+            "line": 15,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/catalog/triggers",
+        "module": "catalog::routes",
+        "handler": "triggers",
+        "handlerModule": "catalog::routes",
+        "source": "infera-flow/src/catalog/routes.rs",
+        "permissions": [
+          "flow:read"
+        ],
+        "response": "Vec<crate::catalog::methods::CatalogTriggerView>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/catalog/routes.rs",
+            "line": 14,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/catalog/actions",
+        "module": "catalog::routes",
+        "handler": "actions",
+        "handlerModule": "catalog::routes",
+        "source": "infera-flow/src/catalog/routes.rs",
+        "permissions": [
+          "flow:read"
+        ],
+        "response": "Vec<crate::catalog::methods::CatalogActionView>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/catalog/routes.rs",
+            "line": 14,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/catalog/sync",
+        "module": "catalog::routes",
+        "handler": "sync",
+        "handlerModule": "catalog::routes",
+        "source": "infera-flow/src/catalog/routes.rs",
+        "permissions": [
+          "catalog:sync"
+        ],
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/catalog/routes.rs",
+            "line": 14,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/runs",
+        "module": "run::routes",
+        "handler": "index",
+        "handlerModule": "run::routes",
+        "source": "infera-flow/src/run/routes.rs",
+        "permissions": [
+          "flow_run:read"
+        ],
+        "query": "RunsQuery",
+        "response": "Vec<crate::run::methods::FlowRunView>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/run/routes.rs",
+            "line": 21,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/runs/{id}",
+        "module": "run::routes",
+        "handler": "show",
+        "handlerModule": "run::routes",
+        "source": "infera-flow/src/run/routes.rs",
+        "permissions": [
+          "flow_run:read"
+        ],
+        "pathParam": "Uuid",
+        "response": "crate::run::methods::FlowRunDetailView",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          },
+          {
+            "path": "infera-flow/src/run/routes.rs",
+            "line": 21,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/integration/flow",
+        "module": "router",
+        "handler": "integration_flow",
+        "handlerModule": "router",
+        "source": "infera-flow/src/router.rs",
+        "permissions": [],
+        "response": "infera_flow_sdk::FlowIntegrationResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-flow/src/router.rs",
+            "line": 38,
+            "function": "routes"
+          }
+        ]
+      }
+    ],
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
+  },
+  "working_drift": {
+    "added": [],
+    "absent": [],
+    "changed": [
+      "GET /",
+      "GET /api/v1/catalog/actions",
+      "POST /api/v1/catalog/sync",
+      "GET /api/v1/catalog/triggers",
+      "POST /api/v1/events/{event_key}",
+      "GET /api/v1/flows",
+      "POST /api/v1/flows",
+      "DELETE /api/v1/flows/{id}",
+      "GET /api/v1/flows/{id}",
+      "PUT /api/v1/flows/{id}",
+      "POST /api/v1/flows/{id}/validate",
+      "POST /api/v1/flows/import",
+      "GET /api/v1/integration/flow",
+      "GET /api/v1/registry/active-triggers",
+      "GET /api/v1/runs",
+      "GET /api/v1/runs/{id}",
+      "GET /health",
+      "GET /up"
+    ]
+  },
+  "working_route_candidates": [
+    {
+      "local_path": "/triggers",
+      "source": "infera-flow/src/catalog/routes.rs",
+      "line": 16,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/actions",
+      "source": "infera-flow/src/catalog/routes.rs",
+      "line": 17,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/sync",
+      "source": "infera-flow/src/catalog/routes.rs",
+      "line": 18,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{event_key}",
+      "source": "infera-flow/src/event/routes.rs",
+      "line": 17,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/",
+      "source": "infera-flow/src/flow/routes.rs",
+      "line": 26,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/import",
+      "source": "infera-flow/src/flow/routes.rs",
+      "line": 27,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}",
+      "source": "infera-flow/src/flow/routes.rs",
+      "line": 28,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}/validate",
+      "source": "infera-flow/src/flow/routes.rs",
+      "line": 29,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/active-triggers",
+      "source": "infera-flow/src/registry/routes.rs",
+      "line": 16,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/integration/flow",
+      "source": "infera-flow/src/router.rs",
+      "line": 66,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/",
+      "source": "infera-flow/src/router.rs",
+      "line": 69,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/health",
+      "source": "infera-flow/src/router.rs",
+      "line": 70,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/up",
+      "source": "infera-flow/src/router.rs",
+      "line": 71,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/",
+      "source": "infera-flow/src/run/routes.rs",
+      "line": 48,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}",
+      "source": "infera-flow/src/run/routes.rs",
+      "line": 49,
+      "mount_status": "requires_router_reconciliation"
+    }
+  ],
+  "middleware_sources": [
+    {
+      "path": "infera-flow/src/main.rs",
+      "checksum": "8447ecec70d2cc3b047bd8aaa3ce99ab0896d51c5ad917cebee0ec7581e45dd7"
+    },
+    {
+      "path": "infera-flow/src/router.rs",
+      "checksum": "bf7ca10b32804780f7f51e56673952d93ce36858eaf5abeb66d26c0f7520f346"
+    },
+    {
+      "path": "infera-flow/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    }
+  ],
+  "missing_meaning_sources": [],
+  "completeness": "not_verified",
+  "source_records": {
+    "infera-flow/src/router.rs:77:status_route": {
+      "name": "status_route",
+      "path": "infera-flow/src/router.rs",
+      "line": 77,
+      "end_line": 81,
+      "signature": "async fn status_route() -> Json<APIResponse<HealthResponse>>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/models.rs:77:HealthResponse": {
+      "name": "HealthResponse",
+      "kind": "struct",
+      "path": "infera-flow/src/models.rs",
+      "line": 77,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/event/routes.rs:50:emit": {
+      "name": "emit",
+      "path": "infera-flow/src/event/routes.rs",
+      "line": 50,
+      "end_line": 85,
+      "signature": "async fn emit(\n    State(state): State<AppState>,\n    Path(event_key): Path<String>,\n    Extension(auth): Extension<AuthContext>,\n    Json(body): Json<serde_json::Value>,\n) -> Result<Json<APIResponse<serde_json::Value>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow:execute"
+      ],
+      "guards": [
+        {
+          "path": "infera-flow/src/event/routes.rs",
+          "line": 59,
+          "expression": "\"flow:execute permission is required\","
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-flow/src/event/routes.rs",
+          "line": 62,
+          "expression": "validate_event_key(&event_key)?;"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-flow/src/event/routes.rs",
+          "line": 58,
+          "expression": "axum::http::StatusCode::FORBIDDEN,"
+        },
+        {
+          "path": "infera-flow/src/event/routes.rs",
+          "line": 70,
+          "expression": "status: 202,"
+        },
+        {
+          "path": "infera-flow/src/event/routes.rs",
+          "line": 78,
+          "expression": "process_trigger_event(&state, &trigger_key, event).await?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-flow/src/event/routes.rs",
+          "line": 56,
+          "expression": "if !can_emit_event(&auth) {"
+        },
+        {
+          "path": "infera-flow/src/event/routes.rs",
+          "line": 68,
+          "expression": "method: \"EMIT\".into(),"
+        }
+      ],
+      "calls": [
+        "crate::models::AppError::new"
+      ]
+    },
+    "infera-flow/src/models.rs:37:new": {
+      "name": "new",
+      "path": "infera-flow/src/models.rs",
+      "line": 37,
+      "end_line": 42,
+      "signature": "pub fn new(status: StatusCode, message: impl Into<String>) -> Self",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/models.rs",
+          "line": 39,
+          "expression": "status,"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/flow/routes.rs:52:index": {
+      "name": "index",
+      "path": "infera-flow/src/flow/routes.rs",
+      "line": 52,
+      "end_line": 57,
+      "signature": "async fn index(\n    State(state): State<AppState>,\n) -> Result<Json<APIResponse<Vec<FlowResponse>>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 55,
+          "expression": "let data = list_flows(&state).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/flow/models.rs:95:FlowResponse": {
+      "name": "FlowResponse",
+      "kind": "struct",
+      "path": "infera-flow/src/flow/models.rs",
+      "line": 95,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "id",
+          "rust_name": "id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "slug",
+          "rust_name": "slug",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "enabled",
+          "rust_name": "enabled",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "trigger_key",
+          "rust_name": "trigger_key",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "capture_fields",
+          "rust_name": "capture_fields",
+          "rust_type": "Vec<String>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "graph",
+          "rust_name": "graph",
+          "rust_type": "FlowGraph",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "created_at",
+          "rust_name": "created_at",
+          "rust_type": "DateTime<FixedOffset>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "updated_at",
+          "rust_name": "updated_at",
+          "rust_type": "DateTime<FixedOffset>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/flow/routes.rs:65:store": {
+      "name": "store",
+      "path": "infera-flow/src/flow/routes.rs",
+      "line": 65,
+      "end_line": 71,
+      "signature": "async fn store(\n    State(state): State<AppState>,\n    Json(body): Json<CreateFlowRequest>,\n) -> Result<Json<APIResponse<FlowResponse>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow:create"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 69,
+          "expression": "let data = create_flow(&state, body).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/flow/models.rs:10:CreateFlowRequest": {
+      "name": "CreateFlowRequest",
+      "kind": "struct",
+      "path": "infera-flow/src/flow/models.rs",
+      "line": 10,
+      "attributes": "#[derive(Debug, Serialize, Deserialize, ToSchema, Validate)]",
+      "fields": [
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(length(min = 1, max = 200))"
+          ]
+        },
+        {
+          "name": "slug",
+          "rust_name": "slug",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "trigger_key",
+          "rust_name": "trigger_key",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(length(min = 1))"
+          ]
+        },
+        {
+          "name": "enabled",
+          "rust_name": "enabled",
+          "rust_type": "Option<bool>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "graph",
+          "rust_name": "graph",
+          "rust_type": "Option<FlowGraph>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/flow/routes.rs:38:import": {
+      "name": "import",
+      "path": "infera-flow/src/flow/routes.rs",
+      "line": 38,
+      "end_line": 44,
+      "signature": "async fn import(\n    State(state): State<AppState>,\n    Json(body): Json<ImportFlowsRequest>,\n) -> Result<Json<APIResponse<ImportFlowsResponse>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow:create",
+        "flow:update"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 42,
+          "expression": "let data = import_flows(&state, body).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/flow/models.rs:30:ImportFlowsRequest": {
+      "name": "ImportFlowsRequest",
+      "kind": "struct",
+      "path": "infera-flow/src/flow/models.rs",
+      "line": 30,
+      "attributes": "#[derive(Debug, Serialize, Deserialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "Option<u32>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "source",
+          "rust_name": "source",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "dry_run",
+          "rust_name": "dry_run",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": true,
+          "flatten": false,
+          "attributes": [
+            "serde(default)"
+          ]
+        },
+        {
+          "name": "flows",
+          "rust_name": "flows",
+          "rust_type": "Vec<ImportFlowEntry>",
+          "optional": false,
+          "defaulted": true,
+          "flatten": false,
+          "attributes": [
+            "serde(default)"
+          ]
+        },
+        {
+          "name": "event_bridges",
+          "rust_name": "event_bridges",
+          "rust_type": "Vec<ImportEventBridgeEntry>",
+          "optional": false,
+          "defaulted": true,
+          "flatten": false,
+          "attributes": [
+            "serde(default)"
+          ]
+        },
+        {
+          "name": "event_bridge_groups",
+          "rust_name": "event_bridge_groups",
+          "rust_type": "Vec<ImportEventBridgeGroupEntry>",
+          "optional": false,
+          "defaulted": true,
+          "flatten": false,
+          "attributes": [
+            "serde(default)"
+          ]
+        }
+      ]
+    },
+    "infera-flow/src/flow/models.rs:86:ImportFlowsResponse": {
+      "name": "ImportFlowsResponse",
+      "kind": "struct",
+      "path": "infera-flow/src/flow/models.rs",
+      "line": 86,
+      "attributes": "#[derive(Debug, Serialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "validated",
+          "rust_name": "validated",
+          "rust_type": "usize",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "created",
+          "rust_name": "created",
+          "rust_type": "usize",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "updated",
+          "rust_name": "updated",
+          "rust_type": "usize",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "unchanged",
+          "rust_name": "unchanged",
+          "rust_type": "usize",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "dry_run",
+          "rust_name": "dry_run",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/flow/routes.rs:79:show": {
+      "name": "show",
+      "path": "infera-flow/src/flow/routes.rs",
+      "line": 79,
+      "end_line": 85,
+      "signature": "async fn show(\n    State(state): State<AppState>,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<FlowResponse>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 83,
+          "expression": "let data = get_flow(&state, id).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/flow/routes.rs:93:update": {
+      "name": "update",
+      "path": "infera-flow/src/flow/routes.rs",
+      "line": 93,
+      "end_line": 100,
+      "signature": "async fn update(\n    State(state): State<AppState>,\n    Path(id): Path<Uuid>,\n    Json(body): Json<UpdateFlowRequest>,\n) -> Result<Json<APIResponse<FlowResponse>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow:update"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 98,
+          "expression": "let data = update_flow(&state, id, body).await?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 98,
+          "expression": "let data = update_flow(&state, id, body).await?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-flow/src/flow/models.rs:21:UpdateFlowRequest": {
+      "name": "UpdateFlowRequest",
+      "kind": "struct",
+      "path": "infera-flow/src/flow/models.rs",
+      "line": 21,
+      "attributes": "#[derive(Debug, Serialize, Deserialize, ToSchema, Validate)]",
+      "fields": [
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "slug",
+          "rust_name": "slug",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "trigger_key",
+          "rust_name": "trigger_key",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "enabled",
+          "rust_name": "enabled",
+          "rust_type": "Option<bool>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "graph",
+          "rust_name": "graph",
+          "rust_type": "Option<FlowGraph>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/flow/routes.rs:108:destroy": {
+      "name": "destroy",
+      "path": "infera-flow/src/flow/routes.rs",
+      "line": 108,
+      "end_line": 114,
+      "signature": "async fn destroy(\n    State(state): State<AppState>,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<serde_json::Value>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow:delete"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 112,
+          "expression": "delete_flow(&state, id).await?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 112,
+          "expression": "delete_flow(&state, id).await?;"
+        },
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 113,
+          "expression": "Ok(Json(APIResponse::ok(serde_json::json!({\"deleted\": true}))))"
+        }
+      ],
+      "calls": []
+    },
+    "infera-flow/src/flow/routes.rs:122:validate": {
+      "name": "validate",
+      "path": "infera-flow/src/flow/routes.rs",
+      "line": 122,
+      "end_line": 132,
+      "signature": "async fn validate(\n    State(state): State<AppState>,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<serde_json::Value>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow:update"
+      ],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 127,
+          "expression": "let errors = validate_flow_graph(&flow.graph).await?;"
+        },
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 129,
+          "expression": "\"valid\": errors.is_empty(),"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-flow/src/flow/routes.rs",
+          "line": 126,
+          "expression": "let flow = get_flow(&state, id).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/registry/routes.rs:19:active_triggers": {
+      "name": "active_triggers",
+      "path": "infera-flow/src/registry/routes.rs",
+      "line": 19,
+      "end_line": 25,
+      "signature": "async fn active_triggers(\n    state: axum::extract::State<AppState>,\n    Query(query): Query<RegistryQuery>,\n) -> Result<Json<APIResponse<ActiveTriggersResponse>>, crate::models::AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/registry/routes.rs",
+          "line": 23,
+          "expression": "let data = active_triggers_response(&state, query.service.as_deref()).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/registry/routes.rs:11:RegistryQuery": {
+      "name": "RegistryQuery",
+      "kind": "struct",
+      "path": "infera-flow/src/registry/routes.rs",
+      "line": 11,
+      "attributes": "#[derive(Debug, Deserialize)]",
+      "fields": [
+        {
+          "name": "service",
+          "rust_name": "service",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/models.rs:131:ActiveTriggersResponse": {
+      "name": "ActiveTriggersResponse",
+      "kind": "struct",
+      "path": "infera-flow/src/models.rs",
+      "line": 131,
+      "attributes": "#[derive(Debug, Serialize, Deserialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "version",
+          "rust_name": "version",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "triggers",
+          "rust_name": "triggers",
+          "rust_type": "Vec<RegistryTriggerEntry>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/catalog/routes.rs:27:triggers": {
+      "name": "triggers",
+      "path": "infera-flow/src/catalog/routes.rs",
+      "line": 27,
+      "end_line": 35,
+      "signature": "async fn triggers(\n    State(state): State<AppState>,\n) -> Result<\n    Json<APIResponse<Vec<crate::catalog::methods::CatalogTriggerView>>>,\n    crate::models::AppError,\n>",
+      "declared_permissions": [
+        "flow:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/catalog/routes.rs",
+          "line": 33,
+          "expression": "let data = list_triggers(&state).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/catalog/methods.rs:11:CatalogTriggerView": {
+      "name": "CatalogTriggerView",
+      "kind": "struct",
+      "path": "infera-flow/src/catalog/methods.rs",
+      "line": 11,
+      "attributes": "#[derive(serde::Serialize)]",
+      "fields": [
+        {
+          "name": "service",
+          "rust_name": "service",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "method",
+          "rust_name": "method",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "path",
+          "rust_name": "path",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "trigger_key",
+          "rust_name": "trigger_key",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/catalog/routes.rs:43:actions": {
+      "name": "actions",
+      "path": "infera-flow/src/catalog/routes.rs",
+      "line": 43,
+      "end_line": 51,
+      "signature": "async fn actions(\n    State(state): State<AppState>,\n) -> Result<\n    Json<APIResponse<Vec<crate::catalog::methods::CatalogActionView>>>,\n    crate::models::AppError,\n>",
+      "declared_permissions": [
+        "flow:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/catalog/routes.rs",
+          "line": 49,
+          "expression": "let data = list_actions(&state).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/catalog/methods.rs:19:CatalogActionView": {
+      "name": "CatalogActionView",
+      "kind": "struct",
+      "path": "infera-flow/src/catalog/methods.rs",
+      "line": 19,
+      "attributes": "#[derive(serde::Serialize)]",
+      "fields": [
+        {
+          "name": "service",
+          "rust_name": "service",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "event_name",
+          "rust_name": "event_name",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "queue",
+          "rust_name": "queue",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "payload_fields",
+          "rust_name": "payload_fields",
+          "rust_type": "serde_json::Value",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/catalog/routes.rs:59:sync": {
+      "name": "sync",
+      "path": "infera-flow/src/catalog/routes.rs",
+      "line": 59,
+      "end_line": 66,
+      "signature": "async fn sync(\n    State(state): State<AppState>,\n) -> Result<Json<APIResponse<serde_json::Value>>, crate::models::AppError>",
+      "declared_permissions": [
+        "catalog:sync"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/catalog/routes.rs",
+          "line": 62,
+          "expression": "let report = sync_catalog(&state).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/run/routes.rs:46:index": {
+      "name": "index",
+      "path": "infera-flow/src/run/routes.rs",
+      "line": 46,
+      "end_line": 52,
+      "signature": "async fn index(\n    axum::extract::State(state): axum::extract::State<AppState>,\n    Query(q): Query<RunsQuery>,\n) -> Result<Json<APIResponse<Vec<crate::run::methods::FlowRunView>>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow_run:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/run/routes.rs",
+          "line": 50,
+          "expression": "let data = list_runs(&state, q.limit.unwrap_or(50)).await?;"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/run/routes.rs:17:RunsQuery": {
+      "name": "RunsQuery",
+      "kind": "struct",
+      "path": "infera-flow/src/run/routes.rs",
+      "line": 17,
+      "attributes": "#[derive(Deserialize)]",
+      "fields": [
+        {
+          "name": "limit",
+          "rust_name": "limit",
+          "rust_type": "Option<u64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/run/methods.rs:8:FlowRunView": {
+      "name": "FlowRunView",
+      "kind": "struct",
+      "path": "infera-flow/src/run/methods.rs",
+      "line": 8,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "id",
+          "rust_name": "id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "flow_id",
+          "rust_name": "flow_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "trigger_event_id",
+          "rust_name": "trigger_event_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "status",
+          "rust_name": "status",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "error",
+          "rust_name": "error",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "started_at",
+          "rust_name": "started_at",
+          "rust_type": "chrono::DateTime<chrono::FixedOffset>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "finished_at",
+          "rust_name": "finished_at",
+          "rust_type": "Option<chrono::DateTime<chrono::FixedOffset>>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/run/routes.rs:33:show": {
+      "name": "show",
+      "path": "infera-flow/src/run/routes.rs",
+      "line": 33,
+      "end_line": 38,
+      "signature": "async fn show(\n    axum::extract::State(state): axum::extract::State<AppState>,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<crate::run::methods::FlowRunDetailView>>, crate::models::AppError>",
+      "declared_permissions": [
+        "flow_run:read"
+      ],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-flow/src/run/routes.rs",
+          "line": 37,
+          "expression": "Ok(Json(APIResponse::ok(get_run(&state, id).await?)))"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-flow/src/run/methods.rs:29:FlowRunDetailView": {
+      "name": "FlowRunDetailView",
+      "kind": "struct",
+      "path": "infera-flow/src/run/methods.rs",
+      "line": 29,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "run",
+          "rust_name": "run",
+          "rust_type": "FlowRunView",
+          "optional": false,
+          "defaulted": false,
+          "flatten": true,
+          "attributes": [
+            "serde(flatten)"
+          ]
+        },
+        {
+          "name": "context",
+          "rust_name": "context",
+          "rust_type": "Option<serde_json::Value>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "steps",
+          "rust_name": "steps",
+          "rust_type": "Vec<FlowRunStepView>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-flow/src/router.rs:83:integration_flow": {
+      "name": "integration_flow",
+      "path": "infera-flow/src/router.rs",
+      "line": 83,
+      "end_line": 85,
+      "signature": "async fn integration_flow() -> Json<APIResponse<infera_flow_sdk::FlowIntegrationResponse>>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": [
+        "crate::integration::flow::integration_meta"
+      ]
+    },
+    "infera-flow/src/integration/flow.rs:3:integration_meta": {
+      "name": "integration_meta",
+      "path": "infera-flow/src/integration/flow.rs",
+      "line": 3,
+      "end_line": 5,
+      "signature": "pub fn integration_meta() -> infera_flow_sdk::FlowIntegrationResponse",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    }
+  }
+}

@@ -1,0 +1,64 @@
+
+running 24 tests
+test config::signing_tests::missing_or_blank_signing_configuration_fails_closed ... ok
+test config::tests::legacy_marketing_origins_use_the_agentic_api_host ... ok
+test config::tests::configured_non_marketing_origin_is_preserved ... ok
+test proxy::tests::strips_browser_identity_organization_and_credentials ... ok
+test agent::tests::allows_only_manage_chat_workflow_routes ... ok
+test agent::tests::rejects_broad_or_malformed_agent_paths ... ok
+test runtime::tests::activation_returns_to_the_owned_project_page ... ok
+test session::tests::authoritative_non_nil_organization_claim_wins ... ok
+test config::signing_tests::configured_derivation_preserves_bytes_precedence_and_project_scope ... ok
+test session::tests::derived_organization_is_stable_and_project_scoped ... ok
+test setup::tests::a_verified_email_channel_cannot_complete_customer_sms_setup ... ok
+test sso::lifecycle_tests::bootstrap_lookup_never_requests_public_role_assignment ... ok
+test services::tests::advertises_exact_permissions_for_tenant_aware_services ... ok
+test sso::setup_return_tests::setup_handoff_accepts_only_known_steps_and_uuid_runs ... ok
+test token::tests::signed_handoff_rejects_wrong_keys_and_tampering ... ok
+test setup::tests::setup_report_uses_internal_origin_and_a_signed_project_proof ... ok
+test sso::lifecycle_tests::apps_without_idp_get_an_isolated_admin_session_without_idp_registration ... ok
+test authority_tests::removed_services_are_denied_and_identity_project_mismatch_requires_reauthentication ... ok
+test authority_tests::authority_outage_keeps_recovery_readable_without_stale_grants_or_token_refresh ... ok
+test runtime::guard_tests::an_existing_session_cannot_mutate_a_stopped_or_removed_project ... ok
+test sso::lifecycle_tests::stopped_and_removed_projects_get_only_a_guarded_manage_activation_session ... ok
+test runtime::live_tests::runtime_uses_authenticated_live_status_and_never_a_stale_session_flag ... ok
+test authority_tests::stale_handoffs_and_sessions_fail_before_and_after_manage_restart ... ok
+test authority_tests::incompatible_forged_expired_or_replayed_authority_is_never_accepted ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+warning: patch `infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-asset-sdk)` was not used in the crate graph
+warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
+warning: patch `infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-macro)` was not used in the crate graph
+warning: patch `infera-idp-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-sdk)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+warning: patch `infera-profile-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-profile-sdk)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling infera_manage v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera-manage)
+warning: function `in_cluster_url` is never used
+  --> src/services.rs:64:8
+   |
+64 | pub fn in_cluster_url(def: &ServiceDef) -> String {
+   |        ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `other_projects_for_me` is never used
+   --> src/session.rs:248:8
+    |
+248 | pub fn other_projects_for_me(claims: &SessionClaims) -> Vec<OtherProject> {
+    |        ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `other_projects_for_me` is never used
+   --> src/sso.rs:438:8
+    |
+438 | pub fn other_projects_for_me(claims: &session::SessionClaims) -> Vec<session::OtherProject> {
+    |        ^^^^^^^^^^^^^^^^^^^^^
+
+warning: `infera_manage` (bin "infera_manage" test) generated 3 warnings
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.21s
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_manage-235d153fb1d4c2bf)

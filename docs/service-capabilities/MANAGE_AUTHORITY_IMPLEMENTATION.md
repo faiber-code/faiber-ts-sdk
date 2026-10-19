@@ -1,0 +1,109 @@
+# Local current-authority implementation evidence
+
+Manage `4dd4bf06f424acd4d9c3080283e7359c9cb44a21` and Agentic
+`6cd75ebcbbea9345f02cd2e4d013b51775f20a83` implement the discovered
+signing/configuration and current-identity prerequisites. They are local commits,
+not a release or deployed configuration assertion. The full contract is in
+`Service/infera-manage/docs/MANAGE_AUTHORITY_CONTRACT.md`.
+
+The final owned run passed with unchanged source/dependency fingerprints:
+24 Manage component tests, three Agentic tests (including the actual cross-service
+HTTP case), and two actual Manage startup rejection cases. Control lifecycle is an
+explicit fixture in that HTTP case; current project membership, grants, identity
+and service configuration use the real Agentic handler and disposable MongoDB.
+The actual Manage process is stopped and restarted, not a simulated cache reset.
+This does not certify the deployed gateway, Control, IDP token exchange/refresh,
+all service resource ACLs, SDK wire transport or the panel UI.
+
+The cross-service case verifies signed nonce/user-bound current authority, removal
+of one and the final service despite historical used_services, Manage/Admin-only
+sets, active sandboxes with missing deployed configuration, predeployment-only
+setup declarations, identity changes, stale handoffs/sessions across restart,
+current settings-manage denial and membership removal, outsider denial, explicit
+organization preservation and linked identity lookup using stored BSON UUIDs.
+Configured signing bytes remain compatible; missing/blank configuration has no
+fixed fallback. Component tests additionally reject forged/stale/mismatched and
+oversized authority responses and preserve recovery without stale service grants
+or refresh during outage. The response receipt is bounded to 64 KiB and 30 seconds.
+
+Concurrency in the original Agentic checkout invalidated earlier source fences.
+The accepted run therefore uses the detached checkout recorded in
+`evidence/manage-authority-tests-4dd4bf0-6cd75ebc.json` at the exact Agentic commit. Its original
+lock was restored after retaining resolved bytes. Manage's pre-existing dirty
+Cargo lock is unchanged and retained; its fingerprint is part of the tested input.
+Original unrelated Agentic/SDK changes were not staged, reset or included in these
+backend commits. The isolated checkout remains available; no host cache cleanup
+was performed.
+
+Evidence records retain every command, counts/durations, source/dependency hashes,
+Mongo image digest, input/resolved lock hashes, binary hash and logs. Earlier
+failed attempts remain labelled as failures. Cargo target metadata now binds the
+vendored compiler documentation include to its exact manifest; unsupported/dynamic
+inputs still fail closed. Supporting artifacts for multi-service runs are each
+hash-verified by the evidence gate, including both dependency locks.
+
+The full SDK build passed in the contemporaneous working tree. Its 104-test run
+passed 101 and failed 3 due to unrelated LMS changes: generated operation/documentation
+counts no longer match the contract manifest and published aiSummary method names
+were removed. Those tests were not weakened. Focused evidence-tooling tests pass.
+Later concurrent working version edits to 1.0.0 are not a release by this task and
+are not certified by that earlier 0.23.0 test run. SDK release reconciliation remains
+open and the full service discovery gate remains blocked.
+
+Pastil's fresh compact chat snapshot still reports completed turn
+`01a14e78-000f-7453-aac4-1cef7aba5351`, preserving Creation/Ask/Chat GPT-6 Luna
+and Code/Design GPT-6.1 Sol, plus the prior deployment/reconnection fixes. Payment/SMS
+credentials and signed-in customer-club testing remain deferred in that source
+report. The full oversized turn cannot be read by the history tool; its compact
+completion snapshot was read without messaging that chat or rerunning production.
+
+No agent memory migration/publication occurred; reconciled migrated records remain
+zero and agent quality/latency canaries remain unmeasured. Compilation/test duration
+is not agent-response latency. Canonical/deployed and owning-service workflow gates
+must still pass in dependency order before SDK/Manage completion or cutover.
+
+## Project-bound conversation bridge
+
+Manage `bfb5096432bd72bb5d8b920c304309bab9c2928b` and Agentic
+`ab11e179` add dedicated Manage thread creation/listing using the stable project UUID
+and current membership, while preserving personal Ask storage and existing Code/Design
+defaults. The signed Manage session binds project/agent and replaces browser-supplied
+service preferences. History, deletion, cancellation, streaming and pending review
+operations recheck project ownership before work. Trusted Chat context remains restricted.
+
+The isolated complete backend run passed31 checks with unchanged sources, dependency
+fingerprints and restored input locks. Its immutable record is
+`evidence/manage-authority-tests-bfb5096-ab11e179.json`. Tied timestamp pagination
+survives deletion of the cursor row; other-project and personal operations are denied.
+Valid Manage context reaches the existing billing.spend permission denial, without a
+model/provider call. Existing process-local pending hubs are used for the scope test;
+this does not certify durable human review, idempotency or executed SDK receipts.
+
+The local SDK now exposes `listAgentThreadsPage` with full Axios pagination headers
+and typed Manage preferences. Its workspace build and five focused transport/parser
+tests passed in the current mixed working tree; those are not integrated release or
+real SDK/backend acceptance. UI pagination and readable action workflows remain pending.
+The first isolated compile attempt failed against stale local domain metadata; a
+source-timestamp-triggered rebuild resolved it without content changes or cache deletion.
+The failed attempt remains retained and is not counted as passing evidence.
+
+## Actual SDK wire verification
+
+Agentic `84a0e9a95d274a655aae052988915ffc74401942` extends the owned HTTP
+workflow with the compiled Faiber SDK over real Axios/fetch transport. The complete
+run passed the same31 tests with the expanded wire assertions; these are not31
+additional independent tests. Creation, cursor headers, paged lists, history, deletion,
+invalid query and foreign-project/billing denials passed. No model request was made.
+The runner fails unless the real probe reports success. Sources, compiled packages,
+manifests/lock, installed node_modules bytes and probe retained an identical3,520-file
+fingerprint before and after. Backend source/local Rust SDK dependencies were also
+fenced; the report retains input/resolved locks and exact runner/probe bytes. See
+`evidence/manage-authority-tests-bfb5096-84a0e9a9-sdk.json`.
+
+Read-only refresh succeeded for all21 active service main refs without working-status
+changes. SDK origin/main is the previously published0.24.1 commit `b11672d`; all22
+registry versions/checksums independently match. Current working1.0.0 still lacks
+published personal chat, LMS notification/contacts, Messenger delivery and Task
+feedback helpers. Reconcile those with current canonical sources and the active
+Profile summary migration before final integration, packaging and consumer checks.
+No new publication, tag, push, deployment or migration occurred in this work.

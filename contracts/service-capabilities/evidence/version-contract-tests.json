@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "kind": "correctness_regression",
+  "status": "passed",
+  "observed_at": "2026-10-19T10:53:05Z",
+  "command": "cargo test --offline --workspace -- --include-ignored --test-threads=1",
+  "source_unchanged_during_run": true,
+  "exit_code": 0,
+  "tests_executed": 11,
+  "tests_passed": 11,
+  "tests_failed": 0,
+  "tests_ignored": 0,
+  "duration_seconds": 88.516,
+  "source_revisions": {
+    "version": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+    "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39"
+  },
+  "source": {
+    "revision": "ed076557d2551b9f3dc9e1eba2d65a8522237f14",
+    "working_tree_status": "M src/contract_tests.rs",
+    "checkout_sha256": "3aea20aa71f4db54067c56c260816fc5270823de705c5171bf9009ea95d833b8"
+  },
+  "control_source": {
+    "revision": "aa72a3ad9a3064949fc1045724419403e58a5ef4",
+    "working_tree_status": "M crates/faiber-core/src/ops/apk.rs\n?? .vscode/\n?? crates/faiber-core/src/ops/apk/publish_release.js",
+    "checkout_sha256": "f1e9b664b396cb51b5fd6b26ed0f6d32475da9687d5061ad96a8925f83f1a96f"
+  },
+  "control_publisher_script_sha256": "328c7c030aac3ecbe94733678805ed8c43a5f449a68e02680c236fd2158b951d",
+  "node": "v22.13.1",
+  "resolved_cargo_lock_sha256": "adfa7ef967ae50333efebb1edc1a634b55ddd4edc262756b7b1e198ae4745383",
+  "resolved_cargo_lock_artifact_path": "evidence/version-resolved-adfa7ef967ae50333efebb1edc1a634b55ddd4edc262756b7b1e198ae4745383.Cargo.lock",
+  "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+  "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+  "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+  "storage": "disposable_real_postgresql",
+  "artifact_path": "evidence/version-contract-tests.log",
+  "artifact_sha256": "31ebd0ad5b47cdde915c038392fe13cff0bdd3d8d0ef93a0296979c3da808f9a",
+  "scope": "Version workspace tests, real PostgreSQL/RabbitMQ and mounted HTTP router: health, slug/UUID, enum/envelope, trusted publication, retry/concurrency and rollback. Gateway, deployed sandbox routing, SDK and Manage acceptance remain separate gates; real Control publisher script performs HTTP receipt/read-back and exposes persisted partial outcomes; Kubernetes Secret/job orchestration, durable server receipts and APK bytes remain unverified",
+  "test_base_source_revisions": {
+    "version": "ed076557d2551b9f3dc9e1eba2d65a8522237f14",
+    "control": "aa72a3ad9a3064949fc1045724419403e58a5ef4"
+  },
+  "verified_commits": {
+    "version": {
+      "revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+      "checkout_sha256": "3aea20aa71f4db54067c56c260816fc5270823de705c5171bf9009ea95d833b8"
+    },
+    "control": {
+      "revision": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
+      "checkout_sha256": "f1e9b664b396cb51b5fd6b26ed0f6d32475da9687d5061ad96a8925f83f1a96f"
+    }
+  },
+  "verified_commit_note": "Both committed source digests match the tested inputs; source remained unchanged through the real HTTP run.",
+  "canonical_certification": false
+}

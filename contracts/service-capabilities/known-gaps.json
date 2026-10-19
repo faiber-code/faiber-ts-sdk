@@ -1,0 +1,588 @@
+{
+  "schema_version": "1.0",
+  "gaps": [
+    {
+      "id": "social-nested-administration",
+      "owner": "sdk",
+      "required": true,
+      "status": "discovered",
+      "meaning": "The published SDK snapshot omitted the mounted Social administration router. Discovery now follows the nested mount; typed wire contracts and Manage workflows still require implementation and verification.",
+      "source_refs": [
+        "Service/infera-social/src/api/routes.rs:112",
+        "Service/infera-social/src/admin.rs:23"
+      ]
+    },
+    {
+      "id": "version-health-path",
+      "owner": "sdk",
+      "required": true,
+      "status": "discovered",
+      "meaning": "The mounted health route is /health, while the stale annotation made the published SDK call /. Extracted contracts must follow mounted paths.",
+      "source_refs": [
+        "Service/infera_version/src/router.rs:118",
+        "faiber-ts-sdk/packages/version/src/operations.ts:13"
+      ]
+    },
+    {
+      "id": "version-service-slug",
+      "owner": "sdk",
+      "required": true,
+      "status": "discovered",
+      "meaning": "Service detail/all routes consume a service slug string, but their annotations and published operation paths name service_id. Preserve slug semantics and avoid asking users for a UUID.",
+      "source_refs": [
+        "Service/infera_version/src/service/routes.rs:24",
+        "Service/infera_version/src/service/routes.rs:59"
+      ]
+    },
+    {
+      "id": "version-sdk-wire-enums",
+      "owner": "sdk",
+      "required": true,
+      "status": "review_required",
+      "meaning": "Version Scope and Channel have separate database spellings and serialized Rust variant spellings. Confirm curated and generated methods expose the actual response values consistently; localized UI labels must not change wire values.",
+      "source_refs": [
+        "Service/infera_version/entity/src/version.rs:15",
+        "Service/infera_version/src/version/transformers.rs:3"
+      ]
+    },
+    {
+      "id": "sdk-manage-source-version",
+      "owner": "manage",
+      "required": true,
+      "status": "discovered",
+      "meaning": "Manage's package/lockfile use SDK 0.21.1, its Docker source build verifies 0.6.1, and SDK HEAD is 0.23.0. Align reproducible artifacts after contract completion.",
+      "source_refs": [
+        "Service/infera-manage/panel/package.json:16",
+        "Service/infera-manage/Dockerfile:46",
+        "faiber-ts-sdk/package.json:3"
+      ]
+    },
+    {
+      "id": "manage-human-forms",
+      "owner": "manage",
+      "required": true,
+      "status": "discovered",
+      "meaning": "Known localized content, membership, settings and reward schemas are exposed as raw JSON/IDs; replace normal workflows with readable typed controls and relation lookups.",
+      "source_refs": [
+        "Service/infera-manage/panel/src/resourceForms.ts:590",
+        "Service/infera-manage/panel/src/resourceForms.ts:603",
+        "Service/infera-manage/panel/src/resourceForms.ts:396"
+      ]
+    },
+    {
+      "id": "manage-routed-agent-review",
+      "owner": "manage",
+      "required": true,
+      "status": "discovered",
+      "meaning": "Manage chat embeds mutation forms; it needs dedicated review routes using shared complete forms, durable proposals and server receipts.",
+      "source_refs": [
+        "Service/infera-manage/panel/src/components/ManageChatImpl.tsx:201",
+        "Service/infera-manage/AGENTS.md:8"
+      ]
+    },
+    {
+      "id": "reservation-status-filter",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "ReservationListQuery declares status, but methods::list applies only user_id, provider_id and service_id before pagination. The documented status filter must be implemented and verified.",
+      "source_refs": [
+        "Service/infera-reservation/src/reservation/models.rs:63",
+        "Service/infera-reservation/src/reservation/methods.rs:16"
+      ],
+      "characterization_evidence": [
+        "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ]
+    },
+    {
+      "id": "reservation-invalid-status",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Updating to an unrecognized status silently selects Pending. Define legal transitions and reject unknown statuses rather than accepting an unintended state.",
+      "source_refs": [
+        "Service/infera-reservation/src/reservation/methods.rs:93"
+      ],
+      "characterization_evidence": [
+        "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ]
+    },
+    {
+      "id": "reservation-cancel-transition",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "PATCH status=cancelled changes only the reservation record; DELETE invokes cancellation and releases its slot. Define one consistent cancellation workflow and verify its availability effects.",
+      "source_refs": [
+        "Service/infera-reservation/src/reservation/methods.rs:93",
+        "Service/infera-reservation/src/reservation/methods.rs:115",
+        "Service/infera-reservation/src/reservation/routes.rs:8"
+      ],
+      "characterization_evidence": [
+        "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ]
+    },
+    {
+      "id": "reservation-repeated-cancellation",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Cancellation clears the slot by time_slot_id without checking the booking's current status or current slot claimant. Verify re-cancellation after rebooking cannot release another active booking.",
+      "source_refs": [
+        "Service/infera-reservation/src/reservation/methods.rs:115"
+      ],
+      "characterization_evidence": [
+        "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ]
+    },
+    {
+      "id": "reservation-invalid-date-filter",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "An invalid available-slots date is silently ignored. Validate the date and return a field error so UI/agent filters match the user's request.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs:7"
+      ],
+      "characterization_evidence": [
+        "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ]
+    },
+    {
+      "id": "reservation-atomic-schedule-replacement",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Schedule upsert deletes existing rows before validating/inserting all replacement entries and has no transaction. Validate the complete schedule before mutation and replace atomically.",
+      "source_refs": [
+        "Service/infera-reservation/src/work_schedule/methods.rs:10"
+      ],
+      "characterization_evidence": [
+        "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ]
+    },
+    {
+      "id": "reservation-readable-date-relations",
+      "owner": "manage",
+      "required": true,
+      "status": "pending_inventory",
+      "meaning": "Booking workflows require provider/service/user/slot selectors and explicit date/time units. Verify the complete UI and SDK behavior against the capability inventory, including pagination and cancellation.",
+      "source_refs": [
+        "Service/infera-reservation/src/provider/models.rs:33",
+        "Service/infera-reservation/src/time_slot/models.rs:29",
+        "Service/infera-reservation/src/reservation/models.rs:45"
+      ]
+    },
+    {
+      "id": "knowledge-project-memory-subject",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "Knowledge memory subjects are keyed by organization_id, assistant_id and user_id. Add explicit personal/project subject scope with current project membership checks; a project UUID must never be substituted for user_id.",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs:194",
+        "Service/infera-knowledge/src/platform.rs:962"
+      ]
+    },
+    {
+      "id": "knowledge-worker-crash-recovery",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "The memory worker selects only pending/retry records before setting processing; expired processing leases are not selected by the visible query. Verify process-crash recovery and fence receipt updates by lease owner before relying on durable delivery.",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs:2448"
+      ]
+    },
+    {
+      "id": "knowledge-forget-ingestion-fence",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "Forget marks existing memories but does not visibly invalidate queued turn ingestion. Prove a forgotten source cannot return through a pending job, retry, import or retained outbox payload; add source revision/tombstone fences and reconciliation.",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs:2262",
+        "Service/infera-knowledge/src/platform.rs:2573",
+        "Service/infera-knowledge/src/platform.rs:2614"
+      ]
+    },
+    {
+      "id": "chat-memory-source-corrections",
+      "owner": "chat",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "Chat edit/delete handlers update the source message without emitting a corresponding Knowledge correction/forget event in those handlers. Implement atomic source revision events and test message edits, deletes and membership revocation before memory cutover.",
+      "source_refs": [
+        "Service/infera-chat/src/service.rs:1372",
+        "Service/infera-chat/src/service.rs:1391"
+      ]
+    },
+    {
+      "id": "chat-memory-http-receipt",
+      "owner": "chat",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "The direct record_assistant_memory request logs transport errors but does not validate HTTP status or the queued/outbox receipt. Trace the durable assistant.memory.turn.requested consumer and reconcile delivery before treating a completed reply as ingested memory.",
+      "source_refs": [
+        "Service/infera-chat/src/agentic.rs:275",
+        "Service/infera-chat/src/service.rs:1948"
+      ]
+    },
+    {
+      "id": "flow-run-pagination",
+      "owner": "flow",
+      "required": true,
+      "status": "implemented_locally_uncompiled_dependency_blocked",
+      "meaning": "Local unverified code adds limit 1\u2013200/default50, before-UUID keyset traversal ordered by started_at/id, AND filters flow/event/status and indexes, preserving the array envelope. Tests are written but zero executed: slug dependency missing, direct crates.io SSL timeout and configured mirror unreachable. No compile, runtime or performance acceptance is claimed.",
+      "source_refs": [
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/infera-flow/src/run/methods.rs"
+      ],
+      "implementation_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+      "test_evidence": []
+    },
+    {
+      "id": "flow-notification-after-commit",
+      "owner": "flow",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "meaning": "Create/update/import/delete persist before registry notification; broker failure may return an error after the mutation committed. Verify durable notification/reconciliation and truthful partial receipts instead of blind retry.",
+      "source_refs": [
+        "Service/infera-flow/src/flow/methods.rs"
+      ]
+    },
+    {
+      "id": "flow-action-receipts-deduplication",
+      "owner": "flow",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "meaning": "Flow emits queue messages and marks traversal complete without verifying the target business effect. Trace actual consumer receipts/idempotency and failure compensation; the event endpoint generates a fresh ID on each request.",
+      "source_refs": [
+        "Service/infera-flow/src/event/routes.rs",
+        "Service/infera-flow/src/engine/executor.rs",
+        "Service/infera-flow/src/engine/emit.rs"
+      ]
+    },
+    {
+      "id": "reservation-bracket-pagination",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Axum previously discarded page[number]/page[size]. The local repair deserializes literal bracket keys, validates unsigned values/offset bounds and preserves combined reservation filters; canonical/deployed source reconciliation remains pending.",
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ],
+      "source_refs": [
+        "Service/infera-reservation/src/models.rs",
+        "Service/infera-reservation/src/time_slot/methods.rs",
+        "Service/infera-reservation/tests/reservation_contract_test.rs"
+      ]
+    },
+    {
+      "id": "reservation-utc-day-boundary",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "The previous date end was 23:59:59 inclusive, excluding fractional timestamps later in that second. The local repair uses an exclusive next-midnight UTC boundary and has a real storage boundary test; canonical/deployed source reconciliation remains pending.",
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ],
+      "source_refs": [
+        "Service/infera-reservation/src/models.rs",
+        "Service/infera-reservation/src/time_slot/methods.rs",
+        "Service/infera-reservation/tests/reservation_contract_test.rs"
+      ]
+    },
+    {
+      "id": "reservation-generation-limits",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Local generation requires active assigned provider/service, validates stored schedules, bounds strict UTC ranges to 366 inclusive days and 100000 unique candidates, deduplicates starts, preserves existing claims, serializes with generators/schedule replacement/slot edits and commits all batches atomically. Real PostgreSQL tests cover concurrent retries, exact boundaries, malformed configuration, excessive output and rollback after a 500-row batch. Canonical/deployed reconciliation remains pending; cross-service provider capacity is not certified.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs"
+      ],
+      "implementation_revision": "83b2ad0f614ed483dad7e5d19432a8c0b6934e38",
+      "test_evidence": [
+        "reservation-generation"
+      ]
+    },
+    {
+      "id": "reservation-slot-edit-claim-integrity",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Local slot PATCH cannot independently change claims or mutate claimed/historically referenced slots; identical requests remain idempotent. Free unreferenced edits validate timestamps, active assignment and duplicate starts under provider serialization. DELETE rejects claims or any booking history instead of cascading it away. Real PostgreSQL booking/deletion and edit/generation races pass. Parent provider/service deletion remains a separate open lifecycle gap; canonical/deployed reconciliation remains pending.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs"
+      ],
+      "implementation_revision": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d",
+      "test_evidence": [
+        "reservation-slot-integrity"
+      ]
+    },
+    {
+      "id": "reservation-parent-delete-history",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Local migration replaces reservation-to-slot ON DELETE CASCADE with RESTRICT, preserving all existing rows and guarding provider/service cascade deletion at the database boundary. Parent deletion returns 409 for historical references and 404 for missing parents. Foreign-key/deadlock/serialization conflicts return 409; unrelated storage errors remain 500. Real PostgreSQL tests cover confirmed/cancelled history, direct SQL, unbooked draft cleanup, concurrent booking versus both parent deletion paths and down/up migration preservation. Canonical/deployed migration remains pending.",
+      "source_refs": [
+        "Service/infera-reservation/src/provider/methods.rs",
+        "Service/infera-reservation/src/reservation_service/methods.rs",
+        "Service/infera-reservation/migration/src"
+      ],
+      "implementation_revision": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+      "test_evidence": [
+        "reservation-parent-history"
+      ]
+    },
+    {
+      "id": "reservation-cross-service-capacity",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_sdk_manage",
+      "meaning": "Approved provider-wide capacity implemented locally: integer 1..1000 default 1, half-open stored booking intervals across every service; buffers space generation only. Generation fills single-claim pools; booking/limit changes serialize. Insufficient changed limits return 409 without cancelling bookings. Legacy conflicts remain reportable; rollback refuses nondefault limits. 40 real PostgreSQL/RabbitMQ regressions pass, including booking versus decrease race. Canonical/deployed, gateway/project isolation, SDK and readable Manage workflows remain unverified.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs",
+        "Service/infera-reservation/src/reservation/methods.rs",
+        "Service/infera-reservation/src/provider/capacity.rs",
+        "Service/infera-reservation/migration/src/m20261019_000009_provider_capacity.rs"
+      ],
+      "implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
+      "test_evidence": [
+        "reservation-provider-capacity"
+      ]
+    },
+    {
+      "id": "agentic-source-preservation-a0",
+      "owner": "agentic",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "implementation_revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+      "test_evidence": [
+        "agentic-source-preservation",
+        "agentic-ide-regression"
+      ],
+      "meaning": "Local bounded original-source preservation with full lineage manifests, source correction invalidation, immediate expiry exclusion/TTL, transactional rewind epochs, durable producer replay fencing and legacy orphan withholding through real history HTTP. 13 real Mongo correctness tests plus 160 IDE regressions pass against recorded working source/dependency digests. This does not implement Knowledge adoption, global erasure, Chat correction delivery or full model-request budget. Canonical/deployed reconciliation remains pending.",
+      "source_refs": [
+        "infera-agentic/src/ide/history_retention.rs",
+        "infera-agentic/docs/SOURCE_HISTORY_PRESERVATION.md"
+      ]
+    },
+    {
+      "id": "version-publish-concurrency",
+      "owner": "version",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "implementation_revision": "ed076557d2551b9f3dc9e1eba2d65a8522237f14",
+      "test_evidence": [
+        "version-local-contracts"
+      ],
+      "meaning": "Real parallel first publications returned 500 in the baseline. Local transaction-scoped per-slug serialization now protects first creation and monotonic same-version updates; 10 workspace tests pass with real PostgreSQL/RabbitMQ. Canonical/deployed reconciliation remains pending.",
+      "source_refs": [
+        "Service/infera_version/src/version/publish.rs",
+        "Service/infera_version/src/contract_tests.rs"
+      ]
+    },
+    {
+      "id": "version-malformed-forwarded-identity",
+      "owner": "version",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "implementation_revision": "ed076557d2551b9f3dc9e1eba2d65a8522237f14",
+      "test_evidence": [
+        "version-local-contracts"
+      ],
+      "meaning": "Malformed x-user-id previously panicked in middleware. Local request now returns 400; this does not introduce user authorization for public catalog reads.",
+      "source_refs": [
+        "Service/infera_version/auth/src/axum_middleware.rs"
+      ]
+    },
+    {
+      "id": "version-catalog-audience-and-latest-ties",
+      "owner": "version",
+      "required": true,
+      "status": "semantic_review_requires_acceptance",
+      "meaning": "Closed release metadata is currently anonymously readable, and direct release lookup ignores parent activity. Different release IDs may share one numeric version code with no deterministic latest tie order. The local contract states these behaviors explicitly; do not infer private access, parent visibility inheritance or unique numeric codes without domain acceptance.",
+      "test_evidence": [
+        "version-local-contracts"
+      ],
+      "source_refs": [
+        "Service/infera_version/src/version/methods.rs",
+        "Service/infera_version/SEMANTIC_CONTRACT.md"
+      ]
+    },
+    {
+      "id": "control-version-publication-readback",
+      "owner": "control",
+      "required": true,
+      "status": "partially_fixed_locally_full_workflow_unverified",
+      "meaning": "Local Control publisher validates raw receipt, reads exact release UUID and service slug, checks identity/status/metadata, recognizes newer same-release supersession, and returns a retained failure receipt when publication persists but read-back fails. Actual Node script passes against real Version HTTP/PostgreSQL; all 199 Control core tests and server check pass. Kubernetes namespace authorization, Secret provisioning/rotation/rollout, APK bytes and durable server-side receipt/reconciliation remain unverified; this is not full cross-service completion.",
+      "source_refs": [
+        "Service/infera-control/crates/faiber-core/src/ops/apk.rs:255",
+        "Service/infera-control/crates/faiber-core/src/ops/apk.rs:590",
+        "Service/infera-control/crates/faiber-core/src/ops/workloads.rs:2669"
+      ],
+      "implementation_revision": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
+      "test_evidence": [
+        "version-local-contracts",
+        "control-core-local"
+      ]
+    },
+    {
+      "id": "flow-current-run-permissions",
+      "owner": "flow",
+      "required": true,
+      "status": "implemented_locally_uncompiled_dependency_blocked",
+      "implementation_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
+      "meaning": "The IDP macro exports permission metadata, not handler enforcement. Local uncompiled run list/detail code now requires nonnil current identity plus flow_run:read or *, with revocation checks per request. Planned real HTTP tests have not executed because slug dependency is unavailable. Other Flow handlers still need independent explicit enforcement review.",
+      "source_refs": [
+        "Service/infera-flow/src/run/routes.rs",
+        "Service/faiber-sdk/crates/infera-idp-macro/src/lib.rs"
+      ]
+    },
+    {
+      "id": "chat-memory-event-publication",
+      "owner": "chat",
+      "required": true,
+      "status": "source_review_requires_runtime_and_deployment_reconciliation",
+      "implementation_phase": "memory_after_sdk_manage",
+      "canonical_source_revision": "d495217f85d77270865a040c1328d70c620e6c9d",
+      "meaning": "Tracked canonical Chat inserts chat_outbox_events but repository-wide trace found no dispatcher/claimant/published_at update. Memory event insertion follows assistant-message commit and direct Knowledge request outside that transaction; crash windows can lose durable delivery. Startup memory_settlement handles quota receipts, not this event table. Reconcile any external CDC consumer and implement atomic source-event delivery, fenced reclaimable dispatch and receipt/replay/correction tests before migration. Dirty summary outbox changes are separate preserved work.",
+      "source_refs": [
+        "Service/infera-chat/src/service.rs:1216",
+        "Service/infera-chat/src/service.rs:1325",
+        "Service/infera-chat/src/service.rs:1948",
+        "Service/infera-chat/src/main.rs:31",
+        "Service/infera-chat/src/memory_settlement.rs",
+        "Service/infera-chat/entity/src/outbox_event.rs"
+      ]
+    },
+    {
+      "id": "manage-production-signing-secret",
+      "owner": "manage",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_deployed_reconciliation",
+      "meaning": "Manage signing-secret derivation has a fixed fallback and startup does not fail on missing configured secrets. Reconcile actual deployment, implement explicit nondevelopment fail-closed behavior with compatible Agentic derivation/rotation, and verify invalid/expired/replayed handoffs. No deployed secret absence is asserted.",
+      "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "source_refs": [
+        "Service/infera-manage/src/config.rs",
+        "Service/infera-manage/src/main.rs",
+        "Service/infera-manage/src/session.rs"
+      ],
+      "implementation_revisions": {
+        "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+        "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83"
+      },
+      "test_evidence": [
+        "manage-current-authority"
+      ],
+      "local_result": "Explicit configured signing, fresh signed nonce/user-bound authority, current identity/grant checks across restart, last-service revocation and predeployment-only fallback passed29 distinct local checks. See MANAGE_AUTHORITY_IMPLEMENTATION.md. Secret entropy/provisioning/rotation, gateway, real Control/IDP and full per-operation service workflows remain open."
+    },
+    {
+      "id": "manage-current-identity-service-snapshot",
+      "owner": "manage",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_deployed_reconciliation",
+      "meaning": "Signed12hour sessions retain enabled service snapshots. Identity revisions are process-local observations overwritten by handoffs, not durable monotonic current configuration. Verify service removal, permission revocation, old handoff ordering and restart against live Agentic/settings-manage authority before certifying current access.",
+      "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "source_refs": [
+        "Service/infera-manage/src/router.rs",
+        "Service/infera-manage/src/sso.rs",
+        "Service/infera-manage/src/state.rs",
+        "Service/infera-manage/src/session.rs"
+      ],
+      "implementation_revisions": {
+        "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+        "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83"
+      },
+      "test_evidence": [
+        "manage-current-authority"
+      ],
+      "local_result": "Explicit configured signing, fresh signed nonce/user-bound authority, current identity/grant checks across restart, last-service revocation and predeployment-only fallback passed29 distinct local checks. See MANAGE_AUTHORITY_IMPLEMENTATION.md. Secret entropy/provisioning/rotation, gateway, real Control/IDP and full per-operation service workflows remain open."
+    },
+    {
+      "id": "manage-readable-paginated-workflows",
+      "owner": "manage",
+      "required": true,
+      "status": "source_review_requires_implementation_and_runtime_verification",
+      "meaning": "LMS owned question form exposes JSON options textarea and computes ordering from a size10000 list; Reservation dashboard requests10000 against an API capped100. Complete readable typed SDK editors and real pagination/totals after semantic discovery; no raw JSON or capped-page totals may satisfy completion.",
+      "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "source_refs": [
+        "Service/infera-manage/panel/src/pages/LmsOwnedResourceFormPage.tsx",
+        "Service/infera-manage/panel/src/pages/reservation/ReservationDashboardPage.tsx"
+      ]
+    },
+    {
+      "id": "sdk-working-lms-contract-drift",
+      "owner": "sdk",
+      "required": true,
+      "status": "concurrent_working_contract_reconciliation_required",
+      "meaning": "Fenced SDK build passed,104 tests ran:101 passed/3 failed. Current LMS operations contain174 documented operations versus182 in the contract manifest, and published aiSummaryJobsGet et al were removed. These are preserved unrelated working changes, not fixed by weakening compatibility/count tests. Later uncommitted1.0.0 version edits are not verified by that0.23.0 run. Complete source/SDK contract and breaking-version reconciliation before release.",
+      "source_refs": [
+        "faiber-ts-sdk/packages/lms/src/operations.ts",
+        "faiber-ts-sdk/service-contracts.json",
+        "faiber-ts-sdk/tests/contracts.test.mjs",
+        "faiber-ts-sdk/tests/facade-completeness.test.mjs",
+        "faiber-ts-sdk/tests/release-contract-regressions.test.mjs"
+      ],
+      "artifact_path": "evidence/sdk-tests.log"
+    },
+    {
+      "id": "manage-agent-project-thread-contract",
+      "owner": "agentic",
+      "required": true,
+      "status": "locally_repaired_source_fenced_backend_verified_sdk_ui_canonical_pending",
+      "meaning": "Manage proxies home /chat/threads, whose actual response is a personal-only paginated object and whose created threads have no project. Manage SDK expects an array and UI filters project_slug; current UI therefore cannot restore its project history through that contract. UI also sends manage agent context, while the IDE handler treats any context as trusted Chat configuration and rejects non-chat agents. Signed x-infera-project is currently not consumed by the inspected thread routes. Bind Manage creation/list/history/review to current project and stable project IDs, preserve personal Ask scope, and verify body/header/thread forgery and actual stream/review behavior before SDK/UI completion. Do not bypass Chat service authentication or remove normal Agentic billing/access rules.",
+      "source_refs": [
+        "Service/infera-manage/src/agent.rs",
+        "Service/infera-manage/panel/src/components/ManageChatImpl.tsx",
+        "faiber-ts-sdk/packages/manage/src/index.ts",
+        "infera-agentic/src/chat/routes.rs",
+        "infera-agentic/src/ide/threads.rs",
+        "infera-agentic/src/ide/routes.rs"
+      ],
+      "local_evidence": "manage-project-bridge",
+      "remaining": "Local backend project binding and context repair passed31 checks. SDK bindings have focused build/transport checks only. Canonical/main integration, actual SDK-to-backend and readable/paged UI journeys remain pending. No model success, billing bypass or durable review claim."
+    },
+    {
+      "id": "manage-durable-review-receipt",
+      "owner": "agentic",
+      "required": true,
+      "status": "confirmed_requires_durable_idempotent_completion",
+      "meaning": "Current browser/Ask pending review hubs are process-local; duplicate completion can replace state, and Ask ignores durable runtime-input completion errors. Project isolation is locally repaired but does not establish durable task receipts. Persist requests/results with project/actor/run scope, compare-and-set completion, idempotency and actual SDK execution receipts; verify restart/replay/denial without relying on browser reports as proof."
+    }
+  ]
+}

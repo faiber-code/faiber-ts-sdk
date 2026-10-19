@@ -141,13 +141,13 @@ function prefixes(router, service) {
 }
 
 function cleanPath(path) {
-  const withSlash = path.startsWith("/") ? path : `/${path}`;
-  return withSlash.length > 1 ? withSlash.replace(/\/$/, "") : withSlash;
+  return path.startsWith("/") ? path : `/${path}`;
 }
 
 function joinPath(prefix, path) {
   if (path === "/api/v1" || path.startsWith("/api/v1/")) return cleanPath(path);
-  return cleanPath(`${prefix.replace(/\/$/, "")}/${path.replace(/^\//, "")}`);
+  if (prefix.endsWith('/')) return cleanPath(`${prefix}${path.replace(/^\//,'')}`);
+  return path==='/'?cleanPath(prefix):cleanPath(`${prefix}/${path.replace(/^\//,'')}`);
 }
 
 function drmPermission(method, path) {
@@ -293,6 +293,34 @@ for (const service of services) {
   }
   const files = await walk(srcRoot);
   const fileSources = new Map(await Promise.all(files.map(async file => [file, productionRust(await readFile(file, "utf8"))])));
+  // A mounted module may compose another module's router. Resolve those mounts
+  // transitively, retaining the parent factory's prefix instead of assuming all
+  // nested registrations live directly under /api/v1.
+  let nestedMountDiscovered = true;
+  while (nestedMountDiscovered) {
+    nestedMountDiscovered = false;
+    for (const [file, source] of fileSources) {
+      const parent = dirname(file) === srcRoot ? basename(file, ".rs") : basename(dirname(file));
+      if (parent === "router" || !mountedModules.has(parent)) continue;
+      for (const mount of source.matchAll(/\.nest\(\s*"([^"]+)"\s*,\s*crate::(\w+)::(?:(?:routes)::)?(\w+)\(\)\s*,?\s*\)/g)) {
+        const factory = enclosingFactory(source, mount.index);
+        const parentPrefix = modulePrefixes.get(`${parent}:${factory}`) ?? modulePrefixes.get(parent);
+        if (!parentPrefix) continue;
+        const [, localPrefix, module, childFactory] = mount;
+        const key = `${module}:${childFactory}`;
+        const prefix = joinPath(parentPrefix, localPrefix);
+        if (modulePrefixes.has(key) && modulePrefixes.get(key) !== prefix) {
+          throw new Error(`Ambiguous nested router ${key}: ${modulePrefixes.get(key)} versus ${prefix}`);
+        }
+        if (!modulePrefixes.has(key)) {
+          modulePrefixes.set(key, prefix);
+          if (!modulePrefixes.has(module)) modulePrefixes.set(module, prefix);
+          mountedModules.add(module);
+          nestedMountDiscovered = true;
+        }
+      }
+    }
+  }
   let discovered = true;
   while (discovered) {
     discovered = false;
@@ -338,6 +366,7 @@ for (const service of services) {
       }
       const path = module === "router" && route.localPath.startsWith("/api/")
         ? cleanPath(route.localPath)
+        : prefix ? joinPath(prefix, route.localPath)
         : annotated
           ? annotated.startsWith("/api/") ? cleanPath(annotated)
             : module === "router" ? joinPath(prefix, annotated) : cleanPath(`/api/v1${annotated}`)

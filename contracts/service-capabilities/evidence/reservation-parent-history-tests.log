@@ -1,0 +1,222 @@
+
+running 3 tests
+test auth::tests::enforces_resource_action_permissions ... ok
+test auth::tests::only_read_only_public_contracts_bypass_management_auth ... ok
+test auth::tests::requires_authenticated_user_and_non_nil_tenant ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test health_returns_200_with_success_status ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+
+running 2 tests
+test create_provider ... ok
+test list_providers_empty ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+
+running 1 test
+test concurrent_claims_create_exactly_one_reservation ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+
+running 19 tests
+test available_date_is_strict_utc_and_includes_fractional_last_second_only ... ok
+test axum_query_preserves_bracket_pagination_and_combined_filters ... ok
+test concurrent_booking_and_parent_deletion_keep_every_successful_booking ... ok
+test concurrent_booking_and_slot_deletion_cannot_erase_a_successful_booking ... ok
+test concurrent_generation_and_retries_preserve_claims_and_deduplicate_schedules ... ok
+test concurrent_schedule_replacements_never_mix_sets ... ok
+test database_failure_after_schedule_deletion_rolls_back_the_entire_replacement ... ok
+test every_schedule_entry_is_validated_before_replacement ... ok
+test generation_accepts_range_boundary_but_rejects_excessive_output_without_inserts ... ok
+test generation_is_bounded_validated_and_requires_active_assignment ... ok
+test generation_rolls_back_earlier_bulk_chunks_on_late_storage_failure ... ok
+test history_constraint_migration_round_trip_preserves_existing_records ... ok
+test parent_deletion_and_direct_sql_cannot_cascade_booking_history ... ok
+test patch_delete_and_retries_share_terminal_lifecycle_and_preserve_new_claims ... ok
+test simultaneous_cancellations_are_idempotent_and_inconsistent_ownership_rolls_back ... ok
+test slot_edit_and_generation_serialize_duplicate_start_checks ... ok
+test slot_edits_and_deletes_never_rewrite_or_erase_reservation_history ... ok
+test status_filter_is_applied_and_unknown_values_never_mutate ... ok
+test unreferenced_slot_edits_validate_times_assignment_duplicates_and_claims ... ok
+
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.00s
+
+
+running 1 test
+test cannot_reserve_nonexistent_slot ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+
+running 1 test
+test booking_http_journey_checks_filters_receipts_retries_and_current_permissions ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+
+running 4 tests
+test create_service_returns_201_data ... ok
+test get_service_by_id ... ok
+test list_services_empty ... ok
+test update_service ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s
+
+warning: patch `infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-asset-sdk)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+warning: patch `infera-profile-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-profile-sdk)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+     Locking 3 packages to latest compatible versions
+      Adding infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk)
+      Adding infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-macro)
+      Adding infera-idp-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-sdk)
+warning: field `version` is never read
+   --> /Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk/src/registry.rs:136:5
+    |
+135 | struct RegistryChangedData {
+    |        ------------------- field in this struct
+136 |     version: i64,
+    |     ^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera-flow-sdk` (lib) generated 1 warning
+warning: unused import: `HeaderValue`
+ --> /Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-sdk/src/middleware.rs:5:12
+  |
+5 |     http::{HeaderValue, Request},
+  |            ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+   Compiling migration v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera-reservation/migration)
+warning: `infera-idp-sdk` (lib) generated 1 warning (run `cargo fix --lib -p infera-idp-sdk` to apply 1 suggestion)
+   Compiling infera_reservation v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera-reservation)
+warning: unused import: `sea_orm::QuerySelect`
+  --> src/provider/methods.rs:70:9
+   |
+70 |     use sea_orm::QuerySelect;
+   |         ^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `post`
+ --> src/provider/routes.rs:1:66
+  |
+1 | use axum::{extract::{Path, Query, State}, routing::{delete, get, post}, Json, Router};
+  |                                                                  ^^^^
+
+warning: unused import: `entity::enums::ReservationStatus`
+ --> src/reservation/models.rs:1:5
+  |
+1 | use entity::enums::ReservationStatus;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `post`
+ --> src/reservation/routes.rs:1:58
+  |
+1 | use axum::{extract::{Path, Query, State}, routing::{get, post}, Json, Router};
+  |                                                          ^^^^
+
+warning: unused imports: `ColumnTrait` and `QueryFilter`
+ --> src/reservation_service/methods.rs:1:51
+  |
+1 | use sea_orm::{ActiveModelTrait, ActiveValue::Set, ColumnTrait, EntityTrait, QueryFilter, QueryOrder};
+  |                                                   ^^^^^^^^^^^               ^^^^^^^^^^^
+
+warning: unused import: `post`
+ --> src/reservation_service/routes.rs:1:58
+  |
+1 | use axum::{extract::{Path, Query, State}, routing::{get, post}, Json, Router};
+  |                                                          ^^^^
+
+warning: unused import: `AppError`
+ --> src/router.rs:2:27
+  |
+2 |     models::{APIResponse, AppError},
+  |                           ^^^^^^^^
+
+warning: unused imports: `delete` and `patch`
+ --> src/time_slot/routes.rs:1:53
+  |
+1 | use axum::{extract::{Path, Query, State}, routing::{delete, get, patch, post}, Json, Router};
+  |                                                     ^^^^^^       ^^^^^
+
+warning: use of `async fn` in public traits is discouraged as auto trait bounds cannot be specified
+ --> src/cli/commands.rs:3:24
+  |
+3 | pub trait CliCommand { async fn run(db: &DatabaseConnection, is_dev: &bool); }
+  |                        ^^^^^
+  |
+  = note: you can suppress this lint if you plan to use the trait only in your own code, or do not care about auto traits like `Send` on the `Future`
+  = note: `#[warn(async_fn_in_trait)]` on by default
+help: you can alternatively desugar to a normal `fn` that returns `impl Future` and add any desired bounds such as `Send`, but these cannot be relaxed without a breaking API change
+  |
+3 - pub trait CliCommand { async fn run(db: &DatabaseConnection, is_dev: &bool); }
+3 + pub trait CliCommand { fn run(db: &DatabaseConnection, is_dev: &bool) -> impl std::future::Future<Output = ()> + Send; }
+  |
+
+warning: `infera_reservation` (lib test) generated 9 warnings (9 duplicates)
+warning: `infera_reservation` (lib) generated 9 warnings (run `cargo fix --lib -p infera_reservation` to apply 8 suggestions)
+warning: unused import: `http_body_util::BodyExt`
+ --> tests/common/mod.rs:9:5
+  |
+9 | use http_body_util::BodyExt;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `admin_headers` is never used
+  --> tests/common/mod.rs:19:8
+   |
+19 | pub fn admin_headers() -> Vec<(&'static str, &'static str)> {
+   |        ^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `parse_api_data` is never used
+  --> tests/common/mod.rs:85:8
+   |
+85 | pub fn parse_api_data(body: &str) -> serde_json::Value {
+   |        ^^^^^^^^^^^^^^
+
+warning: function `parse_api_data` is never used
+  --> tests/common/mod.rs:85:8
+   |
+85 | pub fn parse_api_data(body: &str) -> serde_json::Value {
+   |        ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera_reservation` (test "health_test") generated 3 warnings (run `cargo fix --test "health_test" -p infera_reservation` to apply 1 suggestion)
+warning: `infera_reservation` (test "reservation_flow_test") generated 2 warnings (1 duplicate)
+warning: `infera_reservation` (test "service_api_test") generated 1 warning (1 duplicate)
+warning: `infera_reservation` (test "provider_api_test") generated 1 warning (1 duplicate)
+warning: `infera_reservation` (test "reservation_http_contract_test") generated 1 warning (1 duplicate)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.62s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_reservation-6b8a118f4a8ff418)
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_reservation-0a3790e3bd8494e9)
+     Running tests/health_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/health_test-09d8350ba882e172)
+     Running tests/provider_api_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/provider_api_test-be10592246095186)
+     Running tests/reservation_concurrency_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/reservation_concurrency_test-f8a018d3c09c072f)
+     Running tests/reservation_contract_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/reservation_contract_test-589d4e721c4aca6a)
+     Running tests/reservation_flow_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/reservation_flow_test-42c10c681565bbb8)
+     Running tests/reservation_http_contract_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/reservation_http_contract_test-e2d843350068cf3f)
+     Running tests/service_api_test.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/service_api_test-9044bbf55b5b7ce2)

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "kind": "correctness_regression",
+  "status": "passed",
+  "observed_at": "2026-10-19T11:28:15Z",
+  "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+  "exit_code": 0,
+  "tests_executed": 40,
+  "duration_seconds": 12.939,
+  "source_revisions": {
+    "reservation": "4ece677c98c48070fcdc3de77a714b783f73bacc"
+  },
+  "source": {
+    "revision": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+    "working_tree_status": "M README.md\n M entity/src/provider.rs\n M migration/src/lib.rs\n M src/provider/methods.rs\n M src/provider/mod.rs\n M src/provider/models.rs\n M src/provider/routes.rs\n M src/reservation/methods.rs\n M src/time_slot/methods.rs\n M tests/reservation_contract_test.rs\n?? migration/src/m20261019_000009_provider_capacity.rs\n?? src/provider/capacity.rs\n?? tests/provider_capacity_test.rs",
+    "checkout_sha256": "3f72d360a944f86e42aa1531bd7492c82ba94bc7de0ed500aa19cd1d54e0a3ef"
+  },
+  "source_after": {
+    "revision": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+    "working_tree_status": "M README.md\n M entity/src/provider.rs\n M migration/src/lib.rs\n M src/provider/methods.rs\n M src/provider/mod.rs\n M src/provider/models.rs\n M src/provider/routes.rs\n M src/reservation/methods.rs\n M src/time_slot/methods.rs\n M tests/reservation_contract_test.rs\n?? migration/src/m20261019_000009_provider_capacity.rs\n?? src/provider/capacity.rs\n?? tests/provider_capacity_test.rs",
+    "checkout_sha256": "3f72d360a944f86e42aa1531bd7492c82ba94bc7de0ed500aa19cd1d54e0a3ef"
+  },
+  "source_unchanged_during_run": true,
+  "rust_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+  "rust_sdk_working_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-summary-sdk/",
+  "rust_sdk_dependencies": {
+    "infera-idp-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-summary-sdk/",
+      "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a"
+    },
+    "infera-idp-macro": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-summary-sdk/",
+      "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80"
+    },
+    "infera-flow-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-summary-sdk/",
+      "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0"
+    }
+  },
+  "resolved_cargo_lock_sha256": "2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f",
+  "resolved_cargo_lock_artifact_path": "evidence/reservation-resolved-2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f.Cargo.lock",
+  "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+  "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+  "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+  "storage": "disposable_real_postgresql",
+  "artifact_path": "evidence/reservation-capacity-tests.log",
+  "artifact_sha256": "36a04f950a1f89b26866009857e6176f98a400895b8e8cbc6f97cfbb7804de53",
+  "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates",
+  "test_base_source_revisions": {
+    "reservation": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2"
+  },
+  "verified_commit": {
+    "revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
+    "working_tree_status": "",
+    "checkout_sha256": "3f72d360a944f86e42aa1531bd7492c82ba94bc7de0ed500aa19cd1d54e0a3ef",
+    "method": "Post-test clean committed source digest matches fenced test inputs; no rerun after commit."
+  },
+  "canonical_certification": false
+}

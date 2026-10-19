@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "kind": "unit_regression",
+  "status": "passed",
+  "command": "cargo test --offline -p faiber-core",
+  "exit_code": 0,
+  "tests_executed": 199,
+  "source_revisions": {
+    "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39"
+  },
+  "source": {
+    "revision": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
+    "working_tree_status": "?? .vscode/",
+    "checkout_sha256": "f1e9b664b396cb51b5fd6b26ed0f6d32475da9687d5061ad96a8925f83f1a96f"
+  },
+  "source_capture_note": "Post-test source digest matched the producer source independently fenced throughout the real Control\u2192Version HTTP run. Core tests are not Kubernetes acceptance.",
+  "artifact_path": "evidence/control-core-tests.log",
+  "artifact_sha256": "8f21dc5fb518c0b7b5691d2b2a93c2e5101484590381b5f2ac5a1b3cc1899aa6",
+  "resolved_cargo_lock_sha256": "b32888badcab0be87f7afbd05f3eaf6ac716f678ec10a9770fe92527c8914c16",
+  "resolved_cargo_lock_artifact_path": "evidence/control-resolved-b32888badcab0be87f7afbd05f3eaf6ac716f678ec10a9770fe92527c8914c16.Cargo.lock",
+  "dependency_note": "Control checkout lock was unchanged by the Rust test/check and retained byte-for-byte."
+}

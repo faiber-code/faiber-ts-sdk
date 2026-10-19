@@ -1,0 +1,476 @@
+{
+  "schema_version": "1.0",
+  "captured_at": "2026-10-18T14:40:32.181801+00:00",
+  "repositories": [
+    {
+      "directory": "Service/infera-asset",
+      "head": "894e73657c0044b54a0bb158fca1cdee77f6d438",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-asset.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M Cargo.lock",
+        " M migration/src/lib.rs",
+        " M panel/src/app/layout/AppSidebar.tsx",
+        " M panel/src/app/router.tsx",
+        " M panel/src/i18n/locales/en.json",
+        " M panel/src/i18n/locales/fa.json",
+        " M src/bank/methods.rs",
+        " M src/game_escrow.rs",
+        " M src/lib.rs",
+        " M src/main.rs",
+        " M src/reward/engine.rs",
+        " M src/router.rs",
+        " M src/schedule/charge_recharge.rs",
+        "?? migration/sql/",
+        "?? migration/src/m20261007_000036_scoped_reward_economy.rs",
+        "?? panel/src/features/economy/",
+        "?? panel/src/shared/components/EconomyStatusBadge.tsx",
+        "?? src/economy/",
+        "?? tests/economy_postgres.rs"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-asset-recovery",
+      "head": "496148ab3e57786548fa541d12cc7e65d53c22cf",
+      "branch": "fix/purged-project-recovery",
+      "remote": "git@hamgit.ir:infera/infera-asset.git",
+      "git_common_directory": "/Users/mohammadralizadeh/Infera/Service/infera-asset/.git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-chat",
+      "head": "7360ff93ae3f4ff36b7b79e15db8a15ea09e881d",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-chat.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M Cargo.lock",
+        " M Cargo.toml",
+        " M migration/src/lib.rs",
+        " M panel/src/i18n.ts",
+        " M panel/src/main.tsx",
+        " M src/lib.rs",
+        " M src/main.rs",
+        " M src/models.rs",
+        " M src/routes.rs",
+        " M src/service.rs",
+        " M src/workspace_answers.rs",
+        " M src/workspace_assistant.rs",
+        "?? migration/src/m20261003_000013_media_retention.rs",
+        "?? migration/src/m20261007_000015_asset_interactions.rs",
+        "?? panel/src/MediaRetentionPage.tsx",
+        "?? src/asset_economy.rs",
+        "?? src/fitness.rs",
+        "?? src/media_retention.rs",
+        "?? src/product_plans.rs",
+        "?? src/workspace_json.rs"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-control",
+      "head": "aa72a3ad9a3064949fc1045724419403e58a5ef4",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-control.git",
+      "git_common_directory": ".git",
+      "status": [
+        "?? .vscode/"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-control-domain-tls",
+      "head": "c8dd95e4ea62f2480751211cf6b34d29ffa45427",
+      "branch": "fix/custom-domain-tls",
+      "remote": "git@hamgit.ir:infera/infera-control.git",
+      "git_common_directory": "/Users/mohammadralizadeh/Infera/Service/infera-control/.git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-control-expiry",
+      "head": "044fb7384184d32a2062144fa63af686859dd57a",
+      "branch": "fix/public-project-expiry",
+      "remote": "git@hamgit.ir:infera/infera-control.git",
+      "git_common_directory": "/Users/mohammadralizadeh/Infera/Service/infera-control/.git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-control-image-cleanup",
+      "head": "e936243658f4279bbbd53e8dee4fa31877e1d45f",
+      "branch": "",
+      "remote": "git@hamgit.ir:infera/infera-control.git",
+      "git_common_directory": "/Users/mohammadralizadeh/Infera/Service/infera-control/.git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-crm",
+      "head": "6c763c989216fbecd6cfdb4c98f1067c09d17507",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-crm.git",
+      "git_common_directory": ".git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-drm",
+      "head": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-drm.git",
+      "git_common_directory": ".git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-faiber",
+      "classification": "not_git_repository"
+    },
+    {
+      "directory": "Service/infera-flow",
+      "head": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-flow.git",
+      "git_common_directory": ".git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-idp",
+      "head": "9965e90a81fa3c4844a00e710d8d31b20527fede",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-idp.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M entity/config/acl/profile_service.yaml"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-knowledge",
+      "head": "92047358a6b4dee1911d47a78621c8359716b7af",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-knowledge.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M Cargo.lock",
+        " M src/routes.rs",
+        "?? scripts/build-fit8-dishes.py",
+        "?? scripts/build-fit8-exercises.py",
+        "?? scripts/build-fit8-foods.py",
+        "?? scripts/validate-fit8-catalog.py",
+        "?? seeds/fit8/"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-lms",
+      "head": "d94f42a89b344e5b8809f62a4a4324ceda69553a",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-lms.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M entity/src/classroom_session.rs",
+        " M migration/src/lib.rs",
+        " M panel/src/features/classrooms/pages/ClassroomSessionFormPage.tsx",
+        " M panel/src/i18n/locales/en.json",
+        " M panel/src/i18n/locales/fa.json",
+        " M panel/src/shared/types/lms.ts",
+        " M src/access.rs",
+        " M src/ai_summary/methods.rs",
+        " M src/ai_summary/scheduler.rs",
+        " M src/broker.rs",
+        " M src/classroom/methods.rs",
+        " M src/classroom/models.rs",
+        " M src/classroom/scheduler.rs",
+        " M src/cli.rs",
+        " M src/exam/methods.rs",
+        " M src/exam/models.rs",
+        " M src/homework/methods.rs",
+        " M src/homework/models.rs",
+        " M src/homework/routes.rs",
+        " M src/lib.rs",
+        " M src/main.rs",
+        "?? migration/src/m20261007_000033_asset_outbox_retry.rs",
+        "?? migration/src/m20261018_000034_session_students.rs",
+        "?? panel/src/features/classrooms/components/SessionStudentPicker.test.tsx",
+        "?? panel/src/features/classrooms/components/SessionStudentPicker.tsx",
+        "?? src/asset_economy.rs",
+        "?? src/service_billing.rs",
+        "?? tests/classroom_session_students_test.rs"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-manage",
+      "head": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-manage.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M Cargo.lock"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-manage-admin",
+      "head": "51806d958ec247c48c3c49025f52d269ad6cc5df",
+      "branch": "fix/project-admin-lifecycle",
+      "remote": "git@hamgit.ir:infera/infera-manage.git",
+      "git_common_directory": "/Users/mohammadralizadeh/Infera/Service/infera-manage/.git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-messenger",
+      "head": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-messenger.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M Cargo.lock",
+        " M Cargo.toml",
+        " M migration/src/lib.rs",
+        " M src/lib.rs",
+        " M src/main.rs",
+        " M src/notification/channels/push.rs",
+        " M src/router.rs",
+        "?? migration/src/m20260923_000011_web_push.rs",
+        "?? src/web_push.rs"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-modules",
+      "head": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-modules.git",
+      "git_common_directory": ".git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-payment",
+      "head": "9c9418bfbdb4ce37c0bca86a359e051f138fe17d",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-payment.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M Cargo.toml",
+        " M migration/src/lib.rs",
+        " M src/handler.rs",
+        " M src/lib.rs",
+        " M src/main.rs",
+        " M src/payment/methods.rs",
+        " M src/payment/models.rs",
+        " M tests/payment_flow_test.rs",
+        " M tests/payment_validation_test.rs",
+        "?? migration/src/m20261007_000007_payment_result_outbox.rs",
+        "?? src/result_outbox.rs"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-profile",
+      "head": "5b32bc1f9b8f762ddbaac2abc16b14dd3d34034b",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-profile.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M Cargo.lock",
+        " M README.md",
+        " M entity/src/profile.rs",
+        " M migration/src/lib.rs",
+        " M src/broker/handlers.rs",
+        " M src/broker/mod.rs",
+        " M src/custom_type/methods.rs",
+        " M src/custom_type/routes.rs",
+        " M src/lib.rs",
+        " M src/profile/dynamic.rs",
+        " M src/profile/filters.rs",
+        " M src/profile/models.rs",
+        " M src/profile/routes.rs",
+        " M src/profile/transformers.rs",
+        " M src/profile_property/validator.rs",
+        " M src/profile_search/methods.rs",
+        " M src/profile_search/planner.rs",
+        " M src/profile_search/rebuild.rs",
+        " M src/router.rs",
+        " M src/session/routes.rs",
+        " M src/trusted_service/methods.rs",
+        " M tests/broker_integration.rs",
+        " M tests/dynamic_filters_postgres.rs",
+        " M tests/partial_search_postgres.rs",
+        "?? migration/src/m20260922_000017_fitness_coaching.rs",
+        "?? migration/src/m20260922_000017_fitness_coaching.sql",
+        "?? migration/src/m20261003_000018_restore_education.rs",
+        "?? migration/src/m20261018_000020_index_substring_search.rs",
+        "?? migration/src/m20261018_000020_index_substring_search.sql",
+        "?? src/economy_projection.rs",
+        "?? src/education.rs",
+        "?? src/fitness/",
+        "?? tests/education_contract.rs",
+        "?? tests/search_performance_postgres.rs"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-reservation",
+      "head": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-reservation.git",
+      "git_common_directory": ".git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-session",
+      "head": "edefa6463fe1877661cc62ef4752515262c71e00",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-session.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M Cargo.lock",
+        " M migration/src/lib.rs",
+        " M src/broker.rs",
+        " M src/likekit.rs",
+        " M src/main.rs",
+        " M src/room/asset_actions.rs",
+        " M src/room/methods.rs",
+        " M src/room/moderation.rs",
+        " M src/room/routes.rs",
+        " M src/router.rs",
+        " M view/src/api.ts",
+        " M view/src/main.tsx",
+        "?? migration/src/m20261007_000021_asset_interactions.rs",
+        "?? migration/src/m20261007_000022_asset_outbox_retry.rs",
+        "?? src/asset_economy.rs"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-social",
+      "head": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-social.git",
+      "git_common_directory": ".git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-state",
+      "head": "6be433e043caddb2d1a5761562cfc42bd0c67190",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-state.git",
+      "git_common_directory": ".git",
+      "status": [],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera-task",
+      "head": "afe576aac58ff0812635dedccfdcaed39519062a",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-task.git",
+      "git_common_directory": ".git",
+      "status": [
+        "M migration/src/m20260927_000013_gift_capacity.rs",
+        " M src/plans.rs",
+        " M tests/product_plans.rs"
+      ],
+      "agent_instructions": true
+    },
+    {
+      "directory": "Service/infera_version",
+      "head": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera_version.git",
+      "git_common_directory": ".git",
+      "status": [],
+      "agent_instructions": false
+    },
+    {
+      "directory": "infera-agentic",
+      "head": "6adb76c4a22e044cb92673ef9104658973c2d766",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-agentic.git",
+      "status": [
+        "M Cargo.lock",
+        "?? docs/KNOWLEDGE_BRAIN_IMPLEMENTATION_PLAN.md",
+        "?? templates/validation/empty-live-deployment-browser.json",
+        "?? templates/validation/model-previews/catalog-media-review.jpg",
+        "?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/",
+        "?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/",
+        "?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/",
+        "?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png",
+        "?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png"
+      ]
+    },
+    {
+      "directory": "infera-panel",
+      "head": "5d90860cdcec6097a5833d535060c22c2cc0d8f5",
+      "branch": "main",
+      "remote": "git@hamgit.ir:infera/infera-panel.git",
+      "status": []
+    },
+    {
+      "directory": "faiber-ts-sdk",
+      "head": "56e3db403c8beb4eab686448112670a603e609bc",
+      "branch": "main",
+      "remote": "git@github.com:faiber-code/faiber-ts-sdk.git",
+      "status": []
+    }
+  ],
+  "pastil": {
+    "source": "/Users/mohammadralizadeh/Infera/acceptance-results/pastil/progress.json",
+    "sha256": "cea94d1be10cc6c5ca29a8b9f9d2ebae1d7e7ac73b4972b8e29b51319b691568",
+    "verified_at": "2026-10-18T14:28:02.266222+00:00",
+    "state": "Authorized public/API acceptance completed; published app and platform revisions are healthy. Provider credentials and signed-in customer-club testing remain deferred at user request.",
+    "revisions": {
+      "panel_revision": "5d90860cdcec",
+      "backend_revision": "6adb76c4a22e",
+      "control_revision": "aa72a3ad9a30",
+      "profile_revision": "96e944e6",
+      "manage_revision": "a13caa6019e3",
+      "worker_revision": "b6d49e118aee-4896981934",
+      "app_revision": "6d473a43466f-f1cf4b68a1"
+    },
+    "model_defaults": {
+      "project_creation": "cloud:faiber:gpt-6-luna",
+      "ask_chat": "cloud:faiber:gpt-6-luna",
+      "code_design": "cloud:faiber:gpt-6.1-sol",
+      "auto_planning": "gpt-6.1-sol",
+      "auto_implementation": "gpt-6.1-sol",
+      "retired_model": "gpt-6-sol",
+      "provider_retirement_verified": true
+    },
+    "final_validation": {
+      "control_core_tests": 199,
+      "control_server_check": "passed",
+      "agent_model_policy_and_defaults_tests": 14,
+      "provider_seed_test": 1,
+      "existing_app_port_transport_test": 1,
+      "native_sdk_catalog_snapshot_test": 1,
+      "creation_workflow_tests": 4,
+      "code_pipeline_tests": 93,
+      "panel_build": "passed",
+      "panel_lifecycle_and_stream_tests": 11,
+      "provider_credentials": "intentionally deferred",
+      "signed_in_customer_club": "deferred at user request"
+    },
+    "intentional_exclusions": [
+      "payment/SMS provider credentials",
+      "signed-in customer-club acceptance"
+    ]
+  },
+  "gates": {
+    "discovery": "in_progress",
+    "sdk": "pending_discovery",
+    "manage": "pending_sdk",
+    "knowledge_publication": "pending_manage",
+    "memory_cutover": "pending_verified_knowledge"
+  }
+}

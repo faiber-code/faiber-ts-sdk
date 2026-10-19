@@ -1,0 +1,53 @@
+warning: patch `infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-asset-sdk)` was not used in the crate graph
+warning: patch `infera-flow-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk)` was not used in the crate graph
+warning: patch `infera-idp-macro v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-macro)` was not used in the crate graph
+warning: patch `infera-idp-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-sdk)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+warning: patch `infera-profile-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-profile-sdk)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Checking faiber-core v1.0.0 (/Users/mohammadralizadeh/Infera/Service/infera-control/crates/faiber-core)
+warning: function `arvan_a_is_current` is never used
+  --> crates/faiber-core/src/dns.rs:95:4
+   |
+95 | fn arvan_a_is_current(item: &serde_json::Value, ip: &str) -> bool {
+   |    ^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `dns_fqdn` is never used
+   --> crates/faiber-core/src/dns.rs:104:4
+    |
+104 | fn dns_fqdn(zone: &str, name: &str) -> String {
+    |    ^^^^^^^^
+
+warning: methods `delete_a_records`, `ensure_mx_record`, `ensure_txt_record`, `arvan_delete`, and `cf_delete` are never used
+   --> crates/faiber-core/src/dns.rs:299:25
+    |
+131 | impl Faiber {
+    | ----------- methods in this implementation
+...
+299 |     pub(crate) async fn delete_a_records(&self, name: &str) {
+    |                         ^^^^^^^^^^^^^^^^
+...
+381 |     pub(crate) async fn ensure_mx_record(&self, name: &str, priority: u16, target: &str) {
+    |                         ^^^^^^^^^^^^^^^^
+...
+407 |     pub(crate) async fn ensure_txt_record(&self, name: &str, value: &str) {
+    |                         ^^^^^^^^^^^^^^^^^
+...
+546 |     async fn arvan_delete(&self, zone: &str, key: &str, name: &str) {
+    |              ^^^^^^^^^^^^
+...
+655 |     async fn cf_delete(&self, zone: &str, token: &str, name: &str) {
+    |              ^^^^^^^^^
+
+warning: `faiber-core` (lib) generated 3 warnings
+    Checking faiber-server v1.0.0 (/Users/mohammadralizadeh/Infera/Service/infera-control/crates/faiber-server)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.87s

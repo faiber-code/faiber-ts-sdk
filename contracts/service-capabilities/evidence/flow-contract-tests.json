@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "kind": "correctness_regression",
+  "status": "not_executed_dependency_blocked",
+  "observed_at": "2026-10-19T10:44:03Z",
+  "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+  "exit_code": 101,
+  "tests_executed": 0,
+  "tests_passed": 0,
+  "tests_failed": 0,
+  "tests_ignored": 0,
+  "duration_seconds": 0.155,
+  "source_revisions": {
+    "flow": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
+  },
+  "source": {
+    "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+    "working_tree_status": "M migration/src/lib.rs\n M src/run/methods.rs\n M src/run/routes.rs\n?? migration/src/m20261019_000002_index_run_history.rs\n?? tests/run_history_contract_test.rs",
+    "checkout_sha256": "7409b4b44d2fcff2488225a2a9d98de2cdd81dec2cb3b064768703f5659ffd01"
+  },
+  "rust_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+  "rust_sdk_working_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+  "rust_sdk_dependencies": {
+    "infera-idp-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+      "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a"
+    },
+    "infera-idp-macro": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+      "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80"
+    },
+    "infera-flow-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+      "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0"
+    }
+  },
+  "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+  "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+  "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+  "storage": "disposable_real_postgresql",
+  "artifact_path": "evidence/flow-contract-tests.log",
+  "artifact_sha256": "805d13e16dfd69ab5d20016e7be23e5a1b21082c56bcec929893441f6cdf3828",
+  "scope": "Flow full Rust suite, real PostgreSQL/RabbitMQ, bounded filtered cursor history and real HTTP current-identity/permission checks; gateway/IDP identity, SDK and Manage journeys remain separate gates",
+  "input_cargo_lock_sha256": "64fbd172f83c6b042f3d0d1e601190749c2ac22fdc212a7ca3230cb91c5ccc5c",
+  "input_cargo_lock_artifact_path": "evidence/flow-unresolved-input-64fbd172f83c6b042f3d0d1e601190749c2ac22fdc212a7ca3230cb91c5ccc5c.Cargo.lock",
+  "dependency_resolution_status": "not_resolved_missing_slug",
+  "limitations": [
+    "No Flow test executed or compilation completed; missing cached slug package.",
+    "Explicit bounded online fetch with CARGO_NET_OFFLINE=false failed with crates.io SSL connection timeout.",
+    "No local patch is certified or deployed."
+  ]
+}

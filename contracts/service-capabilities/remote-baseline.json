@@ -1,0 +1,120 @@
+{
+  "captured_at": "2026-10-19T08:34:28.303156+00:00",
+  "repositories": {
+    "asset": {
+      "fetch_exit": 0,
+      "origin_main": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
+      "directory": "Service/infera-asset"
+    },
+    "chat": {
+      "fetch_exit": 0,
+      "origin_main": "d495217f85d77270865a040c1328d70c620e6c9d",
+      "directory": "Service/infera-chat"
+    },
+    "crm": {
+      "fetch_exit": 0,
+      "origin_main": "6c763c989216fbecd6cfdb4c98f1067c09d17507",
+      "directory": "Service/infera-crm"
+    },
+    "drm": {
+      "fetch_exit": 0,
+      "origin_main": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+      "directory": "Service/infera-drm"
+    },
+    "flow": {
+      "fetch_exit": 0,
+      "origin_main": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+      "directory": "Service/infera-flow"
+    },
+    "idp": {
+      "fetch_exit": 0,
+      "origin_main": "9965e90a81fa3c4844a00e710d8d31b20527fede",
+      "directory": "Service/infera-idp"
+    },
+    "knowledge": {
+      "fetch_exit": 0,
+      "origin_main": "70b8a21721dd34125b8f0e167e06da9ad3287223",
+      "directory": "Service/infera-knowledge"
+    },
+    "lms": {
+      "fetch_exit": 0,
+      "origin_main": "7a0315c39ac53df3ad6c6ca53fbe574f19046e52",
+      "directory": "Service/infera-lms"
+    },
+    "messenger": {
+      "fetch_exit": 0,
+      "origin_main": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
+      "directory": "Service/infera-messenger"
+    },
+    "modules": {
+      "fetch_exit": 0,
+      "origin_main": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
+      "directory": "Service/infera-modules"
+    },
+    "payment": {
+      "fetch_exit": 0,
+      "origin_main": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2",
+      "directory": "Service/infera-payment"
+    },
+    "profile": {
+      "fetch_exit": 0,
+      "origin_main": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0",
+      "directory": "Service/infera-profile"
+    },
+    "reservation": {
+      "fetch_exit": 0,
+      "origin_main": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
+      "directory": "Service/infera-reservation"
+    },
+    "session": {
+      "fetch_exit": 0,
+      "origin_main": "4c5eefc4062e8e522795478c8dd7d55e48a0c9fc",
+      "directory": "Service/infera-session"
+    },
+    "social": {
+      "fetch_exit": 0,
+      "origin_main": "79462976a1c07e7ef8eb913d7cc7015dd50f936e",
+      "directory": "Service/infera-social"
+    },
+    "state": {
+      "fetch_exit": 0,
+      "origin_main": "6be433e043caddb2d1a5761562cfc42bd0c67190",
+      "directory": "Service/infera-state"
+    },
+    "task": {
+      "fetch_exit": 0,
+      "origin_main": "badfa399a8db6f19d68f63f14b1c67485c4d4903",
+      "directory": "Service/infera-task"
+    },
+    "version": {
+      "fetch_exit": 0,
+      "origin_main": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+      "directory": "Service/infera_version"
+    },
+    "manage": {
+      "fetch_exit": 0,
+      "origin_main": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "directory": "Service/infera-manage"
+    },
+    "agentic": {
+      "fetch_exit": 0,
+      "origin_main": "6adb76c4a22e044cb92673ef9104658973c2d766",
+      "directory": "infera-agentic"
+    },
+    "control": {
+      "fetch_exit": 0,
+      "origin_main": "aa72a3ad9a3064949fc1045724419403e58a5ef4",
+      "directory": "Service/infera-control"
+    },
+    "sdk": {
+      "fetch_exit": 0,
+      "origin_main": "56e3db403c8beb4eab686448112670a603e609bc",
+      "directory": "faiber-ts-sdk"
+    },
+    "panel": {
+      "fetch_exit": 0,
+      "origin_main": "5d90860cdcec6097a5833d535060c22c2cc0d8f5",
+      "directory": "infera-panel"
+    }
+  }
+}

@@ -24,6 +24,13 @@ test("contract extraction finds the sibling services tree and emits portable mou
     assert.ok(manifest.knowledge.some(endpoint => endpoint.path === "/api/v1/runtime/assistants/{assistant_id}/query"));
     assert.ok(manifest.knowledge.some(endpoint => endpoint.path === "/internal/task-projections/sync"));
     assert.ok(!manifest.knowledge.some(endpoint => endpoint.path === "/api/v1/assistants/{assistant_id}/query"));
+    const socialOverview = manifest.social.find(endpoint => endpoint.method === "GET" && endpoint.path === "/api/v1/admin/social/overview");
+    assert.ok(socialOverview, "the mounted Social administrative router must not be silently omitted");
+    assert.deepEqual(socialOverview.permissions, ["social:panel:view"]);
+    assert.ok(manifest.social.some(endpoint => endpoint.method === "POST" && endpoint.path === "/api/v1/admin/social/claims/{id}/approve"));
+    assert.ok(!manifest.social.some(endpoint => endpoint.path === "/api/v1/overview"), "nested admin routes must keep their complete mount prefix");
+    assert.ok(manifest.version.some(endpoint=>endpoint.path==='/health'&&endpoint.handler==='status_route'));
+    assert.ok(!manifest.version.some(endpoint=>endpoint.path==='/'&&endpoint.handler==='status_route'), 'stale OpenAPI annotations cannot override the mounted health path');
     const upload = manifest.task.find(endpoint => endpoint.method === "POST" && endpoint.path === "/api/v1/work-items/{id}/attachments");
     assert.equal(upload.handlerModule, "attachments", "qualified type resolution must use the owning handler module");
     const drmOperationsSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/api/v1/operations/settings");

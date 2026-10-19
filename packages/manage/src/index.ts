@@ -99,9 +99,16 @@ export class ManageApi extends ServiceApi {
     );
   }
 
-  /** Lists durable Agentic threads owned by the active Manage user. */
+  /** Lists the first page of current-project Manage threads owned by the active user. */
   listAgentThreads(options?: RequestOptions) {
     return this.client.get<T.ManageAgentThreadResponse[]>("/api/v1/agent/chat/threads", undefined, options);
+  }
+
+  /** Lists a page; read x-has-more and x-next-before from the returned Axios headers.
+   * Pass x-next-before as before for the next page. Limits must be integers1..100.
+   */
+  listAgentThreadsPage(query: T.ManageAgentThreadQuery = {}, options?: RequestOptions) {
+    return this.client.get<T.ManageAgentThreadResponse[]>("/api/v1/agent/chat/threads", query, options);
   }
 
   /** Gets durable messages for one Agentic thread, including snapshot change metadata when present. */

@@ -1,0 +1,667 @@
+{
+  "reservation-contract-integrity": {
+    "schema_version": "1.0",
+    "kind": "correctness_regression",
+    "status": "passed",
+    "observed_at": "2026-10-19T09:20:48Z",
+    "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 21,
+    "duration_seconds": 2.6,
+    "source_revisions": {
+      "reservation": "868aa40011780194795848fcb60b85972cfd6076"
+    },
+    "source": {
+      "revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "working_tree_status": "",
+      "checkout_sha256": "cb298c26c593455cf0437be722f5e2afde23b9c11be64f01dbf36537b854bef1"
+    },
+    "rust_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+    "rust_sdk_working_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+    "rust_sdk_dependencies": {
+      "infera-idp-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a"
+      },
+      "infera-idp-macro": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80"
+      },
+      "infera-flow-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0"
+      }
+    },
+    "resolved_cargo_lock_sha256": "2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f",
+    "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+    "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+    "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+    "storage": "disposable_real_postgresql",
+    "artifact_path": "evidence/reservation-contract-integrity-868aa.log",
+    "artifact_sha256": "920451ea0c4851eca1c2c0421d65ce01df88a02d9704182a48aae9667a09de18",
+    "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates",
+    "resolved_cargo_lock_artifact_path": "evidence/reservation-resolved-2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f.Cargo.lock",
+    "resolved_lock_artifact_note": "Exact bytes recovered by offline test-target resolution without executing tests; SHA256 matches the originally recorded test resolution. Original checkout lock restored.",
+    "artifact_normalization": "Trailing blank lines removed; test output content unchanged"
+  },
+  "reservation-generation": {
+    "schema_version": "1.0",
+    "kind": "correctness_regression",
+    "status": "passed",
+    "observed_at": "2026-10-19T10:13:13Z",
+    "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 25,
+    "duration_seconds": 2.254,
+    "source_revisions": {
+      "reservation": "83b2ad0f614ed483dad7e5d19432a8c0b6934e38"
+    },
+    "source": {
+      "revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "working_tree_status": "M README.md\n M src/time_slot/methods.rs\n M tests/reservation_contract_test.rs",
+      "checkout_sha256": "badeaafa8013400353de6a024fbaac2eeffe71d42c878b0c1f2d0558dc46f098"
+    },
+    "rust_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+    "rust_sdk_working_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+    "rust_sdk_dependencies": {
+      "infera-idp-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a"
+      },
+      "infera-idp-macro": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80"
+      },
+      "infera-flow-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0"
+      }
+    },
+    "resolved_cargo_lock_sha256": "2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f",
+    "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+    "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+    "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+    "storage": "disposable_real_postgresql",
+    "artifact_path": "evidence/reservation-generation-tests.log",
+    "artifact_sha256": "6e6039cb6b24fbfae51fa868e47b90d6bbc2e48c8cac82ac707354bf77aa486f",
+    "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates",
+    "verified_commit": {
+      "revision": "83b2ad0f614ed483dad7e5d19432a8c0b6934e38",
+      "checkout_sha256": "badeaafa8013400353de6a024fbaac2eeffe71d42c878b0c1f2d0558dc46f098",
+      "method": "post-test clean committed source digest matched the tested working source; no tests rerun"
+    },
+    "test_base_source_revisions": {
+      "reservation": "868aa40011780194795848fcb60b85972cfd6076"
+    },
+    "resolved_cargo_lock_artifact_path": "evidence/reservation-resolved-2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f.Cargo.lock",
+    "resolved_lock_artifact_note": "Exact bytes recovered by offline test-target resolution without executing tests; SHA256 matches the originally recorded test resolution. Original checkout lock restored.",
+    "artifact_normalization": "Trailing blank lines removed; test output content unchanged"
+  },
+  "reservation-slot-integrity": {
+    "schema_version": "1.0",
+    "kind": "correctness_regression",
+    "status": "passed",
+    "observed_at": "2026-10-19T10:20:18Z",
+    "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 29,
+    "duration_seconds": 11.716,
+    "source_revisions": {
+      "reservation": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d"
+    },
+    "source": {
+      "revision": "83b2ad0f614ed483dad7e5d19432a8c0b6934e38",
+      "working_tree_status": "M README.md\n M src/time_slot/methods.rs\n M tests/reservation_contract_test.rs",
+      "checkout_sha256": "7464eae48c5b96663d9cc8af8e85667bbb31528c57e5b533613626d9ba54982c"
+    },
+    "rust_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+    "rust_sdk_working_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+    "rust_sdk_dependencies": {
+      "infera-idp-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a"
+      },
+      "infera-idp-macro": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80"
+      },
+      "infera-flow-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0"
+      }
+    },
+    "resolved_cargo_lock_sha256": "2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f",
+    "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+    "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+    "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+    "storage": "disposable_real_postgresql",
+    "artifact_path": "evidence/reservation-slot-integrity-tests.log",
+    "artifact_sha256": "ac4c69009182dafae94ffb37720b151ca3b859bc0f0b6232d9d5f39b12dc2ef9",
+    "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates",
+    "verified_commit": {
+      "revision": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d",
+      "checkout_sha256": "7464eae48c5b96663d9cc8af8e85667bbb31528c57e5b533613626d9ba54982c",
+      "method": "post-test clean committed source digest matched the tested working source; no tests rerun"
+    },
+    "test_base_source_revisions": {
+      "reservation": "83b2ad0f614ed483dad7e5d19432a8c0b6934e38"
+    },
+    "resolved_cargo_lock_artifact_path": "evidence/reservation-resolved-2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f.Cargo.lock",
+    "resolved_lock_artifact_note": "Exact bytes recovered by offline test-target resolution without executing tests; SHA256 matches the originally recorded test resolution. Original checkout lock restored.",
+    "artifact_normalization": "Trailing blank lines removed; test output content unchanged"
+  },
+  "agentic-source-preservation": {
+    "schema_version": "1.0",
+    "status": "passed",
+    "kind": "source_preservation_correctness",
+    "observed_at": "2026-10-19T10:04:13Z",
+    "command": "cargo test --offline -p infera_agentic ide::history_retention -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 13,
+    "duration_seconds": 16.702,
+    "source": {
+      "revision": "6adb76c4a22e044cb92673ef9104658973c2d766",
+      "working_tree_status": "M .env.example\n M Cargo.lock\n M domain/src/agent_runtime.rs\n M src/agent_runtime/service.rs\n M src/ide/agent_stream.rs\n M src/ide/mod.rs\n M src/ide/snapshots.rs\n M src/ide/summarize.rs\n M src/ide/threads.rs\n?? docs/KNOWLEDGE_BRAIN_IMPLEMENTATION_PLAN.md\n?? docs/verification/\n?? scripts/verify-history-retention.py\n?? src/ide/history_retention.rs\n?? templates/validation/empty-live-deployment-browser.json\n?? templates/validation/model-previews/catalog-media-review.jpg\n?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/\n?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/\n?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png",
+      "checkout_sha256": "996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c",
+      "files_hashed": 348,
+      "included_paths": [
+        "src",
+        "domain",
+        "ide_core",
+        "code_pipeline",
+        "faiber-agent-core",
+        "worker_agent",
+        "vendor",
+        "Cargo.toml",
+        "Cargo.lock",
+        ".cargo",
+        "build.rs",
+        "rust-toolchain.toml"
+      ]
+    },
+    "dependency_sources": {
+      "faiber-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "cf6a8982ed5cc13c30433dee8a09621a585431fa2127ca179d953857d84edda2",
+        "files_hashed": 64,
+        "included_paths": [
+          "crates",
+          "Cargo.toml",
+          "Cargo.lock",
+          ".cargo"
+        ]
+      }
+    },
+    "tests_passed": 13,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_revisions": {
+      "agentic": "working-tree-sha256:996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c"
+    },
+    "resolved_cargo_lock_sha256": "568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959",
+    "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+    "mongodb_image": "sha256:fd61624c38a6ddd1b3b8083edbec23b52b35ff1ff7ad78a74f76e77cfd5fad27",
+    "storage": "owned_disposable_real_replica_and_standalone_mongodb",
+    "artifact_path": "evidence/agentic-history-retention-tests.log",
+    "artifact_sha256": "2b67adb101267bba6fa95a973567e142db7f14d3771869e1d735577c01b90fe7",
+    "limitations": [
+      "No model/provider requests, billing, live deployment or Knowledge memory adoption performed",
+      "Full personal/project memory epochs, Chat delivery, semantic fact identity and complete model-request budgeting remain later hard gates"
+    ],
+    "artifact_normalization": "Trailing blank lines removed; test output content unchanged",
+    "test_base_source_revisions": {
+      "agentic": "6adb76c4a22e044cb92673ef9104658973c2d766"
+    },
+    "local_implementation_commits": [
+      "6a9da3df",
+      "7fe2de869b15b122d3a90486f9ad940742da5fca"
+    ],
+    "canonical_certification": false,
+    "binding_note": "Exact working source/dependency digests verified after local commits; pre-existing dirty lockfile retained. Does not certify old base/canonical revision.",
+    "resolved_cargo_lock_artifact_path": "evidence/agentic-resolved-568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959.Cargo.lock",
+    "resolved_lock_artifact_note": "Exact lock bytes recovered by offline test-target resolution without executing tests; hash matches the recorded test resolution. Pre-existing checkout lock restored."
+  },
+  "agentic-ide-regression": {
+    "schema_version": "1.0",
+    "status": "passed",
+    "command": "cargo test --offline -p infera_agentic ide:: -- --skip ide::history_retention",
+    "exit_code": 0,
+    "tests_executed": 160,
+    "tests_passed": 160,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "duration_seconds": 0.72,
+    "artifact_path": "evidence/agentic-ide-regression-tests.log",
+    "artifact_sha256": "54d21b28a7cbe9266e8202a9c584c777b174208d2470359ca934bfc704685499",
+    "source_basis": "Exact expanded working-source and local dependency digests; actual resolved lock retained for this run.",
+    "source": {
+      "revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+      "working_tree_status": "M Cargo.lock\n?? templates/validation/empty-live-deployment-browser.json\n?? templates/validation/model-previews/catalog-media-review.jpg\n?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/\n?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/\n?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png",
+      "checkout_sha256": "996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c",
+      "files_hashed": 348,
+      "included_paths": [
+        "src",
+        "domain",
+        "ide_core",
+        "code_pipeline",
+        "faiber-agent-core",
+        "worker_agent",
+        "vendor",
+        "Cargo.toml",
+        "Cargo.lock",
+        ".cargo",
+        "build.rs",
+        "rust-toolchain.toml"
+      ]
+    },
+    "dependency_sources": {
+      "faiber-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "cf6a8982ed5cc13c30433dee8a09621a585431fa2127ca179d953857d84edda2",
+        "files_hashed": 64,
+        "included_paths": [
+          "crates",
+          "Cargo.toml",
+          "Cargo.lock",
+          ".cargo"
+        ]
+      }
+    },
+    "artifact_normalization": "Trailing blank lines removed; test output content unchanged",
+    "test_base_source_revisions": {
+      "agentic": "7fe2de869b15b122d3a90486f9ad940742da5fca"
+    },
+    "source_revisions": {
+      "agentic": "working-tree-sha256:996c99be0ef75665996e91d016b7071688b86d0f0b9d27de24beaed991aeb74c"
+    },
+    "local_implementation_commits": [
+      "6a9da3df",
+      "7fe2de869b15b122d3a90486f9ad940742da5fca"
+    ],
+    "canonical_certification": false,
+    "binding_note": "Exact working source/dependency digests verified after local commits; pre-existing dirty lockfile retained. Does not certify old base/canonical revision.",
+    "resolved_cargo_lock_artifact_path": "evidence/agentic-resolved-568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959.Cargo.lock",
+    "resolved_lock_artifact_note": "Captured from this regression run before restoring the pre-existing checkout lock.",
+    "observed_at": "2026-10-19T10:32:50Z",
+    "resolved_cargo_lock_sha256": "568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959"
+  },
+  "reservation-parent-history": {
+    "schema_version": "1.0",
+    "kind": "correctness_regression",
+    "status": "passed",
+    "observed_at": "2026-10-19T10:24:15Z",
+    "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 32,
+    "duration_seconds": 18.323,
+    "source_revisions": {
+      "reservation": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2"
+    },
+    "source": {
+      "revision": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d",
+      "working_tree_status": "M migration/src/lib.rs\n M src/models.rs\n M src/provider/methods.rs\n M src/reservation_service/methods.rs\n M tests/reservation_contract_test.rs\n?? migration/src/m20261019_000008_preserve_reservation_history.rs",
+      "checkout_sha256": "75d9ee268c8361c91320179c24a6c2541094964b5f7ac11a31416eb65527d3fc"
+    },
+    "rust_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+    "rust_sdk_working_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+    "rust_sdk_dependencies": {
+      "infera-idp-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a"
+      },
+      "infera-idp-macro": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80"
+      },
+      "infera-flow-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs",
+        "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0"
+      }
+    },
+    "resolved_cargo_lock_sha256": "2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f",
+    "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+    "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+    "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+    "storage": "disposable_real_postgresql",
+    "artifact_path": "evidence/reservation-parent-history-tests.log",
+    "artifact_sha256": "da136e3587fb93f6e5d22bf40010e6e19310af7ea61bd773c2c5607bf70c69f0",
+    "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates",
+    "verified_commit": {
+      "revision": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+      "checkout_sha256": "75d9ee268c8361c91320179c24a6c2541094964b5f7ac11a31416eb65527d3fc",
+      "method": "post-test clean committed source digest matched the tested working source; no tests rerun"
+    },
+    "test_base_source_revisions": {
+      "reservation": "939d904fbc31b568fef9b1e56ad9ac88ed3e1a5d"
+    },
+    "resolved_cargo_lock_artifact_path": "evidence/reservation-resolved-2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f.Cargo.lock",
+    "resolved_lock_artifact_note": "Exact bytes recovered by offline test-target resolution without executing tests; SHA256 matches the originally recorded test resolution. Original checkout lock restored.",
+    "artifact_normalization": "Trailing blank lines removed; test output content unchanged"
+  },
+  "version-local-contracts": {
+    "schema_version": "1.0",
+    "kind": "correctness_regression",
+    "status": "passed",
+    "observed_at": "2026-10-19T10:53:05Z",
+    "command": "cargo test --offline --workspace -- --include-ignored --test-threads=1",
+    "source_unchanged_during_run": true,
+    "exit_code": 0,
+    "tests_executed": 11,
+    "tests_passed": 11,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "duration_seconds": 88.516,
+    "source_revisions": {
+      "version": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+      "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39"
+    },
+    "source": {
+      "revision": "ed076557d2551b9f3dc9e1eba2d65a8522237f14",
+      "working_tree_status": "M src/contract_tests.rs",
+      "checkout_sha256": "3aea20aa71f4db54067c56c260816fc5270823de705c5171bf9009ea95d833b8"
+    },
+    "control_source": {
+      "revision": "aa72a3ad9a3064949fc1045724419403e58a5ef4",
+      "working_tree_status": "M crates/faiber-core/src/ops/apk.rs\n?? .vscode/\n?? crates/faiber-core/src/ops/apk/publish_release.js",
+      "checkout_sha256": "f1e9b664b396cb51b5fd6b26ed0f6d32475da9687d5061ad96a8925f83f1a96f"
+    },
+    "control_publisher_script_sha256": "328c7c030aac3ecbe94733678805ed8c43a5f449a68e02680c236fd2158b951d",
+    "node": "v22.13.1",
+    "resolved_cargo_lock_sha256": "adfa7ef967ae50333efebb1edc1a634b55ddd4edc262756b7b1e198ae4745383",
+    "resolved_cargo_lock_artifact_path": "evidence/version-resolved-adfa7ef967ae50333efebb1edc1a634b55ddd4edc262756b7b1e198ae4745383.Cargo.lock",
+    "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+    "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+    "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+    "storage": "disposable_real_postgresql",
+    "artifact_path": "evidence/version-contract-tests.log",
+    "artifact_sha256": "31ebd0ad5b47cdde915c038392fe13cff0bdd3d8d0ef93a0296979c3da808f9a",
+    "scope": "Version workspace tests, real PostgreSQL/RabbitMQ and mounted HTTP router: health, slug/UUID, enum/envelope, trusted publication, retry/concurrency and rollback. Gateway, deployed sandbox routing, SDK and Manage acceptance remain separate gates; real Control publisher script performs HTTP receipt/read-back and exposes persisted partial outcomes; Kubernetes Secret/job orchestration, durable server receipts and APK bytes remain unverified",
+    "test_base_source_revisions": {
+      "version": "ed076557d2551b9f3dc9e1eba2d65a8522237f14",
+      "control": "aa72a3ad9a3064949fc1045724419403e58a5ef4"
+    },
+    "verified_commits": {
+      "version": {
+        "revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
+        "checkout_sha256": "3aea20aa71f4db54067c56c260816fc5270823de705c5171bf9009ea95d833b8"
+      },
+      "control": {
+        "revision": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
+        "checkout_sha256": "f1e9b664b396cb51b5fd6b26ed0f6d32475da9687d5061ad96a8925f83f1a96f"
+      }
+    },
+    "verified_commit_note": "Both committed source digests match the tested inputs; source remained unchanged through the real HTTP run.",
+    "canonical_certification": false
+  },
+  "control-core-local": {
+    "schema_version": "1.0",
+    "kind": "unit_regression",
+    "status": "passed",
+    "command": "cargo test --offline -p faiber-core",
+    "exit_code": 0,
+    "tests_executed": 199,
+    "source_revisions": {
+      "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39"
+    },
+    "source": {
+      "revision": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
+      "working_tree_status": "?? .vscode/",
+      "checkout_sha256": "f1e9b664b396cb51b5fd6b26ed0f6d32475da9687d5061ad96a8925f83f1a96f"
+    },
+    "source_capture_note": "Post-test source digest matched the producer source independently fenced throughout the real Control\u2192Version HTTP run. Core tests are not Kubernetes acceptance.",
+    "artifact_path": "evidence/control-core-tests.log",
+    "artifact_sha256": "8f21dc5fb518c0b7b5691d2b2a93c2e5101484590381b5f2ac5a1b3cc1899aa6",
+    "resolved_cargo_lock_sha256": "b32888badcab0be87f7afbd05f3eaf6ac716f678ec10a9770fe92527c8914c16",
+    "resolved_cargo_lock_artifact_path": "evidence/control-resolved-b32888badcab0be87f7afbd05f3eaf6ac716f678ec10a9770fe92527c8914c16.Cargo.lock",
+    "dependency_note": "Control checkout lock was unchanged by the Rust test/check and retained byte-for-byte."
+  },
+  "reservation-provider-capacity": {
+    "schema_version": "1.0",
+    "kind": "correctness_regression",
+    "status": "passed",
+    "observed_at": "2026-10-19T11:28:15Z",
+    "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 40,
+    "duration_seconds": 12.939,
+    "source_revisions": {
+      "reservation": "4ece677c98c48070fcdc3de77a714b783f73bacc"
+    },
+    "source": {
+      "revision": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+      "working_tree_status": "M README.md\n M entity/src/provider.rs\n M migration/src/lib.rs\n M src/provider/methods.rs\n M src/provider/mod.rs\n M src/provider/models.rs\n M src/provider/routes.rs\n M src/reservation/methods.rs\n M src/time_slot/methods.rs\n M tests/reservation_contract_test.rs\n?? migration/src/m20261019_000009_provider_capacity.rs\n?? src/provider/capacity.rs\n?? tests/provider_capacity_test.rs",
+      "checkout_sha256": "3f72d360a944f86e42aa1531bd7492c82ba94bc7de0ed500aa19cd1d54e0a3ef"
+    },
+    "source_after": {
+      "revision": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+      "working_tree_status": "M README.md\n M entity/src/provider.rs\n M migration/src/lib.rs\n M src/provider/methods.rs\n M src/provider/mod.rs\n M src/provider/models.rs\n M src/provider/routes.rs\n M src/reservation/methods.rs\n M src/time_slot/methods.rs\n M tests/reservation_contract_test.rs\n?? migration/src/m20261019_000009_provider_capacity.rs\n?? src/provider/capacity.rs\n?? tests/provider_capacity_test.rs",
+      "checkout_sha256": "3f72d360a944f86e42aa1531bd7492c82ba94bc7de0ed500aa19cd1d54e0a3ef"
+    },
+    "source_unchanged_during_run": true,
+    "rust_sdk_revision": "291c81a67bc302d667fb807da2af3240598bee52",
+    "rust_sdk_working_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-summary-sdk/",
+    "rust_sdk_dependencies": {
+      "infera-idp-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-summary-sdk/",
+        "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a"
+      },
+      "infera-idp-macro": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-summary-sdk/",
+        "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80"
+      },
+      "infera-flow-sdk": {
+        "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+        "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-summary-sdk/",
+        "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0"
+      }
+    },
+    "resolved_cargo_lock_sha256": "2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f",
+    "resolved_cargo_lock_artifact_path": "evidence/reservation-resolved-2116174ecde76ef1f79924146cfdcdd02d510019e6c034b8a06a00da49a30d7f.Cargo.lock",
+    "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)",
+    "postgres_image": "sha256:c05eced0bdb41ea9b95a656472a6aa4d50cad0d8a2e33d14eb1c53fd6204f2ae",
+    "rabbitmq_image": "sha256:823bca3038078dd1fb9c60da138782fe4116f3920de67d1da2d654546a24dca5",
+    "storage": "disposable_real_postgresql",
+    "artifact_path": "evidence/reservation-capacity-tests.log",
+    "artifact_sha256": "36a04f950a1f89b26866009857e6176f98a400895b8e8cbc6f97cfbb7804de53",
+    "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates",
+    "test_base_source_revisions": {
+      "reservation": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2"
+    },
+    "verified_commit": {
+      "revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
+      "working_tree_status": "",
+      "checkout_sha256": "3f72d360a944f86e42aa1531bd7492c82ba94bc7de0ed500aa19cd1d54e0a3ef",
+      "method": "Post-test clean committed source digest matches fenced test inputs; no rerun after commit."
+    },
+    "canonical_certification": false
+  },
+  "manage-component-tests": {
+    "status": "passed",
+    "command": "cargo test --offline --bin infera_manage",
+    "exit_code": 0,
+    "tests_executed": 18,
+    "duration_seconds": 7.553,
+    "source_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+    "working_source_sha256": "c364c9e3a099cd5ed699a7f12593ce1bff56366fec3ee2e63276bc2197dece61",
+    "source_unchanged_during_run": true,
+    "input_lock_sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f",
+    "artifact_path": "evidence/manage-canonical-unit.log",
+    "artifact_sha256": "dc1f13f26c790d4fc70d92b04f7e7100c0696769eebeaef681c0c4573848c5ac",
+    "scope": "Existing Manage component/unit tests, some using local fixture HTTP handlers; not real IDP/Agentic/service workflow acceptance or UI completion. Original unrelated dirty lock preserved.",
+    "kind": "component_regression",
+    "source_revisions": {
+      "manage": "a13caa6019e3648a1f84766d7ee5034c7147a123"
+    },
+    "resolved_cargo_lock_sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f",
+    "resolved_cargo_lock_artifact_path": "evidence/manage-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+    "source_capture_note": "Code at pinned revision; pre-existing dirty lock retained byte for byte. Source fence includes that exact local lock; not canonical dependency or deployed acceptance."
+  },
+  "manage-current-authority": {
+    "schema_version": "1.0",
+    "kind": "local_cross_service_authority_regression",
+    "status": "passed",
+    "command": "python3 scripts/run-manage-authority-tests.py (isolated Agentic commit checkout)",
+    "exit_code": 0,
+    "tests_executed": 29,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_unchanged_during_run": true,
+    "source_revisions": {
+      "manage": "4dd4bf06f424acd4d9c3080283e7359c9cb44a21",
+      "agentic": "6cd75ebcbbea9345f02cd2e4d013b51775f20a83"
+    },
+    "source_fingerprints": {
+      "manage": "3efd7c07d232c3338460dcab4050257a1410ea1ecc3e42d681c5c37ce6aab555",
+      "agentic": "6e27e826a63c5250e87070223381aea4b6a86b9429290bdecd05b53ff81a5341"
+    },
+    "artifact_path": "evidence/manage-authority-tests-4dd4bf0-6cd75ebc.json",
+    "artifact_sha256": "2edd826c7145e0354e4c347b53072a15bf6ef4c68f2e1079652939c237402970",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/manage-authority-components-4dd4bf0-6cd75ebc.log",
+        "sha256": "e78c1099da08e1c4d352d9c230e1ca4f696720f8f036030ef103b7ad2419f1c9"
+      },
+      {
+        "artifact_path": "evidence/manage-authority-binary-4dd4bf0-6cd75ebc.log",
+        "sha256": "ab9300781903e2f625e859526019bea82fb90331cae0f6ae5d812208ae762878"
+      },
+      {
+        "artifact_path": "evidence/agentic-manage-authority-4dd4bf0-6cd75ebc.log",
+        "sha256": "7f4660b958d2da80c89dc56525feae37b75ed02fffc7c6ae726280286d17b333"
+      },
+      {
+        "artifact_path": "evidence/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+        "sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f"
+      },
+      {
+        "artifact_path": "evidence/infera-agentic-authority-resolved-251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77.Cargo.lock",
+        "sha256": "251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77"
+      },
+      {
+        "artifact_path": "evidence/manage-signing-startup-cases-4dd4bf0-6cd75ebc.json",
+        "sha256": "574d67f124ddabc4f32432952df27151fa3a49726bcbc70b7015ced41083e181"
+      }
+    ],
+    "duration_seconds": 59.84,
+    "scope": "Actual Manage process and Agentic admin-status handler, real disposable Mongo current membership/configuration; Control lifecycle HTTP is an explicit fixture. Production gateway, Control lifecycle itself, IDP exchange/refresh, SDK/Manage UI and deployment remain unverified. No live configuration or migration.",
+    "canonical_certification": false,
+    "input_note": "Agentic clean isolated commit; Manage code committed with its preserved pre-existing dirty lock. Exact input/resolved bytes and dependency working fingerprints retained.29 distinct checks =24 Manage +3 Agentic (one actual HTTP/Mongo workflow) +2 missing-signing startup cases; repeated startup capture not double-counted."
+  },
+  "manage-project-bridge": {
+    "schema_version": "1.0",
+    "kind": "local_cross_service_authority_regression",
+    "status": "passed",
+    "command": "python3 scripts/run-manage-authority-tests.py (isolated Agentic commit checkout)",
+    "exit_code": 0,
+    "tests_executed": 31,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_unchanged_during_run": true,
+    "source_revisions": {
+      "manage": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
+      "agentic": "ab11e179b3f843728c82cd5a39739aca6502e51a"
+    },
+    "source_fingerprints": {
+      "manage": "44e043c2e66e9a1570cbeb4b28c95efb32d4b50c84ee121efe37f72a11ebc04e",
+      "agentic": "825f4e2a039a273944c681bd3dbd8037ae1db407606bdeb585d574c8b2527a8a"
+    },
+    "artifact_path": "evidence/manage-authority-tests-bfb5096-ab11e179.json",
+    "artifact_sha256": "c73f55894deace61b7dab9345a384c6fcfe75ea0dcff767987cfce1f7e6a48b1",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/manage-authority-components-bfb5096-ab11e179.log",
+        "sha256": "afde9cd88a340995d86fc89ce8ccc4a6ea738530dcb028d7270b207c83d96ce7"
+      },
+      {
+        "artifact_path": "evidence/manage-authority-binary-bfb5096-ab11e179.log",
+        "sha256": "9476ac17f31f8455f379a5bce98a76bfd4542540ca9f2590a57de4334c9c807a"
+      },
+      {
+        "artifact_path": "evidence/agentic-manage-authority-bfb5096-ab11e179.log",
+        "sha256": "bcd0ab91752ce9a4c3972ea06f5f4a8d6cddb5bf7770f23a7af0fa5dddd70587"
+      },
+      {
+        "artifact_path": "evidence/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+        "sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f"
+      },
+      {
+        "artifact_path": "evidence/infera-agentic-authority-resolved-251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77.Cargo.lock",
+        "sha256": "251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77"
+      }
+    ],
+    "duration_seconds": 37.426,
+    "scope": "Actual Manage process and Agentic handlers with real disposable Mongo: current authority/restart/revocation plus project-bound Manage create/list/history, tied timestamp pagination after cursor-row deletion, personal/foreign thread restrictions on messages/delete/cancel/stream/review, forged context denial, and normal billing.spend denial. No model call; pending review uses existing in-memory hubs and is not durable receipt acceptance. Control lifecycle is an explicit fixture. Production gateway, Control lifecycle, IDP exchange/refresh, SDK/UI and deployment remain unverified.",
+    "canonical_certification": false
+  },
+  "manage-project-sdk-wire": {
+    "schema_version": "1.0",
+    "kind": "actual_sdk_manage_agentic_wire_regression",
+    "status": "passed",
+    "command": "python3 scripts/run-manage-authority-tests.py (isolated Agentic checkout; actual compiled SDK probe required)",
+    "exit_code": 0,
+    "tests_executed": 31,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_unchanged_during_run": true,
+    "source_revisions": {
+      "manage": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
+      "agentic": "84a0e9a95d274a655aae052988915ffc74401942"
+    },
+    "source_fingerprints": {
+      "manage": "44e043c2e66e9a1570cbeb4b28c95efb32d4b50c84ee121efe37f72a11ebc04e",
+      "agentic": "708bf3b6949a7d4fe3c4624c58b1eed8db71d6f4f81a630bc62e56fc3af83643"
+    },
+    "sdk_working_fingerprint": "fbd91c661ffa264bc8e5c6b6fc5aa8988f63bb3008964ac7633de5c7ce0dfaa3",
+    "artifact_path": "evidence/manage-authority-tests-bfb5096-84a0e9a9-sdk.json",
+    "artifact_sha256": "db95671293eb6bff3dd57732005ac8f85af58c4ded386b0126f9dfc8eeca0448",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/manage-authority-components-bfb5096-84a0e9a9-sdk.log",
+        "sha256": "f4f852072681ed10e875616e640e64ef20e2d906472e566cfd75fe71d3002ae9"
+      },
+      {
+        "artifact_path": "evidence/manage-authority-binary-bfb5096-84a0e9a9-sdk.log",
+        "sha256": "ab9300781903e2f625e859526019bea82fb90331cae0f6ae5d812208ae762878"
+      },
+      {
+        "artifact_path": "evidence/agentic-manage-authority-bfb5096-84a0e9a9-sdk.log",
+        "sha256": "f7ac62e05909f5f1e963a040a6d8429f4723e97b75f8e7318edfc8c8cac6903a"
+      },
+      {
+        "artifact_path": "evidence/run-manage-authority-tests-bfb5096-84a0e9a9-sdk.py",
+        "sha256": "7c41544753e609994e8eb817b1519af0696336cda98d2185016fb07ed867efe7"
+      },
+      {
+        "artifact_path": "evidence/verify-manage-bridge-sdk-bfb5096-84a0e9a9-sdk.mjs",
+        "sha256": "fbf6413ab7dd1e642ae855e5343943e9f4993404960eb81401d261a8e0dd97bc"
+      },
+      {
+        "artifact_path": "evidence/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock",
+        "sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f"
+      },
+      {
+        "artifact_path": "evidence/infera-agentic-authority-resolved-251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77.Cargo.lock",
+        "sha256": "251b9d39a0ead58682c15e342798ba2cbf8d31b75963b2c0d1a7398258bd1e77"
+      }
+    ],
+    "duration_seconds": 29.059,
+    "scope": "Source-fenced actual Manage process plus Agentic handlers and real disposable Mongo, including real compiled SDK Axios/fetch creation, paging/headers, messages/deletion and invalid-query/foreign-project/billing denials.31 tests comprise26 Manage +3 Agentic (expanded workflow with required SDK success marker) +2 startup rejection cases, not31 additional tests over the prior bridge run. No model call or actual service mutation receipt; pending review remains process-local. Control lifecycle is a fixture. Canonical/main integration, production gateway/IDP/Control, full SDK/UI and deployment unverified.",
+    "canonical_certification": false
+  }
+}

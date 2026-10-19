@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "kind": "characterization_not_certification",
+  "observed_at": "2026-10-19T08:52:37Z",
+  "source_revisions": {
+    "reservation": "f7cd709510458083d10a1b79a5ad3d7cd29196bd"
+  },
+  "working_tree_status": "",
+  "checkout_source_sha256": "54bec11a467107474529d4fead5b3d53825e3c5ca70ff404b98674f1f0d1817d",
+  "probe_sha256": "e5aaa16475232388e5521ea6d5366e44eec001591d9cc0ad75c8960224cc61c3",
+  "artifact_sha256": "c5066021f6da2d8e04bf66b12ac8ba81999a597924ce16265e9e473b04f32ff3",
+  "storage": "disposable_real_postgresql",
+  "runs": [
+    {
+      "command": "cargo test --offline --test capability_discovery_probe -- --nocapture",
+      "exit_code": 0,
+      "tests_executed": 1
+    },
+    {
+      "command": "cargo test --offline --test reservation_concurrency_test -- --nocapture",
+      "exit_code": 0,
+      "tests_executed": 1
+    }
+  ],
+  "observations": {
+    "invalid_date_accepted": true,
+    "invalid_schedule_erases_previous": true,
+    "invalid_status_accepted": true,
+    "kind": "characterization_not_certification",
+    "patch_cancel_keeps_claim": true,
+    "schema_version": "1.0",
+    "second_booking_still_confirmed": true,
+    "stale_cancel_releases_new_claim": true,
+    "status_filter_returns_confirmed": true,
+    "storage": "disposable_real_postgresql"
+  }
+}

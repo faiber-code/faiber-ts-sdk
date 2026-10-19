@@ -1,0 +1,265 @@
+{
+  "observed_at": "2026-10-19T12:45:02Z",
+  "prior_record": "/Users/mohammadralizadeh/Infera/ops/poulstar-integration/npm-publication-0241.json",
+  "prior_record_sha256": "dd44263eefb777d8cc0bf5ecbf0e6aa322795074842dc840eba5d08d51dd5f39",
+  "published_revision": "b11672d7255de11399ec52ba76b3fa239c81870b",
+  "registry": "https://registry.npmjs.org",
+  "packages": [
+    {
+      "name": "@faiber/sdk-core",
+      "expected_version": "0.24.1",
+      "expected_shasum": "d1d4243556aba99b74f4c8f07e3cfd9377cc6d68",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "d1d4243556aba99b74f4c8f07e3cfd9377cc6d68"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-idp",
+      "expected_version": "0.24.1",
+      "expected_shasum": "80847767e8f6e61f787c39787c831b7b1d264656",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "80847767e8f6e61f787c39787c831b7b1d264656"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-profile",
+      "expected_version": "0.24.1",
+      "expected_shasum": "449e4e68834d7ffdfdea8cab539f707d373e13fd",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "449e4e68834d7ffdfdea8cab539f707d373e13fd"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-modules",
+      "expected_version": "0.24.1",
+      "expected_shasum": "72946235e7d29a67ce492b080f5f6c200284e9a5",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "72946235e7d29a67ce492b080f5f6c200284e9a5"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-social",
+      "expected_version": "0.24.1",
+      "expected_shasum": "72a762486242f638aec32c3c311f66fdde55d1b3",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "72a762486242f638aec32c3c311f66fdde55d1b3"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-asset",
+      "expected_version": "0.24.1",
+      "expected_shasum": "c46db258129640d886d7eb8690be218a2b26480c",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "c46db258129640d886d7eb8690be218a2b26480c"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-payment",
+      "expected_version": "0.24.1",
+      "expected_shasum": "0d726adc4fd81322845444fb48f72dee6a452f78",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "0d726adc4fd81322845444fb48f72dee6a452f78"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-messenger",
+      "expected_version": "0.24.1",
+      "expected_shasum": "49b7bc9027d6db1cf25d471b8a12dd4c6566e809",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "49b7bc9027d6db1cf25d471b8a12dd4c6566e809"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-crm",
+      "expected_version": "0.24.1",
+      "expected_shasum": "2cbc9edd177bb8cadf5b8f1bcb6a699df0651180",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "2cbc9edd177bb8cadf5b8f1bcb6a699df0651180"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-lms",
+      "expected_version": "0.24.1",
+      "expected_shasum": "0fcb457bb51debe040867510cb26ff2d7aa07874",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "0fcb457bb51debe040867510cb26ff2d7aa07874"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-reservation",
+      "expected_version": "0.24.1",
+      "expected_shasum": "d7600e2536ce300da1edaccf94340fa24ef4d628",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "d7600e2536ce300da1edaccf94340fa24ef4d628"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-session",
+      "expected_version": "0.24.1",
+      "expected_shasum": "3cab00d16e41e340cf8e85b631c9282ac5380219",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "3cab00d16e41e340cf8e85b631c9282ac5380219"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-version",
+      "expected_version": "0.24.1",
+      "expected_shasum": "05895c2e73ff8f38ee70d29264183da49228dd5b",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "05895c2e73ff8f38ee70d29264183da49228dd5b"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-flow",
+      "expected_version": "0.24.1",
+      "expected_shasum": "fc8b68102f6405fef7038d6796c7d00442b50536",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "fc8b68102f6405fef7038d6796c7d00442b50536"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-knowledge",
+      "expected_version": "0.24.1",
+      "expected_shasum": "f4aecf5cd76933533ea4e2ad8d675f00022985b6",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "f4aecf5cd76933533ea4e2ad8d675f00022985b6"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-chat",
+      "expected_version": "0.24.1",
+      "expected_shasum": "2307d61e2628fe801884fed6b213984825ebe3e6",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "2307d61e2628fe801884fed6b213984825ebe3e6"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-state-sdk",
+      "expected_version": "0.24.1",
+      "expected_shasum": "2fcaa73981aff3b960b2424c18e58765342adc07",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "2fcaa73981aff3b960b2424c18e58765342adc07"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-drm",
+      "expected_version": "0.24.1",
+      "expected_shasum": "4b289294f2268631e2df5eece49d561044428941",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "4b289294f2268631e2df5eece49d561044428941"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-task",
+      "expected_version": "0.24.1",
+      "expected_shasum": "77299c4b897a5cb8036551f7817c0d4f4a38c664",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "77299c4b897a5cb8036551f7817c0d4f4a38c664"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-game-sdk",
+      "expected_version": "0.24.1",
+      "expected_shasum": "4d715a791bd41176625a93db5df351356a07b103",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "4d715a791bd41176625a93db5df351356a07b103"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-manage",
+      "expected_version": "0.24.1",
+      "expected_shasum": "489c674b7b7d118b0e374f61d8288793dcda6b11",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "489c674b7b7d118b0e374f61d8288793dcda6b11"
+      },
+      "exit_code": 0,
+      "matches": true
+    },
+    {
+      "name": "@faiber/faiber-ts-sdk",
+      "expected_version": "0.24.1",
+      "expected_shasum": "c33cea58d0bb59b12b4e731c3bea5689ae9b4e49",
+      "observed": {
+        "version": "0.24.1",
+        "dist.shasum": "c33cea58d0bb59b12b4e731c3bea5689ae9b4e49"
+      },
+      "exit_code": 0,
+      "matches": true
+    }
+  ],
+  "scope": "Read-only reconciliation of prior publication, not new publication or current 1.0.0 acceptance.",
+  "current_branch_base_revision": "3f3e720a9b09307fb159d1d7fe6dae74fa305af2",
+  "merge_base_with_published": "56e3db403c8beb4eab686448112670a603e609bc",
+  "current_working_version": "1.0.0",
+  "reconciliation_status": "published_baseline_confirmed_integration_required_before_final_freeze",
+  "missing_published_files": [
+    "packages/chat/src/personal.ts",
+    "packages/lms/src/notification-settings.ts",
+    "packages/messenger/src/delivery.ts",
+    "packages/task/src/feedback.ts",
+    "tests/feedback-delivery.test.mjs"
+  ],
+  "planned_reconciliation": "Preserve published0.24.1 personal-chat, notification settings/eligible contacts, delivery and feedback APIs and tests alongside intended classroom, Profile summaries and Manage changes; revalidate actual service sources. Do not restore retired LMS summary operations: summary contributor owns that migration. Coordinate shared generator/manifest/index changes after handoff. Never infer release or canonical-main integration from development branch or stale remote refs.",
+  "canonical_service_constraint": "Services remain generic canonical repositories/main with tenant/project configuration isolation. Local development worktrees are verification inputs, not project forks to deploy. No live instance consolidation or configuration change."
+}

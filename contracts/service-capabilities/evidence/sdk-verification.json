@@ -1,0 +1,32 @@
+{
+  "kind": "sdk_types_and_tooling_regression",
+  "status": "failed",
+  "command": "npm run build && npm test",
+  "exit_code": 1,
+  "tests_executed": 104,
+  "tests_failed": 3,
+  "tests_skipped": 0,
+  "source_base_revision": "9443bf178f1f42e40e7d3bf9e749290a16b31a53",
+  "working_source_sha256": "433cdf068112b93c685ed8360fa96ba9e4fa4716ca70142e151a2def5cc4b970",
+  "included_paths": [
+    "scripts",
+    "tests",
+    "packages",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json"
+  ],
+  "node": "v22.13.1",
+  "package_lock_sha256": "ec23409df957b1f1e8ac8f9987e2bba450c57f77f2391d22060c15d909968b6a",
+  "artifact_path": "evidence/sdk-tests.log",
+  "artifact_sha256": "241586edb3aaf269791decd11d63a98653aa5af6edaa2a6c2728c495fd8a9c32",
+  "build_artifact_path": "evidence/sdk-build.log",
+  "build_artifact_sha256": "2d0f4528d05199cd9c80c5aad0a588ca75abf32f36ce1414e250187aad47a656",
+  "scope": "SDK build passed; the fenced104-test run passed101 and failed3 on concurrent unrelated LMS operation/documentation compatibility drift. New evidence-tooling tests are retained separately; full SDK/service completion remains blocked.",
+  "source_unchanged_during_run": true,
+  "duration_seconds": 5.798,
+  "source_capture_note": "Source paths include preserved unrelated LMS/Profile working changes; Python bytecode excluded. Not a clean committed SDK or service acceptance.",
+  "working_tree_status": "M contracts/service-capabilities/evidence/sdk-tests.log\n M packages/lms/src/index.ts\n M packages/lms/src/operations.ts\n M packages/lms/src/operations.types.ts\n M packages/lms/src/types.ts\n M packages/profile/src/index.ts\n M scripts/embedded-source-evidence.mjs\n M tests/embedded-source-evidence.test.mjs\n?? contracts/service-capabilities/evidence/agentic-authority-compile.log\n?? contracts/service-capabilities/evidence/agentic-authority-development.log\n?? contracts/service-capabilities/evidence/agentic-manage-authority-attempt-1.log\n?? contracts/service-capabilities/evidence/agentic-manage-authority-attempt-2.log\n?? contracts/service-capabilities/evidence/agentic-manage-authority-concurrent-source-attempt.log\n?? contracts/service-capabilities/evidence/agentic-manage-authority-pre-final-empty-contract.log\n?? contracts/service-capabilities/evidence/agentic-manage-authority.log\n?? contracts/service-capabilities/evidence/infera-agentic-authority-resolved-20b212811ebb40879b16b14c51a3f8b48b3ce4b22efb71e93b29864489df6176.Cargo.lock\n?? contracts/service-capabilities/evidence/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock\n?? contracts/service-capabilities/evidence/manage-authority-attempt-1.json\n?? contracts/service-capabilities/evidence/manage-authority-attempt-2.json\n?? contracts/service-capabilities/evidence/manage-authority-binary-attempt-1.log\n?? contracts/service-capabilities/evidence/manage-authority-binary-attempt-2.log\n?? contracts/service-capabilities/evidence/manage-authority-binary-concurrent-source-attempt.log\n?? contracts/service-capabilities/evidence/manage-authority-binary-pre-final-empty-contract.log\n?? contracts/service-capabilities/evidence/manage-authority-binary.log\n?? contracts/service-capabilities/evidence/manage-authority-components-attempt-1.log\n?? contracts/service-capabilities/evidence/manage-authority-components-attempt-2.log\n?? contracts/service-capabilities/evidence/manage-authority-components-concurrent-source-attempt.log\n?? contracts/service-capabilities/evidence/manage-authority-components-pre-final-empty-contract.log\n?? contracts/service-capabilities/evidence/manage-authority-components.log\n?? contracts/service-capabilities/evidence/manage-authority-concurrent-source-attempt.json\n?? contracts/service-capabilities/evidence/manage-authority-development.log\n?? contracts/service-capabilities/evidence/manage-authority-pre-final-empty-contract.json\n?? contracts/service-capabilities/evidence/manage-authority-tests.json\n?? packages/profile/src/summaries.ts\n?? packages/profile/src/summaries.types.ts\n?? scripts/__pycache__/\n?? scripts/run-manage-authority-tests.py",
+  "working_source_after_sha256": "433cdf068112b93c685ed8360fa96ba9e4fa4716ca70142e151a2def5cc4b970",
+  "tests_passed": 101
+}

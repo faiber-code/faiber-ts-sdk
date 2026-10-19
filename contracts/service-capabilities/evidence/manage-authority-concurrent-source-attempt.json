@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0",
+  "status": "failed",
+  "kind": "local_cross_service_authority_regression",
+  "observed_at": "2026-10-19T12:00:01Z",
+  "failure": null,
+  "duration_seconds": 15.882,
+  "source": {
+    "manage": {
+      "revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "checkout_sha256": "3efd7c07d232c3338460dcab4050257a1410ea1ecc3e42d681c5c37ce6aab555",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M src/config.rs\n M src/main.rs\n M src/router.rs\n M src/runtime.rs\n M src/session.rs\n M src/setup.rs\n M src/sso.rs\n M src/state.rs\n?? docs/\n?? src/authority_tests.rs"
+    },
+    "agentic": {
+      "revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+      "checkout_sha256": "c0c95ef2ca7b27e4c086f5d01828267747aa929c0278692fb957a52a1fb4be85",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M src/creation/setup.rs\n M src/lms_integration.rs\n M src/main.rs\n M src/project/admin_open.rs\n M src/router.rs\n?? shared/\n?? src/profile_summary/\n?? src/project/admin_authority_tests.rs\n?? templates/validation/empty-live-deployment-browser.json\n?? templates/validation/model-previews/catalog-media-review.jpg\n?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/\n?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/\n?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png"
+    }
+  },
+  "source_after": {
+    "manage": {
+      "revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+      "checkout_sha256": "3efd7c07d232c3338460dcab4050257a1410ea1ecc3e42d681c5c37ce6aab555",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M src/config.rs\n M src/main.rs\n M src/router.rs\n M src/runtime.rs\n M src/session.rs\n M src/setup.rs\n M src/sso.rs\n M src/state.rs\n?? docs/\n?? src/authority_tests.rs"
+    },
+    "agentic": {
+      "revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
+      "checkout_sha256": "bfa16f561ac95fcd642c3376351ee7235ea5f0c0752601b17169d58c38c9975c",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M src/creation/setup.rs\n M src/lms_integration.rs\n M src/main.rs\n M src/project/admin_open.rs\n M src/router.rs\n?? shared/\n?? src/profile_summary/\n?? src/project/admin_authority_tests.rs\n?? templates/validation/empty-live-deployment-browser.json\n?? templates/validation/model-previews/catalog-media-review.jpg\n?? templates/validation/screenshots/2026-10-14T07-37-32-958Z/\n?? templates/validation/screenshots/2026-10-14T07-41-11-765Z/\n?? templates/validation/screenshots/2026-10-14T07-50-00-265Z/\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-desktop.png\n?? templates/validation/screenshots/2026-10-14T09-20-38-837Z/blog-mobile.png"
+    }
+  },
+  "cargo_target_manifest_bindings": {
+    "/Users/mohammadralizadeh/Infera/infera-agentic/shared/infera-summary-sdk/vendor/sse-stream/src/lib.rs": "/Users/mohammadralizadeh/Infera/infera-agentic/shared/infera-summary-sdk/vendor/sse-stream"
+  },
+  "runner_sha256": "87578d3d5acc5f5e33454970d019e9ce942aa0154706df4c695c1b398a205236",
+  "source_unchanged_during_run": false,
+  "rust_sdk_dependencies": {
+    "infera-idp-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    },
+    "infera-idp-macro": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    },
+    "infera-profile-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "ab6fcbd4071772a37fc2352898cc6b0b6bbf1783392f3dbd1484de350c26a3a3",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    },
+    "infera-asset-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "0122e2bdd82d0973cf43a039de398d5cda2c782f4a8e08eb247ade6e99d17fdb",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    },
+    "infera-flow-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    }
+  },
+  "rust_sdk_dependencies_after": {
+    "infera-idp-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "c3fc7635f96b451dc4b4eaa78d7e1548f0af5c275c8052ca801a0efbef92fa9a",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    },
+    "infera-idp-macro": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "802d0a79ca94bfbf7ab393eb7abd5d82fd20741c0ce6981708a97b0bf2519a80",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    },
+    "infera-profile-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "ab6fcbd4071772a37fc2352898cc6b0b6bbf1783392f3dbd1484de350c26a3a3",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    },
+    "infera-asset-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "0122e2bdd82d0973cf43a039de398d5cda2c782f4a8e08eb247ade6e99d17fdb",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    },
+    "infera-flow-sdk": {
+      "revision": "291c81a67bc302d667fb807da2af3240598bee52",
+      "checkout_sha256": "01d480324a921a89db4a3f0f6adbce076201449f32c4cd27edae4bc15c014ff0",
+      "embedded_gaps": [],
+      "working_tree_status": "M Cargo.lock\n M Cargo.toml\n M crates/infera-asset-sdk/Cargo.toml\n M crates/infera-asset-sdk/src/lib.rs\n M crates/infera-profile-sdk/Cargo.toml\n M crates/infera-profile-sdk/src/lib.rs\n?? crates/infera-asset-sdk/README.md\n?? crates/infera-asset-sdk/src/economy.rs\n?? crates/infera-profile-sdk/src/summaries.rs\n?? crates/infera-profile-sdk/src/summaries_contracts.rs\n?? crates/infera-summary-sdk/"
+    }
+  },
+  "resolved_locks": {
+    "infera-manage": {
+      "input_sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f",
+      "resolved_sha256": "6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f",
+      "artifact_path": "evidence/infera-manage-authority-resolved-6a61e517c76a70b71acf74060eecc3faeee72ae6c2d05abd41d4f8a57b4d264f.Cargo.lock"
+    },
+    "infera-agentic": {
+      "input_sha256": "0b4e1a6386371e4f4f40a7ada10c3ec1c8c48db1b1f5bfc3d673336769f74474",
+      "resolved_sha256": "20b212811ebb40879b16b14c51a3f8b48b3ce4b22efb71e93b29864489df6176",
+      "artifact_path": "evidence/infera-agentic-authority-resolved-20b212811ebb40879b16b14c51a3f8b48b3ce4b22efb71e93b29864489df6176.Cargo.lock"
+    }
+  },
+  "mongo_image": "sha256:fd61624c38a6ddd1b3b8083edbec23b52b35ff1ff7ad78a74f76e77cfd5fad27",
+  "commands": [
+    {
+      "id": "manage-authority-components",
+      "command": "cargo test --offline --bin infera_manage",
+      "exit_code": 0,
+      "duration_seconds": 2.113,
+      "tests_executed": 24,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "artifact_path": "evidence/manage-authority-components-concurrent-source-attempt.log",
+      "artifact_sha256": "ea52cededfa08b0a2c30abbf19c15ff240f5ac094bcc770f3f2c0efd9213d6fa"
+    },
+    {
+      "id": "manage-authority-binary",
+      "command": "cargo build --offline --bin infera_manage",
+      "exit_code": 0,
+      "duration_seconds": 0.125,
+      "tests_executed": 0,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "artifact_path": "evidence/manage-authority-binary-concurrent-source-attempt.log",
+      "artifact_sha256": "ab9300781903e2f625e859526019bea82fb90331cae0f6ae5d812208ae762878"
+    },
+    {
+      "id": "agentic-manage-authority",
+      "command": "cargo test --offline -p infera_agentic project::admin_open -- --include-ignored --test-threads=1",
+      "exit_code": 0,
+      "duration_seconds": 12.245,
+      "tests_executed": 3,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "artifact_path": "evidence/agentic-manage-authority-concurrent-source-attempt.log",
+      "artifact_sha256": "d9427fba91d2543489a9d56dc811f0287f768b8b94eb90f429175006512028cb"
+    },
+    {
+      "id": "manage-missing-signing-startup",
+      "exit_code": 0,
+      "tests_executed": 2,
+      "tests_failed": 0,
+      "tests_ignored": 0,
+      "scope": "Actual Manage serve process rejects absent and whitespace-only seeds, including DEV mode, before listening."
+    }
+  ],
+  "scope": "Actual Manage process and Agentic admin-status handler, real disposable Mongo current membership/configuration; Control lifecycle HTTP is an explicit fixture. Production gateway, Control lifecycle itself, IDP exchange/refresh, SDK/Manage UI and deployment remain unverified. No live configuration or migration.",
+  "manage_binary_sha256": "4e23d1546b61ab89a0e99da4143a69f3031415c04ec821256508586f7614357b"
+}
