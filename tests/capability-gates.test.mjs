@@ -15,7 +15,7 @@ function reviewedFixture(){
       review:{status:'verified',source_checksum:'hash',meaning:{en:'List owned items',fa:'فهرست موارد شخصی'},scope:'owner',classification:'public_authenticated',
         permissions:aspect,filters:aspect,inputs_outputs:aspect,lifecycle:aspect,relationships:aspect,test_evidence:['owned-items']},
     }]}},
-    runs:{'owned-items':{status:'passed',exit_code:0,command:'node --test fixture',artifact_verified:true,artifact_sha256:'1'.repeat(64),source_revisions:{example:'abc'},tests_executed:3}},
+    runs:{'owned-items':{status:'passed',exit_code:0,command:'node --test fixture',artifact_verified:true,artifact_sha256:'1'.repeat(64),source_revisions:{example:'abc'},covered_operations:{example:['GET /api/v1/items'],other:['GET /api/v1/items']},tests_executed:3}},
   };
 }
 
@@ -132,4 +132,15 @@ test('cross-service supporting locks and logs are all integrity checked',()=>{
 test('a retained dirty-working extraction failure remains unresolved drift rather than an empty verified tree',()=>{
  const f=reviewedFixture();f.services.example.working_drift={added:[],absent:[],changed:[],extraction_errors:[{status:'failed',artifact_path:'working.stderr.log'}]};
  assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/unresolved working\/pinned contract drift/);
+});
+
+// A real passing source test may still cover a different operation.
+test('passing source test counts cannot certify an operation outside the declared coverage',()=>{
+ const f=reviewedFixture();
+ f.runs['owned-items'].covered_operations={example:['GET /api/v1/unrelated']};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/does not declare this exact operation/);
+ f.runs['owned-items'].covered_operations={example:'GET /api/v1/items'};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/does not declare this exact operation/);
+ f.runs['owned-items'].covered_operations={example:['GET /api/v1/items']};
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'passed');
 });

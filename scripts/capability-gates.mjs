@@ -35,7 +35,7 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
   if (!['discovery', 'sdk', 'manage', 'complete'].includes(stage)) throw new Error(`Unknown capability gate stage: ${stage}`);
   const failures = universe.runtime_inventory ? reconcileRuntimeInventory(universe,runtimeInventory) : [];
   const downstreamGaps = [];
-  const requireEvidence = (ids, context, requiredSource) => {
+  const requireEvidence = (ids, context, requiredSource, operationId = null) => {
     if (!Array.isArray(ids) || !ids.length) { failures.push(`${context}: missing verification evidence`); return; }
     for (const id of ids) {
       const run = verificationRuns[id];
@@ -43,6 +43,8 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
         failures.push(`${context}: ${id} is not a passing nonempty source-bound verification run`);
       } else if (requiredSource && run.source_revisions[requiredSource.service] !== requiredSource.revision) {
         failures.push(`${context}: ${id} verified a different service source revision`);
+      } else if (operationId && (!Array.isArray(run.covered_operations?.[requiredSource.service]) || !run.covered_operations[requiredSource.service].includes(operationId))) {
+        failures.push(`${context}: ${id} does not declare this exact operation in its source-bound coverage`);
       }
     }
   };
@@ -71,7 +73,7 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
       for (const key of ['permissions', 'filters', 'inputs_outputs', 'lifecycle', 'relationships']) {
         if (!review[key] || review[key].status !== 'verified' || !review[key].source_refs?.length) failures.push(`${context}: ${key} is unverified`);
       }
-      requireEvidence(review.test_evidence,context,{service,revision:source?.revision});
+      requireEvidence(review.test_evidence,context,{service,revision:source?.revision},op.id);
     }
     if (descriptor.scope === 'business' && (data.relationship_review?.status !== 'verified' || !data.relationship_review?.source_refs?.length)) failures.push(`${service}: cross-service relationship audit is unverified`);
     if (data.working_drift && Object.values(data.working_drift).some(rows=>rows.length) && !source?.drift_resolution) failures.push(`${service}: unresolved working/pinned contract drift`);
