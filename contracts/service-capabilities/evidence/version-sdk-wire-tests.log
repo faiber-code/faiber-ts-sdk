@@ -1,0 +1,763 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 12 tests
+test contract_tests::active_filters_and_closed_metadata_visibility_are_explicit ... ok
+test contract_tests::actual_typescript_sdk_covers_all_mounted_version_operations ... ok
+test contract_tests::concurrent_first_publication_is_idempotent_and_updates_never_regress ... ok
+test contract_tests::health_slug_uuid_enums_and_envelopes_match_real_router ... ok
+test contract_tests::malformed_forwarded_identity_is_rejected_without_panicking ... ok
+test contract_tests::metadata_paths_use_health_and_service_slug_without_invented_crud ... ok
+test contract_tests::publication_retries_preserve_identity_creation_and_newest_code ... ok
+test contract_tests::publication_storage_failure_rolls_back_new_service_and_release ... ok
+test contract_tests::publisher_configuration_auth_and_inputs_fail_without_creating_rows ... ok
+test contract_tests::real_control_publisher_verifies_receipt_and_readback_over_http ... ok
+test contract_tests::startup_seed_retries_preserve_managed_service_and_published_release ... ok
+test version::publish::tests::publisher_requires_exact_sandbox_token ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.48s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling libc v0.2.180
+   Compiling serde v1.0.228
+   Compiling memchr v2.7.6
+   Compiling pin-project-lite v0.2.16
+   Compiling jobserver v0.1.34
+   Compiling cc v1.2.54
+   Compiling futures-core v0.3.31
+   Compiling itoa v1.0.17
+   Compiling smallvec v1.15.1
+   Compiling errno v0.3.14
+   Compiling typenum v1.19.0
+   Compiling futures-io v0.3.31
+   Compiling generic-array v0.14.7
+   Compiling once_cell v1.21.3
+   Compiling slab v0.4.11
+   Compiling crypto-common v0.1.7
+   Compiling bytes v1.11.0
+   Compiling log v0.4.29
+   Compiling futures-sink v0.3.31
+   Compiling thiserror v2.0.18
+   Compiling zerofrom v0.1.6
+   Compiling parking_lot_core v0.9.12
+   Compiling zeroize v1.8.2
+   Compiling yoke v0.8.1
+   Compiling getrandom v0.3.4
+   Compiling parking_lot v0.12.5
+   Compiling block-buffer v0.10.4
+   Compiling zerovec v0.11.5
+   Compiling digest v0.10.7
+   Compiling bitflags v2.10.0
+   Compiling signal-hook-registry v1.4.8
+   Compiling mio v1.1.1
+   Compiling socket2 v0.6.2
+   Compiling tokio v1.49.0
+   Compiling num-traits v0.2.19
+   Compiling tracing-core v0.1.36
+   Compiling tinystr v0.8.2
+   Compiling writeable v0.6.2
+   Compiling litemap v0.8.1
+   Compiling icu_locale_core v2.1.1
+   Compiling tracing v0.1.44
+   Compiling zerocopy v0.8.35
+   Compiling potential_utf v0.1.4
+   Compiling zerotrie v0.2.3
+   Compiling cmake v0.1.57
+   Compiling cpufeatures v0.2.17
+   Compiling aws-lc-sys v0.37.0
+   Compiling ppv-lite86 v0.2.21
+   Compiling icu_provider v2.1.1
+   Compiling icu_collections v2.1.1
+   Compiling getrandom v0.2.17
+   Compiling serde_json v1.0.149
+   Compiling icu_properties_data v2.1.2
+   Compiling zmij v1.0.17
+   Compiling icu_normalizer_data v2.1.1
+   Compiling rustls-pki-types v1.14.0
+   Compiling futures-channel v0.3.31
+   Compiling icu_normalizer v2.1.1
+   Compiling icu_properties v2.1.2
+   Compiling ring v0.17.14
+   Compiling time-core v0.1.8
+   Compiling num-conv v0.2.0
+   Compiling futures-task v0.3.31
+   Compiling futures-util v0.3.31
+   Compiling time-macros v0.2.26
+   Compiling deranged v0.5.5
+   Compiling idna_adapter v1.2.1
+   Compiling idna v1.1.0
+   Compiling time v0.3.46
+   Compiling url v2.5.8
+   Compiling rustls v0.23.36
+   Compiling uuid v1.20.0
+   Compiling event-listener v5.4.1
+   Compiling num-integer v0.1.46
+   Compiling num-bigint v0.4.6
+   Compiling fastrand v2.3.0
+   Compiling hmac v0.12.1
+   Compiling aho-corasick v1.1.4
+   Compiling regex-syntax v0.8.8
+   Compiling chrono v0.4.43
+   Compiling sha2 v0.10.9
+   Compiling http v1.4.0
+   Compiling hashbrown v0.16.1
+   Compiling indexmap v2.13.0
+   Compiling rustix v1.1.3
+   Compiling futures-lite v2.6.1
+   Compiling rand_core v0.9.5
+   Compiling darling_core v0.20.11
+   Compiling rand_chacha v0.9.0
+   Compiling polling v3.11.0
+   Compiling rust_decimal v1.40.0
+   Compiling async-io v2.6.0
+   Compiling rand v0.9.2
+   Compiling darling_macro v0.20.11
+   Compiling http-body v1.0.1
+   Compiling rand_core v0.6.4
+   Compiling sha1 v0.10.6
+   Compiling either v1.15.0
+   Compiling tinyvec v1.10.0
+   Compiling rand_chacha v0.3.1
+   Compiling darling v0.20.11
+   Compiling bigdecimal v0.4.10
+   Compiling webpki-roots v1.0.5
+   Compiling data-encoding v2.10.0
+   Compiling crc-catalog v2.4.0
+   Compiling crc v3.4.0
+   Compiling webpki-roots v0.26.11
+   Compiling rand v0.8.5
+   Compiling unicode-normalization v0.1.25
+   Compiling tokio-stream v0.1.18
+   Compiling futures-intrusive v0.5.0
+   Compiling block-padding v0.3.3
+   Compiling siphasher v1.0.2
+   Compiling stringprep v0.1.5
+   Compiling inout v0.1.4
+   Compiling hkdf v0.12.4
+   Compiling event-listener-strategy v0.5.4
+   Compiling atoi v2.0.0
+   Compiling md-5 v0.10.6
+   Compiling sync_wrapper v1.0.2
+   Compiling cipher v0.4.4
+   Compiling sea-query-derive v0.4.3
+   Compiling http-body-util v0.1.3
+   Compiling regex-automata v0.4.13
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling core-foundation v0.10.1
+   Compiling security-framework-sys v2.15.0
+   Compiling ordered-float v4.6.0
+   Compiling nom v7.1.3
+   Compiling sea-query v0.32.7
+   Compiling security-framework v3.5.1
+   Compiling hyper v1.8.1
+   Compiling async-channel v2.5.0
+   Compiling piper v0.2.4
+   Compiling ipnet v2.11.0
+   Compiling vcpkg v0.2.15
+   Compiling der v0.7.10
+   Compiling hyper-util v0.1.19
+   Compiling blocking v1.6.2
+   Compiling rustls-native-certs v0.8.3
+   Compiling async-executor v1.13.3
+   Compiling async-lock v3.4.2
+   Compiling ryu v1.0.22
+   Compiling utf-8 v0.7.6
+   Compiling zstd-safe v7.2.4
+   Compiling alloc-stdlib v0.2.2
+   Compiling ouroboros v0.18.5
+   Compiling anstyle-parse v0.2.7
+   Compiling async-stream v0.3.6
+   Compiling derive_more v2.1.1
+   Compiling spki v0.7.3
+   Compiling aws-lc-rs v1.15.4
+   Compiling rusticata-macros v4.1.0
+   Compiling rustls-webpki v0.103.9
+   Compiling regex v1.12.2
+   Compiling axum-core v0.5.6
+   Compiling tower v0.5.3
+   Compiling executor-trait v2.1.2
+   Compiling sqlx-core v0.8.6
+   Compiling colorchoice v1.0.4
+   Compiling anstyle v1.0.13
+   Compiling simd-adler32 v0.3.8
+   Compiling miniz_oxide v0.8.9
+   Compiling sqlx-postgres v0.8.6
+   Compiling anstream v0.6.21
+   Compiling asn1-rs v0.7.1
+   Compiling sqlx v0.8.6
+   Compiling sea-query-binder v0.7.0
+   Compiling sea-orm v1.1.19
+   Compiling brotli-decompressor v5.0.0
+   Compiling tungstenite v0.28.0
+   Compiling serde_urlencoded v0.7.1
+   Compiling clap_lex v0.7.7
+   Compiling clap_builder v4.5.55
+   Compiling flume v0.11.1
+   Compiling tokio-tungstenite v0.28.0
+   Compiling brotli v8.0.2
+   Compiling flate2 v1.1.8
+   Compiling zstd v0.13.3
+   Compiling utoipa v5.4.0
+   Compiling x509-cert v0.2.5
+   Compiling openssl-sys v0.9.111
+   Compiling libz-sys v1.1.23
+   Compiling matchers v0.2.0
+   Compiling salsa20 v0.10.2
+   Compiling phf_shared v0.11.3
+   Compiling pbkdf2 v0.12.2
+   Compiling futures-executor v0.3.31
+   Compiling tracing-log v0.2.0
+   Compiling serde_path_to_error v0.1.20
+   Compiling compression-core v0.4.31
+   Compiling axum v0.8.8
+   Compiling tracing-subscriber v0.3.22
+   Compiling compression-codecs v0.4.36
+   Compiling futures v0.3.31
+   Compiling scrypt v0.11.0
+   Compiling clap v4.5.55
+   Compiling cms v0.2.3
+   Compiling reactor-trait v3.1.1
+   Compiling oid-registry v0.8.1
+   Compiling der-parser v10.0.0
+   Compiling aes v0.8.4
+   Compiling cbc v0.1.2
+   Compiling inventory v0.3.21
+   Compiling pkcs5 v0.7.1
+   Compiling sea-orm-cli v1.1.19
+   Compiling async-channel v1.9.0
+   Compiling sea-schema v0.16.2
+   Compiling x509-parser v0.17.0
+   Compiling pkcs12 v0.1.0
+   Compiling async-compression v0.4.37
+   Compiling phf_generator v0.11.3
+   Compiling entity v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/version-sdk-wire/infera_version/entity)
+   Compiling futures-rustls v0.26.0
+warning: field `status` is never read
+  --> entity/src/seeder/version_seeder.rs:64:5
+   |
+53 | struct Version {
+   |        ------- field in this struct
+...
+64 |     status: i16,
+   |     ^^^^^^
+   |
+   = note: `Version` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+   Compiling tokio-rustls v0.26.4
+   Compiling async-global-executor v2.4.1
+warning: `entity` (lib) generated 1 warning
+   Compiling des v0.8.1
+   Compiling rc2 v0.8.1
+   Compiling libssh2-sys v0.3.1
+   Compiling tokio-util v0.7.18
+   Compiling cobs v0.3.0
+   Compiling kv-log-macro v1.0.7
+   Compiling nom v8.0.0
+   Compiling iri-string v0.7.10
+   Compiling tower-http v0.6.8
+   Compiling amq-protocol-types v8.3.1
+   Compiling async-std v1.13.2
+   Compiling p12-keystore v0.2.0
+   Compiling hyper-rustls v0.27.7
+   Compiling rustls-connector v0.21.11
+   Compiling phf_codegen v0.11.3
+   Compiling heapless v0.7.17
+   Compiling sea-orm-migration v1.1.19
+   Compiling reactor-trait v2.8.0
+   Compiling phf v0.11.3
+   Compiling parse-zoneinfo v0.3.1
+   Compiling debugid v0.8.0
+   Compiling rustls-pemfile v2.2.0
+   Compiling serde_yaml v0.9.34+deprecated
+   Compiling pin-project v1.1.10
+   Compiling tcp-stream v0.30.9
+   Compiling sentry-types v0.45.0
+   Compiling chrono-tz-build v0.2.1
+   Compiling postcard v1.1.3
+   Compiling reqwest v0.12.28
+   Compiling amq-protocol-uri v8.3.1
+   Compiling async-global-executor v3.1.0
+   Compiling phf_shared v0.12.1
+   Compiling libgit2-sys v0.18.3+1.9.2
+   Compiling quick-xml v0.38.4
+   Compiling phonenumber v0.3.9+9.0.21
+   Compiling phf v0.12.1
+   Compiling async-global-executor-trait v2.2.0
+   Compiling amq-protocol-tcp v8.3.1
+   Compiling sentry-core v0.45.0
+   Compiling chrono-tz v0.8.6
+   Compiling migration v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/version-sdk-wire/infera_version/migration)
+   Compiling executor-trait v3.1.0
+   Compiling headers-core v0.3.0
+   Compiling regex-cache v0.2.1
+   Compiling thiserror v1.0.69
+   Compiling headers v0.4.1
+   Compiling async-global-executor-trait v3.1.0
+   Compiling strum v0.27.2
+   Compiling sentry-tower v0.45.0
+   Compiling amq-protocol v8.3.1
+   Compiling chrono-tz v0.10.4
+   Compiling cookie v0.18.1
+   Compiling auth v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/version-sdk-wire/infera_version/auth)
+warning: unused import: `fmt::format`
+ --> auth/src/profile.rs:1:33
+  |
+1 | use std::{collections::HashMap, fmt::format};
+  |                                 ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `auth` (lib) generated 1 warning (run `cargo fix --lib -p auth` to apply 1 suggestion)
+   Compiling auth_macro v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/version-sdk-wire/infera_version/auth_macro)
+   Compiling async-reactor-trait v3.1.1
+   Compiling validator_derive v0.20.0
+   Compiling croner v2.2.0
+   Compiling backon v1.6.0
+   Compiling simdutf8 v0.1.5
+   Compiling fastwebsockets v0.10.0
+   Compiling dashmap v6.1.0
+   Compiling tokio-cron-scheduler v0.14.0
+   Compiling lapin v3.7.2
+   Compiling validator v0.20.0
+   Compiling axum-extra v0.10.3
+   Compiling tower-cookies v0.11.0
+   Compiling parsidate v1.7.1
+   Compiling sentry v0.45.0
+   Compiling anyhow v1.0.100
+   Compiling itertools v0.12.1
+   Compiling tempfile v3.24.0
+   Compiling md5 v0.7.0
+warning: `auth` (lib test) generated 1 warning (1 duplicate)
+   Compiling git2 v0.20.3
+warning: `entity` (lib test) generated 1 warning (1 duplicate)
+   Compiling infera_version v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/version-sdk-wire/infera_version)
+warning: unused imports: `Role` and `WebSocket`
+ --> src/handler.rs:5:37
+  |
+5 | use fastwebsockets::{Frame, OpCode, Role, WebSocket};
+  |                                     ^^^^  ^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `upgrade::Upgraded`
+  --> src/handler.rs:10:5
+   |
+10 |     upgrade::Upgraded,
+   |     ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Deserialize`
+ --> src/service/models.rs:1:13
+  |
+1 | use serde::{Deserialize, Serialize};
+  |             ^^^^^^^^^^^
+
+warning: unused import: `uuid::Uuid`
+ --> src/service/routes.rs:8:5
+  |
+8 | use uuid::Uuid;
+  |     ^^^^^^^^^^
+
+warning: unused imports: `find_service_by_id`, `get_latest_version_by_service_id`, and `get_versions_by_service_id`
+  --> src/service/routes.rs:13:19
+   |
+13 |         methods::{find_service_by_id, find_service_by_slug, get_services},
+   |                   ^^^^^^^^^^^^^^^^^^
+...
+19 |         get_latest_version_by_service_id, get_latest_version_by_service_slug,
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+20 |         get_versions_by_service_id, get_versions_by_service_slug,
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unnecessary parentheses around type
+  --> src/service/routes.rs:56:32
+   |
+56 |     Path((service_slug)): Path<(String)>,
+   |                                ^      ^
+   |
+   = note: `#[warn(unused_parens)]` (part of `#[warn(unused)]`) on by default
+help: remove these parentheses
+   |
+56 -     Path((service_slug)): Path<(String)>,
+56 +     Path((service_slug)): Path<String >,
+   |
+
+warning: unnecessary parentheses around pattern
+  --> src/service/routes.rs:56:10
+   |
+56 |     Path((service_slug)): Path<(String)>,
+   |          ^            ^
+   |
+help: remove these parentheses
+   |
+56 -     Path((service_slug)): Path<(String)>,
+56 +     Path(service_slug ): Path<(String)>,
+   |
+
+warning: unnecessary parentheses around type
+  --> src/service/routes.rs:81:32
+   |
+81 |     Path((service_slug)): Path<(String)>,
+   |                                ^      ^
+   |
+help: remove these parentheses
+   |
+81 -     Path((service_slug)): Path<(String)>,
+81 +     Path((service_slug)): Path<String >,
+   |
+
+warning: unnecessary parentheses around pattern
+  --> src/service/routes.rs:81:10
+   |
+81 |     Path((service_slug)): Path<(String)>,
+   |          ^            ^
+   |
+help: remove these parentheses
+   |
+81 -     Path((service_slug)): Path<(String)>,
+81 +     Path(service_slug ): Path<(String)>,
+   |
+
+warning: unused import: `Deserialize`
+ --> src/version/models.rs:3:13
+  |
+3 | use serde::{Deserialize, Serialize};
+  |             ^^^^^^^^^^^
+
+warning: unused import: `VersionListResponse`
+  --> src/version/routes.rs:15:18
+   |
+15 |         models::{VersionListResponse, VersionSingleResponse},
+   |                  ^^^^^^^^^^^^^^^^^^^
+
+warning: unnecessary parentheses around type
+  --> src/version/routes.rs:31:30
+   |
+31 |     Path((version_id)): Path<(Uuid)>,
+   |                              ^    ^
+   |
+help: remove these parentheses
+   |
+31 -     Path((version_id)): Path<(Uuid)>,
+31 +     Path((version_id)): Path<Uuid >,
+   |
+
+warning: unnecessary parentheses around pattern
+  --> src/version/routes.rs:31:10
+   |
+31 |     Path((version_id)): Path<(Uuid)>,
+   |          ^          ^
+   |
+help: remove these parentheses
+   |
+31 -     Path((version_id)): Path<(Uuid)>,
+31 +     Path(version_id ): Path<(Uuid)>,
+   |
+
+warning: unused variable: `db`
+ --> src/cli/commands/routes_export.rs:9:18
+  |
+9 |     async fn run(db: &sea_orm::DatabaseConnection, _: &bool) {
+  |                  ^^ help: if this is intentional, prefix it with an underscore: `_db`
+  |
+  = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `api`
+  --> src/cli/commands/routes_export.rs:10:13
+   |
+10 |         let api = ApiDoc::openapi();
+   |             ^^^ help: if this is intentional, prefix it with an underscore: `_api`
+
+warning: unused variable: `state`
+   --> src/handler.rs:142:34
+    |
+142 | async fn handle_incoming_message(state: &AppState, text: &str) -> Result<(), DbErr> {
+    |                                  ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: variable does not need to be mutable
+   --> src/router.rs:113:9
+    |
+113 |     let mut router = Router::new()
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `state`
+  --> src/router.rs:56:15
+   |
+56 | pub fn routes(state: &AppState) -> Router<AppState> {
+   |               ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: unused variable: `state`
+  --> src/schedule/mod.rs:10:27
+   |
+10 | pub async fn schedule_run(state: Arc<AppState>) {
+   |                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: unused variable: `second`
+  --> src/schedule/mod.rs:13:9
+   |
+13 |     let second = now.second();
+   |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_second`
+
+warning: type alias `HmacSha256` is never used
+  --> src/broker.rs:12:6
+   |
+12 | type HmacSha256 = Hmac<Sha256>;
+   |      ^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `send_socket_broadcast` is never used
+  --> src/broker.rs:33:14
+   |
+33 | pub async fn send_socket_broadcast<T: Serialize>(event: EventData<T>) -> &'static str {
+   |              ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `socket_consume` is never used
+  --> src/handler.rs:51:14
+   |
+51 | pub async fn socket_consume(state: &AppState) -> Result<(), DbErr> {
+   |              ^^^^^^^^^^^^^^
+
+warning: struct `SpawnExecutor` is never constructed
+  --> src/handler.rs:63:8
+   |
+63 | struct SpawnExecutor;
+   |        ^^^^^^^^^^^^^
+
+warning: function `connect_and_listen` is never used
+  --> src/handler.rs:75:10
+   |
+75 | async fn connect_and_listen(state: AppState) -> anyhow::Result<()> {
+   |          ^^^^^^^^^^^^^^^^^^
+
+warning: function `handle_incoming_message` is never used
+   --> src/handler.rs:142:10
+    |
+142 | async fn handle_incoming_message(state: &AppState, text: &str) -> Result<(), DbErr> {
+    |          ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `parse_host_port` is never used
+   --> src/handler.rs:153:4
+    |
+153 | fn parse_host_port(url: &str) -> anyhow::Result<(String, u16)> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: struct `PaginationQuery` is never constructed
+ --> src/models.rs:9:12
+  |
+9 | pub struct PaginationQuery {
+  |            ^^^^^^^^^^^^^^^
+
+warning: struct `PagedResult` is never constructed
+  --> src/models.rs:15:12
+   |
+15 | pub struct PagedResult<T> {
+   |            ^^^^^^^^^^^
+
+warning: struct `PagedPaginationMeta` is never constructed
+  --> src/models.rs:21:12
+   |
+21 | pub struct PagedPaginationMeta {
+   |            ^^^^^^^^^^^^^^^^^^^
+
+warning: struct `EventData` is never constructed
+  --> src/models.rs:29:12
+   |
+29 | pub struct EventData<T: Serialize> {
+   |            ^^^^^^^^^
+
+warning: struct `APIEmptyResponse` is never constructed
+  --> src/models.rs:36:12
+   |
+36 | pub struct APIEmptyResponse {
+   |            ^^^^^^^^^^^^^^^^
+
+warning: associated function `internal` is never used
+  --> src/models.rs:78:12
+   |
+74 | impl AppError {
+   | ------------- associated function in this implementation
+...
+78 |     pub fn internal(message: &'static str) -> Self {
+   |            ^^^^^^^^
+
+warning: struct `LaravelJobPayload` is never constructed
+  --> src/models.rs:84:12
+   |
+84 | pub struct LaravelJobPayload<T> {
+   |            ^^^^^^^^^^^^^^^^^
+
+warning: struct `LaravelJobData` is never constructed
+  --> src/models.rs:92:12
+   |
+92 | pub struct LaravelJobData<T> {
+   |            ^^^^^^^^^^^^^^
+
+warning: struct `BrokerEvent` is never constructed
+  --> src/models.rs:98:12
+   |
+98 | pub struct BrokerEvent<T> {
+   |            ^^^^^^^^^^^
+
+warning: struct `LmsRole` is never constructed
+   --> src/models.rs:104:12
+    |
+104 | pub struct LmsRole {
+    |            ^^^^^^^
+
+warning: struct `LmsUserSyncEvent` is never constructed
+   --> src/models.rs:110:12
+    |
+110 | pub struct LmsUserSyncEvent {
+    |            ^^^^^^^^^^^^^^^^
+
+warning: function `fallback` is never used
+   --> src/router.rs:135:10
+    |
+135 | async fn fallback() -> (StatusCode, &'static str) {
+    |          ^^^^^^^^
+
+warning: trait `ScheduleJob` is never used
+ --> src/schedule/jobs.rs:5:11
+  |
+5 | pub trait ScheduleJob {
+  |           ^^^^^^^^^^^
+
+warning: struct `ScheduleError` is never constructed
+ --> src/schedule/models.rs:7:12
+  |
+7 | pub struct ScheduleError {
+  |            ^^^^^^^^^^^^^
+
+warning: associated function `new` is never used
+  --> src/schedule/models.rs:13:12
+   |
+12 | impl ScheduleError {
+   | ------------------ associated function in this implementation
+13 |     pub fn new(message: &'static str) -> Self {
+   |            ^^^
+
+warning: struct `ProfileExtract` is never constructed
+  --> src/schedule/models.rs:22:12
+   |
+22 | pub struct ProfileExtract {
+   |            ^^^^^^^^^^^^^^
+
+warning: function `find_service_by_id` is never used
+  --> src/service/methods.rs:15:14
+   |
+15 | pub async fn find_service_by_id(
+   |              ^^^^^^^^^^^^^^^^^^
+
+warning: fields `broker`, `broadcast`, and `action_locks` are never read
+  --> src/state.rs:15:9
+   |
+13 | pub struct AppState {
+   |            -------- fields in this struct
+14 |     pub db: Arc<DatabaseConnection>,
+15 |     pub broker: Arc<Connection>,
+   |         ^^^^^^
+...
+18 |     pub broadcast: Arc<broadcast::Sender<String>>,
+   |         ^^^^^^^^^
+19 |     pub action_locks: Arc<ActionLockMap>,
+   |         ^^^^^^^^^^^^
+   |
+   = note: `AppState` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: function `contains_any` is never used
+ --> src/utils.rs:1:8
+  |
+1 | pub fn contains_any<T: PartialEq>(haystack: &[T], needles: &[T]) -> bool {
+  |        ^^^^^^^^^^^^
+
+warning: function `get_versions_by_service_id` is never used
+ --> src/version/methods.rs:8:14
+  |
+8 | pub async fn get_versions_by_service_id(
+  |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `get_latest_version_by_service_id` is never used
+  --> src/version/methods.rs:44:14
+   |
+44 | pub async fn get_latest_version_by_service_id(
+   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: struct `VersionListResponse` is never constructed
+  --> src/version/models.rs:30:12
+   |
+30 | pub struct VersionListResponse {
+   |            ^^^^^^^^^^^^^^^^^^^
+
+warning: structure field `displayName` should have a snake case name
+  --> src/models.rs:86:9
+   |
+86 |     pub displayName: String,
+   |         ^^^^^^^^^^^ help: convert the identifier to snake case: `display_name`
+   |
+   = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: structure field `commandName` should have a snake case name
+  --> src/models.rs:93:9
+   |
+93 |     pub commandName: String,
+   |         ^^^^^^^^^^^ help: convert the identifier to snake case: `command_name`
+
+warning: `infera_version` (bin "infera_version" test) generated 51 warnings (run `cargo fix --bin "infera_version" -p infera_version --tests` to apply 20 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 42s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/auth-a6e25455563c5f6f)
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/auth_macro-2a2da7e75c140ea4)
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/entity-b35026e0ada4c47d)
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_version-336aced07e200940)
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/migration-03cd501219d24d40)
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/migration-0ff8507952a1419e)
+   Doc-tests auth
+   Doc-tests auth_macro
+   Doc-tests entity
+   Doc-tests migration

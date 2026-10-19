@@ -21567,14 +21567,15 @@
   "version": [
     {
       "method": "GET",
-      "path": "/",
+      "path": "/health",
       "module": "router",
       "handler": "status_route",
       "permissions": [],
       "source": "infera_version/src/router.rs",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false
+      "formUrlEncoded": false,
+      "response": "HealthResponse"
     },
     {
       "method": "GET",
@@ -21583,9 +21584,10 @@
       "handler": "openapi_json",
       "permissions": [],
       "source": "infera_version/src/router.rs",
-      "responseEnvelope": "api",
+      "responseEnvelope": "raw",
       "multipart": false,
-      "formUrlEncoded": false
+      "formUrlEncoded": false,
+      "response": "VersionOpenApiDocument"
     },
     {
       "method": "POST",
@@ -21615,7 +21617,7 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/services/{service_id}",
+      "path": "/api/v1/services/{service_slug}",
       "module": "service",
       "handler": "service_show",
       "permissions": [],
@@ -21627,7 +21629,7 @@
     },
     {
       "method": "GET",
-      "path": "/api/v1/services/{service_id}/all",
+      "path": "/api/v1/services/{service_slug}/all",
       "module": "service",
       "handler": "service_show_all",
       "permissions": [],

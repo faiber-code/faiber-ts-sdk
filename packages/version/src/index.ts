@@ -38,7 +38,7 @@ export class VersionApi extends ServiceApi {
    * Gets full release history through `GET /api/v1/services/{slug}/all`.
    * @param slug Stable service slug.
    * @param options Axios headers, timeout, cancellation signal, and transport options.
-   * @returns Complete Axios response with typed ordered versions.
+   * @returns Complete Axios response with typed active versions; ordering is unspecified.
    * @throws AxiosError for not-found, authorization, or transport failures.
    */
   allVersions(slug: string, options?: RequestOptions) { return this.client.get<T.ServiceVersionsResponse>(`/api/v1/services/${encodeURIComponent(slug)}/all`, undefined, options); }

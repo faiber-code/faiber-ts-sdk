@@ -3,21 +3,21 @@ import type * as T from "./operations.types.js";
 
 export class VersionOperations extends ServiceApi {
   /**
-   * Performs the status route operation for the router capability.
-   * Calls `GET /` through the shared IDP-aware Faiber client.
+   * Read the Version service process health envelope. This does not verify database, broker or gateway readiness.
+   * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public at the service router; deployed gateway rules may add restrictions.
    */
   routerStatusRouteGet(options?: RequestOptions) {
-    return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
+    return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/health` });
   }
   /**
-   * Performs the openapi json operation for the router capability.
+   * Read the raw generated OpenAPI document, without an API envelope. The current document describes health only and is not the complete mounted API inventory.
    * Calls `GET /api/openapi.json` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public at the service router; deployed gateway rules may add restrictions.
    */
   routerOpenapiJsonGet(options?: RequestOptions) {
     return this.client.request<T.RouterOpenapiJsonGetResponse>({ ...options, method: "GET", url: `/api/openapi.json` });
@@ -34,44 +34,44 @@ export class VersionOperations extends ServiceApi {
     return this.client.request<T.RouterPublishApkPostResponse, T.RouterPublishApkPostInput>({ ...options, method: "POST", url: `/api/v1/apk/releases`, data: data });
   }
   /**
-   * Performs the services index operation for the service capability.
+   * List active registered services without pagination or filters. last_version is null in this list; read a service by slug to resolve its newest active release.
    * Calls `GET /api/v1/services` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
   serviceServicesIndexGet(options?: RequestOptions) {
     return this.client.request<T.ServiceServicesIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/services` });
   }
   /**
-   * Performs the service show operation for the service capability.
-   * Calls `GET /api/v1/services/{service_id}` through the shared IDP-aware Faiber client.
-   * @param serviceId Backend path identifier `service_id`.
+   * Find an active service by its slug, not its UUID, and its highest-code active version. Missing or inactive services return 404.
+   * Calls `GET /api/v1/services/{service_slug}` through the shared IDP-aware Faiber client.
+   * @param serviceSlug Backend path identifier `service_slug`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
-  serviceServiceShowGet(serviceId: Identifier, options?: RequestOptions) {
-    return this.client.request<T.ServiceServiceShowGetResponse>({ ...options, method: "GET", url: `/api/v1/services/${encodeURIComponent(serviceId)}` });
+  serviceServiceShowGet(serviceSlug: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ServiceServiceShowGetResponse>({ ...options, method: "GET", url: `/api/v1/services/${encodeURIComponent(serviceSlug)}` });
   }
   /**
-   * Performs the service show all operation for the service capability.
-   * Calls `GET /api/v1/services/{service_id}/all` through the shared IDP-aware Faiber client.
-   * @param serviceId Backend path identifier `service_id`.
+   * Read all active versions for an active service slug. The service does not define history ordering or pagination; missing or inactive services return 404.
+   * Calls `GET /api/v1/services/{service_slug}/all` through the shared IDP-aware Faiber client.
+   * @param serviceSlug Backend path identifier `service_slug`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
-  serviceServiceShowAllGet(serviceId: Identifier, options?: RequestOptions) {
-    return this.client.request<T.ServiceServiceShowAllGetResponse>({ ...options, method: "GET", url: `/api/v1/services/${encodeURIComponent(serviceId)}/all` });
+  serviceServiceShowAllGet(serviceSlug: Identifier, options?: RequestOptions) {
+    return this.client.request<T.ServiceServiceShowAllGetResponse>({ ...options, method: "GET", url: `/api/v1/services/${encodeURIComponent(serviceSlug)}/all` });
   }
   /**
-   * Performs the version show operation for the version capability.
+   * Read an active version by UUID. Malformed UUIDs return 400 and missing or inactive versions return 404. Scope is metadata, not an access filter in this handler.
    * Calls `GET /api/v1/versions/{version_id}` through the shared IDP-aware Faiber client.
    * @param versionId Backend path identifier `version_id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
   versionVersionShowGet(versionId: Identifier, options?: RequestOptions) {
     return this.client.request<T.VersionVersionShowGetResponse>({ ...options, method: "GET", url: `/api/v1/versions/${encodeURIComponent(versionId)}` });

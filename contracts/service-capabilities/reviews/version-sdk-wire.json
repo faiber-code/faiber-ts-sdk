@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "status": "local_source_and_sdk_wire_verified_canonical_gateway_pending",
+  "service_revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+  "canonical_main_revision": "88071d0dd49309e0c93aba6238516e95b57e1df5",
+  "semantic_review": "docs/service-capabilities/VERSION_SDK_RELEASE_REVIEW.md",
+  "test_evidence": [
+    "version-sdk-wire"
+  ],
+  "operations": [
+    {
+      "id": "GET /health",
+      "meaning_fa": "بررسی وضعیت فرایند سرویس نسخه",
+      "source_refs": [
+        "infera_version/src/router.rs",
+        "infera_version/src/service/methods.rs",
+        "infera_version/src/version/methods.rs",
+        "infera_version/src/version/publish.rs",
+        "infera_version/src/models.rs",
+        "infera_version/auth_macro/src/lib.rs",
+        "infera_version/auth/src/axum_middleware.rs"
+      ]
+    },
+    {
+      "id": "GET /api/openapi.json",
+      "meaning_fa": "دریافت سند خام رابط سرویس",
+      "source_refs": [
+        "infera_version/src/router.rs",
+        "infera_version/src/service/methods.rs",
+        "infera_version/src/version/methods.rs",
+        "infera_version/src/version/publish.rs",
+        "infera_version/src/models.rs",
+        "infera_version/auth_macro/src/lib.rs",
+        "infera_version/auth/src/axum_middleware.rs"
+      ]
+    },
+    {
+      "id": "POST /api/v1/apk/releases",
+      "meaning_fa": "ثبت نسخه معتبر برنامه با اعتبارنامه ناشر",
+      "source_refs": [
+        "infera_version/src/router.rs",
+        "infera_version/src/service/methods.rs",
+        "infera_version/src/version/methods.rs",
+        "infera_version/src/version/publish.rs",
+        "infera_version/src/models.rs",
+        "infera_version/auth_macro/src/lib.rs",
+        "infera_version/auth/src/axum_middleware.rs"
+      ]
+    },
+    {
+      "id": "GET /api/v1/services",
+      "meaning_fa": "نمایش سرویس‌های فعال",
+      "source_refs": [
+        "infera_version/src/service/routes.rs",
+        "infera_version/src/service/methods.rs",
+        "infera_version/src/version/methods.rs",
+        "infera_version/src/version/publish.rs",
+        "infera_version/src/models.rs",
+        "infera_version/auth_macro/src/lib.rs",
+        "infera_version/auth/src/axum_middleware.rs"
+      ]
+    },
+    {
+      "id": "GET /api/v1/services/{service_slug}",
+      "meaning_fa": "دریافت سرویس با نامک و آخرین نسخه فعال",
+      "source_refs": [
+        "infera_version/src/service/routes.rs",
+        "infera_version/src/service/methods.rs",
+        "infera_version/src/version/methods.rs",
+        "infera_version/src/version/publish.rs",
+        "infera_version/src/models.rs",
+        "infera_version/auth_macro/src/lib.rs",
+        "infera_version/auth/src/axum_middleware.rs"
+      ]
+    },
+    {
+      "id": "GET /api/v1/services/{service_slug}/all",
+      "meaning_fa": "دریافت نسخه‌های فعال سرویس با نامک",
+      "source_refs": [
+        "infera_version/src/service/routes.rs",
+        "infera_version/src/service/methods.rs",
+        "infera_version/src/version/methods.rs",
+        "infera_version/src/version/publish.rs",
+        "infera_version/src/models.rs",
+        "infera_version/auth_macro/src/lib.rs",
+        "infera_version/auth/src/axum_middleware.rs"
+      ]
+    },
+    {
+      "id": "GET /api/v1/versions/{version_id}",
+      "meaning_fa": "دریافت نسخه فعال با شناسه یکتا",
+      "source_refs": [
+        "infera_version/src/version/routes.rs",
+        "infera_version/src/service/methods.rs",
+        "infera_version/src/version/methods.rs",
+        "infera_version/src/version/publish.rs",
+        "infera_version/src/models.rs",
+        "infera_version/auth_macro/src/lib.rs",
+        "infera_version/auth/src/axum_middleware.rs"
+      ]
+    }
+  ],
+  "remaining": [
+    "Canonical service repair integration",
+    "Current deployed project gateway permission validation",
+    "Final all-package release acceptance after all pending contributions"
+  ]
+}

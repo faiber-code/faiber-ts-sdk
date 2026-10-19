@@ -175,6 +175,36 @@ export const releaseContracts = {
     "methodName": "transferUserDataPost",
     "idempotencyKey": true
   },
+  "version:GET /health": {
+    "response": "import(\"./types.js\").HealthResponse",
+    "auth": "public at the service router; deployed gateway rules may add restrictions",
+    "purpose": "Read the Version service process health envelope. This does not verify database, broker or gateway readiness."
+  },
+  "version:GET /api/openapi.json": {
+    "response": "import(\"./types.js\").VersionOpenApiDocument",
+    "auth": "public at the service router; deployed gateway rules may add restrictions",
+    "purpose": "Read the raw generated OpenAPI document, without an API envelope. The current document describes health only and is not the complete mounted API inventory."
+  },
+  "version:GET /api/v1/services": {
+    "response": "import(\"./types.js\").ServicesResponse",
+    "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
+    "purpose": "List active registered services without pagination or filters. last_version is null in this list; read a service by slug to resolve its newest active release."
+  },
+  "version:GET /api/v1/services/{service_slug}": {
+    "response": "import(\"./types.js\").ServiceResponse",
+    "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
+    "purpose": "Find an active service by its slug, not its UUID, and its highest-code active version. Missing or inactive services return 404."
+  },
+  "version:GET /api/v1/services/{service_slug}/all": {
+    "response": "import(\"./types.js\").ServiceVersionsResponse",
+    "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
+    "purpose": "Read all active versions for an active service slug. The service does not define history ordering or pagination; missing or inactive services return 404."
+  },
+  "version:GET /api/v1/versions/{version_id}": {
+    "response": "import(\"./types.js\").VersionResponse",
+    "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
+    "purpose": "Read an active version by UUID. Malformed UUIDs return 400 and missing or inactive versions return 404. Scope is metadata, not an access filter in this handler."
+  },
   "version:POST /api/v1/apk/releases": {
     "response": "import(\"./contracts.types.js\").ApkPublishReceipt",
     "input": "import(\"./contracts.types.js\").ApkPublishInput",

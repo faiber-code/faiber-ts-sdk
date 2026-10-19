@@ -8,6 +8,7 @@
     "type-consumer.ts",
     "release-type-consumer.ts",
     "transport-options.types.ts",
-    "lms-classroom-counts.types.ts"
+    "lms-classroom-counts.types.ts",
+    "version-wire.types.ts"
   ]
 }

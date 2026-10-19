@@ -663,5 +663,33 @@
     "duration_seconds": 29.059,
     "scope": "Source-fenced actual Manage process plus Agentic handlers and real disposable Mongo, including real compiled SDK Axios/fetch creation, paging/headers, messages/deletion and invalid-query/foreign-project/billing denials.31 tests comprise26 Manage +3 Agentic (expanded workflow with required SDK success marker) +2 startup rejection cases, not31 additional tests over the prior bridge run. No model call or actual service mutation receipt; pending review remains process-local. Control lifecycle is a fixture. Canonical/main integration, production gateway/IDP/Control, full SDK/UI and deployment unverified.",
     "canonical_certification": false
+  },
+  "version-sdk-wire": {
+    "schema_version": "1.0",
+    "status": "passed",
+    "command": "cargo --config profile.test.package.infera_version.debug=0 --config profile.test.package.infera_version.strip=\"debuginfo\" test --offline --workspace -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 12,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_unchanged_during_run": true,
+    "source_revisions": {
+      "version": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+      "control": "e15272c1539eee4c1b183a8b2ec7e0453301d8b3"
+    },
+    "duration_seconds": 107.809,
+    "scope": "Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates",
+    "resolved_cargo_lock_sha256": "40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486",
+    "resolved_cargo_lock_artifact_path": "evidence/version-resolved-40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486.Cargo.lock",
+    "kind": "real_sdk_http_postgres_contract",
+    "artifact_path": "evidence/version-sdk-wire-tests.json",
+    "artifact_sha256": "b385ffde83a1d91a68bfc03d4b3e81c41c61974f08fc3273145d2b043ffd258f",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/version-sdk-wire-tests.log",
+        "sha256": "a8e4c16a6fb94683b461bcd1c9cc9ab818d7b49ed70ebe1e548578c7a3eef67b"
+      }
+    ],
+    "canonical_certification": false
   }
 }
