@@ -407,16 +407,92 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "0e416604f8ebe56cd1dd9058768476ab9f60917e881a7d86d5ca9b8cc059b4bb",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "List readable GIS datasets.",
+          "fa": "فهرست مجموعه‌داده‌های مکانی قابل خواندن."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "No supported query pagination/search. Data is raw dataset rows under {status:\"success\",data:[...]}; includes organization_id,scope,owner_id,visibility,status,revision,source/license/attribution."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "No mutation; ordered name, hard limit200, no total/next cursor. A truncated list is not a complete export."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Current actor organization/user/access predicates; global published public included."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -473,16 +549,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "71f923f943ca4689cf6f6fb0dafe064834b7885d53d013d33a05732109e36640",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Create a scoped draft dataset.",
+          "fa": "ایجاد مجموعه‌دادهٔ پیش‌نویس با محدودهٔ دسترسی."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Required name,attribution,license,source,scope. Name.trim nonempty/name bytes<=200; attribution nonempty<=2000; license nonempty; source<=2000; scope user|organization|global. No URL-fetch/scheme validation of source. Returns200 success/data dataset."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Generates UUID, assigns actor organization and user owner only for user scope; draft/private revision1. Organization creation needs gis:dataset:manage; global needs gis:global:manage. No audit/outbox is emitted by create_dataset itself."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "No caller owner/organization/status/revision override."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -532,16 +684,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "b64da6e08f0dfded488294ad069746da12ed280a0953d2c9cb341070bead7988",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Read authorized dataset metadata.",
+          "fa": "خواندن فرادادهٔ مجاز مجموعه‌داده."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Path dataset UUID; success/data full dataset row. Missing/inaccessible404."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Read-only; private metadata is not automatically publicly exposed."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Exact UUID plus native current scope predicate."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -603,16 +831,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "cbd654c37e02e3253087c24d83a275a173d8658d35416a59684338cefc2eefbb",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Change dataset publication/visibility with a revision and reason.",
+          "fa": "تغییر انتشار و نمایش مجموعه‌داده با نسخه و دلیل."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Required status draft|published|archived,visibility public|private,expected_revision integer,reason trimmed>=3 and bytes<=1000.200 success/data dataset; invalid400/stale409."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Write access required. Atomic revision increment, native history and transactional GIS outbox. Publication affects subsequent public exports/tiles; no scope/owner/name/source edits in this endpoint."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Exact UUID/revision. Even PATCH requires the whole declared publication body."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -674,16 +978,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "7328a5fcc94cbc7bb1e2128caba27ca914d5c9976c1233619657ee8531edef7d",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Read authorized bounded GeoJSON features.",
+          "fa": "خواندن محدود عوارض جغرافیایی مجاز."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Path dataset UUID. Raw FeatureCollection with features: type Feature,id:string,geometry,properties,revision. Not a success/data envelope."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Read-only; soft-deleted features omitted. Bounded response is not a full dataset export."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "bbox comma-separated west,south,east,north; finite ordered bounds, longitude[-180,180],latitude[-85.05112878,85.05112878]. limit defaults5000/clamps1–5000; ORDER BY id, no cursor/offset."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -763,16 +1143,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "cb809ca21a2e0d507733fc8f9072454eea76e39203e0759e99abb41ca1bdb26e",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Upsert a geometry batch with atomic dataset revision control.",
+          "fa": "ثبت یا به‌روزرسانی گروهی هندسه با کنترل اتمی نسخه."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Body expected_revision,reason,features1–2000. reason.trim>=3/bytes<=1000; unique nonempty feature IDs<=160bytes. Properties must be object, serialized<=32000bytes each. Six GeoJSON geometry families, finite2–3 dimensions, per-geometry<=10000 coordinate positions, WGS84/Mercator bounds and PostGIS nonempty/valid geometry required."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Atomic dataset revision increment; batch upsert increments feature revisions and clears deleted_at on existing IDs; transactional history and outbox. Failure rolls back. Global request body limit16MiB still applies to combined batch."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "No caller organization/owner override; dataset revision mismatch409. This is upsert, not replacement/deletion of omitted features."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -834,16 +1290,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "e5d2db6a9a8a2e2e3f70fe1203809b60faca63b82b7e6555a1605a242c305439",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Soft-delete one feature through the mounted PUT operation.",
+          "fa": "حذف نرم یک عارضه با عملیات PUT ثبت‌شده."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Dataset UUID and opaque feature string ID. Body expected_revision,reason.trim>=3. Unlike bulk writes this handler has no explicit1000byte reason cap; global16MiB body limit applies.200 success/data {revision}; missing404/stale409."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Atomically increments dataset/feature revision and sets deleted_at, records previous geometry in private history and transactional outbox. Re-upsert can restore. Do not implement this as DELETE or an unversioned toggle."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Exact dataset revision and undeleted feature; IDs are not interchangeable UUIDs."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -893,16 +1425,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "57cb2ebb6a3ca7dbacf58dcf26839d38c44cf25a5d75817ff3d5e1c94dec0df6",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Read private dataset and map mutation history.",
+          "fa": "خواندن تاریخچهٔ خصوصی تغییرات مجموعه‌داده و نقشه."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference. History specifically requires write-level dataset access, not ordinary public/read access."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "200 success/data history rows with actor_id,operation,reason,before_state,after_state,created_at."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Read-only; source text/history is untrusted evidence. No history purge/rollback endpoint is advertised."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "ORDER BY created_at DESC LIMIT100, no cursor/total guarantee."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -964,16 +1572,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "8b149b05a40437f1246991e5a388977a60a587a1bf4eb5b4d15b215290ebf388",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Read bounded published public dataset GeoJSON.",
+          "fa": "خواندن محدود ژئوجیسون مجموعه‌دادهٔ عمومی منتشرشده."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "public_published_read",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Anonymous path explicitly bypasses IDP cookie validation; public_dataset requires published AND public and either global scope or deployment tenant organization. Missing/private404."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Same raw FeatureCollection and bbox/limit contract as private features; no identity or administrative fields added."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Read-only; publication/privacy is checked at each request, not just style generation."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Same bounds and limit1–5000; no pagination completeness/total count guarantee."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "GIS dataset UUID is distinct from feature string ID and map UUID/slug. Geometry owned by dataset inherits its scope; history contains private source text/geometries and requires write-level dataset access. Dataset scope/owner is fixed at creation. Revisions are optimistic concurrency tokens, not IDP identities or document-memory revisions."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1673,16 +2357,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "d338a09b242d3a1cd25eb3953e3c5e16cfa6387fa14a76c25a8d5d357d7f6bca",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Discover authorized public vector-tile metadata.",
+          "fa": "کشف فرادادهٔ کاشی برداری عمومی مجاز."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "public_published_read",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Anonymous public path; same public_dataset checks as public GeoJSON."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Raw TileJSON3.0.0 object with name,attribution,minzoom0,maxzoom20,tiles URL including revision,vector_layers city. No API envelope."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "No mutation; metadata does not grant enduring tile access after dataset privacy changes."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Dataset UUID; no supported query filters. revision URL is a cache hint, current revision is read server-side."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Private Martin renderer must not be exposed. Stable dataset UUID plus current revision/tenant forwarded internally; source attribution is preserved."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1732,16 +2492,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "359b500b97e67c5350eaf6a09f6e66cf0eec8b555ead69f2679304586174e6f2",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Render a public published vector tile.",
+          "fa": "تولید کاشی برداری عمومی منتشرشده."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "public_published_read",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Anonymous public path, current published/public/global-or-deployment organization checked on every tile."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Dataset UUID plus u32 z/x/y; z<=20 and x,y<2^z. Raw Mapbox vector-tile bytes, x-gis-revision, private/no-cache and optional content-encoding headers."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "No mutation; private configured Martin HTTP upstream, identity encoding requested. Upstream failure503, byte stream>5MiB502; global no-store only added when no existing cache policy."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "No caller-provided upstream URL, tenant, authorized flag or operative revision override. Geometry/renderer readiness still requires real PostGIS/Martin tests."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Martin receives dataset,tenant,current revision and authorized=false over private link; renderer role/SQL ACL and external public access require separate verification."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1819,16 +2655,92 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "5e2fe848cca93fb233fa88a3f809800dac99b078e7decce72a8c652c71c9e5c0",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Render a currently authorized private preview vector tile.",
+          "fa": "تولید کاشی برداری پیش‌نمایش خصوصی با دسترسی جاری."
+        },
+        "scope": "Native dataset scope and current actor; explicitly published/public endpoints are anonymous.",
+        "classification": "dataset_scoped_native_operation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-dataset-tile-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/PostGIS/Martin/IDP boundary verification",
+          "Typed concrete SDK/package and human-readable geometry/Manage workflows",
+          "Canonical/Rasht deployed source and renderer policy reconciliation"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Actual actor boundary: trusted server BFF bearer+user/organization UUID+current trusted permissions, or current IDP-validated cookie with exact-origin mutation checks. Backend current dataset access is authoritative: global public-published is readable or gis:global:manage; user scope requires matching organization and owner or gis:dataset:manage; organization scope requires same organization, and management permission for writes. Denials use404; authentication/tenant failures401/403. No display-role inference."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Same bounded binary tile/status/headers contract as public tile, not JSON."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "No mutation; read-level dataset access checked per request, upstream authorized=true. This flag must remain internal and cannot bypass GIS authorization."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Same finite integer tile index bounds; no operative revision query override."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/geometry/routes.rs",
+            "Service/infera-gis/src/geometry/methods.rs",
+            "Service/infera-gis/src/geometry/models.rs",
+            "Service/infera-gis/src/tiles/routes.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/migration/schema.sql",
+            "Service/infera-gis/migration/private-tiles.sql"
+          ],
+          "meaning": "Private Martin and restricted security-definer tile function must honor dataset/tenant/revision boundaries. This does not certify renderer ACL or current live identity."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
