@@ -23,7 +23,7 @@ export interface FeedbackListQuery extends QueryParams {cursor?:string;limit?:nu
 export interface FeedbackPage {items:FeedbackRequest[];next_cursor:string|null}
 /** Native /api/v1/feedback/capabilities reporter binding (Task 576f181).
  * Freeze reporter_id before capture. Send X-Feedback-Reporter-Id on attachment
- * and submission calls; 409 reporter_identity_changed requires discarding the
+ * and submission calls; 409 feedback_identity_changed requires discarding the
  * captured context/screenshot and obtaining a fresh binding. No credential is implied.
  */
 export interface FeedbackCapabilities {reporter_id:string;identity_binding_version:1;enabled:boolean;context_schema_version:1;reporting_roles:string[];can_submit:boolean;can_review:boolean;can_manage_policy:boolean;max_context_bytes:number;max_screenshot_bytes:number}
