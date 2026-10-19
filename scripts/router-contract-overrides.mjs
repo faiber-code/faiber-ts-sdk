@@ -69,3 +69,15 @@ routerContracts["chat:GET /api/v1/integrations/lms/messages/{id}/notification-co
  auth:"server-only x-infera-lms-token matching CHAT_LMS_SERVICE_TOKEN; missing configuration or invalid token returns 403",
  purpose:"Read identifiers and current active recipients/read state for a sent undeleted message. Excludes private message content and profile data; missing/deleted messages or conversations return 404."
 };
+
+for (const path of ["/", "/health"]) routerContracts[`session:GET ${path}`] = {
+ response:'import("@faiber/sdk-core").ServiceHealthResponse',
+ auth:"no handler permission check; deployment gateway policy is separate",
+ purpose:"Read the Session process version; does not verify database or media-provider readiness."
+};
+routerContracts["session:GET /api/v1/integrations/lms/rooms/{id}/notification-state"] = {
+ response:'import("./contracts.types.js").SessionNotificationStateResponse',
+ pathTypes:{id:"string"},
+ auth:"server-only x-infera-lms-token matching LMS_SERVICE_TOKEN; missing configuration returns503, invalid token403",
+ purpose:"Observe current room presence and persist the first actual learning start with a transactional outbox event when the source rules are satisfied. Live rooms query LiveKit with a five-second timeout; provider failures return503. Composition rooms use recent client activity. Ended rooms return no present users. This GET may persist state; it is not a write-free health check or proof of unique attendance."
+};

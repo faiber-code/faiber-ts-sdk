@@ -67,3 +67,14 @@ test('service main remains the entry when a nested migration crate sorts first',
  const graph=mountedRouterOperations(files,{path:'src/main.rs',function:'main',variable:'app'});
  assert.deepEqual(graph.operations.map(x=>x.path),['/live']);
 });
+
+test('qualified sibling handlers resolve through an explicit parent glob without accepting unrelated modules',()=>{
+ const files=[sourceIndex('use super::*; pub fn router()->Router{Router::new().route("/attachments",post(storage::initialize))}', 'example/src/feedback/routes.rs'),
+ sourceIndex('pub async fn initialize(Json(input):Json<InitializeAttachment>)->Json<ApiResponse<AttachmentView>>{}','example/src/feedback/storage.rs'),
+ sourceIndex('pub async fn initialize(){}','example/src/storage.rs')];
+ const graph=mountedRouterOperations(files,{path:'src/feedback/routes.rs',function:'router'});
+ assert.deepEqual(graph.unresolved,[]);
+ const op=graph.operations[0];assert.equal(op.handlerModule,'feedback::storage');assert.equal(op.body,'InitializeAttachment');assert.equal(op.response,'AttachmentView');assert.ok(!op.unresolved_handler);
+ const missing=mountedRouterOperations(files.filter(f=>!f.path.endsWith('/feedback/storage.rs')),{path:'src/feedback/routes.rs',function:'router'});
+ assert.equal(missing.operations[0].unresolved_handler,'storage::initialize');
+});

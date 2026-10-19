@@ -1,0 +1,224 @@
+[
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/src/ai_summary/routes.rs",
+    "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "sha256": "3bbf6f17c305c3b43453ea018d52002d108da62f6e698a6886d53bfc09f983fa",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/src/ai_summary/models.rs",
+    "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "sha256": "15d238e31e2b6d7b8ba2582ea48b8c0ea2606e57e34056d73300c56407c016ae",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/src/ai_summary/methods.rs",
+    "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "sha256": "4b016cae7d0ffee04aeb63f291bc7395e62c6924d9b17bf003d1171689d49acd",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/src/ai_summary/identity.rs",
+    "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "sha256": "a16ce2163456e906c1fb836acd621168588964e3525ecc68d8c7ea4599098ce9",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/src/ai_summary/worker.rs",
+    "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "sha256": "8a51ebbdb73281094d6b7af2ccbf5b4c9844d8ec06dbcc5ed74eda7e6256dc19",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/src/ai_summary/openapi.rs",
+    "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "sha256": "d339de604f48fef4fff2a00bcd8cad70710be40b6e4fda9b8ec76efd841af1c3",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/src/router.rs",
+    "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "sha256": "24df9510629f6da753727ddcc8c138e31b780be5a397e66fc5abd349bb137454",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/tests/role_summaries.rs",
+    "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "sha256": "29034b55e2dc3abd70b6be74045c0859cb7fdf5d537af23a20cb767b9ee5765f",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms/src/summary_evidence.rs",
+    "commit": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+    "sha256": "b528f377ccf167d7eec055fce6ff5360e884884616e3391e8d49fd061254311f",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms/src/summary_evidence.sql",
+    "commit": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+    "sha256": "88d00fcae213f84212cd394519e3a6b402b2d32227515ce66961ec1ad18f317b",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms/src/access.rs",
+    "commit": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+    "sha256": "85bc00a8d3741d92eb801e3a3392c619d0e6ede43e7a66338a0b71cc13f6e167",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms/src/router.rs",
+    "commit": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+    "sha256": "ace2bb938e64d021e2e31fd98b49fc14fcf2ac70e472e185d77d143de46a3765",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms/src/lib.rs",
+    "commit": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+    "sha256": "815e41fff3d3988f7576806d61e853bed3ccf8324ef6a209e116b2841be0ce37",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk/src/catalog.rs",
+    "commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "sha256": "28f3b4b57b2c2dd7bc1309af471c6514afe1ca8fe70e3727735afc257b18d2e1",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk/src/grant.rs",
+    "commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "sha256": "4ec08323843172e92a6ee63e1e9f588b03224b1f79046599ff3780de2d7b220c",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk/src/evidence.rs",
+    "commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "sha256": "b67c8d9ecea944f57663ab3d9ec8686f3d92511bea4531f5979050738275ee09",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk/src/server.rs",
+    "commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "sha256": "edadbfe69af77f695443631c04e26024046ee521ad402669596f0fa372387738",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk/src/query.rs",
+    "commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "sha256": "1b41835d869b2efd44aaf7d3f78cdf974c38bebf748b20a967beca0b26adf93c",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk/src/native_identity.rs",
+    "commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "sha256": "40696b937098d29860aac3de3a04a86a69f2da02f89ff6d2a125a70e97b9c187",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-profile-sdk/src/summaries.rs",
+    "commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "sha256": "f22c433c111baa0c925d2646e6334a4f2fccf409a3fc31895629c7d221363e0a",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk/tests/mcp_transport.rs",
+    "commit": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "sha256": "1eb543cda949cf4722d4856c316d3d32ccb9ca45b0dd3284cc15c8113ad78ee4",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/poulstar-accounting-backend/app/Mcp/Summary/Evidence.php",
+    "commit": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b",
+    "sha256": "5ef7017baee36a309fe40a688bcb9a3ed7c3c3c957e469acf609fe6616815de4",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/poulstar-accounting-backend/app/Mcp/Summary/NativeIdentity.php",
+    "commit": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b",
+    "sha256": "77d78ca51cf54d81d1ce6b394ad391551ff3c377e768c8655e4599fff7af6cda",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/poulstar-accounting-backend/app/Mcp/Summary/Tools/ActivityTool.php",
+    "commit": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b",
+    "sha256": "f7bf2a58b30b048e892b5401ea460435f75772d42d764948c322192a9afce849",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/poulstar-accounting-backend/tests/Unit/SummaryEvidencePostgresTest.php",
+    "commit": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b",
+    "sha256": "301c0795693abc3feac7bdc01871af9e68b73280898db8f229dbefd2984d6f0e",
+    "scope": "immutable candidate"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-task/src/summary_evidence.rs",
+    "commit": null,
+    "sha256": "c0cdcb081e32b5199f30d36a2a583854b30500a9ac5059cc9b91bb8a3faeb9ea",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-task/src/summary_evidence.sql",
+    "commit": null,
+    "sha256": "29d54032ba803696a9e050f2711cc851814eac747f4b7c6e946c9099e84dfe5b",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-task/src/summary_aggregates.sql",
+    "commit": null,
+    "sha256": "eeeb486efd853e486cc41876dee88e7df490b562e1c849606de21a424c99d974",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-session/src/summary_evidence.rs",
+    "commit": null,
+    "sha256": "548a107ef3144934f56122f87de2e6eb5b403b6d42399de71b0602f9dcd7c99d",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-session/src/summary_evidence.sql",
+    "commit": null,
+    "sha256": "d746d39cc68745bfee138b2e6e2574d4f1f7dd98cd174a8205db83f8707325e1",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-session/src/summary_aggregates.sql",
+    "commit": null,
+    "sha256": "6f61eb9f855a0423c6bfb567019e598a0ebe8b4fba94cc4ad2148ec43d48b219",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-chat/src/summary_evidence.rs",
+    "commit": null,
+    "sha256": "45ba5ac9e1d694fc1aeb882df4d82865c23367bbf5db2dcda204083e96fe59f0",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-chat/src/summary_evidence.sql",
+    "commit": null,
+    "sha256": "e03a89c6aee7293cb1979bb79be4c388d117ef0e5b27e08194ed02696c6b1d75",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-chat/src/summary_aggregates.sql",
+    "commit": null,
+    "sha256": "601a00d73a75ba3e66b11431ae3657bbad3537829b62aed27b8a31b8e9fd4d5b",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-crm/src/summary_evidence.rs",
+    "commit": null,
+    "sha256": "e15d390449470dcc45e7b2a7d0d67aabd85317071ee0972799b3f07dd2045bd5",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-crm/src/summary_evidence.sql",
+    "commit": null,
+    "sha256": "1199390aa41276aee18646fd7a4adea37f113379c3451fd52fa8a9e527ea3365",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  },
+  {
+    "path": "/Users/mohammadralizadeh/Infera/Service/infera-crm/src/summary_aggregates.sql",
+    "commit": null,
+    "sha256": "33d74daab557c52099dce9125d0e7d48a9da341c806fbe284f85b19d29df88c8",
+    "scope": "reviewed current root adapter snapshot; NOT code at Rust SDK d3a76ff; not frozen adapter commit handoff"
+  }
+]

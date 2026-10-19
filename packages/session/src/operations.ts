@@ -3,11 +3,11 @@ import type * as T from "./operations.types.js";
 
 export class SessionOperations extends ServiceApi {
   /**
-   * Performs the status route operation for the router capability.
+   * Read the Session process version; does not verify database or media-provider readiness.
    * Calls `GET /` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   routerStatusRouteGet(options?: RequestOptions) {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
@@ -76,16 +76,6 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.IntegrationIntegrationDocsShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/docs` });
   }
   /**
-   * Performs the flow integration show operation for the integration capability.
-   * Calls `GET /api/v1/integration/flow` through the shared IDP-aware Faiber client.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  integrationFlowIntegrationShowGet(options?: RequestOptions) {
-    return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/flow` });
-  }
-  /**
    * Performs the tool schema operation for the assistant tools capability.
    * Calls `GET /api/v1/integrations/chat/tool-schema` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -129,6 +119,17 @@ export class SessionOperations extends ServiceApi {
    */
   integrationPerformanceContextPost(data: T.IntegrationPerformanceContextPostInput, options?: RequestOptions<T.IntegrationPerformanceContextPostInput>) {
     return this.client.request<T.IntegrationPerformanceContextPostResponse, T.IntegrationPerformanceContextPostInput>({ ...options, method: "POST", url: `/api/v1/integrations/lms/performance-context`, data: data });
+  }
+  /**
+   * Observe current room presence and persist the first actual learning start with a transactional outbox event when the source rules are satisfied. Live rooms query LiveKit with a five-second timeout; provider failures return503. Composition rooms use recent client activity. Ended rooms return no present users. This GET may persist state; it is not a write-free health check or proof of unique attendance.
+   * Calls `GET /api/v1/integrations/lms/rooms/{id}/notification-state` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only x-infera-lms-token matching LMS_SERVICE_TOKEN; missing configuration returns503, invalid token403.
+   */
+  notificationStateSnapshotGet(id: string, options?: RequestOptions) {
+    return this.client.request<T.NotificationStateSnapshotGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/lms/rooms/${encodeURIComponent(id)}/notification-state` });
   }
   /**
    * Performs the public show operation for the branding capability.
@@ -430,5 +431,25 @@ export class SessionOperations extends ServiceApi {
    */
   roomLivekitWebhookPost(data: T.RoomLivekitWebhookPostInput, options?: RequestOptions<T.RoomLivekitWebhookPostInput>) {
     return this.client.request<T.RoomLivekitWebhookPostResponse, T.RoomLivekitWebhookPostInput>({ ...options, method: "POST", url: `/api/v1/rooms/livekit/webhook`, data: data, headers: { "Content-Type": "application/octet-stream", ...options?.headers } });
+  }
+  /**
+   * Read the Session process version; does not verify database or media-provider readiness.
+   * Calls `GET /health` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
+   */
+  routerStatusRouteGetHealth(options?: RequestOptions) {
+    return this.client.request<T.RouterStatusRouteGetHealthResponse>({ ...options, method: "GET", url: `/health` });
+  }
+  /**
+   * Performs the flow integration show operation for the integration capability.
+   * Calls `GET /integration/flow` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   */
+  integrationFlowIntegrationShowGet(options?: RequestOptions) {
+    return this.client.request<T.IntegrationFlowIntegrationShowGetResponse>({ ...options, method: "GET", url: `/integration/flow` });
   }
 }

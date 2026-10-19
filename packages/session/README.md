@@ -28,18 +28,20 @@ const token = await api.livekitToken(roomId);
 
 ## Complete capability
 
-This package exposes 35 registered operations from the live sessions service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 41 extracted operations from the pinned Session source. Common workflows have concise methods on `api`; generated operations and their named types are exported. Extraction is structural coverage, and does not certify all cross-service workflows.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
+| `asset-economy` | 1 | `POST` |
 | `assistant-tools` | 3 | `GET` |
 | `branding` | 5 | `GET`, `POST`, `PUT` |
 | `configuration` | 2 | `GET`, `PUT` |
 | `integration` | 3 | `GET`, `POST` |
+| `notification-state` | 1 | `GET` |
 | `recording` | 4 | `GET`, `POST` |
-| `room` | 16 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `room` | 19 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `room-state` | 1 | `POST` |
-| `router` | 1 | `GET` |
+| `router` | 2 | `GET` |
 
 Room start, stop, end, playback, recording, webhook, and state-response routes are separate operations so their unusual GET/POST verbs are preserved exactly.
 
@@ -77,3 +79,17 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 ### Presence and moderation
 
 `operations.roomRoomsPresenceEventsGet(roomId)` returns typed `joined`/`left` events with UTC timestamps. Access requires a room read permission and preview/participant authorization. `roomRoomsSelfModerationGet` reads the current participant's mute state; `roomRoomsParticipantMutePut(roomId, profileId, {muted:true})` requires `room:end` and authorized room ownership. Muted-until timestamps are nullable RFC 3339 strings. Standard authenticated Axios responses and cancellation options are retained.
+
+### Trusted LMS notification state
+
+`operations.notificationStateSnapshotGet(roomId, options)` requires a server-only
+`x-infera-lms-token` matching Session's `LMS_SERVICE_TOKEN`. Never expose it to a browser.
+The response includes nullable classroom-session and actual-start timestamps, current
+present user IDs, entry availability and ended state. Missing configuration or an
+unavailable media provider returns503; an invalid credential returns403.
+
+This observation can persist the first learning-start marker and an outbox event.
+Live rooms consult LiveKit with a five-second bound; composition rooms consult recent
+client activity. It is not proof of unique attendance or punctuality. The SDK preserves
+Session's room-client IDs; callers must verify their mapping to canonical IDP users.
+`flowIntegration()` calls the mounted root path `/integration/flow`.

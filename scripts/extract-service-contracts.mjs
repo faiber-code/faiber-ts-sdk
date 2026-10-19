@@ -370,7 +370,9 @@ for (const service of services) {
         unresolved.push(`${relativeSource(file)}:${route.method}:${route.localPath}:${route.handler}`);
         continue;
       }
-      const path = module === "router" && route.localPath.startsWith("/api/")
+      const path = service === "session" && module === "integration" && route.handler === "flow_integration_show"
+        ? cleanPath(route.localPath)
+        : module === "router" && route.localPath.startsWith("/api/")
         ? cleanPath(route.localPath)
         : prefix ? joinPath(prefix, route.localPath)
         : annotated

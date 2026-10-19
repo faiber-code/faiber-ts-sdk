@@ -2,8 +2,7 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 
 /** Generated route contracts. Dynamic payload members remain JSON-safe and are documented with their Rust source type. */
 /** Backend response type: api. */
-export interface RouterStatusRouteGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: Branding. */
 export interface BrandingShowGetResponseData extends JsonObject {
@@ -145,10 +144,6 @@ export interface IntegrationIntegrationDocsShowGetResponseData extends JsonObjec
 export interface IntegrationIntegrationDocsShowGetResponse extends ApiEnvelope<IntegrationIntegrationDocsShowGetResponseData> {
 }
 
-/** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
-export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
-}
-
 /** Backend response type: Value. */
 export interface AssistantToolsToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
 }
@@ -173,6 +168,9 @@ export interface IntegrationPerformanceContextPostInput extends JsonObject {
 /** Backend response type: Value. */
 export interface IntegrationPerformanceContextPostResponse extends ApiEnvelope<JsonValue> {
 }
+
+/** Backend response type: NotificationState. */
+export type NotificationStateSnapshotGetResponse = import("./contracts.types.js").SessionNotificationStateResponse;
 
 /** Backend response type: Branding. */
 export interface BrandingPublicShowGetResponseData extends JsonObject {
@@ -1731,3 +1729,10 @@ export interface RoomLivekitWebhookPostResponseData extends JsonObject {
   "message": string;
 }
 export type RoomLivekitWebhookPostResponse = RoomLivekitWebhookPostResponseData;
+
+/** Backend response type: api. */
+export type RouterStatusRouteGetHealthResponse = import("@faiber/sdk-core").ServiceHealthResponse;
+
+/** Backend response type: infera_flow_sdk::FlowIntegrationResponse. */
+export interface IntegrationFlowIntegrationShowGetResponse extends ApiEnvelope<BackendJson<"infera_flow_sdk::FlowIntegrationResponse">> {
+}

@@ -39,7 +39,12 @@ function functionFor(files, current, call, resolving=new Set()) {
   else if (qualifier === 'crate') qualifier = '';
   else if (qualifier.startsWith('super::')) qualifier = `${moduleOf(current.path).split('::').slice(0,-1).join('::')}::${qualifier.slice(7)}`;
   else if (qualifier.startsWith('self::')) qualifier = `${moduleOf(current.path)}::${qualifier.slice(6)}`;
-  const qualifiers=qualifier?[...new Set([...(absolute?[]:[`${moduleOf(current.path)}::${qualifier}`]),qualifier])]:[];
+  // A qualified sibling imported by `use super::*` belongs to the parent
+  // module, not the crate root or the current routes module.
+  const parentGlob = !absolute && /\buse\s+super::\*\s*;/.test(maskRust(current.source));
+  const parentModule = moduleOf(current.path).split('::').slice(0,-1).join('::');
+  const qualifiers=qualifier?[...new Set([...(absolute?[]:[`${moduleOf(current.path)}::${qualifier}`]),
+    ...(parentGlob && parentModule ? [`${parentModule}::${qualifier}`] : [qualifier])])]:[];
   for(const module of qualifiers.length?qualifiers:[null]){
     const matches = files.flatMap(file => file.functions.filter(fn => fn.name === fnName &&
       (module ? moduleOf(fn.path) === module : fn.path === current.path)).map(fn => ({file,fn})));

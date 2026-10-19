@@ -1,0 +1,10 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_chat-07dadccf3d7bb9bd)
+
+running 1 test
+test sdk_personal_router_tests::actual_router_serves_all_personal_sdk_operations ... {"status":"passed","assertions":21,"scope":"All5 actual mounted personal Chat HTTP operations, real PostgreSQL unread/member/organization filters, durable cursor replay, private channel HMAC, permission denials and cancellation. No live gateway header-stripping or Sockudo/WebSocket delivery certification."}
+
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 80 filtered out; finished in 0.50s
+

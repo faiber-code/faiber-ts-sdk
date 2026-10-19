@@ -54,6 +54,9 @@ test("contract extraction finds the sibling services tree and emits portable mou
       assert.ok(manifest.chat.some(endpoint=>endpoint.path===path),path);
     }
     assert.ok(manifest.chat.some(endpoint=>endpoint.path==="/api/v1/integrations/lms/messages/{id}/notification-context"));
+    assert.ok(manifest.session.some(e=>e.path==="/api/v1/integrations/lms/rooms/{id}/notification-state"));
+    assert.ok(manifest.session.some(e=>e.path==="/integration/flow"));
+    assert.ok(!manifest.session.some(e=>e.path==="/api/v1/integration/flow"));
     const upload = manifest.task.find(endpoint => endpoint.method === "POST" && endpoint.path === "/api/v1/work-items/{id}/attachments");
     assert.equal(upload.handlerModule, "attachments", "qualified type resolution must use the owning handler module");
     const drmOperationsSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/api/v1/operations/settings");
@@ -77,4 +80,13 @@ test("contract extraction finds the sibling services tree and emits portable mou
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }
+});
+
+
+test("contract audit rejects an unknown selection instead of verifying zero services", () => {
+  const result=spawnSync(process.execPath,[fileURLToPath(new URL("../scripts/audit-service-contracts.mjs",import.meta.url))],{
+    encoding:"utf8", env:{...process.env,FAIBER_CONTRACT_SERVICES:"sessoin"}
+  });
+  assert.notEqual(result.status,0);
+  assert.match(result.stderr,/Unknown contract service: sessoin/);
 });

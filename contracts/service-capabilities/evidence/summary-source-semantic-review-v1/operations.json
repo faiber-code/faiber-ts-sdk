@@ -1,0 +1,542 @@
+{
+  "pins": {
+    "infera-profile": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+    "infera-lms": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+    "faiber-sdk": "d3a76ff7c204e3da971960417bdfa335f7a73d2c",
+    "poulstar-accounting-backend": "97ba4b6ff6a9f03c9504fffa8b4d1d6aa9844e8b"
+  },
+  "profile_operations": [
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/settings",
+      "handler": "settings",
+      "permission": "configure",
+      "input": "No body. Deployment comes from server environment.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Settings {globally_enabled,concurrency_limit,retention_days}.",
+      "meaning_and_lifecycle": "Reads persisted deployment settings; first read inserts the default row. No LLM call.",
+      "tests": "T1 direct settings helper; no Profile REST wire test.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 60
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/ai-summaries/settings",
+      "handler": "save_settings",
+      "permission": "configure",
+      "input": "Settings body; concurrency_limit1..16, retention_days1..3650.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Settings.",
+      "meaning_and_lifecycle": "Persists switches/limits. Disabling cancels pending/retry/generating leases. Enabling alone does not synchronously generate or explicitly enqueue all users in this method.",
+      "tests": "T1 direct update_settings helper; no handler/SDK wire.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 74
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/roles",
+      "handler": "roles",
+      "permission": "configure",
+      "input": "No filters.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Array of canonical IDP role objects plus configuration:{id,enabled}|null.",
+      "meaning_and_lifecycle": "Fetches service-authenticated IDP role catalog and overlays deployment config status by role UUID; names are display data.",
+      "tests": "T1 indirectly uses IDP role fixture through create/publish/membership; roles handler untested.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 89
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/models",
+      "handler": "models",
+      "permission": "configure",
+      "input": "No user_id or payer override in public input.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Array of model catalog objects, including model_ref/supports_tools and available/worker_id when supplied.",
+      "meaning_and_lifecycle": "Profile calls its authenticated Agentic models integration. Runtime owner lookup belongs to Agentic. Catalog GET does not generate a summary.",
+      "tests": "T1 publish validation uses deterministic Agentic catalog double; actual owner/provider inventory unverified.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 112
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/sources",
+      "handler": "sources",
+      "permission": "configure",
+      "input": "No body.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Array of capability objects with configured and tool_schemas.",
+      "meaning_and_lifecycle": "Static six-source categories/scopes/aggregates from SDK; configured means source URL exists, not health proof.",
+      "tests": "T2 capability tests; no Profile sources handler/SDK wire.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 125
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/sources/{source}/check",
+      "handler": "check_source",
+      "permission": "configure",
+      "input": "source enum:lms/task/crm/accounting/session/chat; body ignored.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "{source,available:true,tools:[MCP tool objects]}.",
+      "meaning_and_lifecycle": "Signed service-user subject grant, now..now window, text off, non-text categories; negotiates/discovers schema. LMS/Accounting/CRM also call get_subject_context for current native identity. Does not prove selected end-user scope or historical coverage.",
+      "tests": "T1 helper positive discovery with fake LMS EvidenceReader; T3 generic MCP transport; T4/T5 native checks separately; public route wire absent.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 139
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/configurations",
+      "handler": "configurations",
+      "permission": "configure",
+      "input": "No filters/pagination.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Array of configuration DB records.",
+      "meaning_and_lifecycle": "Deployment-only list newest first, no result content or generation.",
+      "tests": "Source reviewed; no direct list success/HTTP test in retained suite.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 155
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/configurations",
+      "handler": "create",
+      "permission": "configure",
+      "input": "ConfigurationWrite {configuration,expected_version?}; UUID role must exist.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "201 configuration record.",
+      "meaning_and_lifecycle": "Creates disabled editable draft; one deployment+role unique; duplicate409. Full semantic/model/source validation deferred to validate/publish/preview. expected_version ignored on create.",
+      "tests": "T1 direct create helper, two arbitrary canonical roles; no REST201/SDK serialization test.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 184
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/configurations/{id}",
+      "handler": "configuration",
+      "permission": "configure",
+      "input": "id=configuration UUID, not role UUID.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Configuration DB record including draft/version/publication metadata.",
+      "meaning_and_lifecycle": "Deployment-scoped404 when absent.",
+      "tests": "T1 direct configuration helper reads; no REST handler wire.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 169
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/ai-summaries/configurations/{id}",
+      "handler": "update",
+      "permission": "configure",
+      "input": "ConfigurationWrite; expected_version required; embedded role_id immutable.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Updated configuration record with incremented draft_version.",
+      "meaning_and_lifecycle": "Optimistic write compares version. Missing expected version422; concurrent conflict409; draft remains editable independently from published revision.",
+      "tests": "T1 direct concurrent update helper: exactly one editor succeeds; no handler wire.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 199
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/configurations/{id}/validate",
+      "handler": "validate",
+      "permission": "configure",
+      "input": "Configuration id; body ignored; validates stored draft.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "{valid:true}.",
+      "meaning_and_lifecycle": "Checks metric/formula/scopes/budgets, canonical role, accessible tool model, source URLs/connectivity; no LLM generation. Can read source service-user context as part of checks.",
+      "tests": "T1 indirectly validates during publish using doubles; T2 structured validation; public validate route untested.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 215
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/configurations/{id}/publish",
+      "handler": "publish",
+      "permission": "configure",
+      "input": "Configuration id; no expected_version body. Authenticated actor UUID required.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Configuration record after immutable revision publication.",
+      "meaning_and_lifecycle": "Revalidates draft; rejects same fingerprint409; transactional CAS on loaded draft_version/published_revision; stores revision fingerprint/publisher. Afterwards enqueue_role only if global+role enabled. Queue phase occurs after commit.",
+      "tests": "T1 direct publish helper+worker path with IDP/Agentic doubles; no handler wire/concurrent publish race assertion.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 231
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/configurations/{id}/preview",
+      "handler": "preview",
+      "permission": "configure + read(selected subject)",
+      "input": "PreviewWrite {user_id:canonical UUID}.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "202 {job_id,run_id}.",
+      "meaning_and_lifecycle": "Requires live eligible role membership and draft validation. Creates independent preview job and pending run atomically, operation/run id initially equals job id. Can execute while feature/role disabled. Never updates latest pointer. May consume model cost;202 is only queue receipt.",
+      "tests": "Source reviewed only; no retained preview enqueue/route/SDK wire execution test. Browser fixture returns synthetic202 and is not backend proof.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 262
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/ai-summaries/configurations/{id}/status",
+      "handler": "status",
+      "permission": "configure",
+      "input": "StatusWrite {enabled:boolean}.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Configuration record.",
+      "meaning_and_lifecycle": "Enabling requires published revision; enqueue_role observes global gate. Disabling cancels configuration jobs and clears leases. Current SQL updates all configuration job statuses, including completed/failed rows. Stored run history stays separate.",
+      "tests": "T1 direct enable/disable and latest/history behavior; no PATCH handler wire.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 246
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/latest",
+      "handler": "latest",
+      "permission": "read_own or read_all",
+      "input": "role_id required; user_id optional defaults authenticated UUID. Other ListQuery keys accepted but unused.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "{subject_user_id,role_id,enabled,availability,freshness,job_status?,summary:run|null}.",
+      "meaning_and_lifecycle": "Self/read_all check and deployment fence. Disabled hides content. Cached inactive membership returns ineligible. Current revision+completed job => fresh; previous valid result can remain ready+stale after failed refresh. No LLM.",
+      "tests": "T1 direct latest fresh/stale/ineligible/disabled reads; no HTTP/SDK wire.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 284
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/summaries",
+      "handler": "summaries",
+      "permission": "read_own or read_all",
+      "input": "ListQuery user_id?,role_id?,status?,page?,per_page?; page>=1; per_page clamped1..100 default25.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Page {items:run records,page,per_page,total}.",
+      "meaning_and_lifecycle": "read_own forced to actor subject; explicit other subject forbidden; read_all still deployment scoped. SQL parameter filters and stable created_at DESC,id DESC order; offset pagination. History includes previews/status outcomes.",
+      "tests": "T1 direct list cross-subject denial only. Positive paging/filter/SDK wire not covered.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 298
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/runs/{id}",
+      "handler": "run",
+      "permission": "read_own or read_all",
+      "input": "id=run UUID, not configuration/job UUID.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Single run DB record.",
+      "meaning_and_lifecycle": "Deployment query then readable subject check. Authorized history persists when configuration disabled; configure/manage alone insufficient.",
+      "tests": "T1 direct forbidden own-other/configure+manage and allowed own history. No HTTP/SDK wire.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 312
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/jobs",
+      "handler": "jobs",
+      "permission": "manage",
+      "input": "ListQuery filters user_id?,role_id?,status?,page?,per_page? same clamp/order as summaries.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "Page of job DB records, excluding preview_configuration,lease_token,requested_by.",
+      "meaning_and_lifecycle": "Manage permits operational queue inspection independently of result read. Generated result is stored separately; current redaction always removes listed fields.",
+      "tests": "Source reviewed; no retained jobs list/redaction/pagination HTTP or direct positive test.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 326
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/refresh",
+      "handler": "refresh",
+      "permission": "manage",
+      "input": "RefreshWrite {subjects:[{user_id,role_id}]} length1..100.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "202 {queued:[{job_id,user_id,role_id}]}.",
+      "meaning_and_lifecycle": "Per-pair lookup config by deployment+role, live eligibility, enabled/global check; immediate coalesced non-preview enqueue. No read permission required/no result returned. Batch is sequential/non-transactional; partial queue side effects may occur before a later error.",
+      "tests": "T1 direct enqueue coalescing helper, not refresh handler/batch limits/partial error/SDK wire.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 340
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/jobs/{id}/retry",
+      "handler": "retry",
+      "permission": "manage",
+      "input": "id=job UUID; body ignored.",
+      "success_envelope": "{status:\"success\",message:\"ok\",data:T}",
+      "output": "202 {job_id}.",
+      "meaning_and_lifecycle": "Only failed job updated to pending; attempts0,last_error null,operation_id null,due now. Otherwise409. Eligibility/global/revision rechecked later in worker, not this update.202 is not successful generation.",
+      "tests": "Source reviewed; no retained retry-handler or preview-retry lifecycle wire test.",
+      "source": {
+        "repository": "infera-profile",
+        "commit": "7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad",
+        "file": "src/ai_summary/routes.rs",
+        "line": 368
+      },
+      "mounted_profile_http_sdk_wire_verified": false,
+      "deployed_behavior_verified": false
+    }
+  ],
+  "retired_lms_operations": [
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/settings",
+      "former_permission": "lms:config:read",
+      "candidate": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "previous_source": "230453c1471d723af582308e43b5b43b5a0f7b99:src/ai_summary/routes.rs",
+      "status": "module/router mount/handler file removed; legacy tables retained inert; no compatibility proxy",
+      "replacement": "Profile role UUID/configuration/job/result APIs; not an argument-compatible relocation",
+      "coverage": "Source diff reviewed; no retained actual HTTP404/SDK breaking-removal runtime test."
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/ai-summaries/settings",
+      "former_permission": "lms:config:update",
+      "candidate": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "previous_source": "230453c1471d723af582308e43b5b43b5a0f7b99:src/ai_summary/routes.rs",
+      "status": "module/router mount/handler file removed; legacy tables retained inert; no compatibility proxy",
+      "replacement": "Profile role UUID/configuration/job/result APIs; not an argument-compatible relocation",
+      "coverage": "Source diff reviewed; no retained actual HTTP404/SDK breaking-removal runtime test."
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/models",
+      "former_permission": "lms:config:read",
+      "candidate": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "previous_source": "230453c1471d723af582308e43b5b43b5a0f7b99:src/ai_summary/routes.rs",
+      "status": "module/router mount/handler file removed; legacy tables retained inert; no compatibility proxy",
+      "replacement": "Profile role UUID/configuration/job/result APIs; not an argument-compatible relocation",
+      "coverage": "Source diff reviewed; no retained actual HTTP404/SDK breaking-removal runtime test."
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/latest",
+      "former_permission": "lms:ai_summary:read_own (+old related/read aliases)",
+      "candidate": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "previous_source": "230453c1471d723af582308e43b5b43b5a0f7b99:src/ai_summary/routes.rs",
+      "status": "module/router mount/handler file removed; legacy tables retained inert; no compatibility proxy",
+      "replacement": "Profile role UUID/configuration/job/result APIs; not an argument-compatible relocation",
+      "coverage": "Source diff reviewed; no retained actual HTTP404/SDK breaking-removal runtime test."
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/jobs",
+      "former_permission": "lms:ai_summary:manage",
+      "candidate": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "previous_source": "230453c1471d723af582308e43b5b43b5a0f7b99:src/ai_summary/routes.rs",
+      "status": "module/router mount/handler file removed; legacy tables retained inert; no compatibility proxy",
+      "replacement": "Profile role UUID/configuration/job/result APIs; not an argument-compatible relocation",
+      "coverage": "Source diff reviewed; no retained actual HTTP404/SDK breaking-removal runtime test."
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ai-summaries/summaries",
+      "former_permission": "lms:ai_summary:manage",
+      "candidate": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "previous_source": "230453c1471d723af582308e43b5b43b5a0f7b99:src/ai_summary/routes.rs",
+      "status": "module/router mount/handler file removed; legacy tables retained inert; no compatibility proxy",
+      "replacement": "Profile role UUID/configuration/job/result APIs; not an argument-compatible relocation",
+      "coverage": "Source diff reviewed; no retained actual HTTP404/SDK breaking-removal runtime test."
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/refresh",
+      "former_permission": "lms:ai_summary:manage",
+      "candidate": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "previous_source": "230453c1471d723af582308e43b5b43b5a0f7b99:src/ai_summary/routes.rs",
+      "status": "module/router mount/handler file removed; legacy tables retained inert; no compatibility proxy",
+      "replacement": "Profile role UUID/configuration/job/result APIs; not an argument-compatible relocation",
+      "coverage": "Source diff reviewed; no retained actual HTTP404/SDK breaking-removal runtime test."
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/ai-summaries/users/{user_id}/{role}/refresh",
+      "former_permission": "lms:ai_summary:manage",
+      "candidate": "a2d00df7f1cc34c3b2e356824c49e39c12047a33",
+      "previous_source": "230453c1471d723af582308e43b5b43b5a0f7b99:src/ai_summary/routes.rs",
+      "status": "module/router mount/handler file removed; legacy tables retained inert; no compatibility proxy",
+      "replacement": "Profile role UUID/configuration/job/result APIs; not an argument-compatible relocation",
+      "coverage": "Source diff reviewed; no retained actual HTTP404/SDK breaking-removal runtime test."
+    }
+  ],
+  "tests": {
+    "T1": {
+      "name": "durable_role_workflow_and_access_isolation",
+      "file": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/tests/role_summaries.rs",
+      "evidence": "../source-review-v1/profile-durability-test.log",
+      "level": "real PostgreSQL/RabbitMQ + official MCP transport with deterministic IDP/Agentic/EvidenceReader doubles; direct Profile service method calls, not mounted public REST/SDK",
+      "result": "1 passed"
+    },
+    "T2": {
+      "name": "Shared SDK unit tests",
+      "file": "/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk/src",
+      "evidence": "Prior observed7passed; source-review handoff records result; no separately retained unit stdout log in v1; do not overstate evidence hash.",
+      "level": "in-process unit/HTTP IDP fake; grants/configuration/formula/decimal/native identity",
+      "result": "reported7passed,1broker test ignored"
+    },
+    "T3": {
+      "name": "streamable_http_is_scoped_for_every_source",
+      "evidence": "../source-review-v1/sdk-mcp-test.log",
+      "level": "real official RMCP client/server over localhost, six mock EvidenceReaders; schemas/audience/origin and scope rejection, not six real domain adapters",
+      "result": "1passed;2other cases ignored in that invocation"
+    },
+    "T4": {
+      "name": "native_scope_revocation_and_cross_subject_are_enforced",
+      "evidence": "../source-review-v2-supplement/lms-native-final-pin-test.log",
+      "level": "real local PostgreSQL LMS all-category query and deterministic IDP HTTP; direct read_native, not mounted LMS MCP HTTP",
+      "result": "1passed on final a2d00df"
+    },
+    "T5": {
+      "name": "SummaryEvidenceGrantTest + SummaryEvidencePostgresTest",
+      "evidence": "../source-review-v1/accounting-native-http-test.log",
+      "level": "5PHPUnit tests: crypto/native PG/actual mounted Laravel MCP HTTP with fake IDP. No compiled TS SDK client in this case.",
+      "result": "5passed,74assertions;2PHP8.5PDOdeprecations"
+    },
+    "T6": {
+      "name": "Profile panel suite",
+      "evidence": "../source-review-v1/profile-panel-all-test-final.log",
+      "level": "9component/unit tests; synthetic browser fixture in v2. No live API/provider/billing",
+      "result": "9passed"
+    },
+    "T7": {
+      "name": "draft applicator suite",
+      "evidence": "../source-review-v1/profile-applicator-test.log",
+      "level": "6Python mocked API/model choice/bounds checks; not live save",
+      "result": "6passed"
+    },
+    "T8": {
+      "name": "poulstar_role_drafts_match_the_source_contract_without_invented_metrics",
+      "evidence": "../source-review-v1/profile-contract-durability-test.log",
+      "level": "static JSON preset/config validation with test-only model reference; following workflow test ignored in this invocation; T1separate invocation actually ran it",
+      "result": "1passed"
+    },
+    "T9": {
+      "name": "infera-profile-sdk library build/test command",
+      "evidence": "../source-review-v1/sdk-profile-test.log",
+      "level": "compiled Rust REST SDK;0unit tests. Does NOT establish HTTP/SDK behavior",
+      "result": "compilepassed,0tests"
+    },
+    "T10": {
+      "name": "profile_summary_acl +retirement +native transport manifest tests",
+      "evidence": "../source-review-v1/idp-locked-final-test.log",
+      "level": "3manifest tests; actual IDP gateway grants/provisioning not exercised",
+      "result": "3passed"
+    },
+    "T11": {
+      "name": "official_rust_client_negotiates_with_laravel_mcp",
+      "evidence": "../source-review-v1/sdk-laravel-interop-test.log",
+      "level": "real released RMCP\u2194Laravel initialize/list tools/output-schema negotiation only; no tool evidence call in this Rust test",
+      "result": "1passed"
+    }
+  }
+}

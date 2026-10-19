@@ -6,6 +6,9 @@ import { spawnSync } from "node:child_process";
 const root = resolve(import.meta.dirname, "..");
 const committed = JSON.parse(await readFile(join(root, "service-contracts.json"), "utf8"));
 const selected = new Set((process.env.FAIBER_CONTRACT_SERVICES ?? "").split(",").filter(Boolean));
+for (const name of selected) {
+  if (!Object.hasOwn(committed, name)) throw new Error(`Unknown contract service: ${name}`);
+}
 const scoped = entries => Object.fromEntries(Object.entries(entries).filter(([name]) => !selected.size || selected.has(name)));
 const temporary = await mkdtemp(join(tmpdir(), "faiber-contract-audit-"));
 const extractedPath = join(temporary, "service-contracts.json");
@@ -46,7 +49,8 @@ try {
     total += endpoints.length;
     console.log(`${service}: ${endpoints.length} routes verified`);
   }
-  console.log(`verified ${total} mounted routes with exact generated operation coverage`);
+  if (!total) throw new Error("No service contracts were audited");
+  console.log(`verified ${total} extracted contracts with exact generated operation coverage; semantic and mounted-router acceptance are separate gates`);
 } finally {
   await rm(temporary, { recursive: true, force: true });
 }

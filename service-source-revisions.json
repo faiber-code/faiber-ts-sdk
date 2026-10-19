@@ -9,7 +9,7 @@
   },
   "crm": {
     "directory": "infera-crm",
-    "revision": "6c763c989216fbecd6cfdb4c98f1067c09d17507"
+    "revision": "1addec42a400ba980b6547060cdcb4d347a7bbd0"
   },
   "drm": {
     "directory": "infera-drm",
@@ -53,7 +53,7 @@
   },
   "session": {
     "directory": "infera-session",
-    "revision": "831dde454084a05920441091a8305a7a972d9804"
+    "revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b"
   },
   "social": {
     "directory": "infera-social",
