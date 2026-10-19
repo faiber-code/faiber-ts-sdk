@@ -19,7 +19,7 @@
     "M src/routes.rs"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "dea20cccf31718af6dcc6c4af1bf83afbeb40b6a6c0a5b8ef17c9a619b931693",
+  "source_tree_checksum": "12e3f134d0781b8d1a6af9c4000d63dae4e89df3be412ab7c3d69e6de21a3a6d",
   "source_files": [
     {
       "path": "infera-knowledge/src/bin/knowledge_bench.rs",
@@ -136,6 +136,281 @@
     {
       "path": "infera-knowledge/entity/src/match_rule.rs",
       "checksum": "461d551e4be063d135cd1b3bae91bd6977e2c562c33700a3c24cd901c8d4ba7f"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260828_optimize_runtime_down.sql",
+      "checksum": "fc2b53af1b1141ea99e83ed3c8a56fd3645f8dc85eaa31976299f783d9ecd6d8"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260828_optimize_runtime_up.sql",
+      "checksum": "42a5caf9e2259dc40104b2f7e2d9635f9eebfd81554a8b4ced7082bcbc0aa476"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260828_retrieval_memory_down.sql",
+      "checksum": "6f5163841df50e762ae4629d44ec26a62c8b422e1cbc074202f9abd6e6370d97"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260828_retrieval_memory_up.sql",
+      "checksum": "7a5e8d871c737325d2e8243889806dee5051d10861c3172472512e3cc46683f9"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260829_memory_governance_down.sql",
+      "checksum": "2df2e38cc61b50fd73fd8ef7d3c0e496d5073259c0b0dd25db00081dc46de393"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260829_memory_governance_up.sql",
+      "checksum": "0f515f36f8850e4f24a56e710e41b9f035e9fd631fc5fed4561b168ed7a39863"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260829_retrieval_platform_down.sql",
+      "checksum": "7fe421c8cb44a9c119aaf65960d4940cb6ef9e2b1d7551f9a627a27bc1a0feb5"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260829_retrieval_platform_up.sql",
+      "checksum": "40e2f450bdf43e89e3cf28199df17579bd1fbac8f486a9249e8d48c30468c098"
+    },
+    {
+      "path": "infera-knowledge/migration/src/lib.rs",
+      "checksum": "da1b7d02ba275286365574e9f22b83a17da1e581d272af5cd94aac3c6da43291"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260722_000001_create_knowledge_platform.rs",
+      "checksum": "81cf86f682bf6a3e010b1ac82b2ef5d82d7b949dccebe92abb47ba69cab4a60a"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260729_000002_add_knowledge_entity_links.rs",
+      "checksum": "2fecf8f5a9a050e713bd93d89044c9eb47daee35ff4cf78de4f8d52df0f22c47"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260828_000003_add_retrieval_memory_and_recommenders.rs",
+      "checksum": "61c1e8b7a130bce4bdd8ac3c1ffc58ea21ce97d0b630b15a024a03d3466cbf63"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260828_000004_optimize_runtime.rs",
+      "checksum": "6a24e5be33a2ce36399777d28fa849e9bc473f5748f35f92ea5b1655abf712e8"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260829_000005_memory_governance.rs",
+      "checksum": "0aadcd02dda272e4da9ffdf2cd5fc3962b9d2c02a3e71afbd4a83e3e70085b98"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260829_000006_retrieval_platform.rs",
+      "checksum": "bb51ea1a4d6079951a6b0f9f6c78efdcff0fd4e48f2d1c340174c0946cb1b907"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20261013_000007_task_projections.rs",
+      "checksum": "95d15569008234c65df9e4944bdd3e7417e9bde6562bcb3095796736cb0926ed"
+    },
+    {
+      "path": "infera-knowledge/migration/src/main.rs",
+      "checksum": "c998366fb87912d4ff036d844c1ed89d0658e885a3bdee82f00a69224c265bec"
+    },
+    {
+      "path": "infera-knowledge/Cargo.toml",
+      "checksum": "799dd2694927f3ecf4406521752f138bc3bf0bc7f284d83d845df76a0dd52969"
+    },
+    {
+      "path": "infera-knowledge/Cargo.lock",
+      "checksum": "a492ebe59861b9539882e8830fa09230d57470a21175709b3f061f8b3cd467a0"
+    },
+    {
+      "path": "infera-knowledge/entity/Cargo.toml",
+      "checksum": "3f2233d0212c44c8b2b6829621110859113544f63bde9e2a2ab03164924d2099"
+    },
+    {
+      "path": "infera-knowledge/migration/Cargo.toml",
+      "checksum": "ee21f00bbb1860e64abeb9703e90fd4e94e1f150c766ab87105d05aa45969a5d"
+    }
+  ],
+  "working_source_tree_checksum": "96a9b8051e5e87182cfa777b49da5a51143f4adf7103605f3577d568c50bab64",
+  "working_source_files": [
+    {
+      "path": "infera-knowledge/src/bin/knowledge_bench.rs",
+      "checksum": "6b24278c1b0679606e9ab6c054320cf421de1c51496ef77b204ae1bf52b80737"
+    },
+    {
+      "path": "infera-knowledge/src/broker.rs",
+      "checksum": "7945a5d519098e7dc22655772b4a5dfede32e79da3a9473fdfe4249f775f0edc"
+    },
+    {
+      "path": "infera-knowledge/src/context.rs",
+      "checksum": "e015d5ef0e82a786fcafc06d67dd4363ff6e83bd4d55655bdc9b09177bddadaf"
+    },
+    {
+      "path": "infera-knowledge/src/contracts.rs",
+      "checksum": "4543ff75f2906a9537d3c0bf25a74390ab0b85b4080c7fd690f5bc2f7f7ab3a5"
+    },
+    {
+      "path": "infera-knowledge/src/cors.rs",
+      "checksum": "e080dba49f94af4f0bb2c9a8fcd117bcf90b08458ac89fcbb97b69f57afc301b"
+    },
+    {
+      "path": "infera-knowledge/src/db.rs",
+      "checksum": "3243a6f851010d76df860b78d3df2a10a05fb3e630735f82c01da00a4c2cf9a9"
+    },
+    {
+      "path": "infera-knowledge/src/engine.rs",
+      "checksum": "6bdc5882744a547bc5a92a4bdb01cdadb585c6b7886bed1aaca8df7865b3dad2"
+    },
+    {
+      "path": "infera-knowledge/src/evaluation.rs",
+      "checksum": "ca52d64b40d1417262788b44b6f70742c025543932d5fd685cabf1bb61573b0d"
+    },
+    {
+      "path": "infera-knowledge/src/lib.rs",
+      "checksum": "886cd3da8e42b6861661afb96ddba1742a24cc510acd9ea102d9ed3f7c6d3ea4"
+    },
+    {
+      "path": "infera-knowledge/src/main.rs",
+      "checksum": "d0b4421cd64356d43b38d275107a6058f5850631ee8ab7b08bf149a22eebfed5"
+    },
+    {
+      "path": "infera-knowledge/src/models.rs",
+      "checksum": "4384131008905544142c3d6bb148e3098888b393c1b3630bececd949f07cc7ae"
+    },
+    {
+      "path": "infera-knowledge/src/platform.rs",
+      "checksum": "0091f39c5b0638079f260a75af8da9be9dc2bd7218719e8847b97f2fae5c4783"
+    },
+    {
+      "path": "infera-knowledge/src/repository.rs",
+      "checksum": "06d831ff6eb7e3dff1b3da799acd3c699fb3b4665971a7a03836abb6d9ab4c88"
+    },
+    {
+      "path": "infera-knowledge/src/retrieval.rs",
+      "checksum": "fefb80c370fb0315e03a333b3108eb3e44969d737b11ba51b2f505e24d5d1169"
+    },
+    {
+      "path": "infera-knowledge/src/routes.rs",
+      "checksum": "21ad7e4efabf55ca48c1e88aed4158fa46a5326aa758d9ef97cecf3f92415fc9"
+    },
+    {
+      "path": "infera-knowledge/src/state.rs",
+      "checksum": "7b244ef6825229e1df54d0e6fae5ea7c7d649c98c36c401509edfae382dea87d"
+    },
+    {
+      "path": "infera-knowledge/entity/src/audit_log.rs",
+      "checksum": "1251c2c1d72b7554c4011a8dab7674bc44765a96cac8f57204d8fe9927d265f4"
+    },
+    {
+      "path": "infera-knowledge/entity/src/chat_binding.rs",
+      "checksum": "f5698fc537ef2cb5e80b2818cdf3db1733bc7b1573636da4e4befea745c9a078"
+    },
+    {
+      "path": "infera-knowledge/entity/src/customer_action.rs",
+      "checksum": "bebfa8cb9ba0df37f1eeb409b4897619f224237d6d7f150ea6797b2008767525"
+    },
+    {
+      "path": "infera-knowledge/entity/src/evaluation.rs",
+      "checksum": "6e48c571b370db6deaf464b51ff8e881f86796e69e512cb029b266ef8ec1c00b"
+    },
+    {
+      "path": "infera-knowledge/entity/src/knowledge_base.rs",
+      "checksum": "fc9e12018398965bc6c5520b10866e30eae1cf286be07769951d3d0e343340ea"
+    },
+    {
+      "path": "infera-knowledge/entity/src/knowledge_edge.rs",
+      "checksum": "d51f3166457915adca61988586e95b0d7190f8037c4215654791517389c5bd0e"
+    },
+    {
+      "path": "infera-knowledge/entity/src/knowledge_group.rs",
+      "checksum": "7ddd9f5db014d8a3aed2e7063ba91881eb1587204b2836319e8ff4847d88a89e"
+    },
+    {
+      "path": "infera-knowledge/entity/src/knowledge_item.rs",
+      "checksum": "0b38905fb1483b10ee687f65daf305ea20263a17fa4e1ac44095e5d0f24917d5"
+    },
+    {
+      "path": "infera-knowledge/entity/src/knowledge_release.rs",
+      "checksum": "742f76efc6bce5da2d6d3bf5acbdecc0629b034260a9d4b2905c6d74a50a8491"
+    },
+    {
+      "path": "infera-knowledge/entity/src/lib.rs",
+      "checksum": "efe45aa797e7f5ce085f48e0e75120acc4e8fb51888754b79d74570361f28369"
+    },
+    {
+      "path": "infera-knowledge/entity/src/match_rule.rs",
+      "checksum": "461d551e4be063d135cd1b3bae91bd6977e2c562c33700a3c24cd901c8d4ba7f"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260828_optimize_runtime_down.sql",
+      "checksum": "fc2b53af1b1141ea99e83ed3c8a56fd3645f8dc85eaa31976299f783d9ecd6d8"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260828_optimize_runtime_up.sql",
+      "checksum": "42a5caf9e2259dc40104b2f7e2d9635f9eebfd81554a8b4ced7082bcbc0aa476"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260828_retrieval_memory_down.sql",
+      "checksum": "6f5163841df50e762ae4629d44ec26a62c8b422e1cbc074202f9abd6e6370d97"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260828_retrieval_memory_up.sql",
+      "checksum": "7a5e8d871c737325d2e8243889806dee5051d10861c3172472512e3cc46683f9"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260829_memory_governance_down.sql",
+      "checksum": "2df2e38cc61b50fd73fd8ef7d3c0e496d5073259c0b0dd25db00081dc46de393"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260829_memory_governance_up.sql",
+      "checksum": "0f515f36f8850e4f24a56e710e41b9f035e9fd631fc5fed4561b168ed7a39863"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260829_retrieval_platform_down.sql",
+      "checksum": "7fe421c8cb44a9c119aaf65960d4940cb6ef9e2b1d7551f9a627a27bc1a0feb5"
+    },
+    {
+      "path": "infera-knowledge/migration/sql/20260829_retrieval_platform_up.sql",
+      "checksum": "40e2f450bdf43e89e3cf28199df17579bd1fbac8f486a9249e8d48c30468c098"
+    },
+    {
+      "path": "infera-knowledge/migration/src/lib.rs",
+      "checksum": "2790160aad62c7728a71680ca83018f9ee53d6d03d1c1f90b056ac22b98ea0d0"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260722_000001_create_knowledge_platform.rs",
+      "checksum": "81cf86f682bf6a3e010b1ac82b2ef5d82d7b949dccebe92abb47ba69cab4a60a"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260729_000002_add_knowledge_entity_links.rs",
+      "checksum": "2fecf8f5a9a050e713bd93d89044c9eb47daee35ff4cf78de4f8d52df0f22c47"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260828_000003_add_retrieval_memory_and_recommenders.rs",
+      "checksum": "61c1e8b7a130bce4bdd8ac3c1ffc58ea21ce97d0b630b15a024a03d3466cbf63"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260828_000004_optimize_runtime.rs",
+      "checksum": "6a24e5be33a2ce36399777d28fa849e9bc473f5748f35f92ea5b1655abf712e8"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260829_000005_memory_governance.rs",
+      "checksum": "0aadcd02dda272e4da9ffdf2cd5fc3962b9d2c02a3e71afbd4a83e3e70085b98"
+    },
+    {
+      "path": "infera-knowledge/migration/src/m20260829_000006_retrieval_platform.rs",
+      "checksum": "bb51ea1a4d6079951a6b0f9f6c78efdcff0fd4e48f2d1c340174c0946cb1b907"
+    },
+    {
+      "path": "infera-knowledge/migration/src/main.rs",
+      "checksum": "c998366fb87912d4ff036d844c1ed89d0658e885a3bdee82f00a69224c265bec"
+    },
+    {
+      "path": "infera-knowledge/Cargo.toml",
+      "checksum": "572dbe7c07ec34788f3bb0c4570742ed86e00853e6c086543bda3f7455ca562a"
+    },
+    {
+      "path": "infera-knowledge/Cargo.lock",
+      "checksum": "51415c9ddb972504b7a09e1f01fa620d156f3d8db359a6ef49ec0794c9b0cc64"
+    },
+    {
+      "path": "infera-knowledge/entity/Cargo.toml",
+      "checksum": "3f2233d0212c44c8b2b6829621110859113544f63bde9e2a2ab03164924d2099"
+    },
+    {
+      "path": "infera-knowledge/migration/Cargo.toml",
+      "checksum": "ee21f00bbb1860e64abeb9703e90fd4e94e1f150c766ab87105d05aa45969a5d"
     }
   ],
   "operations": [
@@ -161,7 +436,7 @@
           }
         ]
       },
-      "source_checksum": "d9f1544da8b92b99b55d525fac14ddc8fa95866ab8bf820daf2b0b8135af9923",
+      "source_checksum": "81f79c03421b69187e56ebad245b3831079fd1badf859de3d1955f4baa4b7c03",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:92:readiness",
         "path": "infera-knowledge/src/main.rs",
@@ -217,7 +492,7 @@
           }
         ]
       },
-      "source_checksum": "93816cc59910c7fa2480cb3cd9ce9e7e854177a232d9cae86439c951cc508754",
+      "source_checksum": "faadb6ef3cc78f032cfb9987cdcaa02c8d7f5dc2c97994c5aeddf08d417bde50",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:84:liveness",
         "path": "infera-knowledge/src/main.rs",
@@ -280,7 +555,7 @@
           }
         ]
       },
-      "source_checksum": "b794f2a26c6e4fc3b1f485fb332ff25fee70c4c6fd4b25f88eb184fbddbce913",
+      "source_checksum": "1fa4c491d72a2ee34299a78a974f16d58356754565c3f69fd47c49b9dc264887",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:92:readiness",
         "path": "infera-knowledge/src/main.rs",
@@ -344,7 +619,7 @@
           }
         ]
       },
-      "source_checksum": "419011e1a97fd902f71a0e746c5cf13461676c4c0f882a0cef5397eca3ffd04d",
+      "source_checksum": "426550072c20c3739003190a05dce88bb426cf310c2298c32d77969109376dca",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:619:get_release",
         "path": "infera-knowledge/src/routes.rs",
@@ -422,7 +697,7 @@
           }
         ]
       },
-      "source_checksum": "932c373d212ffc53b6baf93482b0b5dd05b0664a42d8736286ad3fddbb11bd16",
+      "source_checksum": "f4282e1bfeec7f00b154278a2577ed1b2dd0035d439424879222acec63369b7d",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:67:list_bases",
         "path": "infera-knowledge/src/routes.rs",
@@ -514,7 +789,7 @@
           }
         ]
       },
-      "source_checksum": "fef2aa5a32adf8be4dac976cf889106081116382dac2b47730fa3c7ffe3dade9",
+      "source_checksum": "30ea5235541576ce55e6d1f30a3ac7d931cc324a9306552227cb625929bd9c16",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:79:create_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -599,7 +874,7 @@
           }
         ]
       },
-      "source_checksum": "78db9335b0dddd6001fcc043483217938b863fcca76f38ccc7592aac88919928",
+      "source_checksum": "4f3e3f344f51bc6f38567f21d4afc1b807b3c42eefbfd6412ecaffe0d0d5a843",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:88:get_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -678,7 +953,7 @@
           }
         ]
       },
-      "source_checksum": "67a53c039fd75766174ca1064666e5d8cf87b43404c0f7c7faef80fb81ce1b1e",
+      "source_checksum": "a68f130696de2df3f978d4984eac4136ca07cf1dbe70ee16ee037b14acd995a2",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:98:update_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -766,7 +1041,7 @@
           }
         ]
       },
-      "source_checksum": "cd277df5e30f5d78a139798da9d6d9db5bf9e8cec929bd3504e2c83465ea745d",
+      "source_checksum": "0f1569892931a2080d7755db87c6f5ac50eec470fcfadcc918239328bae374a7",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:109:delete_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -840,7 +1115,7 @@
           }
         ]
       },
-      "source_checksum": "f1e03a0b62adb807e34582055697a716d17a59fa1ea395a462b23f0af03f1c90",
+      "source_checksum": "10b4918d82684ec2c581623a5bd621c559cdce887b8e5b41c36a8a116bee9149",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:118:publish",
         "path": "infera-knowledge/src/routes.rs",
@@ -918,7 +1193,7 @@
           }
         ]
       },
-      "source_checksum": "375878fa345c7be9ba774f321cb706d6b4ab9cdb0b717100b07a459bf31f821d",
+      "source_checksum": "c6e0d1710bb4726f748e5c2fa98c64c97013431798b7ca238d0e37d22a4d9e44",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:128:export_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -1005,7 +1280,7 @@
           }
         ]
       },
-      "source_checksum": "6d81a48cd7bb3cb6f66b00c4afefb61ab279f5bc60df19683426d7090e1e15aa",
+      "source_checksum": "6332c836ac5624044418a6db27f89ad27680bdbf087ec5035b14c1e77853dd2c",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:155:list_groups",
         "path": "infera-knowledge/src/routes.rs",
@@ -1093,7 +1368,7 @@
           }
         ]
       },
-      "source_checksum": "dfe78ffe22a33e603d3547f254beb14a7054ae774942d83f55101f72695c472d",
+      "source_checksum": "74bad9ace8655965568b562a79464b001e2d3e34144a060e6c88ea9f74dd4be0",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:166:create_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1190,7 +1465,7 @@
           }
         ]
       },
-      "source_checksum": "670e8a459bfa7f67d0a85413d950c47072c7584c364de6a03605ea6477ffe586",
+      "source_checksum": "d79bb3090186e64d9ba3059d20a9220fe5c7a6ed6a3486732291a8569d7bc8a2",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:180:update_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1285,7 +1560,7 @@
           }
         ]
       },
-      "source_checksum": "53112ddfcfd1f91bdf08346648e1958365128162df895c117333c416c6d3eab1",
+      "source_checksum": "d37833813f4da48eade6409d09b27d0061c07c111879a922248c60426d56c6f0",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:191:delete_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1360,7 +1635,7 @@
           }
         ]
       },
-      "source_checksum": "2403b419d7e26c334750d90d4f870e6f6d50ee2068b0158932be97662259972d",
+      "source_checksum": "33ca3868e81f3c287073e4a22c9c87960c458ee5a1670e1cc9f30bc6e419f10a",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:201:list_items",
         "path": "infera-knowledge/src/routes.rs",
@@ -1466,7 +1741,7 @@
           }
         ]
       },
-      "source_checksum": "c0ba2c3fefdebe251df85a6ed88e964f4c2631cd96a5861deeb46b27fff73d3c",
+      "source_checksum": "6802c5ccd66e91c46927820c750b1f0702eb42397868905c4af94818b3808620",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:215:create_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -1568,7 +1843,7 @@
           }
         ]
       },
-      "source_checksum": "a7aef4731bf52fb5a2281f9972bf7dcd02e09ced47f7ecf0af9a141fa6288b25",
+      "source_checksum": "32ca1bc91894aa70468448ccc95d6b3f902d1f2fc335dde7eab3152ed4dd62f9",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:229:get_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -1647,7 +1922,7 @@
           }
         ]
       },
-      "source_checksum": "4336c6ffe1398d8576798eae09d52d1491e1c21be70fb947c650bceffcdb80ce",
+      "source_checksum": "a80f38d3fa8661b8d80805539a1dcbd7851a6e8974c7462bbe8ab71ebaf4897c",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:239:update_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -1748,7 +2023,7 @@
           }
         ]
       },
-      "source_checksum": "efc8b6ee10df81ef8b96a0c973fc93043e15e94f5ec96f0588dc4bb766ade040",
+      "source_checksum": "07687dc9692091897679a9b75782418cd051525c98892c0aabc8d411bacbc170",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:250:delete_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -1822,7 +2097,7 @@
           }
         ]
       },
-      "source_checksum": "d1e3c83e6691879400f79e5668ec0502fd55b5f92f26930e2b863db35aeae178",
+      "source_checksum": "e886e0a0dbba1c8ec47fe3a91359e8390eafbbf400f3d06c52457d7c7a93282e",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:260:list_edges",
         "path": "infera-knowledge/src/routes.rs",
@@ -1901,7 +2176,7 @@
           }
         ]
       },
-      "source_checksum": "9764ef840d86aac989f7b4d11c004e24698626a645396a2b2bb5fb15efb21247",
+      "source_checksum": "4bdd3a7b1601c67678b8756d34de034a35bcfebe93b6854922b60ed86967c4da",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:274:create_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2004,7 +2279,7 @@
           }
         ]
       },
-      "source_checksum": "e04d97072f80b19b1d3de04361fbf8388c58881c726b2f58201760af5a169633",
+      "source_checksum": "b022e291897aab7ba5c96420147962771689532a225164ab9b7787a59cceede4",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:288:update_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2092,7 +2367,7 @@
           }
         ]
       },
-      "source_checksum": "c348130ea613fa9dc3cd5d994c7ca10fb101e6a1cb37214510ea627663f2a4ed",
+      "source_checksum": "1339d1480bcdfbe4270ce097b4f6d4dfd52166586823d09b9a5acc6ea30c8083",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:322:delete_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2165,7 +2440,7 @@
           }
         ]
       },
-      "source_checksum": "373cf1ce78d9bad4fb7f9f9f49d604b03a7ae12993cf994eb71c24c137f533df",
+      "source_checksum": "e7bd5c58f064e49ceb36d768d70ba576273ab8531cb19dd6bf5205814c7f81b1",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:339:list_bindings",
         "path": "infera-knowledge/src/routes.rs",
@@ -2229,7 +2504,7 @@
           }
         ]
       },
-      "source_checksum": "7a1dfab16a403a07098a0e66c58fdbedaef05da5b81292f2c7ef20c2b3d531ab",
+      "source_checksum": "8a937527ffa7998f4865f1b40f5185c7a1c35c1d1b7b6b5b341dc2b25bfc907e",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:351:create_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2322,7 +2597,7 @@
           }
         ]
       },
-      "source_checksum": "e40659f424abaaaa93cb5c65b6c33f0390e28b7b0bcc56370f45e938e2c004d9",
+      "source_checksum": "457db6e517e07f3f6cbc42a7a91c9fa9d345ee0d6fc46e420ffe25d4b3fcb3a3",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:364:update_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2400,7 +2675,7 @@
           }
         ]
       },
-      "source_checksum": "7b07a3c30477269336e133f7cffe719f57f2bf6e9345e92713ecc7cab3d076b1",
+      "source_checksum": "3287e7225bca6c27592c0f3daaa0469bb38191e13f493e3442336f8ec04d6143",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:398:delete_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2464,7 +2739,7 @@
           }
         ]
       },
-      "source_checksum": "54939e9993682dedad24a3701c9bb4df27b9fe208013e859b583f9f1d6f129bf",
+      "source_checksum": "4f1b42732580cb6d76b209a03672c5bebbc1fc6937902b8467621928427c71cb",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:417:list_rules",
         "path": "infera-knowledge/src/routes.rs",
@@ -2556,7 +2831,7 @@
           }
         ]
       },
-      "source_checksum": "2b8ed9467d50f8dfceff395a3572f0f6de3f611872714f843c160f82bb9908c5",
+      "source_checksum": "aedc067fff1d78d774fa60335eeb5c23a7248cdda5e430f54413d514abb7755f",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:454:create_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -2655,7 +2930,7 @@
           }
         ]
       },
-      "source_checksum": "2b51a866ccdd1ba5ae037bbab6b437f284f7acec943166da382bc5159616262d",
+      "source_checksum": "c282823b7d27f317491f675fdb0d45050220df92b14297760ddf681b9781eb6c",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:467:update_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -2759,7 +3034,7 @@
           }
         ]
       },
-      "source_checksum": "086474590a2d0ceafa8d7d85655bf87421e4897662e9e532d6a463920e145d57",
+      "source_checksum": "34f0808527055a5524eef173ea538ab5b61f4858c4dc067d5fc96c313263bc63",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:518:delete_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -2833,7 +3108,7 @@
           }
         ]
       },
-      "source_checksum": "37e8593915bee75c09f1976ec575d526e8d9b2df67cde8258247e9a574ce7a39",
+      "source_checksum": "c2f0ebd5b93e433522ac15ebc1a3e30e69d154fc9ea0c5b70cd4d57377415fbe",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:536:list_actions",
         "path": "infera-knowledge/src/routes.rs",
@@ -2916,7 +3191,7 @@
           }
         ]
       },
-      "source_checksum": "0446b768aa9f904947908e8da7ba8596e1f4e3e323df43da3dc37e8c396b703a",
+      "source_checksum": "9124f121a1fccae4d9318ddbf0328ebf35e934b05fc92a01f84b1f963f6e7cb1",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:554:update_action_status",
         "path": "infera-knowledge/src/routes.rs",
@@ -2995,7 +3270,7 @@
           }
         ]
       },
-      "source_checksum": "d5e6b47812912a986ce7a31fe80e5ed19e6198e25e22b47c435b7e80118af55b",
+      "source_checksum": "241530160af994affbb5ff61503e0914d78d47c5bcc55b40e97a87753539ea12",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:586:list_audit",
         "path": "infera-knowledge/src/routes.rs",
@@ -3076,7 +3351,7 @@
           }
         ]
       },
-      "source_checksum": "0a9cb868a35a03cf1ea58b0fc6a5825fc0aac559f32d762b37ca40d5fbb9b737",
+      "source_checksum": "53533182ff5654dbad093027476c9be840924c69af23784a57814a252c551156",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:556:status",
         "path": "infera-knowledge/src/platform.rs",
@@ -3139,7 +3414,7 @@
           }
         ]
       },
-      "source_checksum": "bb1a819be492c63f97be1b1c1ae3f728b851e4a94801873c2b040b6a5fcccf84",
+      "source_checksum": "0aba23ca701e17e611d83395677ba3b8d592204bdc6fcc35d714622b8b7899a3",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:602:catalog",
         "path": "infera-knowledge/src/platform.rs",
@@ -3202,7 +3477,7 @@
           }
         ]
       },
-      "source_checksum": "ad1d8dd3fc0494b6d7a8591cf153416769d9c71a2cc3a24a11f5bb1d907aec73",
+      "source_checksum": "10bebcb9aabf215b91f3acb74b786ae2a3a48455d52ab33845647b0d22efc1c7",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:620:converters",
         "path": "infera-knowledge/src/platform.rs",
@@ -3265,7 +3540,7 @@
           }
         ]
       },
-      "source_checksum": "fdcf0cb18a08a413c358eaea0946663404873b93338262bf548ad714bd5393c3",
+      "source_checksum": "873aa9697434174125bc2592f28e7e3021b98be34bcc28c8a0dffd256113f10f",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:629:processing_jobs",
         "path": "infera-knowledge/src/platform.rs",
@@ -3328,7 +3603,7 @@
           }
         ]
       },
-      "source_checksum": "ea3a9e2d4a20a6e6bade57659f1a1f990af2b80b9a9c879c7aecdd212228b62c",
+      "source_checksum": "7481f12feb277d10eaa6def591ebe6c3cab5d6d605df74d8299c7766325a1fc8",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:771:audit_events",
         "path": "infera-knowledge/src/platform.rs",
@@ -3391,7 +3666,7 @@
           }
         ]
       },
-      "source_checksum": "7426ea43b71b6e5ff4401dd8070f3ef0247dbb6020d767a1a1b1ab54d3a771bf",
+      "source_checksum": "4356bec62d4e611cc0c7757f84bfd0e02cf57fb7ebf744755052a916f75902ef",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:780:list_evaluation_cases",
         "path": "infera-knowledge/src/platform.rs",
@@ -3455,7 +3730,7 @@
           }
         ]
       },
-      "source_checksum": "243b43c60cb4d8437d5c3c0b3f0131e615f1c960deaeb02e8356e8979043736b",
+      "source_checksum": "49be92fd8e33df9f65388e9fd9809c317d97813a96014e1243eeec36cdda0255",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:789:save_evaluation_case",
         "path": "infera-knowledge/src/platform.rs",
@@ -3548,7 +3823,7 @@
           }
         ]
       },
-      "source_checksum": "f772e61bf094fe247093ed483ac5154fbd5ced8ce3668cb547de6eecbce1d503",
+      "source_checksum": "76175576d96e6aea15bc80e24015fe2c523d0cead8de9a89cf00819d5da4c6b3",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2775:list_sources",
         "path": "infera-knowledge/src/platform.rs",
@@ -3612,7 +3887,7 @@
           }
         ]
       },
-      "source_checksum": "c4c4d69208e2853c71c17cbb854f2d9dff15faba3f11a9b43c239e04d9c1ef37",
+      "source_checksum": "50892321d0ede2c00bca7118be7e41dd7f88aa088db6442d5105de9850954a54",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2783:create_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -3694,7 +3969,7 @@
           }
         ]
       },
-      "source_checksum": "5259f6e92c486eff262220f76073088bafaadc835e08cb01d513b4b8410f492e",
+      "source_checksum": "e39aea10d3dc2926fdd119e1ea3cc1af8b58df9db559592e040e982e595ed208",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:678:sync_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -3762,7 +4037,7 @@
           }
         ]
       },
-      "source_checksum": "bba5c81364f4aaa1f92cf00a1deaa3fa385eb36ad49b1d84f5eb4a73eb85e57b",
+      "source_checksum": "d4b0e17839a8ac7fd8781a7b3c1aacece40de31d07e75187eb582ca3ba45085f",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:703:pause_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -3829,7 +4104,7 @@
           }
         ]
       },
-      "source_checksum": "fbeba7e46cb67fd43d672b2676d281f5bcdca340ab0c949c7a7d4377acf464fe",
+      "source_checksum": "faeb7be30c165619efe7361577346e76ae8dbf69042745802163fc67a755092e",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2862:list_documents",
         "path": "infera-knowledge/src/platform.rs",
@@ -3893,7 +4168,7 @@
           }
         ]
       },
-      "source_checksum": "24bf05898d589c85727082d19be17b9d50ea1c0cb3586dc1a641e1c8bf45a853",
+      "source_checksum": "b481ebe79a1e669ec0413a0558a4dd95f249764a6b9430ce9db763ffcebb35b0",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2870:ingest_document",
         "path": "infera-knowledge/src/platform.rs",
@@ -3987,7 +4262,7 @@
           }
         ]
       },
-      "source_checksum": "aae7baffcbb907e3a5d950a10b8281895d054b1d78f1ad5e400e739a71a82e51",
+      "source_checksum": "dff8d840fe5f11e727e972634197208b46b3dd0a8f883605d6e798c7f3284b3d",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:723:reprocess_document",
         "path": "infera-knowledge/src/platform.rs",
@@ -4055,7 +4330,7 @@
           }
         ]
       },
-      "source_checksum": "7b71079cabc8c4133a0714e0c99a6a4ef8f118a0ec94bea47f9b14577f73ddef",
+      "source_checksum": "7dd1317c12f75ecd95c5f8d805f08433b819853be9b565735eb63baf5df5c926",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:638:retry_processing_job",
         "path": "infera-knowledge/src/platform.rs",
@@ -4123,7 +4398,7 @@
           }
         ]
       },
-      "source_checksum": "d5534f14fd9a63b6bcd5e91060781f891d547add3ba0c562e38db82f3c4e7025",
+      "source_checksum": "4ff708622f9e524bd944f36845ae3f1096e0c418b403021776b68afb6e646cba",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:658:cancel_processing_job",
         "path": "infera-knowledge/src/platform.rs",
@@ -4190,7 +4465,7 @@
           }
         ]
       },
-      "source_checksum": "b1d1a4bd85fba4ea4627dc915c50ccd9ecbf7238e6d4afea0281054999b3ef16",
+      "source_checksum": "13d75b7866439d99fc24899b779dc12e08ecbb92aae5ba937583392d7b9bfcb3",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:748:invalidate_policy_cache",
         "path": "infera-knowledge/src/platform.rs",
@@ -4253,7 +4528,7 @@
           }
         ]
       },
-      "source_checksum": "b791c6ff591b06994c1b0bf4f6275ea355cbfd9b2e8322f6644d2ef8b416ae12",
+      "source_checksum": "1b499daa1007ddc6b19420ccfe27cfbce4b17f67c00c3e776f5d31fe2a8eb7f2",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2738:list_recommenders",
         "path": "infera-knowledge/src/platform.rs",
@@ -4317,7 +4592,7 @@
           }
         ]
       },
-      "source_checksum": "e503491e207ea85fb57982f39be78b4fc5e3dd5ae8606a5ad8ae42bd3b869ef1",
+      "source_checksum": "bc3d61d8cdc03c23f830ef9beea51cf427e0c16a0eb119698643c246ac0dc070",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2747:create_recommender_group",
         "path": "infera-knowledge/src/platform.rs",
@@ -4393,7 +4668,7 @@
           }
         ]
       },
-      "source_checksum": "30457522bb3c980db3ec2e3ad23b2b97ad6df1be45bd93ba8dee2e83ce12ac4f",
+      "source_checksum": "d991fa22c384fbd53197c1d391272b38b3dc65244134e6463fd181cf97f8a46e",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2758:create_recommender_item",
         "path": "infera-knowledge/src/platform.rs",
@@ -4479,7 +4754,7 @@
           }
         ]
       },
-      "source_checksum": "2a79a34e4f85c8c71eb5704b20c5cbe4e2f4223a5e28865e689cd60a1d688168",
+      "source_checksum": "2769232aa6db6fee596c69ad36cb46380d8806b54cb44ac7c1c21eb4497a19ec",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2550:list_memory_subjects",
         "path": "infera-knowledge/src/platform.rs",
@@ -4559,7 +4834,7 @@
           }
         ]
       },
-      "source_checksum": "5c5f84691a761d21c76af10d312f0513ff8b3d1d54fd7d9cb951a6a221652439",
+      "source_checksum": "ec8e73cbbe188d85f67f2df96947c607403407d7d2029d400fc8aa275d1c55d7",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2573:clear_memory_subject",
         "path": "infera-knowledge/src/platform.rs",
@@ -4632,7 +4907,7 @@
           }
         ]
       },
-      "source_checksum": "69cc28b956160e1c0d48adb3ac4ea549fd65e5ceb9397c52bfd4b98c518fc0c8",
+      "source_checksum": "ea2a6c3e504ce572a5772980d0a905653f3920724d785a967446de0ddeb79eb6",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2614:forget_memory",
         "path": "infera-knowledge/src/platform.rs",
@@ -4706,7 +4981,7 @@
           }
         ]
       },
-      "source_checksum": "0aba0f026464dbc242f15ca4109fd10822a42126f199ae1412d6a55f4b2155cf",
+      "source_checksum": "4f7c52a696ea064fd9df1f31ff455b263f4a8d90771d11ed05539e4fbfd00df0",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2647:set_memory_override",
         "path": "infera-knowledge/src/platform.rs",
@@ -4785,7 +5060,7 @@
           }
         ]
       },
-      "source_checksum": "165e6b5280c094895d3ed9c7e356eaf0c47ae0dab41f6d95d4c9008519e158d9",
+      "source_checksum": "b91d0201f045f30d8fc25810861888774b06376fd419738269f1bed9ea764765",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2718:replay_memory_outbox",
         "path": "infera-knowledge/src/platform.rs",
@@ -4854,7 +5129,7 @@
           }
         ]
       },
-      "source_checksum": "5491d9bc9ee97d7de7d36f09312d256b3195aff8daa3ce90801d19529122832f",
+      "source_checksum": "ca0e20399d4152a76e11e59c98ad54ce79c083bff17a35a834920c6ce1da8831",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:601:runtime_query",
         "path": "infera-knowledge/src/routes.rs",
@@ -4954,7 +5229,7 @@
           }
         ]
       },
-      "source_checksum": "21263710c7810760f75651e1cf0201025c6540dd4fa377c1a568f517cd51ea3c",
+      "source_checksum": "f673b9ce4d72b2e93e859cbbb59d0d1c867fa324ce052be33c2f81ebfad2df31",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:612:tool_schema",
         "path": "infera-knowledge/src/routes.rs",
@@ -5018,7 +5293,7 @@
           }
         ]
       },
-      "source_checksum": "accbf10647234c5bf85563484bd6b96ca86c3fbe8d9ece66e6f25e29e1e1d873",
+      "source_checksum": "4b9f20845f0d1f2ecb533cec51d84bbb3bfc41893e5979dd459b890077c328b8",
       "handler": {
         "ref": "infera-knowledge/src/contracts.rs:14:get",
         "path": "infera-knowledge/src/contracts.rs",
@@ -5087,7 +5362,7 @@
           }
         ]
       },
-      "source_checksum": "87def9fb5be51c6e54b3903e8b870a759212fa0f5dfca8a380e3175f4c043895",
+      "source_checksum": "9ae1667667f2e5300337637abcc520ff2477855a4a886bfe9fb537ca5c010dbf",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:830:configure_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5180,7 +5455,7 @@
           }
         ]
       },
-      "source_checksum": "a63fb6db0541c3b3ad042bbe787038ce04b39288f136dd72515f910abd75545f",
+      "source_checksum": "0a699808e860f45d9c2cc11b1ebf2e20b546b5cd8a745d7597b21c178732fc82",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:997:query_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5308,7 +5583,7 @@
           }
         ]
       },
-      "source_checksum": "b2dd6b9fca8563a4badd5bd4d21b98a032e3877f55ae371fb4d8ae9b94ca3365",
+      "source_checksum": "a73ef9fe54cf1b839dbcd37e13c825177716260b920467872c4c20fc1235dbdd",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:1667:preview_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5436,7 +5711,7 @@
           }
         ]
       },
-      "source_checksum": "d98a2b7e9c9842061d41fa9e1acf283069dd9a6b4c61d08d42fed757a4feade4",
+      "source_checksum": "59a3a0805b4c7185b9380465929466819f754bc9c15adcf70dd87d7acce8eefc",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:1677:evaluate_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5576,7 +5851,7 @@
           }
         ]
       },
-      "source_checksum": "6e4909e470a65e557b45a4aa2a6d466505a333d1c366124c8056ab229846bd0d",
+      "source_checksum": "33a254870016f5d7a95c4a5567add967bc835e1aa2e11fdf7143c5d99c748fb9",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2262:record_turn",
         "path": "infera-knowledge/src/platform.rs",
@@ -5680,7 +5955,7 @@
           }
         ]
       },
-      "source_checksum": "55e84828d61c5be84ca6335873bdc174b93bb238ab8bade0be87b19a69105a39",
+      "source_checksum": "d5935a900fd03d6358cbc8f99624afbb27e6aada998e37f840ae1551079f20c8",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:457:document_evidence",
         "path": "infera-knowledge/src/platform.rs",
@@ -5748,7 +6023,7 @@
           }
         ]
       },
-      "source_checksum": "cd27ca185b0c438405cc6c7e9bfbe7eb54030c9d32654dcd282d1e6be47cd059",
+      "source_checksum": "8d0f4abb1c25c6784eaa76efb884c07fd033fcbe672defb82447b18a879fd70f",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:467:session_evidence",
         "path": "infera-knowledge/src/platform.rs",
@@ -5817,7 +6092,7 @@
           }
         ]
       },
-      "source_checksum": "d2b700fe6500bf8c37921d996b0d129fc7f5f2814dc359f266368ca5b4636856",
+      "source_checksum": "3514cddc1acfae2ea93234da0f1695271b7027461dae428b033008dd50b53bad",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:424:record_retrieval_usage",
         "path": "infera-knowledge/src/platform.rs",
@@ -5896,7 +6171,7 @@
           }
         ]
       },
-      "source_checksum": "c33a54856ac35fd43bf1fd35f1391c292e14c5417fbb71bc75ab9858970fb45f",
+      "source_checksum": "fc2290b563bd8b8fa204d2580d2dd3494c28edd51d85c094aaeecd6ed480fe6f",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:3439:mcp",
         "path": "infera-knowledge/src/platform.rs",
@@ -5969,7 +6244,7 @@
           }
         ]
       },
-      "source_checksum": "4937e0f7b620db07f8498756862061742dd984facac730520648d5fd757a1ea0",
+      "source_checksum": "91cdf8568f5e61155e6e319d703c368bb0a236c05f43e65a54f127b281debbdf",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:61:sync",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6055,7 +6330,7 @@
           }
         ]
       },
-      "source_checksum": "77427ad2cc67c7a080f5e7934c3dc230b187069b8038905fa3b5464e5a591984",
+      "source_checksum": "3a219fcfe4a26833f929c24135e319fcc43310b97ad60ab13b5b3d4efb188134",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:94:candidates",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6135,7 +6410,7 @@
           }
         ]
       },
-      "source_checksum": "b68393ef3591115771927cb3be3ed4448872102aa4fc20d79ee855221ecfef56",
+      "source_checksum": "d0603f33e80308e23b0ad50006a604cd89658dfa10158e4289db9a9f45bec50c",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:127:passages",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6217,7 +6492,7 @@
           }
         ]
       },
-      "source_checksum": "843521510c9ac162084cb2091754e68193d93b0cc4d8a223470272ffa0d2ccef",
+      "source_checksum": "2ee00aba64a0659f3a3a1260559ab6ecd2c2d394d9951bfd4fcefaec1950b8ab",
       "handler": {
         "ref": "infera-knowledge/src/task_conversion.rs:24:convert",
         "path": "infera-knowledge/src/task_conversion.rs",
@@ -8703,6 +8978,10 @@
     {
       "path": "infera-knowledge/src/main.rs",
       "checksum": "d0b4421cd64356d43b38d275107a6058f5850631ee8ab7b08bf149a22eebfed5"
+    },
+    {
+      "path": "infera-knowledge/migration/src/main.rs",
+      "checksum": "c998366fb87912d4ff036d844c1ed89d0658e885a3bdee82f00a69224c265bec"
     }
   ],
   "missing_meaning_sources": [],

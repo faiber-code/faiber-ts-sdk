@@ -13,10 +13,10 @@
   ],
   "canonical_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
   "sdk_source_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-  "working_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
+  "working_revision": "868aa40011780194795848fcb60b85972cfd6076",
   "working_changes": [],
-  "source_relationship": "same",
-  "source_tree_checksum": "e8e2c2f057b23a053e74d8d87651e8c33540a21a065ef8085bef69e356b98540",
+  "source_relationship": "working_ahead_of_sdk",
+  "source_tree_checksum": "ec9ffd698e8ca41daa15c7abed9d73e3b04f492b20710eb198bb3ffd8c841fd6",
   "source_files": [
     {
       "path": "infera-reservation/src/auth.rs",
@@ -201,6 +201,297 @@
     {
       "path": "infera-reservation/entity/src/work_schedule.rs",
       "checksum": "b3c1881c436accb80ea85889947d7c1bea78c27cb872edde1d93c8576ec4f54f"
+    },
+    {
+      "path": "infera-reservation/migration/src/lib.rs",
+      "checksum": "7942e25b6c49028dd787ab7315cbea36323b29c6ea2eab5c90573c7fc8f0b71a"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000001_create_services_table.rs",
+      "checksum": "5d5cdf1fd134a8d65803f21eb382046e61e01ed23bd1cd800a4503d43603acf7"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000002_create_providers_table.rs",
+      "checksum": "8c1a8ee6b3d3fc6eeb1329d50c008e70325cdedabe8adfd3b924f2b66a3c979b"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000003_create_provider_services_table.rs",
+      "checksum": "314852f2ae6ae106ce52b3a32c1ca191a084ac671da5451b690f3faea7039d5e"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000004_create_work_schedules_table.rs",
+      "checksum": "ed22760a58426b98237dd0d88c610d7ef5bb197a066d537f971311f0ab9cc5f1"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000005_create_time_slots_table.rs",
+      "checksum": "a9833400885e9f4bba253b24389767fe2646b717874e19c445c370bda02fefa6"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000006_create_reservations_table.rs",
+      "checksum": "d6b0a6b290555c3f76dbf18952f952a4a16b04bf1d1e883846e36c343329a5da"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20260718_000007_add_service_image_url.rs",
+      "checksum": "9fbf2817cc0f66e4c67eb93a278d5a392c09f7616525d376c635db9a9f034d30"
+    },
+    {
+      "path": "infera-reservation/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    },
+    {
+      "path": "infera-reservation/Cargo.toml",
+      "checksum": "831995add5ef8a362dc75dfaeac3f58eb5bcf7d547d73c0973ed3ea6c792998f"
+    },
+    {
+      "path": "infera-reservation/Cargo.lock",
+      "checksum": "8b36bd28032c388760780bccb82d04d0dab88c2d6003eedcfe84b40637913961"
+    },
+    {
+      "path": "infera-reservation/entity/Cargo.toml",
+      "checksum": "cdba21d8ae96fd75ec82a535ac5d142b9d61d47b0d27004ca65f50da5c8ae488"
+    },
+    {
+      "path": "infera-reservation/migration/Cargo.toml",
+      "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
+    }
+  ],
+  "working_source_tree_checksum": "28c31ed5d4f5131c1b231ac7a14f68d11421fa61d5cea218a2af37221788e4a4",
+  "working_source_files": [
+    {
+      "path": "infera-reservation/src/auth.rs",
+      "checksum": "f24274d0ea4c61d27cf81c3539dd4a9c63ca4bf7b5d96d264a82ce15d9553459"
+    },
+    {
+      "path": "infera-reservation/src/broker.rs",
+      "checksum": "936267b0e428506d2f5a25178945305f38787ff3971e1f130589d7a692c58daa"
+    },
+    {
+      "path": "infera-reservation/src/cli/commands/seed_commands.rs",
+      "checksum": "58405b0a4b7643beac4d1574083a88a6c2fa0edb02a88d0b8de268d6f40494e0"
+    },
+    {
+      "path": "infera-reservation/src/cli/commands.rs",
+      "checksum": "d48bd5ac78e6b31e89ec1aca191309a314414098b8cddb1f11472581cdfc15da"
+    },
+    {
+      "path": "infera-reservation/src/cli.rs",
+      "checksum": "4da82c3c1ed90747ba256b6c9130f8f1f1341602901b3ac9ba203eecf5e56967"
+    },
+    {
+      "path": "infera-reservation/src/cors.rs",
+      "checksum": "44441407770a5a491d0c6327f8d1c7f96359598f9fdf2153b0e8b465d6bee71e"
+    },
+    {
+      "path": "infera-reservation/src/db.rs",
+      "checksum": "f93b29dae3c64fdf4e7132c44c9e90081cfc7ce3a75ad6c6db3189ce52198915"
+    },
+    {
+      "path": "infera-reservation/src/integration/flow.rs",
+      "checksum": "46d88e7c0978e67b9b156954c2e0ed83808030494764255082c605e4514adf02"
+    },
+    {
+      "path": "infera-reservation/src/integration/mod.rs",
+      "checksum": "8d3ba85da8b1b941c11c8ffca902cacb42818f0aec3c919a7302f9568c917e73"
+    },
+    {
+      "path": "infera-reservation/src/integration/routes.rs",
+      "checksum": "60bd65974d5edf9f6b376baf16dd21009b4d954a577e723a7bf64cb0e892ffe3"
+    },
+    {
+      "path": "infera-reservation/src/lib.rs",
+      "checksum": "2bb6e912c12908e3dc846e8b52a529976469f85669f9a3ffe19458a94750b1da"
+    },
+    {
+      "path": "infera-reservation/src/main.rs",
+      "checksum": "ff0f4e1b85ee7de0c5537af567906439ae294c6eeabbff295dcb000d445ee6c8"
+    },
+    {
+      "path": "infera-reservation/src/models.rs",
+      "checksum": "1657b85294863dc7c60079b7cf65999ca2fea606b839bc6c448c886119d3c426"
+    },
+    {
+      "path": "infera-reservation/src/pagination.rs",
+      "checksum": "02c16152141908f4da4d0d122b4e91dfb86844b525a50734a193cf2d859a2f85"
+    },
+    {
+      "path": "infera-reservation/src/provider/methods.rs",
+      "checksum": "3ec72e22cffe6e11bee09fa33fcecc3b656071e64cde6b4c2661d0924cdcea21"
+    },
+    {
+      "path": "infera-reservation/src/provider/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/provider/models.rs",
+      "checksum": "6a8a02e9eec258934008a882bc9583646985c6a2851964bb4394552966df15a8"
+    },
+    {
+      "path": "infera-reservation/src/provider/routes.rs",
+      "checksum": "3c639d40350ac0c28bbd945517d8b2b3678d5bc34d94ac7eee1e32d54715c4de"
+    },
+    {
+      "path": "infera-reservation/src/reservation/methods.rs",
+      "checksum": "3b613928311603797eb1ffea9f919a1952bc7c6ead3cb2f340847cc0fa76acd1"
+    },
+    {
+      "path": "infera-reservation/src/reservation/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/reservation/models.rs",
+      "checksum": "47b977054851a07f1be786a10f41e8b1b52fd8fe6d5e200ce64499f95027a15f"
+    },
+    {
+      "path": "infera-reservation/src/reservation/routes.rs",
+      "checksum": "555ac6f6c64d911ae0de38f2f1d0827902a5c4f7752c413bc56f44380590a7ee"
+    },
+    {
+      "path": "infera-reservation/src/reservation_service/methods.rs",
+      "checksum": "fc49303ec88adae6398c2997b6940d484bd363c56bbab1d16e751bd0831aee63"
+    },
+    {
+      "path": "infera-reservation/src/reservation_service/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/reservation_service/models.rs",
+      "checksum": "8332f30e9c4b95ee8f5a5af578ef39e91534d1cbbd5d5b5283029f4b36aea359"
+    },
+    {
+      "path": "infera-reservation/src/reservation_service/routes.rs",
+      "checksum": "f4efe2095a3c296cbafd417650bdc44f78fa181af976f5bcbdc2198968b02c0b"
+    },
+    {
+      "path": "infera-reservation/src/router.rs",
+      "checksum": "e3cb24728e9ec8d113c568f45e655842f7dd89861c260e0fdafcfa89b008bf4d"
+    },
+    {
+      "path": "infera-reservation/src/state.rs",
+      "checksum": "8d2774a0bded44be5f836d3a66bfaaf2047c620aa61b610940d049287c6151dc"
+    },
+    {
+      "path": "infera-reservation/src/time_slot/methods.rs",
+      "checksum": "ad91db59da54a71e0873c2b9bc6937054f5a7f097c3d4536d7c304a8f2a6d9fd"
+    },
+    {
+      "path": "infera-reservation/src/time_slot/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/time_slot/models.rs",
+      "checksum": "d07ea21ecbc52098b267596406e4e11fd2e7d8719f8667703f3b68cadbafa7a3"
+    },
+    {
+      "path": "infera-reservation/src/time_slot/routes.rs",
+      "checksum": "9d977dfc116291ae293e2985b522d1fc6b1c4b6be76e6850b32c5642f993ecf4"
+    },
+    {
+      "path": "infera-reservation/src/work_schedule/methods.rs",
+      "checksum": "c1c4ffeff5cad63edc93c6ff69ed71bdb3f6bf19756b7cc506680b617d31de91"
+    },
+    {
+      "path": "infera-reservation/src/work_schedule/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/work_schedule/models.rs",
+      "checksum": "a94a8a160cbb7caeb1efd1cb6372ff84b9d6c9aa71fcba32a248431fa3fe9a31"
+    },
+    {
+      "path": "infera-reservation/src/work_schedule/routes.rs",
+      "checksum": "fab94a3f185bcf872a74c8164c727c21d6ff9196c6f3288981f344c8da8e6bca"
+    },
+    {
+      "path": "infera-reservation/entity/src/enums.rs",
+      "checksum": "f6704f5db48fab772ba69caf68f8c2279ac09214c35eb31b7171631b75a0616a"
+    },
+    {
+      "path": "infera-reservation/entity/src/lib.rs",
+      "checksum": "6a4d4474fdce415e34086c6676d44528b58c54449123df9a25ba1ac9d7f5fe83"
+    },
+    {
+      "path": "infera-reservation/entity/src/provider_service.rs",
+      "checksum": "193fbbc446596d917e87acf6ec92b9b24d5ac4ae60f3550f990920356953d854"
+    },
+    {
+      "path": "infera-reservation/entity/src/provider.rs",
+      "checksum": "4b0e498af9c1a9a1fb3abbd9ddfe5628839508cdde1d41de40c5292471e13489"
+    },
+    {
+      "path": "infera-reservation/entity/src/reservation_service.rs",
+      "checksum": "78d20ffd75ce59e30227191e6cea43da0d5992e9ad56083f519c2579a3f446bb"
+    },
+    {
+      "path": "infera-reservation/entity/src/reservation.rs",
+      "checksum": "4c8f07c3e03e72da2bce19ae16b3956a2270afd6e615d2fdba3c0d6a346c985f"
+    },
+    {
+      "path": "infera-reservation/entity/src/seeder/mod.rs",
+      "checksum": "05843df544174411fba373077d861c314467fb4f9b63c2b4f834daf38ff25bad"
+    },
+    {
+      "path": "infera-reservation/entity/src/seeder/reservation_seeder.rs",
+      "checksum": "c25bdb1ad66130aec2fcdeaaf922b6d89d1ae0f7aeb8e3e0850f8656e1fb3303"
+    },
+    {
+      "path": "infera-reservation/entity/src/time_slot.rs",
+      "checksum": "fdfe50c3512cff2ec00537be915f9e3f7ad1ecce6109ff60b9aa3a169cace863"
+    },
+    {
+      "path": "infera-reservation/entity/src/work_schedule.rs",
+      "checksum": "b3c1881c436accb80ea85889947d7c1bea78c27cb872edde1d93c8576ec4f54f"
+    },
+    {
+      "path": "infera-reservation/migration/src/lib.rs",
+      "checksum": "7942e25b6c49028dd787ab7315cbea36323b29c6ea2eab5c90573c7fc8f0b71a"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000001_create_services_table.rs",
+      "checksum": "5d5cdf1fd134a8d65803f21eb382046e61e01ed23bd1cd800a4503d43603acf7"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000002_create_providers_table.rs",
+      "checksum": "8c1a8ee6b3d3fc6eeb1329d50c008e70325cdedabe8adfd3b924f2b66a3c979b"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000003_create_provider_services_table.rs",
+      "checksum": "314852f2ae6ae106ce52b3a32c1ca191a084ac671da5451b690f3faea7039d5e"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000004_create_work_schedules_table.rs",
+      "checksum": "ed22760a58426b98237dd0d88c610d7ef5bb197a066d537f971311f0ab9cc5f1"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000005_create_time_slots_table.rs",
+      "checksum": "a9833400885e9f4bba253b24389767fe2646b717874e19c445c370bda02fefa6"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20250621_000006_create_reservations_table.rs",
+      "checksum": "d6b0a6b290555c3f76dbf18952f952a4a16b04bf1d1e883846e36c343329a5da"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20260718_000007_add_service_image_url.rs",
+      "checksum": "9fbf2817cc0f66e4c67eb93a278d5a392c09f7616525d376c635db9a9f034d30"
+    },
+    {
+      "path": "infera-reservation/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    },
+    {
+      "path": "infera-reservation/Cargo.toml",
+      "checksum": "831995add5ef8a362dc75dfaeac3f58eb5bcf7d547d73c0973ed3ea6c792998f"
+    },
+    {
+      "path": "infera-reservation/Cargo.lock",
+      "checksum": "8b36bd28032c388760780bccb82d04d0dab88c2d6003eedcfe84b40637913961"
+    },
+    {
+      "path": "infera-reservation/entity/Cargo.toml",
+      "checksum": "cdba21d8ae96fd75ec82a535ac5d142b9d61d47b0d27004ca65f50da5c8ae488"
+    },
+    {
+      "path": "infera-reservation/migration/Cargo.toml",
+      "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
     }
   ],
   "operations": [
@@ -226,7 +517,7 @@
           }
         ]
       },
-      "source_checksum": "46c7227075e31da6bca8c268f06d4e0e94f298e43f1d996718ad6608a7b8ce71",
+      "source_checksum": "5a3d9dc99403b36cff50b30ef7d13903da289ad1398372728eb82387efd99654",
       "handler": {
         "ref": "infera-reservation/src/router.rs:151:health",
         "path": "infera-reservation/src/router.rs",
@@ -282,7 +573,7 @@
           }
         ]
       },
-      "source_checksum": "6a361d07c6a6f34dcf473c439ad22271792c81c3694b93b1a4dbcbdc8ac3c5e8",
+      "source_checksum": "ea83d412955d1bc17576d8bca3c1be1517fd97d65fd4f0656db5a87ede541cc9",
       "handler": {
         "ref": "infera-reservation/src/router.rs:151:health",
         "path": "infera-reservation/src/router.rs",
@@ -337,7 +628,7 @@
           }
         ]
       },
-      "source_checksum": "3619796489ec318cf9c4fffbf126c63e9ef82164fac058bd57b2140c7c2cd52e",
+      "source_checksum": "20371881859bb59eab0af3115ff0d46fec08f3b66c4cf244de10eed557f10199",
       "handler": {
         "ref": "infera-reservation/src/router.rs:68:openapi_json",
         "path": "infera-reservation/src/router.rs",
@@ -394,7 +685,7 @@
           }
         ]
       },
-      "source_checksum": "0ba8dccf58ddacb9f0424013aaa83fa30ad9a15a322580549650096d97f04db0",
+      "source_checksum": "95eebf3f4dc280ede2a8861507661559a791435eb3dad6011b841d41c4bb0766",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:13:index",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -480,7 +771,7 @@
           }
         ]
       },
-      "source_checksum": "617a304f78ce16af95f12bbb2502ab049a6d7973850684772443a28e187e9ca5",
+      "source_checksum": "6a69bc65a8e922805d224bbc42fd6e8c3cf7ee00c342938160fd34c4f6c809c1",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:27:store",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -560,7 +851,7 @@
           }
         ]
       },
-      "source_checksum": "ec48b23f42d6f52d414d9e7c47c82cae2ffcc5ba437226513ba4a688db17ef11",
+      "source_checksum": "f25ce2dccd6b0530b4893cd6b40cece84c71d6618834ce79530aad173db66acd",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:22:show",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -634,7 +925,7 @@
           }
         ]
       },
-      "source_checksum": "9f186b256a246fc697b503937dd39e7f7d3eff2077aa60d5e9dccd588d7fdeb6",
+      "source_checksum": "9bc9370195999cf36032ea8b3fe1e0f534536b620a339054d0664e167682d26f",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:33:update",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -718,7 +1009,7 @@
           }
         ]
       },
-      "source_checksum": "5aea580c7e041daeb5c2b2f8eccefc6c785f80c441fd1600312c5cc03404d0ac",
+      "source_checksum": "a3a4482e278a42fd96d8ef134fc484dbfcc8d1290957b48d1f2aed89ed1d620d",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:39:destroy",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -784,7 +1075,7 @@
           }
         ]
       },
-      "source_checksum": "fba75ca0ebaf1337a510b5f9885979d3154b63c61efc967c2b02e6541b2bdede",
+      "source_checksum": "6dd66d6e47e1c6f5c83c24861847010b109b710371317fd86c817411b4379650",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:16:index",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -877,7 +1168,7 @@
           }
         ]
       },
-      "source_checksum": "adc3ef2356f7a5be132e163828124c5ad5153a927fdb5703633f8d00e13e5bf4",
+      "source_checksum": "b254834f2075fd34f6386329e0259d47a13a438f9fdc85005a715fcb9f5acfbc",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:27:store",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -970,7 +1261,7 @@
           }
         ]
       },
-      "source_checksum": "32d767f3544bdfbc260d506ef84b76212a98d4cfbc642626ce4e0afa694b2d49",
+      "source_checksum": "09f19d4403589f30f9b20a2e229946fffae926b7cf2c77ba650b6608a3fc319f",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:22:show",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1051,7 +1342,7 @@
           }
         ]
       },
-      "source_checksum": "9f6e0b967c7ffa60cc85df452de112e0de90b821f6c0da36ed8d73103877ab6c",
+      "source_checksum": "6124ab1f5b1c893b6991a4b7b6e48c54665fc8bc8a46fbbbaefb9d99535bcb5c",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:33:update",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1148,7 +1439,7 @@
           }
         ]
       },
-      "source_checksum": "8b0d3bb4e71e850ef6cd5a042680108a3f74ccfee5ff7b2ed7b1a7579a4c6910",
+      "source_checksum": "fdb140ab0ff148ee778b1c7172a1313785c81dc6f1af0d6eec25199bdf476e4a",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:39:destroy",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1214,7 +1505,7 @@
           }
         ]
       },
-      "source_checksum": "d6c3beb4ffe6693d5fa97d904b699b287cb6d9e7c6854d08b0e0ef6c7a1bd45d",
+      "source_checksum": "213740269828036889c708512a72f67e986cfb38f4da3d5e0259141857bf4d03",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:45:list_services",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1288,7 +1579,7 @@
           }
         ]
       },
-      "source_checksum": "ee9e1f18217a4b0f8909c777e8b38b91ed1ed8a5eaca2f5847c6837ad17fad35",
+      "source_checksum": "45e4b3a86d2347e3754853a0883646e77b2262bc23ceb7107cdaddc24c793cd3",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:51:assign_service",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1372,7 +1663,7 @@
           }
         ]
       },
-      "source_checksum": "f140d2654f57bf664bf8c415a019009db29079c17b0119e766de8fd37c18b0d6",
+      "source_checksum": "844debbf70e9788a27e74a098bdfaf2f78a6c00f7e896a70605f99d29e1fc310",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:57:remove_service",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1438,7 +1729,7 @@
           }
         ]
       },
-      "source_checksum": "2f99fc476d1418498b7b302d180895672e22c2400b82d3d0193762cdf49f78a6",
+      "source_checksum": "d802ecf2c4c3cc2443c429cc3d9a040e5b8b42001d9974c90a7482b88bf4f284",
       "handler": {
         "ref": "infera-reservation/src/work_schedule/routes.rs:10:index",
         "path": "infera-reservation/src/work_schedule/routes.rs",
@@ -1519,7 +1810,7 @@
           }
         ]
       },
-      "source_checksum": "14399876ea8788a7552eceba639a3a27e2ee68ba8c06e58c0469e346ddabfa42",
+      "source_checksum": "ba8ec493e7bd48c0ac7c1c2266a40e879ce611361a293fabd4ee525d0b2953c8",
       "handler": {
         "ref": "infera-reservation/src/work_schedule/routes.rs:16:upsert",
         "path": "infera-reservation/src/work_schedule/routes.rs",
@@ -1610,7 +1901,7 @@
           }
         ]
       },
-      "source_checksum": "6449b37b715f45b2d2010b6a6364a2f4c51531bb385ff0272302170863027b3b",
+      "source_checksum": "a47defdb6ec5b22ab752782dab104ee5b59edac59eb58def525b0e0470102707",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:19:generate",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -1696,7 +1987,7 @@
           }
         ]
       },
-      "source_checksum": "caf0c27221a5c9767e64a49b46027ae1441ee5fc293d76285fcb33dc8f68fd21",
+      "source_checksum": "bc7b4cfba0c9beee9dc902221b03f50aeb095fa2adc53e636481c940839a834c",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:13:available",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -1807,7 +2098,7 @@
           }
         ]
       },
-      "source_checksum": "f32f449d32d4c317ceae4de5b1b3eed019103196e9fdfe695af15dc9e73c3ad1",
+      "source_checksum": "b285652e8b34a19f63030abd4fd1edb23a0890d3448be29459e85e750bab42b2",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:30:show",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -1900,7 +2191,7 @@
           }
         ]
       },
-      "source_checksum": "35d7329487ddb710c6b1d9f7c86ca1d6d321f78b19e3f2a6b1a948d1bd40de5c",
+      "source_checksum": "89848f41839fcf6c314b6ba2a6985c16060ff6192f55450cf51863f44ae7a57b",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:34:update",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -2015,7 +2306,7 @@
           }
         ]
       },
-      "source_checksum": "cab47027ecacc2eab228bcd9a6a6ce6fd3e157ba1fa592a3a28e629b3e3a29e7",
+      "source_checksum": "a9217b676bd7b0a5095f79a341da5a0e449fbbc36917c43995458cbbafdf96f0",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:25:destroy",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -2081,7 +2372,7 @@
           }
         ]
       },
-      "source_checksum": "254c131c63c9175d9b3945dd556ac42014f1b4a51d5fbc98fc9db20d69935791",
+      "source_checksum": "4848e760ce4ee79563575df5c99360832bff11eda3c5749493538fbe8d556c4d",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:12:index",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2210,7 +2501,7 @@
           }
         ]
       },
-      "source_checksum": "8d6dcd3169d9bdcc2d77684a230f7d96b0b05a2ee1fe891f14cb4f104ceea14b",
+      "source_checksum": "3809c8afb8064e6057bc3aec84efc0819c17776164260249ba0f292f48fcf5e0",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:24:store",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2327,7 +2618,7 @@
           }
         ]
       },
-      "source_checksum": "b69e47f0df96cc3a7bd4395a31b1eeabd72c10976157558487314882bcf8e801",
+      "source_checksum": "2650adabaefd8093da03b6689a40ef4ca7e289b5c951ba0a0ce9a39dc54ab74d",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:18:show",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2426,7 +2717,7 @@
           }
         ]
       },
-      "source_checksum": "0628630c295c386063e66176f1d9ae903583eb423027a61af9ea8b39ddeab336",
+      "source_checksum": "088452175b69dea7ca4a27b5a847961a7880ceaf0954a00869c1530fae37055d",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:29:update",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2535,7 +2826,7 @@
           }
         ]
       },
-      "source_checksum": "73c97c0339a1ae182b62f7548a3a589a4e57b335bfe5c9147f230654333e5a05",
+      "source_checksum": "824d77d104dc1e8830f71f858002a3ea143f41148cb472495970860715a74b71",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:35:cancel",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2600,7 +2891,7 @@
           }
         ]
       },
-      "source_checksum": "9e91fe2fe4bdd8dc66456eed3357595459ded5ddb2433a213ca429acaad3637b",
+      "source_checksum": "a168b0838d05ebf19eb5c42c6785e10dd371991967b8cf04f85fe383ab8c7029",
       "handler": {
         "ref": "infera-reservation/src/integration/routes.rs:9:flow_integration_show",
         "path": "infera-reservation/src/integration/routes.rs",
@@ -3511,6 +3802,10 @@
     {
       "path": "infera-reservation/src/router.rs",
       "checksum": "e3cb24728e9ec8d113c568f45e655842f7dd89861c260e0fdafcfa89b008bf4d"
+    },
+    {
+      "path": "infera-reservation/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
     }
   ],
   "missing_meaning_sources": [],

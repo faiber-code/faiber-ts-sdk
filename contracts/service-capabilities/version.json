@@ -15,7 +15,7 @@
   "working_revision": "88071d0dd49309e0c93aba6238516e95b57e1df5",
   "working_changes": [],
   "source_relationship": "same",
-  "source_tree_checksum": "7f3d9df8ab6252bc036a2b5aa7560c74edbbd78d727b3450dcc2ea1c2d76977a",
+  "source_tree_checksum": "a7992b9ff7887678a747a7a08fbb600bcc2c803bbbf334453ec522e3d908b982",
   "source_files": [
     {
       "path": "infera_version/src/broker.rs",
@@ -172,6 +172,229 @@
     {
       "path": "infera_version/entity/src/version.rs",
       "checksum": "f6c8f878aea6c8596d2dd9a47360051ec3c033551448b58325708374e5cf925b"
+    },
+    {
+      "path": "infera_version/migration/src/lib.rs",
+      "checksum": "507b38e00256a974a8d8f8de3506bf8bbf8959155c87b741c561403ff573dd82"
+    },
+    {
+      "path": "infera_version/migration/src/m20220101_000001_create_services_table.rs",
+      "checksum": "5819dc5f0f6b8273333d65a97d457a032588cde1c80f83e1be8a13fdf7a0505c"
+    },
+    {
+      "path": "infera_version/migration/src/m20220101_000002_create_versions_table.rs",
+      "checksum": "35dbc92c9aea19fbdb943c6f229867f96d0a5752fa891dad675ec099e451f937"
+    },
+    {
+      "path": "infera_version/migration/src/main.rs",
+      "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
+    },
+    {
+      "path": "infera_version/Cargo.toml",
+      "checksum": "3f382ccccba715246bc0689b4c559a55cb697433945e746e32a4a9fc2b100e07"
+    },
+    {
+      "path": "infera_version/Cargo.lock",
+      "checksum": "40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486"
+    },
+    {
+      "path": "infera_version/entity/Cargo.toml",
+      "checksum": "a62beca7f4b12b26db3c09b598eda9edb81b363da8e1f997028a6c3b3c868bae"
+    },
+    {
+      "path": "infera_version/migration/Cargo.toml",
+      "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
+    }
+  ],
+  "working_source_tree_checksum": "a7992b9ff7887678a747a7a08fbb600bcc2c803bbbf334453ec522e3d908b982",
+  "working_source_files": [
+    {
+      "path": "infera_version/src/broker.rs",
+      "checksum": "c61040f4da1e4a8fec99b13e7a79f12d5ca42626d5e09e31e41dea62e1fd1b1b"
+    },
+    {
+      "path": "infera_version/src/cli/commands/routes_export.rs",
+      "checksum": "54da46cb641c315df5fdd28fe643e8940d29f8095ec3a00406158d57f3d2ce91"
+    },
+    {
+      "path": "infera_version/src/cli/commands/seed_commands.rs",
+      "checksum": "3641d43da45ce60dcd75687f8654a220dfd041470d4a8150c55210a822ec563f"
+    },
+    {
+      "path": "infera_version/src/cli/commands.rs",
+      "checksum": "a7e44ec462135a2a2ad7a7ab424fa2ab332246d5987971751f677cea1d11a160"
+    },
+    {
+      "path": "infera_version/src/cli.rs",
+      "checksum": "a558d019c0fd68a318c772f1a49b388a29730e6ec36531f4e7e63c600423d152"
+    },
+    {
+      "path": "infera_version/src/cors.rs",
+      "checksum": "44441407770a5a491d0c6327f8d1c7f96359598f9fdf2153b0e8b465d6bee71e"
+    },
+    {
+      "path": "infera_version/src/db.rs",
+      "checksum": "4de5d1770a13afd7553e6730a8afc3d5125d86d78aa2a3e7edaef413367b6651"
+    },
+    {
+      "path": "infera_version/src/handler.rs",
+      "checksum": "cd818817f367e3a72417e0c8fb555ea20e11ca9017b87e5d90f754924a62ce0e"
+    },
+    {
+      "path": "infera_version/src/main.rs",
+      "checksum": "9efdc759aea226fa9c31f92e7c6b2abffe8918476bad5483c8b0c4d18e5ae705"
+    },
+    {
+      "path": "infera_version/src/middleware.rs",
+      "checksum": "4e68b5084bda8600b5ffeabbf9c52b990f2fbdb5a2c2d5c53a9ef5c681f366bc"
+    },
+    {
+      "path": "infera_version/src/models.rs",
+      "checksum": "101b81d7627638fb2d440c7636a6fdbbd66c9684f932daa7e5e0b04f4463978f"
+    },
+    {
+      "path": "infera_version/src/router.rs",
+      "checksum": "6cce6a2aef7a3ebf8280621875149b61bd22077707b201ab13cd15d73c9fb276"
+    },
+    {
+      "path": "infera_version/src/schedule/jobs.rs",
+      "checksum": "0f37c82b73e447c4cc027a3d83c3e5beae35c598786afdde1fed47bd6f76f08b"
+    },
+    {
+      "path": "infera_version/src/schedule/mod.rs",
+      "checksum": "9d51d81ae43095d5bdd84531877625ab85dd1ab922903498a0f9f019437193b0"
+    },
+    {
+      "path": "infera_version/src/schedule/models.rs",
+      "checksum": "9aac1555b9426723b5626e2e06a4252aec69809d75b9d32ae5fd2a33c6bdafab"
+    },
+    {
+      "path": "infera_version/src/service/methods.rs",
+      "checksum": "2fa6a135e8760f36c5d6623a85b42620e5e126af4070e19ed9788935a924341d"
+    },
+    {
+      "path": "infera_version/src/service/mod.rs",
+      "checksum": "041e0896d3d27a00add17adf59ebdd54350264f673bb4c6b8e9b335e49dac7e9"
+    },
+    {
+      "path": "infera_version/src/service/models.rs",
+      "checksum": "eb60d38b7c4775bf4c9ad2c9e410bbd248befc2b372dcc3324b742fe2384f445"
+    },
+    {
+      "path": "infera_version/src/service/routes.rs",
+      "checksum": "82df5b0bc7701a45081f882137c0aa88fecc393de96f292c5930e4d3084680ab"
+    },
+    {
+      "path": "infera_version/src/service/transformers.rs",
+      "checksum": "4bbb27bb5e6f999d9804891234fbacc19bcfe89d2e5e92ca8e05cef4cf588c2c"
+    },
+    {
+      "path": "infera_version/src/state.rs",
+      "checksum": "e46c4a8f58c5237fb7844ad7acc392e56c1ebbf3d23350eefb848aff1f117eb8"
+    },
+    {
+      "path": "infera_version/src/utils.rs",
+      "checksum": "88f0e7b499093f55db110e0e44abe93ac6b27cd044f0bd8bf2fbd6878e70ac42"
+    },
+    {
+      "path": "infera_version/src/validators.rs",
+      "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "infera_version/src/version/methods.rs",
+      "checksum": "6a3c389dc9189b8f9431fe370098efdfeffdbe295b0fad8fe059571667a4d6aa"
+    },
+    {
+      "path": "infera_version/src/version/mod.rs",
+      "checksum": "e88244cfe31ec01280b84815b06cec2b7154835d33c687c130d9fdc86f8a9145"
+    },
+    {
+      "path": "infera_version/src/version/models.rs",
+      "checksum": "9dfbb65816df731b4735bb15e34daf02fe885faf55d5e12d18834a49b9af5c9d"
+    },
+    {
+      "path": "infera_version/src/version/publish.rs",
+      "checksum": "0687516d70b1954107b737f0d1b20177ca9461174fa83a65f8c47e7c5f7cb8bd"
+    },
+    {
+      "path": "infera_version/src/version/routes.rs",
+      "checksum": "e38bfb77c5f59eaa716c5a9972f89ccf490b76198883f5cfd3703bf9179a409c"
+    },
+    {
+      "path": "infera_version/src/version/transformers.rs",
+      "checksum": "906222989a19086a212abe5ecfb630d11beb53158189bb43dc91a62958415225"
+    },
+    {
+      "path": "infera_version/entity/src/enums/mod.rs",
+      "checksum": "27695436ea6a4888f64f0064f916115d5af01edfcc027717abf015d7832d72bb"
+    },
+    {
+      "path": "infera_version/entity/src/enums/service.rs",
+      "checksum": "355b70ea985e675f8de221693cf7eab6f628d43786e26343b83d5b2154b31779"
+    },
+    {
+      "path": "infera_version/entity/src/lib.rs",
+      "checksum": "a68e62deb2c7aa45de173671bd07162251666058f875205b50f46ab195bb710b"
+    },
+    {
+      "path": "infera_version/entity/src/seeder/mod.rs",
+      "checksum": "69c1545030a96bfee4d688f25926ef74d1eec0fc737382e64cb4175bf63af18e"
+    },
+    {
+      "path": "infera_version/entity/src/seeder/service_seeder.rs",
+      "checksum": "a84fe8689f5ec0a663b6e1d3f1a618ec9c1a51080e304590aeeb0b667f4a1933"
+    },
+    {
+      "path": "infera_version/entity/src/seeder/version_seeder.rs",
+      "checksum": "f8ca5bea031bd9b4c5bfb525d66d825465287b8c2e9964e6b4d419838e3bd53a"
+    },
+    {
+      "path": "infera_version/entity/src/service.rs",
+      "checksum": "fcec0d0d39943da326dce692aadb3ea9b50aaf6401d3adc97f5352a463b13f5c"
+    },
+    {
+      "path": "infera_version/entity/src/utils/mod.rs",
+      "checksum": "4470f63187718cb80978fbb679a7afeb8a20bcd8b2454fa43e2977fc72fb93a8"
+    },
+    {
+      "path": "infera_version/entity/src/utils/uuid.rs",
+      "checksum": "6060c3c778e44291d3a4cf511f87f1590d028f23bcd77626defd938bbcbf4fba"
+    },
+    {
+      "path": "infera_version/entity/src/version.rs",
+      "checksum": "f6c8f878aea6c8596d2dd9a47360051ec3c033551448b58325708374e5cf925b"
+    },
+    {
+      "path": "infera_version/migration/src/lib.rs",
+      "checksum": "507b38e00256a974a8d8f8de3506bf8bbf8959155c87b741c561403ff573dd82"
+    },
+    {
+      "path": "infera_version/migration/src/m20220101_000001_create_services_table.rs",
+      "checksum": "5819dc5f0f6b8273333d65a97d457a032588cde1c80f83e1be8a13fdf7a0505c"
+    },
+    {
+      "path": "infera_version/migration/src/m20220101_000002_create_versions_table.rs",
+      "checksum": "35dbc92c9aea19fbdb943c6f229867f96d0a5752fa891dad675ec099e451f937"
+    },
+    {
+      "path": "infera_version/migration/src/main.rs",
+      "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
+    },
+    {
+      "path": "infera_version/Cargo.toml",
+      "checksum": "3f382ccccba715246bc0689b4c559a55cb697433945e746e32a4a9fc2b100e07"
+    },
+    {
+      "path": "infera_version/Cargo.lock",
+      "checksum": "40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486"
+    },
+    {
+      "path": "infera_version/entity/Cargo.toml",
+      "checksum": "a62beca7f4b12b26db3c09b598eda9edb81b363da8e1f997028a6c3b3c868bae"
+    },
+    {
+      "path": "infera_version/migration/Cargo.toml",
+      "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
     }
   ],
   "operations": [
@@ -196,7 +419,7 @@
           }
         ]
       },
-      "source_checksum": "e0ec2c9fb048fab9fa7cdd6e2687d30dd9c119f1db38a357a847d19f7c8298ba",
+      "source_checksum": "cf6f2c9004fdef3ef02681711281a059e3379f304be4d3133be2a1dc062a1339",
       "handler": {
         "ref": "infera_version/src/router.rs:146:status_route",
         "path": "infera_version/src/router.rs",
@@ -248,7 +471,7 @@
           }
         ]
       },
-      "source_checksum": "3f547ce2cebd259253595d7fab847f540f86b0cb10f764ca09e62360edfa4ad4",
+      "source_checksum": "15a54a3a91ba8855285cdf9a7bf361f55512dea23bc971d266afe22a564f461f",
       "handler": {
         "ref": "infera_version/src/version/publish.rs:32:publish_apk",
         "path": "infera_version/src/version/publish.rs",
@@ -321,7 +544,7 @@
           }
         ]
       },
-      "source_checksum": "b9980ef788e1b6df607d15768c92dab4304406351d6e8e5b3375d7e2c3dfad88",
+      "source_checksum": "26e8ee3ef31488c9e1a000a4c51dac2b3ff8ada32178aef8561255ec07836b8e",
       "handler": {
         "ref": "infera_version/src/router.rs:130:openapi_json",
         "path": "infera_version/src/router.rs",
@@ -377,7 +600,7 @@
           }
         ]
       },
-      "source_checksum": "f4eaf19225e292b536d6ca809b15c0725df80298196d5c86b740e9b0b99a9756",
+      "source_checksum": "beaffcbf59533712e7c57a26044c0b900eba17c3f37aed4b7c237f353e57a079",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:32:services_index",
         "path": "infera_version/src/service/routes.rs",
@@ -446,7 +669,7 @@
           }
         ]
       },
-      "source_checksum": "21c6a2813751121ad88841f8edd645b3e7b2c94734e0d921170fb0f2b5e50557",
+      "source_checksum": "d949f1a3115b060ae1bd47ef3378985542c3ae2662544d13074792c6cd67b802",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:54:service_show",
         "path": "infera_version/src/service/routes.rs",
@@ -519,7 +742,7 @@
           }
         ]
       },
-      "source_checksum": "faf0ea8c34b1bc04553116aa8aa0dfb1b4f2b07e6fc20fa498fbc22ae544c9aa",
+      "source_checksum": "8dd320227075f36f5312c42e9db34151b80fc83e56ec3693ea228fa8c15e3dc1",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:79:service_show_all",
         "path": "infera_version/src/service/routes.rs",
@@ -592,7 +815,7 @@
           }
         ]
       },
-      "source_checksum": "1578d4103ddd35695947183c60eadecdc38abdbd51f2bee971c85f42d847774d",
+      "source_checksum": "8a753c9fb5a690770ed492c6619c3ba1139c16854e9cc9163b2e490c6b6cccb8",
       "handler": {
         "ref": "infera_version/src/version/routes.rs:29:version_show",
         "path": "infera_version/src/version/routes.rs",
@@ -876,6 +1099,10 @@
     {
       "path": "infera_version/src/router.rs",
       "checksum": "6cce6a2aef7a3ebf8280621875149b61bd22077707b201ab13cd15d73c9fb276"
+    },
+    {
+      "path": "infera_version/migration/src/main.rs",
+      "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
     }
   ],
   "missing_meaning_sources": [],

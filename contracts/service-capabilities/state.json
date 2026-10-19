@@ -16,7 +16,7 @@
   "working_revision": "6be433e043caddb2d1a5761562cfc42bd0c67190",
   "working_changes": [],
   "source_relationship": "same",
-  "source_tree_checksum": "ff03b0f20d9ff76e455fa292e12abbbd4d527084c8759688ee17651ffe53d7f0",
+  "source_tree_checksum": "4460796db62247bdd6fbbb56efaa07818577a87a06bcc43831d57c1928f0be12",
   "source_files": [
     {
       "path": "infera-state/src/auth.rs",
@@ -77,6 +77,85 @@
     {
       "path": "infera-state/src/wasm.rs",
       "checksum": "acff4ff41b39f091a0fe4ba91862fd16a81bce9f5ee8db0128cd190068051af5"
+    },
+    {
+      "path": "infera-state/Cargo.toml",
+      "checksum": "628a21e1ee0dd8b88707817d5e44307afa567e807c8fb265d399a46aff482de1"
+    },
+    {
+      "path": "infera-state/Cargo.lock",
+      "checksum": "f5ce8164db0392479c7e83906888113b207e7a19f650fcc7513d3a2960748010"
+    }
+  ],
+  "working_source_tree_checksum": "4460796db62247bdd6fbbb56efaa07818577a87a06bcc43831d57c1928f0be12",
+  "working_source_files": [
+    {
+      "path": "infera-state/src/auth.rs",
+      "checksum": "6db61063b576670e987ffa8556da794b1a3880aee2786616c7ec4eca6a62ca2f"
+    },
+    {
+      "path": "infera-state/src/context.rs",
+      "checksum": "c46748a6f4617800b209aee0c442b4b6a178954ab17e27c24073f0e1c662d03b"
+    },
+    {
+      "path": "infera-state/src/games_routes.rs",
+      "checksum": "ebcb13c6f76127dbcaa1c6d4d38f4496aab55946ee84ab76cfd8ce439e100c44"
+    },
+    {
+      "path": "infera-state/src/games_v2_multi.rs",
+      "checksum": "82a2caae45b4ec02439132dcd27bb3734613c62b53278576fcaf6862b0e74416"
+    },
+    {
+      "path": "infera-state/src/games_v2.rs",
+      "checksum": "9e9abdc42ac939e53bd28e04dd1eae19f05e9e29ad449c608fa8f8cf2a0865ba"
+    },
+    {
+      "path": "infera-state/src/games.rs",
+      "checksum": "119d675ca55c2efcb6b8580420f3ce44cf9f4017ae39b90e9ade307b7c4519e3"
+    },
+    {
+      "path": "infera-state/src/kheradgah_routes.rs",
+      "checksum": "df39a55b563f2cf963d313a5ac3dfcb587c2c8e1c26a98affc081b6365d811a0"
+    },
+    {
+      "path": "infera-state/src/kheradgah.rs",
+      "checksum": "8586b3da206937671cb54f8e2cad975d0e8240f897d6b7c19d58e6cdb31c143b"
+    },
+    {
+      "path": "infera-state/src/lib.rs",
+      "checksum": "d62862bf6ed19fa2a62415b596dab9fedc5c44b044dd17a650efcc81ff0e4f48"
+    },
+    {
+      "path": "infera-state/src/main.rs",
+      "checksum": "5c896620aae56699dafd2681ef59e125cfd1167c7e72c83b2b535e38bf92fa13"
+    },
+    {
+      "path": "infera-state/src/models.rs",
+      "checksum": "fa7a368ff0ecd5156a82458f71db1a9e0a2a61dbfedf140a59888bfb2272d212"
+    },
+    {
+      "path": "infera-state/src/routes.rs",
+      "checksum": "fd8f0ef322d6f84fabcd4009ca313d4462768f9aa751141b525d439395a0989c"
+    },
+    {
+      "path": "infera-state/src/state.rs",
+      "checksum": "ad781df18b534940d929a49b434934fb504aacee857780e4bffc9c1403d216a5"
+    },
+    {
+      "path": "infera-state/src/transport.rs",
+      "checksum": "04783c02365e19e7e98d0bf3462dfb2d659fba7d0172f08f4cb85070584691bc"
+    },
+    {
+      "path": "infera-state/src/wasm.rs",
+      "checksum": "acff4ff41b39f091a0fe4ba91862fd16a81bce9f5ee8db0128cd190068051af5"
+    },
+    {
+      "path": "infera-state/Cargo.toml",
+      "checksum": "628a21e1ee0dd8b88707817d5e44307afa567e807c8fb265d399a46aff482de1"
+    },
+    {
+      "path": "infera-state/Cargo.lock",
+      "checksum": "f5ce8164db0392479c7e83906888113b207e7a19f650fcc7513d3a2960748010"
     }
   ],
   "operations": [
@@ -105,7 +184,7 @@
           "name": "inline"
         }
       },
-      "source_checksum": "cf13ed435ea89b4381c5d796cb69c5913ac0a4ffb7d11218def8aa76b67e3133",
+      "source_checksum": "b1f78a42a61d96386374970ebd6e648fa485357ceb26f786d6e0fd0701e6c31c",
       "handler": {
         "ref": "infera-state/src/main.rs:43:inline",
         "path": "infera-state/src/main.rs",
@@ -162,7 +241,7 @@
           }
         ]
       },
-      "source_checksum": "a3f7fd8f6381bb5bc4b31be116ddd81453c3c4ef6a62422a47eba9c250021edc",
+      "source_checksum": "d32c70b8c33172709a315357defebc617c37cca4b2162eb94c0bd15e49303391",
       "handler": {
         "ref": "infera-state/src/routes.rs:64:list_worlds",
         "path": "infera-state/src/routes.rs",
@@ -220,7 +299,7 @@
           }
         ]
       },
-      "source_checksum": "6c33195433c3c0c2396e26f17a90ebd861588cee2ebdd094d224704cb6379297",
+      "source_checksum": "56310c37ab6148a2c0e9d90b2d4d72f9990e950565e00bccb29275b9975ef9bb",
       "handler": {
         "ref": "infera-state/src/routes.rs:90:create_world",
         "path": "infera-state/src/routes.rs",
@@ -290,7 +369,7 @@
           }
         ]
       },
-      "source_checksum": "a11f6c036b20bd5e1b36a66075851f5a7fa9e59978469b79f2148a6124186d83",
+      "source_checksum": "bb2980899788ed63d5c647eb718cbdc7c4b49b88b6559ae4ab3c62b3f1e406f1",
       "handler": {
         "ref": "infera-state/src/routes.rs:102:get_world",
         "path": "infera-state/src/routes.rs",
@@ -354,7 +433,7 @@
           }
         ]
       },
-      "source_checksum": "4c392bacfdc52785eb22e55a6d7d8a01ff915da0a6d01252ba83a7d7a5f37c58",
+      "source_checksum": "564e522b10aa30e232c70ab360c8bea5986d6bcf85cdfff4a9a7df4b2fe177a0",
       "handler": {
         "ref": "infera-state/src/routes.rs:126:update_world",
         "path": "infera-state/src/routes.rs",
@@ -428,7 +507,7 @@
           }
         ]
       },
-      "source_checksum": "8fe6d538c00fb54f4ae2efd2febcd6efb3b51490fa9ec4cd9bc389b162eae7b4",
+      "source_checksum": "340efad9f566467176641586bd3e8c208c816d91ae451657214b6f93538175d8",
       "handler": {
         "ref": "infera-state/src/routes.rs:169:delete_world",
         "path": "infera-state/src/routes.rs",
@@ -491,7 +570,7 @@
           }
         ]
       },
-      "source_checksum": "33b3c2c5e7abcc5525fea169bf81697518be90fedd781fc4806302c996fe7226",
+      "source_checksum": "8db333c778bc3cdc092e58c488efd951ff10b5875abdb0683d29809788c5b8f3",
       "handler": {
         "ref": "infera-state/src/routes.rs:289:list_rooms",
         "path": "infera-state/src/routes.rs",
@@ -555,7 +634,7 @@
           }
         ]
       },
-      "source_checksum": "d0a6d1933965b7278df24ac93e1563177788df4609ecf5b60b343cdbf98ab36e",
+      "source_checksum": "69c0d3e642123276ce0cdb163a1be69b7fc49e61023f0803e95dbe63663ece9d",
       "handler": {
         "ref": "infera-state/src/routes.rs:307:create_room",
         "path": "infera-state/src/routes.rs",
@@ -629,7 +708,7 @@
           }
         ]
       },
-      "source_checksum": "ab5c45853d13f3a7ee975f90f663bad0fe2508cf8f87700ee42cda5a08b2b448",
+      "source_checksum": "8a131e76892ae1f585da38d9572644a42f102a3b605fd9b08cfdf4a689e0e958",
       "handler": {
         "ref": "infera-state/src/routes.rs:428:list_wasm",
         "path": "infera-state/src/routes.rs",
@@ -693,7 +772,7 @@
           }
         ]
       },
-      "source_checksum": "d1cbaf500e36ef0e893e434e899cea09ab9e3860b0bebcb4731d7e467cbfc730",
+      "source_checksum": "1f7a50b57bfac489a21ef1d292a613666fe02f888ce274b2d7321acb40a12fea",
       "handler": {
         "ref": "infera-state/src/routes.rs:405:upload_wasm",
         "path": "infera-state/src/routes.rs",
@@ -767,7 +846,7 @@
           }
         ]
       },
-      "source_checksum": "0596f7b436004324514fda9f58f0675de3d7df59472bd62db18dd369d32e774d",
+      "source_checksum": "2160dc526da516c5c9bcc5cf7b582efd632b2f1c4cf2fd5895042afe69cc9a9a",
       "handler": {
         "ref": "infera-state/src/routes.rs:522:list_endpoints",
         "path": "infera-state/src/routes.rs",
@@ -831,7 +910,7 @@
           }
         ]
       },
-      "source_checksum": "58080147a931222ef0c7f617113363286178cf38fcdd256abe033b819625f8ec",
+      "source_checksum": "dda376b6611d04bd67cdc25b1561caabf0c26ba794494e4905e1f0cce9fc1adc",
       "handler": {
         "ref": "infera-state/src/routes.rs:478:create_endpoint",
         "path": "infera-state/src/routes.rs",
@@ -912,7 +991,7 @@
           }
         ]
       },
-      "source_checksum": "39a98dfe482e4ace7677e22f146ea268e3128c521951b8788c04cb58c9f66da7",
+      "source_checksum": "00c199a57d7f9131fd5f2305ee95a988de35c666928d26f0259ec1255e995966",
       "handler": {
         "ref": "infera-state/src/routes.rs:320:get_room",
         "path": "infera-state/src/routes.rs",
@@ -976,7 +1055,7 @@
           }
         ]
       },
-      "source_checksum": "abbcf068f951e6370ab50a40d720a957f4c23af64cf4000c52287b6e25335533",
+      "source_checksum": "484a61934a0bebcacf4d82edf6254d95a365e3df52e047792f27c551bef47231",
       "handler": {
         "ref": "infera-state/src/routes.rs:337:update_room",
         "path": "infera-state/src/routes.rs",
@@ -1050,7 +1129,7 @@
           }
         ]
       },
-      "source_checksum": "0904c8be28329fc55fa7f4452265b975536f892579765baad6acdd79f74f2a75",
+      "source_checksum": "20b300203ef6e55f7827ef1e8aaed0ad024a84b038b9707817df3f12671a37a0",
       "handler": {
         "ref": "infera-state/src/routes.rs:371:delete_room",
         "path": "infera-state/src/routes.rs",
@@ -1113,7 +1192,7 @@
           }
         ]
       },
-      "source_checksum": "6a4725ba747d1efaf00685b540fac578c3d781331b3162024926c4b94a05844a",
+      "source_checksum": "284dde37a2fe5affadcae672b98fc0ed3e105dfe7b906b6542eeb222cee31173",
       "handler": {
         "ref": "infera-state/src/routes.rs:446:delete_wasm",
         "path": "infera-state/src/routes.rs",
@@ -1176,7 +1255,7 @@
           }
         ]
       },
-      "source_checksum": "2ce143b70bfc58ab3aa298def8c8414ddb22c9fa5c3d31dec20bf608fd6f2092",
+      "source_checksum": "873a4384002c21cc28eb1c9f9fee2415652be872eec6085b12cf5fa3e005348f",
       "handler": {
         "ref": "infera-state/src/routes.rs:549:delete_endpoint",
         "path": "infera-state/src/routes.rs",
@@ -1240,7 +1319,7 @@
           }
         ]
       },
-      "source_checksum": "ae2006d01b5b9a68688b9f2bd7a922fa82ae9041cd6c6734b9e77c09669113a3",
+      "source_checksum": "7e18223b51d634db6afcf9ece300abe196269e9de693d01fb6e919b03b81a5d6",
       "handler": {
         "ref": "infera-state/src/routes.rs:386:join_room",
         "path": "infera-state/src/routes.rs",
@@ -1322,7 +1401,7 @@
           }
         ]
       },
-      "source_checksum": "369182b8461d15b195df418b03b7ebbea4ae96613f7d551f98aaeb1fa56af84c",
+      "source_checksum": "a803525191b6bc4c62b7abc8d697a5c7272767a990a12e06f70870a5e0763c73",
       "handler": {
         "ref": "infera-state/src/routes.rs:575:invoke_endpoint",
         "path": "infera-state/src/routes.rs",
@@ -1407,7 +1486,7 @@
           }
         ]
       },
-      "source_checksum": "7f41cc111cb791dc7e63bb3c619935959b3b45c88b38db117e3a0d328937d431",
+      "source_checksum": "50c7d9e7c3722c69ffd165d92ecc68f4b6f1bfcb4756f26e7c9621324f8b4d04",
       "handler": {
         "ref": "infera-state/src/routes.rs:612:realtime",
         "path": "infera-state/src/routes.rs",
@@ -1489,7 +1568,7 @@
           }
         ]
       },
-      "source_checksum": "6946c0eef8cac423ce1ad872344be92ff6e73d56ce9f2ddd62361c7ed79635b4",
+      "source_checksum": "867a881745f61cb2d0fa874d76ac1bbd3b5c56e810aea04fd0c1cb5cbb90672a",
       "handler": {
         "ref": "infera-state/src/routes.rs:213:game_operations_summary",
         "path": "infera-state/src/routes.rs",
@@ -1546,7 +1625,7 @@
           }
         ]
       },
-      "source_checksum": "f619eab801afe792b18236ddb5ede40aa85f9bf7a11342aaf418bca58d5434c0",
+      "source_checksum": "e15e86548c8d9e979bb5b071624ce9a88a7684aa5c93f0f73b7f0150d010d6f2",
       "handler": {
         "ref": "infera-state/src/routes.rs:226:game_operation_worlds",
         "path": "infera-state/src/routes.rs",
@@ -1605,7 +1684,7 @@
           }
         ]
       },
-      "source_checksum": "cf5c53b3fff26ab63e8d49bbdd7ef3069b303787fe13497836859906a3bc9fcc",
+      "source_checksum": "72c546656691f1cd600aac8287172e4eeaa2a137b4c1ac5265651b027ff7f66d",
       "handler": {
         "ref": "infera-state/src/routes.rs:239:update_game_operation_economy",
         "path": "infera-state/src/routes.rs",
@@ -1679,7 +1758,7 @@
           }
         ]
       },
-      "source_checksum": "a9b169d19d6018ab6172e7095b1689ea8606b88b7f2cbb09b88e0718d06c6c10",
+      "source_checksum": "2b4f5e09073fc4cc8c5b6d6a08b483151f034424e236f22f0e5f6eeb7dc911ba",
       "handler": {
         "ref": "infera-state/src/routes.rs:254:game_operation_sessions",
         "path": "infera-state/src/routes.rs",
@@ -1769,7 +1848,7 @@
           }
         ]
       },
-      "source_checksum": "0d6797ff3ca9ef1c12eb466659fd53dabb280b654ceb130c763c866936d1a9aa",
+      "source_checksum": "f4d493b6d84064ba31787328c6a99a57e09087a0387ad27419660c6ccdfe42c2",
       "handler": {
         "ref": "infera-state/src/routes.rs:268:game_operation_events",
         "path": "infera-state/src/routes.rs",
@@ -1850,7 +1929,7 @@
           }
         ]
       },
-      "source_checksum": "154201c06b32aaf346e9ffabcfb54a28c27b6bb3abd2cfb387f24b16e200b009",
+      "source_checksum": "0c07499c2992ef89292e58f2562400637fb43aa818dd75fc1ccd217aeac7bcfe",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:45:enqueue",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -1927,7 +2006,7 @@
           }
         ]
       },
-      "source_checksum": "a1af9dd9ddbec53c58138c907450c09aeb741c0f0800c2b2068d7eae1de8531d",
+      "source_checksum": "91dcfa9722e095294d76ec4973e7c11bf49313ba7a2f888a6364b593b52e0b0e",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:61:ticket",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -1993,7 +2072,7 @@
           }
         ]
       },
-      "source_checksum": "64083888a8a2feea5aab2a83f8c25c88493f3c6eeb0a0452e42817b745fa9196",
+      "source_checksum": "4520ebbeb4bb701f28aee52cf3ff3969c4babd7d23371489a5058b9dddefdf18",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:76:cancel",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2059,7 +2138,7 @@
           }
         ]
       },
-      "source_checksum": "c81e07cfeab958758d97dad39e1690e4667093c214322fdaaa6ca519361366ec",
+      "source_checksum": "dd3d9446148439f0b9a6bcdf6060bb343c8ae803990fad4b079941102585a8ed",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:91:view",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2125,7 +2204,7 @@
           }
         ]
       },
-      "source_checksum": "a1ace1066a6e231de1a175b1736b00f32ae58b3a33eebe61e0c73906601429af",
+      "source_checksum": "b1f9246443fafe868d218e5fbed61cb05a1abca9b8abf63725fab33803dc410e",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:105:connection",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2189,7 +2268,7 @@
           }
         ]
       },
-      "source_checksum": "1e14b0d697f5af86b1f22edaf0add460d595e7bf652333b4229a6ff3572839d3",
+      "source_checksum": "dc75a510fa9dd8e481e5bc397e23fcde283abb06e889f9dc375c789145a86232",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:119:realtime",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2245,7 +2324,7 @@
           }
         ]
       },
-      "source_checksum": "8ca70f8e05efae1dbcc30a56c6ba1f09e4c825aae2d82306af35bfe714f2efb4",
+      "source_checksum": "92257691dc2d35db61caa65532b7ab112fbc517b22fe7a4c1a96c7c13c8c08b9",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:50:catalog",
         "path": "infera-state/src/games_routes.rs",
@@ -2307,7 +2386,7 @@
           }
         ]
       },
-      "source_checksum": "e001bbb56a62978a1af5a5b7677f628e3b5e7c068cd6445940f088f7df4fa335",
+      "source_checksum": "0da91d312504414a2620f6bb5fff76f3b7eeeb8c98dc5b1ad111e455ad662b75",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:58:game",
         "path": "infera-state/src/games_routes.rs",
@@ -2374,7 +2453,7 @@
           }
         ]
       },
-      "source_checksum": "c5170442bd1daa8d013dd6fbcad1272b6f76d1d553b7ded89e0685e4ce3902ba",
+      "source_checksum": "7372df9a3bd77738bf33f99be6167ac7c741f8ec51e9a2b626b1445a115a4e82",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:72:create_session",
         "path": "infera-state/src/games_routes.rs",
@@ -2459,7 +2538,7 @@
           }
         ]
       },
-      "source_checksum": "7accb413b8c22203ec689433b6d2336f1aaaaf5ae6a17c24e5d2eb280e3d4c3a",
+      "source_checksum": "ba0fcdc0f888d4d698435262a4e55fcc5e402267147a161c381402df7d3d57ca",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:134:enqueue",
         "path": "infera-state/src/games_routes.rs",
@@ -2536,7 +2615,7 @@
           }
         ]
       },
-      "source_checksum": "58b48bb18f1a07437e4d1236444adca94f69cec0b4fde72d1e84d07a3911285a",
+      "source_checksum": "e30d6c85b50c68c164713709e8b9582a6f3f3d643d62f759ba37859f4e45deeb",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:147:ticket",
         "path": "infera-state/src/games_routes.rs",
@@ -2603,7 +2682,7 @@
           }
         ]
       },
-      "source_checksum": "01880354730bef70a80308cd092bcd42161cf457e66c97622982e2447dd13266",
+      "source_checksum": "022bcdec204471f3eae5454c0fe0ec6fed5159a56f74c1b84daeafbcc46dd5a5",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:97:create_lobby",
         "path": "infera-state/src/games_routes.rs",
@@ -2680,7 +2759,7 @@
           }
         ]
       },
-      "source_checksum": "f72198287ca6450497e530f9f4162c39820f4b00d7b4e9acf3819f6997fc8f6a",
+      "source_checksum": "0b5d3c8fb701c45734636275d31beb9144938566b61e26b88d59f69aca45399a",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:110:join_lobby",
         "path": "infera-state/src/games_routes.rs",
@@ -2746,7 +2825,7 @@
           }
         ]
       },
-      "source_checksum": "5dabb72ce036c5b69627d5c9b42c9a5a1119c238bd37b5d491181a5c5ff7cb06",
+      "source_checksum": "8738524e5468e0f41d172d694e9c249c42f1f7cd43b9e578b1b6cab3032f4f51",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:122:lobby",
         "path": "infera-state/src/games_routes.rs",
@@ -2812,7 +2891,7 @@
           }
         ]
       },
-      "source_checksum": "76057277b864cf74e917c2f7db7a0e6149b483792df42436e8caaab68d6b7132",
+      "source_checksum": "f813c543ffeea6aaeb2b494b461f82fcbdb5f82c73a0aeab43773a452f76329a",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:159:view",
         "path": "infera-state/src/games_routes.rs",
@@ -2878,7 +2957,7 @@
           }
         ]
       },
-      "source_checksum": "7977c94e8a3ae874a66661ff468dc98bcb01675ac2c8e94237db0a90dcc60dce",
+      "source_checksum": "605b671dd49fe332f204fa835bfc6eaff4eb20c749f0485dc7cd5a91965c2802",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:171:ready",
         "path": "infera-state/src/games_routes.rs",
@@ -2945,7 +3024,7 @@
           }
         ]
       },
-      "source_checksum": "baa7a176beb4a8bebdf744dfbb239bf7ea5be00da2ef13d6664b44820260c1a7",
+      "source_checksum": "57b9bc4361edacbc1dfce9d9155b292c8f4d96a680db8d225a15811c9033ea29",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:183:command",
         "path": "infera-state/src/games_routes.rs",
@@ -3031,7 +3110,7 @@
           }
         ]
       },
-      "source_checksum": "49e4f952dfe146f51967549c1acc93897f1f76f9ec0660c133ffa68a25c40502",
+      "source_checksum": "1b145550f710a35e28b781940bff002d6f1bfc678dd0987a08edcccb069334d1",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:196:history",
         "path": "infera-state/src/games_routes.rs",
@@ -3092,7 +3171,7 @@
           }
         ]
       },
-      "source_checksum": "428f8f0a674764827078bedcc54747fda2927ab9e1a202a91c45a2d2e7df8cc9",
+      "source_checksum": "73b2ce428443a9b00d26211b3b73414771c52669c598fd5fa70737a4db0eee58",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:207:progress",
         "path": "infera-state/src/games_routes.rs",
@@ -3153,7 +3232,7 @@
           }
         ]
       },
-      "source_checksum": "9f3094b5afdbff73eacf0cd7ef4f7c1af3848f1e2046a52052812f5e8540cfa4",
+      "source_checksum": "cb3dc5cfad890dbe8978a7df08cf23fedf485f06c2551f08da2102cabc3d5d1d",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:218:world_progress",
         "path": "infera-state/src/games_routes.rs",

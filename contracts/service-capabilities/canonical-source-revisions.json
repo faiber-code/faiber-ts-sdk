@@ -1,74 +1,89 @@
 {
-  "asset": {
-    "directory": "infera-asset",
-    "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
-  },
-  "chat": {
-    "directory": "infera-chat",
-    "revision": "d495217f85d77270865a040c1328d70c620e6c9d"
-  },
-  "crm": {
-    "directory": "infera-crm",
-    "revision": "6c763c989216fbecd6cfdb4c98f1067c09d17507"
-  },
-  "drm": {
-    "directory": "infera-drm",
-    "revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2"
-  },
-  "flow": {
-    "directory": "infera-flow",
-    "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
-  },
-  "idp": {
-    "directory": "infera-idp",
-    "revision": "9965e90a81fa3c4844a00e710d8d31b20527fede"
-  },
-  "knowledge": {
-    "directory": "infera-knowledge",
-    "revision": "70b8a21721dd34125b8f0e167e06da9ad3287223"
-  },
-  "lms": {
-    "directory": "infera-lms",
-    "revision": "7a0315c39ac53df3ad6c6ca53fbe574f19046e52"
-  },
-  "messenger": {
-    "directory": "infera-messenger",
-    "revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4"
-  },
-  "modules": {
-    "directory": "infera-modules",
-    "revision": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9"
-  },
-  "payment": {
-    "directory": "infera-payment",
-    "revision": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2"
-  },
-  "profile": {
-    "directory": "infera-profile",
-    "revision": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0"
-  },
-  "reservation": {
-    "directory": "infera-reservation",
-    "revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd"
-  },
-  "session": {
-    "directory": "infera-session",
-    "revision": "4c5eefc4062e8e522795478c8dd7d55e48a0c9fc"
-  },
-  "social": {
-    "directory": "infera-social",
-    "revision": "79462976a1c07e7ef8eb913d7cc7015dd50f936e"
-  },
-  "state": {
-    "directory": "infera-state",
-    "revision": "6be433e043caddb2d1a5761562cfc42bd0c67190"
-  },
-  "task": {
-    "directory": "infera-task",
-    "revision": "badfa399a8db6f19d68f63f14b1c67485c4d4903"
-  },
-  "version": {
-    "directory": "infera_version",
-    "revision": "88071d0dd49309e0c93aba6238516e95b57e1df5"
+  "schema_version": "1.0",
+  "services": {
+    "asset": {
+      "directory": "Service/infera-asset",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    "chat": {
+      "directory": "Service/infera-chat",
+      "revision": "d495217f85d77270865a040c1328d70c620e6c9d"
+    },
+    "crm": {
+      "directory": "Service/infera-crm",
+      "revision": "6c763c989216fbecd6cfdb4c98f1067c09d17507"
+    },
+    "drm": {
+      "directory": "Service/infera-drm",
+      "revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2"
+    },
+    "flow": {
+      "directory": "Service/infera-flow",
+      "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
+    },
+    "idp": {
+      "directory": "Service/infera-idp",
+      "revision": "9965e90a81fa3c4844a00e710d8d31b20527fede"
+    },
+    "knowledge": {
+      "directory": "Service/infera-knowledge",
+      "revision": "70b8a21721dd34125b8f0e167e06da9ad3287223"
+    },
+    "lms": {
+      "directory": "Service/infera-lms",
+      "revision": "7a0315c39ac53df3ad6c6ca53fbe574f19046e52"
+    },
+    "messenger": {
+      "directory": "Service/infera-messenger",
+      "revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4"
+    },
+    "modules": {
+      "directory": "Service/infera-modules",
+      "revision": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9"
+    },
+    "payment": {
+      "directory": "Service/infera-payment",
+      "revision": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2"
+    },
+    "profile": {
+      "directory": "Service/infera-profile",
+      "revision": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0"
+    },
+    "reservation": {
+      "directory": "Service/infera-reservation",
+      "revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd"
+    },
+    "session": {
+      "directory": "Service/infera-session",
+      "revision": "4c5eefc4062e8e522795478c8dd7d55e48a0c9fc"
+    },
+    "social": {
+      "directory": "Service/infera-social",
+      "revision": "79462976a1c07e7ef8eb913d7cc7015dd50f936e"
+    },
+    "state": {
+      "directory": "Service/infera-state",
+      "revision": "6be433e043caddb2d1a5761562cfc42bd0c67190"
+    },
+    "task": {
+      "directory": "Service/infera-task",
+      "revision": "badfa399a8db6f19d68f63f14b1c67485c4d4903"
+    },
+    "version": {
+      "directory": "Service/infera_version",
+      "revision": "88071d0dd49309e0c93aba6238516e95b57e1df5"
+    },
+    "manage": {
+      "directory": "Service/infera-manage",
+      "revision": "a13caa6019e3648a1f84766d7ee5034c7147a123"
+    },
+    "agentic": {
+      "directory": "infera-agentic",
+      "revision": "6adb76c4a22e044cb92673ef9104658973c2d766"
+    },
+    "control": {
+      "directory": "Service/infera-control",
+      "revision": "aa72a3ad9a3064949fc1045724419403e58a5ef4"
+    }
   }
 }

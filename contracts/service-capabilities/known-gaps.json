@@ -84,7 +84,7 @@
       "id": "reservation-status-filter",
       "owner": "reservation",
       "required": true,
-      "status": "confirmed_defect",
+      "status": "fixed_locally_pending_canonical_release",
       "meaning": "ReservationListQuery declares status, but methods::list applies only user_id, provider_id and service_id before pagination. The documented status filter must be implemented and verified.",
       "source_refs": [
         "Service/infera-reservation/src/reservation/models.rs:63",
@@ -92,26 +92,34 @@
       ],
       "characterization_evidence": [
         "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
       ]
     },
     {
       "id": "reservation-invalid-status",
       "owner": "reservation",
       "required": true,
-      "status": "confirmed_defect",
+      "status": "fixed_locally_pending_canonical_release",
       "meaning": "Updating to an unrecognized status silently selects Pending. Define legal transitions and reject unknown statuses rather than accepting an unintended state.",
       "source_refs": [
         "Service/infera-reservation/src/reservation/methods.rs:93"
       ],
       "characterization_evidence": [
         "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
       ]
     },
     {
       "id": "reservation-cancel-transition",
       "owner": "reservation",
       "required": true,
-      "status": "confirmed_defect",
+      "status": "fixed_locally_pending_canonical_release",
       "meaning": "PATCH status=cancelled changes only the reservation record; DELETE invokes cancellation and releases its slot. Define one consistent cancellation workflow and verify its availability effects.",
       "source_refs": [
         "Service/infera-reservation/src/reservation/methods.rs:93",
@@ -120,45 +128,61 @@
       ],
       "characterization_evidence": [
         "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
       ]
     },
     {
       "id": "reservation-repeated-cancellation",
       "owner": "reservation",
       "required": true,
-      "status": "confirmed_defect",
+      "status": "fixed_locally_pending_canonical_release",
       "meaning": "Cancellation clears the slot by time_slot_id without checking the booking's current status or current slot claimant. Verify re-cancellation after rebooking cannot release another active booking.",
       "source_refs": [
         "Service/infera-reservation/src/reservation/methods.rs:115"
       ],
       "characterization_evidence": [
         "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
       ]
     },
     {
       "id": "reservation-invalid-date-filter",
       "owner": "reservation",
       "required": true,
-      "status": "confirmed_defect",
+      "status": "fixed_locally_pending_canonical_release",
       "meaning": "An invalid available-slots date is silently ignored. Validate the date and return a field error so UI/agent filters match the user's request.",
       "source_refs": [
         "Service/infera-reservation/src/time_slot/methods.rs:7"
       ],
       "characterization_evidence": [
         "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
       ]
     },
     {
       "id": "reservation-atomic-schedule-replacement",
       "owner": "reservation",
       "required": true,
-      "status": "confirmed_defect",
+      "status": "fixed_locally_pending_canonical_release",
       "meaning": "Schedule upsert deletes existing rows before validating/inserting all replacement entries and has no transaction. Validate the complete schedule before mutation and replace atomically.",
       "source_refs": [
         "Service/infera-reservation/src/work_schedule/methods.rs:10"
       ],
       "characterization_evidence": [
         "evidence/reservation-characterization.json"
+      ],
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
       ]
     },
     {
@@ -264,6 +288,58 @@
         "Service/infera-flow/src/event/routes.rs",
         "Service/infera-flow/src/engine/executor.rs",
         "Service/infera-flow/src/engine/emit.rs"
+      ]
+    },
+    {
+      "id": "reservation-bracket-pagination",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "Axum previously discarded page[number]/page[size]. The local repair deserializes literal bracket keys, validates unsigned values/offset bounds and preserves combined reservation filters; canonical/deployed source reconciliation remains pending.",
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ],
+      "source_refs": [
+        "Service/infera-reservation/src/models.rs",
+        "Service/infera-reservation/src/time_slot/methods.rs",
+        "Service/infera-reservation/tests/reservation_contract_test.rs"
+      ]
+    },
+    {
+      "id": "reservation-utc-day-boundary",
+      "owner": "reservation",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_release",
+      "meaning": "The previous date end was 23:59:59 inclusive, excluding fractional timestamps later in that second. The local repair uses an exclusive next-midnight UTC boundary and has a real storage boundary test; canonical/deployed source reconciliation remains pending.",
+      "implementation_revision": "868aa40011780194795848fcb60b85972cfd6076",
+      "test_evidence": [
+        "reservation-contract-integrity"
+      ],
+      "source_refs": [
+        "Service/infera-reservation/src/models.rs",
+        "Service/infera-reservation/src/time_slot/methods.rs",
+        "Service/infera-reservation/tests/reservation_contract_test.rs"
+      ]
+    },
+    {
+      "id": "reservation-generation-limits",
+      "owner": "reservation",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "meaning": "Slot generation still needs a bounded date range, explicit reversed-range validation, safe terminal date progression and validation of provider/service availability/assignment. Current code iterates the requested range and defaults malformed stored time strings; verify before complete scheduling certification.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs"
+      ]
+    },
+    {
+      "id": "reservation-slot-edit-claim-integrity",
+      "owner": "reservation",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "meaning": "Administrative slot updates currently permit independent is_reserved/provider/service/time edits and need lifecycle tests to ensure existing booking claims and historical references remain consistent. Cancellation now fails safely on a mismatched claimant, but that does not certify slot-edit workflows.",
+      "source_refs": [
+        "Service/infera-reservation/src/time_slot/methods.rs"
       ]
     }
   ]

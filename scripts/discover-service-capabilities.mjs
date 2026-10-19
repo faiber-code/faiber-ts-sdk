@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { sourceIndex, resolveSymbol, functionEvidence } from './capability-source.mjs';
 import { mountedRouterOperations } from './capability-router.mjs';
-import { serviceSources } from './service-source-snapshots.mjs';
+import { serviceSources, archiveSourceRevision } from './service-source-snapshots.mjs';
 
 const sdkRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const workspace = resolve(process.env.FAIBER_WORKSPACE_ROOT ?? join(sdkRoot, '..'));
@@ -29,14 +29,15 @@ function walk(directory) {
   return readdirSync(directory, { withFileTypes: true }).sort((a,b) => a.name.localeCompare(b.name)).flatMap(item => {
     if (['target', 'node_modules', '.git', 'vendor', 'panel', 'dist'].includes(item.name)) return [];
     const path = join(directory, item.name);
-    return item.isDirectory() ? walk(path) : path.endsWith('.rs') ? [path] : [];
+    return item.isDirectory() ? walk(path) : /\.(?:rs|sql)$/.test(path) ? [path] : [];
   });
 }
 
 function sourceFiles(root, directory) {
   return [...walk(join(root, 'src')), ...walk(join(root, 'entity/src')),
     ...walk(join(root, 'crates/faiber-server/src')), ...walk(join(root, 'crates/faiber-core/src')),
-    ...walk(join(root, 'domain/src')), ...walk(join(root, 'faiber-agent-core/src'))].map(path => {
+    ...walk(join(root, 'domain/src')), ...walk(join(root, 'faiber-agent-core/src')),
+    ...walk(join(root,'migration')), ...['Cargo.toml','Cargo.lock','entity/Cargo.toml','migration/Cargo.toml'].map(path=>join(root,path)).filter(existsSync)].map(path => {
     const text = readFileSync(path, 'utf8'), index = sourceIndex(text, `${directory}/${relative(root, path)}`);
     return { ...index, checksum: hash(text) };
   });
@@ -113,19 +114,25 @@ const temporary=mkdtempSync(join(tmpdir(),'faiber-capability-discovery-'));
 process.once('exit',()=>rmSync(temporary,{recursive:true,force:true}));
 const canonicalLock=join(temporary,'canonical-revisions.json');
 writeFileSync(canonicalLock,JSON.stringify(canonicalRevisions));
-writeFileSync(join(target,'canonical-source-revisions.json'),JSON.stringify(canonicalRevisions,null,2)+'\n');
+writeFileSync(join(target,'canonical-source-revisions.json'),JSON.stringify({schema_version:'1.0',services:Object.fromEntries(
+  Object.entries(universe.services).map(([service,entry])=>[service,{directory:entry.directory,revision:remote.repositories[service]?.origin_main}])
+)},null,2)+'\n');
 // Extract both immutable SDK snapshots and the working source tree. Do not overwrite the released manifest.
 const runExtractor=(root,label,lockFile)=>{
   const path=join(temporary,`${label}-contracts.json`);
+  const environment={...process.env};
+  if(root)environment.FAIBER_SERVICES_ROOT=root;
+  else if(lockFile)delete environment.FAIBER_SERVICES_ROOT;
+  if(lockFile)environment.FAIBER_SOURCE_REVISIONS_FILE=lockFile;
   const output=execFileSync(process.execPath,[join(sdkRoot,'scripts/extract-service-contracts.mjs'),path],{
-    cwd:sdkRoot,env:{...process.env,...(root?{FAIBER_SERVICES_ROOT:root}:{}),...(lockFile?{FAIBER_SOURCE_REVISIONS_FILE:lockFile}:{})},encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:8*1024*1024,
+    cwd:sdkRoot,env:environment,encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:8*1024*1024,
   });
   return {manifest:readJson(path),output};
 };
 const canonical=runExtractor(null,'canonical',canonicalLock).manifest;
 const published=readJson(join(sdkRoot,'service-contracts.json'));
 const working=runExtractor(join(workspace,'Service'),'working').manifest;
-const pinnedRoot=serviceSources(sdkRoot,join(workspace,'Service'),{lockPath:canonicalLock});
+const pinnedRoot=serviceSources(sdkRoot,join(workspace,'Service'),{lockPath:canonicalLock,ignoreWorkingOverride:true});
 const summary={schema_version:'1.0',services:{},gates:{discovery:'blocked',sdk:'blocked_by_discovery',manage:'blocked_by_sdk',knowledge:'blocked_by_manage',memory:'blocked_by_knowledge'}};
 for(const [service,entry] of Object.entries(universe.services)) {
   const root=join(workspace,entry.directory),revision=git(root,'rev-parse','HEAD');
@@ -134,8 +141,12 @@ for(const [service,entry] of Object.entries(universe.services)) {
     const ancestor=(a,b)=>{try{git(root,'merge-base','--is-ancestor',a,b);return true;}catch{return false;}};
     relationship=revision===lock.revision?'same':ancestor(revision,lock.revision)?'working_behind_sdk':ancestor(lock.revision,revision)?'working_ahead_of_sdk':'diverged';
   }
-  const files=sourceFiles(lock?join(pinnedRoot,lock.directory):root,entry.directory.replace(/^Service\//,''));
-  const currentFiles=lock?sourceFiles(root,entry.directory.replace(/^Service\//,'')):files;
+  const canonicalRevision=remote.repositories[service];
+  if(canonicalRevision?.fetch_exit!==0 || !canonicalRevision.origin_main)throw new Error(`Missing canonical revision for ${service}`);
+  const canonicalRoot=lock?join(pinnedRoot,lock.directory):join(temporary,service);
+  if(!lock)archiveSourceRevision(root,canonicalRevision.origin_main,canonicalRoot);
+  const files=sourceFiles(canonicalRoot,entry.directory.replace(/^Service\//,''));
+  const currentFiles=sourceFiles(root,entry.directory.replace(/^Service\//,''));
   const reviews=readJson(join(target,'reviews',`${service}.json`))??{};
   const extraRouterEntries={manage:{path:'src/router.rs',function:'app'},agentic:{path:'src/router.rs',function:'api_router'},control:{path:'crates/faiber-server/src/routes.rs',function:'api_router'},
     knowledge:{path:'src/main.rs',function:'main',variable:'app'},chat:{path:'src/main.rs',function:'main',variable:'app'},state:{path:'src/main.rs',function:'main',variable:'app'},
@@ -152,11 +163,13 @@ for(const [service,entry] of Object.entries(universe.services)) {
   const treeChecksum=hash(JSON.stringify(files.map(({path,checksum})=>({path,checksum}))));
   const old=new Map(endpoints.map(x=>[`${x.method} ${x.path}`,x])),now=new Map((working[service]??[]).map(x=>[`${x.method} ${x.path}`,x]));
   const sdk=new Map((published[service]??[]).map(x=>[`${x.method} ${x.path}`,x]));
-  const data={schema_version:'1.0',service,...entry,canonical_revision:canonicalRevisions[service]?.revision??revision,sdk_source_revision:lock?.revision??null,working_revision:revision,
+  const data={schema_version:'1.0',service,...entry,canonical_revision:canonicalRevision.origin_main,sdk_source_revision:lock?.revision??null,working_revision:revision,
     working_changes:git(root,'status','--short','--','src','entity','migration','crates').split('\n').filter(Boolean),
     source_relationship:relationship,
     source_tree_checksum:treeChecksum,
     source_files:files.map(({path,checksum})=>({path,checksum})),
+    working_source_tree_checksum:hash(JSON.stringify(currentFiles.map(({path,checksum})=>({path,checksum})))),
+    working_source_files:currentFiles.map(({path,checksum})=>({path,checksum})),
     operations:endpoints.map(endpoint=>operationEvidence(files,endpoint,reviews[`${endpoint.method} ${endpoint.path}`],treeChecksum)),
     sdk_contract_drift:{missing:[...old.keys()].filter(k=>!sdk.has(k)),extra:[...sdk.keys()].filter(k=>!old.has(k)),changed:[...old.keys()].filter(k=>sdk.has(k)&&JSON.stringify(old.get(k))!==JSON.stringify(sdk.get(k)))},
     router_reconciliation:mounted?{unresolved:mounted.unresolved,duplicates:mounted.duplicates,

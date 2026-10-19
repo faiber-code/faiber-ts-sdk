@@ -32,7 +32,7 @@
     "?? src/workspace_json.rs"
   ],
   "source_relationship": "diverged",
-  "source_tree_checksum": "96b62ca2ba10d7ad58c894310ecbef1e715cd756e0693e900602a239d76bd1c9",
+  "source_tree_checksum": "91b124247d8772c5cdc694c16df5ed7cb6af027b2e564a61e88947a3f320c413",
   "source_files": [
     {
       "path": "infera-chat/src/agentic.rs",
@@ -197,6 +197,321 @@
     {
       "path": "infera-chat/entity/src/read_receipt.rs",
       "checksum": "c3137236c2f939cec2f0119de3bda46b093769be14abb50805b1abe8addc49ea"
+    },
+    {
+      "path": "infera-chat/migration/src/lib.rs",
+      "checksum": "2bfc37585253ac95c3a4a08cbd90a2d3e15222260b17d361993bb8285ba55353"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260722_000001_create_chat.rs",
+      "checksum": "05fd87384bc6b467e8617f7bbed31e8128664a1f08304eed9901e17d38f38745"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260801_000002_add_assistants.rs",
+      "checksum": "07acd8dcf1fb10f0ef401da482905efb3cb5f6f0490628ae4c6032ab18cae90b"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260802_000003_add_assistant_billing.rs",
+      "checksum": "7751bac320fb6dde11b56998767b66a6a357fe5fb2074be097395f6bd01a47cc"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260802_000004_global_assistant_catalog.rs",
+      "checksum": "780cff6c829f50c61acbafecc1b3cf76399e100a36f54928f0dbb7cb4f518012"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260802_000005_add_customer_actions.rs",
+      "checksum": "2fadad6a5cd6cab7d31fa891d5827124862e4859eef6952149e9c44cd3671754"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260823_000006_add_attachments_and_legacy_import.rs",
+      "checksum": "0e259042f9eb810a28c2bf9b54f5b30343e3e79ec683b6672a82702bd6096340"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260828_000007_governed_assistant_context.rs",
+      "checksum": "1f515318096be370972d64f379602a1cc1968867585c71fc91832af28a53f570"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260828_000008_assistant_context_budgets.rs",
+      "checksum": "0f4c1a1e0bd7773b5691cc4148a327e3e03cbda7147a23149e4dac2d278f2b93"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260920_000009_speech_settings.rs",
+      "checksum": "33872bc07df7132b2975354c30690560f878352b62f6faf2de7f6a977a745f51"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260921_000010_default_shenava_rizeh.rs",
+      "checksum": "ddb39973a9a5f3d2a2991d76827fdd96691815fe5b91a22b80ab6b4398db2b2e"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260921_000011_tts_settings.rs",
+      "checksum": "025a47e51589b4a0527915fe794c4b15c33046fd2e70d1821696f0028b3c8768"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260922_000012_workspace_roles.rs",
+      "checksum": "ee45ea24b355f0c0ad6e569a85ab3550e392acc6d14e722e27b7bd94cd0a420e"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260930_000013_image_settings.rs",
+      "checksum": "cd172f107a33ac824f83e84babafc0700fa4c91407b00a0f0d1920714e7491ef"
+    },
+    {
+      "path": "infera-chat/migration/src/m20261007_000015_asset_interactions.rs",
+      "checksum": "3e4d12981cff1d82d15b7e731d8893702dafbd56ba83e3c7a6e9f2698ae88fb4"
+    },
+    {
+      "path": "infera-chat/migration/src/m20261013_000014_memory_operations.rs",
+      "checksum": "df9b92da13a594d5eabe51ac03e3a285ccfda6da54e0658a13a258d48c566315"
+    },
+    {
+      "path": "infera-chat/migration/src/m20261013_000015_memory_settlements.rs",
+      "checksum": "be7506f643d082e44375c12684bf9300e8f08ae29fdb0904d35850df37f3c237"
+    },
+    {
+      "path": "infera-chat/migration/src/m20261013_000016_voice_turns.rs",
+      "checksum": "f54071ce09b24fc5f6a003e258b3f187df1eb73ef5c7efedd4822863c243a4fe"
+    },
+    {
+      "path": "infera-chat/migration/src/m20261013_000017_import_extractions.rs",
+      "checksum": "42b5b9cc8ca117e937581422cd3fa3c09836c5d4ba51b76b58e7ea83659cb12b"
+    },
+    {
+      "path": "infera-chat/migration/src/m20261013_000018_speech_languages.rs",
+      "checksum": "0ca02b0095455f8b131010ac8fbd0e12144a4151bcea202a50622645d1a74d8e"
+    },
+    {
+      "path": "infera-chat/Cargo.toml",
+      "checksum": "caaae73ebf33dc3ba724579e346c4d8dac0023822841f465ec59302e59b25bb5"
+    },
+    {
+      "path": "infera-chat/Cargo.lock",
+      "checksum": "cf0e65f20d7e7218dee553af1a64aeb8b18d4d001c394161af6a15e6104433a9"
+    },
+    {
+      "path": "infera-chat/entity/Cargo.toml",
+      "checksum": "f36f91763d07aae4c443a8943c193e69ec92650742badfdc41a5e9a9f21aa37a"
+    },
+    {
+      "path": "infera-chat/migration/Cargo.toml",
+      "checksum": "767f48a9d163105d17c72e9592181297855f74e5ffc983448bad5c0e2ccbcb66"
+    }
+  ],
+  "working_source_tree_checksum": "969235c15f4f33a6e87e0cc2c4f68786e2592c34af8a23f721d5d45f7939e8b0",
+  "working_source_files": [
+    {
+      "path": "infera-chat/src/agentic.rs",
+      "checksum": "426e91715e5af6d2d42c94939813b25fcc53da53d60718b4158bf588f9606cc8"
+    },
+    {
+      "path": "infera-chat/src/asset_economy.rs",
+      "checksum": "4bd4c29ed9d8ef049ac32da079c8f95f33bfcd23b6f33c6d0b4772f4db106298"
+    },
+    {
+      "path": "infera-chat/src/context.rs",
+      "checksum": "71e4a9ebb35da4045e6021cd7986717046089976e1573a595c8ee54e63e9dc15"
+    },
+    {
+      "path": "infera-chat/src/cors.rs",
+      "checksum": "20e85b8ee278b3d90c97160785cb4d8a67eb6df4cc8a939235183d485a3647f1"
+    },
+    {
+      "path": "infera-chat/src/customer_actions.rs",
+      "checksum": "5327bd2daf45e3d9aeef90728633ffc325df6864eac74f6cb97153fb1d189049"
+    },
+    {
+      "path": "infera-chat/src/db.rs",
+      "checksum": "eac40855bb2cddff57662add501b7eb00d89ac57215bf2add82079c3aa5a7054"
+    },
+    {
+      "path": "infera-chat/src/fitness.rs",
+      "checksum": "39559dea66eec98929d6822a88462c15d503dcdfc567ad9a690796a585241bf0"
+    },
+    {
+      "path": "infera-chat/src/learning.rs",
+      "checksum": "b6db9f2540caff8f05fbd5c93bda488708a8850095b4fa36dcea1edc711816ee"
+    },
+    {
+      "path": "infera-chat/src/lib.rs",
+      "checksum": "33b2e04db2619a2a44e04265cabf4556a1d300418c5860f20b947123545add37"
+    },
+    {
+      "path": "infera-chat/src/main.rs",
+      "checksum": "26b47402fc6f2022fc7b9a0f8109d5e2629812688dfdfe51a3d708b1c34ece4c"
+    },
+    {
+      "path": "infera-chat/src/media_retention.rs",
+      "checksum": "891c5032e64873c480ef252fd171ea15be65c86be776a90df4aa05fc861182f9"
+    },
+    {
+      "path": "infera-chat/src/models.rs",
+      "checksum": "07b68fc1e1daac17ec3df7865eda841855798c45e9e0acfc54a1e9189a6ca590"
+    },
+    {
+      "path": "infera-chat/src/product_plans.rs",
+      "checksum": "a7deb687894d812872490b9278eeae64d332b766d6af8d58e9d8a216fc57564f"
+    },
+    {
+      "path": "infera-chat/src/realtime.rs",
+      "checksum": "9fa2019110cd2fdfc4028783da519640a71d8d3a8ee477a7f39bc55fac0cb68b"
+    },
+    {
+      "path": "infera-chat/src/routes.rs",
+      "checksum": "5a2524e4bd1be11d41a1bd9947fec5b07cc4ed2611f2a120d190ffa96734ea43"
+    },
+    {
+      "path": "infera-chat/src/service.rs",
+      "checksum": "63dc8d960324f087966dccd76d4f1c907ad785c2a226128227780bfd267a4378"
+    },
+    {
+      "path": "infera-chat/src/speech.rs",
+      "checksum": "273f2e80cd3db9eaffd9b3ecaf5b1a8023232b82b01f45ab19a656844d8c3f14"
+    },
+    {
+      "path": "infera-chat/src/state.rs",
+      "checksum": "1c8a65081152de0b399d3a9d93781b6999b1bb6873a60e39dcdaca024c2000a5"
+    },
+    {
+      "path": "infera-chat/src/storage.rs",
+      "checksum": "088af4a73585f21451a76966efcdafa982aa9f9925893c3cad9860dcfd694166"
+    },
+    {
+      "path": "infera-chat/src/workspace_answers.rs",
+      "checksum": "e1ea13ffa9bef59288c51c74ba5192b75e7efd3207931dc4ce45fb1e49134234"
+    },
+    {
+      "path": "infera-chat/src/workspace_assistant.rs",
+      "checksum": "4895150fc256111a848bb37959f5b8a45c78bf088c5ea9a84a5ac3f578cfcd81"
+    },
+    {
+      "path": "infera-chat/src/workspace_calendar.rs",
+      "checksum": "e5ef451850cd3e7baa23c84e5eb67d9cc8afd700523fd4e445832a2ce2b73af3"
+    },
+    {
+      "path": "infera-chat/src/workspace_json.rs",
+      "checksum": "f95b9f1e8b5401e2203ced9bcad72a74694d161e816fd0b6c05d275eeac6e85c"
+    },
+    {
+      "path": "infera-chat/src/workspace_planning.rs",
+      "checksum": "2ea9012c452b63581475c66c76e8c56e68ce813a31adbfc1a8bfc9ab0bdd13f4"
+    },
+    {
+      "path": "infera-chat/entity/src/ai_turn.rs",
+      "checksum": "e7add982bfb26703532bd95d60bbd6b442a1d11712a3628cf3c36b4996259109"
+    },
+    {
+      "path": "infera-chat/entity/src/assistant.rs",
+      "checksum": "4ef25a09d5bcfe4015dd30b75a435f39b199e925c9759aa12b6c9f1ccb81b492"
+    },
+    {
+      "path": "infera-chat/entity/src/attachment.rs",
+      "checksum": "88f36d9e9178a7b6c9ff0b459b0dba8ed76c325146233b77dec3e8eb6c812d18"
+    },
+    {
+      "path": "infera-chat/entity/src/audit_log.rs",
+      "checksum": "115f11f1da8983f761e2eb80519ca829acf744811c15399141d6c0766a6c819a"
+    },
+    {
+      "path": "infera-chat/entity/src/conversation_member.rs",
+      "checksum": "2cb2228f97386b754e0fedd3002f58c255a16dbfd561c4835096654d9c6504fd"
+    },
+    {
+      "path": "infera-chat/entity/src/conversation.rs",
+      "checksum": "f64bed8247fcd92e97d2f4b0535b3e9c95500b26e0d4e78a631101ce2cb9ef76"
+    },
+    {
+      "path": "infera-chat/entity/src/lib.rs",
+      "checksum": "9caf001f0dce80a9429d420aa0e50095f66a36dda6bfe77f070f75afd64281ba"
+    },
+    {
+      "path": "infera-chat/entity/src/message_reaction.rs",
+      "checksum": "44e78124e3c385d123496eebae4dd138f686828e8d38ba1c8d2b3a7745ee7097"
+    },
+    {
+      "path": "infera-chat/entity/src/message.rs",
+      "checksum": "28018d8997d989f81e2c39701745850c85a3c804fdcd187b1b7687825e50dc07"
+    },
+    {
+      "path": "infera-chat/entity/src/outbox_event.rs",
+      "checksum": "afdc3ba29c43a0675e1e9b3273799e5a1e4d4781202fd0975a183c0e7bd2dd75"
+    },
+    {
+      "path": "infera-chat/entity/src/read_receipt.rs",
+      "checksum": "c3137236c2f939cec2f0119de3bda46b093769be14abb50805b1abe8addc49ea"
+    },
+    {
+      "path": "infera-chat/migration/src/lib.rs",
+      "checksum": "cc1d52ae46e640d6a8c7122ebcdfee905603e8e24ee4edc0b49af6d79383f5bb"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260722_000001_create_chat.rs",
+      "checksum": "05fd87384bc6b467e8617f7bbed31e8128664a1f08304eed9901e17d38f38745"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260801_000002_add_assistants.rs",
+      "checksum": "07acd8dcf1fb10f0ef401da482905efb3cb5f6f0490628ae4c6032ab18cae90b"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260802_000003_add_assistant_billing.rs",
+      "checksum": "7751bac320fb6dde11b56998767b66a6a357fe5fb2074be097395f6bd01a47cc"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260802_000004_global_assistant_catalog.rs",
+      "checksum": "780cff6c829f50c61acbafecc1b3cf76399e100a36f54928f0dbb7cb4f518012"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260802_000005_add_customer_actions.rs",
+      "checksum": "2fadad6a5cd6cab7d31fa891d5827124862e4859eef6952149e9c44cd3671754"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260823_000006_add_attachments_and_legacy_import.rs",
+      "checksum": "0e259042f9eb810a28c2bf9b54f5b30343e3e79ec683b6672a82702bd6096340"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260828_000007_governed_assistant_context.rs",
+      "checksum": "1f515318096be370972d64f379602a1cc1968867585c71fc91832af28a53f570"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260828_000008_assistant_context_budgets.rs",
+      "checksum": "0f4c1a1e0bd7773b5691cc4148a327e3e03cbda7147a23149e4dac2d278f2b93"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260920_000009_speech_settings.rs",
+      "checksum": "33872bc07df7132b2975354c30690560f878352b62f6faf2de7f6a977a745f51"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260921_000010_default_shenava_rizeh.rs",
+      "checksum": "ddb39973a9a5f3d2a2991d76827fdd96691815fe5b91a22b80ab6b4398db2b2e"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260921_000011_tts_settings.rs",
+      "checksum": "025a47e51589b4a0527915fe794c4b15c33046fd2e70d1821696f0028b3c8768"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260922_000012_workspace_roles.rs",
+      "checksum": "ee45ea24b355f0c0ad6e569a85ab3550e392acc6d14e722e27b7bd94cd0a420e"
+    },
+    {
+      "path": "infera-chat/migration/src/m20261003_000013_media_retention.rs",
+      "checksum": "1789436e357351947ef9aa526e7e8fcbe1d3ccc314de8802912e310106980a5f"
+    },
+    {
+      "path": "infera-chat/migration/src/m20261007_000015_asset_interactions.rs",
+      "checksum": "a8555079a454dbd6cd0d68485ee50548cf4f426ae7ff88e28a00bbf8b64a9278"
+    },
+    {
+      "path": "infera-chat/Cargo.toml",
+      "checksum": "84463a67095a79fbd5ed48974b072abc9d1c9f39074ed11a3b75279686f45e34"
+    },
+    {
+      "path": "infera-chat/Cargo.lock",
+      "checksum": "182a75c78978499d398d1fdbfc2a3816cf9ac919afc4e17f07f2bd41b654af3a"
+    },
+    {
+      "path": "infera-chat/entity/Cargo.toml",
+      "checksum": "f36f91763d07aae4c443a8943c193e69ec92650742badfdc41a5e9a9f21aa37a"
+    },
+    {
+      "path": "infera-chat/migration/Cargo.toml",
+      "checksum": "767f48a9d163105d17c72e9592181297855f74e5ffc983448bad5c0e2ccbcb66"
     }
   ],
   "operations": [
@@ -222,7 +537,7 @@
           }
         ]
       },
-      "source_checksum": "89ef434450f84f87958ac8b6c4f65ae23faacde3cf0e2756d47ff6854447e8f6",
+      "source_checksum": "ff4a40e5b7886e38b433d42162b54333d21b8d3c06684e6dc86718044b7b3ce6",
       "handler": {
         "ref": "infera-chat/src/main.rs:66:health",
         "path": "infera-chat/src/main.rs",
@@ -285,7 +600,7 @@
           }
         ]
       },
-      "source_checksum": "68f9decb41c8bee71a508e68c83edf3df68e65a8f4c6130eb7291a9b0d067c15",
+      "source_checksum": "30d65d91eecf9e693a14e916e8be82beca79ea5245ff0b0800ff4ccd011ea3df",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:50:settings",
         "path": "infera-chat/src/image_capture.rs",
@@ -356,7 +671,7 @@
           }
         ]
       },
-      "source_checksum": "ad88311253543c1f24b79652eb195193000904786b9e71a817fd3597c496f2b0",
+      "source_checksum": "e07f0c8d762bb82cb698148416d006eb0d2f355c76182d9fa766f7e7ebdc482a",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:87:save",
         "path": "infera-chat/src/image_capture.rs",
@@ -437,7 +752,7 @@
           }
         ]
       },
-      "source_checksum": "e1fa6470aa1b253c2614deaee439cb09eef93750c85a0eb03c36e696ad431091",
+      "source_checksum": "5292a1337044e3beb9efb5b8b3a128e4ea002360c6a849826f2032be313825de",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:76:models",
         "path": "infera-chat/src/image_capture.rs",
@@ -501,7 +816,7 @@
           }
         ]
       },
-      "source_checksum": "bc5bbb1c9b6f86d10c67c3adbbc61581625bf90623f15823de9fdd391c755c7c",
+      "source_checksum": "9cde7af5afc37ec42fc4e286ab8d0f7949b919a94a61a4bf3fabf16dcf0c12e5",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:57:status",
         "path": "infera-chat/src/image_capture.rs",
@@ -563,7 +878,7 @@
           }
         ]
       },
-      "source_checksum": "ea624e66626755c402123876fcd9ddb3bd03e9caf62c9736b7b7dc00e32ef465",
+      "source_checksum": "62ec1b143fc6316f32f4df4b8f404fa88ccaa498e7301eeb7c722d304f725a3c",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:298:extract_intake",
         "path": "infera-chat/src/fitness.rs",
@@ -635,7 +950,7 @@
           }
         ]
       },
-      "source_checksum": "9ff18813d8b8625b4e9800a24108dd73022f375712d00d725a775c336aa7b8c5",
+      "source_checksum": "1714b36ab5b78eec67b119f644b9a891345f9fa0cc6cbaa8b93110a8fb78d0c8",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:353:models",
         "path": "infera-chat/src/fitness.rs",
@@ -710,7 +1025,7 @@
           }
         ]
       },
-      "source_checksum": "265f7ab819040fcd799f35acc6e6a58782b793ddb237a42241b9e2f36e8b1c1a",
+      "source_checksum": "a3d5a389e96d8b4a35da9c07d177f42574bbe69ac5f045b6fb1f5f48b2420b80",
       "handler": {
         "ref": "infera-chat/src/learning.rs:11:ask",
         "path": "infera-chat/src/learning.rs",
@@ -826,7 +1141,7 @@
           }
         ]
       },
-      "source_checksum": "994f9c3d9ea23e78be5f5ad4597a205039d40c87be189df0a12c9be35ccc6e18",
+      "source_checksum": "abacd9a604ea0629deab80e61673fb774714fae06d2841d195a22522f3ecfb65",
       "handler": {
         "ref": "infera-chat/src/learning.rs:65:history",
         "path": "infera-chat/src/learning.rs",
@@ -900,7 +1215,7 @@
           }
         ]
       },
-      "source_checksum": "59316a6d42ec4bdf7aa0c022e74092343c28100dfea8f35ea1f659f52645d8cb",
+      "source_checksum": "1f401223b4e0bb06ab2c19a0b36815b30e7519e08221abe56d9979b820a33910",
       "handler": {
         "ref": "infera-chat/src/speech.rs:148:settings",
         "path": "infera-chat/src/speech.rs",
@@ -969,7 +1284,7 @@
           }
         ]
       },
-      "source_checksum": "c251693b4c767bb516466b3b82436a2d11970d9bd2e2b413b4b19e839f277dd6",
+      "source_checksum": "4569403aa2f722f30b950b35ff72f86ee26371dc203eb0c3ffbf8ab4dfe4c0d3",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:378:public_speech_settings",
         "path": "infera-chat/src/fitness.rs",
@@ -1060,7 +1375,7 @@
           }
         ]
       },
-      "source_checksum": "a005b18e9a661118f6c13cb895b278bdf26becc8abf91e6787d5f630d5411aed",
+      "source_checksum": "7be2f08642a0de29d08dbc2f9de667ceac0572657302a09c4d68895e0ffc822a",
       "handler": {
         "ref": "infera-chat/src/speech.rs:157:models",
         "path": "infera-chat/src/speech.rs",
@@ -1124,7 +1439,7 @@
           }
         ]
       },
-      "source_checksum": "deffccd28f478f8891610e71e967132e7d387c0f9fb0a7259cccdd4e022aa7f5",
+      "source_checksum": "94f6b78ff969520ccbbf3ee773756e1147e873976216fa3611813eb5111db330",
       "handler": {
         "ref": "infera-chat/src/speech.rs:444:live",
         "path": "infera-chat/src/speech.rs",
@@ -1205,7 +1520,7 @@
           }
         ]
       },
-      "source_checksum": "72525eca5e354d9397ededb0f78ce4c1c5e9c720066acbb241d7471d5f3b5066",
+      "source_checksum": "5a5689b4899617a547ab9b88f1b3258a4aec081bf5095fc34ec6220da823db4c",
       "handler": {
         "ref": "infera-chat/src/speech.rs:238:status",
         "path": "infera-chat/src/speech.rs",
@@ -1279,7 +1594,7 @@
           }
         ]
       },
-      "source_checksum": "5dcaf2a95964008b71a7aba4a0f3f967f97e74aa85141afddb55cb085638c78c",
+      "source_checksum": "1d51904cb0811d2aa96d25bf2b52172b3bfedecd383a5fb6548da9385d8ad848",
       "handler": {
         "ref": "infera-chat/src/memory_voice.rs:23:handle",
         "path": "infera-chat/src/memory_voice.rs",
@@ -1360,7 +1675,7 @@
           }
         ]
       },
-      "source_checksum": "343be33670b466e09d855963099172a4ac0857420148f1a39041f0b1630369b4",
+      "source_checksum": "9627264cc98db11a45e558e8e5569568d4d8ee4409e8245da0c4f67d6c09fce4",
       "handler": {
         "ref": "infera-chat/src/speech.rs:278:synthesize",
         "path": "infera-chat/src/speech.rs",
@@ -1442,7 +1757,7 @@
           }
         ]
       },
-      "source_checksum": "e0ee01869db6bd2b0fb5b403e6bc669a86eeca2cf4acd2cdf3a6d8ac5d87d393",
+      "source_checksum": "cd515e53cd8a9c8b03de377235195fed60e220cbb0dcd2a8412de918e80e70ed",
       "handler": {
         "ref": "infera-chat/src/speech.rs:331:transcribe",
         "path": "infera-chat/src/speech.rs",
@@ -1526,7 +1841,7 @@
           }
         ]
       },
-      "source_checksum": "aaec69795bb18e11267b79c9988397b526469b8ca0acbc48d5a9c40d4c6cd1fa",
+      "source_checksum": "a33d0729f4b50a6ba5dc8437627310372ed0040ea0f052252fbae9cda6c7596c",
       "handler": {
         "ref": "infera-chat/src/routes.rs:108:list_assistants",
         "path": "infera-chat/src/routes.rs",
@@ -1599,7 +1914,7 @@
           }
         ]
       },
-      "source_checksum": "defff3b725524010563abae19b6472a44d8255699b85e5df13e6446df56be4bd",
+      "source_checksum": "3244127bb03f930c7fac11595937075d1c4906b6ea0b48330b31a802d0acc15a",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:77:roles",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -1662,7 +1977,7 @@
           }
         ]
       },
-      "source_checksum": "61e7051ad462dc89f7176d593bc982cf39a2109cbeba7c0c617fc47c268d0d7e",
+      "source_checksum": "5164c3b91c32a21c97015d319710de6bf86ceee75b35d9b90a723c5dad93f63d",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:1255:managed_roles",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -1727,7 +2042,7 @@
           }
         ]
       },
-      "source_checksum": "cdfa045918363da6fb2376eff81f57968f3fa95005ff832d24f9abca674508e5",
+      "source_checksum": "b06fdb685336b3c6340491be4c9b6122a414f2b22f2bf0a7bf2660b4e6adf1bb",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:94:bind",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -1813,7 +2128,7 @@
           }
         ]
       },
-      "source_checksum": "d997cdf5709053e0f241a13f51dbfdb068b10fe1967de3390e6d70fb3f479f93",
+      "source_checksum": "77340351a8c35abe2e1d245b59c713083254fbe5e1fd168241a127ab409e39e8",
       "handler": {
         "ref": "infera-chat/src/routes.rs:149:get_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -1890,7 +2205,7 @@
           }
         ]
       },
-      "source_checksum": "de661ca0faba89e983e16af81b659f4ad1589b38fbcb91586fbae8695a865af5",
+      "source_checksum": "c238d01d0125378b5e4cfc1972480e4de37b635871af5a170f5510ed83ab0a19",
       "handler": {
         "ref": "infera-chat/src/routes.rs:117:list_managed_assistants",
         "path": "infera-chat/src/routes.rs",
@@ -1964,7 +2279,7 @@
           }
         ]
       },
-      "source_checksum": "87a5fc9205548a22372cb458cd253dfa1610b807eff0c5731f819d1e3ea91851",
+      "source_checksum": "c49f780f38ef6579773023d7be4868cd06b4b51b38cd737196428cefb7866b19",
       "handler": {
         "ref": "infera-chat/src/routes.rs:126:create_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2062,7 +2377,7 @@
           }
         ]
       },
-      "source_checksum": "1be6efabc385c3ee2d058c737d64abe29617f68820dd17b3479a153f86ea0594",
+      "source_checksum": "336ca8c71592d2d27b30fb2bfb56e021fde97b44a35dc99ee09d1833d1cedb9f",
       "handler": {
         "ref": "infera-chat/src/routes.rs:139:get_managed_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2141,7 +2456,7 @@
           }
         ]
       },
-      "source_checksum": "e887eb1de869b706e4812908618091acd8c70ca4429c49284f7234348b0f9e67",
+      "source_checksum": "9178b3f98ab3c520a401051930f891c0ec8e2dd6076a10525b635c6380c657b9",
       "handler": {
         "ref": "infera-chat/src/routes.rs:162:update_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2251,7 +2566,7 @@
           }
         ]
       },
-      "source_checksum": "bb898e6fd23cb26cadf4ffd12dac684ba87766ba96cda645013b6fda732c23a0",
+      "source_checksum": "8e8d81f14a2cc82c77845958603df533c9029c4008fed5cb241b033996e60d66",
       "handler": {
         "ref": "infera-chat/src/routes.rs:174:delete_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2334,7 +2649,7 @@
           }
         ]
       },
-      "source_checksum": "bef1188aca006392a5a1ea3464cb1a488005792032396422e180762fa43d7fe2",
+      "source_checksum": "461133a72d746dddc06aa1a3d417a335c7dc071ca08a8efeaf2593e9f5bf829e",
       "handler": {
         "ref": "infera-chat/src/routes.rs:184:assistant_models",
         "path": "infera-chat/src/routes.rs",
@@ -2418,7 +2733,7 @@
           }
         ]
       },
-      "source_checksum": "dbbdb02bff06414abe3948bb5e6bf43f7837aa33de07b840efe97a1a68480e30",
+      "source_checksum": "4f4d2e21b6d31191083cdafd097822d31ee2357f7ec178baa6cdcd047e4f77c7",
       "handler": {
         "ref": "infera-chat/src/routes.rs:198:assistant_context_catalog",
         "path": "infera-chat/src/routes.rs",
@@ -2492,7 +2807,7 @@
           }
         ]
       },
-      "source_checksum": "8b9e06ff2181037d767e80687aa4c4188e89c8a34ab2600b1d37140da4d6ed4a",
+      "source_checksum": "f1b7148fcd51ace99cbf729543a1ebb7d9d918ec2acd931bbfeb0c87af8daaac",
       "handler": {
         "ref": "infera-chat/src/routes.rs:208:customer_action_content",
         "path": "infera-chat/src/routes.rs",
@@ -2576,7 +2891,7 @@
           }
         ]
       },
-      "source_checksum": "c37b2f5deb417a950a3272b13509e3904ffc98f7a3bffa23237d78c2b854ddce",
+      "source_checksum": "a7b1a8a1a0c7bbaf15f3bb735602e5315de4d6841d727b08942eb25afc4590d5",
       "handler": {
         "ref": "infera-chat/src/routes.rs:261:list",
         "path": "infera-chat/src/routes.rs",
@@ -2650,7 +2965,7 @@
           }
         ]
       },
-      "source_checksum": "4324a993a9b41d9f674a0efef8dd5114b5f0366b3a1e8df43ad7dd1405e309e7",
+      "source_checksum": "481abacc083f2a874b3c72c35ba562fc5e1f756d6d033bbe122eec7639017002",
       "handler": {
         "ref": "infera-chat/src/routes.rs:270:create",
         "path": "infera-chat/src/routes.rs",
@@ -2748,7 +3063,7 @@
           }
         ]
       },
-      "source_checksum": "672ea6a66175328195e750ea64ad7c92856db8bc7a3aa66659bf5e6ffddde3af",
+      "source_checksum": "88ee9f306fbc1b2f2b12572bce4a9ac0d3b0f835f78b408270dc118b9af143cc",
       "handler": {
         "ref": "infera-chat/src/routes.rs:286:get_one",
         "path": "infera-chat/src/routes.rs",
@@ -2827,7 +3142,7 @@
           }
         ]
       },
-      "source_checksum": "efd9953a51f101a12d8e2023c36b9c4f6661a590c06cbd950934b1901408f7e6",
+      "source_checksum": "0dc41b0a7d2eef6be97c5d0adc7e2562c58dd0e5f66f801dae286a110db17839",
       "handler": {
         "ref": "infera-chat/src/routes.rs:296:update",
         "path": "infera-chat/src/routes.rs",
@@ -2915,7 +3230,7 @@
           }
         ]
       },
-      "source_checksum": "366f861b1b64622745315f88803448073da5e893219bcf71af69d7b0d4c9ab8a",
+      "source_checksum": "2a02d86d2b1b78d44d7fb5823ea2fc7bac4b1fe390e40deff133e79b82e80232",
       "handler": {
         "ref": "infera-chat/src/routes.rs:307:archive",
         "path": "infera-chat/src/routes.rs",
@@ -2989,7 +3304,7 @@
           }
         ]
       },
-      "source_checksum": "5d53cf6c23acc453b68ff57a6978fedd8ba660a2759509a0a3907b9ec31b4e4a",
+      "source_checksum": "f6c63ca860ba5d8086106d4aad32816058c148423cf4fbde55a276017c3fc1c1",
       "handler": {
         "ref": "infera-chat/src/routes.rs:316:members",
         "path": "infera-chat/src/routes.rs",
@@ -3068,7 +3383,7 @@
           }
         ]
       },
-      "source_checksum": "fab30a1d2f4c80602ac49f7bac401cc42e72e804a4a202a98a5ca26c6f10e8f1",
+      "source_checksum": "4988b629dd0ba731839c96601d14d71f292a5f48fd7ccde964950c072b2486a6",
       "handler": {
         "ref": "infera-chat/src/routes.rs:326:add_member",
         "path": "infera-chat/src/routes.rs",
@@ -3163,7 +3478,7 @@
           }
         ]
       },
-      "source_checksum": "b81c82af01948b4e4d36e72023646299e220a18b8f54457ead7f02b00d1435f8",
+      "source_checksum": "ab1dd52bdb0c8ad4e6e6ec180f33433e4e28af0c5831095ae572bc0bc9591164",
       "handler": {
         "ref": "infera-chat/src/routes.rs:340:remove_member",
         "path": "infera-chat/src/routes.rs",
@@ -3238,7 +3553,7 @@
           }
         ]
       },
-      "source_checksum": "e98ef9265f260846f4254562ccd785c03a2b8ecb591292f44b56f230c5c7e7f2",
+      "source_checksum": "7212b6a1e91fc966656df0875e30813a7498db25a1f03ef8ac575ec8790d64a3",
       "handler": {
         "ref": "infera-chat/src/routes.rs:349:messages",
         "path": "infera-chat/src/routes.rs",
@@ -3328,7 +3643,7 @@
           }
         ]
       },
-      "source_checksum": "7d3ef7fbb93d1f52a5a6dd3ce4d3f33c453e82c15bb7a388f20861fe4dca73a0",
+      "source_checksum": "49bb8e7ad8faeb7c26113e987509b36678801722258e1d550d27fcfc675a4421",
       "handler": {
         "ref": "infera-chat/src/routes.rs:362:send",
         "path": "infera-chat/src/routes.rs",
@@ -3443,7 +3758,7 @@
           }
         ]
       },
-      "source_checksum": "22885b0f38876e21f6552c7b61cba96d84a55c9fe4fa484360f144a98089d3f1",
+      "source_checksum": "d11f86bda70dbaed26436d6ad1834c433fa624d687c0b8b771643b8c8b9d22bd",
       "handler": {
         "ref": "infera-chat/src/routes.rs:377:create_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -3538,7 +3853,7 @@
           }
         ]
       },
-      "source_checksum": "12cace69cb045be40d1753d5d0035b4a861dd747a91b8a49fcc5f9ed6291171f",
+      "source_checksum": "33c08b732a58c988e03a929fc7481eaf2674bc84d8dc60075e28fc9686be9b81",
       "handler": {
         "ref": "infera-chat/src/routes.rs:392:download_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -3622,7 +3937,7 @@
           }
         ]
       },
-      "source_checksum": "c2abc54e30b6614a9e0d9501f90b1f3aa71448b2fbc67012225df70f82fbbfe4",
+      "source_checksum": "324b5df6f0424bd5e75e4593bc02408d78b5fb3126e63b3db1b1a0a2d558ebf1",
       "handler": {
         "ref": "infera-chat/src/routes.rs:412:complete_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -3758,7 +4073,7 @@
           }
         ]
       },
-      "source_checksum": "9fb4d161e3f80b78e1c3fbfea09ca67f308005b57f21f15bc62bdf9efce0f919",
+      "source_checksum": "013ff5469b4a5d9642d0a787819e25b5d9db5df0090aad39cdd689bfacc637b0",
       "handler": {
         "ref": "infera-chat/src/routes.rs:243:realtime_auth",
         "path": "infera-chat/src/routes.rs",
@@ -3872,7 +4187,7 @@
           }
         ]
       },
-      "source_checksum": "a4254ec3f5b0bd8ce9f4e2f41ba2335c790cb257af0be8af27b10a10435b4e27",
+      "source_checksum": "e5553a69ff54be8dc696b1ace95e0cb34c8087763cef71f14061f3e3ef7e34fa",
       "handler": {
         "ref": "infera-chat/src/routes.rs:230:realtime_config",
         "path": "infera-chat/src/routes.rs",
@@ -3959,7 +4274,7 @@
           }
         ]
       },
-      "source_checksum": "99232f3d4d63c64b4ffea312d123c5271727e845db8aaa58b8bc22fe1dbcf78d",
+      "source_checksum": "75a46bc9c4b1f201f3a0efbc4ac28a854f3c20223116c212cc704cdd9408ef97",
       "handler": {
         "ref": "infera-chat/src/routes.rs:462:read",
         "path": "infera-chat/src/routes.rs",
@@ -4052,7 +4367,7 @@
           }
         ]
       },
-      "source_checksum": "76fc7b6bebca478c3c6e3d54ae6aeb73b7a8af3c03456ae9ce89e92c60c70226",
+      "source_checksum": "2dd40fe24943dfe4a83d50fa9abec86b5e3ad4139c095f8d469725ad4928f748",
       "handler": {
         "ref": "infera-chat/src/routes.rs:428:edit",
         "path": "infera-chat/src/routes.rs",
@@ -4140,7 +4455,7 @@
           }
         ]
       },
-      "source_checksum": "209a4f7a47f0edee7733d872b4b863f7745758b1621e2450a0759f9bc237e226",
+      "source_checksum": "f7143ce0df8fbeabc960dcb5d484589113ccc3837bc25608226bce1b6360587f",
       "handler": {
         "ref": "infera-chat/src/routes.rs:439:delete_message",
         "path": "infera-chat/src/routes.rs",
@@ -4215,7 +4530,7 @@
           }
         ]
       },
-      "source_checksum": "c1e1b92b1cf7518588841513e42c1dc255a90ac9690d1b714e629e5974a8148f",
+      "source_checksum": "c0db017a398eb256b5ecb5bd4dc3612fe81ab5c2cadaa60250be38574a09f0c1",
       "handler": {
         "ref": "infera-chat/src/routes.rs:448:react",
         "path": "infera-chat/src/routes.rs",
@@ -4304,7 +4619,7 @@
           }
         ]
       },
-      "source_checksum": "cafca71b411bb3abc785745ab1dcf6c4f166804b91d5d631364bce8de444c4f2",
+      "source_checksum": "fe15ff2811cdb9f1fe1855ebb7615a8e979893ea947b7ca2c654da9ffeb9c50a",
       "handler": {
         "ref": "infera-chat/src/routes.rs:485:ai_runtime_inputs",
         "path": "infera-chat/src/routes.rs",
@@ -4410,7 +4725,7 @@
           }
         ]
       },
-      "source_checksum": "9be1b1ed6467847478854d339331dfe7093f2154e2f864d6d95c86ce78a43d68",
+      "source_checksum": "4b5855aa11df57ed1abf142e7c17835eccacec75657525f9eac74a8b5eb98348",
       "handler": {
         "ref": "infera-chat/src/routes.rs:500:ai_complete_runtime_input",
         "path": "infera-chat/src/routes.rs",
@@ -4527,7 +4842,7 @@
           }
         ]
       },
-      "source_checksum": "5349f0bcd2d9fef05a1d3d5ea1a14e2972937939cd25065c0470b49bec73ea4b",
+      "source_checksum": "98fc081490ebc0385e9d74bc8522f7c797a514dc9791ce9cfca5fadd5e827057",
       "handler": {
         "ref": "infera-chat/src/routes.rs:472:ai_send",
         "path": "infera-chat/src/routes.rs",
@@ -4634,7 +4949,7 @@
           }
         ]
       },
-      "source_checksum": "d827b3634f5a5d4704eff01e421fceede0e6bd0eafefc8a5e707440cfba4fe19",
+      "source_checksum": "dd18141c109375e9c201505d4658c9051f5e4bb3a89c270662ed2e693898798b",
       "handler": {
         "ref": "infera-chat/src/routes.rs:522:events",
         "path": "infera-chat/src/routes.rs",
@@ -4706,7 +5021,7 @@
           }
         ]
       },
-      "source_checksum": "7f963a9edee3c323641c5ec7ded5e792d67376015f42a11926f0c65584f42abd",
+      "source_checksum": "59a47156139758189098d9ae1330867a19f5400e7c3bae3538282efba04a92d7",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:220:generate",
         "path": "infera-chat/src/fitness.rs",
@@ -4802,7 +5117,7 @@
           }
         ]
       },
-      "source_checksum": "3d9647e2898e00aad12cdae8f77f1cae05a243812339ab55a0683ec299595586",
+      "source_checksum": "0235cb6d4cc2a03505fd64d94a8cb3fe27bd535bc410797cc096e4706cad5022",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:267:save_settings",
         "path": "infera-chat/src/fitness.rs",
@@ -4885,7 +5200,7 @@
           }
         ]
       },
-      "source_checksum": "003c40c3e3d538274664991d8c60ed714a66205b841ebfc0b401895df6db4d45",
+      "source_checksum": "ff2d101eddf29c395afe624961881c441741430ab2ef7e7e28573b36bf1f4c8d",
       "handler": {
         "ref": "infera-chat/src/memory_import.rs:15:source",
         "path": "infera-chat/src/memory_import.rs",
@@ -4971,7 +5286,7 @@
           }
         ]
       },
-      "source_checksum": "41f91ed6ece96af9eb3bb6b66051072c6c5cdeaf92510f88da35fdb13fde8182",
+      "source_checksum": "0a16a5f0d4f4cc2c550fb944d13a0bba7da3194be2496203e76e5eaf3adafdce",
       "handler": {
         "ref": "infera-chat/src/media_import.rs:32:extract",
         "path": "infera-chat/src/media_import.rs",
@@ -6871,6 +7186,10 @@
     {
       "path": "infera-chat/src/main.rs",
       "checksum": "26b47402fc6f2022fc7b9a0f8109d5e2629812688dfdfe51a3d708b1c34ece4c"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260828_000007_governed_assistant_context.rs",
+      "checksum": "1f515318096be370972d64f379602a1cc1968867585c71fc91832af28a53f570"
     }
   ],
   "missing_meaning_sources": [],

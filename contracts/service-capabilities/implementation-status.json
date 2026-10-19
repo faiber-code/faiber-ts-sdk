@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T09:01:37.293460+00:00",
+  "updated_at": "2026-10-19T09:24:01.146884+00:00",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
-  "committed_source_base": "56e3db403c8beb4eab686448112670a603e609bc",
+  "committed_source_base": "20df56c2a74afceb1f839f157327479546e16c17",
   "tests": {
     "sdk_build": {
       "exit_code": 0
@@ -18,7 +18,7 @@
     "reservation_real_postgresql": {
       "exit_code": 0,
       "tests_executed": 2,
-      "scope": "One characterization of seven defects, one concurrency correctness regression; see separate artifact"
+      "scope": "Baseline characterization of six defective behavior flags plus one healthy consistency flag, and one concurrency correctness regression; see preserved separate artifact"
     },
     "contracts_audit": {
       "exit_code": 1,
@@ -26,7 +26,7 @@
     },
     "discovery_gate": {
       "status": "blocked",
-      "blocker_count": 2115
+      "blocker_count": 2119
     },
     "knowledge_canonical_unit": {
       "source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
@@ -36,12 +36,23 @@
       "tests_executed": 0,
       "reason": "Missing cached csv dependency; isolated online fetch stopped after repeated crates.io SSL connection timeouts",
       "local_service_checkout_modified": false
+    },
+    "reservation_contract_integrity": {
+      "status": "passed",
+      "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+      "exit_code": 0,
+      "tests_executed": 21,
+      "duration_seconds": 2.6,
+      "source_revisions": {
+        "reservation": "868aa40011780194795848fcb60b85972cfd6076"
+      },
+      "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
     }
   },
   "artifacts": {
     "sdk-tests": {
       "path": "evidence/sdk-tests.log",
-      "sha256": "1bd9902a3b62a1ec785a75d55eaa2418f69c791a0e042d3cc1d8c51c91e8e877"
+      "sha256": "44c17dd19c16a5fb368ed820b7a85e0aa0e8679d31b48d3b9b1b7b41b8b7358c"
     },
     "sdk-contract-audit": {
       "path": "evidence/sdk-contract-audit.log",
@@ -49,11 +60,15 @@
     },
     "discovery-gate": {
       "path": "evidence/discovery-gate.log",
-      "sha256": "4f5f7c6a3b77610bb839e89359bd165379a538598fcb53ebaf757c28d8bcf295"
+      "sha256": "cff224fff23ff5291b1dcb6507e1539ca771ae273b9df9fc56db8ebeba6161c4"
     },
     "knowledge-canonical-tests": {
       "path": "evidence/knowledge-canonical-tests.log",
       "sha256": "787a5dfa38030cb90147ad30b8f61b92a0d46f231c055beed96fda561f7befb7"
+    },
+    "reservation-contract-tests": {
+      "path": "evidence/reservation-contract-tests.log",
+      "sha256": "920451ea0c4851eca1c2c0421d65ce01df88a02d9704182a48aae9667a09de18"
     }
   },
   "pastil": {
@@ -89,7 +104,9 @@
   },
   "rollback": {
     "status": "not_needed_no_cutover",
-    "runtime_behavior_changed": false
+    "runtime_behavior_changed": false,
+    "local_backend_changes": true,
+    "live_deployment_changed": false
   },
   "remaining_work": [
     "Complete semantic reviews and current runtime/source reconciliation for all active services",
@@ -98,5 +115,16 @@
     "Complete and release verified SDK artifact",
     "Complete readable SDK-backed Manage workflows",
     "Publish verified Knowledge, implement scoped memory/ingestion/forgetting/outage/migration/rollback and measure canaries"
+  ],
+  "local_backend_commits": {
+    "reservation": "868aa40011780194795848fcb60b85972cfd6076"
+  },
+  "local_prerequisites_implemented": [
+    "reservation status filter and invalid status rejection",
+    "locked unified PATCH/DELETE cancellation with stale/same-user retry safety",
+    "terminal lifecycle enforcement",
+    "atomic validated full schedule replacement and serialized concurrent replacement",
+    "strict date parsing and exclusive next-midnight UTC range",
+    "Axum bracket pagination and bounded unsigned offsets"
   ]
 }
