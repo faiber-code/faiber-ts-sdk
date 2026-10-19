@@ -466,7 +466,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     if (hasInput && !optionalChatUpload) args.push(`data: T.${base}Input`);
     if (hasQuery) args.push(`params?: T.${base}Query`);
     if (reviewed?.idempotencyKey) args.push("idempotencyKey: string");
-    args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : hasInput ? `<T.${base}Input>` : ""}`);
+    args.push(`options?: RequestOptions${optionalChatUpload ? "<T.AttachmentUploadBody>" : endpoint.formUrlEncoded ? "<URLSearchParams>" : hasInput ? `<T.${base}Input>` : ""}`);
     if (optionalChatUpload) args.push("data?: T.AttachmentUploadBody");
     const permissions = reviewed?.auth ?? (endpoint.permissions.length ? endpoint.permissions.join(", ") : endpoint.path.startsWith("/internal/") || endpoint.path.startsWith("/api/v1/internal/") ? "trusted backend service credential and tenant scope; not a public browser endpoint" : "session-derived or public bootstrap route");
     operationLines.push("  /**");

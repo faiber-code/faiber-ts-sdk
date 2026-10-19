@@ -1,4 +1,4 @@
-import type { AxiosInstance, AxiosRequestConfig, CreateAxiosDefaults, } from "axios";
+import type { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig, CreateAxiosDefaults, } from "axios";
 export const SERVICE_NAMES = [
     "idp",
     "profile",
@@ -148,4 +148,11 @@ export interface FaiberSdkConfig {
     onAuthFailure?: (error: unknown) => MaybePromise<void>;
     createAxios?: (config: CreateAxiosDefaults, service: ServiceName) => AxiosInstance;
 }
-export type RequestOptions<D = unknown> = Omit<AxiosRequestConfig<D>, "url" | "method" | "data" | "params">;
+/** Request metadata supplied to the XSRF predicate. Excludes the predicate itself
+ * to avoid recursively invariant request-body types in Axios1.20 and later.
+ * D describes the encoded wire body, not the pre-encoding service input.
+ */
+export type RequestOptionsContext<D = unknown> = Omit<InternalAxiosRequestConfig<D>, "withXSRFToken">;
+export type RequestOptions<D = unknown> = Omit<AxiosRequestConfig<D>, "url" | "method" | "data" | "params" | "withXSRFToken"> & {
+    withXSRFToken?: boolean | ((config: RequestOptionsContext<D>) => boolean | undefined);
+};

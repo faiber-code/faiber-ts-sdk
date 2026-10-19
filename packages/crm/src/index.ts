@@ -45,7 +45,7 @@ export class CrmApi extends ServiceApi {
   /** Updates every editable workflow-node field. Requires `workflow_node:update`. */
   updateWorkflowNode(nodeId: Identifier, data: O.ApiUpdateWorkflowNodeCompatRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowNodeCompatRoutePatchInput>): ReturnType<CrmOperations["apiUpdateWorkflowNodeCompatRoutePatch"]>;
   updateWorkflowNode(workflowId: Identifier, nodeId: Identifier, data: O.ApiUpdateWorkflowNodeRoutePatchInput, options?: RequestOptions<O.ApiUpdateWorkflowNodeRoutePatchInput>): ReturnType<CrmOperations["apiUpdateWorkflowNodeRoutePatch"]>;
-  updateWorkflowNode(workflowOrNodeId: Identifier, nodeIdOrData: Identifier | O.ApiUpdateWorkflowNodeCompatRoutePatchInput, dataOrOptions?: O.ApiUpdateWorkflowNodeRoutePatchInput | RequestOptions, options?: RequestOptions) {
+  updateWorkflowNode(workflowOrNodeId: Identifier, nodeIdOrData: Identifier | O.ApiUpdateWorkflowNodeCompatRoutePatchInput, dataOrOptions?: O.ApiUpdateWorkflowNodeRoutePatchInput | RequestOptions<O.ApiUpdateWorkflowNodeCompatRoutePatchInput>, options?: RequestOptions<O.ApiUpdateWorkflowNodeRoutePatchInput>) {
     return typeof nodeIdOrData === "string" || typeof nodeIdOrData === "number"
       ? this.operations.apiUpdateWorkflowNodeRoutePatch(workflowOrNodeId, nodeIdOrData, dataOrOptions as O.ApiUpdateWorkflowNodeRoutePatchInput, options)
       : this.operations.apiUpdateWorkflowNodeCompatRoutePatch(workflowOrNodeId, nodeIdOrData, dataOrOptions as RequestOptions<O.ApiUpdateWorkflowNodeCompatRoutePatchInput> | undefined);

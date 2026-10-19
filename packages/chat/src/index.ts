@@ -87,7 +87,7 @@ export class ChatApi extends ServiceApi {
     const contentType = response.headers["content-type"];
     return { ...response, data: new Blob([bytes], { type: typeof contentType === "string" ? contentType : "application/octet-stream" }) };
   }
-  realtimeAuth(conversationId: Identifier, data: O.RoutesRealtimeAuthPostInput, options?: RequestOptions<O.RoutesRealtimeAuthPostInput>) { return this.operations.routesRealtimeAuthPost(conversationId, data, options); }
+  realtimeAuth(conversationId: Identifier, data: O.RoutesRealtimeAuthPostInput, options?: RequestOptions<URLSearchParams>) { return this.operations.routesRealtimeAuthPost(conversationId, data, options); }
   /** Return browser-safe Sockudo configuration after checking conversation membership (chat:read).
    * Preserves Axios response metadata; 401/403 deny access and 502 means realtime is unconfigured. */
   realtimeConfig(conversationId: Identifier, options?: RequestOptions) { return this.client.get<T.ChatRealtimeConfigResponse>(`/api/v1/conversations/${id(conversationId)}/realtime-config`, undefined, options); }

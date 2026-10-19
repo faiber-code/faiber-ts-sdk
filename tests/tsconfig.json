@@ -6,6 +6,7 @@
   },
   "include": [
     "type-consumer.ts",
-    "release-type-consumer.ts"
+    "release-type-consumer.ts",
+    "transport-options.types.ts"
   ]
 }

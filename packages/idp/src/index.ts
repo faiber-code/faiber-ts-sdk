@@ -6,16 +6,16 @@ export class IdpApi extends ServiceApi {
     readonly users = new RestResource<User, CreateUserInput, UpdateUserInput, UserListResponse, UserResponse>(this.client, "/api/v1/users", { supported: ["list", "show", "create", "update", "replace", "delete"] });
     readonly roles = new RestResource<Role, CreateRoleInput, UpdateRoleInput, RoleListResponse, RoleResponse>(this.client, "/api/v1/acl/roles", { supported: ["list", "show", "create", "update", "replace", "delete"] });
     readonly permissions = new RestResource<Permission, never, never, PermissionListResponse, PermissionResponse>(this.client, "/api/v1/acl/permissions", { supported: ["list"] });
-    login(data: LoginInput, options?: RequestOptions<LoginInput>) {
+    login(data: LoginInput, options?: RequestOptions<URLSearchParams>) {
         return this.client.post<AuthTokensResponse, URLSearchParams>("/api/v1/auth/login", urlEncoded(data), { ...options, headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
     }
-    webLogin(data: WebLoginInput, options?: RequestOptions<WebLoginInput>) {
+    webLogin(data: WebLoginInput, options?: RequestOptions<URLSearchParams>) {
         return this.client.post<AuthTokensResponse, URLSearchParams>("/api/v1/auth/web-login", urlEncoded(data), { ...options, headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
     }
-    accountLogin(data: AccountLoginInput, options?: RequestOptions<AccountLoginInput>) {
+    accountLogin(data: AccountLoginInput, options?: RequestOptions<URLSearchParams>) {
         return this.client.post<AuthTokensResponse, URLSearchParams>("/api/v1/auth/account-login", urlEncoded(data), { ...options, headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
     }
-    otpLogin(data: OtpLoginInput, options?: RequestOptions<OtpLoginInput>) {
+    otpLogin(data: OtpLoginInput, options?: RequestOptions<URLSearchParams>) {
         return this.client.post<AuthTokensResponse, URLSearchParams>("/api/v1/auth/otp-login", urlEncoded(data), { ...options, headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
     }
     validate(options?: RequestOptions) {

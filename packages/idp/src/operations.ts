@@ -127,7 +127,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  authLoginAccountPost(data: T.AuthLoginAccountPostInput, options?: RequestOptions<T.AuthLoginAccountPostInput>) {
+  authLoginAccountPost(data: T.AuthLoginAccountPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.AuthLoginAccountPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/account-login`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
@@ -268,7 +268,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  authLoginPost(data: T.AuthLoginPostInput, options?: RequestOptions<T.AuthLoginPostInput>) {
+  authLoginPost(data: T.AuthLoginPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.AuthLoginPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/login`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
@@ -300,7 +300,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  authTokenPost(data: T.AuthTokenPostInput, options?: RequestOptions<T.AuthTokenPostInput>) {
+  authTokenPost(data: T.AuthTokenPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.AuthTokenPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/native/token`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
@@ -356,7 +356,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public OAuth bootstrap.
    */
-  authOtpLoginPost(data: T.AuthOtpLoginPostInput, options?: RequestOptions<T.AuthOtpLoginPostInput>) {
+  authOtpLoginPost(data: T.AuthOtpLoginPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.AuthOtpLoginPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/otp-login`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
@@ -452,7 +452,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  authLoginWebPost(data: T.AuthLoginWebPostInput, options?: RequestOptions<T.AuthLoginWebPostInput>) {
+  authLoginWebPost(data: T.AuthLoginWebPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.AuthLoginWebPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/auth/web-login`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
@@ -495,7 +495,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  oidcBackchannelLogoutPost(data: T.OidcBackchannelLogoutPostInput, options?: RequestOptions<T.OidcBackchannelLogoutPostInput>) {
+  oidcBackchannelLogoutPost(data: T.OidcBackchannelLogoutPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.OidcBackchannelLogoutPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/oauth2/backchannel-logout`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
@@ -506,7 +506,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  oidcIntrospectPost(data: T.OidcIntrospectPostInput, options?: RequestOptions<T.OidcIntrospectPostInput>) {
+  oidcIntrospectPost(data: T.OidcIntrospectPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.OidcIntrospectPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/oauth2/introspect`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
@@ -547,7 +547,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  oidcRevokePost(data: T.OidcRevokePostInput, options?: RequestOptions<T.OidcRevokePostInput>) {
+  oidcRevokePost(data: T.OidcRevokePostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.OidcRevokePostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/oauth2/revoke`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
@@ -558,7 +558,7 @@ export class IdpOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
    */
-  oidcTokenPost(data: T.OidcTokenPostInput, options?: RequestOptions<T.OidcTokenPostInput>) {
+  oidcTokenPost(data: T.OidcTokenPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.OidcTokenPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/oauth2/token`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**

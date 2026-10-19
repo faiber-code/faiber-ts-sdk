@@ -411,7 +411,7 @@ export class ChatOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
    */
-  routesRealtimeAuthPost(id: Identifier, data: T.RoutesRealtimeAuthPostInput, options?: RequestOptions<T.RoutesRealtimeAuthPostInput>) {
+  routesRealtimeAuthPost(id: Identifier, data: T.RoutesRealtimeAuthPostInput, options?: RequestOptions<URLSearchParams>) {
     return this.client.request<T.RoutesRealtimeAuthPostResponse, URLSearchParams>({ ...options, method: "POST", url: `/api/v1/conversations/${encodeURIComponent(id)}/realtime-auth`, data: urlEncoded(data), headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" } });
   }
   /**
