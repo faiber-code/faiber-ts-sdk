@@ -1,3 +1,4 @@
 # Retain verbatim test output for checksum verification. Whitespace checks remain
 # enabled for source; terminal output may contain indentation-only lines.
 contracts/service-capabilities/evidence/*.log -whitespace
+contracts/service-capabilities/evidence/summary-crm-handoff/*.log -whitespace
