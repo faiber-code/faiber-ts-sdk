@@ -26,6 +26,18 @@ def source_state(repo):
             'working_tree_status': run(['git', 'status', '--porcelain'], cwd=repo),
             'checkout_sha256': digest.hexdigest()}
 
+def restore_lock(before):
+    lock_path = REPO / 'Cargo.lock'
+    if lock_path.read_bytes() != before:
+        # Do not truncate the original if a failed build exhausts storage.
+        restore_path = REPO / ('.Cargo.lock.restore-' + uuid.uuid4().hex)
+        try:
+            restore_path.write_bytes(before)
+            os.replace(restore_path, lock_path)
+        finally:
+            if restore_path.exists():
+                restore_path.unlink()
+
 def main():
     source = source_state(REPO)
     name = 'infera-reservation-contract-' + uuid.uuid4().hex[:8]
@@ -67,11 +79,16 @@ def main():
         result = subprocess.run(COMMAND, cwd=REPO, env=env, capture_output=True, text=True)
         elapsed = time.monotonic() - started
         log = result.stdout + result.stderr
-        summaries = re.findall(r'test result: ok\. (\d+) passed; (\d+) failed; (\d+) ignored;', log)
-        executed = sum(int(passed) for passed, _, _ in summaries)
-        passed = result.returncode == 0 and len(summaries) >= 4 and executed >= 13 and all(int(failed) == int(ignored) == 0 for _, failed, ignored in summaries) and 'skipped:' not in log
+        summaries = re.findall(r'test result: (?:ok|FAILED)\. (\d+) passed; (\d+) failed; (\d+) ignored;', log)
+        executed = sum(int(passed) + int(failed) for passed, failed, _ in summaries)
+        passed = result.returncode == 0 and len(summaries) >= 4 and executed >= 40 and all(int(failed) == int(ignored) == 0 for _, failed, ignored in summaries) and 'skipped:' not in log
         OUTPUT.mkdir(parents=True, exist_ok=True)
         resolved_lock = (REPO / 'Cargo.lock').read_bytes()
+        # Restore the caller's input lock before checking the source fence.
+        restore_lock(before)
+        source_after = source_state(REPO)
+        source_unchanged = source_after == source
+        passed = passed and source_unchanged
         lock_artifact = OUTPUT / ('reservation-resolved-' + hashlib.sha256(resolved_lock).hexdigest() + '.Cargo.lock')
         lock_artifact.write_bytes(resolved_lock)
         log_bytes = (log.rstrip('\n') + '\n').encode()
@@ -80,6 +97,7 @@ def main():
                     'observed_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'command': ' '.join(COMMAND),
                     'exit_code': result.returncode, 'tests_executed': executed, 'duration_seconds': round(elapsed, 3),
                     'source_revisions': {'reservation': source['revision']}, 'source': source,
+                    'source_after': source_after, 'source_unchanged_during_run': source_unchanged,
                     'rust_sdk_revision': run(['git', 'rev-parse', 'HEAD'], cwd=SDK.parent / 'Service/faiber-sdk'),
                     'rust_sdk_working_status': run(['git', 'status', '--porcelain'], cwd=SDK.parent / 'Service/faiber-sdk'),
                     'rust_sdk_dependencies': {name: source_state(SDK.parent / 'Service/faiber-sdk/crates' / name) for name in ['infera-idp-sdk', 'infera-idp-macro', 'infera-flow-sdk']},
@@ -94,7 +112,7 @@ def main():
             print(log[-12000:])
             raise SystemExit(1)
     finally:
-        (REPO / 'Cargo.lock').write_bytes(before)
+        restore_lock(before)
         if rabbit_created:
             subprocess.run(['docker', 'rm', '-f', rabbit_name], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         if created:

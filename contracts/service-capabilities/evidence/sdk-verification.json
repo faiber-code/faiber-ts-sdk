@@ -6,8 +6,8 @@
   "tests_executed": 103,
   "tests_failed": 0,
   "tests_skipped": 0,
-  "source_base_revision": "c58dffee63eb67f1688a3b05618b318267b537fe",
-  "working_source_sha256": "6732ec1adf54a87308a559595499345a151ac1bca9cd1946af561c9192b6de97",
+  "source_base_revision": "9c5bccaa4cbbfe934d0ed093d81387c48d91234e",
+  "working_source_sha256": "9693e03c180749cb352db02682879314f7b73a238cd2f4380df8c79497b1acbf",
   "included_paths": [
     "scripts",
     "tests",
@@ -19,8 +19,12 @@
   "node": "v22.13.1",
   "package_lock_sha256": "ec23409df957b1f1e8ac8f9987e2bba450c57f77f2391d22060c15d909968b6a",
   "artifact_path": "evidence/sdk-tests.log",
-  "artifact_sha256": "2e378d5c982d121fc63739bcc48a743aa75815f8d9f1f7e55ec7d0850b8f6c23",
+  "artifact_sha256": "df8d64492e4b7e61d7924f189acb6146eaa70aae81438767ab878e3245dd111f",
   "build_artifact_path": "evidence/sdk-build.log",
-  "build_artifact_sha256": "0b04215e28afa3246c77dcf6707a3c86f0586ba9f2d0e3880aaabfb7a7b39e49",
-  "scope": "SDK build/types and source/discovery tooling, not complete service wire or Manage acceptance."
+  "build_artifact_sha256": "2d0f4528d05199cd9c80c5aad0a588ca75abf32f36ce1414e250187aad47a656",
+  "scope": "SDK build/types and source/discovery tooling, not complete service wire or Manage acceptance.",
+  "source_unchanged_during_run": true,
+  "duration_seconds": 3.768,
+  "source_capture_note": "Tracked and untracked source paths, excluding Python bytecode caches. Includes preserved unrelated working changes; this is not a clean committed SDK certification.",
+  "working_tree_status": "M contracts/service-capabilities/agentic.json\n M contracts/service-capabilities/chat.json\n M contracts/service-capabilities/evidence/reservation-contract-tests.json\n M contracts/service-capabilities/evidence/reservation-contract-tests.log\n M contracts/service-capabilities/evidence/sdk-build.log\n M contracts/service-capabilities/evidence/sdk-tests.log\n M contracts/service-capabilities/implementation-status.json\n M contracts/service-capabilities/known-gaps.json\n M contracts/service-capabilities/lms.json\n M contracts/service-capabilities/profile.json\n M contracts/service-capabilities/reservation.json\n M contracts/service-capabilities/session.json\n M contracts/service-capabilities/summary.json\n M contracts/service-capabilities/task.json\n M contracts/service-capabilities/verification-runs.json\n M docs/service-capabilities/DOMAIN_REVIEW.md\n M docs/service-capabilities/MEMORY_AUTHORITY_REVIEW.md\n M docs/service-capabilities/reservation.md\n M packages/profile/src/index.ts\n M scripts/run-reservation-contract-tests.py\n?? contracts/service-capabilities/evidence/reservation-capacity-first-attempt.json\n?? contracts/service-capabilities/evidence/reservation-capacity-first-attempt.log\n?? contracts/service-capabilities/evidence/reservation-capacity-tests.json\n?? contracts/service-capabilities/evidence/reservation-capacity-tests.log\n?? contracts/service-capabilities/reviews/reservation.json\n?? packages/profile/src/summaries.ts\n?? packages/profile/src/summaries.types.ts\n?? scripts/__pycache__/"
 }

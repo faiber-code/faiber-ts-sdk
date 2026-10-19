@@ -372,11 +372,17 @@
       "id": "reservation-cross-service-capacity",
       "owner": "reservation",
       "required": true,
-      "status": "approved_policy_implementation_pending",
-      "meaning": "Approved: configurable parallel capacity per provider, DEFAULT 1, enforced across all overlapping booking intervals across ALL services, including distinct overlapping same-service slots and regeneration. Implementation must preserve existing bookings, report legacy over-capacity conflicts, define adjacent interval boundaries and capacity-update rules, and test same/cross-service overlap, concurrent claims, cancellation/rebooking and increases/decreases.",
+      "status": "fixed_locally_pending_canonical_sdk_manage",
+      "meaning": "Approved provider-wide capacity implemented locally: integer 1..1000 default 1, half-open stored booking intervals across every service; buffers space generation only. Generation fills single-claim pools; booking/limit changes serialize. Insufficient changed limits return 409 without cancelling bookings. Legacy conflicts remain reportable; rollback refuses nondefault limits. 40 real PostgreSQL/RabbitMQ regressions pass, including booking versus decrease race. Canonical/deployed, gateway/project isolation, SDK and readable Manage workflows remain unverified.",
       "source_refs": [
         "Service/infera-reservation/src/time_slot/methods.rs",
-        "Service/infera-reservation/src/reservation/methods.rs"
+        "Service/infera-reservation/src/reservation/methods.rs",
+        "Service/infera-reservation/src/provider/capacity.rs",
+        "Service/infera-reservation/migration/src/m20261019_000009_provider_capacity.rs"
+      ],
+      "implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
+      "test_evidence": [
+        "reservation-provider-capacity"
       ]
     },
     {
@@ -465,6 +471,23 @@
       "source_refs": [
         "Service/infera-flow/src/run/routes.rs",
         "Service/faiber-sdk/crates/infera-idp-macro/src/lib.rs"
+      ]
+    },
+    {
+      "id": "chat-memory-event-publication",
+      "owner": "chat",
+      "required": true,
+      "status": "source_review_requires_runtime_and_deployment_reconciliation",
+      "implementation_phase": "memory_after_sdk_manage",
+      "canonical_source_revision": "d495217f85d77270865a040c1328d70c620e6c9d",
+      "meaning": "Tracked canonical Chat inserts chat_outbox_events but repository-wide trace found no dispatcher/claimant/published_at update. Memory event insertion follows assistant-message commit and direct Knowledge request outside that transaction; crash windows can lose durable delivery. Startup memory_settlement handles quota receipts, not this event table. Reconcile any external CDC consumer and implement atomic source-event delivery, fenced reclaimable dispatch and receipt/replay/correction tests before migration. Dirty summary outbox changes are separate preserved work.",
+      "source_refs": [
+        "Service/infera-chat/src/service.rs:1216",
+        "Service/infera-chat/src/service.rs:1325",
+        "Service/infera-chat/src/service.rs:1948",
+        "Service/infera-chat/src/main.rs:31",
+        "Service/infera-chat/src/memory_settlement.rs",
+        "Service/infera-chat/entity/src/outbox_event.rs"
       ]
     }
   ]

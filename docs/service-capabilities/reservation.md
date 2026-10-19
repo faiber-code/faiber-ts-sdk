@@ -10,41 +10,41 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 - Canonical source revision: `f7cd709510458083d10a1b79a5ad3d7cd29196bd`
 - SDK source revision: `f7cd709510458083d10a1b79a5ad3d7cd29196bd`
-- Working HEAD: `39ad7e7a142486622d4f0dd68658fcbdbe6103e2`
+- Working HEAD: `4ece677c98c48070fcdc3de77a714b783f73bacc`
 - Source relationship: working_ahead_of_sdk
 
 ## Operation review matrix
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /health` | `infera-reservation/src/router.rs:151` | inspect middleware/local scope | pending |
-| `GET /` | `infera-reservation/src/router.rs:151` | inspect middleware/local scope | pending |
-| `GET /api/openapi.json` | `infera-reservation/src/router.rs:68` | inspect middleware/local scope | pending |
-| `GET /api/v1/services` | `infera-reservation/src/reservation_service/routes.rs:13` | inspect middleware/local scope | pending |
-| `POST /api/v1/services` | `infera-reservation/src/reservation_service/routes.rs:27` | inspect middleware/local scope | pending |
-| `GET /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:22` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:33` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:39` | inspect middleware/local scope | pending |
-| `GET /api/v1/providers` | `infera-reservation/src/provider/routes.rs:16` | inspect middleware/local scope | pending |
-| `POST /api/v1/providers` | `infera-reservation/src/provider/routes.rs:27` | inspect middleware/local scope | pending |
-| `GET /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:22` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:33` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:39` | inspect middleware/local scope | pending |
-| `GET /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:45` | inspect middleware/local scope | pending |
-| `POST /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:51` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/providers/{id}/services/{service_id}` | `infera-reservation/src/provider/routes.rs:57` | inspect middleware/local scope | pending |
-| `GET /api/v1/providers/{provider_id}/schedules` | `infera-reservation/src/work_schedule/routes.rs:10` | inspect middleware/local scope | pending |
-| `PUT /api/v1/providers/{provider_id}/schedules` | `infera-reservation/src/work_schedule/routes.rs:16` | inspect middleware/local scope | pending |
-| `POST /api/v1/slots` | `infera-reservation/src/time_slot/routes.rs:19` | inspect middleware/local scope | pending |
-| `GET /api/v1/slots/available` | `infera-reservation/src/time_slot/routes.rs:13` | inspect middleware/local scope | pending |
-| `GET /api/v1/slots/{id}` | `infera-reservation/src/time_slot/routes.rs:30` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/slots/{id}` | `infera-reservation/src/time_slot/routes.rs:34` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/slots/{id}` | `infera-reservation/src/time_slot/routes.rs:25` | inspect middleware/local scope | pending |
-| `GET /api/v1/reservations` | `infera-reservation/src/reservation/routes.rs:12` | inspect middleware/local scope | pending |
-| `POST /api/v1/reservations` | `infera-reservation/src/reservation/routes.rs:24` | inspect middleware/local scope | pending |
-| `GET /api/v1/reservations/{id}` | `infera-reservation/src/reservation/routes.rs:18` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/reservations/{id}` | `infera-reservation/src/reservation/routes.rs:29` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/reservations/{id}` | `infera-reservation/src/reservation/routes.rs:35` | inspect middleware/local scope | pending |
-| `GET /api/v1/integration/flow` | `infera-reservation/src/integration/routes.rs:9` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-reservation/src/router.rs:151` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /` | `infera-reservation/src/router.rs:151` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/openapi.json` | `infera-reservation/src/router.rs:68` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/services` | `infera-reservation/src/reservation_service/routes.rs:13` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `POST /api/v1/services` | `infera-reservation/src/reservation_service/routes.rs:27` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:22` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `PATCH /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:33` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `DELETE /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:39` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/providers` | `infera-reservation/src/provider/routes.rs:16` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `POST /api/v1/providers` | `infera-reservation/src/provider/routes.rs:27` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:22` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `PATCH /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:33` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `DELETE /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:39` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:45` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `POST /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:51` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `DELETE /api/v1/providers/{id}/services/{service_id}` | `infera-reservation/src/provider/routes.rs:57` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/providers/{provider_id}/schedules` | `infera-reservation/src/work_schedule/routes.rs:10` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `PUT /api/v1/providers/{provider_id}/schedules` | `infera-reservation/src/work_schedule/routes.rs:16` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `POST /api/v1/slots` | `infera-reservation/src/time_slot/routes.rs:19` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/slots/available` | `infera-reservation/src/time_slot/routes.rs:13` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/slots/{id}` | `infera-reservation/src/time_slot/routes.rs:30` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `PATCH /api/v1/slots/{id}` | `infera-reservation/src/time_slot/routes.rs:34` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `DELETE /api/v1/slots/{id}` | `infera-reservation/src/time_slot/routes.rs:25` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/reservations` | `infera-reservation/src/reservation/routes.rs:12` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `POST /api/v1/reservations` | `infera-reservation/src/reservation/routes.rs:24` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/reservations/{id}` | `infera-reservation/src/reservation/routes.rs:18` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `PATCH /api/v1/reservations/{id}` | `infera-reservation/src/reservation/routes.rs:29` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `DELETE /api/v1/reservations/{id}` | `infera-reservation/src/reservation/routes.rs:35` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
+| `GET /api/v1/integration/flow` | `infera-reservation/src/integration/routes.rs:9` | inspect middleware/local scope | locally_reviewed_requires_canonical_and_operation_verification |
 
 Full fields, guards, state/side-effect evidence, call dependencies, source checksums and unresolved symbols are in `contracts/service-capabilities/reservation.json`. Empty declared permission arrays do not establish public access. Review gateway middleware and resource ownership.

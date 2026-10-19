@@ -67,10 +67,7 @@ RFC3339 start/end order, active provider/service assignment and duplicate starts
 against clean commits after testing; the registry binds those commits rather than the
 older base revision. These are local repairs, with canonical/runtime reconciliation pending.
 
-Same-provider availability across different services remains a distinct unresolved
-capacity rule. Successful claims on different slot IDs do not establish that one provider
-can serve overlapping bookings. No generated operation review or local test count certifies
-that workflow, the gateway, SDK or Manage.
+Provider-wide capacity was subsequently approved and implemented locally; see the capacity section below. Earlier slot-ownership tests alone did not establish interval capacity. Gateway, SDK and Manage workflows still require separate verification.
 
 ## Parent-deletion lifecycle and retained dependency evidence
 
@@ -94,7 +91,7 @@ log, instead of treating a dependency hash without its bytes as reproducible evi
 Capacity review must include distinct overlapping starts in the same service (for example
 09:00 and 09:15 with 30-minute duration), different services and regeneration after
 duration/schedule changes. Equal-start deduplication proves none of those capacity rules.
-The product capacity decision is pending; no policy has been silently imposed.
+The approved policy is configurable provider-wide parallel capacity, default one; it is implemented locally as described below.
 
 ## Version local semantic and Control publisher verification
 
@@ -123,3 +120,37 @@ This covers a local HTTP component, not sandbox authorization, Secret provisioni
 Kubernetes rollout, durable Control receipt storage/reconciliation or APK bytes. Those
 remaining cross-service gates are explicit. Test source/dependency digests and both committed
 revisions are retained; the harness rejects source changes during a run.
+
+## Reservation provider capacity: local verification
+
+Commit `4ece677c98c48070fcdc3de77a714b783f73bacc` implements configurable
+provider-wide capacity (integer 1–1000, default one). Stored booking intervals are
+half-open `[starts_at, ends_at)`, across all services and distinct same-service
+starts. Buffers space generation starts and do not extend historical occupancy.
+All non-cancelled statuses count, including completed future bookings.
+
+Generation fills capacity-many single-claim slots per provider/service/start;
+retries preserve claims, and decreases retain excess pool rows. Booking rechecks
+simultaneous peak occupancy under the provider lock. Limit changes use that same
+lock, reject a changed limit below current/future peak with 409, and never cancel
+existing bookings. Migration preserves legacy overlaps; the provider-read-protected
+capacity endpoint reports exact conflict windows with counts and bounded pages.
+Schema rollback refuses nondefault configuration; older writer rollback is not
+certified safe for parallel slot pools.
+
+All 40 Rust tests passed on owned PostgreSQL 16 and RabbitMQ containers, including
+eight capacity regressions: same/cross-service overlap, adjacent boundaries, peak
+versus intersection count, concurrent claims, stale cancellation, limit changes,
+limit-decrease versus booking races, generation pools, current permissions and
+isolated legacy migration/down/up. Test duration was 12.939 seconds including Rust
+build execution; this is not agent latency. The first run found and repaired a
+history-edit validation-order regression. Its raw failed-attempt report predates
+the runner fix that counts tests from failing binaries; the log records 34 tests
+actually executed (33 passed, one failed), rather than that report's partial 15.
+
+The clean commit source digest matches the fenced test inputs:
+`3f72d360a944f86e42aa1531bd7492c82ba94bc7de0ed500aa19cd1d54e0a3ef`.
+Exact logs, image IDs, resolved lock and dirty path-dependency provenance are in
+`evidence/reservation-capacity-tests.json` and `verification-runs.json`.
+Canonical/runtime reconciliation, project identity and complete SDK/Manage
+workflows remain open. No production migration or release has been performed.

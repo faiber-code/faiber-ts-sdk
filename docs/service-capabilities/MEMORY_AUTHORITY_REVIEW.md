@@ -66,3 +66,37 @@ Remaining hard gates include full source/scope erasure across worker/event/snaps
 current user/project permissions, complete model-request budgets, semantic fact identity,
 Chat correction/delivery, Knowledge lease recovery and rollback. The exact local behavior
 and limits are in `infera-agentic/docs/SOURCE_HISTORY_PRESERVATION.md`.
+
+## Canonical Chat delivery trace: publication is not yet durable
+
+A repository-wide trace at pinned Chat revision
+`d495217f85d77270865a040c1328d70c620e6c9d` found creation of
+`chat_outbox_events`, its pending index and insertion helpers, but no reader,
+lease claimant, broker dispatcher or published_at updater for that table in the
+tracked application. An external CDC/deployment consumer has not been reconciled;
+the table and README's publication claim alone cannot establish delivery.
+
+`insert_message` atomically commits a message, sequence increment, attachments
+and `chat.message.created` outbox row. The separate memory path saves the assistant
+message first, calls Knowledge directly, then inserts
+`assistant.memory.turn.requested` on the database connection outside that message
+transaction, before marking the AI turn completed. A crash between those steps can
+leave a durable reply without its memory event. A successful direct HTTP response
+can also be ignored if its body says queued:false. Conversely a successful ingest
+followed by local event failure can leave an apparent failed turn after remote
+side effects. These are source-derived failure windows, not observed runtime tests.
+
+The startup `memory_settlement::run` worker does not deliver those events. It
+processes `chat_memory_operations` and `chat_memory_settlements` for quota receipts
+and leases, and calls product-plan settlement. Its durability cannot be borrowed
+to certify Knowledge ingestion. The current dirty checkout additionally contains
+summary-activity outbox work; that is separate uncommitted work and is preserved.
+
+Before migration, establish one durable delivery contract with atomic source and
+event writes, a fenced/reclaimable dispatcher, revisioned source keys, receipts
+that distinguish accepted/queued/applied/withheld, retry reconciliation and source
+correction/deletion tombstones. Verify crash points around both commits and remote
+acceptance, duplicate deliveries, current membership revocation, pending forgetting
+and outage recovery. Keep execution usage with Agentic and quota settlement with
+its owning authority. This trace does not change model defaults or conversation
+ownership, and no Chat source was modified.

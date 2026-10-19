@@ -1,7 +1,3 @@
-
-> faiber-ts-sdk-monorepo@0.23.0 capabilities:check
-> node scripts/check-service-capabilities.mjs --stage=discovery
-
 {
   "stage": "discovery",
   "status": "blocked",
@@ -46,7 +42,8 @@
     "knowledge-worker-crash-recovery",
     "knowledge-forget-ingestion-fence",
     "chat-memory-source-corrections",
-    "chat-memory-http-receipt"
+    "chat-memory-http-receipt",
+    "chat-memory-event-publication"
   ],
   "next": "Resolve evidence in each service matrix; source counts do not satisfy semantic/wire verification."
 }

@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T11:02:44.344523+00:00",
+  "updated_at": "2026-10-19T11:33:17.509757+00:00",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
-  "committed_source_base": "20df56c2a74afceb1f839f157327479546e16c17",
+  "committed_source_base": "9c5bccaa4cbbfe934d0ed093d81387c48d91234e",
   "tests": {
     "sdk_build": {
       "exit_code": 0
@@ -14,7 +14,8 @@
       "tests_executed": 103,
       "failures": 0,
       "scope": "SDK and discovery tooling; not service workflow certification",
-      "working_source_sha256": "6732ec1adf54a87308a559595499345a151ac1bca9cd1946af561c9192b6de97"
+      "working_source_sha256": "9693e03c180749cb352db02682879314f7b73a238cd2f4380df8c79497b1acbf",
+      "source_capture_note": "Tracked and untracked source paths, excluding Python bytecode caches. Includes preserved unrelated working changes; this is not a clean committed SDK certification."
     },
     "reservation_real_postgresql": {
       "exit_code": 0,
@@ -144,12 +145,23 @@
       "exit_code": 101,
       "tests_executed": 0,
       "reason": "async-trait 0.1.91 not cached; original checkout lock restored"
+    },
+    "reservation_provider_capacity": {
+      "status": "passed",
+      "command": "cargo test --offline --lib --tests -- --include-ignored --test-threads=1",
+      "exit_code": 0,
+      "tests_executed": 40,
+      "duration_seconds": 12.939,
+      "source_revisions": {
+        "reservation": "4ece677c98c48070fcdc3de77a714b783f73bacc"
+      },
+      "scope": "Reservation full Rust suite, real PostgreSQL/RabbitMQ, HTTP booking and forwarded permission enforcement; gateway/IDP identity, SDK and Manage journeys remain separate gates"
     }
   },
   "artifacts": {
     "sdk-tests": {
       "path": "evidence/sdk-tests.log",
-      "sha256": "2e378d5c982d121fc63739bcc48a743aa75815f8d9f1f7e55ec7d0850b8f6c23"
+      "sha256": "df8d64492e4b7e61d7924f189acb6146eaa70aae81438767ab878e3245dd111f"
     },
     "sdk-contract-audit": {
       "path": "evidence/sdk-contract-audit.log",
@@ -157,7 +169,7 @@
     },
     "discovery-gate": {
       "path": "evidence/discovery-gate.log",
-      "sha256": "0658f42485d1e355db7d79ca9a5741805f94351299eddf750ae991e3855b30e1"
+      "sha256": "6d5b6ebac2c801ab75048e1d828a94f7b7352c3ab741b0ea975b59c0d5136194"
     },
     "knowledge-canonical-tests": {
       "path": "evidence/knowledge-canonical-tests.log",
@@ -193,7 +205,7 @@
     },
     "sdk-build": {
       "path": "evidence/sdk-build.log",
-      "sha256": "0b04215e28afa3246c77dcf6707a3c86f0586ba9f2d0e3880aaabfb7a7b39e49"
+      "sha256": "2d0f4528d05199cd9c80c5aad0a588ca75abf32f36ce1414e250187aad47a656"
     },
     "version-local-contracts": {
       "path": "evidence/version-contract-tests.log",
@@ -210,6 +222,10 @@
     "social-canonical-unit-attempt": {
       "path": "evidence/social-canonical-unit-attempt.log",
       "sha256": "074ac36286762f4b6351daf499d78bec98266521712a71a824baaddc6176b894"
+    },
+    "reservation-provider-capacity": {
+      "path": "evidence/reservation-capacity-tests.log",
+      "sha256": "36a04f950a1f89b26866009857e6176f98a400895b8e8cbc6f97cfbb7804de53"
     }
   },
   "pastil": {
@@ -258,7 +274,7 @@
     "Publish verified Knowledge, implement scoped memory/ingestion/forgetting/outage/migration/rollback and measure canaries"
   ],
   "local_backend_commits": {
-    "reservation": "39ad7e7a142486622d4f0dd68658fcbdbe6103e2",
+    "reservation": "4ece677c98c48070fcdc3de77a714b783f73bacc",
     "agentic": "7fe2de869b15b122d3a90486f9ad940742da5fca",
     "version": "92b69f4e85225f87e47258645c6f908a1eb501b4",
     "control": "cd8e79a4681a2c5b1fb688a637d14f69f0078f39",
@@ -279,7 +295,8 @@
     "Version per-slug publication transaction serialization and bounded exact-token validation",
     "Version explicit slug/UUID/envelope/enum/lifecycle contracts and seed-preservation regressions",
     "Version malformed forwarded identity rejection and truthful health/slug metadata paths",
-    "Control APK publisher verifies real Version receipts/read-back and retains partial-outcome identity; provisioning/durable reconciliation still pending"
+    "Control APK publisher verifies real Version receipts/read-back and retains partial-outcome identity; provisioning/durable reconciliation still pending",
+    "Provider-wide configurable interval capacity, default one, with same-start pools, serialized limit changes, preserved legacy conflicts, reporting and guarded schema rollback; 40 real database regressions passed"
   ],
   "pending_semantic_decisions": [],
   "local_unverified_changes": [
@@ -300,7 +317,7 @@
   "approved_semantic_decisions": [
     {
       "id": "reservation-provider-capacity",
-      "status": "approved_not_yet_implemented",
+      "status": "implemented_locally_tested_pending_canonical_sdk_manage",
       "policy": "Configurable parallel capacity per provider, default 1, across overlapping booking intervals across ALL services, including distinct overlapping same-service slots.",
       "required_verification": [
         "adjacent boundaries",
@@ -312,5 +329,23 @@
         "explicit capacity-change outcomes"
       ]
     }
-  ]
+  ],
+  "environment_recovery": {
+    "docker_restart": "Authorized by direct human reply; CLI timed out stopping Docker, terminated remaining Docker Desktop processes and reopened app; daemon 28.5.1 healthy and real tests resumed.",
+    "disk": "50 GiB available independently confirmed; cause of large increase not attributed to cache removal.",
+    "prior_cleanup": "Seven task-specific Service/target/debug/incremental directories removed before the no-further-cleanup boundary; individual byte sizes were not measured. No further cleanup performed.",
+    "read_only_cache_sizes": {
+      "Service/target": "831 MiB",
+      "Service/infera-control/target": "2.0 GiB",
+      "infera-agentic/target": "7.7 GiB",
+      "cargo_registry": "3.6 GiB",
+      "cargo_git": "2.6 MiB"
+    },
+    "note": "Sizes observed before resumed compilation; no deletion proposed or needed."
+  },
+  "semantic_review_progress": {
+    "reservation": "29 pinned mounted operations manually reviewed against local implementation with canonical-drift and per-operation verification still required; new local capacity endpoint documented separately.",
+    "chat": "Pinned repository trace identifies absent tracked outbox dispatcher and non-atomic memory event after reply commit. External delivery remains unreconciled.",
+    "all_services": "Discovery gate blocked; no verified Knowledge published."
+  }
 }
