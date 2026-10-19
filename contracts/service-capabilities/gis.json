@@ -287,16 +287,83 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "08549a1c1a804d9861d62118a9b993d0bc6a4440bec4460ccd8cfc95fd5b5f90",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Read GIS database and private Martin renderer dependency readiness.",
+          "fa": "خواندن آمادگی پایگاه داده و موتور خصوصی کاشی مارتین."
+        },
+        "scope": "Deployment/organization-bound actor; public readiness only for /health. Personal records are user-owned inside that organization.",
+        "classification": "public_dependency_readiness",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-private-identity-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/IDP-cookie and trusted-service permission tests",
+          "Real migrated PostGIS/SQL mutation, revocation and boundary tests",
+          "Typed SDK package and readable Manage flows",
+          "Deployed Rasht branch/current canonical reconciliation and source provenance"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No actor permission. Global middleware explicitly bypasses identity for /health, including unavailable cookie validation."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No filters or pagination."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No input. HTTP200 iff DB ping and Martin /health success, else503; {data:{service:\"infera-gis\",database:boolean,martin:boolean}}, no status/message keys."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No mutation. Startup has already run migrations; readiness is two dependency probes, not full end-to-end geometry/tenant authorization."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Martin URL is private configured upstream; its health is observed but version, MVT correctness, resource grants and PostGIS feature support remain separate checks."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -1990,16 +2057,83 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "f5e648e88fb18715b0a32a655a9f14a2a8d6325bec99cf12de677f25f92d32ca",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "List the current user’s private personal places.",
+          "fa": "فهرست مکان‌های شخصی خصوصی کاربر جاری."
+        },
+        "scope": "Deployment/organization-bound actor; public readiness only for /health. Personal records are user-owned inside that organization.",
+        "classification": "private_owner_read",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-private-identity-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/IDP-cookie and trusted-service permission tests",
+          "Real migrated PostGIS/SQL mutation, revocation and boundary tests",
+          "Typed SDK package and readable Manage flows",
+          "Deployed Rasht branch/current canonical reconciliation and source provenance"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Always organization_id=actor.tenant AND owner_id=actor.id, updated_at DESC, hard LIMIT500. No cursor/offset/query filter or total count. Unknown query parameters do not add supported pagination."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "{data:PersonalPlace[]} with id,name,note,category,longitude,latitude,revision. No timestamps in projection and no status/message."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No mutation; private source text is untrusted data, not an instruction."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -2056,16 +2190,83 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "17b6b83fe424d891020fe6c7321c80f35ff783c0bbe4121967c9058c565454d4",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Create a private location and note for the current actor.",
+          "fa": "ایجاد موقعیت و یادداشت خصوصی برای کاربر جاری."
+        },
+        "scope": "Deployment/organization-bound actor; public readiness only for /health. Personal records are user-owned inside that organization.",
+        "classification": "private_owner_create",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-private-identity-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/IDP-cookie and trusted-service permission tests",
+          "Real migrated PostGIS/SQL mutation, revocation and boundary tests",
+          "Typed SDK package and readable Manage flows",
+          "Deployed Rasht branch/current canonical reconciliation and source provenance"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No caller-selectable owner/organization or pagination."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Required name,note,category,longitude,latitude; optional expected_revision is ignored on create. Nonempty trimmed name and byte lengths name<300,note<6000,category<80; finite longitude[-180,180],latitude[-85,85]. Response200 {data:{id:UUID}}; invalid400."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Generates UUID; inserts organization and owner from current actor and ST_SetSRID(ST_MakePoint(lon,lat),4326). No public promotion, history/outbox emission or idempotency key in this handler."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -2115,16 +2316,83 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "79084278690c67c328b1678af54483f6aed4036e12057285006bb91f2213ed6e",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Read one strictly owned private place.",
+          "fa": "خواندن یک مکان خصوصی متعلق به کاربر جاری."
+        },
+        "scope": "Deployment/organization-bound actor; public readiness only for /health. Personal records are user-owned inside that organization.",
+        "classification": "private_owner_read",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-private-identity-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/IDP-cookie and trusted-service permission tests",
+          "Real migrated PostGIS/SQL mutation, revocation and boundary tests",
+          "Typed SDK package and readable Manage flows",
+          "Deployed Rasht branch/current canonical reconciliation and source provenance"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Exact id AND organization_id AND owner_id match; no query or pagination."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Path UUID. {data:PersonalPlace}; missing, wrong owner or organization returns404."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No mutation or owner/admin override."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -2186,16 +2454,83 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "b07680d69b2cf28f3515e328dcdd8bb1213bc77165837aa22d68293824a683e9",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Replace private location fields with optimistic revision control.",
+          "fa": "جایگزینی فیلدهای مکان خصوصی با کنترل خوش‌بینانهٔ نسخه."
+        },
+        "scope": "Deployment/organization-bound actor; public readiness only for /health. Personal records are user-owned inside that organization.",
+        "classification": "private_owner_revision_write",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-private-identity-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/IDP-cookie and trusted-service permission tests",
+          "Real migrated PostGIS/SQL mutation, revocation and boundary tests",
+          "Typed SDK package and readable Manage flows",
+          "Deployed Rasht branch/current canonical reconciliation and source provenance"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Exact id, tenant, owner and expected revision; no query filters."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Path UUID and same required fields/bounds as create plus expected_revision. Missing/null expected_revision becomes0; SQL matches stored revision exactly. Response200 {data:{id}}, zero affected rows409, including stale/missing/wrong-owner cases."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Atomically increments revision and updates updated_at after owner+organization+revision predicate. Does not expose an owner transfer, partial PATCH, history or global/public mutation."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -2245,16 +2580,83 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "b8f84ae027e59d35c5a42a5fbb544cd004cfa0c39fc83578de8a421bced7e859",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Hard-delete an owned private place.",
+          "fa": "حذف دائمی مکان خصوصی متعلق به کاربر جاری."
+        },
+        "scope": "Deployment/organization-bound actor; public readiness only for /health. Personal records are user-owned inside that organization.",
+        "classification": "private_owner_delete",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-private-identity-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/IDP-cookie and trusted-service permission tests",
+          "Real migrated PostGIS/SQL mutation, revocation and boundary tests",
+          "Typed SDK package and readable Manage flows",
+          "Deployed Rasht branch/current canonical reconciliation and source provenance"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Exact id AND tenant AND owner; no per-permission admin bypass."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Path UUID; no JSON body or revision parameter. Response200 {data:{id}} after exactly one deletion; missing/repeated/wrong-owner404."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Hard delete without expected revision, soft archive, history/outbox or automatic restore. A Knowledge-derived copy would need an explicit provenance/forgetting workflow; deletion here does not certify downstream forgetting."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Strictly private personal places use (GIS local id UUID, owner IDP user UUID, organization UUID) on every SQL access. They do not appear in public place catalogs, Social references/assertions, maps or tiles. These IDs are not Chat conversation/Session room/Agentic project IDs. No cross-service grant is implied by knowing a place UUID."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
@@ -2303,16 +2705,83 @@
       "schemas": {},
       "relation_candidates": [],
       "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
+        "status": "source_reviewed_runtime_pending",
+        "source_checksum": "cf7b6663b5a9b2f6d5577d471bbc97cf4fc34f64ffc4b5afdd479360bd1522d1",
+        "canonical_source_basis": "d07b4facd1f73d40a20291dde479365845ec4023",
+        "meaning": {
+          "en": "Read the authenticated GIS actor context.",
+          "fa": "خواندن زمینهٔ هویت احرازشدهٔ کاربر سامانهٔ مکانی."
+        },
+        "scope": "Deployment/organization-bound actor; public readiness only for /health. Personal records are user-owned inside that organization.",
+        "classification": "authenticated_actor_observation",
+        "test_evidence": [],
+        "source_review_artifact": "evidence/gis-private-identity-source-review-v1.json",
+        "remaining_gates": [
+          "Actual full-router/IDP-cookie and trusted-service permission tests",
+          "Real migrated PostGIS/SQL mutation, revocation and boundary tests",
+          "Typed SDK package and readable Manage flows",
+          "Deployed Rasht branch/current canonical reconciliation and source provenance"
+        ],
+        "permissions": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "Private routes require actor() with user UUID and organization UUID. Direct trusted callers need exact Bearer BFF_SERVICE_KEY (minimum32) plus actor headers. Ordinary forwarded user/Bearer headers are stripped; cookie calls validate current session through IDP, set deployment PUBLIC_ORGANIZATION_ID, and mutations require exact GIS_PANEL_ORIGIN. Identity transport errors503, absent/invalid identity401, missing tenant403. This is not a generic end-user Bearer JWT transport. Trusted service credentials can assert tenant: provisioning boundaries require actual runtime validation."
+        },
+        "filters": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No pagination or user selector."
+        },
+        "inputs_outputs": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No body/query. {data:{user_id:UUID,organization_id:UUID,permissions:string[]}}; no status/message envelope."
+        },
+        "lifecycle": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "No mutation or identity provisioning. Response projects current trusted request or IDP-validated cookie, not a cached subject profile."
+        },
+        "relationships": {
+          "status": "source_reviewed_runtime_pending",
+          "source_refs": [
+            "Service/infera-gis/src/router.rs",
+            "Service/infera-gis/src/auth.rs",
+            "Service/infera-gis/src/personal_places.rs",
+            "Service/infera-gis/src/error.rs",
+            "Service/infera-gis/src/main.rs",
+            "Service/infera-gis/migration/schema.sql"
+          ],
+          "meaning": "IDP user and deployment organization context, not a generic user directory or project membership lookup."
+        }
       },
       "sdk": {
         "status": "requires_wire_verification"
