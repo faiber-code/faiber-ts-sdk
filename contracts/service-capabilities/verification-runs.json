@@ -1052,5 +1052,35 @@
     "scope": "Explicit immutable service source revision plus recorded resolved lock when required; actual resolved package directories including git/local RustSDK and registry inputs. Unit tests only; not real database, gateway, crash/replay, cross-service workflow, migration, canonical merge or rollout acceptance.",
     "canonical_certification": false,
     "canonical_source_tests": false
+  },
+  "knowledge-memory-delivery": {
+    "schema_version": "1.0",
+    "kind": "real_postgres_memory_delivery_prerequisite",
+    "status": "passed",
+    "command": "cargo --config profile.test.package.infera_knowledge.debug=0 --config profile.test.package.infera_knowledge.strip=\"debuginfo\" test --locked --offline --lib -- --include-ignored --skip platform::memory_delivery_tests::worker_process_entry --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 53,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_revisions": {
+      "knowledge": "24eb78f08322a26f9424af4a9e43f84f0e4e8791"
+    },
+    "source_unchanged_during_run": true,
+    "artifact_path": "evidence/knowledge-memory-delivery-tests-24eb78f.json",
+    "artifact_sha256": "1183a3a424496613e773171d30b1d0821fce1080479cd6e8b6e33154dbeec5c6",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/knowledge-memory-delivery-tests-24eb78f.log",
+        "sha256": "5128f76d21a05d9382f3f464301d7ac05a1aa4b8b14d295be5779e39cd0fe74f"
+      },
+      {
+        "artifact_path": "evidence/knowledge-memory-delivery-runner-24eb78f.py",
+        "sha256": "3751f6889706df9732409225a45132dd1473af3a6c2ae8f58e777f884312c455"
+      }
+    ],
+    "duration_seconds": 5.359,
+    "scope": "Owned disposable PostgreSQL with full actual migrations and production worker helpers; current wire receipt characterization, lease recovery/fences, atomic effects and real process crash/expiry/concurrency. No live gateway/project subject authorization, producer outbox, source-version correction, forgetting fence, E-ID acceptance, deployment/publication or memory cutover.",
+    "canonical_certification": false,
+    "parent_test_counts": "43 unit +10 real PostgreSQL; subprocess probe entry excluded, not counted as a capability test"
   }
 }

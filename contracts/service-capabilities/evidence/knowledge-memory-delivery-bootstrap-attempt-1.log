@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/mohammadralizadeh/Infera/faiber-ts-sdk/scripts/run-knowledge-memory-delivery-tests.py", line 52, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/mohammadralizadeh/Infera/faiber-ts-sdk/scripts/run-knowledge-memory-delivery-tests.py", line 19, in main
+    host=next(x.split(': ',1)[1] for x in run(['rustc','-vV']).splitlines() if x.startswith('host: '));metadata=json.loads(run(['cargo','metadata','--locked','--offline','--format-version=1','--filter-platform',host],cwd=REPO));before=snapshot(metadata['packages']);lock=(REPO/'Cargo.lock').read_bytes()
+                                                                                                                           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mohammadralizadeh/Infera/faiber-ts-sdk/scripts/run-knowledge-memory-delivery-tests.py", line 6, in run
+    def run(args,**kw):return subprocess.check_output(args,text=True,stderr=subprocess.PIPE,**kw).strip()
+                              ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 473, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['cargo', 'metadata', '--locked', '--offline', '--format-version=1', '--filter-platform', 'aarch64-apple-darwin']' returned non-zero exit status 101.

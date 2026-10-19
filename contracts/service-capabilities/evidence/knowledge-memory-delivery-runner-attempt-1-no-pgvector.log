@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "failure": "Cargo or real PostgreSQL regressions failed; retained complete output",
+  "tests_executed": 53,
+  "tests_failed": 10,
+  "source_unchanged_during_run": true,
+  "duration_seconds": 13.214
+}

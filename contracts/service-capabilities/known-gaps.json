@@ -213,12 +213,16 @@
       "id": "knowledge-worker-crash-recovery",
       "owner": "knowledge",
       "required": true,
-      "status": "source_review_requires_runtime_verification",
+      "status": "local_delivery_prerequisite_verified_canonical_producer_and_read_your_writes_pending",
       "implementation_phase": "memory_after_sdk_manage",
       "meaning": "The memory worker selects only pending/retry records before setting processing; expired processing leases are not selected by the visible query. Verify process-crash recovery and fence receipt updates by lease owner before relying on durable delivery.",
       "source_refs": [
         "Service/infera-knowledge/src/platform.rs:2448"
-      ]
+      ],
+      "local_test_evidence": [
+        "knowledge-memory-delivery"
+      ],
+      "local_source_revision": "24eb78f08322a26f9424af4a9e43f84f0e4e8791"
     },
     {
       "id": "knowledge-forget-ingestion-fence",
