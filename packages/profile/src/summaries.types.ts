@@ -31,7 +31,10 @@ export interface SummaryStatusWrite {enabled:boolean}
 export interface SummaryPreviewWrite {user_id:string}
 export interface SummaryPreviewResponse {job_id:string;run_id:string}
 export interface SummaryValidation {valid:boolean}
-export interface SummarySourceCheck {source:SummarySource;available:boolean}
+/** available establishes authenticated connectivity only; evidence_ready=false or
+ * preview_required=true still requires an eligible subject preview before activation.
+ */
+export interface SummarySourceCheck {source:SummarySource;available:boolean;evidence_ready?:boolean;preview_required?:boolean;status?:string}
 export interface SummaryRefreshWrite {subjects:{user_id:string;role_id:string}[]}
 export interface SummaryRefreshResponse {queued:{job_id:string;user_id:string;role_id:string}[]}
 export interface SummaryRetryResponse {job_id:string}
