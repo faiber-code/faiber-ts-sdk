@@ -1980,6 +1980,7 @@
       ],
       "source": "infera-chat/src/routes.rs",
       "body": "CompleteAiRuntimeInput",
+      "pathParam": "(Uuid, Uuid)",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -2011,7 +2012,7 @@
       ],
       "source": "infera-chat/src/routes.rs",
       "pathParam": "Uuid",
-      "responseEnvelope": "stream",
+      "responseEnvelope": "raw-response",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -2055,6 +2056,7 @@
         "chat:manage"
       ],
       "source": "infera-chat/src/routes.rs",
+      "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "no-content",
       "multipart": false,
       "formUrlEncoded": false
@@ -2207,6 +2209,19 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/integrations/lms/messages/{id}/notification-context",
+      "module": "human_chat",
+      "handler": "notification_context",
+      "permissions": [],
+      "source": "infera-chat/src/human_chat.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/internal/memory/media",
       "module": "memory_import",
@@ -2275,10 +2290,11 @@
         "chat:read"
       ],
       "source": "infera-chat/src/human_chat.rs",
+      "query": "PageQuery",
+      "response": "ConversationPage",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "query": "ReviewedIntegrationQuery"
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -2289,10 +2305,11 @@
         "chat:read"
       ],
       "source": "infera-chat/src/human_chat.rs",
+      "query": "PollQuery",
+      "response": "UserEventPage",
       "responseEnvelope": "api",
       "multipart": false,
-      "formUrlEncoded": false,
-      "query": "ReviewedIntegrationQuery"
+      "formUrlEncoded": false
     },
     {
       "method": "POST",
@@ -2303,10 +2320,11 @@
         "chat:read"
       ],
       "source": "infera-chat/src/human_chat.rs",
-      "responseEnvelope": "api",
+      "body": "AuthInput",
+      "response": "Value",
+      "responseEnvelope": "raw",
       "multipart": false,
-      "formUrlEncoded": false,
-      "body": "ReviewedIntegrationInput"
+      "formUrlEncoded": false
     },
     {
       "method": "GET",
@@ -2317,6 +2335,7 @@
         "chat:read"
       ],
       "source": "infera-chat/src/human_chat.rs",
+      "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2330,6 +2349,7 @@
         "chat:read"
       ],
       "source": "infera-chat/src/human_chat.rs",
+      "response": "UnreadCount",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false

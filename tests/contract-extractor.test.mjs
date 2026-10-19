@@ -50,6 +50,10 @@ test("contract extraction finds the sibling services tree and emits portable mou
     assert.equal(manager.query,"models::ListQuery");
     assert.equal(manager.response,"models::ListData");
     assert.equal(manager.responseMeta,"crate::models::PaginationMeta");
+    for (const path of ["/api/v1/me/conversations","/api/v1/me/unread-count","/api/v1/me/events","/api/v1/me/realtime/config","/api/v1/me/realtime/auth"]) {
+      assert.ok(manifest.chat.some(endpoint=>endpoint.path===path),path);
+    }
+    assert.ok(manifest.chat.some(endpoint=>endpoint.path==="/api/v1/integrations/lms/messages/{id}/notification-context"));
     const upload = manifest.task.find(endpoint => endpoint.method === "POST" && endpoint.path === "/api/v1/work-items/{id}/attachments");
     assert.equal(upload.handlerModule, "attachments", "qualified type resolution must use the owning handler module");
     const drmOperationsSettings = manifest.drm.find(endpoint => endpoint.method === "GET" && endpoint.path === "/api/v1/operations/settings");

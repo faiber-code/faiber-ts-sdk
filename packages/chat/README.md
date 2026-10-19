@@ -31,13 +31,14 @@ await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } })
 
 ## Complete capability
 
-This package exposes 62 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 63 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
 | `fitness` | 2 | `POST`, `PUT` |
+| `human-chat` | 6 | `GET`, `POST` |
 | `main` | 1 | `GET` |
-| `memory_import` | 2 | `POST` |
+| `memory-import` | 2 | `POST` |
 | `routes` | 52 | `DELETE`, `GET`, `POST`, `PUT` |
 
 AI turns are executed and billed by Infera Agentic; Chat only coordinates conversation context and reconciliation. The events endpoint is an SSE stream and can be requested with normal SDK authorization headers.
@@ -223,3 +224,5 @@ Use `chat.personal.conversations()` and `unreadCount()` for authenticated conver
 When the instance enables LMS assigned-contact policy, direct creation/sending requires the current student/teacher/support relationship. Obtain eligible contacts from LMS rather than a public directory. Existing pair deduplication remains authoritative. A revoked assignment retains readable history but disables sending. Generic member routes cannot expand these direct conversations. Message retries reuse `client_id` with identical content; a changed body conflicts. Read updates are monotonic, cannot exceed accessible message sequences, and should be sent only after visible messages render.
 
 A web application should keep its chat provider above route changes, preserving conversation/draft/scroll state. Safe Markdown must disable raw HTML and unsafe URL schemes; copying and URL/email/phone detection belong in the client. Chat unread counts and Messenger notification counts are separate.
+
+The personal summary, unread-count, cursor-event and private-channel authorization methods require the current member's `chat:read` permission. Personal methods remain under `/api/v1/me/*`; internal LMS notification-context reads use a separate server-only `x-infera-lms-token` and return identifiers/read state without private message content. Do not expose the service token in a browser.

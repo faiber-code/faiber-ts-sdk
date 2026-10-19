@@ -57,3 +57,15 @@ routerContracts["profile:GET /api/openapi.json"]={
   auth:"no handler permission check; deployment gateway policy is separate",
   purpose:"Read the raw generated OpenAPI document; annotations do not prove complete mounted operation coverage."
 };
+
+routerContracts["chat:GET /health"]={
+ response:'import("./personal.js").PersonalChatResponse<import("./personal.js").ChatProcessHealth>',
+ auth:"no handler permission check; deployment gateway policy is separate",
+ purpose:"Read process health and the execution authority identifier. Does not attest downstream readiness."
+};
+routerContracts["chat:GET /api/v1/integrations/lms/messages/{id}/notification-context"]={
+ response:'import("./personal.js").PersonalChatResponse<import("./personal.js").ChatNotificationContext>',
+ pathTypes:{id:"string"},
+ auth:"server-only x-infera-lms-token matching CHAT_LMS_SERVICE_TOKEN; missing configuration or invalid token returns 403",
+ purpose:"Read identifiers and current active recipients/read state for a sent undeleted message. Excludes private message content and profile data; missing/deleted messages or conversations return 404."
+};

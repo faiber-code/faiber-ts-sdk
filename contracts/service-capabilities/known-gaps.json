@@ -632,6 +632,22 @@
         "manage": "02ca8711d457f463727b1678a6b699894709c24b",
         "control": "46d863d63b70a7c30f45fbd5a2c75472d03ecc38"
       }
+    },
+    {
+      "id": "chat-personal-router-unmounted",
+      "owner": "backend",
+      "required": true,
+      "status": "local_actual_sdk_and_postgres_regression_verified_canonical_integration_pending",
+      "meaning": "Canonical d5b722e2 defined the five published personal Chat handlers but did not merge their router. A real mounted-router/compiled SDK test reproduced404; local source ab6ce74 mounts it within the existing authenticated cookie-origin boundary and passes unread/member/org/cursor/HMAC/permission cases. Current gateway and deployed integration remain unverified.",
+      "local_source_revision": "ab6ce74",
+      "source_refs": [
+        "Service/infera-chat/src/routes.rs",
+        "Service/infera-chat/src/human_chat.rs"
+      ],
+      "local_test_artifacts": [
+        "acceptance-results/sdk-source-semantic-20261019/chat-before-mount",
+        "acceptance-results/sdk-source-semantic-20261019/chat-after-mount"
+      ]
     }
   ]
 }

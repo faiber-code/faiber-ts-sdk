@@ -329,7 +329,7 @@ export class ChatOperations extends ServiceApi {
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: chat:read.
    */
   routesEventsGet(id: Identifier, options?: RequestOptions) {
-    return this.client.request<T.RoutesEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/conversations/${encodeURIComponent(id)}/events`, responseType: "stream" });
+    return this.client.request<T.RoutesEventsGetResponse>({ ...options, method: "GET", url: `/api/v1/conversations/${encodeURIComponent(id)}/events` });
   }
   /**
    * Performs the members operation for the routes capability.
@@ -477,6 +477,17 @@ export class ChatOperations extends ServiceApi {
    */
   routesStatusGetApiV1ImageStatus(options?: RequestOptions) {
     return this.client.request<T.RoutesStatusGetApiV1ImageStatusResponse>({ ...options, method: "GET", url: `/api/v1/image-status` });
+  }
+  /**
+   * Read identifiers and current active recipients/read state for a sent undeleted message. Excludes private message content and profile data; missing/deleted messages or conversations return 404.
+   * Calls `GET /api/v1/integrations/lms/messages/{id}/notification-context` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: server-only x-infera-lms-token matching CHAT_LMS_SERVICE_TOKEN; missing configuration or invalid token returns 403.
+   */
+  humanChatNotificationContextGet(id: string, options?: RequestOptions) {
+    return this.client.request<T.HumanChatNotificationContextGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/lms/messages/${encodeURIComponent(id)}/notification-context` });
   }
   /**
    * Performs the extract operation for the memory import capability.
@@ -677,11 +688,11 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesRolesGetResponse>({ ...options, method: "GET", url: `/api/v1/workspace-assistants` });
   }
   /**
-   * Performs the health operation for the main capability.
+   * Read process health and the execution authority identifier. Does not attest downstream readiness.
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no handler permission check; deployment gateway policy is separate.
    */
   mainHealthGet(options?: RequestOptions) {
     return this.client.request<T.MainHealthGetResponse>({ ...options, method: "GET", url: `/health` });

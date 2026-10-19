@@ -410,10 +410,10 @@ for (const service of services) {
   // These service router graphs have source-reviewed mounts. Follow their actual
   // main/router graph rather than annotation paths or module-prefix guesses. Other
   // services retain their existing extraction until their mounted graphs are reviewed.
-  if (["asset", "idp", "modules", "payment", "profile", "lms", "social", "version"].includes(service)) {
+  if (["asset", "idp", "modules", "payment", "profile", "lms", "social", "version", "chat"].includes(service)) {
     const indexed = [...fileSources].map(([file,source])=>sourceIndex(source,relativeSource(file)));
     const main=indexed.find(file=>file.path.endsWith("/src/main.rs"));
-    const entry=service==="social" && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
+    const entry=["social","chat"].includes(service) && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
       ? {path:"src/main.rs",function:"main",variable:"app"}
       : {path:"src/router.rs",function:"routes"};
     const graph=mountedRouterOperations(indexed,entry);

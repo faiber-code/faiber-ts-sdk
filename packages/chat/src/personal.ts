@@ -23,3 +23,11 @@ export class PersonalChatApi extends ServiceApi {
  /** Authorize only the current user's private channel; another channel returns 403. */
  realtimeAuth(input:PersonalChatRealtimeAuthInput,options?:RequestOptions<PersonalChatRealtimeAuthInput>){return this.client.post<PersonalChatRealtimeAuth,PersonalChatRealtimeAuthInput>('/api/v1/me/realtime/auth',input,options);}
 }
+
+/** Server-only notification evidence intentionally excludes message content and profile data. */
+export interface ChatNotificationRecipient { user_id:string; unread:boolean }
+export interface ChatNotificationContext {
+ message_id:string; conversation_id:string; sender_id:string|null; sequence:number;
+ kind:'direct'|'group'|'channel'|'ai'; recipients:ChatNotificationRecipient[];
+}
+export interface ChatProcessHealth {service:'infera-chat';version:string;status:'healthy';ai_execution:'infera-agentic'}

@@ -319,7 +319,7 @@ export interface RoutesCreateAttachmentPostResponseData extends JsonObject {
 export interface RoutesCreateAttachmentPostResponse extends ApiEnvelope<RoutesCreateAttachmentPostResponseData> {
 }
 
-/** Backend response type: stream. */
+/** Backend response type: raw-response. */
 export type RoutesEventsGetResponse = import("./types.js").ChatEventStream;
 
 /** Backend response type: Value. */
@@ -426,6 +426,9 @@ export interface FitnessSaveSettingsPutResponse extends ApiEnvelope<JsonValue> {
 export interface RoutesStatusGetApiV1ImageStatusResponse extends ApiEnvelope<JsonValue> {
 }
 
+/** Backend response type: Value. */
+export type HumanChatNotificationContextGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ChatNotificationContext>;
+
 /** Backend request type: MediaInput. */
 export interface MemoryImportExtractPostInput extends JsonObject {
   "id": string;
@@ -467,25 +470,25 @@ export interface RoutesAskPostInput extends JsonObject {
 export interface RoutesAskPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend query type: ReviewedIntegrationQuery. */
+/** Backend query type: PageQuery. */
 export type HumanChatSummariesGetQuery = import("./personal.js").ConversationSummaryQuery;
-/** Backend response type: api. */
+/** Backend response type: ConversationPage. */
 export type HumanChatSummariesGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ConversationSummaryPage>;
 
-/** Backend query type: ReviewedIntegrationQuery. */
+/** Backend query type: PollQuery. */
 export type HumanChatEventsGetQuery = import("./personal.js").PersonalChatEventQuery;
-/** Backend response type: api. */
+/** Backend response type: UserEventPage. */
 export type HumanChatEventsGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").PersonalChatEventPage>;
 
-/** Backend request type: ReviewedIntegrationInput. */
+/** Backend request type: AuthInput. */
 export type HumanChatRealtimeAuthPostInput = import("./personal.js").PersonalChatRealtimeAuthInput;
-/** Backend response type: api. */
+/** Backend response type: Value. */
 export type HumanChatRealtimeAuthPostResponse = import("./personal.js").PersonalChatRealtimeAuth;
 
-/** Backend response type: api. */
+/** Backend response type: Value. */
 export type HumanChatRealtimeConfigGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").PersonalChatRealtimeConfig>;
 
-/** Backend response type: api. */
+/** Backend response type: UnreadCount. */
 export type HumanChatUnreadGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ChatUnreadCount>;
 
 /** Backend response type: no-content. */
@@ -555,5 +558,4 @@ export interface RoutesRolesGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: serde_json::Value. */
-export interface MainHealthGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type MainHealthGetResponse = import("./personal.js").PersonalChatResponse<import("./personal.js").ChatProcessHealth>;
