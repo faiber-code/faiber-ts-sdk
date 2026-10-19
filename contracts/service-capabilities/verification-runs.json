@@ -663,5 +663,31 @@
     "duration_seconds": 29.059,
     "scope": "Source-fenced actual Manage process plus Agentic handlers and real disposable Mongo, including real compiled SDK Axios/fetch creation, paging/headers, messages/deletion and invalid-query/foreign-project/billing denials.31 tests comprise26 Manage +3 Agentic (expanded workflow with required SDK success marker) +2 startup rejection cases, not31 additional tests over the prior bridge run. No model call or actual service mutation receipt; pending review remains process-local. Control lifecycle is a fixture. Canonical/main integration, production gateway/IDP/Control, full SDK/UI and deployment unverified.",
     "canonical_certification": false
+  },
+  "knowledge-canonical-unit": {
+    "schema_version": "1.0",
+    "kind": "canonical_unit_regression",
+    "status": "passed",
+    "command": "cargo test --locked --offline --lib",
+    "exit_code": 0,
+    "tests_executed": 43,
+    "tests_failed": 0,
+    "tests_ignored": 0,
+    "source_unchanged_during_run": true,
+    "source_revisions": {
+      "knowledge": "70b8a21721dd34125b8f0e167e06da9ad3287223"
+    },
+    "artifact_path": "evidence/knowledge-canonical-unit-retry.json",
+    "artifact_sha256": "47eddebc4d2763376c88fcded701833b9c93cef26475d90ab9926f10317514b4",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/knowledge-canonical-unit-retry.log",
+        "sha256": "0403876a29cd82fae46a973130474e3aca12ae443f14e88f9a0a871fd3192d1d"
+      }
+    ],
+    "duration_seconds": 63.194,
+    "scope": "Clean fetched canonical Knowledge revision and actual resolved package directories, including pinned git RustSDK and registry inputs. Unit tests only; no real database, gateway, durable worker crash/replay, ingestion, model quality, publication, migration or rollout acceptance.",
+    "canonical_source_tests": true,
+    "canonical_certification": false
   }
 }
