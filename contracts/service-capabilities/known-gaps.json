@@ -653,8 +653,8 @@
       "id": "remaining-wildcard-and-inline-mounts",
       "owner": "sdk",
       "required": true,
-      "status": "local_crm_state_verified_session_peer_workflows_pending",
-      "meaning": "All18 SDK HTTP service inventories follow their mounted source graphs. CRM fallback/CORS and State health now have actual scoped HTTP/SDK acceptance. Session canonical baseline passes68 tests, but real paired-service verification remains pending after the3GiB guard stopped compilation before tests. Source review corrects missing required peer configuration to502, distinguishes path-based DRM grants from room-scoped Chat checks and records Asset/Profile system-namespace fallbacks. These are not deployed identity, namespace isolation or whole-service acceptance. Generator/transport tests cannot close the remaining semantic and cross-service gates.",
+      "status": "local_crm_state_and_personal_chat_proxy_verified_other_peer_workflows_pending",
+      "meaning": "All18 SDK HTTP source inventories follow mounted graphs. CRM fallback/CORS and State health have scoped actual HTTP acceptance. Session repaired production6cd with actual Chatab6 now passes69 Session tests plus1 nested Chat test and26 current SDK assertions, including missing identity401, current forwarded permission denials, organization/member filtering, internal credential exclusion and body limits. Room-scoped group/AI, DRM/Asset/Profile/LMS success, current gateway and browser/streaming boundaries remain pending. Asset/Profile system-namespace fallbacks and path-based DRM grants must not be described as room-bound isolation.",
       "source_refs": [
         "Service/infera-session/src/router.rs",
         "Service/infera-crm/src/router.rs",
@@ -662,7 +662,8 @@
       ],
       "local_test_evidence": [
         "crm-fallback-sdk-routing-guard",
-        "state-health-sdk-workspace"
+        "state-health-sdk-workspace",
+        "session-chat-peer-sdk-http"
       ],
       "source_review_artifact": "evidence/session-peer-source-review-v1.json"
     },
@@ -678,6 +679,21 @@
       ],
       "test_evidence": [
         "reservation-standalone-sdk-capacity"
+      ]
+    },
+    {
+      "id": "session-compiled-dev-identity-fallback",
+      "owner": "session",
+      "required": true,
+      "status": "fixed_locally_pending_canonical_integration",
+      "meaning": "Canonical bb6 compiles dev-fallback, synthesizing a nil user even with DEV=false. Local production6cd disables default/dev fallback features; actual Session-to-Chat missing principal now returns401. Preserve current Pastil source and reconcile canonical deployment before certifying production identity.",
+      "source_refs": [
+        "Service/infera-session/Cargo.toml:13",
+        "Rust SDK291c81a crates/infera-idp-sdk/src/middleware.rs:21"
+      ],
+      "local_source_revision": "6cdedd4303f4612143ae6bae54edff464a7aa08d",
+      "local_test_evidence": [
+        "session-chat-peer-sdk-http"
       ]
     }
   ]

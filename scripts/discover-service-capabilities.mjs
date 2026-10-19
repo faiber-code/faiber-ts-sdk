@@ -25,18 +25,18 @@ const canonicalRevisions=Object.fromEntries(Object.entries(locks).map(([service,
   return [service,{directory:lock.directory,revision:revision.origin_main}];
 }));
 
-function walk(directory) {
+function walk(directory, includeManifests = false) {
   if (!existsSync(directory)) return [];
   return readdirSync(directory, { withFileTypes: true }).sort((a,b) => a.name.localeCompare(b.name)).flatMap(item => {
     if (['target', 'node_modules', '.git', 'vendor', 'panel', 'dist'].includes(item.name)) return [];
     const path = join(directory, item.name);
-    return item.isDirectory() ? walk(path) : /\.(?:rs|sql)$/.test(path) ? [path] : [];
+    return item.isDirectory() ? walk(path, includeManifests) : (/\.(?:rs|sql)$/.test(path) || (includeManifests && ['Cargo.toml','Cargo.lock'].includes(item.name))) ? [path] : [];
   });
 }
 
 function sourceFiles(root, directory) {
   const paths = [...new Set([...walk(join(root, 'src')), ...walk(join(root, 'entity/src')),
-    ...walk(join(root,'auth')), ...walk(join(root,'auth_macro')),
+    ...walk(join(root,'auth')), ...walk(join(root,'auth_macro')), ...walk(join(root,'shared'),true),
     ...walk(join(root, 'crates/faiber-server/src')), ...walk(join(root, 'crates/faiber-core/src')),
     ...walk(join(root, 'domain/src')), ...walk(join(root, 'faiber-agent-core/src')),
     ...walk(join(root,'migration')), ...['Cargo.toml','Cargo.lock','build.rs','rust-toolchain.toml',
@@ -189,7 +189,7 @@ for(const [service,entry] of Object.entries(universe.services)) {
   const old=new Map(endpoints.map(x=>[`${x.method} ${x.path}`,x])),now=new Map((working[service]??[]).map(x=>[`${x.method} ${x.path}`,x]));
   const sdk=new Map((published[service]??[]).map(x=>[`${x.method} ${x.path}`,x]));
   const data={schema_version:'1.0',service,...entry,canonical_revision:canonicalRevision.origin_main,sdk_source_revision:lock?.revision??null,working_revision:revision,
-    working_changes:git(root,'status','--short','--','src','entity','migration','crates').split('\n').filter(Boolean),
+    working_changes:git(root,'status','--short','--','src','entity','migration','crates','shared','auth','auth_macro','Cargo.toml','Cargo.lock','build.rs').split('\n').filter(Boolean),
     source_relationship:relationship,
     source_tree_checksum:treeChecksum,
     source_files:files.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),

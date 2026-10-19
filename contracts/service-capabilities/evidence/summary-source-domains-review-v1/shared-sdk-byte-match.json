@@ -1,0 +1,22 @@
+{
+  "task": {
+    "expected_files": 232,
+    "changed": [],
+    "extras": []
+  },
+  "session": {
+    "expected_files": 232,
+    "changed": [],
+    "extras": []
+  },
+  "chat": {
+    "expected_files": 232,
+    "changed": [],
+    "extras": []
+  },
+  "crm": {
+    "expected_files": 232,
+    "changed": [],
+    "extras": []
+  }
+}

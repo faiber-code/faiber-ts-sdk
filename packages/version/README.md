@@ -48,3 +48,9 @@ Lists return active services without pagination, filters, or populated `last_ver
 `channel` uses `Release` or `PreRelease`; `scope` uses `Public` or `Closed`. Scope is descriptive metadata in the inspected handler and does not enforce membership. Apply the appropriate gateway access policy for your project runtime. Do not treat `Closed` as a protection mechanism.
 
 Health reports process status. The OpenAPI endpoint returns a raw document, currently describing health only; it is not a complete API inventory. Both convenience methods and generated operations use these same wire contracts.
+
+Nullable fields are present with `null`, including service `title`, release metadata
+and `updated_at`; they are not omitted. History uses `versions` and has no
+`last_version` field. Version timestamps are naive database timestamp strings; no
+UTC offset is promised. Successful read envelopes always include `status`, `message`
+and `data`. The publisher receipt remains raw.

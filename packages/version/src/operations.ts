@@ -41,7 +41,7 @@ export class VersionOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
-  serviceServiceShowGet(serviceSlug: Identifier, options?: RequestOptions) {
+  serviceServiceShowGet(serviceSlug: string, options?: RequestOptions) {
     return this.client.request<T.ServiceServiceShowGetResponse>({ ...options, method: "GET", url: `/api/v1/services/${encodeURIComponent(serviceSlug)}` });
   }
   /**
@@ -52,7 +52,7 @@ export class VersionOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
-  serviceServiceShowAllGet(serviceSlug: Identifier, options?: RequestOptions) {
+  serviceServiceShowAllGet(serviceSlug: string, options?: RequestOptions) {
     return this.client.request<T.ServiceServiceShowAllGetResponse>({ ...options, method: "GET", url: `/api/v1/services/${encodeURIComponent(serviceSlug)}/all` });
   }
   /**
@@ -63,7 +63,7 @@ export class VersionOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: no IDP permission enforced by the mounted service handler; deployed gateway policy is separate.
    */
-  versionVersionShowGet(versionId: Identifier, options?: RequestOptions) {
+  versionVersionShowGet(versionId: string, options?: RequestOptions) {
     return this.client.request<T.VersionVersionShowGetResponse>({ ...options, method: "GET", url: `/api/v1/versions/${encodeURIComponent(versionId)}` });
   }
   /**

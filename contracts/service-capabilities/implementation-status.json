@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T18:34:23.268515+00:00",
+  "updated_at": "2026-10-19T19:07:14.756719+00:00",
   "program_status": "incomplete_sdk_source_and_semantic_release_gates",
   "release_version": "1.0.0",
   "new_release_published": false,
@@ -63,6 +63,53 @@
     "reservation_backend_tests": 42,
     "reservation_sdk_http_assertions": 188,
     "reservation_operations_verified_locally": 30,
-    "reservation_production_source": "80aef6037cec20bb808903f15737160cef5f6a66"
+    "reservation_production_source": "80aef6037cec20bb808903f15737160cef5f6a66",
+    "session_peer_verification": {
+      "sdk_source_commit": "709d949df18615d188a357450b9182c8cb8bfd05",
+      "production_source": "6cdedd4303f4612143ae6bae54edff464a7aa08d",
+      "test_source": "82b9ef8d6ad8077b3fb1154d99ded7d66d17b701",
+      "chat_source": "ab6ce7461d35414b719f3806df57549339002df5",
+      "status": "passed_local_scope_only",
+      "session_tests": 69,
+      "nested_chat_tests": 1,
+      "sdk_assertions": 26,
+      "duration_seconds": 9.807,
+      "evidence": "session-chat-peer-sdk-http",
+      "canonical_certification": false,
+      "remaining": "Actual room-scoped group/AI, other peer success, namespace/gateway/browser/streaming and canonical integration remain pending."
+    },
+    "version_semantic_review": {
+      "operations": 7,
+      "status": "locally_reviewed_and_http_verified_requires_canonical_and_cross_service_reconciliation",
+      "source": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+      "actual_tests": 12,
+      "duration_seconds": 4.041,
+      "required_nullable_fields_and_history_shape": "verified",
+      "string_only_slug_and_uuid_inputs": "strict_types_verified",
+      "evidence": "version-sdk-nullable-wire",
+      "canonical_certification": false
+    },
+    "summary_four_domain_handoff": {
+      "state": "local_immutable_sources_and_scoped_evidence_verified_integration_pending",
+      "candidates": {
+        "task": "5039302f25bdecacb7b3d17bf53e232fe0489a92",
+        "session": "f05bbc459965efbebd1cfe6d3348b48ead8cee49",
+        "chat": "c42afad57281dbe92d8ef4c01d002a3f59704ddf",
+        "crm": "5f215256d275a909c39825f00f4c71909c2e4b58",
+        "idp": "6d91708d22125f23d91e9e11ef3ffc801c0af5f2"
+      },
+      "artifacts_verified": 97,
+      "source_files_verified": 2197,
+      "domain_tests": 5,
+      "acl_importer_tests": 2,
+      "canonical_certification": false,
+      "current_sdk_pins_replaced": false,
+      "remaining": [
+        "Compose Chat personal test fixture and new adapter; merge ACL-only change with current IDP auth repair",
+        "Full process MCP HTTP mount and updated SDK/capability routing",
+        "Combined six-domain identity/native permission and Agentic/billing interoperability",
+        "Canonical source and deployment reconciliation"
+      ]
+    }
   }
 }

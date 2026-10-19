@@ -1,0 +1,222 @@
+     Locking 449 packages to latest compatible versions
+      Adding base64 v0.22.1 (available: v0.23.1)
+      Adding reqwest v0.12.28 (available: v0.13.5)
+   Compiling sqlx-core v0.8.6
+   Compiling sea-query v0.32.7
+   Compiling sqlx-postgres v0.8.6
+   Compiling darling_core v0.21.3 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/darling/core)
+   Compiling sqlx v0.8.6
+   Compiling sea-query-binder v0.7.0
+   Compiling sea-orm v1.1.20
+   Compiling darling_macro v0.21.3 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/darling/macro)
+   Compiling uuid v1.28.0
+   Compiling schemars_derive v1.0.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/schemars_derive)
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:84:17
+   |
+84 |     pub fn name(&self) -> Name {
+   |                 ^^^^^     ^^^^ the same lifetime is hidden here
+   |                 |
+   |                 the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+   |
+84 |     pub fn name(&self) -> Name<'_> {
+   |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:106:17
+    |
+106 |     pub fn name(&self) -> Name {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+106 |     pub fn name(&self) -> Name<'_> {
+    |                               ++++
+
+warning: `schemars_derive` (lib) generated 2 warnings (run `cargo fix --lib -p schemars_derive` to apply 2 suggestions)
+   Compiling utoipa-gen v5.5.0
+   Compiling darling v0.21.3 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/darling)
+   Compiling schemars v1.0.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/schemars)
+warning: hiding a lifetime that's elided elsewhere is confusing
+ --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:6:30
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<str> {
+  |                              ^^^^     ^^^^^^^^ the same lifetime is hidden here
+  |                              |
+  |                              the lifetime is elided here
+  |
+  = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+  = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<'_, str> {
+  |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:43:26
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<str>> {
+   |                          ^^^^            ^^^^^^^^ the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<'_, str>> {
+   |                                              +++
+
+   Compiling utoipa v5.5.0
+warning: `schemars` (lib) generated 2 warnings (run `cargo fix --lib -p schemars` to apply 2 suggestions)
+   Compiling sea-schema v0.16.2
+   Compiling rmcp-macros v0.8.5 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp-macros)
+   Compiling sse-stream v0.2.6 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/sse-stream)
+   Compiling rmcp v0.8.5 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp)
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:84:7
+   |
+84 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:87:7
+   |
+87 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:112:7
+    |
+112 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:115:7
+    |
+115 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs:53:11
+   |
+53 |     #[cfg(feature = "auth")]
+   |           ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs:17:7
+   |
+17 | #[cfg(feature = "auth")]
+   |       ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+   Compiling entity v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/entity)
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+  --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:61:39
+   |
+61 |         let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+   |                                       ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+   --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:136:47
+    |
+136 |                 let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+    |                                               ^^^^^^^^^^^^^^^^
+
+   Compiling sea-orm-migration v1.1.20
+   Compiling migration v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/migration)
+warning: unused imports: `ActiveEnum`, `DbBackend`, and `Schema`
+ --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/migration/src/m20220101_000001_create_rooms_table.rs:4:15
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |               ^^^^^^^^^^  ^^^^^^^^^  ^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `DbBackend` and `Schema`
+ --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/migration/src/m20220101_000004_create_client_room_state_logs_table.rs:4:27
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |                           ^^^^^^^^^  ^^^^^^
+
+warning: unused imports: `DbBackend` and `Schema`
+ --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/migration/src/m20220101_000005_create_client_room_state_responses_table.rs:4:27
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |                           ^^^^^^^^^  ^^^^^^
+
+warning: unused import: `ActiveEnum`
+ --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/migration/src/m20220101_000005_create_client_room_state_responses_table.rs:4:15
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |               ^^^^^^^^^^
+
+warning: unused import: `ActiveEnum`
+ --> /Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/migration/src/m20220101_000004_create_client_room_state_logs_table.rs:4:15
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |               ^^^^^^^^^^
+
+warning: `rmcp` (lib) generated 8 warnings
+   Compiling infera-summary-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/shared/infera-summary-sdk)
+warning: `migration` (lib) generated 5 warnings (run `cargo fix --lib -p migration` to apply 3 suggestions)
+   Compiling session-summary-native-contract v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/tests/summary-native)
+warning: struct `Reader` is never constructed
+ --> src/../../../src/summary_query.rs:5:12
+  |
+5 | pub struct Reader(pub DatabaseConnection);
+  |            ^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `session-summary-native-contract` (lib) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 17.17s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/session_summary_native_contract-3536f6854f2ca90c)
+
+running 1 test
+test tests::actual_migrations_sql_mcp_and_current_native_access ... 
+thread 'tests::actual_migrations_sql_mcp_and_current_native_access' (3676056) panicked at src/lib.rs:36:90:
+called `Result::unwrap()` on an `Err` value: "native_coverage_check_unavailable"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    tests::actual_migrations_sql_mcp_and_current_native_access
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+error: test failed, to rerun pass `--lib`

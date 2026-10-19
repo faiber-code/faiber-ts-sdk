@@ -8,7 +8,7 @@ import { embeddedSourceEvidence } from './embedded-source-evidence.mjs';
 export function archiveSourceRevision(repository, revision, destination) {
   if (!/^[a-f0-9]{40}$/.test(revision)) throw new Error('Invalid source revision');
   const entries = execFileSync('git', ['ls-tree', '--name-only', revision], { cwd: repository, encoding: 'utf8' }).split('\n');
-  const paths = ['src','entity','migration','crates','domain','faiber-agent-core','auth','auth_macro','Cargo.toml','Cargo.lock','build.rs','rust-toolchain.toml'].filter(path=>entries.includes(path));
+  const paths = ['src','entity','migration','crates','shared','domain','faiber-agent-core','auth','auth_macro','Cargo.toml','Cargo.lock','build.rs','rust-toolchain.toml'].filter(path=>entries.includes(path));
   if (entries.includes('.cargo') && execFileSync('git',['ls-tree','--name-only',revision,'--','.cargo/config.toml'],{cwd:repository,encoding:'utf8'}).trim()) paths.push('.cargo/config.toml');
   if (!paths.some(path=>['src','crates'].includes(path))) throw new Error(`Missing runtime source: ${repository}@${revision}`);
   mkdirSync(destination,{recursive:true});

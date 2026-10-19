@@ -18,11 +18,13 @@ const input={serviceSlug:slug,appName:'SDK Wire Contract',version:'1.0.0',versio
 const published=await ops.routerPublishApkPost(input);assert.equal(published.status,200);assert.equal(published.data.status,'success');assert.equal(published.data.data,undefined);assert.match(published.data.id,/^[0-9a-f-]{36}$/);
 const retry=await ops.routerPublishApkPost({...input,versionCode:40});assert.equal(retry.data.id,published.data.id);
 const service=(await ops.serviceServiceShowGet(slug)).data.data.service;
+assert.ok(Object.hasOwn(service,'title'));assert.equal(typeof service.title,'string');assert.equal(typeof health.data.message,'string');assert.equal(health.data.status,'success');
 assert.equal(service.slug,slug);assert.equal(service.last_version.id,published.data.id);assert.equal(service.last_version.version_code,41);assert.equal(service.last_version.channel,'Release');assert.equal(service.last_version.scope,'Closed');
 assert.deepEqual((await sdk.version.service(slug)).data.data.service,service);
-const all=(await ops.serviceServiceShowAllGet(slug)).data.data.service;assert.equal(all.versions.length,1);assert.equal(all.versions[0].service_id,service.id);
+const all=(await ops.serviceServiceShowAllGet(slug)).data.data.service;assert.equal(Object.hasOwn(all,'last_version'),false);assert.ok(Object.hasOwn(all,'title'));assert.equal(all.versions.length,1);assert.equal(all.versions[0].service_id,service.id);
 const list=(await ops.serviceServicesIndexGet()).data.data.services;assert.equal(list.find(s=>s.slug===slug).last_version,null);
-const version=(await ops.versionVersionShowGet(published.data.id)).data.data.version;assert.equal(version.version_code,41);assert.equal(version.version_name,'1.0.0');assert.equal(version.scope,'Closed');
+const version=(await ops.versionVersionShowGet(published.data.id)).data.data.version;for(const field of ['description','change_log','download_url','updated_at'])assert.ok(Object.hasOwn(version,field));assert.equal(version.description,null);assert.equal(version.change_log,null);assert.equal(typeof version.updated_at,'string');assert.ok(!/(?:Z|[+-]\d{2}:\d{2})$/.test(version.created_at));
+assert.equal(version.version_code,41);assert.equal(version.version_name,'1.0.0');assert.equal(version.scope,'Closed');
 await denied(ops.serviceServiceShowGet(service.id),404);await denied(ops.serviceServiceShowAllGet('missing-sdk-service'),404);await denied(ops.versionVersionShowGet('invalid-uuid'),400);await denied(ops.versionVersionShowGet(randomUUID()),404);
 await denied(ops.routerPublishApkPost({...input,downloadUrl:'http://insecure.example.invalid/sdk.apk'}),400);
 await denied(ops.routerPublishApkPost(input,{headers:{Authorization:'Bearer incorrect-owned-test-token'}}),401);

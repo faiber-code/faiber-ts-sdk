@@ -118,6 +118,58 @@ pair exposed compile-time IDP development fallback despite DEV=false. Production
 `6cdedd4303f4612143ae6bae54edff464a7aa08d` disables default/dev-fallback features;
 test-only descendant `82b9ef8d6ad8077b3fb1154d99ded7d66d17b701` preserves every
 other production source. The original red and later receipt-parser failure are retained.
-A fresh report must validate the source fences,69 Session tests, nested real Chat test
-and26 SDK assertions before this scoped local workflow is accepted. Room-scoped Chat,
-other peer success and current deployed authorization remain open.
+Fresh run `session-chat-actual-sdk-v4` passed with unchanged source/dependency/SDK and
+Chat executable fences:69 Session tests plus1 nested actual Chat test,26 SDK assertions,
+zero failed/ignored,9.807 seconds. This verifies the personal Chat proxy boundary,
+current forwarded permissions, organization/member filters, realtime HMAC, request/body
+limits and internal-credential exclusion. Evidence is registered as
+`session-chat-peer-sdk-http`; source-only/test-only patches and both actual locks are
+retained. Room-scoped group/AI, other peer success, live identity, namespace isolation,
+browser preflight and streaming remain open. The production repair is local and pending
+canonical integration; npm authentication remains blocked.
+
+## Version endpoint semantics and exact response fields
+
+All7 mounted Version endpoints now have a source-hashed English/Persian local review
+of authorization, input/filter rules, lifecycle, output shapes and identifier/link
+meaning. These reviews persist in `reviews/version.json`; canonical/Control namespace
+acceptance stays open. `Closed` remains descriptive metadata, reads are public at the
+handler, numeric code selects latest, and timestamps have no promised UTC offset.
+
+Required nullable keys and the history shape are corrected: `ServiceWithVersions`
+has `versions` and no `last_version`; service and release nullable fields serialize
+explicit nulls; successful read status/message/data are required. Generated slug and
+UUID parameters accept strings rather than generic numeric identifiers. Build, strict
+consumer types and125 SDK tests pass; fresh actual Version12 tests pass in4.041 seconds
+with immutable report/log and lock evidence under `version-nullable-sdk-12`. Runtime
+operations.js is unchanged by the later type-only path narrowing. The obsolete
+Identifier regression expectation and macOS temporary-path fixture assumption were
+corrected; their red logs are retained separately.
+
+Source snapshots now retain tracked `shared/` Rust dependencies. The snapshot regression
+resolves the actual Cargo path dependency from immutable bytes despite a dirty checkout.
+Discovery now hashes shared Rust/SQL/manifests and surfaces their working changes; this
+does not mark unresolved external MCP router graphs or their semantics verified.
+
+## Coordinated Summary adapter handoff
+
+The completed “Plan configurable role summaries” continuation supplied an immutable
+source handoff. Independently verified97 artifact hashes,2197 source-file hashes, all
+five clean candidate HEADs/bundles, required repair ancestry and the identical stable
+Chat mount patch ID. The final logs contain5 real domain PostgreSQL/MCP tests (CRM
+also real RabbitMQ) and2 actual IDP ACL importer tests; four production compiles pass.
+
+- Task5039302f25bdecacb7b3d17bf53e232fe0489a92
+- Sessionf05bbc459965efbebd1cfe6d3348b48ead8cee49, exact6cd auth repair parent
+- Chatc42afad57281dbe92d8ef4c01d002a3f59704ddf, identical production mount fix
+- CRM5f215256d275a909c39825f00f4c71909c2e4b58, exact178 fallback/CORS parent
+- IDP6d91708d22125f23d91e9e11ef3ffc801c0af5f2, ACL-only continuation of1983731
+
+Registered evidence: `summary-four-domain-native-mcp`. These candidates are not yet
+substituted into the SDK source pins. Preserve Chat's existing personal-router test
+when composing its adapter and apply the ACL-only change onto the current IDP auth
+repair. Whole-process MCP HTTP mounting, updated route/type inventory, Session legacy
+performance-context retirement, combined six-domain use, remote source availability
+and current deployed identity/permissions remain release gates. Local official-MCP
+reader tests do not certify those boundaries. Live model selection, provider/billing
+checks and Knowledge migration have not happened. Current model defaults are unchanged.

@@ -197,16 +197,19 @@ export const releaseContracts = {
     "purpose": "List active registered services without pagination or filters. last_version is null in this list; read a service by slug to resolve its newest active release."
   },
   "version:GET /api/v1/services/{service_slug}": {
+    "pathTypes": { "service_slug": "string" },
     "response": "import(\"./types.js\").ServiceResponse",
     "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
     "purpose": "Find an active service by its slug, not its UUID, and its highest-code active version. Missing or inactive services return 404."
   },
   "version:GET /api/v1/services/{service_slug}/all": {
+    "pathTypes": { "service_slug": "string" },
     "response": "import(\"./types.js\").ServiceVersionsResponse",
     "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
     "purpose": "Read all active versions for an active service slug. The service does not define history ordering or pagination; missing or inactive services return 404."
   },
   "version:GET /api/v1/versions/{version_id}": {
+    "pathTypes": { "version_id": "string" },
     "response": "import(\"./types.js\").VersionResponse",
     "auth": "no IDP permission enforced by the mounted service handler; deployed gateway policy is separate",
     "purpose": "Read an active version by UUID. Malformed UUIDs return 400 and missing or inactive versions return 404. Scope is metadata, not an access filter in this handler."

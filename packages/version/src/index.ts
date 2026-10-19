@@ -6,7 +6,7 @@ import { VersionOperations } from "./operations.js";
 export class VersionApi extends ServiceApi {
     readonly operations = new VersionOperations(this.client);
   /**
-   * Checks Version service readiness through `GET /health`.
+   * Reads Version process status through `GET /health`.
    * @param options Axios headers, timeout, cancellation signal, and transport options.
    * @returns Complete Axios response containing the service health payload.
    * @throws AxiosError for unavailable or failed transport responses.
@@ -20,7 +20,7 @@ export class VersionApi extends ServiceApi {
    */
   openapi(options?: RequestOptions) { return this.client.get<T.VersionOpenApiDocument>("/api/openapi.json", undefined, options); }
   /**
-   * Lists registered services and latest releases through `GET /api/v1/services`.
+   * Lists active registered services with last_version:null through `GET /api/v1/services`.
    * @param options Axios headers, timeout, cancellation signal, and transport options.
    * @returns Complete Axios response with typed service summaries.
    * @throws AxiosError for authentication, authorization, or transport failures.

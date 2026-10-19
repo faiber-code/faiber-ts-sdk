@@ -43,7 +43,7 @@ def external_inputs():
    metadata=json.loads(supplement.read_text());assert metadata['previous_handoff_sha256']==digest(manifest_path.read_bytes())
    for path in supplement.parent.iterdir():
     if path.is_file():capture(path)
-  for variable in ['INFERA_VERSION_SDK_TEST_REPO','INFERA_SOCIAL_SDK_TEST_REPO','INFERA_IDP_SDK_TEST_REPO','INFERA_MANAGE_IDP_TEST_REPO','INFERA_CONTROL_IDP_AUTH_REPO','INFERA_CHAT_SDK_TEST_REPO','INFERA_PROFILE_SUMMARY_TEST_REPO','INFERA_STATE_HEALTH_TEST_REPO','INFERA_CRM_FALLBACK_TEST_REPO','INFERA_RESERVATION_SDK_TEST_REPO']:
+  for variable in ['INFERA_VERSION_SDK_TEST_REPO','INFERA_SOCIAL_SDK_TEST_REPO','INFERA_IDP_SDK_TEST_REPO','INFERA_MANAGE_IDP_TEST_REPO','INFERA_CONTROL_IDP_AUTH_REPO','INFERA_CHAT_SDK_TEST_REPO','INFERA_PROFILE_SUMMARY_TEST_REPO','INFERA_STATE_HEALTH_TEST_REPO','INFERA_CRM_FALLBACK_TEST_REPO','INFERA_RESERVATION_SDK_TEST_REPO','INFERA_SESSION_PEER_TEST_REPO']:
    if not os.environ.get(variable):continue
    source=Path(os.environ[variable]).resolve();revisions[str(source)]=subprocess.check_output(['git','rev-parse','HEAD'],cwd=source,text=True).strip()
    for name in subprocess.check_output(['git','ls-files'],cwd=source,text=True).splitlines():
@@ -107,6 +107,8 @@ def main():
    run('actual-crm-fallback-sdk-wire',['python3','scripts/run-crm-fallback-sdk-tests.py'])
   if os.environ.get('INFERA_RESERVATION_SDK_TEST_REPO'):
    run('actual-reservation-sdk-wire',['env','INFERA_RESERVATION_SDK_TEST_KIND=suite','INFERA_RESERVATION_SDK_VERIFICATION_OUTPUT='+str(OUT/'reservation-sdk-evidence'),'python3','scripts/run-reservation-sdk-wire-tests.py'])
+  if os.environ.get('INFERA_SESSION_PEER_TEST_REPO'):
+   run('actual-session-chat-peer-sdk-wire',['env','INFERA_SESSION_PEER_VERIFICATION_OUTPUT='+str(OUT/'session-chat-peer-evidence'),'python3','scripts/run-session-chat-peer-sdk-tests.py'])
   if os.environ.get('INFERA_AUTHORITY_AGENTIC_REPO'):
    run('actual-manage-sdk-wire',['python3','scripts/run-manage-authority-tests.py'])
   packs=OUT/'tarballs';packs.mkdir();version=json.loads((SDK/'package.json').read_text())['version']

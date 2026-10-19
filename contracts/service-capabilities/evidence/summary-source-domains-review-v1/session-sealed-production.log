@@ -1,0 +1,738 @@
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:84:17
+   |
+84 |     pub fn name(&self) -> Name {
+   |                 ^^^^^     ^^^^ the same lifetime is hidden here
+   |                 |
+   |                 the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+   |
+84 |     pub fn name(&self) -> Name<'_> {
+   |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:106:17
+    |
+106 |     pub fn name(&self) -> Name {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+106 |     pub fn name(&self) -> Name<'_> {
+    |                               ++++
+
+warning: `schemars_derive` (lib) generated 2 warnings (run `cargo fix --lib -p schemars_derive` to apply 2 suggestions)
+warning: hiding a lifetime that's elided elsewhere is confusing
+ --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:6:30
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<str> {
+  |                              ^^^^     ^^^^^^^^ the same lifetime is hidden here
+  |                              |
+  |                              the lifetime is elided here
+  |
+  = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+  = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<'_, str> {
+  |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:43:26
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<str>> {
+   |                          ^^^^            ^^^^^^^^ the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<'_, str>> {
+   |                                              +++
+
+warning: `schemars` (lib) generated 2 warnings (run `cargo fix --lib -p schemars` to apply 2 suggestions)
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:84:7
+   |
+84 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:87:7
+   |
+87 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:112:7
+    |
+112 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:115:7
+    |
+115 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs:53:11
+   |
+53 |     #[cfg(feature = "auth")]
+   |           ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs:17:7
+   |
+17 | #[cfg(feature = "auth")]
+   |       ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:61:39
+   |
+61 |         let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+   |                                       ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:136:47
+    |
+136 |                 let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+    |                                               ^^^^^^^^^^^^^^^^
+
+warning: `rmcp` (lib) generated 8 warnings
+    Checking migration v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session/migration)
+warning: unused imports: `ActiveEnum`, `DbBackend`, and `Schema`
+ --> migration/src/m20220101_000001_create_rooms_table.rs:4:15
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |               ^^^^^^^^^^  ^^^^^^^^^  ^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `DbBackend` and `Schema`
+ --> migration/src/m20220101_000004_create_client_room_state_logs_table.rs:4:27
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |                           ^^^^^^^^^  ^^^^^^
+
+warning: unused imports: `DbBackend` and `Schema`
+ --> migration/src/m20220101_000005_create_client_room_state_responses_table.rs:4:27
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |                           ^^^^^^^^^  ^^^^^^
+
+warning: unused import: `ActiveEnum`
+ --> migration/src/m20220101_000005_create_client_room_state_responses_table.rs:4:15
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |               ^^^^^^^^^^
+
+warning: unused import: `ActiveEnum`
+ --> migration/src/m20220101_000004_create_client_room_state_logs_table.rs:4:15
+  |
+4 |     sea_orm::{ActiveEnum, DbBackend, Schema},
+  |               ^^^^^^^^^^
+
+warning: `migration` (lib) generated 5 warnings (run `cargo fix --lib -p migration` to apply 3 suggestions)
+    Checking mra_session v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-domains-review-20261019/infera-session)
+warning: unnecessary parentheses around type
+   --> src/room/routes.rs:628:27
+    |
+628 |     Path((room_id)): Path<(Uuid)>,
+    |                           ^    ^
+    |
+    = note: `#[warn(unused_parens)]` (part of `#[warn(unused)]`) on by default
+help: remove these parentheses
+    |
+628 -     Path((room_id)): Path<(Uuid)>,
+628 +     Path((room_id)): Path<Uuid >,
+    |
+
+warning: unnecessary parentheses around pattern
+   --> src/room/routes.rs:628:10
+    |
+628 |     Path((room_id)): Path<(Uuid)>,
+    |          ^       ^
+    |
+help: remove these parentheses
+    |
+628 -     Path((room_id)): Path<(Uuid)>,
+628 +     Path(room_id ): Path<(Uuid)>,
+    |
+
+warning: unnecessary parentheses around type
+   --> src/room/routes.rs:673:27
+    |
+673 |     Path((room_id)): Path<(Uuid)>,
+    |                           ^    ^
+    |
+help: remove these parentheses
+    |
+673 -     Path((room_id)): Path<(Uuid)>,
+673 +     Path((room_id)): Path<Uuid >,
+    |
+
+warning: unnecessary parentheses around pattern
+   --> src/room/routes.rs:673:10
+    |
+673 |     Path((room_id)): Path<(Uuid)>,
+    |          ^       ^
+    |
+help: remove these parentheses
+    |
+673 -     Path((room_id)): Path<(Uuid)>,
+673 +     Path(room_id ): Path<(Uuid)>,
+    |
+
+warning: unnecessary parentheses around type
+   --> src/room/routes.rs:723:27
+    |
+723 |     Path((room_id)): Path<(Uuid)>,
+    |                           ^    ^
+    |
+help: remove these parentheses
+    |
+723 -     Path((room_id)): Path<(Uuid)>,
+723 +     Path((room_id)): Path<Uuid >,
+    |
+
+warning: unnecessary parentheses around pattern
+   --> src/room/routes.rs:723:10
+    |
+723 |     Path((room_id)): Path<(Uuid)>,
+    |          ^       ^
+    |
+help: remove these parentheses
+    |
+723 -     Path((room_id)): Path<(Uuid)>,
+723 +     Path(room_id ): Path<(Uuid)>,
+    |
+
+warning: unnecessary parentheses around type
+   --> src/room/routes.rs:769:27
+    |
+769 |     Path((room_id)): Path<(Uuid)>,
+    |                           ^    ^
+    |
+help: remove these parentheses
+    |
+769 -     Path((room_id)): Path<(Uuid)>,
+769 +     Path((room_id)): Path<Uuid >,
+    |
+
+warning: unnecessary parentheses around pattern
+   --> src/room/routes.rs:769:10
+    |
+769 |     Path((room_id)): Path<(Uuid)>,
+    |          ^       ^
+    |
+help: remove these parentheses
+    |
+769 -     Path((room_id)): Path<(Uuid)>,
+769 +     Path(room_id ): Path<(Uuid)>,
+    |
+
+warning: unnecessary parentheses around type
+   --> src/room/routes.rs:873:27
+    |
+873 |     Path((room_id)): Path<(Uuid)>,
+    |                           ^    ^
+    |
+help: remove these parentheses
+    |
+873 -     Path((room_id)): Path<(Uuid)>,
+873 +     Path((room_id)): Path<Uuid >,
+    |
+
+warning: unnecessary parentheses around pattern
+   --> src/room/routes.rs:873:10
+    |
+873 |     Path((room_id)): Path<(Uuid)>,
+    |          ^       ^
+    |
+help: remove these parentheses
+    |
+873 -     Path((room_id)): Path<(Uuid)>,
+873 +     Path(room_id ): Path<(Uuid)>,
+    |
+
+warning: unnecessary parentheses around type
+    --> src/room/routes.rs:1093:27
+     |
+1093 |     Path((room_id)): Path<(Uuid)>,
+     |                           ^    ^
+     |
+help: remove these parentheses
+     |
+1093 -     Path((room_id)): Path<(Uuid)>,
+1093 +     Path((room_id)): Path<Uuid >,
+     |
+
+warning: unnecessary parentheses around pattern
+    --> src/room/routes.rs:1093:10
+     |
+1093 |     Path((room_id)): Path<(Uuid)>,
+     |          ^       ^
+     |
+help: remove these parentheses
+     |
+1093 -     Path((room_id)): Path<(Uuid)>,
+1093 +     Path(room_id ): Path<(Uuid)>,
+     |
+
+warning: unnecessary parentheses around type
+    --> src/room/routes.rs:1359:27
+     |
+1359 |     Path((room_id)): Path<(Uuid)>,
+     |                           ^    ^
+     |
+help: remove these parentheses
+     |
+1359 -     Path((room_id)): Path<(Uuid)>,
+1359 +     Path((room_id)): Path<Uuid >,
+     |
+
+warning: unnecessary parentheses around pattern
+    --> src/room/routes.rs:1359:10
+     |
+1359 |     Path((room_id)): Path<(Uuid)>,
+     |          ^       ^
+     |
+help: remove these parentheses
+     |
+1359 -     Path((room_id)): Path<(Uuid)>,
+1359 +     Path(room_id ): Path<(Uuid)>,
+     |
+
+warning: unused import: `entity::room_recording`
+ --> src/room/transformers.rs:4:5
+  |
+4 | use entity::room_recording;
+  |     ^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `get_room_recording_name`
+  --> src/room/transformers.rs:13:69
+   |
+13 |             get_room_channel_name, get_room_clients, get_room_name, get_room_recording_name,
+   |                                                                     ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `room_close_job::RoomCloseJob` and `room_progress_job::RoomProgressJob`
+  --> src/schedule/mod.rs:9:9
+   |
+ 9 |         room_close_job::RoomCloseJob, room_open_job::RoomOpenJob, room_preload_job::RoomPreloadJob,
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10 |         room_progress_job::RoomProgressJob,
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `time::Duration`
+ --> src/schedule/room_open_job.rs:1:22
+  |
+1 | use std::{sync::Arc, time::Duration};
+  |                      ^^^^^^^^^^^^^^
+
+warning: unused import: `async_std::sync::Mutex`
+ --> src/schedule/room_open_job.rs:3:5
+  |
+3 | use async_std::sync::Mutex;
+  |     ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `room::transformers::to_room_memo` and `room_progress_job::RoomProgressJob`
+  --> src/schedule/room_open_job.rs:11:5
+   |
+11 |     room::transformers::to_room_memo,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12 |     room_state::methods::{get_room_next_state, get_room_state, start_room_state, stop_room_state},
+13 |     schedule::{jobs::ScheduleJob, room_progress_job::RoomProgressJob},
+   |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `chrono::Local`
+ --> src/schedule/room_preload_job.rs:3:5
+  |
+3 | use chrono::Local;
+  |     ^^^^^^^^^^^^^
+
+warning: unused import: `ops::Deref`
+ --> src/schedule/room_progress_job.rs:1:11
+  |
+1 | use std::{ops::Deref, sync::Arc, time::Duration};
+  |           ^^^^^^^^^^
+
+warning: unused import: `NaiveDateTime`
+ --> src/schedule/room_progress_job.rs:3:21
+  |
+3 | use chrono::{Local, NaiveDateTime, Utc};
+  |                     ^^^^^^^^^^^^^
+
+warning: unused import: `::chrono::Local`
+  --> src/main.rs:27:5
+   |
+27 | use ::chrono::Local;
+   |     ^^^^^^^^^^^^^^^
+
+warning: unused import: `sea_orm::sqlx::types::chrono`
+  --> src/main.rs:40:5
+   |
+40 | use sea_orm::sqlx::types::chrono;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+   --> src/room/transformers.rs:186:9
+    |
+186 |     let mut memo = RoomMemo {
+    |         ----^^^^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `ColumnTrait`
+ --> src/handler.rs:9:23
+  |
+9 |     ActiveModelTrait, ColumnTrait, ConnectionTrait, DatabaseBackend, EntityTrait, QueryFilter, Set,
+  |                       ^^^^^^^^^^^
+
+warning: unused import: `QueryFilter`
+ --> src/handler.rs:9:83
+  |
+9 |     ActiveModelTrait, ColumnTrait, ConnectionTrait, DatabaseBackend, EntityTrait, QueryFilter, Set,
+  |                                                                                   ^^^^^^^^^^^
+
+warning: unused variable: `state`
+ --> src/cli/commands/routes_export.rs:9:18
+  |
+9 |     async fn run(state: &AppState, _: &bool) {
+  |                  ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+  |
+  = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `api`
+  --> src/cli/commands/routes_export.rs:10:13
+   |
+10 |         let api = ApiDoc::openapi();
+   |             ^^^ help: if this is intentional, prefix it with an underscore: `_api`
+
+warning: unused variable: `e`
+   --> src/room_state/methods.rs:225:19
+    |
+225 |         .map_err(|e| {
+    |                   ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+   --> src/room_state/methods.rs:170:19
+    |
+170 |         .map_err(|e| {
+    |                   ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+   --> src/room_state/methods.rs:147:50
+    |
+147 |     active_state.save(&*state.db).await.map_err(|e| {
+    |                                                  ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+  --> src/room_state/methods.rs:78:65
+   |
+78 |     active_state = active_state.save(&*state.db).await.map_err(|e| {
+   |                                                                 ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+    --> src/room/methods.rs:1298:19
+     |
+1298 |         .map_err(|e| {
+     |                   ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+   --> src/room_state/methods.rs:207:23
+    |
+207 |             .map_err(|e| {
+    |                       ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+   --> src/room_state/methods.rs:275:19
+    |
+275 |         .map_err(|e| {
+    |                   ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+   --> src/room_state/methods.rs:187:19
+    |
+187 |         .map_err(|e| {
+    |                   ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+   --> src/room_state/methods.rs:253:19
+    |
+253 |         .map_err(|e| {
+    |                   ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: variable does not need to be mutable
+   --> src/router.rs:663:9
+    |
+663 |     let mut router = Router::new()
+    |         ----^^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: unused variable: `state`
+   --> src/router.rs:594:15
+    |
+594 | pub fn routes(state: &AppState) -> Router<AppState> {
+    |               ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: unused variable: `state`
+  --> src/schedule/room_progress_job.rs:19:18
+   |
+19 |     async fn run(state: Arc<AppState>) -> Result<(), ScheduleError> {
+   |                  ^^^^^ help: if this is intentional, prefix it with an underscore: `_state`
+
+warning: unused variable: `now`
+  --> src/schedule/mod.rs:24:9
+   |
+24 |     let now = Local::now();
+   |         ^^^ help: if this is intentional, prefix it with an underscore: `_now`
+
+warning: function `start_recording_egress` is never used
+   --> src/likekit.rs:187:14
+    |
+187 | pub async fn start_recording_egress(
+    |              ^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `PaginationQuery` is never constructed
+  --> src/models.rs:14:12
+   |
+14 | pub struct PaginationQuery {
+   |            ^^^^^^^^^^^^^^^
+
+warning: struct `PagedResult` is never constructed
+  --> src/models.rs:20:12
+   |
+20 | pub struct PagedResult<T> {
+   |            ^^^^^^^^^^^
+
+warning: fields `job` and `message` are never read
+  --> src/models.rs:87:9
+   |
+86 | pub struct ScheduleError {
+   |            ------------- fields in this struct
+87 |     pub job: &'static str,
+   |         ^^^
+88 |     pub message: &'static str,
+   |         ^^^^^^^
+   |
+   = note: `ScheduleError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+
+warning: struct `LaravelJobPayload` is never constructed
+  --> src/models.rs:98:12
+   |
+98 | pub struct LaravelJobPayload<T> {
+   |            ^^^^^^^^^^^^^^^^^
+
+warning: struct `LaravelJobData` is never constructed
+   --> src/models.rs:106:12
+    |
+106 | pub struct LaravelJobData<T> {
+    |            ^^^^^^^^^^^^^^
+
+warning: struct `BrokerEvent` is never constructed
+   --> src/models.rs:112:12
+    |
+112 | pub struct BrokerEvent<T> {
+    |            ^^^^^^^^^^^
+
+warning: struct `LmsRole` is never constructed
+   --> src/models.rs:118:12
+    |
+118 | pub struct LmsRole {
+    |            ^^^^^^^
+
+warning: struct `LmsUserSyncEvent` is never constructed
+   --> src/models.rs:124:12
+    |
+124 | pub struct LmsUserSyncEvent {
+    |            ^^^^^^^^^^^^^^^^
+
+warning: function `get_room_recording_name` is never used
+    --> src/room/methods.rs:1089:8
+     |
+1089 | pub fn get_room_recording_name(room_recording_time: &NaiveDateTime) -> String {
+     |        ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `get_room_state_name` is never used
+    --> src/room/methods.rs:1093:8
+     |
+1093 | pub fn get_room_state_name(room_id: &Uuid, room_session_id: &Uuid) -> String {
+     |        ^^^^^^^^^^^^^^^^^^^
+
+warning: function `room_client_activity_duration` is never used
+    --> src/room/methods.rs:1194:14
+     |
+1194 | pub async fn room_client_activity_duration(
+     |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `get_last_room_recording_egress` is never used
+    --> src/room/methods.rs:1232:14
+     |
+1232 | pub async fn get_last_room_recording_egress(
+     |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `start_room_recording_egress` is never used
+    --> src/room/methods.rs:1279:14
+     |
+1279 | pub async fn start_room_recording_egress(
+     |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `stop_room_recording_egress` is never used
+    --> src/room/methods.rs:1307:14
+     |
+1307 | pub async fn stop_room_recording_egress(
+     |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: fields `name`, `capacity`, `clients`, `participants`, `room_name`, and `status` are never read
+   --> src/room/models.rs:280:9
+    |
+278 | pub struct RoomMemo {
+    |            -------- fields in this struct
+279 |     pub id: Uuid,
+280 |     pub name: String,
+    |         ^^^^
+281 |     pub capacity: i16,
+    |         ^^^^^^^^
+282 |     pub starts_at: Option<NaiveDateTime>,
+283 |     pub clients: Vec<RoomClientMemo>,
+    |         ^^^^^^^
+284 |     pub states: Vec<RoomStateMemo>,
+285 |     pub participants: HashMap<String, String>,
+    |         ^^^^^^^^^^^^
+286 |     pub room_name: String,
+    |         ^^^^^^^^^
+287 |     pub status: i16,
+    |         ^^^^^^
+    |
+    = note: `RoomMemo` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: fields `id`, `profile_id`, `token`, and `status` are never read
+   --> src/room/models.rs:293:9
+    |
+292 | pub struct RoomClientMemo {
+    |            -------------- fields in this struct
+293 |     pub id: Uuid,
+    |         ^^
+294 |     pub profile_id: Uuid,
+    |         ^^^^^^^^^^
+295 |     pub token: Option<String>,
+    |         ^^^^^
+296 |     pub status: i16,
+    |         ^^^^^^
+    |
+    = note: `RoomClientMemo` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: method `update` is never used
+   --> src/room/models.rs:308:18
+    |
+299 | impl RoomMemo {
+    | ------------- method in this implementation
+...
+308 |     pub async fn update(&mut self, state: &AppState) -> Result<(), AppError> {
+    |                  ^^^^^^
+
+warning: struct `LiveKitWebhook` is never constructed
+   --> src/room/models.rs:319:12
+    |
+319 | pub struct LiveKitWebhook {
+    |            ^^^^^^^^^^^^^^
+
+warning: struct `Room` is never constructed
+   --> src/room/models.rs:326:12
+    |
+326 | pub struct Room {
+    |            ^^^^
+
+warning: struct `Participant` is never constructed
+   --> src/room/models.rs:331:12
+    |
+331 | pub struct Participant {
+    |            ^^^^^^^^^^^
+
+warning: function `get_active_room_states` is never used
+   --> src/room_state/methods.rs:234:14
+    |
+234 | pub async fn get_active_room_states(
+    |              ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: field `status` is never read
+   --> src/room_state/models.rs:124:9
+    |
+116 | pub struct RoomStateMemo {
+    |            ------------- field in this struct
+...
+124 |     pub status: i16,
+    |         ^^^^^^
+    |
+    = note: `RoomStateMemo` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: function `fallback` is never used
+   --> src/router.rs:691:10
+    |
+691 | async fn fallback() -> (StatusCode, &'static str) {
+    |          ^^^^^^^^
+
+warning: struct `RoomCloseJob` is never constructed
+  --> src/schedule/room_close_job.rs:15:12
+   |
+15 | pub struct RoomCloseJob {}
+   |            ^^^^^^^^^^^^
+
+warning: structure field `displayName` should have a snake case name
+   --> src/models.rs:100:9
+    |
+100 |     pub displayName: String,
+    |         ^^^^^^^^^^^ help: convert the identifier to snake case: `display_name`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: structure field `commandName` should have a snake case name
+   --> src/models.rs:107:9
+    |
+107 |     pub commandName: String,
+    |         ^^^^^^^^^^^ help: convert the identifier to snake case: `command_name`
+
+warning: `mra_session` (bin "mra_session") generated 70 warnings (run `cargo fix --bin "mra_session" -p mra_session` to apply 41 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.61s

@@ -1,0 +1,77 @@
+{
+  "status": "local_handoff_integrity_and_scoped_evidence_verified",
+  "source_handoff": "/Users/mohammadralizadeh/Infera/acceptance-results/role-summaries-2026-10-19/source-domains-review-v1/handoff.json",
+  "handoff_sha256": "69648030ce1e683c8a5eb737b94283a5f2ed0ca0bceb5dc6a94dca165d41f0c6",
+  "artifacts_verified": 97,
+  "source_files_verified": 2197,
+  "sources": {
+    "task": {
+      "revision": "5039302f25bdecacb7b3d17bf53e232fe0489a92",
+      "files_verified": 364,
+      "bundle_verified": true
+    },
+    "session": {
+      "revision": "f05bbc459965efbebd1cfe6d3348b48ead8cee49",
+      "files_verified": 564,
+      "bundle_verified": true
+    },
+    "chat": {
+      "revision": "c42afad57281dbe92d8ef4c01d002a3f59704ddf",
+      "files_verified": 351,
+      "bundle_verified": true
+    },
+    "crm": {
+      "revision": "5f215256d275a909c39825f00f4c71909c2e4b58",
+      "files_verified": 562,
+      "bundle_verified": true
+    },
+    "idp": {
+      "revision": "6d91708d22125f23d91e9e11ef3ffc801c0af5f2",
+      "files_verified": 356,
+      "bundle_verified": true
+    }
+  },
+  "native_test_log_counts": {
+    "task": {
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0
+    },
+    "session": {
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0
+    },
+    "chat": {
+      "passed": 1,
+      "failed": 0,
+      "ignored": 0
+    },
+    "crm": {
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0
+    },
+    "idp": {
+      "passed": 2,
+      "failed": 0,
+      "ignored": 0
+    }
+  },
+  "chat_mount_stable_patch_ids": {
+    "ab6ce7461d35414b719f3806df57549339002df5": "4db2a33220a5b836ebba40e34e66da86e4a573d4",
+    "d919e296ba9f3591738272e5ab104bc901515415": "4db2a33220a5b836ebba40e34e66da86e4a573d4"
+  },
+  "session_and_crm_required_fix_ancestors": true,
+  "canonical_certification": false,
+  "sdk_adoption": "pending; incoming candidates not substituted into current pins without mounted API/compatibility review",
+  "limits": [
+    "No running full application-process MCP HTTP mount acceptance beyond production compilation plus the actual production reader under official transport.",
+    "No live six-domain combined Agentic run; these are real domain MCP isolation contracts, not provider inference.",
+    "No npm/Rust SDK publication or remote push; release owner must integrate synchronized SDK versions and resolve independent npm audit/network gates.",
+    "No live IDP/service credential or native object-grant provisioning.",
+    "No deployment, live Profile draft save, Qwen3 callable model selection, live provider inference or billing charge.",
+    "Profile/Agentic reviewed deployment, authenticated owner catalog and explicit source scope/grants remain prerequisites for live Poulstar configuration.",
+    "Source facts have declared limits: Session timing is not unique attendance, Chat response timing is not SLA, Task updated snapshots are not all-time history, CRM task activity is not financial collection credit. Accounting remains financial authority."
+  ]
+}
