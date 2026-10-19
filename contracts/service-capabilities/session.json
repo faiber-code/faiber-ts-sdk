@@ -27,7 +27,10 @@
     " M src/router.rs",
     "?? migration/src/m20261007_000021_asset_interactions.rs",
     "?? migration/src/m20261007_000022_asset_outbox_retry.rs",
-    "?? src/asset_economy.rs"
+    "?? migration/src/m20261019_000050_summary_activity_outbox.rs",
+    "?? src/asset_economy.rs",
+    "?? src/summary_evidence.rs",
+    "?? src/summary_evidence.sql"
   ],
   "source_relationship": "working_behind_sdk",
   "source_tree_checksum": "720681f47e8898eec6430cb01646fb44da2f717c5e51f144cafd60a40821bbda",
@@ -465,7 +468,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "3bac1956dd7b3aa6b113954467c696a6b923d087c1c42f40bcd6a559f051fcf1",
+  "working_source_tree_checksum": "e7d4afe3e12ded90b2efb498c4ae2234063c155f4add5a905b0abd789a261e9e",
   "working_source_files": [
     {
       "path": "infera-session/src/asset_economy.rs",
@@ -565,7 +568,7 @@
     },
     {
       "path": "infera-session/src/main.rs",
-      "checksum": "df12244d8ed00077c6497a27ddfc5fd8c6d3a13cf723c7318a9af5b4f2573b87"
+      "checksum": "7140a4951420b98d3cd6afe24b426b699bb8c6d4af1c52e0ab40f9825c592e24"
     },
     {
       "path": "infera-session/src/middleware.rs",
@@ -696,6 +699,14 @@
       "checksum": "a944bb00c522ed5e7e81f1cf89de7bca29db710136d88a30dec48dfca457a430"
     },
     {
+      "path": "infera-session/src/summary_evidence.rs",
+      "checksum": "a8f3754d6a61e8b3162ccc03eea06128123352b912205d09b03b67ef55ddd703"
+    },
+    {
+      "path": "infera-session/src/summary_evidence.sql",
+      "checksum": "6a1add7845da9c705503d554a56ffea450825af58d716ac1201ad5fdacd3ebd9"
+    },
+    {
       "path": "infera-session/src/validators.rs",
       "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
@@ -773,7 +784,7 @@
     },
     {
       "path": "infera-session/migration/src/lib.rs",
-      "checksum": "8e64e8401d75d7a6e9b754ff5f56c07c8ebf8491be2a76e2474337f26d00920f"
+      "checksum": "782125a66f51cbdbcff282f8bb239f58ebbd839a3d3ea11b1bfa95a719586cab"
     },
     {
       "path": "infera-session/migration/src/m20220101_000001_create_rooms_table.rs",
@@ -864,16 +875,20 @@
       "checksum": "f029cf8355d2bbf5043776a9b9003276bb0319482544b8ed64ed76ef9876a5cd"
     },
     {
+      "path": "infera-session/migration/src/m20261019_000050_summary_activity_outbox.rs",
+      "checksum": "f8a6a16c570e99af0e86eb9364011b0e334faf8b782272626098eddf5aa259de"
+    },
+    {
       "path": "infera-session/migration/src/main.rs",
       "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
     },
     {
       "path": "infera-session/Cargo.toml",
-      "checksum": "43f447bcc360d9522257bb6558da86cd21f87b59618d29bed720bea8ae0b1d44"
+      "checksum": "44784b02011f2daf1c54f5adb94edad9ed20ad911a7c86f49de23fbaa453ec73"
     },
     {
       "path": "infera-session/Cargo.lock",
-      "checksum": "4dd3c5ca228749dc6f6321146a22ad5fec6ac93e6a16ddb8fc236f8224770573"
+      "checksum": "cadf3745b7adee8783990728d5149eca7340ec6756a1bbf5a81ee4b37cb2d832"
     },
     {
       "path": "infera-session/.cargo/config.toml",
@@ -886,6 +901,11 @@
     {
       "path": "infera-session/migration/Cargo.toml",
       "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/outbox.sql",
+      "checksum": "3d5397a39133f200efe66ae7f39a7a4570dc4d809864381be36955ab45998401",
+      "embedded_by": "infera-session/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
   "operations": [
@@ -5583,7 +5603,7 @@
   "middleware_sources": [
     {
       "path": "infera-session/src/main.rs",
-      "checksum": "df12244d8ed00077c6497a27ddfc5fd8c6d3a13cf723c7318a9af5b4f2573b87"
+      "checksum": "7140a4951420b98d3cd6afe24b426b699bb8c6d4af1c52e0ab40f9825c592e24"
     },
     {
       "path": "infera-session/src/router.rs",

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T11:37:51.868817+00:00",
+  "updated_at": "2026-10-19T11:38:47.586602+00:00",
   "program_status": "incomplete_discovery_in_progress",
   "release_version": "0.23.0",
   "new_release_published": false,
@@ -363,5 +363,18 @@
     "chat": "Pinned repository trace identifies absent tracked outbox dispatcher and non-atomic memory event after reply commit. External delivery remains unreconciled.",
     "all_services": "Discovery gate blocked; no verified Knowledge published.",
     "manage": "Nine server operations reviewed from pinned source, plus typed relationship boundaries to Agentic and each catalogue service.18 existing component tests passed with preserved original dirty lock; full cross-service/UI acceptance unverified."
+  },
+  "working_source_refresh": {
+    "status": "unverified_observations_only",
+    "services": [
+      "agentic",
+      "chat",
+      "lms",
+      "profile",
+      "session",
+      "task"
+    ],
+    "meaning": "Discovery refreshed fingerprints of concurrently changing source checkouts. Their edits are preserved and are not certified by capacity or Manage component tests. SDK Profile summaries edits are unrelated and left uncommitted by this task.",
+    "service_universe": "Fresh directory inventory still maps to the21 active services already catalogued; recovery/worktree aliases remain excluded. New Rust summary SDK directory is not evidence of an active standalone service."
   }
 }

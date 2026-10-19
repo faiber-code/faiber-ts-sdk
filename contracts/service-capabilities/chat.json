@@ -25,10 +25,13 @@
     " M src/workspace_assistant.rs",
     "?? migration/src/m20261003_000013_media_retention.rs",
     "?? migration/src/m20261007_000015_asset_interactions.rs",
+    "?? migration/src/m20261019_000050_summary_activity_outbox.rs",
     "?? src/asset_economy.rs",
     "?? src/fitness.rs",
     "?? src/media_retention.rs",
     "?? src/product_plans.rs",
+    "?? src/summary_evidence.rs",
+    "?? src/summary_evidence.sql",
     "?? src/workspace_json.rs"
   ],
   "source_relationship": "diverged",
@@ -299,7 +302,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "969235c15f4f33a6e87e0cc2c4f68786e2592c34af8a23f721d5d45f7939e8b0",
+  "working_source_tree_checksum": "f782c9ea6b2c642613c209d9f78347e1b7c39b301012dcfb98b8523387466614",
   "working_source_files": [
     {
       "path": "infera-chat/src/agentic.rs",
@@ -335,11 +338,11 @@
     },
     {
       "path": "infera-chat/src/lib.rs",
-      "checksum": "33b2e04db2619a2a44e04265cabf4556a1d300418c5860f20b947123545add37"
+      "checksum": "d0cf16784f1f4e178086be71d3fe1ff12a123383d3a7c8b017f84dcea2c5a466"
     },
     {
       "path": "infera-chat/src/main.rs",
-      "checksum": "26b47402fc6f2022fc7b9a0f8109d5e2629812688dfdfe51a3d708b1c34ece4c"
+      "checksum": "3d2e472b9721064244858486cb4ede0529af7033fa081f7260e5efac2a4cd825"
     },
     {
       "path": "infera-chat/src/media_retention.rs",
@@ -376,6 +379,14 @@
     {
       "path": "infera-chat/src/storage.rs",
       "checksum": "088af4a73585f21451a76966efcdafa982aa9f9925893c3cad9860dcfd694166"
+    },
+    {
+      "path": "infera-chat/src/summary_evidence.rs",
+      "checksum": "a7822cd4b15f0ba80320f11d796fab7b8bb443ea3d6bb6653d8ff172314931e9"
+    },
+    {
+      "path": "infera-chat/src/summary_evidence.sql",
+      "checksum": "e80b8339b9537951ed36fe0d6473157376e3f05fbd802308b31d4f3801257bd7"
     },
     {
       "path": "infera-chat/src/workspace_answers.rs",
@@ -443,7 +454,7 @@
     },
     {
       "path": "infera-chat/migration/src/lib.rs",
-      "checksum": "cc1d52ae46e640d6a8c7122ebcdfee905603e8e24ee4edc0b49af6d79383f5bb"
+      "checksum": "cf66c2a462d57a5503f0faf032c63e8b48b0c824868ddb9e59c2fd035594791a"
     },
     {
       "path": "infera-chat/migration/src/m20260722_000001_create_chat.rs",
@@ -502,12 +513,16 @@
       "checksum": "a8555079a454dbd6cd0d68485ee50548cf4f426ae7ff88e28a00bbf8b64a9278"
     },
     {
+      "path": "infera-chat/migration/src/m20261019_000050_summary_activity_outbox.rs",
+      "checksum": "b13a119484f1391461fbe1de75e03eef90b960e7178bc20dced9c570dbd75c4b"
+    },
+    {
       "path": "infera-chat/Cargo.toml",
-      "checksum": "84463a67095a79fbd5ed48974b072abc9d1c9f39074ed11a3b75279686f45e34"
+      "checksum": "c24fad29d7a3fda113b5d52f06f564fc171e8a2cf193fc644900604fe2fba315"
     },
     {
       "path": "infera-chat/Cargo.lock",
-      "checksum": "182a75c78978499d398d1fdbfc2a3816cf9ac919afc4e17f07f2bd41b654af3a"
+      "checksum": "c4f504031c027677878e8cf702d9759ad9bc5c98840d3457baec580e9f8e2c7f"
     },
     {
       "path": "infera-chat/entity/Cargo.toml",
@@ -516,6 +531,11 @@
     {
       "path": "infera-chat/migration/Cargo.toml",
       "checksum": "767f48a9d163105d17c72e9592181297855f74e5ffc983448bad5c0e2ccbcb66"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/outbox.sql",
+      "checksum": "3d5397a39133f200efe66ae7f39a7a4570dc4d809864381be36955ab45998401",
+      "embedded_by": "infera-chat/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
   "operations": [
@@ -6956,7 +6976,7 @@
     {
       "local_path": "/health",
       "source": "infera-chat/src/main.rs",
-      "line": 44,
+      "line": 46,
       "mount_status": "requires_router_reconciliation"
     },
     {
@@ -7189,7 +7209,7 @@
     },
     {
       "path": "infera-chat/src/main.rs",
-      "checksum": "26b47402fc6f2022fc7b9a0f8109d5e2629812688dfdfe51a3d708b1c34ece4c"
+      "checksum": "3d2e472b9721064244858486cb4ede0529af7033fa081f7260e5efac2a4cd825"
     },
     {
       "path": "infera-chat/migration/src/m20260828_000007_governed_assistant_context.rs",

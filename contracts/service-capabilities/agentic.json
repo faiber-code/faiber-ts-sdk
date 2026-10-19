@@ -15,7 +15,11 @@
   "canonical_revision": "6adb76c4a22e044cb92673ef9104658973c2d766",
   "sdk_source_revision": null,
   "working_revision": "7fe2de869b15b122d3a90486f9ad940742da5fca",
-  "working_changes": [],
+  "working_changes": [
+    "M src/main.rs",
+    " M src/router.rs",
+    "?? src/profile_summary/"
+  ],
   "source_relationship": "not_in_sdk_lock",
   "source_tree_checksum": "2c6874e614ee2365dd40fe00b23090ba47d11e569d5aa7d0c9cd57f22abf91b2",
   "source_files": [
@@ -949,7 +953,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "3d5781db49feae135f62083d3e5008561fd3d95653bdebd9c9b6c1da17feedf2",
+  "working_source_tree_checksum": "98a66667fdf7da09206d54c2866889b7f3bf7b59c33f33a8f673cc1fb1b6d5da",
   "working_source_files": [
     {
       "path": "infera-agentic/src/account.rs",
@@ -1453,7 +1457,7 @@
     },
     {
       "path": "infera-agentic/src/main.rs",
-      "checksum": "8890e57cb8f28f1d459180cbe4b48c66c172b66764c0e1c646a9565909bffc17"
+      "checksum": "dee82b92855485d2469dec9f629b8e74e5d9d743a64a2d273252aab9748869b0"
     },
     {
       "path": "infera-agentic/src/media/library.rs",
@@ -1494,6 +1498,14 @@
     {
       "path": "infera-agentic/src/play_marketplace.rs",
       "checksum": "1d2986160fe77995a1dff93ec71f5d79057991f7b9debd37e49a1cefca02125d"
+    },
+    {
+      "path": "infera-agentic/src/profile_summary/mod.rs",
+      "checksum": "8a04f65837cd377cc8ff3a6762fb80395714d67addfeb5cf82230be65874ec56"
+    },
+    {
+      "path": "infera-agentic/src/profile_summary/runner.rs",
+      "checksum": "793b131c60aa607a7edc2a3048ffd08d7dc2f90e22edba91b5c4105c6d670eed"
     },
     {
       "path": "infera-agentic/src/project/access.rs",
@@ -1569,7 +1581,7 @@
     },
     {
       "path": "infera-agentic/src/router.rs",
-      "checksum": "ea18e3e823496f89f574f6d3055fd8624483e59a896d796ac0ebc2c974344179"
+      "checksum": "5a289641e1ddbd4e692039d8a9d086ae50bbf3dac5bb93947113c245bbc560f0"
     },
     {
       "path": "infera-agentic/src/service_billing.rs",
@@ -1865,11 +1877,11 @@
     },
     {
       "path": "infera-agentic/Cargo.toml",
-      "checksum": "45213099798494588fbff052ba02eeba27b90569c6ed052db8bc6c18668e9b53"
+      "checksum": "98e7f2261ec9a4ab8f718cee0d118cc0f6c64f8b608828200229e0f65d0bfa3a"
     },
     {
       "path": "infera-agentic/Cargo.lock",
-      "checksum": "568d8712e1ed914053139d1d01a234ed1bb0f40a205a12c5a1854c91513b7959"
+      "checksum": "196ae6dd8e2de0636e1ad121a60f26ac271c9107455f0bade63a9ae56b949c97"
     },
     {
       "path": "infera-agentic/.cargo/config.toml",
@@ -42700,6 +42712,30 @@
       "mount_status": "requires_router_reconciliation"
     },
     {
+      "local_path": "/api/v1/integrations/profile/summaries/models",
+      "source": "infera-agentic/src/profile_summary/mod.rs",
+      "line": 9,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/api/v1/integrations/profile/summaries/runs",
+      "source": "infera-agentic/src/profile_summary/mod.rs",
+      "line": 10,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/api/v1/integrations/profile/summaries/runs/{id}",
+      "source": "infera-agentic/src/profile_summary/mod.rs",
+      "line": 11,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/api/v1/integrations/profile/summaries/runs/{id}/cancel",
+      "source": "infera-agentic/src/profile_summary/mod.rs",
+      "line": 12,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
       "local_path": "/api/v1/projects/{slug}/members",
       "source": "infera-agentic/src/project/access.rs",
       "line": 700,
@@ -43020,223 +43056,223 @@
     {
       "local_path": "/api/v1/browser/proxy",
       "source": "infera-agentic/src/router.rs",
-      "line": 129,
+      "line": 130,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/page",
       "source": "infera-agentic/src/router.rs",
-      "line": 130,
+      "line": 131,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/worker-status",
       "source": "infera-agentic/src/router.rs",
-      "line": 131,
+      "line": 132,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/frame/{thread_id}",
       "source": "infera-agentic/src/router.rs",
-      "line": 132,
+      "line": 133,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/frame/{thread_id}/image",
       "source": "infera-agentic/src/router.rs",
-      "line": 133,
+      "line": 134,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/interact/{thread_id}",
       "source": "infera-agentic/src/router.rs",
-      "line": 137,
+      "line": 138,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/close/{thread_id}",
       "source": "infera-agentic/src/router.rs",
-      "line": 138,
+      "line": 139,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/capture/{thread_id}",
       "source": "infera-agentic/src/router.rs",
-      "line": 139,
+      "line": 140,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/ask/{id}/complete",
       "source": "infera-agentic/src/router.rs",
-      "line": 140,
+      "line": 141,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/actions/{id}/complete",
       "source": "infera-agentic/src/router.rs",
-      "line": 141,
+      "line": 142,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/browser/download",
       "source": "infera-agentic/src/router.rs",
-      "line": 145,
+      "line": 146,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers",
       "source": "infera-agentic/src/router.rs",
-      "line": 147,
+      "line": 148,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/devices",
       "source": "infera-agentic/src/router.rs",
-      "line": 148,
+      "line": 149,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/devices/{device_id}",
       "source": "infera-agentic/src/router.rs",
-      "line": 152,
+      "line": 153,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/account",
       "source": "infera-agentic/src/router.rs",
-      "line": 156,
+      "line": 157,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/default",
       "source": "infera-agentic/src/router.rs",
-      "line": 157,
+      "line": 158,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/app-release",
       "source": "infera-agentic/src/router.rs",
-      "line": 158,
+      "line": 159,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/pairing/regenerate",
       "source": "infera-agentic/src/router.rs",
-      "line": 159,
+      "line": 160,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/setup",
       "source": "infera-agentic/src/router.rs",
-      "line": 163,
+      "line": 164,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/register",
       "source": "infera-agentic/src/router.rs",
-      "line": 164,
+      "line": 165,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/me",
       "source": "infera-agentic/src/router.rs",
-      "line": 165,
+      "line": 166,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/heartbeat",
       "source": "infera-agentic/src/router.rs",
-      "line": 166,
+      "line": 167,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/media/manifest",
       "source": "infera-agentic/src/router.rs",
-      "line": 167,
+      "line": 168,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/jobs/wait",
       "source": "infera-agentic/src/router.rs",
-      "line": 171,
+      "line": 172,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/jobs/{id}/state",
       "source": "infera-agentic/src/router.rs",
-      "line": 172,
+      "line": 173,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/jobs/{id}/lease",
       "source": "infera-agentic/src/router.rs",
-      "line": 173,
+      "line": 174,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/jobs/{id}/cloud-write",
       "source": "infera-agentic/src/router.rs",
-      "line": 174,
+      "line": 175,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/jobs/{id}/progress",
       "source": "infera-agentic/src/router.rs",
-      "line": 175,
+      "line": 176,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/jobs/{id}/complete",
       "source": "infera-agentic/src/router.rs",
-      "line": 179,
+      "line": 180,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/ide-tool",
       "source": "infera-agentic/src/router.rs",
-      "line": 183,
+      "line": 184,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/cloud-providers",
       "source": "infera-agentic/src/router.rs",
-      "line": 184,
+      "line": 185,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/workers/user-llm-providers",
       "source": "infera-agentic/src/router.rs",
-      "line": 188,
+      "line": 189,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/cloud/providers",
       "source": "infera-agentic/src/router.rs",
-      "line": 193,
+      "line": 194,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/cloud/providers/audit",
       "source": "infera-agentic/src/router.rs",
-      "line": 197,
+      "line": 198,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/cloud/providers/{id}",
       "source": "infera-agentic/src/router.rs",
-      "line": 198,
+      "line": 199,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/llm-providers",
       "source": "infera-agentic/src/router.rs",
-      "line": 203,
+      "line": 204,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/llm-providers/{id}",
       "source": "infera-agentic/src/router.rs",
-      "line": 207,
+      "line": 208,
       "mount_status": "requires_router_reconciliation"
     },
     {
@@ -43471,7 +43507,7 @@
     },
     {
       "path": "infera-agentic/src/main.rs",
-      "checksum": "8890e57cb8f28f1d459180cbe4b48c66c172b66764c0e1c646a9565909bffc17"
+      "checksum": "dee82b92855485d2469dec9f629b8e74e5d9d743a64a2d273252aab9748869b0"
     },
     {
       "path": "infera-agentic/src/project/admin_session.rs",
@@ -43479,7 +43515,7 @@
     },
     {
       "path": "infera-agentic/src/router.rs",
-      "checksum": "ea18e3e823496f89f574f6d3055fd8624483e59a896d796ac0ebc2c974344179"
+      "checksum": "5a289641e1ddbd4e692039d8a9d086ae50bbf3dac5bb93947113c245bbc560f0"
     },
     {
       "path": "infera-agentic/faiber-agent-core/src/context.rs",

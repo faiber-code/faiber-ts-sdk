@@ -16,8 +16,14 @@
   "sdk_source_revision": "badfa399a8db6f19d68f63f14b1c67485c4d4903",
   "working_revision": "afe576aac58ff0812635dedccfdcaed39519062a",
   "working_changes": [
-    "M migration/src/m20260927_000013_gift_capacity.rs",
-    " M src/plans.rs"
+    "M migration/src/lib.rs",
+    " M migration/src/m20260927_000013_gift_capacity.rs",
+    " M src/lib.rs",
+    " M src/plans.rs",
+    " M src/routes.rs",
+    "?? migration/src/m20261019_000050_summary_activity_outbox.rs",
+    "?? src/summary_evidence.rs",
+    "?? src/summary_evidence.sql"
   ],
   "source_relationship": "working_behind_sdk",
   "source_tree_checksum": "58ea8aad9065b7371ac5bd4a972029125ecdc074d80a0bfa3d4dc9f0a3788c9f",
@@ -295,7 +301,7 @@
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "09f067c79a474835e0cd59bc6dac5cf2aeec1a1dad7e5bd02d9876a4bbebda70",
+  "working_source_tree_checksum": "dfbf2a23dd61bb15d01986566b4940f37ec95434a35304a8e3505f270a8f9869",
   "working_source_files": [
     {
       "path": "infera-task/src/assistant.rs",
@@ -319,7 +325,7 @@
     },
     {
       "path": "infera-task/src/lib.rs",
-      "checksum": "fec6a0e5bcd3d84b384c706df35920972e1b5fb1eb4f42d2f5f59d18b5c7ea35"
+      "checksum": "1a6776b635d58a67b979765b7bf315efae8ef540fc6c3654bf6071c9d4055ffb"
     },
     {
       "path": "infera-task/src/main.rs",
@@ -351,11 +357,19 @@
     },
     {
       "path": "infera-task/src/routes.rs",
-      "checksum": "1096afe360a43c67c3a20d10ca1cf60dc778f922eeb9e9179ea97da18fee7877"
+      "checksum": "0b6c1a2f81c274ed036fd41b800f7f9b467ab37ec4a1dec807447f0d56db6428"
     },
     {
       "path": "infera-task/src/state.rs",
       "checksum": "3553365d804e452963b19e3dda7defe2da06ac8310f6e136d4aa78d8964f10c5"
+    },
+    {
+      "path": "infera-task/src/summary_evidence.rs",
+      "checksum": "112a799ccef57656b1c7b9b1c27ca857e149f473de14e67100b1a0197112a683"
+    },
+    {
+      "path": "infera-task/src/summary_evidence.sql",
+      "checksum": "d94252af317cf953f2ecde4b7895408be1ec21c2a4efacf4e215cfb812f00b4b"
     },
     {
       "path": "infera-task/src/trial_gifts.rs",
@@ -379,7 +393,7 @@
     },
     {
       "path": "infera-task/migration/src/lib.rs",
-      "checksum": "fb69ce2784217bd912f184d9963289043e85df6969bab11ca4fd0668eedd8070"
+      "checksum": "b7405aa31165be950110d583f857a366cdda380120461e13792765288045bdc4"
     },
     {
       "path": "infera-task/migration/src/m20260812_000001_create_task_domain.rs",
@@ -434,16 +448,20 @@
       "checksum": "49ecf495cd2340e7c27db52e7678b18606e492fce82dd4b14782f31c9a067189"
     },
     {
+      "path": "infera-task/migration/src/m20261019_000050_summary_activity_outbox.rs",
+      "checksum": "6c55d4cc4b6804c827b4dfbf7ebbf29b0ea25752dcef074b58a5b13d32eeeaf0"
+    },
+    {
       "path": "infera-task/migration/src/main.rs",
       "checksum": "9f0ce6ada5b4c42d0fd729da8d37b1e76b2046e8466be167307d519ad5c8404e"
     },
     {
       "path": "infera-task/Cargo.toml",
-      "checksum": "1b92450ec559718209969182c6ce915e6fcc534f2bfc3ea36327dfbd348e5672"
+      "checksum": "0cf8b61849f0176e01cdf0847db24b78897ba969d722475ffc349342bae55d4d"
     },
     {
       "path": "infera-task/Cargo.lock",
-      "checksum": "5545bdf89d04c3b08f34d3d5b174005ef6da9a64c9eb01f13df8d8f84f350890"
+      "checksum": "6b681f08ea30307990f9bf6fb2e440ef745c935a549dabb288e739ec7ef975e7"
     },
     {
       "path": "infera-task/entity/Cargo.toml",
@@ -452,6 +470,11 @@
     {
       "path": "infera-task/migration/Cargo.toml",
       "checksum": "9bffff003004ebf567d92913dc997286b8b73bcf15612060f83f5b0e45cfe410"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/outbox.sql",
+      "checksum": "3d5397a39133f200efe66ae7f39a7a4570dc4d809864381be36955ab45998401",
+      "embedded_by": "infera-task/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
   "operations": [
@@ -12668,391 +12691,391 @@
     {
       "local_path": "/plans",
       "source": "infera-task/src/routes.rs",
-      "line": 69,
+      "line": 70,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/plans/gift",
       "source": "infera-task/src/routes.rs",
-      "line": 70,
+      "line": 71,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/plans/gift-tokens",
       "source": "infera-task/src/routes.rs",
-      "line": 71,
+      "line": 72,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/plans/checkout",
       "source": "infera-task/src/routes.rs",
-      "line": 72,
+      "line": 73,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/plans/orders/{id}/reconcile",
       "source": "infera-task/src/routes.rs",
-      "line": 73,
+      "line": 74,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/notes/{id}/document",
       "source": "infera-task/src/routes.rs",
-      "line": 74,
+      "line": 75,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/notes/{id}/realtime/config",
       "source": "infera-task/src/routes.rs",
-      "line": 75,
+      "line": 76,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/notes/{id}/realtime/auth",
       "source": "infera-task/src/routes.rs",
-      "line": 76,
+      "line": 77,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/assistant/query",
       "source": "infera-task/src/routes.rs",
-      "line": 77,
+      "line": 78,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/planning-preferences",
       "source": "infera-task/src/routes.rs",
-      "line": 78,
+      "line": 79,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/note-folders",
       "source": "infera-task/src/routes.rs",
-      "line": 79,
+      "line": 80,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/review-proposals",
       "source": "infera-task/src/routes.rs",
-      "line": 80,
+      "line": 81,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/review-proposals/validate",
       "source": "infera-task/src/routes.rs",
-      "line": 81,
+      "line": 82,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/review-proposals/{id}",
       "source": "infera-task/src/routes.rs",
-      "line": 82,
+      "line": 83,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/review-proposals/{id}/apply",
       "source": "infera-task/src/routes.rs",
-      "line": 83,
+      "line": 84,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/review-proposals/{id}/refresh",
       "source": "infera-task/src/routes.rs",
-      "line": 84,
+      "line": 85,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/workspace",
       "source": "infera-task/src/routes.rs",
-      "line": 85,
+      "line": 86,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/notification-preferences",
       "source": "infera-task/src/routes.rs",
-      "line": 86,
+      "line": 87,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/reminder",
       "source": "infera-task/src/routes.rs",
-      "line": 87,
+      "line": 88,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects/{id}/checklists",
       "source": "infera-task/src/routes.rs",
-      "line": 88,
+      "line": 89,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/checklist",
       "source": "infera-task/src/routes.rs",
-      "line": 89,
+      "line": 90,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects/{id}/members",
       "source": "infera-task/src/routes.rs",
-      "line": 90,
+      "line": 91,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects/{id}/members/{user_id}",
       "source": "infera-task/src/routes.rs",
-      "line": 91,
+      "line": 92,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/access/effective",
       "source": "infera-task/src/routes.rs",
-      "line": 92,
+      "line": 93,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects",
       "source": "infera-task/src/routes.rs",
-      "line": 93,
+      "line": 94,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects/personal",
       "source": "infera-task/src/routes.rs",
-      "line": 94,
+      "line": 95,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects/shared",
       "source": "infera-task/src/routes.rs",
-      "line": 95,
+      "line": 96,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects/{id}",
       "source": "infera-task/src/routes.rs",
-      "line": 96,
+      "line": 97,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects/{id}/workflow",
       "source": "infera-task/src/routes.rs",
-      "line": 97,
+      "line": 98,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/projects/{id}/grants",
       "source": "infera-task/src/routes.rs",
-      "line": 98,
+      "line": 99,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/teams",
       "source": "infera-task/src/routes.rs",
-      "line": 99,
+      "line": 100,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/teams/{id}",
       "source": "infera-task/src/routes.rs",
-      "line": 100,
+      "line": 101,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items",
       "source": "infera-task/src/routes.rs",
-      "line": 101,
+      "line": 102,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}",
       "source": "infera-task/src/routes.rs",
-      "line": 102,
+      "line": 103,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/transition",
       "source": "infera-task/src/routes.rs",
-      "line": 106,
+      "line": 107,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/activity",
       "source": "infera-task/src/routes.rs",
-      "line": 107,
+      "line": 108,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/comments",
       "source": "infera-task/src/routes.rs",
-      "line": 108,
+      "line": 109,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/work-logs",
       "source": "infera-task/src/routes.rs",
-      "line": 112,
+      "line": 113,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/commits",
       "source": "infera-task/src/routes.rs",
-      "line": 116,
+      "line": 117,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/work-sessions",
       "source": "infera-task/src/routes.rs",
-      "line": 120,
+      "line": 121,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/work-sessions/start",
       "source": "infera-task/src/routes.rs",
-      "line": 121,
+      "line": 122,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-items/{id}/points",
       "source": "infera-task/src/routes.rs",
-      "line": 125,
+      "line": 126,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-sessions/active",
       "source": "infera-task/src/routes.rs",
-      "line": 126,
+      "line": 127,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-sessions/{id}/heartbeat",
       "source": "infera-task/src/routes.rs",
-      "line": 127,
+      "line": 128,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/work-sessions/{id}/stop",
       "source": "infera-task/src/routes.rs",
-      "line": 131,
+      "line": 132,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/sprints",
       "source": "infera-task/src/routes.rs",
-      "line": 132,
+      "line": 133,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/sprints/{id}/start",
       "source": "infera-task/src/routes.rs",
-      "line": 133,
+      "line": 134,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/sprints/{id}/complete",
       "source": "infera-task/src/routes.rs",
-      "line": 134,
+      "line": 135,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/reports/summary",
       "source": "infera-task/src/routes.rs",
-      "line": 135,
+      "line": 136,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/reports/team-monitoring",
       "source": "infera-task/src/routes.rs",
-      "line": 136,
+      "line": 137,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/performance/policies",
       "source": "infera-task/src/routes.rs",
-      "line": 137,
+      "line": 138,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/points/history",
       "source": "infera-task/src/routes.rs",
-      "line": 138,
+      "line": 139,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/agent-proposals",
       "source": "infera-task/src/routes.rs",
-      "line": 139,
+      "line": 140,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/agent-proposals/{id}/approve",
       "source": "infera-task/src/routes.rs",
-      "line": 140,
+      "line": 141,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/events",
       "source": "infera-task/src/routes.rs",
-      "line": 144,
+      "line": 145,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/internal/plans/gifts",
       "source": "infera-task/src/routes.rs",
-      "line": 148,
+      "line": 149,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/internal/plans/gifts/{id}",
       "source": "infera-task/src/routes.rs",
-      "line": 149,
+      "line": 150,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/internal/plans/reservations",
       "source": "infera-task/src/routes.rs",
-      "line": 150,
+      "line": 151,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/internal/plans/reservations/{id}",
       "source": "infera-task/src/routes.rs",
-      "line": 151,
+      "line": 152,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/health/live",
       "source": "infera-task/src/routes.rs",
-      "line": 152,
+      "line": 153,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/health/ready",
       "source": "infera-task/src/routes.rs",
-      "line": 153,
+      "line": 154,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/health/dependencies",
       "source": "infera-task/src/routes.rs",
-      "line": 154,
+      "line": 155,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/metrics",
       "source": "infera-task/src/routes.rs",
-      "line": 155,
+      "line": 156,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/openapi.json",
       "source": "infera-task/src/routes.rs",
-      "line": 156,
+      "line": 157,
       "mount_status": "requires_router_reconciliation"
     },
     {
       "local_path": "/api/v1/guest-links/use",
       "source": "infera-task/src/routes.rs",
-      "line": 157,
+      "line": 158,
       "mount_status": "requires_router_reconciliation"
     }
   ],
