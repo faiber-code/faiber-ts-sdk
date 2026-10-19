@@ -1,0 +1,46 @@
+{
+  "status": "source-bound-coverage-review",
+  "source_revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+  "native_run_report": "evidence/version-locked-nullable-sdk-12/version-sdk-wire-tests.json",
+  "native_run_report_sha256": "2db91063d5f9034e06721b15525b9e13cd397823192a88308bf59369446f00fb",
+  "probe_sha256": "c8a63aa84241a213a4dd4745a7fb60e2b7e02ff4e9452604d5375431f8b9e2ce",
+  "probe_checksum_matches_executed_inputs": true,
+  "operations": [
+    {
+      "id": "GET /health",
+      "actual_sdk_call": "ops.routerStatusRouteGet",
+      "checks": "Health/version/envelope and cancellation"
+    },
+    {
+      "id": "GET /api/openapi.json",
+      "actual_sdk_call": "ops.routerOpenapiJsonGet",
+      "checks": "Raw OpenAPI with health path/no data wrapper"
+    },
+    {
+      "id": "POST /api/v1/apk/releases",
+      "actual_sdk_call": "ops.routerPublishApkPost",
+      "checks": "Actual publication/stable ID/lower-code retry/URL validation/auth denial"
+    },
+    {
+      "id": "GET /api/v1/services",
+      "actual_sdk_call": "ops.serviceServicesIndexGet",
+      "checks": "List with required nullable last_version"
+    },
+    {
+      "id": "GET /api/v1/services/{service_slug}",
+      "actual_sdk_call": "ops.serviceServiceShowGet",
+      "checks": "Slug versus UUID lookup, nested release fields/enums"
+    },
+    {
+      "id": "GET /api/v1/services/{service_slug}/all",
+      "actual_sdk_call": "ops.serviceServiceShowAllGet",
+      "checks": "History versions, no last_version, missing slug404"
+    },
+    {
+      "id": "GET /api/v1/versions/{version_id}",
+      "actual_sdk_call": "ops.versionVersionShowGet",
+      "checks": "Published release/nullability and malformed/missing UUID"
+    }
+  ],
+  "limits": "Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates Actual --locked execution; lock is checked without restoring it before source comparison. Current full22-package freeze is d717ba069536ca8824fc0bd89981acf0e0ef1229."
+}

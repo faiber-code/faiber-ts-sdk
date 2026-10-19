@@ -1434,11 +1434,26 @@
       {
         "artifact_path": "evidence/version-locked-nullable-sdk-12/version-sdk-wire-tests.log",
         "sha256": "58e6fcf6da288b383e6b080fc9360faea3e08eae11fb507f717f4cbd2c5d4f54"
+      },
+      {
+        "artifact_path": "evidence/version-exact-operation-coverage-v1.json",
+        "sha256": "6ff96d8070a185fcf3d37d6352de151d797b850a3070406976353dbfdf72ecde"
       }
     ],
     "resolved_cargo_lock_artifact_path": "evidence/version-resolved-40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486.Cargo.lock",
     "resolved_cargo_lock_sha256": "40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486",
     "scope": "Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates Actual --locked execution; lock is checked without restoring it before source comparison. Current full22-package freeze is d717ba069536ca8824fc0bd89981acf0e0ef1229.",
-    "canonical_certification": false
+    "canonical_certification": false,
+    "covered_operations": {
+      "version": [
+        "GET /health",
+        "GET /api/openapi.json",
+        "POST /api/v1/apk/releases",
+        "GET /api/v1/services",
+        "GET /api/v1/services/{service_slug}",
+        "GET /api/v1/services/{service_slug}/all",
+        "GET /api/v1/versions/{version_id}"
+      ]
+    }
   }
 }
