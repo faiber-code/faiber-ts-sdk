@@ -700,8 +700,8 @@
       "id": "active-gis-service-discovery-sdk-manage",
       "owner": "discovery",
       "required": true,
-      "status": "active_service_missing_from_previous_universe",
-      "meaning": "Control deployed inventory includes active generic infera-gis, previously absent from21-service discovery and all22 SDK packages. Canonical d07 source fetched into new clean checkout; all mounted semantic/current-auth/runtime, cross-service relationships, typed SDK/package ownership and readable Manage gates must be completed before release. Existing Rasht feature branch and live image are not replaced.",
+      "status": "all48_source_reviewed_runtime_sdk_manage_pending",
+      "meaning": "GIS is active and its48 mounted operations now have manually source-checksum-bound permission, filter, wire, lifecycle and relationship reviews. None is runtime-certified. GIS remains absent from the SDK source lock/package; current IDP, PostGIS/Martin, import authorization/recovery, Social assertion, deployed-source and readable Manage gates remain open.",
       "source_refs": [
         "Service/infera-gis/src/router.rs",
         "Service/infera-gis/src/auth.rs",
@@ -713,13 +713,14 @@
       "id": "active-frontend-worker-runtime-classification",
       "owner": "discovery",
       "required": true,
-      "status": "source_classification_pending",
+      "status": "source_ownership_reviewed_runtime_build_provenance_pending",
       "meaning": "Inventory also contains infera-panel, infera-website, infera-worker and infera-android-app. Classify frontend/worker surfaces and any owned HTTP APIs from source/deployment provenance; do not silently exclude them or invent duplicate business services.",
       "source_refs": [
         "infera-panel/package.json",
         "infera-website/package.json",
         "infera-agentic/Dockerfile.worker",
-        "evidence/active-runtime-universe-review-v1.json"
+        "evidence/active-runtime-universe-review-v1.json",
+        "evidence/frontend-worker-source-classification-v1.json"
       ]
     },
     {
@@ -732,6 +733,32 @@
         "evidence/active-runtime-catalog-deployments-v1.json",
         "evidence/catalog-release-alias-ancestry-v1.json"
       ]
+    },
+    {
+      "id": "gis-import-current-principal-and-durable-fencing",
+      "owner": "gis",
+      "required": true,
+      "status": "source_defects_open",
+      "meaning": "Worker synthesizes dataset/global management permissions rather than validating current owner grants. Persistent claims lack lease tokens/heartbeats/fenced completion; create active-count/dataset/job writes and retry state transition are not atomic. Bound partial-write retry and explicit revocation behavior must be implemented and tested on real PostGIS before completion.",
+      "source_refs": [
+        "Service/infera-gis/src/imports/mod.rs",
+        "evidence/gis-maps-imports-places-source-review-v1.json"
+      ],
+      "test_evidence": []
+    },
+    {
+      "id": "profile-trusted-ingestion-canonical-identity",
+      "owner": "profile",
+      "required": true,
+      "status": "local_source_fix_and_regression_prepared_runtime_pending",
+      "meaning": "Known Office/LMS id means user UID, not Profile PK. Legacy PK-first resolution and reserved structured properties could redirect trusted projection across users. Local ae97bfa fix and144cf32 test include intentional PK/UID collision, explicit reference conflicts, pre-write rejection and deleted/unknown subjects. Runtime/canonical integration and actual historical Accounting producer reconciliation remain open.",
+      "source_refs": [
+        "Service/infera-profile/src/trusted_service/methods.rs",
+        "Service/infera-profile/src/broker/handlers.rs"
+      ],
+      "local_source_revision": "ae97bfa8b5085de1cfd78fcf2b2d548ccaf793a7",
+      "local_test_revision": "144cf32596a34942d2a5ac1ac52a03f860605992",
+      "test_evidence": []
     }
   ]
 }
