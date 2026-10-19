@@ -1,0 +1,263 @@
+warning: patch `infera-asset-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-asset-sdk)` was not used in the crate graph
+warning: patch `infera-messenger-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-messenger-sdk)` was not used in the crate graph
+warning: patch `infera-payment-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-payment-sdk)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:84:17
+   |
+84 |     pub fn name(&self) -> Name {
+   |                 ^^^^^     ^^^^ the same lifetime is hidden here
+   |                 |
+   |                 the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+   |
+84 |     pub fn name(&self) -> Name<'_> {
+   |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:106:17
+    |
+106 |     pub fn name(&self) -> Name {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+106 |     pub fn name(&self) -> Name<'_> {
+    |                               ++++
+
+warning: `schemars_derive` (lib) generated 2 warnings (run `cargo fix --lib -p schemars_derive` to apply 2 suggestions)
+warning: hiding a lifetime that's elided elsewhere is confusing
+ --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:6:30
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<str> {
+  |                              ^^^^     ^^^^^^^^ the same lifetime is hidden here
+  |                              |
+  |                              the lifetime is elided here
+  |
+  = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+  = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<'_, str> {
+  |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:43:26
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<str>> {
+   |                          ^^^^            ^^^^^^^^ the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<'_, str>> {
+   |                                              +++
+
+warning: `schemars` (lib) generated 2 warnings (run `cargo fix --lib -p schemars` to apply 2 suggestions)
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:84:7
+   |
+84 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:87:7
+   |
+87 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:112:7
+    |
+112 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:115:7
+    |
+115 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs:53:11
+   |
+53 |     #[cfg(feature = "auth")]
+   |           ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs:17:7
+   |
+17 | #[cfg(feature = "auth")]
+   |       ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:61:39
+   |
+61 |         let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+   |                                       ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:136:47
+    |
+136 |                 let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+    |                                               ^^^^^^^^^^^^^^^^
+
+warning: `rmcp` (lib) generated 8 warnings
+warning: unused import: `HeaderValue`
+ --> /Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-idp-sdk/src/middleware.rs:5:12
+  |
+5 |     http::{HeaderValue, Request},
+  |            ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+   Compiling infera-summary-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera-profile/shared/infera-summary-sdk)
+warning: field `version` is never read
+   --> /Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-flow-sdk/src/registry.rs:136:5
+    |
+135 | struct RegistryChangedData {
+    |        ------------------- field in this struct
+136 |     version: i64,
+    |     ^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `status` is never read
+  --> /Users/mohammadralizadeh/Infera/Service/faiber-sdk/crates/infera-profile-sdk/src/models.rs:58:9
+   |
+57 | pub(crate) struct ProfileListEnvelope {
+   |                   ------------------- field in this struct
+58 |     pub status: String,
+   |         ^^^^^^
+   |
+   = note: `ProfileListEnvelope` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera-idp-sdk` (lib) generated 1 warning (run `cargo fix --lib -p infera-idp-sdk` to apply 1 suggestion)
+warning: `infera-flow-sdk` (lib) generated 1 warning
+warning: `infera-profile-sdk` (lib) generated 1 warning
+   Compiling infera_profile v0.1.0 (/Users/mohammadralizadeh/Infera/Service/infera-profile)
+warning: unused imports: `Datelike` and `Timelike`
+ --> src/ai_summary/worker.rs:4:24
+  |
+4 | use chrono::{DateTime, Datelike, Duration, Timelike, Utc};
+  |                        ^^^^^^^^            ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/city/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/country/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused import: `Entity`
+  --> src/log_action/routes.rs:12:39
+   |
+12 | use entity::log_action::{ActiveModel, Entity};
+   |                                       ^^^^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/profile_property/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused imports: `patch`, `post`, and `put`
+ --> src/province/routes.rs:4:28
+  |
+4 |     routing::{delete, get, patch, post, put},
+  |                            ^^^^^  ^^^^  ^^^
+
+warning: unused import: `ColumnTrait`
+ --> src/setting/methods.rs:3:51
+  |
+3 | use sea_orm::{ActiveModelTrait, ActiveValue::Set, ColumnTrait, EntityTrait, QueryOrder};
+  |                                                   ^^^^^^^^^^^
+
+warning: unused import: `post`
+ --> src/setting/routes.rs:4:20
+  |
+4 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused import: `post`
+ --> src/survey/routes.rs:4:20
+  |
+4 |     routing::{get, post},
+  |                    ^^^^
+
+warning: unused imports: `delete`, `post`, and `put`
+ --> src/trusted_service/routes.rs:4:15
+  |
+4 |     routing::{delete, get, post, put},
+  |               ^^^^^^       ^^^^  ^^^
+
+warning: unused import: `TryGetable`
+ --> src/campaign/routes.rs:8:60
+  |
+8 | use sea_orm::{ConnectionTrait, DatabaseBackend, Statement, TryGetable, Value as DbValue};
+  |                                                            ^^^^^^^^^^
+
+warning: value assigned to `tariff` is never read
+  --> src/fitness/routes.rs:64:24
+   |
+64 |         let mut tariff=Value::Null;let mut coach=None;let mut duration=30;
+   |                        ^^^^^^^^^^^
+   |
+   = help: maybe it is overwritten before being read?
+   = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: `infera_profile` (lib) generated 12 warnings (run `cargo fix --lib -p infera_profile` to apply 10 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.36s
+     Running tests/poulstar_configurations.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/poulstar_configurations-e4785febea3ef4ae)
+
+running 1 test
+test poulstar_role_drafts_match_the_source_contract_without_invented_metrics ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
