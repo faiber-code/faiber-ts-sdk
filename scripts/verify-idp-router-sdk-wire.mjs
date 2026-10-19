@@ -14,7 +14,7 @@ try {
  const spec=await api.operations.routerOpenapiJsonGet();assert.equal(typeof spec.data.openapi,'string');assert.equal(typeof spec.data.info.title,'string');assert.equal(spec.data.data,undefined);assertions++;
  const discovery=await api.operations.oidcDiscoveryGet();assert.equal(discovery.data.issuer,'https://owned-idp.invalid');assert.equal(discovery.data.token_endpoint,'https://owned-idp.invalid/oauth2/token');assert.ok(discovery.data.scopes_supported.includes('openid'));assertions++;
  const jwks=await api.operations.oidcJwksGet();assert.equal(jwks.data.keys[0].kty,'RSA');assert.equal(jwks.data.keys[0].alg,'RS256');assert.equal(typeof jwks.data.keys[0].n,'string');assert.equal(jwks.data.keys[0].d,undefined);assertions++;
- const preflight=await api.operations.authValidateOptions();assert.equal(preflight.data.status,'success');assert.equal(preflight.data.data,undefined);assertions++;
+ const preflight=await api.operations.authValidateOptions();assert.equal(preflight.status,200);assert.ok(preflight.data==='' || preflight.data===undefined);assertions++;
  await denied(()=>api.operations.oidcUserinfoGet(),401);
  await denied(()=>api.operations.authGenerateSecureOneTimeTokenRoutePost(user),403);
  await denied(()=>api.operations.authGenerateSecureOneTimeTokenRoutePost('not-a-uuid',internal),400);

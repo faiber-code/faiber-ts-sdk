@@ -426,7 +426,7 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AuthLoginTokenGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/token-login`, params });
   }
   /**
-   * Validate a forwarded request. Success has status/message and principal headers, not a data.user_id body; HTML failures may redirect to login. OPTIONS is a preflight check, not proof of an authenticated session.
+   * Validate a forwarded request. Success has status/message and principal headers, not a data.user_id body; HTML failures may redirect to login. The outer CORS layer answers OPTIONS with an empty response; it is not proof of an authenticated session.
    * Calls `GET /api/v1/auth/validate` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
@@ -436,7 +436,7 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AuthValidateGetResponse>({ ...options, method: "GET", url: `/api/v1/auth/validate` });
   }
   /**
-   * Validate a forwarded request. Success has status/message and principal headers, not a data.user_id body; HTML failures may redirect to login. OPTIONS is a preflight check, not proof of an authenticated session.
+   * Validate a forwarded request. Success has status/message and principal headers, not a data.user_id body; HTML failures may redirect to login. The outer CORS layer answers OPTIONS with an empty response; it is not proof of an authenticated session.
    * Calls `OPTIONS /api/v1/auth/validate` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.

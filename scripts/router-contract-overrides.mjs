@@ -26,9 +26,9 @@ routerContracts["idp:POST /api/v1/auth/secure/generate/one-time/{user_id}"] = {
 };
 
 for (const method of ["GET", "OPTIONS"]) routerContracts[`idp:${method} /api/v1/auth/validate`] = {
-  response:'import("./types.js").ValidateSessionResponse',
+  response: method === "OPTIONS" ? "void" : 'import("./types.js").ValidateSessionResponse',
   auth:"forward-auth policy for the original method/URI/service, or CORS preflight; invalid credentials fail closed",
-  purpose:"Validate a forwarded request. Success has status/message and principal headers, not a data.user_id body; HTML failures may redirect to login. OPTIONS is a preflight check, not proof of an authenticated session."
+  purpose:"Validate a forwarded request. Success has status/message and principal headers, not a data.user_id body; HTML failures may redirect to login. The outer CORS layer answers OPTIONS with an empty response; it is not proof of an authenticated session."
 };
 const oidc = (method,path,response,purpose,auth) => {
   routerContracts[`idp:${method} ${path}`] = {response,purpose,auth};

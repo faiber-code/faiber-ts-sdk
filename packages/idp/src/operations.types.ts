@@ -452,7 +452,7 @@ export interface AuthLoginTokenGetResponse extends ApiEnvelope<JsonValue> {
 export type AuthValidateGetResponse = import("./types.js").ValidateSessionResponse;
 
 /** Backend response type: raw-response. */
-export type AuthValidateOptionsResponse = import("./types.js").ValidateSessionResponse;
+export type AuthValidateOptionsResponse = void;
 
 /** Backend request type: PasswordTokenRequest. */
 export interface AuthLoginWebPostInput extends JsonObject {
