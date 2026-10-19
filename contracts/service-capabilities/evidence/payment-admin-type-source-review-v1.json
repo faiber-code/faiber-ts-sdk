@@ -13,7 +13,8 @@
     "src/transaction/methods.rs": "227d47e7209503f59a7e89fb4cc03bfda3332f79afd07b7eabad5d701d7a0936",
     "src/payment/models.rs": "9f25c0a42663fe30a43542ccf8da051cbb0f36e1c2b8d03b8bde3df3ddbff902",
     "src/payment/routes.rs": "04cef141f70d77d7abf9c1f6a2952d4c562cec8d51a55fd72eb08b304f1427fc",
-    "entity/src/enums.rs": "265df77460737150aea6389067f653b04a19d8659dec5a8f0b22fb3918ac3416"
+    "entity/src/enums.rs": "265df77460737150aea6389067f653b04a19d8659dec5a8f0b22fb3918ac3416",
+    "src/payment_web/routes.rs": "408710dac8a276b993aa8945fc8b4da98d190b98c9d7d95cc6deaa91b51d9f22"
   },
   "corrected": [
     "Integer gateway identifiers and exact UUID string operation identifiers",
@@ -23,7 +24,8 @@
     "Provider/status label-value options object rather than gateway array",
     "Gateway DELETE returns the deleted record rather than a boolean result",
     "Day-window query and date/amount points without invented count/currency fields",
-    "Optional idempotency_key and sandbox inputs"
+    "Optional idempotency_key and sandbox inputs",
+    "Payment navigation/provider callback text bodies and optional303 Location; query inputs for GET and POST"
   ],
   "permissions": {
     "gateway_list_show_options": "admin:gateway:read",
@@ -40,7 +42,8 @@
     "transaction_list": "Nested transactions page, filtered aggregate summaries, unfiltered service_names and gateway picklists.",
     "daily_income": "Accepted payments by UTC created_at date, defaults30, clamps1\u201390, zero-filled.",
     "verification": "HTTP200 does not assert provider success; read verification.successful.",
-    "checkout": "Generic payment route denies reserved product/fitness/storefront paths and enforces Asset trusted proof."
+    "checkout": "Generic payment route denies reserved product/fitness/storefront paths and enforces Asset trusted proof.",
+    "payment_web": "Public provider navigation; HTML200 can report failure, callback can303 only for configured allowed HTTPS origin. Provider verification has side effects. Node redirects follow by default."
   },
   "verification_scope": "SDK build/strict positive and negative types/generator regeneration and package-content checks only; no new Payment business handler/DB/provider or live permission runtime verification in this patch.",
   "remaining": [
@@ -48,6 +51,7 @@
     "Gateway encryption, pagination filters and current permissions on real service",
     "Provider verification/outbox and cross-service checkout acceptance",
     "All remaining Payment endpoint semantic reviews and canonical/deployed reconciliation",
-    "Readable Manage workflows"
+    "Readable Manage workflows",
+    "Payment navigation/callback integration against actual provider-backed handler; no live callbacks run"
   ]
 }

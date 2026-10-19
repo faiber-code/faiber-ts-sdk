@@ -17,8 +17,10 @@ test('Payment regeneration retains concrete nested records, required nulls and e
   const manifest=join(work,'manifest.json');writeFileSync(manifest,JSON.stringify({payment:selected}));
   const run=()=>execFileSync(process.execPath,[join(work,'scripts/generate-service-operations.mjs'),manifest,'payment'],{env:{...process.env,FAIBER_SERVICES_ROOT:resolve(root,'../Service')},stdio:'pipe'});
   run();const source=readFileSync(join(work,'packages/payment/src/operations.ts'),'utf8'),types=readFileSync(join(work,'packages/payment/src/operations.types.ts'),'utf8');
-  for(const name of ['GatewayListResponse','GatewayResponse','GatewayOptionsResponse','TransactionListResponse','TransactionResponse','VerifyPaymentResponse','PaymentVerificationLogsResponse','DailyIncomeResponse','CreatePaymentResponse'])assert.ok(types.includes(`import("./types.js").${name}`),name);
+  for(const name of ['GatewayListResponse','GatewayResponse','GatewayOptionsResponse','TransactionListResponse','TransactionResponse','VerifyPaymentResponse','PaymentVerificationLogsResponse','DailyIncomeResponse','CreatePaymentResponse','PaymentHtmlResponse'])assert.ok(types.includes(`import("./types.js").${name}`),name);
   assert.doesNotMatch(types,/BackendJson<"crate::models::PagedResult<TransactionResponse>">/);
+  assert.equal((source.match(/responseType: "text"/g)??[]).length,3);
+  assert.match(source,/paymentWebCallbackPost\(provider: string/);
   assert.match(source,/gatewayShowGet\(id: number/);
   assert.match(source,/transactionVerifyPaymentPost\(uuid: string/);
   execFileSync(join(root,'node_modules/.bin/tsc'),['--noEmit','--strict','--skipLibCheck','--target','ES2022','--module','NodeNext','--moduleResolution','NodeNext',join(work,'packages/payment/src/operations.ts')],{stdio:'pipe'});

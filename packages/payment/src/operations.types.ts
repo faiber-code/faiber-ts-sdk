@@ -212,8 +212,7 @@ export type TransactionDailyIncomeGetResponse = import("./types.js").DailyIncome
 export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: api. */
-export interface PaymentWebRedirectGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PaymentWebRedirectGetResponse = import("./types.js").PaymentHtmlResponse;
 
 /** Backend query type: CallbackQuery. */
 export interface PaymentWebCallbackGetQuery extends QueryParams {
@@ -222,8 +221,7 @@ export interface PaymentWebCallbackGetQuery extends QueryParams {
   "paymentNumber"?: string | null;
 }
 /** Backend response type: raw-response. */
-export interface PaymentWebCallbackGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PaymentWebCallbackGetResponse = import("./types.js").PaymentHtmlResponse;
 
 /** Backend query type: CallbackQuery. */
 export interface PaymentWebCallbackPostQuery extends QueryParams {
@@ -232,8 +230,7 @@ export interface PaymentWebCallbackPostQuery extends QueryParams {
   "paymentNumber"?: string | null;
 }
 /** Backend response type: raw-response. */
-export interface PaymentWebCallbackPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PaymentWebCallbackPostResponse = import("./types.js").PaymentHtmlResponse;
 
 /** Backend response type: HealthResponse. */
 export type RouterUpGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;

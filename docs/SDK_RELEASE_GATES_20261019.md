@@ -186,11 +186,50 @@ and current deployed identity/permissions remain release gates. Local official-M
 reader tests do not certify those boundaries. Live model selection, provider/billing
 checks and Knowledge migration have not happened. Current model defaults are unchanged.
 
-Latest Pastil chat read remains blocked: host `durable` is unavailable. Its latest
-chat changes/test results are not certified; the retained source fixes are preserved.
+Pastil baseline correction: the actual local chat is `01a14e77-f71d-7d73-af6d-cc34ac7b5892`
+(`Run Pastil project workflow`). Its single latest turn exceeds the chat reader size
+limit; the earlier unavailable-host conclusion referred to a different thread ID.
+Recovered `acceptance-results/pastil/progress.json` records historical acceptance at
+2026-10-18T14:28:02.266222Z: 199 Control core tests, 93 code pipeline tests, 14 model
+policy/default tests, 11 panel lifecycle/stream tests and the recorded public/API
+checks. These are retained receipts, not freshly rerun tests or certification of
+unread latest chat changes. Provider credentials and signed-in customer-club checks
+were explicitly deferred. Ask/create defaults remain gpt-6-luna; Code/Design and
+automatic planning/implementation remain gpt-6.1-sol. Recovery receipt and source hash:
+`acceptance-results/sdk-source-semantic-20261019/pastil-baseline-recovered-v1/receipt.json`.
+Retained Session/Pastil fixes remain in the composed Summary candidates.
 Version verification now requires --locked and observes any source/lock drift before
 cleanup, without restoring the lock to mask a change. Actual input/resolved hashes
 match40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486.
 All27 registered evidence runs have valid nonempty proof bindings; four empty outer
 Summary wrapper logs remain retained as raw data, not accepted test proof.
 No package release, tag/push, deployment, model change or Knowledge adoption occurred.
+
+## Coordinated continuation after the v10 freeze
+
+The user explicitly requested co-work with `Plan configurable role summaries` and
+`Implement Poulstar bug reporting`, completing all three features. Both chats resumed;
+Summary owns whole-app MCP and six-source acceptance, bug reporting owns its missing
+web/Flutter flows in isolated worktrees, and this chat owns SDK/Manage/Knowledge.
+Ordinary Flutter Summary changes remain untouched. No live deployment or credential
+provisioning approval is inferred from coordination.
+
+Composed source candidates preserve existing auth/Pastil and test fixtures:
+IDP `c55c6721bec8225f207556666fa8da313a0a124c`,
+Chat `e8309839992308b81127a9eeca418e0a18687df7`,
+Session `088137ed1eb57bdc198cf08bbfaa8277c2b64ac1`.
+Receipt: `acceptance-results/sdk-source-semantic-20261019/summary-sdk-composition-v1/composition.json`.
+These are source-composition checks; SDK source pins remain unchanged until the
+new production mounts, retirement and compatibility gates pass.
+
+Payment administration source review found incorrect curated and generated models.
+The continuation corrects integer gateway IDs, required nullable fields, nested
+transaction pagination/summaries, status-only transaction reads, deleted-record
+responses, provider/status label options and date/amount income points. HTML payment
+navigation/callbacks now return text rather than invented JSON envelopes. Callback
+verification can contact providers and was not run against live payments. The source
+review hashes twelve exact pinned Rust files and records open runtime gates in
+`evidence/payment-admin-type-source-review-v1.json`. SDK build, strict types,
+regeneration and package checks are useful incremental evidence; **v10's40/41 frozen
+commands do not certify these newer changes**, and no Payment business-runtime or
+whole-service semantic completion is claimed.

@@ -30,3 +30,12 @@ const record: Gateway = deleted.data;
 // @ts-expect-error APIResponse message is required
 const incomplete: GatewayDestroyDeleteResponse = { status: 'success', data: gateway };
 void [id,nullableStatus,missingStatus,rows,page,total,value,record,incomplete];
+
+import type { PaymentWebRedirectGetResponse, PaymentWebCallbackPostResponse } from '@faiber/faiber-payment';
+declare const html: PaymentWebRedirectGetResponse;
+const htmlBody: string = html;
+// @ts-expect-error payment navigation is HTML, not a JSON business envelope
+html.data;
+declare const callback: PaymentWebCallbackPostResponse;
+const callbackBody: string = callback;
+void [htmlBody,callbackBody];

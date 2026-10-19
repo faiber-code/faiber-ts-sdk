@@ -345,39 +345,39 @@ export class PaymentOperations extends ServiceApi {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/health` });
   }
   /**
-   * Performs the redirect operation for the payment web capability.
+   * Return payment HTML, or for callbacks303 Location when the configured HTTPS origin is allowed. Callback fields are query parameters for both GET and POST. This can verify a payment with its provider; HTTP200 alone does not prove successful payment. Node follows redirects by default; use maxRedirects:0 and validateStatus to inspect303.
    * Calls `GET /payments/{uuid}/redirect` through the shared IDP-aware Faiber client.
    * @param uuid Backend path identifier `uuid`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public payment navigation/provider callback; no user permission declared.
    */
-  paymentWebRedirectGet(uuid: Identifier, options?: RequestOptions) {
-    return this.client.request<T.PaymentWebRedirectGetResponse>({ ...options, method: "GET", url: `/payments/${encodeURIComponent(uuid)}/redirect` });
+  paymentWebRedirectGet(uuid: string, options?: RequestOptions) {
+    return this.client.request<T.PaymentWebRedirectGetResponse>({ ...options, method: "GET", url: `/payments/${encodeURIComponent(uuid)}/redirect`, responseType: "text" });
   }
   /**
-   * Performs the callback operation for the payment web capability.
+   * Return payment HTML, or for callbacks303 Location when the configured HTTPS origin is allowed. Callback fields are query parameters for both GET and POST. This can verify a payment with its provider; HTTP200 alone does not prove successful payment. Node follows redirects by default; use maxRedirects:0 and validateStatus to inspect303.
    * Calls `GET /payments/callbacks/{provider}` through the shared IDP-aware Faiber client.
    * @param provider Backend path identifier `provider`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public payment navigation/provider callback; no user permission declared.
    */
-  paymentWebCallbackGet(provider: Identifier, params?: T.PaymentWebCallbackGetQuery, options?: RequestOptions) {
-    return this.client.request<T.PaymentWebCallbackGetResponse>({ ...options, method: "GET", url: `/payments/callbacks/${encodeURIComponent(provider)}`, params });
+  paymentWebCallbackGet(provider: string, params?: T.PaymentWebCallbackGetQuery, options?: RequestOptions) {
+    return this.client.request<T.PaymentWebCallbackGetResponse>({ ...options, method: "GET", url: `/payments/callbacks/${encodeURIComponent(provider)}`, params, responseType: "text" });
   }
   /**
-   * Performs the callback operation for the payment web capability.
+   * Return payment HTML, or for callbacks303 Location when the configured HTTPS origin is allowed. Callback fields are query parameters for both GET and POST. This can verify a payment with its provider; HTTP200 alone does not prove successful payment. Node follows redirects by default; use maxRedirects:0 and validateStatus to inspect303.
    * Calls `POST /payments/callbacks/{provider}` through the shared IDP-aware Faiber client.
    * @param provider Backend path identifier `provider`.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public payment navigation/provider callback; no user permission declared.
    */
-  paymentWebCallbackPost(provider: Identifier, params?: T.PaymentWebCallbackPostQuery, options?: RequestOptions) {
-    return this.client.request<T.PaymentWebCallbackPostResponse>({ ...options, method: "POST", url: `/payments/callbacks/${encodeURIComponent(provider)}`, params });
+  paymentWebCallbackPost(provider: string, params?: T.PaymentWebCallbackPostQuery, options?: RequestOptions) {
+    return this.client.request<T.PaymentWebCallbackPostResponse>({ ...options, method: "POST", url: `/payments/callbacks/${encodeURIComponent(provider)}`, params, responseType: "text" });
   }
   /**
    * Read process health and the reported service version. Does not verify database, broker or downstream readiness.

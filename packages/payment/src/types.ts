@@ -119,3 +119,6 @@ export type GatewayOptionsResponse = PaymentEnvelope<GatewayOptions>;
 export type DailyIncomeResponse = PaymentEnvelope<DailyIncome[]>;
 export type VerifyPaymentResponse = PaymentEnvelope<VerifyPaymentResult>;
 export type PaymentVerificationLogsResponse = PaymentEnvelope<PaymentVerification[]>;
+
+/** HTML payment navigation body; callbacks can instead return303 with an empty body and Location. */
+export type PaymentHtmlResponse = string;

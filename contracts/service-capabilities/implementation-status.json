@@ -128,12 +128,16 @@
       ]
     },
     "pastil_chat_baseline": {
-      "status": "blocked_host_unavailable",
-      "thread": "01a14e78-000f-7453-aac4-1cef7aba5351",
-      "host": "durable",
+      "status": "historical-receipt-recovered-current-chat-read-oversized",
+      "thread": "01a14e77-f71d-7d73-af6d-cc34ac7b5892",
+      "host": "local",
       "latest_check": "2026-10-19",
       "latest_changes_and_results_verified": false,
-      "existing_source_fixes": "preserved in Session canonical bb6 and selected auth-only repair6cd"
+      "historical_receipt": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-source-semantic-20261019/pastil-baseline-recovered-v1/receipt.json",
+      "historical_verified_at_utc": "2026-10-18T14:28:02.266222+00:00",
+      "source_sha256": "cea94d1be10cc6c5ca29a8b9f9d2ebae1d7e7ac73b4972b8e29b51319b691568",
+      "fresh_live_acceptance_performed": false,
+      "existing_source_fixes": "Preserved in Session bb6, auth6cd and Summaryf05; models preserved"
     },
     "evidence_registry": {
       "runs": 27,
