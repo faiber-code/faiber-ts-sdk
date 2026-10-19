@@ -1217,22 +1217,6 @@
         "sha256": "6b3a3445972546035bc85e537a020a4e0fa0cce368100b8d215fcfa964b2400f"
       },
       {
-        "artifact_path": "evidence/summary-source-domains-review-v1/native-contract-run-final.log",
-        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      },
-      {
-        "artifact_path": "evidence/summary-source-domains-review-v1/native-contract-run-final2.log",
-        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      },
-      {
-        "artifact_path": "evidence/summary-source-domains-review-v1/native-contract-run.log",
-        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      },
-      {
-        "artifact_path": "evidence/summary-source-domains-review-v1/native-contract-session-final.log",
-        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      },
-      {
         "artifact_path": "evidence/summary-source-domains-review-v1/run-final-checks.py",
         "sha256": "5f19a1d9f2b9cbc64a84687b98aa8793c1de1239e837024e5166d848407aab20"
       },
@@ -1410,6 +1394,25 @@
       }
     ],
     "scope": "Four locked production compile checks; actual source-native SQL/readers under official MCP with full PostgreSQL migrations and CRM RabbitMQ delivery; actual IDP ACL importer. Independently verified97 artifact hashes,2197 source hashes, required Session/CRM repair ancestors and identical Chat mount patch IDs. Not whole-application MCP HTTP mount acceptance, current live IDP/native grant provisioning, combined six-domain Agentic inference or billing. Incoming source/compatibility integration remains separate.",
-    "canonical_certification": false
+    "canonical_certification": false,
+    "raw_empty_wrapper_artifacts": [
+      {
+        "artifact_path": "evidence/summary-source-domains-review-v1/native-contract-run-final.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "artifact_path": "evidence/summary-source-domains-review-v1/native-contract-run-final2.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "artifact_path": "evidence/summary-source-domains-review-v1/native-contract-run.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "artifact_path": "evidence/summary-source-domains-review-v1/native-contract-session-final.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "raw_empty_wrapper_note": "Four empty outer wrapper logs remain archived and covered by the sealed checksum manifest. They are raw data, not evidence of executed tests. The nonempty final per-service native and ACL logs provide the required seven passing tests."
   }
 }

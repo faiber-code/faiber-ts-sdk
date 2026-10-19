@@ -14,7 +14,7 @@ import uuid
 SDK = Path(__file__).resolve().parents[1]
 REPO = Path(os.environ['INFERA_VERSION_SDK_TEST_REPO']).resolve()
 OUTPUT = SDK / 'contracts/service-capabilities/evidence'
-COMMAND = ['cargo', '--config', 'profile.test.package.infera_version.debug=0', '--config', 'profile.test.package.infera_version.strip="debuginfo"', 'test', '--offline', '--workspace', '--', '--include-ignored', '--test-threads=1']
+COMMAND = ['cargo', '--config', 'profile.test.package.infera_version.debug=0', '--config', 'profile.test.package.infera_version.strip="debuginfo"', 'test', '--locked', '--offline', '--workspace', '--', '--include-ignored', '--test-threads=1']
 
 def run(args, **kwargs):
     return subprocess.run(args, check=True, text=True, capture_output=True, timeout=90, **kwargs).stdout.strip()
@@ -48,6 +48,10 @@ def main():
     if shutil.disk_usage(SDK).free < 4*1024**3:
         raise RuntimeError('Less than4GiB free; no cleanup performed')
     source = source_state(REPO)
+    if source['working_tree_status']:
+        raise RuntimeError('Version source candidate is dirty')
+    if source['revision'] != json.loads((SDK/'service-source-revisions.json').read_text())['version']['revision']:
+        raise RuntimeError('Version source does not match selected SDK revision')
     sdk_before = sdk_state()
     control = SDK.parent / 'Service/infera-control'
     publisher = control / 'crates/faiber-core/src/ops/apk/publish_release.js'
@@ -102,12 +106,10 @@ def main():
                 time.sleep(1)
             captured.seek(0); result=SimpleNamespace(returncode=process.returncode,stdout=captured.read(),stderr='')
         elapsed = time.monotonic() - started
-        # Build resolution may temporarily rewrite the checkout lock. Preserve it
-        # as dependency evidence, then restore the input before checking source.
+        # Locked execution must preserve the actual input lock; observe drift before any cleanup.
         resolved_lock = (REPO / 'Cargo.lock').read_bytes()
-        (REPO / 'Cargo.lock').write_bytes(before)
         sdk_after = sdk_state()
-        unchanged = (sdk_before == sdk_after and source_state(REPO)['checkout_sha256'] == source['checkout_sha256']
+        unchanged = (resolved_lock == before and sdk_before == sdk_after and source_state(REPO)['checkout_sha256'] == source['checkout_sha256']
                      and source_state(control)['checkout_sha256'] == producer['checkout_sha256']
                      and hashlib.sha256(publisher.read_bytes()).hexdigest() == publisher_sha256)
         log = result.stdout + result.stderr
@@ -125,6 +127,8 @@ def main():
                     'sdk_before': sdk_before, 'sdk_after': sdk_after, 'source_revisions': {'version': source['revision'], 'control': producer['revision']}, 'source': source,
                     'control_source': producer, 'control_publisher_script_sha256': publisher_sha256,
                     'node': run(['node', '--version']),
+                    'locked_dependencies': True, 'lock_unchanged_during_run': resolved_lock == before,
+                    'input_cargo_lock_sha256': hashlib.sha256(before).hexdigest(),
                     'resolved_cargo_lock_sha256': hashlib.sha256(resolved_lock).hexdigest(),
                     'resolved_cargo_lock_artifact_path': 'evidence/' + lock_artifact.name,
                     'rustc': run(['rustc', '--version']), 'postgres_image': image, 'rabbitmq_image': rabbit_image, 'storage': 'disposable_real_postgresql',
@@ -136,7 +140,6 @@ def main():
             print(log[-12000:])
             raise SystemExit(1)
     finally:
-        (REPO / 'Cargo.lock').write_bytes(before)
         if rabbit_created:
             subprocess.run(['docker', 'rm', '-f', rabbit_name], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         if created:
