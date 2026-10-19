@@ -1,0 +1,19 @@
+warning: unused import: `self`
+ --> entity/src/endpoint.rs:1:23
+  |
+1 | use sea_orm::entity::{self, prelude::*};
+  |                       ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `entity` (lib) generated 1 warning (run `cargo fix --lib -p entity` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.17s
+     Running tests/profile_summary_acl.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/profile_summary_acl-45e904c7bb67646a)
+
+running 3 tests
+test retired_lms_summary_permissions_and_routes_are_absent ... ok
+test profile_summary_acl_keeps_content_and_operations_separate ... ok
+test evidence_transport_requires_explicit_native_permission_without_aliases ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

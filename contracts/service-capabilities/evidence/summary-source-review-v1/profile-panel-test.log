@@ -1,0 +1,15 @@
+
+> @infera/profile-panel@0.0.0 test
+> vitest run src/features/ai-summaries
+
+
+ RUN  v3.2.6 /Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-profile/panel
+
+ ✓ src/features/ai-summaries/presets.test.ts (3 tests) 2ms
+ ✓ src/features/ai-summaries/primitives.test.tsx (2 tests) 8ms
+
+ Test Files  2 passed (2)
+      Tests  5 passed (5)
+   Start at  18:58:46
+   Duration  409ms (transform 83ms, setup 0ms, collect 202ms, tests 11ms, environment 0ms, prepare 99ms)
+

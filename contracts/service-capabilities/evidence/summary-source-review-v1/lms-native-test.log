@@ -1,0 +1,453 @@
+    Blocking waiting for file lock on build directory
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:84:17
+   |
+84 |     pub fn name(&self) -> Name {
+   |                 ^^^^^     ^^^^ the same lifetime is hidden here
+   |                 |
+   |                 the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+   |
+84 |     pub fn name(&self) -> Name<'_> {
+   |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> shared/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:106:17
+    |
+106 |     pub fn name(&self) -> Name {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+106 |     pub fn name(&self) -> Name<'_> {
+    |                               ++++
+
+warning: `schemars_derive` (lib) generated 2 warnings (run `cargo fix --lib -p schemars_derive` to apply 2 suggestions)
+warning: hiding a lifetime that's elided elsewhere is confusing
+ --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:6:30
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<str> {
+  |                              ^^^^     ^^^^^^^^ the same lifetime is hidden here
+  |                              |
+  |                              the lifetime is elided here
+  |
+  = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+  = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<'_, str> {
+  |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> shared/infera-summary-sdk/vendor/schemars/src/encoding.rs:43:26
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<str>> {
+   |                          ^^^^            ^^^^^^^^ the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<'_, str>> {
+   |                                              +++
+
+warning: `schemars` (lib) generated 2 warnings (run `cargo fix --lib -p schemars` to apply 2 suggestions)
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:84:7
+   |
+84 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:87:7
+   |
+87 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:112:7
+    |
+112 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport.rs:115:7
+    |
+115 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs:53:11
+   |
+53 |     #[cfg(feature = "auth")]
+   |           ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common.rs:17:7
+   |
+17 | #[cfg(feature = "auth")]
+   |       ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+  --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:61:39
+   |
+61 |         let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+   |                                       ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+   --> shared/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:136:47
+    |
+136 |                 let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+    |                                               ^^^^^^^^^^^^^^^^
+
+warning: use of `async fn` in public traits is discouraged as auto trait bounds cannot be specified
+ --> entity/src/seeder/mod.rs:4:5
+  |
+4 |     async fn seed(db: &sea_orm::DatabaseConnection) -> Result<(), sea_orm::DbErr>;
+  |     ^^^^^
+  |
+  = note: you can suppress this lint if you plan to use the trait only in your own code, or do not care about auto traits like `Send` on the `Future`
+  = note: `#[warn(async_fn_in_trait)]` on by default
+help: you can alternatively desugar to a normal `fn` that returns `impl Future` and add any desired bounds such as `Send`, but these cannot be relaxed without a breaking API change
+  |
+4 -     async fn seed(db: &sea_orm::DatabaseConnection) -> Result<(), sea_orm::DbErr>;
+4 +     fn seed(db: &sea_orm::DatabaseConnection) -> impl std::future::Future<Output = Result<(), sea_orm::DbErr>> + Send;
+  |
+
+warning: `rmcp` (lib) generated 8 warnings
+warning: `entity` (lib) generated 1 warning
+   Compiling infera_lms v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/infera-lms)
+warning: unused imports: `delete` and `put`
+ --> src/classroom/routes.rs:5:15
+  |
+5 |     routing::{delete, get, patch, post, put},
+  |               ^^^^^^                    ^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `ColumnTrait` and `QueryFilter`
+ --> src/config/methods.rs:3:33
+  |
+3 | use sea_orm::{ActiveModelTrait, ColumnTrait, EntityTrait, QueryFilter, QueryOrder, Set};
+  |                                 ^^^^^^^^^^^               ^^^^^^^^^^^
+
+warning: unused imports: `parse_datetime`, `parse_optional_datetime`, `parse_optional_decimal`, and `parse_uuid`
+  --> src/config/methods.rs:11:34
+   |
+11 |         db_err, now, parse_date, parse_datetime, parse_optional_datetime, parse_optional_decimal,
+   |                                  ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^
+12 |         parse_uuid,
+   |         ^^^^^^^^^^
+
+warning: unused imports: `patch` and `post`
+ --> src/config/routes.rs:9:20
+  |
+9 |     routing::{get, patch, post},
+  |                    ^^^^^  ^^^^
+
+warning: unused imports: `parse_date`, `parse_datetime`, `parse_optional_datetime`, and `parse_uuid`
+  --> src/course/methods.rs:17:22
+   |
+17 |         db_err, now, parse_date, parse_datetime, parse_optional_datetime, parse_optional_decimal,
+   |                      ^^^^^^^^^^  ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^
+18 |         parse_uuid,
+   |         ^^^^^^^^^^
+
+warning: unused imports: `PaginationQuery`, `parse_date`, and `parse_optional_decimal`
+  --> src/exam/methods.rs:12:24
+   |
+12 |     models::{AppError, PaginationQuery},
+   |                        ^^^^^^^^^^^^^^^
+...
+16 |         db_err, now, parse_date, parse_datetime, parse_optional_datetime, parse_optional_decimal,
+   |                      ^^^^^^^^^^                                           ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `PaginationQuery`
+ --> src/exam/routes.rs:3:37
+  |
+3 |     models::{APIResponse, AppError, PaginationQuery},
+  |                                     ^^^^^^^^^^^^^^^
+
+warning: unused import: `patch`
+ --> src/exam/routes.rs:9:20
+  |
+9 |     routing::{get, patch, post, put},
+  |                    ^^^^^
+
+warning: unused import: `sea_orm::TransactionTrait`
+ --> src/homework/methods.rs:1:5
+  |
+1 | use sea_orm::TransactionTrait;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `parse_date` and `parse_optional_decimal`
+  --> src/homework/methods.rs:16:22
+   |
+16 |         db_err, now, parse_date, parse_datetime, parse_optional_datetime, parse_optional_decimal,
+   |                      ^^^^^^^^^^                                           ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `classroom_session` and `classroom`
+ --> src/profile_sync/methods.rs:2:14
+  |
+2 | use entity::{classroom, classroom_session, classroom_user, classroom_user_session};
+  |              ^^^^^^^^^  ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `convert::Infallible`
+ --> src/router.rs:1:11
+  |
+1 | use std::{convert::Infallible, path::PathBuf};
+  |           ^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `StatusCode`
+ --> src/router.rs:6:27
+  |
+6 |     http::{self, Request, StatusCode},
+  |                           ^^^^^^^^^^
+
+warning: unused import: `Connection`
+ --> src/state.rs:3:22
+  |
+3 | use lapin::{Channel, Connection};
+  |                      ^^^^^^^^^^
+
+warning: variable does not need to be mutable
+   --> src/certificate/methods.rs:235:9
+    |
+235 |     let mut q = Certificate::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> src/certificate/methods.rs:293:9
+    |
+293 |     let mut q = Certificate::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src/config/methods.rs:22:9
+   |
+22 |     let mut query = SchoolGrade::find().order_by_desc(school_grade::Column::Id);
+   |         ----^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src/config/methods.rs:37:9
+   |
+37 |     let mut q = SchoolGrade::find_by_id(id);
+   |         ----^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src/config/methods.rs:68:9
+   |
+68 |     let mut q = SchoolGrade::find_by_id(id);
+   |         ----^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src/config/methods.rs:89:9
+   |
+89 |     let mut query = Weekend::find().order_by_desc(weekend::Column::Id);
+   |         ----^^^^^
+   |         |
+   |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/config/methods.rs:104:9
+    |
+104 |     let mut q = Weekend::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/config/methods.rs:134:9
+    |
+134 |     let mut q = Weekend::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/config/methods.rs:234:9
+    |
+234 |     let mut query = ClassroomType::find().order_by_desc(classroom_type::Column::Id);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/config/methods.rs:252:9
+    |
+252 |     let mut q = ClassroomType::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/config/methods.rs:282:9
+    |
+282 |     let mut q = ClassroomType::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/config/methods.rs:300:9
+    |
+300 |     let mut query = EducationDay::find().order_by_desc(education_day::Column::Id);
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/config/methods.rs:318:9
+    |
+318 |     let mut q = EducationDay::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/config/methods.rs:350:9
+    |
+350 |     let mut q = EducationDay::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/course/methods.rs:147:9
+    |
+147 |     let mut query = CourseCategory::find()
+    |         ----^^^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/course/methods.rs:167:9
+    |
+167 |     let mut q = CourseCategory::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/course/methods.rs:202:9
+    |
+202 |     let mut q = CourseCategory::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/course/methods.rs:365:9
+    |
+365 |     let mut q = Course::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/exam/methods.rs:292:9
+    |
+292 |     let mut q = Exam::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/exam/methods.rs:1988:9
+     |
+1988 |     let mut q = ExamQuestion::find_by_id(id);
+     |         ----^
+     |         |
+     |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/homework/methods.rs:257:9
+    |
+257 |     let mut q = Homework::find_by_id(id);
+    |         ----^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/homework/methods.rs:1463:9
+     |
+1463 |     let mut q = HomeworkQuestion::find_by_id(id);
+     |         ----^
+     |         |
+     |         help: remove this `mut`
+
+warning: unused import: `TryGetable`
+ --> src/academy/routes.rs:8:60
+  |
+8 | use sea_orm::{ConnectionTrait, DatabaseBackend, Statement, TryGetable};
+  |                                                            ^^^^^^^^^^
+
+warning: use of `async fn` in public traits is discouraged as auto trait bounds cannot be specified
+ --> src/cli/commands.rs:7:5
+  |
+7 |     async fn run(db: &DatabaseConnection, is_dev: &bool);
+  |     ^^^^^
+  |
+  = note: you can suppress this lint if you plan to use the trait only in your own code, or do not care about auto traits like `Send` on the `Future`
+  = note: `#[warn(async_fn_in_trait)]` on by default
+help: you can alternatively desugar to a normal `fn` that returns `impl Future` and add any desired bounds such as `Send`, but these cannot be relaxed without a breaking API change
+  |
+7 -     async fn run(db: &DatabaseConnection, is_dev: &bool);
+7 +     fn run(db: &DatabaseConnection, is_dev: &bool) -> impl std::future::Future<Output = ()> + Send;
+  |
+
+warning: `infera_lms` (lib test) generated 38 warnings (run `cargo fix --lib -p infera_lms --tests` to apply 36 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 19.51s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_lms-132d4f2613228816)
+
+running 1 test
+test summary_evidence::tests::native_scope_revocation_and_cross_subject_are_enforced ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 80 filtered out; finished in 0.23s
+

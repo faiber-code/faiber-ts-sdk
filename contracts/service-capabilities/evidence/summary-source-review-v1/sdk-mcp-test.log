@@ -1,0 +1,148 @@
+    Blocking waiting for file lock on build directory
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> crates/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:84:17
+   |
+84 |     pub fn name(&self) -> Name {
+   |                 ^^^^^     ^^^^ the same lifetime is hidden here
+   |                 |
+   |                 the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+   |
+84 |     pub fn name(&self) -> Name<'_> {
+   |                               ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> crates/infera-summary-sdk/vendor/schemars_derive/src/ast/mod.rs:106:17
+    |
+106 |     pub fn name(&self) -> Name {
+    |                 ^^^^^     ^^^^ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+106 |     pub fn name(&self) -> Name<'_> {
+    |                               ++++
+
+warning: `schemars_derive` (lib) generated 2 warnings (run `cargo fix --lib -p schemars_derive` to apply 2 suggestions)
+warning: hiding a lifetime that's elided elsewhere is confusing
+ --> crates/infera-summary-sdk/vendor/schemars/src/encoding.rs:6:30
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<str> {
+  |                              ^^^^     ^^^^^^^^ the same lifetime is hidden here
+  |                              |
+  |                              the lifetime is elided here
+  |
+  = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+  = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+  |
+6 | pub fn encode_ref_name(name: &str) -> Cow<'_, str> {
+  |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> crates/infera-summary-sdk/vendor/schemars/src/encoding.rs:43:26
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<str>> {
+   |                          ^^^^            ^^^^^^^^ the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+43 | pub fn percent_decode(s: &str) -> Option<Cow<'_, str>> {
+   |                                              +++
+
+warning: `schemars` (lib) generated 2 warnings (run `cargo fix --lib -p schemars` to apply 2 suggestions)
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> crates/infera-summary-sdk/vendor/rmcp/src/transport.rs:84:7
+   |
+84 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition value: `transport-child-process`
+  --> crates/infera-summary-sdk/vendor/rmcp/src/transport.rs:87:7
+   |
+87 | #[cfg(feature = "transport-child-process")]
+   |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `transport-child-process` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> crates/infera-summary-sdk/vendor/rmcp/src/transport.rs:112:7
+    |
+112 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+   --> crates/infera-summary-sdk/vendor/rmcp/src/transport.rs:115:7
+    |
+115 | #[cfg(feature = "auth")]
+    |       ^^^^^^^^^^^^^^^^
+    |
+    = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+    = help: consider adding `auth` as a feature in `Cargo.toml`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> crates/infera-summary-sdk/vendor/rmcp/src/transport/streamable_http_client.rs:53:11
+   |
+53 |     #[cfg(feature = "auth")]
+   |           ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition value: `auth`
+  --> crates/infera-summary-sdk/vendor/rmcp/src/transport/common.rs:17:7
+   |
+17 | #[cfg(feature = "auth")]
+   |       ^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `__reqwest`, `base64`, `client`, `client-side-sse`, `default`, `elicitation`, `macros`, `reqwest`, `reqwest-tls-no-provider`, `schemars`, `server`, `server-side-http`, `tower`, `transport-async-rw`, `transport-io`, `transport-sse-client`, `transport-sse-client-reqwest`, `transport-sse-server`, `transport-streamable-http-client`, `transport-streamable-http-client-reqwest`, `transport-streamable-http-server`, `transport-streamable-http-server-session`, `transport-worker`, `url`, and `uuid`
+   = help: consider adding `auth` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+  --> crates/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:61:39
+   |
+61 |         let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+   |                                       ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `sse_stream::SseStream::<http_body_util::StreamBody<futures::stream::MapOk<S, fn(D) -> http_body::Frame<D>>>>::from_byte_stream`: It's a typo, use `from_bytes_stream` instead. This method will be removed in 0.3.0
+   --> crates/infera-summary-sdk/vendor/rmcp/src/transport/common/reqwest/streamable_http_client.rs:136:47
+    |
+136 |                 let event_stream = SseStream::from_byte_stream(response.bytes_stream()).boxed();
+    |                                               ^^^^^^^^^^^^^^^^
+
+warning: `rmcp` (lib) generated 8 warnings
+   Compiling infera-summary-sdk v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/summary-source-review-20261019/faiber-sdk/crates/infera-summary-sdk)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 33.05s
+     Running tests/mcp_transport.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/mcp_transport-4eb8a16c7392f666)
+
+running 3 tests
+test official_rust_client_negotiates_with_laravel_mcp ... ignored, requires the local accounting server and SUMMARY_ACCOUNTING_TEST_URL
+test postgres_evidence_hashes_complete_results_and_paginates ... ignored, requires dedicated SUMMARY_TEST_DATABASE_URL; read-only SQL fixture
+test streamable_http_is_scoped_for_every_source ... ok
+
+test result: ok. 1 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
