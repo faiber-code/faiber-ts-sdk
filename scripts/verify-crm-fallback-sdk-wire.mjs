@@ -34,5 +34,6 @@ try{
  check(preflight.status===200);check(preflight.data==='');check(preflight.headers.get('access-control-allow-origin')==='http://localhost:3000');check(preflight.headers.get('access-control-allow-credentials')==='true');
  await assert.rejects(api.operations.routerApiNotFoundAny('GET'),e=>e.response?.status===404&&e.response?.data?.error?.code==='api_route_not_found');assertions++;
  assert.throws(()=>api.operations.routerApiNotFoundAny('CONNECT'),/explicit tunnel-capable Axios adapter/);assertions++;
+ for(const path of ['v1/leads','v1/leads/owned-id','v1/reports/catalog']){assert.throws(()=>api.operations.routerApiPathNotFoundAny(path,'GET'),/named CRM operation/);assertions++;}
  console.log(JSON.stringify({status:'passed',assertions,observations,scope:'actual production CRM legacy fallback subrouter and production CORS; CONNECT uses a test-only real Node HTTP tunnel-capable adapter, not a response mock; not native CRM data/permission or whole-main API normalization acceptance'}));
 }catch(error){console.error(JSON.stringify({status:'failed',assertions,name:error.name,code:error.code,statusCode:error.response?.status,message:error instanceof assert.AssertionError?'assertion failed':'probe failed'}));process.exitCode=1;}

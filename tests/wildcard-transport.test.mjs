@@ -33,3 +33,9 @@ test('CRM fallback operations preserve the supplied verb and retain nested path 
  const api=new CrmApi(new FaiberClient('crm',{domains:{crm:'https://owned.invalid'}}));
  assert.throws(()=>api.operations.routerApiNotFoundAny('CONNECT'),/explicit tunnel-capable Axios adapter/);
  });
+
+test('CRM not-found diagnostics cannot silently call a registered API through wildcard precedence',()=>{
+ const {api,requests}=fixture('crm',CrmApi);
+ for(const path of ['v1/leads','v1/leads/owned-id','v1/contacts','v1/reports/catalog'])assert.throws(()=>api.operations.routerApiPathNotFoundAny(path,'GET'),/named CRM operation/);
+ assert.equal(requests.length,0);
+});

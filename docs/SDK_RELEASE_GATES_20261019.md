@@ -9,7 +9,7 @@ Knowledge publication and agent memory adoption remain downstream of SDK accepta
 - All 18 SDK HTTP service inventories follow mounted source graphs. Named dynamic
   operations cover Session's peer proxy, CRM's two legacy fallbacks and State health.
   The1600-operation structural count is not a completion criterion.
-- SDK build, strict types and 124 tests pass. Wildcard path components retain directory
+- SDK build, strict types and 125 tests pass. Wildcard path components retain directory
   separators and reject traversal/ambiguous encoding before transport. CONNECT requires
   an explicit tunnel-capable Axios adapter; default CONNECT rejects before hanging.
 - Profile production7a6a9ca28eb8e1498cb20557450d6dd81a6ae8ad with test-only07279def6aeb91f806d0c32ab811a69ec2b05daf:
@@ -22,7 +22,7 @@ Knowledge publication and agent memory adoption remain downstream of SDK accepta
 - Stateb8d3bfa828878a979a8c8765285bfd3899965bd4 : 26 workspace tests,9 real SDK HTTP
   assertions against the exact production health subrouter. This static advertisement
   is not proof of persistence/gameplay/WebSocket readiness or whole-main startup.
-- CRM178f5de3c68fab387abd5294aeceb8dd1843084f : 12 library tests and 56 real SDK HTTP
+- CRM178f5de3c68fab387abd5294aeceb8dd1843084f : 12 library tests and 59 real SDK HTTP
   assertions against production fallback/CORS. HEAD is empty; OPTIONS is empty 200;
   other tested verbs return structured 404. CONNECT uses a real test-only Node HTTP
   adapter, not a response mock. Native CRM data/permissions remain separate checks.
@@ -41,12 +41,17 @@ subsequent generic runner output no longer invalidates that historical record.
 
 ## Combined verification and open release gates
 
-At40b58b73f1482f49925e34180cee8f7452fc0972 the combined technical run passed build,
-119 SDK tests/types, contract audit, Version12, Social11 with real S3-compatible storage,
-IDP111/actual Manage caller, Chat21, all 22 packed installs/imports/strict consumers.
-Its overall result **failed** because the npm registry security audit timed out.
-Later source changes require a fresh combined run; individual successes above are not
-acceptance of a different combined release commit.
+At `93cd663f14fb846157e6c545d5f09914b3fa96e3`, combined run
+`mounted-http-profile-state-crm-v6` passed build, 124 SDK tests/types, contract audit,
+Version12, Social11 with real S3-compatible storage, IDP111/actual Manage caller,
+Chat21, Profile348, State26/9 and CRM12/56, plus all22 actual tarball installs/imports/
+strict consumers. Source, dependency and compiled-input fences remained unchanged.
+The overall result **failed** on a fresh npm security-audit timeout (156.614 seconds).
+A direct curl probe also failed the registry TLS handshake, independently of npm auth.
+
+The later registered-path guard passed125 SDK tests and59 actual CRM assertions.
+It prevents a not-found diagnostic from resolving to a known native resource with a
+different response model. Its final combined freeze must still be verified.
 
 The refreshed canonical matrix is intentionally unverified where semantic/wire or
 cross-service evidence is missing. All 21 service origins fetched successfully in the

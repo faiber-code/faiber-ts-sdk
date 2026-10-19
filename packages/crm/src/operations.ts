@@ -5,6 +5,12 @@ function wildcardPath(path: Identifier): string {
   if (parts.some(part => !part || part === "." || part === ".." || /[%?#\\]/.test(part))) throw new TypeError("Wildcard paths require nonempty raw segments without dot traversal, percent escapes, query, fragment or backslash");
   return parts.map(part => encodeURIComponent(part)).join("/");
 }
+const registeredApiPaths = ["^/api/v1/activities$","^/api/v1/activities/with-reminder$","^/api/v1/automation/jobs$","^/api/v1/automation/webhooks$","^/api/v1/boards/[^/]+/[^/]+$","^/api/v1/campaigns$","^/api/v1/companies$","^/api/v1/companies/[^/]+$","^/api/v1/contacts$","^/api/v1/contacts/[^/]+$","^/api/v1/context$","^/api/v1/deals$","^/api/v1/deals/[^/]+$","^/api/v1/deals/[^/]+/assignment$","^/api/v1/deals/[^/]+/stage$","^/api/v1/integration/office/leads/find$","^/api/v1/leads$","^/api/v1/leads/[^/]+$","^/api/v1/leads/[^/]+/assignment$","^/api/v1/leads/[^/]+/history$","^/api/v1/leads/[^/]+/reminders$","^/api/v1/leads/[^/]+/sos$","^/api/v1/leads/[^/]+/stage$","^/api/v1/leads/light$","^/api/v1/pipelines$","^/api/v1/pipelines/[^/]+$","^/api/v1/reports/[^/]+$","^/api/v1/reports/[^/]+/agentic$","^/api/v1/reports/catalog$","^/api/v1/reports/overview$","^/api/v1/reports/refresh$","^/api/v1/sos$","^/api/v1/sources$","^/api/v1/stats/daily$","^/api/v1/stats/lead$","^/api/v1/tasks$","^/api/v1/tasks/[^/]+$","^/api/v1/tasks/[^/]+/status$","^/api/v1/teams$","^/api/v1/teams/[^/]+$","^/api/v1/teams/[^/]+/members$","^/api/v1/teams/[^/]+/members/[^/]+$","^/api/v1/workflow$","^/api/v1/workflow-node$","^/api/v1/workflow-node/[^/]+$","^/api/v1/workflow/[^/]+$","^/api/v1/workflows$","^/api/v1/workflows/[^/]+$","^/api/v1/workflows/[^/]+/assignments$","^/api/v1/workflows/[^/]+/assignments/[^/]+$","^/api/v1/workflows/[^/]+/nodes$","^/api/v1/workflows/[^/]+/nodes/[^/]+$","^/api/v1/workflows/member-based$","^/api/v1/worklog$","^/api/v1/workspace/settings$"].map(pattern => new RegExp(pattern));
+function unregisteredApiPath(path: Identifier): string {
+  const encoded = wildcardPath(path);
+  if (registeredApiPaths.some(pattern => pattern.test(`/api/${encoded}`))) throw new TypeError("Use the named CRM operation for registered API paths");
+  return encoded;
+}
 
 export class CrmOperations extends ServiceApi {
   /**
@@ -18,7 +24,7 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
   }
   /**
-   * Reach the legacy API not-found boundary with the chosen method. The handler returns structured404; HEAD has no body and production CORS answers OPTIONS with empty200. Axios rejects404 by default; use validateStatus only for intentional diagnostics and check for an empty body. Does not create or modify CRM records.
+   * Reach the legacy API not-found boundary with the chosen method. The handler returns structured404; HEAD has no body and production CORS answers OPTIONS with empty200. Axios rejects404 by default; use validateStatus only for intentional diagnostics and check for an empty body. Registered API paths must use their named operations and are rejected locally by the wildcard diagnostic. Does not create or modify CRM records.
    * Calls `ANY /api` through the shared IDP-aware Faiber client.
    * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -31,7 +37,7 @@ export class CrmOperations extends ServiceApi {
     return this.client.request<T.RouterApiNotFoundAnyResponse>({ ...options, method: method, url: `/api` });
   }
   /**
-   * Reach the legacy API not-found boundary with the chosen method. The handler returns structured404; HEAD has no body and production CORS answers OPTIONS with empty200. Axios rejects404 by default; use validateStatus only for intentional diagnostics and check for an empty body. Does not create or modify CRM records.
+   * Reach the legacy API not-found boundary with the chosen method. The handler returns structured404; HEAD has no body and production CORS answers OPTIONS with empty200. Axios rejects404 by default; use validateStatus only for intentional diagnostics and check for an empty body. Registered API paths must use their named operations and are rejected locally by the wildcard diagnostic. Does not create or modify CRM records.
    * Calls `ANY /api/{*path}` through the shared IDP-aware Faiber client.
    * @param path Backend path identifier `*path`.
    * @param method HTTP method accepted by the mounted ANY handler; CONNECT requires an explicit tunnel-capable Axios adapter. The SDK never sends an ANY verb.
@@ -42,7 +48,7 @@ export class CrmOperations extends ServiceApi {
   routerApiPathNotFoundAny(path: string, method: import("@faiber/sdk-core").HttpRequestMethod, options?: RequestOptions) {
     if (!["GET","POST","PUT","PATCH","DELETE","HEAD","OPTIONS","TRACE","CONNECT"].includes(method)) throw new TypeError("Invalid HTTP method");
     if (method === "CONNECT" && !options?.adapter) throw new TypeError("CONNECT requires an explicit tunnel-capable Axios adapter");
-    return this.client.request<T.RouterApiPathNotFoundAnyResponse>({ ...options, method: method, url: `/api/${wildcardPath(path)}` });
+    return this.client.request<T.RouterApiPathNotFoundAnyResponse>({ ...options, method: method, url: `/api/${unregisteredApiPath(path)}` });
   }
   /**
    * Performs the activities operation for the api capability.

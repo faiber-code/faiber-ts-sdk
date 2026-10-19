@@ -72,3 +72,7 @@ traversal, percent escapes, query/fragment syntax and backslashes are rejected l
 `CONNECT` requires an explicitly supplied tunnel-capable Axios adapter. The default
 Node Axios adapter does not consume CONNECT response events, and browsers restrict
 tunnel methods; the SDK rejects a default-adapter CONNECT call before transport.
+
+Wildcard not-found diagnostics reject known registered API paths before sending;
+use the corresponding named operation for those paths. This prevents a diagnostic
+call from resolving to a native resource route with a different response model.

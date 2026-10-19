@@ -91,10 +91,10 @@ routerContracts["session:ANY /api/v1/view/{service}/{*path}"] = {
  purpose:"Proxy a peer API path through Session with the selected method and at most2MiB request bytes. Supply raw nonempty path segments, not percent-encoded paths, query strings or traversal. Query parameters retain the target API semantics. Returns buffered bytes and full Axios status/headers; use explicit shared-client streaming transport for SSE or media streams. Unknown peers404, missing peer configuration503, oversized bodies413, and upstream transport failures502. This grants no independent peer membership or attendance proof."
 };
 for (const path of ["/api","/api/{*path}"]) routerContracts[`crm:ANY ${path}`] = {
- methodName:path==="/api"?"routerApiNotFoundAny":"routerApiPathNotFoundAny",typeBase:path==="/api"?"RouterApiNotFoundAny":"RouterApiPathNotFoundAny",dynamicMethod:true,
+ methodName:path==="/api"?"routerApiNotFoundAny":"routerApiPathNotFoundAny",typeBase:path==="/api"?"RouterApiNotFoundAny":"RouterApiPathNotFoundAny",dynamicMethod:true,notFoundOnly:path!=="/api",
  pathTypes:{"*path":"string"},response:'import("./types.js").CrmApiFallbackResponse',
  auth:"not-found response only; no success capability or permission grant",
- purpose:"Reach the legacy API not-found boundary with the chosen method. The handler returns structured404; HEAD has no body and production CORS answers OPTIONS with empty200. Axios rejects404 by default; use validateStatus only for intentional diagnostics and check for an empty body. Does not create or modify CRM records."
+ purpose:"Reach the legacy API not-found boundary with the chosen method. The handler returns structured404; HEAD has no body and production CORS answers OPTIONS with empty200. Axios rejects404 by default; use validateStatus only for intentional diagnostics and check for an empty body. Registered API paths must use their named operations and are rejected locally by the wildcard diagnostic. Does not create or modify CRM records."
 };
 routerContracts["state:GET /health"]={methodName:"mainProcessHealthGet",typeBase:"MainProcessHealthGet",
  response:'import("./contracts.types.js").StateProcessHealthResponse',auth:"public static process advertisement; deployment gateway policy remains separate",

@@ -54,7 +54,8 @@ const stableOperationNames = {
 };
 const operationPurpose = endpoint => endpoint.handler.replace(/_/g, " ");
 const placeholders = path => [...path.matchAll(/\{([^}]+)\}/g)].map(match => match[1]);
-const escapedPath = path => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${${name.startsWith('*')?'wildcardPath':'encodeURIComponent'}(${camel(name)})}`)}\``;
+const escapedPath = (path, review) => `\`${path.replace(/\{([^}]+)\}/g, (_, name) => `\${${name.startsWith('*')?(review?.notFoundOnly?'unregisteredApiPath':'wildcardPath'):'encodeURIComponent'}(${camel(name)})}`)}\``;
+const routePattern = path => '^'+path.split(/(\{[^}]+\})/).map(part=>part.startsWith('{')?(part.startsWith('{*')?'.+':'[^/]+'):part.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('')+'$';
 
 // Hand-audited response contracts for handlers that intentionally build serde_json::Value or
 // return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
@@ -378,6 +379,14 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       '  return parts.map(part => encodeURIComponent(part)).join("/");',
       '}',
     ] : []),
+    ...(endpoints.some(endpoint=>releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.notFoundOnly) ? [
+      `const registeredApiPaths = ${JSON.stringify([...new Set(endpoints.filter(endpoint=>endpoint.method!=="ANY"&&endpoint.path.startsWith('/api/')).map(endpoint=>routePattern(endpoint.path)))] )}.map(pattern => new RegExp(pattern));`,
+      'function unregisteredApiPath(path: Identifier): string {',
+      '  const encoded = wildcardPath(path);',
+      '  if (registeredApiPaths.some(pattern => pattern.test(`/api/${encoded}`))) throw new TypeError("Use the named CRM operation for registered API paths");',
+      '  return encoded;',
+      '}',
+    ] : []),
     ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.websocket) ? ['import { openMatchRealtime, openRoomRealtime } from "./match-realtime.js";'] : []),
     ...(endpoints.some(endpoint => releaseContracts[`${service}:${endpoint.method} ${endpoint.path}`]?.idempotencyKey) ? ['import { AxiosHeaders, type RawAxiosHeaders } from "axios";'] : []),
     "",
@@ -505,7 +514,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       ? `{ ...data, ${Object.entries(reviewed.pathFields).map(([field, arg]) => `${JSON.stringify(field)}: String(${arg})`).join(", ")} }` : "data";
     if (optionalChatUpload) {
       operationLines.push(`    return this.client.request<T.${base}Response, T.AttachmentUploadBody>({ ...options, method: "POST", url: ${escapedPath(endpoint.path)}, ...(data === undefined ? {} : { data, headers: { ...options?.headers, "Content-Type": "application/octet-stream" } }) });`);
-    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: ${endpoint.method === "ANY" ? "method" : `"${endpoint.method}"`}, url: ${escapedPath(endpoint.path)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
+    } else operationLines.push(`    return this.client.request<T.${base}Response${hasInput ? `, ${endpoint.formUrlEncoded ? "URLSearchParams" : `T.${base}Input`}` : ""}>({ ${reviewed?.timeout ? `timeout: ${reviewed.timeout}, ` : ""}...options, method: ${endpoint.method === "ANY" ? "method" : `"${endpoint.method}"`}, url: ${escapedPath(endpoint.path,reviewed)}${reviewed?.idempotencyKey ? ", headers" : ""}${hasInput ? `, data: ${requestData}` : ""}${hasQuery ? ", params" : ""}${binaryDownload ? ', responseType: "arraybuffer"' : endpoint.responseEnvelope === "stream" ? ', responseType: "stream"' : ""}${endpoint.formUrlEncoded ? ', headers: { ...options?.headers, "Content-Type": "application/x-www-form-urlencoded" }' : endpoint.binary ? ', headers: { "Content-Type": "application/octet-stream", ...options?.headers }' : ""} });`);
     operationLines.push("  }");
   }
   operationLines.push("}", "");

@@ -875,5 +875,28 @@
     ],
     "scope": "Eight retired JSON APIs absent; actual full38 migrations and legacy row preservation. GET uses generic HTML200 with SPA index or404 without; PUT/twoPOST405. Trusted actor and Profile-name fixtures, no live deployment or real provider/billing.",
     "canonical_certification": false
+  },
+  "crm-fallback-sdk-routing-guard": {
+    "kind": "real_production_subrouter_sdk_http",
+    "status": "passed",
+    "command": "cargo test --locked --offline --lib -- --include-ignored --test-threads=1 --nocapture",
+    "exit_code": 0,
+    "tests_executed": 12,
+    "source_revisions": {
+      "crm": "178f5de3c68fab387abd5294aeceb8dd1843084f"
+    },
+    "artifact_path": "evidence/crm-fallback-routing-guard-v2/crm-fallback-sdk-tests.json",
+    "artifact_sha256": "076c0b892d4ec947a08af62f61360e7529044855395c5712ac33cd27ed7a94cc",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/crm-fallback-routing-guard-v2/crm-fallback-sdk-tests.log",
+        "sha256": "f052f2df4d339af275ec42f14fb420f8b0cc9f76ec4f5311f1e187cc199edefa"
+      }
+    ],
+    "resolved_cargo_lock_artifact_path": "evidence/crm-fallback-routing-guard-v2/crm-fallback-resolved-Cargo.lock",
+    "resolved_cargo_lock_sha256": "61663417db5cb44758c4b0789b14364def7f2acb62a57b59082e86b39bb3d8fe",
+    "scope": "Actual production CRM legacy fallback and production CORS through compiled SDK, explicit nine HTTP methods (CONNECT with a real custom adapter; default CONNECT rejects), response/error/header behavior. No mocked handler responses. Not native CRM domain permissions/data or whole-main API normalization/live deployment acceptance.",
+    "canonical_certification": false,
+    "assertions": 59
   }
 }

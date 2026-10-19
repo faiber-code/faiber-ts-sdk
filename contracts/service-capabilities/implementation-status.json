@@ -12,7 +12,7 @@
   "current_candidate": {
     "sdk_source_base": "081b3b08d869dca1c5bafe4837f2ce5f20636a70",
     "status": "not_release_certified",
-    "sdk_tests": 124,
+    "sdk_tests": 125,
     "sdk_types_and_build": "passed",
     "all18_http_source_graphs_followed": true,
     "structural_operation_count": 1600,
@@ -22,13 +22,15 @@
     "state_workspace_tests": 26,
     "state_health_http_assertions": 9,
     "crm_library_tests": 12,
-    "crm_fallback_http_assertions": 56,
+    "crm_fallback_http_assertions": 59,
     "latest_combined_technical_run": {
-      "sdk_commit": "40b58b73f1482f49925e34180cee8f7452fc0972",
+      "sdk_commit": "93cd663f14fb846157e6c545d5f09914b3fa96e3",
       "status": "failed",
-      "reason": "npm registry audit ETIMEDOUT after other technical checks and all22 tarball consumers passed",
-      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/source-semantic-chat-session-reconciled-v4/verification.json",
-      "note": "Later source changes require a new combined verification."
+      "reason": "All local runtime/pack/consumer checks passed; fresh npm registry audit failed TLS/read timeout",
+      "duration_seconds": 156.614,
+      "source_unchanged_during_run": true,
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/mounted-http-profile-state-crm-v6/verification.json",
+      "note": "Subsequent CRM registered-path guard passed125 SDK tests and59 real HTTP assertions; final combined source freeze still required."
     },
     "remaining": [
       "per-capability semantic/wire and cross-service acceptance",
@@ -54,6 +56,7 @@
       "Session/Pastil reconnect source",
       "CRM durable Office command source"
     ],
-    "source_has_subsequent_changes": true
+    "source_has_subsequent_changes": true,
+    "latest_network_probe": "Direct curl to registry.npmjs.org also failed TLS handshake (HTTP000, SSL connection timeout)."
   }
 }
