@@ -6,7 +6,7 @@ const base=process.env.INFERA_IDP_SDK_BASE_URL;
 assert.match(base??'',/^http:\/\/127\.0\.0\.1:\d+$/);
 const user=process.env.INFERA_IDP_SDK_USER;
 const api=new IdpApi(new FaiberClient('idp',{domains:{idp:base},axios:{timeout:10000}}));
-const internal={headers:{Host:'owned-idp.internal'}};
+const internal={headers:{Host:'idp.faiber.svc:8002','x-infera-idp-service-token':"c44baa7de10137eb6a0b4d9a097b44bbc971652c44a649b2bd0d01cdebea004f"}};
 let assertions=0;
 async function denied(action,status){await assert.rejects(action,error=>error.response?.status===status);assertions++;}
 try {
@@ -19,7 +19,9 @@ try {
  await denied(()=>api.operations.authGenerateSecureOneTimeTokenRoutePost(user),403);
  await denied(()=>api.operations.authGenerateSecureOneTimeTokenRoutePost('not-a-uuid',internal),400);
  await denied(()=>api.operations.authGenerateSecureOneTimeTokenRoutePost('00000000-0000-0000-0000-000000000000',internal),401);
- // Characterizes the existing Host-only guard. This is NOT caller-identity certification.
+ await denied(()=>api.operations.authGenerateSecureOneTimeTokenRoutePost(user,{headers:{Host:'idp.faiber.svc:8002'}}),401);
+ await denied(()=>api.operations.authGenerateSecureOneTimeTokenRoutePost(user,{headers:{Host:'idp.faiber.svc:8002','x-infera-idp-service-token':'invalid-project-token-000000000000000000000000'}}),401);
+ // A valid identity-project credential is required in addition to routing metadata.
  const issued=await api.operations.authGenerateSecureOneTimeTokenRoutePost(user,internal);assert.equal(typeof issued.data.data.token,'string');assertions++;
  const input={token:issued.data.data.token};
  const exchanged=await api.operations.authExchangeOneTimeTokenPost(input,internal);assert.equal(typeof exchanged.data.data.access_token,'string');assertions++;
@@ -36,7 +38,7 @@ try {
  await denied(()=>signed.operations.oidcUserinfoGet(),401);
  const logout=await api.operations.oidcLogoutPost();assert.equal(logout.status,204);assertions++;
  const abort=new AbortController();abort.abort();await assert.rejects(()=>api.operations.oidcDiscoveryGet({signal:abort.signal}),e=>e.code==='ERR_CANCELED');assertions++;
- console.log(JSON.stringify({status:'passed',assertions,scope:'Actual mounted IDP health/OpenAPI/discovery/JWKS/preflight, internal one-time issue/exchange/replay, scoped user-info, client introspection/revocation, logout and cancellation. Host-only guard characterized, not certified as identity protection.'}));
+ console.log(JSON.stringify({status:'passed',assertions,scope:'Actual mounted IDP health/OpenAPI/discovery/JWKS/preflight, internal one-time issue/exchange/replay, scoped user-info, client introspection/revocation, logout and cancellation. Configured per-project credential required; spoofed Host and invalid/missing credentials denied. Actual Manage caller is tested by the parent service fixture.'}));
 } catch(error){
  // Do not serialize Axios request bodies/headers or issued credentials on failure.
  console.error(JSON.stringify({status:'failed',assertions,error_name:error.name,message:error.message,http_status:error.response?.status,code:error.code}));process.exitCode=1;
