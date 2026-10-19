@@ -424,3 +424,154 @@ export interface MainHealthGetResponseData extends JsonObject {
 }
 export interface MainHealthGetResponse extends ApiEnvelope<MainHealthGetResponseData> {
 }
+
+/** Backend response type: serde_json::Value. */
+export type AdminOverviewGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminOverview>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminPostsGetQuery = import("./admin.types.js").SocialAdminPostsQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminPostsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminPostSummary>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminPostDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPostDetail>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminCommentsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminCommentsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminComment>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminCommentDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminComment>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminMediaGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminMediaGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminMedia>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminCategoriesGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminCategory[]>;
+
+/** Backend request type: SocialAdminCreateCategoryInput. */
+export type AdminCreateCategoryPostInput = import("./admin.types.js").SocialAdminCreateCategoryInput;
+/** Backend response type: serde_json::Value. */
+export type AdminCreateCategoryPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminCategory>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminCategoryDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminCategory>;
+
+/** Backend request type: SocialAdminUpdateCategoryInput. */
+export type AdminUpdateCategoryPatchInput = import("./admin.types.js").SocialAdminUpdateCategoryInput;
+/** Backend response type: serde_json::Value. */
+export type AdminUpdateCategoryPatchResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminCategory>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminArchiveCategoryDeleteResponse = void;
+
+/** Backend response type: serde_json::Value. */
+export type AdminPoliciesGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy[]>;
+
+/** Backend request type: PolicyInput. */
+export type AdminCreatePolicyPostInput = import("./admin.types.js").SocialAdminPolicyInput;
+/** Backend response type: serde_json::Value. */
+export type AdminCreatePolicyPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminPolicyDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy>;
+
+/** Backend request type: PolicyInput. */
+export type AdminUpdatePolicyPatchInput = import("./admin.types.js").SocialAdminPolicyInput;
+/** Backend response type: serde_json::Value. */
+export type AdminUpdatePolicyPatchResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminPublishPolicyPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminPolicy>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminModerationQueueGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminModerationQueue>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminReportsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminReportsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminReport>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminReportDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminReport>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminClaimsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminClaimsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminClaim>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminClaimDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminClaim>;
+
+/** Backend request type: SocialAdminReasonInput. */
+export type AdminApproveClaimPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: serde_json::Value. */
+export type AdminApproveClaimPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminClaimDecision>;
+
+/** Backend request type: SocialAdminReasonInput. */
+export type AdminRejectClaimPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: serde_json::Value. */
+export type AdminRejectClaimPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminClaimDecision>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminBountiesGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminBountiesGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminBounty>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminBountyDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminBounty>;
+
+/** Backend request type: SocialAdminReasonInput. */
+export type AdminRevealLocationPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: serde_json::Value. */
+export type AdminRevealLocationPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminLocation>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminActorsGetQuery = import("./admin.types.js").SocialAdminActorsQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminActorsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminActor>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminActorDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminActorDetail>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminRestrictionsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminRestrictionsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminRestriction>;
+
+/** Backend request type: SocialAdminCreateRestrictionInput. */
+export type AdminCreateRestrictionPostInput = import("./admin.types.js").SocialAdminCreateRestrictionInput;
+/** Backend response type: serde_json::Value. */
+export type AdminCreateRestrictionPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminRestrictionCreated>;
+
+/** Backend request type: SocialAdminReasonInput. */
+export type AdminRevokeRestrictionPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: serde_json::Value. */
+export type AdminRevokeRestrictionPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminRestrictionRevoked>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminAnalyticsGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminAnalytics>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminAuditGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminAuditGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminAudit>;
+
+/** Backend query type: AdminListQuery. */
+export type AdminIntegrationsGetQuery = import("./admin.types.js").SocialAdminStatusQuery;
+/** Backend response type: serde_json::Value. */
+export type AdminIntegrationsGetResponse = import("./admin.types.js").SocialAdminPage<import("./admin.types.js").SocialAdminIntegration>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminIntegrationDetailGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminIntegration>;
+
+/** Backend request type: SocialAdminReasonInput. */
+export type AdminReplayIntegrationPostInput = import("./admin.types.js").SocialAdminReasonInput;
+/** Backend response type: serde_json::Value. */
+export type AdminReplayIntegrationPostResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminIntegrationPending>;
+
+/** Backend response type: serde_json::Value. */
+export type AdminSettingsGetResponse = import("./admin.types.js").SocialAdminResponse<import("./admin.types.js").SocialAdminSettings>;

@@ -5,44 +5,57 @@
       "id": "social-nested-administration",
       "owner": "sdk",
       "required": true,
-      "status": "discovered",
+      "status": "local_sdk_and_postgres_workflows_verified_canonical_integration_pending",
       "meaning": "The published SDK snapshot omitted the mounted Social administration router. Discovery now follows the nested mount; typed wire contracts and Manage workflows still require implementation and verification.",
       "source_refs": [
         "Service/infera-social/src/api/routes.rs:112",
         "Service/infera-social/src/admin.rs:23"
+      ],
+      "local_source_revision": "d2164984ff588811ce01baba5f8fbd7cb7091cd3",
+      "local_test_evidence": [
+        "social-admin-sdk-wire"
       ]
     },
     {
       "id": "version-health-path",
       "owner": "sdk",
       "required": true,
-      "status": "discovered",
+      "status": "local_sdk_and_http_workflows_verified_canonical_gateway_pending",
       "meaning": "The mounted health route is /health, while the stale annotation made the published SDK call /. Extracted contracts must follow mounted paths.",
       "source_refs": [
         "Service/infera_version/src/router.rs:118",
         "faiber-ts-sdk/packages/version/src/operations.ts:13"
+      ],
+      "local_test_evidence": [
+        "version-sdk-wire"
       ]
     },
     {
       "id": "version-service-slug",
       "owner": "sdk",
       "required": true,
-      "status": "discovered",
+      "status": "local_sdk_and_http_workflows_verified_canonical_gateway_pending",
       "meaning": "Service detail/all routes consume a service slug string, but their annotations and published operation paths name service_id. Preserve slug semantics and avoid asking users for a UUID.",
       "source_refs": [
         "Service/infera_version/src/service/routes.rs:24",
         "Service/infera_version/src/service/routes.rs:59"
+      ],
+      "local_test_evidence": [
+        "version-sdk-wire"
       ]
     },
     {
       "id": "version-sdk-wire-enums",
       "owner": "sdk",
       "required": true,
-      "status": "review_required",
+      "status": "local_sdk_and_http_workflows_verified_canonical_gateway_pending",
       "meaning": "Version Scope and Channel have separate database spellings and serialized Rust variant spellings. Confirm curated and generated methods expose the actual response values consistently; localized UI labels must not change wire values.",
       "source_refs": [
         "Service/infera_version/entity/src/version.rs:15",
         "Service/infera_version/src/version/transformers.rs:3"
+      ],
+      "local_test_evidence": [
+        "version-sdk-wire"
       ]
     },
     {
@@ -583,6 +596,18 @@
       "required": true,
       "status": "confirmed_requires_durable_idempotent_completion",
       "meaning": "Current browser/Ask pending review hubs are process-local; duplicate completion can replace state, and Ask ignores durable runtime-input completion errors. Project isolation is locally repaired but does not establish durable task receipts. Persist requests/results with project/actor/run scope, compare-and-set completion, idempotency and actual SDK execution receipts; verify restart/replay/denial without relying on browser reports as proof."
+    },
+    {
+      "id": "social-active-discovery-variant",
+      "owner": "social",
+      "required": true,
+      "status": "active_variant_requires_canonical_schema_and_sdk_discovery",
+      "meaning": "An active Rasht Social image contains four commits absent from canonical main: public/subject discovery, follows/blocks, notification preferences/outbox/place events, category publication entitlement and story expiry. Its SQL uses graph/notification tables not defined in the canonical service migrations. Generic main image and full SDK capability verification must reconcile this source/schema before release; canonical admin tests do not certify the variant.",
+      "source_refs": [
+        "infera-social@5e6d6addd4088a839c636c2ba52a45db4ed3057f:src/discovery.rs",
+        "infera-social@5e6d6addd4088a839c636c2ba52a45db4ed3057f:src/repository.rs",
+        "ops/poulstar-integration/deployment-receipts/image-exception-source-ancestry.json"
+      ]
     }
   ]
 }

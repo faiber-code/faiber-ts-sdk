@@ -19243,6 +19243,544 @@
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/overview",
+      "module": "admin",
+      "handler": "overview",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/posts",
+      "module": "admin",
+      "handler": "posts",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/posts/{id}",
+      "module": "admin",
+      "handler": "post_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/comments",
+      "module": "admin",
+      "handler": "comments",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/comments/{id}",
+      "module": "admin",
+      "handler": "comment_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/media",
+      "module": "admin",
+      "handler": "media",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/categories",
+      "module": "admin",
+      "handler": "categories",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/categories",
+      "module": "admin",
+      "handler": "create_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "SocialAdminCreateCategoryInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "category_detail",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "update_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "SocialAdminUpdateCategoryInput"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admin/social/categories/{id}",
+      "module": "admin",
+      "handler": "archive_category",
+      "permissions": [
+        "social:categories:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/capability-policies",
+      "module": "admin",
+      "handler": "policies",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/capability-policies",
+      "module": "admin",
+      "handler": "create_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "PolicyInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/capability-policies/{id}",
+      "module": "admin",
+      "handler": "policy_detail",
+      "permissions": [
+        "social:panel:view"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admin/social/capability-policies/{id}",
+      "module": "admin",
+      "handler": "update_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "PolicyInput"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/capability-policies/{id}/publish",
+      "module": "admin",
+      "handler": "publish_policy",
+      "permissions": [
+        "social:capabilities:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/moderation/queue",
+      "module": "admin",
+      "handler": "moderation_queue",
+      "permissions": [
+        "social:moderation:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/reports",
+      "module": "admin",
+      "handler": "reports",
+      "permissions": [
+        "social:reports:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/reports/{id}",
+      "module": "admin",
+      "handler": "report_detail",
+      "permissions": [
+        "social:reports:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/claims",
+      "module": "admin",
+      "handler": "claims",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/claims/{id}",
+      "module": "admin",
+      "handler": "claim_detail",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/claims/{id}/approve",
+      "module": "admin",
+      "handler": "approve_claim",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "SocialAdminReasonInput"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/claims/{id}/reject",
+      "module": "admin",
+      "handler": "reject_claim",
+      "permissions": [
+        "social:claims:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "SocialAdminReasonInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/bounties",
+      "module": "admin",
+      "handler": "bounties",
+      "permissions": [
+        "social:funding:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/bounties/{id}",
+      "module": "admin",
+      "handler": "bounty_detail",
+      "permissions": [
+        "social:funding:review"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/locations/{post_id}/reveal",
+      "module": "admin",
+      "handler": "reveal_location",
+      "permissions": [
+        "social:location:reveal"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "SocialAdminReasonInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/actors",
+      "module": "admin",
+      "handler": "actors",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/actors/{id}",
+      "module": "admin",
+      "handler": "actor_detail",
+      "permissions": [
+        "social:content:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/restrictions",
+      "module": "admin",
+      "handler": "restrictions",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/restrictions",
+      "module": "admin",
+      "handler": "create_restriction",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "SocialAdminCreateRestrictionInput"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/restrictions/{id}/revoke",
+      "module": "admin",
+      "handler": "revoke_restriction",
+      "permissions": [
+        "social:actors:restrict"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "SocialAdminReasonInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/analytics",
+      "module": "admin",
+      "handler": "analytics",
+      "permissions": [
+        "social:analytics:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/audit",
+      "module": "admin",
+      "handler": "audit",
+      "permissions": [
+        "social:audit:read"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/integrations",
+      "module": "admin",
+      "handler": "integrations",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "query": "AdminListQuery"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/integrations/{id}",
+      "module": "admin",
+      "handler": "integration_detail",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/social/integrations/{id}/replay",
+      "module": "admin",
+      "handler": "replay_integration",
+      "permissions": [
+        "social:integrations:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false,
+      "body": "SocialAdminReasonInput"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/social/settings",
+      "module": "admin",
+      "handler": "settings",
+      "permissions": [
+        "social:settings:manage"
+      ],
+      "source": "infera-social/src/admin.rs",
+      "response": "serde_json::Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
     }
   ],
   "state": [

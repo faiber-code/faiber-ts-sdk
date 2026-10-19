@@ -58,3 +58,40 @@ try {
 ```
 
 Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services with one configuration.
+
+## Operator administration
+
+The generated `social.operations.admin*` methods cover the mounted `/api/v1/admin/social` router. Exported `SocialAdmin*` models describe the SQL projections, records, request bodies and pagination. All calls use the same `FaiberClient`; use current project-authorized credentials. Forwarded actor/organization headers belong to trusted service infrastructure and must not be accepted from an untrusted browser.
+
+```ts
+const page = await social.operations.adminPostsGet({
+  q: "event", status: "pending", page: 1, limit: 30,
+});
+const post = await social.operations.adminPostDetailGet(page.data.data[0].id);
+const reports = await social.operations.adminReportsGet({ status: "open" });
+```
+
+| Administration area | Required service permission |
+| --- | --- |
+| Overview, categories/policy reads | `social:panel:view` |
+| Posts, comments, media, actors | `social:content:read` |
+| Category mutations | `social:categories:manage` |
+| Draft policy creation/edit/publication | `social:capabilities:manage` |
+| Moderation queue | `social:moderation:review` |
+| Reports | `social:reports:manage` |
+| Claims/decisions | `social:claims:manage` |
+| Bounties | `social:funding:review` |
+| Exact location reveal | `social:location:reveal` |
+| Restrictions | `social:actors:restrict` |
+| Analytics | `social:analytics:read` |
+| Audit | `social:audit:read` |
+| Integration events/replay | `social:integrations:manage` |
+| Configuration-presence flags | `social:settings:manage` |
+
+Paged responses contain `data` arrays and `meta: {total,page,limit}`. Pages default to1 and limits to30; limits clamp to1–100. Posts support text, category and moderation-status filters. Other shared lists support only their `status` field: media interprets it as content type, audit as action. Actor `q` is a UUID; invalid values are currently ignored and actor totals describe the current page. Unpaginated category/policy/moderation endpoints do not accept list filters.
+
+Creating categories, draft policies and restrictions returns201. Category archive returns204. Publishing a draft retires the prior published policy; editing/publishing a non-draft returns409. Operator decisions require an authenticated user. Exact-location responses include `Cache-Control: no-store` and expire after60seconds; never persist them in browser caches. Admin bounty amounts are JSON numbers, whereas the public capability projection uses decimal strings.
+
+Replay only accepts failed/dead-letter events, requires a reason, and returns a pending receipt rather than proof that another service applied the effect. The matching reviewed service repair commits its reset and audit together. Claim decisions reject terminal states with409 in that repair. These repaired behaviors require the coordinated service version; installing the SDK alone does not upgrade a service runtime.
+
+All methods accept request cancellation and timeout options and retain full Axios responses. Handle400 validation,401 missing actor,403 missing permission,404 missing scoped record,409 lifecycle conflict and transport/server errors without treating a failed request as proof that an older service rolled back its writes.

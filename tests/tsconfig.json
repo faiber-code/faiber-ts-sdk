@@ -9,6 +9,7 @@
     "release-type-consumer.ts",
     "transport-options.types.ts",
     "lms-classroom-counts.types.ts",
-    "version-wire.types.ts"
+    "version-wire.types.ts",
+    "social-admin-wire.types.ts"
   ]
 }
