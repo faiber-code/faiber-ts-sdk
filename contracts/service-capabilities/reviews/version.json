@@ -116,7 +116,7 @@
       "meaning": "Version release.service_id is a local catalog service UUID; slug is a separate catalog identifier. Control project slug selects a namespace-local publisher catalog, not an IDP/Agentic project UUID. External HTTPS download URLs are not fetched, content-verified or authorized by Version. Live Control Secret/namespace routing and artifact delivery remain unverified."
     },
     "test_evidence": [
-      "version-sdk-nullable-wire"
+      "version-sdk-locked-nullable-wire"
     ],
     "actual_sdk_check": "health",
     "remaining_gates": [
@@ -243,7 +243,7 @@
       "meaning": "Version release.service_id is a local catalog service UUID; slug is a separate catalog identifier. Control project slug selects a namespace-local publisher catalog, not an IDP/Agentic project UUID. External HTTPS download URLs are not fetched, content-verified or authorized by Version. Live Control Secret/namespace routing and artifact delivery remain unverified."
     },
     "test_evidence": [
-      "version-sdk-nullable-wire"
+      "version-sdk-locked-nullable-wire"
     ],
     "actual_sdk_check": "publication_idempotency",
     "remaining_gates": [
@@ -370,7 +370,7 @@
       "meaning": "Version release.service_id is a local catalog service UUID; slug is a separate catalog identifier. Control project slug selects a namespace-local publisher catalog, not an IDP/Agentic project UUID. External HTTPS download URLs are not fetched, content-verified or authorized by Version. Live Control Secret/namespace routing and artifact delivery remain unverified."
     },
     "test_evidence": [
-      "version-sdk-nullable-wire"
+      "version-sdk-locked-nullable-wire"
     ],
     "actual_sdk_check": "raw_openapi",
     "remaining_gates": [
@@ -497,7 +497,7 @@
       "meaning": "Version release.service_id is a local catalog service UUID; slug is a separate catalog identifier. Control project slug selects a namespace-local publisher catalog, not an IDP/Agentic project UUID. External HTTPS download URLs are not fetched, content-verified or authorized by Version. Live Control Secret/namespace routing and artifact delivery remain unverified."
     },
     "test_evidence": [
-      "version-sdk-nullable-wire"
+      "version-sdk-locked-nullable-wire"
     ],
     "actual_sdk_check": "list_no_last_version",
     "remaining_gates": [
@@ -624,7 +624,7 @@
       "meaning": "Version release.service_id is a local catalog service UUID; slug is a separate catalog identifier. Control project slug selects a namespace-local publisher catalog, not an IDP/Agentic project UUID. External HTTPS download URLs are not fetched, content-verified or authorized by Version. Live Control Secret/namespace routing and artifact delivery remain unverified."
     },
     "test_evidence": [
-      "version-sdk-nullable-wire"
+      "version-sdk-locked-nullable-wire"
     ],
     "actual_sdk_check": "slug_not_uuid",
     "remaining_gates": [
@@ -751,7 +751,7 @@
       "meaning": "Version release.service_id is a local catalog service UUID; slug is a separate catalog identifier. Control project slug selects a namespace-local publisher catalog, not an IDP/Agentic project UUID. External HTTPS download URLs are not fetched, content-verified or authorized by Version. Live Control Secret/namespace routing and artifact delivery remain unverified."
     },
     "test_evidence": [
-      "version-sdk-nullable-wire"
+      "version-sdk-locked-nullable-wire"
     ],
     "actual_sdk_check": "active_version_envelope",
     "remaining_gates": [
@@ -878,7 +878,7 @@
       "meaning": "Version release.service_id is a local catalog service UUID; slug is a separate catalog identifier. Control project slug selects a namespace-local publisher catalog, not an IDP/Agentic project UUID. External HTTPS download URLs are not fetched, content-verified or authorized by Version. Live Control Secret/namespace routing and artifact delivery remain unverified."
     },
     "test_evidence": [
-      "version-sdk-nullable-wire"
+      "version-sdk-locked-nullable-wire"
     ],
     "actual_sdk_check": "malformed_uuid",
     "remaining_gates": [

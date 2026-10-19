@@ -1414,5 +1414,31 @@
       }
     ],
     "raw_empty_wrapper_note": "Four empty outer wrapper logs remain archived and covered by the sealed checksum manifest. They are raw data, not evidence of executed tests. The nonempty final per-service native and ACL logs provide the required seven passing tests."
+  },
+  "version-sdk-locked-nullable-wire": {
+    "kind": "real_locked_sdk_http_postgres_contract",
+    "status": "passed",
+    "command": "cargo --config profile.test.package.infera_version.debug=0 --config profile.test.package.infera_version.strip=\"debuginfo\" test --locked --offline --workspace -- --include-ignored --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 12,
+    "source_revisions": {
+      "version": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+      "control": "e15272c1539eee4c1b183a8b2ec7e0453301d8b3"
+    },
+    "source_unchanged_during_run": true,
+    "locked_dependencies": true,
+    "input_and_resolved_lock_identical": true,
+    "artifact_path": "evidence/version-locked-nullable-sdk-12/version-sdk-wire-tests.json",
+    "artifact_sha256": "2db91063d5f9034e06721b15525b9e13cd397823192a88308bf59369446f00fb",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/version-locked-nullable-sdk-12/version-sdk-wire-tests.log",
+        "sha256": "58e6fcf6da288b383e6b080fc9360faea3e08eae11fb507f717f4cbd2c5d4f54"
+      }
+    ],
+    "resolved_cargo_lock_artifact_path": "evidence/version-resolved-40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486.Cargo.lock",
+    "resolved_cargo_lock_sha256": "40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486",
+    "scope": "Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates Actual --locked execution; lock is checked without restoring it before source comparison. Current full22-package freeze is d717ba069536ca8824fc0bd89981acf0e0ef1229.",
+    "canonical_certification": false
   }
 }

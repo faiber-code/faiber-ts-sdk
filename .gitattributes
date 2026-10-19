@@ -20,3 +20,4 @@ contracts/service-capabilities/evidence/version-nullable-sdk-12/*.log -whitespac
 contracts/service-capabilities/evidence/summary-source-domains-review-v1/*.log -whitespace
 contracts/service-capabilities/evidence/session-chat-sdk-69-26/*.patch -whitespace
 contracts/service-capabilities/evidence/summary-source-domains-review-v1/*.patch -whitespace
+contracts/service-capabilities/evidence/version-locked-nullable-sdk-12/*.log -whitespace

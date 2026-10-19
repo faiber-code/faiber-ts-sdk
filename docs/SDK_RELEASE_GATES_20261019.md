@@ -1,7 +1,8 @@
 # SDK release gates — 2026-10-19
 
-Release candidate: **1.0.0**, all 22 packages unpublished. npm authentication has not
-started. Structural extraction is not semantic release approval. Manage completion,
+Release candidate: **1.0.0**, all22 packages local candidates. This task has not
+published any package; fresh registry version/availability checks remain pending. npm
+authentication has not started. Structural extraction is not semantic release approval. Manage completion,
 Knowledge publication and agent memory adoption remain downstream of SDK acceptance.
 
 ## Source and actual behavior verified locally
@@ -41,19 +42,30 @@ subsequent generic runner output no longer invalidates that historical record.
 
 ## Combined verification and open release gates
 
-At `8811162b2d1251ad8c26c7b8a6c7bc5deb67d16b`, combined run
-`reservation-capacity-aligned-v7` passed build,125 SDK tests/types, structural contract
-audit, Version12, Social11 with real S3-compatible storage, IDP111/actual Manage caller,
-Chat21, Profile348, State26/9, CRM12/59 and Reservation42/188 across30 operations,
-plus all22 actual tarball installs/imports/strict consumers. Source, dependency and
-compiled-input fences remained unchanged. Each command log hash was rechecked in
-`evidence/combined-8811162-v7.json`.
+At `d717ba069536ca8824fc0bd89981acf0e0ef1229`, combined run
+`session-version-source-aligned-v10` passed40 of41 technical steps in224.250 seconds.
+It passed build, strict types/125 SDK tests, structural contract audit, packaging and
+source whitespace against published baseb11672d; all included runtime checks passed:
+Version12, Social11/real S3-compatible storage, IDP111/actual Manage caller,
+Chat21, Profile348, State26/9, CRM12/59, Reservation42/188 across30 operations,
+and Session69/nested Chat1 with26 assertions. All22 actual tarball installs, imports
+and strict consumers passed. Source/dependency/compiled and incoming Summary source
+fences stayed unchanged. Every command-log hash was independently rechecked in
+`evidence/combined-d717ba0-v10.json`.
 
-The overall result **failed** on a fresh npm security-audit read ETIMEDOUT
-(173.988 seconds overall; audit22.468 seconds). A previous direct curl probe also
-failed the registry TLS handshake, independently of npm authentication. No audit
-waiver or authentication attempt has been made. Subsequent Session documentation
-corrections require their own checks and a later frozen combined run before release.
+Overall **failed**: fresh npm security audit returned read ETIMEDOUT. This is not a
+passing vulnerability assessment. npm authentication remains unstarted. The separate
+SDK semantic gate still has2210 pending evidence/integration entries (not2210 proven
+product defects):21 canonical decisions,2068 capability reviews/reconciliations,
+66 relationship/workflow entries,21 source/router drift entries and34 known required
+gaps. Local reviews and scoped tests do not substitute for those decisions.
+
+Intermediate runv8 stopped on archived patch whitespace; preserving exact patch bytes
+requires scoped raw-evidence attributes, while actual source checking remains enabled.
+Runv9 stopped at the4GiB start guard before IDP. Original reports remain retained.
+The approved target-only cleanup reclaimed exact completed Summary-owned package
+outputs by full path-qualified Cargo package IDs, preserving the current fixtures'
+Git-sourced dependencies. The new run completed every included native check.
 
 The refreshed canonical matrix is intentionally unverified where semantic/wire or
 cross-service evidence is missing. All 21 service origins fetched successfully in the
@@ -173,3 +185,12 @@ performance-context retirement, combined six-domain use, remote source availabil
 and current deployed identity/permissions remain release gates. Local official-MCP
 reader tests do not certify those boundaries. Live model selection, provider/billing
 checks and Knowledge migration have not happened. Current model defaults are unchanged.
+
+Latest Pastil chat read remains blocked: host `durable` is unavailable. Its latest
+chat changes/test results are not certified; the retained source fixes are preserved.
+Version verification now requires --locked and observes any source/lock drift before
+cleanup, without restoring the lock to mask a change. Actual input/resolved hashes
+match40d58b6aa969961af652f5bc8804fbdf5b58f1b211ce80d9ab7e10b1b00f2486.
+All27 registered evidence runs have valid nonempty proof bindings; four empty outer
+Summary wrapper logs remain retained as raw data, not accepted test proof.
+No package release, tag/push, deployment, model change or Knowledge adoption occurred.

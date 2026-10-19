@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-19T19:07:14.756719+00:00",
+  "updated_at": "2026-10-19T19:26:38.459353+00:00",
   "program_status": "incomplete_sdk_source_and_semantic_release_gates",
   "release_version": "1.0.0",
   "new_release_published": false,
@@ -24,14 +24,29 @@
     "crm_library_tests": 12,
     "crm_fallback_http_assertions": 59,
     "latest_combined_technical_run": {
-      "sdk_commit": "8811162b2d1251ad8c26c7b8a6c7bc5deb67d16b",
+      "sdk_commit": "d717ba069536ca8824fc0bd89981acf0e0ef1229",
       "status": "failed",
-      "reason": "All included local runtime,125 SDK tests/types,22 actual tarballs and consumer checks passed; fresh npm registry audit failed read ETIMEDOUT",
-      "duration_seconds": 173.988,
+      "reason": "40/41 technical checks passed. Fresh npm audit failed read ETIMEDOUT; per-capability/canonical release gates remain independently open.",
+      "duration_seconds": 224.25,
       "source_unchanged_during_run": true,
-      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/reservation-capacity-aligned-v7/verification.json",
-      "receipt": "evidence/combined-8811162-v7.json",
-      "note": "Technical verification only. Per-capability semantics, current deployed authorization, canonical source and cross-service gates remain open."
+      "compiled_and_external_inputs_unchanged": true,
+      "steps_passed": 40,
+      "steps_total": 41,
+      "packages_packed_and_consumed": 22,
+      "included_scoped_checks": [
+        "125 SDK tests and strict types",
+        "Version12 --locked with unchanged lock",
+        "Social11 including real S3-compatible storage",
+        "IDP111 plus actual Manage caller and23 assertions",
+        "Chat21",
+        "Profile348",
+        "State26/9",
+        "CRM12/59",
+        "Reservation42/188,30 operations",
+        "Session69 plus nested Chat1,26 assertions"
+      ],
+      "artifact": "/Users/mohammadralizadeh/Infera/acceptance-results/sdk-release-gates-20261019/session-version-source-aligned-v10/verification.json",
+      "receipt": "evidence/combined-d717ba0-v10.json"
     },
     "remaining": [
       "per-capability semantic/wire and cross-service acceptance",
@@ -86,8 +101,9 @@
       "duration_seconds": 4.041,
       "required_nullable_fields_and_history_shape": "verified",
       "string_only_slug_and_uuid_inputs": "strict_types_verified",
-      "evidence": "version-sdk-nullable-wire",
-      "canonical_certification": false
+      "evidence": "version-sdk-locked-nullable-wire",
+      "canonical_certification": false,
+      "locked_input_unchanged": true
     },
     "summary_four_domain_handoff": {
       "state": "local_immutable_sources_and_scoped_evidence_verified_integration_pending",
@@ -110,6 +126,19 @@
         "Combined six-domain identity/native permission and Agentic/billing interoperability",
         "Canonical source and deployment reconciliation"
       ]
+    },
+    "pastil_chat_baseline": {
+      "status": "blocked_host_unavailable",
+      "thread": "01a14e78-000f-7453-aac4-1cef7aba5351",
+      "host": "durable",
+      "latest_check": "2026-10-19",
+      "latest_changes_and_results_verified": false,
+      "existing_source_fixes": "preserved in Session canonical bb6 and selected auth-only repair6cd"
+    },
+    "evidence_registry": {
+      "runs": 27,
+      "invalid_bindings": 0,
+      "note": "Four empty outer Summary wrapper logs remain sealed raw data and are excluded from proof; nonempty final native/ACL logs remain mandatory."
     }
   }
 }
