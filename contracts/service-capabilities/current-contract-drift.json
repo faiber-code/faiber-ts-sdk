@@ -1,0 +1,1001 @@
+{
+  "asset": {
+    "count_before": 109,
+    "count_current": 109,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "chat": {
+    "count_before": 57,
+    "count_current": 51,
+    "added": [
+      {
+        "method": "GET",
+        "path": "/api/v1/admin/media-retention",
+        "module": "routes",
+        "handler": "get",
+        "permissions": [
+          "assistant:manage"
+        ],
+        "source": "infera-chat/src/routes.rs",
+        "handlerModule": "media_retention",
+        "response": "RetentionSettings",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/admin/media-retention",
+        "module": "routes",
+        "handler": "put",
+        "permissions": [
+          "assistant:manage"
+        ],
+        "source": "infera-chat/src/routes.rs",
+        "handlerModule": "media_retention",
+        "body": "RetentionSettings",
+        "response": "RetentionSettings",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      }
+    ],
+    "removed": [
+      {
+        "method": "GET",
+        "path": "/api/v1/admin/image-models",
+        "module": "routes",
+        "handler": "models",
+        "permissions": [
+          "assistant:manage"
+        ],
+        "source": "infera-chat/src/routes.rs",
+        "handlerModule": "image_capture",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/learning/runs/{id}/messages",
+        "module": "routes",
+        "handler": "history",
+        "permissions": [
+          "chat:read"
+        ],
+        "source": "infera-chat/src/routes.rs",
+        "handlerModule": "learning",
+        "pathParam": "Uuid",
+        "response": "Vec<LearningMessage>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/admin/image-settings",
+        "module": "routes",
+        "handler": "settings",
+        "permissions": [
+          "assistant:manage"
+        ],
+        "source": "infera-chat/src/routes.rs",
+        "handlerModule": "image_capture",
+        "response": "Settings",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/admin/image-settings",
+        "module": "routes",
+        "handler": "save",
+        "permissions": [
+          "assistant:manage"
+        ],
+        "source": "infera-chat/src/routes.rs",
+        "handlerModule": "image_capture",
+        "body": "Settings",
+        "response": "Settings",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/speech/voice",
+        "module": "routes",
+        "handler": "handle",
+        "permissions": [
+          "chat:ai"
+        ],
+        "source": "infera-chat/src/routes.rs",
+        "handlerModule": "memory_voice",
+        "body": "VoiceInput",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/image-status",
+        "module": "routes",
+        "handler": "status",
+        "permissions": [
+          "assistant:read",
+          "assistant:manage"
+        ],
+        "source": "infera-chat/src/routes.rs",
+        "handlerModule": "image_capture",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/internal/memory/media",
+        "module": "memory_import",
+        "handler": "extract",
+        "permissions": [],
+        "source": "infera-chat/src/memory_import.rs",
+        "handlerModule": "media_import",
+        "body": "MediaInput",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/internal/memory/source",
+        "module": "memory_import",
+        "handler": "source",
+        "permissions": [],
+        "source": "infera-chat/src/memory_import.rs",
+        "body": "SourceInput",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      }
+    ],
+    "changed": [
+      {
+        "operation": "PUT /api/v1/admin/speech-settings",
+        "before": {
+          "method": "PUT",
+          "path": "/api/v1/admin/speech-settings",
+          "module": "routes",
+          "handler": "public_speech_settings",
+          "permissions": [],
+          "source": "infera-chat/src/routes.rs",
+          "handlerModule": "fitness",
+          "body": "crate::speech::SpeechSettingsInput",
+          "response": "crate::speech::SpeechSettings",
+          "responseEnvelope": "api",
+          "multipart": false,
+          "formUrlEncoded": false
+        },
+        "after": {
+          "method": "PUT",
+          "path": "/api/v1/admin/speech-settings",
+          "module": "routes",
+          "handler": "public_speech_settings",
+          "permissions": [],
+          "source": "infera-chat/src/routes.rs",
+          "handlerModule": "fitness",
+          "body": "crate::speech::SpeechSettings",
+          "response": "crate::speech::SpeechSettings",
+          "responseEnvelope": "api",
+          "multipart": false,
+          "formUrlEncoded": false
+        }
+      }
+    ]
+  },
+  "crm": {
+    "count_before": 90,
+    "count_current": 90,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "drm": {
+    "count_before": 96,
+    "count_current": 96,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "flow": {
+    "count_before": 18,
+    "count_current": 18,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "idp": {
+    "count_before": 103,
+    "count_current": 103,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "knowledge": {
+    "count_before": 76,
+    "count_current": 72,
+    "added": [],
+    "removed": [
+      {
+        "method": "POST",
+        "path": "/internal/task-projections/candidates",
+        "module": "task_projections",
+        "handler": "candidates",
+        "permissions": [],
+        "source": "infera-knowledge/src/task_projections.rs",
+        "body": "Search",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/internal/task-conversions",
+        "module": "main",
+        "handler": "convert",
+        "permissions": [],
+        "source": "infera-knowledge/src/main.rs",
+        "handlerModule": "task_conversion",
+        "response": "Extraction",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "binary": true,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/internal/task-projections/sync",
+        "module": "task_projections",
+        "handler": "sync",
+        "permissions": [],
+        "source": "infera-knowledge/src/task_projections.rs",
+        "body": "Projection",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/internal/task-projections/passages",
+        "module": "task_projections",
+        "handler": "passages",
+        "permissions": [],
+        "source": "infera-knowledge/src/task_projections.rs",
+        "body": "Passages",
+        "response": "RetrievalResult",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      }
+    ],
+    "changed": []
+  },
+  "lms": {
+    "count_before": 182,
+    "count_current": 182,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "messenger": {
+    "count_before": 38,
+    "count_current": 43,
+    "added": [
+      {
+        "method": "POST",
+        "path": "/api/v1/web-push/subscriptions/{id}/test",
+        "module": "web_push",
+        "handler": "test_push",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/web-push/config",
+        "module": "web_push",
+        "handler": "config",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/web-push/subscriptions/{id}",
+        "module": "web_push",
+        "handler": "unsubscribe",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/web-push/subscriptions",
+        "module": "web_push",
+        "handler": "subscribe",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "body": "Registration",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/web-push/deliveries/{id}",
+        "module": "web_push",
+        "handler": "delivery",
+        "permissions": [
+          "notification:self:read"
+        ],
+        "source": "infera-messenger/src/web_push.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      }
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "modules": {
+    "count_before": 178,
+    "count_current": 178,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "payment": {
+    "count_before": 34,
+    "count_current": 34,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "profile": {
+    "count_before": 213,
+    "count_current": 204,
+    "added": [],
+    "removed": [
+      {
+        "method": "GET",
+        "path": "/api/v1/internal/plans/gifts/{id}",
+        "module": "fitness",
+        "handler": "show",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/gifts.rs",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/internal/fitness-chat/settle",
+        "module": "fitness",
+        "handler": "settle",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/credits.rs",
+        "body": "CreditTurn",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/fitness/products",
+        "module": "fitness",
+        "handler": "products",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/routes.rs",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/fitness/trial/redeem",
+        "module": "fitness",
+        "handler": "redeem",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/routes.rs",
+        "handlerModule": "gifts",
+        "body": "Redeem",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/internal/plans/gifts",
+        "module": "fitness",
+        "handler": "create",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/gifts.rs",
+        "body": "Create",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/internal/plans/gifts",
+        "module": "fitness",
+        "handler": "list",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/gifts.rs",
+        "query": "List",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/internal/fitness-chat/reserve",
+        "module": "fitness",
+        "handler": "reserve",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/credits.rs",
+        "body": "CreditTurn",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/fitness/voice-settings",
+        "module": "fitness",
+        "handler": "voice_settings",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/routes.rs",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/internal/plans/gifts/{id}",
+        "module": "fitness",
+        "handler": "update",
+        "permissions": [],
+        "source": "infera-profile/src/fitness/gifts.rs",
+        "body": "Settings",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      }
+    ],
+    "changed": []
+  },
+  "reservation": {
+    "count_before": 29,
+    "count_current": 29,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "session": {
+    "count_before": 39,
+    "count_current": 39,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "social": {
+    "count_before": 61,
+    "count_current": 61,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "state": {
+    "count_before": 44,
+    "count_current": 44,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "task": {
+    "count_before": 116,
+    "count_current": 85,
+    "added": [],
+    "removed": [
+      {
+        "method": "GET",
+        "path": "/api/v1/note-imports/{id}",
+        "module": "routes",
+        "handler": "get",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_imports",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/notes/data/catalog",
+        "module": "routes",
+        "handler": "catalog",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_data",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/attachments/{id}",
+        "module": "routes",
+        "handler": "remove",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "attachments",
+        "pathParam": "Uuid",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/projects/{id}/board-workflow",
+        "module": "routes",
+        "handler": "put",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "workflows",
+        "body": "SaveWorkflow",
+        "pathParam": "Uuid",
+        "response": "Workflow",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/plans/admin/income",
+        "module": "routes",
+        "handler": "income",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "plan_reports",
+        "query": "IncomeQuery",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/notes/{id}/media/{attachment}",
+        "module": "routes",
+        "handler": "remove",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_media",
+        "body": "RemoveMedia",
+        "response": "NoteMedia",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/plans/admin/memory-limits",
+        "module": "routes",
+        "handler": "configure",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "memory_usage",
+        "body": "MemoryLimits",
+        "response": "MemoryLimits",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/notes/{id}/imports",
+        "module": "routes",
+        "handler": "create",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_imports",
+        "body": "Create",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/projects/{id}/board-workflow",
+        "module": "routes",
+        "handler": "get",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "workflows",
+        "pathParam": "Uuid",
+        "response": "Workflow",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/notes/{id}/cover",
+        "module": "routes",
+        "handler": "cover",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_media",
+        "body": "SetCover",
+        "pathParam": "Uuid",
+        "response": "NoteMedia",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/plans/memory-limits",
+        "module": "routes",
+        "handler": "catalog",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "memory_usage",
+        "response": "MemoryLimits",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/note-imports/{id}/apply",
+        "module": "routes",
+        "handler": "apply",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_imports",
+        "body": "Apply",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/note-imports/{id}",
+        "module": "routes",
+        "handler": "control",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_imports",
+        "body": "Control",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/projects/{id}/report",
+        "module": "routes",
+        "handler": "get",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "space_report",
+        "query": "Filters",
+        "pathParam": "Uuid",
+        "response": "Report",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/work-items/{id}/attachments",
+        "module": "routes",
+        "handler": "create",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "attachments",
+        "body": "CreateUpload",
+        "pathParam": "Uuid",
+        "response": "Attachment",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/collaboration/config",
+        "module": "routes",
+        "handler": "config",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "attachments",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/internal/plans/memory-reservations/{id}",
+        "module": "routes",
+        "handler": "settle_internal",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "memory_usage",
+        "body": "SettleInput",
+        "pathParam": "Uuid",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/attachments/{id}",
+        "module": "routes",
+        "handler": "status",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "attachments",
+        "pathParam": "Uuid",
+        "response": "Attachment",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/memory-usage",
+        "module": "routes",
+        "handler": "own",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "memory_usage",
+        "response": "Usage",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/notes/{id}/indexing",
+        "module": "routes",
+        "handler": "retry",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_knowledge",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/notes/{id}/source-imports",
+        "module": "routes",
+        "handler": "create",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "source_imports",
+        "body": "CreateSource",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/notes/knowledge/search",
+        "module": "routes",
+        "handler": "search",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_knowledge",
+        "body": "Query",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/attachments/{id}/content",
+        "module": "routes",
+        "handler": "content",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "attachments",
+        "pathParam": "Uuid",
+        "response": "Attachment",
+        "responseEnvelope": "api",
+        "multipart": true,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/notes/{id}/media",
+        "module": "routes",
+        "handler": "add",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_media",
+        "body": "AddMedia",
+        "pathParam": "Uuid",
+        "response": "NoteMedia",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/projects/{id}/memory-usage",
+        "module": "routes",
+        "handler": "get",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "memory_usage",
+        "pathParam": "Uuid",
+        "response": "Usage",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/work-items/{id}/comments/page",
+        "module": "routes",
+        "handler": "comment_page",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "query": "CommentPageQuery",
+        "pathParam": "Uuid",
+        "response": "CommentPage",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/internal/plans/memory-reservations",
+        "module": "routes",
+        "handler": "reserve_internal",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "memory_usage",
+        "body": "ReserveInput",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/plans/admin/users",
+        "module": "routes",
+        "handler": "users",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "plan_reports",
+        "query": "UsersQuery",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/notes/{id}/indexing",
+        "module": "routes",
+        "handler": "status",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_knowledge",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/notes/{id}/media",
+        "module": "routes",
+        "handler": "get",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "note_media",
+        "pathParam": "Uuid",
+        "response": "NoteMedia",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/attachments/{id}/download",
+        "module": "routes",
+        "handler": "download",
+        "permissions": [],
+        "source": "infera-task/src/routes.rs",
+        "handlerModule": "attachments",
+        "pathParam": "Uuid",
+        "responseEnvelope": "raw-response",
+        "multipart": false,
+        "formUrlEncoded": false
+      }
+    ],
+    "changed": []
+  },
+  "version": {
+    "count_before": 7,
+    "count_current": 7,
+    "added": [],
+    "removed": [],
+    "changed": []
+  }
+}

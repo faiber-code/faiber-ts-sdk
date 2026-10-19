@@ -1,12 +1,12 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
+import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
 /** Resolve immutable audited source revisions without touching consumers' service working trees. */
-export function serviceSources(sdkRoot, fallback) {
+export function serviceSources(sdkRoot, fallback, options = {}) {
   if (process.env.FAIBER_SERVICES_ROOT) return process.env.FAIBER_SERVICES_ROOT;
-  const lockPath = join(sdkRoot, 'service-source-revisions.json');
+  const lockPath = options.lockPath ?? process.env.FAIBER_SOURCE_REVISIONS_FILE ?? join(sdkRoot, 'service-source-revisions.json');
   if (!existsSync(lockPath)) return fallback;
   const lock = JSON.parse(readFileSync(lockPath, 'utf8'));
   const temporary = mkdtempSync(join(tmpdir(), 'faiber-service-sources-'));
@@ -20,7 +20,13 @@ export function serviceSources(sdkRoot, fallback) {
     const archive = execFileSync('git', ['archive', revision, '--', ...sourcePaths], { cwd: repository, maxBuffer: 64 * 1024 * 1024 });
     const destination = join(temporary, directory);
     mkdirSync(destination);
-    execFileSync('tar', ['-xf', '-', '-C', destination], { input: archive });
+    // Some tar implementations exit after the end-of-archive marker while
+    // spawnSync is still writing padding to stdin, producing a spurious EPIPE.
+    // A local archive file avoids that race and preserves immutable bytes.
+    const archivePath = join(temporary, `${directory}.tar`);
+    writeFileSync(archivePath, archive);
+    try { execFileSync('tar', ['-xf', archivePath, '-C', destination]); }
+    finally { rmSync(archivePath, { force: true }); }
   }
   return temporary;
 }

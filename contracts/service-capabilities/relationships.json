@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "status": "incomplete_source_review",
+  "relationships": [
+    {
+      "id": "chat-assistant-knowledge-policy",
+      "from_service": "chat",
+      "to_service": "knowledge",
+      "source_entity": "assistant",
+      "target_entity": "assistant_policy",
+      "id_type": "uuid",
+      "scope": "organization plus assistant; runtime memory also user",
+      "cardinality": "many-to-one",
+      "lookup": "GET /api/v1/admin/assistants/{id} (Chat source); Knowledge runtime configure/query consumes same assistant UUID",
+      "readable_label_fields": [
+        "name",
+        "slug"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-chat/src/service.rs:283",
+        "Service/infera-chat/src/agentic.rs:275",
+        "Service/infera-knowledge/src/platform.rs:962"
+      ],
+      "source_revisions": {
+        "chat": "d495217f85d77270865a040c1328d70c620e6c9d",
+        "knowledge": "70b8a21721dd34125b8f0e167e06da9ad3287223"
+      },
+      "test_evidence": [],
+      "workflow": {
+        "preconditions": [
+          "Authorized Chat assistant/conversation and current user",
+          "Configured Knowledge assistant policy; distinguish missing policy from disabled memory"
+        ],
+        "sequence": [
+          "Resolve Chat assistant",
+          "Configure corresponding Knowledge policy through trusted server boundary",
+          "Query bounded Knowledge context with current user",
+          "Execute through Agentic",
+          "Persist source reply and emit durable ingestion event",
+          "Verify accepted ingestion receipt then reconcile processing outcome"
+        ],
+        "idempotency": "Knowledge turn key derives assistant/user/source message; source correction version is a required gap",
+        "failure_handling": [
+          "Do not treat queued:false as ingested",
+          "Do not accept HTTP error bodies as success",
+          "Recover durable event delivery before advancing ingestion checkpoint"
+        ],
+        "compensation": "Source edits/deletes require versioned correction/tombstone propagation; currently tracked gap"
+      }
+    },
+    {
+      "id": "task-note-knowledge-projection",
+      "from_service": "task",
+      "to_service": "knowledge",
+      "source_entity": "note work_item",
+      "target_entity": "task_projection",
+      "id_type": "uuid note_id plus integer version; project UUID is Task domain",
+      "scope": "Task workspace maps to organization; selected Task projects and current local grants",
+      "cardinality": "many-to-one",
+      "lookup": "Task GET /api/v1/work-items/{id}; internal projection candidate/version manifest",
+      "readable_label_fields": [
+        "title"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-task/src/note_knowledge.rs",
+        "Service/infera-knowledge/src/task_projections.rs"
+      ],
+      "source_revisions": {
+        "task": "badfa399a8db6f19d68f63f14b1c67485c4d4903",
+        "knowledge": "70b8a21721dd34125b8f0e167e06da9ad3287223"
+      },
+      "test_evidence": [],
+      "workflow": {
+        "preconditions": [
+          "TASK_KNOWLEDGE_ENABLED and dedicated server token configured",
+          "Current Task actor may read selected projects and individual note"
+        ],
+        "sequence": [
+          "Task queues source version",
+          "Worker sends current note/tombstone to Knowledge sync",
+          "Search returns candidate IDs/versions",
+          "Task reloads and authorizes source",
+          "Request only authorized exact-version passages",
+          "Task rechecks source access/version before returning evidence"
+        ],
+        "idempotency": "Organization/note primary key with monotonic version and same-version checksum",
+        "failure_handling": [
+          "Reject stale/differing same-version projection",
+          "General search reports Knowledge unavailable",
+          "Direct selected fresh note may fall back to bounded current source text",
+          "Never return revoked source IDs from internal ranking metadata"
+        ],
+        "compensation": "Newer delete projection blanks text; current Task read checks exclude deleted/revoked sources even before indexing catches up"
+      }
+    },
+    {
+      "id": "chat-conversation-agentic-thread",
+      "from_service": "chat",
+      "to_service": "agentic",
+      "source_entity": "conversation",
+      "target_entity": "chat_thread",
+      "id_type": "uuid distinct conversation_id and agentic_thread_id",
+      "scope": "Current Chat membership plus Agentic execution permissions",
+      "cardinality": "many-to-one",
+      "lookup": "Chat GET /api/v1/conversations/{id}; Agentic POST /api/v1/chat/threads for creation",
+      "readable_label_fields": [
+        "title"
+      ],
+      "status": "source_review_requires_runtime_verification",
+      "source_refs": [
+        "Service/infera-chat/src/service.rs:701",
+        "Service/infera-chat/src/service.rs:1700",
+        "Service/infera-chat/src/agentic.rs:43"
+      ],
+      "source_revisions": {
+        "chat": "d495217f85d77270865a040c1328d70c620e6c9d",
+        "agentic": "6adb76c4a22e044cb92673ef9104658973c2d766"
+      },
+      "test_evidence": [],
+      "workflow": {
+        "preconditions": [
+          "Authorized Chat conversation member",
+          "AI conversation and valid permitted model/billing policy"
+        ],
+        "sequence": [
+          "Create or recover linked Agentic thread",
+          "Persist Agentic thread ID on Chat conversation",
+          "Retrieve governed context",
+          "Invoke Agentic run and forward stable events",
+          "Persist Chat assistant message and Agentic usage receipt"
+        ],
+        "idempotency": "Chat AI turn and message client IDs require retry/reconnect verification",
+        "failure_handling": [
+          "Preserve partial run and SSE recovery behavior from Pastil",
+          "No Chat-side independent model billing",
+          "No history fetch cancellation of active runs"
+        ],
+        "compensation": "Cross-service thread creation and conversation save are not one transaction; orphan/retry reconciliation requires verification"
+      }
+    }
+  ]
+}

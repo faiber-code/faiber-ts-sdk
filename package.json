@@ -13,6 +13,8 @@
     "contracts:extract": "node scripts/extract-service-contracts.mjs",
     "contracts:generate": "node scripts/generate-service-operations.mjs",
     "contracts:audit": "node scripts/audit-service-contracts.mjs",
+    "capabilities:discover": "node scripts/discover-service-capabilities.mjs",
+    "capabilities:check": "node scripts/check-service-capabilities.mjs",
     "build": "tsc -b",
     "typecheck": "tsc -b --pretty false",
     "test:types": "tsc -p tests/tsconfig.json --pretty false",

@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-19T09:01:37.293460+00:00",
+  "program_status": "incomplete_discovery_in_progress",
+  "release_version": "0.23.0",
+  "new_release_published": false,
+  "committed_source_base": "56e3db403c8beb4eab686448112670a603e609bc",
+  "tests": {
+    "sdk_build": {
+      "exit_code": 0
+    },
+    "sdk_types_and_unit": {
+      "exit_code": 0,
+      "tests_executed": 97,
+      "failures": 0,
+      "scope": "SDK and discovery tooling; not service workflow certification"
+    },
+    "reservation_real_postgresql": {
+      "exit_code": 0,
+      "tests_executed": 2,
+      "scope": "One characterization of seven defects, one concurrency correctness regression; see separate artifact"
+    },
+    "contracts_audit": {
+      "exit_code": 1,
+      "reason": "Published contract manifest is stale after mounted-router extractor corrections; generation deferred until semantic contract review"
+    },
+    "discovery_gate": {
+      "status": "blocked",
+      "blocker_count": 2115
+    },
+    "knowledge_canonical_unit": {
+      "source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
+      "status": "not_executed_dependency_fetch_blocked",
+      "offline_exit_code": 101,
+      "online_exit_code": -15,
+      "tests_executed": 0,
+      "reason": "Missing cached csv dependency; isolated online fetch stopped after repeated crates.io SSL connection timeouts",
+      "local_service_checkout_modified": false
+    }
+  },
+  "artifacts": {
+    "sdk-tests": {
+      "path": "evidence/sdk-tests.log",
+      "sha256": "1bd9902a3b62a1ec785a75d55eaa2418f69c791a0e042d3cc1d8c51c91e8e877"
+    },
+    "sdk-contract-audit": {
+      "path": "evidence/sdk-contract-audit.log",
+      "sha256": "b1f76c1e8dacc990b4138b728d4ed2b93043b5ad67a565b15f76104f946a16c0"
+    },
+    "discovery-gate": {
+      "path": "evidence/discovery-gate.log",
+      "sha256": "4f5f7c6a3b77610bb839e89359bd165379a538598fcb53ebaf757c28d8bcf295"
+    },
+    "knowledge-canonical-tests": {
+      "path": "evidence/knowledge-canonical-tests.log",
+      "sha256": "787a5dfa38030cb90147ad30b8f61b92a0d46f231c055beed96fda561f7befb7"
+    }
+  },
+  "pastil": {
+    "thread_id": "01a14e77-f71d-7d73-af6d-cc34ac7b5892",
+    "latest_turn_id": "01a14e78-000f-7453-aac4-1cef7aba5351",
+    "latest_turn_status": "completed",
+    "preserved_defaults": {
+      "creation": "GPT-6 Luna",
+      "ask": "GPT-6 Luna",
+      "chat": "GPT-6 Luna",
+      "code": "GPT-6.1 Sol",
+      "design": "GPT-6.1 Sol"
+    },
+    "deferred_by_existing_scope": [
+      "payment/SMS credentials",
+      "signed-in customer-club tests"
+    ]
+  },
+  "gates": {
+    "discovery": "blocked",
+    "sdk_completion": "pending_discovery",
+    "manage_completion": "pending_sdk",
+    "knowledge_publication": "pending_manage",
+    "memory_cutover": "pending_verified_knowledge"
+  },
+  "migration_reconciliation": {
+    "status": "not_started",
+    "migrated_records": 0
+  },
+  "measured_quality_latency": {
+    "status": "not_measured",
+    "reason": "No agent memory implementation or canary has occurred"
+  },
+  "rollback": {
+    "status": "not_needed_no_cutover",
+    "runtime_behavior_changed": false
+  },
+  "remaining_work": [
+    "Complete semantic reviews and current runtime/source reconciliation for all active services",
+    "Complete relationship catalog and real cross-service workflow verification",
+    "Repair confirmed owning-service defects with regression tests",
+    "Complete and release verified SDK artifact",
+    "Complete readable SDK-backed Manage workflows",
+    "Publish verified Knowledge, implement scoped memory/ingestion/forgetting/outage/migration/rollback and measure canaries"
+  ]
+}

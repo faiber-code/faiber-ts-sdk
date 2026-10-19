@@ -1,0 +1,12 @@
+
+> faiber-ts-sdk-monorepo@0.23.0 contracts:audit
+> node scripts/audit-service-contracts.mjs
+
+file:///Users/mohammadralizadeh/Infera/faiber-ts-sdk/scripts/audit-service-contracts.mjs:22
+    throw new Error("service-contracts.json is stale; run npm run contracts:extract and regenerate operations");
+          ^
+
+Error: service-contracts.json is stale; run npm run contracts:extract and regenerate operations
+    at file:///Users/mohammadralizadeh/Infera/faiber-ts-sdk/scripts/audit-service-contracts.mjs:22:11
+
+Node.js v22.13.1

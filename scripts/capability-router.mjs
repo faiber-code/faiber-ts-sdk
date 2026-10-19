@@ -1,0 +1,179 @@
+import { balancedEnd, maskRust, splitRust, functionEvidence } from './capability-source.mjs';
+
+const moduleOf = path => path.replace(/^.*?\/src\//, '').replace(/\.rs$/, '').replace(/\/mod$/, '').replaceAll('/', '::');
+
+function imports(source) {
+  const aliases = new Map();
+  function expand(raw, prefix = '') {
+    const open = raw.indexOf('{');
+    if (open >= 0) {
+      const parent = prefix + raw.slice(0, open).trim();
+      for (const part of splitRust(raw.slice(open + 1, raw.lastIndexOf('}')))) expand(part.trim(), parent);
+    } else {
+      const [path, rename] = raw.trim().split(/\s+as\s+/);
+      if (path && path !== '*') {
+        const full = `${prefix}${path}`.replace(/::self$/, '');
+        aliases.set(rename ?? full.split('::').at(-1), full);
+      }
+    }
+  }
+  for (const match of maskRust(source).matchAll(/\buse\s+([^;]+);/g)) expand(source.slice(match.index + 4, match.index + match[0].length - 1).trim());
+  return aliases;
+}
+
+function functionFor(files, current, call, resolving=new Set()) {
+  const key=`${current.path}:${call}`;
+  if(resolving.has(key))return null;
+  resolving=new Set(resolving).add(key);
+  const parts = call.split('::');
+  const localModule=parts.length>1&&new RegExp(`\\bmod\\s+${parts[0]}\\s*[;{]`).test(maskRust(current.source));
+  const alias = localModule?undefined:imports(current.source).get(parts[0]);
+  if (alias) parts.splice(0, 1, ...alias.split('::'));
+  const fnName = parts.pop();
+  let qualifier = parts.join('::');
+  const ownCrate=current.path.split('/')[0].replaceAll('-','_');
+  if(qualifier===ownCrate)qualifier='crate';
+  else if(qualifier.startsWith(`${ownCrate}::`))qualifier=`crate::${qualifier.slice(ownCrate.length+2)}`;
+  const absolute=qualifier==='crate'||qualifier.startsWith('crate::');
+  if (qualifier.startsWith('crate::')) qualifier = qualifier.slice(7);
+  else if (qualifier === 'crate') qualifier = '';
+  else if (qualifier.startsWith('super::')) qualifier = `${moduleOf(current.path).split('::').slice(0,-1).join('::')}::${qualifier.slice(7)}`;
+  else if (qualifier.startsWith('self::')) qualifier = `${moduleOf(current.path)}::${qualifier.slice(6)}`;
+  const qualifiers=qualifier?[...new Set([...(absolute?[]:[`${moduleOf(current.path)}::${qualifier}`]),qualifier])]:[];
+  for(const module of qualifiers.length?qualifiers:[null]){
+    const matches = files.flatMap(file => file.functions.filter(fn => fn.name === fnName &&
+      (module ? moduleOf(fn.path) === module : fn.path === current.path)).map(fn => ({file,fn})));
+    if(matches.length===1)return matches[0];
+    const reexportFile=files.find(file=>moduleOf(file.path)===module);
+    const reexport=reexportFile&&imports(reexportFile.source).get(fnName);
+    if(reexport){const result=functionFor(files,reexportFile,reexport,resolving);if(result)return result;}
+  }
+  return null;
+}
+
+function withoutLeadingTrivia(raw){const index=maskRust(raw).search(/\S/);return index<0?'':raw.slice(index).trim();}
+
+function statements(body) {
+  const code = maskRust(body), variables = new Map();
+  let start = 0, curly = 0, paren = 0, square = 0;
+  for (let i = 0; i < code.length; i++) {
+    const c = code[i];
+    if (c === '{') curly++; else if (c === '}') curly--;
+    else if (c === '(') paren++; else if (c === ')') paren--;
+    else if (c === '[') square++; else if (c === ']') square--;
+    if (c === ';' && !curly && !paren && !square) {
+      const part = withoutLeadingTrivia(body.slice(start, i));
+      const binding = part.match(/^let\s+(?:mut\s+)?(\w+)(?:\s*:[^=]+)?\s*=\s*([^]*)$/);
+      if (binding) {
+        let expression=binding[2];
+        if(variables.has(binding[1]) && new RegExp(`^${binding[1]}\\b`).test(expression)){
+          const previous=`${binding[1]}__binding_${variables.size}`;
+          variables.set(previous,variables.get(binding[1]));
+          expression=expression.replace(new RegExp(`^${binding[1]}\\b`),previous);
+        }
+        variables.set(binding[1],expression);
+      }
+      start = i + 1;
+    }
+  }
+  return { variables, result: body.slice(start).trim().replace(/^return\s+/, '') };
+}
+
+function chainCalls(expression) {
+  const code = maskRust(expression), calls = [];
+  for (let i = 0; i < code.length; i++) {
+    if (code[i] === '(' || code[i] === '{' || code[i] === '[') {
+      const end = balancedEnd(code, i, code[i], {'(':')','{':'}','[':']'}[code[i]]);
+      if (end < 0) break;
+      i = end; continue;
+    }
+    if (code[i] !== '.') continue;
+    const match = code.slice(i).match(/^\.(\w+)\s*\(/);
+    if (!match) continue;
+    const open = code.indexOf('(', i), end = balancedEnd(code, open, '(', ')');
+    if (end < 0) break;
+    calls.push({ method:match[1], arguments:splitRust(expression.slice(open + 1,end)), offset:i });
+    i = end;
+  }
+  return calls;
+}
+
+function generic(signature, name) {
+  const match = signature.match(new RegExp(`\\b${name}\\s*<`));
+  if (!match) return undefined;
+  const open = signature.indexOf('<', match.index), end = balancedEnd(signature,open,'<','>');
+  return end < 0 ? undefined : signature.slice(open+1,end).trim();
+}
+
+export function mountedRouterOperations(files, entry) {
+  const root = files.find(file => file.path.endsWith(entry.path));
+  if (!root) throw new Error(`Missing router source ${entry.path}`);
+  const operations = [], unresolved = [], visited = new Set();
+  // Match Axum's path_for_nested_route: nesting a root route under /items
+  // produces /items, while an explicitly slash-terminated prefix stays so.
+  const joinPath = (prefix,path) => !prefix?path:prefix.endsWith('/')?`${prefix}${path.replace(/^\//,'')}`:path==='/'?prefix:`${prefix}${path}`;
+  function visit(file, fn, prefix, trail, selectedVariable) {
+    const key = `${file.path}:${fn.name}:${prefix}:${selectedVariable??''}`;
+    if (visited.has(key)) return;
+    if (trail.length > 30) { unresolved.push({kind:'router_depth',path:file.path,function:fn.name}); return; }
+    visited.add(key);
+    const {variables,result} = statements(fn.body);
+    const expanding = new Set();
+    function expression(raw, atPrefix) {
+      const text = withoutLeadingTrivia(raw);
+      const base = text.match(/^((?:\w+::)*\w+)\s*(\(|\.|$)/);
+      if (base && variables.has(base[1])) {
+        if (expanding.has(base[1])) { unresolved.push({kind:'variable_cycle',name:base[1],path:file.path}); return; }
+        expanding.add(base[1]); expression(variables.get(base[1]),atPrefix); expanding.delete(base[1]);
+      } else if (base && base[2] === '(' && !['Router::new'].includes(base[1])) {
+        const resolved=functionFor(files,file,base[1]);
+        if (resolved && /\bRouter\b/.test(resolved.fn.signature)) visit(resolved.file,resolved.fn,atPrefix,[...trail,{path:file.path,line:fn.line,function:fn.name}]);
+        else unresolved.push({kind:'router_call',call:base[1],path:file.path,line:fn.line});
+      } else if (!base || (base[2] !== '(' && !variables.has(base[1]))) {
+        unresolved.push({kind:'router_expression',expression:text.slice(0,180),path:file.path,line:fn.line});
+      }
+      for (const call of chainCalls(text)) {
+        if (call.method === 'merge') expression(call.arguments[0],atPrefix);
+        else if (call.method === 'nest') {
+          let childPrefix;
+          try { childPrefix=JSON.parse(call.arguments[0].trim()); } catch { /* dynamic prefixes need explicit review */ }
+          if (typeof childPrefix !== 'string') unresolved.push({kind:'dynamic_prefix',expression:call.arguments[0],path:file.path,line:fn.line});
+          else expression(call.arguments[1],joinPath(atPrefix,childPrefix));
+        } else if (call.method === 'route') {
+          let localPath;try{localPath=JSON.parse(call.arguments[0].trim());}catch{}
+          if (typeof localPath !== 'string') { unresolved.push({kind:'dynamic_path',path:file.path,line:fn.line});continue; }
+          const routing=call.arguments[1].trim();
+          const methods=[...routing.matchAll(/(?:^|\.)(?:(?:axum::)?routing::)?(get|post|put|patch|delete|head|options|any)\s*\(\s*((?:\w+::)*\w+|\|)/g)];
+          if (!methods.length) unresolved.push({kind:'method_router',expression:routing,path:file.path,line:fn.line});
+          for (const method of methods) {
+            const inline=method[2]==='|';
+            const handler=inline?null:functionFor(files,file,method[2]);
+            const evidence=functionEvidence(handler?.fn);
+            const signature=handler?.fn.signature??'';
+            const params=signature.slice(0,signature.lastIndexOf('->'));
+            const response=signature.slice(signature.lastIndexOf('->')+2);
+            const type=generic(params,'Json')??generic(params,'Form');
+            const apiResponse=generic(response,'ApiResponse')??generic(response,'APIResponse');
+            operations.push({method:method[1].toUpperCase(),path:joinPath(atPrefix,localPath),module:moduleOf(file.path),
+              handler:handler?.fn.name??method[2].split('::').at(-1),handlerModule:handler?moduleOf(handler.file.path):method[2].split('::').slice(0,-1).join('::'),
+              source:file.path,permissions:evidence?.declared_permissions??[],
+              ...(type?{body:type}:{}),...(generic(params,'Query')?{query:generic(params,'Query')}:{}),
+              ...(generic(params,'Path')?{pathParam:generic(params,'Path')}:{}),
+              ...(apiResponse?{response:apiResponse}:{}),
+              responseEnvelope:apiResponse?'api':/\bSse\b/.test(response)?'stream':/Json\s*</.test(response)?'raw':/Response/.test(response)?'raw-response':'requires_review',
+              mounted_via:[...trail,{path:file.path,line:fn.line,function:fn.name}],
+              ...(inline?{inline_handler:{name:'inline',path:file.path,line:fn.line,signature:'inline route closure',body:routing}}:!handler?{unresolved_handler:method[2]}:{}),
+            });
+          }
+        }
+      }
+    }
+    expression(selectedVariable?variables.get(selectedVariable)??'':result,prefix);
+  }
+  const fn=root.functions.find(fn=>fn.name===entry.function);
+  if(!fn)throw new Error(`Missing router function ${entry.function}`);
+  visit(root,fn,entry.prefix??'',[],entry.variable);
+  const seen=new Set(),duplicates=[];
+  for(const op of operations){const key=`${op.method} ${op.path}`;if(seen.has(key))duplicates.push(key);seen.add(key);}
+  return {operations,unresolved,duplicates};
+}

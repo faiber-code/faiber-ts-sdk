@@ -1,0 +1,4921 @@
+{
+  "schema_version": "1.0",
+  "service": "reservation",
+  "directory": "Service/infera-reservation",
+  "scope": "business",
+  "purpose": {
+    "en": "Bookable services, providers, working schedules, slots and conflict-controlled reservations.",
+    "fa": "خدمت قابل رزرو، ارائه‌دهنده، برنامه کاری، بازه زمانی و رزرو بدون تداخل."
+  },
+  "sources": [
+    "README.md",
+    "src/router.rs"
+  ],
+  "canonical_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
+  "sdk_source_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
+  "working_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
+  "working_changes": [],
+  "source_relationship": "same",
+  "source_tree_checksum": "e8e2c2f057b23a053e74d8d87651e8c33540a21a065ef8085bef69e356b98540",
+  "source_files": [
+    {
+      "path": "infera-reservation/src/auth.rs",
+      "checksum": "f24274d0ea4c61d27cf81c3539dd4a9c63ca4bf7b5d96d264a82ce15d9553459"
+    },
+    {
+      "path": "infera-reservation/src/broker.rs",
+      "checksum": "936267b0e428506d2f5a25178945305f38787ff3971e1f130589d7a692c58daa"
+    },
+    {
+      "path": "infera-reservation/src/cli/commands/seed_commands.rs",
+      "checksum": "58405b0a4b7643beac4d1574083a88a6c2fa0edb02a88d0b8de268d6f40494e0"
+    },
+    {
+      "path": "infera-reservation/src/cli/commands.rs",
+      "checksum": "d48bd5ac78e6b31e89ec1aca191309a314414098b8cddb1f11472581cdfc15da"
+    },
+    {
+      "path": "infera-reservation/src/cli.rs",
+      "checksum": "4da82c3c1ed90747ba256b6c9130f8f1f1341602901b3ac9ba203eecf5e56967"
+    },
+    {
+      "path": "infera-reservation/src/cors.rs",
+      "checksum": "44441407770a5a491d0c6327f8d1c7f96359598f9fdf2153b0e8b465d6bee71e"
+    },
+    {
+      "path": "infera-reservation/src/db.rs",
+      "checksum": "f93b29dae3c64fdf4e7132c44c9e90081cfc7ce3a75ad6c6db3189ce52198915"
+    },
+    {
+      "path": "infera-reservation/src/integration/flow.rs",
+      "checksum": "46d88e7c0978e67b9b156954c2e0ed83808030494764255082c605e4514adf02"
+    },
+    {
+      "path": "infera-reservation/src/integration/mod.rs",
+      "checksum": "8d3ba85da8b1b941c11c8ffca902cacb42818f0aec3c919a7302f9568c917e73"
+    },
+    {
+      "path": "infera-reservation/src/integration/routes.rs",
+      "checksum": "60bd65974d5edf9f6b376baf16dd21009b4d954a577e723a7bf64cb0e892ffe3"
+    },
+    {
+      "path": "infera-reservation/src/lib.rs",
+      "checksum": "2bb6e912c12908e3dc846e8b52a529976469f85669f9a3ffe19458a94750b1da"
+    },
+    {
+      "path": "infera-reservation/src/main.rs",
+      "checksum": "ff0f4e1b85ee7de0c5537af567906439ae294c6eeabbff295dcb000d445ee6c8"
+    },
+    {
+      "path": "infera-reservation/src/models.rs",
+      "checksum": "db2331933810800b05db8b371179af0598300270f0fa87946f4183fcd2b29876"
+    },
+    {
+      "path": "infera-reservation/src/pagination.rs",
+      "checksum": "02c16152141908f4da4d0d122b4e91dfb86844b525a50734a193cf2d859a2f85"
+    },
+    {
+      "path": "infera-reservation/src/provider/methods.rs",
+      "checksum": "3ec72e22cffe6e11bee09fa33fcecc3b656071e64cde6b4c2661d0924cdcea21"
+    },
+    {
+      "path": "infera-reservation/src/provider/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/provider/models.rs",
+      "checksum": "6a8a02e9eec258934008a882bc9583646985c6a2851964bb4394552966df15a8"
+    },
+    {
+      "path": "infera-reservation/src/provider/routes.rs",
+      "checksum": "3c639d40350ac0c28bbd945517d8b2b3678d5bc34d94ac7eee1e32d54715c4de"
+    },
+    {
+      "path": "infera-reservation/src/reservation/methods.rs",
+      "checksum": "773b3e1330462e99f508c71e48b7265a5573b291a9235297cd3547b1479dbfd5"
+    },
+    {
+      "path": "infera-reservation/src/reservation/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/reservation/models.rs",
+      "checksum": "47b977054851a07f1be786a10f41e8b1b52fd8fe6d5e200ce64499f95027a15f"
+    },
+    {
+      "path": "infera-reservation/src/reservation/routes.rs",
+      "checksum": "555ac6f6c64d911ae0de38f2f1d0827902a5c4f7752c413bc56f44380590a7ee"
+    },
+    {
+      "path": "infera-reservation/src/reservation_service/methods.rs",
+      "checksum": "fc49303ec88adae6398c2997b6940d484bd363c56bbab1d16e751bd0831aee63"
+    },
+    {
+      "path": "infera-reservation/src/reservation_service/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/reservation_service/models.rs",
+      "checksum": "8332f30e9c4b95ee8f5a5af578ef39e91534d1cbbd5d5b5283029f4b36aea359"
+    },
+    {
+      "path": "infera-reservation/src/reservation_service/routes.rs",
+      "checksum": "f4efe2095a3c296cbafd417650bdc44f78fa181af976f5bcbdc2198968b02c0b"
+    },
+    {
+      "path": "infera-reservation/src/router.rs",
+      "checksum": "e3cb24728e9ec8d113c568f45e655842f7dd89861c260e0fdafcfa89b008bf4d"
+    },
+    {
+      "path": "infera-reservation/src/state.rs",
+      "checksum": "8d2774a0bded44be5f836d3a66bfaaf2047c620aa61b610940d049287c6151dc"
+    },
+    {
+      "path": "infera-reservation/src/time_slot/methods.rs",
+      "checksum": "0078367c5cfbffe416fcb5a1fe8da5149cf62445e01b8eb900d1c3b19acb31db"
+    },
+    {
+      "path": "infera-reservation/src/time_slot/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/time_slot/models.rs",
+      "checksum": "d07ea21ecbc52098b267596406e4e11fd2e7d8719f8667703f3b68cadbafa7a3"
+    },
+    {
+      "path": "infera-reservation/src/time_slot/routes.rs",
+      "checksum": "9d977dfc116291ae293e2985b522d1fc6b1c4b6be76e6850b32c5642f993ecf4"
+    },
+    {
+      "path": "infera-reservation/src/work_schedule/methods.rs",
+      "checksum": "3bc33ca3934fc4dbbe6f27c6b30d849c314bf73bf5f159958f3f6420a154887c"
+    },
+    {
+      "path": "infera-reservation/src/work_schedule/mod.rs",
+      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+    },
+    {
+      "path": "infera-reservation/src/work_schedule/models.rs",
+      "checksum": "a94a8a160cbb7caeb1efd1cb6372ff84b9d6c9aa71fcba32a248431fa3fe9a31"
+    },
+    {
+      "path": "infera-reservation/src/work_schedule/routes.rs",
+      "checksum": "fab94a3f185bcf872a74c8164c727c21d6ff9196c6f3288981f344c8da8e6bca"
+    },
+    {
+      "path": "infera-reservation/entity/src/enums.rs",
+      "checksum": "f6704f5db48fab772ba69caf68f8c2279ac09214c35eb31b7171631b75a0616a"
+    },
+    {
+      "path": "infera-reservation/entity/src/lib.rs",
+      "checksum": "6a4d4474fdce415e34086c6676d44528b58c54449123df9a25ba1ac9d7f5fe83"
+    },
+    {
+      "path": "infera-reservation/entity/src/provider_service.rs",
+      "checksum": "193fbbc446596d917e87acf6ec92b9b24d5ac4ae60f3550f990920356953d854"
+    },
+    {
+      "path": "infera-reservation/entity/src/provider.rs",
+      "checksum": "4b0e498af9c1a9a1fb3abbd9ddfe5628839508cdde1d41de40c5292471e13489"
+    },
+    {
+      "path": "infera-reservation/entity/src/reservation_service.rs",
+      "checksum": "78d20ffd75ce59e30227191e6cea43da0d5992e9ad56083f519c2579a3f446bb"
+    },
+    {
+      "path": "infera-reservation/entity/src/reservation.rs",
+      "checksum": "4c8f07c3e03e72da2bce19ae16b3956a2270afd6e615d2fdba3c0d6a346c985f"
+    },
+    {
+      "path": "infera-reservation/entity/src/seeder/mod.rs",
+      "checksum": "05843df544174411fba373077d861c314467fb4f9b63c2b4f834daf38ff25bad"
+    },
+    {
+      "path": "infera-reservation/entity/src/seeder/reservation_seeder.rs",
+      "checksum": "c25bdb1ad66130aec2fcdeaaf922b6d89d1ae0f7aeb8e3e0850f8656e1fb3303"
+    },
+    {
+      "path": "infera-reservation/entity/src/time_slot.rs",
+      "checksum": "fdfe50c3512cff2ec00537be915f9e3f7ad1ecce6109ff60b9aa3a169cace863"
+    },
+    {
+      "path": "infera-reservation/entity/src/work_schedule.rs",
+      "checksum": "b3c1881c436accb80ea85889947d7c1bea78c27cb872edde1d93c8576ec4f54f"
+    }
+  ],
+  "operations": [
+    {
+      "id": "GET /health",
+      "registration": {
+        "method": "GET",
+        "path": "/health",
+        "module": "router",
+        "handler": "health",
+        "permissions": [],
+        "source": "infera-reservation/src/router.rs",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "router",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "46c7227075e31da6bca8c268f06d4e0e94f298e43f1d996718ad6608a7b8ce71",
+      "handler": {
+        "ref": "infera-reservation/src/router.rs:151:health",
+        "path": "infera-reservation/src/router.rs",
+        "line": 151,
+        "name": "health"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "serde_json::Value",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /",
+      "registration": {
+        "method": "GET",
+        "path": "/",
+        "module": "router",
+        "handler": "health",
+        "permissions": [],
+        "source": "infera-reservation/src/router.rs",
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "router",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "6a361d07c6a6f34dcf473c439ad22271792c81c3694b93b1a4dbcbdc8ac3c5e8",
+      "handler": {
+        "ref": "infera-reservation/src/router.rs:151:health",
+        "path": "infera-reservation/src/router.rs",
+        "line": 151,
+        "name": "health"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "serde_json::Value",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/openapi.json",
+      "registration": {
+        "method": "GET",
+        "path": "/api/openapi.json",
+        "module": "router",
+        "handler": "openapi_json",
+        "permissions": [],
+        "source": "infera-reservation/src/router.rs",
+        "responseEnvelope": "raw-response",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "router",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "3619796489ec318cf9c4fffbf126c63e9ef82164fac058bd57b2140c7c2cd52e",
+      "handler": {
+        "ref": "infera-reservation/src/router.rs:68:openapi_json",
+        "path": "infera-reservation/src/router.rs",
+        "line": 68,
+        "name": "openapi_json"
+      },
+      "related_implementation": [],
+      "schemas": {},
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/services",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/services",
+        "module": "reservation_service::routes",
+        "handler": "index",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "query": "PaginationQuery",
+        "response": "crate::models::PagedResult<ServiceResponse>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation_service::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "0ba8dccf58ddacb9f0424013aaa83fa30ad9a15a322580549650096d97f04db0",
+      "handler": {
+        "ref": "infera-reservation/src/reservation_service/routes.rs:13:index",
+        "path": "infera-reservation/src/reservation_service/routes.rs",
+        "line": 13,
+        "name": "index"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "PaginationQuery",
+          "models": [
+            {
+              "ref": "infera-reservation/src/models.rs:5:PaginationQuery",
+              "path": "infera-reservation/src/models.rs",
+              "line": 5,
+              "name": "PaginationQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "crate::models::PagedResult<ServiceResponse>",
+          "models": [
+            {
+              "ref": "infera-reservation/src/models.rs:17:PagedResult",
+              "path": "infera-reservation/src/models.rs",
+              "line": 17,
+              "name": "PagedResult"
+            },
+            {
+              "ref": "infera-reservation/src/reservation_service/models.rs:5:ServiceResponse",
+              "path": "infera-reservation/src/reservation_service/models.rs",
+              "line": 5,
+              "name": "ServiceResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/services",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/services",
+        "module": "reservation_service::routes",
+        "handler": "store",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "body": "CreateServiceRequest",
+        "response": "ServiceResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation_service::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "617a304f78ce16af95f12bbb2502ab049a6d7973850684772443a28e187e9ca5",
+      "handler": {
+        "ref": "infera-reservation/src/reservation_service/routes.rs:27:store",
+        "path": "infera-reservation/src/reservation_service/routes.rs",
+        "line": 27,
+        "name": "store"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "CreateServiceRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation_service/models.rs:25:CreateServiceRequest",
+              "path": "infera-reservation/src/reservation_service/models.rs",
+              "line": 25,
+              "name": "CreateServiceRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ServiceResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation_service/models.rs:5:ServiceResponse",
+              "path": "infera-reservation/src/reservation_service/models.rs",
+              "line": 5,
+              "name": "ServiceResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/services/{id}",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/services/{id}",
+        "module": "reservation_service::routes",
+        "handler": "show",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "pathParam": "i64",
+        "response": "ServiceResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation_service::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "ec48b23f42d6f52d414d9e7c47c82cae2ffcc5ba437226513ba4a688db17ef11",
+      "handler": {
+        "ref": "infera-reservation/src/reservation_service/routes.rs:22:show",
+        "path": "infera-reservation/src/reservation_service/routes.rs",
+        "line": 22,
+        "name": "show"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "ServiceResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation_service/models.rs:5:ServiceResponse",
+              "path": "infera-reservation/src/reservation_service/models.rs",
+              "line": 5,
+              "name": "ServiceResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "PATCH /api/v1/services/{id}",
+      "registration": {
+        "method": "PATCH",
+        "path": "/api/v1/services/{id}",
+        "module": "reservation_service::routes",
+        "handler": "update",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "body": "UpdateServiceRequest",
+        "pathParam": "i64",
+        "response": "ServiceResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation_service::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "9f186b256a246fc697b503937dd39e7f7d3eff2077aa60d5e9dccd588d7fdeb6",
+      "handler": {
+        "ref": "infera-reservation/src/reservation_service/routes.rs:33:update",
+        "path": "infera-reservation/src/reservation_service/routes.rs",
+        "line": 33,
+        "name": "update"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "UpdateServiceRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation_service/models.rs:35:UpdateServiceRequest",
+              "path": "infera-reservation/src/reservation_service/models.rs",
+              "line": 35,
+              "name": "UpdateServiceRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ServiceResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation_service/models.rs:5:ServiceResponse",
+              "path": "infera-reservation/src/reservation_service/models.rs",
+              "line": 5,
+              "name": "ServiceResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/services/{id}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/services/{id}",
+        "module": "reservation_service::routes",
+        "handler": "destroy",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation_service::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "5aea580c7e041daeb5c2b2f8eccefc6c785f80c441fd1600312c5cc03404d0ac",
+      "handler": {
+        "ref": "infera-reservation/src/reservation_service/routes.rs:39:destroy",
+        "path": "infera-reservation/src/reservation_service/routes.rs",
+        "line": 39,
+        "name": "destroy"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "()",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/providers",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/providers",
+        "module": "provider::routes",
+        "handler": "index",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "query": "PaginationQuery",
+        "response": "crate::models::PagedResult<ProviderResponse>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "fba75ca0ebaf1337a510b5f9885979d3154b63c61efc967c2b02e6541b2bdede",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:16:index",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 16,
+        "name": "index"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "PaginationQuery",
+          "models": [
+            {
+              "ref": "infera-reservation/src/models.rs:5:PaginationQuery",
+              "path": "infera-reservation/src/models.rs",
+              "line": 5,
+              "name": "PaginationQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "crate::models::PagedResult<ProviderResponse>",
+          "models": [
+            {
+              "ref": "infera-reservation/src/models.rs:17:PagedResult",
+              "path": "infera-reservation/src/models.rs",
+              "line": 17,
+              "name": "PagedResult"
+            },
+            {
+              "ref": "infera-reservation/src/provider/models.rs:6:ProviderResponse",
+              "path": "infera-reservation/src/provider/models.rs",
+              "line": 6,
+              "name": "ProviderResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "user_id",
+          "type": "Option<Uuid>",
+          "model": "ProviderResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/providers",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/providers",
+        "module": "provider::routes",
+        "handler": "store",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "body": "CreateProviderRequest",
+        "response": "ProviderResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "adc3ef2356f7a5be132e163828124c5ad5153a927fdb5703633f8d00e13e5bf4",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:27:store",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 27,
+        "name": "store"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "CreateProviderRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/provider/models.rs:24:CreateProviderRequest",
+              "path": "infera-reservation/src/provider/models.rs",
+              "line": 24,
+              "name": "CreateProviderRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ProviderResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/provider/models.rs:6:ProviderResponse",
+              "path": "infera-reservation/src/provider/models.rs",
+              "line": 6,
+              "name": "ProviderResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "user_id",
+          "type": "Option<Uuid>",
+          "model": "CreateProviderRequest",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "user_id",
+          "type": "Option<Uuid>",
+          "model": "ProviderResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/providers/{id}",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/providers/{id}",
+        "module": "provider::routes",
+        "handler": "show",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "pathParam": "i64",
+        "response": "ProviderResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "32d767f3544bdfbc260d506ef84b76212a98d4cfbc642626ce4e0afa694b2d49",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:22:show",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 22,
+        "name": "show"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "ProviderResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/provider/models.rs:6:ProviderResponse",
+              "path": "infera-reservation/src/provider/models.rs",
+              "line": 6,
+              "name": "ProviderResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "user_id",
+          "type": "Option<Uuid>",
+          "model": "ProviderResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "PATCH /api/v1/providers/{id}",
+      "registration": {
+        "method": "PATCH",
+        "path": "/api/v1/providers/{id}",
+        "module": "provider::routes",
+        "handler": "update",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "body": "UpdateProviderRequest",
+        "pathParam": "i64",
+        "response": "ProviderResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "9f6e0b967c7ffa60cc85df452de112e0de90b821f6c0da36ed8d73103877ab6c",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:33:update",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 33,
+        "name": "update"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "UpdateProviderRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/provider/models.rs:33:UpdateProviderRequest",
+              "path": "infera-reservation/src/provider/models.rs",
+              "line": 33,
+              "name": "UpdateProviderRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ProviderResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/provider/models.rs:6:ProviderResponse",
+              "path": "infera-reservation/src/provider/models.rs",
+              "line": 6,
+              "name": "ProviderResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "user_id",
+          "type": "Option<Uuid>",
+          "model": "UpdateProviderRequest",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "user_id",
+          "type": "Option<Uuid>",
+          "model": "ProviderResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/providers/{id}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/providers/{id}",
+        "module": "provider::routes",
+        "handler": "destroy",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "8b0d3bb4e71e850ef6cd5a042680108a3f74ccfee5ff7b2ed7b1a7579a4c6910",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:39:destroy",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 39,
+        "name": "destroy"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "()",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/providers/{id}/services",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/providers/{id}/services",
+        "module": "provider::routes",
+        "handler": "list_services",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "pathParam": "i64",
+        "response": "Vec<ServiceResponse>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "d6c3beb4ffe6693d5fa97d904b699b287cb6d9e7c6854d08b0e0ef6c7a1bd45d",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:45:list_services",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 45,
+        "name": "list_services"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Vec<ServiceResponse>",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation_service/models.rs:5:ServiceResponse",
+              "path": "infera-reservation/src/reservation_service/models.rs",
+              "line": 5,
+              "name": "ServiceResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/providers/{id}/services",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/providers/{id}/services",
+        "module": "provider::routes",
+        "handler": "assign_service",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "body": "AssignServiceRequest",
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "ee9e1f18217a4b0f8909c777e8b38b91ed1ed8a5eaca2f5847c6837ad17fad35",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:51:assign_service",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 51,
+        "name": "assign_service"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "AssignServiceRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/provider/models.rs:42:AssignServiceRequest",
+              "path": "infera-reservation/src/provider/models.rs",
+              "line": 42,
+              "name": "AssignServiceRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "()",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "AssignServiceRequest",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/providers/{id}/services/{service_id}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/providers/{id}/services/{service_id}",
+        "module": "provider::routes",
+        "handler": "remove_service",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "response": "()",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "pathParam": "(i64, i64)",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "f140d2654f57bf664bf8c415a019009db29079c17b0119e766de8fd37c18b0d6",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:57:remove_service",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 57,
+        "name": "remove_service"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "()",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "(i64, i64)",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/providers/{provider_id}/schedules",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/providers/{provider_id}/schedules",
+        "module": "work_schedule::routes",
+        "handler": "index",
+        "permissions": [],
+        "source": "infera-reservation/src/work_schedule/routes.rs",
+        "pathParam": "i64",
+        "response": "Vec<WorkScheduleResponse>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "work_schedule::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/work_schedule/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "2f99fc476d1418498b7b302d180895672e22c2400b82d3d0193762cdf49f78a6",
+      "handler": {
+        "ref": "infera-reservation/src/work_schedule/routes.rs:10:index",
+        "path": "infera-reservation/src/work_schedule/routes.rs",
+        "line": 10,
+        "name": "index"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Vec<WorkScheduleResponse>",
+          "models": [
+            {
+              "ref": "infera-reservation/src/work_schedule/models.rs:6:WorkScheduleResponse",
+              "path": "infera-reservation/src/work_schedule/models.rs",
+              "line": 6,
+              "name": "WorkScheduleResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "WorkScheduleResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "PUT /api/v1/providers/{provider_id}/schedules",
+      "registration": {
+        "method": "PUT",
+        "path": "/api/v1/providers/{provider_id}/schedules",
+        "module": "work_schedule::routes",
+        "handler": "upsert",
+        "permissions": [],
+        "source": "infera-reservation/src/work_schedule/routes.rs",
+        "body": "UpsertScheduleRequest",
+        "pathParam": "i64",
+        "response": "Vec<WorkScheduleResponse>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "work_schedule::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/work_schedule/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "14399876ea8788a7552eceba639a3a27e2ee68ba8c06e58c0469e346ddabfa42",
+      "handler": {
+        "ref": "infera-reservation/src/work_schedule/routes.rs:16:upsert",
+        "path": "infera-reservation/src/work_schedule/routes.rs",
+        "line": 16,
+        "name": "upsert"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "UpsertScheduleRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/work_schedule/models.rs:23:UpsertScheduleRequest",
+              "path": "infera-reservation/src/work_schedule/models.rs",
+              "line": 23,
+              "name": "UpsertScheduleRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "Vec<WorkScheduleResponse>",
+          "models": [
+            {
+              "ref": "infera-reservation/src/work_schedule/models.rs:6:WorkScheduleResponse",
+              "path": "infera-reservation/src/work_schedule/models.rs",
+              "line": 6,
+              "name": "WorkScheduleResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "WorkScheduleResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/slots",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/slots",
+        "module": "time_slot::routes",
+        "handler": "generate",
+        "permissions": [],
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "body": "GenerateSlotsRequest",
+        "response": "usize",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "time_slot::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "6449b37b715f45b2d2010b6a6364a2f4c51531bb385ff0272302170863027b3b",
+      "handler": {
+        "ref": "infera-reservation/src/time_slot/routes.rs:19:generate",
+        "path": "infera-reservation/src/time_slot/routes.rs",
+        "line": 19,
+        "name": "generate"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "GenerateSlotsRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/time_slot/models.rs:25:GenerateSlotsRequest",
+              "path": "infera-reservation/src/time_slot/models.rs",
+              "line": 25,
+              "name": "GenerateSlotsRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "usize",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "GenerateSlotsRequest",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "GenerateSlotsRequest",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/slots/available",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/slots/available",
+        "module": "time_slot::routes",
+        "handler": "available",
+        "permissions": [],
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "query": "AvailableSlotsQuery",
+        "response": "Vec<TimeSlotResponse>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "time_slot::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "caf0c27221a5c9767e64a49b46027ae1441ee5fc293d76285fcb33dc8f68fd21",
+      "handler": {
+        "ref": "infera-reservation/src/time_slot/routes.rs:13:available",
+        "path": "infera-reservation/src/time_slot/routes.rs",
+        "line": 13,
+        "name": "available"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "AvailableSlotsQuery",
+          "models": [
+            {
+              "ref": "infera-reservation/src/time_slot/models.rs:42:AvailableSlotsQuery",
+              "path": "infera-reservation/src/time_slot/models.rs",
+              "line": 42,
+              "name": "AvailableSlotsQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "Vec<TimeSlotResponse>",
+          "models": [
+            {
+              "ref": "infera-reservation/src/time_slot/models.rs:6:TimeSlotResponse",
+              "path": "infera-reservation/src/time_slot/models.rs",
+              "line": 6,
+              "name": "TimeSlotResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "service_id",
+          "type": "Option<i64>",
+          "model": "AvailableSlotsQuery",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "provider_id",
+          "type": "Option<i64>",
+          "model": "AvailableSlotsQuery",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "reserved_by_user_id",
+          "type": "Option<Uuid>",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/slots/{id}",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/slots/{id}",
+        "module": "time_slot::routes",
+        "handler": "show",
+        "permissions": [],
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "pathParam": "i64",
+        "response": "TimeSlotResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "time_slot::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "f32f449d32d4c317ceae4de5b1b3eed019103196e9fdfe695af15dc9e73c3ad1",
+      "handler": {
+        "ref": "infera-reservation/src/time_slot/routes.rs:30:show",
+        "path": "infera-reservation/src/time_slot/routes.rs",
+        "line": 30,
+        "name": "show"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "TimeSlotResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/time_slot/models.rs:6:TimeSlotResponse",
+              "path": "infera-reservation/src/time_slot/models.rs",
+              "line": 6,
+              "name": "TimeSlotResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "reserved_by_user_id",
+          "type": "Option<Uuid>",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "PATCH /api/v1/slots/{id}",
+      "registration": {
+        "method": "PATCH",
+        "path": "/api/v1/slots/{id}",
+        "module": "time_slot::routes",
+        "handler": "update",
+        "permissions": [],
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "body": "UpdateTimeSlotRequest",
+        "pathParam": "i64",
+        "response": "TimeSlotResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "time_slot::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "35d7329487ddb710c6b1d9f7c86ca1d6d321f78b19e3f2a6b1a948d1bd40de5c",
+      "handler": {
+        "ref": "infera-reservation/src/time_slot/routes.rs:34:update",
+        "path": "infera-reservation/src/time_slot/routes.rs",
+        "line": 34,
+        "name": "update"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "UpdateTimeSlotRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/time_slot/models.rs:33:UpdateTimeSlotRequest",
+              "path": "infera-reservation/src/time_slot/models.rs",
+              "line": 33,
+              "name": "UpdateTimeSlotRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "TimeSlotResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/time_slot/models.rs:6:TimeSlotResponse",
+              "path": "infera-reservation/src/time_slot/models.rs",
+              "line": 6,
+              "name": "TimeSlotResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "provider_id",
+          "type": "Option<i64>",
+          "model": "UpdateTimeSlotRequest",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "Option<i64>",
+          "model": "UpdateTimeSlotRequest",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "reserved_by_user_id",
+          "type": "Option<Uuid>",
+          "model": "TimeSlotResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/slots/{id}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/slots/{id}",
+        "module": "time_slot::routes",
+        "handler": "destroy",
+        "permissions": [],
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "time_slot::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "cab47027ecacc2eab228bcd9a6a6ce6fd3e157ba1fa592a3a28e629b3e3a29e7",
+      "handler": {
+        "ref": "infera-reservation/src/time_slot/routes.rs:25:destroy",
+        "path": "infera-reservation/src/time_slot/routes.rs",
+        "line": 25,
+        "name": "destroy"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "()",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/reservations",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/reservations",
+        "module": "reservation::routes",
+        "handler": "index",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "query": "ReservationListQuery",
+        "response": "PagedResult<ReservationResponse>",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "254c131c63c9175d9b3945dd556ac42014f1b4a51d5fbc98fc9db20d69935791",
+      "handler": {
+        "ref": "infera-reservation/src/reservation/routes.rs:12:index",
+        "path": "infera-reservation/src/reservation/routes.rs",
+        "line": 12,
+        "name": "index"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "query": {
+          "declared_type": "ReservationListQuery",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation/models.rs:45:ReservationListQuery",
+              "path": "infera-reservation/src/reservation/models.rs",
+              "line": 45,
+              "name": "ReservationListQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "PagedResult<ReservationResponse>",
+          "models": [
+            {
+              "ref": "infera-reservation/src/models.rs:17:PagedResult",
+              "path": "infera-reservation/src/models.rs",
+              "line": 17,
+              "name": "PagedResult"
+            },
+            {
+              "ref": "infera-reservation/src/reservation/models.rs:7:ReservationResponse",
+              "path": "infera-reservation/src/reservation/models.rs",
+              "line": 7,
+              "name": "ReservationResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "user_id",
+          "type": "Option<Uuid>",
+          "model": "ReservationListQuery",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "provider_id",
+          "type": "Option<i64>",
+          "model": "ReservationListQuery",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "Option<i64>",
+          "model": "ReservationListQuery",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "time_slot_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "user_id",
+          "type": "Uuid",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/reservations",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/reservations",
+        "module": "reservation::routes",
+        "handler": "store",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "body": "CreateReservationRequest",
+        "response": "ReservationResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "8d6dcd3169d9bdcc2d77684a230f7d96b0b05a2ee1fe891f14cb4f104ceea14b",
+      "handler": {
+        "ref": "infera-reservation/src/reservation/routes.rs:24:store",
+        "path": "infera-reservation/src/reservation/routes.rs",
+        "line": 24,
+        "name": "store"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "CreateReservationRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation/models.rs:32:CreateReservationRequest",
+              "path": "infera-reservation/src/reservation/models.rs",
+              "line": 32,
+              "name": "CreateReservationRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ReservationResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation/models.rs:7:ReservationResponse",
+              "path": "infera-reservation/src/reservation/models.rs",
+              "line": 7,
+              "name": "ReservationResponse"
+            }
+          ]
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "time_slot_id",
+          "type": "i64",
+          "model": "CreateReservationRequest",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "user_id",
+          "type": "Uuid",
+          "model": "CreateReservationRequest",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "time_slot_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "user_id",
+          "type": "Uuid",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/reservations/{id}",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/reservations/{id}",
+        "module": "reservation::routes",
+        "handler": "show",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "pathParam": "i64",
+        "response": "ReservationResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "b69e47f0df96cc3a7bd4395a31b1eeabd72c10976157558487314882bcf8e801",
+      "handler": {
+        "ref": "infera-reservation/src/reservation/routes.rs:18:show",
+        "path": "infera-reservation/src/reservation/routes.rs",
+        "line": 18,
+        "name": "show"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "ReservationResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation/models.rs:7:ReservationResponse",
+              "path": "infera-reservation/src/reservation/models.rs",
+              "line": 7,
+              "name": "ReservationResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "time_slot_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "user_id",
+          "type": "Uuid",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "PATCH /api/v1/reservations/{id}",
+      "registration": {
+        "method": "PATCH",
+        "path": "/api/v1/reservations/{id}",
+        "module": "reservation::routes",
+        "handler": "update",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "body": "UpdateReservationRequest",
+        "pathParam": "i64",
+        "response": "ReservationResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "0628630c295c386063e66176f1d9ae903583eb423027a61af9ea8b39ddeab336",
+      "handler": {
+        "ref": "infera-reservation/src/reservation/routes.rs:29:update",
+        "path": "infera-reservation/src/reservation/routes.rs",
+        "line": 29,
+        "name": "update"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "UpdateReservationRequest",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation/models.rs:39:UpdateReservationRequest",
+              "path": "infera-reservation/src/reservation/models.rs",
+              "line": 39,
+              "name": "UpdateReservationRequest"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "ReservationResponse",
+          "models": [
+            {
+              "ref": "infera-reservation/src/reservation/models.rs:7:ReservationResponse",
+              "path": "infera-reservation/src/reservation/models.rs",
+              "line": 7,
+              "name": "ReservationResponse"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "time_slot_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "service_id",
+          "type": "i64",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "user_id",
+          "type": "Uuid",
+          "model": "ReservationResponse",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/reservations/{id}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/reservations/{id}",
+        "module": "reservation::routes",
+        "handler": "cancel",
+        "permissions": [],
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "reservation::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "73c97c0339a1ae182b62f7548a3a589a4e57b335bfe5c9147f230654333e5a05",
+      "handler": {
+        "ref": "infera-reservation/src/reservation/routes.rs:35:cancel",
+        "path": "infera-reservation/src/reservation/routes.rs",
+        "line": 35,
+        "name": "cancel"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "()",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/integration/flow",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/integration/flow",
+        "module": "integration::routes",
+        "handler": "flow_integration_show",
+        "permissions": [],
+        "source": "infera-reservation/src/integration/routes.rs",
+        "response": "infera_flow_sdk::FlowIntegrationResponse",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "integration::routes",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/integration/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "9e91fe2fe4bdd8dc66456eed3357595459ded5ddb2433a213ca429acaad3637b",
+      "handler": {
+        "ref": "infera-reservation/src/integration/routes.rs:9:flow_integration_show",
+        "path": "infera-reservation/src/integration/routes.rs",
+        "line": 9,
+        "name": "flow_integration_show"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "infera_flow_sdk::FlowIntegrationResponse",
+          "models": [
+            {
+              "name": "FlowIntegrationResponse",
+              "unresolved": true,
+              "candidates": []
+            }
+          ]
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    }
+  ],
+  "sdk_contract_drift": {
+    "missing": [],
+    "extra": [],
+    "changed": [
+      "GET /health",
+      "GET /",
+      "GET /api/openapi.json",
+      "GET /api/v1/services",
+      "POST /api/v1/services",
+      "GET /api/v1/services/{id}",
+      "PATCH /api/v1/services/{id}",
+      "DELETE /api/v1/services/{id}",
+      "GET /api/v1/providers",
+      "POST /api/v1/providers",
+      "GET /api/v1/providers/{id}",
+      "PATCH /api/v1/providers/{id}",
+      "DELETE /api/v1/providers/{id}",
+      "GET /api/v1/providers/{id}/services",
+      "POST /api/v1/providers/{id}/services",
+      "DELETE /api/v1/providers/{id}/services/{service_id}",
+      "GET /api/v1/providers/{provider_id}/schedules",
+      "PUT /api/v1/providers/{provider_id}/schedules",
+      "POST /api/v1/slots",
+      "GET /api/v1/slots/available",
+      "GET /api/v1/slots/{id}",
+      "PATCH /api/v1/slots/{id}",
+      "DELETE /api/v1/slots/{id}",
+      "GET /api/v1/reservations",
+      "POST /api/v1/reservations",
+      "GET /api/v1/reservations/{id}",
+      "PATCH /api/v1/reservations/{id}",
+      "DELETE /api/v1/reservations/{id}",
+      "GET /api/v1/integration/flow"
+    ]
+  },
+  "router_reconciliation": {
+    "unresolved": [],
+    "duplicates": [],
+    "independent_mounted_operations": [
+      {
+        "method": "GET",
+        "path": "/health",
+        "module": "router",
+        "handler": "health",
+        "handlerModule": "router",
+        "source": "infera-reservation/src/router.rs",
+        "permissions": [],
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "module": "router",
+        "handler": "health",
+        "handlerModule": "router",
+        "source": "infera-reservation/src/router.rs",
+        "permissions": [],
+        "response": "serde_json::Value",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/openapi.json",
+        "module": "router",
+        "handler": "openapi_json",
+        "handlerModule": "router",
+        "source": "infera-reservation/src/router.rs",
+        "permissions": [],
+        "responseEnvelope": "raw-response",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/services",
+        "module": "reservation_service::routes",
+        "handler": "index",
+        "handlerModule": "reservation_service::routes",
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "permissions": [],
+        "query": "PaginationQuery",
+        "response": "crate::models::PagedResult<ServiceResponse>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/services",
+        "module": "reservation_service::routes",
+        "handler": "store",
+        "handlerModule": "reservation_service::routes",
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "permissions": [],
+        "body": "CreateServiceRequest",
+        "response": "ServiceResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/services/{id}",
+        "module": "reservation_service::routes",
+        "handler": "show",
+        "handlerModule": "reservation_service::routes",
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "ServiceResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v1/services/{id}",
+        "module": "reservation_service::routes",
+        "handler": "update",
+        "handlerModule": "reservation_service::routes",
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "permissions": [],
+        "body": "UpdateServiceRequest",
+        "pathParam": "i64",
+        "response": "ServiceResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/services/{id}",
+        "module": "reservation_service::routes",
+        "handler": "destroy",
+        "handlerModule": "reservation_service::routes",
+        "source": "infera-reservation/src/reservation_service/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation_service/routes.rs",
+            "line": 6,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/providers",
+        "module": "provider::routes",
+        "handler": "index",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "query": "PaginationQuery",
+        "response": "crate::models::PagedResult<ProviderResponse>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/providers",
+        "module": "provider::routes",
+        "handler": "store",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "body": "CreateProviderRequest",
+        "response": "ProviderResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/providers/{id}",
+        "module": "provider::routes",
+        "handler": "show",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "ProviderResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v1/providers/{id}",
+        "module": "provider::routes",
+        "handler": "update",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "body": "UpdateProviderRequest",
+        "pathParam": "i64",
+        "response": "ProviderResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/providers/{id}",
+        "module": "provider::routes",
+        "handler": "destroy",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/providers/{id}/services",
+        "module": "provider::routes",
+        "handler": "list_services",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "Vec<ServiceResponse>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/providers/{id}/services",
+        "module": "provider::routes",
+        "handler": "assign_service",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "body": "AssignServiceRequest",
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/providers/{id}/services/{service_id}",
+        "module": "provider::routes",
+        "handler": "remove_service",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "pathParam": "(i64, i64)",
+        "response": "()",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/providers/{provider_id}/schedules",
+        "module": "work_schedule::routes",
+        "handler": "index",
+        "handlerModule": "work_schedule::routes",
+        "source": "infera-reservation/src/work_schedule/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "Vec<WorkScheduleResponse>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/work_schedule/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/providers/{provider_id}/schedules",
+        "module": "work_schedule::routes",
+        "handler": "upsert",
+        "handlerModule": "work_schedule::routes",
+        "source": "infera-reservation/src/work_schedule/routes.rs",
+        "permissions": [],
+        "body": "UpsertScheduleRequest",
+        "pathParam": "i64",
+        "response": "Vec<WorkScheduleResponse>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/work_schedule/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/slots",
+        "module": "time_slot::routes",
+        "handler": "generate",
+        "handlerModule": "time_slot::routes",
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "permissions": [],
+        "body": "GenerateSlotsRequest",
+        "response": "usize",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/slots/available",
+        "module": "time_slot::routes",
+        "handler": "available",
+        "handlerModule": "time_slot::routes",
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "permissions": [],
+        "query": "AvailableSlotsQuery",
+        "response": "Vec<TimeSlotResponse>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/slots/{id}",
+        "module": "time_slot::routes",
+        "handler": "show",
+        "handlerModule": "time_slot::routes",
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "TimeSlotResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v1/slots/{id}",
+        "module": "time_slot::routes",
+        "handler": "update",
+        "handlerModule": "time_slot::routes",
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "permissions": [],
+        "body": "UpdateTimeSlotRequest",
+        "pathParam": "i64",
+        "response": "TimeSlotResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/slots/{id}",
+        "module": "time_slot::routes",
+        "handler": "destroy",
+        "handlerModule": "time_slot::routes",
+        "source": "infera-reservation/src/time_slot/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/time_slot/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/reservations",
+        "module": "reservation::routes",
+        "handler": "index",
+        "handlerModule": "reservation::routes",
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "permissions": [],
+        "query": "ReservationListQuery",
+        "response": "PagedResult<ReservationResponse>",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/reservations",
+        "module": "reservation::routes",
+        "handler": "store",
+        "handlerModule": "reservation::routes",
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "permissions": [],
+        "body": "CreateReservationRequest",
+        "response": "ReservationResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/reservations/{id}",
+        "module": "reservation::routes",
+        "handler": "show",
+        "handlerModule": "reservation::routes",
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "ReservationResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/v1/reservations/{id}",
+        "module": "reservation::routes",
+        "handler": "update",
+        "handlerModule": "reservation::routes",
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "permissions": [],
+        "body": "UpdateReservationRequest",
+        "pathParam": "i64",
+        "response": "ReservationResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/reservations/{id}",
+        "module": "reservation::routes",
+        "handler": "cancel",
+        "handlerModule": "reservation::routes",
+        "source": "infera-reservation/src/reservation/routes.rs",
+        "permissions": [],
+        "pathParam": "i64",
+        "response": "()",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/reservation/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/integration/flow",
+        "module": "integration::routes",
+        "handler": "flow_integration_show",
+        "handlerModule": "integration::routes",
+        "source": "infera-reservation/src/integration/routes.rs",
+        "permissions": [],
+        "response": "infera_flow_sdk::FlowIntegrationResponse",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/integration/routes.rs",
+            "line": 5,
+            "function": "routes"
+          }
+        ]
+      }
+    ],
+    "missing_from_extracted_manifest": [],
+    "absent_from_mounted_graph": []
+  },
+  "working_drift": {
+    "added": [],
+    "absent": [],
+    "changed": [
+      "GET /",
+      "GET /api/openapi.json",
+      "GET /api/v1/integration/flow",
+      "GET /api/v1/providers",
+      "POST /api/v1/providers",
+      "DELETE /api/v1/providers/{id}",
+      "GET /api/v1/providers/{id}",
+      "PATCH /api/v1/providers/{id}",
+      "GET /api/v1/providers/{id}/services",
+      "POST /api/v1/providers/{id}/services",
+      "DELETE /api/v1/providers/{id}/services/{service_id}",
+      "GET /api/v1/providers/{provider_id}/schedules",
+      "PUT /api/v1/providers/{provider_id}/schedules",
+      "GET /api/v1/reservations",
+      "POST /api/v1/reservations",
+      "DELETE /api/v1/reservations/{id}",
+      "GET /api/v1/reservations/{id}",
+      "PATCH /api/v1/reservations/{id}",
+      "GET /api/v1/services",
+      "POST /api/v1/services",
+      "DELETE /api/v1/services/{id}",
+      "GET /api/v1/services/{id}",
+      "PATCH /api/v1/services/{id}",
+      "POST /api/v1/slots",
+      "DELETE /api/v1/slots/{id}",
+      "GET /api/v1/slots/{id}",
+      "PATCH /api/v1/slots/{id}",
+      "GET /api/v1/slots/available",
+      "GET /health"
+    ]
+  },
+  "working_route_candidates": [
+    {
+      "local_path": "/integration/flow",
+      "source": "infera-reservation/src/integration/routes.rs",
+      "line": 6,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/",
+      "source": "infera-reservation/src/provider/routes.rs",
+      "line": 9,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}",
+      "source": "infera-reservation/src/provider/routes.rs",
+      "line": 10,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}/services",
+      "source": "infera-reservation/src/provider/routes.rs",
+      "line": 11,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}/services/{service_id}",
+      "source": "infera-reservation/src/provider/routes.rs",
+      "line": 12,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/",
+      "source": "infera-reservation/src/reservation/routes.rs",
+      "line": 7,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}",
+      "source": "infera-reservation/src/reservation/routes.rs",
+      "line": 8,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/",
+      "source": "infera-reservation/src/reservation_service/routes.rs",
+      "line": 8,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}",
+      "source": "infera-reservation/src/reservation_service/routes.rs",
+      "line": 9,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/health",
+      "source": "infera-reservation/src/router.rs",
+      "line": 143,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/",
+      "source": "infera-reservation/src/router.rs",
+      "line": 144,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/api/openapi.json",
+      "source": "infera-reservation/src/router.rs",
+      "line": 145,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/",
+      "source": "infera-reservation/src/time_slot/routes.rs",
+      "line": 7,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/available",
+      "source": "infera-reservation/src/time_slot/routes.rs",
+      "line": 8,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{id}",
+      "source": "infera-reservation/src/time_slot/routes.rs",
+      "line": 9,
+      "mount_status": "requires_router_reconciliation"
+    },
+    {
+      "local_path": "/{provider_id}/schedules",
+      "source": "infera-reservation/src/work_schedule/routes.rs",
+      "line": 6,
+      "mount_status": "requires_router_reconciliation"
+    }
+  ],
+  "middleware_sources": [
+    {
+      "path": "infera-reservation/src/auth.rs",
+      "checksum": "f24274d0ea4c61d27cf81c3539dd4a9c63ca4bf7b5d96d264a82ce15d9553459"
+    },
+    {
+      "path": "infera-reservation/src/main.rs",
+      "checksum": "ff0f4e1b85ee7de0c5537af567906439ae294c6eeabbff295dcb000d445ee6c8"
+    },
+    {
+      "path": "infera-reservation/src/router.rs",
+      "checksum": "e3cb24728e9ec8d113c568f45e655842f7dd89861c260e0fdafcfa89b008bf4d"
+    }
+  ],
+  "missing_meaning_sources": [],
+  "completeness": "not_verified",
+  "source_records": {
+    "infera-reservation/src/router.rs:151:health": {
+      "name": "health",
+      "path": "infera-reservation/src/router.rs",
+      "line": 151,
+      "end_line": 155,
+      "signature": "async fn health() -> Json<APIResponse<serde_json::Value>>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/router.rs:68:openapi_json": {
+      "name": "openapi_json",
+      "path": "infera-reservation/src/router.rs",
+      "line": 68,
+      "end_line": 71,
+      "signature": "async fn openapi_json() -> impl IntoResponse",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/reservation_service/routes.rs:13:index": {
+      "name": "index",
+      "path": "infera-reservation/src/reservation_service/routes.rs",
+      "line": 13,
+      "end_line": 19,
+      "signature": "async fn index(State(s): State<AppState>, Query(page): Query<PaginationQuery>) -> Result<Json<APIResponse<crate::models::PagedResult<ServiceResponse>>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/models.rs:5:PaginationQuery": {
+      "name": "PaginationQuery",
+      "kind": "struct",
+      "path": "infera-reservation/src/models.rs",
+      "line": 5,
+      "attributes": "#[derive(Debug, Deserialize)]",
+      "fields": [
+        {
+          "name": "page",
+          "rust_name": "page",
+          "rust_type": "Option<PageParams>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "serde(rename = \"page\")"
+          ]
+        }
+      ]
+    },
+    "infera-reservation/src/models.rs:17:PagedResult": {
+      "name": "PagedResult",
+      "kind": "struct",
+      "path": "infera-reservation/src/models.rs",
+      "line": 17,
+      "attributes": "#[derive(Serialize, Debug)]",
+      "fields": [
+        {
+          "name": "data",
+          "rust_name": "data",
+          "rust_type": "Vec<T>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "meta",
+          "rust_name": "meta",
+          "rust_type": "PagedPaginationMeta",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/reservation_service/models.rs:5:ServiceResponse": {
+      "name": "ServiceResponse",
+      "kind": "struct",
+      "path": "infera-reservation/src/reservation_service/models.rs",
+      "line": 5,
+      "attributes": "#[derive(Debug, Serialize)]",
+      "fields": [
+        {
+          "name": "id",
+          "rust_name": "id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "description",
+          "rust_name": "description",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "image_url",
+          "rust_name": "image_url",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "duration_minutes",
+          "rust_name": "duration_minutes",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "buffer_minutes",
+          "rust_name": "buffer_minutes",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "is_active",
+          "rust_name": "is_active",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "created_at",
+          "rust_name": "created_at",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/reservation_service/routes.rs:27:store": {
+      "name": "store",
+      "path": "infera-reservation/src/reservation_service/routes.rs",
+      "line": 27,
+      "end_line": 30,
+      "signature": "async fn store(State(s): State<AppState>, Json(body): Json<CreateServiceRequest>) -> Result<Json<APIResponse<ServiceResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-reservation/src/reservation_service/routes.rs",
+          "line": 28,
+          "expression": "body.validate().map_err(|e| AppError::bad_request(e.to_string()))?;"
+        }
+      ],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/reservation_service/models.rs:25:CreateServiceRequest": {
+      "name": "CreateServiceRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/reservation_service/models.rs",
+      "line": 25,
+      "attributes": "#[derive(Debug, Deserialize, Validate)]",
+      "fields": [
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(length(min = 1, max = 200))"
+          ]
+        },
+        {
+          "name": "description",
+          "rust_name": "description",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "image_url",
+          "rust_name": "image_url",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "duration_minutes",
+          "rust_name": "duration_minutes",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(range(min = 5, max = 480))"
+          ]
+        },
+        {
+          "name": "buffer_minutes",
+          "rust_name": "buffer_minutes",
+          "rust_type": "Option<i32>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(range(min = 0, max = 120))"
+          ]
+        },
+        {
+          "name": "is_active",
+          "rust_name": "is_active",
+          "rust_type": "Option<bool>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/reservation_service/routes.rs:22:show": {
+      "name": "show",
+      "path": "infera-reservation/src/reservation_service/routes.rs",
+      "line": 22,
+      "end_line": 24,
+      "signature": "async fn show(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<ServiceResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/reservation_service/routes.rs:33:update": {
+      "name": "update",
+      "path": "infera-reservation/src/reservation_service/routes.rs",
+      "line": 33,
+      "end_line": 36,
+      "signature": "async fn update(State(s): State<AppState>, Path(id): Path<i64>, Json(body): Json<UpdateServiceRequest>) -> Result<Json<APIResponse<ServiceResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-reservation/src/reservation_service/routes.rs",
+          "line": 34,
+          "expression": "body.validate().map_err(|e| AppError::bad_request(e.to_string()))?;"
+        }
+      ],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-reservation/src/reservation_service/routes.rs",
+          "line": 35,
+          "expression": "Ok(Json(APIResponse::ok(ServiceResponse::from(methods::update(&s.db, id, body).await?))))"
+        }
+      ],
+      "calls": []
+    },
+    "infera-reservation/src/reservation_service/models.rs:35:UpdateServiceRequest": {
+      "name": "UpdateServiceRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/reservation_service/models.rs",
+      "line": 35,
+      "attributes": "#[derive(Debug, Deserialize, Validate)]",
+      "fields": [
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(length(min = 1, max = 200))"
+          ]
+        },
+        {
+          "name": "description",
+          "rust_name": "description",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "image_url",
+          "rust_name": "image_url",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "duration_minutes",
+          "rust_name": "duration_minutes",
+          "rust_type": "Option<i32>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(range(min = 5, max = 480))"
+          ]
+        },
+        {
+          "name": "buffer_minutes",
+          "rust_name": "buffer_minutes",
+          "rust_type": "Option<i32>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(range(min = 0, max = 120))"
+          ]
+        },
+        {
+          "name": "is_active",
+          "rust_name": "is_active",
+          "rust_type": "Option<bool>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/reservation_service/routes.rs:39:destroy": {
+      "name": "destroy",
+      "path": "infera-reservation/src/reservation_service/routes.rs",
+      "line": 39,
+      "end_line": 42,
+      "signature": "async fn destroy(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<()>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-reservation/src/reservation_service/routes.rs",
+          "line": 40,
+          "expression": "methods::delete(&s.db, id).await?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-reservation/src/provider/routes.rs:16:index": {
+      "name": "index",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 16,
+      "end_line": 19,
+      "signature": "async fn index(State(s): State<AppState>, Query(page): Query<PaginationQuery>) -> Result<Json<APIResponse<crate::models::PagedResult<ProviderResponse>>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/provider/models.rs:6:ProviderResponse": {
+      "name": "ProviderResponse",
+      "kind": "struct",
+      "path": "infera-reservation/src/provider/models.rs",
+      "line": 6,
+      "attributes": "#[derive(Debug, Serialize)]",
+      "fields": [
+        {
+          "name": "id",
+          "rust_name": "id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "user_id",
+          "rust_name": "user_id",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "bio",
+          "rust_name": "bio",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "avatar_url",
+          "rust_name": "avatar_url",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "is_active",
+          "rust_name": "is_active",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "created_at",
+          "rust_name": "created_at",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/provider/routes.rs:27:store": {
+      "name": "store",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 27,
+      "end_line": 30,
+      "signature": "async fn store(State(s): State<AppState>, Json(body): Json<CreateProviderRequest>) -> Result<Json<APIResponse<ProviderResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-reservation/src/provider/routes.rs",
+          "line": 28,
+          "expression": "body.validate().map_err(|e| AppError::bad_request(e.to_string()))?;"
+        }
+      ],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/provider/models.rs:24:CreateProviderRequest": {
+      "name": "CreateProviderRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/provider/models.rs",
+      "line": 24,
+      "attributes": "#[derive(Debug, Deserialize, Validate)]",
+      "fields": [
+        {
+          "name": "user_id",
+          "rust_name": "user_id",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(length(min = 1, max = 200))"
+          ]
+        },
+        {
+          "name": "bio",
+          "rust_name": "bio",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "avatar_url",
+          "rust_name": "avatar_url",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "is_active",
+          "rust_name": "is_active",
+          "rust_type": "Option<bool>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/provider/routes.rs:22:show": {
+      "name": "show",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 22,
+      "end_line": 24,
+      "signature": "async fn show(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<ProviderResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/provider/routes.rs:33:update": {
+      "name": "update",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 33,
+      "end_line": 36,
+      "signature": "async fn update(State(s): State<AppState>, Path(id): Path<i64>, Json(body): Json<UpdateProviderRequest>) -> Result<Json<APIResponse<ProviderResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-reservation/src/provider/routes.rs",
+          "line": 34,
+          "expression": "body.validate().map_err(|e| AppError::bad_request(e.to_string()))?;"
+        }
+      ],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-reservation/src/provider/routes.rs",
+          "line": 35,
+          "expression": "Ok(Json(APIResponse::ok(ProviderResponse::from(methods::update(&s.db, id, body).await?))))"
+        }
+      ],
+      "calls": []
+    },
+    "infera-reservation/src/provider/models.rs:33:UpdateProviderRequest": {
+      "name": "UpdateProviderRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/provider/models.rs",
+      "line": 33,
+      "attributes": "#[derive(Debug, Deserialize, Validate)]",
+      "fields": [
+        {
+          "name": "user_id",
+          "rust_name": "user_id",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "name",
+          "rust_name": "name",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(length(min = 1, max = 200))"
+          ]
+        },
+        {
+          "name": "bio",
+          "rust_name": "bio",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "avatar_url",
+          "rust_name": "avatar_url",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "is_active",
+          "rust_name": "is_active",
+          "rust_type": "Option<bool>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/provider/routes.rs:39:destroy": {
+      "name": "destroy",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 39,
+      "end_line": 42,
+      "signature": "async fn destroy(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<()>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-reservation/src/provider/routes.rs",
+          "line": 40,
+          "expression": "methods::delete(&s.db, id).await?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-reservation/src/provider/routes.rs:45:list_services": {
+      "name": "list_services",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 45,
+      "end_line": 48,
+      "signature": "async fn list_services(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<Vec<ServiceResponse>>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/provider/routes.rs:51:assign_service": {
+      "name": "assign_service",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 51,
+      "end_line": 54,
+      "signature": "async fn assign_service(State(s): State<AppState>, Path(id): Path<i64>, Json(body): Json<AssignServiceRequest>) -> Result<Json<APIResponse<()>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/provider/models.rs:42:AssignServiceRequest": {
+      "name": "AssignServiceRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/provider/models.rs",
+      "line": 42,
+      "attributes": "#[derive(Debug, Deserialize)]",
+      "fields": [
+        {
+          "name": "service_id",
+          "rust_name": "service_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/provider/routes.rs:57:remove_service": {
+      "name": "remove_service",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 57,
+      "end_line": 60,
+      "signature": "async fn remove_service(State(s): State<AppState>, Path((id, service_id)): Path<(i64, i64)>) -> Result<Json<APIResponse<()>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/work_schedule/routes.rs:10:index": {
+      "name": "index",
+      "path": "infera-reservation/src/work_schedule/routes.rs",
+      "line": 10,
+      "end_line": 13,
+      "signature": "async fn index(State(s): State<AppState>, Path(pid): Path<i64>) -> Result<Json<APIResponse<Vec<WorkScheduleResponse>>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/work_schedule/models.rs:6:WorkScheduleResponse": {
+      "name": "WorkScheduleResponse",
+      "kind": "struct",
+      "path": "infera-reservation/src/work_schedule/models.rs",
+      "line": 6,
+      "attributes": "#[derive(Debug, Serialize)]",
+      "fields": [
+        {
+          "name": "id",
+          "rust_name": "id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "provider_id",
+          "rust_name": "provider_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "day_of_week",
+          "rust_name": "day_of_week",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "start_time",
+          "rust_name": "start_time",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "end_time",
+          "rust_name": "end_time",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "is_active",
+          "rust_name": "is_active",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/work_schedule/routes.rs:16:upsert": {
+      "name": "upsert",
+      "path": "infera-reservation/src/work_schedule/routes.rs",
+      "line": 16,
+      "end_line": 19,
+      "signature": "async fn upsert(State(s): State<AppState>, Path(pid): Path<i64>, Json(body): Json<UpsertScheduleRequest>) -> Result<Json<APIResponse<Vec<WorkScheduleResponse>>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/work_schedule/models.rs:23:UpsertScheduleRequest": {
+      "name": "UpsertScheduleRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/work_schedule/models.rs",
+      "line": 23,
+      "attributes": "#[derive(Debug, Deserialize, Validate)]",
+      "fields": [
+        {
+          "name": "schedules",
+          "rust_name": "schedules",
+          "rust_type": "Vec<ScheduleEntry>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/time_slot/routes.rs:19:generate": {
+      "name": "generate",
+      "path": "infera-reservation/src/time_slot/routes.rs",
+      "line": 19,
+      "end_line": 22,
+      "signature": "async fn generate(State(s): State<AppState>, Json(body): Json<GenerateSlotsRequest>) -> Result<Json<APIResponse<usize>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/time_slot/models.rs:25:GenerateSlotsRequest": {
+      "name": "GenerateSlotsRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/time_slot/models.rs",
+      "line": 25,
+      "attributes": "#[derive(Debug, Deserialize, Validate)]",
+      "fields": [
+        {
+          "name": "provider_id",
+          "rust_name": "provider_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "service_id",
+          "rust_name": "service_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "from_date",
+          "rust_name": "from_date",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "to_date",
+          "rust_name": "to_date",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/time_slot/routes.rs:13:available": {
+      "name": "available",
+      "path": "infera-reservation/src/time_slot/routes.rs",
+      "line": 13,
+      "end_line": 16,
+      "signature": "async fn available(State(s): State<AppState>, Query(q): Query<AvailableSlotsQuery>) -> Result<Json<APIResponse<Vec<TimeSlotResponse>>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/time_slot/models.rs:42:AvailableSlotsQuery": {
+      "name": "AvailableSlotsQuery",
+      "kind": "struct",
+      "path": "infera-reservation/src/time_slot/models.rs",
+      "line": 42,
+      "attributes": "#[derive(Debug, Deserialize)]",
+      "fields": [
+        {
+          "name": "service_id",
+          "rust_name": "service_id",
+          "rust_type": "Option<i64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "provider_id",
+          "rust_name": "provider_id",
+          "rust_type": "Option<i64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "date",
+          "rust_name": "date",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/time_slot/models.rs:6:TimeSlotResponse": {
+      "name": "TimeSlotResponse",
+      "kind": "struct",
+      "path": "infera-reservation/src/time_slot/models.rs",
+      "line": 6,
+      "attributes": "#[derive(Debug, Serialize)]",
+      "fields": [
+        {
+          "name": "id",
+          "rust_name": "id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "provider_id",
+          "rust_name": "provider_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "service_id",
+          "rust_name": "service_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "starts_at",
+          "rust_name": "starts_at",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "ends_at",
+          "rust_name": "ends_at",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "is_reserved",
+          "rust_name": "is_reserved",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "reserved_by_user_id",
+          "rust_name": "reserved_by_user_id",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/time_slot/routes.rs:30:show": {
+      "name": "show",
+      "path": "infera-reservation/src/time_slot/routes.rs",
+      "line": 30,
+      "end_line": 32,
+      "signature": "async fn show(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<TimeSlotResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/time_slot/routes.rs:34:update": {
+      "name": "update",
+      "path": "infera-reservation/src/time_slot/routes.rs",
+      "line": 34,
+      "end_line": 36,
+      "signature": "async fn update(State(s): State<AppState>, Path(id): Path<i64>, Json(body): Json<UpdateTimeSlotRequest>) -> Result<Json<APIResponse<TimeSlotResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-reservation/src/time_slot/routes.rs",
+          "line": 35,
+          "expression": "Ok(Json(APIResponse::ok(TimeSlotResponse::from(methods::update(&s.db, id, body).await?))))"
+        }
+      ],
+      "calls": []
+    },
+    "infera-reservation/src/time_slot/models.rs:33:UpdateTimeSlotRequest": {
+      "name": "UpdateTimeSlotRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/time_slot/models.rs",
+      "line": 33,
+      "attributes": "#[derive(Debug, Deserialize)]",
+      "fields": [
+        {
+          "name": "provider_id",
+          "rust_name": "provider_id",
+          "rust_type": "Option<i64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "service_id",
+          "rust_name": "service_id",
+          "rust_type": "Option<i64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "starts_at",
+          "rust_name": "starts_at",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "ends_at",
+          "rust_name": "ends_at",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "is_reserved",
+          "rust_name": "is_reserved",
+          "rust_type": "Option<bool>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/time_slot/routes.rs:25:destroy": {
+      "name": "destroy",
+      "path": "infera-reservation/src/time_slot/routes.rs",
+      "line": 25,
+      "end_line": 28,
+      "signature": "async fn destroy(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<()>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-reservation/src/time_slot/routes.rs",
+          "line": 26,
+          "expression": "methods::delete(&s.db, id).await?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-reservation/src/reservation/routes.rs:12:index": {
+      "name": "index",
+      "path": "infera-reservation/src/reservation/routes.rs",
+      "line": 12,
+      "end_line": 15,
+      "signature": "async fn index(State(s): State<AppState>, Query(q): Query<ReservationListQuery>) -> Result<Json<APIResponse<PagedResult<ReservationResponse>>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/reservation/models.rs:45:ReservationListQuery": {
+      "name": "ReservationListQuery",
+      "kind": "struct",
+      "path": "infera-reservation/src/reservation/models.rs",
+      "line": 45,
+      "attributes": "#[derive(Debug, Deserialize)]",
+      "fields": [
+        {
+          "name": "user_id",
+          "rust_name": "user_id",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "provider_id",
+          "rust_name": "provider_id",
+          "rust_type": "Option<i64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "service_id",
+          "rust_name": "service_id",
+          "rust_type": "Option<i64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "status",
+          "rust_name": "status",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "page",
+          "rust_name": "page",
+          "rust_type": "crate::models::PaginationQuery",
+          "optional": false,
+          "defaulted": false,
+          "flatten": true,
+          "attributes": [
+            "serde(flatten)"
+          ]
+        }
+      ]
+    },
+    "infera-reservation/src/reservation/models.rs:7:ReservationResponse": {
+      "name": "ReservationResponse",
+      "kind": "struct",
+      "path": "infera-reservation/src/reservation/models.rs",
+      "line": 7,
+      "attributes": "#[derive(Debug, Serialize)]",
+      "fields": [
+        {
+          "name": "id",
+          "rust_name": "id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "time_slot_id",
+          "rust_name": "time_slot_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "provider_id",
+          "rust_name": "provider_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "service_id",
+          "rust_name": "service_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "user_id",
+          "rust_name": "user_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "status",
+          "rust_name": "status",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "notes",
+          "rust_name": "notes",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "starts_at",
+          "rust_name": "starts_at",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "created_at",
+          "rust_name": "created_at",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/reservation/routes.rs:24:store": {
+      "name": "store",
+      "path": "infera-reservation/src/reservation/routes.rs",
+      "line": 24,
+      "end_line": 26,
+      "signature": "async fn store(State(s): State<AppState>, Json(body): Json<CreateReservationRequest>) -> Result<Json<APIResponse<ReservationResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/reservation/models.rs:32:CreateReservationRequest": {
+      "name": "CreateReservationRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/reservation/models.rs",
+      "line": 32,
+      "attributes": "#[derive(Debug, Deserialize, Validate)]",
+      "fields": [
+        {
+          "name": "time_slot_id",
+          "rust_name": "time_slot_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "user_id",
+          "rust_name": "user_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "notes",
+          "rust_name": "notes",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/reservation/routes.rs:18:show": {
+      "name": "show",
+      "path": "infera-reservation/src/reservation/routes.rs",
+      "line": 18,
+      "end_line": 21,
+      "signature": "async fn show(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<ReservationResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/reservation/routes.rs:29:update": {
+      "name": "update",
+      "path": "infera-reservation/src/reservation/routes.rs",
+      "line": 29,
+      "end_line": 32,
+      "signature": "async fn update(State(s): State<AppState>, Path(id): Path<i64>, Json(body): Json<UpdateReservationRequest>) -> Result<Json<APIResponse<ReservationResponse>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-reservation/src/reservation/routes.rs",
+          "line": 30,
+          "expression": "let r = methods::update(&s.db, id, body).await?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-reservation/src/reservation/models.rs:39:UpdateReservationRequest": {
+      "name": "UpdateReservationRequest",
+      "kind": "struct",
+      "path": "infera-reservation/src/reservation/models.rs",
+      "line": 39,
+      "attributes": "#[derive(Debug, Deserialize)]",
+      "fields": [
+        {
+          "name": "status",
+          "rust_name": "status",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "notes",
+          "rust_name": "notes",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/reservation/routes.rs:35:cancel": {
+      "name": "cancel",
+      "path": "infera-reservation/src/reservation/routes.rs",
+      "line": 35,
+      "end_line": 38,
+      "signature": "async fn cancel(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<()>>, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-reservation/src/integration/routes.rs:9:flow_integration_show": {
+      "name": "flow_integration_show",
+      "path": "infera-reservation/src/integration/routes.rs",
+      "line": 9,
+      "end_line": 15,
+      "signature": "async fn flow_integration_show() -> Json<APIResponse<infera_flow_sdk::FlowIntegrationResponse>>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-reservation/src/integration/routes.rs",
+          "line": 11,
+          "expression": "status: \"success\".to_string(),"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    }
+  }
+}
