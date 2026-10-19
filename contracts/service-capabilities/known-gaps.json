@@ -726,10 +726,11 @@
       "id": "catalog-release-alias-source-reconciliation",
       "owner": "discovery",
       "required": true,
-      "status": "unresolved_runtime_aliases",
-      "meaning": "Fresh serving catalog includes six fit8 release aliases. Explicitly reconcile each alias to its canonical service/source and deployed behavior; Profile/Chat alias records omit repository URLs. Names and image tags alone do not certify branch compatibility. Preserve unrelated release/catalog state.",
+      "status": "source_ancestry_and_alias_ownership_reviewed_build_runtime_reconciliation_pending",
+      "meaning": "All six Fit8 release alias image prefixes resolve to commits included in selected SDK source ancestry; explicitly classified as aliases, not six new business services. Tags/ancestry do not certify build inputs or old deployment compatibility. Profile/Chat catalog URLs are absent; build context and current version/auth rollout remain unverified. Preserve unrelated catalog/runtime state.",
       "source_refs": [
-        "evidence/active-runtime-catalog-deployments-v1.json"
+        "evidence/active-runtime-catalog-deployments-v1.json",
+        "evidence/catalog-release-alias-ancestry-v1.json"
       ]
     }
   ]

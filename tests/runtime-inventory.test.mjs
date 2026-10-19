@@ -29,3 +29,10 @@ test('inventory binding rejects changed bytes, missing rows and files outside th
   assert.equal(loadRuntimeInventory({...descriptor,artifact_path:'missing.json'},root),null);
  }finally{rmSync(root,{recursive:true,force:true});rmSync(outside,{recursive:true,force:true});}
 });
+
+test('catalog release aliases require explicit ownership and do not create duplicate business services',()=>{
+ const universe={services:{asset:{}},runtime_aliases:{'asset-fit8-release':{classification:'release_alias',service_owner:'asset',review_status:'source_reviewed',reason:'Canonical image/source lineage, build provenance remains separate',source_refs:['retained-source-ancestry.json']}}};
+ assert.deepEqual(reconcileRuntimeInventory(universe,inventory(['infera-asset-fit8-release'])),[]);
+ delete universe.runtime_aliases['asset-fit8-release'];
+ assert.match(reconcileRuntimeInventory(universe,inventory(['infera-asset-fit8-release']))[0],/absent/);
+});

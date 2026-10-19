@@ -25,9 +25,9 @@ export function reconcileRuntimeInventory(universe,inventory) {
  for(const name of names){
   const key=name.slice('infera-'.length);
   if(services[key])continue;
-  const descriptor=packages[key];
+  const descriptor=universe.runtime_aliases?.[key]??packages[key];
   if(!descriptor){failures.push(`${name}: active catalog/deployed runtime is absent from service and runtime classification inventories`);continue;}
-  if(!['frontend_proxy','execution_worker','external_diagnostic'].includes(descriptor.classification)||!services[descriptor.service_owner]||!descriptor.reason||!descriptor.source_refs?.length||descriptor.review_status!=='source_reviewed')failures.push(`${name}: runtime ownership/classification lacks reviewed source evidence`);
+  if(!['frontend_proxy','execution_worker','external_diagnostic','release_alias'].includes(descriptor.classification)||!services[descriptor.service_owner]||!descriptor.reason||!descriptor.source_refs?.length||descriptor.review_status!=='source_reviewed')failures.push(`${name}: runtime ownership/classification lacks reviewed source evidence`);
  }
  return failures;
 }

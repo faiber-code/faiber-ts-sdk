@@ -356,5 +356,85 @@
     "artifact_path": "evidence/active-runtime-catalog-deployments-v1.json",
     "sha256": "e47a42cbab37a9f07ca2dbd222bf5f0f0c20d9d97d08ae827c0df51d0ac02c98",
     "meaning": "Read-only serving Control catalog and all-namespace deployment inventory. Names require explicit business-service or source-backed runtime ownership classification; this alone does not certify any capability."
+  },
+  "runtime_aliases": {
+    "asset-fit8-release": {
+      "classification": "release_alias",
+      "service_owner": "asset",
+      "review_status": "source_reviewed",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json",
+        "evidence/catalog-release-alias-ancestry-v1.json"
+      ],
+      "reason": "Catalog release alias using the canonical asset image repository. Its tag-corresponding commit is included in selected SDK source ancestry; this identifies ownership only, not historical build provenance, deployed behavior/version compatibility or permission certification. Preserve unrelated release state.",
+      "tag_corresponding_source_revision": "d32932da1c6623df988b5c5875125282092013fb",
+      "build_source_context_verified": false,
+      "catalog_source_url_present": true
+    },
+    "payment-fit8-release": {
+      "classification": "release_alias",
+      "service_owner": "payment",
+      "review_status": "source_reviewed",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json",
+        "evidence/catalog-release-alias-ancestry-v1.json"
+      ],
+      "reason": "Catalog release alias using the canonical payment image repository. Its tag-corresponding commit is included in selected SDK source ancestry; this identifies ownership only, not historical build provenance, deployed behavior/version compatibility or permission certification. Preserve unrelated release state.",
+      "tag_corresponding_source_revision": "2f91bdecfefe1becf1bcce380c0600ff8256541c",
+      "build_source_context_verified": false,
+      "catalog_source_url_present": true
+    },
+    "knowledge-fit8-release": {
+      "classification": "release_alias",
+      "service_owner": "knowledge",
+      "review_status": "source_reviewed",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json",
+        "evidence/catalog-release-alias-ancestry-v1.json"
+      ],
+      "reason": "Catalog release alias using the canonical knowledge image repository. Its tag-corresponding commit is included in selected SDK source ancestry; this identifies ownership only, not historical build provenance, deployed behavior/version compatibility or permission certification. Preserve unrelated release state.",
+      "tag_corresponding_source_revision": "92047358a6b4dee1911d47a78621c8359716b7af",
+      "build_source_context_verified": false,
+      "catalog_source_url_present": true
+    },
+    "profile-fit8-release": {
+      "classification": "release_alias",
+      "service_owner": "profile",
+      "review_status": "source_reviewed",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json",
+        "evidence/catalog-release-alias-ancestry-v1.json"
+      ],
+      "reason": "Catalog release alias using the canonical profile image repository. Its tag-corresponding commit is included in selected SDK source ancestry; this identifies ownership only, not historical build provenance, deployed behavior/version compatibility or permission certification. Preserve unrelated release state.",
+      "tag_corresponding_source_revision": "c908fded7246dd8fb1893feba78a8ce06bc155a2",
+      "build_source_context_verified": false,
+      "catalog_source_url_present": false
+    },
+    "chat-fit8-release": {
+      "classification": "release_alias",
+      "service_owner": "chat",
+      "review_status": "source_reviewed",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json",
+        "evidence/catalog-release-alias-ancestry-v1.json"
+      ],
+      "reason": "Catalog release alias using the canonical chat image repository. Its tag-corresponding commit is included in selected SDK source ancestry; this identifies ownership only, not historical build provenance, deployed behavior/version compatibility or permission certification. Preserve unrelated release state.",
+      "tag_corresponding_source_revision": "912833450d723351dc175abead1e1b81351801c3",
+      "build_source_context_verified": false,
+      "catalog_source_url_present": false
+    },
+    "idp-fit8-release": {
+      "classification": "release_alias",
+      "service_owner": "idp",
+      "review_status": "source_reviewed",
+      "source_refs": [
+        "evidence/active-runtime-catalog-deployments-v1.json",
+        "evidence/catalog-release-alias-ancestry-v1.json"
+      ],
+      "reason": "Catalog release alias using the canonical idp image repository. Its tag-corresponding commit is included in selected SDK source ancestry; this identifies ownership only, not historical build provenance, deployed behavior/version compatibility or permission certification. Preserve unrelated release state.",
+      "tag_corresponding_source_revision": "7564865222db77bd70c06d39ed22eed732364a31",
+      "build_source_context_verified": false,
+      "catalog_source_url_present": true
+    }
   }
 }
