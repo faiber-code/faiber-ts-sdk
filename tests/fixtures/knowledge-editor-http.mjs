@@ -52,6 +52,11 @@ const indexed=await call('platformIngestDocumentPost',documentInput);eq(statuses
 const unchanged=await call('platformIngestDocumentPost',documentInput);eq(statuses.get('platformIngestDocumentPost'),200);eq(unchanged.status,'unchanged');eq(unchanged.id,indexed.id);eq(unchanged.job_id,undefined);
 const documents=await call('platformListDocumentsGet');const document=documents.find(x=>x.id===indexed.id);assert.ok(document);assertions++;eq(document.checksum,undefined);eq(document.metadata,undefined);eq(document.source_id,null);assert.ok(document.indexed_at);assertions++;
 eq((await sdk.knowledge.ingestDocument(documentInput)).data.data.status,'unchanged');
+const corrected=await call('platformIngestDocumentPost',{...documentInput,title:'Corrected title',provenance:{source_revision:'owned-correction'}});eq(statuses.get('platformIngestDocumentPost'),201);eq(corrected.id,indexed.id);
+const correctedList=await call('platformListDocumentsGet');eq(correctedList.find(x=>x.id===indexed.id).title,'Corrected title');
+const parallelInput={...documentInput,external_id:'parallel-'+randomUUID()};
+const parallel=await Promise.all([1,2,3].map(()=>api.platformIngestDocumentPost(parallelInput)));eq(parallel.map(x=>x.status).sort(),[200,200,201]);eq(new Set(parallel.map(x=>x.data.data.id)).size,1);
+
 const reprocess=await call('platformReprocessDocumentPost',indexed.id);eq(statuses.get('platformReprocessDocumentPost'),202);
 const replay=await call('platformReprocessDocumentPost',indexed.id);eq(replay.job_id,reprocess.job_id);
 const jobs=await sdk.knowledge.processingJobs();assert.ok(jobs.data.data.some(x=>x.id===reprocess.job_id));assertions++;
