@@ -1345,6 +1345,14 @@ export interface UserUserLogoutGetResponseData extends JsonObject {
 export interface UserUserLogoutGetResponse extends ApiEnvelope<UserUserLogoutGetResponseData> {
 }
 
+/** Backend response type: UserRoleMembershipSnapshot. */
+export type UserRoleMembershipsGetResponse = import("./memberships.js").UserRoleMembershipSnapshotResponse;
+
+/** Backend request type: AddUserRoleMemberships. */
+export type UserRoleMembershipsPostInput = import("./memberships.js").AddUserRoleMemberships;
+/** Backend response type: AddUserRoleMembershipsResult. */
+export type UserRoleMembershipsPostResponse = import("./memberships.js").AddUserRoleMembershipsResponse;
+
 /** Backend request type: UpdateUserStatus. */
 export interface UserUserSetStatusPatchInput extends JsonObject {
   "enabled": boolean;

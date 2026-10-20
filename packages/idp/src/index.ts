@@ -1,3 +1,4 @@
+import { membershipRevisionOptions, type AddUserRoleMemberships, type AddUserRoleMembershipsResponse, type UserRoleMembershipSnapshotResponse } from "./memberships.js";
 import { IdpAuthorityApi } from "./authority.js";
 import { RestResource, ServiceApi, urlEncoded, type Identifier, type OperationResponse, type RequestOptions, } from "@faiber/sdk-core";
 import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, CreateRoleInput, CreateUserInput, LinkedFaiberBillingQuery, LinkedFaiberBillingResponse, LinkedFaiberTopUpInput, LinkedFaiberTopUpResponse, LinkedIdentityListResponse, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, Role, RoleListResponse, RoleResponse, SessionListResponse, SetUserStatusInput, UpdateRoleInput, UpdateUserInput, User, UserListResponse, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
@@ -66,8 +67,17 @@ export class IdpApi extends ServiceApi {
     changePassword(userId: Identifier, data: ChangePasswordInput, options?: RequestOptions<ChangePasswordInput>) {
         return this.client.patch<OperationResponse, ChangePasswordInput>(`/api/v1/users/${encodeURIComponent(userId)}/change-password`, data, options);
     }
-    changeRoles(userId: Identifier, data: ChangeRolesInput, options?: RequestOptions<ChangeRolesInput>) {
-        return this.client.patch<UserResponse, ChangeRolesInput>(`/api/v1/users/${encodeURIComponent(userId)}/change-roles`, data, options);
+    /** Intentional replacement requires the exact reviewed snapshot revision; stale 409 is surfaced without refetch. */
+    changeRoles(userId: Identifier, data: ChangeRolesInput, membershipRevision: string, options?: RequestOptions<ChangeRolesInput>) {
+        return this.client.patch<UserResponse, ChangeRolesInput>(`/api/v1/users/${encodeURIComponent(userId)}/change-roles`, data, membershipRevisionOptions(membershipRevision, options));
+    }
+    /** Read every stored row and its captured revision. Requires current idp:acl:read. */
+    roleMemberships(userId: Identifier, options?: RequestOptions) {
+        return this.client.get<UserRoleMembershipSnapshotResponse>(`/api/v1/users/${encodeURIComponent(userId)}/role-memberships`, undefined, options);
+    }
+    /** Append local active roles without replacing existing rows. Requires current read + update ACL permissions. */
+    addRoleMemberships(userId: Identifier, data: AddUserRoleMemberships, options?: RequestOptions<AddUserRoleMemberships>) {
+        return this.client.post<AddUserRoleMembershipsResponse, AddUserRoleMemberships>(`/api/v1/users/${encodeURIComponent(userId)}/role-memberships`, data, options);
     }
     setStatus(userId: Identifier, data: SetUserStatusInput, options?: RequestOptions<SetUserStatusInput>) {
         return this.client.patch<UserResponse, SetUserStatusInput>(`/api/v1/users/${encodeURIComponent(userId)}/status`, data, options);
@@ -84,3 +94,5 @@ export * from "./operations.types.js";
 export * from "./contracts.types.js";
 
 export * from "./authority.js";
+
+export * from "./memberships.js";

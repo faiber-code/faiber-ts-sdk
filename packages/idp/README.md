@@ -127,3 +127,16 @@ role replacement methods intentionally replace the entire permission set and
 must not be used for a minimal additive change. Mixed older service writers must
 be quiesced during deployment; rolling back a grant requires a fresh reviewed
 revision and removal of only the addition still owned by that operation.
+
+## Additive memberships and intentional replacement
+
+`roleMemberships(userId)` reads all stored membership rows, including inactive and duplicate rows, with an opaque observed revision. `addRoleMemberships(userId, { add_role_ids })` adds 1–128 unique active local role UUIDs to an already active local user. It preserves existing memberships; it never activates an account. The server rechecks current read/update ACL authority under the target lock. Both calls return the complete Axios response.
+
+```ts
+await api.addRoleMemberships(userId, { add_role_ids: [reviewerRoleId] });
+const observed = (await api.roleMemberships(userId)).data.data;
+// Only for an intentional full replacement reviewed against this exact snapshot:
+await api.changeRoles(userId, { roles: reviewedRoleIds }, observed.revision);
+```
+
+Replacement helpers, including generated PATCH/PUT operations, require the captured revision and send it as quoted `If-Match`. A stale revision returns 409; missing backend preconditions return 428. Refresh the review after a conflict. Never fetch a new revision merely to submit a saved stale role union. This SDK does not do that automatically. The IDP audit migration and backend activation require their separate release gates.

@@ -1,5 +1,6 @@
 import { ServiceApi, urlEncoded, type Identifier, type RequestOptions } from "@faiber/sdk-core";
 import type * as T from "./operations.types.js";
+import { membershipRevisionOptions } from "./memberships.js";
 
 export class IdpOperations extends ServiceApi {
   /**
@@ -864,27 +865,31 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.UserChangePasswordPutResponse, T.UserChangePasswordPutInput>({ ...options, method: "PUT", url: `/api/v1/users/${encodeURIComponent(userId)}/change-password`, data: data });
   }
   /**
-   * Performs the change roles operation for the user capability.
+   * Intentionally replace roles using the captured observed membership revision as quoted If-Match. Missing precondition is 428; stale revision is 409 with zero changes. Never refetch a revision to apply a saved stale role union.
    * Calls `PATCH /api/v1/users/{user_id}/change-roles` through the shared IDP-aware Faiber client.
    * @param userId Backend path identifier `user_id`.
+   * @param membershipRevision Exact opaque revision from the reviewed membership snapshot; stale revisions return 409 without automatic refetch.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: both current idp:acl:read and idp:acl:update, rechecked after target user lock.
    */
-  userChangeRolesPatch(userId: Identifier, data: T.UserChangeRolesPatchInput, options?: RequestOptions<T.UserChangeRolesPatchInput>) {
+  userChangeRolesPatch(userId: Identifier, data: T.UserChangeRolesPatchInput, membershipRevision: string, options?: RequestOptions<T.UserChangeRolesPatchInput>) {
+    options = membershipRevisionOptions(membershipRevision, options);
     return this.client.request<T.UserChangeRolesPatchResponse, T.UserChangeRolesPatchInput>({ ...options, method: "PATCH", url: `/api/v1/users/${encodeURIComponent(userId)}/change-roles`, data: data });
   }
   /**
-   * Performs the change roles operation for the user capability.
+   * Intentionally replace roles using the captured observed membership revision as quoted If-Match. Missing precondition is 428; stale revision is 409 with zero changes. Never refetch a revision to apply a saved stale role union.
    * Calls `PUT /api/v1/users/{user_id}/change-roles` through the shared IDP-aware Faiber client.
    * @param userId Backend path identifier `user_id`.
+   * @param membershipRevision Exact opaque revision from the reviewed membership snapshot; stale revisions return 409 without automatic refetch.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: both current idp:acl:read and idp:acl:update, rechecked after target user lock.
    */
-  userChangeRolesPut(userId: Identifier, data: T.UserChangeRolesPutInput, options?: RequestOptions<T.UserChangeRolesPutInput>) {
+  userChangeRolesPut(userId: Identifier, data: T.UserChangeRolesPutInput, membershipRevision: string, options?: RequestOptions<T.UserChangeRolesPutInput>) {
+    options = membershipRevisionOptions(membershipRevision, options);
     return this.client.request<T.UserChangeRolesPutResponse, T.UserChangeRolesPutInput>({ ...options, method: "PUT", url: `/api/v1/users/${encodeURIComponent(userId)}/change-roles`, data: data });
   }
   /**
@@ -897,6 +902,29 @@ export class IdpOperations extends ServiceApi {
    */
   userUserLogoutGet(userId: Identifier, options?: RequestOptions) {
     return this.client.request<T.UserUserLogoutGetResponse>({ ...options, method: "GET", url: `/api/v1/users/${encodeURIComponent(userId)}/logout` });
+  }
+  /**
+   * Read every stored local user role membership and an opaque observed revision; retain inactive and duplicate rows. Does not grant authority or activate a user.
+   * Calls `GET /api/v1/users/{user_id}/role-memberships` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: idp:acl:read against the current active local principal.
+   */
+  userRoleMembershipsGet(userId: Identifier, options?: RequestOptions) {
+    return this.client.request<T.UserRoleMembershipsGetResponse>({ ...options, method: "GET", url: `/api/v1/users/${encodeURIComponent(userId)}/role-memberships` });
+  }
+  /**
+   * Append 1–128 unique active local role UUIDs to an already active local user, preserving every existing membership. Repeated active additions are no-ops; concurrent disjoint additions preserve both.
+   * Calls `POST /api/v1/users/{user_id}/role-memberships` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: both current idp:acl:read and idp:acl:update, rechecked after target user lock.
+   */
+  userRoleMembershipsPost(userId: Identifier, data: T.UserRoleMembershipsPostInput, options?: RequestOptions<T.UserRoleMembershipsPostInput>) {
+    return this.client.request<T.UserRoleMembershipsPostResponse, T.UserRoleMembershipsPostInput>({ ...options, method: "POST", url: `/api/v1/users/${encodeURIComponent(userId)}/role-memberships`, data: data });
   }
   /**
    * Performs the user set status operation for the user capability.

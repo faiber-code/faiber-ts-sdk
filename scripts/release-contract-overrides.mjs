@@ -1,3 +1,4 @@
+import { idpMembershipContracts } from "./idp-membership-contracts.mjs";
 import { gisContracts } from "./gis-contracts.mjs";
 import { lmsBrandingContracts } from "./lms-branding-contracts.mjs";
 import { routerContracts } from "./router-contract-overrides.mjs";
@@ -7,6 +8,7 @@ import { integrationContracts } from "./integration-contracts.mjs";
 import { profileSummaryContracts } from "./profile-summary-contracts.mjs";
 // Reviewed wire contracts; keyed by the mounted method and path, never ambiguous handler names.
 export const releaseContracts = {
+  ...idpMembershipContracts,
   "idp:GET /api/v1/acl/users/{user_id}/effective-permissions": {
     response: 'import("./authority.js").EffectivePermissionResponse',
     query: 'import("./authority.js").EffectivePermissionQuery',

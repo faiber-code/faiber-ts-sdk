@@ -18,6 +18,7 @@
     "gis-wire.types.ts",
     "messenger-recipient-wire.types.ts",
     "native-summary-access.types.ts",
-    "knowledge-release-wire.types.ts"
+    "knowledge-release-wire.types.ts",
+    "idp-memberships.types.ts"
   ]
 }
