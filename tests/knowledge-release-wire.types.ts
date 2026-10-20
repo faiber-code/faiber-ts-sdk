@@ -23,3 +23,15 @@ void [published,readback,exported,canonicalPublish,canonicalRead,releaseId,check
 const rules = api.matchRules({ q:'lesson',knowledge_base_id:'base',group_id:'group',enabled:false,page:2,limit:1 });
 rules.then(response=>{ const total:number=response.data.meta.total; const id:string=response.data.data[0]!.id; void [total,id]; });
 api.operations.routesListRulesGet({q:'lesson',knowledge_base_id:'base',group_id:'group',enabled:false,page:2,limit:1});
+
+// @ts-expect-error the service rejects invented importance values
+const invalidImportance: CreateItemInput = {group_id:'group',slug:'item',kind:'fact',title:{},content:{},importance:'high'};
+api.operations.routesUpdateItemPut('item',{importance:'critical',expected_version:null,linked_entity_id:null});
+// @ts-expect-error canonical calls enforce the same validator
+api.operations.routesUpdateItemPut('item',{importance:'high'});
+// @ts-expect-error action transitions have a closed input vocabulary
+api.operations.routesUpdateActionStatusPatch('action',{status:'deleted'});
+api.operations.platformIngestDocumentPost({knowledge_base_id:'base',title:'Title',content:'Text'}).then(response=>{
+ if(response.data.data.status==='indexed'){const job:string=response.data.data.job_id;void job;}
+});
+void invalidImportance;

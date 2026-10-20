@@ -61,6 +61,12 @@ const routePattern = path => '^'+path.split(/(\{[^}]+\})/).map(part=>part.starts
 // return IntoResponse shapes. These are derived from handler/repository behavior, not routes.
 const responseOverrides = {
   knowledge: {
+    list_actions: "KnowledgeCustomerActionListResponse",
+    update_action_status: "KnowledgeCustomerActionResponse",
+    list_audit: "KnowledgeAuditLogListResponse",
+    audit_events: "KnowledgeAuditEventListResponse",
+    list_documents: "KnowledgeDocumentListResponse",
+    ingest_document: "IngestDocumentResponse",
     publish: "KnowledgeReleaseResponse",
     get_release: "KnowledgeReleaseResponse",
     export_base: "KnowledgeExportResponse",
@@ -142,6 +148,7 @@ const responseOverrides = {
   },
 };
 const inputOverrides = {
+  knowledge:{create_item:"CreateItemInput",update_item:"UpdateItemInput",update_action_status:"ActionStatusInput"},
   asset:{policy_put:"EconomyPolicy",command:"EconomyOperatorCommand",preview:"EconomyPreviewInput",purchase:"EconomyPurchaseInput",credit:"EconomyCreditInput"},
   session:{interact:"RoomInteractionInput"},
   idp: { browser_login: "BrowserLoginInput" },

@@ -33,7 +33,7 @@ export class KnowledgeApi extends ServiceApi {
   memorySubjects(params?: T.MemorySubjectQuery, options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue[]>>("/api/v1/memory-subjects", params, options); }
   clearMemorySubject(subjectId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/memory-subjects/${id(subjectId)}`, options); }
   setMemoryOverride(subjectId: Identifier, data: T.MemoryOverrideInput, options?: RequestOptions<T.MemoryOverrideInput>) { return this.client.put<ApiEnvelope<JsonValue>, T.MemoryOverrideInput>(`/api/v1/memory-subjects/${id(subjectId)}/policy`, data, options); }
-  auditEvents(options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue[]>>("/api/v1/audit-events", undefined, options); }
+  auditEvents(options?: RequestOptions) { return this.client.get<T.KnowledgeAuditEventListResponse>("/api/v1/audit-events", undefined, options); }
   toolSchema(options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue>>("/api/v1/runtime/tool-schema", undefined, options); }
   /** Reads scoped inventories, dependency health, retrieval latency, quality, and backlog. Requires `knowledge:read`. */
   platformStatus(options?: RequestOptions) { return this.client.get<T.PlatformStatusResponse>("/api/v1/platform/status", undefined, options); }
@@ -45,8 +45,8 @@ export class KnowledgeApi extends ServiceApi {
   sources(options?: RequestOptions) { return this.client.get<T.KnowledgeSourceListResponse>("/api/v1/sources", undefined, options); }
   /** Lists governed documents in the current organization. Requires `knowledge:read`. */
   documents(options?: RequestOptions) { return this.client.get<T.KnowledgeDocumentListResponse>("/api/v1/documents", undefined, options); }
-  /** Queues an idempotent document ingestion job. Requires `knowledge:write`. */
-  ingestDocument(data:T.IngestDocumentInput,options?:RequestOptions<T.IngestDocumentInput>){return this.client.post<ApiEnvelope<JsonValue>,T.IngestDocumentInput>("/api/v1/documents",data,options);}
+  /** Indexes text/chunks synchronously; unchanged content returns 200 without a new job, changed content returns 201 with a completed job. Requires `knowledge:write`. Embedding readiness is separate. */
+  ingestDocument(data:T.IngestDocumentInput,options?:RequestOptions<T.IngestDocumentInput>){return this.client.post<T.IngestDocumentResponse,T.IngestDocumentInput>("/api/v1/documents",data,options);}
   /** Configures a versioned assistant context policy with optimistic revision checking. Requires `knowledge:write`. */
   configureAssistant(assistantId:Identifier,data:T.AssistantConfigurationInput,options?:RequestOptions<T.AssistantConfigurationInput>){return this.client.put<ApiEnvelope<JsonValue>,T.AssistantConfigurationInput>(`/api/v1/runtime/assistants/${id(assistantId)}/configure`,data,options);}
   /** Retrieves governed, packed assistant context and returns its delivery cursor. Requires `knowledge:runtime`. */

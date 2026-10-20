@@ -106,3 +106,25 @@ priority followed by rule ID. This API does not truncate the base directory to
 its first 200 records. `operations.routesListRulesGet()` exposes the same wire
 contract. Group and base filters use their UUIDs; inaccessible or deleted bases
 contribute no results.
+
+### Authoring lists, actions, and direct text ingestion
+
+Base, item and match-rule lists return the array in `response.data.data` and pagination
+in `response.data.meta` (`total`, `page`, `limit`). Item importance accepts `debug`,
+`info`, `notice`, `warning`, `urgent`, or `critical`. Optional scalar editor update
+fields accept `null` as the backend's omitted-value behavior; null does not clear a
+parent, date, or link. Empty link strings are handled separately by the service.
+
+`ingestDocument` performs direct text/chunk indexing synchronously. A changed document
+returns HTTP 201 with `status: "indexed"` and a completed `job_id`; an identical
+external-ID/checksum retry returns HTTP 200 with `status: "unchanged"` and no new
+job ID. Indexed text does not imply that vector embeddings are ready. The document
+list returns a projection with `indexed_at` and `created_at`; it does not include
+content, checksum or metadata. Use the authorized document-evidence operation when
+that content is needed.
+
+Editor audit logs (`operations.routesListAuditGet`, permission `knowledge:audit`)
+and platform audit events (`auditEvents`, permission `knowledge:read`) are distinct
+record formats. Action status accepts `open`, `acknowledged`, `snoozed`, `completed`,
+or `dismissed` with `knowledge:actions`; ordinary read permission does not authorize
+action updates.

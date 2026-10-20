@@ -1,5 +1,8 @@
 import type { ApiEnvelope, JsonObject, JsonValue, QueryParams } from "@faiber/sdk-core";
 
+/** Accepted by the backend importance validator; response records remain strings for historical data. */
+export type KnowledgeImportance = "debug" | "info" | "notice" | "warning" | "urgent" | "critical";
+export type KnowledgeActionStatus = "open" | "acknowledged" | "snoozed" | "completed" | "dismissed";
 export interface KnowledgeListQuery extends QueryParams { q?: string; status?: string; group?: string; kind?: string; linked_service?: string; linked_entity_type?: string; linked_entity_id?: string; page?: number; limit?: number; }
 export interface KnowledgeBase extends JsonObject { id: string; organization_id: string; slug: string; name: string; description: string; default_language: string; supported_languages: JsonValue; settings: JsonValue; status: string; version: number; created_at: string; updated_at: string; published_release_id: string | null; created_by: string | null; updated_by: string | null; deleted_at: string | null; }
 export interface KnowledgeGroup extends JsonObject { id: string; knowledge_base_id: string; parent_id: string | null; slug: string; name: JsonValue; description: JsonValue; sort_order: number; inclusion_policy: JsonValue; status: string; version: number; level: number; created_at: string; updated_at: string; deleted_at: string | null; }
@@ -8,28 +11,28 @@ export interface KnowledgeEdge extends JsonObject { id: string; knowledge_base_i
 export interface ChatBinding extends JsonObject { id: string; chat_slug: string; knowledge_base_id: string; group_slugs: JsonValue; max_level: number; tool_policy: JsonValue; enabled: boolean; version: number; organization_id: string; created_at: string; updated_at: string; }
 export interface MatchRule extends JsonObject { id: string; knowledge_base_id: string; group_id: string | null; slug: string; name: JsonValue; priority: number; conditions: JsonValue; outcomes: JsonValue; stop_on_match: boolean; enabled: boolean; version: number; created_at: string; updated_at: string; deleted_at: string | null; }
 export interface CreateKnowledgeBaseInput extends JsonObject { slug: string; name: string; description?: string; default_language?: string; supported_languages?: JsonValue; settings?: JsonValue; }
-export interface UpdateKnowledgeBaseInput extends JsonObject { name?: string; description?: string; default_language?: string; supported_languages?: JsonValue; settings?: JsonValue; status?: string; expected_version?: number; }
-export interface CreateGroupInput extends JsonObject { parent_id?: string; slug: string; name: JsonValue; description?: JsonValue; sort_order?: number; inclusion_policy?: JsonValue; }
-export interface UpdateGroupInput extends JsonObject { parent_id?: string; name?: JsonValue; description?: JsonValue; sort_order?: number; inclusion_policy?: JsonValue; status?: string; expected_version?: number; }
-export interface CreateItemInput extends JsonObject { group_id: string; slug: string; kind: string; title: JsonValue; summary?: JsonValue; content: JsonValue; metadata?: JsonValue; tags?: JsonValue; importance?: string; valid_from?: string; valid_to?: string; description?: JsonValue; linked_service?: string; linked_entity_type?: string; linked_entity_id?: string; link_url?: string; open_in_new_tab?: boolean; show_when?: JsonValue; }
-export interface UpdateItemInput extends JsonObject { group_id?: string; kind?: string; title?: JsonValue; summary?: JsonValue; content?: JsonValue; metadata?: JsonValue; tags?: JsonValue; importance?: string; status?: string; valid_from?: string; valid_to?: string; expected_version?: number; description?: JsonValue; linked_service?: string; linked_entity_type?: string; linked_entity_id?: string; link_url?: string; open_in_new_tab?: boolean; show_when?: JsonValue; }
+export interface UpdateKnowledgeBaseInput extends JsonObject { name?: string | null; description?: string | null; default_language?: string | null; supported_languages?: JsonValue; settings?: JsonValue; status?: string | null; expected_version?: number | null; }
+export interface CreateGroupInput extends JsonObject { parent_id?: string | null; slug: string; name: JsonValue; description?: JsonValue; sort_order?: number; inclusion_policy?: JsonValue; }
+export interface UpdateGroupInput extends JsonObject { parent_id?: string | null; name?: JsonValue; description?: JsonValue; sort_order?: number | null; inclusion_policy?: JsonValue; status?: string | null; expected_version?: number | null; }
+export interface CreateItemInput extends JsonObject { group_id: string; slug: string; kind: string; title: JsonValue; summary?: JsonValue; content: JsonValue; metadata?: JsonValue; tags?: JsonValue; importance?: KnowledgeImportance; valid_from?: string | null; valid_to?: string | null; description?: JsonValue; linked_service?: string | null; linked_entity_type?: string | null; linked_entity_id?: string | null; link_url?: string | null; open_in_new_tab?: boolean; show_when?: JsonValue; }
+export interface UpdateItemInput extends JsonObject { group_id?: string | null; kind?: string | null; title?: JsonValue; summary?: JsonValue; content?: JsonValue; metadata?: JsonValue; tags?: JsonValue; importance?: KnowledgeImportance | null; status?: string | null; valid_from?: string | null; valid_to?: string | null; expected_version?: number | null; description?: JsonValue; linked_service?: string | null; linked_entity_type?: string | null; linked_entity_id?: string | null; link_url?: string | null; open_in_new_tab?: boolean | null; show_when?: JsonValue; }
 export interface CreateEdgeInput extends JsonObject { from_item_id: string; to_item_id: string; edge_type: string; conditions?: JsonValue; weight?: number; }
-export interface UpdateEdgeInput extends JsonObject { edge_type?: string; conditions?: JsonValue; weight?: number; status?: string; expected_version?: number; }
+export interface UpdateEdgeInput extends JsonObject { edge_type?: string | null; conditions?: JsonValue; weight?: number | null; status?: string | null; expected_version?: number | null; }
 export interface CreateBindingInput extends JsonObject { chat_slug: string; knowledge_base_id: string; group_slugs?: JsonValue; max_level?: number; tool_policy?: JsonValue; enabled?: boolean; }
-export interface UpdateBindingInput extends JsonObject { group_slugs?: JsonValue; max_level?: number; tool_policy?: JsonValue; enabled?: boolean; expected_version?: number; }
-export interface CreateRuleInput extends JsonObject { knowledge_base_id: string; group_id?: string; slug: string; name: JsonValue; priority?: number; conditions: JsonValue; outcomes: JsonValue; stop_on_match?: boolean; enabled?: boolean; }
-export interface UpdateRuleInput extends JsonObject { group_id?: string; name?: JsonValue; priority?: number; conditions?: JsonValue; outcomes?: JsonValue; stop_on_match?: boolean; enabled?: boolean; expected_version?: number; }
+export interface UpdateBindingInput extends JsonObject { group_slugs?: JsonValue; max_level?: number | null; tool_policy?: JsonValue; enabled?: boolean | null; expected_version?: number | null; }
+export interface CreateRuleInput extends JsonObject { knowledge_base_id: string; group_id?: string | null; slug: string; name: JsonValue; priority?: number; conditions: JsonValue; outcomes: JsonValue; stop_on_match?: boolean; enabled?: boolean; }
+export interface UpdateRuleInput extends JsonObject { group_id?: string | null; name?: JsonValue; priority?: number | null; conditions?: JsonValue; outcomes?: JsonValue; stop_on_match?: boolean | null; enabled?: boolean | null; expected_version?: number | null; }
 export interface RuntimeQueryInput extends JsonObject { query?: string; profile_id?: string; profile?: JsonValue; props?: JsonValue; meta?: JsonValue; inputs?: JsonValue; group_slugs?: JsonValue; level?: number; limit?: number; event?: JsonValue; }
 export interface RuntimeResult extends JsonObject { chat_slug: string; release?: JsonValue; knowledge: JsonValue[]; matched_rules: JsonValue[]; notifications: JsonValue[]; warnings: JsonValue[]; todos: JsonValue[]; input_requests: JsonValue[]; directions: JsonValue[]; trace: JsonValue; }
 export interface MemorySubjectQuery extends QueryParams { assistant_id?: string; q?: string; memory_type?: "short" | "long"; page?: number; limit?: number; }
 export interface MemoryOverrideInput extends JsonObject { short_memory_enabled?: boolean; long_memory_enabled?: boolean; }
-export interface ActionStatusInput extends JsonObject { status: string; input?: JsonValue; }
+export interface ActionStatusInput extends JsonObject { status: KnowledgeActionStatus; input?: JsonValue; }
 export type KnowledgeBaseResponse = ApiEnvelope<KnowledgeBase>;
-export type KnowledgeBaseListResponse = ApiEnvelope<KnowledgeBase[]>;
+export interface KnowledgeBaseListResponse extends ApiEnvelope<KnowledgeBase[]> { meta: KnowledgePaginationMeta; }
 export type KnowledgeGroupResponse = ApiEnvelope<KnowledgeGroup>;
 export type KnowledgeGroupListResponse = ApiEnvelope<KnowledgeGroup[]>;
 export type KnowledgeItemResponse = ApiEnvelope<KnowledgeItem>;
-export type KnowledgeItemListResponse = ApiEnvelope<KnowledgeItem[]>;
+export interface KnowledgeItemListResponse extends ApiEnvelope<KnowledgeItem[]> { meta: KnowledgePaginationMeta; }
 export type KnowledgeEdgeResponse = ApiEnvelope<KnowledgeEdge>;
 export type KnowledgeEdgeListResponse = ApiEnvelope<KnowledgeEdge[]>;
 export type ChatBindingResponse = ApiEnvelope<ChatBinding>;
@@ -98,7 +101,20 @@ export interface RecordAssistantTurnInput extends MemoryTurnInput {}
 export interface RetrievalUsageInput extends JsonObject { final_prompt_tokens:number; cached_input_tokens?:number; reasoning_tokens?:number; output_tokens?:number; token_attribution?:JsonValue; actual_cost?:number; outcome?:string; }
 export interface PlatformStatus extends JsonObject { service:string; version:string; commit:string; status:string; checked_at:string; knowledge_bases:number; published_bases:number; sources:number; documents:number; chunks:number; entities:number; relations:number; assistants:number; memory_subjects:number; memories:number; recommender_groups:number; open_findings:number; queued_jobs:number; processing_jobs:number; failed_jobs:number; stale_documents:number; missing_embeddings:number; memory_backlog:number; dead_letters:number; retrieval:JsonValue; dependencies:Record<string,string>; }
 export interface KnowledgeSource extends JsonObject { id:string; knowledge_base_id:string; slug:string; name:JsonValue; source_type:string; status:string; sync_status:string; document_count:number; chunk_count:number; last_error?:string|null; last_synced_at?:string|null; }
-export interface KnowledgeDocument extends JsonObject { id:string; knowledge_base_id:string; source_id?:string|null; external_id?:string|null; title:string; media_type:string; language?:string|null; provenance:JsonValue; metadata:JsonValue; status:string; checksum:string; version:number; }
+/** Document list projection. Content, metadata and checksum are not returned by this list endpoint. */
+export interface KnowledgeDocument extends JsonObject { id:string; knowledge_base_id:string; source_id:string|null; external_id:string|null; title:string; media_type:string; language:string|null; provenance:JsonValue; status:string; indexed_at:string|null; version:number; created_at:string; }
+export interface IndexedDocumentReceipt extends JsonObject { id:string; job_id:string; checksum:string; chunks:number; status:"indexed"; }
+export interface UnchangedDocumentReceipt extends JsonObject { id:string; checksum:string; chunks:number; status:"unchanged"; }
+export type IngestDocumentReceipt = IndexedDocumentReceipt | UnchangedDocumentReceipt;
+export type IngestDocumentResponse = ApiEnvelope<IngestDocumentReceipt>;
+export interface KnowledgeCustomerAction extends JsonObject { id:string; organization_id:string; knowledge_base_id:string; evaluation_id:string|null; profile_id:string|null; action_type:string; importance:string; title:JsonValue; body:JsonValue; payload:JsonValue; status:string; dedupe_key:string|null; due_at:string|null; created_at:string; updated_at:string; completed_at:string|null; }
+export type KnowledgeCustomerActionResponse = ApiEnvelope<KnowledgeCustomerAction>;
+export type KnowledgeCustomerActionListResponse = ApiEnvelope<KnowledgeCustomerAction[]>;
+/** Authoring editor audit history, distinct from platform audit events. */
+export interface KnowledgeAuditLog extends JsonObject { id:string; organization_id:string; actor_id:string|null; action:string; entity_type:string; entity_id:string; before:JsonValue; after:JsonValue; request_id:string|null; created_at:string; }
+export type KnowledgeAuditLogListResponse = ApiEnvelope<KnowledgeAuditLog[]>;
+export interface KnowledgeAuditEvent extends JsonObject { id:string; organization_id:string; actor_user_id:string|null; action:string; entity_type:string; entity_id:string|null; reason:string|null; before_state:JsonValue; after_state:JsonValue; created_at:string; }
+export type KnowledgeAuditEventListResponse = ApiEnvelope<KnowledgeAuditEvent[]>;
 export interface ConverterCapability extends JsonObject { id:string; display_name:JsonValue; category:string; extensions:string[]; mime_types:string[]; capabilities:string[]; output_types:string[]; supported_languages:string[]; limits:JsonValue; cost_model:JsonValue; configuration_requirements:JsonValue; status:string; health:JsonValue; version:string; mode:string; }
 export interface ProcessingJob extends JsonObject { id:string; organization_id:string; knowledge_base_id?:string|null; source_id?:string|null; document_id?:string|null; job_type:string; status:string; stage:string; progress:number; attempts:number; max_attempts:number; next_attempt_at:string; error_code?:string|null; error_detail?:string|null; safe_log:JsonValue; }
 export interface IngestDocumentInput extends JsonObject { knowledge_base_id:string; source_id?:string|null; external_id?:string|null; title:string; content:string; media_type?:string; language?:string; provenance?:JsonValue; metadata?:JsonValue; }

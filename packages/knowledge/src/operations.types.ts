@@ -14,17 +14,12 @@ export interface RoutesListActionsGetQuery extends QueryParams {
   "limit"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesListActionsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListActionsGetResponse = import("./types.js").KnowledgeCustomerActionListResponse;
 
 /** Backend request type: ActionStatus. */
-export interface RoutesUpdateActionStatusPatchInput extends JsonObject {
-  "status": string;
-  "input"?: JsonValue;
-}
+export type RoutesUpdateActionStatusPatchInput = import("./types.js").ActionStatusInput;
 /** Backend response type: Value. */
-export interface RoutesUpdateActionStatusPatchResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateActionStatusPatchResponse = import("./types.js").KnowledgeCustomerActionResponse;
 
 /** Backend query type: ListQuery. */
 export interface RoutesListAuditGetQuery extends QueryParams {
@@ -39,12 +34,10 @@ export interface RoutesListAuditGetQuery extends QueryParams {
   "limit"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesListAuditGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListAuditGetResponse = import("./types.js").KnowledgeAuditLogListResponse;
 
 /** Backend response type: Value. */
-export interface PlatformAuditEventsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformAuditEventsGetResponse = import("./types.js").KnowledgeAuditEventListResponse;
 
 /** Backend response type: Value. */
 export type RoutesListBindingsGetResponse = import("./types.js").ChatBindingListResponse;
@@ -76,8 +69,7 @@ export interface RoutesUpdateBindingPutInput extends JsonObject {
 export type RoutesUpdateBindingPutResponse = import("./types.js").ChatBindingResponse;
 
 /** Backend response type: Value. */
-export interface PlatformListDocumentsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformListDocumentsGetResponse = import("./types.js").KnowledgeDocumentListResponse;
 
 /** Backend request type: IngestDocument. */
 export interface PlatformIngestDocumentPostInput extends JsonObject {
@@ -92,8 +84,7 @@ export interface PlatformIngestDocumentPostInput extends JsonObject {
   "metadata"?: JsonValue;
 }
 /** Backend response type: Value. */
-export interface PlatformIngestDocumentPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformIngestDocumentPostResponse = import("./types.js").IngestDocumentResponse;
 
 /** Backend response type: Value. */
 export interface PlatformReprocessDocumentPostResponse extends ApiEnvelope<JsonValue> {
@@ -157,27 +148,7 @@ export type RoutesDeleteItemDeleteResponse = void;
 export type RoutesGetItemGetResponse = import("./types.js").KnowledgeItemResponse;
 
 /** Backend request type: UpdateItem. */
-export interface RoutesUpdateItemPutInput extends JsonObject {
-  "group_id"?: string | null;
-  "kind"?: string | null;
-  "title"?: JsonValue | null;
-  "summary"?: JsonValue | null;
-  "content"?: JsonValue | null;
-  "metadata"?: JsonValue | null;
-  "description"?: JsonValue | null;
-  "linked_service"?: string | null;
-  "linked_entity_type"?: string | null;
-  "linked_entity_id"?: string | null;
-  "link_url"?: string | null;
-  "open_in_new_tab"?: boolean | null;
-  "show_when"?: JsonValue | null;
-  "tags"?: JsonValue | null;
-  "importance"?: string | null;
-  "status"?: string | null;
-  "valid_from"?: string | null;
-  "valid_to"?: string | null;
-  "expected_version"?: number | null;
-}
+export type RoutesUpdateItemPutInput = import("./types.js").UpdateItemInput;
 /** Backend response type: Value. */
 export type RoutesUpdateItemPutResponse = import("./types.js").KnowledgeItemResponse;
 
@@ -275,26 +246,7 @@ export interface RoutesListItemsGetQuery extends QueryParams {
 export type RoutesListItemsGetResponse = import("./types.js").KnowledgeItemListResponse;
 
 /** Backend request type: CreateItem. */
-export interface RoutesCreateItemPostInput extends JsonObject {
-  "group_id": string;
-  "slug": string;
-  "kind": string;
-  "title": JsonValue;
-  "summary"?: JsonValue;
-  "content": JsonValue;
-  "metadata"?: JsonValue;
-  "description"?: JsonValue;
-  "linked_service"?: string | null;
-  "linked_entity_type"?: string | null;
-  "linked_entity_id"?: string | null;
-  "link_url"?: string | null;
-  "open_in_new_tab"?: boolean;
-  "show_when"?: JsonValue;
-  "tags"?: JsonValue;
-  "importance"?: string;
-  "valid_from"?: string | null;
-  "valid_to"?: string | null;
-}
+export type RoutesCreateItemPostInput = import("./types.js").CreateItemInput;
 /** Backend response type: Value. */
 export type RoutesCreateItemPostResponse = import("./types.js").KnowledgeItemResponse;
 
