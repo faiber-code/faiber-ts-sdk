@@ -196,7 +196,9 @@ console.log(response.status, response.data.data.freshness, response.data.data.su
 
 Read the canonical role catalog with `api.summaries.roles()`, then create/edit a structured draft,
 validate it, preview an eligible subject, publish it, and enable it with `setStatus(id, { enabled: true })`.
-GET requests only read stored data. Refresh and preview return HTTP 202; poll run/job state separately.
+Global generation must be enabled before previewing; the global kill switch also blocks explicit previews with HTTP 409.
+A role can remain disabled while previewing its draft. Preview results remain distinct from published results and never publish the configuration.
+GET requests only read stored data. Accepted refresh and preview requests return HTTP 202; poll run/job state separately.
 A failed refresh can leave an older result available and stale. Disabled configurations hide latest
 content while explicitly authorized history reads remain available. Decimal metric values may be
 strings to preserve financial precision. Standard Axios errors, response headers and cancellation

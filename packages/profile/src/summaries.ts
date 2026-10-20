@@ -87,6 +87,7 @@ export class ProfileSummariesApi extends ServiceApi {
      */
     publish(id:string,options?:RequestOptions) { return this.client.request<ApiEnvelope<T.SummaryConfigurationRecord>>({ ...options, method:"POST", url:`/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}/publish` }); }
     /** preview: calls POST /api/v1/ai-summaries/configurations/{id}/preview.
+     * Global generation must be enabled (409 when off). A disabled role may preview its draft; preview never publishes it.
      * Requires profile:ai_summary:configure. Own reads are restricted to the authenticated subject.
      * @param options Standard Axios headers, credentials, timeout, adapter and cancellation signal.
      * @returns Full Axios response with the typed Profile envelope.

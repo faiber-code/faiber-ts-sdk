@@ -92,7 +92,7 @@ export const profileSummaryContracts = {
     "typeBase": "AiSummaryPreviewPost",
     "response": "import(\"@faiber/sdk-core\").ApiEnvelope<import(\"./summaries.types.js\").SummaryPreviewResponse>",
     "auth": "profile:ai_summary:configure",
-    "purpose": "Read persisted role summaries or administer their Profile-owned lifecycle. GET operations never invoke a model; content reads remain subject and deployment scoped.",
+    "purpose": "Preview an eligible subject using the structured draft. Global generation must be enabled; global off returns 409. The role may remain disabled for a draft preview, which never publishes a configuration.",
     "input": "import(\"./summaries.types.js\").SummaryPreviewWrite"
   },
   "profile:PATCH /api/v1/ai-summaries/configurations/{id}/status": {

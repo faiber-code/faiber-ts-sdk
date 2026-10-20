@@ -68,7 +68,7 @@ export class ProfileOperations extends ServiceApi {
     return this.client.request<T.AiSummaryConfigurationPutResponse, T.AiSummaryConfigurationPutInput>({ ...options, method: "PUT", url: `/api/v1/ai-summaries/configurations/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Read persisted role summaries or administer their Profile-owned lifecycle. GET operations never invoke a model; content reads remain subject and deployment scoped.
+   * Preview an eligible subject using the structured draft. Global generation must be enabled; global off returns 409. The role may remain disabled for a draft preview, which never publishes a configuration.
    * Calls `POST /api/v1/ai-summaries/configurations/{id}/preview` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param data Typed JSON request body.
