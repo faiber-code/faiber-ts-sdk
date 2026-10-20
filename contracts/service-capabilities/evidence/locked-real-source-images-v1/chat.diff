@@ -1,0 +1,28 @@
+diff --git a/Dockerfile b/Dockerfile
+index f39424b..a7b9f71 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -25,23 +25,7 @@ RUN set -eu; \
+     if [ "$registry" != "sparse+https://index.crates.io/" ]; then \
+       printf '[source.crates-io]\nreplace-with = "infera-control"\n\n[source.infera-control]\nregistry = "%s"\n' "$registry" > /usr/local/cargo/config.toml; \
+     fi
+-RUN --mount=type=cache,id=infera-chat-cargo-registry,target=/usr/local/cargo/registry,sharing=locked \
+-    --mount=type=cache,id=infera-chat-cargo-git,target=/usr/local/cargo/git,sharing=locked \
+-    cargo install cargo-chef --locked
+-FROM chef AS planner
+-COPY Cargo.toml Cargo.lock .
+-COPY shared shared
+-COPY src src
+-COPY entity entity
+-COPY migration migration
+-RUN cargo chef prepare --recipe-path recipe.json
+ FROM chef AS builder
+-COPY shared shared
+-COPY --from=planner /app/recipe.json recipe.json
+-RUN --mount=type=cache,id=infera-chat-cargo-registry,target=/usr/local/cargo/registry,sharing=locked \
+-    --mount=type=cache,id=infera-chat-cargo-git,target=/usr/local/cargo/git,sharing=locked \
+-    --mount=type=cache,id=infera-chat-cargo-target,target=/app/target,sharing=locked \
+-    cargo chef cook --release --locked --recipe-path recipe.json
+ COPY Cargo.toml Cargo.lock .
+ COPY shared shared
+ COPY src src

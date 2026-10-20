@@ -12,11 +12,11 @@
     "src/service.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "1768097fc7c843f1f7e46ea4fcf7a0f776f0792d",
+  "inventory_revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
   "source_decision": null,
   "relationship_review": null,
   "canonical_revision": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
-  "sdk_source_revision": "1768097fc7c843f1f7e46ea4fcf7a0f776f0792d",
+  "sdk_source_revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
   "working_revision": "7360ff93ae3f4ff36b7b79e15db8a15ea09e881d",
   "working_changes": [
     "M Cargo.lock",

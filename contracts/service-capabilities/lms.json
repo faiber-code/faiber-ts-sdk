@@ -12,11 +12,11 @@
     "src/router.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "ae00cad8d3595c0df68c3b1b3d062762ca1d80d7",
+  "inventory_revision": "0276d4a534979e131d07b02b79fd0ef18e1e1bab",
   "source_decision": null,
   "relationship_review": null,
   "canonical_revision": "230453c1471d723af582308e43b5b43b5a0f7b99",
-  "sdk_source_revision": "ae00cad8d3595c0df68c3b1b3d062762ca1d80d7",
+  "sdk_source_revision": "0276d4a534979e131d07b02b79fd0ef18e1e1bab",
   "working_revision": "d94f42a89b344e5b8809f62a4a4324ceda69553a",
   "working_changes": [
     "M Cargo.lock",

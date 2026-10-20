@@ -25,7 +25,7 @@
       "origin_main": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
       "fetched_head": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M panel/src/i18n.ts\n M panel/src/main.tsx\n M src/lib.rs\n M src/main.rs\n M src/models.rs\n M src/routes.rs\n M src/service.rs\n M src/workspace_answers.rs\n M src/workspace_assistant.rs\n?? migration/src/m20261003_000013_media_retention.rs\n?? migration/src/m20261007_000015_asset_interactions.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? panel/src/MediaRetentionPage.tsx\n?? shared/\n?? src/asset_economy.rs\n?? src/fitness.rs\n?? src/media_retention.rs\n?? src/product_plans.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? src/workspace_json.rs",
-      "selected_sdk_revision": "1768097fc7c843f1f7e46ea4fcf7a0f776f0792d",
+      "selected_sdk_revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a",
       "main_is_ancestor_of_selected_sdk": true,
       "seconds": 1.046
     },
@@ -38,7 +38,7 @@
       "origin_main": "1addec42a400ba980b6547060cdcb4d347a7bbd0",
       "fetched_head": "1addec42a400ba980b6547060cdcb4d347a7bbd0",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M README.md\n M migration/src/lib.rs\n M src/api/operations.rs\n M src/api/routes.rs\n M src/common/auth.rs\n M src/lib.rs\n M src/main.rs\n M src/router.rs\n?? SUMMARY_EVIDENCE.md\n?? migration/src/m20261019_000008_summary_activity_outbox.rs\n?? migration/src/summary_activity_outbox.sql\n?? shared/\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? tests/run-summary-evidence.sh\n?? tests/summary-services.compose.yml\n?? tests/summary_evidence.rs",
-      "selected_sdk_revision": "e5772f8bdeb9df8d17d004aa54b0bc8f5d37dcb4",
+      "selected_sdk_revision": "71e24f98cb37a32dc994200f9125d24a162bc8c1",
       "main_is_ancestor_of_selected_sdk": true,
       "seconds": 1.05
     },
@@ -103,7 +103,7 @@
       "origin_main": "230453c1471d723af582308e43b5b43b5a0f7b99",
       "fetched_head": "230453c1471d723af582308e43b5b43b5a0f7b99",
       "working_status": "M .env.example\n M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M docs/ai-performance-summary-flutter-handoff.json\n M entity/src/classroom_session.rs\n M migration/src/lib.rs\n M panel/src/app/layout/AppSidebar.tsx\n M panel/src/app/router.tsx\n M panel/src/features/classrooms/api/classroomsApi.ts\n M panel/src/features/classrooms/pages/ClassroomSessionFormPage.tsx\n M panel/src/features/classrooms/pages/ClassroomsPage.tsx\n D panel/src/features/config/api/aiSummaryApi.test.ts\n D panel/src/features/config/api/aiSummaryApi.ts\n D panel/src/features/config/pages/AiSummariesPage.tsx\n D panel/src/features/config/pages/AiSummaryDetailPage.tsx\n D panel/src/features/config/pages/AiSummaryQueuePage.tsx\n D panel/src/features/config/pages/AiSummarySettingsPage.tsx\n M panel/src/i18n/locales/en.json\n M panel/src/i18n/locales/fa.json\n M panel/src/shared/types/lms.ts\n M src/access.rs\n D src/ai_summary/methods.rs\n D src/ai_summary/mod.rs\n D src/ai_summary/models.rs\n D src/ai_summary/routes.rs\n D src/ai_summary/scheduler.rs\n M src/broker.rs\n M src/classroom/methods.rs\n M src/classroom/models.rs\n M src/classroom/scheduler.rs\n M src/cli.rs\n M src/evaluation/methods.rs\n M src/exam/methods.rs\n M src/exam/models.rs\n M src/homework/methods.rs\n M src/homework/models.rs\n M src/homework/routes.rs\n M src/lib.rs\n M src/main.rs\n M src/router.rs\n?? migration/src/m20261007_000033_asset_outbox_retry.rs\n?? migration/src/m20261018_000034_session_students.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? panel/src/features/classrooms/components/ClassroomStudentCapacity.tsx\n?? panel/src/features/classrooms/components/SessionStudentPicker.test.tsx\n?? panel/src/features/classrooms/components/SessionStudentPicker.tsx\n?? panel/src/features/classrooms/pages/ClassroomsPage.test.tsx\n?? shared/\n?? src/asset_economy.rs\n?? src/service_billing.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql\n?? tests/classroom_session_students_test.rs\n?? tests/classroom_student_counts_test.rs",
-      "selected_sdk_revision": "ae00cad8d3595c0df68c3b1b3d062762ca1d80d7",
+      "selected_sdk_revision": "0276d4a534979e131d07b02b79fd0ef18e1e1bab",
       "main_is_ancestor_of_selected_sdk": true,
       "seconds": 1.114
     },
@@ -155,7 +155,7 @@
       "origin_main": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0",
       "fetched_head": "96e944e6a43d0832a6485fc9ae10b9a3bd627bb0",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M README.md\n M entity/src/lib.rs\n M entity/src/profile.rs\n M migration/src/lib.rs\n M panel/src/app/layout/AppSidebar.tsx\n M panel/src/app/layout/PageHeader.tsx\n M panel/src/app/router.tsx\n M panel/src/features/profiles/pages/ProfileEditPage.tsx\n M panel/src/i18n/locales/en.json\n M panel/src/i18n/locales/fa.json\n M routes_export.yml\n M src/broker/handlers.rs\n M src/broker/mod.rs\n M src/custom_type/methods.rs\n M src/custom_type/routes.rs\n M src/handler.rs\n M src/lib.rs\n M src/profile/dynamic.rs\n M src/profile/filters.rs\n M src/profile/models.rs\n M src/profile/routes.rs\n M src/profile/transformers.rs\n M src/profile_property/validator.rs\n M src/profile_search/methods.rs\n M src/profile_search/planner.rs\n M src/profile_search/rebuild.rs\n M src/router.rs\n M src/session/routes.rs\n M src/trusted_service/methods.rs\n M tests/broker_integration.rs\n M tests/dynamic_filters_postgres.rs\n M tests/partial_search_postgres.rs\n?? deploy/\n?? docs/\n?? entity/src/summary_configuration.rs\n?? entity/src/summary_event.rs\n?? entity/src/summary_identity_quarantine.rs\n?? entity/src/summary_job.rs\n?? entity/src/summary_latest.rs\n?? entity/src/summary_membership.rs\n?? entity/src/summary_reconciliation.rs\n?? entity/src/summary_revision.rs\n?? entity/src/summary_run.rs\n?? entity/src/summary_settings.rs\n?? entity/src/summary_tool_audit.rs\n?? migration/src/m20260922_000017_fitness_coaching.rs\n?? migration/src/m20260922_000017_fitness_coaching.sql\n?? migration/src/m20261003_000018_restore_education.rs\n?? migration/src/m20261018_000020_index_substring_search.rs\n?? migration/src/m20261018_000020_index_substring_search.sql\n?? migration/src/m20261019_000021_role_summaries.rs\n?? migration/src/m20261019_000021_role_summaries.sql\n?? panel/src/features/ai-summaries/\n?? shared/\n?? src/ai_summary/\n?? src/economy_projection.rs\n?? src/education.rs\n?? src/fitness/\n?? tests/education_contract.rs\n?? tests/poulstar_configurations.rs\n?? tests/role_summaries.rs\n?? tests/run-role-summaries.sh\n?? tests/search_performance_postgres.rs\n?? tests/summary-browser-fixture.mjs\n?? tests/summary-services.compose.yml",
-      "selected_sdk_revision": "98279e8b9d1ce1eb7a89414277347c143b43b3e6",
+      "selected_sdk_revision": "2684cd83fd99b2ca7d6532651ae3210dcb2d7fa1",
       "main_is_ancestor_of_selected_sdk": true,
       "seconds": 1.071
     },
@@ -181,7 +181,7 @@
       "origin_main": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
       "fetched_head": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M src/broker.rs\n D src/integration/lms.rs\n M src/integration/mod.rs\n M src/likekit.rs\n M src/main.rs\n M src/room/asset_actions.rs\n M src/room/methods.rs\n M src/room/moderation.rs\n M src/room/routes.rs\n M src/router.rs\n M view/src/api.ts\n M view/src/main.tsx\n?? migration/src/m20261007_000021_asset_interactions.rs\n?? migration/src/m20261007_000022_asset_outbox_retry.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? shared/\n?? src/asset_economy.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql",
-      "selected_sdk_revision": "a91a5bea44ecfaf946e13dc7c662ccb74c468800",
+      "selected_sdk_revision": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5",
       "main_is_ancestor_of_selected_sdk": true,
       "seconds": 1.13
     },
@@ -220,7 +220,7 @@
       "origin_main": "63201e112a1e640cab8454b168bbefe52ebab7bc",
       "fetched_head": "63201e112a1e640cab8454b168bbefe52ebab7bc",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M migration/src/m20260927_000013_gift_capacity.rs\n M src/lib.rs\n M src/plans.rs\n M src/routes.rs\n M tests/product_plans.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? shared/\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql",
-      "selected_sdk_revision": "2f21a6fa5012d17e4b355369969b30d002bf3b6c",
+      "selected_sdk_revision": "9ae25618d5670275fe273dc867ea99c3965d9b70",
       "main_is_ancestor_of_selected_sdk": true,
       "seconds": 1.129
     },

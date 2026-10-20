@@ -13,11 +13,11 @@
     "src/drm.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "a91a5bea44ecfaf946e13dc7c662ccb74c468800",
+  "inventory_revision": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5",
   "source_decision": null,
   "relationship_review": null,
   "canonical_revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
-  "sdk_source_revision": "a91a5bea44ecfaf946e13dc7c662ccb74c468800",
+  "sdk_source_revision": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5",
   "working_revision": "edefa6463fe1877661cc62ef4752515262c71e00",
   "working_changes": [
     "M Cargo.lock",

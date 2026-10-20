@@ -1,0 +1,19 @@
+diff --git a/Dockerfile b/Dockerfile
+index 228b20e..593a06d 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -21,13 +21,13 @@ COPY --from=planner /usr/src/app/recipe.json recipe.json
+ RUN --mount=type=cache,id=infera-manage-cargo-registry,target=/usr/local/cargo/registry,sharing=locked \
+     --mount=type=cache,id=infera-manage-cargo-git,target=/usr/local/cargo/git,sharing=locked \
+     --mount=type=cache,id=infera-manage-cargo-target,target=/usr/src/app/target,sharing=locked \
+-    cargo chef cook --release --recipe-path recipe.json
++    cargo chef cook --release --locked --recipe-path recipe.json
+ COPY Cargo.toml Cargo.lock* ./
+ COPY src src
+ RUN --mount=type=cache,id=infera-manage-cargo-registry,target=/usr/local/cargo/registry,sharing=locked \
+     --mount=type=cache,id=infera-manage-cargo-git,target=/usr/local/cargo/git,sharing=locked \
+     --mount=type=cache,id=infera-manage-cargo-target,target=/usr/src/app/target,sharing=locked \
+-    cargo build --release && \
++    cargo build --release --locked && \
+     strip target/release/infera_manage && \
+     cp target/release/infera_manage /usr/local/bin/infera_manage

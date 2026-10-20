@@ -1,0 +1,35 @@
+diff --git a/Dockerfile b/Dockerfile
+index 3dea360..9328fea 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -1,5 +1,6 @@
+-# Rust deps cached via cargo-chef. panel/ is excluded from Rust COPY layers so
+-# frontend-only commits do not invalidate the cargo build step.
++# Build the real locked workspace directly; synthetic local crate version
++# masking breaks qualified vendored dependency references. Registry/git/target
++# caches remain available, and panel inputs stay outside Rust COPY layers.
+ FROM lukemathwalker/cargo-chef:0.1.73-rust-1.92.0 AS chef
+ ARG CARGO_REGISTRY=sparse+https://index.crates.io/
+ ENV CARGO_HTTP_TIMEOUT=120 \
+@@ -24,21 +25,7 @@ RUN set -e; \
+     fi
+ WORKDIR /usr/src/app
+ 
+-FROM chef AS planner
+-COPY Cargo.toml Cargo.lock* ./
+-COPY shared shared
+-COPY src src
+-COPY entity entity
+-COPY migration migration
+-RUN cargo chef prepare --recipe-path recipe.json
+-
+ FROM chef AS builder
+-COPY --from=planner /usr/src/app/recipe.json recipe.json
+-COPY shared shared
+-RUN --mount=type=cache,id=infera-crm-cargo-registry,target=/usr/local/cargo/registry,sharing=locked \
+-    --mount=type=cache,id=infera-crm-cargo-git,target=/usr/local/cargo/git,sharing=locked \
+-    --mount=type=cache,id=infera-crm-cargo-target,target=/usr/src/app/target,sharing=locked \
+-    cargo chef cook --release --locked --recipe-path recipe.json
+ COPY Cargo.toml Cargo.lock* ./
+ COPY shared shared
+ COPY src src

@@ -1,0 +1,60 @@
+diff --git a/Dockerfile b/Dockerfile
+index 7de826dd..6eb929a9 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -16,8 +16,8 @@ ENV VITE_API_BASE=$VITE_API_BASE \
+     VITE_IDP_URL=$VITE_IDP_URL
+ RUN npm run build
+ 
+-# Rust deps cached via cargo-chef: the cook layer is reused unless
+-# Cargo.toml/Cargo.lock change, so unchanged deps are not re-fetched.
++# Build the real locked workspace directly; retain registry/git/target caches
++# without synthetic version masking of local vendored dependencies.
+ FROM rust:1.88-bookworm AS chef
+ ARG CARGO_REGISTRY=
+ ENV CARGO_HTTP_TIMEOUT=120 CARGO_HTTP_LOW_SPEED_LIMIT=1 CARGO_HTTP_MULTIPLEXING=false CARGO_NET_RETRY=10
+@@ -34,34 +34,12 @@ RUN set -e; \
+       '[source.faiber-mirror]' \
+       "registry = \"$REG\"" \
+       > "$CARGO_HOME/config.toml"
+-RUN cargo install cargo-chef --locked
+ WORKDIR /app
+ # Clear project `.cargo/config.toml` rustc-wrapper=sccache (not installed in image).
+ ENV RUSTC_WRAPPER=
+ 
+-FROM chef AS planner
+-COPY Cargo.toml Cargo.lock* ./
+-# vendored crate referenced by [patch.crates-io] in the workspace Cargo.toml.
+-COPY vendor vendor
+-COPY domain domain
+-COPY worker_agent worker_agent
+-COPY ide_core ide_core
+-COPY code_pipeline code_pipeline
+-COPY faiber-agent-core faiber-agent-core
+-COPY shared shared
+-COPY src src
+-RUN cargo chef prepare --recipe-path recipe.json
+-
+ FROM chef AS builder
+-COPY shared shared
+-# vendored crate (patch path) must exist for cook + build.
+ COPY vendor vendor
+-COPY --from=planner /app/recipe.json recipe.json
+-RUN --mount=type=cache,id=infera-agentic-cargo-registry,target=/usr/local/cargo/registry,sharing=locked \
+-    --mount=type=cache,id=infera-agentic-cargo-git,target=/usr/local/cargo/git,sharing=locked \
+-    --mount=type=cache,id=infera-agentic-cargo-target,target=/app/target,sharing=locked \
+-    (cargo chef cook --offline --release --recipe-path recipe.json || \
+-      cargo chef cook --release --recipe-path recipe.json)
+ COPY Cargo.toml Cargo.lock* ./
+ COPY domain domain
+ COPY worker_agent worker_agent
+@@ -76,8 +54,8 @@ RUN --mount=type=cache,id=infera-agentic-cargo-registry,target=/usr/local/cargo/
+     # COPY preserves git mtimes, which can precede a binary in the shared target cache.
+     # Refresh workspace sources so a newer image can never reuse an older app binary.
+     find src domain worker_agent ide_core code_pipeline faiber-agent-core -type f -name '*.rs' -exec touch {} + && \
+-    (cargo build --offline --release -p infera_agentic || \
+-      cargo build --release -p infera_agentic) && \
++    (cargo build --offline --release --locked -p infera_agentic || \
++      cargo build --release --locked -p infera_agentic) && \
+     strip target/release/infera_agentic && \
+     cp target/release/infera_agentic /usr/local/bin/infera_agentic

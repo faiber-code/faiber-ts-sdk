@@ -13,11 +13,11 @@
     "src/policy.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "2f21a6fa5012d17e4b355369969b30d002bf3b6c",
+  "inventory_revision": "9ae25618d5670275fe273dc867ea99c3965d9b70",
   "source_decision": null,
   "relationship_review": null,
   "canonical_revision": "63201e112a1e640cab8454b168bbefe52ebab7bc",
-  "sdk_source_revision": "2f21a6fa5012d17e4b355369969b30d002bf3b6c",
+  "sdk_source_revision": "9ae25618d5670275fe273dc867ea99c3965d9b70",
   "working_revision": "afe576aac58ff0812635dedccfdcaed39519062a",
   "working_changes": [
     "M Cargo.lock",
