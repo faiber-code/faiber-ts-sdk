@@ -3586,7 +3586,9 @@
         "Service/infera-gis/migration/schema.sql"
       ],
       "meaning": "Independent tenant-scoped places, saved_places, place_reports, place_history and place_outbox; distinct from private gis_personal_places and geometry datasets. Canonical merge transfers saves and redirects linked aliases. Social linkage requires separate short-lived assertion. Social verifier/audience/key/expiry/current revocation behavior remains cross-service gate; do not treat caller as place owner from assertion label."
-    }
+    },
+    "cross_service_meaning_review": "evidence/gis-social-assertion-meaning-source-review-v1.json",
+    "cross_service_meaning": "owner_user_id binds Social post author and place reference, not GIS place ownership; actual cross-service runtime verification remains open."
   },
   "GET /api/v1/me/saves": {
     "status": "source_reviewed_runtime_pending",
