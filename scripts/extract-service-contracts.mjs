@@ -431,7 +431,7 @@ for (const service of services) {
       ? {path:"src/main.rs",function:"main",variable:"app"}
       : {path:"src/router.rs",function:"routes"};
     const graph=mountedRouterOperations(indexed,entry);
-    classifyReviewedProtocolAlternatives(graph,service);
+    classifyReviewedProtocolAlternatives(graph,service,indexed);
     if (graph.protocol_mounts.length) protocolMounts[service]=graph.protocol_mounts;
     const stateHealth = op => service==="state" && op.method==="GET" && op.path==="/health" &&
       op.inline_handler?.body.replace(/\s/g,"") === 'get(||async{Json(json!({"data":{"service":"infera-state","status":"healthy","transports":["websocket"],"rulesets":["kheradgah.v1"],"wasm":true}}))})';

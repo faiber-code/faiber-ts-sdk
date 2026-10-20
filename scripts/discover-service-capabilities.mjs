@@ -193,7 +193,7 @@ for(const [service,entry] of Object.entries(universe.services)) {
     ? {path:'src/router.rs',function:'application'}
     : extraRouterEntries[service]??(defaultRouter?.functions.some(fn=>fn.name==='routes')?{path:'src/router.rs',function:'routes'}:null);
   const mounted=routerEntry?mountedRouterOperations(files,routerEntry):null;
-  if(mounted)classifyReviewedProtocolAlternatives(mounted,service);
+  if(mounted)classifyReviewedProtocolAlternatives(mounted,service,files);
   const extracted=inventoryContracts[service]??[];
   const endpoints=mounted?mounted.operations.map(operation=>{
     const signature=extracted.find(x=>x.method===operation.method&&x.path===operation.path)
