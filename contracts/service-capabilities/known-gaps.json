@@ -738,13 +738,23 @@
       "id": "gis-import-current-principal-and-durable-fencing",
       "owner": "gis",
       "required": true,
-      "status": "source_defects_open",
+      "status": "local_source_candidate_native_and_canonical_verification_pending",
       "meaning": "Worker synthesizes dataset/global management permissions rather than validating current owner grants. Persistent claims lack lease tokens/heartbeats/fenced completion; create active-count/dataset/job writes and retry state transition are not atomic. Bound partial-write retry and explicit revocation behavior must be implemented and tested on real PostGIS before completion.",
       "source_refs": [
         "Service/infera-gis/src/imports/mod.rs",
         "evidence/gis-maps-imports-places-source-review-v1.json"
       ],
-      "test_evidence": []
+      "test_evidence": [],
+      "local_source_revision": "cdc56ce011ce37a5ed6ef00cc9a08bcbe999981b",
+      "local_worktree": ".task-worktrees/gis-import-current-authority-20261020/infera-gis",
+      "local_candidate_changes": "Current per-organization issuer-bound owner grants; atomic quota/dataset/job creation and retry; UUID/expiry fenced claims; all geometry/history/outbox/map/completion in one transaction; final current-authority and lease checks; explicit legacy reconciliation. No current native proof: pinned crate downloads unavailable.",
+      "local_test_evidence": [],
+      "remaining_gates": [
+        "Locked native compilation and real PostGIS migration/rollback/revocation/stale-worker/quota regressions",
+        "Composed IDP confidential-client/current-grants positive and negative integration",
+        "Full48-operation typed packaged SDK and readable Manage workflows",
+        "Canonical/deployed source and old-worker quiescence/reconciliation/rollback"
+      ]
     },
     {
       "id": "profile-trusted-ingestion-canonical-identity",
