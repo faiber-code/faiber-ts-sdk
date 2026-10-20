@@ -85,3 +85,13 @@ Use `api.delivery.events()` to initialize a cursor **before** loading `api.myInb
 `api.delivery.unreadCount()` is the authoritative notification count, independent of chat unread messages. `registerDevice({application_id,installation_id,platform,token,locale})` registers an authenticated Android/iOS installation; reuse the installation UUID when tokens change and revoke before logout. Device tokens are encrypted and transient provider failures have independent durable retries. Background/closed clients require configured OS/Web Push and permission; sockets and polling cannot run in a terminated application. Reconcile after account change, reconnect and resume.
 
 Canonical Web Push operations expose configuration, encrypted subscription registration/removal, test delivery and delivery status. Request permission from a user action. Semantic destinations resolve through approved local client routes; provider acceptance does not prove display or reading. All new delivery operations require `notification:self:read` and derive the recipient from authentication, never an arbitrary recipient parameter.
+
+## Recipient delivery contract candidate
+
+`myInboxPage({"page[number]":2,"page[size]":30},options)` uses native bracket pagination. Default size is20; the native service clamps it to1..100. `myInbox(options)` remains compatible and now accepts an explicit typed `params` member through `InboxRequestOptions`.
+
+Inbox items always include nullable title/body/path/destination/work-item/event fields. `description` is recipient message copy. The updated stream DTO carries the same recipient projection plus `deleted`; malformed historical IDs/timestamps can be null. Provider diagnostics, raw recipient/service routing, raw params and provider options are excluded. Destination retains native dynamic JSON and needs recognized-shape validation before navigation.
+
+Durable long-poll and socket payloads include `cursor` and `event_id`; the legacy socket base projection does not establish a durable cursor. Initialize the cursor, read the snapshot, then resume;410 requires resynchronization. Self-read permissions use the actual IDP `message` namespace and remain recipient-bound.
+
+These updated types target the recipient-projection backend candidate. Its exact source adoption and freshly packed SDK/native tests remain release gates; this source change is not a publication or deployed compatibility certificate.

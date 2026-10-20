@@ -3,6 +3,8 @@ import { RestResource, ServiceApi, type Identifier, type RequestOptions } from "
 import type * as T from "./types.js";
 import type * as O from "./operations.types.js";
 import { MessengerOperations } from "./operations.js";
+/** Explicit inbox pagination options; generic RequestOptions deliberately omit query parameters. */
+export type InboxRequestOptions = RequestOptions & { params?: O.NotificationNotificationsMyInboxGetQuery };
 export class MessengerApi extends ServiceApi {
     readonly delivery = new MessengerDeliveryApi(this.client);
     readonly operations = new MessengerOperations(this.client);
@@ -19,7 +21,9 @@ export class MessengerApi extends ServiceApi {
     markNotificationRead(id: Identifier, params?: O.NotificationNotificationsMarkReadPatchQuery, options?: RequestOptions) { return this.operations.notificationNotificationsMarkReadPatch(id, params, options); }
     markAllNotificationsRead(params?: O.NotificationNotificationsMarkAllReadPatchQuery, options?: RequestOptions) { return this.operations.notificationNotificationsMarkAllReadPatch(params, options); }
     /** Lists only the authenticated recipient's notifications. */
-    myInbox(options?: RequestOptions) { return this.client.get<T.InboxResponse>("/api/v1/notifications/me", undefined, options); }
+    myInbox(options?: InboxRequestOptions) { return this.client.get<T.InboxResponse>("/api/v1/notifications/me", options?.params, options); }
+    /** Page the current recipient inbox with native bracket keys; default page1/size20, size clamp1..100. */
+    myInboxPage(params?: O.NotificationNotificationsMyInboxGetQuery, options?: RequestOptions) { return this.client.get<T.InboxResponse>("/api/v1/notifications/me", params, options); }
     /** Marks one owned notification as read, with recipient derived by Messenger. */
     markMyNotificationRead(id: Identifier, options?: RequestOptions) { return this.client.patch<T.InboxItemResponse>(`/api/v1/notifications/me/${encodeURIComponent(id)}/read`, undefined, options); }
     markMyInboxRead(options?: RequestOptions) { return this.client.patch<T.InboxReadAllResponse>("/api/v1/notifications/me/read-all", undefined, options); }

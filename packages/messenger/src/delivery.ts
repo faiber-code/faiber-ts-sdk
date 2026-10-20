@@ -1,9 +1,16 @@
 import { ServiceApi, type RequestOptions, type QueryParams } from '@faiber/sdk-core';
-import type { ApiEnvelope } from '@faiber/sdk-core';
+import type { ApiEnvelope, JsonValue } from '@faiber/sdk-core';
 export interface NotificationDestinationContext { classroom_id?:string;room_id?:string;session_id?:string;exam_id?:string;assignment_id?:string;conversation_id?:string;message_id?:string;name?:string;starts_at?:string;due_at?:string;teacher_user_id?:string;teacher_led?:boolean }
 export interface NotificationDestination {kind:string;entity_id?:string;request_id?:string;work_item_id?:string|null;context?:NotificationDestinationContext}
-export interface InboxStreamNotification {id:number;recipient:string;service_name:string;read_at:string|null;deleted_at:string|null;params:{title?:string;body?:string;event?:string}|null;options:{application_id?:string;destination?:NotificationDestination;path?:string;expires_at?:string}|null;created_at:string;updated_at:string}
-export interface InboxStreamPayload {type:'notification.upserted';notification:InboxStreamNotification}
+/** Recipient-safe projection of a historical event. Malformed raw IDs/timestamps remain null.
+ * Provider diagnostics, routing recipients, params and options are never public fields.
+ * destination retains native dynamic JSON; validate a recognized destination before navigation.
+ */
+export interface InboxStreamNotification {id:number|null;title:string|null;description:string|null;path:string|null;destination:JsonValue;work_item_id:string|null;event:string|null;read:boolean;created_at:string|null;deleted:boolean}
+/** Legacy push-channel projection has no durable cursor. */
+export interface RecipientNotificationPayload {type:'notification.upserted';notification:InboxStreamNotification}
+/** Committed long-poll/durable socket payload; event ID identifies recipient and sequence. */
+export interface InboxStreamPayload extends RecipientNotificationPayload {cursor:number;event_id:string}
 export interface InboxStreamEvent {sequence:number;notification_id:number;payload:InboxStreamPayload}
 export interface InboxStreamPage {events:InboxStreamEvent[];cursor:number;has_more:boolean}
 export interface InboxStreamQuery extends QueryParams {cursor?:number;wait_seconds?:number}
@@ -11,7 +18,7 @@ export interface NotificationUnreadCount {unread_count:number}
 export interface PushDeviceInput {application_id:string;installation_id:string;platform:'android'|'ios';token:string;locale:string}
 export interface PushDevice {id:string}
 export interface PushDeviceRevocation {revoked:boolean}
-/** Self-scoped notification delivery. All operations require notification:self:read. */
+/** Self-scoped inbox delivery requires the current self-read permission in the native message namespace (legacy notification:self:read forwarded alias). Device operations retain their own native policy. */
 export class MessengerDeliveryApi extends ServiceApi {
  /** Initialize cursor, then load the inbox snapshot, then resume from that cursor. A 410 requires resynchronization. Default timeout is 35 seconds for the server's 25-second wait; AbortSignal cancels normally. */
  events(query?:InboxStreamQuery,options?:RequestOptions){return this.client.get<ApiEnvelope<InboxStreamPage>>('/api/v1/notifications/me/events',query,{timeout:35000,...options});}

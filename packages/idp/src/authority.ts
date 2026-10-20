@@ -43,7 +43,7 @@ export class IdpRoleFilterError extends Error {
 export class IdpAuthorityApi extends ServiceApi {
   /** Read current scoped grants with BOTH idp:user:read and idp:acl:read.
    * @param userId Native subject UUID, independently authorized by IDP.
-   * @param query Canonical lowercase service identifier, maximum 64 characters.
+   * @param query Stored lowercase IDP permission namespace, maximum64 characters (for example message for Messenger); do not infer it from a package alias.
    * @param options Cancellation, timeout, request IDs and authentication options.
    * @returns Complete Axios response, including no-store headers and current observation time.
    * @throws AxiosError on invalid input, denied access, unknown user or unavailable/oversized snapshot.

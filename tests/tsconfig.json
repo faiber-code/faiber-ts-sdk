@@ -15,6 +15,7 @@
     "payment-wire.types.ts",
     "summary-branding-wire.types.ts",
     "idp-authority.types.ts",
-    "gis-wire.types.ts"
+    "gis-wire.types.ts",
+    "messenger-recipient-wire.types.ts"
   ]
 }

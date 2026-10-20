@@ -25,6 +25,7 @@ Typed, framework-neutral clients for the public Faiber service platform. Install
 | `@faiber/faiber-state-sdk` | Game worlds, rooms, authoritative state, realtime replication, prediction and server-side simulation |
 | `@faiber/faiber-drm` | Audio/video folders, tags, search, uploads, metadata and signed playback |
 | `@faiber/faiber-task` | Projects, work items, sprints, scoped grants, agent proposals and delivery reports |
+| `@faiber/faiber-gis` | Candidate typed datasets, geometry, maps, private places, imports and catalog moderation; native acceptance remains gated |
 | `@faiber/faiber-manage` | Project-scoped service proxy origins and governed Manage Agent interactions |
 | `@faiber/faiber-game-sdk` | Portable TypeScript/WebAssembly ECS, adaptive 2D/3D rendering and cross-platform game runtime |
 | `@faiber/faiber-ts-sdk` | One facade containing every package above |

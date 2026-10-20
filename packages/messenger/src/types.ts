@@ -1,4 +1,4 @@
-import type { ApiEnvelope, JsonObject, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
+import type { ApiEnvelope, JsonObject, JsonValue, ResourceListResponse, ResourceResponse } from "@faiber/sdk-core";
 export interface MessageTemplate extends JsonObject {
     id: string;
     name: string;
@@ -85,7 +85,8 @@ export interface NotificationListResponse extends ResourceListResponse<Notificat
 }
 export interface NotificationResponse extends ResourceResponse<Notification> {
 }
-export interface InboxItem { destination?:import('./delivery.js').NotificationDestination|null; id: number; title?: string | null; description: string | null; path?: string | null; work_item_id?: string | null; event?: string | null; read: boolean; created_at: string }
+/** Recipient copy only; description is the message body, never a delivery diagnostic. */
+export interface InboxItem { destination:JsonValue; id:number; title:string|null; description:string|null; path:string|null; work_item_id:string|null; event:string|null; read:boolean; created_at:string }
 export interface InboxResponse extends ApiEnvelope<{ data: InboxItem[]; meta: { page: number; page_size: number; total_items: number; total_pages: number } }> {}
 export interface InboxItemResponse extends ApiEnvelope<InboxItem> {}
 export interface InboxReadAllResponse extends ApiEnvelope<{ updated: number }> {}
