@@ -5,14 +5,14 @@
   "scope": "business",
   "purpose": {
     "en": "Canonical identity, credentials, sessions, federation, roles, permissions and gateway authorization.",
-    "fa": "هویت مرجع، اطلاعات ورود، نشست، اتصال هویت، نقش، مجوز و احراز دسترسی."
+    "fa": "\u0647\u0648\u06cc\u062a \u0645\u0631\u062c\u0639\u060c \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0648\u0631\u0648\u062f\u060c \u0646\u0634\u0633\u062a\u060c \u0627\u062a\u0635\u0627\u0644 \u0647\u0648\u06cc\u062a\u060c \u0646\u0642\u0634\u060c \u0645\u062c\u0648\u0632 \u0648 \u0627\u062d\u0631\u0627\u0632 \u062f\u0633\u062a\u0631\u0633\u06cc."
   },
   "sources": [
     "README.md",
     "src/router.rs"
   ],
   "canonical_revision": "8a841a96c6d03fba9f7baa9e5eb2cc14f0e9747d",
-  "sdk_source_revision": "790372852714ae0f97395e27eafe6ca5748d1fcb",
+  "sdk_source_revision": "41635c7d3d03d88f1ddeef9b993e6bd722906354",
   "working_revision": "9965e90a81fa3c4844a00e710d8d31b20527fede",
   "working_changes": [
     "M entity/config/acl/crm_service.yaml",

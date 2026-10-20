@@ -21,7 +21,7 @@
   },
   "idp": {
     "directory": "infera-idp",
-    "revision": "790372852714ae0f97395e27eafe6ca5748d1fcb"
+    "revision": "41635c7d3d03d88f1ddeef9b993e6bd722906354"
   },
   "knowledge": {
     "directory": "infera-knowledge",
