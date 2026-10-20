@@ -25,6 +25,7 @@
       "@faiber/faiber-manage": ["packages/manage/src/index.ts"],
       "@faiber/faiber-social": ["packages/social/src/index.ts"],
       "@faiber/faiber-state-sdk": ["packages/state/src/index.ts"],
+      "@faiber/faiber-gis": ["packages/gis/src/index.ts"],
       "@faiber/faiber-game-sdk": ["packages/game/src/index.ts"]
     }
   }

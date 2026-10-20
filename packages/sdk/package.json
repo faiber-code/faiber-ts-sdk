@@ -36,6 +36,7 @@
     "@faiber/faiber-state-sdk": "1.0.0",
     "@faiber/faiber-task": "1.0.0",
     "@faiber/faiber-version": "1.0.0",
-    "@faiber/sdk-core": "1.0.0"
+    "@faiber/sdk-core": "1.0.0",
+    "@faiber/faiber-gis": "1.0.0"
   }
 }

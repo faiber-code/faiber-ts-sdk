@@ -700,8 +700,8 @@
       "id": "active-gis-service-discovery-sdk-manage",
       "owner": "discovery",
       "required": true,
-      "status": "all48_source_reviewed_runtime_sdk_manage_pending",
-      "meaning": "GIS is active and its48 mounted operations now have manually source-checksum-bound permission, filter, wire, lifecycle and relationship reviews. None is runtime-certified. GIS remains absent from the SDK source lock/package; current IDP, PostGIS/Martin, import authorization/recovery, Social assertion, deployed-source and readable Manage gates remain open.",
+      "status": "all48_source_reviewed_typed_sdk_candidate_native_and_manage_pending",
+      "meaning": "GIS is active. Its48 operations have source-reviewed permission/filter/wire/lifecycle/relationship meaning and a candidate typed package selected at0bc8423, including binary tiles, revisioned publication, imports, moderation and private places. Compilation/type/transport unit tests are not native certification. Current IDP, PostGIS/Martin, durable import recovery, Social assertion, canonical/deployed source and readable Manage gates remain open.",
       "source_refs": [
         "Service/infera-gis/src/router.rs",
         "Service/infera-gis/src/auth.rs",
@@ -745,7 +745,7 @@
         "evidence/gis-maps-imports-places-source-review-v1.json"
       ],
       "test_evidence": [],
-      "local_source_revision": "cdc56ce011ce37a5ed6ef00cc9a08bcbe999981b",
+      "local_source_revision": "0bc8423a51887450b928e7b372153014cd47e582",
       "local_worktree": ".task-worktrees/gis-import-current-authority-20261020/infera-gis",
       "local_candidate_changes": "Current per-organization issuer-bound owner grants; atomic quota/dataset/job creation and retry; UUID/expiry fenced claims; all geometry/history/outbox/map/completion in one transaction; final current-authority and lease checks; explicit legacy reconciliation. No current native proof: pinned crate downloads unavailable.",
       "local_test_evidence": [],
@@ -790,8 +790,8 @@
       "id": "idp-current-authority-sdk-candidate-adoption",
       "owner": "sdk",
       "required": true,
-      "status": "typed_sdk_local_transport_tests_native_packaged_consumer_pending",
-      "meaning": "Current grants and active-role lookup APIs now have typed SDK helpers with native role-filter acknowledgement and returned membership checks. Backend a7a11df passed actual full migrated HTTP authority/12k-account filtering and production gates; SDK type/build/transport unit tests pass. Actual freshly packed SDK against that native endpoint, source-pin/generator reconciliation and canonical deployed adoption remain required. No full-scan fallback or release claim.",
+      "status": "typed_packaged_sdk_native_passed_source_pin_and_canonical_adoption_pending",
+      "meaning": "Current grant and confirmed active-role helpers passed real freshly packed SDK tests against full migrated composed IDP95fedbb with12000 unrelated accounts. Same client observed a database grant revocation. Source pin/generator reconciliation, remaining composed IDP native tests and canonical deployed adoption remain required; no full-directory fallback or release claim.",
       "local_backend_revision": "a7a11df971e4c27300c45ca7dcc2cf9a742f16d7",
       "source_refs": [
         "packages/idp/src/authority.ts",
@@ -800,7 +800,8 @@
         "tests/idp-authority.test.mjs",
         "tests/idp-authority.types.ts"
       ],
-      "test_evidence": []
+      "test_evidence": [],
+      "local_native_receipt": "acceptance-results/three-feature-completion-20261019/idp-packed-sdk-native-v1/receipt.json"
     }
   ]
 }

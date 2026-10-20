@@ -1,3 +1,4 @@
+import { GisApi } from "@faiber/faiber-gis";
 import { FaiberClient, OpenApiClient, type FaiberSdkConfig, type OpenApiPaths, type ServiceName } from "@faiber/sdk-core";
 import { AssetApi } from "@faiber/faiber-asset";
 import { CrmApi } from "@faiber/faiber-crm";
@@ -39,6 +40,7 @@ export interface FaiberServiceApis {
     state: StateApi;
     drm: DrmApi;
     task: TaskApi;
+    gis: GisApi;
 }
 export class FaiberSDK {
     /** Machine-readable catalog for IDEs and AI agents choosing a Faiber capability. */
@@ -87,6 +89,7 @@ export class FaiberSDK {
     get state(): StateApi { return this.api("state", (client) => new StateApi(client)); }
     get drm(): DrmApi { return this.api("drm", (client) => new DrmApi(client)); }
     get task(): TaskApi { return this.api("task", (client) => new TaskApi(client)); }
+    get gis(): GisApi { return this.api("gis", (client) => new GisApi(client)); }
     /** Explains one service or returns the complete service catalog. */
     describe(service?: ServiceName) { return describeFaiber(service); }
 }
@@ -129,3 +132,6 @@ export * as DrmService from "@faiber/faiber-drm";
 export * as TaskService from "@faiber/faiber-task";
 
 export { ProfileSummariesApi } from "@faiber/faiber-profile";
+
+export { GisApi };
+export * as GisService from "@faiber/faiber-gis";

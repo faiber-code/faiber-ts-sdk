@@ -70,5 +70,9 @@
   "version": {
     "directory": "infera_version",
     "revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e"
+  },
+  "gis": {
+    "directory": "infera-gis",
+    "revision": "0bc8423a51887450b928e7b372153014cd47e582"
   }
 }

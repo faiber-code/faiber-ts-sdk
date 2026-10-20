@@ -16,7 +16,7 @@ const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async 
 })();
 const servicesRoot = resolve(serviceSources(sdkRoot, discoveredServicesRoot));
 const services = [
-  "asset", "chat", "crm", "drm", "flow", "idp", "knowledge", "lms", "messenger",
+  "asset", "chat", "crm", "drm", "flow", "gis", "idp", "knowledge", "lms", "messenger",
   "modules", "payment", "profile", "reservation", "session", "social", "state", "task", "version",
 ];
 const serviceDirectories = { version: "infera_version" };
