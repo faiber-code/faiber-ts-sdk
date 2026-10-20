@@ -91,12 +91,13 @@ Discovery uses `/.well-known/openid-configuration`; authorization, token, user-i
 
 ### Current grants and active role membership
 
-`idp.authority.currentPermissions(userId, { service })` reads current grants from that IDP. It requires both `idp:user:read` and `idp:acl:read`; its revision and observation time do not grant resource access or justify caching permissions. The consuming service must still enforce ownership and current permissions.
+`api.authority.currentPermissions(userId, { service })` reads current grants from that IDP. It requires both `idp:user:read` and `idp:acl:read`; its revision and observation time do not grant resource access or justify caching permissions. The consuming service must still enforce ownership and current permissions.
 
-`idp.authority.activeRoleUsers({ role_name, page, per_page })` requires `idp:user:read` and always requests enabled accounts with current active membership in the exact, case-sensitive native role name. Optional `role_id` must identify the same role. It preserves the full Axios response and supports `AbortSignal`, timeouts and normal authentication options.
+`api.authority.activeRoleUsers({ role_name, page, per_page })` requires `idp:user:read` and always requests enabled accounts with current active membership in the exact, case-sensitive native role name. Optional `role_id` must identify the same role. It preserves the full Axios response and supports `AbortSignal`, timeouts and normal authentication options.
 
 ```ts
-const response = await idp.authority.activeRoleUsers(
+const controller = new AbortController();
+const response = await api.authority.activeRoleUsers(
   { role_name: 'reviewer', page: 1, per_page: 25 },
   { signal: controller.signal },
 );
