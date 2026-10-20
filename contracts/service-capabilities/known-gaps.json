@@ -493,15 +493,14 @@
       "status": "source_review_requires_runtime_and_deployment_reconciliation",
       "implementation_phase": "memory_after_sdk_manage",
       "canonical_source_revision": "d495217f85d77270865a040c1328d70c620e6c9d",
-      "meaning": "Tracked canonical Chat inserts chat_outbox_events but repository-wide trace found no dispatcher/claimant/published_at update. Memory event insertion follows assistant-message commit and direct Knowledge request outside that transaction; crash windows can lose durable delivery. Startup memory_settlement handles quota receipts, not this event table. Reconcile any external CDC consumer and implement atomic source-event delivery, fenced reclaimable dispatch and receipt/replay/correction tests before migration. Dirty summary outbox changes are separate preserved work.",
+      "meaning": "The selected SDK Chat7de candidate includes a reclaimed outbox relay, so the older no-dispatcher observation does not describe this selected source. Memory-event insertion still occurs after assistant-message commit/directHTTP outside their transaction. It uses assistant-message.id as aggregate_id while the generic relay looks up conversation.id, then projects non-message payloads into read-receipt-like fields rather than the full memory envelope. Selected Knowledgebroker has no Chatmemoryevent binding/consumer. Prove atomic source events, correct full envelope/routing, fenced dispatch, durable admission receipts and replay/correction/forget handling before migration; actual deployed source is a separate gate.",
       "source_refs": [
-        "Service/infera-chat/src/service.rs:1216",
-        "Service/infera-chat/src/service.rs:1325",
-        "Service/infera-chat/src/service.rs:1948",
-        "Service/infera-chat/src/main.rs:31",
-        "Service/infera-chat/src/memory_settlement.rs",
-        "Service/infera-chat/entity/src/outbox_event.rs"
-      ]
+        "Service/infera-chat/src/service.rs:1985",
+        "Service/infera-chat/src/outbox_relay.rs",
+        "Service/infera-chat/src/agentic.rs::record_assistant_memory",
+        "Service/infera-knowledge/src/broker.rs"
+      ],
+      "source_revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a"
     },
     {
       "id": "manage-production-signing-secret",
@@ -843,6 +842,22 @@
         "Service/infera-knowledge/src/platform.rs::sync_source",
         "Service/infera-knowledge/src/platform.rs::reprocess_document",
         "Service/infera-knowledge/src/platform.rs::spawn_memory_worker"
+      ]
+    },
+    {
+      "id": "knowledge-current-native-authority",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_gateway_runtime_verification",
+      "source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
+      "reviewed_candidate_revision": "0e2fe686575dc2f59edfa150b2d4846eaed8988c",
+      "meaning": "Knowledge main uses the resolved b8c83eb IDP SDK header extractor, not a native validation request; organization is caller header and compiled dev fallback can read AUTH_* env independently of DEV. Control60b source does strip sandbox identity headers and apply IDPForwardAuth conditionally. Verify actual current gateway/header/network/tenant bindings and delegated service context or implement explicit bounded native current-authority checks. Trusted-header editor/ingestion tests and source-level gateway design do not certify current permissions or isolation; this review makes no deployed-ingress vulnerability claim.",
+      "source_refs": [
+        "Service/infera-knowledge/src/main.rs",
+        "Service/infera-knowledge/src/context.rs",
+        "Service/infera-knowledge/Cargo.toml",
+        "faiber-sdk@b8c83ebfc54cbc7ae4deba5237d8f63a916177d4/crates/infera-idp-sdk/src/middleware.rs",
+        "Service/infera-control/crates/faiber-core/src/ops/workloads.rs"
       ]
     }
   ]
