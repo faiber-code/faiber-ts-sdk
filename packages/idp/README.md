@@ -42,7 +42,7 @@ This package exposes 107 registered operations from the identity and access serv
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `acl` | 11 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `acl` | 10 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `auth` | 27 | `DELETE`, `GET`, `OPTIONS`, `POST` |
 | `custom-oauth` | 8 | `DELETE`, `GET`, `POST`, `PUT` |
 | `identity-authority` | 10 | `GET`, `POST`, `PUT` |
