@@ -53,10 +53,17 @@ const unchanged=await call('platformIngestDocumentPost',documentInput);eq(status
 const documents=await call('platformListDocumentsGet');const document=documents.find(x=>x.id===indexed.id);assert.ok(document);assertions++;eq(document.checksum,undefined);eq(document.metadata,undefined);eq(document.source_id,null);assert.ok(document.indexed_at);assertions++;
 eq((await sdk.knowledge.ingestDocument(documentInput)).data.data.status,'unchanged');
 const corrected=await call('platformIngestDocumentPost',{...documentInput,title:'Corrected title',provenance:{source_revision:'owned-correction'}});eq(statuses.get('platformIngestDocumentPost'),201);eq(corrected.id,indexed.id);
-const correctedList=await call('platformListDocumentsGet');eq(correctedList.find(x=>x.id===indexed.id).title,'Corrected title');
+const correctedList=await call('platformListDocumentsGet');eq(correctedList.find(x=>x.id===indexed.id).title,'Corrected title');eq(correctedList.find(x=>x.id===indexed.id).provenance,{source_revision:'owned-correction'});
 const parallelInput={...documentInput,external_id:'parallel-'+randomUUID()};
 const parallel=await Promise.all([1,2,3].map(()=>api.platformIngestDocumentPost(parallelInput)));eq(parallel.map(x=>x.status).sort(),[200,200,201]);eq(new Set(parallel.map(x=>x.data.data.id)).size,1);
 
+await denied(404,()=>api.platformIngestDocumentPost(documentInput,{headers:{'x-organization-id':randomUUID()}}));
+await denied(400,()=>api.platformIngestDocumentPost({...documentInput,source_id:randomUUID()}));
+await denied(500,()=>api.platformIngestDocumentPost({...documentInput,external_id:'fault-'+randomUUID(),title:'owned-job-fault'}));
+const afterFault=await call('platformListDocumentsGet');eq(afterFault.some(x=>x.title==='owned-job-fault'),false);
+const auditFault=await call('platformIngestDocumentPost',{...documentInput,external_id:'audit-fault-'+randomUUID(),title:'owned-audit-fault'});
+await denied(500,()=>api.platformReprocessDocumentPost(auditFault.id));
+const faultJobs=await api.platformProcessingJobsGet();covered.add('platformProcessingJobsGet');eq(faultJobs.data.data.some(x=>x.document_id===auditFault.id&&x.job_type==='document_reprocess'),false);
 const reprocess=await call('platformReprocessDocumentPost',indexed.id);eq(statuses.get('platformReprocessDocumentPost'),202);
 const replay=await call('platformReprocessDocumentPost',indexed.id);eq(replay.job_id,reprocess.job_id);
 const jobs=await sdk.knowledge.processingJobs();assert.ok(jobs.data.data.some(x=>x.id===reprocess.job_id));assertions++;
@@ -71,5 +78,5 @@ eq((await call('routesUpdateActionStatusPatch',actions[0].id,{status:'completed'
 await denied(400,()=>api.routesUpdateActionStatusPatch(actions[0].id,{status:'invalid'}));
 assert.ok((await call('routesListAuditGet',{limit:200})).length>0);assertions++;
 await call('routesDeleteBaseDelete',base.id);await denied(404,()=>api.routesGetBaseGet(base.id));
-eq(covered.size,36);
+eq(covered.size,37);
 console.log(JSON.stringify({status:'passed',assertions,covered_exports:[...covered].sort(),boundary:'actual_packed_typescript_sdk_http_postgresql',identity_limit:'explicit trusted fixture headers, not current IDP/gateway authentication'}));
