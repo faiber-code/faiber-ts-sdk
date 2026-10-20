@@ -24,8 +24,8 @@ export interface CreateRuleInput extends JsonObject { knowledge_base_id: string;
 export interface UpdateRuleInput extends JsonObject { group_id?: string | null; name?: JsonValue; priority?: number | null; conditions?: JsonValue; outcomes?: JsonValue; stop_on_match?: boolean | null; enabled?: boolean | null; expected_version?: number | null; }
 export interface RuntimeQueryInput extends JsonObject { query?: string; profile_id?: string; profile?: JsonValue; props?: JsonValue; meta?: JsonValue; inputs?: JsonValue; group_slugs?: JsonValue; level?: number | null; limit?: number | null; compact?: boolean; max_context_chars?: number | null; event?: JsonValue; }
 export interface RuntimeResult extends JsonObject { chat_slug: string; release: JsonValue; knowledge: JsonValue[]; suggestions: JsonValue[]; matched_rules: JsonValue[]; notifications: JsonValue[]; warnings: JsonValue[]; todos: JsonValue[]; input_requests: JsonValue[]; directions: JsonValue[]; trace: JsonValue; }
-export interface MemorySubjectQuery extends QueryParams { assistant_id?: string; q?: string; memory_type?: "short" | "long"; page?: number; limit?: number; }
-export interface MemoryOverrideInput extends JsonObject { short_memory_enabled?: boolean; long_memory_enabled?: boolean; }
+export interface MemorySubjectQuery extends QueryParams { enabled?:boolean; status?:"active"|"disabled"|"forgotten"; assistant_id?: string; q?: string; memory_type?: "short" | "long"; page?: number; limit?: number; }
+export interface MemoryOverrideInput extends JsonObject { expected_revision:string; short_memory_enabled?: boolean|null; long_memory_enabled?: boolean|null; reason?:string|null; }
 export interface ActionStatusInput extends JsonObject { status: KnowledgeActionStatus; input?: JsonValue; }
 export type KnowledgeBaseResponse = ApiEnvelope<KnowledgeBase>;
 export interface KnowledgeBaseListResponse extends ApiEnvelope<KnowledgeBase[]> { meta: KnowledgePaginationMeta; }
@@ -186,3 +186,28 @@ export interface KnowledgeRuleListQuery extends QueryParams {
   limit?: number;
 }
 export interface KnowledgePaginationMeta { total: number; page: number; limit: number; }
+
+// Canonical v1 management successor. These draft types require the matching
+// backend/source-pin gate before package promotion.
+export interface MemorySubjectPolicy extends JsonObject {short_memory_enabled:boolean|null;long_memory_enabled:boolean|null;status:string|null;policy_revision:number|null;override_widening_allowed:boolean|null;}
+export interface MemorySubjectOverrides extends JsonObject {short_memory_enabled:boolean|null;long_memory_enabled:boolean|null;revision:number;}
+export interface MemorySubjectCapabilities extends JsonObject {set_policy:boolean;forget:boolean;correct:boolean;}
+export interface MemorySubject extends JsonObject {id:string;assistant_id:string;assistant_name:string|null;user_id:string;profile_id:string|null;profile:JsonObject;status:"active"|"disabled"|"forgotten";short_memory_enabled:boolean;long_memory_enabled:boolean;short_memory_count:number;long_memory_count:number;last_seen_at:string|null;profile_refreshed_at:string|null;policy:MemorySubjectPolicy;overrides:MemorySubjectOverrides;expected_revision:string;scope_epochs:{short:number;long:number};capabilities:MemorySubjectCapabilities;}
+export type MemorySubjectResponse=ApiEnvelope<MemorySubject>;
+export interface MemorySubjectListResponse extends ApiEnvelope<MemorySubject[]>{meta:KnowledgePaginationMeta;}
+export interface MemoryRecordQuery extends QueryParams {page?:number;limit?:number;memory_type?:"short"|"long";status?:"all"|"active"|"superseded"|"contradicted"|"forgotten"|"expired";}
+export interface MemoryEvidence extends JsonObject {id:string;source_kind:"conversation_turn"|"user_correction";source_event_id:string;conversation_id:string;message_id:string|null;source_order:"unverified";observed_at:string;}
+export interface MemoryRecord extends JsonObject {id:string;subject_id:string;memory_type:"short"|"long";kind:string;fact_type:string|null;identity_cardinality:"singleton"|"independent"|null;status:"active"|"superseded"|"contradicted"|"forgotten"|"expired";redacted:boolean;content:string|null;content_truncated:boolean;fact_key:string|null;fact_value:JsonValue;fact_value_truncated:boolean;confidence:number|null;extraction_version:string|null;created_at:string;updated_at:string;expires_at:string|null;forgotten_at:string|null;superseded_by:string|null;contradicted_by:string|null;provenance:MemoryEvidence[];}
+export type MemoryRecordResponse=ApiEnvelope<MemoryRecord>;
+export interface MemoryRecordListResponse extends ApiEnvelope<MemoryRecord[]>{meta:KnowledgePaginationMeta&{expected_revision:string};}
+export interface MemoryAuditQuery extends QueryParams {page?:number;limit?:number;}
+export interface MemoryAuditEntry extends JsonObject {id:string;action:string;entity_type:string;entity_id:string|null;actor_user_id:string|null;created_at:string;}
+export interface MemoryAuditListResponse extends ApiEnvelope<MemoryAuditEntry[]>{meta:KnowledgePaginationMeta;}
+export interface MemoryCorrectionInput extends JsonObject {correction_id:string;expected_memory_ids:string[];user_statement:string;reason:string;}
+export interface MemoryCorrectionReceipt extends JsonObject {correction_id:string;memory_id:string;replaced_memory_ids:string[];applied:true;replayed:boolean;}
+export type MemoryCorrectionResponse=ApiEnvelope<MemoryCorrectionReceipt>;
+export interface MemoryClearQuery extends QueryParams {memory_type?:"short"|"long";reason?:string;}
+export interface MemoryScopeForgetInput extends JsonObject {user_id:string;memory_type?:"short"|"long";reason?:string;}
+export interface MemoryScopeClearResult extends JsonObject {scope_fenced:true;rows_changed:number;cleared:true;subject_id:string|null;}
+export interface MemoryScopeForgetResponse {jsonrpc:"2.0";id:JsonValue;result:{content:Array<{type:"text";text:string}>;structuredContent:MemoryScopeClearResult;isError?:boolean};}
+export interface SourceStateInput extends JsonObject {desired_state:"active"|"paused";expected_version:number;}

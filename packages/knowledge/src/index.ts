@@ -30,9 +30,28 @@ export class KnowledgeApi extends ServiceApi {
   query(chatSlug: string, data: T.RuntimeQueryInput, options?: RequestOptions<T.RuntimeQueryInput>) { return this.client.post<T.RuntimeResultResponse, T.RuntimeQueryInput>(`/api/v1/runtime/chat/${id(chatSlug)}/query`, data, options); }
   queryAssistant(assistantId: Identifier, data: T.AssistantQueryInput, options?: RequestOptions<T.AssistantQueryInput>) { return this.client.post<T.AssistantRuntimeResponse, T.AssistantQueryInput>(`/api/v1/runtime/assistants/${id(assistantId)}/query`, data, options); }
   recordAssistantTurn(assistantId: Identifier, data: T.RecordAssistantTurnInput, options?: RequestOptions<T.RecordAssistantTurnInput>) { return this.client.post<ApiEnvelope<JsonValue>, T.RecordAssistantTurnInput>(`/api/v1/runtime/assistants/${id(assistantId)}/memory/turn`, data, options); }
-  memorySubjects(params?: T.MemorySubjectQuery, options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue[]>>("/api/v1/memory-subjects", params, options); }
+  memorySubjects(params?: T.MemorySubjectQuery, options?: RequestOptions) { return this.client.get<T.MemorySubjectListResponse>("/api/v1/memory-subjects", params, options); }
   clearMemorySubject(subjectId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/memory-subjects/${id(subjectId)}`, options); }
-  setMemoryOverride(subjectId: Identifier, data: T.MemoryOverrideInput, options?: RequestOptions<T.MemoryOverrideInput>) { return this.client.put<ApiEnvelope<JsonValue>, T.MemoryOverrideInput>(`/api/v1/memory-subjects/${id(subjectId)}/policy`, data, options); }
+  setMemoryOverride(subjectId: Identifier, data: T.MemoryOverrideInput, options?: RequestOptions<T.MemoryOverrideInput>) { if(!/^[a-f0-9]{64}$/.test(data.expected_revision))throw new TypeError("A captured memory policy revision is required"); return this.client.put<T.MemorySubjectResponse, T.MemoryOverrideInput>(`/api/v1/memory-subjects/${id(subjectId)}/policy`, data, options); }
+  /** Current authorized projection, with separate effective policy/raw overrides and captured CAS revision. */
+  memorySubject(subjectId:Identifier,options?:RequestOptions){return this.client.get<T.MemorySubjectResponse>(`/api/v1/memory-subjects/${id(subjectId)}`,undefined,options);}
+  /** Bounded atomic facts; forgotten/expired content is redacted by the service. */
+  memories(subjectId:Identifier,params?:T.MemoryRecordQuery,options?:RequestOptions){return this.client.get<T.MemoryRecordListResponse>(`/api/v1/memory-subjects/${id(subjectId)}/memories`,params,options);}
+  memory(subjectId:Identifier,memoryId:Identifier,options?:RequestOptions){return this.client.get<T.MemoryRecordResponse>(`/api/v1/memory-subjects/${id(subjectId)}/memories/${id(memoryId)}`,undefined,options);}
+  memoryAudit(subjectId:Identifier,params?:T.MemoryAuditQuery,options?:RequestOptions){return this.client.get<T.MemoryAuditListResponse>(`/api/v1/memory-subjects/${id(subjectId)}/audit-events`,params,options);}
+  /** Correct only a reviewed, complete active target set; a409 must not be silently rebased. */
+  correctMemory(subjectId:Identifier,data:T.MemoryCorrectionInput,options?:RequestOptions<T.MemoryCorrectionInput>){return this.client.post<T.MemoryCorrectionResponse,T.MemoryCorrectionInput>(`/api/v1/memory-subjects/${id(subjectId)}/corrections`,data,options);}
+  forgetMemory(subjectId:Identifier,memoryId:Identifier,params?:T.MemoryClearQuery,options?:RequestOptions){return this.client.request<void>({...options,method:"DELETE",url:`/api/v1/memory-subjects/${id(subjectId)}/memories/${id(memoryId)}`,params});}
+  clearSubjectMemory(subjectId:Identifier,params?:T.MemoryClearQuery,options?:RequestOptions){return this.client.request<void>({...options,method:"DELETE",url:`/api/v1/memory-subjects/${id(subjectId)}`,params});}
+  /** Explicit desired state + reviewed source version. Never auto-fetch/retry stale edits. */
+  setSourceState(sourceId:Identifier,data:T.SourceStateInput,options?:RequestOptions<T.SourceStateInput>){
+    if(!Number.isSafeInteger(data.expected_version)||data.expected_version<1||!["active","paused"].includes(data.desired_state))throw new TypeError("A reviewed source version and desired state are required");
+    return this.client.post<T.KnowledgeSourceResponse,T.SourceStateInput>(`/api/v1/sources/${id(sourceId)}/pause`,data,options);
+  }
+  /** Canonical MCP scope invalidation, including accepted work with no extracted subject. */
+  forgetAssistantScope(assistantId:Identifier,data:T.MemoryScopeForgetInput,options?:RequestOptions){
+    return this.client.post<T.MemoryScopeForgetResponse>("/api/v1/runtime/mcp",{jsonrpc:"2.0",id:"memory-forget",method:"tools/call",params:{name:"memory_forget",arguments:{assistant_id:assistantId,...data}}},options);
+  }
   auditEvents(options?: RequestOptions) { return this.client.get<T.KnowledgeAuditEventListResponse>("/api/v1/audit-events", undefined, options); }
   toolSchema(options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue>>("/api/v1/runtime/tool-schema", undefined, options); }
   /** Reads scoped inventories, dependency health, retrieval latency, quality, and backlog. Requires `knowledge:read`. */

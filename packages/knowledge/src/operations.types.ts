@@ -305,6 +305,8 @@ export interface PlatformReplayMemoryOutboxPostResponse extends ApiEnvelope<Json
 
 /** Backend query type: MemoryFilter. */
 export interface PlatformListMemorySubjectsGetQuery extends QueryParams {
+  "enabled"?: boolean|null;
+  "status"?: "active"|"disabled"|"forgotten"|null;
   "assistant_id"?: string | null;
   "q"?: string | null;
   "memory_type"?: string | null;
@@ -325,6 +327,7 @@ export type PlatformClearMemorySubjectDeleteResponse = void;
 
 /** Backend request type: MemoryOverride. */
 export interface PlatformSetMemoryOverridePutInput extends JsonObject {
+  "expected_revision": string;
   "short_memory_enabled"?: boolean | null;
   "long_memory_enabled"?: boolean | null;
   "reason"?: string | null;
@@ -645,6 +648,7 @@ export type PlatformCreateSourcePostInput = import("./types.js").CreateKnowledge
 export type PlatformCreateSourcePostResponse = import("./types.js").KnowledgeSourceResponse;
 
 /** Backend response type: Value. */
+export type PlatformPauseSourcePostInput = import("./types.js").SourceStateInput;
 export type PlatformPauseSourcePostResponse = import("./types.js").KnowledgeSourceResponse;
 
 /** Backend response type: Value. */

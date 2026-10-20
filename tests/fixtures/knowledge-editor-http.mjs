@@ -50,18 +50,18 @@ eq((await call('routesExportBaseGet',base.id)).knowledge_base.id,base.id);
 const source=await call('platformCreateSourcePost',{knowledge_base_id:base.id,slug:'packed-source',name:{en:'Owned manual source'},source_type:'manual'});
 assert.ok((await call('platformListSourcesGet')).some(x=>x.id===source.id));assertions++;
 await denied(409,()=>api.platformCreateSourcePost({knowledge_base_id:base.id,slug:'packed-source',name:{en:'Duplicate'},source_type:'manual'}));
-await denied(404,()=>api.platformPauseSourcePost(source.id,{headers:{'x-organization-id':randomUUID()}}));
+await denied(404,()=>api.platformPauseSourcePost(source.id,{desired_state:'paused',expected_version:source.version},{headers:{'x-organization-id':randomUUID()}}));
 const sync=await call('platformSyncSourcePost',source.id);eq(statuses.get('platformSyncSourcePost'),202);
 const syncRetry=await call('platformSyncSourcePost',source.id);eq(syncRetry.job_id,sync.job_id);
-const paused=await call('platformPauseSourcePost',source.id);eq(paused.status,'paused');eq(paused.version,source.version+1);
+const paused=await call('platformPauseSourcePost',source.id,{desired_state:'paused',expected_version:source.version});eq(paused.status,'paused');eq(paused.version,source.version+1);
 await denied(409,()=>api.platformSyncSourcePost(source.id));
-const resumed=await call('platformPauseSourcePost',source.id);eq(resumed.status,'active');eq(resumed.version,paused.version+1);
+const resumed=await call('platformPauseSourcePost',source.id,{desired_state:'active',expected_version:paused.version});eq(resumed.status,'active');eq(resumed.version,paused.version+1);
 const syncParallel=await Promise.all([1,2,3].map(()=>api.platformSyncSourcePost(source.id)));eq(new Set(syncParallel.map(x=>x.data.data.job_id)).size,1);eq(syncParallel[0].data.data.job_id,sync.job_id);
 await denied(500,()=>api.platformCreateSourcePost({knowledge_base_id:base.id,slug:'source-create-fault',name:{en:'owned-source-create-audit-fault'},source_type:'manual'}));
 eq((await call('platformListSourcesGet')).some(x=>x.slug==='source-create-fault'),false);
 for(const action of ['sync','pause']){
  const faultSource=await call('platformCreateSourcePost',{knowledge_base_id:base.id,slug:'source-'+action+'-fault',name:{en:'owned-source-'+action+'-audit-fault'},source_type:'manual'});
- await denied(500,()=>action==='sync'?api.platformSyncSourcePost(faultSource.id):api.platformPauseSourcePost(faultSource.id));
+ await denied(500,()=>action==='sync'?api.platformSyncSourcePost(faultSource.id):api.platformPauseSourcePost(faultSource.id,{desired_state:'paused',expected_version:faultSource.version}));
  const retained=(await call('platformListSourcesGet')).find(x=>x.id===faultSource.id);eq(retained.status,'active');eq(retained.sync_status,'idle');eq(retained.version,1);
  eq((await api.platformProcessingJobsGet()).data.data.some(x=>x.source_id===faultSource.id),false);
 }

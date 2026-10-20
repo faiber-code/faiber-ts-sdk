@@ -150,3 +150,31 @@ adapter availability separately before treating source data as synchronized. The
 "set paused" request. Read the current source after an ambiguous transport failure
 before repeating the toggle. Source management requires `knowledge:write`; listing
 sources requires `knowledge:read`.
+
+### Canonical v1 memory-management successor (draft integration)
+
+The management additions require the matching verified Knowledge backend before
+package promotion. The source pin is intentionally unchanged during draft work.
+
+- memorySubject, memories, memory and memoryAudit read current tenant-scoped
+  projections. Policy and nullable overrides are separate. Expired/forgotten
+  content is redacted; audit projections exclude retained private snapshots.
+- setMemoryOverride requires expected_revision from the exact reviewed subject.
+  Null or omitted override fields reset that override under PUT semantics.
+  A409 is surfaced once; fetch/review and deliberate resubmission belong to the
+  operator. The client never automatically rebases the draft.
+- setSourceState and canonical platformPauseSourcePost send desired_state and
+  captured expected_version. The canonical v1 route replaces blind toggling;
+  callers must pass both fields.
+- correctMemory sends explicit reviewed memory IDs and correction UUID. The
+  service requires current owner/write authority and the complete conflict set.
+- forgetMemory and clearSubjectMemory preserve bounded type/reason query inputs.
+- forgetAssistantScope calls canonical /api/v1/runtime/mcp memory_forget and
+  returns the full Axios response. structuredContent.scope_fenced and cleared
+  indicate a committed scope invalidation, including first pending turns with
+  no subject; rows_changed may be zero. These fields do not promise erasure of
+  original Chat conversations, source families or retained physical copies.
+
+Adapter tests verify transport and types only. Backend PostgreSQL, authenticated
+Manage proxy, package/source-pin reconciliation, bounded UI and release gates
+remain distinct requirements. All endpoints remain under /api/v1.

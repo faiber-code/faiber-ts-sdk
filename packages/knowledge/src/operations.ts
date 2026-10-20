@@ -759,8 +759,8 @@ export class KnowledgeOperations extends ServiceApi {
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
    * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: knowledge:write.
    */
-  platformPauseSourcePost(id: Identifier, options?: RequestOptions) {
-    return this.client.request<T.PlatformPauseSourcePostResponse>({ ...options, method: "POST", url: `/api/v1/sources/${encodeURIComponent(id)}/pause` });
+  platformPauseSourcePost(id: Identifier, data:T.PlatformPauseSourcePostInput, options?: RequestOptions<T.PlatformPauseSourcePostInput>) {
+    return this.client.request<T.PlatformPauseSourcePostResponse,T.PlatformPauseSourcePostInput>({ ...options, method: "POST", url: `/api/v1/sources/${encodeURIComponent(id)}/pause`,data });
   }
   /**
    * Performs the sync source operation for the platform capability.
