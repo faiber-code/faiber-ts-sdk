@@ -7,9 +7,9 @@ const {FaiberSDK}=await import(pathToFileURL(process.env.KNOWLEDGE_PACKED_FACADE
 const origin=process.env.KNOWLEDGE_OWNED_HTTP_ORIGIN;
 assert.match(origin,/^http:\/\/127\.0\.0\.1:\d+$/);
 const sdk=new FaiberSDK({domains:{knowledge:origin},axios:{timeout:5000,headers:{'x-organization-id':process.env.KNOWLEDGE_OWNED_ORGANIZATION,'x-user-permissions':'knowledge:*'}}});
-const api=sdk.knowledge.operations,covered=new Set();let assertions=0;
+const api=sdk.knowledge.operations,covered=new Set();let assertions=0;const statuses=new Map();
 const eq=(a,b)=>{assert.deepEqual(a,b);assertions++;};
-async function call(name,...args){const r=await api[name](...args).catch(e=>{throw Error(name+": "+e.response?.status+" "+JSON.stringify(e.response?.data));});covered.add(name);assert.ok(r.status>=200&&r.status<300);assertions++;return r.data?.data;}
+async function call(name,...args){const r=await api[name](...args).catch(e=>{throw Error(name+": "+e.response?.status+" "+JSON.stringify(e.response?.data));});covered.add(name);statuses.set(name,r.status);assert.ok(r.status>=200&&r.status<300);assertions++;return r.data?.data;}
 async function denied(status,fn){await assert.rejects(fn,e=>{eq(e.response?.status,status);return true;});}
 const base=await call('routesCreateBasePost',{slug:'packed-'+randomUUID(),name:'Owned packed SDK'});
 eq(base.version,1);eq(base.published_release_id,null);
@@ -46,6 +46,17 @@ const release=await call('routesPublishPost',base.id);eq(release.knowledge_base_
 eq((await call('routesGetReleaseGet',release.id)).checksum_sha256,release.checksum_sha256);
 eq((await sdk.knowledge.release(release.id)).data.data.id,release.id);
 eq((await call('routesExportBaseGet',base.id)).knowledge_base.id,base.id);
+
+const documentInput={knowledge_base_id:base.id,external_id:'packed-'+randomUUID(),title:'Owned document',content:'Owned durable source text.'};
+const indexed=await call('platformIngestDocumentPost',documentInput);eq(statuses.get('platformIngestDocumentPost'),201);eq(indexed.status,'indexed');assert.match(indexed.job_id,/^[a-f0-9-]{36}$/);assertions++;
+const unchanged=await call('platformIngestDocumentPost',documentInput);eq(statuses.get('platformIngestDocumentPost'),200);eq(unchanged.status,'unchanged');eq(unchanged.id,indexed.id);eq(unchanged.job_id,undefined);
+const documents=await call('platformListDocumentsGet');const document=documents.find(x=>x.id===indexed.id);assert.ok(document);assertions++;eq(document.checksum,undefined);eq(document.metadata,undefined);eq(document.source_id,null);assert.ok(document.indexed_at);assertions++;
+eq((await sdk.knowledge.ingestDocument(documentInput)).data.data.status,'unchanged');
+const reprocess=await call('platformReprocessDocumentPost',indexed.id);eq(statuses.get('platformReprocessDocumentPost'),202);
+const replay=await call('platformReprocessDocumentPost',indexed.id);eq(replay.job_id,reprocess.job_id);
+const jobs=await sdk.knowledge.processingJobs();assert.ok(jobs.data.data.some(x=>x.id===reprocess.job_id));assertions++;
+assert.ok((await call('platformAuditEventsGet')).length>0);assertions++;
+
 const before=release.manifest.items;
 await call('routesDeleteEdgeDelete',edge.id);await call('routesDeleteBindingDelete',binding.id);await call('routesDeleteRuleDelete',rule.id);
 await call('routesDeleteItemDelete',a.id);await call('routesDeleteItemDelete',b.id);await call('routesDeleteGroupDelete',group.id);
@@ -55,5 +66,5 @@ eq((await call('routesUpdateActionStatusPatch',actions[0].id,{status:'completed'
 await denied(400,()=>api.routesUpdateActionStatusPatch(actions[0].id,{status:'invalid'}));
 assert.ok((await call('routesListAuditGet',{limit:200})).length>0);assertions++;
 await call('routesDeleteBaseDelete',base.id);await denied(404,()=>api.routesGetBaseGet(base.id));
-eq(covered.size,32);
+eq(covered.size,36);
 console.log(JSON.stringify({status:'passed',assertions,covered_exports:[...covered].sort(),boundary:'actual_packed_typescript_sdk_http_postgresql',identity_limit:'explicit trusted fixture headers, not current IDP/gateway authentication'}));
