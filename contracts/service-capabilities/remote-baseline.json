@@ -181,7 +181,7 @@
       "origin_main": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
       "fetched_head": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
       "working_status": "M Cargo.lock\n M Cargo.toml\n M Dockerfile\n M migration/src/lib.rs\n M src/broker.rs\n D src/integration/lms.rs\n M src/integration/mod.rs\n M src/likekit.rs\n M src/main.rs\n M src/room/asset_actions.rs\n M src/room/methods.rs\n M src/room/moderation.rs\n M src/room/routes.rs\n M src/router.rs\n M view/src/api.ts\n M view/src/main.tsx\n?? migration/src/m20261007_000021_asset_interactions.rs\n?? migration/src/m20261007_000022_asset_outbox_retry.rs\n?? migration/src/m20261019_000050_summary_activity_outbox.rs\n?? shared/\n?? src/asset_economy.rs\n?? src/summary_aggregates.sql\n?? src/summary_evidence.rs\n?? src/summary_evidence.sql",
-      "selected_sdk_revision": "d7f867246da5523838c306e7f322403f0608c210",
+      "selected_sdk_revision": "a91a5bea44ecfaf946e13dc7c662ccb74c468800",
       "main_is_ancestor_of_selected_sdk": true,
       "seconds": 0.972
     },
