@@ -1,5 +1,5 @@
 {
-  "status": "source_and_sdk_types_prepared_native_queued",
+  "status": "focused_native_and_actual_packed_consumer_verified",
   "chat_source": "980575eee254c31022a9f116d08b08cdb8d4258d",
   "base_chat_source": "2044823680d30bc5deb9417d0dc24e40b27c8184",
   "canonical_operation": "PUT /api/v1/admin/assistants/{id}",
@@ -9,10 +9,12 @@
   "intent_normalization": "Server-created internal persisted-request discriminator. Client update containing reserved metadata fails before staging. Legacy ambiguous null retries conflict; inspect/recover/cancel immutable original operation and use a fresh reviewed edit.",
   "sdk_package_semantics": "No public package source changes; existing nullable DTO and wire forwarding already preserve absent/null/number. New type fixtures exercise named and generated methods.",
   "type_harness_correction": "assistant-policy-revisions.types.ts and knowledge-memory-management.types.ts were previously absent from tests/tsconfig.json; both now included. Existing187 Node tests alone did not imply these excluded fixtures ran.",
-  "native_gate": "chat-nullable-level-native-v1 (queued; no native success claimed)",
+  "native_gate": "acceptance-results/three-feature-completion-20261019/chat-nullable-level-final-v1/handoff.json",
   "runtime_limitation": "Selected-assistant runtime currently does not propagate stored level/group slugs to Knowledge; no new retrieval semantics or permission widening in this fix.",
   "limits": [
     "Preserves Summary composition, exact policy versions, model/billing defaults and canonical APIs.",
     "No shared Manage edits, live permissions, publication or agent cutover."
-  ]
+  ],
+  "native_handoff_sha256": "9dceb0941d8bd506a4b0309deffeaf4ff6212b25bf40ebf21f5e83d1299fe00f",
+  "native_results": "41actual packed SDK HTTP assertions plus passing Chat/Knowledge PostgreSQL exact-policy/nullable/restart/legacy integration and2focused JSON/normalization unit cases. Old JSON collapse independently reproduced as expected RED."
 }
