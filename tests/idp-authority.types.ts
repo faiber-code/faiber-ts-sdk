@@ -14,3 +14,12 @@ const generated:Promise<AxiosResponse<EffectivePermissionResponse>>=idp.operatio
 // @ts-expect-error native extractor requires a query with explicit service
 idp.operations.effectivePermissionsReadGet("id");
 void generated;
+
+import type {RoleGrantResponse} from '@faiber/faiber-idp';
+const grants:Promise<AxiosResponse<RoleGrantResponse>>=idp.authority.roleGrants('role');
+const changed:Promise<AxiosResponse<RoleGrantResponse>>=idp.authority.changeRoleGrants('role',{expected_revision:'observed',add:['permission'],remove:[]});
+// @ts-expect-error an observed revision is mandatory
+idp.authority.changeRoleGrants('role',{add:['permission']});
+// @ts-expect-error additions must be permission UUID strings
+idp.authority.changeRoleGrants('role',{expected_revision:'observed',add:[1]});
+void [grants,changed];

@@ -5896,6 +5896,33 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/acl/roles/{role_id}/permission-grants",
+      "module": "acl",
+      "handler": "read",
+      "permissions": [],
+      "source": "infera-idp/src/acl/permission_grants.rs",
+      "pathParam": "Uuid",
+      "response": "RoleGrantSnapshot",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/acl/roles/{role_id}/permission-grants",
+      "module": "acl",
+      "handler": "change",
+      "permissions": [],
+      "source": "infera-idp/src/acl/permission_grants.rs",
+      "body": "RoleGrantDelta",
+      "pathParam": "Uuid",
+      "response": "RoleGrantSnapshot",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/acl/users/{user_id}/effective-permissions",
       "module": "effective_permissions",
       "handler": "read",

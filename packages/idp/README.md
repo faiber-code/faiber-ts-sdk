@@ -38,11 +38,11 @@ await tokens.setTokens({
 
 ## Complete capability
 
-This package exposes 104 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 107 registered operations from the identity and access service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
 | Area | Operations | HTTP methods |
 |---|---:|---|
-| `acl` | 8 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
+| `acl` | 11 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `auth` | 27 | `DELETE`, `GET`, `OPTIONS`, `POST` |
 | `custom-oauth` | 8 | `DELETE`, `GET`, `POST`, `PUT` |
 | `identity-authority` | 10 | `GET`, `POST`, `PUT` |
@@ -105,3 +105,24 @@ const members = response.data.data.users;
 ```
 
 These methods require an IDP that implements the current grant and role-filter contracts. `activeRoleUsers` checks the native filter acknowledgement and returned active membership, throwing `IdpRoleFilterError` with code `idp_role_filter_unconfirmed` when the server does not confirm the scope. It makes no unfiltered fallback request. Native HTTP and authentication failures remain Axios errors. Pagination is bounded to 100 users per page, and IDP clamps requests beyond the last page.
+
+### Revisioned role permission changes
+
+Read `api.authority.roleGrants(roleId)` using `idp:acl:read`, review the returned
+permissions, then call `api.authority.changeRoleGrants(roleId, {
+expected_revision: snapshot.revision, add: [permissionId], remove: [] })` with both
+`idp:acl:read` and `idp:acl:update`. Use the native role and permission UUIDs.
+This atomically preserves unrelated grants. The full Axios response retains
+status, request headers and private `no-store` caching policy. The revision is a
+conflict token, never a delegated credential or permission cache.
+
+A stale revision returns409: fetch a new snapshot and explicitly review/rebase
+the intended changes. Never retry automatically with a new revision. Invalid,
+inactive or duplicate additions and overlapping add/remove sets return400;
+the built-in admin role is protected406. Combined additions/removals are limited
+to `max_delta_entries` (currently4096). Unavailable/oversized snapshots return503.
+Signals, timeouts and authentication use the shared client options. The legacy
+role replacement methods intentionally replace the entire permission set and
+must not be used for a minimal additive change. Mixed older service writers must
+be quiesced during deployment; rolling back a grant requires a fresh reviewed
+revision and removal of only the addition still owned by that operation.

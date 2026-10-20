@@ -110,6 +110,29 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AclRolesUpdatePutResponse, T.AclRolesUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/acl/roles/${encodeURIComponent(roleId)}`, data: data });
   }
   /**
+   * Read an atomic role grant snapshot and conflict revision, active canonical names and bounded stored row count with private no-store caching. Unknown role404, denied401, oversized/unavailable503. A revision is not a credential or durable authority cache.
+   * Calls `GET /api/v1/acl/roles/{role_id}/permission-grants` through the shared IDP-aware Faiber client.
+   * @param roleId Backend path identifier `role_id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current genuine bearer/cookie user with idp:acl:read.
+   */
+  aclReadGet(roleId: string, options?: RequestOptions) {
+    return this.client.request<T.AclReadGetResponse>({ ...options, method: "GET", url: `/api/v1/acl/roles/${encodeURIComponent(roleId)}/permission-grants` });
+  }
+  /**
+   * Atomically add/remove only reviewed permission UUIDs under expected_revision. Preserve unrelated/inactive rows; bound combined delta4096. Stale revision409 requires explicit re-read/rebase; invalid additions/duplicates/overlap400, protected admin406, unavailable503. Never retry blindly or replace full grants. No durable mutation receipt is created.
+   * Calls `PATCH /api/v1/acl/roles/{role_id}/permission-grants` through the shared IDP-aware Faiber client.
+   * @param roleId Backend path identifier `role_id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current genuine bearer/cookie user with BOTH idp:acl:read and idp:acl:update, revalidated after the role row lock.
+   */
+  aclChangePatch(roleId: string, data: T.AclChangePatchInput, options?: RequestOptions<T.AclChangePatchInput>) {
+    return this.client.request<T.AclChangePatchResponse, T.AclChangePatchInput>({ ...options, method: "PATCH", url: `/api/v1/acl/roles/${encodeURIComponent(roleId)}/permission-grants`, data: data });
+  }
+  /**
    * Read a bounded current local-IDP grant snapshot for one user/service. Never cache this as delegated authorization; equal revision does not extend authority. Unavailable or oversized snapshots fail closed.
    * Calls `GET /api/v1/acl/users/{user_id}/effective-permissions` through the shared IDP-aware Faiber client.
    * @param userId Backend path identifier `user_id`.

@@ -40,7 +40,49 @@ export class IdpRoleFilterError extends Error {
     this.name = 'IdpRoleFilterError';
   }
 }
+export interface RoleGrantedPermission { id: string; name: string }
+/** An atomic observation of one role. Revision is a conflict token, not authority. */
+export interface RoleGrantSnapshot {
+  role_id: string;
+  role_name: string;
+  revision: string;
+  permission_ids: string[];
+  permissions: RoleGrantedPermission[];
+  stored_grant_count: number;
+  max_delta_entries: number;
+}
+export interface RoleGrantDelta {
+  /** Exact revision returned by the most recent reviewed snapshot. */
+  expected_revision: string;
+  /** Distinct active permission UUIDs; total add+remove must fit the snapshot limit. */
+  add?: string[];
+  /** Distinct permission UUIDs; cannot overlap add. Unrelated rows remain intact. */
+  remove?: string[];
+}
+export type RoleGrantResponse = ApiEnvelope<RoleGrantSnapshot>;
 export class IdpAuthorityApi extends ServiceApi {
+  /** Read one role's active permissions and revision with current idp:acl:read.
+   * @param roleId Native role UUID.
+   * @param options Shared authentication, cancellation, timeout and request options.
+   * @returns Full response with a private no-store snapshot, not a delegated credential.
+   * @throws AxiosError for denied/unknown roles or unavailable/oversized snapshots.
+   */
+  roleGrants(roleId: Identifier, options?: RequestOptions) {
+    return this.client.get<RoleGrantResponse>(`/api/v1/acl/roles/${encodeURIComponent(roleId)}/permission-grants`, undefined, options);
+  }
+  /** Apply a deliberate atomic delta with BOTH current idp:acl:read and idp:acl:update.
+   * @param roleId Native role UUID. The built-in admin role is protected (406).
+   * @param delta Reviewed revision and bounded distinct additions/removals.
+   * @param options Shared authentication, cancellation, timeout and request options.
+   * @returns Full response containing the committed snapshot; unrelated grants are preserved.
+   * @throws AxiosError: stale revision409; invalid/unknown/inactive additions400; denied401;
+   * protected role406; lock timeout/unavailable503. Re-read and explicitly rebase on409;
+   * never automatically retry with a newer revision or replace the entire permission set.
+   */
+  changeRoleGrants(roleId: Identifier, delta: RoleGrantDelta, options?: RequestOptions<RoleGrantDelta>) {
+    return this.client.patch<RoleGrantResponse, RoleGrantDelta>(`/api/v1/acl/roles/${encodeURIComponent(roleId)}/permission-grants`, delta, options);
+  }
+
   /** Read current scoped grants with BOTH idp:user:read and idp:acl:read.
    * @param userId Native subject UUID, independently authorized by IDP.
    * @param query Stored lowercase IDP permission namespace, maximum64 characters (for example message for Messenger); do not infer it from a package alias.

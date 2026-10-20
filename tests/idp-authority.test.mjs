@@ -23,3 +23,16 @@ test('unconfirmed filters and inconsistent members fail once without an all-user
  const mutations=[b=>delete b.data.role_filter,b=>b.data.role_filter.version=0,b=>b.data.role_filter.role_name='other',b=>b.data.role_filter.role_id=rid,b=>b.data.role_filter.active_membership=false,b=>b.data.role_filter.user_status=null,b=>b.data.users[0].status=0,b=>b.data.users[0].roles=[],b=>b.data.users=[null],b=>b.data.users=Array(101).fill(b.data.users[0])];
  for(const mutate of mutations){const{api,requests}=fixture(()=>{const result=body();mutate(result);return result;});await assert.rejects(api.authority.activeRoleUsers({role_name:'reviewer'}),error=>error instanceof IdpRoleFilterError&&error.code==='idp_role_filter_unconfirmed');assert.equal(requests.length,1);}
 });
+
+test('role grant helpers retain the reviewed revision, deliberate delta and transport options', async()=>{
+ const payload={status:'success',message:'ok',data:{role_id:rid,role_name:'reviewer',revision:'a'.repeat(64),permission_ids:[uid],permissions:[{id:uid,name:'message:notification:self:read'}],stored_grant_count:1,max_delta_entries:4096}};
+ const {api,requests}=fixture(()=>payload);const signal=new AbortController().signal;
+ const observed=await api.authority.roleGrants('role/encoded',{signal,timeout:1300});
+ assert.equal(observed.data,payload);assert.equal(observed.headers.get('cache-control'),'private, no-store');
+ assert.equal(requests[0].url,'/api/v1/acl/roles/role%2Fencoded/permission-grants');assert.equal(requests[0].signal,signal);
+ const delta={expected_revision:payload.data.revision,add:[uid],remove:[]};
+ const changed=await api.authority.changeRoleGrants(rid,delta,{signal,timeout:1500});assert.equal(changed.data,payload);
+ assert.deepEqual(JSON.parse(requests[1].data),delta);assert.equal(requests[1].method,'patch');assert.equal(requests[1].timeout,1500);
+ await api.operations.aclReadGet(rid,{signal});await api.operations.aclChangePatch(rid,delta,{signal});
+ assert.equal(requests[2].method,'get');assert.equal(requests[3].method,'patch');assert.deepEqual(JSON.parse(requests[3].data),delta);
+});

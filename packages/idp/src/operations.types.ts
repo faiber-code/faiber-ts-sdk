@@ -135,6 +135,14 @@ export interface AclRolesUpdatePutResponseData extends JsonObject {
 export interface AclRolesUpdatePutResponse extends ApiEnvelope<AclRolesUpdatePutResponseData> {
 }
 
+/** Backend response type: RoleGrantSnapshot. */
+export type AclReadGetResponse = import("./authority.js").RoleGrantResponse;
+
+/** Backend request type: RoleGrantDelta. */
+export type AclChangePatchInput = import("./authority.js").RoleGrantDelta;
+/** Backend response type: RoleGrantSnapshot. */
+export type AclChangePatchResponse = import("./authority.js").RoleGrantResponse;
+
 /** Backend query type: EffectivePermissionQuery. */
 export type EffectivePermissionsReadGetQuery = import("./authority.js").EffectivePermissionQuery;
 /** Backend response type: EffectivePermissionSnapshot. */
