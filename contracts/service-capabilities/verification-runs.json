@@ -1543,5 +1543,122 @@
       }
     ],
     "scope": "80 actual packed SDK HTTP assertions on full migrated PostGIS. Current-cookie IDP and trusted-BFF fixtures. Import create/retry positive plus separate native lease proof. Tile renderer is explicit byte fixture; no actual Martin/live IDP/provider/deployment or whole-service completion claim."
+  },
+  "gis-real-martin-production-router-postgis-v2": {
+    "status": "passed",
+    "exit_code": 0,
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--offline",
+      "-p",
+      "infera-gis",
+      "sdk_http_tests",
+      "--",
+      "--include-ignored",
+      "--nocapture",
+      "--test-threads=1"
+    ],
+    "artifact_path": "evidence/gis-real-martin-v2-native.log",
+    "artifact_sha256": "43c155aea3a0ffac927003d0b478e644e5006877ed4c9c5d24c92a44b8d5944a",
+    "tests_executed": 2,
+    "source_revisions": {
+      "gis": "0bc8423a51887450b928e7b372153014cd47e582"
+    },
+    "test_source_revision": "82fa0ca586a38ca71603e76f5ab1ed5dc1deca8d",
+    "sdk_revision": "357bce41ec51f5a89a5ea39a9f57f50a540adad0",
+    "source_unchanged_during_run": true,
+    "boundaries": [
+      "typescript_sdk_http",
+      "actual_martin_postgis"
+    ],
+    "covered_operations": {
+      "gis": [
+        "GET /api/v1/datasets",
+        "POST /api/v1/datasets",
+        "GET /api/v1/datasets/{id}",
+        "PATCH /api/v1/datasets/{id}",
+        "GET /api/v1/datasets/{id}/features",
+        "PUT /api/v1/datasets/{id}/features",
+        "PUT /api/v1/datasets/{id}/features/{feature}",
+        "GET /api/v1/datasets/{id}/history",
+        "GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}",
+        "GET /api/v1/imports",
+        "POST /api/v1/imports",
+        "POST /api/v1/imports/{id}/retry",
+        "GET /api/v1/internal/outbox",
+        "PUT /api/v1/internal/outbox/{id}/ack",
+        "GET /api/v1/maps",
+        "POST /api/v1/maps",
+        "GET /api/v1/maps/{id}",
+        "PATCH /api/v1/maps/{id}",
+        "PUT /api/v1/maps/{id}/publish",
+        "GET /api/v1/maps/{id}/style",
+        "GET /api/v1/me",
+        "GET /api/v1/me/contributions",
+        "GET /api/v1/me/saves",
+        "GET /api/v1/moderation",
+        "POST /api/v1/moderation/{id}",
+        "GET /api/v1/moderation/{id}/history",
+        "POST /api/v1/moderation/reports/{id}",
+        "GET /api/v1/my-places",
+        "POST /api/v1/my-places",
+        "DELETE /api/v1/my-places/{id}",
+        "GET /api/v1/my-places/{id}",
+        "PUT /api/v1/my-places/{id}",
+        "GET /api/v1/places",
+        "POST /api/v1/places",
+        "GET /api/v1/places/{id}",
+        "POST /api/v1/places/{id}/assertion",
+        "GET /api/v1/places/{id}/references",
+        "POST /api/v1/places/{id}/reports",
+        "DELETE /api/v1/places/{id}/save",
+        "PUT /api/v1/places/{id}/save",
+        "GET /api/v1/public/datasets/{id}/geojson",
+        "GET /api/v1/public/datasets/{id}/tilejson",
+        "GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}",
+        "GET /api/v1/public/maps",
+        "GET /api/v1/public/maps/{slug}",
+        "GET /api/v1/public/maps/{slug}/geojson",
+        "GET /api/v1/public/maps/{slug}/style",
+        "GET /health"
+      ]
+    },
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/gis-real-martin-v2-receipt.json",
+        "sha256": "c7a1b6d0a1088e1ab95dd903ba4421033b8a362a10d1c7a87e0722ac23454e0d"
+      },
+      {
+        "artifact_path": "evidence/gis-real-martin-v2-source-equivalence.json",
+        "sha256": "2dcdd66d67b9ffe48fc47a8fdbcbc59a2244260c803ec6f18be35437d4d5d8ce"
+      },
+      {
+        "artifact_path": "evidence/gis-real-martin-v2-probe.mjs",
+        "sha256": "740a27ec665a387b65f16c47b6bd7ab7bae46b35c361b206dc19661e3055e9d5"
+      },
+      {
+        "artifact_path": "evidence/gis-real-martin-v2-business-probe.mjs",
+        "sha256": "73ae1d1f56c96e7817f0d575d5d992f08303d652221292c722c5436fc9cce842"
+      },
+      {
+        "artifact_path": "evidence/gis-real-martin-v2-import-probe.mjs",
+        "sha256": "6bcc9e83c3055f4f152a179e30ba27f2530a7eb04925f33d68ae7c2646b57664"
+      },
+      {
+        "artifact_path": "evidence/gis-real-martin-v2-martin.log",
+        "sha256": "d569b31da5cf590bb4bb8099c4e98d22f695f905884e1008570e9269c2e7b6e2"
+      },
+      {
+        "artifact_path": "evidence/gis-real-martin-v2-martin-fixture.yaml",
+        "sha256": "b164c797484d05325a58336600ac67f9f2e041fe0d761d506beca798d9afa3bb"
+      },
+      {
+        "artifact_path": "evidence/gis-real-martin-v2-run.py",
+        "sha256": "d5787418de64a2673f878ad000a2927c217f3b2a9b3b04472b344c72520b0022"
+      }
+    ],
+    "scope": "84 actual frozen SDK HTTP assertions, full migrated owned PostGIS3.4.3, actual pinned Martin1.16.1, restricted renderer role, nonempty private/public MVT, privacy revocation; current-IDP loopback fixture and trusted BFF are explicit. Positive import create/retry plus separate native atomicity/lease proof. No live IDP/provider/deployment or allzoom/newerPostGIS certificate."
   }
 }
