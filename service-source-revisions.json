@@ -5,7 +5,7 @@
   },
   "chat": {
     "directory": "infera-chat",
-    "revision": "980575eee254c31022a9f116d08b08cdb8d4258d"
+    "revision": "03dd17ad3a1f6a36f5b6ad42e8e11729b44ebc55"
   },
   "crm": {
     "directory": "infera-crm",
@@ -25,7 +25,7 @@
   },
   "knowledge": {
     "directory": "infera-knowledge",
-    "revision": "6fc12adaf114e70c8b20f9ae1bc1981b82e96804"
+    "revision": "3af4ce596fc4db90fc123b10321b8acd451db596"
   },
   "lms": {
     "directory": "infera-lms",
