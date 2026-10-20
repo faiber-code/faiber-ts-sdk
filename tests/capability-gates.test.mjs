@@ -25,6 +25,21 @@ test('route counts and unreviewed generated operation metadata cannot satisfy di
   const fixture=reviewedFixture();fixture.services.example.operations[0].review={status:'pending'};
   assert.equal(evaluateCapabilityGate(fixture.universe,fixture.services,[],fixture.runs).status,'blocked');
 });
+
+test('opaque protocol mounts require their own frozen source-bound consumer evidence',()=>{
+ const f=reviewedFixture();
+ const mount={id:'PROTOCOL /mcp',path:'/mcp',source:'example/shared/evidence-sdk/src/server.rs',source_checksum:'protocol-hash'};
+ f.services.example.protocol_mounts=[mount];
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).failures.join('\n'),/protocol review missing/);
+ const aspect={status:'verified',source_refs:['example/shared/evidence-sdk/src/server.rs:100']};
+ mount.review={status:'verified',source_checksum:'protocol-hash',protocol:'MCP streamable HTTP',classification:'internal_signed_grant',scope:'signed deployment and subject',meaning:{en:'Read scoped source evidence',fa:'خواندن شواهد منبع با دسترسی محدود'},permissions:aspect,inputs_outputs:aspect,lifecycle:aspect,relationships:aspect,test_evidence:['source-mcp']};
+ f.runs['source-mcp']={...f.runs['owned-items'],boundaries:['source_protocol_http'],covered_operations:{example:['PROTOCOL /mcp']}};
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).status,'passed');
+ f.runs['source-mcp'].source_revisions={example:'different'};
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).failures.join('\n'),/different service source/);
+ f.runs['source-mcp'].source_revisions={example:'abc'};f.runs['source-mcp'].boundaries=['typescript_sdk_http'];
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{stage:'discovery'}).failures.join('\n'),/frozen protocol boundary/);
+});
 test('a review becomes invalid when the handler or wire evidence changes',()=>{
   const fixture=reviewedFixture();fixture.services.example.operations[0].source_checksum='changed';
   assert.match(evaluateCapabilityGate(fixture.universe,fixture.services,[],fixture.runs).failures.join('\n'),/stale/);

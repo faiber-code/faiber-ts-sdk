@@ -51,11 +51,23 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
   for (const [service, descriptor] of Object.entries(universe.services)) {
     const data = services[service];
     if (!data) { failures.push(`${service}: missing discovery matrix`); continue; }
-    // A raw service mount may be MCP or another protocol, not a REST operation.
-    // Retain it as a separate unresolved boundary rather than silently counting
-    // the surrounding router as complete or inventing a JSON request schema.
+    // A raw service mount may be MCP, not a REST operation. Its own protocol and
+    // current authentication need actual source-bound consumer verification.
     for (const mount of data.protocol_mounts ?? []) {
-      failures.push(`${service}: protocol boundary ${mount.path} (${mount.source}) requires source-bound protocol/authentication and consumer verification`);
+      const context=`${service}: protocol boundary ${mount.path} (${mount.source})`;
+      const review=mount.review;
+      if(!mount.id || !mount.source_checksum || review?.status!=='verified' || review.source_checksum!==mount.source_checksum) {
+        failures.push(`${context}: protocol review missing or stale`);continue;
+      }
+      if(!review.protocol || !review.classification || !review.scope || !review.meaning?.en || !review.meaning?.fa) failures.push(`${context}: protocol meaning/scope/classification is incomplete`);
+      for(const key of ['permissions','inputs_outputs','lifecycle','relationships']) {
+        if(review[key]?.status!=='verified' || !review[key]?.source_refs?.length) failures.push(`${context}: ${key} is unverified`);
+      }
+      requireEvidence(review.test_evidence,context,{service,revision:data.source_decision?.revision},mount.id);
+      for(const id of Array.isArray(review.test_evidence)?review.test_evidence:[]) {
+        const run=verificationRuns[id];
+        if(run?.source_unchanged_during_run!==true || !run?.boundaries?.includes('source_protocol_http')) failures.push(`${context}: ${id} does not prove the frozen protocol boundary`);
+      }
     }
     if (Object.values(data.embedded_source_gaps ?? {}).some(gaps=>gaps.length)) failures.push(`${service}: compiler-embedded source inputs remain unresolved`);
     if (data.missing_meaning_sources?.length) failures.push(`${service}: missing source references`);

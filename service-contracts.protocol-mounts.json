@@ -59,6 +59,31 @@
       ]
     }
   ],
+  "lms": [
+    {
+      "path": "/mcp",
+      "source": "infera-lms/shared/infera-summary-sdk/src/server.rs",
+      "function": "router",
+      "service_expression": " service",
+      "mounted_via": [
+        {
+          "path": "infera-lms/src/main.rs",
+          "line": 86,
+          "function": "run_server"
+        },
+        {
+          "path": "infera-lms/src/summary_evidence.rs",
+          "line": 17,
+          "function": "routes"
+        },
+        {
+          "path": "infera-lms/shared/infera-summary-sdk/src/server.rs",
+          "line": 121,
+          "function": "router"
+        }
+      ]
+    }
+  ],
   "session": [
     {
       "path": "/mcp",

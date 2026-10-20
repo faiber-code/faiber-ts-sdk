@@ -177,7 +177,14 @@ for(const [service,entry] of Object.entries(universe.services)) {
     knowledge:{path:'src/main.rs',function:'main',variable:'app'},chat:{path:'src/main.rs',function:'main',variable:'app'},state:{path:'src/main.rs',function:'main',variable:'app'},
     task:{path:'src/routes.rs',function:'app'}};
   const defaultRouter=files.find(file=>file.path.endsWith('/src/router.rs'));
-  const routerEntry=extraRouterEntries[service]??(defaultRouter?.functions.some(fn=>fn.name==='routes')?{path:'src/router.rs',function:'routes'}:null);
+  const mainRouter=files.find(file=>file.path===`${entry.directory.replace(/^Service\//,'')}/src/main.rs`);
+  const routerEntry=service==='lms' && mainRouter?.functions.some(fn=>fn.name==='run_server')
+    ? {path:'src/main.rs',function:'run_server',variable:'app'}
+    : service==='session' && mainRouter?.functions.some(fn=>fn.name==='application_router')
+    ? {path:'src/main.rs',function:'application_router'}
+    : service==='crm' && defaultRouter?.functions.some(fn=>fn.name==='application')
+    ? {path:'src/router.rs',function:'application'}
+    : extraRouterEntries[service]??(defaultRouter?.functions.some(fn=>fn.name==='routes')?{path:'src/router.rs',function:'routes'}:null);
   const mounted=routerEntry?mountedRouterOperations(files,routerEntry):null;
   const extracted=canonical[service]??[];
   const endpoints=mounted?mounted.operations.map(operation=>{
@@ -193,7 +200,10 @@ for(const [service,entry] of Object.entries(universe.services)) {
     source_relationship:relationship,
     source_tree_checksum:treeChecksum,
     source_files:files.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),
-    protocol_mounts:mounted?.protocol_mounts??[],
+    protocol_mounts:(mounted?.protocol_mounts??[]).map(mount=>{
+      const id=`PROTOCOL ${mount.path}${mount.conditions?.length?' ['+mount.conditions.map(c=>`${c.expression}=${c.pattern}`).join(';')+']':''}`;
+      return {...mount,id,source_checksum:treeChecksum,review:reviews[id]??null};
+    }),
     embedded_source_gaps:{canonical:files.embedded_source_gaps,working:currentFiles.embedded_source_gaps},
     working_source_tree_checksum:hash(JSON.stringify(currentFiles.map(({path,checksum})=>({path,checksum})))),
     working_source_files:currentFiles.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),

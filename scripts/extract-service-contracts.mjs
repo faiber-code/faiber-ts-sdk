@@ -420,7 +420,9 @@ for (const service of services) {
     const indexed = [...fileSources].map(([file,source])=>sourceIndex(source,relativeSource(file)));
     const main=indexed.find(file=>file.path.endsWith("/src/main.rs"));
     const serviceRouter=indexed.find(file=>file.path===`${basename(dirname(srcRoot))}/src/router.rs`);
-    const entry=service==="session" && main?.functions.some(fn=>fn.name==="application_router")
+    const entry=service==="lms" && main?.functions.some(fn=>fn.name==="run_server" && /let\s+app\s*=/.test(fn.body))
+      ? {path:"src/main.rs",function:"run_server",variable:"app"}
+      : service==="session" && main?.functions.some(fn=>fn.name==="application_router")
       ? {path:"src/main.rs",function:"application_router"}
       : service==="crm" && serviceRouter?.functions.some(fn=>fn.name==="application")
       ? {path:"src/router.rs",function:"application"}
