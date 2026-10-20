@@ -47,6 +47,14 @@ eq((await call('routesGetReleaseGet',release.id)).checksum_sha256,release.checks
 eq((await sdk.knowledge.release(release.id)).data.data.id,release.id);
 eq((await call('routesExportBaseGet',base.id)).knowledge_base.id,base.id);
 
+const source=await call('platformCreateSourcePost',{knowledge_base_id:base.id,slug:'packed-source',name:{en:'Owned manual source'},source_type:'manual'});
+assert.ok((await call('platformListSourcesGet')).some(x=>x.id===source.id));assertions++;
+const sync=await call('platformSyncSourcePost',source.id);eq(statuses.get('platformSyncSourcePost'),202);
+const syncRetry=await call('platformSyncSourcePost',source.id);eq(syncRetry.job_id,sync.job_id);
+const paused=await call('platformPauseSourcePost',source.id);eq(paused.status,'paused');eq(paused.version,source.version+1);
+await denied(409,()=>api.platformSyncSourcePost(source.id));
+const resumed=await call('platformPauseSourcePost',source.id);eq(resumed.status,'active');eq(resumed.version,paused.version+1);
+
 const documentInput={knowledge_base_id:base.id,external_id:'packed-'+randomUUID(),title:'Owned document',content:'Owned durable source text.'};
 const indexed=await call('platformIngestDocumentPost',documentInput);eq(statuses.get('platformIngestDocumentPost'),201);eq(indexed.status,'indexed');assert.match(indexed.job_id,/^[a-f0-9-]{36}$/);assertions++;
 const unchanged=await call('platformIngestDocumentPost',documentInput);eq(statuses.get('platformIngestDocumentPost'),200);eq(unchanged.status,'unchanged');eq(unchanged.id,indexed.id);eq(unchanged.job_id,undefined);
@@ -78,5 +86,5 @@ eq((await call('routesUpdateActionStatusPatch',actions[0].id,{status:'completed'
 await denied(400,()=>api.routesUpdateActionStatusPatch(actions[0].id,{status:'invalid'}));
 assert.ok((await call('routesListAuditGet',{limit:200})).length>0);assertions++;
 await call('routesDeleteBaseDelete',base.id);await denied(404,()=>api.routesGetBaseGet(base.id));
-eq(covered.size,37);
+eq(covered.size,41);
 console.log(JSON.stringify({status:'passed',assertions,covered_exports:[...covered].sort(),boundary:'actual_packed_typescript_sdk_http_postgresql',identity_limit:'explicit trusted fixture headers, not current IDP/gateway authentication'}));
