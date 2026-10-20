@@ -178,5 +178,15 @@
     "Not all-service semantic gate completion",
     "Not deployed IDP/grant/provider spending acceptance",
     "SDK pack and Manage workflow gates still required"
-  ]
+  ],
+  "external_evidence_successors": {
+    "accounting": {
+      "revision": "48dcb330b9ddb8cc180aab49c3eeacfe378ef828",
+      "supersedes": "af7bfe5baeebf9e323ab4cc71ea1b3efc458350e",
+      "public_typescript_dto_or_method_change": false,
+      "meaning": "Private runner identity now reuses current authenticated runner and exact Profile operation/current-role/hash/expiry/binding checks; no static Profile identity bearer. No general profile:profile:read grant is implied.",
+      "packet": "acceptance-results/role-summaries-2026-10-19/accounting-profile-runner-identity-v1/candidate.json",
+      "remaining": "PHP8.3/Franken serving-image certification and any missing persistent grant require their separate gates."
+    }
+  }
 }

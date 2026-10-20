@@ -170,3 +170,22 @@ Use `sdk.profile.summaries` for configurable IDP role summaries. LMS summary API
 types were removed in this breaking release. Supply canonical role UUIDs, explicitly grant Profile
 summary permissions, and distinguish job status from persisted result availability/freshness.
 See the [Profile package guide](packages/profile/README.md#configurable-role-summaries).
+
+### Regenerating and checking the SDK
+
+The default contributor pipeline uses the immutable Rust revisions in
+service-source-revisions.json. With those service repositories available, run
+npm run generate to extract mounted contracts and regenerate typed operations.
+Run npm run generate:check to audit the pinned-source manifest and compare every
+generated operation, type declaration and index export byte-for-byte without
+writing files. Unknown service selections and stale output fail the check.
+
+OpenAPI import is optional and separate from the SDK's source authority. Use
+npm run openapi:generate or npm run openapi:check with an explicit
+FAIBER_PROFILE_OPENAPI URL and --services=profile, or the corresponding configured
+service variable. No default loopback server is probed. Some services do not
+expose OpenAPI; this optional tool never replaces source extraction, semantic
+review, actual transport tests or current-permission acceptance.
+
+A passing generation check certifies reproducibility only. It does not close the
+capability semantic gate or authorize npm publication, provider use or deployment.

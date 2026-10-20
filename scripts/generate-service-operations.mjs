@@ -3,7 +3,7 @@ import { serviceSources } from "./service-source-snapshots.mjs";
 import { releaseContracts } from "./release-contract-overrides.mjs";
 import { collaborationContracts } from "./collaboration-contract-overrides.mjs";
 import { access, readFile, readdir, writeFile } from "node:fs/promises";
-import { basename, dirname, join, resolve } from "node:path";
+import { basename, dirname, join, relative, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const siblingRoots = [join(root, "..", "Service"), join(root, "..", "services")];
@@ -16,14 +16,26 @@ const discoveredServicesRoot = process.env.FAIBER_SERVICES_ROOT ?? await (async 
 const servicesRoot = resolve(serviceSources(root, discoveredServicesRoot));
 const serviceDirectories = { version: "infera_version" };
 try { await access(join(servicesRoot, "infera-version", "src")); serviceDirectories.version = "infera-version"; } catch { /* retain legacy checkout support */ }
-const manifestPath = resolve(process.argv[2] ?? join(root, "service-contracts.json"));
+const checkGenerated = process.argv.includes("--check");
+const positional = process.argv.slice(2).filter(arg => arg !== "--check");
+const manifestPath = resolve(positional[0] ?? join(root, "service-contracts.json"));
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
 const selectedServices = new Set(
-  (process.argv[3] ?? process.env.FAIBER_CONTRACT_SERVICES ?? "")
+  (positional[1] ?? process.env.FAIBER_CONTRACT_SERVICES ?? "")
     .split(",")
     .map(value => value.trim())
     .filter(Boolean),
 );
+
+for (const service of selectedServices) {
+  if (!Object.hasOwn(manifest,service)) throw new Error("Unknown contract service: "+service);
+}
+const staleGenerated = [];
+async function emitGenerated(path,next) {
+  if (!checkGenerated) { await writeFile(path,next); return; }
+  const current=await readFile(path,"utf8").catch(()=>null);
+  if (current!==next) staleGenerated.push(relative(root,path));
+}
 
 const pascal = value => value
   .replace(/[^a-zA-Z0-9]+(.)/g, (_, char) => char.toUpperCase())
@@ -570,8 +582,8 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     operationLines.push("  }");
   }
   operationLines.push("}", "");
-  await writeFile(join(root, "packages", service, "src", "operations.types.ts"), `${typeLines.join("\n").trimEnd()}\n`);
-  await writeFile(join(root, "packages", service, "src", "operations.ts"), `${operationLines.join("\n").trimEnd()}\n`);
+  await emitGenerated(join(root, "packages", service, "src", "operations.types.ts"), `${typeLines.join("\n").trimEnd()}\n`);
+  await emitGenerated(join(root, "packages", service, "src", "operations.ts"), `${operationLines.join("\n").trimEnd()}\n`);
   const indexPath = join(root, "packages", service, "src", service === "state" ? "api.ts" : "index.ts");
   let index = await readFile(indexPath, "utf8");
   const operationsClass = `${pascal(service)}Operations`;
@@ -582,9 +594,15 @@ for (const [service, endpoints] of Object.entries(manifest)) {
   if (!index.includes("readonly operations =")) {
     index = index.replace(/(export class \w+ extends ServiceApi \{\n)/, `$1    readonly operations = new ${operationsClass}(this.client);\n`);
   }
-  if (service !== "state" && !index.includes('export * from "./operations.js";')) {
-    index = `${index.trimEnd()}\nexport * from "./operations.js";\nexport * from "./operations.types.js";\n`;
+  if (service !== "state") {
+    for (const exportLine of ['export * from "./operations.js";','export * from "./operations.types.js";']) {
+      if (!index.includes(exportLine)) index = index.trimEnd()+"\n"+exportLine+"\n";
+    }
   }
-  await writeFile(indexPath, index);
-  console.log(`${service}: generated ${endpoints.length} operations`);
+  await emitGenerated(indexPath, index);
+  console.log(service+": "+(checkGenerated?"compared":"generated")+" "+endpoints.length+" operations");
+}
+
+if (staleGenerated.length) {
+  throw new Error("Generated SDK outputs are stale; regenerate from the reviewed source lock:\n"+staleGenerated.join("\n"));
 }
