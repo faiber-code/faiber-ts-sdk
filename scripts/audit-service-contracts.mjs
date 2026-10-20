@@ -2,6 +2,7 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
+import { isDeepStrictEqual } from "node:util";
 
 const root = resolve(import.meta.dirname, "..");
 const committed = JSON.parse(await readFile(join(root, "service-contracts.json"), "utf8"));
@@ -21,7 +22,8 @@ try {
   });
   if (extraction.status !== 0) throw new Error(extraction.stderr || extraction.stdout || "contract extraction failed");
   const extracted = JSON.parse(await readFile(extractedPath, "utf8"));
-  if (JSON.stringify(scoped(extracted)) !== JSON.stringify(scoped(committed))) {
+  // Service insertion order is not a wire contract; endpoint arrays and every field remain exact.
+  if (!isDeepStrictEqual(scoped(extracted), scoped(committed))) {
     throw new Error("service-contracts.json is stale; run npm run contracts:extract and regenerate operations");
   }
 
