@@ -1,18 +1,18 @@
 import type { ApiEnvelope, JsonObject, JsonValue, QueryParams } from "@faiber/sdk-core";
 
-export interface KnowledgeListQuery extends QueryParams { q?: string; status?: string; group?: string; kind?: string; page?: number; limit?: number; }
-export interface KnowledgeBase extends JsonObject { id: string; organization_id: string; slug: string; name: string; description: string; default_language: string; supported_languages: JsonValue; settings: JsonValue; status: string; version: number; created_at: string; updated_at: string; }
-export interface KnowledgeGroup extends JsonObject { id: string; knowledge_base_id: string; parent_id?: string | null; slug: string; name: JsonValue; description: JsonValue; sort_order: number; inclusion_policy: JsonValue; status: string; version: number; }
-export interface KnowledgeItem extends JsonObject { id: string; knowledge_base_id: string; group_id: string; slug: string; kind: string; title: JsonValue; summary: JsonValue; content: JsonValue; metadata: JsonValue; tags: JsonValue; importance: string; status: string; version: number; }
-export interface KnowledgeEdge extends JsonObject { id: string; knowledge_base_id: string; from_item_id: string; to_item_id: string; edge_type: string; conditions: JsonValue; weight: number; status: string; version: number; }
-export interface ChatBinding extends JsonObject { id: string; chat_slug: string; knowledge_base_id: string; group_slugs: JsonValue; max_level: number; tool_policy: JsonValue; enabled: boolean; version: number; }
-export interface MatchRule extends JsonObject { id: string; knowledge_base_id: string; group_id?: string | null; slug: string; name: JsonValue; priority: number; conditions: JsonValue; outcomes: JsonValue; stop_on_match: boolean; enabled: boolean; version: number; }
+export interface KnowledgeListQuery extends QueryParams { q?: string; status?: string; group?: string; kind?: string; linked_service?: string; linked_entity_type?: string; linked_entity_id?: string; page?: number; limit?: number; }
+export interface KnowledgeBase extends JsonObject { id: string; organization_id: string; slug: string; name: string; description: string; default_language: string; supported_languages: JsonValue; settings: JsonValue; status: string; version: number; created_at: string; updated_at: string; published_release_id: string | null; created_by: string | null; updated_by: string | null; deleted_at: string | null; }
+export interface KnowledgeGroup extends JsonObject { id: string; knowledge_base_id: string; parent_id: string | null; slug: string; name: JsonValue; description: JsonValue; sort_order: number; inclusion_policy: JsonValue; status: string; version: number; level: number; created_at: string; updated_at: string; deleted_at: string | null; }
+export interface KnowledgeItem extends JsonObject { id: string; knowledge_base_id: string; group_id: string; slug: string; kind: string; title: JsonValue; summary: JsonValue; content: JsonValue; metadata: JsonValue; tags: JsonValue; importance: string; status: string; version: number; description: JsonValue; linked_service: string | null; linked_entity_type: string | null; linked_entity_id: string | null; link_url: string | null; open_in_new_tab: boolean; show_when: JsonValue; valid_from: string | null; valid_to: string | null; checksum_sha256: string; created_by: string | null; updated_by: string | null; created_at: string; updated_at: string; deleted_at: string | null; }
+export interface KnowledgeEdge extends JsonObject { id: string; knowledge_base_id: string; from_item_id: string; to_item_id: string; edge_type: string; conditions: JsonValue; weight: number; status: string; version: number; created_at: string; updated_at: string; }
+export interface ChatBinding extends JsonObject { id: string; chat_slug: string; knowledge_base_id: string; group_slugs: JsonValue; max_level: number; tool_policy: JsonValue; enabled: boolean; version: number; organization_id: string; created_at: string; updated_at: string; }
+export interface MatchRule extends JsonObject { id: string; knowledge_base_id: string; group_id: string | null; slug: string; name: JsonValue; priority: number; conditions: JsonValue; outcomes: JsonValue; stop_on_match: boolean; enabled: boolean; version: number; created_at: string; updated_at: string; deleted_at: string | null; }
 export interface CreateKnowledgeBaseInput extends JsonObject { slug: string; name: string; description?: string; default_language?: string; supported_languages?: JsonValue; settings?: JsonValue; }
 export interface UpdateKnowledgeBaseInput extends JsonObject { name?: string; description?: string; default_language?: string; supported_languages?: JsonValue; settings?: JsonValue; status?: string; expected_version?: number; }
 export interface CreateGroupInput extends JsonObject { parent_id?: string; slug: string; name: JsonValue; description?: JsonValue; sort_order?: number; inclusion_policy?: JsonValue; }
 export interface UpdateGroupInput extends JsonObject { parent_id?: string; name?: JsonValue; description?: JsonValue; sort_order?: number; inclusion_policy?: JsonValue; status?: string; expected_version?: number; }
-export interface CreateItemInput extends JsonObject { group_id: string; slug: string; kind: string; title: JsonValue; summary?: JsonValue; content: JsonValue; metadata?: JsonValue; tags?: JsonValue; importance?: string; valid_from?: string; valid_to?: string; }
-export interface UpdateItemInput extends JsonObject { group_id?: string; kind?: string; title?: JsonValue; summary?: JsonValue; content?: JsonValue; metadata?: JsonValue; tags?: JsonValue; importance?: string; status?: string; valid_from?: string; valid_to?: string; expected_version?: number; }
+export interface CreateItemInput extends JsonObject { group_id: string; slug: string; kind: string; title: JsonValue; summary?: JsonValue; content: JsonValue; metadata?: JsonValue; tags?: JsonValue; importance?: string; valid_from?: string; valid_to?: string; description?: JsonValue; linked_service?: string; linked_entity_type?: string; linked_entity_id?: string; link_url?: string; open_in_new_tab?: boolean; show_when?: JsonValue; }
+export interface UpdateItemInput extends JsonObject { group_id?: string; kind?: string; title?: JsonValue; summary?: JsonValue; content?: JsonValue; metadata?: JsonValue; tags?: JsonValue; importance?: string; status?: string; valid_from?: string; valid_to?: string; expected_version?: number; description?: JsonValue; linked_service?: string; linked_entity_type?: string; linked_entity_id?: string; link_url?: string; open_in_new_tab?: boolean; show_when?: JsonValue; }
 export interface CreateEdgeInput extends JsonObject { from_item_id: string; to_item_id: string; edge_type: string; conditions?: JsonValue; weight?: number; }
 export interface UpdateEdgeInput extends JsonObject { edge_type?: string; conditions?: JsonValue; weight?: number; status?: string; expected_version?: number; }
 export interface CreateBindingInput extends JsonObject { chat_slug: string; knowledge_base_id: string; group_slugs?: JsonValue; max_level?: number; tool_policy?: JsonValue; enabled?: boolean; }
@@ -114,3 +114,38 @@ export type ProcessingJobListResponse = ApiEnvelope<ProcessingJob[]>;
 export interface PublishedAssistantContract { content: Record<string, string>; metadata: { contract_version: string; output_schema?: JsonValue; shared_contract?: {slug:string;version:string;release_id:string} }; }
 export interface AssistantContractsResult { release_id: string; shared_release_id?: string|null; contracts: Record<string, PublishedAssistantContract>; }
 export interface AssistantContractsResponse { data: AssistantContractsResult; }
+
+/** Immutable release snapshot. JSON content, rules and policy fields preserve their backend-defined extension values. */
+export interface KnowledgePublicationManifest extends JsonObject {
+  schema_version: string;
+  release_version: number;
+  knowledge_base: KnowledgeBase;
+  groups: KnowledgeGroup[];
+  items: KnowledgeItem[];
+  edges: KnowledgeEdge[];
+  rules: MatchRule[];
+}
+/** A published or retired immutable snapshot, not the mutable knowledge-base record. */
+export interface KnowledgeRelease extends JsonObject {
+  id: string;
+  knowledge_base_id: string;
+  version: number;
+  manifest: KnowledgePublicationManifest;
+  checksum_sha256: string;
+  status: string;
+  published_by: string | null;
+  published_at: string;
+  retired_at: string | null;
+}
+/** Mutable authoring export. Use KnowledgeRelease for pinned runtime instructions. */
+export interface KnowledgeExport extends JsonObject {
+  schema_version: string;
+  exported_at: string;
+  knowledge_base: KnowledgeBase;
+  groups: KnowledgeGroup[];
+  items: KnowledgeItem[];
+  edges: KnowledgeEdge[];
+  rules: MatchRule[];
+}
+export type KnowledgeReleaseResponse = ApiEnvelope<KnowledgeRelease>;
+export type KnowledgeExportResponse = ApiEnvelope<KnowledgeExport>;

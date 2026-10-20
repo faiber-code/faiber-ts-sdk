@@ -69,3 +69,29 @@ Use `@faiber/faiber-ts-sdk` when one application needs multiple Faiber services 
 `knowledge.assistantContracts(assistantId, '2done-assistants')` retrieves complete contract records from the assistant's enabled base binding and immutable published release. It returns `data.release_id` and keyed `data.contracts`, including localized content and versioned JSON Schema metadata. Unlike semantic retrieval, this operation does not rank, truncate, or omit required contracts. It requires `knowledge:runtime`; absent, disabled, unpublished, or inaccessible bindings fail rather than returning partial guidance. Normal Axios authentication, cancellation, and error handling apply.
 
 Internal operations require a trusted server credential and current tenant scope. Never call them from a browser or expose the service credential to application users.
+
+### Publish and read an immutable release
+
+`publish(baseId)` requires `knowledge:publish` and returns a
+`KnowledgeReleaseResponse`, including the release ID, manifest, checksum, and
+publication timestamp. The mutable knowledge base instead points to that release
+through `published_release_id`. Read a pinned snapshot with `release(releaseId)`
+or `operations.routesGetReleaseGet(releaseId)`; both require `knowledge:read`.
+An authoring `export(baseId)` is mutable and has an export timestamp; it is not a
+published instruction bundle.
+
+```ts
+const published = await knowledge.publish(baseId, { signal });
+const release = await knowledge.release(published.data.data.id, { signal });
+console.log(release.data.data.checksum_sha256);
+```
+
+Base, group, item, edge, binding, and rule responses expose their actual record
+fields, including revisions, timestamps, nullable actor/deletion fields, and item
+links. Localized content, metadata, condition expressions, and policies retain
+JSON values where the service defines an extensible schema. Item links require
+`linked_service`, `linked_entity_type`, and `linked_entity_id` together. An empty
+link string clears that link field during an update; omitted fields are preserved.
+`null` does not clear optional update fields in the current Rust DTOs. Use
+`expected_version` when editing to detect conflicts; handle HTTP 409 by reloading
+the current record and preserving unsaved user input.

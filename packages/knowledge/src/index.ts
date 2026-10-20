@@ -11,8 +11,11 @@ export class KnowledgeApi extends ServiceApi {
   knowledgeBase(baseId: Identifier, options?: RequestOptions) { return this.client.get<T.KnowledgeBaseResponse>(`/api/v1/knowledge-bases/${id(baseId)}`, undefined, options); }
   updateKnowledgeBase(baseId: Identifier, data: T.UpdateKnowledgeBaseInput, options?: RequestOptions<T.UpdateKnowledgeBaseInput>) { return this.client.put<T.KnowledgeBaseResponse, T.UpdateKnowledgeBaseInput>(`/api/v1/knowledge-bases/${id(baseId)}`, data, options); }
   deleteKnowledgeBase(baseId: Identifier, options?: RequestOptions) { return this.client.delete<void>(`/api/v1/knowledge-bases/${id(baseId)}`, options); }
-  publish(baseId: Identifier, options?: RequestOptions) { return this.client.post<T.KnowledgeBaseResponse>(`/api/v1/knowledge-bases/${id(baseId)}/publish`, undefined, options); }
-  export(baseId: Identifier, options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue>>(`/api/v1/knowledge-bases/${id(baseId)}/export`, undefined, options); }
+  /** Publishes an immutable snapshot. Requires `knowledge:publish`; incomplete content returns 400. Returns the release identity/checksum, while the mutable base stores its published_release_id. */
+  publish(baseId: Identifier, options?: RequestOptions) { return this.client.post<T.KnowledgeReleaseResponse>(`/api/v1/knowledge-bases/${id(baseId)}/publish`, undefined, options); }
+  /** Reads an immutable release by its release ID. Requires `knowledge:read`; tenant or missing-base access returns 404. */
+  release(releaseId: Identifier, options?: RequestOptions) { return this.client.get<T.KnowledgeReleaseResponse>(`/api/v1/knowledge-releases/${id(releaseId)}`, undefined, options); }
+  export(baseId: Identifier, options?: RequestOptions) { return this.client.get<T.KnowledgeExportResponse>(`/api/v1/knowledge-bases/${id(baseId)}/export`, undefined, options); }
   groups(baseId: Identifier, options?: RequestOptions) { return this.client.get<T.KnowledgeGroupListResponse>(`/api/v1/knowledge-bases/${id(baseId)}/groups`, undefined, options); }
   createGroup(baseId: Identifier, data: T.CreateGroupInput, options?: RequestOptions<T.CreateGroupInput>) { return this.client.post<T.KnowledgeGroupResponse, T.CreateGroupInput>(`/api/v1/knowledge-bases/${id(baseId)}/groups`, data, options); }
   updateGroup(groupId: Identifier, data: T.UpdateGroupInput, options?: RequestOptions<T.UpdateGroupInput>) { return this.client.put<T.KnowledgeGroupResponse, T.UpdateGroupInput>(`/api/v1/groups/${id(groupId)}`, data, options); }

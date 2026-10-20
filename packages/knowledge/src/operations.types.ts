@@ -47,8 +47,7 @@ export interface PlatformAuditEventsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: Value. */
-export interface RoutesListBindingsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListBindingsGetResponse = import("./types.js").ChatBindingListResponse;
 
 /** Backend request type: CreateBinding. */
 export interface RoutesCreateBindingPostInput extends JsonObject {
@@ -60,8 +59,7 @@ export interface RoutesCreateBindingPostInput extends JsonObject {
   "enabled"?: boolean;
 }
 /** Backend response type: Value. */
-export interface RoutesCreateBindingPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateBindingPostResponse = import("./types.js").ChatBindingResponse;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteBindingDeleteResponse = void;
@@ -75,8 +73,7 @@ export interface RoutesUpdateBindingPutInput extends JsonObject {
   "expected_version"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesUpdateBindingPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateBindingPutResponse = import("./types.js").ChatBindingResponse;
 
 /** Backend response type: Value. */
 export interface PlatformListDocumentsGetResponse extends ApiEnvelope<JsonValue> {
@@ -114,8 +111,7 @@ export interface RoutesUpdateEdgePutInput extends JsonObject {
   "expected_version"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesUpdateEdgePutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateEdgePutResponse = import("./types.js").KnowledgeEdgeResponse;
 
 /** Backend response type: Value. */
 export interface PlatformListEvaluationCasesGetResponse extends ApiEnvelope<JsonValue> {
@@ -152,15 +148,13 @@ export interface RoutesUpdateGroupPutInput extends JsonObject {
   "expected_version"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesUpdateGroupPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateGroupPutResponse = import("./types.js").KnowledgeGroupResponse;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteItemDeleteResponse = void;
 
 /** Backend response type: Value. */
-export interface RoutesGetItemGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetItemGetResponse = import("./types.js").KnowledgeItemResponse;
 
 /** Backend request type: UpdateItem. */
 export interface RoutesUpdateItemPutInput extends JsonObject {
@@ -185,8 +179,7 @@ export interface RoutesUpdateItemPutInput extends JsonObject {
   "expected_version"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesUpdateItemPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateItemPutResponse = import("./types.js").KnowledgeItemResponse;
 
 /** Backend query type: ListQuery. */
 export interface RoutesListBasesGetQuery extends QueryParams {
@@ -201,8 +194,7 @@ export interface RoutesListBasesGetQuery extends QueryParams {
   "limit"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesListBasesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListBasesGetResponse = import("./types.js").KnowledgeBaseListResponse;
 
 /** Backend request type: CreateKnowledgeBase. */
 export interface RoutesCreateBasePostInput extends JsonObject {
@@ -214,15 +206,13 @@ export interface RoutesCreateBasePostInput extends JsonObject {
   "settings"?: JsonValue;
 }
 /** Backend response type: Value. */
-export interface RoutesCreateBasePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateBasePostResponse = import("./types.js").KnowledgeBaseResponse;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteBaseDeleteResponse = void;
 
 /** Backend response type: Value. */
-export interface RoutesGetBaseGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetBaseGetResponse = import("./types.js").KnowledgeBaseResponse;
 
 /** Backend request type: UpdateKnowledgeBase. */
 export interface RoutesUpdateBasePutInput extends JsonObject {
@@ -235,12 +225,10 @@ export interface RoutesUpdateBasePutInput extends JsonObject {
   "expected_version"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesUpdateBasePutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateBasePutResponse = import("./types.js").KnowledgeBaseResponse;
 
 /** Backend response type: Value. */
-export interface RoutesListEdgesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListEdgesGetResponse = import("./types.js").KnowledgeEdgeListResponse;
 
 /** Backend request type: CreateEdge. */
 export interface RoutesCreateEdgePostInput extends JsonObject {
@@ -251,16 +239,13 @@ export interface RoutesCreateEdgePostInput extends JsonObject {
   "weight"?: number;
 }
 /** Backend response type: Value. */
-export interface RoutesCreateEdgePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateEdgePostResponse = import("./types.js").KnowledgeEdgeResponse;
 
 /** Backend response type: Value. */
-export interface RoutesExportBaseGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesExportBaseGetResponse = import("./types.js").KnowledgeExportResponse;
 
 /** Backend response type: Value. */
-export interface RoutesListGroupsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListGroupsGetResponse = import("./types.js").KnowledgeGroupListResponse;
 
 /** Backend request type: CreateGroup. */
 export interface RoutesCreateGroupPostInput extends JsonObject {
@@ -272,8 +257,7 @@ export interface RoutesCreateGroupPostInput extends JsonObject {
   "inclusion_policy"?: JsonValue;
 }
 /** Backend response type: Value. */
-export interface RoutesCreateGroupPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateGroupPostResponse = import("./types.js").KnowledgeGroupResponse;
 
 /** Backend query type: ListQuery. */
 export interface RoutesListItemsGetQuery extends QueryParams {
@@ -288,8 +272,7 @@ export interface RoutesListItemsGetQuery extends QueryParams {
   "limit"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesListItemsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListItemsGetResponse = import("./types.js").KnowledgeItemListResponse;
 
 /** Backend request type: CreateItem. */
 export interface RoutesCreateItemPostInput extends JsonObject {
@@ -313,16 +296,13 @@ export interface RoutesCreateItemPostInput extends JsonObject {
   "valid_to"?: string | null;
 }
 /** Backend response type: Value. */
-export interface RoutesCreateItemPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateItemPostResponse = import("./types.js").KnowledgeItemResponse;
 
 /** Backend response type: Value. */
-export interface RoutesPublishPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesPublishPostResponse = import("./types.js").KnowledgeReleaseResponse;
 
 /** Backend response type: Value. */
-export interface RoutesGetReleaseGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetReleaseGetResponse = import("./types.js").KnowledgeReleaseResponse;
 
 /** Backend query type: ListQuery. */
 export interface RoutesListRulesGetQuery extends QueryParams {
@@ -337,8 +317,7 @@ export interface RoutesListRulesGetQuery extends QueryParams {
   "limit"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesListRulesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesListRulesGetResponse = import("./types.js").MatchRuleListResponse;
 
 /** Backend request type: CreateRule. */
 export interface RoutesCreateRulePostInput extends JsonObject {
@@ -353,8 +332,7 @@ export interface RoutesCreateRulePostInput extends JsonObject {
   "enabled"?: boolean;
 }
 /** Backend response type: Value. */
-export interface RoutesCreateRulePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesCreateRulePostResponse = import("./types.js").MatchRuleResponse;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteRuleDeleteResponse = void;
@@ -371,8 +349,7 @@ export interface RoutesUpdateRulePutInput extends JsonObject {
   "expected_version"?: number | null;
 }
 /** Backend response type: Value. */
-export interface RoutesUpdateRulePutResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesUpdateRulePutResponse = import("./types.js").MatchRuleResponse;
 
 /** Backend response type: Value. */
 export interface PlatformReplayMemoryOutboxPostResponse extends ApiEnvelope<JsonValue> {
