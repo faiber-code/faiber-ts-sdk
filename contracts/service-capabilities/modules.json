@@ -899,6 +899,7 @@
       "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
     "canonical": [],
     "working": []
@@ -1801,6 +1802,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-modules/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -1809,7 +1811,7 @@
           }
         ]
       },
-      "source_checksum": "00434b119a18d685fc07c21e41746a02daa6106531aacad595eb570a93a1ca68",
+      "source_checksum": "2da7643a53243293f73dc82d6a288e9edefa523e19bdc61fbfdf673c2d459f97",
       "handler": {
         "ref": "infera-modules/src/router.rs:463:status_route",
         "path": "infera-modules/src/router.rs",
@@ -1864,6 +1866,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-modules/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -1872,7 +1875,7 @@
           }
         ]
       },
-      "source_checksum": "d28b22a6630f07ddf46f57909b8fcabaf8536cbfb1b057268db615026b006daa",
+      "source_checksum": "f48264732bfb0ec5197f4f09b00a9fb85900263b73652d570c94b5ccef41a8c1",
       "handler": {
         "ref": "infera-modules/src/router.rs:463:status_route",
         "path": "infera-modules/src/router.rs",
@@ -1927,6 +1930,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "session::routes",
+        "handler_source": "infera-modules/src/session/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -1940,7 +1944,7 @@
           }
         ]
       },
-      "source_checksum": "311941d9f4979beeb2d5f31f278b8fdb0ddd1f8dc49fa6f0707fef76e1225b34",
+      "source_checksum": "4685dc4293974ef1d0e868c024bc833e76fae9f101117f719e34723d3c1b270e",
       "handler": {
         "ref": "infera-modules/src/session/routes.rs:33:get_self",
         "path": "infera-modules/src/session/routes.rs",
@@ -2003,6 +2007,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "blog::routes",
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2016,7 +2021,7 @@
           }
         ]
       },
-      "source_checksum": "9319c0fa9ffe385d509ac2f6900b223283a55911140edde3efab40b51f0ee806",
+      "source_checksum": "a2d1418796e199840cb92ecc5f7fa049985e43b71e3cf1c900cc93a7b0f53bd8",
       "handler": {
         "ref": "infera-modules/src/blog/routes.rs:43:list_posts",
         "path": "infera-modules/src/blog/routes.rs",
@@ -2083,6 +2088,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "blog::routes",
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2096,7 +2102,7 @@
           }
         ]
       },
-      "source_checksum": "f90cca5a18deff072eed4645a6bacf3a005618a0c1fb53218f3643f38d11a94d",
+      "source_checksum": "166338c5e3fabc2fc8dc47348d9ea10f3ad71cc84ffe9061993ae39958f00764",
       "handler": {
         "ref": "infera-modules/src/blog/routes.rs:74:create_post",
         "path": "infera-modules/src/blog/routes.rs",
@@ -2176,6 +2182,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "blog::routes",
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2189,7 +2196,7 @@
           }
         ]
       },
-      "source_checksum": "1e41b1fdd848887b51208a684c20ff0565f686172b820daa514e132d3920919b",
+      "source_checksum": "427d72fd067ef6c00e8498d425ea638fde67fe4c48ecf45020be518c95607932",
       "handler": {
         "ref": "infera-modules/src/blog/routes.rs:105:show_post",
         "path": "infera-modules/src/blog/routes.rs",
@@ -2257,6 +2264,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "blog::routes",
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2270,7 +2278,7 @@
           }
         ]
       },
-      "source_checksum": "c2adad267e663d8a649288dccfdd1e317f2a24194a0eefee5c9c77bdfab05c92",
+      "source_checksum": "d99f482c3569623b67c0a95341d8687990c1efc6f52017456dd72f67f3f6153a",
       "handler": {
         "ref": "infera-modules/src/blog/routes.rs:138:update_post",
         "path": "infera-modules/src/blog/routes.rs",
@@ -2355,6 +2363,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "blog::routes",
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2368,7 +2377,7 @@
           }
         ]
       },
-      "source_checksum": "99d84f60f2b2c6bdf28ac07064747e69b2dbfe87e1b6b5f57876ceb7b272b3de",
+      "source_checksum": "720ca1c04fee91d4d34de98c1d1c1af0371a09e2126756a0584ca0b2fc068591",
       "handler": {
         "ref": "infera-modules/src/blog/routes.rs:138:update_post",
         "path": "infera-modules/src/blog/routes.rs",
@@ -2452,6 +2461,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "blog::routes",
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2465,7 +2475,7 @@
           }
         ]
       },
-      "source_checksum": "4a1c68ca2a95372bc3708f9f854ee582afcd182f26a676694744bb9785d3b744",
+      "source_checksum": "e8a8249dd5196ff35559170991bee155768e6309955eabebf4d8038a0dc475d0",
       "handler": {
         "ref": "infera-modules/src/blog/routes.rs:171:delete_post",
         "path": "infera-modules/src/blog/routes.rs",
@@ -2524,6 +2534,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2537,7 +2548,7 @@
           }
         ]
       },
-      "source_checksum": "df451c50173d54be0fcbcaaa34c0953ec271616648aafc6925ba5e82461c8843",
+      "source_checksum": "f05a5ae7a985fa399d8b3bb7fb94176c4e20b8192d8a387cd58cad65fb3c4927",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:34:list",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -2748,6 +2759,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2761,7 +2773,7 @@
           }
         ]
       },
-      "source_checksum": "aa074e119d5919444d28a063cdab6f72784e60375c446ad06eacc4935b784955",
+      "source_checksum": "284e37730231bb685c688f25ee9d2e735a4ce4677a4e0c7eae4b9ea9d12e45b4",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:45:create",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -2983,6 +2995,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -2996,7 +3009,7 @@
           }
         ]
       },
-      "source_checksum": "e7a346cbba5bf96e7422bb95893bb30692f8ac0160ebf0451f3fe02b2fb637ea",
+      "source_checksum": "42ff54879a8088aa3b96b2464c75d5a6c1146eed4c082aff67dc60fae89970bd",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:39:show",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -3057,6 +3070,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -3070,7 +3084,7 @@
           }
         ]
       },
-      "source_checksum": "d295819fc008d11975a6b1bdc2ff1ea7a83b7ba608a544ceb3aeabfded506629",
+      "source_checksum": "3d359ef08bf8366cc6806706da0e8384569f592fa4f04aecb9afcc3e083c3058",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:55:update",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -3296,6 +3310,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -3309,7 +3324,7 @@
           }
         ]
       },
-      "source_checksum": "bb6a386f18e1b5256fb4891b993fc71304eb23c555c4d033ee290609eb22bd7e",
+      "source_checksum": "2bf57c6fb27e2488092bad458a6abc99b9a73feaf600be4813f59f97b24c497e",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:65:remove",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -3370,6 +3385,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -3383,7 +3399,7 @@
           }
         ]
       },
-      "source_checksum": "2fa0a6783b69c009edda7595285afe84493373548b11d93d714576b3235a9f3c",
+      "source_checksum": "fb1a77ac24fb3ce4c8cfd43e87e4337e0e640d1c4d9bf72084580cdbcb381eff",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:75:create_episode",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -3617,6 +3633,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -3630,7 +3647,7 @@
           }
         ]
       },
-      "source_checksum": "37c7626345b411eb7b500f3bab10ed80b9a06907f5e7ca3a7bcf5d148591b988",
+      "source_checksum": "7ad734b1b21f3f1ed233139d159d8fc5d81d3eabda8a4cd6e5e8c89147aaec18",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:85:update_episode",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -3863,6 +3880,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "podcast::routes",
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -3876,7 +3894,7 @@
           }
         ]
       },
-      "source_checksum": "62fa5ec920489125cc5e1d71f40a0a1d98a9813b9bdfde2fa9d8ce697461229f",
+      "source_checksum": "4b83e7afbd46e0fc5ea095e26a3e1b31d201960304c46579117c3c7e1df3824d",
       "handler": {
         "ref": "infera-modules/src/podcast/routes.rs:95:remove_episode",
         "path": "infera-modules/src/podcast/routes.rs",
@@ -3936,6 +3954,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -3949,7 +3968,7 @@
           }
         ]
       },
-      "source_checksum": "7632e602485dd87978024c4f426afddb7b00bb8931f7405a91b8f7fe73b8e32d",
+      "source_checksum": "11fbc11e2a9de337391034e8bf01e3297ca1fce6896b81929630fd90a889c78c",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:60:list_products",
         "path": "infera-modules/src/product/routes.rs",
@@ -4016,6 +4035,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4029,7 +4049,7 @@
           }
         ]
       },
-      "source_checksum": "269861e66670ec91a19c5a34b14c484cffb735835fce7f7414b131d79bbdea04",
+      "source_checksum": "aee1cd6c57d6b055f6f072e932104151d2ace08378a5e986722870b143480c47",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:96:create_product",
         "path": "infera-modules/src/product/routes.rs",
@@ -4133,6 +4153,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4146,7 +4167,7 @@
           }
         ]
       },
-      "source_checksum": "39438700ff681b2e4e13d77fb026ce4d277f2aedd80a26e9848512724432a982",
+      "source_checksum": "8cdd01387e3e97737e050d5d558d2a81708ed12d3c7bc9bdee4fd8f7ba7b5492",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:127:show_product",
         "path": "infera-modules/src/product/routes.rs",
@@ -4226,6 +4247,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4239,7 +4261,7 @@
           }
         ]
       },
-      "source_checksum": "ad5c1c05a73b54898198370c6e7db12f8c74354e7d718416c7d23b44f316eb21",
+      "source_checksum": "0cbe4a16eb02876b5ac247e74d23de9bcc34bb6f641ecad356c21037c9d359be",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:160:update_product",
         "path": "infera-modules/src/product/routes.rs",
@@ -4348,6 +4370,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4361,7 +4384,7 @@
           }
         ]
       },
-      "source_checksum": "8f022c74ae29c0d2cfc0a8dd2f6e49e0b93fd257f8c38e0941e91170b9c03d45",
+      "source_checksum": "d302fae7b1c91f08023390da8f494e173b806509f683284caf18fa72bfeb9f3f",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:160:update_product",
         "path": "infera-modules/src/product/routes.rs",
@@ -4469,6 +4492,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4482,7 +4506,7 @@
           }
         ]
       },
-      "source_checksum": "c3c5877e2afd2213bd0761cf9064bf26c693e9306bce8f11883876c7989688ff",
+      "source_checksum": "ce236ec5ae700b6cd19190c147a74dcc9ba0a5c650e40b51075f4c58983df1d2",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:193:delete_product",
         "path": "infera-modules/src/product/routes.rs",
@@ -4545,6 +4569,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4558,7 +4583,7 @@
           }
         ]
       },
-      "source_checksum": "80c8ffbb7543c164b0ebe4ba0b221f0d04ad179148038a93f67fa4c234094c1a",
+      "source_checksum": "995d7e0c7ebdfdd8cdf7aaed86c942c84aeae2b25d16f5f503f51752e7d7b5f5",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:227:list_product_variants",
         "path": "infera-modules/src/product/routes.rs",
@@ -4630,6 +4655,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4643,7 +4669,7 @@
           }
         ]
       },
-      "source_checksum": "7e9b0de9a811ae7e46f959632a3fb412e60d14d00e4118c88bc8f92dd3bc5858",
+      "source_checksum": "92a2cc592b93f0d062252a7e8f10e91fa7f13939a9721ad83b932c3b50f8ce9c",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:307:create_variant",
         "path": "infera-modules/src/product/routes.rs",
@@ -4721,6 +4747,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4734,7 +4761,7 @@
           }
         ]
       },
-      "source_checksum": "14bf536aeba40fadbec8f6019927f4fed596ba4a6861105a0ffa3c654b46b06d",
+      "source_checksum": "027a2425665a5f78db8c93b3e13af22548c9128a8c2348ca53dd9c4efa689efb",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:262:list_variants",
         "path": "infera-modules/src/product/routes.rs",
@@ -4808,6 +4835,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4821,7 +4849,7 @@
           }
         ]
       },
-      "source_checksum": "f8a6a6a102e0ac968676390027abca2c24454d4466743f891095bba141bc5bec",
+      "source_checksum": "5c3cc282b9cfe1b87becaea778a754df09bca84090d44236c8fe1f46c074692a",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:339:show_variant",
         "path": "infera-modules/src/product/routes.rs",
@@ -4889,6 +4917,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4902,7 +4931,7 @@
           }
         ]
       },
-      "source_checksum": "38054b6208bbaca5dfc9b9564cd85a3f1b6af3b814e726ab52d6667ce2ecabd5",
+      "source_checksum": "6ce2be570685e3032fee168675fe5dee5de4c5b191b0d8a6806d915d8de08deb",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:372:update_variant",
         "path": "infera-modules/src/product/routes.rs",
@@ -4981,6 +5010,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -4994,7 +5024,7 @@
           }
         ]
       },
-      "source_checksum": "62fd7a1fd7a36e32e2017e64cadd7b64287d0e987abdcbf54665170883fa42c8",
+      "source_checksum": "7c2246f2e7c49e5d67162a7ef25ab1a6a288903eb88efbe599a713090f492b53",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:372:update_variant",
         "path": "infera-modules/src/product/routes.rs",
@@ -5072,6 +5102,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "product::routes",
+        "handler_source": "infera-modules/src/product/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5085,7 +5116,7 @@
           }
         ]
       },
-      "source_checksum": "910825a7c5980f17525620768efaf30430eb5e0ec2cbb1fb0bcb619f6d24eda3",
+      "source_checksum": "1819b1ac0c4a3275e65254787c7c856a1a099c7fc37087399a534e846b4d8643",
       "handler": {
         "ref": "infera-modules/src/product/routes.rs:404:delete_variant",
         "path": "infera-modules/src/product/routes.rs",
@@ -5145,6 +5176,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::checkout",
+        "handler_source": "infera-modules/src/order/checkout.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5163,7 +5195,7 @@
           }
         ]
       },
-      "source_checksum": "4aca01dae2a23eb4edc06eb146a609d4df6b757dbe2bcbbb8dae74be94a55232",
+      "source_checksum": "4897d70e38fdec7f5a0e1b4bcf894fb49a83126df4c519881ba285f5acdb1d93",
       "handler": {
         "ref": "infera-modules/src/order/checkout.rs:164:quote",
         "path": "infera-modules/src/order/checkout.rs",
@@ -5243,6 +5275,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::checkout",
+        "handler_source": "infera-modules/src/order/checkout.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5261,7 +5294,7 @@
           }
         ]
       },
-      "source_checksum": "a90dbe1d9039865e3abf59f0eb942e0c6217955833335e9747943780fdaceb18",
+      "source_checksum": "b5bb9887ffd3c35782a9c9d407e91e06eb7a9b374deced017d2dd4cb703a3328",
       "handler": {
         "ref": "infera-modules/src/order/checkout.rs:323:read",
         "path": "infera-modules/src/order/checkout.rs",
@@ -5335,6 +5368,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::checkout",
+        "handler_source": "infera-modules/src/order/checkout.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5353,7 +5387,7 @@
           }
         ]
       },
-      "source_checksum": "4a37c68f3c8afcf23a1ab03e70830af0f37ca1f2875a1f359f689e1fc9a3ad68",
+      "source_checksum": "0855cb88f1f1d771878dea3ad096abd117ba2664cceda5aed5a15a9d9f160fee",
       "handler": {
         "ref": "infera-modules/src/order/checkout.rs:340:pay",
         "path": "infera-modules/src/order/checkout.rs",
@@ -5437,6 +5471,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::checkout",
+        "handler_source": "infera-modules/src/order/checkout.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5455,7 +5490,7 @@
           }
         ]
       },
-      "source_checksum": "1ca09fa8bef5cf054d5d886c365dabf87dbc77ecc9512e299e46bd4ae5e0efbc",
+      "source_checksum": "d5de6d91f255e4cd78d561183c43457ba8f08498c369f2e345c084ddab3e71f8",
       "handler": {
         "ref": "infera-modules/src/order/checkout.rs:470:cancel",
         "path": "infera-modules/src/order/checkout.rs",
@@ -5528,6 +5563,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::routes",
+        "handler_source": "infera-modules/src/order/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5541,7 +5577,7 @@
           }
         ]
       },
-      "source_checksum": "a0697220fd90709558a23823ba431f3ce0aff73feadbd1bedbea1335e2014342",
+      "source_checksum": "16cdb6eae3f3bd4338a7d1c880ea6141a26c6a00da0231f71dc88d8a970bf463",
       "handler": {
         "ref": "infera-modules/src/order/routes.rs:48:list_orders",
         "path": "infera-modules/src/order/routes.rs",
@@ -5608,6 +5644,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::routes",
+        "handler_source": "infera-modules/src/order/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5621,7 +5658,7 @@
           }
         ]
       },
-      "source_checksum": "495815513caf9c1df7e0e12e724e940b47371813501cd0acd46b416dd6afc74a",
+      "source_checksum": "a83fd305895cff56dfbc191b6f98bf5efb61e4fc1965be8c7392497a552dfc78",
       "handler": {
         "ref": "infera-modules/src/order/routes.rs:80:create_order",
         "path": "infera-modules/src/order/routes.rs",
@@ -5695,6 +5732,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::routes",
+        "handler_source": "infera-modules/src/order/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5708,7 +5746,7 @@
           }
         ]
       },
-      "source_checksum": "d35187625f58e688571dc0cdb0cf8b2a5c9d1ec65c9d3e6ca20d85e7b26ee38d",
+      "source_checksum": "6dc982a00ddfe67a787b4bf2e913f3b2580d40079290f99a45e9ec3dfb2be47f",
       "handler": {
         "ref": "infera-modules/src/order/routes.rs:111:show_order",
         "path": "infera-modules/src/order/routes.rs",
@@ -5776,6 +5814,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::routes",
+        "handler_source": "infera-modules/src/order/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5789,7 +5828,7 @@
           }
         ]
       },
-      "source_checksum": "fdb0b8dec32433a2138cbb53e100e5521969bb3cbea667fa22b317f4eb6b8c54",
+      "source_checksum": "663003b41abf3933971bcf057696ec4c49972b89537e42a1973c794154a29568",
       "handler": {
         "ref": "infera-modules/src/order/routes.rs:145:update_order",
         "path": "infera-modules/src/order/routes.rs",
@@ -5868,6 +5907,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::routes",
+        "handler_source": "infera-modules/src/order/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5881,7 +5921,7 @@
           }
         ]
       },
-      "source_checksum": "ff1b37cd43ac144a030a8d3d8a37a0b5a7a388e9ed73670182dacf210ddb0130",
+      "source_checksum": "a1b6738067601f04b9e6dfdf815d0bb816c77dcf7eea202b3969d54f26845f54",
       "handler": {
         "ref": "infera-modules/src/order/routes.rs:145:update_order",
         "path": "infera-modules/src/order/routes.rs",
@@ -5959,6 +5999,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::routes",
+        "handler_source": "infera-modules/src/order/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -5972,7 +6013,7 @@
           }
         ]
       },
-      "source_checksum": "0bad83fa677adef52f8b5e35f0157dfcea18635b4c26ec11ee55d844e4e90f2d",
+      "source_checksum": "9374aa9663c560c5598d5db976a0e24ad1ad2fbd8a776839877e49d7359c55aa",
       "handler": {
         "ref": "infera-modules/src/order/routes.rs:178:delete_order",
         "path": "infera-modules/src/order/routes.rs",
@@ -6032,6 +6073,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::routes",
+        "handler_source": "infera-modules/src/order/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6045,7 +6087,7 @@
           }
         ]
       },
-      "source_checksum": "2272012028fd3f8c3c08369ccc7a7b7a2b84551ceb002f3e960f4201cffa449e",
+      "source_checksum": "5ac73bd902d4ff615c294b7183c9cad596d43602d4f997e38b47352bb21c5b73",
       "handler": {
         "ref": "infera-modules/src/order/routes.rs:208:list_order_items",
         "path": "infera-modules/src/order/routes.rs",
@@ -6119,6 +6161,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "order::routes",
+        "handler_source": "infera-modules/src/order/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6132,7 +6175,7 @@
           }
         ]
       },
-      "source_checksum": "bbe294292ecef786cf94ee93492d81862f65f5ca1fe06dffc8d1817ce1a115eb",
+      "source_checksum": "a8f325c7b5a4bd307a47b1d87072cc63ea2d4afbda0781700f24c74158683d78",
       "handler": {
         "ref": "infera-modules/src/order/routes.rs:241:add_order_item",
         "path": "infera-modules/src/order/routes.rs",
@@ -6215,6 +6258,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "cart::routes",
+        "handler_source": "infera-modules/src/cart/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6228,7 +6272,7 @@
           }
         ]
       },
-      "source_checksum": "a11b63b4b05b94a411aa461942fffb685ceb8fafea60c1508a2d26eb79fed8e0",
+      "source_checksum": "f872fae3c482d88e8ab158f2a45948ea51f96b3b054a0cc34a44b19f3c7550a7",
       "handler": {
         "ref": "infera-modules/src/cart/routes.rs:18:show",
         "path": "infera-modules/src/cart/routes.rs",
@@ -6291,6 +6335,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "cart::routes",
+        "handler_source": "infera-modules/src/cart/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6304,7 +6349,7 @@
           }
         ]
       },
-      "source_checksum": "979908d2adf870dee80daf98a9ac12767faffefa6827c635852cc0fefb298f88",
+      "source_checksum": "7fd8cb79586398dcb8e423345247dc8357026aceb987d55452729ec0840deb7f",
       "handler": {
         "ref": "infera-modules/src/cart/routes.rs:30:replace",
         "path": "infera-modules/src/cart/routes.rs",
@@ -6378,6 +6423,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6391,7 +6437,7 @@
           }
         ]
       },
-      "source_checksum": "3a6f64b47820663c089230bb7e489822c8cb4e753f240e031c2c2984a73262dc",
+      "source_checksum": "86500c4831d2dd84c2c8534f513bfb2e9fcb0d8df4b4907f5ff368c7ed0753c6",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:56:list_warehouses",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -6458,6 +6504,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6471,7 +6518,7 @@
           }
         ]
       },
-      "source_checksum": "7be1a459d2fd320ea28f68d6396b233da60ec4fc2a6b9b10808a7acf6ba65000",
+      "source_checksum": "48e139b5ef82ef92b817ebfe10a740e93116d6fc3e9c6f9461b0e2f47f39b909",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:92:create_warehouse",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -6538,6 +6585,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6551,7 +6599,7 @@
           }
         ]
       },
-      "source_checksum": "50dc86df7645685c81daa359a5d32299067320455f808f5cf6686a64e939d1ef",
+      "source_checksum": "dadfbc69c841ba8906a24f0eaa03ab6b3496c19d57c45a2316c8a4fdb21d8d5d",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:123:show_warehouse",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -6612,6 +6660,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6625,7 +6674,7 @@
           }
         ]
       },
-      "source_checksum": "9de0b51b15a63616cfae853af062d93cc9836223486f301466a601fcbfd882da",
+      "source_checksum": "7d782e547a7f4b55bf512427449fb9c4da6777a4b480dc47f6f66825fe63b593",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:156:update_warehouse",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -6697,6 +6746,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6710,7 +6760,7 @@
           }
         ]
       },
-      "source_checksum": "285093d570ea21e70d4bbeaf5c93da23fef768991308133295a8bcd9d0722f08",
+      "source_checksum": "a02c70b0b059acd5a31014d1a6ae35e9f6c79b42638282972ddca05b4cee7c2b",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:156:update_warehouse",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -6781,6 +6831,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6794,7 +6845,7 @@
           }
         ]
       },
-      "source_checksum": "203109a72123aa974a4287c1b0f42695f0157551e0892e4e76078c9efbd55c0f",
+      "source_checksum": "57ab53aad54e4c70b911fc6d643565afe721d79e50d872505e6f5885ec2f3534",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:189:delete_warehouse",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -6854,6 +6905,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6867,7 +6919,7 @@
           }
         ]
       },
-      "source_checksum": "afb8c9c7d4d53a4fc2209fa5f7095c23f5c821565b958dcd3e3133c768ff6400",
+      "source_checksum": "715097cd0ef3f3ca5b8d67f5e07e9379e5a720ca5618d43618e4bced364fb880",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:224:list_inventories",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -6947,6 +6999,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -6960,7 +7013,7 @@
           }
         ]
       },
-      "source_checksum": "67816ed5283e52331eedb5b7adb496a5e6938ae00c120ec7cc8de66ca6ef0775",
+      "source_checksum": "2ae3bbd8217f6212670ca63f9839fbeae775e5b5468438cb303b525dbb5e28ac",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:269:create_inventory",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -7052,6 +7105,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7065,7 +7119,7 @@
           }
         ]
       },
-      "source_checksum": "b5eda5ad3dc3d669cd7d23bb220924911826a826da668f3a0f3ac37e4a77315c",
+      "source_checksum": "a641d07bd0d04ca7aafb9c38f829a3998729374a3f288d83393c2efec3d8ea28",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:300:show_inventory",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -7139,6 +7193,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7152,7 +7207,7 @@
           }
         ]
       },
-      "source_checksum": "8067ea05eabde58d4c08283f3c61e9ed0a84280e91af97e21548c84168839096",
+      "source_checksum": "d7d1e087d4033550caa4980898ffac9bec3a3382633c68a1789f181a62fad651",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:333:update_inventory",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -7237,6 +7292,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7250,7 +7306,7 @@
           }
         ]
       },
-      "source_checksum": "0f79c9422f5df60e0a5a28fb8b3a151a03007865bdc2ec03f670363682683251",
+      "source_checksum": "fb89240c4df94aab2adf933ca3a5aa35bf8a93d1d866c069a9f73a00125ea025",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:333:update_inventory",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -7334,6 +7390,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inventory::routes",
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7347,7 +7404,7 @@
           }
         ]
       },
-      "source_checksum": "b2720bce70763844ed1409bfc87dfbb472337d7d8e384b7d0dd6aa166b6c7b13",
+      "source_checksum": "89731c3ebee27675b45f6714e791dd0c02f2502cbd07694626e650e8dce3e614",
       "handler": {
         "ref": "infera-modules/src/inventory/routes.rs:366:delete_inventory",
         "path": "infera-modules/src/inventory/routes.rs",
@@ -7407,6 +7464,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "stock_movement::routes",
+        "handler_source": "infera-modules/src/stock_movement/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7420,7 +7478,7 @@
           }
         ]
       },
-      "source_checksum": "ac0b87fc4aafda9774af85680bf7c1ad71984eae4ab9ac1234e09024bd6b8fed",
+      "source_checksum": "f00e3070baa2b461062c33ea30ee5d9031c7c89950a5644ec91e6230096cbbd0",
       "handler": {
         "ref": "infera-modules/src/stock_movement/routes.rs:42:list_stock_movements",
         "path": "infera-modules/src/stock_movement/routes.rs",
@@ -7500,6 +7558,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "stock_movement::routes",
+        "handler_source": "infera-modules/src/stock_movement/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7513,7 +7572,7 @@
           }
         ]
       },
-      "source_checksum": "389b47156bdae19bf947552092ff8ce0a75d5b5acc4307b6e0d3fcc9a5a8b8d9",
+      "source_checksum": "0a848e096230f53067b265200c8ad402648035128f86822908f875a987479d8c",
       "handler": {
         "ref": "infera-modules/src/stock_movement/routes.rs:86:create_stock_movement",
         "path": "infera-modules/src/stock_movement/routes.rs",
@@ -7616,6 +7675,7 @@
         "multipart": true,
         "formUrlEncoded": false,
         "handlerModule": "media",
+        "handler_source": "infera-modules/src/media/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7629,7 +7689,7 @@
           }
         ]
       },
-      "source_checksum": "dad7480bbc5fc2e63fc9b69d90efa7dde554eef82a542fdb46d8ec6facdc4972",
+      "source_checksum": "401e8b01af9b27066ab384ad470ef64202c717d7c668c43e2dd1c69a0440fbb4",
       "handler": {
         "ref": "infera-modules/src/media/mod.rs:387:upload_image",
         "path": "infera-modules/src/media/mod.rs",
@@ -7684,6 +7744,7 @@
         "multipart": true,
         "formUrlEncoded": false,
         "handlerModule": "media",
+        "handler_source": "infera-modules/src/media/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7697,7 +7758,7 @@
           }
         ]
       },
-      "source_checksum": "767cdf58e2fdd99fd06742194ca2e6449ca364e810498f6e3c6ead233e98e011",
+      "source_checksum": "5f0c6359041f5b5b36495bd85b0ccfc8123d53c4a8b6b162d4a2525a38d473b9",
       "handler": {
         "ref": "infera-modules/src/media/mod.rs:394:upload_asset",
         "path": "infera-modules/src/media/mod.rs",
@@ -7752,6 +7813,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "media",
+        "handler_source": "infera-modules/src/media/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7765,7 +7827,7 @@
           }
         ]
       },
-      "source_checksum": "3465165e723ac90b5c2929869e921ad049df064ad60cce99dcaef837ce91d66a",
+      "source_checksum": "f0a4978f540d0c990137f2a066fba8c7ad70711ac2dc67776295508cd322898c",
       "handler": {
         "ref": "infera-modules/src/media/mod.rs:401:get_file",
         "path": "infera-modules/src/media/mod.rs",
@@ -7814,6 +7876,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "author::routes",
+        "handler_source": "infera-modules/src/author/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7827,7 +7890,7 @@
           }
         ]
       },
-      "source_checksum": "9dbf830eeceb03c71e2812ff4d0c4a55c47668123a6d71cfc073679c87d3e0af",
+      "source_checksum": "96be71c5ce3b137c85fcc8e4c6cf5d0bd1ae697193ac2f4101f511fb2a10be01",
       "handler": {
         "ref": "infera-modules/src/author/routes.rs:43:list_authors",
         "path": "infera-modules/src/author/routes.rs",
@@ -7894,6 +7957,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "author::routes",
+        "handler_source": "infera-modules/src/author/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -7907,7 +7971,7 @@
           }
         ]
       },
-      "source_checksum": "b885fa854212b57b60d080876c91d1ada396eb808cf78ab67dc7d318d562ada3",
+      "source_checksum": "8faf567d07873acc375a035cfb2d5506076b409b233fd3db1a41d390c7235ff1",
       "handler": {
         "ref": "infera-modules/src/author/routes.rs:74:create_author",
         "path": "infera-modules/src/author/routes.rs",
@@ -7987,6 +8051,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "author::routes",
+        "handler_source": "infera-modules/src/author/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8000,7 +8065,7 @@
           }
         ]
       },
-      "source_checksum": "9aeed1cbbe9c8285bf4d05bc9454012c5c1f0e36cbcc54c07df7535c50cfc4a2",
+      "source_checksum": "cab31583c04832ae320be5306e6501b43e13a9e1e93bae61c8d9374f0129960a",
       "handler": {
         "ref": "infera-modules/src/author/routes.rs:100:show_author",
         "path": "infera-modules/src/author/routes.rs",
@@ -8068,6 +8133,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "author::routes",
+        "handler_source": "infera-modules/src/author/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8081,7 +8147,7 @@
           }
         ]
       },
-      "source_checksum": "8bbe7af7c78a0e326f2b717272c07c6eae500bde44d3072844255554d95c5f37",
+      "source_checksum": "34f3ad4a6d3e46049df9f1cdb8312855fc24bbabcad4c83b568c8db40544126f",
       "handler": {
         "ref": "infera-modules/src/author/routes.rs:132:update_author",
         "path": "infera-modules/src/author/routes.rs",
@@ -8160,6 +8226,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "author::routes",
+        "handler_source": "infera-modules/src/author/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8173,7 +8240,7 @@
           }
         ]
       },
-      "source_checksum": "e9db82668d8d1553a2e8518bff1f99691d2eca111eeb082e7bd800f9c4925dae",
+      "source_checksum": "24415e293811201867b05801392ab114ef6176bc3feff997598e4d3b25f5ce6f",
       "handler": {
         "ref": "infera-modules/src/author/routes.rs:132:update_author",
         "path": "infera-modules/src/author/routes.rs",
@@ -8251,6 +8318,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "author::routes",
+        "handler_source": "infera-modules/src/author/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8264,7 +8332,7 @@
           }
         ]
       },
-      "source_checksum": "fe903e48091d81c875fd538e5c4a3e3dfafbeb73fe5136943a13f680d35b0792",
+      "source_checksum": "0490da85061d5fb87662ca4236055dd1d3818243e3308c3513875adfe48eada8",
       "handler": {
         "ref": "infera-modules/src/author/routes.rs:163:delete_author",
         "path": "infera-modules/src/author/routes.rs",
@@ -8324,6 +8392,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8337,7 +8406,7 @@
           }
         ]
       },
-      "source_checksum": "fc08403ff07bb9cf18bb05e1d591f5b8ce316db5fd8eac8f01c0b8516d265e49",
+      "source_checksum": "b656d4f283e0a4228d72800f6e80a15490c4dcea91378db6d33d98814ca72cbd",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:210:list_on_target",
         "path": "infera-modules/src/category/routes.rs",
@@ -8411,6 +8480,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8424,7 +8494,7 @@
           }
         ]
       },
-      "source_checksum": "0b40921588f3ee515e14c7d76dac5660c7919f5323172a2e61bac2dff0e676d8",
+      "source_checksum": "a47a58ab1cdc843d333507aa953cce795a86a43dfd7135a20873bcf8e050443e",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:244:attach_to_target",
         "path": "infera-modules/src/category/routes.rs",
@@ -8515,6 +8585,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8528,7 +8599,7 @@
           }
         ]
       },
-      "source_checksum": "199a91a0cd50bbb45c2611460c9bd0868a39b1bf6dcb6d51018dc74b1f91acde",
+      "source_checksum": "117b10c1f4b6a65264920f281d421fc210b2ac3c1cb933ee414078a0f61a7fd7",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:279:detach_from_target",
         "path": "infera-modules/src/category/routes.rs",
@@ -8606,6 +8677,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8619,7 +8691,7 @@
           }
         ]
       },
-      "source_checksum": "ca3d465798c8e33584a1eff47776f4bc9e34ea4e7162681699274b002de7286f",
+      "source_checksum": "e1fbd27b113868530e0854ce1b83dccf8200251eadbd551d80bd219dc27d3e88",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:49:list_categories",
         "path": "infera-modules/src/category/routes.rs",
@@ -8686,6 +8758,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8699,7 +8772,7 @@
           }
         ]
       },
-      "source_checksum": "6a7992034aac121c38ff0f829ebe64ea670bd1dcd94e7b1e9e36520a45aed7df",
+      "source_checksum": "41ae01671e5d8f9cdb5a2e54202a10ccc45f375036f3936ce9378a53772fef01",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:80:create_category",
         "path": "infera-modules/src/category/routes.rs",
@@ -8779,6 +8852,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8792,7 +8866,7 @@
           }
         ]
       },
-      "source_checksum": "a4d50b07155593344d8cad6d94493b688de357d3619519dfc649f08eee4cf600",
+      "source_checksum": "f534c6aafadb70c7162f31574e3fd2b657efa917a349a3b3bb8d3ba5f48dabeb",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:111:show_category",
         "path": "infera-modules/src/category/routes.rs",
@@ -8860,6 +8934,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8873,7 +8948,7 @@
           }
         ]
       },
-      "source_checksum": "870f9a809a37631fd5b715dba2bb7c70aca6bcfef3cc9c4ec1d43f54637ef795",
+      "source_checksum": "3f64ea2d563db060c361688573ad314688d06b840db6e09d52a6dcd146e8cea3",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:144:update_category",
         "path": "infera-modules/src/category/routes.rs",
@@ -8958,6 +9033,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -8971,7 +9047,7 @@
           }
         ]
       },
-      "source_checksum": "ff964a9c82c788ac57dd7072da54f69a334abe75b894ad67d54f5d0bcc29f416",
+      "source_checksum": "b3d03c7f90e4b96af4f014a109fe0bce7cb6e96fd31cc844352d99697f4f0184",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:144:update_category",
         "path": "infera-modules/src/category/routes.rs",
@@ -9055,6 +9131,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "category::routes",
+        "handler_source": "infera-modules/src/category/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9068,7 +9145,7 @@
           }
         ]
       },
-      "source_checksum": "39262c28c62418b2a6bbc67fd0f9a938413855b899c54dfdee5951d085178a14",
+      "source_checksum": "cd4a9870ff594c532f5a429a72875f017a4d7b9410cc6fb801e3d22eab7a7c9d",
       "handler": {
         "ref": "infera-modules/src/category/routes.rs:177:delete_category",
         "path": "infera-modules/src/category/routes.rs",
@@ -9128,6 +9205,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9141,7 +9219,7 @@
           }
         ]
       },
-      "source_checksum": "b0eacbe3b0bfb0d6173c184ed8edfdf4dfc9e36c3525af0605af20df492f9507",
+      "source_checksum": "7423f6fc3f9d947b7af9dff07b4322e947e7e675f8b1544209a629602d5dca78",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:196:list_on_target",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9215,6 +9293,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9228,7 +9307,7 @@
           }
         ]
       },
-      "source_checksum": "a265e8a745949c13a36614cd245271babd9d10c833a5ffc3adf8ab8ef625ae66",
+      "source_checksum": "66ee4e8c5ad307bfea2e60b19e424bb15bcdc62a7611c8541f2db536e025e090",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:230:attach_to_target",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9319,6 +9398,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9332,7 +9412,7 @@
           }
         ]
       },
-      "source_checksum": "f202d30a524c77b187044593eac0b151dc1f9ee182585520319e22d30884f555",
+      "source_checksum": "cf8f920141d3bf74792f511f5b0e289b6e5cbc0665adf7a218ab25944795ab96",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:265:detach_from_target",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9410,6 +9490,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9423,7 +9504,7 @@
           }
         ]
       },
-      "source_checksum": "b7867b2621eef0c972c3b9626a943d3c3bb99fd55859ea76742800aab811b3cd",
+      "source_checksum": "456216f2547cd6c2b7bba7671fcfaafabaad6f286f31766a1400d2feec9db17a",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:49:list_tags",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9490,6 +9571,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9503,7 +9585,7 @@
           }
         ]
       },
-      "source_checksum": "730f2369a9712ad5cbd25d155dac01be249474af76c28efc94547f60b75510b9",
+      "source_checksum": "6d6f72d377069895dd33e0a87983440601bc54e35195060224ad48760d61e45b",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:80:create_tag",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9570,6 +9652,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9583,7 +9666,7 @@
           }
         ]
       },
-      "source_checksum": "a3f51a39af40dc90c067384bf6c3005fea9be2d048aed9bfcc8e25b1f1d3bfe7",
+      "source_checksum": "7e9ae50ff445a3d4b0092858287e89f102baa754070d4796d22b52081260bb7f",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:106:show_tag",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9644,6 +9727,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9657,7 +9741,7 @@
           }
         ]
       },
-      "source_checksum": "ef40a7ed6ec5e16291bda9ae0d0bb402f2c71bc50eb005d6ccf1ad0ce5e20dee",
+      "source_checksum": "2dd2d300c134bcd9853e396d2eab4344015531cd95bee2ddbdd1751317d96355",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:138:update_tag",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9729,6 +9813,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9742,7 +9827,7 @@
           }
         ]
       },
-      "source_checksum": "d6e5c96d2a8733b49998d2035e54d4047bbec8cd63049575e58b909789d9f780",
+      "source_checksum": "8d98d68f273f8d053e27448ec12ea576000d975af904d710e2e490d2153a3e51",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:138:update_tag",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9813,6 +9898,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "tag::routes",
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9826,7 +9912,7 @@
           }
         ]
       },
-      "source_checksum": "0fa1f96c102a6aed94799caaca41be0a9881d4092c2c8cedb68c019430d15c27",
+      "source_checksum": "e6942a601278ec420ef8491ef8611e89f2968c2d9e6613ace65e993b17f143b3",
       "handler": {
         "ref": "infera-modules/src/tag/routes.rs:164:delete_tag",
         "path": "infera-modules/src/tag/routes.rs",
@@ -9886,6 +9972,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9899,7 +9986,7 @@
           }
         ]
       },
-      "source_checksum": "9db047fdcaa5b8e2b7c1a58ecd24190be1721962a6487ea561d3253fc3d7cb23",
+      "source_checksum": "420b24efdcdd14f61268986597d1a083fee08d7e122945921a851a3af0faa12e",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:199:list_on_target",
         "path": "infera-modules/src/comment/routes.rs",
@@ -9973,6 +10060,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -9986,7 +10074,7 @@
           }
         ]
       },
-      "source_checksum": "1a174c80b4bdf778c5e2d131092348e3eb1ed6e10d25436213f1b14a7c98526e",
+      "source_checksum": "627e3c2c8aba96946fa1e2164e6512bcb433a58d749809eb21841a88fd36f653",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:234:create_on_target",
         "path": "infera-modules/src/comment/routes.rs",
@@ -10082,6 +10170,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10095,7 +10184,7 @@
           }
         ]
       },
-      "source_checksum": "511f0b7722e2b29db492ab9baf946bc7cf170c577a653badc306a2ca2773e5aa",
+      "source_checksum": "9c1966dc3abfc5040499dfe78b37ef5769202bc6c1f38790156dcfecb124a02b",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:47:list_comments",
         "path": "infera-modules/src/comment/routes.rs",
@@ -10162,6 +10251,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10175,7 +10265,7 @@
           }
         ]
       },
-      "source_checksum": "0eb5023329d28a77260cd5a0ac6d96a329b24e3a1f486a62e47a55fda27be471",
+      "source_checksum": "800bfdad46ea2239e4751122ddf17e11e5b40ab3602c933aa3a946398ebe5dee",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:78:create_comment",
         "path": "infera-modules/src/comment/routes.rs",
@@ -10273,6 +10363,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10286,7 +10377,7 @@
           }
         ]
       },
-      "source_checksum": "6b9010f6d647f9829afcc4db42ebe9ef4d7861164493c9f43224468e64688d22",
+      "source_checksum": "9ab46d959b87a7eb4baac5e9e1ba11ddf49299b152d5cb86cb2d47329dd6191e",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:104:show_comment",
         "path": "infera-modules/src/comment/routes.rs",
@@ -10366,6 +10457,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10379,7 +10471,7 @@
           }
         ]
       },
-      "source_checksum": "bd9e27a3f7788c43993c1707a05e86655d1b56b7d9d03c0e8af02aac5e30e6ee",
+      "source_checksum": "c2d85993c1383af2902894c433fb32650816e7c3368bfbb58e26a76069122cb3",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:136:update_comment",
         "path": "infera-modules/src/comment/routes.rs",
@@ -10470,6 +10562,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10483,7 +10576,7 @@
           }
         ]
       },
-      "source_checksum": "ccd8bebb169ed99f243f143f2f379cbebb19e7b4583dbb5f7ca7dbc8eff6b95f",
+      "source_checksum": "a685441b42df5130dcfd1805ad5510192f78d73ca27bdcc259faf735142a0e1f",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:136:update_comment",
         "path": "infera-modules/src/comment/routes.rs",
@@ -10573,6 +10666,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "comment::routes",
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10586,7 +10680,7 @@
           }
         ]
       },
-      "source_checksum": "869d8399cc79b6bde476f1ff843dde42c2b12dd6f6502679ac1d1d77aa7819d2",
+      "source_checksum": "9c355031bde8f203387e5a26b0ae921e368c3a70ed66159784f5d2b361424568",
       "handler": {
         "ref": "infera-modules/src/comment/routes.rs:167:delete_comment",
         "path": "infera-modules/src/comment/routes.rs",
@@ -10646,6 +10740,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10659,7 +10754,7 @@
           }
         ]
       },
-      "source_checksum": "0bcc7d4478b7d670237ddbc2583271a2d8818af8198933114e82d99377ab40fa",
+      "source_checksum": "2e8e2a1fa81a599f7da7639fd6c101ad5eba3be8aefdd91a5e7baaac42987756",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:218:list_on_target",
         "path": "infera-modules/src/content/routes.rs",
@@ -10733,6 +10828,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10746,7 +10842,7 @@
           }
         ]
       },
-      "source_checksum": "51634a91b6029fb5151cc2e345f9eade29551358a6d973cf77e899d47b8e1390",
+      "source_checksum": "90ec1d6049846f3083475cbe7be480261e5ebf45ecff882ccb3b12934560c92c",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:252:attach_to_target",
         "path": "infera-modules/src/content/routes.rs",
@@ -10837,6 +10933,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10850,7 +10947,7 @@
           }
         ]
       },
-      "source_checksum": "577394dfb5bfe6dcd93f244e0540e25cc734e9483dfd17e0fab2de6de4f0a2ce",
+      "source_checksum": "0d334df96edcbd3ac93867a5d4af9119c3ed70396c261265f88d25d5bc136bd2",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:287:detach_from_target",
         "path": "infera-modules/src/content/routes.rs",
@@ -10928,6 +11025,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -10941,7 +11039,7 @@
           }
         ]
       },
-      "source_checksum": "4c2725cad0b711ddd1e9d63a8892f89c331941291f5edf0eb11ebb182e494a5a",
+      "source_checksum": "3b81952ec86f6ff2df3909bca76df6497046b04c326ce71167206449743b1f2c",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:49:list_contents",
         "path": "infera-modules/src/content/routes.rs",
@@ -11008,6 +11106,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11021,7 +11120,7 @@
           }
         ]
       },
-      "source_checksum": "eb829d1b720b1ba1e86cca8374cc4f4f59be24c8600e3c11df4b4d62e46f7717",
+      "source_checksum": "7a56ece7377f257f5ffd50406fea69d9f34eabbb0da970da3ea9944de89ccc56",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:80:create_content",
         "path": "infera-modules/src/content/routes.rs",
@@ -11107,6 +11206,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11120,7 +11220,7 @@
           }
         ]
       },
-      "source_checksum": "ae3a092f3b7644eb5cd2abc6e5cc7cbaa39756fd590ad4aa7bdff2f23206edd5",
+      "source_checksum": "8089291bdd7e19e705e857eb23463223a56d9ae79eda446bf3f0eecfcad52aa5",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:106:show_content",
         "path": "infera-modules/src/content/routes.rs",
@@ -11195,6 +11295,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11208,7 +11309,7 @@
           }
         ]
       },
-      "source_checksum": "b843b94bd560269b6145ace2bc5ab67a729a49093907dec7f39e7787a19bcf84",
+      "source_checksum": "c75fa386f62f473822462768913ff6f1fb16f93f692c228299a12e8b557bc4d7",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:144:update_content",
         "path": "infera-modules/src/content/routes.rs",
@@ -11311,6 +11412,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11324,7 +11426,7 @@
           }
         ]
       },
-      "source_checksum": "d1b2bfda05149a02aef727b1e3de6bbab021304a7e1c84c2a37ecb39bb6a4325",
+      "source_checksum": "47be0da28f54c34e22a523d3c74f90865245cf3906f9b871625226becb24b8d7",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:144:update_content",
         "path": "infera-modules/src/content/routes.rs",
@@ -11425,6 +11527,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content::routes",
+        "handler_source": "infera-modules/src/content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11438,7 +11541,7 @@
           }
         ]
       },
-      "source_checksum": "686935fb606d32bdb42833bb4cc540fe8c4d104c980092081209d9afce5bb301",
+      "source_checksum": "7623bf6c004947cfaf773b6ef12ea272b7c92c4fe358a61aedf8701902f3870f",
       "handler": {
         "ref": "infera-modules/src/content/routes.rs:186:delete_content",
         "path": "infera-modules/src/content/routes.rs",
@@ -11498,6 +11601,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11511,7 +11615,7 @@
           }
         ]
       },
-      "source_checksum": "3cfa9a472eee0024c4011a80a33519852b109e2126ca7ff792f001b7a26ab6fa",
+      "source_checksum": "2685725bc49a436ac15cd799dd66e5fca87b94f4e56322f5c4e5fe0bc1919fef",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:206:list_on_target",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -11585,6 +11689,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11598,7 +11703,7 @@
           }
         ]
       },
-      "source_checksum": "3ff56e99b7bce21db47f88b7332dfdb3854fece0c316e61063d2821bd16e871f",
+      "source_checksum": "264af46287abac29936fee7cb5360a09aaef2547d14ebe5053d1ff85d04af079",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:240:attach_to_target",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -11689,6 +11794,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11702,7 +11808,7 @@
           }
         ]
       },
-      "source_checksum": "7906f44c0c59820b9f822da0fe6db451d7659e37d440d35e939bbb1592d10cda",
+      "source_checksum": "ab9b627820c114f689b238ebe7a7633174fecebe157266538566243f78db49dd",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:275:detach_from_target",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -11780,6 +11886,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11793,7 +11900,7 @@
           }
         ]
       },
-      "source_checksum": "57fa19177600c44b4fa79c721337c0e9f52b17ee1d2200d0ed471625fd7a06be",
+      "source_checksum": "0dfb5a4d2eb8f762b694f4a60a4fa0526bd00a5102c3d5d7459a0c4c217e6312",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:49:list_seo_contents",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -11860,6 +11967,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11873,7 +11981,7 @@
           }
         ]
       },
-      "source_checksum": "6eb66933b77d45bc5b016fb96bcd15908ecaab9d244876a40a690542297f06b6",
+      "source_checksum": "7a2af43574c388f9f02ca24fb29b39efde722f3e35c423d40ba2e9f2b82c4259",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:80:create_seo_content",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -11940,6 +12048,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -11953,7 +12062,7 @@
           }
         ]
       },
-      "source_checksum": "bdf8dedac4e947b5647fc8758c07382c589c949e9a016ece7742bc17e2f1f292",
+      "source_checksum": "20da7dd45b9464e7b41542d3ec673377582a749521b3be897daed2314433051e",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:111:show_seo_content",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -12014,6 +12123,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12027,7 +12137,7 @@
           }
         ]
       },
-      "source_checksum": "366c98edac8b90767118a3aa847191a21d8d78d9ee3c98c5c08a5e4d37ad2372",
+      "source_checksum": "4daa03d99f82c993f500f783be12a7d2cc6717cc82eda115305d34c1044019de",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:143:update_seo_content",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -12099,6 +12209,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12112,7 +12223,7 @@
           }
         ]
       },
-      "source_checksum": "4440896842577cc367aa9c60137043dfa18a8843f14a274adfea080be99e499f",
+      "source_checksum": "511353dd029a87538f05a54dd8bd7facccd06557a9a4fa0f288c240556eae1e2",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:143:update_seo_content",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -12183,6 +12294,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "seo_content::routes",
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12196,7 +12308,7 @@
           }
         ]
       },
-      "source_checksum": "bd45a63eec66e1bccc2994b365e4fc54be79479ef352b6a4f03dfbdeef50b939",
+      "source_checksum": "6bd8923d96400a915b9a248e79ba68e21055ef8ba3b89eae317cf01957ebaded",
       "handler": {
         "ref": "infera-modules/src/seo_content/routes.rs:174:delete_seo_content",
         "path": "infera-modules/src/seo_content/routes.rs",
@@ -12256,6 +12368,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "audit_log::routes",
+        "handler_source": "infera-modules/src/audit_log/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12269,7 +12382,7 @@
           }
         ]
       },
-      "source_checksum": "6723077dd25fdb18643e6c64bf98cfa3344d9d95553a1dc36b5a3b7e884a3380",
+      "source_checksum": "a5c557aa5496df0bfb50646e8cb82b7c12745a46df25fb03c71a3a8608a584de",
       "handler": {
         "ref": "infera-modules/src/audit_log/routes.rs:37:list_on_target",
         "path": "infera-modules/src/audit_log/routes.rs",
@@ -12342,6 +12455,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reaction::routes",
+        "handler_source": "infera-modules/src/reaction/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12355,7 +12469,7 @@
           }
         ]
       },
-      "source_checksum": "06cb7c7a05cfefc5afe476ffa98cb9c4ba7fefc1af0c025c87c1030838072826",
+      "source_checksum": "c8e6e860feb6e00c163ae66082bcce3044c8513afd6196aa7a106224c84e99ea",
       "handler": {
         "ref": "infera-modules/src/reaction/routes.rs:43:list_on_target",
         "path": "infera-modules/src/reaction/routes.rs",
@@ -12429,6 +12543,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reaction::routes",
+        "handler_source": "infera-modules/src/reaction/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12442,7 +12557,7 @@
           }
         ]
       },
-      "source_checksum": "93ef21756c8942fc491eac5e4f31276650d204f87e367cf1e4f92bc4821b610e",
+      "source_checksum": "f1abe77c87ea996652f6a0560eda77577deced3d908b808b28104148e04b92c5",
       "handler": {
         "ref": "infera-modules/src/reaction/routes.rs:78:create_on_target",
         "path": "infera-modules/src/reaction/routes.rs",
@@ -12527,6 +12642,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reaction::routes",
+        "handler_source": "infera-modules/src/reaction/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12540,7 +12656,7 @@
           }
         ]
       },
-      "source_checksum": "dc2a6754a04e9e7f1f5b2ef514f484c6931548258bc5816e95a990a95ea73132",
+      "source_checksum": "b275cc189af2e0d908322c2985db083bb101334c35e3ace96226262592671089",
       "handler": {
         "ref": "infera-modules/src/reaction/routes.rs:115:delete_on_target",
         "path": "infera-modules/src/reaction/routes.rs",
@@ -12618,6 +12734,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "access::routes",
+        "handler_source": "infera-modules/src/access/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12631,7 +12748,7 @@
           }
         ]
       },
-      "source_checksum": "dcfe6639d76b9c651db1ac52e2aba84ac7d85fc8229563bfff6245306043d2e0",
+      "source_checksum": "dee59d6f4e0aaaeaa1cb69854b91e08d8a701469118f23ed449d3b2d4a4b0429",
       "handler": {
         "ref": "infera-modules/src/access/routes.rs:46:list_on_target",
         "path": "infera-modules/src/access/routes.rs",
@@ -12711,6 +12828,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "access::routes",
+        "handler_source": "infera-modules/src/access/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12724,7 +12842,7 @@
           }
         ]
       },
-      "source_checksum": "ec0f62277c99eccf93d1c08007a5e68c80709a4cceccce620386fb03d6aee6c2",
+      "source_checksum": "99bb5629aae77f31bc1400c2308cb1ace32d5ce4d654534965130b03fa5276be",
       "handler": {
         "ref": "infera-modules/src/access/routes.rs:81:grant_on_target",
         "path": "infera-modules/src/access/routes.rs",
@@ -12821,6 +12939,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "access::routes",
+        "handler_source": "infera-modules/src/access/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12834,7 +12953,7 @@
           }
         ]
       },
-      "source_checksum": "6717dea550fc8445e69fb041717c588371c5d804f2da99fdff2ac24ca6bc85c6",
+      "source_checksum": "af3c40a3c9d0257fa259db65696115abf89368aa368485f6046a4a7b6ab65a13",
       "handler": {
         "ref": "infera-modules/src/access/routes.rs:118:update_on_target",
         "path": "infera-modules/src/access/routes.rs",
@@ -12924,6 +13043,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "access::routes",
+        "handler_source": "infera-modules/src/access/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -12937,7 +13057,7 @@
           }
         ]
       },
-      "source_checksum": "4b51588963bb26e1b6cf0ba2736bcf3aa6115bb4c03cceb5319d79a8d498a55c",
+      "source_checksum": "0c5b349a3459681ec9411bdbc05f17ae4b49bc4bbc0d50cf470b95a2382471ff",
       "handler": {
         "ref": "infera-modules/src/access/routes.rs:153:revoke_on_target",
         "path": "infera-modules/src/access/routes.rs",
@@ -12998,6 +13118,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13011,7 +13132,7 @@
           }
         ]
       },
-      "source_checksum": "6796c3e5a0f0b2dda4d350d011a39a2c73dff539609e4524a113411096664e26",
+      "source_checksum": "44937e319163bd415682446fc85f89b4b90e6d6dcf3e3bfafe25387b8b487752",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:308:list_logs_for_category",
         "path": "infera-modules/src/request/routes.rs",
@@ -13101,6 +13222,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13114,7 +13236,7 @@
           }
         ]
       },
-      "source_checksum": "4eaaff81bfdefb37dbca71bc3544c95ad7303e3b51acca67c584e81aa8231ad4",
+      "source_checksum": "aaeeb2fdafeb3291889ce0632efa9112af4e29ff2d936fea65ba4ddffa2a97d9",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:340:list_logs_for_request",
         "path": "infera-modules/src/request/routes.rs",
@@ -13190,6 +13312,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13203,7 +13326,7 @@
           }
         ]
       },
-      "source_checksum": "75795d853b26a12d5a1e364bb87295f786d53eacf4f7b11f4b53e55cfcb8f7b3",
+      "source_checksum": "517f2da2a61e1c1473c77244c7fd14621cb3d07f8522a50b4502eaaf5b218324",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:371:submit",
         "path": "infera-modules/src/request/routes.rs",
@@ -13287,6 +13410,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13300,7 +13424,7 @@
           }
         ]
       },
-      "source_checksum": "b105ab107201f2ac91b936ebeac1f333892de3aae5af4235434f7a7960efce76",
+      "source_checksum": "55c53d0efc4f1cbbfde2965c7f1e450d99f4b582440f81e55f70eccb64a164f8",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:206:list_on_target",
         "path": "infera-modules/src/request/routes.rs",
@@ -13374,6 +13498,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13387,7 +13512,7 @@
           }
         ]
       },
-      "source_checksum": "7c55cdc765a853e9d812813e4a3735fc2b1548ce037aa6a238837b1e37111379",
+      "source_checksum": "f7bf03ba230e2c58c2ea002148754aebae7503c1df9a7809dcd9a4500e047be6",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:240:attach_to_target",
         "path": "infera-modules/src/request/routes.rs",
@@ -13478,6 +13603,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13491,7 +13617,7 @@
           }
         ]
       },
-      "source_checksum": "46f59743b8f9f1792c685b55d7471056839f1c1b44d47245a5228fe6e9f064f5",
+      "source_checksum": "952f1cfcc473f8a8c2b45a24e759063225295481706151f0192226747c1b6a3c",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:275:detach_from_target",
         "path": "infera-modules/src/request/routes.rs",
@@ -13569,6 +13695,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13582,7 +13709,7 @@
           }
         ]
       },
-      "source_checksum": "b88f9218815a85d58183e37f10e50a1b9e6bff66587fa0b62b9be1359391df7a",
+      "source_checksum": "14d4cdc0b716b07249988d556ff63bf080c3bbb7da1ea3c27be701cff2144266",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:54:list_requests",
         "path": "infera-modules/src/request/routes.rs",
@@ -13649,6 +13776,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13662,7 +13790,7 @@
           }
         ]
       },
-      "source_checksum": "d1562fe03d5066a286f485a6e67778a1d8d11fc64ddf71142292b0f49a2c916c",
+      "source_checksum": "3d5b7a7fd224ba2182f1f35ad50edcf22795ef551b4bd890db3783af6af5e907",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:85:create_request",
         "path": "infera-modules/src/request/routes.rs",
@@ -13729,6 +13857,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13742,7 +13871,7 @@
           }
         ]
       },
-      "source_checksum": "817fc5f939e6bb57c5b1957d5ceeccbbbf55f79568739060818d811ec24dd4d1",
+      "source_checksum": "35aa818299f4060ad04c687e972097003f51eb8bdc6fa6858b4323278d665e99",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:111:show_request",
         "path": "infera-modules/src/request/routes.rs",
@@ -13803,6 +13932,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13816,7 +13946,7 @@
           }
         ]
       },
-      "source_checksum": "98ba6160d29c3877f1791dbf2232c8d8b60c4586b41c3cf0d46cc82b3e0326b1",
+      "source_checksum": "c96c70daa1dc2902f58ed68c6f2b38f08c23b77d38d786b3b093a18c1893afce",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:143:update_request",
         "path": "infera-modules/src/request/routes.rs",
@@ -13888,6 +14018,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13901,7 +14032,7 @@
           }
         ]
       },
-      "source_checksum": "079217bddc1189cafa4f9e1a452279a7592e531a45c3f3867247032ed4b17f26",
+      "source_checksum": "e83e90eab9443716b1b1f688e4f6ebe84f083d19fdd14687c4a1809485a3709f",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:143:update_request",
         "path": "infera-modules/src/request/routes.rs",
@@ -13972,6 +14103,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::routes",
+        "handler_source": "infera-modules/src/request/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -13985,7 +14117,7 @@
           }
         ]
       },
-      "source_checksum": "57f71491dea67bb5e0cf3d5d768054d9d08980e833154e72a3219e1c68579f80",
+      "source_checksum": "4d0736bed7bf56981592ab1cd97cdfbca38f96f92b77b341d78d76de34ae9482",
       "handler": {
         "ref": "infera-modules/src/request/routes.rs:174:delete_request",
         "path": "infera-modules/src/request/routes.rs",
@@ -14046,6 +14178,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "request::public",
+        "handler_source": "infera-modules/src/request/public.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14059,7 +14192,7 @@
           }
         ]
       },
-      "source_checksum": "1a1adcae888281fb64251fc62e7f80ddd74c4a8eb721f219397a6979d62c9654",
+      "source_checksum": "d2b130317d2e72c6a9ae101bacaf7c230649a15f6afed2539e67431f59eb07c4",
       "handler": {
         "ref": "infera-modules/src/request/public.rs:73:submit",
         "path": "infera-modules/src/request/public.rs",
@@ -14143,6 +14276,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-modules/src/product/public.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14151,7 +14285,7 @@
           }
         ]
       },
-      "source_checksum": "af9b5d04ee8fffb98de32892f1114547bc80b35a00db8e2a5f49f3de8b405289",
+      "source_checksum": "aeef117ad44e8bdd61a4dd435788e95e785fa4451b80f38610217f119df6a22f",
       "handler": {
         "ref": "infera-modules/src/product/public.rs:27:list",
         "path": "infera-modules/src/product/public.rs",
@@ -14212,6 +14346,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-modules/src/request/public.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14220,7 +14355,7 @@
           }
         ]
       },
-      "source_checksum": "1447739aabc0463534ca89457276273038971f9e07e7d4b0f5922d9b8bac0cc9",
+      "source_checksum": "0d5211b1463c60c8b6c767f3c23a28c81f2cb07cac6b15f33d886870ed3edabb",
       "handler": {
         "ref": "infera-modules/src/request/public.rs:205:initialize",
         "path": "infera-modules/src/request/public.rs",
@@ -14269,6 +14404,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_pricing::routes",
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14282,7 +14418,7 @@
           }
         ]
       },
-      "source_checksum": "c1006b0fa66c81b751f2a84b1964f94797327c08542ff5394db8277f865f8163",
+      "source_checksum": "b68bc9e40d5797adb2be6bb9188884e926ea1244bbfcc9a0d5afaa54dd36572a",
       "handler": {
         "ref": "infera-modules/src/service_pricing/routes.rs:40:list_pricing",
         "path": "infera-modules/src/service_pricing/routes.rs",
@@ -14349,6 +14485,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_pricing::routes",
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14362,7 +14499,7 @@
           }
         ]
       },
-      "source_checksum": "a99d67c13ce17a3ebdff68aa9a5890b1831c84b55d82abe35dc4a2ebcafff118",
+      "source_checksum": "39dbf81c91597e4890f494c459626b1fb98c55427e106f7ca554aaa66bf56027",
       "handler": {
         "ref": "infera-modules/src/service_pricing/routes.rs:70:create_pricing",
         "path": "infera-modules/src/service_pricing/routes.rs",
@@ -14429,6 +14566,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_pricing::routes",
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14442,7 +14580,7 @@
           }
         ]
       },
-      "source_checksum": "fb267c8cab2b740b47441ac828accc3d4be609332d12e03328d89c401654460b",
+      "source_checksum": "5282f27b5e50b7b874afd1d4f867c7c9f5ceff2e17cc9884750f53ced4edb692",
       "handler": {
         "ref": "infera-modules/src/service_pricing/routes.rs:95:show_pricing",
         "path": "infera-modules/src/service_pricing/routes.rs",
@@ -14503,6 +14641,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_pricing::routes",
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14516,7 +14655,7 @@
           }
         ]
       },
-      "source_checksum": "41cf2a19c70cf952a75a04c7d82e3a14c3c0b85e2722c89a2d1d4e8729029f52",
+      "source_checksum": "d08b0107341fbf51dd62903bdeba66a26f9a39567abf7fdb132ba9938d7cb94e",
       "handler": {
         "ref": "infera-modules/src/service_pricing/routes.rs:127:update_pricing",
         "path": "infera-modules/src/service_pricing/routes.rs",
@@ -14588,6 +14727,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_pricing::routes",
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14601,7 +14741,7 @@
           }
         ]
       },
-      "source_checksum": "d40cf7a72ff81142821133935a175d499024eece9c3009cd72a4b2d1e912c29b",
+      "source_checksum": "170b7857447e8feb5d9c8286da47ccec4b42374474df71e8a1bddab742ec988e",
       "handler": {
         "ref": "infera-modules/src/service_pricing/routes.rs:127:update_pricing",
         "path": "infera-modules/src/service_pricing/routes.rs",
@@ -14672,6 +14812,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service_pricing::routes",
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14685,7 +14826,7 @@
           }
         ]
       },
-      "source_checksum": "dd409a40ffd42e63a7b54322be8e5ac313c6fddb65ebdde11d8e0a260494d222",
+      "source_checksum": "cddff7ee3f1e33f9fc288a26ecd1ebdb64f28668c36f19ca8d46da4db27c0482",
       "handler": {
         "ref": "infera-modules/src/service_pricing/routes.rs:158:delete_pricing",
         "path": "infera-modules/src/service_pricing/routes.rs",
@@ -14745,6 +14886,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14758,7 +14900,7 @@
           }
         ]
       },
-      "source_checksum": "779d76e097d74f11dcc455b2873464a510e8fb4fa449e914103ae73c1381b20a",
+      "source_checksum": "a66171af9cd30e33d386009165510b2ab9e89a100ad77b0b72011e6f6cf24ffd",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:326:list_all_variables",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -14832,6 +14974,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14845,7 +14988,7 @@
           }
         ]
       },
-      "source_checksum": "45166f5b90b52d7bc6b20768268f6073af790301e2fdcc16118d1291de1b8556",
+      "source_checksum": "c8a9df4e51c431ea4302251d069dae949be898f2ab6518dd758d76f7d7049806",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:361:show_variable",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -14913,6 +15056,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -14926,7 +15070,7 @@
           }
         ]
       },
-      "source_checksum": "c85616b1c00269df78a16acf98dff4a2ebeafd9629650d4caf19ac216f9a8268",
+      "source_checksum": "adc48bb8c01c41b0720a09a280b3b12ee36878b393bb7b0b0ac6576fef585cbe",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:394:update_variable",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15005,6 +15149,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15018,7 +15163,7 @@
           }
         ]
       },
-      "source_checksum": "3ff3167d5f9673b1af893710d740aa9da43d7de99dacc843996a4d4a7a33ce93",
+      "source_checksum": "08e55679033e8879344019a72fa86811088411ef8c4fd4577f5d896ed8bed677",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:394:update_variable",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15096,6 +15241,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15109,7 +15255,7 @@
           }
         ]
       },
-      "source_checksum": "81f3b4b118608d0128dc5a897397c4400edb5382955bcf2521d2ee42aff123ae",
+      "source_checksum": "656d1b0ad091454a2980f74c39f14143fed58a9de5e3cb5d661a347358feccbc",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:426:delete_variable",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15169,6 +15315,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15182,7 +15329,7 @@
           }
         ]
       },
-      "source_checksum": "5a3bc07a3ffd003580faaabef3487b772406bb2f44697079b178225b649ca1b6",
+      "source_checksum": "27bf3842a619e973dfce2c970f385ff9ee9d69e7000441fc322abff6c36ec5d0",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:219:variables_map_by_slug",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15250,6 +15397,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15263,7 +15411,7 @@
           }
         ]
       },
-      "source_checksum": "f4288f18de4607c5f15b188391ca530487ca45fa744a0bc83e0366a9b378d3e1",
+      "source_checksum": "d3d489b1cf3735716a60f4a1bf41b8f8ee14ea16f7cde5ec510e4e48a3994fea",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:254:list_sample_variables",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15335,6 +15483,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15348,7 +15497,7 @@
           }
         ]
       },
-      "source_checksum": "53a251352f2069a3fd5f9ebd6b4ab1cda51ddb0673cb9f7b0cf91d2d3a80b403",
+      "source_checksum": "a488c01807f408818c52a11227980505bbfdd6eb03e2db7db3f1ba6b86a60cb3",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:292:create_sample_variable",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15426,6 +15575,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15439,7 +15589,7 @@
           }
         ]
       },
-      "source_checksum": "16b52c6b8d5157df9095ea1f0aad58c40a9be410425b99473fc7e8f7c599e446",
+      "source_checksum": "bb69a64228948e3c3cc681a579146bb4e4e381fec1f23db4237b0f506d133387",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:73:list_samples",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15506,6 +15656,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15519,7 +15670,7 @@
           }
         ]
       },
-      "source_checksum": "b666e97e0a3bd17e21f0ae4553ab8bbfef78bd7c234674ac2d0d1574924ffe89",
+      "source_checksum": "9c14aae9f73f8835077d2239027120b2a3ad4c0c4495709569624d1c253913dd",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:103:create_sample",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15586,6 +15737,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15599,7 +15751,7 @@
           }
         ]
       },
-      "source_checksum": "f962752d15140b9ddb5692c3c911323045610d3ddf9218ac98ebe3c4752f5772",
+      "source_checksum": "ced43976a05b829c94687ffdea7d36d0d260d628ca7dd4c86758226d78235237",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:128:show_sample",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15660,6 +15812,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15673,7 +15826,7 @@
           }
         ]
       },
-      "source_checksum": "d28d574b4969aedf25c9a19cddf257a26de39429401acd4e183c004e77f89d90",
+      "source_checksum": "de1fcb574a4007438291bddd26c81a5a34272bec910b91474ab7b744199779d7",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:160:update_sample",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15745,6 +15898,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15758,7 +15912,7 @@
           }
         ]
       },
-      "source_checksum": "55964a91109536fc1e8876e6c9935e744acde44b8f42507ec8fc919ffefa470c",
+      "source_checksum": "27976b204e2ea43b10f7a8196ab2c6438250684c2baae36f17b6939aed3080f4",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:160:update_sample",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15829,6 +15983,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "user_sample::routes",
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15842,7 +15997,7 @@
           }
         ]
       },
-      "source_checksum": "75150f67602f347faa73ecc4b0c4f8799b807566c6f30747d956a67dfaa0250e",
+      "source_checksum": "ac1ea810c42ef48e1c4710586772dea1232940b29877936291ebe4fe752498e6",
       "handler": {
         "ref": "infera-modules/src/user_sample/routes.rs:191:delete_sample",
         "path": "infera-modules/src/user_sample/routes.rs",
@@ -15902,6 +16057,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "search::routes",
+        "handler_source": "infera-modules/src/search/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15915,7 +16071,7 @@
           }
         ]
       },
-      "source_checksum": "1adf62928d6faa01f1d0fe7450f561fd3ec7eee3c6e4b2549270a0b40a0fc04c",
+      "source_checksum": "9dd4bc3cc08488e8bf13382ea977b0d26ddc5d489eb42ce5842a46c87f4b83b6",
       "handler": {
         "ref": "infera-modules/src/search/routes.rs:37:autocomplete",
         "path": "infera-modules/src/search/routes.rs",
@@ -15981,6 +16137,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "integration::routes",
+        "handler_source": "infera-modules/src/integration/routes.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -15994,7 +16151,7 @@
           }
         ]
       },
-      "source_checksum": "2aab2daab2093c990eaf3ea614eb82111e332f7623d80acc98b797dcabb9bb82",
+      "source_checksum": "7fd8bd577ea9578213daf056400b9307618b09c6a9c53c6b1a0df6d1bcbe94f7",
       "handler": {
         "ref": "infera-modules/src/integration/routes.rs:9:flow_integration_show",
         "path": "infera-modules/src/integration/routes.rs",
@@ -16048,6 +16205,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16061,7 +16219,7 @@
           }
         ]
       },
-      "source_checksum": "ae8cc3c3f5a2369f2e4399ef699a6b41cbc52b2fb69adb62e511aaa099bf139a",
+      "source_checksum": "cd9ca6c6d2ecb2ad5eca8f0e1761d5249cee6c266778542ab885f865b319e799",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:263:public_routes",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16109,6 +16267,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16122,7 +16281,7 @@
           }
         ]
       },
-      "source_checksum": "bd544e19628ba7cfffde087f6b683d143090775b21b0ace7dd4fa152e11bd20a",
+      "source_checksum": "db943e2b40132e4c03ac18be0ad164c3e7aa3a354f39ce71fff9a220af0baf61",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:379:public_content",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16171,6 +16330,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16184,7 +16344,7 @@
           }
         ]
       },
-      "source_checksum": "a65295c8358ad63c259c2f67488a12ed2de93a0f182143d39acba71e4823e6d2",
+      "source_checksum": "b2c9013d44df7260344d3229945489eb37c589b619b44b9d7d81e208f0f5feba",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:394:list_content",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16257,6 +16417,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16270,7 +16431,7 @@
           }
         ]
       },
-      "source_checksum": "fc7cf205651c4e1aed6f5aef32d60b994fe7835f3ebd025755a50ac9cc05c03b",
+      "source_checksum": "8998d3ae3b943963aaefe567d11cc612217e6bd16b0c1ba13bb2062c38bdf88d",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:414:create_content",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16325,6 +16486,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16338,7 +16500,7 @@
           }
         ]
       },
-      "source_checksum": "94618407714b5d37d619d0a829e0fe8319c6b0cffa068a74842a9cf9eb3a2bba",
+      "source_checksum": "a8c8c46dc08be5481985474d4e727684795937865e85dd254e0d8e98feb53377",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:475:get_content",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16387,6 +16549,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16400,7 +16563,7 @@
           }
         ]
       },
-      "source_checksum": "af7a459ec63e63c18cda514566ad2aa30e07bfd0398a1a24b2054e270d4d864f",
+      "source_checksum": "cce08f57ecce720aae11ac030035767fd9afc1953affe4115941581e08b321d8",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:485:update_content",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16460,6 +16623,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16473,7 +16637,7 @@
           }
         ]
       },
-      "source_checksum": "1ee8ee95eb58ef566a07d19d42d4f819fc676c996fea7ff4733de8c14d9d9f33",
+      "source_checksum": "3480e6438d20a01c2422d4b5a21136794ac02d8e21fd2988e89da4d941854014",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:550:list_content_revisions",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16545,6 +16709,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16558,7 +16723,7 @@
           }
         ]
       },
-      "source_checksum": "6072ab574eaebb1eea487d4688104783d07144bf88b457eea42a79ab026b438c",
+      "source_checksum": "6728b867cf0ddf4487836f66ee1dcfb5b2976c551bcb854ee9537a8a8803e2f6",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:566:restore_content_revision",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16606,6 +16771,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16619,7 +16785,7 @@
           }
         ]
       },
-      "source_checksum": "416e3ec65435719e83cd2dfd9dac8f21641efaa4bc59e5da88f2c16bdfb32f4a",
+      "source_checksum": "7dfa9e5e5e13ff819bf1f2fc6e78a14020cc7ff45778100c11cd8b3a099c30bc",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:606:publish_content",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16666,6 +16832,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16679,7 +16846,7 @@
           }
         ]
       },
-      "source_checksum": "269dd6d8d96eeec8424dce10123df3f7e03a0557a28891ff61638d69baaa1772",
+      "source_checksum": "5d5ce00490951ec64e77c32a54e8f7908c8ca4e1b79bfc708fef031f5ad7ce37",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:691:get_settings",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16722,6 +16889,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16735,7 +16903,7 @@
           }
         ]
       },
-      "source_checksum": "fe7695090b95b8803487e2b366fb0e12bccd926e21ed283f5e911bff7b29eb23",
+      "source_checksum": "3977c768a63d9a00e1a6296c34907b754faed28d043ad6fce1df91278ee65768",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:700:update_settings",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16790,6 +16958,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16803,7 +16972,7 @@
           }
         ]
       },
-      "source_checksum": "73241372d95b45ea6808a39e0530a38d1bfb12f97c86b65c73db647dc31c46aa",
+      "source_checksum": "e3f85b49168245fd2d3e8ded32cb7516da2c138fc6f62456dfb65d028dbeb95b",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:792:agent_models",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16851,6 +17020,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16864,7 +17034,7 @@
           }
         ]
       },
-      "source_checksum": "8c41c18030861ab345343f6ea2a19944e612cdc1179829e0e0a4aff7653207ea",
+      "source_checksum": "45a3a601de9dc4b5bb61fb42eff98663003ae3340269d5040ab2a53fdde2e726",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:852:run_agent",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -16932,6 +17102,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -16945,7 +17116,7 @@
           }
         ]
       },
-      "source_checksum": "8cfb57b330ba30e8c2d984504804bc955b37a77fcc0e45cceb8d43cbf6a15e07",
+      "source_checksum": "3187011cb454d351983d77e65e154f34edc5f9f3c03101e9f98b54c35f228507",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:979:list_proposals",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -17020,6 +17191,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17033,7 +17205,7 @@
           }
         ]
       },
-      "source_checksum": "b62f25518f196186ba0a5e9c9f3b9c5ad0b06bc6f83e640c14e2cb178994ee1c",
+      "source_checksum": "34db561ad2776854e57dfdde250228255419f586a413b1a6c1aa4a1cf77164f1",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:993:get_proposal",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -17112,6 +17284,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17125,7 +17298,7 @@
           }
         ]
       },
-      "source_checksum": "835e0c5d9983faf53b68c268710ab91c413a8ae29fa51b65fb746a6c319bb6b6",
+      "source_checksum": "4d0608f71d47c549cd9a3910afc2f418460423cb131f055d7998a720ae5230a9",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:1013:approve_proposal",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -17204,6 +17377,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "management_api",
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17217,7 +17391,7 @@
           }
         ]
       },
-      "source_checksum": "78eba5fb011baae34d2f8c76ec51d0efb79778a6b5948f183addaefcbb2afcad",
+      "source_checksum": "71a4fa5e527230fc63a76308e1f030e274d597decdc5a388e2d5199e16125c08",
       "handler": {
         "ref": "infera-modules/src/management_api/mod.rs:1040:reject_proposal",
         "path": "infera-modules/src/management_api/mod.rs",
@@ -17297,6 +17471,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content_transfer",
+        "handler_source": "infera-modules/src/content_transfer/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17310,7 +17485,7 @@
           }
         ]
       },
-      "source_checksum": "9bb64e4ba71e3b812967533b3682774dbe844f71f5d75aa5dcf9369a82687251",
+      "source_checksum": "fc99a1af9214cf4ef18de9ecfa48d94464284ed94aaa87d3d5d2a88b1b061c21",
       "handler": {
         "ref": "infera-modules/src/content_transfer/mod.rs:276:list_public_content",
         "path": "infera-modules/src/content_transfer/mod.rs",
@@ -17381,6 +17556,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content_transfer",
+        "handler_source": "infera-modules/src/content_transfer/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17394,7 +17570,7 @@
           }
         ]
       },
-      "source_checksum": "630e94788ef84f270ed80754cc262c8b2969c6c44111dcb2c7ee3ee032b58604",
+      "source_checksum": "3af757d58ea93ebb4141259f4ea93b9074bf935da2d46f998f8a80518de06231",
       "handler": {
         "ref": "infera-modules/src/content_transfer/mod.rs:154:list_public_categories",
         "path": "infera-modules/src/content_transfer/mod.rs",
@@ -17468,6 +17644,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content_transfer",
+        "handler_source": "infera-modules/src/content_transfer/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17481,7 +17658,7 @@
           }
         ]
       },
-      "source_checksum": "297d0b0db126704533df4af3ac5b5a901f280a03e65458a12befd3cf5dcfa1d5",
+      "source_checksum": "1714168dfbcf2f7701f57c656713bcd109e08ce7d90357ebdf5d071c035b348a",
       "handler": {
         "ref": "infera-modules/src/content_transfer/mod.rs:170:upsert_category",
         "path": "infera-modules/src/content_transfer/mod.rs",
@@ -17578,6 +17755,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "content_transfer",
+        "handler_source": "infera-modules/src/content_transfer/mod.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17591,7 +17769,7 @@
           }
         ]
       },
-      "source_checksum": "56e62c8ef938da66c1b688647d219df0cf577f17d070bf659dc19c90f024e28d",
+      "source_checksum": "e93c6a93064e5c5983e3f9e68296f38a94293e66abe41d8ab6ee9b8aa6f39d34",
       "handler": {
         "ref": "infera-modules/src/content_transfer/mod.rs:382:upsert_content",
         "path": "infera-modules/src/content_transfer/mod.rs",
@@ -17679,6 +17857,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-modules/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17687,7 +17866,7 @@
           }
         ]
       },
-      "source_checksum": "279b00b85d4204f322e92930f5e79d4e73ff4901545f2744f0f9096a89130dea",
+      "source_checksum": "36fb952d9e483b7dca89189daebe5df8c3e35fc46bf064d68771cd1660598ccf",
       "handler": {
         "ref": "infera-modules/src/router.rs:441:beautified_openapi",
         "path": "infera-modules/src/router.rs",
@@ -17730,6 +17909,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-modules/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-modules/src/router.rs",
@@ -17738,7 +17918,7 @@
           }
         ]
       },
-      "source_checksum": "7ef1b2ec99ca37bc3ee66628395d8b71db53868249aed9d8fddb17451629971d",
+      "source_checksum": "0c23bc97ffd42928ffc10ec96cd99adcaf7dfc16a7da997786629499a7c33bf4",
       "handler": {
         "ref": "infera-modules/src/router.rs:436:openapi_json",
         "path": "infera-modules/src/router.rs",
@@ -17976,6 +18156,7 @@
         "handlerModule": "router",
         "source": "infera-modules/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -17993,6 +18174,7 @@
         "handlerModule": "router",
         "source": "infera-modules/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -18010,6 +18192,7 @@
         "handlerModule": "session::routes",
         "source": "infera-modules/src/session/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/session/routes.rs",
         "response": "SessionResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -18033,6 +18216,7 @@
         "handlerModule": "blog::routes",
         "source": "infera-modules/src/blog/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "query": "PaginationQuery",
         "response": "models::PostListResponse",
         "responseEnvelope": "api",
@@ -18057,6 +18241,7 @@
         "handlerModule": "blog::routes",
         "source": "infera-modules/src/blog/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "body": "models::PostCreateRequest",
         "response": "models::PostResponseDTO",
         "responseEnvelope": "api",
@@ -18081,6 +18266,7 @@
         "handlerModule": "blog::routes",
         "source": "infera-modules/src/blog/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "pathParam": "Uuid",
         "response": "models::PostResponseDTO",
         "responseEnvelope": "api",
@@ -18105,6 +18291,7 @@
         "handlerModule": "blog::routes",
         "source": "infera-modules/src/blog/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "body": "models::PostUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::PostResponseDTO",
@@ -18130,6 +18317,7 @@
         "handlerModule": "blog::routes",
         "source": "infera-modules/src/blog/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "body": "models::PostUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::PostResponseDTO",
@@ -18155,6 +18343,7 @@
         "handlerModule": "blog::routes",
         "source": "infera-modules/src/blog/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/blog/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18178,6 +18367,7 @@
         "handlerModule": "podcast::routes",
         "source": "infera-modules/src/podcast/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "response": "Vec<entity::podcast::Model>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -18201,6 +18391,7 @@
         "handlerModule": "podcast::routes",
         "source": "infera-modules/src/podcast/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "body": "models::PodcastInput",
         "response": "entity::podcast::Model",
         "responseEnvelope": "api",
@@ -18225,6 +18416,7 @@
         "handlerModule": "podcast::routes",
         "source": "infera-modules/src/podcast/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "pathParam": "Uuid",
         "response": "models::PodcastDetail",
         "responseEnvelope": "api",
@@ -18249,6 +18441,7 @@
         "handlerModule": "podcast::routes",
         "source": "infera-modules/src/podcast/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "body": "models::PodcastUpdate",
         "pathParam": "Uuid",
         "response": "entity::podcast::Model",
@@ -18274,6 +18467,7 @@
         "handlerModule": "podcast::routes",
         "source": "infera-modules/src/podcast/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18297,6 +18491,7 @@
         "handlerModule": "podcast::routes",
         "source": "infera-modules/src/podcast/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "body": "models::EpisodeInput",
         "pathParam": "Uuid",
         "response": "entity::podcast_episode::Model",
@@ -18322,6 +18517,7 @@
         "handlerModule": "podcast::routes",
         "source": "infera-modules/src/podcast/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "body": "models::EpisodeUpdate",
         "pathParam": "(Uuid, Uuid)",
         "response": "entity::podcast_episode::Model",
@@ -18347,6 +18543,7 @@
         "handlerModule": "podcast::routes",
         "source": "infera-modules/src/podcast/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/podcast/routes.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18370,6 +18567,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "query": "models::ProductListQuery",
         "response": "models::ProductListResponse",
         "responseEnvelope": "api",
@@ -18394,6 +18592,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "body": "models::ProductCreateRequest",
         "response": "models::ProductResponseDTO",
         "responseEnvelope": "api",
@@ -18418,6 +18617,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "pathParam": "Uuid",
         "response": "models::ProductResponseDTO",
         "responseEnvelope": "api",
@@ -18442,6 +18642,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "body": "models::ProductUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::ProductResponseDTO",
@@ -18467,6 +18668,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "body": "models::ProductUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::ProductResponseDTO",
@@ -18492,6 +18694,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18517,6 +18720,7 @@
         "permissions": [
           "product:read"
         ],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "query": "PaginationQuery",
         "pathParam": "Uuid",
         "response": "models::VariantListResponse",
@@ -18542,6 +18746,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "body": "models::VariantCreateRequest",
         "pathParam": "Uuid",
         "response": "models::VariantResponseDTO",
@@ -18567,6 +18772,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "query": "models::VariantListQuery",
         "response": "models::VariantListResponse",
         "responseEnvelope": "api",
@@ -18591,6 +18797,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "pathParam": "Uuid",
         "response": "models::VariantResponseDTO",
         "responseEnvelope": "api",
@@ -18615,6 +18822,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "body": "models::VariantUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::VariantResponseDTO",
@@ -18640,6 +18848,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "body": "models::VariantUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::VariantResponseDTO",
@@ -18665,6 +18874,7 @@
         "handlerModule": "product::routes",
         "source": "infera-modules/src/product/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18688,6 +18898,7 @@
         "handlerModule": "order::checkout",
         "source": "infera-modules/src/order/checkout.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/checkout.rs",
         "body": "QuoteRequest",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18716,6 +18927,7 @@
         "handlerModule": "order::checkout",
         "source": "infera-modules/src/order/checkout.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/checkout.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18744,6 +18956,7 @@
         "handlerModule": "order::checkout",
         "source": "infera-modules/src/order/checkout.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/checkout.rs",
         "body": "Accept",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -18773,6 +18986,7 @@
         "handlerModule": "order::checkout",
         "source": "infera-modules/src/order/checkout.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/checkout.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18801,6 +19015,7 @@
         "handlerModule": "order::routes",
         "source": "infera-modules/src/order/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/routes.rs",
         "query": "PaginationQuery",
         "response": "models::OrderListResponse",
         "responseEnvelope": "api",
@@ -18825,6 +19040,7 @@
         "handlerModule": "order::routes",
         "source": "infera-modules/src/order/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/routes.rs",
         "body": "models::OrderCreateRequest",
         "response": "models::OrderResponseDTO",
         "responseEnvelope": "api",
@@ -18849,6 +19065,7 @@
         "handlerModule": "order::routes",
         "source": "infera-modules/src/order/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/routes.rs",
         "pathParam": "Uuid",
         "response": "models::OrderResponseDTO",
         "responseEnvelope": "api",
@@ -18873,6 +19090,7 @@
         "handlerModule": "order::routes",
         "source": "infera-modules/src/order/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/routes.rs",
         "body": "models::OrderUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::OrderResponseDTO",
@@ -18898,6 +19116,7 @@
         "handlerModule": "order::routes",
         "source": "infera-modules/src/order/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/routes.rs",
         "body": "models::OrderUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::OrderResponseDTO",
@@ -18923,6 +19142,7 @@
         "handlerModule": "order::routes",
         "source": "infera-modules/src/order/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -18946,6 +19166,7 @@
         "handlerModule": "order::routes",
         "source": "infera-modules/src/order/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/routes.rs",
         "pathParam": "Uuid",
         "response": "Vec<models::OrderItemResponseDTO>",
         "responseEnvelope": "api",
@@ -18970,6 +19191,7 @@
         "handlerModule": "order::routes",
         "source": "infera-modules/src/order/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/order/routes.rs",
         "body": "models::OrderItemCreateRequest",
         "pathParam": "Uuid",
         "response": "models::OrderResponseDTO",
@@ -18995,6 +19217,7 @@
         "handlerModule": "cart::routes",
         "source": "infera-modules/src/cart/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/cart/routes.rs",
         "response": "CartResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -19018,6 +19241,7 @@
         "handlerModule": "cart::routes",
         "source": "infera-modules/src/cart/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/cart/routes.rs",
         "body": "CartUpdate",
         "response": "CartResponse",
         "responseEnvelope": "api",
@@ -19042,6 +19266,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "query": "PaginationQuery",
         "response": "models::WarehouseListResponse",
         "responseEnvelope": "api",
@@ -19066,6 +19291,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "body": "models::WarehouseCreateRequest",
         "response": "models::WarehouseResponseDTO",
         "responseEnvelope": "api",
@@ -19090,6 +19316,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "pathParam": "Uuid",
         "response": "models::WarehouseResponseDTO",
         "responseEnvelope": "api",
@@ -19114,6 +19341,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "body": "models::WarehouseUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::WarehouseResponseDTO",
@@ -19139,6 +19367,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "body": "models::WarehouseUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::WarehouseResponseDTO",
@@ -19164,6 +19393,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -19187,6 +19417,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "query": "models::InventoryListQuery",
         "response": "models::InventoryListResponse",
         "responseEnvelope": "api",
@@ -19211,6 +19442,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "body": "models::InventoryCreateRequest",
         "response": "models::InventoryResponseDTO",
         "responseEnvelope": "api",
@@ -19235,6 +19467,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "pathParam": "Uuid",
         "response": "models::InventoryResponseDTO",
         "responseEnvelope": "api",
@@ -19259,6 +19492,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "body": "models::InventoryUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::InventoryResponseDTO",
@@ -19284,6 +19518,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "body": "models::InventoryUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::InventoryResponseDTO",
@@ -19309,6 +19544,7 @@
         "handlerModule": "inventory::routes",
         "source": "infera-modules/src/inventory/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/inventory/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -19332,6 +19568,7 @@
         "handlerModule": "stock_movement::routes",
         "source": "infera-modules/src/stock_movement/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/stock_movement/routes.rs",
         "query": "models::StockMovementListQuery",
         "response": "models::StockMovementListResponse",
         "responseEnvelope": "api",
@@ -19356,6 +19593,7 @@
         "handlerModule": "stock_movement::routes",
         "source": "infera-modules/src/stock_movement/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/stock_movement/routes.rs",
         "body": "models::StockMovementCreateRequest",
         "response": "models::StockMovementResponseDTO",
         "responseEnvelope": "api",
@@ -19380,6 +19618,7 @@
         "handlerModule": "media",
         "source": "infera-modules/src/media/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/media/mod.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -19402,6 +19641,7 @@
         "handlerModule": "media",
         "source": "infera-modules/src/media/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/media/mod.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -19424,6 +19664,7 @@
         "handlerModule": "media",
         "source": "infera-modules/src/media/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/media/mod.rs",
         "pathParam": "String",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -19447,6 +19688,7 @@
         "handlerModule": "author::routes",
         "source": "infera-modules/src/author/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/author/routes.rs",
         "query": "PaginationQuery",
         "response": "models::AuthorListResponse",
         "responseEnvelope": "api",
@@ -19471,6 +19713,7 @@
         "handlerModule": "author::routes",
         "source": "infera-modules/src/author/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/author/routes.rs",
         "body": "models::AuthorCreateRequest",
         "response": "models::AuthorResponseDTO",
         "responseEnvelope": "api",
@@ -19495,6 +19738,7 @@
         "handlerModule": "author::routes",
         "source": "infera-modules/src/author/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/author/routes.rs",
         "pathParam": "Uuid",
         "response": "models::AuthorResponseDTO",
         "responseEnvelope": "api",
@@ -19519,6 +19763,7 @@
         "handlerModule": "author::routes",
         "source": "infera-modules/src/author/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/author/routes.rs",
         "body": "models::AuthorUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::AuthorResponseDTO",
@@ -19544,6 +19789,7 @@
         "handlerModule": "author::routes",
         "source": "infera-modules/src/author/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/author/routes.rs",
         "body": "models::AuthorUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::AuthorResponseDTO",
@@ -19569,6 +19815,7 @@
         "handlerModule": "author::routes",
         "source": "infera-modules/src/author/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/author/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -19592,6 +19839,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::CategoryAttachmentDTO>",
         "responseEnvelope": "api",
@@ -19616,6 +19864,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "body": "models::CategoryAttachRequest",
         "pathParam": "(String, Uuid)",
         "response": "models::CategoryAttachmentDTO",
@@ -19641,6 +19890,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "query": "models::CategoryDetachQuery",
         "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw",
@@ -19665,6 +19915,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "query": "PaginationQuery",
         "response": "models::CategoryListResponse",
         "responseEnvelope": "api",
@@ -19689,6 +19940,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "body": "models::CategoryCreateRequest",
         "response": "models::CategoryResponseDTO",
         "responseEnvelope": "api",
@@ -19713,6 +19965,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "pathParam": "Uuid",
         "response": "models::CategoryResponseDTO",
         "responseEnvelope": "api",
@@ -19737,6 +19990,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "body": "models::CategoryUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::CategoryResponseDTO",
@@ -19762,6 +20016,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "body": "models::CategoryUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::CategoryResponseDTO",
@@ -19787,6 +20042,7 @@
         "handlerModule": "category::routes",
         "source": "infera-modules/src/category/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/category/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -19810,6 +20066,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::TagAttachmentDTO>",
         "responseEnvelope": "api",
@@ -19834,6 +20091,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "body": "models::TagAttachRequest",
         "pathParam": "(String, Uuid)",
         "response": "models::TagAttachmentDTO",
@@ -19859,6 +20117,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "query": "models::TagDetachQuery",
         "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw",
@@ -19883,6 +20142,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "query": "PaginationQuery",
         "response": "models::TagListResponse",
         "responseEnvelope": "api",
@@ -19907,6 +20167,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "body": "models::TagCreateRequest",
         "response": "models::TagResponseDTO",
         "responseEnvelope": "api",
@@ -19931,6 +20192,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "pathParam": "Uuid",
         "response": "models::TagResponseDTO",
         "responseEnvelope": "api",
@@ -19955,6 +20217,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "body": "models::TagUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::TagResponseDTO",
@@ -19980,6 +20243,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "body": "models::TagUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::TagResponseDTO",
@@ -20005,6 +20269,7 @@
         "handlerModule": "tag::routes",
         "source": "infera-modules/src/tag/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/tag/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -20028,6 +20293,7 @@
         "handlerModule": "comment::routes",
         "source": "infera-modules/src/comment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::CommentAttachmentDTO>",
         "responseEnvelope": "api",
@@ -20052,6 +20318,7 @@
         "handlerModule": "comment::routes",
         "source": "infera-modules/src/comment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "body": "models::CommentOnTargetRequest",
         "pathParam": "(String, Uuid)",
         "response": "models::CommentAttachmentDTO",
@@ -20077,6 +20344,7 @@
         "handlerModule": "comment::routes",
         "source": "infera-modules/src/comment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "query": "PaginationQuery",
         "response": "models::CommentListResponse",
         "responseEnvelope": "api",
@@ -20101,6 +20369,7 @@
         "handlerModule": "comment::routes",
         "source": "infera-modules/src/comment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "body": "models::CommentCreateRequest",
         "response": "models::CommentResponseDTO",
         "responseEnvelope": "api",
@@ -20125,6 +20394,7 @@
         "handlerModule": "comment::routes",
         "source": "infera-modules/src/comment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "pathParam": "Uuid",
         "response": "models::CommentResponseDTO",
         "responseEnvelope": "api",
@@ -20149,6 +20419,7 @@
         "handlerModule": "comment::routes",
         "source": "infera-modules/src/comment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "body": "models::CommentUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::CommentResponseDTO",
@@ -20174,6 +20445,7 @@
         "handlerModule": "comment::routes",
         "source": "infera-modules/src/comment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "body": "models::CommentUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::CommentResponseDTO",
@@ -20199,6 +20471,7 @@
         "handlerModule": "comment::routes",
         "source": "infera-modules/src/comment/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/comment/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -20222,6 +20495,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::ContentAttachmentDTO>",
         "responseEnvelope": "api",
@@ -20246,6 +20520,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "body": "models::ContentAttachRequest",
         "pathParam": "(String, Uuid)",
         "response": "models::ContentAttachmentDTO",
@@ -20271,6 +20546,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "query": "models::ContentDetachQuery",
         "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw",
@@ -20295,6 +20571,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "query": "PaginationQuery",
         "response": "models::ContentListResponse",
         "responseEnvelope": "api",
@@ -20319,6 +20596,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "body": "models::ContentCreateRequest",
         "response": "models::ContentResponseDTO",
         "responseEnvelope": "api",
@@ -20343,6 +20621,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "pathParam": "Uuid",
         "response": "models::ContentResponseDTO",
         "responseEnvelope": "api",
@@ -20367,6 +20646,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "body": "models::ContentUpdateRequest",
         "query": "models::ContentUpdateQuery",
         "pathParam": "Uuid",
@@ -20393,6 +20673,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "body": "models::ContentUpdateRequest",
         "query": "models::ContentUpdateQuery",
         "pathParam": "Uuid",
@@ -20419,6 +20700,7 @@
         "handlerModule": "content::routes",
         "source": "infera-modules/src/content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -20442,6 +20724,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::SeoContentAttachmentDTO>",
         "responseEnvelope": "api",
@@ -20466,6 +20749,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "body": "models::SeoContentAttachRequest",
         "pathParam": "(String, Uuid)",
         "response": "models::SeoContentAttachmentDTO",
@@ -20491,6 +20775,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "query": "models::SeoContentDetachQuery",
         "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw",
@@ -20515,6 +20800,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "query": "PaginationQuery",
         "response": "models::SeoContentListResponse",
         "responseEnvelope": "api",
@@ -20539,6 +20825,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "body": "models::SeoContentCreateRequest",
         "response": "models::SeoContentResponseDTO",
         "responseEnvelope": "api",
@@ -20563,6 +20850,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "pathParam": "Uuid",
         "response": "models::SeoContentResponseDTO",
         "responseEnvelope": "api",
@@ -20587,6 +20875,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "body": "models::SeoContentUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::SeoContentResponseDTO",
@@ -20612,6 +20901,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "body": "models::SeoContentUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::SeoContentResponseDTO",
@@ -20637,6 +20927,7 @@
         "handlerModule": "seo_content::routes",
         "source": "infera-modules/src/seo_content/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/seo_content/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -20660,6 +20951,7 @@
         "handlerModule": "audit_log::routes",
         "source": "infera-modules/src/audit_log/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/audit_log/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::AuditLogResponseDTO>",
         "responseEnvelope": "api",
@@ -20684,6 +20976,7 @@
         "handlerModule": "reaction::routes",
         "source": "infera-modules/src/reaction/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/reaction/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::ReactionResponseDTO>",
         "responseEnvelope": "api",
@@ -20708,6 +21001,7 @@
         "handlerModule": "reaction::routes",
         "source": "infera-modules/src/reaction/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/reaction/routes.rs",
         "body": "models::ReactionCreateRequest",
         "pathParam": "(String, Uuid)",
         "response": "models::ReactionResponseDTO",
@@ -20733,6 +21027,7 @@
         "handlerModule": "reaction::routes",
         "source": "infera-modules/src/reaction/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/reaction/routes.rs",
         "query": "models::ReactionDeleteQuery",
         "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw",
@@ -20757,6 +21052,7 @@
         "handlerModule": "access::routes",
         "source": "infera-modules/src/access/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/access/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::AccessResponseDTO>",
         "responseEnvelope": "api",
@@ -20781,6 +21077,7 @@
         "handlerModule": "access::routes",
         "source": "infera-modules/src/access/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/access/routes.rs",
         "body": "models::AccessGrantRequest",
         "pathParam": "(String, Uuid)",
         "response": "models::AccessResponseDTO",
@@ -20806,6 +21103,7 @@
         "handlerModule": "access::routes",
         "source": "infera-modules/src/access/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/access/routes.rs",
         "body": "models::AccessUpdateRequest",
         "pathParam": "(String, Uuid, Uuid)",
         "response": "models::AccessResponseDTO",
@@ -20831,6 +21129,7 @@
         "handlerModule": "access::routes",
         "source": "infera-modules/src/access/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/access/routes.rs",
         "pathParam": "(String, Uuid, Uuid)",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -20854,6 +21153,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "query": "models::RequestLogListQuery",
         "pathParam": "Uuid",
         "response": "Vec<models::RequestLogResponseDTO>",
@@ -20879,6 +21179,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "pathParam": "Uuid",
         "response": "Vec<models::RequestLogResponseDTO>",
         "responseEnvelope": "api",
@@ -20905,6 +21206,7 @@
         "permissions": [
           "modules:request:submit"
         ],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "body": "models::RequestSubmitRequest",
         "pathParam": "Uuid",
         "response": "models::RequestLogResponseDTO",
@@ -20930,6 +21232,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "Vec<models::RequestAttachmentDTO>",
         "responseEnvelope": "api",
@@ -20954,6 +21257,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "body": "models::RequestAttachRequest",
         "pathParam": "(String, Uuid)",
         "response": "models::RequestAttachmentDTO",
@@ -20979,6 +21283,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "query": "models::RequestDetachQuery",
         "pathParam": "(String, Uuid)",
         "responseEnvelope": "raw",
@@ -21003,6 +21308,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "query": "PaginationQuery",
         "response": "models::RequestListResponse",
         "responseEnvelope": "api",
@@ -21027,6 +21333,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "body": "models::RequestCreateRequest",
         "response": "models::RequestResponseDTO",
         "responseEnvelope": "api",
@@ -21051,6 +21358,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "pathParam": "Uuid",
         "response": "models::RequestResponseDTO",
         "responseEnvelope": "api",
@@ -21075,6 +21383,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "body": "models::RequestUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::RequestResponseDTO",
@@ -21100,6 +21409,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "body": "models::RequestUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::RequestResponseDTO",
@@ -21125,6 +21435,7 @@
         "handlerModule": "request::routes",
         "source": "infera-modules/src/request/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -21148,6 +21459,7 @@
         "handlerModule": "request::public",
         "source": "infera-modules/src/request/public.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/request/public.rs",
         "body": "WebsiteSubmission",
         "pathParam": "String",
         "responseEnvelope": "raw",
@@ -21172,6 +21484,7 @@
         "handlerModule": "product::public",
         "source": "infera-modules/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/product/public.rs",
         "query": "Page",
         "response": "Value",
         "responseEnvelope": "api",
@@ -21193,6 +21506,7 @@
         "permissions": [
           "modules:request:create"
         ],
+        "handler_source": "infera-modules/src/request/public.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -21210,6 +21524,7 @@
         "handlerModule": "service_pricing::routes",
         "source": "infera-modules/src/service_pricing/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "query": "PaginationQuery",
         "response": "models::ServicePricingListResponse",
         "responseEnvelope": "api",
@@ -21234,6 +21549,7 @@
         "handlerModule": "service_pricing::routes",
         "source": "infera-modules/src/service_pricing/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "body": "models::ServicePricingCreateRequest",
         "response": "models::ServicePricingResponseDTO",
         "responseEnvelope": "api",
@@ -21258,6 +21574,7 @@
         "handlerModule": "service_pricing::routes",
         "source": "infera-modules/src/service_pricing/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "pathParam": "Uuid",
         "response": "models::ServicePricingResponseDTO",
         "responseEnvelope": "api",
@@ -21282,6 +21599,7 @@
         "handlerModule": "service_pricing::routes",
         "source": "infera-modules/src/service_pricing/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "body": "models::ServicePricingUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::ServicePricingResponseDTO",
@@ -21307,6 +21625,7 @@
         "handlerModule": "service_pricing::routes",
         "source": "infera-modules/src/service_pricing/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "body": "models::ServicePricingUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::ServicePricingResponseDTO",
@@ -21332,6 +21651,7 @@
         "handlerModule": "service_pricing::routes",
         "source": "infera-modules/src/service_pricing/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/service_pricing/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -21355,6 +21675,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "query": "models::SampleVariableListQuery",
         "response": "models::SampleVariableListResponse",
         "responseEnvelope": "api",
@@ -21379,6 +21700,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "pathParam": "Uuid",
         "response": "models::SampleVariableResponseDTO",
         "responseEnvelope": "api",
@@ -21403,6 +21725,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "body": "models::SampleVariableUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::SampleVariableResponseDTO",
@@ -21428,6 +21751,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "body": "models::SampleVariableUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::SampleVariableResponseDTO",
@@ -21453,6 +21777,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -21476,6 +21801,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "pathParam": "String",
         "response": "models::SampleVariablesMapResponse",
         "responseEnvelope": "api",
@@ -21500,6 +21826,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "query": "PaginationQuery",
         "pathParam": "Uuid",
         "response": "models::SampleVariableListResponse",
@@ -21525,6 +21852,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "body": "models::SampleVariableCreateRequest",
         "pathParam": "Uuid",
         "response": "models::SampleVariableResponseDTO",
@@ -21550,6 +21878,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "query": "PaginationQuery",
         "response": "models::UserSampleListResponse",
         "responseEnvelope": "api",
@@ -21574,6 +21903,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "body": "models::UserSampleCreateRequest",
         "response": "models::UserSampleResponseDTO",
         "responseEnvelope": "api",
@@ -21598,6 +21928,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "pathParam": "Uuid",
         "response": "models::UserSampleResponseDTO",
         "responseEnvelope": "api",
@@ -21622,6 +21953,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "body": "models::UserSampleUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::UserSampleResponseDTO",
@@ -21647,6 +21979,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "body": "models::UserSampleUpdateRequest",
         "pathParam": "Uuid",
         "response": "models::UserSampleResponseDTO",
@@ -21672,6 +22005,7 @@
         "handlerModule": "user_sample::routes",
         "source": "infera-modules/src/user_sample/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/user_sample/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -21695,6 +22029,7 @@
         "handlerModule": "search::routes",
         "source": "infera-modules/src/search/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/search/routes.rs",
         "query": "AutocompleteQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -21718,6 +22053,7 @@
         "handlerModule": "integration::routes",
         "source": "infera-modules/src/integration/routes.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/integration/routes.rs",
         "response": "infera_flow_sdk::FlowIntegrationResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -21741,6 +22077,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -21763,6 +22100,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "pathParam": "(String, String, String)",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -21786,6 +22124,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "query": "ContentListQuery",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -21809,6 +22148,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "body": "ContentWrite",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -21832,6 +22172,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -21855,6 +22196,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "body": "ContentWrite",
         "pathParam": "Uuid",
         "responseEnvelope": "raw-response",
@@ -21879,6 +22221,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -21902,6 +22245,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "pathParam": "(Uuid, i32)",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -21925,6 +22269,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -21948,6 +22293,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -21970,6 +22316,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "body": "SettingsUpdate",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -21993,6 +22340,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -22015,6 +22363,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "body": "AgentRunInput",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -22038,6 +22387,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -22060,6 +22410,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -22083,6 +22434,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -22106,6 +22458,7 @@
         "handlerModule": "management_api",
         "source": "infera-modules/src/management_api/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/management_api/mod.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -22129,6 +22482,7 @@
         "handlerModule": "content_transfer",
         "source": "infera-modules/src/content_transfer/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content_transfer/mod.rs",
         "query": "PublicContentQuery",
         "pathParam": "(String, String)",
         "responseEnvelope": "raw",
@@ -22153,6 +22507,7 @@
         "handlerModule": "content_transfer",
         "source": "infera-modules/src/content_transfer/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content_transfer/mod.rs",
         "pathParam": "(String, String)",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -22176,6 +22531,7 @@
         "handlerModule": "content_transfer",
         "source": "infera-modules/src/content_transfer/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content_transfer/mod.rs",
         "body": "CategoryImport",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -22200,6 +22556,7 @@
         "handlerModule": "content_transfer",
         "source": "infera-modules/src/content_transfer/mod.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/content_transfer/mod.rs",
         "body": "ContentImport",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -22224,6 +22581,7 @@
         "handlerModule": "router",
         "source": "infera-modules/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -22241,6 +22599,7 @@
         "handlerModule": "router",
         "source": "infera-modules/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-modules/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -22257,15 +22616,188 @@
   "working_drift": {
     "added": [],
     "absent": [],
-    "changed": [],
-    "extraction_errors": [
-      {
-        "status": "failed",
-        "artifact_path": "working-contract-extraction.stderr.log",
-        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
-        "exit_code": 1
-      }
-    ]
+    "changed": [
+      "GET /",
+      "GET /api-doc/openapi.json",
+      "GET /api/openapi.json",
+      "GET /api/v1/access/{host}/{target_id}",
+      "POST /api/v1/access/{host}/{target_id}",
+      "DELETE /api/v1/access/{host}/{target_id}/{access_id}",
+      "PUT /api/v1/access/{host}/{target_id}/{access_id}",
+      "GET /api/v1/audit-logs/{host}/{target_id}",
+      "GET /api/v1/auth/self",
+      "GET /api/v1/authors",
+      "POST /api/v1/authors",
+      "DELETE /api/v1/authors/{id}",
+      "GET /api/v1/authors/{id}",
+      "PATCH /api/v1/authors/{id}",
+      "PUT /api/v1/authors/{id}",
+      "GET /api/v1/blog/posts",
+      "POST /api/v1/blog/posts",
+      "DELETE /api/v1/blog/posts/{id}",
+      "GET /api/v1/blog/posts/{id}",
+      "PATCH /api/v1/blog/posts/{id}",
+      "PUT /api/v1/blog/posts/{id}",
+      "GET /api/v1/categories",
+      "POST /api/v1/categories",
+      "DELETE /api/v1/categories/{host}/{target_id}",
+      "GET /api/v1/categories/{host}/{target_id}",
+      "POST /api/v1/categories/{host}/{target_id}",
+      "DELETE /api/v1/categories/{id}",
+      "GET /api/v1/categories/{id}",
+      "PATCH /api/v1/categories/{id}",
+      "PUT /api/v1/categories/{id}",
+      "GET /api/v1/comments",
+      "POST /api/v1/comments",
+      "GET /api/v1/comments/{host}/{target_id}",
+      "POST /api/v1/comments/{host}/{target_id}",
+      "DELETE /api/v1/comments/{id}",
+      "GET /api/v1/comments/{id}",
+      "PATCH /api/v1/comments/{id}",
+      "PUT /api/v1/comments/{id}",
+      "GET /api/v1/contents",
+      "POST /api/v1/contents",
+      "DELETE /api/v1/contents/{host}/{target_id}",
+      "GET /api/v1/contents/{host}/{target_id}",
+      "POST /api/v1/contents/{host}/{target_id}",
+      "DELETE /api/v1/contents/{id}",
+      "GET /api/v1/contents/{id}",
+      "PATCH /api/v1/contents/{id}",
+      "PUT /api/v1/contents/{id}",
+      "GET /api/v1/inventory/inventories",
+      "POST /api/v1/inventory/inventories",
+      "DELETE /api/v1/inventory/inventories/{id}",
+      "GET /api/v1/inventory/inventories/{id}",
+      "PATCH /api/v1/inventory/inventories/{id}",
+      "PUT /api/v1/inventory/inventories/{id}",
+      "GET /api/v1/inventory/stock-movements",
+      "POST /api/v1/inventory/stock-movements",
+      "GET /api/v1/inventory/warehouses",
+      "POST /api/v1/inventory/warehouses",
+      "DELETE /api/v1/inventory/warehouses/{id}",
+      "GET /api/v1/inventory/warehouses/{id}",
+      "PATCH /api/v1/inventory/warehouses/{id}",
+      "PUT /api/v1/inventory/warehouses/{id}",
+      "GET /api/v1/manage/agents/models",
+      "GET /api/v1/manage/agents/proposals",
+      "GET /api/v1/manage/agents/proposals/{id}",
+      "POST /api/v1/manage/agents/proposals/{id}/approve",
+      "POST /api/v1/manage/agents/proposals/{id}/reject",
+      "POST /api/v1/manage/agents/runs",
+      "GET /api/v1/manage/content",
+      "POST /api/v1/manage/content",
+      "GET /api/v1/manage/content/{id}",
+      "PUT /api/v1/manage/content/{id}",
+      "POST /api/v1/manage/content/{id}/publish",
+      "GET /api/v1/manage/content/{id}/revisions",
+      "POST /api/v1/manage/content/{id}/revisions/{revision}/restore",
+      "PUT /api/v1/manage/import/categories/{id}",
+      "PUT /api/v1/manage/import/content/{id}",
+      "GET /api/v1/manage/settings",
+      "PUT /api/v1/manage/settings",
+      "POST /api/v1/media/assets",
+      "GET /api/v1/media/files/{*key}",
+      "POST /api/v1/media/images",
+      "GET /api/v1/podcasts",
+      "POST /api/v1/podcasts",
+      "DELETE /api/v1/podcasts/{id}",
+      "GET /api/v1/podcasts/{id}",
+      "PATCH /api/v1/podcasts/{id}",
+      "POST /api/v1/podcasts/{id}/episodes",
+      "DELETE /api/v1/podcasts/{podcast_id}/episodes/{id}",
+      "PATCH /api/v1/podcasts/{podcast_id}/episodes/{id}",
+      "GET /api/v1/pricing",
+      "POST /api/v1/pricing",
+      "DELETE /api/v1/pricing/{id}",
+      "GET /api/v1/pricing/{id}",
+      "PATCH /api/v1/pricing/{id}",
+      "PUT /api/v1/pricing/{id}",
+      "GET /api/v1/public/categories/{scope}/{locale}",
+      "GET /api/v1/public/content/{kind}/{locale}",
+      "GET /api/v1/public/content/{kind}/{locale}/{slug}",
+      "POST /api/v1/public/requests/{key}",
+      "GET /api/v1/public/routes",
+      "GET /api/v1/public/search/autocomplete",
+      "GET /api/v1/public/shop/products",
+      "DELETE /api/v1/reactions/{host}/{target_id}",
+      "GET /api/v1/reactions/{host}/{target_id}",
+      "POST /api/v1/reactions/{host}/{target_id}",
+      "GET /api/v1/requests",
+      "POST /api/v1/requests",
+      "DELETE /api/v1/requests/{host}/{target_id}",
+      "GET /api/v1/requests/{host}/{target_id}",
+      "POST /api/v1/requests/{host}/{target_id}",
+      "DELETE /api/v1/requests/{id}",
+      "GET /api/v1/requests/{id}",
+      "PATCH /api/v1/requests/{id}",
+      "PUT /api/v1/requests/{id}",
+      "GET /api/v1/requests/{request_id}/logs",
+      "POST /api/v1/requests/{request_id}/logs",
+      "GET /api/v1/requests/category/{category_id}/logs",
+      "POST /api/v1/requests/website-defaults",
+      "GET /api/v1/samples",
+      "POST /api/v1/samples",
+      "DELETE /api/v1/samples/{id}",
+      "GET /api/v1/samples/{id}",
+      "PATCH /api/v1/samples/{id}",
+      "PUT /api/v1/samples/{id}",
+      "GET /api/v1/samples/{sample_id}/variables",
+      "POST /api/v1/samples/{sample_id}/variables",
+      "GET /api/v1/samples/by-slug/{slug}/variables-map",
+      "GET /api/v1/samples/variables",
+      "DELETE /api/v1/samples/variables/{id}",
+      "GET /api/v1/samples/variables/{id}",
+      "PATCH /api/v1/samples/variables/{id}",
+      "PUT /api/v1/samples/variables/{id}",
+      "GET /api/v1/seo-contents",
+      "POST /api/v1/seo-contents",
+      "DELETE /api/v1/seo-contents/{host}/{target_id}",
+      "GET /api/v1/seo-contents/{host}/{target_id}",
+      "POST /api/v1/seo-contents/{host}/{target_id}",
+      "DELETE /api/v1/seo-contents/{id}",
+      "GET /api/v1/seo-contents/{id}",
+      "PATCH /api/v1/seo-contents/{id}",
+      "PUT /api/v1/seo-contents/{id}",
+      "GET /api/v1/shop/cart",
+      "PUT /api/v1/shop/cart",
+      "GET /api/v1/shop/checkout/{id}",
+      "POST /api/v1/shop/checkout/{id}/cancel",
+      "POST /api/v1/shop/checkout/{id}/pay",
+      "POST /api/v1/shop/checkout/quote",
+      "GET /api/v1/shop/orders",
+      "POST /api/v1/shop/orders",
+      "DELETE /api/v1/shop/orders/{id}",
+      "GET /api/v1/shop/orders/{id}",
+      "PATCH /api/v1/shop/orders/{id}",
+      "PUT /api/v1/shop/orders/{id}",
+      "GET /api/v1/shop/orders/{order_id}/items",
+      "POST /api/v1/shop/orders/{order_id}/items",
+      "GET /api/v1/shop/products",
+      "POST /api/v1/shop/products",
+      "DELETE /api/v1/shop/products/{id}",
+      "GET /api/v1/shop/products/{id}",
+      "PATCH /api/v1/shop/products/{id}",
+      "PUT /api/v1/shop/products/{id}",
+      "GET /api/v1/shop/products/{product_id}/variants",
+      "POST /api/v1/shop/products/{product_id}/variants",
+      "GET /api/v1/shop/variants",
+      "DELETE /api/v1/shop/variants/{id}",
+      "GET /api/v1/shop/variants/{id}",
+      "PATCH /api/v1/shop/variants/{id}",
+      "PUT /api/v1/shop/variants/{id}",
+      "GET /api/v1/tags",
+      "POST /api/v1/tags",
+      "DELETE /api/v1/tags/{host}/{target_id}",
+      "GET /api/v1/tags/{host}/{target_id}",
+      "POST /api/v1/tags/{host}/{target_id}",
+      "DELETE /api/v1/tags/{id}",
+      "GET /api/v1/tags/{id}",
+      "PATCH /api/v1/tags/{id}",
+      "PUT /api/v1/tags/{id}",
+      "GET /health",
+      "GET /integration/flow"
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {

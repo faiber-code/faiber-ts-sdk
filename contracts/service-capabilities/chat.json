@@ -12,10 +12,12 @@
     "src/service.rs"
   ],
   "canonical_revision": "d5b722e2fad3a0585cdc5a24742bfbc6f52118bf",
-  "sdk_source_revision": "ab6ce7461d35414b719f3806df57549339002df5",
+  "sdk_source_revision": "1768097fc7c843f1f7e46ea4fcf7a0f776f0792d",
   "working_revision": "7360ff93ae3f4ff36b7b79e15db8a15ea09e881d",
   "working_changes": [
-    "M migration/src/lib.rs",
+    "M Cargo.lock",
+    " M Cargo.toml",
+    " M migration/src/lib.rs",
     " M src/lib.rs",
     " M src/main.rs",
     " M src/models.rs",
@@ -26,6 +28,7 @@
     "?? migration/src/m20261003_000013_media_retention.rs",
     "?? migration/src/m20261007_000015_asset_interactions.rs",
     "?? migration/src/m20261019_000050_summary_activity_outbox.rs",
+    "?? shared/",
     "?? src/asset_economy.rs",
     "?? src/fitness.rs",
     "?? src/media_retention.rs",
@@ -311,11 +314,12 @@
       "checksum": "767f48a9d163105d17c72e9592181297855f74e5ffc983448bad5c0e2ccbcb66"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "6a9be056197b444fb9fb87c5b463c4e736db6dee75c8e98ae7d1ba4b7d49b291",
+  "working_source_tree_checksum": "c046bbc182a3881c11431b06770b772a1b84da7e46a883106d317577f3affc1d",
   "working_source_files": [
     {
       "path": "infera-chat/src/agentic.rs",
@@ -470,6 +474,66 @@
       "checksum": "c3137236c2f939cec2f0119de3bda46b093769be14abb50805b1abe8addc49ea"
     },
     {
+      "path": "infera-chat/shared/infera-summary-sdk/Cargo.toml",
+      "checksum": "f8f49adcda1bbb77fc5e853e53ca05665c4a9dbda098af238cc425f8079b81e6"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/examples/generate_keys.rs",
+      "checksum": "f4265ebbcd356187299cd6922e9636c7ce08963d7a4097ec2859646fe1be1933"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/api.rs",
+      "checksum": "80d5512679333b5dfd0d0b50070f590a1049b8d10c6937366092d271f94ca3de"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/catalog.rs",
+      "checksum": "28f3b4b57b2c2dd7bc1309af471c6514afe1ca8fe70e3727735afc257b18d2e1"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/config.rs",
+      "checksum": "63b94a830ac8c0af99fc86fc71953659bda67c83c5f52158cd74b5d31a1f0645"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/evidence.rs",
+      "checksum": "b67c8d9ecea944f57663ab3d9ec8686f3d92511bea4531f5979050738275ee09"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/grant.rs",
+      "checksum": "4ec08323843172e92a6ee63e1e9f588b03224b1f79046599ff3780de2d7b220c"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/lib.rs",
+      "checksum": "3e48c26e570d67b61b03c8a5a937861ebade0a1e2b155d790da35044052f00dd"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/metric.rs",
+      "checksum": "db361bceb5387c75b1da6f0af699cb78c24504e2574d7fd99c1895ef29365d32"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/outbox.rs",
+      "checksum": "2bc0a036e1f6831ce079d9045949d2af99ea064b424e929a776e4a179b9429c8"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/outbox.sql",
+      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/query.rs",
+      "checksum": "b158b3219672889c9e5bd7ff2290dd928e9090cd6c7b4c7e07b1c896bd64763e"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/result.rs",
+      "checksum": "46600a6ce2347c0dd621a45972fa94ae624497b2d1b6f02c37f0d5a72b24f981"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/server.rs",
+      "checksum": "edadbfe69af77f695443631c04e26024046ee521ad402669596f0fa372387738"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/tests/mcp_transport.rs",
+      "checksum": "1eb543cda949cf4722d4856c316d3d32ccb9ca45b0dd3284cc15c8113ad78ee4"
+    },
+    {
       "path": "infera-chat/migration/src/lib.rs",
       "checksum": "cf66c2a462d57a5503f0faf032c63e8b48b0c824868ddb9e59c2fd035594791a"
     },
@@ -548,11 +612,6 @@
     {
       "path": "infera-chat/migration/Cargo.toml",
       "checksum": "767f48a9d163105d17c72e9592181297855f74e5ffc983448bad5c0e2ccbcb66"
-    },
-    {
-      "path": "infera-chat/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a",
-      "embedded_by": "infera-chat/migration/src/m20261019_000050_summary_activity_outbox.rs"
     }
   ],
   "operations": [
@@ -570,6 +629,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "main",
+        "handler_source": "infera-chat/src/main.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -578,7 +638,7 @@
           }
         ]
       },
-      "source_checksum": "616e6b06a583cb6dd6c0ea5a862b5668508f67df635f73eda1522397dc9563b4",
+      "source_checksum": "a994320b24b778881446f1f8177dbc5e3faf0ebb2c3c1e50e6c980e0c6424e39",
       "handler": {
         "ref": "infera-chat/src/main.rs:68:health",
         "path": "infera-chat/src/main.rs",
@@ -628,6 +688,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/image_capture.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -641,7 +702,7 @@
           }
         ]
       },
-      "source_checksum": "9cdf58d0b4518814f118c71d75a28dd772ead633ca0c8e94235d1006079ac8b4",
+      "source_checksum": "b0fe5b86bcf1badb9f8e9a8fb68dedccd4daec022a06e667725f088da4434aed",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:50:settings",
         "path": "infera-chat/src/image_capture.rs",
@@ -699,6 +760,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/image_capture.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -712,7 +774,7 @@
           }
         ]
       },
-      "source_checksum": "66df26eadcc3be5d3db7250b2fdaad9b54d7d547af87df7367bbb18d4743819e",
+      "source_checksum": "3294493a359d47c46caade14b44ed8a2b4a3d23e3566bc792dfe08e2bceff58a",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:87:save",
         "path": "infera-chat/src/image_capture.rs",
@@ -780,6 +842,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/image_capture.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -793,7 +856,7 @@
           }
         ]
       },
-      "source_checksum": "03b43a62e0fb99528c3ad80e2e5ca93f31fea2cf1c4868bd3ff322507d07eac2",
+      "source_checksum": "e5e6a0b7a8beaa546896e93dcab866dc0b7066484bb63258eb8c7cf0e6e5e674",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:76:models",
         "path": "infera-chat/src/image_capture.rs",
@@ -844,6 +907,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/image_capture.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -857,7 +921,7 @@
           }
         ]
       },
-      "source_checksum": "33e423e4268481a535165abe20ac9283fc5e4922bbacf46551426064c193de39",
+      "source_checksum": "06331897a39afbbba5c03c6efcc3998260fb32b7caef5e8e1f31c62d0bd1b69b",
       "handler": {
         "ref": "infera-chat/src/image_capture.rs:57:status",
         "path": "infera-chat/src/image_capture.rs",
@@ -906,6 +970,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/fitness.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -919,7 +984,7 @@
           }
         ]
       },
-      "source_checksum": "7d77df26a8c02d90ea6252ef978bf3eb756adec44e1f1e3a4c14002d21e011af",
+      "source_checksum": "5880f923b07566195854314f21709f196966671f2227be2421991d85a5dc5b81",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:298:extract_intake",
         "path": "infera-chat/src/fitness.rs",
@@ -978,6 +1043,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/fitness.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -991,7 +1057,7 @@
           }
         ]
       },
-      "source_checksum": "ea5eb35698dfd8276ba410c56c5af806b1fae1f80bd6d2ae3041880e70b565df",
+      "source_checksum": "cd2736667efea07260c5061b5f59c1ded25f9da7b3beac162de51db7234835b5",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:353:models",
         "path": "infera-chat/src/fitness.rs",
@@ -1053,6 +1119,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/learning.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1066,7 +1133,7 @@
           }
         ]
       },
-      "source_checksum": "e9e0356c0792541b8663ebd08f290c717272e66857ae55258ca97ae0a52d8f60",
+      "source_checksum": "c3f7c93d33663a1ef07a87ea0f668f044399700b437d36e88b1ce245f542446b",
       "handler": {
         "ref": "infera-chat/src/learning.rs:11:ask",
         "path": "infera-chat/src/learning.rs",
@@ -1169,6 +1236,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/learning.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1182,7 +1250,7 @@
           }
         ]
       },
-      "source_checksum": "3704d6df681617bd2d36a15ed6c459a3c26d6f74a9cbe313c4c14382e3c9534e",
+      "source_checksum": "300931051de8e1a995e1afffa240648ed39b18ba7bde0e6e0ea4f93ee8da3f21",
       "handler": {
         "ref": "infera-chat/src/learning.rs:65:history",
         "path": "infera-chat/src/learning.rs",
@@ -1243,6 +1311,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/speech.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1256,7 +1325,7 @@
           }
         ]
       },
-      "source_checksum": "3d8df41115527b21bf1813120d1065dfd65291291437f40bb6c0a7274effea93",
+      "source_checksum": "f120dffba8147d39669250563306df077e16cdd054194b439390e8ef58898de3",
       "handler": {
         "ref": "infera-chat/src/speech.rs:148:settings",
         "path": "infera-chat/src/speech.rs",
@@ -1312,6 +1381,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/fitness.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1325,7 +1395,7 @@
           }
         ]
       },
-      "source_checksum": "560ea0f9bd9305b4e9be7a794c9d264d86a17723e1a0f32ff1c705d6cfe279d9",
+      "source_checksum": "f09e92defbf98968bf30bd50dd3d1a462afa5137806a8b9aa67375eb20133bcd",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:378:public_speech_settings",
         "path": "infera-chat/src/fitness.rs",
@@ -1403,6 +1473,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/speech.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1416,7 +1487,7 @@
           }
         ]
       },
-      "source_checksum": "73dfe34e902e721cac28e538c4bd2027eefd7ad278b7ee34ac981a1ac3c02772",
+      "source_checksum": "57ba41e8034c139fd0e9838d0c60bad041eb7ee5a834ba20d5cb2fcf0f976b1a",
       "handler": {
         "ref": "infera-chat/src/speech.rs:157:models",
         "path": "infera-chat/src/speech.rs",
@@ -1467,6 +1538,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/speech.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1480,7 +1552,7 @@
           }
         ]
       },
-      "source_checksum": "e4729729f29dbfe0ffd344b3824567f86e26f42554b5ed325f2e3fa6b4d21af8",
+      "source_checksum": "fe67cc2deeaa7bc41c9a8405978b40f46ecea0baeffff86765a0fe37b9a1f653",
       "handler": {
         "ref": "infera-chat/src/speech.rs:444:live",
         "path": "infera-chat/src/speech.rs",
@@ -1548,6 +1620,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/speech.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1561,7 +1634,7 @@
           }
         ]
       },
-      "source_checksum": "4b3561cf558a18fec6b0e5697028d8a22b6a9682a0c78f61d95e555cbc929b9d",
+      "source_checksum": "aebaf4b06dbb0357d2e7a7152e82c7aa8783eb2912c6cb81d3bea3ded3e604f5",
       "handler": {
         "ref": "infera-chat/src/speech.rs:238:status",
         "path": "infera-chat/src/speech.rs",
@@ -1622,6 +1695,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/memory_voice.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1635,7 +1709,7 @@
           }
         ]
       },
-      "source_checksum": "b8c2185fffe10c7fb8fa97156c43f10d465def09d0c8af03401770b24de1e548",
+      "source_checksum": "323b163d985386c0eae3a5c8a25bbd67f17d2c991aa76aaa0d209445de7d2c39",
       "handler": {
         "ref": "infera-chat/src/memory_voice.rs:23:handle",
         "path": "infera-chat/src/memory_voice.rs",
@@ -1703,6 +1777,7 @@
         "responseEnvelope": "raw-response",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/speech.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1716,7 +1791,7 @@
           }
         ]
       },
-      "source_checksum": "3640e49390ce4b3155a1413b18c61b17ac0633b84cb4e46cd0f4a359b900432c",
+      "source_checksum": "db326479f238e3afc772d63a2f04826e17710d0c3f5b4a1903579b8e94f06f06",
       "handler": {
         "ref": "infera-chat/src/speech.rs:278:synthesize",
         "path": "infera-chat/src/speech.rs",
@@ -1785,6 +1860,7 @@
         "multipart": false,
         "binary": true,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/speech.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1798,7 +1874,7 @@
           }
         ]
       },
-      "source_checksum": "22deb2027de6ccd9f37c342d03779ad4246a30496abb24f0b032b413f308a84d",
+      "source_checksum": "40e25e2c983d76cf2a6c55a7b330226108d822ba2dcc9b1fbd5f7bed1daec5e6",
       "handler": {
         "ref": "infera-chat/src/speech.rs:331:transcribe",
         "path": "infera-chat/src/speech.rs",
@@ -1869,6 +1945,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1882,7 +1959,7 @@
           }
         ]
       },
-      "source_checksum": "d954433bc1065a27afaeee5b304903663d9ffac0f75a8cc1baa100ffdabe5fcd",
+      "source_checksum": "02ea6dade2472df2dcf3432e1ed6ae450a56fcb9dfcaa6d2332e88810e5a6b30",
       "handler": {
         "ref": "infera-chat/src/routes.rs:108:list_assistants",
         "path": "infera-chat/src/routes.rs",
@@ -1942,6 +2019,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/workspace_assistant.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -1955,7 +2033,7 @@
           }
         ]
       },
-      "source_checksum": "6d529a76cba78d5e36339e5ee67307398b470f8ddbd47fa3a2405c7c226e6a19",
+      "source_checksum": "1bd4f2b2036af432b345acc7dd7a1ca8c4ac80aa2ddd7028c89296194f4539a9",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:77:roles",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -2005,6 +2083,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/workspace_assistant.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2018,7 +2097,7 @@
           }
         ]
       },
-      "source_checksum": "9abea40360b7f950e1bf460a4592c382ead3c57e83789a1ef9696673a89c473a",
+      "source_checksum": "9b5d773bfe4e3abe000ca6e54dc38af8104dd365cae1e988a80cf19768cd4236",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:1255:managed_roles",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -2070,6 +2149,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/workspace_assistant.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2083,7 +2163,7 @@
           }
         ]
       },
-      "source_checksum": "b164cc574c6c084a3c4b9c25b9bea91b700bcc282c165ff067c7f5d115c89cb3",
+      "source_checksum": "bc9483421710bf483b71d0cf502a62e5aeffa8154b04c8c1c50788f72dbfbecb",
       "handler": {
         "ref": "infera-chat/src/workspace_assistant.rs:94:bind",
         "path": "infera-chat/src/workspace_assistant.rs",
@@ -2156,6 +2236,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2169,7 +2250,7 @@
           }
         ]
       },
-      "source_checksum": "e01062811e28664947c3d6fb9eac87f232845b52e79d7b89868f8a526b1b6d24",
+      "source_checksum": "c600783afae2ff7a05e4fc06be11ea81d6a64612a8517fae8c847f5f755fb5c7",
       "handler": {
         "ref": "infera-chat/src/routes.rs:149:get_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2233,6 +2314,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2246,7 +2328,7 @@
           }
         ]
       },
-      "source_checksum": "9d2145c64f0b47634a83a4fb086f4cda6ca602b0688ffb62ab07cc6279e10f90",
+      "source_checksum": "7e57aea29bb9a6b2d7540e701bcb4b66315bb939899f7aaeb23388e70362c382",
       "handler": {
         "ref": "infera-chat/src/routes.rs:117:list_managed_assistants",
         "path": "infera-chat/src/routes.rs",
@@ -2307,6 +2389,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2320,7 +2403,7 @@
           }
         ]
       },
-      "source_checksum": "a7396dd91bde63b4921e71cb553726b0ca9969bf49e48b032b350415422f3da3",
+      "source_checksum": "69494d1421307ca5ab83c97f6f199d8ee1a0ecd28bba3fc58a0afe371f681476",
       "handler": {
         "ref": "infera-chat/src/routes.rs:126:create_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2405,6 +2488,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2418,7 +2502,7 @@
           }
         ]
       },
-      "source_checksum": "40cc3a7f24fb3d99ebaa78a32922e2d312823e2331c093f06d10909b536b3580",
+      "source_checksum": "40a2702020465dcd96ab50041f003b37c6893294140abd6a0bbd239ad0e8dac5",
       "handler": {
         "ref": "infera-chat/src/routes.rs:139:get_managed_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2484,6 +2568,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2497,7 +2582,7 @@
           }
         ]
       },
-      "source_checksum": "48e0c075d6d5b72867249cd9f5843c8de04ba7958a3fae0016fdbdcc521d35c5",
+      "source_checksum": "701cf4390f118f82c3ce856a0bbac44bf4f282bf821e654aaa82a8e0ca5c5019",
       "handler": {
         "ref": "infera-chat/src/routes.rs:162:update_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2594,6 +2679,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2607,7 +2693,7 @@
           }
         ]
       },
-      "source_checksum": "cff92459beb52bee638b520145bf41de77f3dbcd47bd60e663ee0ceb33fee572",
+      "source_checksum": "c870cb95c537f9d547e07a416579ca273bda6b4ae5cee57ce25fee3974668796",
       "handler": {
         "ref": "infera-chat/src/routes.rs:174:delete_assistant",
         "path": "infera-chat/src/routes.rs",
@@ -2677,6 +2763,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2690,7 +2777,7 @@
           }
         ]
       },
-      "source_checksum": "5d52a961b61fc816b21345734294ed2ea2a0f14165441362bf02310a71fb420e",
+      "source_checksum": "b116af5f98f463412c7ade2b6bf1d67061bef10ff736395fb3f15787888fb9e1",
       "handler": {
         "ref": "infera-chat/src/routes.rs:184:assistant_models",
         "path": "infera-chat/src/routes.rs",
@@ -2761,6 +2848,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2774,7 +2862,7 @@
           }
         ]
       },
-      "source_checksum": "651d05fb8b3198127ab0349610773a65accb3dd06e9fc2901a72ad9ab6c248b4",
+      "source_checksum": "8aba79e496640be23689478ba691a94d1df4486f1e03a0340e9fdb92d680dcc1",
       "handler": {
         "ref": "infera-chat/src/routes.rs:198:assistant_context_catalog",
         "path": "infera-chat/src/routes.rs",
@@ -2835,6 +2923,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2848,7 +2937,7 @@
           }
         ]
       },
-      "source_checksum": "8b089ac95127fbb1cc3a21482dfcb29773ffa1a51a21450c65c32010b5bb3433",
+      "source_checksum": "802d3844000a7de7bef28738d7f439513f96268b6169c92555fc3be895689e23",
       "handler": {
         "ref": "infera-chat/src/routes.rs:208:customer_action_content",
         "path": "infera-chat/src/routes.rs",
@@ -2919,6 +3008,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -2932,7 +3022,7 @@
           }
         ]
       },
-      "source_checksum": "55c91870b90b425dad7c42303d6f1f96a9504490b05fcb7df66e5aab13e78a47",
+      "source_checksum": "dd767814434770b1e9ea10077585760b236bc1c58c9c0e5a94289cb553d4a7a8",
       "handler": {
         "ref": "infera-chat/src/routes.rs:261:list",
         "path": "infera-chat/src/routes.rs",
@@ -2993,6 +3083,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3006,7 +3097,7 @@
           }
         ]
       },
-      "source_checksum": "882ba90bcb2c971ccae4f85ac14dfdc5ec347d17c50e545731ce88f2cd71e4ef",
+      "source_checksum": "5b6ddffa3db5b411e8b4e611ca0cd726b0007a69835f94393068d1e666c7612f",
       "handler": {
         "ref": "infera-chat/src/routes.rs:270:create",
         "path": "infera-chat/src/routes.rs",
@@ -3091,6 +3182,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3104,7 +3196,7 @@
           }
         ]
       },
-      "source_checksum": "658c2b3b00e3182f6d747921657e204a9851072808d5e0ced90dc79341347fce",
+      "source_checksum": "22a14fb2c9531f7f64b4b978274fc0da4cfe25172316d3485c517a8244a0f536",
       "handler": {
         "ref": "infera-chat/src/routes.rs:286:get_one",
         "path": "infera-chat/src/routes.rs",
@@ -3170,6 +3262,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3183,7 +3276,7 @@
           }
         ]
       },
-      "source_checksum": "96425032a64f4716fc6af17efac88da8fd2094a5720558a625944cb15ea4acde",
+      "source_checksum": "a8549d686bd819046a50a59bc5f292728561c63a7d51bdf9d2b758d2c71f0327",
       "handler": {
         "ref": "infera-chat/src/routes.rs:296:update",
         "path": "infera-chat/src/routes.rs",
@@ -3258,6 +3351,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3271,7 +3365,7 @@
           }
         ]
       },
-      "source_checksum": "f75ed8f7578d743d4a8f6a177b852d4f36f6f53cdca75825a8e126ffee711b20",
+      "source_checksum": "3e0e45c14b2e44e4a3445f3f066c46f5f2283d7d99f7d5c81d041e10c9bfa42d",
       "handler": {
         "ref": "infera-chat/src/routes.rs:307:archive",
         "path": "infera-chat/src/routes.rs",
@@ -3332,6 +3426,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3345,7 +3440,7 @@
           }
         ]
       },
-      "source_checksum": "724e0041de80a1ab9c4818f92fab6b9e96d784ade115213e9e7b1e381e0c9597",
+      "source_checksum": "d299038310f4e3bd56a358e29bc39126b80b5cac05252845decce36d6da3c423",
       "handler": {
         "ref": "infera-chat/src/routes.rs:316:members",
         "path": "infera-chat/src/routes.rs",
@@ -3411,6 +3506,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3424,7 +3520,7 @@
           }
         ]
       },
-      "source_checksum": "fc27a2fa7ce667ed8c5ad4f8df13861a126c5d6dc25a819f2bee351351b8d6cd",
+      "source_checksum": "3bccaa478227ad8f358e38fc7aceb7571356c4b01d124ab9f26e23945e6922e4",
       "handler": {
         "ref": "infera-chat/src/routes.rs:326:add_member",
         "path": "infera-chat/src/routes.rs",
@@ -3506,6 +3602,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3519,7 +3616,7 @@
           }
         ]
       },
-      "source_checksum": "0399783290761b69561209829c8b858df6dc234f794ffffb09dcb2132735373f",
+      "source_checksum": "093f2d67a560b38d6f645d559578b3230444165e4b7bf507e0dce5944fab5d00",
       "handler": {
         "ref": "infera-chat/src/routes.rs:340:remove_member",
         "path": "infera-chat/src/routes.rs",
@@ -3581,6 +3678,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3594,7 +3692,7 @@
           }
         ]
       },
-      "source_checksum": "fa161283b6fee59f0c83ee6b0727b9000fe9c7dcaf53584e48fc119933e25559",
+      "source_checksum": "daf4875459bc6e10bfe840b31cc4cd75e6e57dd7048b4d50948e4b908c428348",
       "handler": {
         "ref": "infera-chat/src/routes.rs:349:messages",
         "path": "infera-chat/src/routes.rs",
@@ -3671,6 +3769,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3684,7 +3783,7 @@
           }
         ]
       },
-      "source_checksum": "fbde28c5dcf5a18acb614d8a1b1a60347486587f4501bd0f78bbf308f0682862",
+      "source_checksum": "a0d232f0c9b183652c2fb7d674ac03b6552bd564adc9afad700f18d808d0ad2b",
       "handler": {
         "ref": "infera-chat/src/routes.rs:362:send",
         "path": "infera-chat/src/routes.rs",
@@ -3786,6 +3885,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3799,7 +3899,7 @@
           }
         ]
       },
-      "source_checksum": "49b977bcf0c04569306806a383382781151f0323e1ee6e56fcb1ef5d11163ee9",
+      "source_checksum": "50b5ce9a3bf16772cbefd738dde6646c2e790d28fa0048bb5477da15cd62c134",
       "handler": {
         "ref": "infera-chat/src/routes.rs:377:create_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -3881,6 +3981,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3894,7 +3995,7 @@
           }
         ]
       },
-      "source_checksum": "c044670081230c0637c975ccbd467d78f21a6ca39967a620cd8f247f039f1715",
+      "source_checksum": "108d32ae10676d5f8ac2e05e1326222d33b4e4d8948b6a60e679a404017577bd",
       "handler": {
         "ref": "infera-chat/src/routes.rs:392:download_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -3965,6 +4066,7 @@
         "binary": true,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -3978,7 +4080,7 @@
           }
         ]
       },
-      "source_checksum": "d5ef4e154cc3d32cb08448ebd0631d37641cd464c6b52198c864b9c34e59eebe",
+      "source_checksum": "02ec36d503dda797ede77899cda0333051b5bcfa538e050550422dbaeb69ac6f",
       "handler": {
         "ref": "infera-chat/src/routes.rs:412:complete_attachment",
         "path": "infera-chat/src/routes.rs",
@@ -4101,6 +4203,7 @@
         "multipart": false,
         "formUrlEncoded": true,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4114,7 +4217,7 @@
           }
         ]
       },
-      "source_checksum": "60c4a818153f8e6655db53c6601a273638f08c81a99a447c43fbf4147bb48e51",
+      "source_checksum": "426f2e9d9072a4b73679d9602503666299dd15d2a74c696ad06f321d440ad643",
       "handler": {
         "ref": "infera-chat/src/routes.rs:243:realtime_auth",
         "path": "infera-chat/src/routes.rs",
@@ -4215,6 +4318,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4228,7 +4332,7 @@
           }
         ]
       },
-      "source_checksum": "117dc50a9f3f41e0f202c688cb0d5c6026c817aad0289d18875ce7cf5742a5a9",
+      "source_checksum": "edb62f72ad439e41ee6725bfcf8e5c9e1745208aebabaf345207a08c594848e5",
       "handler": {
         "ref": "infera-chat/src/routes.rs:230:realtime_config",
         "path": "infera-chat/src/routes.rs",
@@ -4302,6 +4406,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4315,7 +4420,7 @@
           }
         ]
       },
-      "source_checksum": "93e0638da917d90d93d34695f36ed00df2d8e06566725da83937bc23973339ed",
+      "source_checksum": "31b9071b46b9f3354a77046a52121fd90514361f78ed4f8242a287559c4efda2",
       "handler": {
         "ref": "infera-chat/src/routes.rs:462:read",
         "path": "infera-chat/src/routes.rs",
@@ -4395,6 +4500,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4408,7 +4514,7 @@
           }
         ]
       },
-      "source_checksum": "23327b26900eeced469c8c6cfad7b945fefaff284514c007fa5a45e687727f6d",
+      "source_checksum": "421d376117d7868d19ba9dc6c38930d00f8c6739302d61e0dbc46c9bfaa7d1d1",
       "handler": {
         "ref": "infera-chat/src/routes.rs:428:edit",
         "path": "infera-chat/src/routes.rs",
@@ -4483,6 +4589,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4496,7 +4603,7 @@
           }
         ]
       },
-      "source_checksum": "0539ad58d6eefbf12ac84decb3160caa3a1debcfc69e40d1d334251bfdbb4a8d",
+      "source_checksum": "220c097ed09f7bb4b623773795f6cfe1856de029f7c7ea21e5638a5502f9d60e",
       "handler": {
         "ref": "infera-chat/src/routes.rs:439:delete_message",
         "path": "infera-chat/src/routes.rs",
@@ -4558,6 +4665,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4571,7 +4679,7 @@
           }
         ]
       },
-      "source_checksum": "fb28a21dfc798c5d6a2ce145c2ebcb6e797731d315109f961ebb37c3d55ec8bb",
+      "source_checksum": "003fdaa459187bcca3cab0ed6ac5a479b4eba3a2e4ef1d0d0d906537ac56d55e",
       "handler": {
         "ref": "infera-chat/src/routes.rs:448:react",
         "path": "infera-chat/src/routes.rs",
@@ -4647,6 +4755,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4660,7 +4769,7 @@
           }
         ]
       },
-      "source_checksum": "dedff111ba84db56f899126b54cd1cf303a11bf4712a9d308a6d8652150ec09d",
+      "source_checksum": "014a4be45082808ab48e8d0226860767e2d4f95c1ef34fab03e1ed64827d5c02",
       "handler": {
         "ref": "infera-chat/src/routes.rs:485:ai_runtime_inputs",
         "path": "infera-chat/src/routes.rs",
@@ -4753,6 +4862,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4766,7 +4876,7 @@
           }
         ]
       },
-      "source_checksum": "5f26946b5ee43a171f6905be2f195f0d30d64cc693fe5c0db82fdf744a6c63ef",
+      "source_checksum": "5d077b546d3272e8fe19f854dbab68bd37eb86275b5c64bde6fc71e649e86cfe",
       "handler": {
         "ref": "infera-chat/src/routes.rs:500:ai_complete_runtime_input",
         "path": "infera-chat/src/routes.rs",
@@ -4870,6 +4980,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4883,7 +4994,7 @@
           }
         ]
       },
-      "source_checksum": "7b3b51d210c62b16fc013c7d3a9c2ec1f7903191df5cb4d8ae67403b6d2dfc18",
+      "source_checksum": "f0f099c57ed211081e8c0c277749e7c2ecc0e3d1158912ccb641223a6239d971",
       "handler": {
         "ref": "infera-chat/src/routes.rs:472:ai_send",
         "path": "infera-chat/src/routes.rs",
@@ -4977,6 +5088,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-chat/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -4990,7 +5102,7 @@
           }
         ]
       },
-      "source_checksum": "42083daacb00c2d347e814ebb37228f2461d5ae9be7bef1df3b1d06623ea2859",
+      "source_checksum": "2b67c27177d0d9181e6ea76138e1999f26660450e7759c9f96a417fe4c411fe8",
       "handler": {
         "ref": "infera-chat/src/routes.rs:522:events",
         "path": "infera-chat/src/routes.rs",
@@ -5049,6 +5161,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "human_chat",
+        "handler_source": "infera-chat/src/human_chat.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -5062,7 +5175,7 @@
           }
         ]
       },
-      "source_checksum": "b3d13bbd1c566b5689aee65fb2da5a1162d02177cd286e580464ccccd8640a7b",
+      "source_checksum": "1a26ea9732bd2f60a23e9643146b81692f94735e9ecd72d1f36e1386a4bb5cf2",
       "handler": {
         "ref": "infera-chat/src/human_chat.rs:244:notification_context",
         "path": "infera-chat/src/human_chat.rs",
@@ -5115,6 +5228,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "fitness",
+        "handler_source": "infera-chat/src/fitness.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -5128,7 +5242,7 @@
           }
         ]
       },
-      "source_checksum": "5f7b25d1ed19d42af889ebfa757ef53c033c3327799ea5c6fbb40cbe1cee826b",
+      "source_checksum": "8d66d3cecc17c0b66c585568de0348fe175cbe304d978d31ac82f23a30c826e3",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:220:generate",
         "path": "infera-chat/src/fitness.rs",
@@ -5211,6 +5325,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "fitness",
+        "handler_source": "infera-chat/src/fitness.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -5224,7 +5339,7 @@
           }
         ]
       },
-      "source_checksum": "77dbecf933647d9b65bd01d8db598c50f1aec5f530b7a2774bac8deac2fd08d8",
+      "source_checksum": "e84bee047ef3f6643c3e126c6ee4ae1ff7256a3b4b35fd490867269dacb6d382",
       "handler": {
         "ref": "infera-chat/src/fitness.rs:267:save_settings",
         "path": "infera-chat/src/fitness.rs",
@@ -5294,6 +5409,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "memory_import",
+        "handler_source": "infera-chat/src/memory_import.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -5307,7 +5423,7 @@
           }
         ]
       },
-      "source_checksum": "1b3306e7a41822296d561ab0483b7a9e4d51ed7b2cf95257243b417f61763a27",
+      "source_checksum": "a24e53efd9f634a09a73ca0cbbbb8be6897061fea7688331e35f628944794767",
       "handler": {
         "ref": "infera-chat/src/memory_import.rs:15:source",
         "path": "infera-chat/src/memory_import.rs",
@@ -5380,6 +5496,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-chat/src/media_import.rs",
         "mounted_via": [
           {
             "path": "infera-chat/src/main.rs",
@@ -5393,7 +5510,7 @@
           }
         ]
       },
-      "source_checksum": "4589e14c87ad50fe65c6a27169b406519767504e72d2c665368e15731ad762ac",
+      "source_checksum": "30f7f92767286d56533aaa039be8b3d7e99b948d32acdba3a64944d633f861be",
       "handler": {
         "ref": "infera-chat/src/media_import.rs:32:extract",
         "path": "infera-chat/src/media_import.rs",
@@ -5459,7 +5576,11 @@
       "GET /api/v1/me/events",
       "POST /api/v1/me/realtime/auth",
       "GET /api/v1/me/realtime/config",
-      "GET /api/v1/me/unread-count"
+      "GET /api/v1/me/unread-count",
+      "GET /api/v1/summary-access",
+      "PUT /api/v1/summary-access",
+      "POST /api/v1/summary-access/revocations",
+      "DELETE /api/v1/summary-access/revocations/{object}"
     ],
     "changed": [
       "GET /health",
@@ -5534,6 +5655,7 @@
         "handlerModule": "main",
         "source": "infera-chat/src/main.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/main.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5554,6 +5676,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/image_capture.rs",
         "response": "Settings",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5579,6 +5702,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/image_capture.rs",
         "body": "Settings",
         "response": "Settings",
         "responseEnvelope": "api",
@@ -5605,6 +5729,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/image_capture.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5631,6 +5756,7 @@
           "assistant:read",
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/image_capture.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5654,6 +5780,7 @@
         "handlerModule": "fitness",
         "source": "infera-chat/src/routes.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/fitness.rs",
         "body": "ExtractIntake",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5678,6 +5805,7 @@
         "handlerModule": "fitness",
         "source": "infera-chat/src/routes.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/fitness.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5703,6 +5831,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/learning.rs",
         "body": "Question",
         "pathParam": "Uuid",
         "response": "Value",
@@ -5730,6 +5859,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/learning.rs",
         "pathParam": "Uuid",
         "response": "Vec<LearningMessage>",
         "responseEnvelope": "api",
@@ -5756,6 +5886,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/speech.rs",
         "response": "SpeechSettings",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5779,6 +5910,7 @@
         "handlerModule": "fitness",
         "source": "infera-chat/src/routes.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/fitness.rs",
         "body": "crate::speech::SpeechSettingsInput",
         "response": "crate::speech::SpeechSettings",
         "responseEnvelope": "api",
@@ -5805,6 +5937,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/speech.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5830,6 +5963,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/speech.rs",
         "body": "LiveSpeechInput",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5856,6 +5990,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/speech.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5881,6 +6016,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/memory_voice.rs",
         "body": "VoiceInput",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5907,6 +6043,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/speech.rs",
         "body": "TtsInput",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -5932,6 +6069,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/speech.rs",
         "query": "Language",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5958,6 +6096,7 @@
         "permissions": [
           "assistant:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5983,6 +6122,7 @@
         "permissions": [
           "assistant:read"
         ],
+        "handler_source": "infera-chat/src/workspace_assistant.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -6008,6 +6148,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/workspace_assistant.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -6033,6 +6174,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/workspace_assistant.rs",
         "body": "BindRole",
         "pathParam": "String",
         "response": "Value",
@@ -6060,6 +6202,7 @@
         "permissions": [
           "assistant:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6086,6 +6229,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -6111,6 +6255,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "CreateAssistant",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6137,6 +6282,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6163,6 +6309,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "UpdateAssistant",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6190,6 +6337,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -6215,6 +6363,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "query": "AssistantModelsQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6241,6 +6390,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -6266,6 +6416,7 @@
         "permissions": [
           "assistant:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "query": "CustomerActionContentQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6292,6 +6443,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -6317,6 +6469,7 @@
         "permissions": [
           "chat:write"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "CreateConversation",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6343,6 +6496,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6369,6 +6523,7 @@
         "permissions": [
           "chat:write"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "UpdateConversation",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6396,6 +6551,7 @@
         "permissions": [
           "chat:delete"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -6421,6 +6577,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6447,6 +6604,7 @@
         "permissions": [
           "chat:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "MemberInput",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6474,6 +6632,7 @@
         "permissions": [
           "chat:manage"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -6499,6 +6658,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "query": "ListQuery",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6526,6 +6686,7 @@
         "permissions": [
           "chat:write"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "SendMessage",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6553,6 +6714,7 @@
         "permissions": [
           "chat:write"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "CreateAttachment",
         "pathParam": "Uuid",
         "response": "AttachmentUpload",
@@ -6580,6 +6742,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -6605,6 +6768,7 @@
         "permissions": [
           "chat:write"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "response": "entity::attachment::Model",
         "responseEnvelope": "api",
@@ -6631,6 +6795,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "RealtimeAuthInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw",
@@ -6657,6 +6822,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6683,6 +6849,7 @@
         "permissions": [
           "chat:write"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "ReadInput",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
@@ -6709,6 +6876,7 @@
         "permissions": [
           "chat:write"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "EditMessage",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6736,6 +6904,7 @@
         "permissions": [
           "chat:delete"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -6761,6 +6930,7 @@
         "permissions": [
           "chat:write"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "ReactionInput",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6788,6 +6958,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6814,6 +6985,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "CompleteAiRuntimeInput",
         "pathParam": "(Uuid, Uuid)",
         "response": "Value",
@@ -6841,6 +7013,7 @@
         "permissions": [
           "chat:ai"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "body": "AiMessage",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6868,6 +7041,7 @@
         "permissions": [
           "chat:read"
         ],
+        "handler_source": "infera-chat/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -6891,6 +7065,7 @@
         "handlerModule": "human_chat",
         "source": "infera-chat/src/human_chat.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/human_chat.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6915,6 +7090,7 @@
         "handlerModule": "fitness",
         "source": "infera-chat/src/fitness.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/fitness.rs",
         "body": "Generation",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6939,6 +7115,7 @@
         "handlerModule": "fitness",
         "source": "infera-chat/src/fitness.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/fitness.rs",
         "body": "Models",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6963,6 +7140,7 @@
         "handlerModule": "memory_import",
         "source": "infera-chat/src/memory_import.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/memory_import.rs",
         "body": "SourceInput",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6987,6 +7165,7 @@
         "handlerModule": "media_import",
         "source": "infera-chat/src/memory_import.rs",
         "permissions": [],
+        "handler_source": "infera-chat/src/media_import.rs",
         "body": "MediaInput",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7008,17 +7187,73 @@
     "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [],
-    "absent": [],
-    "changed": [],
-    "extraction_errors": [
-      {
-        "status": "failed",
-        "artifact_path": "working-contract-extraction.stderr.log",
-        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
-        "exit_code": 1
-      }
-    ]
+    "added": [
+      "GET /api/v1/admin/media-retention",
+      "PUT /api/v1/admin/media-retention"
+    ],
+    "absent": [
+      "GET /api/v1/admin/image-settings",
+      "PUT /api/v1/admin/image-settings",
+      "GET /api/v1/admin/image-models",
+      "GET /api/v1/image-status",
+      "GET /api/v1/learning/runs/{id}/messages",
+      "POST /api/v1/speech/voice",
+      "GET /api/v1/integrations/lms/messages/{id}/notification-context",
+      "POST /api/v1/internal/memory/source",
+      "POST /api/v1/internal/memory/media"
+    ],
+    "changed": [
+      "GET /api/v1/admin/assistant-context-catalog",
+      "GET /api/v1/admin/assistant-models",
+      "GET /api/v1/admin/assistants",
+      "POST /api/v1/admin/assistants",
+      "DELETE /api/v1/admin/assistants/{id}",
+      "GET /api/v1/admin/assistants/{id}",
+      "PUT /api/v1/admin/assistants/{id}",
+      "GET /api/v1/admin/customer-action-content",
+      "GET /api/v1/admin/speech-models",
+      "GET /api/v1/admin/speech-settings",
+      "PUT /api/v1/admin/speech-settings",
+      "GET /api/v1/admin/workspace-assistants",
+      "PUT /api/v1/admin/workspace-assistants/{role}",
+      "GET /api/v1/assistants",
+      "GET /api/v1/assistants/{id}",
+      "POST /api/v1/attachments/{id}/complete",
+      "GET /api/v1/attachments/{id}/content",
+      "GET /api/v1/conversations",
+      "POST /api/v1/conversations",
+      "DELETE /api/v1/conversations/{id}",
+      "GET /api/v1/conversations/{id}",
+      "PUT /api/v1/conversations/{id}",
+      "POST /api/v1/conversations/{id}/ai/messages",
+      "GET /api/v1/conversations/{id}/ai/runtime-inputs",
+      "POST /api/v1/conversations/{id}/ai/runtime-inputs/{input_id}/complete",
+      "POST /api/v1/conversations/{id}/attachments",
+      "GET /api/v1/conversations/{id}/events",
+      "GET /api/v1/conversations/{id}/members",
+      "POST /api/v1/conversations/{id}/members",
+      "DELETE /api/v1/conversations/{id}/members/{user_id}",
+      "GET /api/v1/conversations/{id}/messages",
+      "POST /api/v1/conversations/{id}/messages",
+      "POST /api/v1/conversations/{id}/read",
+      "POST /api/v1/conversations/{id}/realtime-auth",
+      "GET /api/v1/conversations/{id}/realtime-config",
+      "POST /api/v1/fitness/generate",
+      "POST /api/v1/fitness/intake-extract",
+      "GET /api/v1/fitness/models",
+      "PUT /api/v1/fitness/settings",
+      "POST /api/v1/learning/runs/{id}/questions",
+      "DELETE /api/v1/messages/{id}",
+      "PUT /api/v1/messages/{id}",
+      "POST /api/v1/messages/{id}/reactions",
+      "POST /api/v1/speech/live",
+      "GET /api/v1/speech/status",
+      "POST /api/v1/speech/transcribe",
+      "POST /api/v1/speech/tts",
+      "GET /api/v1/workspace-assistants",
+      "GET /health"
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {

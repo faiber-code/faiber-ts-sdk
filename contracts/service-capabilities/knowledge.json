@@ -16,7 +16,8 @@
   "sdk_source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
   "working_revision": "92047358a6b4dee1911d47a78621c8359716b7af",
   "working_changes": [
-    "M src/routes.rs"
+    "M Cargo.lock",
+    " M src/routes.rs"
   ],
   "source_relationship": "working_behind_sdk",
   "source_tree_checksum": "12e3f134d0781b8d1a6af9c4000d63dae4e89df3be412ab7c3d69e6de21a3a6d",
@@ -222,6 +223,7 @@
       "checksum": "ee21f00bbb1860e64abeb9703e90fd4e94e1f150c766ab87105d05aa45969a5d"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
     "canonical": [],
     "working": []
@@ -432,6 +434,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "main",
+        "handler_source": "infera-knowledge/src/main.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -440,7 +443,7 @@
           }
         ]
       },
-      "source_checksum": "81f79c03421b69187e56ebad245b3831079fd1badf859de3d1955f4baa4b7c03",
+      "source_checksum": "e7278b8dfced1dd0238d9efccf93e918c46857d9015dd547fd3f3417d254052b",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:92:readiness",
         "path": "infera-knowledge/src/main.rs",
@@ -488,6 +491,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "main",
+        "handler_source": "infera-knowledge/src/main.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -496,7 +500,7 @@
           }
         ]
       },
-      "source_checksum": "faadb6ef3cc78f032cfb9987cdcaa02c8d7f5dc2c97994c5aeddf08d417bde50",
+      "source_checksum": "f11e4b581269aa39e88d2970f99350f3a655aefc3966dd1a53f9ad82e7e44747",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:84:liveness",
         "path": "infera-knowledge/src/main.rs",
@@ -551,6 +555,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "main",
+        "handler_source": "infera-knowledge/src/main.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -559,7 +564,7 @@
           }
         ]
       },
-      "source_checksum": "1fa4c491d72a2ee34299a78a974f16d58356754565c3f69fd47c49b9dc264887",
+      "source_checksum": "24aa512ab8b4e5bf92d3a8e37d60982d4a656dc16ee885500da4591fbd818b60",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:92:readiness",
         "path": "infera-knowledge/src/main.rs",
@@ -610,6 +615,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -623,7 +629,7 @@
           }
         ]
       },
-      "source_checksum": "426550072c20c3739003190a05dce88bb426cf310c2298c32d77969109376dca",
+      "source_checksum": "cec94c25cdf8221098f7aa3fded3ad5f627378044bb44c048f02ee5af85f3a29",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:619:get_release",
         "path": "infera-knowledge/src/routes.rs",
@@ -688,6 +694,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -701,7 +708,7 @@
           }
         ]
       },
-      "source_checksum": "f4282e1bfeec7f00b154278a2577ed1b2dd0035d439424879222acec63369b7d",
+      "source_checksum": "b01881accb899fa76ede3eeb1f304f1207e6760dba5bbc829ace996877e28c7a",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:67:list_bases",
         "path": "infera-knowledge/src/routes.rs",
@@ -780,6 +787,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -793,7 +801,7 @@
           }
         ]
       },
-      "source_checksum": "30ea5235541576ce55e6d1f30a3ac7d931cc324a9306552227cb625929bd9c16",
+      "source_checksum": "e27cc22daeff5b60756f2a5e8543fbf3d4cc176cc987f80a72268d074a2411bf",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:79:create_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -865,6 +873,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -878,7 +887,7 @@
           }
         ]
       },
-      "source_checksum": "4f3e3f344f51bc6f38567f21d4afc1b807b3c42eefbfd6412ecaffe0d0d5a843",
+      "source_checksum": "5892da5fe317d3e48ed37530541028136dd2d51b837c470ed962f0d8ed0c141f",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:88:get_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -944,6 +953,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -957,7 +967,7 @@
           }
         ]
       },
-      "source_checksum": "a68f130696de2df3f978d4984eac4136ca07cf1dbe70ee16ee037b14acd995a2",
+      "source_checksum": "8bf62879fa2f9439e583b45866ce873490c475de8d4f02950059d61b6f04be7c",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:98:update_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -1032,6 +1042,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1045,7 +1056,7 @@
           }
         ]
       },
-      "source_checksum": "0f1569892931a2080d7755db87c6f5ac50eec470fcfadcc918239328bae374a7",
+      "source_checksum": "4bcef31e3428162f8e43c215a738c1d0cbeba5b57166b5b86b437b349bd80d7c",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:109:delete_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -1106,6 +1117,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1119,7 +1131,7 @@
           }
         ]
       },
-      "source_checksum": "10b4918d82684ec2c581623a5bd621c559cdce887b8e5b41c36a8a116bee9149",
+      "source_checksum": "c0b35a571a5e8e363f1f0e557db37450de0378819852dc164ff9841769194b62",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:118:publish",
         "path": "infera-knowledge/src/routes.rs",
@@ -1184,6 +1196,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1197,7 +1210,7 @@
           }
         ]
       },
-      "source_checksum": "c6e0d1710bb4726f748e5c2fa98c64c97013431798b7ca238d0e37d22a4d9e44",
+      "source_checksum": "56666a09faae9f2ed9976dbbfa5200b0d88beef6dd91c1791b4d6fe63d8a436a",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:128:export_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -1271,6 +1284,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1284,7 +1298,7 @@
           }
         ]
       },
-      "source_checksum": "6332c836ac5624044418a6db27f89ad27680bdbf087ec5035b14c1e77853dd2c",
+      "source_checksum": "715876ba446b59cf17e66e80192ab281fe611df49d7e662c8eee3c043f5ff4a2",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:155:list_groups",
         "path": "infera-knowledge/src/routes.rs",
@@ -1359,6 +1373,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1372,7 +1387,7 @@
           }
         ]
       },
-      "source_checksum": "74bad9ace8655965568b562a79464b001e2d3e34144a060e6c88ea9f74dd4be0",
+      "source_checksum": "463214ba3266d88024046bc9eda05c8994792c340aba891f0ece113ef1caef1b",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:166:create_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1456,6 +1471,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1469,7 +1485,7 @@
           }
         ]
       },
-      "source_checksum": "d79bb3090186e64d9ba3059d20a9220fe5c7a6ed6a3486732291a8569d7bc8a2",
+      "source_checksum": "96cd93e2f981b3bc1fbe7d669c7d547f3edaa672f134310e8bd84188662a0655",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:180:update_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1551,6 +1567,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1564,7 +1581,7 @@
           }
         ]
       },
-      "source_checksum": "d37833813f4da48eade6409d09b27d0061c07c111879a922248c60426d56c6f0",
+      "source_checksum": "95e016ac3f0e85de24af5279de8d7ca8ab6aab6c38ffa49d6cfe6aba74501ac6",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:191:delete_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1626,6 +1643,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1639,7 +1657,7 @@
           }
         ]
       },
-      "source_checksum": "33ca3868e81f3c287073e4a22c9c87960c458ee5a1670e1cc9f30bc6e419f10a",
+      "source_checksum": "403095c08a2a8c5aca11dc769724b3b958748f976a1312072c1f713f85c81535",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:201:list_items",
         "path": "infera-knowledge/src/routes.rs",
@@ -1732,6 +1750,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1745,7 +1764,7 @@
           }
         ]
       },
-      "source_checksum": "6802c5ccd66e91c46927820c750b1f0702eb42397868905c4af94818b3808620",
+      "source_checksum": "e9ccd2feaf842e7cb709af502b139cb1371f96a1f15f900649196eb10e373bee",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:215:create_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -1834,6 +1853,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1847,7 +1867,7 @@
           }
         ]
       },
-      "source_checksum": "32ca1bc91894aa70468448ccc95d6b3f902d1f2fc335dde7eab3152ed4dd62f9",
+      "source_checksum": "f721fd416f762628f089170e70997d022af2cd56a9c502d06d94cad2595fbd1a",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:229:get_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -1913,6 +1933,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -1926,7 +1947,7 @@
           }
         ]
       },
-      "source_checksum": "a80f38d3fa8661b8d80805539a1dcbd7851a6e8974c7462bbe8ab71ebaf4897c",
+      "source_checksum": "67bd63bf772cd08b9f915e4a8b7b23543d54569280f91c55931e941769f64463",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:239:update_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -2014,6 +2035,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2027,7 +2049,7 @@
           }
         ]
       },
-      "source_checksum": "07687dc9692091897679a9b75782418cd051525c98892c0aabc8d411bacbc170",
+      "source_checksum": "d6c8f185f802a6cf116bc523a162e0b17258f76b87929698b6725977cddc217e",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:250:delete_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -2088,6 +2110,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2101,7 +2124,7 @@
           }
         ]
       },
-      "source_checksum": "e886e0a0dbba1c8ec47fe3a91359e8390eafbbf400f3d06c52457d7c7a93282e",
+      "source_checksum": "a933b259cef28c98ada585abb9af738d206a0564d76512c7bb45341a0729c5c7",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:260:list_edges",
         "path": "infera-knowledge/src/routes.rs",
@@ -2167,6 +2190,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2180,7 +2204,7 @@
           }
         ]
       },
-      "source_checksum": "4bdd3a7b1601c67678b8756d34de034a35bcfebe93b6854922b60ed86967c4da",
+      "source_checksum": "871d92016fde828f86d1949b6577b585163cd18ee427d0472498d7335eba560c",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:274:create_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2270,6 +2294,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2283,7 +2308,7 @@
           }
         ]
       },
-      "source_checksum": "b022e291897aab7ba5c96420147962771689532a225164ab9b7787a59cceede4",
+      "source_checksum": "48c791a846af3d23d5c4c5932db3b8ff42e0c01cf030e2828fb8d2431d5a5fb0",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:288:update_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2358,6 +2383,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2371,7 +2397,7 @@
           }
         ]
       },
-      "source_checksum": "1339d1480bcdfbe4270ce097b4f6d4dfd52166586823d09b9a5acc6ea30c8083",
+      "source_checksum": "18d307b0a546684c88a16e6b81fe3975d294a795102ff354c0a136cad4554bb8",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:322:delete_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2431,6 +2457,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2444,7 +2471,7 @@
           }
         ]
       },
-      "source_checksum": "e7bd5c58f064e49ceb36d768d70ba576273ab8531cb19dd6bf5205814c7f81b1",
+      "source_checksum": "e1df21e69ff3f541e61564d11d649bfc51034645d37057040545443f3eaacc57",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:339:list_bindings",
         "path": "infera-knowledge/src/routes.rs",
@@ -2495,6 +2522,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2508,7 +2536,7 @@
           }
         ]
       },
-      "source_checksum": "8a937527ffa7998f4865f1b40f5185c7a1c35c1d1b7b6b5b341dc2b25bfc907e",
+      "source_checksum": "5aeae1110889fb01ca2f54e5e555a55ecabd9a16c8a467b83089ac245f78cd46",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:351:create_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2588,6 +2616,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2601,7 +2630,7 @@
           }
         ]
       },
-      "source_checksum": "457db6e517e07f3f6cbc42a7a91c9fa9d345ee0d6fc46e420ffe25d4b3fcb3a3",
+      "source_checksum": "06adaeb8e8125d992fa1afcf9d0cc3129b67ea93def423a9c4be9da36357787b",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:364:update_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2666,6 +2695,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2679,7 +2709,7 @@
           }
         ]
       },
-      "source_checksum": "3287e7225bca6c27592c0f3daaa0469bb38191e13f493e3442336f8ec04d6143",
+      "source_checksum": "d91dd4a255febc77c2e1cc6b82082e50e93ed7766ca6ac045e65eb71f2865e0a",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:398:delete_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2730,6 +2760,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2743,7 +2774,7 @@
           }
         ]
       },
-      "source_checksum": "4f1b42732580cb6d76b209a03672c5bebbc1fc6937902b8467621928427c71cb",
+      "source_checksum": "355882b893fe7d3ba37786cb5197a4dad52396be11a06b28a307f727cd01beee",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:417:list_rules",
         "path": "infera-knowledge/src/routes.rs",
@@ -2822,6 +2853,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2835,7 +2867,7 @@
           }
         ]
       },
-      "source_checksum": "aedc067fff1d78d774fa60335eeb5c23a7248cdda5e430f54413d514abb7755f",
+      "source_checksum": "53cde14aab5483c53f8767e6859df196ca5c88bf044003a487fb0a928a446941",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:454:create_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -2921,6 +2953,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -2934,7 +2967,7 @@
           }
         ]
       },
-      "source_checksum": "c282823b7d27f317491f675fdb0d45050220df92b14297760ddf681b9781eb6c",
+      "source_checksum": "ebb8d58049e302f507e38663c37095734f82c8bdee58e8cdad783d69e5e4dfcb",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:467:update_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -3025,6 +3058,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3038,7 +3072,7 @@
           }
         ]
       },
-      "source_checksum": "34f0808527055a5524eef173ea538ab5b61f4858c4dc067d5fc96c313263bc63",
+      "source_checksum": "643089565bf316e70b326a6fb2e6e7a4f2328ee5b050bfb24bc8b22907203bda",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:518:delete_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -3099,6 +3133,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3112,7 +3147,7 @@
           }
         ]
       },
-      "source_checksum": "c2f0ebd5b93e433522ac15ebc1a3e30e69d154fc9ea0c5b70cd4d57377415fbe",
+      "source_checksum": "68fc0efc0da93122e12a0cd97644765d9f1e8fe8889dfaeb425016dbcbceaf18",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:536:list_actions",
         "path": "infera-knowledge/src/routes.rs",
@@ -3182,6 +3217,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3195,7 +3231,7 @@
           }
         ]
       },
-      "source_checksum": "9124f121a1fccae4d9318ddbf0328ebf35e934b05fc92a01f84b1f963f6e7cb1",
+      "source_checksum": "908a34fc28ff12f6c7a3fde07bc8ba4111c1eb5f85899fae2a53e93fb0994694",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:554:update_action_status",
         "path": "infera-knowledge/src/routes.rs",
@@ -3261,6 +3297,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3274,7 +3311,7 @@
           }
         ]
       },
-      "source_checksum": "241530160af994affbb5ff61503e0914d78d47c5bcc55b40e97a87753539ea12",
+      "source_checksum": "4d968658d79eeeee1cd9036ca80691928b21d556300f399163118364fab24aae",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:586:list_audit",
         "path": "infera-knowledge/src/routes.rs",
@@ -3342,6 +3379,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3355,7 +3393,7 @@
           }
         ]
       },
-      "source_checksum": "53533182ff5654dbad093027476c9be840924c69af23784a57814a252c551156",
+      "source_checksum": "377449422eb8909b76be6f9f6e853bcc5a023ee84dc6dfee934aff74246ea0ca",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:556:status",
         "path": "infera-knowledge/src/platform.rs",
@@ -3405,6 +3443,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3418,7 +3457,7 @@
           }
         ]
       },
-      "source_checksum": "0aba23ca701e17e611d83395677ba3b8d592204bdc6fcc35d714622b8b7899a3",
+      "source_checksum": "4b9ae384b85145072e2c649bbc1df665533d0ddc6a1de0ec1989dc915be19e1b",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:602:catalog",
         "path": "infera-knowledge/src/platform.rs",
@@ -3468,6 +3507,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3481,7 +3521,7 @@
           }
         ]
       },
-      "source_checksum": "10bebcb9aabf215b91f3acb74b786ae2a3a48455d52ab33845647b0d22efc1c7",
+      "source_checksum": "25bf8779adc917b9c128aa994f7a5bc1303a2fc27a533bae4e54cf7b3a921209",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:620:converters",
         "path": "infera-knowledge/src/platform.rs",
@@ -3531,6 +3571,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3544,7 +3585,7 @@
           }
         ]
       },
-      "source_checksum": "873aa9697434174125bc2592f28e7e3021b98be34bcc28c8a0dffd256113f10f",
+      "source_checksum": "b221ec229ac047f8e874dd5409cd541b2cdddc71f72e9a0ad53eba7cc65f8647",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:629:processing_jobs",
         "path": "infera-knowledge/src/platform.rs",
@@ -3594,6 +3635,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3607,7 +3649,7 @@
           }
         ]
       },
-      "source_checksum": "7481f12feb277d10eaa6def591ebe6c3cab5d6d605df74d8299c7766325a1fc8",
+      "source_checksum": "224ae8e10cc6d60e6ece25a08f414d43bde24135ac8b840eb66d03d1b2328d2a",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:771:audit_events",
         "path": "infera-knowledge/src/platform.rs",
@@ -3657,6 +3699,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3670,7 +3713,7 @@
           }
         ]
       },
-      "source_checksum": "4356bec62d4e611cc0c7757f84bfd0e02cf57fb7ebf744755052a916f75902ef",
+      "source_checksum": "a7cacedcd0bded5a3b02b93e5ca2550267925ee565822097411f6fbc00ee24eb",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:780:list_evaluation_cases",
         "path": "infera-knowledge/src/platform.rs",
@@ -3721,6 +3764,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3734,7 +3778,7 @@
           }
         ]
       },
-      "source_checksum": "49be92fd8e33df9f65388e9fd9809c317d97813a96014e1243eeec36cdda0255",
+      "source_checksum": "a5ac81b8be6469cdd53451505c9cdccc9ffa94d040cd8dacf9436e7968ab46a0",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:789:save_evaluation_case",
         "path": "infera-knowledge/src/platform.rs",
@@ -3814,6 +3858,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3827,7 +3872,7 @@
           }
         ]
       },
-      "source_checksum": "76175576d96e6aea15bc80e24015fe2c523d0cead8de9a89cf00819d5da4c6b3",
+      "source_checksum": "5b5503dead97027b5295d4e55c60f2e3a7c6d4de51683e186bd4a11d288c1845",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2775:list_sources",
         "path": "infera-knowledge/src/platform.rs",
@@ -3878,6 +3923,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3891,7 +3937,7 @@
           }
         ]
       },
-      "source_checksum": "50892321d0ede2c00bca7118be7e41dd7f88aa088db6442d5105de9850954a54",
+      "source_checksum": "fe2c33d8e4f02113974c3d24eefc8b0be844714b84529952168850ccd642383e",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2783:create_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -3960,6 +4006,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -3973,7 +4020,7 @@
           }
         ]
       },
-      "source_checksum": "e39aea10d3dc2926fdd119e1ea3cc1af8b58df9db559592e040e982e595ed208",
+      "source_checksum": "11576f7705b486442a164ca7033c2845f1b71de54493dc81d9b76fbde87966c1",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:678:sync_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -4028,6 +4075,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4041,7 +4089,7 @@
           }
         ]
       },
-      "source_checksum": "d4b0e17839a8ac7fd8781a7b3c1aacece40de31d07e75187eb582ca3ba45085f",
+      "source_checksum": "de039ca0a06e66a5a49aba7674a35e48dfad5fc9c18efd7ce87a0b7054695231",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:703:pause_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -4095,6 +4143,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4108,7 +4157,7 @@
           }
         ]
       },
-      "source_checksum": "faeb7be30c165619efe7361577346e76ae8dbf69042745802163fc67a755092e",
+      "source_checksum": "b4ae2c16059954ff9a803def2b983a18e38bc55af45af8311a14a503a8fa6867",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2862:list_documents",
         "path": "infera-knowledge/src/platform.rs",
@@ -4159,6 +4208,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4172,7 +4222,7 @@
           }
         ]
       },
-      "source_checksum": "b481ebe79a1e669ec0413a0558a4dd95f249764a6b9430ce9db763ffcebb35b0",
+      "source_checksum": "aea1dcd6313be2ca66b771a6e4afafe61fcd737d8124acef43ae8743354443bc",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2870:ingest_document",
         "path": "infera-knowledge/src/platform.rs",
@@ -4253,6 +4303,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4266,7 +4317,7 @@
           }
         ]
       },
-      "source_checksum": "dff8d840fe5f11e727e972634197208b46b3dd0a8f883605d6e798c7f3284b3d",
+      "source_checksum": "306fe207b08c7a49c2ceba46803b081cfade8826be822afb124131302275906a",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:723:reprocess_document",
         "path": "infera-knowledge/src/platform.rs",
@@ -4321,6 +4372,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4334,7 +4386,7 @@
           }
         ]
       },
-      "source_checksum": "7dd1317c12f75ecd95c5f8d805f08433b819853be9b565735eb63baf5df5c926",
+      "source_checksum": "f054b370a5c0ade3d0b5f53e642c3cd7eb85c4046feacfdcf1c3e76a757d3629",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:638:retry_processing_job",
         "path": "infera-knowledge/src/platform.rs",
@@ -4389,6 +4441,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4402,7 +4455,7 @@
           }
         ]
       },
-      "source_checksum": "4ff708622f9e524bd944f36845ae3f1096e0c418b403021776b68afb6e646cba",
+      "source_checksum": "4d316ea0343e0b2e21df1da4eb8617f64a3c91e4f230a321b397a30d196eb547",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:658:cancel_processing_job",
         "path": "infera-knowledge/src/platform.rs",
@@ -4456,6 +4509,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4469,7 +4523,7 @@
           }
         ]
       },
-      "source_checksum": "13d75b7866439d99fc24899b779dc12e08ecbb92aae5ba937583392d7b9bfcb3",
+      "source_checksum": "439699c7c457792f7840c016ddda75ba7e78630a2f2565048d9502adfa248160",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:748:invalidate_policy_cache",
         "path": "infera-knowledge/src/platform.rs",
@@ -4519,6 +4573,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4532,7 +4587,7 @@
           }
         ]
       },
-      "source_checksum": "1b499daa1007ddc6b19420ccfe27cfbce4b17f67c00c3e776f5d31fe2a8eb7f2",
+      "source_checksum": "165e48bd3b3e79d1b9da2c9604c9aef9aac3f5fbfcab0827bba4140c39578938",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2738:list_recommenders",
         "path": "infera-knowledge/src/platform.rs",
@@ -4583,6 +4638,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4596,7 +4652,7 @@
           }
         ]
       },
-      "source_checksum": "bc3d61d8cdc03c23f830ef9beea51cf427e0c16a0eb119698643c246ac0dc070",
+      "source_checksum": "80770077e4a28eafaddb630e418169c8fac3d39657ac7ce124042906c3391f66",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2747:create_recommender_group",
         "path": "infera-knowledge/src/platform.rs",
@@ -4659,6 +4715,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4672,7 +4729,7 @@
           }
         ]
       },
-      "source_checksum": "d991fa22c384fbd53197c1d391272b38b3dc65244134e6463fd181cf97f8a46e",
+      "source_checksum": "9cf30c80049409cb926d7c1a9a760786b2e39699e2417381a79689857bd5f618",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2758:create_recommender_item",
         "path": "infera-knowledge/src/platform.rs",
@@ -4745,6 +4802,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4758,7 +4816,7 @@
           }
         ]
       },
-      "source_checksum": "2769232aa6db6fee596c69ad36cb46380d8806b54cb44ac7c1c21eb4497a19ec",
+      "source_checksum": "36026a4f55563822af39a61914f7b0781306877702320c78daa0b545a9fc32fc",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2550:list_memory_subjects",
         "path": "infera-knowledge/src/platform.rs",
@@ -4825,6 +4883,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4838,7 +4897,7 @@
           }
         ]
       },
-      "source_checksum": "ec8e73cbbe188d85f67f2df96947c607403407d7d2029d400fc8aa275d1c55d7",
+      "source_checksum": "2b9cb697b602a1136cdec46acb8b9bba11e395dab39d1293e01aab0a5ddff8a4",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2573:clear_memory_subject",
         "path": "infera-knowledge/src/platform.rs",
@@ -4898,6 +4957,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4911,7 +4971,7 @@
           }
         ]
       },
-      "source_checksum": "2de55fe11fde9518a9468784ce47e5457f2951b98eb72a0c598a70e4d0da7fe3",
+      "source_checksum": "6a22db54dfff1ab41ee29ba4551e766f7b6ea47df650139e34fef65ba9088624",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2614:forget_memory",
         "path": "infera-knowledge/src/platform.rs",
@@ -4972,6 +5032,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -4985,7 +5046,7 @@
           }
         ]
       },
-      "source_checksum": "4f7c52a696ea064fd9df1f31ff455b263f4a8d90771d11ed05539e4fbfd00df0",
+      "source_checksum": "6f3fd48d1d36d1467535d8206f3bf90d42247520217bd17f81549fb3fba70627",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2647:set_memory_override",
         "path": "infera-knowledge/src/platform.rs",
@@ -5051,6 +5112,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5064,7 +5126,7 @@
           }
         ]
       },
-      "source_checksum": "b91d0201f045f30d8fc25810861888774b06376fd419738269f1bed9ea764765",
+      "source_checksum": "ea4ea30eabffc7716ebc7dae0646fd074bc366295bfc102199bdab4328f5b10b",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2718:replay_memory_outbox",
         "path": "infera-knowledge/src/platform.rs",
@@ -5120,6 +5182,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5133,7 +5196,7 @@
           }
         ]
       },
-      "source_checksum": "ca0e20399d4152a76e11e59c98ad54ce79c083bff17a35a834920c6ce1da8831",
+      "source_checksum": "1a914a59c0c2304ef58dd05f7dcc65d8ca8e90bcc43f9830ead868de6494ca95",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:601:runtime_query",
         "path": "infera-knowledge/src/routes.rs",
@@ -5220,6 +5283,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "routes",
+        "handler_source": "infera-knowledge/src/routes.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5233,7 +5297,7 @@
           }
         ]
       },
-      "source_checksum": "f673b9ce4d72b2e93e859cbbb59d0d1c867fa324ce052be33c2f81ebfad2df31",
+      "source_checksum": "7e270f4ddbf413d9a6a972d5c750c70d1e5f3397fc8f04f7eea2ad86b0ddde16",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:612:tool_schema",
         "path": "infera-knowledge/src/routes.rs",
@@ -5284,6 +5348,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-knowledge/src/contracts.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5297,7 +5362,7 @@
           }
         ]
       },
-      "source_checksum": "52dfcb792f43587bf71f3838da4303fc30260725c25c07f647f4d6f2a7142321",
+      "source_checksum": "befbfe9ef9faae002754b3b577b539cd249d7505d63291516c6961cbb20266d7",
       "handler": {
         "ref": "infera-knowledge/src/contracts.rs:14:get",
         "path": "infera-knowledge/src/contracts.rs",
@@ -5353,6 +5418,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5366,7 +5432,7 @@
           }
         ]
       },
-      "source_checksum": "9ae1667667f2e5300337637abcc520ff2477855a4a886bfe9fb537ca5c010dbf",
+      "source_checksum": "90370cec8fa5deb192cfcbe7384f075d915691e1e2936187692524524ddd018c",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:830:configure_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5446,6 +5512,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5459,7 +5526,7 @@
           }
         ]
       },
-      "source_checksum": "0a699808e860f45d9c2cc11b1ebf2e20b546b5cd8a745d7597b21c178732fc82",
+      "source_checksum": "fce76074ab1ce5e187943ccda68787dcd8dba86d05b99e2762c31e7b2d5b10fa",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:997:query_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5574,6 +5641,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5587,7 +5655,7 @@
           }
         ]
       },
-      "source_checksum": "7b17f312316ae8979a34834590fb2715375ef282b9f4f29678f497c925d4927d",
+      "source_checksum": "eb1dc32578e39971be5298affda5c4e8a2d00cc6419be8e569807b75517e952d",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:1667:preview_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5702,6 +5770,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5715,7 +5784,7 @@
           }
         ]
       },
-      "source_checksum": "a57c6b4278870c7d5510ce18f40471044c4d9cafa71affad7417a6c896339c8c",
+      "source_checksum": "c66b18188c2a93f4cdbab7f9852d902a2e3d3a607392975202f37011079fdc62",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:1677:evaluate_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5842,6 +5911,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5855,7 +5925,7 @@
           }
         ]
       },
-      "source_checksum": "33a254870016f5d7a95c4a5567add967bc835e1aa2e11fdf7143c5d99c748fb9",
+      "source_checksum": "0fdc68d2cb0475add86bfa3275cbf2979bfb5d2f8a6f71e66249a23f6f042cec",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2262:record_turn",
         "path": "infera-knowledge/src/platform.rs",
@@ -5946,6 +6016,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -5959,7 +6030,7 @@
           }
         ]
       },
-      "source_checksum": "d5935a900fd03d6358cbc8f99624afbb27e6aada998e37f840ae1551079f20c8",
+      "source_checksum": "7c7382f01ff862397dd27d46bb02c6ddb856307fbfdc35739453113ecba3047e",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:457:document_evidence",
         "path": "infera-knowledge/src/platform.rs",
@@ -6014,6 +6085,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -6027,7 +6099,7 @@
           }
         ]
       },
-      "source_checksum": "8d0f4abb1c25c6784eaa76efb884c07fd033fcbe672defb82447b18a879fd70f",
+      "source_checksum": "98e4a8b64924f0c8f4fb5a7273ac980268642b232c12ff36cd461b77d726b85a",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:467:session_evidence",
         "path": "infera-knowledge/src/platform.rs",
@@ -6083,6 +6155,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -6096,7 +6169,7 @@
           }
         ]
       },
-      "source_checksum": "3514cddc1acfae2ea93234da0f1695271b7027461dae428b033008dd50b53bad",
+      "source_checksum": "81653e67f465264ef981516baeaffaa42ee7571f09ddde5cea25dde807b80854",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:424:record_retrieval_usage",
         "path": "infera-knowledge/src/platform.rs",
@@ -6162,6 +6235,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "platform",
+        "handler_source": "infera-knowledge/src/platform.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -6175,7 +6249,7 @@
           }
         ]
       },
-      "source_checksum": "fc2290b563bd8b8fa204d2580d2dd3494c28edd51d85c094aaeecd6ed480fe6f",
+      "source_checksum": "46d4f404b67803dceae8a604f0a93349e6a21217492ee6103bf8e135619ebcff",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:3439:mcp",
         "path": "infera-knowledge/src/platform.rs",
@@ -6235,6 +6309,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "task_projections",
+        "handler_source": "infera-knowledge/src/task_projections.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -6248,7 +6323,7 @@
           }
         ]
       },
-      "source_checksum": "91cdf8568f5e61155e6e319d703c368bb0a236c05f43e65a54f127b281debbdf",
+      "source_checksum": "332d35cb0669489569cffc3ccc6b27b5f8de0ff689fefdb9135e095f44c00462",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:61:sync",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6321,6 +6396,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "task_projections",
+        "handler_source": "infera-knowledge/src/task_projections.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -6334,7 +6410,7 @@
           }
         ]
       },
-      "source_checksum": "3a219fcfe4a26833f929c24135e319fcc43310b97ad60ab13b5b3d4efb188134",
+      "source_checksum": "4d96911d849e0bbed55c3159dd7e2995e4616862d7a805bb0cdb63b438279e18",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:94:candidates",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6401,6 +6477,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "task_projections",
+        "handler_source": "infera-knowledge/src/task_projections.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -6414,7 +6491,7 @@
           }
         ]
       },
-      "source_checksum": "d0603f33e80308e23b0ad50006a604cd89658dfa10158e4289db9a9f45bec50c",
+      "source_checksum": "42caa0aebce5da8edd7ae7cebf19f33b40806b84c7dc9b39af2ea12cd655a143",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:127:passages",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6488,6 +6565,7 @@
         "multipart": false,
         "binary": true,
         "formUrlEncoded": false,
+        "handler_source": "infera-knowledge/src/task_conversion.rs",
         "mounted_via": [
           {
             "path": "infera-knowledge/src/main.rs",
@@ -6496,7 +6574,7 @@
           }
         ]
       },
-      "source_checksum": "2ee00aba64a0659f3a3a1260559ab6ecd2c2d394d9951bfd4fcefaec1950b8ab",
+      "source_checksum": "b5312d5df3e0d3020764a05519842a08ed3f5d3e777224f18a2d9c1baf26d25d",
       "handler": {
         "ref": "infera-knowledge/src/task_conversion.rs:24:convert",
         "path": "infera-knowledge/src/task_conversion.rs",
@@ -6642,6 +6720,7 @@
         "handlerModule": "main",
         "source": "infera-knowledge/src/main.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/main.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -6660,6 +6739,7 @@
         "handlerModule": "main",
         "source": "infera-knowledge/src/main.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/main.rs",
         "response": "Health",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -6678,6 +6758,7 @@
         "handlerModule": "main",
         "source": "infera-knowledge/src/main.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/main.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -6698,6 +6779,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6724,6 +6806,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "query": "ListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6750,6 +6833,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "CreateKnowledgeBase",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6776,6 +6860,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6802,6 +6887,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "UpdateKnowledgeBase",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6829,6 +6915,7 @@
         "permissions": [
           "knowledge:delete"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -6854,6 +6941,7 @@
         "permissions": [
           "knowledge:publish"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6880,6 +6968,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6906,6 +6995,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -6932,6 +7022,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "CreateGroup",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6959,6 +7050,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "UpdateGroup",
         "pathParam": "Uuid",
         "response": "Value",
@@ -6986,6 +7078,7 @@
         "permissions": [
           "knowledge:delete"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -7011,6 +7104,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "query": "ListQuery",
         "pathParam": "Uuid",
         "response": "Value",
@@ -7038,6 +7132,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "CreateItem",
         "pathParam": "Uuid",
         "response": "Value",
@@ -7065,6 +7160,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7091,6 +7187,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "UpdateItem",
         "pathParam": "Uuid",
         "response": "Value",
@@ -7118,6 +7215,7 @@
         "permissions": [
           "knowledge:delete"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -7143,6 +7241,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7169,6 +7268,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "CreateEdge",
         "pathParam": "Uuid",
         "response": "Value",
@@ -7196,6 +7296,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "UpdateEdge",
         "pathParam": "Uuid",
         "response": "Value",
@@ -7223,6 +7324,7 @@
         "permissions": [
           "knowledge:delete"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -7248,6 +7350,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7273,6 +7376,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "CreateBinding",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7299,6 +7403,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "UpdateBinding",
         "pathParam": "Uuid",
         "response": "Value",
@@ -7326,6 +7431,7 @@
         "permissions": [
           "knowledge:delete"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -7351,6 +7457,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "query": "ListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7377,6 +7484,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "CreateRule",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7403,6 +7511,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "UpdateRule",
         "pathParam": "Uuid",
         "response": "Value",
@@ -7430,6 +7539,7 @@
         "permissions": [
           "knowledge:delete"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -7455,6 +7565,7 @@
         "permissions": [
           "knowledge:actions"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "query": "ListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7481,6 +7592,7 @@
         "permissions": [
           "knowledge:actions"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "ActionStatus",
         "pathParam": "Uuid",
         "response": "Value",
@@ -7508,6 +7620,7 @@
         "permissions": [
           "knowledge:audit"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "query": "ListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7534,6 +7647,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7559,6 +7673,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7584,6 +7699,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7609,6 +7725,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7634,6 +7751,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7659,6 +7777,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7684,6 +7803,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "SaveEvaluationCase",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7710,6 +7830,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7735,6 +7856,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "CreateSource",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7761,6 +7883,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7787,6 +7910,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7813,6 +7937,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7838,6 +7963,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "IngestDocument",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7864,6 +7990,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7890,6 +8017,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7916,6 +8044,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -7942,6 +8071,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7967,6 +8097,7 @@
         "permissions": [
           "knowledge:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -7992,6 +8123,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "CreateRecommenderGroup",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8018,6 +8150,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "CreateRecommenderItem",
         "pathParam": "Uuid",
         "response": "Value",
@@ -8045,6 +8178,7 @@
         "permissions": [
           "knowledge:memory:read"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "query": "MemoryFilter",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8069,6 +8203,7 @@
         "handlerModule": "platform",
         "source": "infera-knowledge/src/platform.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "query": "MemoryClearQuery",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
@@ -8093,6 +8228,7 @@
         "handlerModule": "platform",
         "source": "infera-knowledge/src/platform.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "query": "MemoryClearQuery",
         "pathParam": "(Uuid, Uuid)",
         "responseEnvelope": "requires_review",
@@ -8117,6 +8253,7 @@
         "handlerModule": "platform",
         "source": "infera-knowledge/src/platform.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "MemoryOverride",
         "pathParam": "Uuid",
         "response": "Value",
@@ -8144,6 +8281,7 @@
         "permissions": [
           "knowledge:memory:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8170,6 +8308,7 @@
         "permissions": [
           "knowledge:runtime"
         ],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "body": "RuntimeQuery",
         "pathParam": "String",
         "response": "RuntimeResult",
@@ -8195,6 +8334,7 @@
         "handlerModule": "routes",
         "source": "infera-knowledge/src/routes.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -8220,6 +8360,7 @@
         "permissions": [
           "knowledge:runtime"
         ],
+        "handler_source": "infera-knowledge/src/contracts.rs",
         "pathParam": "(Uuid, String)",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8246,6 +8387,7 @@
         "permissions": [
           "knowledge:write"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "AssistantConfiguration",
         "pathParam": "Uuid",
         "response": "Value",
@@ -8273,6 +8415,7 @@
         "permissions": [
           "knowledge:runtime"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "AssistantQuery",
         "pathParam": "Uuid",
         "response": "AssistantRuntimeResult",
@@ -8298,6 +8441,7 @@
         "handlerModule": "platform",
         "source": "infera-knowledge/src/platform.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "AssistantQuery",
         "pathParam": "Uuid",
         "response": "AssistantRuntimeResult",
@@ -8323,6 +8467,7 @@
         "handlerModule": "platform",
         "source": "infera-knowledge/src/platform.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "AssistantQuery",
         "pathParam": "Uuid",
         "response": "AssistantRuntimeResult",
@@ -8350,6 +8495,7 @@
         "permissions": [
           "knowledge:runtime"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "RecordTurn",
         "pathParam": "Uuid",
         "response": "Value",
@@ -8377,6 +8523,7 @@
         "permissions": [
           "knowledge:runtime"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8403,6 +8550,7 @@
         "permissions": [
           "knowledge:runtime"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8429,6 +8577,7 @@
         "permissions": [
           "knowledge:runtime"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "RetrievalUsageReport",
         "pathParam": "Uuid",
         "response": "Value",
@@ -8456,6 +8605,7 @@
         "permissions": [
           "knowledge:runtime"
         ],
+        "handler_source": "infera-knowledge/src/platform.rs",
         "body": "McpRequest",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -8479,6 +8629,7 @@
         "handlerModule": "task_projections",
         "source": "infera-knowledge/src/task_projections.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/task_projections.rs",
         "body": "Projection",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8503,6 +8654,7 @@
         "handlerModule": "task_projections",
         "source": "infera-knowledge/src/task_projections.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/task_projections.rs",
         "body": "Search",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8527,6 +8679,7 @@
         "handlerModule": "task_projections",
         "source": "infera-knowledge/src/task_projections.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/task_projections.rs",
         "body": "Passages",
         "response": "RetrievalResult",
         "responseEnvelope": "api",
@@ -8551,6 +8704,7 @@
         "handlerModule": "task_conversion",
         "source": "infera-knowledge/src/main.rs",
         "permissions": [],
+        "handler_source": "infera-knowledge/src/task_conversion.rs",
         "response": "Extraction",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -8567,16 +8721,87 @@
   },
   "working_drift": {
     "added": [],
-    "absent": [],
-    "changed": [],
-    "extraction_errors": [
-      {
-        "status": "failed",
-        "artifact_path": "working-contract-extraction.stderr.log",
-        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
-        "exit_code": 1
-      }
-    ]
+    "absent": [
+      "POST /internal/task-projections/sync",
+      "POST /internal/task-projections/candidates",
+      "POST /internal/task-projections/passages",
+      "POST /internal/task-conversions"
+    ],
+    "changed": [
+      "GET /api/v1/actions",
+      "PATCH /api/v1/actions/{id}/status",
+      "GET /api/v1/audit",
+      "GET /api/v1/audit-events",
+      "GET /api/v1/chat-bindings",
+      "POST /api/v1/chat-bindings",
+      "DELETE /api/v1/chat-bindings/{id}",
+      "PUT /api/v1/chat-bindings/{id}",
+      "GET /api/v1/documents",
+      "POST /api/v1/documents",
+      "POST /api/v1/documents/{id}/reprocess",
+      "DELETE /api/v1/edges/{id}",
+      "PUT /api/v1/edges/{id}",
+      "GET /api/v1/evaluation-cases",
+      "POST /api/v1/evaluation-cases",
+      "DELETE /api/v1/groups/{id}",
+      "PUT /api/v1/groups/{id}",
+      "DELETE /api/v1/items/{id}",
+      "GET /api/v1/items/{id}",
+      "PUT /api/v1/items/{id}",
+      "GET /api/v1/knowledge-bases",
+      "POST /api/v1/knowledge-bases",
+      "DELETE /api/v1/knowledge-bases/{id}",
+      "GET /api/v1/knowledge-bases/{id}",
+      "PUT /api/v1/knowledge-bases/{id}",
+      "GET /api/v1/knowledge-bases/{id}/edges",
+      "POST /api/v1/knowledge-bases/{id}/edges",
+      "GET /api/v1/knowledge-bases/{id}/export",
+      "GET /api/v1/knowledge-bases/{id}/groups",
+      "POST /api/v1/knowledge-bases/{id}/groups",
+      "GET /api/v1/knowledge-bases/{id}/items",
+      "POST /api/v1/knowledge-bases/{id}/items",
+      "POST /api/v1/knowledge-bases/{id}/publish",
+      "GET /api/v1/knowledge-releases/{id}",
+      "GET /api/v1/match-rules",
+      "POST /api/v1/match-rules",
+      "DELETE /api/v1/match-rules/{id}",
+      "PUT /api/v1/match-rules/{id}",
+      "POST /api/v1/memory-outbox/{id}/replay",
+      "GET /api/v1/memory-subjects",
+      "DELETE /api/v1/memory-subjects/{id}",
+      "PUT /api/v1/memory-subjects/{id}/policy",
+      "DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}",
+      "POST /api/v1/platform/cache/invalidate",
+      "GET /api/v1/platform/catalog",
+      "GET /api/v1/platform/converters",
+      "GET /api/v1/platform/status",
+      "GET /api/v1/processing-jobs",
+      "POST /api/v1/processing-jobs/{id}/cancel",
+      "POST /api/v1/processing-jobs/{id}/retry",
+      "GET /api/v1/recommender-groups",
+      "POST /api/v1/recommender-groups",
+      "POST /api/v1/recommender-groups/{id}/items",
+      "PUT /api/v1/runtime/assistants/{assistant_id}/configure",
+      "GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}",
+      "POST /api/v1/runtime/assistants/{assistant_id}/evaluations",
+      "POST /api/v1/runtime/assistants/{assistant_id}/memory/turn",
+      "POST /api/v1/runtime/assistants/{assistant_id}/preview",
+      "POST /api/v1/runtime/assistants/{assistant_id}/query",
+      "POST /api/v1/runtime/chat/{chat_slug}/query",
+      "GET /api/v1/runtime/evidence/documents/{id}",
+      "GET /api/v1/runtime/evidence/session/{id}",
+      "POST /api/v1/runtime/mcp",
+      "POST /api/v1/runtime/retrieval-traces/{id}/usage",
+      "GET /api/v1/runtime/tool-schema",
+      "GET /api/v1/sources",
+      "POST /api/v1/sources",
+      "POST /api/v1/sources/{id}/pause",
+      "POST /api/v1/sources/{id}/sync",
+      "GET /health",
+      "GET /health/live",
+      "GET /health/ready"
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {

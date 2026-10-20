@@ -31,7 +31,7 @@ export function verifyRunArtifacts(runs, evidenceRoot) {
   }));
 }
 
-export function evaluateCapabilityGate(universe, services, relationships = [], verificationRuns = {}, gaps = [], { stage = 'complete', runtimeInventory = null } = {}) {
+export function evaluateCapabilityGate(universe, services, relationships = [], verificationRuns = {}, gaps = [], { stage = 'complete', runtimeInventory = null, selectedSources = null } = {}) {
   if (!['discovery', 'sdk', 'manage', 'complete'].includes(stage)) throw new Error(`Unknown capability gate stage: ${stage}`);
   const failures = universe.runtime_inventory ? reconcileRuntimeInventory(universe,runtimeInventory) : [];
   const downstreamGaps = [];
@@ -77,6 +77,11 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
     }
     const source = data.source_decision;
     if (!source?.revision || !source.reason || source.status !== 'verified') failures.push(`${service}: canonical runtime/source revision is unverified`);
+    if(stage!=='discovery' && selectedSources?.[service]) {
+      const selected=selectedSources[service].revision;
+      if(data.sdk_source_revision!==selected) failures.push(`${service}: discovery inventory does not bind the current SDK source lock`);
+      if(source?.revision!==selected) failures.push(`${service}: selected semantic/runtime source differs from the current SDK source lock`);
+    }
     const ids = new Set();
     for (const op of data.operations) {
       const context = `${service} ${op.id}`;

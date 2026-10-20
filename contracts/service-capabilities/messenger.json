@@ -11,11 +11,13 @@
     "src/router.rs",
     "src/web_push.rs"
   ],
-  "canonical_revision": "2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88",
-  "sdk_source_revision": "2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88",
+  "canonical_revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
+  "sdk_source_revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
   "working_revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
   "working_changes": [
-    "M migration/src/lib.rs",
+    "M Cargo.lock",
+    " M Cargo.toml",
+    " M migration/src/lib.rs",
     " M src/lib.rs",
     " M src/main.rs",
     " M src/notification/channels/push.rs",
@@ -24,7 +26,7 @@
     "?? src/web_push.rs"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "05053336156338fb7f7d16e34ecd3d0d400428cf51cfe57235812d13870291fb",
+  "source_tree_checksum": "a71cb6bf5fc690a8ca540d7d3f3fd2060d058267498801f996220c686bf55539",
   "source_files": [
     {
       "path": "infera-messenger/src/broker.rs",
@@ -95,8 +97,12 @@
       "checksum": "01195c438536043f46758c9dc7f9629884cef4f2e8c47d3e3b32274fb59652f1"
     },
     {
+      "path": "infera-messenger/src/inbox_stream_http.rs",
+      "checksum": "d9a505e72f762c1a0b8295c9d7ec28c15fc893218de698cc048202d1b9d07cca"
+    },
+    {
       "path": "infera-messenger/src/inbox_stream.rs",
-      "checksum": "9a127a58d11c7b9cf3e550c278dfaab61c4f272bbe02dd984928eb389f34482d"
+      "checksum": "8fe86e02d02a4fda6e262eed2ade2dc4b28864398e54bbeec38baca40f172c4d"
     },
     {
       "path": "infera-messenger/src/integration/flow.rs",
@@ -116,7 +122,7 @@
     },
     {
       "path": "infera-messenger/src/lib.rs",
-      "checksum": "4141405f5a598389bb193911cbd14750c634ee882c6efe5fa0258ec73e63049e"
+      "checksum": "a288da5e827380d763c949221808b22e4df9386ec1e889bb0dad98c0020cb833"
     },
     {
       "path": "infera-messenger/src/main.rs",
@@ -128,7 +134,7 @@
     },
     {
       "path": "infera-messenger/src/models.rs",
-      "checksum": "dde3f529410476ac95e567b2dfc204de2bff40073e00e344debedaefccc47034"
+      "checksum": "1f7a772e138760639aa053251ba69fd7588821d4999eaae4f51f12f4890bff99"
     },
     {
       "path": "infera-messenger/src/notification/channels/email.rs",
@@ -140,7 +146,7 @@
     },
     {
       "path": "infera-messenger/src/notification/channels/push.rs",
-      "checksum": "ee1f60545458ce94cd2692a7162eff316ccc0c7476047d4c9ea52eb3e8568756"
+      "checksum": "9f291094c441e9b9e43e4ca560d6460fd7c0ebd4fc5f50d6f9a5967cf32e43fe"
     },
     {
       "path": "infera-messenger/src/notification/channels/sms.rs",
@@ -168,11 +174,11 @@
     },
     {
       "path": "infera-messenger/src/notification/routes.rs",
-      "checksum": "99fd6d296de2efaef84d76ff1133e8f049fb0190c559e2db75ae3a82b680d040"
+      "checksum": "f98026717b4ceb775cb7ba2d33d8930d3a4bdb70c431bc0822fa458c74d5d79d"
     },
     {
       "path": "infera-messenger/src/pagination.rs",
-      "checksum": "9c97e92c81f923a2e785aab42af7678b170095fb208eb6476e88a4327d4002bc"
+      "checksum": "dc679685e74cbdd15dd4864b830c1e1ba704fda4dd6ecfcbe4c7d284552c118e"
     },
     {
       "path": "infera-messenger/src/push_applications.rs",
@@ -411,6 +417,7 @@
       "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
     "canonical": [],
     "working": []
@@ -800,6 +807,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-messenger/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -808,7 +816,7 @@
           }
         ]
       },
-      "source_checksum": "df68cf6f9aeddbd78ef252202257001d8b7a7c4b0fc432edbfd47b3229f456a6",
+      "source_checksum": "5de57e0c7df6cc088fa888d7c0cf6fca70560269af0a0193a185bcb41aab8ca3",
       "handler": {
         "ref": "infera-messenger/src/router.rs:187:status_route",
         "path": "infera-messenger/src/router.rs",
@@ -850,6 +858,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-messenger/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -858,7 +867,7 @@
           }
         ]
       },
-      "source_checksum": "7ac51957268c777fcc94f7d00fb63b07a72c245a373a9c9dd3e24dd7b0b21ea7",
+      "source_checksum": "49915cbfc78ff6d852d70d3769d322c142b69c45a2073bed5f3ece964747f738",
       "handler": {
         "ref": "infera-messenger/src/router.rs:187:status_route",
         "path": "infera-messenger/src/router.rs",
@@ -900,6 +909,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-messenger/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -908,7 +918,7 @@
           }
         ]
       },
-      "source_checksum": "971808c8794c94c6385d2238dd5709cbdf7ff76e31fd15353823579525f599e4",
+      "source_checksum": "d694dff4f525a1196bcf1505d39508c738373c6195fa96d8f4e581ad5bfa3ae9",
       "handler": {
         "ref": "infera-messenger/src/router.rs:70:openapi_json",
         "path": "infera-messenger/src/router.rs",
@@ -953,6 +963,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "template::routes",
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -966,7 +977,7 @@
           }
         ]
       },
-      "source_checksum": "2378a2e68fc22f2cea7015828512bde6f39cb67fc9e0f8947365a2565de8fdcc",
+      "source_checksum": "dba0bedc063b05c62bf51db335ebc3ac36d963bdf07fd063d3f6ae4a00edbf36",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:47:templates_index",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1031,6 +1042,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "template::routes",
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1044,7 +1056,7 @@
           }
         ]
       },
-      "source_checksum": "56816c0a85feeb9f8fe52a482bd9753bfef7da6d1313a8ddf8cbb79a47bd01cf",
+      "source_checksum": "e3545367a3415842260cf1ea24f18177e7462d8dfe48b2f32914a4634799a10c",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:89:templates_create",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1126,6 +1138,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "template::routes",
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1139,7 +1152,7 @@
           }
         ]
       },
-      "source_checksum": "e223b1cbd690f8da12acb177b46ab6ef07d4ef1ef22b07bf64e4b8a5fc9a6047",
+      "source_checksum": "2258965fa0e981743d25f98e5bc22b88e799a16faa7ec55c441ec24718fe2747",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:65:templates_show",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1150,9 +1163,9 @@
         {
           "call": "crate::models::AppError::new",
           "evidence": {
-            "ref": "infera-messenger/src/models.rs:74:new",
+            "ref": "infera-messenger/src/models.rs:99:new",
             "path": "infera-messenger/src/models.rs",
-            "line": 74,
+            "line": 99,
             "name": "new"
           }
         }
@@ -1219,6 +1232,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "template::routes",
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1232,7 +1246,7 @@
           }
         ]
       },
-      "source_checksum": "628c6ce390d31f987f6807bc1db317256ae4504ee9252558a26d71c1b59a5658",
+      "source_checksum": "2a986b315aba2c048649f50194e5d31acaf9db62fc9a5c6051a199f085969537",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:108:templates_update",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1318,6 +1332,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "template::routes",
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1331,7 +1346,7 @@
           }
         ]
       },
-      "source_checksum": "9e6a6a4a8328924940ce5e52f79155fd4249b600b94add05e4e0eef8cb95b5cf",
+      "source_checksum": "9858deda26562fb4d343dd7143913779c3ab43890648162c2b550defe2e539e8",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:128:templates_delete",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1386,6 +1401,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "template::routes",
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1399,7 +1415,7 @@
           }
         ]
       },
-      "source_checksum": "5c01366e7899f3454fc066689ea700b993e2c901ae9ad3053d75f503fc6f9b5d",
+      "source_checksum": "81c9ad633a1787ea549ecc521fa536bfbb3bb346ea5cf8296cbff4719d5c33df",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:147:template_contents_index",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1469,6 +1485,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "template::routes",
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1482,7 +1499,7 @@
           }
         ]
       },
-      "source_checksum": "728c4752dcb6c0bb5af3be5214565deb93f229a796162aae61685ce5aad2ac11",
+      "source_checksum": "56e753115fe3f04c3ddbf7035386f85f7b040de039de0598e3894958c1965236",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:169:template_contents_create",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1563,6 +1580,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "template::routes",
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1576,7 +1594,7 @@
           }
         ]
       },
-      "source_checksum": "e35dbae621b81aa6bf028a0bbbbcb171f1d0584a73dc3edd3f4b38995eea0e06",
+      "source_checksum": "8fec42de30d510974241d5eca4d360f19431385685c364cbe5bc7cf0cd68a8a8",
       "handler": {
         "ref": "infera-messenger/src/template/routes.rs:189:template_contents_update",
         "path": "infera-messenger/src/template/routes.rs",
@@ -1655,6 +1673,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "channel::routes",
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1668,7 +1687,7 @@
           }
         ]
       },
-      "source_checksum": "72e16abd95e217716691c4284ee894478752f4229d468f68bc78e4e54fee87fd",
+      "source_checksum": "573233c5509bb89af0b1014c8325a032406585e7da820e614efa91fa90029e3e",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:40:channels_index",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1726,6 +1745,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "channel::routes",
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1739,7 +1759,7 @@
           }
         ]
       },
-      "source_checksum": "1b7a7479a11e010daf109b5de17c18fc7dd27cb5fb0c39fb9f2a422023badb3f",
+      "source_checksum": "1c0baf9653c5ec2579d487213ff94772ad7faa2e27c1cde9c23344ba080735ee",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:82:channels_create",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1808,6 +1828,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "channel::routes",
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1821,7 +1842,7 @@
           }
         ]
       },
-      "source_checksum": "89da6b3bdd56057da9e12fd54001cedb85121aede74d3cc9ebd09a9a0f743ffd",
+      "source_checksum": "1f31bcf40f43dec34c2359f722b851f0acc37459b852fac0cb7412b76c432622",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:58:channels_show",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1841,9 +1862,9 @@
         {
           "call": "crate::models::AppError::new",
           "evidence": {
-            "ref": "infera-messenger/src/models.rs:74:new",
+            "ref": "infera-messenger/src/models.rs:99:new",
             "path": "infera-messenger/src/models.rs",
-            "line": 74,
+            "line": 99,
             "name": "new"
           }
         }
@@ -1903,6 +1924,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "channel::routes",
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -1916,7 +1938,7 @@
           }
         ]
       },
-      "source_checksum": "3cb9d5813b932b51aef36cd0e1b04d7e5cc0b92de61323bb125a6152abe33e44",
+      "source_checksum": "988146e905826a899bc8ecca2fc000d3b2731078eafad2a9f8a95b4af1f2a4ce",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:101:channels_update",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -1989,6 +2011,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "channel::routes",
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2002,7 +2025,7 @@
           }
         ]
       },
-      "source_checksum": "559cc159c422b1c5418d17c02d2bbc1a0decc607f09093c62bee0d4e97e45761",
+      "source_checksum": "f1cf000127438895fe29a83180ead63d6fbe9c0d35d27dbebfd007a4dbd72ea8",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:121:channels_delete",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -2056,6 +2079,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service::routes",
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2069,7 +2093,7 @@
           }
         ]
       },
-      "source_checksum": "b3db9d74d3f6528ff90c74f9f3b8efd4e7da0989d6a14ecff3a4f76899407af8",
+      "source_checksum": "8c21857a5b6ee3498971b0eeaa68b8afc3c0f90abeb39ae08fa4362308b91756",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:38:services_index",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2127,6 +2151,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service::routes",
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2140,7 +2165,7 @@
           }
         ]
       },
-      "source_checksum": "518364502fabfebc5866452989ab2ee84deab1247c40edd7bea1bcaa97b5a4ee",
+      "source_checksum": "c78860c8282e0f507d9ab041b9023dca32a7ae6fd3877d4dc344b2e745824810",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:80:services_create",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2208,6 +2233,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service::routes",
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2221,7 +2247,7 @@
           }
         ]
       },
-      "source_checksum": "4a0a911b0bb55ff842089e1c62d6ebe2305a5400503ea10b992afda049242ffe",
+      "source_checksum": "b48a6729640b25dc14ceb63ceecc9f878cbc2949c6dbb8459d7f4a799ce0b1c5",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:133:setup_check",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2279,6 +2305,7 @@
         "responseEnvelope": "raw",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-messenger/src/service/website_otp.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2292,7 +2319,7 @@
           }
         ]
       },
-      "source_checksum": "ed9e712dac7c1027703d83b49db8f3e6f8f91ed651c43b77e36b12beadcbe37e",
+      "source_checksum": "83fdce84561b5acfc8a87d9c085421fd4fd5175e355fdd9e7a21d69a0dfba5d0",
       "handler": {
         "ref": "infera-messenger/src/service/website_otp.rs:6:readiness",
         "path": "infera-messenger/src/service/website_otp.rs",
@@ -2353,6 +2380,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service::routes",
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2366,7 +2394,7 @@
           }
         ]
       },
-      "source_checksum": "01417e044bc5ab283af3b6f41ab2a071dd67d85ba2346f2f42633aef46d244ae",
+      "source_checksum": "c432ddc5bd0074f1912691abaa53dd8ab946aab7ee562f0267a387d398cf6754",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:56:services_show",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2377,9 +2405,9 @@
         {
           "call": "crate::models::AppError::new",
           "evidence": {
-            "ref": "infera-messenger/src/models.rs:74:new",
+            "ref": "infera-messenger/src/models.rs:99:new",
             "path": "infera-messenger/src/models.rs",
-            "line": 74,
+            "line": 99,
             "name": "new"
           }
         }
@@ -2439,6 +2467,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service::routes",
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2452,7 +2481,7 @@
           }
         ]
       },
-      "source_checksum": "1676681369df84fe22dff7b4bc34affbffc31da94471f21b4299e987a07cc683",
+      "source_checksum": "374f357b9c5fabb38845a450c511b81df9efb43b388e1068ef45287b108233e7",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:99:services_update",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2525,6 +2554,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "service::routes",
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2538,7 +2568,7 @@
           }
         ]
       },
-      "source_checksum": "ce5aa34a28beba45b8bb9437b4972d673dae6a0a7e6098defabc0b8686cf519c",
+      "source_checksum": "2377be17635244e9f749a7889f428921f8f7297a9b60f3cff129bcd9af9af442",
       "handler": {
         "ref": "infera-messenger/src/service/routes.rs:119:services_delete",
         "path": "infera-messenger/src/service/routes.rs",
@@ -2593,6 +2623,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2606,11 +2637,11 @@
           }
         ]
       },
-      "source_checksum": "b4f13b2d43ec59419a12d7decef989e7ee3c9f17c59cb7ef5163de1782cb8906",
+      "source_checksum": "f3d0a7576a5ecd9e219c2a71b656e22b1462b9db00df2271e44404a288f725e6",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:92:notifications_my_inbox",
+        "ref": "infera-messenger/src/notification/routes.rs:231:notifications_my_inbox",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 92,
+        "line": 231,
         "name": "notifications_my_inbox"
       },
       "related_implementation": [],
@@ -2630,15 +2661,15 @@
           "declared_type": "crate::models::PagedResult<InboxItem>",
           "models": [
             {
-              "ref": "infera-messenger/src/models.rs:21:PagedResult",
+              "ref": "infera-messenger/src/models.rs:46:PagedResult",
               "path": "infera-messenger/src/models.rs",
-              "line": 21,
+              "line": 46,
               "name": "PagedResult"
             },
             {
-              "ref": "infera-messenger/src/notification/routes.rs:42:InboxItem",
+              "ref": "infera-messenger/src/notification/routes.rs:68:InboxItem",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 42,
+              "line": 68,
               "name": "InboxItem"
             }
           ]
@@ -2687,6 +2718,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2700,11 +2732,11 @@
           }
         ]
       },
-      "source_checksum": "fcf4bf541e824dfb3c5528c77757374ad333b1adaa7d3416821cd5f24fac1990",
+      "source_checksum": "b2a0f8aff849fb59ac7020dad0892ba39194fc941afa8db97a6683dbf2e2c5c7",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:115:notifications_my_mark_all_read",
+        "ref": "infera-messenger/src/notification/routes.rs:254:notifications_my_mark_all_read",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 115,
+        "line": 254,
         "name": "notifications_my_mark_all_read"
       },
       "related_implementation": [],
@@ -2713,9 +2745,9 @@
           "declared_type": "MarkAllReadResponse",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:303:MarkAllReadResponse",
+              "ref": "infera-messenger/src/notification/routes.rs:438:MarkAllReadResponse",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 303,
+              "line": 438,
               "name": "MarkAllReadResponse"
             }
           ]
@@ -2758,6 +2790,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2771,11 +2804,11 @@
           }
         ]
       },
-      "source_checksum": "73c25657fea89746af05bc14b0fa83cb25b3992265ac1eeec1034581cb2bef54",
+      "source_checksum": "4008e10b89d482a23e66e3f5653c7927912e28a2e13027b17e52c13fa3e1f363",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:133:notifications_my_mark_read",
+        "ref": "infera-messenger/src/notification/routes.rs:272:notifications_my_mark_read",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 133,
+        "line": 272,
         "name": "notifications_my_mark_read"
       },
       "related_implementation": [],
@@ -2784,9 +2817,9 @@
           "declared_type": "InboxItem",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:42:InboxItem",
+              "ref": "infera-messenger/src/notification/routes.rs:68:InboxItem",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 42,
+              "line": 68,
               "name": "InboxItem"
             }
           ]
@@ -2840,6 +2873,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2853,11 +2887,11 @@
           }
         ]
       },
-      "source_checksum": "681e99f1341e16e6ba5279aa6f0add2c420a015a182b77340cd17fbf66a8cb66",
+      "source_checksum": "ac485d981adc2acf580cb31f2c791b2a61f82cc70efa2487b55bad3b32ef7890",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:241:notifications_index",
+        "ref": "infera-messenger/src/notification/routes.rs:376:notifications_index",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 241,
+        "line": 376,
         "name": "notifications_index"
       },
       "related_implementation": [],
@@ -2866,9 +2900,9 @@
           "declared_type": "NotificationListQuery",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:262:NotificationListQuery",
+              "ref": "infera-messenger/src/notification/routes.rs:397:NotificationListQuery",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 262,
+              "line": 397,
               "name": "NotificationListQuery"
             }
           ]
@@ -2877,9 +2911,9 @@
           "declared_type": "crate::models::PagedResult<NotificationResponse>",
           "models": [
             {
-              "ref": "infera-messenger/src/models.rs:21:PagedResult",
+              "ref": "infera-messenger/src/models.rs:46:PagedResult",
               "path": "infera-messenger/src/models.rs",
-              "line": 21,
+              "line": 46,
               "name": "PagedResult"
             },
             {
@@ -2941,6 +2975,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -2954,11 +2989,11 @@
           }
         ]
       },
-      "source_checksum": "61df198d5b862f8bb759f3d277be8f60ad751a7b97af0bbc69e77e8b929b72fe",
+      "source_checksum": "05c0a6d06567f2f9bdfe17c144fc0e4d2f029566dfe111d3dbf6b765bde529e1",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:314:notifications_mark_all_read",
+        "ref": "infera-messenger/src/notification/routes.rs:449:notifications_mark_all_read",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 314,
+        "line": 449,
         "name": "notifications_mark_all_read"
       },
       "related_implementation": [],
@@ -2967,9 +3002,9 @@
           "declared_type": "MarkAllReadQuery",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:298:MarkAllReadQuery",
+              "ref": "infera-messenger/src/notification/routes.rs:433:MarkAllReadQuery",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 298,
+              "line": 433,
               "name": "MarkAllReadQuery"
             }
           ]
@@ -2978,9 +3013,9 @@
           "declared_type": "MarkAllReadResponse",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:303:MarkAllReadResponse",
+              "ref": "infera-messenger/src/notification/routes.rs:438:MarkAllReadResponse",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 303,
+              "line": 438,
               "name": "MarkAllReadResponse"
             }
           ]
@@ -3022,6 +3057,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3035,11 +3071,11 @@
           }
         ]
       },
-      "source_checksum": "6a79a1f6eafaf39802cbaad70bbff13676d6a36dfa549c03fdf2b5c66b9afb84",
+      "source_checksum": "37b801e4dcfcb104c28f164f13e7a4bac8e13f53ce3dd419d68d35c843bf208b",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:174:notifications_realtime_config",
+        "ref": "infera-messenger/src/notification/routes.rs:313:notifications_realtime_config",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 174,
+        "line": 313,
         "name": "notifications_realtime_config"
       },
       "related_implementation": [
@@ -3067,9 +3103,9 @@
           "declared_type": "RealtimeConfigResponse",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:150:RealtimeConfigResponse",
+              "ref": "infera-messenger/src/notification/routes.rs:289:RealtimeConfigResponse",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 150,
+              "line": 289,
               "name": "RealtimeConfigResponse"
             }
           ]
@@ -3112,6 +3148,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3125,11 +3162,11 @@
           }
         ]
       },
-      "source_checksum": "a5957bcda8a09aa3e099c9e0015362456ebe1f2c72708bfc720ec95827ab93eb",
+      "source_checksum": "9225452f11891b8113aa9e539cdc9963ce0f4eb882c8491a894891bea435fc74",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:205:notifications_realtime_auth",
+        "ref": "infera-messenger/src/notification/routes.rs:342:notifications_realtime_auth",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 205,
+        "line": 342,
         "name": "notifications_realtime_auth"
       },
       "related_implementation": [
@@ -3157,9 +3194,9 @@
           "declared_type": "RealtimeAuthRequest",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:158:RealtimeAuthRequest",
+              "ref": "infera-messenger/src/notification/routes.rs:297:RealtimeAuthRequest",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 158,
+              "line": 297,
               "name": "RealtimeAuthRequest"
             }
           ]
@@ -3168,9 +3205,9 @@
           "declared_type": "RealtimeAuthResponse",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:164:RealtimeAuthResponse",
+              "ref": "infera-messenger/src/notification/routes.rs:303:RealtimeAuthResponse",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 164,
+              "line": 303,
               "name": "RealtimeAuthResponse"
             }
           ]
@@ -3220,6 +3257,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3233,11 +3271,11 @@
           }
         ]
       },
-      "source_checksum": "27d0b8e0eabe96813fb1247e51463e5803a107b12c3eb22063d68106a2d497fb",
+      "source_checksum": "d130e6752efd5d35cadf5731cf60a47626aa7c467246916b54f1c84d8f4bd8de",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:275:notifications_show",
+        "ref": "infera-messenger/src/notification/routes.rs:410:notifications_show",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 275,
+        "line": 410,
         "name": "notifications_show"
       },
       "related_implementation": [],
@@ -3309,6 +3347,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3322,11 +3361,11 @@
           }
         ]
       },
-      "source_checksum": "e07d64a0af41e0661d9117a25a52fc5f991589a23f31f04c284116955141ad35",
+      "source_checksum": "9d2e6bfbc27e320775085170198369c5139910c64b169f659e860bc1f283d535",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:333:notifications_mark_read",
+        "ref": "infera-messenger/src/notification/routes.rs:468:notifications_mark_read",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 333,
+        "line": 468,
         "name": "notifications_mark_read"
       },
       "related_implementation": [],
@@ -3335,9 +3374,9 @@
           "declared_type": "MarkReadQuery",
           "models": [
             {
-              "ref": "infera-messenger/src/notification/routes.rs:293:MarkReadQuery",
+              "ref": "infera-messenger/src/notification/routes.rs:428:MarkReadQuery",
               "path": "infera-messenger/src/notification/routes.rs",
-              "line": 293,
+              "line": 428,
               "name": "MarkReadQuery"
             }
           ]
@@ -3407,6 +3446,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "dashboard::routes",
+        "handler_source": "infera-messenger/src/dashboard/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3420,7 +3460,7 @@
           }
         ]
       },
-      "source_checksum": "485c9c64f71317c168744e907accaa95f25f8555d94586810bb8312a760e5096",
+      "source_checksum": "bdb6401234a58c0f54043882892514d0d16793c20dfb5cde691425a6a0a16799",
       "handler": {
         "ref": "infera-messenger/src/dashboard/routes.rs:21:dashboard_show",
         "path": "infera-messenger/src/dashboard/routes.rs",
@@ -3477,6 +3517,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "integration::routes",
+        "handler_source": "infera-messenger/src/integration/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3490,7 +3531,7 @@
           }
         ]
       },
-      "source_checksum": "8e64e8a959c38d4b00c6bb79c0ccdbbd8ad9019f5d3ecf88165261f37e2120a7",
+      "source_checksum": "507f378e2dccd2ba3c724f07a57e993595e7b58b0a2174a76088b42ba7b56d16",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:20:rabbitmq_integration_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3554,6 +3595,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "integration::routes",
+        "handler_source": "infera-messenger/src/integration/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3567,7 +3609,7 @@
           }
         ]
       },
-      "source_checksum": "d9509834524c3a6365f618a0b5a4276ae25a7ee6aadfb363fa3c26d7149035f3",
+      "source_checksum": "68fa1e156bad60e961b4e38410bee9c956cff5c442b443fed64199918fa3b0c8",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:35:integration_docs_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3632,6 +3674,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "integration::routes",
+        "handler_source": "infera-messenger/src/integration/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3645,7 +3688,7 @@
           }
         ]
       },
-      "source_checksum": "ce38ae3634031fb3fff45d293484918323b9c724e46715d0ccfe3089a89db473",
+      "source_checksum": "12994c205ae5b40a4eb66698cc85ccae88946cb260e0cc98ee823468a55fe817",
       "handler": {
         "ref": "infera-messenger/src/integration/routes.rs:44:flow_integration_show",
         "path": "infera-messenger/src/integration/routes.rs",
@@ -3712,6 +3755,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inbox_stream",
+        "handler_source": "infera-messenger/src/inbox_stream.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3725,22 +3769,32 @@
           }
         ]
       },
-      "source_checksum": "2da07a5c9035ed287760e945ad4224f9b1df976b7c9f595631d0ca11d4818a33",
+      "source_checksum": "a50077b34529c183e7f2fdad79cd0fa8d9a7c3ef518672dd8a6365edff28f914",
       "handler": {
-        "ref": "infera-messenger/src/inbox_stream.rs:68:events",
+        "ref": "infera-messenger/src/inbox_stream.rs:69:events",
         "path": "infera-messenger/src/inbox_stream.rs",
-        "line": 68,
+        "line": 69,
         "name": "events"
       },
-      "related_implementation": [],
+      "related_implementation": [
+        {
+          "call": "crate::notification::routes::self_inbox_user",
+          "evidence": {
+            "ref": "infera-messenger/src/notification/routes.rs:35:self_inbox_user",
+            "path": "infera-messenger/src/notification/routes.rs",
+            "line": 35,
+            "name": "self_inbox_user"
+          }
+        }
+      ],
       "schemas": {
         "query": {
           "declared_type": "PollQuery",
           "models": [
             {
-              "ref": "infera-messenger/src/inbox_stream.rs:46:PollQuery",
+              "ref": "infera-messenger/src/inbox_stream.rs:47:PollQuery",
               "path": "infera-messenger/src/inbox_stream.rs",
-              "line": 46,
+              "line": 47,
               "name": "PollQuery"
             }
           ]
@@ -3749,9 +3803,9 @@
           "declared_type": "EventPage",
           "models": [
             {
-              "ref": "infera-messenger/src/inbox_stream.rs:57:EventPage",
+              "ref": "infera-messenger/src/inbox_stream.rs:58:EventPage",
               "path": "infera-messenger/src/inbox_stream.rs",
-              "line": 57,
+              "line": 58,
               "name": "EventPage"
             }
           ]
@@ -3793,6 +3847,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "inbox_stream",
+        "handler_source": "infera-messenger/src/inbox_stream.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3806,22 +3861,32 @@
           }
         ]
       },
-      "source_checksum": "164abe25f5eb91b5698b3a085ce52076d2df87f0b23c4d706d5c68e5b78002ec",
+      "source_checksum": "e3c24d8c11fc69c28f247fbf53704a0edb032eb9b0017cdd70c99b7b247790fd",
       "handler": {
-        "ref": "infera-messenger/src/inbox_stream.rs:149:unread",
+        "ref": "infera-messenger/src/inbox_stream.rs:155:unread",
         "path": "infera-messenger/src/inbox_stream.rs",
-        "line": 149,
+        "line": 155,
         "name": "unread"
       },
-      "related_implementation": [],
+      "related_implementation": [
+        {
+          "call": "crate::notification::routes::self_inbox_user",
+          "evidence": {
+            "ref": "infera-messenger/src/notification/routes.rs:35:self_inbox_user",
+            "path": "infera-messenger/src/notification/routes.rs",
+            "line": 35,
+            "name": "self_inbox_user"
+          }
+        }
+      ],
       "schemas": {
         "response": {
           "declared_type": "UnreadCount",
           "models": [
             {
-              "ref": "infera-messenger/src/inbox_stream.rs:140:UnreadCount",
+              "ref": "infera-messenger/src/inbox_stream.rs:146:UnreadCount",
               "path": "infera-messenger/src/inbox_stream.rs",
-              "line": 140,
+              "line": 146,
               "name": "UnreadCount"
             }
           ]
@@ -3864,6 +3929,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "mobile_push",
+        "handler_source": "infera-messenger/src/mobile_push.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3877,7 +3943,7 @@
           }
         ]
       },
-      "source_checksum": "2a7b7777337d46e88bda92ddd9bb3ca27740979106485e034d0c661b21c4479e",
+      "source_checksum": "964e2cd91a74ece56eca224ce25f705f4e971d22cc3b66a9411e32b4d3ae9db5",
       "handler": {
         "ref": "infera-messenger/src/mobile_push.rs:45:register",
         "path": "infera-messenger/src/mobile_push.rs",
@@ -3969,6 +4035,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "mobile_push",
+        "handler_source": "infera-messenger/src/mobile_push.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -3982,7 +4049,7 @@
           }
         ]
       },
-      "source_checksum": "1d380c729f33c6a494581b06765583afdd744eadd2eabefd20b5345543cf3186",
+      "source_checksum": "67f6d41b69e503364e8108c4880d170799b4add721d099842aa3f08eb38135ed",
       "handler": {
         "ref": "infera-messenger/src/mobile_push.rs:107:revoke",
         "path": "infera-messenger/src/mobile_push.rs",
@@ -4036,6 +4103,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "web_push",
+        "handler_source": "infera-messenger/src/web_push.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -4049,7 +4117,7 @@
           }
         ]
       },
-      "source_checksum": "ee8777c4bd26bd013d611647865ec0b3a07877db984e843831ccec3305a6767e",
+      "source_checksum": "ba2e6e8dd707832259c5fc17bc66a05f7bf0c47154111194000fd459065c13a9",
       "handler": {
         "ref": "infera-messenger/src/web_push.rs:114:config",
         "path": "infera-messenger/src/web_push.rs",
@@ -4100,6 +4168,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "web_push",
+        "handler_source": "infera-messenger/src/web_push.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -4113,7 +4182,7 @@
           }
         ]
       },
-      "source_checksum": "a79a75b0802663c48e1e601bf1dab84692f49b42cf6066f9b3276093bd69e022",
+      "source_checksum": "ac7a525fbe293fdede0278a4d07bdd186abd89bb12e4c2dd52ec424383766373",
       "handler": {
         "ref": "infera-messenger/src/web_push.rs:129:subscribe",
         "path": "infera-messenger/src/web_push.rs",
@@ -4192,6 +4261,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "web_push",
+        "handler_source": "infera-messenger/src/web_push.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -4205,7 +4275,7 @@
           }
         ]
       },
-      "source_checksum": "67dea40bc5c62e6a1491a0505495d2e2de567c14fb664aeb42435e0a6da55569",
+      "source_checksum": "8c451a517f77d4f7c03ca9b967e6824491ddb3ff83af3ec25506fb12b1f41df0",
       "handler": {
         "ref": "infera-messenger/src/web_push.rs:169:unsubscribe",
         "path": "infera-messenger/src/web_push.rs",
@@ -4260,6 +4330,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "web_push",
+        "handler_source": "infera-messenger/src/web_push.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -4273,7 +4344,7 @@
           }
         ]
       },
-      "source_checksum": "7c0f232fb21f9651899fa99edaa578f2a49240deb20d0049762ccf7149735acf",
+      "source_checksum": "e930dc0f809b9809b5511d122c5fde5630375e217cac9bd6c4875e2344def815",
       "handler": {
         "ref": "infera-messenger/src/web_push.rs:189:test_push",
         "path": "infera-messenger/src/web_push.rs",
@@ -4328,6 +4399,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "web_push",
+        "handler_source": "infera-messenger/src/web_push.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -4341,7 +4413,7 @@
           }
         ]
       },
-      "source_checksum": "52f970726e0bd2540f1aeb8f15babaee4614712ff3f4419b86ae5eee3234b90a",
+      "source_checksum": "7f9686b21d0ee840c5e6dcdf1d630b6129118bdee89308bfc2664465948837c8",
       "handler": {
         "ref": "infera-messenger/src/web_push.rs:231:delivery",
         "path": "infera-messenger/src/web_push.rs",
@@ -4394,6 +4466,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "notification::routes",
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -4402,16 +4475,16 @@
           },
           {
             "path": "infera-messenger/src/notification/routes.rs",
-            "line": 230,
+            "line": 365,
             "function": "service_routes"
           }
         ]
       },
-      "source_checksum": "c2394110697e3acdb845c808e97989777d05ec67516a8d7c44c2e35e76ba0983",
+      "source_checksum": "476e92bc114c0bdd1913b634100eecae1f86be396583aad887a78c55db7499c2",
       "handler": {
-        "ref": "infera-messenger/src/notification/routes.rs:353:notifications_send",
+        "ref": "infera-messenger/src/notification/routes.rs:488:notifications_send",
         "path": "infera-messenger/src/notification/routes.rs",
-        "line": 353,
+        "line": 488,
         "name": "notifications_send"
       },
       "related_implementation": [],
@@ -4487,6 +4560,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "channel::routes",
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "mounted_via": [
           {
             "path": "infera-messenger/src/router.rs",
@@ -4500,7 +4574,7 @@
           }
         ]
       },
-      "source_checksum": "83250730c3a585d357b1e862344a0bda0e25c4587c359124a344ae32f96a7cd6",
+      "source_checksum": "c2e74c6462ea9bac69c0080adb0ec9eb3a799e62549cf25e4c143f6fdab48572",
       "handler": {
         "ref": "infera-messenger/src/channel/routes.rs:134:channels_subscribe",
         "path": "infera-messenger/src/channel/routes.rs",
@@ -4624,6 +4698,7 @@
         "handlerModule": "router",
         "source": "infera-messenger/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-messenger/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -4641,6 +4716,7 @@
         "handlerModule": "router",
         "source": "infera-messenger/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-messenger/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -4658,6 +4734,7 @@
         "handlerModule": "router",
         "source": "infera-messenger/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-messenger/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -4677,6 +4754,7 @@
         "permissions": [
           "admin:template:read"
         ],
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "response": "Vec<TemplateResponse>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -4702,6 +4780,7 @@
         "permissions": [
           "admin:template:create"
         ],
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "body": "CreateTemplateRequest",
         "response": "TemplateResponse",
         "responseEnvelope": "api",
@@ -4728,6 +4807,7 @@
         "permissions": [
           "admin:template:read"
         ],
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "pathParam": "i64",
         "response": "TemplateResponse",
         "responseEnvelope": "api",
@@ -4754,6 +4834,7 @@
         "permissions": [
           "admin:template:update"
         ],
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "body": "UpdateTemplateRequest",
         "pathParam": "i64",
         "response": "TemplateResponse",
@@ -4781,6 +4862,7 @@
         "permissions": [
           "admin:template:delete"
         ],
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "pathParam": "i64",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -4807,6 +4889,7 @@
         "permissions": [
           "admin:template:read"
         ],
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "pathParam": "i64",
         "response": "Vec<TemplateContentResponse>",
         "responseEnvelope": "api",
@@ -4833,6 +4916,7 @@
         "permissions": [
           "admin:template:create_content"
         ],
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "body": "CreateTemplateContentRequest",
         "pathParam": "i64",
         "response": "TemplateContentResponse",
@@ -4860,6 +4944,7 @@
         "permissions": [
           "admin:template:update_content"
         ],
+        "handler_source": "infera-messenger/src/template/routes.rs",
         "body": "UpdateTemplateContentRequest",
         "pathParam": "i64",
         "response": "TemplateContentResponse",
@@ -4887,6 +4972,7 @@
         "permissions": [
           "admin:channel:read"
         ],
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "response": "Vec<ChannelResponse>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -4912,6 +4998,7 @@
         "permissions": [
           "admin:channel:create"
         ],
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "body": "CreateChannelRequest",
         "response": "ChannelResponse",
         "responseEnvelope": "api",
@@ -4938,6 +5025,7 @@
         "permissions": [
           "admin:channel:read"
         ],
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "pathParam": "i64",
         "response": "ChannelResponse",
         "responseEnvelope": "api",
@@ -4964,6 +5052,7 @@
         "permissions": [
           "admin:channel:update"
         ],
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "body": "UpdateChannelRequest",
         "pathParam": "i64",
         "response": "ChannelResponse",
@@ -4991,6 +5080,7 @@
         "permissions": [
           "admin:channel:delete"
         ],
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "pathParam": "i64",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -5017,6 +5107,7 @@
         "permissions": [
           "admin:service:read"
         ],
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "response": "Vec<ServiceResponse>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5042,6 +5133,7 @@
         "permissions": [
           "admin:service:create"
         ],
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "body": "CreateServiceRequest",
         "response": "ServiceResponse",
         "responseEnvelope": "api",
@@ -5068,6 +5160,7 @@
         "permissions": [
           "admin:service:read"
         ],
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5091,6 +5184,7 @@
         "handlerModule": "service::website_otp",
         "source": "infera-messenger/src/service/routes.rs",
         "permissions": [],
+        "handler_source": "infera-messenger/src/service/website_otp.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
           {
@@ -5115,6 +5209,7 @@
         "permissions": [
           "admin:service:read"
         ],
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "pathParam": "i64",
         "response": "ServiceResponse",
         "responseEnvelope": "api",
@@ -5141,6 +5236,7 @@
         "permissions": [
           "admin:service:update"
         ],
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "body": "UpdateServiceRequest",
         "pathParam": "i64",
         "response": "ServiceResponse",
@@ -5168,6 +5264,7 @@
         "permissions": [
           "admin:service:delete"
         ],
+        "handler_source": "infera-messenger/src/service/routes.rs",
         "pathParam": "i64",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -5194,6 +5291,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "query": "PaginationQuery",
         "response": "crate::models::PagedResult<InboxItem>",
         "responseEnvelope": "api",
@@ -5220,6 +5318,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "response": "MarkAllReadResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5245,6 +5344,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "pathParam": "i64",
         "response": "InboxItem",
         "responseEnvelope": "api",
@@ -5271,6 +5371,7 @@
         "permissions": [
           "admin:notification:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "query": "NotificationListQuery",
         "response": "crate::models::PagedResult<NotificationResponse>",
         "responseEnvelope": "api",
@@ -5297,6 +5398,7 @@
         "permissions": [
           "admin:notification:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "query": "MarkAllReadQuery",
         "response": "MarkAllReadResponse",
         "responseEnvelope": "api",
@@ -5323,6 +5425,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "response": "RealtimeConfigResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5348,6 +5451,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "body": "RealtimeAuthRequest",
         "responseEnvelope": "raw",
         "mounted_via": [
@@ -5373,6 +5477,7 @@
         "permissions": [
           "admin:notification:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "pathParam": "i64",
         "response": "NotificationResponse",
         "responseEnvelope": "api",
@@ -5399,6 +5504,7 @@
         "permissions": [
           "admin:notification:read"
         ],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "query": "MarkReadQuery",
         "pathParam": "i64",
         "response": "NotificationResponse",
@@ -5426,6 +5532,7 @@
         "permissions": [
           "admin:dashboard:read"
         ],
+        "handler_source": "infera-messenger/src/dashboard/routes.rs",
         "response": "DashboardResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5451,6 +5558,7 @@
         "permissions": [
           "admin:integration:read"
         ],
+        "handler_source": "infera-messenger/src/integration/routes.rs",
         "response": "crate::integration::models::RabbitMqIntegrationResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5476,6 +5584,7 @@
         "permissions": [
           "admin:integration:read"
         ],
+        "handler_source": "infera-messenger/src/integration/routes.rs",
         "response": "crate::integration::models::IntegrationDocsResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5499,6 +5608,7 @@
         "handlerModule": "integration::routes",
         "source": "infera-messenger/src/integration/routes.rs",
         "permissions": [],
+        "handler_source": "infera-messenger/src/integration/routes.rs",
         "response": "infera_flow_sdk::FlowIntegrationResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5524,6 +5634,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/inbox_stream.rs",
         "query": "PollQuery",
         "response": "EventPage",
         "responseEnvelope": "api",
@@ -5550,6 +5661,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/inbox_stream.rs",
         "response": "UnreadCount",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5575,6 +5687,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/mobile_push.rs",
         "body": "DeviceRegistration",
         "response": "RegisteredDevice",
         "responseEnvelope": "api",
@@ -5601,6 +5714,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/mobile_push.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5627,6 +5741,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/web_push.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5652,6 +5767,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/web_push.rs",
         "body": "Registration",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5678,6 +5794,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/web_push.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5704,6 +5821,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/web_push.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5730,6 +5848,7 @@
         "permissions": [
           "notification:self:read"
         ],
+        "handler_source": "infera-messenger/src/web_push.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -5754,6 +5873,7 @@
         "handlerModule": "notification::routes",
         "source": "infera-messenger/src/notification/routes.rs",
         "permissions": [],
+        "handler_source": "infera-messenger/src/notification/routes.rs",
         "body": "SendNotificationRequest",
         "response": "SendNotificationResponse",
         "responseEnvelope": "api",
@@ -5765,7 +5885,7 @@
           },
           {
             "path": "infera-messenger/src/notification/routes.rs",
-            "line": 230,
+            "line": 365,
             "function": "service_routes"
           }
         ]
@@ -5778,6 +5898,7 @@
         "handlerModule": "channel::routes",
         "source": "infera-messenger/src/channel/routes.rs",
         "permissions": [],
+        "handler_source": "infera-messenger/src/channel/routes.rs",
         "body": "SubscribeRequest",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -5800,16 +5921,58 @@
   },
   "working_drift": {
     "added": [],
-    "absent": [],
-    "changed": [],
-    "extraction_errors": [
-      {
-        "status": "failed",
-        "artifact_path": "working-contract-extraction.stderr.log",
-        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
-        "exit_code": 1
-      }
-    ]
+    "absent": [
+      "GET /api/v1/notifications/me/events",
+      "GET /api/v1/notifications/me/unread-count",
+      "POST /api/v1/push/devices",
+      "DELETE /api/v1/push/devices/{id}"
+    ],
+    "changed": [
+      "GET /api/openapi.json",
+      "GET /api/v1/channels",
+      "POST /api/v1/channels",
+      "DELETE /api/v1/channels/{id}",
+      "GET /api/v1/channels/{id}",
+      "PATCH /api/v1/channels/{id}",
+      "POST /api/v1/channels/subscribe",
+      "GET /api/v1/dashboard",
+      "GET /api/v1/integration/docs",
+      "GET /api/v1/integration/flow",
+      "GET /api/v1/integration/rabbitmq",
+      "GET /api/v1/notifications",
+      "POST /api/v1/notifications",
+      "GET /api/v1/notifications/{id}",
+      "PATCH /api/v1/notifications/{id}/read",
+      "GET /api/v1/notifications/me",
+      "PATCH /api/v1/notifications/me/{id}/read",
+      "PATCH /api/v1/notifications/me/read-all",
+      "PATCH /api/v1/notifications/read-all",
+      "POST /api/v1/notifications/realtime/auth",
+      "GET /api/v1/notifications/realtime/config",
+      "GET /api/v1/services",
+      "POST /api/v1/services",
+      "DELETE /api/v1/services/{id}",
+      "GET /api/v1/services/{id}",
+      "PATCH /api/v1/services/{id}",
+      "POST /api/v1/services/setup-check",
+      "POST /api/v1/services/website-otp-readiness",
+      "GET /api/v1/templates",
+      "POST /api/v1/templates",
+      "DELETE /api/v1/templates/{id}",
+      "GET /api/v1/templates/{id}",
+      "PATCH /api/v1/templates/{id}",
+      "GET /api/v1/templates/{id}/contents",
+      "POST /api/v1/templates/{id}/contents",
+      "PATCH /api/v1/templates/contents/{content_id}",
+      "GET /api/v1/web-push/config",
+      "GET /api/v1/web-push/deliveries/{id}",
+      "POST /api/v1/web-push/subscriptions",
+      "DELETE /api/v1/web-push/subscriptions/{id}",
+      "POST /api/v1/web-push/subscriptions/{id}/test",
+      "GET /health",
+      "GET /up"
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {
@@ -6244,11 +6407,11 @@
         "crate::models::AppError::new"
       ]
     },
-    "infera-messenger/src/models.rs:74:new": {
+    "infera-messenger/src/models.rs:99:new": {
       "name": "new",
       "path": "infera-messenger/src/models.rs",
-      "line": 74,
-      "end_line": 76,
+      "line": 99,
+      "end_line": 101,
       "signature": "pub fn new(status: StatusCode, message: &'static str) -> Self",
       "declared_permissions": [],
       "guards": [],
@@ -6256,7 +6419,7 @@
       "state": [
         {
           "path": "infera-messenger/src/models.rs",
-          "line": 75,
+          "line": 100,
           "expression": "Self { status, message }"
         }
       ],
@@ -7322,11 +7485,11 @@
       ],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:92:notifications_my_inbox": {
+    "infera-messenger/src/notification/routes.rs:231:notifications_my_inbox": {
       "name": "notifications_my_inbox",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 92,
-      "end_line": 107,
+      "line": 231,
+      "end_line": 246,
       "signature": "async fn notifications_my_inbox(\n    State(state): State<AppState>,\n    Extension(auth): Extension<AuthContext>,\n    Query(pagination): Query<PaginationQuery>,\n) -> Result<Json<APIResponse<crate::models::PagedResult<InboxItem>>>, AppError>",
       "declared_permissions": [
         "notification:self:read"
@@ -7336,12 +7499,12 @@
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 98,
+          "line": 237,
           "expression": "let paged = methods::list_notifications(&state, &pagination, Some(&recipient)).await?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 100,
+          "line": 239,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -7353,7 +7516,7 @@
       "kind": "struct",
       "path": "infera-messenger/src/models.rs",
       "line": 9,
-      "attributes": "#[derive(Debug, Deserialize)]",
+      "attributes": "#[derive(Debug)]",
       "fields": [
         {
           "name": "page",
@@ -7362,17 +7525,15 @@
           "optional": true,
           "defaulted": false,
           "flatten": false,
-          "attributes": [
-            "serde(rename = \"page\")"
-          ]
+          "attributes": []
         }
       ]
     },
-    "infera-messenger/src/models.rs:21:PagedResult": {
+    "infera-messenger/src/models.rs:46:PagedResult": {
       "name": "PagedResult",
       "kind": "struct",
       "path": "infera-messenger/src/models.rs",
-      "line": 21,
+      "line": 46,
       "attributes": "#[derive(Serialize)]",
       "fields": [
         {
@@ -7395,11 +7556,11 @@
         }
       ]
     },
-    "infera-messenger/src/notification/routes.rs:42:InboxItem": {
+    "infera-messenger/src/notification/routes.rs:68:InboxItem": {
       "name": "InboxItem",
       "kind": "struct",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 42,
+      "line": 68,
       "attributes": "#[derive(Debug, serde::Serialize)]",
       "fields": [
         {
@@ -7485,11 +7646,11 @@
         }
       ]
     },
-    "infera-messenger/src/notification/routes.rs:115:notifications_my_mark_all_read": {
+    "infera-messenger/src/notification/routes.rs:254:notifications_my_mark_all_read": {
       "name": "notifications_my_mark_all_read",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 115,
-      "end_line": 125,
+      "line": 254,
+      "end_line": 264,
       "signature": "async fn notifications_my_mark_all_read(\n    State(state): State<AppState>,\n    Extension(auth): Extension<AuthContext>,\n) -> Result<Json<APIResponse<MarkAllReadResponse>>, AppError>",
       "declared_permissions": [
         "notification:self:read"
@@ -7499,34 +7660,34 @@
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 119,
+          "line": 258,
           "expression": "let updated = methods::mark_all_read(&state, &recipient_from_auth(&auth)?).await?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 121,
+          "line": 260,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 119,
+          "line": 258,
           "expression": "let updated = methods::mark_all_read(&state, &recipient_from_auth(&auth)?).await?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 123,
+          "line": 262,
           "expression": "data: MarkAllReadResponse { updated },"
         }
       ],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:303:MarkAllReadResponse": {
+    "infera-messenger/src/notification/routes.rs:438:MarkAllReadResponse": {
       "name": "MarkAllReadResponse",
       "kind": "struct",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 303,
+      "line": 438,
       "attributes": "#[derive(Debug, serde::Serialize)]",
       "fields": [
         {
@@ -7540,11 +7701,11 @@
         }
       ]
     },
-    "infera-messenger/src/notification/routes.rs:133:notifications_my_mark_read": {
+    "infera-messenger/src/notification/routes.rs:272:notifications_my_mark_read": {
       "name": "notifications_my_mark_read",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 133,
-      "end_line": 147,
+      "line": 272,
+      "end_line": 286,
       "signature": "async fn notifications_my_mark_read(\n    State(state): State<AppState>,\n    Extension(auth): Extension<AuthContext>,\n    Path(id): Path<i64>,\n) -> Result<Json<APIResponse<InboxItem>>, AppError>",
       "declared_permissions": [
         "notification:self:read"
@@ -7554,28 +7715,28 @@
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 139,
+          "line": 278,
           "expression": "let notification = methods::mark_read(&state, id, Some(&recipient))"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 141,
+          "line": 280,
           "expression": ".ok_or_else(|| AppError::new(StatusCode::NOT_FOUND, \"notification not found\"))?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 143,
+          "line": 282,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:241:notifications_index": {
+    "infera-messenger/src/notification/routes.rs:376:notifications_index": {
       "name": "notifications_index",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 241,
-      "end_line": 259,
+      "line": 376,
+      "end_line": 394,
       "signature": "async fn notifications_index(\n    State(state): State<AppState>,\n    Query(query): Query<NotificationListQuery>,\n) -> Result<Json<APIResponse<crate::models::PagedResult<NotificationResponse>>>, AppError>",
       "declared_permissions": [
         "admin:notification:read"
@@ -7585,23 +7746,23 @@
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 246,
+          "line": 381,
           "expression": "methods::list_notifications(&state, &query.pagination, query.recipient.as_deref()).await?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 248,
+          "line": 383,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:262:NotificationListQuery": {
+    "infera-messenger/src/notification/routes.rs:397:NotificationListQuery": {
       "name": "NotificationListQuery",
       "kind": "struct",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 262,
+      "line": 397,
       "attributes": "#[derive(Debug, serde::Deserialize)]",
       "fields": [
         {
@@ -7797,11 +7958,11 @@
         }
       ]
     },
-    "infera-messenger/src/notification/routes.rs:314:notifications_mark_all_read": {
+    "infera-messenger/src/notification/routes.rs:449:notifications_mark_all_read": {
       "name": "notifications_mark_all_read",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 314,
-      "end_line": 324,
+      "line": 449,
+      "end_line": 459,
       "signature": "async fn notifications_mark_all_read(\n    State(state): State<AppState>,\n    Query(query): Query<MarkAllReadQuery>,\n) -> Result<Json<APIResponse<MarkAllReadResponse>>, AppError>",
       "declared_permissions": [
         "admin:notification:read"
@@ -7811,34 +7972,34 @@
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 318,
+          "line": 453,
           "expression": "let updated = methods::mark_all_read(&state, &query.recipient).await?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 320,
+          "line": 455,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 318,
+          "line": 453,
           "expression": "let updated = methods::mark_all_read(&state, &query.recipient).await?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 322,
+          "line": 457,
           "expression": "data: MarkAllReadResponse { updated },"
         }
       ],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:298:MarkAllReadQuery": {
+    "infera-messenger/src/notification/routes.rs:433:MarkAllReadQuery": {
       "name": "MarkAllReadQuery",
       "kind": "struct",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 298,
+      "line": 433,
       "attributes": "#[derive(Debug, serde::Deserialize)]",
       "fields": [
         {
@@ -7852,42 +8013,26 @@
         }
       ]
     },
-    "infera-messenger/src/notification/routes.rs:174:notifications_realtime_config": {
+    "infera-messenger/src/notification/routes.rs:313:notifications_realtime_config": {
       "name": "notifications_realtime_config",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 174,
-      "end_line": 197,
+      "line": 313,
+      "end_line": 334,
       "signature": "async fn notifications_realtime_config(\n    Extension(auth): Extension<AuthContext>,\n) -> Result<Json<APIResponse<RealtimeConfigResponse>>, AppError>",
       "declared_permissions": [
         "notification:self:read"
       ],
-      "guards": [
-        {
-          "path": "infera-messenger/src/notification/routes.rs",
-          "line": 178,
-          "expression": ".require_user_id()"
-        },
-        {
-          "path": "infera-messenger/src/notification/routes.rs",
-          "line": 179,
-          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
-        }
-      ],
+      "guards": [],
       "validation": [],
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 179,
-          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
-        },
-        {
-          "path": "infera-messenger/src/notification/routes.rs",
-          "line": 183,
+          "line": 320,
           "expression": "StatusCode::SERVICE_UNAVAILABLE,"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 188,
+          "line": 325,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -7951,11 +8096,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:150:RealtimeConfigResponse": {
+    "infera-messenger/src/notification/routes.rs:289:RealtimeConfigResponse": {
       "name": "RealtimeConfigResponse",
       "kind": "struct",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 150,
+      "line": 289,
       "attributes": "#[derive(Debug, serde::Serialize)]",
       "fields": [
         {
@@ -7996,11 +8141,11 @@
         }
       ]
     },
-    "infera-messenger/src/notification/routes.rs:205:notifications_realtime_auth": {
+    "infera-messenger/src/notification/routes.rs:342:notifications_realtime_auth": {
       "name": "notifications_realtime_auth",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 205,
-      "end_line": 228,
+      "line": 342,
+      "end_line": 363,
       "signature": "async fn notifications_realtime_auth(\n    Extension(auth): Extension<AuthContext>,\n    Json(payload): Json<RealtimeAuthRequest>,\n) -> Result<Json<RealtimeAuthResponse>, AppError>",
       "declared_permissions": [
         "notification:self:read"
@@ -8008,22 +8153,12 @@
       "guards": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 210,
-          "expression": ".require_user_id()"
-        },
-        {
-          "path": "infera-messenger/src/notification/routes.rs",
-          "line": 211,
-          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
-        },
-        {
-          "path": "infera-messenger/src/notification/routes.rs",
-          "line": 219,
+          "line": 354,
           "expression": "let auth = crate::broker::authorize_private_channel(&payload.socket_id, &payload.channel_name)"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 221,
+          "line": 356,
           "expression": "tracing::error!(%error, \"could not authorize Messenger realtime channel\");"
         }
       ],
@@ -8031,17 +8166,12 @@
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 211,
-          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
-        },
-        {
-          "path": "infera-messenger/src/notification/routes.rs",
-          "line": 215,
+          "line": 350,
           "expression": "StatusCode::FORBIDDEN,"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 223,
+          "line": 358,
           "expression": "StatusCode::SERVICE_UNAVAILABLE,"
         }
       ],
@@ -8081,11 +8211,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:158:RealtimeAuthRequest": {
+    "infera-messenger/src/notification/routes.rs:297:RealtimeAuthRequest": {
       "name": "RealtimeAuthRequest",
       "kind": "struct",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 158,
+      "line": 297,
       "attributes": "#[derive(Debug, serde::Deserialize)]",
       "fields": [
         {
@@ -8108,11 +8238,11 @@
         }
       ]
     },
-    "infera-messenger/src/notification/routes.rs:164:RealtimeAuthResponse": {
+    "infera-messenger/src/notification/routes.rs:303:RealtimeAuthResponse": {
       "name": "RealtimeAuthResponse",
       "kind": "struct",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 164,
+      "line": 303,
       "attributes": "#[derive(Debug, serde::Serialize)]",
       "fields": [
         {
@@ -8126,11 +8256,11 @@
         }
       ]
     },
-    "infera-messenger/src/notification/routes.rs:275:notifications_show": {
+    "infera-messenger/src/notification/routes.rs:410:notifications_show": {
       "name": "notifications_show",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 275,
-      "end_line": 290,
+      "line": 410,
+      "end_line": 425,
       "signature": "async fn notifications_show(\n    State(state): State<AppState>,\n    Path(id): Path<i64>,\n) -> Result<Json<APIResponse<NotificationResponse>>, AppError>",
       "declared_permissions": [
         "admin:notification:read"
@@ -8140,28 +8270,28 @@
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 279,
+          "line": 414,
           "expression": "let Some((notification, _)) = methods::get_notification(&state, id).await? else {"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 281,
+          "line": 416,
           "expression": "StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 286,
+          "line": 421,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:333:notifications_mark_read": {
+    "infera-messenger/src/notification/routes.rs:468:notifications_mark_read": {
       "name": "notifications_mark_read",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 333,
-      "end_line": 350,
+      "line": 468,
+      "end_line": 485,
       "signature": "async fn notifications_mark_read(\n    State(state): State<AppState>,\n    Path(id): Path<i64>,\n    Query(query): Query<MarkReadQuery>,\n) -> Result<Json<APIResponse<NotificationResponse>>, AppError>",
       "declared_permissions": [
         "admin:notification:read"
@@ -8171,28 +8301,28 @@
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 338,
+          "line": 473,
           "expression": "let Some(notification) = methods::mark_read(&state, id, query.recipient.as_deref()).await?"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 341,
+          "line": 476,
           "expression": "StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 346,
+          "line": 481,
           "expression": "status: \"success\".into(),"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:293:MarkReadQuery": {
+    "infera-messenger/src/notification/routes.rs:428:MarkReadQuery": {
       "name": "MarkReadQuery",
       "kind": "struct",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 293,
+      "line": 428,
       "attributes": "#[derive(Debug, serde::Deserialize)]",
       "fields": [
         {
@@ -8455,11 +8585,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/inbox_stream.rs:68:events": {
+    "infera-messenger/src/inbox_stream.rs:69:events": {
       "name": "events",
       "path": "infera-messenger/src/inbox_stream.rs",
-      "line": 68,
-      "end_line": 138,
+      "line": 69,
+      "end_line": 144,
       "signature": "async fn events(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n    Query(q): Query<PollQuery>,\n) -> Result<Json<APIResponse<EventPage>>, AppError>",
       "declared_permissions": [
         "notification:self:read"
@@ -8468,35 +8598,107 @@
       "validation": [
         {
           "path": "infera-messenger/src/inbox_stream.rs",
-          "line": 115,
+          "line": 116,
           "expression": "if !rows.is_empty() || Instant::now() >= deadline {"
         },
         {
           "path": "infera-messenger/src/inbox_stream.rs",
-          "line": 116,
+          "line": 117,
           "expression": "let has_more = rows.len() > 100;"
         }
       ],
       "state": [
         {
           "path": "infera-messenger/src/inbox_stream.rs",
-          "line": 75,
+          "line": 76,
           "expression": "return Err(AppError::new(StatusCode::BAD_REQUEST, \"invalid cursor\"));"
         },
         {
           "path": "infera-messenger/src/inbox_stream.rs",
-          "line": 110,
+          "line": 111,
           "expression": "StatusCode::GONE,"
+        }
+      ],
+      "effects": [],
+      "calls": [
+        "crate::notification::routes::self_inbox_user"
+      ]
+    },
+    "infera-messenger/src/notification/routes.rs:35:self_inbox_user": {
+      "name": "self_inbox_user",
+      "path": "infera-messenger/src/notification/routes.rs",
+      "line": 35,
+      "end_line": 62,
+      "signature": "pub(crate) fn self_inbox_user(auth: &AuthContext) -> Result<uuid::Uuid, AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 37,
+          "expression": ".require_user_id()"
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 38,
+          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 41,
+          "expression": "StatusCode::UNAUTHORIZED,"
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 42,
+          "expression": "\"authenticated user required\","
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 45,
+          "expression": "let permitted = auth.permissions.iter().any(|p| {"
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 46,
+          "expression": "let permission = p"
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 51,
+          "expression": "permission,"
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 58,
+          "expression": "\"notification:self:read required\","
+        }
+      ],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 38,
+          "expression": ".map_err(|_| AppError::new(StatusCode::UNAUTHORIZED, \"authenticated user required\"))?;"
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 41,
+          "expression": "StatusCode::UNAUTHORIZED,"
+        },
+        {
+          "path": "infera-messenger/src/notification/routes.rs",
+          "line": 57,
+          "expression": "StatusCode::FORBIDDEN,"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/inbox_stream.rs:46:PollQuery": {
+    "infera-messenger/src/inbox_stream.rs:47:PollQuery": {
       "name": "PollQuery",
       "kind": "struct",
       "path": "infera-messenger/src/inbox_stream.rs",
-      "line": 46,
+      "line": 47,
       "attributes": "#[derive(Deserialize)]",
       "fields": [
         {
@@ -8519,11 +8721,11 @@
         }
       ]
     },
-    "infera-messenger/src/inbox_stream.rs:57:EventPage": {
+    "infera-messenger/src/inbox_stream.rs:58:EventPage": {
       "name": "EventPage",
       "kind": "struct",
       "path": "infera-messenger/src/inbox_stream.rs",
-      "line": 57,
+      "line": 58,
       "attributes": "#[derive(Serialize)]",
       "fields": [
         {
@@ -8555,11 +8757,11 @@
         }
       ]
     },
-    "infera-messenger/src/inbox_stream.rs:149:unread": {
+    "infera-messenger/src/inbox_stream.rs:155:unread": {
       "name": "unread",
       "path": "infera-messenger/src/inbox_stream.rs",
-      "line": 149,
-      "end_line": 157,
+      "line": 155,
+      "end_line": 163,
       "signature": "async fn unread(\n    State(s): State<AppState>,\n    Extension(a): Extension<AuthContext>,\n) -> Result<Json<APIResponse<UnreadCount>>, AppError>",
       "declared_permissions": [
         "notification:self:read"
@@ -8569,24 +8771,26 @@
       "state": [
         {
           "path": "infera-messenger/src/inbox_stream.rs",
-          "line": 153,
-          "expression": "let r=s.db.query_one(sql(\"SELECT count(*) AS n FROM notifications WHERE recipient=$1 AND read_at IS NULL AND deleted_at IS NULL\",vec![user(&a)?.into()])).await.map_err(unavailable)?.ok_or_else(||unavailable(\"missing count\"))?;"
+          "line": 159,
+          "expression": "let r=s.db.query_one(sql(\"SELECT count(*) AS n FROM notifications WHERE recipient=$1 AND read_at IS NULL AND deleted_at IS NULL\",vec![crate::notification::routes::self_inbox_user(&a)?.to_string().into()])).await.map_err(unavailable)?.ok_or_else(||unavailable(\"missing count\"))?;"
         }
       ],
       "effects": [
         {
           "path": "infera-messenger/src/inbox_stream.rs",
-          "line": 153,
-          "expression": "let r=s.db.query_one(sql(\"SELECT count(*) AS n FROM notifications WHERE recipient=$1 AND read_at IS NULL AND deleted_at IS NULL\",vec![user(&a)?.into()])).await.map_err(unavailable)?.ok_or_else(||unavailable(\"missing count\"))?;"
+          "line": 159,
+          "expression": "let r=s.db.query_one(sql(\"SELECT count(*) AS n FROM notifications WHERE recipient=$1 AND read_at IS NULL AND deleted_at IS NULL\",vec![crate::notification::routes::self_inbox_user(&a)?.to_string().into()])).await.map_err(unavailable)?.ok_or_else(||unavailable(\"missing count\"))?;"
         }
       ],
-      "calls": []
+      "calls": [
+        "crate::notification::routes::self_inbox_user"
+      ]
     },
-    "infera-messenger/src/inbox_stream.rs:140:UnreadCount": {
+    "infera-messenger/src/inbox_stream.rs:146:UnreadCount": {
       "name": "UnreadCount",
       "kind": "struct",
       "path": "infera-messenger/src/inbox_stream.rs",
-      "line": 140,
+      "line": 146,
       "attributes": "#[derive(Serialize)]",
       "fields": [
         {
@@ -9011,45 +9215,45 @@
       "effects": [],
       "calls": []
     },
-    "infera-messenger/src/notification/routes.rs:353:notifications_send": {
+    "infera-messenger/src/notification/routes.rs:488:notifications_send": {
       "name": "notifications_send",
       "path": "infera-messenger/src/notification/routes.rs",
-      "line": 353,
-      "end_line": 391,
+      "line": 488,
+      "end_line": 526,
       "signature": "async fn notifications_send(\n    State(state): State<AppState>,\n    Json(payload): Json<SendNotificationRequest>,\n) -> Result<Json<APIResponse<SendNotificationResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 358,
+          "line": 493,
           "expression": ".validate()"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 373,
+          "line": 508,
           "expression": ".filter(|value| !value.is_empty())"
         }
       ],
       "state": [
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 359,
+          "line": 494,
           "expression": ".map_err(|_| AppError::new(StatusCode::BAD_REQUEST, \"invalid payload\"))?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 362,
+          "line": 497,
           "expression": ".ok_or_else(|| AppError::new(StatusCode::BAD_REQUEST, \"invalid channel\"))?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 383,
+          "line": 518,
           "expression": "let ids = methods::create_from_payload(&state, input).await?;"
         },
         {
           "path": "infera-messenger/src/notification/routes.rs",
-          "line": 385,
+          "line": 520,
           "expression": "status: \"success\".into(),"
         }
       ],

@@ -9,7 +9,7 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `d5b722e2fad3a0585cdc5a24742bfbc6f52118bf`
-- SDK source revision: `ab6ce7461d35414b719f3806df57549339002df5`
+- SDK source revision: `1768097fc7c843f1f7e46ea4fcf7a0f776f0792d`
 - Working HEAD: `7360ff93ae3f4ff36b7b79e15db8a15ea09e881d`
 - Source relationship: diverged
 

@@ -35,7 +35,7 @@
     },
     "messenger": {
       "directory": "Service/infera-messenger",
-      "revision": "2be29837d5e0f53c4c91e2e4bf2ca58d7b709e88"
+      "revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c"
     },
     "modules": {
       "directory": "Service/infera-modules",
@@ -83,7 +83,7 @@
     },
     "control": {
       "directory": "Service/infera-control",
-      "revision": "4e30e8158d15d221926de36b6834521af6271674"
+      "revision": "2ca08f07358a75809683c74757b3e5cc115f1c26"
     },
     "gis": {
       "directory": "Service/infera-gis",

@@ -223,6 +223,7 @@
       "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
     "canonical": [],
     "working": []
@@ -457,6 +458,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-flow/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -465,7 +467,7 @@
           }
         ]
       },
-      "source_checksum": "9bc96a72f6ca6c25d38e30837c4361a99eddd24ea63c9de4167d9d0b85a90911",
+      "source_checksum": "dbc719e8f7bb6be1400fb60e3c83b977921b1df9c6599a8e49f68934afd4912c",
       "handler": {
         "ref": "infera-flow/src/router.rs:77:status_route",
         "path": "infera-flow/src/router.rs",
@@ -520,6 +522,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-flow/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -528,7 +531,7 @@
           }
         ]
       },
-      "source_checksum": "4a3b03308797d55f21d2dcc83b750244b6fe68a857af54cfd82e6340674f2525",
+      "source_checksum": "30d22585b17df9a4bef0ac4659e9b2da90c31826e6eea3d617a9886a4ee377a8",
       "handler": {
         "ref": "infera-flow/src/router.rs:77:status_route",
         "path": "infera-flow/src/router.rs",
@@ -583,6 +586,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-flow/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -591,7 +595,7 @@
           }
         ]
       },
-      "source_checksum": "b03de4e233c40dee77b2ceaf6118bf9c56cf33503ea5e11abc7b7d84a0574da1",
+      "source_checksum": "282b617ae7c550c2a68ec1657b195f9e539a45d00271382b4a04e7b5fcc1ff3a",
       "handler": {
         "ref": "infera-flow/src/router.rs:77:status_route",
         "path": "infera-flow/src/router.rs",
@@ -650,6 +654,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "event::routes",
+        "handler_source": "infera-flow/src/event/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -663,7 +668,7 @@
           }
         ]
       },
-      "source_checksum": "5cd9c48cf4a856e0fda6f9c202390477de16f5d80642cd0e6331b8d58e22fed7",
+      "source_checksum": "60a7ff97159c05952b9570d627e64ba4a73b73d20b458d11b8330166331be626",
       "handler": {
         "ref": "infera-flow/src/event/routes.rs:50:emit",
         "path": "infera-flow/src/event/routes.rs",
@@ -731,6 +736,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "flow::routes",
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -744,7 +750,7 @@
           }
         ]
       },
-      "source_checksum": "9d03455c1778f2147477ca9cb530b988ef62ec40ca5dbc1b494d587278e91b46",
+      "source_checksum": "2a9dd2393c579476c014ed9742560fa4dcdd44f2176493605753c2819ca98fac",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:52:index",
         "path": "infera-flow/src/flow/routes.rs",
@@ -802,6 +808,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "flow::routes",
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -815,7 +822,7 @@
           }
         ]
       },
-      "source_checksum": "f143e381a53a43bde34b7885565b4988a13afee03a4acb193f26a42270904b84",
+      "source_checksum": "3c92f2a50fc3757614918306d9a60b282d22ae89b0256d43a2735357e1dbe83e",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:65:store",
         "path": "infera-flow/src/flow/routes.rs",
@@ -885,6 +892,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "flow::routes",
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -898,7 +906,7 @@
           }
         ]
       },
-      "source_checksum": "a40c6a6bd0dd11658f86c4243dff377a378053e746161bed515c5766f698d50f",
+      "source_checksum": "4df6c9b865ba3f463bb4bb539bd216d8c3357ca7444d092efcc6839fecc95909",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:38:import",
         "path": "infera-flow/src/flow/routes.rs",
@@ -967,6 +975,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "flow::routes",
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -980,7 +989,7 @@
           }
         ]
       },
-      "source_checksum": "484131f0bffb373d809e5732f24afa6a58c1e5602c807d7073b33797b828ac78",
+      "source_checksum": "314250119372b4153860c3db3062ac29df81080e636a765c0f6f0432d43849ed",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:79:show",
         "path": "infera-flow/src/flow/routes.rs",
@@ -1043,6 +1052,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "flow::routes",
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1056,7 +1066,7 @@
           }
         ]
       },
-      "source_checksum": "1030d3af6048044cfa36a5edff828479cd3f294a8562025dd126229a50c22e64",
+      "source_checksum": "a187ef291fbbdd4167188a2f05189fa23fb3791dced55430252cd00baa4bce14",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:93:update",
         "path": "infera-flow/src/flow/routes.rs",
@@ -1129,6 +1139,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "flow::routes",
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1142,7 +1153,7 @@
           }
         ]
       },
-      "source_checksum": "fb418c8fe880ef62aae9139cf7042e2c2264a34ac7d8591026511b3f756d864b",
+      "source_checksum": "283658732bbbe3c9cfd6f09155a4a11db442e0e4336d3e73fe5ae9c6f199f506",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:108:destroy",
         "path": "infera-flow/src/flow/routes.rs",
@@ -1197,6 +1208,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "flow::routes",
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1210,7 +1222,7 @@
           }
         ]
       },
-      "source_checksum": "61ad1c7f574e1fbd2ed4ae29d28c5a556e2b77d36de02c8933cbb72da52dc9d9",
+      "source_checksum": "285ae6e0753cae72e713a933debd78506b19d337c1ca38eaa83742da4381f497",
       "handler": {
         "ref": "infera-flow/src/flow/routes.rs:122:validate",
         "path": "infera-flow/src/flow/routes.rs",
@@ -1263,6 +1275,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "registry::routes",
+        "handler_source": "infera-flow/src/registry/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1276,7 +1289,7 @@
           }
         ]
       },
-      "source_checksum": "dc8594010dfa4caf5163aa58e91c63eccaa00b8d16ce1d15eb716a16eade1c75",
+      "source_checksum": "eb2130231ceb72014894d4a565a2154361070b1612fe24f6698e7418053879ae",
       "handler": {
         "ref": "infera-flow/src/registry/routes.rs:19:active_triggers",
         "path": "infera-flow/src/registry/routes.rs",
@@ -1344,6 +1357,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "catalog::routes",
+        "handler_source": "infera-flow/src/catalog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1357,7 +1371,7 @@
           }
         ]
       },
-      "source_checksum": "9fd1ea82729c4ecc969a806e9fa5c4a2de84a0917a58a063741e214f472eee82",
+      "source_checksum": "eeaa727caf3d045c345fdebeb92973fcd9bc110d28aacf5d63e50b965a88baaa",
       "handler": {
         "ref": "infera-flow/src/catalog/routes.rs:27:triggers",
         "path": "infera-flow/src/catalog/routes.rs",
@@ -1414,6 +1428,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "catalog::routes",
+        "handler_source": "infera-flow/src/catalog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1427,7 +1442,7 @@
           }
         ]
       },
-      "source_checksum": "bc180cad9888fff3ea401a4cc2ac0f55e008004d9b82bad323dd7c2e2328c1d8",
+      "source_checksum": "d6ad100686053ee0d01027b5fcc694c119489504be873c2122cb710eafa11a00",
       "handler": {
         "ref": "infera-flow/src/catalog/routes.rs:43:actions",
         "path": "infera-flow/src/catalog/routes.rs",
@@ -1484,6 +1499,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "catalog::routes",
+        "handler_source": "infera-flow/src/catalog/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1497,7 +1513,7 @@
           }
         ]
       },
-      "source_checksum": "bc2540f2b4fb5529682c3151955a81e63e30a7090d74dd08a2f1e7b9a5152f8c",
+      "source_checksum": "69875f92c74d6cc74c8c7a35683df9f6b91e5b6271d80cea09b9edfcdbf71f4a",
       "handler": {
         "ref": "infera-flow/src/catalog/routes.rs:59:sync",
         "path": "infera-flow/src/catalog/routes.rs",
@@ -1548,6 +1564,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "run::routes",
+        "handler_source": "infera-flow/src/run/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1561,7 +1578,7 @@
           }
         ]
       },
-      "source_checksum": "8ffcb5186bddde9e2662660640b60ee8a498de83a87817ac01f1becdb0e7abad",
+      "source_checksum": "24664bdf3434c6d5494b9e7888c55236c8fef557a1fe23428c9e03092bb19234",
       "handler": {
         "ref": "infera-flow/src/run/routes.rs:46:index",
         "path": "infera-flow/src/run/routes.rs",
@@ -1643,6 +1660,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "run::routes",
+        "handler_source": "infera-flow/src/run/routes.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1656,7 +1674,7 @@
           }
         ]
       },
-      "source_checksum": "851fce7fdf1059bcc541aac5c845eec7e0ebcb5efd473484084e4434da3d4a5d",
+      "source_checksum": "91a484c5946d33c8f94d0b5ae59a1d4237e422ccd965b11cd6ba69855902fe53",
       "handler": {
         "ref": "infera-flow/src/run/routes.rs:33:show",
         "path": "infera-flow/src/run/routes.rs",
@@ -1715,6 +1733,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-flow/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-flow/src/router.rs",
@@ -1723,7 +1742,7 @@
           }
         ]
       },
-      "source_checksum": "9fd26e2cb875cf4f6619e6bfa0bfab8795f9c846809369a865e2ab50c2c6f584",
+      "source_checksum": "7128b0c484c4d4b587822127e74ab6940da00dc5936b69d4ee913bd35b2b360d",
       "handler": {
         "ref": "infera-flow/src/router.rs:83:integration_flow",
         "path": "infera-flow/src/router.rs",
@@ -1810,6 +1829,7 @@
         "handlerModule": "router",
         "source": "infera-flow/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-flow/src/router.rs",
         "response": "HealthResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -1828,6 +1848,7 @@
         "handlerModule": "router",
         "source": "infera-flow/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-flow/src/router.rs",
         "response": "HealthResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -1846,6 +1867,7 @@
         "handlerModule": "router",
         "source": "infera-flow/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-flow/src/router.rs",
         "response": "HealthResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -1866,6 +1888,7 @@
         "permissions": [
           "flow:execute"
         ],
+        "handler_source": "infera-flow/src/event/routes.rs",
         "body": "serde_json::Value",
         "pathParam": "String",
         "response": "serde_json::Value",
@@ -1893,6 +1916,7 @@
         "permissions": [
           "flow:read"
         ],
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "response": "Vec<FlowResponse>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -1918,6 +1942,7 @@
         "permissions": [
           "flow:create"
         ],
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "body": "CreateFlowRequest",
         "response": "FlowResponse",
         "responseEnvelope": "api",
@@ -1945,6 +1970,7 @@
           "flow:create",
           "flow:update"
         ],
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "body": "ImportFlowsRequest",
         "response": "ImportFlowsResponse",
         "responseEnvelope": "api",
@@ -1971,6 +1997,7 @@
         "permissions": [
           "flow:read"
         ],
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "pathParam": "Uuid",
         "response": "FlowResponse",
         "responseEnvelope": "api",
@@ -1997,6 +2024,7 @@
         "permissions": [
           "flow:update"
         ],
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "body": "UpdateFlowRequest",
         "pathParam": "Uuid",
         "response": "FlowResponse",
@@ -2024,6 +2052,7 @@
         "permissions": [
           "flow:delete"
         ],
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "pathParam": "Uuid",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -2050,6 +2079,7 @@
         "permissions": [
           "flow:update"
         ],
+        "handler_source": "infera-flow/src/flow/routes.rs",
         "pathParam": "Uuid",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -2074,6 +2104,7 @@
         "handlerModule": "registry::routes",
         "source": "infera-flow/src/registry/routes.rs",
         "permissions": [],
+        "handler_source": "infera-flow/src/registry/routes.rs",
         "query": "RegistryQuery",
         "response": "ActiveTriggersResponse",
         "responseEnvelope": "api",
@@ -2100,6 +2131,7 @@
         "permissions": [
           "flow:read"
         ],
+        "handler_source": "infera-flow/src/catalog/routes.rs",
         "response": "Vec<crate::catalog::methods::CatalogTriggerView>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -2125,6 +2157,7 @@
         "permissions": [
           "flow:read"
         ],
+        "handler_source": "infera-flow/src/catalog/routes.rs",
         "response": "Vec<crate::catalog::methods::CatalogActionView>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -2150,6 +2183,7 @@
         "permissions": [
           "catalog:sync"
         ],
+        "handler_source": "infera-flow/src/catalog/routes.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -2175,6 +2209,7 @@
         "permissions": [
           "flow_run:read"
         ],
+        "handler_source": "infera-flow/src/run/routes.rs",
         "query": "RunsQuery",
         "response": "Vec<crate::run::methods::FlowRunView>",
         "responseEnvelope": "api",
@@ -2201,6 +2236,7 @@
         "permissions": [
           "flow_run:read"
         ],
+        "handler_source": "infera-flow/src/run/routes.rs",
         "pathParam": "Uuid",
         "response": "crate::run::methods::FlowRunDetailView",
         "responseEnvelope": "api",
@@ -2225,6 +2261,7 @@
         "handlerModule": "router",
         "source": "infera-flow/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-flow/src/router.rs",
         "response": "infera_flow_sdk::FlowIntegrationResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -2242,15 +2279,27 @@
   "working_drift": {
     "added": [],
     "absent": [],
-    "changed": [],
-    "extraction_errors": [
-      {
-        "status": "failed",
-        "artifact_path": "working-contract-extraction.stderr.log",
-        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
-        "exit_code": 1
-      }
-    ]
+    "changed": [
+      "GET /",
+      "GET /api/v1/catalog/actions",
+      "POST /api/v1/catalog/sync",
+      "GET /api/v1/catalog/triggers",
+      "POST /api/v1/events/{event_key}",
+      "GET /api/v1/flows",
+      "POST /api/v1/flows",
+      "DELETE /api/v1/flows/{id}",
+      "GET /api/v1/flows/{id}",
+      "PUT /api/v1/flows/{id}",
+      "POST /api/v1/flows/{id}/validate",
+      "POST /api/v1/flows/import",
+      "GET /api/v1/integration/flow",
+      "GET /api/v1/registry/active-triggers",
+      "GET /api/v1/runs",
+      "GET /api/v1/runs/{id}",
+      "GET /health",
+      "GET /up"
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {

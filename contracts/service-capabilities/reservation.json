@@ -255,6 +255,7 @@
       "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
     "canonical": [],
     "working": []
@@ -525,6 +526,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-reservation/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -533,7 +535,7 @@
           }
         ]
       },
-      "source_checksum": "5a3d9dc99403b36cff50b30ef7d13903da289ad1398372728eb82387efd99654",
+      "source_checksum": "fb136005a000acf18acb28476486c9cb4c4487fb44a271bda5b8b3bdc14ccdb4",
       "handler": {
         "ref": "infera-reservation/src/router.rs:151:health",
         "path": "infera-reservation/src/router.rs",
@@ -549,76 +551,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "5a3d9dc99403b36cff50b30ef7d13903da289ad1398372728eb82387efd99654",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Read process health and package version.",
-          "fa": "خواندن سلامت فرایند و نسخه بسته."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "public_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Public read handler; no customer-specific authorization."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: No inputs; success envelope contains version; no dependency readiness guarantee."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. No inputs; success envelope contains version; no dependency readiness guarantee."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "No inputs; success envelope contains version; no dependency readiness guarantee."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -642,6 +583,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-reservation/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -650,7 +592,7 @@
           }
         ]
       },
-      "source_checksum": "ea83d412955d1bc17576d8bca3c1be1517fd97d65fd4f0656db5a87ede541cc9",
+      "source_checksum": "987b90db6307619315deb01ab48b599a1af8dc5150710a728de1fd5c7ad1d890",
       "handler": {
         "ref": "infera-reservation/src/router.rs:151:health",
         "path": "infera-reservation/src/router.rs",
@@ -666,76 +608,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "ea83d412955d1bc17576d8bca3c1be1517fd97d65fd4f0656db5a87ede541cc9",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Read the root health alias.",
-          "fa": "خواندن سلامت از مسیر اصلی."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "public_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Public read handler; no customer-specific authorization."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Same health envelope as /health; not a management dashboard."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Same health envelope as /health; not a management dashboard."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Same health envelope as /health; not a management dashboard."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/router.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -759,6 +640,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-reservation/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -767,7 +649,7 @@
           }
         ]
       },
-      "source_checksum": "d391cf331a1a4fbdf3e6bd7192362585dc3109395e9ccf2452863bc9ef8a204c",
+      "source_checksum": "e60d3285fdb3e150dd52b6b9f9e7d469f08557e904220837dccaeb275ea6dbdf",
       "handler": {
         "ref": "infera-reservation/src/router.rs:68:openapi_json",
         "path": "infera-reservation/src/router.rs",
@@ -822,6 +704,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation_service::routes",
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -835,7 +718,7 @@
           }
         ]
       },
-      "source_checksum": "95eebf3f4dc280ede2a8861507661559a791435eb3dad6011b841d41c4bb0766",
+      "source_checksum": "e52f8e6e786cf7fc9e0a537ce2aa98df7d90a3181ba6bc823a7d39d32456beb9",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:13:index",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -875,76 +758,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "95eebf3f4dc280ede2a8861507661559a791435eb3dad6011b841d41c4bb0766",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Browse bookable offerings.",
-          "fa": "مرور خدمات قابل رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:service:read, admin:service:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Paged service responses ordered numeric ID ascending; no active, name or search filter implemented."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Paged service responses ordered numeric ID ascending; no active, name or search filter implemented."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Paged service responses ordered numeric ID ascending; no active, name or search filter implemented."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -969,6 +791,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation_service::routes",
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -982,7 +805,7 @@
           }
         ]
       },
-      "source_checksum": "6a69bc65a8e922805d224bbc42fd6e8c3cf7ee00c342938160fd34c4f6c809c1",
+      "source_checksum": "330b1cba067e934729f17a3de7afcc8385405c82d571da49b7093a6eda86e892",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:27:store",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -1016,76 +839,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "6a69bc65a8e922805d224bbc42fd6e8c3cf7ee00c342938160fd34c4f6c809c1",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Create a bookable offering.",
-          "fa": "ساخت خدمت قابل رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:service:create, admin:service:manage, reservation:create, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: name length 1..200, duration_minutes 5..480; optional description, image_url, buffer_minutes 0..120 default0, is_active defaulttrue. Returns created service with HTTP200."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. name length 1..200, duration_minutes 5..480; optional description, image_url, buffer_minutes 0..120 default0, is_active defaulttrue. Returns created service with HTTP200."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "name length 1..200, duration_minutes 5..480; optional description, image_url, buffer_minutes 0..120 default0, is_active defaulttrue. Returns created service with HTTP200."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -1110,6 +872,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation_service::routes",
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -1123,7 +886,7 @@
           }
         ]
       },
-      "source_checksum": "f25ce2dccd6b0530b4893cd6b40cece84c71d6618834ce79530aad173db66acd",
+      "source_checksum": "4dde7a8b12b5a23464adf24171338085239b0f56c180b2a9e5e4350605773f2d",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:22:show",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -1150,76 +913,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "f25ce2dccd6b0530b4893cd6b40cece84c71d6618834ce79530aad173db66acd",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Read one offering.",
-          "fa": "خواندن یک خدمت."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:service:read, admin:service:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric service ID; missing404; returns fields including duration, buffer, active flag and RFC3339 created_at."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric service ID; missing404; returns fields including duration, buffer, active flag and RFC3339 created_at."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Numeric service ID; missing404; returns fields including duration, buffer, active flag and RFC3339 created_at."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -1245,6 +947,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation_service::routes",
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -1258,7 +961,7 @@
           }
         ]
       },
-      "source_checksum": "9bc9370195999cf36032ea8b3fe1e0f534536b620a339054d0664e167682d26f",
+      "source_checksum": "7261cd6f91dbefffa81736da5187a793f741bb4187a574bc32674e9ae1586191",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:33:update",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -1296,76 +999,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "9bc9370195999cf36032ea8b3fe1e0f534536b620a339054d0664e167682d26f",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Change offering configuration for future generation.",
-          "fa": "تغییر تنظیمات خدمت برای تولید نوبت‌های آینده."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:service:update, admin:service:manage, reservation:update, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Optional create fields with same bounds. Omitted and null optional text leave existing values unchanged; no explicit clear-to-null. Existing slot durations are preserved."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Optional create fields with same bounds. Omitted and null optional text leave existing values unchanged; no explicit clear-to-null. Existing slot durations are preserved."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Optional create fields with same bounds. Omitted and null optional text leave existing values unchanged; no explicit clear-to-null. Existing slot durations are preserved."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -1390,6 +1032,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation_service::routes",
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -1403,7 +1046,7 @@
           }
         ]
       },
-      "source_checksum": "a3a4482e278a42fd96d8ef134fc484dbfcc8d1290957b48d1f2aed89ed1d620d",
+      "source_checksum": "b0b56b6cc8c32b8d387b0a3e613aede7cb55d5a754e226289bd98e31027d24ed",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:39:destroy",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -1423,76 +1066,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "a3a4482e278a42fd96d8ef134fc484dbfcc8d1290957b48d1f2aed89ed1d620d",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Delete an unreferenced offering without losing booking history.",
-          "fa": "حذف خدمت بدون از بین بردن سابقه رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:service:delete, admin:service:manage, reservation:delete, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric service ID; missing404; referenced historical slot causes409 through restrictive reservation FK. Successful delete returns envelope data:null."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric service ID; missing404; referenced historical slot causes409 through restrictive reservation FK. Successful delete returns envelope data:null."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Numeric service ID; missing404; referenced historical slot causes409 through restrictive reservation FK. Successful delete returns envelope data:null."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation_service/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -1517,6 +1099,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -1530,7 +1113,7 @@
           }
         ]
       },
-      "source_checksum": "6dd66d6e47e1c6f5c83c24861847010b109b710371317fd86c817411b4379650",
+      "source_checksum": "f9a9c02000a747e3a6aa89323f06f42c751a2a24f0f226daf3c666c0322fa5de",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:16:index",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1577,76 +1160,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "6dd66d6e47e1c6f5c83c24861847010b109b710371317fd86c817411b4379650",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Browse service providers.",
-          "fa": "مرور ارائه‌دهندگان خدمت."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:read, admin:provider:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Paged provider responses ordered ID ascending; no search, user or active filter implemented."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Paged provider responses ordered ID ascending; no search, user or active filter implemented."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Paged provider responses ordered ID ascending; no search, user or active filter implemented."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -1671,6 +1193,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -1684,7 +1207,7 @@
           }
         ]
       },
-      "source_checksum": "b254834f2075fd34f6386329e0259d47a13a438f9fdc85005a715fcb9f5acfbc",
+      "source_checksum": "919e9990798d180377941afa4c3d0a063453f0a9a6e8591e2135efad05d7eaff",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:27:store",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1731,76 +1254,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "b254834f2075fd34f6386329e0259d47a13a438f9fdc85005a715fcb9f5acfbc",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Create a provider with a shared booking capacity.",
-          "fa": "ساخت ارائه‌دهنده با ظرفیت مشترک رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:create, admin:provider:manage, reservation:create, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: name length1..200; optional user_id UUID,bio,avatar_url,is_active defaulttrue, capacity integer1..1000 default1. Linked IDP user existence is not checked here. Returns HTTP200 provider."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. name length1..200; optional user_id UUID,bio,avatar_url,is_active defaulttrue, capacity integer1..1000 default1. Linked IDP user existence is not checked here. Returns HTTP200 provider."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "name length1..200; optional user_id UUID,bio,avatar_url,is_active defaulttrue, capacity integer1..1000 default1. Linked IDP user existence is not checked here. Returns HTTP200 provider."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -1825,6 +1287,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -1838,7 +1301,7 @@
           }
         ]
       },
-      "source_checksum": "09f19d4403589f30f9b20a2e229946fffae926b7cf2c77ba650b6608a3fc319f",
+      "source_checksum": "902d4ee6b2d9b8911ec8585023d3d1f8dc18a739fe45180642a2d79317b21c10",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:22:show",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -1872,76 +1335,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "09f19d4403589f30f9b20a2e229946fffae926b7cf2c77ba650b6608a3fc319f",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Read one provider and its configured capacity.",
-          "fa": "خواندن یک ارائه‌دهنده و ظرفیت آن."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:read, admin:provider:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric provider ID; missing404; optional user UUID, text, active, capacity and created_at."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric provider ID; missing404; optional user UUID, text, active, capacity and created_at."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Numeric provider ID; missing404; optional user UUID, text, active, capacity and created_at."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -1967,6 +1369,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -1980,7 +1383,7 @@
           }
         ]
       },
-      "source_checksum": "6124ab1f5b1c893b6991a4b7b6e48c54665fc8bc8a46fbbbaefb9d99535bcb5c",
+      "source_checksum": "523c0315598cc2cf191b1ea460973b959cac1dd2548ecff871378bdff0c2b154",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:33:update",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -2031,76 +1434,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "6124ab1f5b1c893b6991a4b7b6e48c54665fc8bc8a46fbbbaefb9d99535bcb5c",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Change provider details or safely change shared capacity.",
-          "fa": "تغییر مشخصات یا ظرفیت مشترک ارائه‌دهنده."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:update, admin:provider:manage, reservation:update, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Optional create fields; null/omitted text or user_id cannot explicitly clear. Changed capacity below current/future peak returns409; unchanged limit allowed even with legacy conflicts. Provider transaction lock serializes booking and configuration."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Optional create fields; null/omitted text or user_id cannot explicitly clear. Changed capacity below current/future peak returns409; unchanged limit allowed even with legacy conflicts. Provider transaction lock serializes booking and configuration."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Optional create fields; null/omitted text or user_id cannot explicitly clear. Changed capacity below current/future peak returns409; unchanged limit allowed even with legacy conflicts. Provider transaction lock serializes booking and configuration."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -2125,6 +1467,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -2138,7 +1481,7 @@
           }
         ]
       },
-      "source_checksum": "fdb140ab0ff148ee778b1c7172a1313785c81dc6f1af0d6eec25199bdf476e4a",
+      "source_checksum": "925e477b2501aeab51cb39f83b444c3436d1fca473d0e438b8e223ab14e6adbd",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:39:destroy",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -2158,76 +1501,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "fdb140ab0ff148ee778b1c7172a1313785c81dc6f1af0d6eec25199bdf476e4a",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Delete an unreferenced provider while retaining booking history.",
-          "fa": "حذف ارائه‌دهنده بدون از بین بردن سابقه رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:delete, admin:provider:manage, reservation:delete, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric provider ID; missing404; booked or cancelled historical slots prevent cascade deletion409; success envelope data:null."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric provider ID; missing404; booked or cancelled historical slots prevent cascade deletion409; success envelope data:null."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Numeric provider ID; missing404; booked or cancelled historical slots prevent cascade deletion409; success envelope data:null."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -2252,6 +1534,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -2265,7 +1548,7 @@
           }
         ]
       },
-      "source_checksum": "213740269828036889c708512a72f67e986cfb38f4da3d5e0259141857bf4d03",
+      "source_checksum": "d7fce5a134512c764b52fcc88dc15c0d73dca73e2abe00d194580ab3f8385da8",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:45:list_services",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -2292,76 +1575,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "213740269828036889c708512a72f67e986cfb38f4da3d5e0259141857bf4d03",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "List offerings assigned to a provider.",
-          "fa": "فهرست خدمات تخصیص‌یافته به ارائه‌دهنده."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:read, admin:provider:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Provider ID selects assignment rows then service rows. Unpaged array; no explicit missing-provider check, so missing provider can return empty array; order unspecified."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Provider ID selects assignment rows then service rows. Unpaged array; no explicit missing-provider check, so missing provider can return empty array; order unspecified."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Provider ID selects assignment rows then service rows. Unpaged array; no explicit missing-provider check, so missing provider can return empty array; order unspecified."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -2387,6 +1609,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -2400,7 +1623,7 @@
           }
         ]
       },
-      "source_checksum": "45e4b3a86d2347e3754853a0883646e77b2262bc23ceb7107cdaddc24c793cd3",
+      "source_checksum": "ea214a9259e28f49e00375c6827d826a577f2c344412a92e9dc9b5e4d73e8916",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:51:assign_service",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -2438,76 +1661,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "45e4b3a86d2347e3754853a0883646e77b2262bc23ceb7107cdaddc24c793cd3",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Assign an offering to a provider.",
-          "fa": "تخصیص خدمت به ارائه‌دهنده."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:create, admin:provider:manage, reservation:create, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric provider ID and JSON service_id; existing assignment409; missing relations FK409. Check-then-insert concurrent duplicate outcome is not certified. Success envelope data:null."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric provider ID and JSON service_id; existing assignment409; missing relations FK409. Check-then-insert concurrent duplicate outcome is not certified. Success envelope data:null."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Numeric provider ID and JSON service_id; existing assignment409; missing relations FK409. Check-then-insert concurrent duplicate outcome is not certified. Success envelope data:null."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/provider/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -2532,6 +1694,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -2545,7 +1708,7 @@
           }
         ]
       },
-      "source_checksum": "f360fd960340ef3ff26c2185766e19fbfdad4b6c08255c692b1d96881d3ce011",
+      "source_checksum": "35654becc4e8368bfd91af524937b399a39000b69742bc02adf203afdc7c409f",
       "handler": {
         "ref": "infera-reservation/src/provider/routes.rs:57:remove_service",
         "path": "infera-reservation/src/provider/routes.rs",
@@ -2598,6 +1761,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "work_schedule::routes",
+        "handler_source": "infera-reservation/src/work_schedule/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -2611,7 +1775,7 @@
           }
         ]
       },
-      "source_checksum": "d802ecf2c4c3cc2443c429cc3d9a040e5b8b42001d9974c90a7482b88bf4f284",
+      "source_checksum": "742e91068dd9b28004ebc8ec17a415e64d198d1232dd50324c07387936aed54c",
       "handler": {
         "ref": "infera-reservation/src/work_schedule/routes.rs:10:index",
         "path": "infera-reservation/src/work_schedule/routes.rs",
@@ -2645,76 +1809,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "d802ecf2c4c3cc2443c429cc3d9a040e5b8b42001d9974c90a7482b88bf4f284",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Read weekly availability rules.",
-          "fa": "خواندن برنامه هفتگی دسترسی."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:read, admin:provider:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Provider ID; unpaged schedule array, unspecified order, missing provider can yield empty list. Lowercase English weekday, HH:MM times, active flag."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Provider ID; unpaged schedule array, unspecified order, missing provider can yield empty list. Lowercase English weekday, HH:MM times, active flag."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Provider ID; unpaged schedule array, unspecified order, missing provider can yield empty list. Lowercase English weekday, HH:MM times, active flag."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -2740,6 +1843,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "work_schedule::routes",
+        "handler_source": "infera-reservation/src/work_schedule/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -2753,7 +1857,7 @@
           }
         ]
       },
-      "source_checksum": "ba8ec493e7bd48c0ac7c1c2266a40e879ce611361a293fabd4ee525d0b2953c8",
+      "source_checksum": "b05ceae597064dad52ffd38577b60fa9155dc316e2c35894f41084eec6bffdd9",
       "handler": {
         "ref": "infera-reservation/src/work_schedule/routes.rs:16:upsert",
         "path": "infera-reservation/src/work_schedule/routes.rs",
@@ -2798,76 +1902,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "ba8ec493e7bd48c0ac7c1c2266a40e879ce611361a293fabd4ee525d0b2953c8",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Atomically replace all weekly availability rules.",
-          "fa": "جایگزینی اتمی همه برنامه‌های هفتگی."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:provider:update, admin:provider:manage, reservation:update, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: JSON schedules array; empty array clears all. Case-insensitive weekday; parsed 4..5 character time is normalized HH:MM; same-day end must exceed start. Active defaults true. All entries validated before transaction deletion; provider lock serializes replacement/generation. Overlapping schedules allowed; generation deduplicates candidate starts."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. JSON schedules array; empty array clears all. Case-insensitive weekday; parsed 4..5 character time is normalized HH:MM; same-day end must exceed start. Active defaults true. All entries validated before transaction deletion; provider lock serializes replacement/generation. Overlapping schedules allowed; generation deduplicates candidate starts."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "JSON schedules array; empty array clears all. Case-insensitive weekday; parsed 4..5 character time is normalized HH:MM; same-day end must exceed start. Active defaults true. All entries validated before transaction deletion; provider lock serializes replacement/generation. Overlapping schedules allowed; generation deduplicates candidate starts."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/work_schedule/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -2892,6 +1935,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "time_slot::routes",
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -2905,7 +1949,7 @@
           }
         ]
       },
-      "source_checksum": "a47defdb6ec5b22ab752782dab104ee5b59edac59eb58def525b0e0470102707",
+      "source_checksum": "7a64049586237be865507f2ca342910c16c1be80e287ba4ed225dc4a40c65c8a",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:19:generate",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -2945,76 +1989,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "a47defdb6ec5b22ab752782dab104ee5b59edac59eb58def525b0e0470102707",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Generate a bounded pool of single-claim appointment slots.",
-          "fa": "تولید مجموعه محدود نوبت‌های قابل رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:slot:create, admin:slot:manage, reservation:create, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric provider/service plus strict YYYY-MM-DD from_date,to_date UTC, inclusive1..366days. Active assigned provider/service and valid stored configuration required. Duration5..480,buffer0..120. Fills capacity-many copies per start, preserves existing rows, returns HTTP200 envelope numeric count; max100000 created rows, all batches atomic."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric provider/service plus strict YYYY-MM-DD from_date,to_date UTC, inclusive1..366days. Active assigned provider/service and valid stored configuration required. Duration5..480,buffer0..120. Fills capacity-many copies per start, preserves existing rows, returns HTTP200 envelope numeric count; max100000 created rows, all batches atomic."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Numeric provider/service plus strict YYYY-MM-DD from_date,to_date UTC, inclusive1..366days. Active assigned provider/service and valid stored configuration required. Duration5..480,buffer0..120. Fills capacity-many copies per start, preserves existing rows, returns HTTP200 envelope numeric count; max100000 created rows, all batches atomic."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -3039,6 +2022,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "time_slot::routes",
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -3052,7 +2036,7 @@
           }
         ]
       },
-      "source_checksum": "bc7b4cfba0c9beee9dc902221b03f50aeb095fa2adc53e636481c940839a834c",
+      "source_checksum": "f99fb886b09d06d21050ef5829ad266c54493d666972e6204bb94757cc69514f",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:13:available",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -3117,76 +2101,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "bc7b4cfba0c9beee9dc902221b03f50aeb095fa2adc53e636481c940839a834c",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Find future unclaimed intervals with provider capacity available.",
-          "fa": "یافتن نوبت‌های آینده دارای ظرفیت آزاد."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "public_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Public read handler; no customer-specific authorization."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Optional numeric provider_id/service_id and strict UTC date YYYY-MM-DD combine AND. Unpaged array ordered starts_at ascending with no stable tie order. Excludes invalid intervals, claimed slots and provider-full intervals; does not validate current active assignment. Date uses inclusive midnight/exclusive next midnight. Snapshot is advisory."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Optional numeric provider_id/service_id and strict UTC date YYYY-MM-DD combine AND. Unpaged array ordered starts_at ascending with no stable tie order. Excludes invalid intervals, claimed slots and provider-full intervals; does not validate current active assignment. Date uses inclusive midnight/exclusive next midnight. Snapshot is advisory."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Optional numeric provider_id/service_id and strict UTC date YYYY-MM-DD combine AND. Unpaged array ordered starts_at ascending with no stable tie order. Excludes invalid intervals, claimed slots and provider-full intervals; does not validate current active assignment. Date uses inclusive midnight/exclusive next midnight. Snapshot is advisory."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -3211,6 +2134,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "time_slot::routes",
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -3224,7 +2148,7 @@
           }
         ]
       },
-      "source_checksum": "b285652e8b34a19f63030abd4fd1edb23a0890d3448be29459e85e750bab42b2",
+      "source_checksum": "acf09404ec99a548f4858b550675401decef05884e58ac5c08c979cd717d3dd2",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:30:show",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -3270,76 +2194,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "b285652e8b34a19f63030abd4fd1edb23a0890d3448be29459e85e750bab42b2",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Read one stored appointment slot.",
-          "fa": "خواندن یک نوبت ذخیره‌شده."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:slot:read, admin:slot:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric slot ID; missing404; RFC3339 interval, provider/service numeric IDs, claim bit and optional customer UUID."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric slot ID; missing404; RFC3339 interval, provider/service numeric IDs, claim bit and optional customer UUID."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Numeric slot ID; missing404; RFC3339 interval, provider/service numeric IDs, claim bit and optional customer UUID."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -3365,6 +2228,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "time_slot::routes",
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -3378,7 +2242,7 @@
           }
         ]
       },
-      "source_checksum": "89848f41839fcf6c314b6ba2a6985c16060ff6192f55450cf51863f44ae7a57b",
+      "source_checksum": "5efb75b7aa9ace1ff738d804277bd37f9a90790ed0a5c85f28d13946c7855a44",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:34:update",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -3447,76 +2311,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "89848f41839fcf6c314b6ba2a6985c16060ff6192f55450cf51863f44ae7a57b",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Edit an unclaimed slot without rewriting reservation history.",
-          "fa": "ویرایش نوبت آزاد بدون بازنویسی سابقه رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:slot:update, admin:slot:manage, reservation:update, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Optional provider_id,service_id,starts_at,ends_at,is_reserved. Times RFC3339 with end>start. Cannot independently toggle claim; any claimed/historically referenced structural edit409; equivalent patch allowed. Unreferenced edit requires active assigned service/provider and same-start pool below capacity. Locks providers in sorted order then slot."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Optional provider_id,service_id,starts_at,ends_at,is_reserved. Times RFC3339 with end>start. Cannot independently toggle claim; any claimed/historically referenced structural edit409; equivalent patch allowed. Unreferenced edit requires active assigned service/provider and same-start pool below capacity. Locks providers in sorted order then slot."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Optional provider_id,service_id,starts_at,ends_at,is_reserved. Times RFC3339 with end>start. Cannot independently toggle claim; any claimed/historically referenced structural edit409; equivalent patch allowed. Unreferenced edit requires active assigned service/provider and same-start pool below capacity. Locks providers in sorted order then slot."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -3541,6 +2344,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "time_slot::routes",
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -3554,7 +2358,7 @@
           }
         ]
       },
-      "source_checksum": "a9217b676bd7b0a5095f79a341da5a0e449fbbc36917c43995458cbbafdf96f0",
+      "source_checksum": "3db94bb03ca2261475e103a5c537bd4c8868cda6cc4bb47275e3138e28511f94",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:25:destroy",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -3574,76 +2378,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "a9217b676bd7b0a5095f79a341da5a0e449fbbc36917c43995458cbbafdf96f0",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Delete a never-booked unclaimed slot.",
-          "fa": "حذف نوبت آزاد فاقد سابقه رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:slot:delete, admin:slot:manage, reservation:delete, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric slot ID; missing404; claimed, inconsistent owner or any reservation history409; success envelope data:null."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric slot ID; missing404; claimed, inconsistent owner or any reservation history409; success envelope data:null."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Numeric slot ID; missing404; claimed, inconsistent owner or any reservation history409; success envelope data:null."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/time_slot/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -3668,6 +2411,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation::routes",
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -3681,7 +2425,7 @@
           }
         ]
       },
-      "source_checksum": "4848e760ce4ee79563575df5c99360832bff11eda3c5749493538fbe8d556c4d",
+      "source_checksum": "9c35d06b95b8f55baba55dcd718724918875883b1ac596ac199e0e7ee5648dd3",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:12:index",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -3764,76 +2508,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "4848e760ce4ee79563575df5c99360832bff11eda3c5749493538fbe8d556c4d",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Browse booking records with combined constraints.",
-          "fa": "مرور رزروها با فیلترهای ترکیبی."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:reservation:read, admin:reservation:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Optional user_id UUID,provider_id/service_id numeric,status exact lowercase pending/confirmed/cancelled/completed, bracket pagination; all combine AND. Created_at descending; ties not stabilized by ID. Responses currently starts_at:null because list does not join slot."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Optional user_id UUID,provider_id/service_id numeric,status exact lowercase pending/confirmed/cancelled/completed, bracket pagination; all combine AND. Created_at descending; ties not stabilized by ID. Responses currently starts_at:null because list does not join slot."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Optional user_id UUID,provider_id/service_id numeric,status exact lowercase pending/confirmed/cancelled/completed, bracket pagination; all combine AND. Created_at descending; ties not stabilized by ID. Responses currently starts_at:null because list does not join slot."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -3858,6 +2541,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation::routes",
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -3871,7 +2555,7 @@
           }
         ]
       },
-      "source_checksum": "3809c8afb8064e6057bc3aec84efc0819c17776164260249ba0f292f48fcf5e0",
+      "source_checksum": "ecee9b9f1b23b9f86397b9e3bd2f3c7d4979bde0b0df47b3e399e9e1bb26f003",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:24:store",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -3942,76 +2626,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "3809c8afb8064e6057bc3aec84efc0819c17776164260249ba0f292f48fcf5e0",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Atomically reserve one slot for a selected customer.",
-          "fa": "رزرو اتمی یک نوبت برای مشتری انتخاب‌شده."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:reservation:create, admin:reservation:manage, reservation:create, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: JSON numeric time_slot_id,user_id UUID,optional notes. Provider/service derived from slot. HTTP200 confirmed reservation with starts_at populated. Provider lock and slot claim enforce interval capacity/one owner. Missing404, claimed/full409. Does not validate IDP customer existence, future date, current active provider/service or current assignment; no client idempotency receipt."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. JSON numeric time_slot_id,user_id UUID,optional notes. Provider/service derived from slot. HTTP200 confirmed reservation with starts_at populated. Provider lock and slot claim enforce interval capacity/one owner. Missing404, claimed/full409. Does not validate IDP customer existence, future date, current active provider/service or current assignment; no client idempotency receipt."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "JSON numeric time_slot_id,user_id UUID,optional notes. Provider/service derived from slot. HTTP200 confirmed reservation with starts_at populated. Provider lock and slot claim enforce interval capacity/one owner. Missing404, claimed/full409. Does not validate IDP customer existence, future date, current active provider/service or current assignment; no client idempotency receipt."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -4036,6 +2659,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation::routes",
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -4049,7 +2673,7 @@
           }
         ]
       },
-      "source_checksum": "2650adabaefd8093da03b6689a40ef4ca7e289b5c951ba0a0ce9a39dc54ab74d",
+      "source_checksum": "9368e8b579debe65780dbe4c6e029f1c3bdcfc7eeebcf648b1c3e3153896a882",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:18:show",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -4101,76 +2725,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "2650adabaefd8093da03b6689a40ef4ca7e289b5c951ba0a0ce9a39dc54ab74d",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Read one booking record.",
-          "fa": "خواندن یک رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:reservation:read, admin:reservation:manage, reservation:read, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Numeric reservation ID; missing404; status lowercase, customer UUID, relation numeric IDs, notes and created_at. starts_at:null on this route; requires separate slot read for interval."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Numeric reservation ID; missing404; status lowercase, customer UUID, relation numeric IDs, notes and created_at. starts_at:null on this route; requires separate slot read for interval."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Numeric reservation ID; missing404; status lowercase, customer UUID, relation numeric IDs, notes and created_at. starts_at:null on this route; requires separate slot read for interval."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -4196,6 +2759,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation::routes",
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -4209,7 +2773,7 @@
           }
         ]
       },
-      "source_checksum": "088452175b69dea7ca4a27b5a847961a7880ceaf0954a00869c1530fae37055d",
+      "source_checksum": "317ba94f786ea9a2fa9486bab6802088df09a3dc08c7e5e57264f288fe9364ea",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:29:update",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -4272,76 +2836,15 @@
         }
       ],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "088452175b69dea7ca4a27b5a847961a7880ceaf0954a00869c1530fae37055d",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Update notes or apply a permitted booking transition.",
-          "fa": "تغییر یادداشت یا وضعیت مجاز رزرو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:reservation:update, admin:reservation:manage, reservation:update, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Optional exact lowercase status and notes; null cannot explicitly clear notes. Pending->confirmed/cancelled, confirmed->completed/cancelled, same-state retry allowed; cancelled/completed terminal. Cancellation releases only the currently owned slot transactionally, stale retry never releases rebooking; notes-only updates on terminal bookings still allowed. Returns record starts_at:null."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Optional exact lowercase status and notes; null cannot explicitly clear notes. Pending->confirmed/cancelled, confirmed->completed/cancelled, same-state retry allowed; cancelled/completed terminal. Cancellation releases only the currently owned slot transactionally, stale retry never releases rebooking; notes-only updates on terminal bookings still allowed. Returns record starts_at:null."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Optional exact lowercase status and notes; null cannot explicitly clear notes. Pending->confirmed/cancelled, confirmed->completed/cancelled, same-state retry allowed; cancelled/completed terminal. Cancellation releases only the currently owned slot transactionally, stale retry never releases rebooking; notes-only updates on terminal bookings still allowed. Returns record starts_at:null."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -4366,6 +2869,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "reservation::routes",
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -4379,7 +2883,7 @@
           }
         ]
       },
-      "source_checksum": "824d77d104dc1e8830f71f858002a3ea143f41148cb472495970860715a74b71",
+      "source_checksum": "7d95b5df4f4f90bf33b451106d5101a5637a0d700802c3abd2ca2bbebe6a9d4d",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:35:cancel",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -4399,76 +2903,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "824d77d104dc1e8830f71f858002a3ea143f41148cb472495970860715a74b71",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Cancel a booking without deleting its history.",
-          "fa": "لغو رزرو با حفظ سابقه آن."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "management_mutation",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Authenticated nonnil user and organization UUID required. Accepts admin:reservation:delete, admin:reservation:manage, reservation:delete, reservation:manage, reservation:* or *. Schedule and assignment operations use provider resource permissions. Forwarded identity and owning-project membership require independent gateway verification; handler does not restrict booking.user_id to current user."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Same transition rules as PATCH cancelled; missing404, completed conflict409, repeated cancelled succeeds. Preserves reservation row; successful envelope data:null."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Same transition rules as PATCH cancelled; missing404, completed conflict409, repeated cancelled succeeds. Preserves reservation row; successful envelope data:null."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Same transition rules as PATCH cancelled; missing404, completed conflict409, repeated cancelled succeeds. Preserves reservation row; successful envelope data:null."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/reservation/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -4492,6 +2935,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "integration::routes",
+        "handler_source": "infera-reservation/src/integration/routes.rs",
         "mounted_via": [
           {
             "path": "infera-reservation/src/router.rs",
@@ -4505,7 +2949,7 @@
           }
         ]
       },
-      "source_checksum": "a168b0838d05ebf19eb5c42c6785e10dd371991967b8cf04f85fe383ab8c7029",
+      "source_checksum": "f3fd0e0c3f840615ff5760bb0f426b16dc0aa6798ee84d7735e26885730b6b18",
       "handler": {
         "ref": "infera-reservation/src/integration/routes.rs:9:flow_integration_show",
         "path": "infera-reservation/src/integration/routes.rs",
@@ -4527,76 +2971,15 @@
       },
       "relation_candidates": [],
       "review": {
-        "status": "locally_reviewed_requires_canonical_and_operation_verification",
-        "source_checksum": "a168b0838d05ebf19eb5c42c6785e10dd371991967b8cf04f85fe383ab8c7029",
-        "canonical_source_basis": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
-        "local_implementation_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
-        "meaning": {
-          "en": "Expose Flow integration metadata.",
-          "fa": "ارائه فراداده اتصال به فلو."
-        },
-        "scope": "One Reservation deployment/sandbox. Numeric local domain IDs; organization header is required on management routes but schema has no organization discriminator. Current project/gateway isolation unverified.",
-        "classification": "public_read",
-        "permissions": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/integration/routes.rs"
-          ],
-          "meaning": "Public read handler; no customer-specific authorization."
-        },
-        "filters": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/integration/routes.rs"
-          ],
-          "meaning": "Existing bracket page[number]/page[size]: defaults1/20, size clamps1..100, unsigned offset must fit i64. Only list services/providers/reservations and local capacity report paginate. Operation-specific query behavior: Public GET; success envelope with configured RABBITMQ_QUEUE defaultreservation_queue and empty action list. Metadata is not proof of event publication, durable delivery or consumer deduplication."
-        },
-        "inputs_outputs": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/integration/routes.rs"
-          ],
-          "meaning": "Success generally {status:\"success\",message:\"\",data}; JSON extraction errors may use Axum text422; AppError is {error}. OpenAPI is raw. Public GET; success envelope with configured RABBITMQ_QUEUE defaultreservation_queue and empty action list. Metadata is not proof of event publication, durable delivery or consumer deduplication."
-        },
-        "lifecycle": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/integration/routes.rs"
-          ],
-          "meaning": "Public GET; success envelope with configured RABBITMQ_QUEUE defaultreservation_queue and empty action list. Metadata is not proof of event publication, durable delivery or consumer deduplication."
-        },
-        "relationships": {
-          "status": "source_reviewed_local_runtime_partial",
-          "source_refs": [
-            "Service/infera-reservation/src/auth.rs",
-            "Service/infera-reservation/src/router.rs",
-            "Service/infera-reservation/src/models.rs",
-            "Service/infera-reservation/src/integration/routes.rs"
-          ],
-          "meaning": "Provider-service assignment links local numeric IDs. Slot stores provider/service and interval; reservation stores slot, provider/service and customer UUID. Optional provider.user_id and reservation.user_id refer to IDP identities, but no IDP existence/membership lookup is performed here. Flow metadata names a broker queue; event/receipt workflow unverified. UUIDs must not be interchanged with Agentic project IDs."
-        },
-        "test_evidence": [
-          "reservation-provider-capacity"
-        ],
-        "evidence_limit": "40 local real storage/HTTP tests cover named invariants, not every operation permutation or cross-service journey. This record is a source review of the local implementation and cannot certify the older canonical revision.",
-        "remaining_gates": [
-          "canonical/deployed reconciliation",
-          "per-operation negative and lifecycle acceptance",
-          "trusted identity/current project membership and isolation",
-          "IDP and Flow cross-service journeys",
-          "typed SDK wire contracts and readable Manage workflows"
+        "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
         ]
       },
       "sdk": {
@@ -4656,6 +3039,7 @@
         "handlerModule": "router",
         "source": "infera-reservation/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/router.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -4674,6 +3058,7 @@
         "handlerModule": "router",
         "source": "infera-reservation/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/router.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -4692,6 +3077,7 @@
         "handlerModule": "router",
         "source": "infera-reservation/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -4709,6 +3095,7 @@
         "handlerModule": "reservation_service::routes",
         "source": "infera-reservation/src/reservation_service/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "query": "PaginationQuery",
         "response": "crate::models::PagedResult<ServiceResponse>",
         "responseEnvelope": "api",
@@ -4733,6 +3120,7 @@
         "handlerModule": "reservation_service::routes",
         "source": "infera-reservation/src/reservation_service/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "body": "CreateServiceRequest",
         "response": "ServiceResponse",
         "responseEnvelope": "api",
@@ -4757,6 +3145,7 @@
         "handlerModule": "reservation_service::routes",
         "source": "infera-reservation/src/reservation_service/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "pathParam": "i64",
         "response": "ServiceResponse",
         "responseEnvelope": "api",
@@ -4781,6 +3170,7 @@
         "handlerModule": "reservation_service::routes",
         "source": "infera-reservation/src/reservation_service/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "body": "UpdateServiceRequest",
         "pathParam": "i64",
         "response": "ServiceResponse",
@@ -4806,6 +3196,7 @@
         "handlerModule": "reservation_service::routes",
         "source": "infera-reservation/src/reservation_service/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation_service/routes.rs",
         "pathParam": "i64",
         "response": "()",
         "responseEnvelope": "api",
@@ -4830,6 +3221,7 @@
         "handlerModule": "provider::routes",
         "source": "infera-reservation/src/provider/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "query": "PaginationQuery",
         "response": "crate::models::PagedResult<ProviderResponse>",
         "responseEnvelope": "api",
@@ -4854,6 +3246,7 @@
         "handlerModule": "provider::routes",
         "source": "infera-reservation/src/provider/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "body": "CreateProviderRequest",
         "response": "ProviderResponse",
         "responseEnvelope": "api",
@@ -4878,6 +3271,7 @@
         "handlerModule": "provider::routes",
         "source": "infera-reservation/src/provider/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "pathParam": "i64",
         "response": "ProviderResponse",
         "responseEnvelope": "api",
@@ -4902,6 +3296,7 @@
         "handlerModule": "provider::routes",
         "source": "infera-reservation/src/provider/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "body": "UpdateProviderRequest",
         "pathParam": "i64",
         "response": "ProviderResponse",
@@ -4927,6 +3322,7 @@
         "handlerModule": "provider::routes",
         "source": "infera-reservation/src/provider/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "pathParam": "i64",
         "response": "()",
         "responseEnvelope": "api",
@@ -4951,6 +3347,7 @@
         "handlerModule": "provider::routes",
         "source": "infera-reservation/src/provider/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "pathParam": "i64",
         "response": "Vec<ServiceResponse>",
         "responseEnvelope": "api",
@@ -4975,6 +3372,7 @@
         "handlerModule": "provider::routes",
         "source": "infera-reservation/src/provider/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "body": "AssignServiceRequest",
         "pathParam": "i64",
         "response": "()",
@@ -5000,6 +3398,7 @@
         "handlerModule": "provider::routes",
         "source": "infera-reservation/src/provider/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
         "pathParam": "(i64, i64)",
         "response": "()",
         "responseEnvelope": "api",
@@ -5024,6 +3423,7 @@
         "handlerModule": "work_schedule::routes",
         "source": "infera-reservation/src/work_schedule/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/work_schedule/routes.rs",
         "pathParam": "i64",
         "response": "Vec<WorkScheduleResponse>",
         "responseEnvelope": "api",
@@ -5048,6 +3448,7 @@
         "handlerModule": "work_schedule::routes",
         "source": "infera-reservation/src/work_schedule/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/work_schedule/routes.rs",
         "body": "UpsertScheduleRequest",
         "pathParam": "i64",
         "response": "Vec<WorkScheduleResponse>",
@@ -5073,6 +3474,7 @@
         "handlerModule": "time_slot::routes",
         "source": "infera-reservation/src/time_slot/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "body": "GenerateSlotsRequest",
         "response": "usize",
         "responseEnvelope": "api",
@@ -5097,6 +3499,7 @@
         "handlerModule": "time_slot::routes",
         "source": "infera-reservation/src/time_slot/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "query": "AvailableSlotsQuery",
         "response": "Vec<TimeSlotResponse>",
         "responseEnvelope": "api",
@@ -5121,6 +3524,7 @@
         "handlerModule": "time_slot::routes",
         "source": "infera-reservation/src/time_slot/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "pathParam": "i64",
         "response": "TimeSlotResponse",
         "responseEnvelope": "api",
@@ -5145,6 +3549,7 @@
         "handlerModule": "time_slot::routes",
         "source": "infera-reservation/src/time_slot/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "body": "UpdateTimeSlotRequest",
         "pathParam": "i64",
         "response": "TimeSlotResponse",
@@ -5170,6 +3575,7 @@
         "handlerModule": "time_slot::routes",
         "source": "infera-reservation/src/time_slot/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/time_slot/routes.rs",
         "pathParam": "i64",
         "response": "()",
         "responseEnvelope": "api",
@@ -5194,6 +3600,7 @@
         "handlerModule": "reservation::routes",
         "source": "infera-reservation/src/reservation/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "query": "ReservationListQuery",
         "response": "PagedResult<ReservationResponse>",
         "responseEnvelope": "api",
@@ -5218,6 +3625,7 @@
         "handlerModule": "reservation::routes",
         "source": "infera-reservation/src/reservation/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "body": "CreateReservationRequest",
         "response": "ReservationResponse",
         "responseEnvelope": "api",
@@ -5242,6 +3650,7 @@
         "handlerModule": "reservation::routes",
         "source": "infera-reservation/src/reservation/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "pathParam": "i64",
         "response": "ReservationResponse",
         "responseEnvelope": "api",
@@ -5266,6 +3675,7 @@
         "handlerModule": "reservation::routes",
         "source": "infera-reservation/src/reservation/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "body": "UpdateReservationRequest",
         "pathParam": "i64",
         "response": "ReservationResponse",
@@ -5291,6 +3701,7 @@
         "handlerModule": "reservation::routes",
         "source": "infera-reservation/src/reservation/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/reservation/routes.rs",
         "pathParam": "i64",
         "response": "()",
         "responseEnvelope": "api",
@@ -5315,6 +3726,7 @@
         "handlerModule": "integration::routes",
         "source": "infera-reservation/src/integration/routes.rs",
         "permissions": [],
+        "handler_source": "infera-reservation/src/integration/routes.rs",
         "response": "infera_flow_sdk::FlowIntegrationResponse",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -5335,17 +3747,42 @@
     "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [],
+    "added": [
+      "GET /api/v1/providers/{id}/capacity"
+    ],
     "absent": [],
-    "changed": [],
-    "extraction_errors": [
-      {
-        "status": "failed",
-        "artifact_path": "working-contract-extraction.stderr.log",
-        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
-        "exit_code": 1
-      }
-    ]
+    "changed": [
+      "GET /",
+      "GET /api/openapi.json",
+      "GET /api/v1/integration/flow",
+      "GET /api/v1/providers",
+      "POST /api/v1/providers",
+      "DELETE /api/v1/providers/{id}",
+      "GET /api/v1/providers/{id}",
+      "PATCH /api/v1/providers/{id}",
+      "GET /api/v1/providers/{id}/services",
+      "POST /api/v1/providers/{id}/services",
+      "DELETE /api/v1/providers/{id}/services/{service_id}",
+      "GET /api/v1/providers/{provider_id}/schedules",
+      "PUT /api/v1/providers/{provider_id}/schedules",
+      "GET /api/v1/reservations",
+      "POST /api/v1/reservations",
+      "DELETE /api/v1/reservations/{id}",
+      "GET /api/v1/reservations/{id}",
+      "PATCH /api/v1/reservations/{id}",
+      "GET /api/v1/services",
+      "POST /api/v1/services",
+      "DELETE /api/v1/services/{id}",
+      "GET /api/v1/services/{id}",
+      "PATCH /api/v1/services/{id}",
+      "POST /api/v1/slots",
+      "DELETE /api/v1/slots/{id}",
+      "GET /api/v1/slots/{id}",
+      "PATCH /api/v1/slots/{id}",
+      "GET /api/v1/slots/available",
+      "GET /health"
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {

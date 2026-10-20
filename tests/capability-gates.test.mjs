@@ -26,6 +26,16 @@ test('route counts and unreviewed generated operation metadata cannot satisfy di
   assert.equal(evaluateCapabilityGate(fixture.universe,fixture.services,[],fixture.runs).status,'blocked');
 });
 
+test('a changed SDK source lock invalidates older semantic and discovery bindings',()=>{
+ const f=reviewedFixture();f.services.example.sdk_source_revision='abc';
+ const options={stage:'sdk',selectedSources:{example:{revision:'new-source'}}};
+ const failures=evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],options).failures.join('\n');
+ assert.match(failures,/inventory does not bind the current SDK source lock/);
+ assert.match(failures,/semantic\/runtime source differs from the current SDK source lock/);
+ const discovery=evaluateCapabilityGate(f.universe,f.services,[],f.runs,[],{...options,stage:'discovery'});
+ assert.equal(discovery.status,'passed');
+});
+
 test('opaque protocol mounts require their own frozen source-bound consumer evidence',()=>{
  const f=reviewedFixture();
  const mount={id:'PROTOCOL /mcp',path:'/mcp',source:'example/shared/evidence-sdk/src/server.rs',source_checksum:'protocol-hash'};

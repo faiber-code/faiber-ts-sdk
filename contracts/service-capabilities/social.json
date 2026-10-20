@@ -152,6 +152,7 @@
       "checksum": "12255eeba22bc053ee1ae238472c0e66f8358fe2a1d2bba5f96d962b640cded0"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
     "canonical": [],
     "working": []
@@ -306,6 +307,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -319,7 +321,7 @@
           }
         ]
       },
-      "source_checksum": "e12b69e37630003528f25b342a39922c94eecd4fb8df6d9bdd6839cf75624d17",
+      "source_checksum": "7fb013e80171332e8244554f1701a5c41f220154d0d081eca02b458cb077d493",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:117:self_identity",
         "path": "infera-social/src/api/routes.rs",
@@ -383,6 +385,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -396,7 +399,7 @@
           }
         ]
       },
-      "source_checksum": "2a5bc367bdf71e5fa2bb9b3ef8ad3b326b853e879dc10c4f00cfaba3b2e1aeb5",
+      "source_checksum": "b0f9aa8c22777ce7317737cfbde322a3eea9f72faf796c39ce9b6f8dd9c0fef6",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:207:list_categories",
         "path": "infera-social/src/api/routes.rs",
@@ -457,6 +460,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -470,7 +474,7 @@
           }
         ]
       },
-      "source_checksum": "a617f8fab860ebfcefb1ffc0c51d198ae4fa3069daf0a57d115b457ea6a00c20",
+      "source_checksum": "2c32f664a4dbc16634a807f9dd64c8bc6c2a52ab5802fab05349df142f85d5ca",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:217:create_category",
         "path": "infera-social/src/api/routes.rs",
@@ -541,6 +545,7 @@
         "multipart": true,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -554,7 +559,7 @@
           }
         ]
       },
-      "source_checksum": "1f463e0b99249d192a318e6d73f8792ee6e2e583ba774e58db77bdb4c4286eb0",
+      "source_checksum": "3e86469af8b3770a9cdb775547b751b1fabd8834bf2ab0f22fe70e5a361e1c85",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:127:upload_media",
         "path": "infera-social/src/api/routes.rs",
@@ -614,6 +619,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -627,7 +633,7 @@
           }
         ]
       },
-      "source_checksum": "e6a32dc6ef251a6c9bac1e3afbaf1e74aa2c1c89bcb255c2b6fbfda7ce3f9bbf",
+      "source_checksum": "f75edb55aeb30daeebdb9a9684022018ea69085e85c34a3bb9730f391ffcfcb3",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:185:get_media",
         "path": "infera-social/src/api/routes.rs",
@@ -689,6 +695,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -702,7 +709,7 @@
           }
         ]
       },
-      "source_checksum": "b982b25c12134bc8114951d10646fa9af41474dca892ec24198a9df678129a8e",
+      "source_checksum": "00f79c0afd87a302f8968b7f22ad65d14fc3ea18332853f114fc3cee77a120e7",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:227:update_category",
         "path": "infera-social/src/api/routes.rs",
@@ -777,6 +784,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -790,7 +798,7 @@
           }
         ]
       },
-      "source_checksum": "61a9e0b7920bc61c752e5291918eb3df995650f15078e1b82d864c917f0c33e4",
+      "source_checksum": "55d19cf6048bac2281c7344adb267e484ce98a44c0d57aa84ba49a2149488d55",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:239:delete_category",
         "path": "infera-social/src/api/routes.rs",
@@ -851,6 +859,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -864,7 +873,7 @@
           }
         ]
       },
-      "source_checksum": "11e9b1b8097227a971e2aab0f8fae56be9d9fd89eb6273075459f00bdc039ae7",
+      "source_checksum": "16593f4d114d2008864ae65dd6e4b9ca6b321ebe3e22bca4ec7a6906fd3d64b9",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:362:category_capability_policy",
         "path": "infera-social/src/api/routes.rs",
@@ -929,6 +938,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -942,7 +952,7 @@
           }
         ]
       },
-      "source_checksum": "b201b55c7ff97cc88feb4300b775e0b348e3c26d00c66d691da0cddb28d17f68",
+      "source_checksum": "ac53870eda9d3546a7c661722977dd94c126ec6c811fc118b04f8347d7f5592a",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:249:list_posts",
         "path": "infera-social/src/api/routes.rs",
@@ -1027,6 +1037,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1040,7 +1051,7 @@
           }
         ]
       },
-      "source_checksum": "f4f80d4a78233463f655a0475e5aa2db4aa4c6002b09ed9f56eb909ec93b1720",
+      "source_checksum": "e607e7f9a997f769286cbd6d2a383b4d51e0b04ead8d51df76f9aa7095288f27",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:329:create_post",
         "path": "infera-social/src/api/routes.rs",
@@ -1163,6 +1174,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1176,7 +1188,7 @@
           }
         ]
       },
-      "source_checksum": "e9d833d3b8ebf4b28dedc4fac7449d04929bf9f5519e4997de0fee9c74f66934",
+      "source_checksum": "f3c40e10f7a8a04e381b91538d868e4a2fd809c72700afc09a785fbf94439757",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:268:get_feed_location",
         "path": "infera-social/src/api/routes.rs",
@@ -1237,6 +1249,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1250,7 +1263,7 @@
           }
         ]
       },
-      "source_checksum": "2e5723c040c69fa0221c834b816af8cb6a4929dec227bfc5d326a4fa3bba627a",
+      "source_checksum": "bcff356f55bffc7416d9b0c69d72c8015aa3131d0a61df7e53ec4d14780a588b",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:279:set_feed_location",
         "path": "infera-social/src/api/routes.rs",
@@ -1319,6 +1332,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1332,7 +1346,7 @@
           }
         ]
       },
-      "source_checksum": "ac92e404294939743a064354f94e51c55d6cdb7640f2ded9dcc699b54ec0e421",
+      "source_checksum": "c1e7d3e3ae6d1e04c47fa94374aaa242ba24a33dd68a426f2a9d19650638bf00",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:290:clear_feed_location",
         "path": "infera-social/src/api/routes.rs",
@@ -1388,6 +1402,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1401,7 +1416,7 @@
           }
         ]
       },
-      "source_checksum": "6898d6bd2305d2b4f9cd158c1e314bdeb0178b96d2bb00985553abfd8eea6c1a",
+      "source_checksum": "6bb92caffa5c06123a8b5d9b3ae2ee76fd465b745f36341f332cafba4e55f256",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:299:list_my_posts",
         "path": "infera-social/src/api/routes.rs",
@@ -1486,6 +1501,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1499,7 +1515,7 @@
           }
         ]
       },
-      "source_checksum": "ec6305bacc72d468a9d119d8534dd72378ca1f11897c0f4d68e2365304225b5a",
+      "source_checksum": "33a6b50c388f14ae09382cffad1b36cebe2366ac17a4e090a08f4952594808fe",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:605:my_analytics",
         "path": "infera-social/src/api/routes.rs",
@@ -1570,6 +1586,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1583,7 +1600,7 @@
           }
         ]
       },
-      "source_checksum": "2bc2522cba8de492f627d358bd07991883d47d3d37664038920f12349b6b39c0",
+      "source_checksum": "64db7f67b9aa8fda89342ff6aa67c800f794f12bcbb2b760dfaac1f3097d3023",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:319:my_bookmarks",
         "path": "infera-social/src/api/routes.rs",
@@ -1644,6 +1661,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1657,7 +1675,7 @@
           }
         ]
       },
-      "source_checksum": "cea77d88560120224b9cd66759dbef3b5fe5f4ac047fd455a0252db9183e97f4",
+      "source_checksum": "31a00348403bb83b68e4cff3d3a3a7a471d1f728567b49f0f560d7ffed61e5d2",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:522:get_post",
         "path": "infera-social/src/api/routes.rs",
@@ -1723,6 +1741,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1736,7 +1755,7 @@
           }
         ]
       },
-      "source_checksum": "679c084f04930e66eb287a2e31d2399313e39332544a5908f7627ab0c0e86da4",
+      "source_checksum": "1c243489195d9d4d7afd86fc927ffd8d2e333be161bb2e4493b9ec288a1ea4a4",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:533:update_post",
         "path": "infera-social/src/api/routes.rs",
@@ -1818,6 +1837,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1831,7 +1851,7 @@
           }
         ]
       },
-      "source_checksum": "d9116482aa9056f482e4967a2cdd6d9daf627cdcbc66b097d9b700942e00bae1",
+      "source_checksum": "4ea46a40980756623acce254fe8c8cb841a8ef788d327e15450ad12a0e21fea4",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:545:delete_post",
         "path": "infera-social/src/api/routes.rs",
@@ -1892,6 +1912,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1905,7 +1926,7 @@
           }
         ]
       },
-      "source_checksum": "2e2359d6c40bd09a89fc595400e92c79d10781105a96d85da6008ee52e8c4c6e",
+      "source_checksum": "44732056c043e8cdbfde26f91b9f7bf47f4cb40bbf21e2e7cc2c46a9331e3fc5",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:373:post_capabilities",
         "path": "infera-social/src/api/routes.rs",
@@ -1979,6 +2000,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -1992,7 +2014,7 @@
           }
         ]
       },
-      "source_checksum": "a604650170c9376d87701759c6cf2d8fbf9c58fa10c9273a3bae713e72c1c718",
+      "source_checksum": "b881763610a1219de734df835dbfb11ccb63fa9fa729edd8ce8fc7f51b64f7f7",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:385:navigation_access",
         "path": "infera-social/src/api/routes.rs",
@@ -2065,6 +2087,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2078,7 +2101,7 @@
           }
         ]
       },
-      "source_checksum": "53cadd2c2f91ab815085789088899361579c5e65599c4ad3d1d6f2a5c736424a",
+      "source_checksum": "6cc1c1f86f369b08ca0a8e2fdeb713cfa09699cef51563c03ffa9e7cfceef2a8",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:411:create_claim",
         "path": "infera-social/src/api/routes.rs",
@@ -2154,6 +2177,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2167,7 +2191,7 @@
           }
         ]
       },
-      "source_checksum": "c9f8f905b5aad390936859297cf4263c3627870adf648db3bb035ce445cd0661",
+      "source_checksum": "ae5d084c71027fbe46f6d845b04fc8cc839deffd8ef1af37c699a8f24fbb3883",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:500:cancel_capability_post",
         "path": "infera-social/src/api/routes.rs",
@@ -2232,6 +2256,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2245,7 +2270,7 @@
           }
         ]
       },
-      "source_checksum": "f9c7549a460058da3c9bfbd53e1b036b04d5683ef78f4b1e314a801905137e67",
+      "source_checksum": "a5f3ce5952c4928dd5ce6a6c224b4c671601a19bbaab0a462368413c7c10e6a8",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:426:withdraw_claim",
         "path": "infera-social/src/api/routes.rs",
@@ -2310,6 +2335,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2323,7 +2349,7 @@
           }
         ]
       },
-      "source_checksum": "2b3359713d2a55da45289406e7f228e11c0114c4182a099f51677aaefcf2610b",
+      "source_checksum": "c6f7fd592cf5def45980ce85edb89845319a24a5635695f71e1207761d1ab21f",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:437:select_claim",
         "path": "infera-social/src/api/routes.rs",
@@ -2389,6 +2415,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2402,7 +2429,7 @@
           }
         ]
       },
-      "source_checksum": "4b35e82f3e720073093ba030d71582f0a50536cd4ab33445f89021ecd89258a2",
+      "source_checksum": "4dc2dc3d85a67c118cbe28033d59ff8dd3b914af29f3efd7db2d35bc64466417",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:448:set_contact_consent",
         "path": "infera-social/src/api/routes.rs",
@@ -2478,6 +2505,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2491,7 +2519,7 @@
           }
         ]
       },
-      "source_checksum": "90689a1a9fb360476e87c2d53a9ff8edad4d8c70a3dee4923dc62c3fee43a707",
+      "source_checksum": "e9c742a6dcf4906449240fad0e39a61565b42b45cde92ee18975c92f330d0b2a",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:489:claim_detail",
         "path": "infera-social/src/api/routes.rs",
@@ -2556,6 +2584,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2569,7 +2598,7 @@
           }
         ]
       },
-      "source_checksum": "8e76a5a22c4ad89286eaa44f629d0c0f65586caf8cd796da148edecb115e7ae0",
+      "source_checksum": "c628e30c5bfd37dd4d71b28bef6830c9f3c4ae05b07e7dc89be7e7d4616ff132",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:460:my_claims",
         "path": "infera-social/src/api/routes.rs",
@@ -2642,6 +2671,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2655,7 +2685,7 @@
           }
         ]
       },
-      "source_checksum": "cc1c7ecbdf1c9e0b0cddf75e22e17824dcf5959375398dbe1d95fb9c7a4d7eb6",
+      "source_checksum": "e20a9decf82ac4c863aee88496ae1193bc1f20a8697a50da3c463101f9d6343f",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:474:my_post_claims",
         "path": "infera-social/src/api/routes.rs",
@@ -2731,6 +2761,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2744,7 +2775,7 @@
           }
         ]
       },
-      "source_checksum": "1e812d60f74b97194fc4c5cb3a7f26f07c2086944b830ec75427b6fa28d8ad78",
+      "source_checksum": "15c639f5a2b908a9651c16ca5d10b978356287550a6cb491b0824c9aca444ff1",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:511:receive_funding_event",
         "path": "infera-social/src/api/routes.rs",
@@ -2829,6 +2860,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2842,7 +2874,7 @@
           }
         ]
       },
-      "source_checksum": "6ba6570653f9988db8c367997f9dcd4206b5b1c2bd1c8861c47ce15b13166b0e",
+      "source_checksum": "1d097eb82c747b2750e4e954d0271abb0d5c05ba7b3b869654aa5cfe0fff36f0",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:627:list_post_comments",
         "path": "infera-social/src/api/routes.rs",
@@ -2908,6 +2940,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -2921,7 +2954,7 @@
           }
         ]
       },
-      "source_checksum": "0770c646ac3d2465b06575f68aa01e3429720afd5ec7f2ff0eaf5e85a12eda21",
+      "source_checksum": "b886560c1b1644def37ad3a2862ca91daa976bfb5d4bc8b122f6d70dcc9cda0f",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:638:create_post_comment",
         "path": "infera-social/src/api/routes.rs",
@@ -3013,6 +3046,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3026,7 +3060,7 @@
           }
         ]
       },
-      "source_checksum": "4349a6f3896f95610a66e7961c3efdd832549772ff1eb02dc4bd51f09dc30209",
+      "source_checksum": "0757ce050a2f0b5ec2223a85403ad6366ba246bbe70a2d81c45fa921404b6207",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:555:resubmit_post",
         "path": "infera-social/src/api/routes.rs",
@@ -3090,6 +3124,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3103,7 +3138,7 @@
           }
         ]
       },
-      "source_checksum": "ef643f5095f2be5e6503db849ccf60452e025301dac2d6de4b00465efaeabeb6",
+      "source_checksum": "1ef60cd0c661d07564a54c5276c2d2577140e3e029c4e1fed0509a5f6284726e",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:566:bookmark_post",
         "path": "infera-social/src/api/routes.rs",
@@ -3163,6 +3198,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3176,7 +3212,7 @@
           }
         ]
       },
-      "source_checksum": "8aa5bb53474d58457fd07692bb0ebc5135a4043100c6752bbd78c057adf6c4db",
+      "source_checksum": "362754a7e45a816e00adab801ce1ce19c124a19901e8017ea27b8b9ad4802555",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:575:unbookmark_post",
         "path": "infera-social/src/api/routes.rs",
@@ -3238,6 +3274,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3251,7 +3288,7 @@
           }
         ]
       },
-      "source_checksum": "c9834d59a22e5c5b39bd3070dee5b31b54b99a400845e9b923488f2dd9717760",
+      "source_checksum": "86b4cb864b85ed15f615d276ed252584abd820f8c9ff7d6d9e5d4ea7b3e4a409",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:584:record_post_view",
         "path": "infera-social/src/api/routes.rs",
@@ -3327,6 +3364,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3340,7 +3378,7 @@
           }
         ]
       },
-      "source_checksum": "ccee6656b176cf6dcff2aeb6fe80d5c446b6b25a8a14ee9b894ed081ba2f31e4",
+      "source_checksum": "9757f68afb05d152526cc172eaebce419e40132be0813fc916603fb2bb775f09",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:595:record_share_event",
         "path": "infera-social/src/api/routes.rs",
@@ -3413,6 +3451,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3426,7 +3465,7 @@
           }
         ]
       },
-      "source_checksum": "5f2d53eeae70f47a6fa4a34168282c682117f85704da66e10d70bc38a2a63d1c",
+      "source_checksum": "6613ea74c7af2b64ae8d4c1c7900722584aab39dee8122d6d4f93590ffd03fc5",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:615:post_analytics",
         "path": "infera-social/src/api/routes.rs",
@@ -3503,6 +3542,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3516,7 +3556,7 @@
           }
         ]
       },
-      "source_checksum": "1a4331cecdec016182a2d357f977df56dcb8883934bf07dc5042565d35352824",
+      "source_checksum": "c1ed0dc8131ce6ca18e13f8368cafdcedf5210f82a62eb03cb1389a80139c995",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:650:update_comment",
         "path": "infera-social/src/api/routes.rs",
@@ -3591,6 +3631,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3604,7 +3645,7 @@
           }
         ]
       },
-      "source_checksum": "b025dfa124d0bb5c7a07141904b37da8f5fcc5e83cbdc3d8288036ed36341604",
+      "source_checksum": "f2cff57837455f032c715cb72ddfc450cb40f471f0092992abcfbb9b3bd956a3",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:662:delete_comment",
         "path": "infera-social/src/api/routes.rs",
@@ -3665,6 +3706,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3678,7 +3720,7 @@
           }
         ]
       },
-      "source_checksum": "2149f567d6920a837a5daf0e82858f23c36e2b4bc0a18ddb0507297fe13b077f",
+      "source_checksum": "d08d5a136fb93a36713e4435fdd6718123c888d5bd9547745d05d97537e7b50e",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:672:post_reactions",
         "path": "infera-social/src/api/routes.rs",
@@ -3751,6 +3793,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3764,7 +3807,7 @@
           }
         ]
       },
-      "source_checksum": "bc01c12cc990993c67b79f9d3f7e45cf8f1a0913bd12f409466354c0219ac27c",
+      "source_checksum": "c4ead3bd7f3ddd57210b13ceaf1cffbb8f33ba5397a1904c13903181ed56d7ab",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:694:set_post_reaction",
         "path": "infera-social/src/api/routes.rs",
@@ -3848,6 +3891,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3861,7 +3905,7 @@
           }
         ]
       },
-      "source_checksum": "d40df8715ae2ba13d9bb190daf45426dd82fd10e5497cbe3e33df33f4929c67f",
+      "source_checksum": "4375977dd5c17835d339b7472a2e4ef48f399494efc4702461b840c87335e463",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:762:remove_post_reaction",
         "path": "infera-social/src/api/routes.rs",
@@ -3922,6 +3966,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -3935,7 +3980,7 @@
           }
         ]
       },
-      "source_checksum": "02640542991091dd88568a66fe850b52dcfcdc483137ce56c6565f55740fd99a",
+      "source_checksum": "f65cc41eee752c3f9ca23249c564f7e2a57ae650b0c68a0b486ed2edfccd7a88",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:683:comment_reactions",
         "path": "infera-social/src/api/routes.rs",
@@ -4008,6 +4053,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4021,7 +4067,7 @@
           }
         ]
       },
-      "source_checksum": "fcf87746bb02028d010f1e6f1d3add48e6df939b806358a3221d641a5dba4aec",
+      "source_checksum": "8f7c9852f5bf1db568cdb415c0934c9ee66d2a396f0b9e3e25c8ed5548fc386e",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:707:set_comment_reaction",
         "path": "infera-social/src/api/routes.rs",
@@ -4105,6 +4151,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4118,7 +4165,7 @@
           }
         ]
       },
-      "source_checksum": "684b58ba352a93112e0a4320f83614469d1db1289ed16046ad2798c824de4e9f",
+      "source_checksum": "26d93157877889fbd4c05e64a4f3229505cb37afaf2b1f6b22cd9f7ae2912462",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:772:remove_comment_reaction",
         "path": "infera-social/src/api/routes.rs",
@@ -4179,6 +4226,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4192,7 +4240,7 @@
           }
         ]
       },
-      "source_checksum": "4ea5b9f165a6fbb5029b62fd9177287d588d8eff7a3e54c30c39253248b31431",
+      "source_checksum": "e3ca332813a53ac5a71ddbcbd8cedecf0cfc9dc41e2fa246734c3f20563852ac",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:720:like_post",
         "path": "infera-social/src/api/routes.rs",
@@ -4265,6 +4313,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4278,7 +4327,7 @@
           }
         ]
       },
-      "source_checksum": "c6eb20e1ecff7a5731ef2d9507b48b76803e17a0524eb2de8fc7c17063e6fe88",
+      "source_checksum": "2a7dcc60271a17a85fe155aea4ea2cb17676a5ee7e42218bc4df81df6f0f479f",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:762:remove_post_reaction",
         "path": "infera-social/src/api/routes.rs",
@@ -4339,6 +4388,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4352,7 +4402,7 @@
           }
         ]
       },
-      "source_checksum": "dc380fda630c8f09556920fa6ef95a2ed99d510717480bcc062fcce9f234d946",
+      "source_checksum": "cc31be263e97ad8c02560eb0c3c47068dffd7504d0904b176fba37fd8ae74240",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:741:like_comment",
         "path": "infera-social/src/api/routes.rs",
@@ -4425,6 +4475,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4438,7 +4489,7 @@
           }
         ]
       },
-      "source_checksum": "239af4ec5ead353ff38dcc659b13cf3883bf6b291401b2ae9c961afd70ab4831",
+      "source_checksum": "acaed39ce00b796ad0985b94953f78a4bba777ebef2e39211ffac3df3742012c",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:772:remove_comment_reaction",
         "path": "infera-social/src/api/routes.rs",
@@ -4499,6 +4550,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4512,7 +4564,7 @@
           }
         ]
       },
-      "source_checksum": "8acbd057a21f1d7ce5890e4c308229b94f5286632d2bd9ce456bfa630882bc53",
+      "source_checksum": "dc02f54cfc1f9447b55a419b6d94627d044421d3ebc5ce633d10b6bc8fdf2e0b",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:782:create_report",
         "path": "infera-social/src/api/routes.rs",
@@ -4591,6 +4643,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4604,7 +4657,7 @@
           }
         ]
       },
-      "source_checksum": "b93a60cf92f4ac8462ccc7963c9cf36fd736a40e6f69d59cb7ac1a7384ec7fd8",
+      "source_checksum": "4ccafeda6c86ee26cbcdf69895e6bd6089414ebb46a75907e2deeb0c5844f6a9",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:792:moderation_queue",
         "path": "infera-social/src/api/routes.rs",
@@ -4666,6 +4719,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4679,7 +4733,7 @@
           }
         ]
       },
-      "source_checksum": "709c57d035c9bd08f788102b1593d3e439a49f978f9ec1bd7f5f75a5a2bac3c8",
+      "source_checksum": "74359c50cfed1946d1cf20f78e9f09a09b30e87fe694347ac8723945e6b77e26",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:802:moderation_audit",
         "path": "infera-social/src/api/routes.rs",
@@ -4752,6 +4806,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4765,7 +4820,7 @@
           }
         ]
       },
-      "source_checksum": "d34b3eafeccca8e740066456b16dd20ac17241a95e6ce29ef31253b8f9fa2e7c",
+      "source_checksum": "0466e39ec8aabe7657068edfdc17f8a53e0eebde4e20e8dedcd2d34787064e77",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:815:moderate",
         "path": "infera-social/src/api/routes.rs",
@@ -4844,6 +4899,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4857,7 +4913,7 @@
           }
         ]
       },
-      "source_checksum": "00ee4281ccd86e9fa67ec1566c005841915338fb420ea92728b5dbc87f77ea74",
+      "source_checksum": "6c7dd5df08a0737a5729c38982770bdabaa913c878e875908908f8473280300f",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:826:import_modules",
         "path": "infera-social/src/api/routes.rs",
@@ -4925,6 +4981,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -4943,7 +5000,7 @@
           }
         ]
       },
-      "source_checksum": "1464e9adc8187e36fe77f8cc159422edb838b290785015225288d17114ff34c3",
+      "source_checksum": "eeb27200bde8bc68cae3bb9c924391e13108591e0115ea3e3eca6b90fdb648fd",
       "handler": {
         "ref": "infera-social/src/admin.rs:87:overview",
         "path": "infera-social/src/admin.rs",
@@ -4994,6 +5051,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5012,7 +5070,7 @@
           }
         ]
       },
-      "source_checksum": "4551b5ad916ce8fed0d3f357d4be8a40d7eb3cc32aff5eb87ed500bb2876fdac",
+      "source_checksum": "c6b1f991ddc5ac604eb6ef4704077863d526a3980c6fede8906a11a89634a570",
       "handler": {
         "ref": "infera-social/src/admin.rs:106:posts",
         "path": "infera-social/src/admin.rs",
@@ -5081,6 +5139,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5099,7 +5158,7 @@
           }
         ]
       },
-      "source_checksum": "1383f5a15ab4997b4920f545b287ca50e5fa8bca83341512635741d73b252015",
+      "source_checksum": "255b6de2a2f115cb4c7c37248297c6012309adb804d2973e4469e52ba363fb59",
       "handler": {
         "ref": "infera-social/src/admin.rs:135:post_detail",
         "path": "infera-social/src/admin.rs",
@@ -5164,6 +5223,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5182,7 +5242,7 @@
           }
         ]
       },
-      "source_checksum": "bb98c836106e715259974847e8b7a0b43c7f2ad3e626c9183bafbc25fccf0931",
+      "source_checksum": "68d987f3250675f77d37d463c8795e7cf97061ffa00ffd96d0bd117514bfd0bd",
       "handler": {
         "ref": "infera-social/src/admin.rs:154:comments",
         "path": "infera-social/src/admin.rs",
@@ -5251,6 +5311,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5269,7 +5330,7 @@
           }
         ]
       },
-      "source_checksum": "b18cbae454691a0e30b629a1b2acc133f12e93e8906f58fb20357940383ebef6",
+      "source_checksum": "ce8a37f770d09e4ee1a6521a00cafcae06fd306a9315902e97ca0bf8fff8838e",
       "handler": {
         "ref": "infera-social/src/admin.rs:170:comment_detail",
         "path": "infera-social/src/admin.rs",
@@ -5324,6 +5385,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5342,7 +5404,7 @@
           }
         ]
       },
-      "source_checksum": "8540fb6a43038af419d9e0c2fe72f2b45c027e282da811abcccbb870da74b131",
+      "source_checksum": "6106385a24b167b010dfebc630e9a8a9bc2352517dd81d676da3240c38e3451c",
       "handler": {
         "ref": "infera-social/src/admin.rs:178:media",
         "path": "infera-social/src/admin.rs",
@@ -5410,6 +5472,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5428,7 +5491,7 @@
           }
         ]
       },
-      "source_checksum": "6ae55eab83809f5eeca02f643ec2ab9a008efc154dadd7fe305feaa4722efc1f",
+      "source_checksum": "6a5bc12498e4ffd79f4c1e444e39b0b3b34a132ab490077e8115774d37d66863",
       "handler": {
         "ref": "infera-social/src/admin.rs:408:categories",
         "path": "infera-social/src/admin.rs",
@@ -5489,6 +5552,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5507,7 +5571,7 @@
           }
         ]
       },
-      "source_checksum": "fe7872d53958973d952d66a4457513e3746766b023753051df6897c1735e0658",
+      "source_checksum": "82d7061c7e3356b6cbd3ffe52e9bb46c7eb0cb9e346f92b9085f6ae2f7a0c41f",
       "handler": {
         "ref": "infera-social/src/admin.rs:430:create_category",
         "path": "infera-social/src/admin.rs",
@@ -5579,6 +5643,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5597,7 +5662,7 @@
           }
         ]
       },
-      "source_checksum": "c7bbd8432da21fa5f954c1c1e52b6f165f43f141e21bde3b4fd30ab8569aa3cc",
+      "source_checksum": "82a48a268604e66bf748384780989fc65c09f8ccbb80ddb0d80a8b74e6e7c32c",
       "handler": {
         "ref": "infera-social/src/admin.rs:417:category_detail",
         "path": "infera-social/src/admin.rs",
@@ -5663,6 +5728,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5681,7 +5747,7 @@
           }
         ]
       },
-      "source_checksum": "c3f6c241ff4b3c55dc4bb70587afe8f17b00acfc5257937d53e2a7c1e3a63bcf",
+      "source_checksum": "3553c547a999de22593280993f6dbde9e699549f9c0305f1414acd503507350b",
       "handler": {
         "ref": "infera-social/src/admin.rs:439:update_category",
         "path": "infera-social/src/admin.rs",
@@ -5756,6 +5822,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5774,7 +5841,7 @@
           }
         ]
       },
-      "source_checksum": "72a43954dfb0f66572f7cf2a3ce77ec23900cf55451257a10bc815e84477e019",
+      "source_checksum": "67716c6bf6dc20ad4f6729b71ac4eb22699b3e8c56fdac7cdfbd216653ba6707",
       "handler": {
         "ref": "infera-social/src/admin.rs:450:archive_category",
         "path": "infera-social/src/admin.rs",
@@ -5834,6 +5901,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5852,7 +5920,7 @@
           }
         ]
       },
-      "source_checksum": "2580640b923669c9d7fd46c48da381e81a8baeaac88d55932275be26f55439fa",
+      "source_checksum": "f9450c403a1bb8d05b8105a91be55c4e5318d67cb51c8f8c7795ca6890e309ef",
       "handler": {
         "ref": "infera-social/src/admin.rs:460:policies",
         "path": "infera-social/src/admin.rs",
@@ -5903,6 +5971,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -5921,7 +5990,7 @@
           }
         ]
       },
-      "source_checksum": "4ab2e61389a2b5a73a5ba8eb3bcd17b418259ea524fa16edb58f095d0b3375e5",
+      "source_checksum": "d0c39e2278f79a70f5d5eab7b25422e0dd4a82ded10491c7dcaf32323880b3f3",
       "handler": {
         "ref": "infera-social/src/admin.rs:512:create_policy",
         "path": "infera-social/src/admin.rs",
@@ -5990,6 +6059,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6008,7 +6078,7 @@
           }
         ]
       },
-      "source_checksum": "e6e40dd3026c6d13a3eb75b585db799048fa7c669ece87f034eb5076ecba4fab",
+      "source_checksum": "ab46e12ce9addef0e20f35dbe5cd8524fb69e0e13af29d4c4adf1788242f1563",
       "handler": {
         "ref": "infera-social/src/admin.rs:471:policy_detail",
         "path": "infera-social/src/admin.rs",
@@ -6064,6 +6134,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6082,7 +6153,7 @@
           }
         ]
       },
-      "source_checksum": "f49ad50467be638c8005091fa45d2a803159a5d762d6459d53e9b0b2b249c410",
+      "source_checksum": "3136441d7b8420d2713c7cee94f5344c262d4f504501fbae1d89b6e9c8d05529",
       "handler": {
         "ref": "infera-social/src/admin.rs:524:update_policy",
         "path": "infera-social/src/admin.rs",
@@ -6155,6 +6226,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6173,7 +6245,7 @@
           }
         ]
       },
-      "source_checksum": "eb329b2a427f652bd82bb2ce7167d623f7ca66387607396f31cddd4febfe79b1",
+      "source_checksum": "aa70370c08c97ffb237e9c2805a704f460336328ea2b7e9d7ea11db50fb3179b",
       "handler": {
         "ref": "infera-social/src/admin.rs:540:publish_policy",
         "path": "infera-social/src/admin.rs",
@@ -6227,6 +6299,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6245,7 +6318,7 @@
           }
         ]
       },
-      "source_checksum": "697e8f01cda69e3396d8d361c4038a3a9ad33a732f2f6ac0adf748f032877159",
+      "source_checksum": "6ceac4cecca74e3ad94c06dd5d3e6286585ab99ae7e97b475edb3eb48ea235e6",
       "handler": {
         "ref": "infera-social/src/admin.rs:556:moderation_queue",
         "path": "infera-social/src/admin.rs",
@@ -6306,6 +6379,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6324,7 +6398,7 @@
           }
         ]
       },
-      "source_checksum": "e329db6ab0e398c0401b4698b6a08ff7e5a62426d0446250ed7d77ff3bd2b57e",
+      "source_checksum": "ef41ca6bf67200bee0119c32bad5cd5cdd40e6dc8786a03a858d549258f92eb0",
       "handler": {
         "ref": "infera-social/src/admin.rs:194:reports",
         "path": "infera-social/src/admin.rs",
@@ -6393,6 +6467,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6411,7 +6486,7 @@
           }
         ]
       },
-      "source_checksum": "83592139156334efcfdb484307b0c5b74cf8640b217f1e2be58735d11e11d737",
+      "source_checksum": "a0911aa48c787ab2e91c8495fc4232f1a2e5aabbf42020f0b61f42fa72a7e1ac",
       "handler": {
         "ref": "infera-social/src/admin.rs:210:report_detail",
         "path": "infera-social/src/admin.rs",
@@ -6466,6 +6541,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6484,7 +6560,7 @@
           }
         ]
       },
-      "source_checksum": "773802992a47f7964146279fd9aae3b084accea30ad5baa9a13c2453cd41d778",
+      "source_checksum": "ce607152d7b1d632d89a4782146e719b3ce5ffdbfea255db38bda96784c7e68b",
       "handler": {
         "ref": "infera-social/src/admin.rs:218:claims",
         "path": "infera-social/src/admin.rs",
@@ -6553,6 +6629,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6571,7 +6648,7 @@
           }
         ]
       },
-      "source_checksum": "3cbab2e720f9b26da6f9a5c3fa4490889392e658aa753cc1d56b5172989cdb9e",
+      "source_checksum": "02a3c3619bb576db2b1e3d5797371d8a0cce27377f669755ae1767a088971807",
       "handler": {
         "ref": "infera-social/src/admin.rs:234:claim_detail",
         "path": "infera-social/src/admin.rs",
@@ -6627,6 +6704,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6645,7 +6723,7 @@
           }
         ]
       },
-      "source_checksum": "212b1d5c69ca6d635a1b141572448ce7d9df10c10d4763932ba2a90b4a545f32",
+      "source_checksum": "577b44fb5c0c8621badc384b82eff81c3f6726a07db7bc3057acd2fbe8fd44a5",
       "handler": {
         "ref": "infera-social/src/admin.rs:565:approve_claim",
         "path": "infera-social/src/admin.rs",
@@ -6722,6 +6800,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6740,7 +6819,7 @@
           }
         ]
       },
-      "source_checksum": "08353087a184bc7de8b07eb5e01d057fe9c3011265edff119f3350d4447f0e60",
+      "source_checksum": "b4a5aa4384d76794ace8425482c8761510fec74d2ddd634616eb8e20c501bfd2",
       "handler": {
         "ref": "infera-social/src/admin.rs:576:reject_claim",
         "path": "infera-social/src/admin.rs",
@@ -6816,6 +6895,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6834,7 +6914,7 @@
           }
         ]
       },
-      "source_checksum": "4e4ea6e244ea75d9b72a65e6bcb365fbe1c69b37b39a916c705d78555a480222",
+      "source_checksum": "d25a157cf9c87de2bd495791aad4f34784dd908a531fa7a50ccaae81d4cb7b46",
       "handler": {
         "ref": "infera-social/src/admin.rs:242:bounties",
         "path": "infera-social/src/admin.rs",
@@ -6903,6 +6983,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6921,7 +7002,7 @@
           }
         ]
       },
-      "source_checksum": "2b559083d693ecde4e34259e3c036369812057fe04b5dadcd569fccfbbc4c8c3",
+      "source_checksum": "504b0eab1691b3114164adeba42ab13b4b27ce29f38fbd2181fb6e658ba30327",
       "handler": {
         "ref": "infera-social/src/admin.rs:258:bounty_detail",
         "path": "infera-social/src/admin.rs",
@@ -6976,6 +7057,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -6994,7 +7076,7 @@
           }
         ]
       },
-      "source_checksum": "9afb5f969bb4a737a22ab225bac3e9191d643f4937faebb65a56cd1a4527f8f8",
+      "source_checksum": "4feb21ff905737e2977c79c00470556a228f819870d4e798422193dbd4b31bd5",
       "handler": {
         "ref": "infera-social/src/admin.rs:587:reveal_location",
         "path": "infera-social/src/admin.rs",
@@ -7066,6 +7148,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7084,7 +7167,7 @@
           }
         ]
       },
-      "source_checksum": "6eceecbc209b55f7e073e1c9b6366043fc3a75f6006940b7a9a3df26865cab45",
+      "source_checksum": "4a466b05e8e516f876cac9902771bbfc5a9149fe42786979788fb1ac8cab25b2",
       "handler": {
         "ref": "infera-social/src/admin.rs:613:actors",
         "path": "infera-social/src/admin.rs",
@@ -7153,6 +7236,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7171,7 +7255,7 @@
           }
         ]
       },
-      "source_checksum": "894dc5a3a2c03fd0f9ff3eca93a8c21b5805132f249c0c64ca413ea9a0a7ce55",
+      "source_checksum": "e7a524029f999ea71dc54c70663fa4b4d595eab03531937926a4c91d289aa330",
       "handler": {
         "ref": "infera-social/src/admin.rs:629:actor_detail",
         "path": "infera-social/src/admin.rs",
@@ -7226,6 +7310,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7244,7 +7329,7 @@
           }
         ]
       },
-      "source_checksum": "c10f6866a58b400a64808cfa276c28e05116060c47174df9a83bdcdbb9311070",
+      "source_checksum": "34e056bc625b729923214f55af44ea224a17abeb8602dcde3b0a3aea1692d9a1",
       "handler": {
         "ref": "infera-social/src/admin.rs:266:restrictions",
         "path": "infera-social/src/admin.rs",
@@ -7313,6 +7398,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7331,7 +7417,7 @@
           }
         ]
       },
-      "source_checksum": "36fa2588b282ede2184b12d8bd482a23a3d531d730a8d634b3bbf0a60d50ab79",
+      "source_checksum": "e9aec5b88179f4f58db2043e224b6c23d1a732cf06d20539604f5213e8906e01",
       "handler": {
         "ref": "infera-social/src/admin.rs:638:create_restriction",
         "path": "infera-social/src/admin.rs",
@@ -7401,6 +7487,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7419,7 +7506,7 @@
           }
         ]
       },
-      "source_checksum": "2b611d141bcc26f5f20fc4c795fdf228acfb636ba24be6c8e697f6c7ce9059cd",
+      "source_checksum": "750a43cc5ff5aa8aa2ee92db200a005862337347f80280d5a24f2acfb7e286f0",
       "handler": {
         "ref": "infera-social/src/admin.rs:668:revoke_restriction",
         "path": "infera-social/src/admin.rs",
@@ -7484,6 +7571,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7502,7 +7590,7 @@
           }
         ]
       },
-      "source_checksum": "ee7533a48d14b7306696616a10b2243ec3e193afb4d54a9ff79142795a25020b",
+      "source_checksum": "8332b682a0e8eef10f2b904ca417709cb2472198a5268a65b19fed70ba26177b",
       "handler": {
         "ref": "infera-social/src/admin.rs:686:analytics",
         "path": "infera-social/src/admin.rs",
@@ -7553,6 +7641,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7571,7 +7660,7 @@
           }
         ]
       },
-      "source_checksum": "fbb5a230ae464b5e0f26f5e3a155053e1f57c598cf5873f750191737a2a5500f",
+      "source_checksum": "51b5972c56133d2c557b2aad86a7e3fd008f5d1251ec1fbe8ba6ea89fcc2ceab",
       "handler": {
         "ref": "infera-social/src/admin.rs:282:audit",
         "path": "infera-social/src/admin.rs",
@@ -7640,6 +7729,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7658,7 +7748,7 @@
           }
         ]
       },
-      "source_checksum": "b6e0a10895f876b417990593f0272ef689f66b900152327c1521057abb2fa198",
+      "source_checksum": "b71cf6a1020556688c95b95c030859a4f71c107d51e222f4e19f3290a645733e",
       "handler": {
         "ref": "infera-social/src/admin.rs:298:integrations",
         "path": "infera-social/src/admin.rs",
@@ -7727,6 +7817,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7745,7 +7836,7 @@
           }
         ]
       },
-      "source_checksum": "c98abb16e7e3e991c01171a0410c22847c095f953c3a11a902170d1b99dc1f1a",
+      "source_checksum": "743766c7f27c0c33ec8f0a72a1c446354a3941088194d6de4ec13e9be55a4102",
       "handler": {
         "ref": "infera-social/src/admin.rs:314:integration_detail",
         "path": "infera-social/src/admin.rs",
@@ -7801,6 +7892,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7819,7 +7911,7 @@
           }
         ]
       },
-      "source_checksum": "88771f65402ad5088104ef8824dc99771066525c2c44fefa220d4d3e5b1cf0e5",
+      "source_checksum": "12699049bc5435c792616434ce9f6e422270936d956bcbafd41dc64de4ed5b1c",
       "handler": {
         "ref": "infera-social/src/admin.rs:694:replay_integration",
         "path": "infera-social/src/admin.rs",
@@ -7884,6 +7976,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "admin",
+        "handler_source": "infera-social/src/admin.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7902,7 +7995,7 @@
           }
         ]
       },
-      "source_checksum": "f5fac21fe7e707d4e3d135953b032a0c3a124e23e6f7e7d8cc53bb83a8247bdf",
+      "source_checksum": "e3408f353f6d59b8aa26b62c79b2c688fd0bb85008f5c7efb9f1eb29c447e9c5",
       "handler": {
         "ref": "infera-social/src/admin.rs:714:settings",
         "path": "infera-social/src/admin.rs",
@@ -7953,6 +8046,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -7966,7 +8060,7 @@
           }
         ]
       },
-      "source_checksum": "f2ab950704826eb962a5a33c1476e387b4268d0532757346ee67326a4c9bf7aa",
+      "source_checksum": "969ce6b168b012fffb73b7232b69a11db4757401782155c27222188e4d3c83ff",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:627:list_post_comments",
         "path": "infera-social/src/api/routes.rs",
@@ -8032,6 +8126,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -8045,7 +8140,7 @@
           }
         ]
       },
-      "source_checksum": "4d91e061ac04b3a9190b2d77a06d03d940bf9193be2a6840229099a4417b3d10",
+      "source_checksum": "9db7c2383b89576e3375388b2a187e4ded7f0589831192e4823831dbb06b85df",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:638:create_post_comment",
         "path": "infera-social/src/api/routes.rs",
@@ -8137,6 +8232,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -8150,7 +8246,7 @@
           }
         ]
       },
-      "source_checksum": "d520ee3fb10e7909ab60c560a84217045ac82a8d7ae1667b6b112e29b6055f04",
+      "source_checksum": "183ed705dde2172a9be3469bb5a87c22a4211051846de313c27547b6caaf5544",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:672:post_reactions",
         "path": "infera-social/src/api/routes.rs",
@@ -8223,6 +8319,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -8236,7 +8333,7 @@
           }
         ]
       },
-      "source_checksum": "319b707df7c98a1c73b425facce7257db2b4d9ea2bcc823730c456dab064e51a",
+      "source_checksum": "4c17c1c290dbcb3e5c4e2cb1d10e5c855a713b3ef958d2b101bf7268289c6ade",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:694:set_post_reaction",
         "path": "infera-social/src/api/routes.rs",
@@ -8320,6 +8417,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-social/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-social/src/router.rs",
@@ -8333,7 +8431,7 @@
           }
         ]
       },
-      "source_checksum": "785788f230550adb1f169f3ba3f75e65f4942f61b63ecc32863bf5151ae9b79a",
+      "source_checksum": "b311512174f9099095359383d86c6325acd4274e12a98442266ae4e7fd376829",
       "handler": {
         "ref": "infera-social/src/api/routes.rs:762:remove_post_reaction",
         "path": "infera-social/src/api/routes.rs",
@@ -8509,6 +8607,7 @@
         "handlerModule": "api::routes",
         "source": "infera-social/src/api/routes.rs",
         "permissions": [],
+        "handler_source": "infera-social/src/api/routes.rs",
         "response": "SessionIdentity",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -8534,6 +8633,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -8559,6 +8659,7 @@
         "permissions": [
           "social:category:manage"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "CreateCategory",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8585,6 +8686,7 @@
         "permissions": [
           "social:post:create"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -8610,6 +8712,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "raw-response",
         "mounted_via": [
@@ -8635,6 +8738,7 @@
         "permissions": [
           "social:category:manage"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "UpdateCategory",
         "pathParam": "Uuid",
         "response": "Value",
@@ -8662,6 +8766,7 @@
         "permissions": [
           "social:category:manage"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -8687,6 +8792,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8713,6 +8819,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "query": "FeedQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8739,6 +8846,7 @@
         "permissions": [
           "social:post:create"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "CreatePost",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8765,6 +8873,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -8790,6 +8899,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "SetFeedLocation",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8816,6 +8926,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "responseEnvelope": "requires_review",
         "mounted_via": [
           {
@@ -8840,6 +8951,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "query": "FeedQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8866,6 +8978,7 @@
         "permissions": [
           "social:analytics:read_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "query": "AnalyticsQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8892,6 +9005,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -8917,6 +9031,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -8943,6 +9058,7 @@
         "permissions": [
           "social:post:update_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "UpdatePost",
         "pathParam": "Uuid",
         "response": "Value",
@@ -8970,6 +9086,7 @@
         "permissions": [
           "social:post:delete_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -8995,6 +9112,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9021,6 +9139,7 @@
         "permissions": [
           "social:location:navigate"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "NavigationAccessInput",
         "pathParam": "Uuid",
         "responseEnvelope": "raw-response",
@@ -9047,6 +9166,7 @@
         "permissions": [
           "social:claim:create"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "CreateClaim",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9074,6 +9194,7 @@
         "permissions": [
           "social:post:update_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9100,6 +9221,7 @@
         "permissions": [
           "social:claim:update_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9126,6 +9248,7 @@
         "permissions": [
           "social:claim:select_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9152,6 +9275,7 @@
         "permissions": [
           "social:claim:consent"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "ContactConsentInput",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9179,6 +9303,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9205,6 +9330,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "query": "ClaimListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9231,6 +9357,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "query": "ClaimListQuery",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9258,6 +9385,7 @@
         "permissions": [
           "social:integrations:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "FundingEventInput",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9284,6 +9412,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9310,6 +9439,7 @@
         "permissions": [
           "social:comment:create"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "CreateComment",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9337,6 +9467,7 @@
         "permissions": [
           "social:post:update_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9363,6 +9494,7 @@
         "permissions": [
           "social:bookmark:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9388,6 +9520,7 @@
         "permissions": [
           "social:bookmark:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9413,6 +9546,7 @@
         "permissions": [
           "social:view:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "RecordView",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9440,6 +9574,7 @@
         "permissions": [
           "social:share:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "ShareEvent",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
@@ -9466,6 +9601,7 @@
         "permissions": [
           "social:analytics:read_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "query": "AnalyticsQuery",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9493,6 +9629,7 @@
         "permissions": [
           "social:comment:update_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "UpdateComment",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9520,6 +9657,7 @@
         "permissions": [
           "social:comment:delete_own"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9545,6 +9683,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "ReactionSummary",
         "responseEnvelope": "api",
@@ -9571,6 +9710,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "SetReaction",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9598,6 +9738,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9623,6 +9764,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "ReactionSummary",
         "responseEnvelope": "api",
@@ -9649,6 +9791,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "SetReaction",
         "pathParam": "Uuid",
         "response": "Value",
@@ -9676,6 +9819,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9701,6 +9845,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9727,6 +9872,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9752,6 +9898,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9778,6 +9925,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -9803,6 +9951,7 @@
         "permissions": [
           "social:report:create"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "CreateReport",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9830,6 +9979,7 @@
           "social:moderate",
           "social:moderation:review"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -9856,6 +10006,7 @@
           "social:moderate",
           "social:moderation:review"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "query": "ModerationAuditQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9883,6 +10034,7 @@
           "social:moderate",
           "social:moderation:review"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "ModerateTarget",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9909,6 +10061,7 @@
         "permissions": [
           "social:admin"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "legacy::LegacyImportRequest",
         "response": "legacy::LegacyImportReport",
         "responseEnvelope": "api",
@@ -9935,6 +10088,7 @@
         "permissions": [
           "social:panel:view"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -9965,6 +10119,7 @@
         "permissions": [
           "social:content:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -9996,6 +10151,7 @@
         "permissions": [
           "social:content:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10027,6 +10183,7 @@
         "permissions": [
           "social:content:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10058,6 +10215,7 @@
         "permissions": [
           "social:content:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10089,6 +10247,7 @@
         "permissions": [
           "social:content:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10120,6 +10279,7 @@
         "permissions": [
           "social:panel:view"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -10150,6 +10310,7 @@
         "permissions": [
           "social:categories:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "CreateCategory",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10181,6 +10342,7 @@
         "permissions": [
           "social:panel:view"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10212,6 +10374,7 @@
         "permissions": [
           "social:categories:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "UpdateCategory",
         "pathParam": "Uuid",
         "response": "Value",
@@ -10244,6 +10407,7 @@
         "permissions": [
           "social:categories:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -10274,6 +10438,7 @@
         "permissions": [
           "social:panel:view"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -10304,6 +10469,7 @@
         "permissions": [
           "social:capabilities:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "PolicyInput",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10335,6 +10501,7 @@
         "permissions": [
           "social:panel:view"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10366,6 +10533,7 @@
         "permissions": [
           "social:capabilities:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "PolicyInput",
         "pathParam": "Uuid",
         "response": "Value",
@@ -10398,6 +10566,7 @@
         "permissions": [
           "social:capabilities:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10429,6 +10598,7 @@
         "permissions": [
           "social:moderation:review"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -10459,6 +10629,7 @@
         "permissions": [
           "social:reports:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10490,6 +10661,7 @@
         "permissions": [
           "social:reports:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10521,6 +10693,7 @@
         "permissions": [
           "social:claims:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10552,6 +10725,7 @@
         "permissions": [
           "social:claims:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10583,6 +10757,7 @@
         "permissions": [
           "social:claims:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "AdminReason",
         "pathParam": "Uuid",
         "response": "Value",
@@ -10615,6 +10790,7 @@
         "permissions": [
           "social:claims:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "AdminReason",
         "pathParam": "Uuid",
         "response": "Value",
@@ -10647,6 +10823,7 @@
         "permissions": [
           "social:funding:review"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10678,6 +10855,7 @@
         "permissions": [
           "social:funding:review"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10709,6 +10887,7 @@
         "permissions": [
           "social:location:reveal"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "AdminReason",
         "pathParam": "Uuid",
         "responseEnvelope": "raw-response",
@@ -10740,6 +10919,7 @@
         "permissions": [
           "social:content:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10771,6 +10951,7 @@
         "permissions": [
           "social:content:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10802,6 +10983,7 @@
         "permissions": [
           "social:actors:restrict"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10833,6 +11015,7 @@
         "permissions": [
           "social:actors:restrict"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "CreateRestriction",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10864,6 +11047,7 @@
         "permissions": [
           "social:actors:restrict"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "AdminReason",
         "pathParam": "Uuid",
         "response": "Value",
@@ -10896,6 +11080,7 @@
         "permissions": [
           "social:analytics:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -10926,6 +11111,7 @@
         "permissions": [
           "social:audit:read"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10957,6 +11143,7 @@
         "permissions": [
           "social:integrations:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "query": "AdminListQuery",
         "response": "Value",
         "responseEnvelope": "api",
@@ -10988,6 +11175,7 @@
         "permissions": [
           "social:integrations:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -11019,6 +11207,7 @@
         "permissions": [
           "social:integrations:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "body": "IntegrationReplay",
         "pathParam": "Uuid",
         "response": "Value",
@@ -11051,6 +11240,7 @@
         "permissions": [
           "social:settings:manage"
         ],
+        "handler_source": "infera-social/src/admin.rs",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11081,6 +11271,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Value",
         "responseEnvelope": "api",
@@ -11107,6 +11298,7 @@
         "permissions": [
           "social:comment:create"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "CreateComment",
         "pathParam": "Uuid",
         "response": "Value",
@@ -11134,6 +11326,7 @@
         "permissions": [
           "social:read"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "ReactionSummary",
         "responseEnvelope": "api",
@@ -11160,6 +11353,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "body": "SetReaction",
         "pathParam": "Uuid",
         "response": "Value",
@@ -11187,6 +11381,7 @@
         "permissions": [
           "social:reaction:write"
         ],
+        "handler_source": "infera-social/src/api/routes.rs",
         "pathParam": "Uuid",
         "responseEnvelope": "requires_review",
         "mounted_via": [
@@ -11209,17 +11404,110 @@
     ]
   },
   "working_drift": {
-    "added": [],
+    "added": [
+      "GET /health"
+    ],
     "absent": [],
-    "changed": [],
-    "extraction_errors": [
-      {
-        "status": "failed",
-        "artifact_path": "working-contract-extraction.stderr.log",
-        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
-        "exit_code": 1
-      }
-    ]
+    "changed": [
+      "POST /api/v1/admin/import/modules",
+      "GET /api/v1/admin/social/actors",
+      "GET /api/v1/admin/social/actors/{id}",
+      "GET /api/v1/admin/social/analytics",
+      "GET /api/v1/admin/social/audit",
+      "GET /api/v1/admin/social/bounties",
+      "GET /api/v1/admin/social/bounties/{id}",
+      "GET /api/v1/admin/social/capability-policies",
+      "POST /api/v1/admin/social/capability-policies",
+      "GET /api/v1/admin/social/capability-policies/{id}",
+      "PATCH /api/v1/admin/social/capability-policies/{id}",
+      "POST /api/v1/admin/social/capability-policies/{id}/publish",
+      "GET /api/v1/admin/social/categories",
+      "POST /api/v1/admin/social/categories",
+      "DELETE /api/v1/admin/social/categories/{id}",
+      "GET /api/v1/admin/social/categories/{id}",
+      "PATCH /api/v1/admin/social/categories/{id}",
+      "GET /api/v1/admin/social/claims",
+      "GET /api/v1/admin/social/claims/{id}",
+      "POST /api/v1/admin/social/claims/{id}/approve",
+      "POST /api/v1/admin/social/claims/{id}/reject",
+      "GET /api/v1/admin/social/comments",
+      "GET /api/v1/admin/social/comments/{id}",
+      "GET /api/v1/admin/social/integrations",
+      "GET /api/v1/admin/social/integrations/{id}",
+      "POST /api/v1/admin/social/integrations/{id}/replay",
+      "POST /api/v1/admin/social/locations/{post_id}/reveal",
+      "GET /api/v1/admin/social/media",
+      "GET /api/v1/admin/social/moderation/queue",
+      "GET /api/v1/admin/social/overview",
+      "GET /api/v1/admin/social/posts",
+      "GET /api/v1/admin/social/posts/{id}",
+      "GET /api/v1/admin/social/reports",
+      "GET /api/v1/admin/social/reports/{id}",
+      "GET /api/v1/admin/social/restrictions",
+      "POST /api/v1/admin/social/restrictions",
+      "POST /api/v1/admin/social/restrictions/{id}/revoke",
+      "GET /api/v1/admin/social/settings",
+      "GET /api/v1/auth/self",
+      "GET /api/v1/categories",
+      "POST /api/v1/categories",
+      "DELETE /api/v1/categories/{id}",
+      "PATCH /api/v1/categories/{id}",
+      "GET /api/v1/categories/{id}/capability-policy",
+      "GET /api/v1/claims/{id}",
+      "PUT /api/v1/claims/{id}/contact-consent",
+      "POST /api/v1/claims/{id}/select",
+      "POST /api/v1/claims/{id}/withdraw",
+      "DELETE /api/v1/comments/{id}",
+      "PATCH /api/v1/comments/{id}",
+      "DELETE /api/v1/comments/{id}/like",
+      "PUT /api/v1/comments/{id}/like",
+      "DELETE /api/v1/comments/{id}/reaction",
+      "GET /api/v1/comments/{id}/reaction",
+      "PUT /api/v1/comments/{id}/reaction",
+      "GET /api/v1/comments/post/{id}",
+      "POST /api/v1/comments/post/{id}",
+      "POST /api/v1/integrations/funding-events",
+      "GET /api/v1/me/analytics",
+      "GET /api/v1/me/bookmarks",
+      "GET /api/v1/me/claims",
+      "DELETE /api/v1/me/feed-location",
+      "GET /api/v1/me/feed-location",
+      "PUT /api/v1/me/feed-location",
+      "GET /api/v1/me/posts",
+      "GET /api/v1/me/posts/{id}/claims",
+      "GET /api/v1/media/{id}",
+      "POST /api/v1/media/uploads",
+      "POST /api/v1/moderation/actions",
+      "GET /api/v1/moderation/audit",
+      "GET /api/v1/moderation/queue",
+      "GET /api/v1/posts",
+      "POST /api/v1/posts",
+      "DELETE /api/v1/posts/{id}",
+      "GET /api/v1/posts/{id}",
+      "PATCH /api/v1/posts/{id}",
+      "GET /api/v1/posts/{id}/analytics",
+      "DELETE /api/v1/posts/{id}/bookmark",
+      "PUT /api/v1/posts/{id}/bookmark",
+      "POST /api/v1/posts/{id}/cancel",
+      "GET /api/v1/posts/{id}/capabilities",
+      "POST /api/v1/posts/{id}/claims",
+      "GET /api/v1/posts/{id}/comments",
+      "POST /api/v1/posts/{id}/comments",
+      "DELETE /api/v1/posts/{id}/like",
+      "PUT /api/v1/posts/{id}/like",
+      "POST /api/v1/posts/{id}/navigation-access",
+      "DELETE /api/v1/posts/{id}/reaction",
+      "GET /api/v1/posts/{id}/reaction",
+      "PUT /api/v1/posts/{id}/reaction",
+      "POST /api/v1/posts/{id}/resubmit",
+      "POST /api/v1/posts/{id}/share-events",
+      "POST /api/v1/posts/{id}/views",
+      "DELETE /api/v1/reactions/post/{id}",
+      "GET /api/v1/reactions/post/{id}",
+      "POST /api/v1/reactions/post/{id}",
+      "POST /api/v1/reports"
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {

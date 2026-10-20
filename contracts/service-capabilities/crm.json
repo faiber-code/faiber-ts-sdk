@@ -12,10 +12,12 @@
     "src/router.rs"
   ],
   "canonical_revision": "1addec42a400ba980b6547060cdcb4d347a7bbd0",
-  "sdk_source_revision": "178f5de3c68fab387abd5294aeceb8dd1843084f",
+  "sdk_source_revision": "e5772f8bdeb9df8d17d004aa54b0bc8f5d37dcb4",
   "working_revision": "6c763c989216fbecd6cfdb4c98f1067c09d17507",
   "working_changes": [
-    "M migration/src/lib.rs",
+    "M Cargo.lock",
+    " M Cargo.toml",
+    " M migration/src/lib.rs",
     " M src/api/operations.rs",
     " M src/api/routes.rs",
     " M src/common/auth.rs",
@@ -24,6 +26,7 @@
     " M src/router.rs",
     "?? migration/src/m20261019_000008_summary_activity_outbox.rs",
     "?? migration/src/summary_activity_outbox.sql",
+    "?? shared/",
     "?? src/summary_aggregates.sql",
     "?? src/summary_evidence.rs",
     "?? src/summary_evidence.sql"
@@ -492,11 +495,12 @@
       "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
     }
   ],
+  "protocol_mounts": [],
   "embedded_source_gaps": {
     "canonical": [],
     "working": []
   },
-  "working_source_tree_checksum": "0a9ccaa52d8a08c6f00fe33089acd12b04e873c24f05fdbd503b9a95f72bf8d0",
+  "working_source_tree_checksum": "9f48be4795250014a39bbbe15e973155f80a2251e6b6f8cc926eec72654f04d8",
   "working_source_files": [
     {
       "path": "infera-crm/src/api/agentic.rs",
@@ -907,6 +911,66 @@
       "checksum": "15a9f16e37786898e26e682892b5d08c4ae8de4965b27a996260751d7e113ba2"
     },
     {
+      "path": "infera-crm/shared/infera-summary-sdk/Cargo.toml",
+      "checksum": "f8f49adcda1bbb77fc5e853e53ca05665c4a9dbda098af238cc425f8079b81e6"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/examples/generate_keys.rs",
+      "checksum": "f4265ebbcd356187299cd6922e9636c7ce08963d7a4097ec2859646fe1be1933"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/api.rs",
+      "checksum": "80d5512679333b5dfd0d0b50070f590a1049b8d10c6937366092d271f94ca3de"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/catalog.rs",
+      "checksum": "28f3b4b57b2c2dd7bc1309af471c6514afe1ca8fe70e3727735afc257b18d2e1"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/config.rs",
+      "checksum": "63b94a830ac8c0af99fc86fc71953659bda67c83c5f52158cd74b5d31a1f0645"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/evidence.rs",
+      "checksum": "b67c8d9ecea944f57663ab3d9ec8686f3d92511bea4531f5979050738275ee09"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/grant.rs",
+      "checksum": "4ec08323843172e92a6ee63e1e9f588b03224b1f79046599ff3780de2d7b220c"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/lib.rs",
+      "checksum": "3e48c26e570d67b61b03c8a5a937861ebade0a1e2b155d790da35044052f00dd"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/metric.rs",
+      "checksum": "db361bceb5387c75b1da6f0af699cb78c24504e2574d7fd99c1895ef29365d32"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/outbox.rs",
+      "checksum": "2bc0a036e1f6831ce079d9045949d2af99ea064b424e929a776e4a179b9429c8"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/outbox.sql",
+      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/query.rs",
+      "checksum": "b158b3219672889c9e5bd7ff2290dd928e9090cd6c7b4c7e07b1c896bd64763e"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/result.rs",
+      "checksum": "46600a6ce2347c0dd621a45972fa94ae624497b2d1b6f02c37f0d5a72b24f981"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/server.rs",
+      "checksum": "edadbfe69af77f695443631c04e26024046ee521ad402669596f0fa372387738"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/tests/mcp_transport.rs",
+      "checksum": "1eb543cda949cf4722d4856c316d3d32ccb9ca45b0dd3284cc15c8113ad78ee4"
+    },
+    {
       "path": "infera-crm/migration/src/lib.rs",
       "checksum": "dfa8209cd5165b2289e886ba2ab89c65e3c6936f259111332e145ff9acfc0a17"
     },
@@ -969,11 +1033,6 @@
     {
       "path": "infera-crm/migration/Cargo.toml",
       "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
-    },
-    {
-      "path": "infera-crm/shared/infera-summary-sdk/src/outbox.sql",
-      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a",
-      "embedded_by": "infera-crm/migration/src/m20261019_000008_summary_activity_outbox.rs"
     }
   ],
   "operations": [
@@ -990,6 +1049,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-crm/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -998,7 +1058,7 @@
           }
         ]
       },
-      "source_checksum": "7aecc1dd74d753cd994c12821a899030d404c903563d100bf2b06091fde01625",
+      "source_checksum": "193310d3b30639450dd23b24074debf811c5ef316e4d00c32c5d7ea2893fc919",
       "handler": {
         "ref": "infera-crm/src/router.rs:123:status_route",
         "path": "infera-crm/src/router.rs",
@@ -1040,6 +1100,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-crm/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1048,7 +1109,7 @@
           }
         ]
       },
-      "source_checksum": "eb1fc48971074cfa95f7e2d481f083af8a077caa67ad85b730aa5cca584a403c",
+      "source_checksum": "2f38d63c21ee432370f153d3a55f8c661ec967541c647edadec6a2793d1e0c02",
       "handler": {
         "ref": "infera-crm/src/router.rs:123:status_route",
         "path": "infera-crm/src/router.rs",
@@ -1090,6 +1151,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-crm/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1098,7 +1160,7 @@
           }
         ]
       },
-      "source_checksum": "7ee61f90970fe0c1f40d02f09c1a1f1af12f6f39d21bb680597e2ccf519ef23a",
+      "source_checksum": "2a467c3a8d43cfc38e62271730342034e74d47b79d21dc15815ad44507d00982",
       "handler": {
         "ref": "infera-crm/src/router.rs:123:status_route",
         "path": "infera-crm/src/router.rs",
@@ -1140,6 +1202,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-crm/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1148,7 +1211,7 @@
           }
         ]
       },
-      "source_checksum": "145a1d669cfa59f6daf8ae936383bbf556540addb764438e8d420548773c44b7",
+      "source_checksum": "948debd911fb1fc2caa67efc16312ce7bd00ef158d442e9a08963f331e10714d",
       "handler": {
         "ref": "infera-crm/src/router.rs:123:status_route",
         "path": "infera-crm/src/router.rs",
@@ -1190,6 +1253,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-crm/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1198,7 +1262,7 @@
           }
         ]
       },
-      "source_checksum": "df96e94799e91b5285230187c4b3f02857a49f9d557e8321b8ae7b7aea068138",
+      "source_checksum": "5b346b368a9535e50d502ab8a00fc9849dfc685b9fd57b10ac6bb32ebbe53c21",
       "handler": {
         "ref": "infera-crm/src/router.rs:133:readiness_route",
         "path": "infera-crm/src/router.rs",
@@ -1243,6 +1307,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1256,7 +1321,7 @@
           }
         ]
       },
-      "source_checksum": "ceb3a69d02d6fbc7e19161520ef67cd4a402c0096f5112ee598da5050574832b",
+      "source_checksum": "f7a10c7ec4a10223a725ed90ef7de09a11cb047937885fe6d557b528677983ed",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:205:context",
         "path": "infera-crm/src/api/routes.rs",
@@ -1329,6 +1394,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1342,7 +1408,7 @@
           }
         ]
       },
-      "source_checksum": "c94a78604a15fda9b95e2732e7f41cfce083d3630f6a70f51b9f1456ccc45ec0",
+      "source_checksum": "b77fbc56431624faada1cfbef9fe438846ad31f6b04361e76016fa9130e41c01",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:973:list_workflows_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1448,6 +1514,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1461,7 +1528,7 @@
           }
         ]
       },
-      "source_checksum": "c66a0074a2cb3f324e4bd96302e88713d002a1099c3ff6dd4d24029252e92743",
+      "source_checksum": "4d575c4bbef05d65f2076bd9388757a33a30834897ef2fab02550495ec0acebd",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:945:create_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1545,6 +1612,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1558,7 +1626,7 @@
           }
         ]
       },
-      "source_checksum": "76819554f7104f4d98c5f70d1e60895e8728878ab9b471358bc62dda5fe5c16e",
+      "source_checksum": "f91d7f9408c16bfe95c5ca966ffeb028041e98fdaa18108f370b7516950746a0",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:992:show_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1628,6 +1696,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1641,7 +1710,7 @@
           }
         ]
       },
-      "source_checksum": "01aa7de6cd6ac4048045ed83cd8682463f0f888f2a98ba0e49fbf3d81fc9f398",
+      "source_checksum": "6117867a750a1797a990e20da0a76fbc9b9a0aca853d9dbeecd193dfa4c7a11d",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1728,6 +1797,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1741,7 +1811,7 @@
           }
         ]
       },
-      "source_checksum": "153ff1b6de2fb0df81cc80cbb675c3e30df18ba2c3ecc63a54051f4915edf548",
+      "source_checksum": "73b6d39b42884e6755d91925cad6b7d4fad9f1e7c4aa881385547aa5633c447e",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1827,6 +1897,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1840,7 +1911,7 @@
           }
         ]
       },
-      "source_checksum": "b4b491730ffaa63ad22169470599d31ac749c5d419c2744ca10f95a3980846cd",
+      "source_checksum": "9e5b0dfbc75aae87ff4cff2b07744a47d7db55a6670f0022a2fbcd40e9238a6f",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1061:delete_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1904,6 +1975,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -1917,7 +1989,7 @@
           }
         ]
       },
-      "source_checksum": "7b44c692364be4d9e8c90de58f2d1e86f19a92858ec647dfd81cf4aa9c47d6b8",
+      "source_checksum": "7c30559132b39c53ce1912ce6ae10743991531967edf689e00544dba0a203825",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1258:list_workflow_nodes_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2025,6 +2097,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2038,7 +2111,7 @@
           }
         ]
       },
-      "source_checksum": "89ce8dbd6eaea44debafed89f0e06bf4e850cb3b1797a8d5fbad761b01cb7c30",
+      "source_checksum": "51d3dbbadc33f2702ae36e14ebf32c1da73d6bab5b20ccf44a3ac5eb8d7a9c1d",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1281:show_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2108,6 +2181,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2121,7 +2195,7 @@
           }
         ]
       },
-      "source_checksum": "5af7dae23ad8d968866e987c05afaa14aeb3de43ef8ce3222505f01592f82a37",
+      "source_checksum": "c30bd4e988d67abbab108d0327e308234d0c2e6e07fd7a60386801525ac61487",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1121:create_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2202,6 +2276,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2215,7 +2290,7 @@
           }
         ]
       },
-      "source_checksum": "9e6993014b63e4e217a36b1a4977a491802d31d4c222b1c48a871225a14eab2c",
+      "source_checksum": "a434ee08a1837b68d691dcd0725ef67b64eaae1e4b774a130b51204317382ddd",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1311:update_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2296,6 +2371,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2309,7 +2385,7 @@
           }
         ]
       },
-      "source_checksum": "d6b09ff234dce434bdba8d414bb6bd6e2f071a4f938dfd8989309b86b64d7527",
+      "source_checksum": "f27ef440467e7ed3d3b7572f31fac2d933fa54dfabe198844960a4557d4c0820",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1311:update_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2389,6 +2465,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2402,7 +2479,7 @@
           }
         ]
       },
-      "source_checksum": "9ca9eb1d6ff1a7ed7205f1f22d504a58f71de683033dd772e653fb08627fbcd6",
+      "source_checksum": "84c091146917f1f36295ec7605f796381fa67a1be3fea4341741540b8ae7f1f1",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1365:delete_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2459,6 +2536,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2472,7 +2550,7 @@
           }
         ]
       },
-      "source_checksum": "d83496e7d2d966a95fe4ab51c7770dd0c44e9451e70990db471d56297680639e",
+      "source_checksum": "8a862dc528592b09613f6a40a36661bd6ad28d17497b7ea9fcbda595243c5133",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:973:list_workflows_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2578,6 +2656,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2591,7 +2670,7 @@
           }
         ]
       },
-      "source_checksum": "e7a24b63257afbde80cb9a3171b2e37db2070a3a72b7aa8c6dee5483e846abf7",
+      "source_checksum": "d923f148e8c54bf603f86f6bd7e4886d6ed7806962793fdc4aaaa932ae3bd015",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:945:create_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2675,6 +2754,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2688,7 +2768,7 @@
           }
         ]
       },
-      "source_checksum": "96879b9cfe8de25dc59e4aa46394d43161383f1298d91fc7d5ffc33a20784ce3",
+      "source_checksum": "dcafc1c1190e33af9562aeaaae22e0a3b0857eab57950f94a48a0eabc6d3ccdd",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:992:show_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2758,6 +2838,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2771,7 +2852,7 @@
           }
         ]
       },
-      "source_checksum": "d8e80ca683ee554ee45c105ffe8015edb8aebcecebf0193e74e9d2a047061ab4",
+      "source_checksum": "b2e92f91229c2ad40d2c31761d733d95481631e0911a91c32a22528bb09a795a",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2857,6 +2938,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2870,7 +2952,7 @@
           }
         ]
       },
-      "source_checksum": "332651ea17dd9cf7aeb2006514f417c5c87056a1306036da9f357ead5d6bf055",
+      "source_checksum": "f295fa49d25bddeb541c7180356117591b7f26d4e1676995a247043b5f2d2ee4",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1061:delete_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2935,6 +3017,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -2948,7 +3031,7 @@
           }
         ]
       },
-      "source_checksum": "8c470f9da1f4a37b3b01ccd58dacb619422ecd0a0eefd4df2dfdd4960bb49139",
+      "source_checksum": "236afc676eb52edc893acb0528a246adf0d4436068560dfb2668d33ed80006cc",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1096:list_workflow_nodes_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3059,6 +3142,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3072,7 +3156,7 @@
           }
         ]
       },
-      "source_checksum": "a678996b44a0990c16cad2ea2413bc12f07bf5fbca3dca5037894e583a22f6d4",
+      "source_checksum": "1680960d4d3c254dd42adcc8c7e34ef1944792426b759c07cc26a2cb1528658b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1121:create_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3154,6 +3238,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3167,7 +3252,7 @@
           }
         ]
       },
-      "source_checksum": "8b2ab8a4ff992d25b2d8fd5353897e78ace83a955506c2713b6d440a246d0f5d",
+      "source_checksum": "0f12e3a1f650f22df946dca14bf640f0ebcb94163bc78047f5a19e8722ff42d4",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1151:show_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3237,6 +3322,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3250,7 +3336,7 @@
           }
         ]
       },
-      "source_checksum": "a8dad03e2d8a42ba656b69091b140c126595ede7235b92a088b4267797daa568",
+      "source_checksum": "9c45853b0d9426aaf585fe51031df9d2ac2601663bfc42cdbd4f24c4fcb11255",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1181:update_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3330,6 +3416,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3343,7 +3430,7 @@
           }
         ]
       },
-      "source_checksum": "9f6f5f8ae207f5a38df6ee9a9380f37ff45bd61c86202e4ee1093d52ffd35f79",
+      "source_checksum": "f46396c1c1bdf086bab4802354f23ff4ad5f262b4bafbb836c8e4554cdd407f7",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1232:delete_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3403,6 +3490,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/integration/office.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3416,7 +3504,7 @@
           }
         ]
       },
-      "source_checksum": "4742f5aa9c15d93b52d721c032457784319fc8ddddc1aa00c54fb79ca50cfc69",
+      "source_checksum": "86ddff358884fd276d24aff1acf95c55fa8b4c3d2ed3420b507edcc23f90fd27",
       "handler": {
         "ref": "infera-crm/src/integration/office.rs:58:find_office_lead",
         "path": "infera-crm/src/integration/office.rs",
@@ -3571,6 +3659,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3584,7 +3673,7 @@
           }
         ]
       },
-      "source_checksum": "fe33d0bfa4395b5b284cc601f8b38ccaabde4a8eb981051dbc45ec465ae80389",
+      "source_checksum": "91b77e8275f48e91cd10793c858ffed4db5b8538916b157db2d04551fbfaa4e5",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:249:pipelines",
         "path": "infera-crm/src/api/routes.rs",
@@ -3643,6 +3732,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/dashboard.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3656,7 +3746,7 @@
           }
         ]
       },
-      "source_checksum": "4018477351a19f4bfa8800a7955dc262f8a5604ccb309244dcc120b1e8a9c1ed",
+      "source_checksum": "b353e384992609580745fb0556da062c499767e7888aa684cf825ec1b59e2aa9",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:60:update_pipeline",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -3737,6 +3827,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/dashboard.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3750,7 +3841,7 @@
           }
         ]
       },
-      "source_checksum": "62ef941990fa581d659edfdc7e59e09c157e76e7a9a0f308076f2f7d6e2a41f0",
+      "source_checksum": "27cf1378967dd5fd7dc0659fb9fff88012d99472d2cce3c877ab0d57a9d3914a",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:41:member_workflows",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -3815,6 +3906,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/dashboard.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3828,7 +3920,7 @@
           }
         ]
       },
-      "source_checksum": "4d5995c0dbec795836458d09abf849d610477e6e3b5ffc47ff81de520cbab1b4",
+      "source_checksum": "730b89187b5e8e0ddb04dc12a66dcccb454d49214e38f0bf65ce0b656895137e",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:118:daily_stats",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -3887,6 +3979,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/dashboard.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3900,7 +3993,7 @@
           }
         ]
       },
-      "source_checksum": "fc180d02df09a06db4d417dea82f0bf3360c1368891ff21e84da49ab45aaab6f",
+      "source_checksum": "5e7257c0969b2abd31de9a4f1e9443eeec9295c914359ddd59adc91d8b607ed2",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:332:lead_stats",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -3957,6 +4050,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -3970,7 +4064,7 @@
           }
         ]
       },
-      "source_checksum": "a73d9382e34219338468dab0a470c1f554c078f59c790cd603c80cb1bdbd3f5a",
+      "source_checksum": "32f8e1a3bef2a15f8c307dd0ad82b5bd6c82d4c4768fd8611fef7e446fc4b5ba",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:259:teams",
         "path": "infera-crm/src/api/routes.rs",
@@ -4035,6 +4129,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4048,7 +4143,7 @@
           }
         ]
       },
-      "source_checksum": "88878cc3ca983eb887a43b26faf5dbe03e8f99cc777874ecadfa84718223e161",
+      "source_checksum": "5b73d846794705d3752838129304f5efa592daa2e9a8b65decac46a9066adde5",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:112:create_team",
         "path": "infera-crm/src/api/writes.rs",
@@ -4130,6 +4225,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4143,7 +4239,7 @@
           }
         ]
       },
-      "source_checksum": "afa43aef53f529f60d9d3addd55a7da054d5e0af3067c38141f31ecfd167e2bf",
+      "source_checksum": "71c1a94ab33a09adff2d2e20df369bb8ef2da009eb6d27a16c5935cea33b07d9",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:88:team",
         "path": "infera-crm/src/api/operations.rs",
@@ -4199,6 +4295,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4212,7 +4309,7 @@
           }
         ]
       },
-      "source_checksum": "153466c57b1cfc8649b51649a38b755fa79e483a16b74a5faecbbd795eda03e1",
+      "source_checksum": "c0606e945e655df2812c7a732e25f183b4ead1ad2ea395f6e9e0c4697049fee5",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:177:delete_team",
         "path": "infera-crm/src/api/operations.rs",
@@ -4286,6 +4383,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4299,7 +4397,7 @@
           }
         ]
       },
-      "source_checksum": "c976c0221398647238efa009f63abef350a8816cb20e9affecbbd64276946d2e",
+      "source_checksum": "dca358b1caec944f523fec8d11885cff38f6fe30a78f99243c6ccc08c596fb4c",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:110:add_team_member",
         "path": "infera-crm/src/api/operations.rs",
@@ -4391,6 +4489,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4404,7 +4503,7 @@
           }
         ]
       },
-      "source_checksum": "b948753fb9dfe6f90fcc67d7e50ad9f7f59099249c213b979b2450bd48afab0c",
+      "source_checksum": "4179f885d349e0068da4ec48805ced7b9efc0f45ac2e6ed7df644b89f4fd19bf",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:245:remove_team_member",
         "path": "infera-crm/src/api/operations.rs",
@@ -4478,6 +4577,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4491,7 +4591,7 @@
           }
         ]
       },
-      "source_checksum": "a63ec1c14cde3aeb441f2dbafbce0110874c35377f3922e27a54155f7159dd6d",
+      "source_checksum": "ef12ce36c14602e2a1bf3764c938fc243d20a3667baf41ca17f997a3c87fb06b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:290:list_sos_leads",
         "path": "infera-crm/src/api/operations.rs",
@@ -4556,6 +4656,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4569,7 +4670,7 @@
           }
         ]
       },
-      "source_checksum": "e3e2e6bb62c28626f01ec4c35ddfc760266caff6638b28ace5be533b34755e02",
+      "source_checksum": "13aa4c18e3064f823b25038479ea06bcff03719382fc29b56c4d23cf69f75ba0",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:305:add_lead_to_sos",
         "path": "infera-crm/src/api/operations.rs",
@@ -4638,6 +4739,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4651,7 +4753,7 @@
           }
         ]
       },
-      "source_checksum": "c79dfcc69b0b547d7bd54041b2b8520dec7d4ec33dd52e1fb637ff0a2672dc73",
+      "source_checksum": "d8a44aab03a342a29c87470ab0c9d0510ca509174091d5390c8562affe40351b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:359:remove_lead_from_sos",
         "path": "infera-crm/src/api/operations.rs",
@@ -4713,6 +4815,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4726,7 +4829,7 @@
           }
         ]
       },
-      "source_checksum": "ad02a039956afaaa7f26826e564fe3127aeaad0bb65d4d5cadd193349814207b",
+      "source_checksum": "d4980bfa78c73e8aaef6f7247cd6070af8096393ef56aeed1d6212b42748e1e2",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:403:list_workflow_assignments",
         "path": "infera-crm/src/api/operations.rs",
@@ -4808,6 +4911,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4821,7 +4925,7 @@
           }
         ]
       },
-      "source_checksum": "9296e65eb3785ac01f181da5cb989879f780dd073cb7015456751ba6aab9cf71",
+      "source_checksum": "30823ed8ed64da156e7eaa2cb10515ab543e65132952425147ccb0ff55a83459",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:419:create_workflow_assignment",
         "path": "infera-crm/src/api/operations.rs",
@@ -4925,6 +5029,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -4938,7 +5043,7 @@
           }
         ]
       },
-      "source_checksum": "e0a53a14223f99ae2047d3e65d33b5a2c38857f9f31cb4308c49e047842b89a8",
+      "source_checksum": "90479e3494e6a116ab860705991e9740da41969c6905d2339ce5bde67cba907e",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:505:delete_workflow_assignment",
         "path": "infera-crm/src/api/operations.rs",
@@ -5002,6 +5107,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5015,7 +5121,7 @@
           }
         ]
       },
-      "source_checksum": "0a4b001b0219ce2ef6bf6467b2497067f3c7f956efd9549f9f7bc59a47f80d52",
+      "source_checksum": "aae6578afed74ea6f72b10207222f5fad6511a8e23456358b48efa7e587bd78e",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:549:tasks",
         "path": "infera-crm/src/api/operations.rs",
@@ -5157,6 +5263,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5170,7 +5277,7 @@
           }
         ]
       },
-      "source_checksum": "234962d04a129360a233def03583bd580586517ef6b11f6959e9dbbafa4ef1bb",
+      "source_checksum": "265778b0d29733709a18aebaddfb7c159d82a1be245682e0ceb0112a1ff4a007",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:580:create_task",
         "path": "infera-crm/src/api/operations.rs",
@@ -5312,6 +5419,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5325,7 +5433,7 @@
           }
         ]
       },
-      "source_checksum": "2ffdd0854a0761d9d08717d9a13715fbc3e10112374836dbe48c0aac48cc10f1",
+      "source_checksum": "9807cf8e18bc75d9cc77e9f294e854269a82ea7dd96d6538624b0cccba397fa0",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:691:delete_task",
         "path": "infera-crm/src/api/operations.rs",
@@ -5388,6 +5496,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5401,7 +5510,7 @@
           }
         ]
       },
-      "source_checksum": "de293b9814ff0a6ae34aeed16384a4122b569c875401961377d30a1fb847cc60",
+      "source_checksum": "1cc2e0431808e2bd5a0be2e2e44a73feef22c8c0c2664b925a45442cf795d286",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:630:update_task_status",
         "path": "infera-crm/src/api/operations.rs",
@@ -5512,6 +5621,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5525,7 +5635,7 @@
           }
         ]
       },
-      "source_checksum": "e9c1934412fde7052ae887f61164330dd6e5df437649220dcf43609b4e06bfc5",
+      "source_checksum": "a9e82a38c43dd77c25d3804078990d17f16ca967e9097564ff1d100e607b35a9",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:836:create_activity_with_reminder",
         "path": "infera-crm/src/api/operations.rs",
@@ -5594,6 +5704,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5607,7 +5718,7 @@
           }
         ]
       },
-      "source_checksum": "d5879ea5b0c175da75853f8158ed54bf7b83160deaf7dada9d0e59889c471a21",
+      "source_checksum": "8cca511026a97c835b161636e7725539f75421006d8e9989bea0acac37acf725",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:757:activities",
         "path": "infera-crm/src/api/operations.rs",
@@ -5713,6 +5824,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5726,7 +5838,7 @@
           }
         ]
       },
-      "source_checksum": "b9376c3fb73d1467ba3696849b48dc90c85fb278c9b17ce9fdd9d78c16e6626f",
+      "source_checksum": "d7c7d9363d9082b8335815b8ead64781f8ba276ba060a7b3fe010f2a7e302e03",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:783:create_activity",
         "path": "infera-crm/src/api/operations.rs",
@@ -5822,6 +5934,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5835,7 +5948,7 @@
           }
         ]
       },
-      "source_checksum": "eb80b41cc5c895dd9c585e8b36d136fca437cbbafdc7801265906f452b2118a1",
+      "source_checksum": "f59f06ae1f91c37c7f5087c69a939ae259a220b30c40fa3769d1a1add93956c6",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:920:worklogs",
         "path": "infera-crm/src/api/operations.rs",
@@ -5916,6 +6029,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -5929,7 +6043,7 @@
           }
         ]
       },
-      "source_checksum": "5997bc9f359cfce17766853a1724bc3b700011b6af1f8df4ae05259e95f6d576",
+      "source_checksum": "9d0d3a62ad1f1cc3d1cd18d4381e42fe70fa5b9a804bd88a7c9611262957db4a",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1413:sources",
         "path": "infera-crm/src/api/operations.rs",
@@ -5987,6 +6101,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6000,7 +6115,7 @@
           }
         ]
       },
-      "source_checksum": "91eb88fe5ea8177d52cb15a6c976a468121d8dcda016c3a755fbf3dbe3a42dff",
+      "source_checksum": "c8cbd981210a2ec579614071ba6d735b78f2e78482f4ef6bf384e4dce4526168",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1424:create_source",
         "path": "infera-crm/src/api/operations.rs",
@@ -6068,6 +6183,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6081,7 +6197,7 @@
           }
         ]
       },
-      "source_checksum": "2aa7087016e6b0de3731b769da2b38f8f556d55bb9c6d9970a912e3fff7d96e3",
+      "source_checksum": "67b676cc6875f29543baa6fb7b4f170f189c54f68f4bf559c257c6f1e57a2214",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1461:campaigns",
         "path": "infera-crm/src/api/operations.rs",
@@ -6146,6 +6262,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6159,7 +6276,7 @@
           }
         ]
       },
-      "source_checksum": "b02b7426dcb1d6df6c4a02fe2b2a42f47b48ad9c56fdeb43f5b8bf9dbdc90a85",
+      "source_checksum": "4df8266571a8396f60fd1ecb1b21e2e7b605316470b39bef131a1b4b9a3f1ce8",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1472:create_campaign",
         "path": "infera-crm/src/api/operations.rs",
@@ -6241,6 +6358,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6254,7 +6372,7 @@
           }
         ]
       },
-      "source_checksum": "f79daad7ee54afe4b7136ebc1209e3618f17394930d96b4e4105983f0b30e8ee",
+      "source_checksum": "3eff0bf7760ba4f85d47f648bb06eb20946fc7a04b757cf400d8b4cd0ad985da",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1524:update_workspace",
         "path": "infera-crm/src/api/operations.rs",
@@ -6336,6 +6454,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6349,7 +6468,7 @@
           }
         ]
       },
-      "source_checksum": "6d5f0bf1bc1aadd646ba8f8d5038e6b12c1d299f620a8ae709ac68f8bba96ba9",
+      "source_checksum": "b6cb80eb8cae322ff4ac8e1fa4ade9dfc494595876c0b5e2c4c7766218e6be41",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:680:automation_jobs",
         "path": "infera-crm/src/api/routes.rs",
@@ -6454,6 +6573,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6467,7 +6587,7 @@
           }
         ]
       },
-      "source_checksum": "9bbf3ee19589bad9795b6a2e51b9e5ce3773179149e8e6a27ff6b560159aef7c",
+      "source_checksum": "cb672a3c9a45ea3a6353c1ad759bea0d622cbe4dde9019a272729bcc9fcabf89",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:705:automation_webhooks",
         "path": "infera-crm/src/api/routes.rs",
@@ -6526,6 +6646,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6539,7 +6660,7 @@
           }
         ]
       },
-      "source_checksum": "f6452efb32f3847da5743c0a0b5144f6b3d519120e24bbb4764acb25eb33327c",
+      "source_checksum": "3cb91547f885517e341af97c7437409e1d6efc26fa4166f5e143b959102b55b2",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:274:companies",
         "path": "infera-crm/src/api/routes.rs",
@@ -6657,6 +6778,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6670,7 +6792,7 @@
           }
         ]
       },
-      "source_checksum": "74ddca05f7ef76bd25af84ec89621626b6108c261fd2e3332029026378883b12",
+      "source_checksum": "9773c843ad5b62af6d33707d5e92d46a74b3c6de0a347eec3b389bb285b9820d",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:156:create_company",
         "path": "infera-crm/src/api/writes.rs",
@@ -6765,6 +6887,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6778,7 +6901,7 @@
           }
         ]
       },
-      "source_checksum": "0eac5e042ac5431ca51b7b7e36f0d69712436eff1887889bfc297047641f8190",
+      "source_checksum": "fbb1ba3152b637cfff41f7b52c94f45f66f30c9c7462449967a50dc5cd082509",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:304:company",
         "path": "infera-crm/src/api/routes.rs",
@@ -6854,6 +6977,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6867,7 +6991,7 @@
           }
         ]
       },
-      "source_checksum": "0dbc865133da164c7f0cc44f1878d5ff04d74b61e9bb49a20bb87d5ef5b2da38",
+      "source_checksum": "c3f6e8d435630dcc91b4cb7202d4cefd1e4be065aa7fac9e3c2c54dc1385085a",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:277:update_company",
         "path": "infera-crm/src/api/writes.rs",
@@ -6954,6 +7078,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -6967,7 +7092,7 @@
           }
         ]
       },
-      "source_checksum": "e023d8309cbf90afb2db59c08d2e6e11eea538b76d8e8524d4d30e4509fde618",
+      "source_checksum": "48827712c21ac2d4ce668ffd28a16ec77632db0355559b4928c39ce97039222e",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:324:contacts",
         "path": "infera-crm/src/api/routes.rs",
@@ -7097,6 +7222,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -7110,7 +7236,7 @@
           }
         ]
       },
-      "source_checksum": "3f4fbeb3a41bddc01e79b4a831e584a872cb69db20def3fd7a3fc93011f2e32d",
+      "source_checksum": "0384497cde13e3a79ae32b51f38717c1775c92a8642a36745261ff49cd68eda6",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:218:create_contact",
         "path": "infera-crm/src/api/writes.rs",
@@ -7229,6 +7355,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -7242,7 +7369,7 @@
           }
         ]
       },
-      "source_checksum": "0cff9ccb1783132d84cc54c1585a162335b30eaf7f66e698d57392ed04650ff6",
+      "source_checksum": "2a3659b9f64be961943c97f05973d582971d6c8e621810c859a3650143890746",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:354:contact",
         "path": "infera-crm/src/api/routes.rs",
@@ -7330,6 +7457,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -7343,7 +7471,7 @@
           }
         ]
       },
-      "source_checksum": "9bae474aadfafba0598c5a243fe87bcefbbd65a14b4cec970838e9a8ab7995c5",
+      "source_checksum": "91188b408a9df9778aebdbce6487ef459d16b0bad75bf8e15ec4f14b7ca04674",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:345:update_contact",
         "path": "infera-crm/src/api/writes.rs",
@@ -7439,6 +7567,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -7452,7 +7581,7 @@
           }
         ]
       },
-      "source_checksum": "0e12b02623505b2c2c756cbf10cf9f2065f0ed9ade034e0182fc3ac95dee00b0",
+      "source_checksum": "5ffae1b88003455f65dabf334d0938e644f652f31c7bf50f54c488794753d004",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:436:light_leads",
         "path": "infera-crm/src/api/routes.rs",
@@ -7620,6 +7749,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -7633,7 +7763,7 @@
           }
         ]
       },
-      "source_checksum": "6fcc71593336a9e77307c613189b78ca7933b46190f28190b140714e5264e0a8",
+      "source_checksum": "c6fec06f2f51f697e0efaf90462a68b9727fc8252a3e381c8ef8451f5b365d02",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:377:leads",
         "path": "infera-crm/src/api/routes.rs",
@@ -7799,6 +7929,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -7812,7 +7943,7 @@
           }
         ]
       },
-      "source_checksum": "33feba7795d9d79261a5de5ff6453296fe4b23d823e57a765dbc5cbda361f0f1",
+      "source_checksum": "58c9db7daf73813bea867b5b319d3ff966caaee347d4d344d43c81bfb4542c2b",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:639:create_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -7998,6 +8129,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -8011,7 +8143,7 @@
           }
         ]
       },
-      "source_checksum": "80de3935f3173136955b9e24ccbd662f4e2651b189f18b36975431c77a22fb7d",
+      "source_checksum": "30168b105c53e491b5f58944edc54a320bed239890d1e558900ad5b163a7ff45",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:445:lead",
         "path": "infera-crm/src/api/routes.rs",
@@ -8074,6 +8206,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -8087,7 +8220,7 @@
           }
         ]
       },
-      "source_checksum": "792d6bd9145a30c555ddc38756140a9d961033d888fe4c98f741dd8b74c53723",
+      "source_checksum": "1dc71fe265bab2aa90ee723ff59026ca6058d6efa9ec0461629dd56bca0af5ec",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:415:update_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -8228,6 +8361,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -8241,7 +8375,7 @@
           }
         ]
       },
-      "source_checksum": "b6ea87bb318ce46a43aab60dd41acc5e4b1b223d678ed20de199a19ae93987ce",
+      "source_checksum": "b8610a8a1e211c1d6c2a618aa459aa060c82470092e5dae3df440b7fed7f6980",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1388:lead_history",
         "path": "infera-crm/src/api/operations.rs",
@@ -8310,6 +8444,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/operations.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -8323,7 +8458,7 @@
           }
         ]
       },
-      "source_checksum": "295b34926e1d4c7fcab03d32e42281daca4350b24b79018a7bf8b2991e94f983",
+      "source_checksum": "c21a89ef4ee5016fc2d5ceac25722e5b74c26d3d051e45d84e3a6c6fc09ea83b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:738:delete_lead_reminders",
         "path": "infera-crm/src/api/operations.rs",
@@ -8379,6 +8514,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -8392,7 +8528,7 @@
           }
         ]
       },
-      "source_checksum": "01a8a7b07dc748c862029120dd3b045fac2a719861860fa953d1235e97f44239",
+      "source_checksum": "37e0af4aca073cf66b911d9ab923c396888c14708cd05a8cbdc0ee9f474ed351",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:786:move_lead_stage",
         "path": "infera-crm/src/api/writes.rs",
@@ -8533,6 +8669,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -8546,7 +8683,7 @@
           }
         ]
       },
-      "source_checksum": "7c6adb0ba0dd84a93c3f718d9ddb653746cbea0fd35e919cb5a385adc8f02f0b",
+      "source_checksum": "f0f736fc1ceedbcfa86ea0a169f20f346b691f5ae0994b227237eabc3ba46594",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:932:assign_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -8694,6 +8831,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -8707,7 +8845,7 @@
           }
         ]
       },
-      "source_checksum": "e1ad4870b02937db4c20f054a88799675466888290c2067bdc580d86f5be4be2",
+      "source_checksum": "c79120af19bf553135d60a98556b9021228255d9f1e167e7b526db29ad38739c",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:474:deals",
         "path": "infera-crm/src/api/routes.rs",
@@ -8855,6 +8993,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -8868,7 +9007,7 @@
           }
         ]
       },
-      "source_checksum": "20c1c36bb6aa4c6850297fe4f56e4137ef617ac82387a332874ce98fe7ce9843",
+      "source_checksum": "d62463988b7cccacd63c24597566fa5829ecd5c89120a315985deb706179d80e",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:711:create_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -9024,6 +9163,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9037,7 +9177,7 @@
           }
         ]
       },
-      "source_checksum": "3d905bda5d5fd630550b9dc497fe311234a0e9ff98c46d7e967725a901872ebe",
+      "source_checksum": "36d852d4bea1ffbaae4527adeea657466da3997a368a2cd04223a2da4306a54a",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:521:deal",
         "path": "infera-crm/src/api/routes.rs",
@@ -9143,6 +9283,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9156,7 +9297,7 @@
           }
         ]
       },
-      "source_checksum": "57c2eefb4a6e91eebb421b5ec1f7f605c175decaff6a6f6dd4326660e93d6a33",
+      "source_checksum": "6b0d0ae0e0fa654b125ac6bf6618c42871621478a46f8dd813c222167cd449e0",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:485:update_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -9273,6 +9414,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9286,7 +9428,7 @@
           }
         ]
       },
-      "source_checksum": "301328f0b3be32246bbd652f71e71f5f2b0ff7e54bcc72d21733f2e31fbf3907",
+      "source_checksum": "bd3b5543b393ebe61afdb829a16d2a537bfc34b42493e2443c671bb8350fb96c",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:855:move_deal_stage",
         "path": "infera-crm/src/api/writes.rs",
@@ -9409,6 +9551,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9422,7 +9565,7 @@
           }
         ]
       },
-      "source_checksum": "198bbd727ec97bd305b5dd83158da46f1b19bce92fd191b2d85bf01d8b999b57",
+      "source_checksum": "10f659b22452f83bb285d3e78ba44cdf3635ed0d504d963a9dac9027cc66ea1b",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:997:assign_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -9550,6 +9693,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9563,7 +9707,7 @@
           }
         ]
       },
-      "source_checksum": "917f66daed6a9b8e401d7576dded35a3e99994af45bbac3a1b8dc5ae20e27dfa",
+      "source_checksum": "2d9608049dbde40353d61e0887bfc06bf6ff8b36acc6d6a73dce4ab574b6e92a",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:542:board",
         "path": "infera-crm/src/api/routes.rs",
@@ -9618,6 +9762,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9631,7 +9776,7 @@
           }
         ]
       },
-      "source_checksum": "34b2ef0799b11635380158394508e9b22c9a2ab8562b3a9ac2fc50655aa66e1d",
+      "source_checksum": "e1478ac08373cf1602c04de9ab1bf14ecc78c2bc345f5efc1c737134b453dda5",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:633:overview",
         "path": "infera-crm/src/api/routes.rs",
@@ -9700,6 +9845,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9713,7 +9859,7 @@
           }
         ]
       },
-      "source_checksum": "813d86c31dfce27bf683c2d7ffc67a5b691e6eb1308ed09597c96f96608d31cc",
+      "source_checksum": "9568743ec7a46c02925aa994f14fc63e3d8caff076f64360a7a1c4628288e56e",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:1062:refresh_reports",
         "path": "infera-crm/src/api/writes.rs",
@@ -9781,6 +9927,7 @@
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
+        "handler_source": "infera-crm/src/api/writes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9794,7 +9941,7 @@
           }
         ]
       },
-      "source_checksum": "27e7bf20a6d2d5c032fb0b948f0041d619d505027bebdeea5d30826614daef59",
+      "source_checksum": "34533a6b2c82f0910f18606edcdb339d09f0d0e65d05185148d37366e290ae4f",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:1114:request_agentic_insight",
         "path": "infera-crm/src/api/writes.rs",
@@ -9855,6 +10002,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9868,7 +10016,7 @@
           }
         ]
       },
-      "source_checksum": "cfa132ed1a4d091e48e7b8d921f3ca06b7eea9eb8e2152ce27f80a0f35912b07",
+      "source_checksum": "7b48b846acfedf6b05564772798c7725399f2ffd38aacd316e08d53fdfc45e69",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:665:report_run",
         "path": "infera-crm/src/api/routes.rs",
@@ -9936,6 +10084,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "api::routes",
+        "handler_source": "infera-crm/src/api/routes.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -9949,7 +10098,7 @@
           }
         ]
       },
-      "source_checksum": "0dca991b482b3d7a308c7cb7c8a73f930e0783637351918048c65e53d3b5f166",
+      "source_checksum": "ecc57fe59347781cc8c80350187fc09eaeb414c091b45a740d439fd8fa564269",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:645:report_catalog",
         "path": "infera-crm/src/api/routes.rs",
@@ -9996,6 +10145,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-crm/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -10004,7 +10154,7 @@
           }
         ]
       },
-      "source_checksum": "a7bd03f01a88da3f8ecd314e85c50080a29e1fa508b5c78cb4c08022f552f89b",
+      "source_checksum": "46ce9458e469869aac1b5f16f8ab3225c75a41d0fb110a4662205418f6076b5b",
       "handler": {
         "ref": "infera-crm/src/router.rs:111:api_not_found",
         "path": "infera-crm/src/router.rs",
@@ -10046,6 +10196,7 @@
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "router",
+        "handler_source": "infera-crm/src/router.rs",
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
@@ -10054,7 +10205,7 @@
           }
         ]
       },
-      "source_checksum": "c3f99ed4561cd9e94204ad55aa9f8c118a6d8b69c90b22d41f3b4b034280235c",
+      "source_checksum": "5d55662e7cc898fefb1bb48e40ce7bc8b8b5fa12a268e71b0c23d13a2a938761",
       "handler": {
         "ref": "infera-crm/src/router.rs:111:api_not_found",
         "path": "infera-crm/src/router.rs",
@@ -10194,6 +10345,7 @@
         "handlerModule": "router",
         "source": "infera-crm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -10211,6 +10363,7 @@
         "handlerModule": "router",
         "source": "infera-crm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -10228,6 +10381,7 @@
         "handlerModule": "router",
         "source": "infera-crm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -10245,6 +10399,7 @@
         "handlerModule": "router",
         "source": "infera-crm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -10262,6 +10417,7 @@
         "handlerModule": "router",
         "source": "infera-crm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -10281,6 +10437,7 @@
         "permissions": [
           "crm:workspace:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "response": "Workspace",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -10308,6 +10465,7 @@
           "workflow:read_all",
           "workflow:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "query": "ListQuery",
         "response": "Vec<WorkflowResponse>",
         "responseEnvelope": "api",
@@ -10334,6 +10492,7 @@
         "permissions": [
           "workflow:create"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateWorkflowRequest",
         "response": "WorkflowResponse",
         "responseEnvelope": "api",
@@ -10362,6 +10521,7 @@
           "workflow:read_all",
           "workflow:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "WorkflowResponse",
         "responseEnvelope": "api",
@@ -10388,6 +10548,7 @@
         "permissions": [
           "workflow:update"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "UpdateWorkflowRequest",
         "pathParam": "Uuid",
         "response": "WorkflowResponse",
@@ -10415,6 +10576,7 @@
         "permissions": [
           "workflow:update"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "UpdateWorkflowRequest",
         "pathParam": "Uuid",
         "response": "WorkflowResponse",
@@ -10442,6 +10604,7 @@
         "permissions": [
           "workflow:delete"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "DeletionResult",
         "responseEnvelope": "api",
@@ -10470,6 +10633,7 @@
           "workflow_node:read_all",
           "workflow_node:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "query": "ListQuery",
         "response": "Vec<WorkflowNodeResponse>",
         "responseEnvelope": "api",
@@ -10498,6 +10662,7 @@
           "workflow_node:read_all",
           "workflow_node:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "WorkflowNodeResponse",
         "responseEnvelope": "api",
@@ -10524,6 +10689,7 @@
         "permissions": [
           "workflow_node:create"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateWorkflowNodeRequest",
         "pathParam": "Uuid",
         "response": "WorkflowNodeResponse",
@@ -10551,6 +10717,7 @@
         "permissions": [
           "workflow_node:update"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "UpdateWorkflowNodeRequest",
         "pathParam": "Uuid",
         "response": "WorkflowNodeResponse",
@@ -10578,6 +10745,7 @@
         "permissions": [
           "workflow_node:update"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "UpdateWorkflowNodeRequest",
         "pathParam": "Uuid",
         "response": "WorkflowNodeResponse",
@@ -10605,6 +10773,7 @@
         "permissions": [
           "workflow_node:delete"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "bool",
         "responseEnvelope": "api",
@@ -10633,6 +10802,7 @@
           "workflow:read_all",
           "workflow:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "query": "ListQuery",
         "response": "Vec<WorkflowResponse>",
         "responseEnvelope": "api",
@@ -10659,6 +10829,7 @@
         "permissions": [
           "workflow:create"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateWorkflowRequest",
         "response": "WorkflowResponse",
         "responseEnvelope": "api",
@@ -10687,6 +10858,7 @@
           "workflow:read_all",
           "workflow:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "WorkflowResponse",
         "responseEnvelope": "api",
@@ -10713,6 +10885,7 @@
         "permissions": [
           "workflow:update"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "UpdateWorkflowRequest",
         "pathParam": "Uuid",
         "response": "WorkflowResponse",
@@ -10740,6 +10913,7 @@
         "permissions": [
           "workflow:delete"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "DeletionResult",
         "responseEnvelope": "api",
@@ -10768,6 +10942,7 @@
           "workflow_node:read_all",
           "workflow_node:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "query": "ListQuery",
         "pathParam": "Uuid",
         "response": "Vec<WorkflowNodeResponse>",
@@ -10795,6 +10970,7 @@
         "permissions": [
           "workflow_node:create"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateWorkflowNodeRequest",
         "pathParam": "Uuid",
         "response": "WorkflowNodeResponse",
@@ -10824,6 +11000,7 @@
           "workflow_node:read_all",
           "workflow_node:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "(Uuid, Uuid)",
         "response": "WorkflowNodeResponse",
         "responseEnvelope": "api",
@@ -10850,6 +11027,7 @@
         "permissions": [
           "workflow_node:update"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "UpdateWorkflowNodeRequest",
         "pathParam": "(Uuid, Uuid)",
         "response": "WorkflowNodeResponse",
@@ -10877,6 +11055,7 @@
         "permissions": [
           "workflow_node:delete"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "(Uuid, Uuid)",
         "response": "DeletionResult",
         "responseEnvelope": "api",
@@ -10901,6 +11080,7 @@
         "handlerModule": "integration::office",
         "source": "infera-crm/src/api/routes.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/integration/office.rs",
         "query": "FindOfficeLeadQuery",
         "response": "Option<entity::lead::Model>",
         "responseEnvelope": "api",
@@ -10927,6 +11107,7 @@
         "permissions": [
           "crm:pipeline:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "response": "Vec<PipelineWithStages>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -10952,6 +11133,7 @@
         "permissions": [
           "crm:pipeline:update"
         ],
+        "handler_source": "infera-crm/src/api/dashboard.rs",
         "body": "UpdatePipeline",
         "pathParam": "Uuid",
         "response": "Pipeline",
@@ -10981,6 +11163,7 @@
           "workflow:read",
           "workflow:read_own"
         ],
+        "handler_source": "infera-crm/src/api/dashboard.rs",
         "response": "Vec<WorkflowResponse>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11007,6 +11190,7 @@
           "crm:stats:read",
           "crm:stats:read_own"
         ],
+        "handler_source": "infera-crm/src/api/dashboard.rs",
         "response": "DailyStats",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11034,6 +11218,7 @@
           "crm:stats:read_all",
           "crm:stats:read_own"
         ],
+        "handler_source": "infera-crm/src/api/dashboard.rs",
         "response": "LeadStats",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11059,6 +11244,7 @@
         "permissions": [
           "crm:team:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "response": "Vec<Team>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11084,6 +11270,7 @@
         "permissions": [
           "crm:team:create"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "CreateTeam",
         "response": "Team",
         "responseEnvelope": "api",
@@ -11110,6 +11297,7 @@
         "permissions": [
           "crm:team:read"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -11136,6 +11324,7 @@
         "permissions": [
           "crm:team:delete"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "VersionedDelete",
         "pathParam": "Uuid",
         "response": "DeletionResult",
@@ -11163,6 +11352,7 @@
         "permissions": [
           "crm:team:manage_members"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "AddTeamMember",
         "pathParam": "Uuid",
         "response": "TeamMember",
@@ -11190,6 +11380,7 @@
         "permissions": [
           "crm:team:manage_members"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "(Uuid, Uuid)",
         "response": "TeamMember",
         "responseEnvelope": "api",
@@ -11216,6 +11407,7 @@
         "permissions": [
           "crm:sos:read"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "response": "Vec<SosLead>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11241,6 +11433,7 @@
         "permissions": [
           "crm:sos:create"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "SosLead",
         "responseEnvelope": "api",
@@ -11267,6 +11460,7 @@
         "permissions": [
           "crm:sos:delete"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "DeletionResult",
         "responseEnvelope": "api",
@@ -11293,6 +11487,7 @@
         "permissions": [
           "crm:workflow_assignment:read"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "Vec<WorkflowAssignment>",
         "responseEnvelope": "api",
@@ -11319,6 +11514,7 @@
         "permissions": [
           "crm:workflow_assignment:manage"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateWorkflowAssignment",
         "pathParam": "Uuid",
         "response": "WorkflowAssignment",
@@ -11346,6 +11542,7 @@
         "permissions": [
           "crm:workflow_assignment:manage"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "(Uuid, Uuid)",
         "response": "DeletionResult",
         "responseEnvelope": "api",
@@ -11374,6 +11571,7 @@
           "crm:task:read_all",
           "crm:task:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "query": "ListQuery",
         "response": "ListData<Task>",
         "responseEnvelope": "api",
@@ -11400,6 +11598,7 @@
         "permissions": [
           "crm:task:create"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateTask",
         "response": "Task",
         "responseEnvelope": "api",
@@ -11426,6 +11625,7 @@
         "permissions": [
           "crm:task:delete"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "DeletionResult",
         "responseEnvelope": "api",
@@ -11452,6 +11652,7 @@
         "permissions": [
           "crm:task:update"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "UpdateTaskStatus",
         "pathParam": "Uuid",
         "response": "Task",
@@ -11480,6 +11681,7 @@
           "crm:activity:create",
           "crm:task:create"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateActivityWithReminder",
         "response": "ActivityWithReminder",
         "responseEnvelope": "api",
@@ -11506,6 +11708,7 @@
         "permissions": [
           "crm:activity:read"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "query": "ListQuery",
         "response": "ListData<ActivityResponse>",
         "responseEnvelope": "api",
@@ -11532,6 +11735,7 @@
         "permissions": [
           "crm:activity:create"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateActivity",
         "response": "ActivityResponse",
         "responseEnvelope": "api",
@@ -11560,6 +11764,7 @@
           "worklog:read_all",
           "worklog:read_own"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "query": "super::types::WorklogListQuery",
         "response": "Vec<WorklogResponse>",
         "responseEnvelope": "api",
@@ -11586,6 +11791,7 @@
         "permissions": [
           "crm:marketing:read"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "response": "Vec<Source>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11611,6 +11817,7 @@
         "permissions": [
           "crm:marketing:manage"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateSource",
         "response": "Source",
         "responseEnvelope": "api",
@@ -11637,6 +11844,7 @@
         "permissions": [
           "crm:marketing:read"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "response": "Vec<Campaign>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11662,6 +11870,7 @@
         "permissions": [
           "crm:marketing:manage"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "CreateCampaign",
         "response": "Campaign",
         "responseEnvelope": "api",
@@ -11688,6 +11897,7 @@
         "permissions": [
           "crm:settings:update"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "body": "UpdateWorkspace",
         "response": "Workspace",
         "responseEnvelope": "api",
@@ -11714,6 +11924,7 @@
         "permissions": [
           "crm:automation:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "query": "ListQuery",
         "response": "ListData<DurableJob>",
         "responseEnvelope": "api",
@@ -11740,6 +11951,7 @@
         "permissions": [
           "crm:automation:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "response": "Vec<WebhookSubscription>",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -11766,6 +11978,7 @@
           "crm:company:read",
           "crm:company:read_all"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "query": "ListQuery",
         "response": "ListData<Company>",
         "responseEnvelope": "api",
@@ -11792,6 +12005,7 @@
         "permissions": [
           "crm:company:create"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "CreateCompany",
         "response": "Company",
         "responseEnvelope": "api",
@@ -11819,6 +12033,7 @@
           "crm:company:read",
           "crm:company:read_all"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Company",
         "responseEnvelope": "api",
@@ -11845,6 +12060,7 @@
         "permissions": [
           "crm:company:update"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "UpdateCompany",
         "pathParam": "Uuid",
         "response": "Company",
@@ -11873,6 +12089,7 @@
           "crm:contact:read",
           "crm:contact:read_all"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "query": "ListQuery",
         "response": "ListData<Contact>",
         "responseEnvelope": "api",
@@ -11899,6 +12116,7 @@
         "permissions": [
           "crm:contact:create"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "CreateContact",
         "response": "Contact",
         "responseEnvelope": "api",
@@ -11926,6 +12144,7 @@
           "crm:contact:read",
           "crm:contact:read_all"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Contact",
         "responseEnvelope": "api",
@@ -11952,6 +12171,7 @@
         "permissions": [
           "crm:contact:update"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "UpdateContact",
         "pathParam": "Uuid",
         "response": "Contact",
@@ -11977,6 +12197,7 @@
         "handlerModule": "api::routes",
         "source": "infera-crm/src/api/routes.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "query": "ListQuery",
         "response": "ListData<Lead>",
         "responseEnvelope": "api",
@@ -12005,6 +12226,7 @@
           "crm:lead:read_all",
           "crm:lead:read_own"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "query": "ListQuery",
         "response": "ListData<Lead>",
         "responseEnvelope": "api",
@@ -12031,6 +12253,7 @@
         "permissions": [
           "crm:lead:create"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "CreateLead",
         "response": "Lead",
         "responseEnvelope": "api",
@@ -12059,6 +12282,7 @@
           "crm:lead:read_all",
           "crm:lead:read_own"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "LeadResponse",
         "responseEnvelope": "api",
@@ -12085,6 +12309,7 @@
         "permissions": [
           "crm:lead:update"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "UpdateLead",
         "pathParam": "Uuid",
         "response": "Lead",
@@ -12113,6 +12338,7 @@
           "crm:lead:read",
           "crm:activity:read"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "Vec<LeadHistoryEvent>",
         "responseEnvelope": "api",
@@ -12139,6 +12365,7 @@
         "permissions": [
           "crm:task:delete"
         ],
+        "handler_source": "infera-crm/src/api/operations.rs",
         "pathParam": "Uuid",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -12165,6 +12392,7 @@
         "permissions": [
           "crm:lead:move"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "MoveStage",
         "pathParam": "Uuid",
         "response": "Lead",
@@ -12192,6 +12420,7 @@
         "permissions": [
           "crm:lead:assign"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "AssignRecord",
         "pathParam": "Uuid",
         "response": "Lead",
@@ -12221,6 +12450,7 @@
           "crm:deal:read_all",
           "crm:deal:read_own"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "query": "ListQuery",
         "response": "ListData<Deal>",
         "responseEnvelope": "api",
@@ -12247,6 +12477,7 @@
         "permissions": [
           "crm:deal:create"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "CreateDeal",
         "response": "Deal",
         "responseEnvelope": "api",
@@ -12275,6 +12506,7 @@
           "crm:deal:read_all",
           "crm:deal:read_own"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "Deal",
         "responseEnvelope": "api",
@@ -12301,6 +12533,7 @@
         "permissions": [
           "crm:deal:update"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "UpdateDeal",
         "pathParam": "Uuid",
         "response": "Deal",
@@ -12328,6 +12561,7 @@
         "permissions": [
           "crm:deal:move"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "MoveStage",
         "pathParam": "Uuid",
         "response": "Deal",
@@ -12355,6 +12589,7 @@
         "permissions": [
           "crm:deal:assign"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "body": "AssignRecord",
         "pathParam": "Uuid",
         "response": "Deal",
@@ -12382,6 +12617,7 @@
         "permissions": [
           "crm:board:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "pathParam": "(String, Uuid)",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
@@ -12408,6 +12644,7 @@
         "permissions": [
           "crm:report:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "query": "ReportQuery",
         "response": "super::types::Overview",
         "responseEnvelope": "api",
@@ -12434,6 +12671,7 @@
         "permissions": [
           "crm:report:refresh"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "query": "ReportQuery",
         "response": "JsonValue",
         "responseEnvelope": "api",
@@ -12460,6 +12698,7 @@
         "permissions": [
           "crm:agent:run"
         ],
+        "handler_source": "infera-crm/src/api/writes.rs",
         "pathParam": "Uuid",
         "response": "JsonValue",
         "responseEnvelope": "api",
@@ -12486,6 +12725,7 @@
         "permissions": [
           "crm:report:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "pathParam": "Uuid",
         "response": "ReportRun",
         "responseEnvelope": "api",
@@ -12512,6 +12752,7 @@
         "permissions": [
           "crm:report:read"
         ],
+        "handler_source": "infera-crm/src/api/routes.rs",
         "response": "serde_json::Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -12535,6 +12776,7 @@
         "handlerModule": "router",
         "source": "infera-crm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -12552,6 +12794,7 @@
         "handlerModule": "router",
         "source": "infera-crm/src/router.rs",
         "permissions": [],
+        "handler_source": "infera-crm/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
@@ -12568,15 +12811,101 @@
   "working_drift": {
     "added": [],
     "absent": [],
-    "changed": [],
-    "extraction_errors": [
-      {
-        "status": "failed",
-        "artifact_path": "working-contract-extraction.stderr.log",
-        "artifact_sha256": "25040db81f66e1c44443670515d29024c90278a142bd25a282387b1c5381bca5",
-        "exit_code": 1
-      }
-    ]
+    "changed": [
+      "GET /",
+      "ANY /api",
+      "ANY /api/{*path}",
+      "GET /api/v1/activities",
+      "POST /api/v1/activities",
+      "POST /api/v1/activities/with-reminder",
+      "GET /api/v1/automation/jobs",
+      "GET /api/v1/automation/webhooks",
+      "GET /api/v1/boards/{entity_type}/{pipeline_id}",
+      "GET /api/v1/campaigns",
+      "POST /api/v1/campaigns",
+      "GET /api/v1/companies",
+      "POST /api/v1/companies",
+      "GET /api/v1/companies/{id}",
+      "PATCH /api/v1/companies/{id}",
+      "GET /api/v1/contacts",
+      "POST /api/v1/contacts",
+      "GET /api/v1/contacts/{id}",
+      "PATCH /api/v1/contacts/{id}",
+      "GET /api/v1/context",
+      "GET /api/v1/deals",
+      "POST /api/v1/deals",
+      "GET /api/v1/deals/{id}",
+      "PATCH /api/v1/deals/{id}",
+      "PATCH /api/v1/deals/{id}/assignment",
+      "PATCH /api/v1/deals/{id}/stage",
+      "GET /api/v1/integration/office/leads/find",
+      "GET /api/v1/leads",
+      "POST /api/v1/leads",
+      "GET /api/v1/leads/{id}",
+      "PATCH /api/v1/leads/{id}",
+      "PATCH /api/v1/leads/{id}/assignment",
+      "GET /api/v1/leads/{id}/history",
+      "DELETE /api/v1/leads/{id}/reminders",
+      "DELETE /api/v1/leads/{id}/sos",
+      "POST /api/v1/leads/{id}/sos",
+      "PATCH /api/v1/leads/{id}/stage",
+      "GET /api/v1/leads/light",
+      "GET /api/v1/pipelines",
+      "PATCH /api/v1/pipelines/{id}",
+      "GET /api/v1/reports/{id}",
+      "POST /api/v1/reports/{id}/agentic",
+      "GET /api/v1/reports/catalog",
+      "GET /api/v1/reports/overview",
+      "POST /api/v1/reports/refresh",
+      "GET /api/v1/sos",
+      "GET /api/v1/sources",
+      "POST /api/v1/sources",
+      "GET /api/v1/stats/daily",
+      "GET /api/v1/stats/lead",
+      "GET /api/v1/tasks",
+      "POST /api/v1/tasks",
+      "DELETE /api/v1/tasks/{id}",
+      "PATCH /api/v1/tasks/{id}/status",
+      "GET /api/v1/teams",
+      "POST /api/v1/teams",
+      "DELETE /api/v1/teams/{id}",
+      "GET /api/v1/teams/{id}",
+      "POST /api/v1/teams/{id}/members",
+      "DELETE /api/v1/teams/{team_id}/members/{member_id}",
+      "GET /api/v1/workflow",
+      "POST /api/v1/workflow",
+      "GET /api/v1/workflow-node",
+      "DELETE /api/v1/workflow-node/{id}",
+      "GET /api/v1/workflow-node/{id}",
+      "PATCH /api/v1/workflow-node/{id}",
+      "POST /api/v1/workflow-node/{id}",
+      "PUT /api/v1/workflow-node/{id}",
+      "DELETE /api/v1/workflow/{id}",
+      "GET /api/v1/workflow/{id}",
+      "PATCH /api/v1/workflow/{id}",
+      "PUT /api/v1/workflow/{id}",
+      "GET /api/v1/workflows",
+      "POST /api/v1/workflows",
+      "DELETE /api/v1/workflows/{id}",
+      "GET /api/v1/workflows/{id}",
+      "PATCH /api/v1/workflows/{id}",
+      "GET /api/v1/workflows/{id}/assignments",
+      "POST /api/v1/workflows/{id}/assignments",
+      "DELETE /api/v1/workflows/{workflow_id}/assignments/{assignment_id}",
+      "GET /api/v1/workflows/{workflow_id}/nodes",
+      "POST /api/v1/workflows/{workflow_id}/nodes",
+      "DELETE /api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "GET /api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "PATCH /api/v1/workflows/{workflow_id}/nodes/{node_id}",
+      "GET /api/v1/workflows/member-based",
+      "GET /api/v1/worklog",
+      "PATCH /api/v1/workspace/settings",
+      "GET /health",
+      "GET /livez",
+      "GET /readyz",
+      "GET /up"
+    ],
+    "extraction_errors": []
   },
   "working_route_candidates": [
     {
