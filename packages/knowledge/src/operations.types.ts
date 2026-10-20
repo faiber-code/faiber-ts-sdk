@@ -87,8 +87,7 @@ export interface PlatformIngestDocumentPostInput extends JsonObject {
 export type PlatformIngestDocumentPostResponse = import("./types.js").IngestDocumentResponse;
 
 /** Backend response type: Value. */
-export interface PlatformReprocessDocumentPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformReprocessDocumentPostResponse = import("./types.js").KnowledgeQueuedJobResponse;
 
 /** Backend response type: no-content. */
 export type RoutesDeleteEdgeDeleteResponse = void;
@@ -641,29 +640,18 @@ export interface RoutesToolSchemaGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: Value. */
-export interface PlatformListSourcesGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformListSourcesGetResponse = import("./types.js").KnowledgeSourceListResponse;
 
 /** Backend request type: CreateSource. */
-export interface PlatformCreateSourcePostInput extends JsonObject {
-  "knowledge_base_id": string;
-  "slug": string;
-  "name": JsonValue;
-  "source_type": string;
-  "configuration"?: JsonValue;
-  "provenance_policy"?: JsonValue;
-}
+export type PlatformCreateSourcePostInput = import("./types.js").CreateKnowledgeSourceInput;
 /** Backend response type: Value. */
-export interface PlatformCreateSourcePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformCreateSourcePostResponse = import("./types.js").KnowledgeSourceResponse;
 
 /** Backend response type: Value. */
-export interface PlatformPauseSourcePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformPauseSourcePostResponse = import("./types.js").KnowledgeSourceResponse;
 
 /** Backend response type: Value. */
-export interface PlatformSyncSourcePostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformSyncSourcePostResponse = import("./types.js").KnowledgeQueuedJobResponse;
 
 /** Backend response type: serde_json::Value. */
 export interface MainReadinessGetHealthResponse extends ApiEnvelope<JsonValue> {

@@ -1772,5 +1772,103 @@
       "37 tested operations, not complete76 operation certification",
       "No Manage/agent memory migration or model-quality certification"
     ]
+  },
+  "knowledge-source-lifecycle-0e2fe68": {
+    "schema_version": "1.0",
+    "kind": "real_locked_packed_sdk_http_postgres_contract",
+    "status": "passed",
+    "observed_at": "2026-10-20T09:46:36.318380+00:00",
+    "command": "cargo test --locked --offline --test base_editor_atomicity -- --include-ignored --test-threads=1 --nocapture",
+    "exit_code": 0,
+    "tests_executed": 30,
+    "sdk_http_assertions": 150,
+    "source_revisions": {
+      "knowledge": "0e2fe686575dc2f59edfa150b2d4846eaed8988c"
+    },
+    "sdk_revision": "6da3b22009d2ef2b29ed34fcb48dc44938f7d30e",
+    "source_unchanged_during_run": true,
+    "boundaries": [
+      "typescript_sdk_http",
+      "real_postgresql",
+      "trusted_fixture_header_identity"
+    ],
+    "duration_seconds": 27.177,
+    "artifact_path": "evidence/knowledge-source-lifecycle-0e2fe68.log",
+    "artifact_sha256": "16310e254909844f497b96778a4c873d6cb314a4140e72018f4a8fde9aa29bec",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/knowledge-source-lifecycle-0e2fe68-receipt.json",
+        "sha256": "2d4aafb7409936764e9a74ff96d3cdc64f512909ea86295fc458202cc398be58"
+      },
+      {
+        "artifact_path": "evidence/knowledge-source-lifecycle-0e2fe68-inputs.json",
+        "sha256": "6ec67c9c59681382196a29158455a8bb068722c69184396eb1721688d1b82012"
+      },
+      {
+        "artifact_path": "evidence/knowledge-source-lifecycle-0e2fe68-probe.mjs",
+        "sha256": "b66188321edbb03f844cddae84f3d7669800db4bacff7348017c740dcd1067fb"
+      },
+      {
+        "artifact_path": "evidence/knowledge-source-lifecycle-0e2fe68-production-receipt.json",
+        "sha256": "a591d16dafcf7dfcf330f5ace0aa760f0704f1ab1a39e39f7268f6e3bd754ec8"
+      },
+      {
+        "artifact_path": "evidence/knowledge-source-lifecycle-0e2fe68-production.log",
+        "sha256": "703e7eca104f790350e17d972e1a99183de1c7b70c586dad54684bf0b710ec76"
+      }
+    ],
+    "covered_operations": {
+      "knowledge": [
+        "DELETE /api/v1/chat-bindings/{id}",
+        "DELETE /api/v1/edges/{id}",
+        "DELETE /api/v1/groups/{id}",
+        "DELETE /api/v1/items/{id}",
+        "DELETE /api/v1/knowledge-bases/{id}",
+        "DELETE /api/v1/match-rules/{id}",
+        "GET /api/v1/actions",
+        "GET /api/v1/audit",
+        "GET /api/v1/audit-events",
+        "GET /api/v1/chat-bindings",
+        "GET /api/v1/documents",
+        "GET /api/v1/items/{id}",
+        "GET /api/v1/knowledge-bases",
+        "GET /api/v1/knowledge-bases/{id}",
+        "GET /api/v1/knowledge-bases/{id}/edges",
+        "GET /api/v1/knowledge-bases/{id}/export",
+        "GET /api/v1/knowledge-bases/{id}/groups",
+        "GET /api/v1/knowledge-bases/{id}/items",
+        "GET /api/v1/knowledge-releases/{id}",
+        "GET /api/v1/match-rules",
+        "GET /api/v1/processing-jobs",
+        "GET /api/v1/sources",
+        "PATCH /api/v1/actions/{id}/status",
+        "POST /api/v1/chat-bindings",
+        "POST /api/v1/documents",
+        "POST /api/v1/documents/{id}/reprocess",
+        "POST /api/v1/knowledge-bases",
+        "POST /api/v1/knowledge-bases/{id}/edges",
+        "POST /api/v1/knowledge-bases/{id}/groups",
+        "POST /api/v1/knowledge-bases/{id}/items",
+        "POST /api/v1/knowledge-bases/{id}/publish",
+        "POST /api/v1/match-rules",
+        "POST /api/v1/sources",
+        "POST /api/v1/sources/{id}/pause",
+        "POST /api/v1/sources/{id}/sync",
+        "PUT /api/v1/chat-bindings/{id}",
+        "PUT /api/v1/edges/{id}",
+        "PUT /api/v1/groups/{id}",
+        "PUT /api/v1/items/{id}",
+        "PUT /api/v1/knowledge-bases/{id}",
+        "PUT /api/v1/match-rules/{id}"
+      ]
+    },
+    "scope": "Full30native suite plus actual packed SDK6da consumer exercising41 editor/ingestion/source operations including source lifecycle/audit rollback/concurrent sync identity including late-job/audit rollback, metadata/provenance corrections and concurrent same-source retries over production routes/owned realPostgreSQL, DEVfalse with explicit trusted fixture headers. Production ingestion successor ofd025; not deployed IDP/gateway authority, full76operations, model quality or memory migration certification.",
+    "candidate_only_not_selected_sdk_source": true,
+    "limits": [
+      "Source0e2local; currentSDKpin4f not changed",
+      "41operations tested, not76/allservice completeness",
+      "Trustedfixtureheaders, notcurrentIDP/gateway/tenantcertification",
+      "No memorymigration, modelquality, npmpublication orliveactivation"
+    ]
   }
 }

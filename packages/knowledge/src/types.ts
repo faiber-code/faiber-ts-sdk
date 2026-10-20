@@ -100,7 +100,15 @@ export interface MemoryTurnInput extends JsonObject { user_id:string; profile?:J
 export interface RecordAssistantTurnInput extends MemoryTurnInput {}
 export interface RetrievalUsageInput extends JsonObject { final_prompt_tokens:number; cached_input_tokens?:number; reasoning_tokens?:number; output_tokens?:number; token_attribution?:JsonValue; actual_cost?:number; outcome?:string; }
 export interface PlatformStatus extends JsonObject { service:string; version:string; commit:string; status:string; checked_at:string; knowledge_bases:number; published_bases:number; sources:number; documents:number; chunks:number; entities:number; relations:number; assistants:number; memory_subjects:number; memories:number; recommender_groups:number; open_findings:number; queued_jobs:number; processing_jobs:number; failed_jobs:number; stale_documents:number; missing_embeddings:number; memory_backlog:number; dead_letters:number; retrieval:JsonValue; dependencies:Record<string,string>; }
-export interface KnowledgeSource extends JsonObject { id:string; knowledge_base_id:string; slug:string; name:JsonValue; source_type:string; status:string; sync_status:string; document_count:number; chunk_count:number; last_error?:string|null; last_synced_at?:string|null; }
+/** Source kinds accepted by configuration validation. Availability of an execution adapter is separate. */
+export type KnowledgeSourceType = "manual" | "api" | "crawler" | "web" | "sitemap" | "rss" | "infera-drm" | "infera-session" | "structured" | "database-export";
+export interface KnowledgeSource extends JsonObject { id:string; organization_id:string; knowledge_base_id:string; slug:string; name:JsonValue; source_type:string; configuration:JsonValue; provenance_policy:JsonValue; status:string; sync_status:string; sync_cursor:string|null; document_count:number; chunk_count:number; last_error:string|null; last_synced_at:string|null; version:number; created_at:string; updated_at:string; converter_id:string|null; converter_version:string|null; configuration_checksum:string|null; next_sync_at:string|null; stale_at:string|null; last_success_at:string|null; schedule:string|null; }
+/** Slug is 2–120 lowercase ASCII letters/digits/hyphens/underscores. Use Control secret references instead of raw credentials. */
+export interface CreateKnowledgeSourceInput extends JsonObject { knowledge_base_id:string; slug:string; name:JsonValue; source_type:KnowledgeSourceType; configuration?:JsonValue; provenance_policy?:JsonValue; }
+export type KnowledgeSourceResponse = ApiEnvelope<KnowledgeSource>;
+/** Durable enqueue receipt; queued does not certify worker execution or adapter availability. */
+export interface KnowledgeQueuedJob extends JsonObject { job_id:string; queued:true; }
+export type KnowledgeQueuedJobResponse = ApiEnvelope<KnowledgeQueuedJob>;
 /** Document list projection. Content, metadata and checksum are not returned by this list endpoint. */
 export interface KnowledgeDocument extends JsonObject { id:string; knowledge_base_id:string; source_id:string|null; external_id:string|null; title:string; media_type:string; language:string|null; provenance:JsonValue; status:string; indexed_at:string|null; version:number; created_at:string; }
 export interface IndexedDocumentReceipt extends JsonObject { id:string; job_id:string; checksum:string; chunks:number; status:"indexed"; }

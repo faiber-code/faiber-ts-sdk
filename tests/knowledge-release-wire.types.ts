@@ -37,3 +37,8 @@ api.operations.platformIngestDocumentPost({knowledge_base_id:'base',title:'Title
 void invalidImportance;
 
 api.query('chat',{compact:true,max_context_chars:4000}).then(response=>{const suggestions:import('@faiber/sdk-core').JsonValue[]=response.data.data.suggestions;void suggestions;});
+
+api.operations.platformCreateSourcePost({knowledge_base_id:'base',slug:'source',name:{en:'Manual source'},source_type:'manual'}).then(response=>{const revision:number=response.data.data.version;const cursor:string|null=response.data.data.sync_cursor;void [revision,cursor];});
+api.operations.platformSyncSourcePost('source').then(response=>{const job:string=response.data.data.job_id;const queued:true=response.data.data.queued;void [job,queued];});
+// @ts-expect-error unsupported source kinds are rejected by the backend
+api.operations.platformCreateSourcePost({knowledge_base_id:'base',slug:'source',name:{},source_type:'invented'});

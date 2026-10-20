@@ -65,6 +65,11 @@ const responseOverrides = {
     update_action_status: "KnowledgeCustomerActionResponse",
     list_audit: "KnowledgeAuditLogListResponse",
     audit_events: "KnowledgeAuditEventListResponse",
+    list_sources: "KnowledgeSourceListResponse",
+    create_source: "KnowledgeSourceResponse",
+    pause_source: "KnowledgeSourceResponse",
+    sync_source: "KnowledgeQueuedJobResponse",
+    reprocess_document: "KnowledgeQueuedJobResponse",
     list_documents: "KnowledgeDocumentListResponse",
     ingest_document: "IngestDocumentResponse",
     publish: "KnowledgeReleaseResponse",
@@ -148,7 +153,7 @@ const responseOverrides = {
   },
 };
 const inputOverrides = {
-  knowledge:{create_item:"CreateItemInput",update_item:"UpdateItemInput",update_action_status:"ActionStatusInput"},
+  knowledge:{create_source:"CreateKnowledgeSourceInput",create_item:"CreateItemInput",update_item:"UpdateItemInput",update_action_status:"ActionStatusInput"},
   asset:{policy_put:"EconomyPolicy",command:"EconomyOperatorCommand",preview:"EconomyPreviewInput",purchase:"EconomyPurchaseInput",credit:"EconomyCreditInput"},
   session:{interact:"RoomInteractionInput"},
   idp: { browser_login: "BrowserLoginInput" },

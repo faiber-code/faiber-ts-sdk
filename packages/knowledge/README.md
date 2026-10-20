@@ -133,3 +133,20 @@ Corrections to title, media type, language, provenance, metadata or source assoc
 update the existing external-ID document even when the text checksum is unchanged.
 Reprocessing retries return the actual persisted active job ID; they do not promise
 that an ingestion worker or embeddings are ready.
+
+### Source configuration and synchronization
+
+Source records include their organization/base, version, configuration and provenance
+policy, synchronization cursor/counts, converter references, schedule and timestamps.
+`operations.platformCreateSourcePost` accepts the named `CreateKnowledgeSourceInput`;
+source kinds are `manual`, `api`, `crawler`, `web`, `sitemap`, `rss`, `infera-drm`,
+`infera-session`, `structured`, and `database-export`. Configuration/provenance members
+are deliberate service-defined JSON extension values. Keep credentials in Control and
+provide reference keys ending in `_ref` rather than raw secrets.
+
+`platformSyncSourcePost` returns an enqueue receipt. Inspect processing-job state and
+adapter availability separately before treating source data as synchronized. The
+`platformPauseSourcePost` operation toggles active/paused state; it is not an idempotent
+"set paused" request. Read the current source after an ambiguous transport failure
+before repeating the toggle. Source management requires `knowledge:write`; listing
+sources requires `knowledge:read`.
