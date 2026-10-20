@@ -49,11 +49,23 @@ eq((await call('routesExportBaseGet',base.id)).knowledge_base.id,base.id);
 
 const source=await call('platformCreateSourcePost',{knowledge_base_id:base.id,slug:'packed-source',name:{en:'Owned manual source'},source_type:'manual'});
 assert.ok((await call('platformListSourcesGet')).some(x=>x.id===source.id));assertions++;
+await denied(409,()=>api.platformCreateSourcePost({knowledge_base_id:base.id,slug:'packed-source',name:{en:'Duplicate'},source_type:'manual'}));
+await denied(404,()=>api.platformPauseSourcePost(source.id,{headers:{'x-organization-id':randomUUID()}}));
 const sync=await call('platformSyncSourcePost',source.id);eq(statuses.get('platformSyncSourcePost'),202);
 const syncRetry=await call('platformSyncSourcePost',source.id);eq(syncRetry.job_id,sync.job_id);
 const paused=await call('platformPauseSourcePost',source.id);eq(paused.status,'paused');eq(paused.version,source.version+1);
 await denied(409,()=>api.platformSyncSourcePost(source.id));
 const resumed=await call('platformPauseSourcePost',source.id);eq(resumed.status,'active');eq(resumed.version,paused.version+1);
+const syncParallel=await Promise.all([1,2,3].map(()=>api.platformSyncSourcePost(source.id)));eq(new Set(syncParallel.map(x=>x.data.data.job_id)).size,1);eq(syncParallel[0].data.data.job_id,sync.job_id);
+await denied(500,()=>api.platformCreateSourcePost({knowledge_base_id:base.id,slug:'source-create-fault',name:{en:'owned-source-create-audit-fault'},source_type:'manual'}));
+eq((await call('platformListSourcesGet')).some(x=>x.slug==='source-create-fault'),false);
+for(const action of ['sync','pause']){
+ const faultSource=await call('platformCreateSourcePost',{knowledge_base_id:base.id,slug:'source-'+action+'-fault',name:{en:'owned-source-'+action+'-audit-fault'},source_type:'manual'});
+ await denied(500,()=>action==='sync'?api.platformSyncSourcePost(faultSource.id):api.platformPauseSourcePost(faultSource.id));
+ const retained=(await call('platformListSourcesGet')).find(x=>x.id===faultSource.id);eq(retained.status,'active');eq(retained.sync_status,'idle');eq(retained.version,1);
+ eq((await api.platformProcessingJobsGet()).data.data.some(x=>x.source_id===faultSource.id),false);
+}
+
 
 const documentInput={knowledge_base_id:base.id,external_id:'packed-'+randomUUID(),title:'Owned document',content:'Owned durable source text.'};
 const indexed=await call('platformIngestDocumentPost',documentInput);eq(statuses.get('platformIngestDocumentPost'),201);eq(indexed.status,'indexed');assert.match(indexed.job_id,/^[a-f0-9-]{36}$/);assertions++;
@@ -86,5 +98,6 @@ eq((await call('routesUpdateActionStatusPatch',actions[0].id,{status:'completed'
 await denied(400,()=>api.routesUpdateActionStatusPatch(actions[0].id,{status:'invalid'}));
 assert.ok((await call('routesListAuditGet',{limit:200})).length>0);assertions++;
 await call('routesDeleteBaseDelete',base.id);await denied(404,()=>api.routesGetBaseGet(base.id));
+await denied(404,()=>api.platformCreateSourcePost({knowledge_base_id:base.id,slug:'deleted-base',name:{en:'Deleted'},source_type:'manual'}));
 eq(covered.size,41);
 console.log(JSON.stringify({status:'passed',assertions,covered_exports:[...covered].sort(),boundary:'actual_packed_typescript_sdk_http_postgresql',identity_limit:'explicit trusted fixture headers, not current IDP/gateway authentication'}));
