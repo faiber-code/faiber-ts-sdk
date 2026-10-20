@@ -2,6 +2,7 @@
 import assert from 'node:assert/strict';
 import {pathToFileURL} from 'node:url';
 import {randomUUID} from 'node:crypto';
+setTimeout(()=>process.exit(124),55000).unref();
 const {FaiberSDK}=await import(pathToFileURL(process.env.KNOWLEDGE_PACKED_FACADE).href);
 const origin=process.env.KNOWLEDGE_OWNED_HTTP_ORIGIN;
 assert.match(origin,/^http:\/\/127\.0\.0\.1:\d+$/);
