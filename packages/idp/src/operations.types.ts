@@ -135,6 +135,11 @@ export interface AclRolesUpdatePutResponseData extends JsonObject {
 export interface AclRolesUpdatePutResponse extends ApiEnvelope<AclRolesUpdatePutResponseData> {
 }
 
+/** Backend query type: EffectivePermissionQuery. */
+export type EffectivePermissionsReadGetQuery = import("./authority.js").EffectivePermissionQuery;
+/** Backend response type: EffectivePermissionSnapshot. */
+export type EffectivePermissionsReadGetResponse = import("./authority.js").EffectivePermissionResponse;
+
 /** Backend request type: AccountTokenRequest. */
 export interface AuthLoginAccountPostInput extends JsonObject {
   "account": string;
@@ -1028,6 +1033,7 @@ export interface UserUsersIndexGetQuery extends QueryParams {
   "search"?: string | null;
   "status"?: string | null;
   "role_id"?: string | null;
+  "role_name"?: string | null;
   "page"?: number | null;
   "per_page"?: number | null;
 }
@@ -1048,11 +1054,19 @@ export interface UserUsersIndexGetResponseDataUsers extends JsonObject {
   "roles": UserUsersIndexGetResponseDataUsersRoles[];
   "linked_providers": string[];
 }
+export interface UserUsersIndexGetResponseDataRoleFilter extends JsonObject {
+  "version": number;
+  "role_id"?: string | null;
+  "role_name"?: string | null;
+  "active_membership": boolean;
+  "user_status"?: string | null;
+}
 export interface UserUsersIndexGetResponseData extends JsonObject {
   "users": UserUsersIndexGetResponseDataUsers[];
   "total": number;
   "page": number;
   "per_page": number;
+  "role_filter"?: UserUsersIndexGetResponseDataRoleFilter | null;
 }
 export interface UserUsersIndexGetResponse extends ApiEnvelope<UserUsersIndexGetResponseData> {
 }

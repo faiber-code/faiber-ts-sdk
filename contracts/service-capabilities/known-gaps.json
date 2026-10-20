@@ -790,9 +790,9 @@
       "id": "idp-current-authority-sdk-candidate-adoption",
       "owner": "sdk",
       "required": true,
-      "status": "typed_packaged_sdk_native_passed_source_pin_and_canonical_adoption_pending",
-      "meaning": "Current grant and confirmed active-role helpers passed real freshly packed SDK tests against full migrated composed IDP95fedbb with12000 unrelated accounts. Same client observed a database grant revocation. Source pin/generator reconciliation, remaining composed IDP native tests and canonical deployed adoption remain required; no full-directory fallback or release claim.",
-      "local_backend_revision": "a7a11df971e4c27300c45ca7dcc2cf9a742f16d7",
+      "status": "candidate_source_pin_and_generated_operation_adopted_remaining_native_and_canonical_gates_pending",
+      "meaning": "Freshly packed authority helper passed actual composed IDP. Candidate source lock now selects95fedbb, and105 generated operations include current grants with required service query plus exact role-name filtering. Existing operation names preserved, new response named. Remaining composed ignored/native Manage caller tests, refreshed packaged native proof, complete semantic review and canonical deployment remain required. This is candidate source adoption, not release or live certification.",
+      "local_backend_revision": "95fedbb63b85bbe4ed750ac7d5a8237cf4b55632",
       "source_refs": [
         "packages/idp/src/authority.ts",
         "packages/idp/src/types.ts",

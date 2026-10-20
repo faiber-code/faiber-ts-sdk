@@ -5895,6 +5895,20 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/acl/users/{user_id}/effective-permissions",
+      "module": "effective_permissions",
+      "handler": "read",
+      "permissions": [],
+      "source": "infera-idp/src/effective_permissions.rs",
+      "query": "EffectivePermissionQuery",
+      "pathParam": "Uuid",
+      "response": "EffectivePermissionSnapshot",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "POST",
       "path": "/api/v1/auth/account-login",
       "module": "auth",

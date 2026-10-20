@@ -9,3 +9,8 @@ idp.authority.activeRoleUsers({page:1});
 // @ts-expect-error canonical service must be explicit
 idp.authority.currentPermissions('id',{});
 void [current,marker];
+
+const generated:Promise<AxiosResponse<EffectivePermissionResponse>>=idp.operations.effectivePermissionsReadGet("id",{service:"gis"});
+// @ts-expect-error native extractor requires a query with explicit service
+idp.operations.effectivePermissionsReadGet("id");
+void generated;

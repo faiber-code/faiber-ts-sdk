@@ -110,6 +110,18 @@ export class IdpOperations extends ServiceApi {
     return this.client.request<T.AclRolesUpdatePutResponse, T.AclRolesUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/acl/roles/${encodeURIComponent(roleId)}`, data: data });
   }
   /**
+   * Read a bounded current local-IDP grant snapshot for one user/service. Never cache this as delegated authorization; equal revision does not extend authority. Unavailable or oversized snapshots fail closed.
+   * Calls `GET /api/v1/acl/users/{user_id}/effective-permissions` through the shared IDP-aware Faiber client.
+   * @param userId Backend path identifier `user_id`.
+   * @param params Typed query parameters; omitted members retain backend defaults.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: BOTH current idp:user:read and idp:acl:read; current active local principal/client/session.
+   */
+  effectivePermissionsReadGet(userId: Identifier, params: T.EffectivePermissionsReadGetQuery, options?: RequestOptions) {
+    return this.client.request<T.EffectivePermissionsReadGetResponse>({ ...options, method: "GET", url: `/api/v1/acl/users/${encodeURIComponent(userId)}/effective-permissions`, params });
+  }
+  /**
    * Performs the login account operation for the auth capability.
    * Calls `POST /api/v1/auth/account-login` through the shared IDP-aware Faiber client.
    * @param data Typed URL-encoded form.

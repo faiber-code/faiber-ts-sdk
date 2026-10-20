@@ -7,6 +7,13 @@ import { integrationContracts } from "./integration-contracts.mjs";
 import { profileSummaryContracts } from "./profile-summary-contracts.mjs";
 // Reviewed wire contracts; keyed by the mounted method and path, never ambiguous handler names.
 export const releaseContracts = {
+  "idp:GET /api/v1/acl/users/{user_id}/effective-permissions": {
+    response: 'import("./authority.js").EffectivePermissionResponse',
+    query: 'import("./authority.js").EffectivePermissionQuery',
+    requiredQuery: true,
+    auth: 'BOTH current idp:user:read and idp:acl:read; current active local principal/client/session',
+    purpose: 'Read a bounded current local-IDP grant snapshot for one user/service. Never cache this as delegated authorization; equal revision does not extend authority. Unavailable or oversized snapshots fail closed.'
+  },
   ...gisContracts,
   ...routerContracts,
   ...lmsBrandingContracts,

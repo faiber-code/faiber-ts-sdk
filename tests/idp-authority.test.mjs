@@ -11,6 +11,7 @@ test('current grant helper preserves the native observation and full HTTP respon
  const payload={status:'success',message:'ok',data:{user_id:uid,service:'gis',active:true,permissions:['gis:dataset:manage'],revision:'a'.repeat(64),checked_at:'2026-10-20T00:00:00Z'}};
  const{api,requests}=fixture(()=>payload);const signal=new AbortController().signal;const response=await api.authority.currentPermissions('subject/encoded',{service:'gis'},{signal,timeout:1000});
  assert.equal(response.data,payload);assert.equal(response.headers.get('cache-control'),'private, no-store');assert.equal(requests[0].url,'/api/v1/acl/users/subject%2Fencoded/effective-permissions');assert.deepEqual(requests[0].params,{service:'gis'});assert.equal(requests[0].signal,signal);
+ const generated=await api.operations.effectivePermissionsReadGet('subject/encoded',{service:'gis'},{signal,timeout:1000});assert.equal(generated.data,payload);assert.equal(requests[1].url,requests[0].url);assert.deepEqual(requests[1].params,{service:'gis'});
 });
 test('active role helper requires native acknowledgement and keeps current filters authoritative',async()=>{
  const{api,requests}=fixture(body);const response=await api.authority.activeRoleUsers({role_name:'reviewer',status:'disabled',page:1,per_page:100});
