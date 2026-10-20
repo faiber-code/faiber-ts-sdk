@@ -169,7 +169,7 @@ export class MessengerOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current principal plus message:notification:self:read (documented legacy notification:self:read and messenger:notification:self:read aliases accepted); only this recipient's inbox/stream. Declared route metadata alone is not authorization.
    */
   notificationNotificationsMyInboxGet(params?: T.NotificationNotificationsMyInboxGetQuery, options?: RequestOptions) {
     return this.client.request<T.NotificationNotificationsMyInboxGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/me`, params });
@@ -180,7 +180,7 @@ export class MessengerOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current principal plus message:notification:self:read (documented legacy notification:self:read and messenger:notification:self:read aliases accepted); only this recipient's inbox/stream. Declared route metadata alone is not authorization.
    */
   notificationNotificationsMyMarkReadPatch(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.NotificationNotificationsMyMarkReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/${encodeURIComponent(id)}/read` });
@@ -191,7 +191,7 @@ export class MessengerOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current principal plus message:notification:self:read (documented legacy notification:self:read and messenger:notification:self:read aliases accepted); only this recipient's inbox/stream. Declared route metadata alone is not authorization.
    */
   inboxStreamEventsGet(params?: T.InboxStreamEventsGetQuery, options?: RequestOptions) {
     return this.client.request<T.InboxStreamEventsGetResponse>({ timeout: 35000, ...options, method: "GET", url: `/api/v1/notifications/me/events`, params });
@@ -201,7 +201,7 @@ export class MessengerOperations extends ServiceApi {
    * Calls `PATCH /api/v1/notifications/me/read-all` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current principal plus message:notification:self:read (documented legacy notification:self:read and messenger:notification:self:read aliases accepted); only this recipient's inbox/stream. Declared route metadata alone is not authorization.
    */
   notificationNotificationsMyMarkAllReadPatch(options?: RequestOptions) {
     return this.client.request<T.NotificationNotificationsMyMarkAllReadPatchResponse>({ ...options, method: "PATCH", url: `/api/v1/notifications/me/read-all` });
@@ -211,7 +211,7 @@ export class MessengerOperations extends ServiceApi {
    * Calls `GET /api/v1/notifications/me/unread-count` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current principal plus message:notification:self:read (documented legacy notification:self:read and messenger:notification:self:read aliases accepted); only this recipient's inbox/stream. Declared route metadata alone is not authorization.
    */
   inboxStreamUnreadGet(options?: RequestOptions) {
     return this.client.request<T.InboxStreamUnreadGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/me/unread-count` });
@@ -233,7 +233,7 @@ export class MessengerOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current principal plus message:notification:self:read (documented legacy notification:self:read and messenger:notification:self:read aliases accepted); only this recipient's inbox/stream. Declared route metadata alone is not authorization.
    */
   notificationNotificationsRealtimeAuthPost(data: T.NotificationNotificationsRealtimeAuthPostInput, options?: RequestOptions<T.NotificationNotificationsRealtimeAuthPostInput>) {
     return this.client.request<T.NotificationNotificationsRealtimeAuthPostResponse, T.NotificationNotificationsRealtimeAuthPostInput>({ ...options, method: "POST", url: `/api/v1/notifications/realtime/auth`, data: data });
@@ -243,7 +243,7 @@ export class MessengerOperations extends ServiceApi {
    * Calls `GET /api/v1/notifications/realtime/config` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: notification:self:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: current principal plus message:notification:self:read (documented legacy notification:self:read and messenger:notification:self:read aliases accepted); only this recipient's inbox/stream. Declared route metadata alone is not authorization.
    */
   notificationNotificationsRealtimeConfigGet(options?: RequestOptions) {
     return this.client.request<T.NotificationNotificationsRealtimeConfigGetResponse>({ ...options, method: "GET", url: `/api/v1/notifications/realtime/config` });

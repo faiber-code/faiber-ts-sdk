@@ -1,3 +1,4 @@
+import {routerContracts} from "./router-contract-overrides.mjs";
 // Audited mounted integration routes and concrete wire types. No workflow configuration is included.
 export const integrationEndpoints = [
   {
@@ -667,3 +668,10 @@ export const integrationContracts = {
     "query": "import(\"./notification-settings.js\").EligibleContactQuery"
   }
 };
+
+// These two integration entries override router metadata; keep their actual
+// native current-principal authorization aligned with the other self routes.
+for (const path of ["/api/v1/notifications/me/events", "/api/v1/notifications/me/unread-count"]) {
+  const key = `messenger:GET ${path}`;
+  integrationContracts[key].auth = routerContracts[key].auth;
+}

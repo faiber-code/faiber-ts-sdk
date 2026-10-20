@@ -115,3 +115,16 @@ for (const method of ["GET", "PATCH"]) routerContracts[`idp:${method} /api/v1/ac
   auth: method === "PATCH" ? "current genuine bearer/cookie user with BOTH idp:acl:read and idp:acl:update, revalidated after the role row lock" : "current genuine bearer/cookie user with idp:acl:read",
   purpose: method === "PATCH" ? "Atomically add/remove only reviewed permission UUIDs under expected_revision. Preserve unrelated/inactive rows; bound combined delta4096. Stale revision409 requires explicit re-read/rebase; invalid additions/duplicates/overlap400, protected admin406, unavailable503. Never retry blindly or replace full grants. No durable mutation receipt is created." : "Read an atomic role grant snapshot and conflict revision, active canonical names and bounded stored row count with private no-store caching. Unknown role404, denied401, oversized/unavailable503. A revision is not a credential or durable authority cache."
 };
+
+for (const [method,path] of [
+ ["GET","/api/v1/notifications/me"],
+ ["GET","/api/v1/notifications/me/events"],
+ ["GET","/api/v1/notifications/me/unread-count"],
+ ["PATCH","/api/v1/notifications/me/{id}/read"],
+ ["PATCH","/api/v1/notifications/me/read-all"],
+ ["GET","/api/v1/notifications/realtime/config"],
+ ["POST","/api/v1/notifications/realtime/auth"]
+]) {
+ const key=`messenger:${method} ${path}`;
+ routerContracts[key]={...routerContracts[key], auth:"current principal plus message:notification:self:read (documented legacy notification:self:read and messenger:notification:self:read aliases accepted); only this recipient's inbox/stream. Declared route metadata alone is not authorization"};
+}

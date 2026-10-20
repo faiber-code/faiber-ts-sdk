@@ -45,6 +45,7 @@ This package exposes 107 registered operations from the identity and access serv
 | `acl` | 10 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
 | `auth` | 27 | `DELETE`, `GET`, `OPTIONS`, `POST` |
 | `custom-oauth` | 8 | `DELETE`, `GET`, `POST`, `PUT` |
+| `effective-permissions` | 1 | `GET` |
 | `identity-authority` | 10 | `GET`, `POST`, `PUT` |
 | `integration` | 1 | `GET` |
 | `oauth-clients` | 6 | `DELETE`, `GET`, `POST`, `PUT` |
