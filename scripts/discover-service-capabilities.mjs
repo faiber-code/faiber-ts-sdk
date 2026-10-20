@@ -1,5 +1,5 @@
 import { classifyReviewedProtocolAlternatives } from './reviewed-protocol-alternatives.mjs';
-import { capabilityInventoryRevision, retainCapabilitySourceDecision } from './capability-source-selection.mjs';
+import { capabilityInventoryRevision, retainCapabilitySourceDecision, retainCapabilityConsumerReview } from './capability-source-selection.mjs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
@@ -208,6 +208,7 @@ for(const [service,entry] of Object.entries(universe.services)) {
     catch{return {path:`${entry.directory}/${path}`,missing:true};}
   });
   const prior=readJson(join(target,`${service}.json`));
+  const priorOperations=new Map((prior?.operations??[]).map(operation=>[operation.id,operation]));
   const data={schema_version:'1.0',service,...entry,inventory_source:inventoryMode,inventory_revision:inventoryRevision,source_decision:retainCapabilitySourceDecision(prior?.source_decision,inventoryRevision,treeChecksum),relationship_review:prior?.source_tree_checksum===treeChecksum&&prior?.inventory_revision===inventoryRevision?prior?.relationship_review??null:null,canonical_revision:canonicalRevision.origin_main,sdk_source_revision:lock?.revision??null,working_revision:revision,
     working_changes:git(root,'status','--short','--','src','entity','migration','crates','shared','auth','auth_macro','Cargo.toml','Cargo.lock','build.rs').split('\n').filter(Boolean),
     source_relationship:relationship,
@@ -220,7 +221,13 @@ for(const [service,entry] of Object.entries(universe.services)) {
     embedded_source_gaps:{inventory:files.embedded_source_gaps,working:currentFiles.embedded_source_gaps},
     working_source_tree_checksum:hash(JSON.stringify(currentFiles.map(({path,checksum})=>({path,checksum})))),
     working_source_files:currentFiles.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),
-    operations:endpoints.map(endpoint=>operationEvidence(files,endpoint,reviews[`${endpoint.method} ${endpoint.path}`],treeChecksum)),
+    operations:endpoints.map(endpoint=>{
+      const operation=operationEvidence(files,endpoint,reviews[`${endpoint.method} ${endpoint.path}`],treeChecksum);
+      const previous=priorOperations.get(operation.id);
+      return {...operation,
+        sdk:retainCapabilityConsumerReview(previous?.sdk,operation.source_checksum,'requires_wire_verification'),
+        manage:retainCapabilityConsumerReview(previous?.manage,operation.source_checksum,'requires_workflow_verification')};
+    }),
     sdk_contract_drift:{missing:[...old.keys()].filter(k=>!sdk.has(k)),extra:[...sdk.keys()].filter(k=>!old.has(k)),changed:[...old.keys()].filter(k=>sdk.has(k)&&JSON.stringify(old.get(k))!==JSON.stringify(sdk.get(k)))},
     router_reconciliation:mounted?{unresolved:mounted.unresolved,duplicates:mounted.duplicates,
       independent_mounted_operations:mounted.operations,
