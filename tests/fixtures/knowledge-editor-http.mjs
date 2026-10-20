@@ -9,7 +9,7 @@ assert.match(origin,/^http:\/\/127\.0\.0\.1:\d+$/);
 const sdk=new FaiberSDK({domains:{knowledge:origin},axios:{timeout:5000,headers:{'x-organization-id':process.env.KNOWLEDGE_OWNED_ORGANIZATION,'x-user-permissions':'knowledge:*'}}});
 const api=sdk.knowledge.operations,covered=new Set();let assertions=0;
 const eq=(a,b)=>{assert.deepEqual(a,b);assertions++;};
-async function call(name,...args){const r=await api[name](...args);covered.add(name);assert.ok(r.status>=200&&r.status<300);assertions++;return r.data?.data;}
+async function call(name,...args){const r=await api[name](...args).catch(e=>{throw Error(name+": "+e.response?.status+" "+JSON.stringify(e.response?.data));});covered.add(name);assert.ok(r.status>=200&&r.status<300);assertions++;return r.data?.data;}
 async function denied(status,fn){await assert.rejects(fn,e=>{eq(e.response?.status,status);return true;});}
 const base=await call('routesCreateBasePost',{slug:'packed-'+randomUUID(),name:'Owned packed SDK'});
 eq(base.version,1);eq(base.published_release_id,null);
@@ -36,7 +36,7 @@ await denied(409,()=>api.routesDeleteItemDelete(a.id));
 const binding=await call('routesCreateBindingPost',{knowledge_base_id:base.id,chat_slug:'owned-'+randomUUID()});
 assert.ok((await call('routesListBindingsGet')).some(x=>x.id===binding.id));assertions++;
 eq((await call('routesUpdateBindingPut',binding.id,{enabled:false,expected_version:1})).enabled,false);
-const rule=await call('routesCreateRulePost',{knowledge_base_id:base.id,group_id:group.id,slug:'packed-rule',name:{en:'Rule'},conditions:{},outcomes:[]});
+const rule=await call('routesCreateRulePost',{knowledge_base_id:base.id,group_id:group.id,slug:'packed-rule',name:{en:'Rule'},conditions:{path:'profile.active',op:'eq',value:true},outcomes:[]});
 eq((await call('routesUpdateRulePut',rule.id,{enabled:false,expected_version:1})).enabled,false);
 const filtered=await api.routesListRulesGet({knowledge_base_id:base.id,group_id:group.id,q:'packed-rule',enabled:false,page:1,limit:1});covered.add('routesListRulesGet');
 eq(filtered.data.meta,{total:1,page:1,limit:1});eq(filtered.data.data[0].id,rule.id);
