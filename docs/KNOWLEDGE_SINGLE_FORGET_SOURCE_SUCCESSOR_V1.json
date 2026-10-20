@@ -1,0 +1,24 @@
+{
+  "kind": "verified_narrow_backend_source_successor",
+  "previous_sdk_commit": "e10d5db20f0ab8a445c39415534c0a8f1a29bc69",
+  "runtime_package_baseline": "6e57536072e524844e8080263edfe96929071f73",
+  "previous_knowledge_source": "07b57813b759bebe160e751224b280eb8a5ccef9",
+  "selected_knowledge_source": "01a3b0955ddab5968b03a36823add450ce6b097e",
+  "source_changes": [
+    "Advertised optional single-record memory_type is applied to the exact tenant/subject/memory DELETE.",
+    "Invalid type and reasons above500 UTF-8 bytes reject before mutation.",
+    "Internal audit/database errors are mapped safely; transactional rollback preserved."
+  ],
+  "native_gate": "acceptance-results/three-feature-completion-20261019/knowledge-single-forget-final-v1/handoff.json",
+  "gate_sha256": "d435cdeeca6077891cfd8c7dde4c2f8d80ab5dfba16f11feb2c7ca5806c65acc",
+  "expected_red": "904588cc6c98cd0cf406de1b60c4b9c350882c92:1passed2failed; characterization only",
+  "acceptance": "01a3b0955ddab5968b03a36823add450ce6b097e:3passed0failed0ignored; actual owned PostgreSQL and canonical route fixture",
+  "public_dto_or_method_change": false,
+  "limits": [
+    "Old frozen6e/e10 packages and all historical receipts retain their original source bindings.",
+    "This successor does not promote global semantic verification or certify deployed IDP/Manage proxy.",
+    "Independent cardinality projection and persisted-but-unenforced configuration settings remain separate blockers.",
+    "No publication, live change, project migration or agent cutover."
+  ],
+  "extractor_reconciliation": "Named query:Query<MemoryClearQuery> is now recognized alongside destructured Query(query):Query<T>. Focused actual-source test failed before the fix and passes after; complete regeneration yields no service-contracts.json or public packages changes."
+}

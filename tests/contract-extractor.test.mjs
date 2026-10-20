@@ -18,6 +18,8 @@ test("contract extraction finds the sibling services tree and emits portable mou
     assert.equal(extraction.status, 0, extraction.stderr || extraction.stdout);
     const manifest = JSON.parse(await readFile(output, "utf8"));
     assert.ok(manifest.modules.length > 0);
+    const forget = manifest.knowledge.find(endpoint => endpoint.method === "DELETE" && endpoint.path === "/api/v1/memory-subjects/{subject_id}/memories/{memory_id}");
+    assert.equal(forget?.query, "MemoryClearQuery", "a named Query extractor in the verified safe-error wrapper must retain its advertised type/reason query");
     assert.ok(manifest.modules.some(endpoint => endpoint.path === "/api/v1/manage/content"));
     assert.ok(manifest.knowledge.some(endpoint => endpoint.path === "/api/v1/runtime/assistants/{assistant_id}/contracts/{slug}"));
     assert.ok(!manifest.knowledge.some(endpoint => endpoint.path === "/api/v1/assistants/{assistant_id}/contracts/{slug}"), "runtime contracts must retain their mounted authorization boundary");
