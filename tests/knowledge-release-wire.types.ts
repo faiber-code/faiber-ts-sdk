@@ -42,3 +42,5 @@ api.operations.platformCreateSourcePost({knowledge_base_id:'base',slug:'source',
 api.operations.platformSyncSourcePost('source').then(response=>{const job:string=response.data.data.job_id;const queued:true=response.data.data.queued;void [job,queued];});
 // @ts-expect-error unsupported source kinds are rejected by the backend
 api.operations.platformCreateSourcePost({knowledge_base_id:'base',slug:'source',name:{},source_type:'invented'});
+
+api.operations.platformProcessingJobsGet().then(response=>{const job=response.data.data[0]!;const lease:string|null=job.lease_owner;const attempts:number=job.attempts;const completed:number=job.item_completed;void [lease,attempts,completed];});

@@ -358,16 +358,13 @@ export interface PlatformStatusGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend response type: Value. */
-export interface PlatformProcessingJobsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformProcessingJobsGetResponse = import("./types.js").ProcessingJobListResponse;
 
 /** Backend response type: Value. */
-export interface PlatformCancelProcessingJobPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformCancelProcessingJobPostResponse = import("./types.js").ProcessingJobResponse;
 
 /** Backend response type: Value. */
-export interface PlatformRetryProcessingJobPostResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformRetryProcessingJobPostResponse = import("./types.js").ProcessingJobResponse;
 
 /** Backend response type: Value. */
 export interface PlatformListRecommendersGetResponse extends ApiEnvelope<JsonValue> {
