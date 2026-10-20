@@ -598,3 +598,20 @@ export interface RunModulesAgentInput {
     model_ref?: string;
     risk?: AgentProposalRisk;
 }
+
+/** Existing hosted catalog pagination. Page numbers start at 1; the server clamps
+ * page_size to 1..100 (default 10). Search is a case-insensitive literal substring,
+ * not a SQL pattern: raw input is limited to 128 Unicode characters and no NUL.
+ * The server trims whitespace; omitted/blank search preserves the unfiltered catalog.
+ * UUID ascending order stabilizes pages; deleted rows are excluded. */
+export interface HostedCatalogQuery extends QueryParams {
+    page_number?: number;
+    page_size?: number;
+    search?: string;
+}
+/** Category name matches; response data.search is the normalized string or null. */
+export type CategoryListResponse = import("./operations.types.js").CategoryListCategoriesGetResponse;
+/** Tag name matches; response data.search is the normalized string or null. */
+export type TagListResponse = import("./operations.types.js").TagListTagsGetResponse;
+/** SEO title or URL matches; response data.search is the normalized string or null. */
+export type SeoContentListResponse = import("./operations.types.js").SeoContentListSeoContentsGetResponse;

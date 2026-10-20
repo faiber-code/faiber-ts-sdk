@@ -104,3 +104,22 @@ These owner-scoped operations use `/api/v1/shop/checkout/*` and return raw `Shop
 Wildcard file paths use raw nonempty segments and preserve directory separators.
 Do not pre-encode paths or include dot traversal, percent escapes, query/fragment
 syntax or backslashes; invalid paths fail locally before transport.
+
+## Hosted catalog search
+
+```ts
+const categories = await api.categories.list({ search: "Hardware", page_number: 1, page_size: 20 });
+const tags = await api.tags.list({ search: "release" });
+const seo = await api.seo.list({ search: "/products/" });
+console.log(categories.data.data.search, categories.data.data.total_items);
+```
+
+The same query and response are available on `api.operations.categoryListCategoriesGet`,
+`tagListTagsGet`, and `seoContentListSeoContentsGet`. Categories and tags match their name;
+SEO matches title or URL. Matching is a case-insensitive literal substring: `%`, `_`, and
+backslash are ordinary characters. The server trims whitespace and echoes the normalized
+search, or `null` for blank/omitted search. Inputs over 128 Unicode characters or containing
+NUL return HTTP 400. Blank/omitted search keeps the existing catalog and count. Pages start
+at 1; page size is clamped to 1–100 (default 10), ordered by UUID ascending. Deleted rows
+are excluded; search adds no status, tenant, or permission semantics. Full Axios status,
+headers, errors, cancellation, and the existing configured authorization are retained.

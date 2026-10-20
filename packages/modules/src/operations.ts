@@ -248,7 +248,7 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.BlogUpdatePostPutResponse, T.BlogUpdatePostPutInput>({ ...options, method: "PUT", url: `/api/v1/blog/posts/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the list categories operation for the category capability.
+   * List non-deleted hosted catalogs by case-insensitive literal category name substring. Search: at most 128 raw Unicode characters, no NUL (400 on violation); server trims whitespace and echoes string or null in data.search. Omitted/blank search preserves unfiltered rows/count. page_number is 1-based; page_size clamps to 1..100, default 10. Stable UUID order. Existing authorization and tenancy unchanged; search does not filter lifecycle status.
    * Calls `GET /api/v1/categories` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -1525,7 +1525,7 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.UserSampleUpdateVariablePutResponse, T.UserSampleUpdateVariablePutInput>({ ...options, method: "PUT", url: `/api/v1/samples/variables/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the list seo contents operation for the seo content capability.
+   * List non-deleted hosted catalogs by case-insensitive literal SEO title or URL substring. Search: at most 128 raw Unicode characters, no NUL (400 on violation); server trims whitespace and echoes string or null in data.search. Omitted/blank search preserves unfiltered rows/count. page_number is 1-based; page_size clamps to 1..100, default 10. Stable UUID order. Existing authorization and tenancy unchanged; search does not filter lifecycle status.
    * Calls `GET /api/v1/seo-contents` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -1937,7 +1937,7 @@ export class ModulesOperations extends ServiceApi {
     return this.client.request<T.ProductUpdateVariantPutResponse, T.ProductUpdateVariantPutInput>({ ...options, method: "PUT", url: `/api/v1/shop/variants/${encodeURIComponent(id)}`, data: data });
   }
   /**
-   * Performs the list tags operation for the tag capability.
+   * List non-deleted hosted catalogs by case-insensitive literal tag name substring. Search: at most 128 raw Unicode characters, no NUL (400 on violation); server trims whitespace and echoes string or null in data.search. Omitted/blank search preserves unfiltered rows/count. page_number is 1-based; page_size clamps to 1..100, default 10. Stable UUID order. Existing authorization and tenancy unchanged; search does not filter lifecycle status.
    * Calls `GET /api/v1/tags` through the shared IDP-aware Faiber client.
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

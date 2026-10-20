@@ -327,10 +327,11 @@ export interface BlogUpdatePostPutResponseData extends JsonObject {
 export interface BlogUpdatePostPutResponse extends ApiEnvelope<BlogUpdatePostPutResponseData> {
 }
 
-/** Backend query type: PaginationQuery. */
+/** Backend query type: HostedListQuery. */
 export interface CategoryListCategoriesGetQuery extends QueryParams {
   "page_number"?: number | null;
   "page_size"?: number | null;
+  "search"?: string;
 }
 /** Backend response type: models::CategoryListResponse. */
 export interface CategoryListCategoriesGetResponseDataCategories extends JsonObject {
@@ -346,6 +347,7 @@ export interface CategoryListCategoriesGetResponseDataCategories extends JsonObj
   "updated_at": string;
 }
 export interface CategoryListCategoriesGetResponseData extends JsonObject {
+  "search": string | null;
   "categories": CategoryListCategoriesGetResponseDataCategories[];
   "page_number": number;
   "page_size": number;
@@ -2318,10 +2320,11 @@ export interface UserSampleUpdateVariablePutResponseData extends JsonObject {
 export interface UserSampleUpdateVariablePutResponse extends ApiEnvelope<UserSampleUpdateVariablePutResponseData> {
 }
 
-/** Backend query type: PaginationQuery. */
+/** Backend query type: HostedListQuery. */
 export interface SeoContentListSeoContentsGetQuery extends QueryParams {
   "page_number"?: number | null;
   "page_size"?: number | null;
+  "search"?: string;
 }
 /** Backend response type: models::SeoContentListResponse. */
 export interface SeoContentListSeoContentsGetResponseDataSeoContents extends JsonObject {
@@ -2335,6 +2338,7 @@ export interface SeoContentListSeoContentsGetResponseDataSeoContents extends Jso
   "updated_at": string;
 }
 export interface SeoContentListSeoContentsGetResponseData extends JsonObject {
+  "search": string | null;
   "seo_contents": SeoContentListSeoContentsGetResponseDataSeoContents[];
   "page_number": number;
   "page_size": number;
@@ -3020,10 +3024,11 @@ export interface ProductUpdateVariantPutResponseData extends JsonObject {
 export interface ProductUpdateVariantPutResponse extends ApiEnvelope<ProductUpdateVariantPutResponseData> {
 }
 
-/** Backend query type: PaginationQuery. */
+/** Backend query type: HostedListQuery. */
 export interface TagListTagsGetQuery extends QueryParams {
   "page_number"?: number | null;
   "page_size"?: number | null;
+  "search"?: string;
 }
 /** Backend response type: models::TagListResponse. */
 export interface TagListTagsGetResponseDataTags extends JsonObject {
@@ -3034,6 +3039,7 @@ export interface TagListTagsGetResponseDataTags extends JsonObject {
   "updated_at": string;
 }
 export interface TagListTagsGetResponseData extends JsonObject {
+  "search": string | null;
   "tags": TagListTagsGetResponseDataTags[];
   "page_number": number;
   "page_size": number;

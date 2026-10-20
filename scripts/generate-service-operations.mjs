@@ -366,6 +366,10 @@ function renderedFields(files, module, raw, seen = new Set(), query = false, dec
         renderedType = `${nestedName}${vector ? "[]" : ""}`;
       }
     }
+    // Verified Modules85e hosted lists serialize search even when absent (JSON null).
+    // Query strings accept omitted/string values; null is not a wire query value.
+    if (query && typeName(raw) === "HostedListQuery" && field.name === "search") return [{ name: field.name, optional: true, type: "string" }];
+    if (!query && /^(CategoryListCategoriesGet|TagListTagsGet|SeoContentListSeoContentsGet)ResponseData$/.test(base) && field.name === "search") return [{ name: field.name, optional: false, type: "string | null" }];
     return [{ name: field.name, optional: optional || field.defaulted, type: optional && !renderedType.includes("null") ? `${renderedType} | null` : renderedType }];
   });
 }

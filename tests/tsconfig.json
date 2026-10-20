@@ -22,6 +22,7 @@
     "idp-memberships.types.ts",
     "assistant-policy-revisions.types.ts",
     "knowledge-memory-management.types.ts",
-    "manage-durable-actions.types.ts"
+    "manage-durable-actions.types.ts",
+    "modules-hosted-search.types.ts"
   ]
 }

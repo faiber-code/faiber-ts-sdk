@@ -37,7 +37,7 @@
   },
   "modules": {
     "directory": "infera-modules",
-    "revision": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9"
+    "revision": "85e42a5f1440b78564f23b4bbf7723a0797d3470"
   },
   "payment": {
     "directory": "infera-payment",
