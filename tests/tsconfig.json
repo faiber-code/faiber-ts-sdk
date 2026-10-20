@@ -19,6 +19,8 @@
     "messenger-recipient-wire.types.ts",
     "native-summary-access.types.ts",
     "knowledge-release-wire.types.ts",
-    "idp-memberships.types.ts"
+    "idp-memberships.types.ts",
+    "assistant-policy-revisions.types.ts",
+    "knowledge-memory-management.types.ts"
   ]
 }

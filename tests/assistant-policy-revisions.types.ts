@@ -15,3 +15,14 @@ sdk.chat.updateAssistant('assistant',{configuration_id,expected_version:1});
 sdk.knowledge.operations.platformConfigureAssistantPut('assistant',{expected_policy_revision:1});
 // @ts-expect-error arbitrary reconciliation actions are not valid
 sdk.chat.reconcileAssistantPolicy(configuration_id,{action:'toggle'});
+
+// Omitted, null and integer remain the same canonical public optional DTO.
+const draft={configuration_id,expected_version:2,expected_knowledge_policy_revision:1};
+sdk.chat.updateAssistant('assistant',{...draft,knowledge_level:null});
+sdk.chat.updateAssistant('assistant',{...draft,knowledge_level:0});
+sdk.chat.operations.routesUpdateAssistantPut('assistant',{...draft});
+sdk.chat.operations.routesUpdateAssistantPut('assistant',{...draft,knowledge_level:null});
+// @ts-expect-error a string is not a clear instruction
+sdk.chat.updateAssistant('assistant',{...draft,knowledge_level:'clear'});
+// @ts-expect-error generated operations also reject string values
+sdk.chat.operations.routesUpdateAssistantPut('assistant',{...draft,knowledge_level:'clear'});
