@@ -36,4 +36,4 @@ api.operations.platformIngestDocumentPost({knowledge_base_id:'base',title:'Title
 });
 void invalidImportance;
 
-api.query('chat',{compact:true,max_context_chars:4000}).then(response=>{const suggestions:import('../packages/core/src/index.js').JsonValue[]=response.data.data.suggestions;void suggestions;});
+api.query('chat',{compact:true,max_context_chars:4000}).then(response=>{const suggestions:import('@faiber/sdk-core').JsonValue[]=response.data.data.suggestions;void suggestions;});
