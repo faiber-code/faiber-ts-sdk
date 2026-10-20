@@ -27,7 +27,8 @@ const a=await call('routesCreateItemPost',base.id,{...itemInput,slug:'one'}),b=a
 eq(a.linked_entity_id,'owned-course');eq(a.deleted_at,null);eq(a.open_in_new_tab,true);
 eq((await call('routesGetItemGet',a.id)).id,a.id);
 eq((await call('routesListItemsGet',base.id,{q:'one',limit:1}))[0].id,a.id);
-eq((await call('routesUpdateItemPut',a.id,{importance:'high',expected_version:1})).version,2);
+eq((await call('routesUpdateItemPut',a.id,{importance:'warning',expected_version:1})).version,2);
+await denied(400,()=>api.routesUpdateItemPut(a.id,{importance:'high',expected_version:2}));
 const edge=await call('routesCreateEdgePost',base.id,{from_item_id:a.id,to_item_id:b.id,edge_type:'related'});
 eq((await call('routesListEdgesGet',base.id))[0].id,edge.id);
 eq((await call('routesUpdateEdgePut',edge.id,{weight:2,expected_version:1})).weight,2);
