@@ -1,0 +1,15 @@
+{
+  "dependency": "follow-redirects",
+  "locked_before": "1.16.0",
+  "locked_after": "1.16.1",
+  "changed_lock_entry": "packages.node_modules/follow-redirects:version,resolved,integrity only",
+  "integrity": "sha512-FNvFGzoMLWmE6Yj9spb/zjd7yiNCHiAW9/Tg9CXrQ8wuu32HtlJOwWO11OJafl5FfY3DxTdQ0vj42zU1kvv5jg==",
+  "advisories": [
+    "https://github.com/advisories/GHSA-q3jh-wrc6-jgq8",
+    "https://github.com/advisories/GHSA-8r9p-f939-6h3c"
+  ],
+  "runtime_dependency_path": "@faiber/sdk-core -> axios ^1.20.0 (resolved1.20.0) -> follow-redirects ^1.16.0. This is a consumer-resolved runtime dependency, not SDK-dev-only.",
+  "consumer_requirement": "SDK root lock is not shipped or enforced by package tarballs. Each consuming application must update its own lock and verify actual resolved follow-redirects1.16.1 or later compatible patched version; do not assume source SDK audit updates installed Manage.",
+  "verification": "Both real loopback redirect regressions failed with locked1.16.0 and pass with1.16.1. Official source registry audit reports0 vulnerabilities after this patch. Final frozen cohort and clean-consumer audit are recorded separately.",
+  "preservation": "Initial C4 cohort3128babb and its high audit evidence remain preserved. No broader dependency/manifest ranges or package versions changed."
+}
