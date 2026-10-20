@@ -13,6 +13,7 @@
     "social-admin-wire.types.ts",
     "router-wire.types.ts",
     "payment-wire.types.ts",
-    "summary-branding-wire.types.ts"
+    "summary-branding-wire.types.ts",
+    "idp-authority.types.ts"
   ]
 }

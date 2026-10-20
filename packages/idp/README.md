@@ -88,3 +88,19 @@ Managed user responses include `created_at`, the UTC registration timestamp (opt
 ## OIDC service paths
 
 Discovery uses `/.well-known/openid-configuration`; authorization, token, user-info, JWKS, revocation, introspection and logout use `/oauth2/*` at the service root. These paths do not have an `/api/v1` prefix. The generated OIDC methods use the shared client and form-encode token/revocation inputs. Internal single-use token generation requires the target user UUID in the URL. Pass the server-only `x-infera-idp-service-token` header for the current identity project and the configured internal Host. Host alone is rejected. Missing/invalid credentials return 401; missing credential configuration fails closed with 503. Never expose project credentials or the platform derivation seed in a browser.
+
+### Current grants and active role membership
+
+`idp.authority.currentPermissions(userId, { service })` reads current grants from that IDP. It requires both `idp:user:read` and `idp:acl:read`; its revision and observation time do not grant resource access or justify caching permissions. The consuming service must still enforce ownership and current permissions.
+
+`idp.authority.activeRoleUsers({ role_name, page, per_page })` requires `idp:user:read` and always requests enabled accounts with current active membership in the exact, case-sensitive native role name. Optional `role_id` must identify the same role. It preserves the full Axios response and supports `AbortSignal`, timeouts and normal authentication options.
+
+```ts
+const response = await idp.authority.activeRoleUsers(
+  { role_name: 'reviewer', page: 1, per_page: 25 },
+  { signal: controller.signal },
+);
+const members = response.data.data.users;
+```
+
+These methods require an IDP that implements the current grant and role-filter contracts. `activeRoleUsers` checks the native filter acknowledgement and returned active membership, throwing `IdpRoleFilterError` with code `idp_role_filter_unconfirmed` when the server does not confirm the scope. It makes no unfiltered fallback request. Native HTTP and authentication failures remain Axios errors. Pagination is bounded to 100 users per page, and IDP clamps requests beyond the last page.

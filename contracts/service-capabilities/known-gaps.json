@@ -785,6 +785,22 @@
       ],
       "local_source_revision": "470949b36bd2bdad24951b05683cf73e87d29bf1",
       "local_test_evidence": []
+    },
+    {
+      "id": "idp-current-authority-sdk-candidate-adoption",
+      "owner": "sdk",
+      "required": true,
+      "status": "typed_sdk_local_transport_tests_native_packaged_consumer_pending",
+      "meaning": "Current grants and active-role lookup APIs now have typed SDK helpers with native role-filter acknowledgement and returned membership checks. Backend a7a11df passed actual full migrated HTTP authority/12k-account filtering and production gates; SDK type/build/transport unit tests pass. Actual freshly packed SDK against that native endpoint, source-pin/generator reconciliation and canonical deployed adoption remain required. No full-scan fallback or release claim.",
+      "local_backend_revision": "a7a11df971e4c27300c45ca7dcc2cf9a742f16d7",
+      "source_refs": [
+        "packages/idp/src/authority.ts",
+        "packages/idp/src/types.ts",
+        "packages/idp/src/index.ts",
+        "tests/idp-authority.test.mjs",
+        "tests/idp-authority.types.ts"
+      ],
+      "test_evidence": []
     }
   ]
 }

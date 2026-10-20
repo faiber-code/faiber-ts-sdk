@@ -1,3 +1,4 @@
+import type { ActiveRoleFilter } from "./authority.js";
 import type { ApiEnvelope, JsonObject, OperationResponse, QueryParams, } from "@faiber/sdk-core";
 /** Login with a public IDP client; credentials are exchanged only for HttpOnly session cookies. */
 export type BrowserLoginInput =
@@ -191,7 +192,7 @@ export interface ValidateSessionResponse { status: string; message: string }
 export interface UserData extends JsonObject { user: User; }
 export interface UserResponse extends ApiEnvelope<UserData> {
 }
-export interface UserListData extends JsonObject { users: User[]; total: number; page: number; per_page: number; }
+export interface UserListData extends JsonObject { users: User[]; total: number; page: number; per_page: number; role_filter?: ActiveRoleFilter; }
 export interface UserListResponse extends ApiEnvelope<UserListData> {
 }
 export interface UserSelf extends JsonObject { id: string; phone?: string | null; email?: string | null; national_code?: string | null; status: number; roles: Role[]; permissions: Permission[]; }

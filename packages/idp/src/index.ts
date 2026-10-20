@@ -1,7 +1,9 @@
+import { IdpAuthorityApi } from "./authority.js";
 import { RestResource, ServiceApi, urlEncoded, type Identifier, type OperationResponse, type RequestOptions, } from "@faiber/sdk-core";
 import type { AccountLoginInput, AuthTokensResponse, ChangePasswordInput, ChangeRolesInput, CreateRoleInput, CreateUserInput, LinkedFaiberBillingQuery, LinkedFaiberBillingResponse, LinkedFaiberTopUpInput, LinkedFaiberTopUpResponse, LinkedIdentityListResponse, LoginInput, LogoutUserResponse, OAuthProviderListResponse, OtpLoginInput, Permission, PermissionListResponse, PermissionResponse, RegisterUserInput, Role, RoleListResponse, RoleResponse, SessionListResponse, SetUserStatusInput, UpdateRoleInput, UpdateUserInput, User, UserListResponse, UserResponse, UserSelfResponse, ValidateSessionResponse, WebLoginInput, } from "./types.js";
 import { IdpOperations } from "./operations.js";
 export class IdpApi extends ServiceApi {
+    readonly authority = new IdpAuthorityApi(this.client);
     readonly operations = new IdpOperations(this.client);
     readonly users = new RestResource<User, CreateUserInput, UpdateUserInput, UserListResponse, UserResponse>(this.client, "/api/v1/users", { supported: ["list", "show", "create", "update", "replace", "delete"] });
     readonly roles = new RestResource<Role, CreateRoleInput, UpdateRoleInput, RoleListResponse, RoleResponse>(this.client, "/api/v1/acl/roles", { supported: ["list", "show", "create", "update", "replace", "delete"] });
@@ -80,3 +82,5 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./contracts.types.js";
+
+export * from "./authority.js";
