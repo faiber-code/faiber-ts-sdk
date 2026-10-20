@@ -1864,7 +1864,7 @@ export class LmsOperations extends ServiceApi {
    * Calls `GET /api/v1/public/branding` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public runtime branding/discovery; no actor or administration permission.
    */
   brandingPublicShowGet(options?: RequestOptions) {
     return this.client.request<T.BrandingPublicShowGetResponse>({ ...options, method: "GET", url: `/api/v1/public/branding` });

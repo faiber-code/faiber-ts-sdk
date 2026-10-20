@@ -554,6 +554,24 @@ export type RoutesHandlePostInput = import("./assistant-voice.js").AssistantVoic
 export type RoutesHandlePostResponse = import("./assistant-voice.js").AssistantVoiceResponse;
 
 /** Backend response type: Value. */
+export type NativeAccessGetStatusGetResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
+
+/** Backend request type: NativePolicyUpdate. */
+export type NativeAccessUpdatePolicyPutInput = import("@faiber/sdk-core").NativeSummaryPolicyUpdate;
+/** Backend response type: Value. */
+export type NativeAccessUpdatePolicyPutResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
+
+/** Backend request type: NativeAccessRevoke. */
+export type NativeAccessRevokePostInput = import("@faiber/sdk-core").NativeSummaryAccessRevoke;
+/** Backend response type: Value. */
+export type NativeAccessRevokePostResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
+
+/** Backend request type: NativeAccessRestore. */
+export type NativeAccessRestoreDeleteInput = import("@faiber/sdk-core").NativeSummaryAccessRestore;
+/** Backend response type: Value. */
+export type NativeAccessRestoreDeleteResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
+
+/** Backend response type: Value. */
 export interface RoutesRolesGetResponse extends ApiEnvelope<JsonValue> {
 }
 

@@ -226,3 +226,40 @@ When the instance enables LMS assigned-contact policy, direct creation/sending r
 A web application should keep its chat provider above route changes, preserving conversation/draft/scroll state. Safe Markdown must disable raw HTML and unsafe URL schemes; copying and URL/email/phone detection belong in the client. Chat unread counts and Messenger notification counts are separate.
 
 The personal summary, unread-count, cursor-event and private-channel authorization methods require the current member's `chat:read` permission. Personal methods remain under `/api/v1/me/*`; internal LMS notification-context reads use a separate server-only `x-infera-lms-token` and return identifiers/read state without private message content. Do not expose the service token in a browser.
+
+
+### Source summary observation policy
+
+Use the source-owned administration API with a Bearer token authorized for
+`chat:summary_access:manage`. The service rechecks current IDP authority on
+every request; a cookie-only session or caller-supplied user headers do not grant
+access. Enabling also validates the configured collector's current
+`chat:summary:read` permission. This policy does not grant model access or
+change the collector binding.
+
+```ts
+const observed = await sdk.chat.operations.nativeSummaryAccessStatus();
+await sdk.chat.operations.saveNativeSummaryAccessPolicy({
+  enabled: false,
+  expected_revision: observed.data.data.policy?.revision ?? 0,
+  reason: "Pause collection for review",
+});
+await sdk.chat.operations.revokeNativeSummaryObject({
+  object_id: sourceObjectId,
+  reason: "Exclude this source object",
+});
+await sdk.chat.operations.restoreNativeSummaryObject(sourceObjectId, {
+  reason: "Restore after review",
+});
+```
+
+A stale policy revision returns 409; reload and review before retrying. Reasons
+are required and limited to 1024 Unicode characters. Revocations survive policy
+disabling and re-enabling. The restore operation sends its reason as a JSON
+DELETE body. Successful saves return the current binding, policy and counts;
+pending objects can remain until background reconciliation finishes. Axios
+responses, errors, headers, timeouts and abort signals are preserved. The
+separate `/mcp` transport uses signed scoped grants and rejects browser origins;
+these REST methods do not provide an MCP session.
+
+After a transport error or 503, reload current status before retrying a mutation: the source can commit its policy/revocation before a later status read or reconciliation fails. Use the reloaded revision and review the resulting state.

@@ -18,22 +18,22 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
   }
   /**
-   * Performs the show operation for the branding capability.
+   * Read or save native learner branding with localized text and asset references. Runtime feedback routing is configured separately.
    * Calls `GET /api/v1/config/branding` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: config:read.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session:config:read.
    */
   brandingShowGet(options?: RequestOptions) {
     return this.client.request<T.BrandingShowGetResponse>({ ...options, method: "GET", url: `/api/v1/config/branding` });
   }
   /**
-   * Performs the update operation for the branding capability.
+   * Read or save native learner branding with localized text and asset references. Runtime feedback routing is configured separately.
    * Calls `PUT /api/v1/config/branding` through the shared IDP-aware Faiber client.
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: config:update.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session:config:update.
    */
   brandingUpdatePut(data: T.BrandingUpdatePutInput, options?: RequestOptions<T.BrandingUpdatePutInput>) {
     return this.client.request<T.BrandingUpdatePutResponse, T.BrandingUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/config/branding`, data: data });
@@ -115,17 +115,6 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.AssistantToolsUserSessionDetailGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/chat/users/${encodeURIComponent(userId)}/sessions/${encodeURIComponent(roomId)}` });
   }
   /**
-   * Performs the performance context operation for the integration capability.
-   * Calls `POST /api/v1/integrations/lms/performance-context` through the shared IDP-aware Faiber client.
-   * @param data Typed JSON request body.
-   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
-   * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
-   */
-  integrationPerformanceContextPost(data: T.IntegrationPerformanceContextPostInput, options?: RequestOptions<T.IntegrationPerformanceContextPostInput>) {
-    return this.client.request<T.IntegrationPerformanceContextPostResponse, T.IntegrationPerformanceContextPostInput>({ ...options, method: "POST", url: `/api/v1/integrations/lms/performance-context`, data: data });
-  }
-  /**
    * Observe current room presence and persist the first actual learning start with a transactional outbox event when the source rules are satisfied. Live rooms query LiveKit with a five-second timeout; provider failures return503. Composition rooms use recent client activity. Ended rooms return no present users. This GET may persist state; it is not a write-free health check or proof of unique attendance.
    * Calls `GET /api/v1/integrations/lms/rooms/{id}/notification-state` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
@@ -137,11 +126,11 @@ export class SessionOperations extends ServiceApi {
     return this.client.request<T.NotificationStateSnapshotGetResponse>({ ...options, method: "GET", url: `/api/v1/integrations/lms/rooms/${encodeURIComponent(id)}/notification-state` });
   }
   /**
-   * Performs the public show operation for the branding capability.
+   * Read public branding and the validated configuration-derived feedback Task origin. Runtime discovery is not a writable branding field.
    * Calls `GET /api/v1/public/branding` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: session-derived or public bootstrap route.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: public runtime branding/discovery; no actor or administration permission.
    */
   brandingPublicShowGet(options?: RequestOptions) {
     return this.client.request<T.BrandingPublicShowGetResponse>({ ...options, method: "GET", url: `/api/v1/public/branding` });
@@ -436,6 +425,50 @@ export class SessionOperations extends ServiceApi {
    */
   roomLivekitWebhookPost(data: T.RoomLivekitWebhookPostInput, options?: RequestOptions<T.RoomLivekitWebhookPostInput>) {
     return this.client.request<T.RoomLivekitWebhookPostResponse, T.RoomLivekitWebhookPostInput>({ ...options, method: "POST", url: `/api/v1/rooms/livekit/webhook`, data: data, headers: { "Content-Type": "application/octet-stream", ...options?.headers } });
+  }
+  /**
+   * Read current configured observer binding, operator policy and reconciliation counts. Missing binding or unavailable IDP/database returns 503; denied current authority returns 401/403.
+   * Calls `GET /api/v1/summary-access` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Bearer token revalidated against current IDP session:summary_access:manage; cookie-only sessions are not accepted.
+   */
+  nativeSummaryAccessStatus(options?: RequestOptions) {
+    return this.client.request<T.NativeAccessGetStatusGetResponse>({ ...options, method: "GET", url: `/api/v1/summary-access` });
+  }
+  /**
+   * Approve or disable source-owned read-only observation using the current policy revision. Stale revisions return 409; a blank or overlong reason returns 422. Saving does not clear object revocations or imply reconciliation has finished.
+   * Calls `PUT /api/v1/summary-access` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Bearer token revalidated against current IDP session:summary_access:manage; cookie-only sessions are not accepted.
+   */
+  saveNativeSummaryAccessPolicy(data: T.NativeAccessUpdatePolicyPutInput, options?: RequestOptions<T.NativeAccessUpdatePolicyPutInput>) {
+    return this.client.request<T.NativeAccessUpdatePolicyPutResponse, T.NativeAccessUpdatePolicyPutInput>({ ...options, method: "PUT", url: `/api/v1/summary-access`, data: data });
+  }
+  /**
+   * Persist an object revocation under the current source scope. A non-nil object UUID and reason are required; objects outside the configured scope are forbidden. Re-enabling the policy preserves this revocation.
+   * Calls `POST /api/v1/summary-access/revocations` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Bearer token revalidated against current IDP session:summary_access:manage; cookie-only sessions are not accepted.
+   */
+  revokeNativeSummaryObject(data: T.NativeAccessRevokePostInput, options?: RequestOptions<T.NativeAccessRevokePostInput>) {
+    return this.client.request<T.NativeAccessRevokePostResponse, T.NativeAccessRevokePostInput>({ ...options, method: "POST", url: `/api/v1/summary-access/revocations`, data: data });
+  }
+  /**
+   * Remove an object revocation with a required JSON reason body and reconcile that object under the current source policy. This does not enable a disabled policy or bypass current scope checks.
+   * Calls `DELETE /api/v1/summary-access/revocations/{object}` through the shared IDP-aware Faiber client.
+   * @param object Backend path identifier `object`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Bearer token revalidated against current IDP session:summary_access:manage; cookie-only sessions are not accepted.
+   */
+  restoreNativeSummaryObject(object: Identifier, data: T.NativeAccessRestoreDeleteInput, options?: RequestOptions<T.NativeAccessRestoreDeleteInput>) {
+    return this.client.request<T.NativeAccessRestoreDeleteResponse, T.NativeAccessRestoreDeleteInput>({ ...options, method: "DELETE", url: `/api/v1/summary-access/revocations/${encodeURIComponent(object)}`, data: data });
   }
   /**
    * Proxy a peer API path through Session with the selected method and at most2MiB request bytes. Supply raw nonempty path segments, not percent-encoded paths, query strings or traversal. Query parameters retain the target API semantics. Returns buffered bytes and full Axios status/headers; use explicit shared-client streaming transport for SSE or media streams. Unknown peers404; missing Chat/DRM/LMS peer configuration or upstream transport failures502; oversized bodies413. Asset/Profile retain system-namespace fallbacks; do not assume sandbox isolation without explicit peer configuration. This grants no independent peer membership or attendance proof.

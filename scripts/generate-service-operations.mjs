@@ -357,7 +357,11 @@ function responseDataType(lines, files, module, raw, base) {
 
 for (const [service, endpoints] of Object.entries(manifest)) {
   if (selectedServices.size && !selectedServices.has(service)) continue;
-  const files = await rustFiles(join(servicesRoot, serviceDirectories[service] ?? `infera-${service}`));
+  // A path dependency can define unrelated types named Value or ListQuery.
+  // Service DTO lookup must not accidentally consume those crate-local names.
+  // Public shared-crate handlers require explicit reviewed wire types below.
+  const files = (await rustFiles(join(servicesRoot, serviceDirectories[service] ?? `infera-${service}`)))
+    .filter(file => !file.path.includes('/shared/'));
   const nameCounts = endpoints.reduce((counts, endpoint) => counts.set(operationBaseName(endpoint), (counts.get(operationBaseName(endpoint)) ?? 0) + 1), new Map());
   const operationName = endpoint => {
     const base = operationBaseName(endpoint);
@@ -401,6 +405,9 @@ for (const [service, endpoints] of Object.entries(manifest)) {
     const reviewed = reviewedRelease ?? collaborationContracts[`${service}:${endpoint.method} ${endpoint.path}`];
     if (endpoint.method === "ANY" && !reviewed?.dynamicMethod) throw new Error(`Unreviewed dynamic HTTP method: ${service} ${endpoint.path}`);
     const hasInput = Boolean(endpoint.body || endpoint.multipart || endpoint.binary);
+    if (endpoint.source.includes('/shared/') && (!reviewed?.response || (hasInput && !reviewed?.input))) {
+      throw new Error(`Public path-dependency wire types require explicit review: ${service} ${endpoint.method} ${endpoint.path}`);
+    }
     const dynamicProfileList = service === "profile" && endpoint.module === "profile" &&
       /^(index|manager_index|accountant_index|support_index|consultant_index|teacher_index|student_index|parent_index|other_index)$/.test(endpoint.handler);
     const hasQuery = dynamicProfileList || Boolean(endpoint.query);
@@ -441,6 +448,7 @@ for (const [service, endpoints] of Object.entries(manifest)) {
       }
     }
     typeLines.push(`/** Backend response type: ${endpoint.response ?? endpoint.responseEnvelope ?? "handler-defined response"}. */`);
+    if (reviewed?.dataAlias) typeLines.push(`export type ${base}ResponseData = ${reviewed.dataAlias};`);
     if (reviewed?.response) {
       typeLines.push(`export type ${base}Response = ${reviewed.response};`);
     } else if (binaryDownload) {

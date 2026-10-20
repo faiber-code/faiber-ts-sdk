@@ -263,6 +263,7 @@ function matchingAngle(source, open) {
 }
 
 const manifest = {};
+const protocolMounts = {};
 for (const service of services) {
   const srcRoot = join(servicesRoot, serviceDirectories[service] ?? `infera-${service}`, "src");
   let router;
@@ -298,6 +299,9 @@ for (const service of services) {
     mountedModules.add("main");
   }
   const files = await walk(srcRoot);
+  const sharedRoot = join(dirname(srcRoot), "shared");
+  try { await access(sharedRoot); files.push(...await walk(sharedRoot)); }
+  catch (error) { if (error.code !== "ENOENT") throw error; }
   const fileSources = new Map(await Promise.all(files.map(async file => [file, productionRust(await readFile(file, "utf8"))])));
   // A mounted module may compose another module's router. Resolve those mounts
   // transitively, retaining the parent factory's prefix instead of assuming all
@@ -415,10 +419,30 @@ for (const service of services) {
   if (services.includes(service)) {
     const indexed = [...fileSources].map(([file,source])=>sourceIndex(source,relativeSource(file)));
     const main=indexed.find(file=>file.path.endsWith("/src/main.rs"));
-    const entry=service==="task" ? {path:"src/routes.rs",function:"app"} : ["social","chat","knowledge","state"].includes(service) && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
+    const serviceRouter=indexed.find(file=>file.path===`${basename(dirname(srcRoot))}/src/router.rs`);
+    const entry=service==="session" && main?.functions.some(fn=>fn.name==="application_router")
+      ? {path:"src/main.rs",function:"application_router"}
+      : service==="crm" && serviceRouter?.functions.some(fn=>fn.name==="application")
+      ? {path:"src/router.rs",function:"application"}
+      : service==="task" ? {path:"src/routes.rs",function:"app"} : ["social","chat","knowledge","state","lms"].includes(service) && main?.functions.some(fn=>fn.name==="main" && /let\s+app\s*=/.test(fn.body))
       ? {path:"src/main.rs",function:"main",variable:"app"}
       : {path:"src/router.rs",function:"routes"};
     const graph=mountedRouterOperations(indexed,entry);
+    if(service==='task') {
+      // The production Pool branch hosts signed-grant MCP. A batch transaction
+      // instead mounts this exact 503-only protocol rejection, not a REST API.
+      for(let i=graph.operations.length-1;i>=0;i--) {
+        const op=graph.operations[i];
+        if(op.method==='POST' && op.path==='/mcp' && op.source==='infera-task/src/summary_evidence.rs'
+          && op.conditions?.some(c=>c.expression==='state.db' && c.pattern==='crate::state::TaskDatabase::Transaction(_)')
+          && op.inline_handler?.body.replace(/\s/g,'')==='axum::routing::post(||async{axum::http::StatusCode::SERVICE_UNAVAILABLE})') {
+          graph.protocol_mounts.push({path:op.path,source:op.source,conditions:op.conditions,
+            behavior:'HTTP503: request-scoped batch transactions cannot host long-lived MCP',mounted_via:op.mounted_via});
+          graph.operations.splice(i,1);
+        }
+      }
+    }
+    if (graph.protocol_mounts.length) protocolMounts[service]=graph.protocol_mounts;
     const stateHealth = op => service==="state" && op.method==="GET" && op.path==="/health" &&
       op.inline_handler?.body.replace(/\s/g,"") === 'get(||async{Json(json!({"data":{"service":"infera-state","status":"healthy","transports":["websocket"],"rulesets":["kheradgah.v1"],"wasm":true}}))})';
     if (graph.unresolved.length || graph.duplicates.length || graph.operations.some(op=>op.unresolved_handler || (op.inline_handler && !stateHealth(op)))) {
@@ -431,7 +455,7 @@ for (const service of services) {
           response:"StateProcessHealth",responseEnvelope:"raw",inline_handler:op.inline_handler});
         continue;
       }
-      const handlerFile=indexed.find(file=>file.path.replace(/^.*?\/src\//,"").replace(/\.rs$/,"").replace(/\/mod$/,"").replaceAll("/","::")===op.handlerModule);
+      const handlerFile=op.handler_source?indexed.find(file=>file.path===op.handler_source):indexed.find(file=>file.path.replace(/^.*?\/src\//,"").replace(/\.rs$/,"").replace(/\/mod$/,"").replaceAll("/","::")===op.handlerModule);
       if (!handlerFile) throw new Error(`${service}: missing mounted handler source ${op.handlerModule}::${op.handler}`);
       const candidates=endpoints.filter(old=>old.method===op.method && old.handler===op.handler && old.source===op.source);
       const exact=candidates.find(old=>old.path===op.path);
@@ -442,6 +466,13 @@ for (const service of services) {
       // that exact declaration so role-list schemas and permissions survive.
       const declaration=mountedHandler?`${mountedHandler.attributes}\n${mountedHandler.signature}{${mountedHandler.body}}`:handlerFile.source;
       const signature=handlerSignature(declaration,op.handler);
+      const nativeSummaryAdmin=['chat','session'].includes(service)
+        && op.source===`infera-${service}/shared/infera-summary-sdk/src/native_access.rs`
+        && ['get_status','update_policy','revoke','restore'].includes(op.handler)
+        && /^\/api\/v1\/summary-access(?:\/revocations(?:\/\{object\})?)?$/.test(op.path);
+      if(nativeSummaryAdmin && (!handlerFile.source.includes('summary_access:manage') || !handlerFile.source.includes('.administrator('))) {
+        throw new Error(`${service}: native summary administration authorization changed; review required`);
+      }
       if (service==="session" && op.method==="ANY" && op.handler==="proxy_view_service") { signature.body="OpaqueProxyBody"; signature.query="OpaqueProxyQuery"; }
       if (["asset", "idp", "modules", "payment", "profile", "lms", "version"].includes(service) && op.handler==="status_route") {
         const fn=handlerFile.functions.find(fn=>fn.name===op.handler);
@@ -454,7 +485,7 @@ for (const service of services) {
         }
       }
       reviewed.push({method:op.method,path:op.path,module:previous?.module??routeModule,handler:op.handler,
-        permissions:permissionAnnotations(declaration).get(op.handler)??(op.permissions.length?op.permissions:previous?.permissions??[]),source:op.source,
+        permissions:nativeSummaryAdmin?[`${service}:summary_access:manage`]:permissionAnnotations(declaration).get(op.handler)??(op.permissions.length?op.permissions:previous?.permissions??[]),source:op.source,
         ...(op.handlerModule!==op.module?{handlerModule:op.handlerModule.split("::").at(-1)}:{}),...signature});
     }
     endpoints.splice(0,endpoints.length,...reviewed);
@@ -466,5 +497,6 @@ for (const service of services) {
 
 const output = process.argv[2] ? resolve(process.argv[2]) : join(sdkRoot, "service-contracts.json");
 await writeFile(output, `${JSON.stringify(manifest, null, 2)}\n`);
+await writeFile(output.replace(/\.json$/, '') + '.protocol-mounts.json', `${JSON.stringify(protocolMounts, null, 2)}\n`);
 for (const [service, endpoints] of Object.entries(manifest)) console.log(`${service}: ${endpoints.length} endpoints`);
 console.log(`wrote ${output}`);

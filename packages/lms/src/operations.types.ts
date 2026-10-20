@@ -1152,23 +1152,13 @@ export interface ClassroomIndexAbsencesGetResponse extends ApiEnvelope<Classroom
 }
 
 /** Backend response type: Branding. */
-export interface BrandingShowGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
+export type BrandingShowGetResponseData = import("./branding.types.js").LmsBranding;
 export type BrandingShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsBranding>;
 
 /** Backend request type: Branding. */
 export type BrandingUpdatePutInput = import("./branding.types.js").LmsBrandingInput;
 /** Backend response type: Branding. */
-export interface BrandingUpdatePutResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
+export type BrandingUpdatePutResponseData = import("./branding.types.js").LmsBranding;
 export type BrandingUpdatePutResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsBranding>;
 
 /** Backend request type: multipart/form-data. */
@@ -4216,13 +4206,8 @@ export interface ProfileRoutesIndexGetResponse extends ApiEnvelope<ProfileRoutes
 export interface ProfileRoutesShowGetResponse extends ApiEnvelope<BackendJson<"ProfileSummary"> | null> {
 }
 
-/** Backend response type: Branding. */
-export interface BrandingPublicShowGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
+/** Backend response type: PublicBranding. */
+export type BrandingPublicShowGetResponseData = import("./branding.types.js").LmsPublicBranding;
 export type BrandingPublicShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").LmsPublicBranding>;
 
 /** Backend response type: raw-response. */

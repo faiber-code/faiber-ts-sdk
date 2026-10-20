@@ -58,3 +58,5 @@ export * from "./operations.js";
 export * from "./operations.types.js";
 
 export * from "./contracts.types.js";
+
+export * from "./branding.types.js";

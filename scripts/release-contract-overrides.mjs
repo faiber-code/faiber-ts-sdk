@@ -671,3 +671,38 @@ export const releaseContracts = {
     "websocket": "room"
   }
 };
+
+// Source review: shared/infera-summary-sdk/src/native_access.rs and
+// native_policy.rs in the pinned Chat/Session trees. These are administrator
+// REST APIs; the separate signed-grant MCP transport is not a browser endpoint.
+for (const service of ['chat', 'session']) {
+  const auth = `Bearer token revalidated against current IDP ${service}:summary_access:manage; cookie-only sessions are not accepted`;
+  const response = 'import("@faiber/sdk-core").NativeSummaryAccessResponse';
+  for (const [operation, methodName, input, purpose] of [
+    ['GET /api/v1/summary-access', 'nativeSummaryAccessStatus', null,
+      'Read current configured observer binding, operator policy and reconciliation counts. Missing binding or unavailable IDP/database returns 503; denied current authority returns 401/403.'],
+    ['PUT /api/v1/summary-access', 'saveNativeSummaryAccessPolicy', 'NativeSummaryPolicyUpdate',
+      'Approve or disable source-owned read-only observation using the current policy revision. Stale revisions return 409; a blank or overlong reason returns 422. Saving does not clear object revocations or imply reconciliation has finished.'],
+    ['POST /api/v1/summary-access/revocations', 'revokeNativeSummaryObject', 'NativeSummaryAccessRevoke',
+      'Persist an object revocation under the current source scope. A non-nil object UUID and reason are required; objects outside the configured scope are forbidden. Re-enabling the policy preserves this revocation.'],
+    ['DELETE /api/v1/summary-access/revocations/{object}', 'restoreNativeSummaryObject', 'NativeSummaryAccessRestore',
+      'Remove an object revocation with a required JSON reason body and reconcile that object under the current source policy. This does not enable a disabled policy or bypass current scope checks.'],
+  ]) {
+    releaseContracts[`${service}:${operation}`] = {methodName, auth, response, purpose,
+      ...(input ? {input: `import("@faiber/sdk-core").${input}`} : {})};
+  }
+}
+
+// Session d7f8672 src/branding.rs: flattened input/output and public-only discovery.
+for (const [operation, typeBase, responseType, input] of [
+  ['GET /api/v1/config/branding','BrandingShowGet','SessionBranding',false],
+  ['PUT /api/v1/config/branding','BrandingUpdatePut','SessionBranding',true],
+  ['GET /api/v1/public/branding','BrandingPublicShowGet','SessionPublicBranding',false],
+]) {
+  releaseContracts[`session:${operation}`]={typeBase,
+    response:`import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").${responseType}>`,
+    dataAlias:`import("./branding.types.js").${responseType}`,
+    ...(input?{input:'import("./branding.types.js").SessionBrandingInput'}:{}),
+    auth:operation.includes('/public/')?'public runtime branding/discovery; no actor or administration permission':`session:config:${input?'update':'read'}`,
+    purpose:operation.includes('/public/')?'Read public branding and the validated configuration-derived feedback Task origin. Runtime discovery is not a writable branding field.':'Read or save native learner branding with localized text and asset references. Runtime feedback routing is configured separately.'};
+}

@@ -162,6 +162,8 @@ Task feedback workflows are configured only in the instance's internal panel and
 
 ### Role summary migration (1.0.0)
 
+Session’s retired `integrationPerformanceContextPost` endpoint is also removed. Source evidence is collected through the signed, source-owned MCP transport.
+
 Use `sdk.profile.summaries` for configurable IDP role summaries. LMS summary APIs and fixed-role
 types were removed in this breaking release. Supply canonical role UUIDs, explicitly grant Profile
 summary permissions, and distinguish job status from persisted result availability/freshness.

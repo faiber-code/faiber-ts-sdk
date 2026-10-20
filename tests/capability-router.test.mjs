@@ -85,3 +85,44 @@ test('an explicit super path is resolved once even beside a parent glob import',
  const graph=mountedRouterOperations(files,{path:'src/fitness/routes.rs',function:'routes'});
  assert.ok(!graph.operations[0].unresolved_handler);assert.equal(graph.operations[0].handlerModule,'fitness::gifts');
 });
+
+test('path dependency routers keep their own handlers and expose protocol boundaries separately',()=>{
+ const files=[sourceIndex('pub fn routes()->Router{Router::new().merge(evidence_sdk::server::router()).merge(evidence_sdk::policy::router())}', 'example/src/router.rs'),
+ sourceIndex('async fn status(){}','example/src/policy.rs'),
+ sourceIndex('pub fn router()->Router{Router::new().route_service("/mcp",service)}','example/shared/evidence-sdk/src/server.rs'),
+ sourceIndex('pub fn router()->Router{Router::new().route("/access",get(status).put(save))} async fn status()->Json<Status>{} async fn save(Json(body):Json<Policy>)->Json<Status>{}', 'example/shared/evidence-sdk/src/policy.rs')];
+ const graph=mountedRouterOperations(files,{path:'src/router.rs',function:'routes'});
+ assert.deepEqual(graph.unresolved,[]);
+ assert.deepEqual(graph.operations.map(x=>[x.method,x.path,x.handler_source]),[['GET','/access','example/shared/evidence-sdk/src/policy.rs'],['PUT','/access','example/shared/evidence-sdk/src/policy.rs']]);
+ assert.equal(graph.operations[1].body,'Policy');
+ assert.equal(graph.protocol_mounts.length,1);
+ assert.equal(graph.protocol_mounts[0].path,'/mcp');
+ assert.equal(graph.protocol_mounts[0].source,'example/shared/evidence-sdk/src/server.rs');
+ const missing=mountedRouterOperations(files.filter(x=>!x.path.endsWith('/shared/evidence-sdk/src/policy.rs')),{path:'src/router.rs',function:'routes'});
+ assert.ok(missing.unresolved.some(x=>x.call==='evidence_sdk::policy::router'));
+ assert.equal(missing.operations.length,0);
+});
+
+test('ambiguous dependency crate names and dynamic service mounts remain unresolved',()=>{
+ const files=[sourceIndex('pub fn app()->Router{Router::new().merge(duplicate_sdk::api::router()).route_service(prefix,service)}','example/src/router.rs'),
+ ...['shared','other'].map(dir=>sourceIndex('pub fn router()->Router{Router::new().route("/private",get(read))} async fn read(){}',`example/${dir}/duplicate-sdk/src/api.rs`))];
+ const graph=mountedRouterOperations(files,{path:'src/router.rs',function:'app'});
+ assert.equal(graph.operations.length,0);
+ assert.ok(graph.unresolved.some(x=>x.kind==='router_call'));
+ assert.ok(graph.unresolved.some(x=>x.kind==='dynamic_service_path'));
+});
+
+test('database variant routers retain every branch and cannot hide an unresolved alternative',()=>{
+ const files=[sourceIndex(`pub fn routes()->Router{match state.db {
+ Database::Pool(db)=>evidence_sdk::server::router(Reader::new(db, config.clone())),
+ // Transaction-bound requests cannot host the long-lived protocol.
+ Database::Transaction(_)=>axum::Router::new().route("/mcp",post(||async{StatusCode::SERVICE_UNAVAILABLE})),
+ }}`, 'example/src/router.rs'),sourceIndex('pub fn router()->Router{Router::new().route_service("/mcp",service)}','example/shared/evidence-sdk/src/server.rs')];
+ const graph=mountedRouterOperations(files,{path:'src/router.rs',function:'routes'});
+ assert.deepEqual(graph.unresolved,[]);
+ assert.equal(graph.protocol_mounts[0].conditions[0].pattern,'Database::Pool(db)');
+ assert.equal(graph.operations[0].conditions[0].pattern,'Database::Transaction(_)');
+ assert.equal(graph.operations[0].method,'POST');
+ const unknown=mountedRouterOperations([sourceIndex('pub fn routes()->Router{match state.db { A=>known(),B=>unreviewed() }} fn known()->Router{Router::new().route("/ok",get(check))} async fn check(){}','example/src/router.rs')],{path:'src/router.rs',function:'routes'});
+ assert.ok(unknown.unresolved.some(x=>x.call==='unreviewed'));
+});

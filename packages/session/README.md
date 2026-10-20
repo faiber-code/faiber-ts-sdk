@@ -130,3 +130,40 @@ checks require separate verification; a successful proxy request alone proves ne
 `CONNECT` requires an explicitly supplied tunnel-capable Axios adapter. The default
 Node Axios adapter does not consume CONNECT response events, and browsers restrict
 tunnel methods; the SDK rejects a default-adapter CONNECT call before transport.
+
+
+### Source summary observation policy
+
+Use the source-owned administration API with a Bearer token authorized for
+`session:summary_access:manage`. The service rechecks current IDP authority on
+every request; a cookie-only session or caller-supplied user headers do not grant
+access. Enabling also validates the configured collector's current
+`session:summary:read` permission. This policy does not grant model access or
+change the collector binding.
+
+```ts
+const observed = await sdk.session.operations.nativeSummaryAccessStatus();
+await sdk.session.operations.saveNativeSummaryAccessPolicy({
+  enabled: false,
+  expected_revision: observed.data.data.policy?.revision ?? 0,
+  reason: "Pause collection for review",
+});
+await sdk.session.operations.revokeNativeSummaryObject({
+  object_id: sourceObjectId,
+  reason: "Exclude this source object",
+});
+await sdk.session.operations.restoreNativeSummaryObject(sourceObjectId, {
+  reason: "Restore after review",
+});
+```
+
+A stale policy revision returns 409; reload and review before retrying. Reasons
+are required and limited to 1024 Unicode characters. Revocations survive policy
+disabling and re-enabling. The restore operation sends its reason as a JSON
+DELETE body. Successful saves return the current binding, policy and counts;
+pending objects can remain until background reconciliation finishes. Axios
+responses, errors, headers, timeouts and abort signals are preserved. The
+separate `/mcp` transport uses signed scoped grants and rejects browser origins;
+these REST methods do not provide an MCP session.
+
+After a transport error or 503, reload current status before retrying a mutation: the source can commit its policy/revocation before a later status read or reconciliation fails. Use the reloaded revision and review the resulting state.

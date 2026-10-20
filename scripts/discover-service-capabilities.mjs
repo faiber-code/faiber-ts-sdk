@@ -193,6 +193,7 @@ for(const [service,entry] of Object.entries(universe.services)) {
     source_relationship:relationship,
     source_tree_checksum:treeChecksum,
     source_files:files.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),
+    protocol_mounts:mounted?.protocol_mounts??[],
     embedded_source_gaps:{canonical:files.embedded_source_gaps,working:currentFiles.embedded_source_gaps},
     working_source_tree_checksum:hash(JSON.stringify(currentFiles.map(({path,checksum})=>({path,checksum})))),
     working_source_files:currentFiles.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),

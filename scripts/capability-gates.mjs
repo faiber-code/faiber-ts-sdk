@@ -51,6 +51,12 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
   for (const [service, descriptor] of Object.entries(universe.services)) {
     const data = services[service];
     if (!data) { failures.push(`${service}: missing discovery matrix`); continue; }
+    // A raw service mount may be MCP or another protocol, not a REST operation.
+    // Retain it as a separate unresolved boundary rather than silently counting
+    // the surrounding router as complete or inventing a JSON request schema.
+    for (const mount of data.protocol_mounts ?? []) {
+      failures.push(`${service}: protocol boundary ${mount.path} (${mount.source}) requires source-bound protocol/authentication and consumer verification`);
+    }
     if (Object.values(data.embedded_source_gaps ?? {}).some(gaps=>gaps.length)) failures.push(`${service}: compiler-embedded source inputs remain unresolved`);
     if (data.missing_meaning_sources?.length) failures.push(`${service}: missing source references`);
     if (!data.operations?.length) {

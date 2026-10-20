@@ -678,6 +678,50 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesHandlePostResponse, T.RoutesHandlePostInput>({ ...options, method: "POST", url: `/api/v1/speech/voice`, data: data });
   }
   /**
+   * Read current configured observer binding, operator policy and reconciliation counts. Missing binding or unavailable IDP/database returns 503; denied current authority returns 401/403.
+   * Calls `GET /api/v1/summary-access` through the shared IDP-aware Faiber client.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Bearer token revalidated against current IDP chat:summary_access:manage; cookie-only sessions are not accepted.
+   */
+  nativeSummaryAccessStatus(options?: RequestOptions) {
+    return this.client.request<T.NativeAccessGetStatusGetResponse>({ ...options, method: "GET", url: `/api/v1/summary-access` });
+  }
+  /**
+   * Approve or disable source-owned read-only observation using the current policy revision. Stale revisions return 409; a blank or overlong reason returns 422. Saving does not clear object revocations or imply reconciliation has finished.
+   * Calls `PUT /api/v1/summary-access` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Bearer token revalidated against current IDP chat:summary_access:manage; cookie-only sessions are not accepted.
+   */
+  saveNativeSummaryAccessPolicy(data: T.NativeAccessUpdatePolicyPutInput, options?: RequestOptions<T.NativeAccessUpdatePolicyPutInput>) {
+    return this.client.request<T.NativeAccessUpdatePolicyPutResponse, T.NativeAccessUpdatePolicyPutInput>({ ...options, method: "PUT", url: `/api/v1/summary-access`, data: data });
+  }
+  /**
+   * Persist an object revocation under the current source scope. A non-nil object UUID and reason are required; objects outside the configured scope are forbidden. Re-enabling the policy preserves this revocation.
+   * Calls `POST /api/v1/summary-access/revocations` through the shared IDP-aware Faiber client.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Bearer token revalidated against current IDP chat:summary_access:manage; cookie-only sessions are not accepted.
+   */
+  revokeNativeSummaryObject(data: T.NativeAccessRevokePostInput, options?: RequestOptions<T.NativeAccessRevokePostInput>) {
+    return this.client.request<T.NativeAccessRevokePostResponse, T.NativeAccessRevokePostInput>({ ...options, method: "POST", url: `/api/v1/summary-access/revocations`, data: data });
+  }
+  /**
+   * Remove an object revocation with a required JSON reason body and reconcile that object under the current source policy. This does not enable a disabled policy or bypass current scope checks.
+   * Calls `DELETE /api/v1/summary-access/revocations/{object}` through the shared IDP-aware Faiber client.
+   * @param object Backend path identifier `object`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Bearer token revalidated against current IDP chat:summary_access:manage; cookie-only sessions are not accepted.
+   */
+  restoreNativeSummaryObject(object: Identifier, data: T.NativeAccessRestoreDeleteInput, options?: RequestOptions<T.NativeAccessRestoreDeleteInput>) {
+    return this.client.request<T.NativeAccessRestoreDeleteResponse, T.NativeAccessRestoreDeleteInput>({ ...options, method: "DELETE", url: `/api/v1/summary-access/revocations/${encodeURIComponent(object)}`, data: data });
+  }
+  /**
    * Performs the roles operation for the routes capability.
    * Calls `GET /api/v1/workspace-assistants` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.

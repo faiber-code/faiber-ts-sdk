@@ -59,6 +59,7 @@ routerContracts["profile:GET /api/openapi.json"]={
 };
 
 routerContracts["chat:GET /health"]={
+ methodName:"mainHealthGet",typeBase:"MainHealthGet",
  response:'import("./personal.js").PersonalChatResponse<import("./personal.js").ChatProcessHealth>',
  auth:"no handler permission check; deployment gateway policy is separate",
  purpose:"Read process health and the execution authority identifier. Does not attest downstream readiness."

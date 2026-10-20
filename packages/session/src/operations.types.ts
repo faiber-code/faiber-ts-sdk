@@ -5,31 +5,14 @@ import type { ApiEnvelope, BackendJson, JsonObject, JsonValue, QueryParams, Quer
 export type RouterStatusRouteGetResponse = import("@faiber/sdk-core").ServiceHealthResponse;
 
 /** Backend response type: Branding. */
-export interface BrandingShowGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
-export interface BrandingShowGetResponse extends ApiEnvelope<BrandingShowGetResponseData> {
-}
+export type BrandingShowGetResponseData = import("./branding.types.js").SessionBranding;
+export type BrandingShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").SessionBranding>;
 
 /** Backend request type: Branding. */
-export interface BrandingUpdatePutInput extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
+export type BrandingUpdatePutInput = import("./branding.types.js").SessionBrandingInput;
 /** Backend response type: Branding. */
-export interface BrandingUpdatePutResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
-export interface BrandingUpdatePutResponse extends ApiEnvelope<BrandingUpdatePutResponseData> {
-}
+export type BrandingUpdatePutResponseData = import("./branding.types.js").SessionBranding;
+export type BrandingUpdatePutResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").SessionBranding>;
 
 /** Backend request type: multipart/form-data. */
 export type BrandingUploadPostInput = FormData;
@@ -161,26 +144,12 @@ export interface AssistantToolsListUserSessionsGetResponse extends ApiEnvelope<J
 export interface AssistantToolsUserSessionDetailGetResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend request type: ContextRequest. */
-export interface IntegrationPerformanceContextPostInput extends JsonObject {
-  "room_ids": string[];
-}
-/** Backend response type: Value. */
-export interface IntegrationPerformanceContextPostResponse extends ApiEnvelope<JsonValue> {
-}
-
 /** Backend response type: NotificationState. */
 export type NotificationStateSnapshotGetResponse = import("./contracts.types.js").SessionNotificationStateResponse;
 
-/** Backend response type: Branding. */
-export interface BrandingPublicShowGetResponseData extends JsonObject {
-  "title"?: string | null;
-  "localizations": Record<string, BackendJson<"BrandText">>;
-  "icon_asset_key"?: string | null;
-  "icon_url"?: string | null;
-}
-export interface BrandingPublicShowGetResponse extends ApiEnvelope<BrandingPublicShowGetResponseData> {
-}
+/** Backend response type: PublicBranding. */
+export type BrandingPublicShowGetResponseData = import("./branding.types.js").SessionPublicBranding;
+export type BrandingPublicShowGetResponse = import("@faiber/sdk-core").ApiEnvelope<import("./branding.types.js").SessionPublicBranding>;
 
 /** Backend response type: raw-response. */
 export interface BrandingAssetGetResponse extends ApiEnvelope<JsonValue> {
@@ -1729,6 +1698,24 @@ export interface RoomLivekitWebhookPostResponseData extends JsonObject {
   "message": string;
 }
 export type RoomLivekitWebhookPostResponse = RoomLivekitWebhookPostResponseData;
+
+/** Backend response type: Value. */
+export type NativeAccessGetStatusGetResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
+
+/** Backend request type: NativePolicyUpdate. */
+export type NativeAccessUpdatePolicyPutInput = import("@faiber/sdk-core").NativeSummaryPolicyUpdate;
+/** Backend response type: Value. */
+export type NativeAccessUpdatePolicyPutResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
+
+/** Backend request type: NativeAccessRevoke. */
+export type NativeAccessRevokePostInput = import("@faiber/sdk-core").NativeSummaryAccessRevoke;
+/** Backend response type: Value. */
+export type NativeAccessRevokePostResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
+
+/** Backend request type: NativeAccessRestore. */
+export type NativeAccessRestoreDeleteInput = import("@faiber/sdk-core").NativeSummaryAccessRestore;
+/** Backend response type: Value. */
+export type NativeAccessRestoreDeleteResponse = import("@faiber/sdk-core").NativeSummaryAccessResponse;
 
 /** Backend request type: OpaqueProxyBody. */
 export type RouterProxyViewServiceAnyInput = import("./contracts.types.js").SessionPeerProxyBody;

@@ -2481,6 +2481,66 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/summary-access",
+      "module": "native_access",
+      "handler": "get_status",
+      "permissions": [
+        "chat:summary_access:manage"
+      ],
+      "source": "infera-chat/shared/infera-summary-sdk/src/native_access.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/summary-access",
+      "module": "native_access",
+      "handler": "update_policy",
+      "permissions": [
+        "chat:summary_access:manage"
+      ],
+      "source": "infera-chat/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativePolicyUpdate",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/summary-access/revocations",
+      "module": "native_access",
+      "handler": "revoke",
+      "permissions": [
+        "chat:summary_access:manage"
+      ],
+      "source": "infera-chat/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativeAccessRevoke",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/summary-access/revocations/{object}",
+      "module": "native_access",
+      "handler": "restore",
+      "permissions": [
+        "chat:summary_access:manage"
+      ],
+      "source": "infera-chat/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativeAccessRestore",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/workspace-assistants",
       "module": "routes",
       "handler": "roles",
@@ -2497,10 +2557,10 @@
     {
       "method": "GET",
       "path": "/health",
-      "module": "main",
+      "module": "application",
       "handler": "health",
       "permissions": [],
-      "source": "infera-chat/src/main.rs",
+      "source": "infera-chat/src/application.rs",
       "response": "serde_json::Value",
       "responseEnvelope": "api",
       "multipart": false,
@@ -2522,10 +2582,10 @@
     {
       "method": "ANY",
       "path": "/api",
-      "module": "api_fallback",
+      "module": "router",
       "handler": "api_not_found",
       "permissions": [],
-      "source": "infera-crm/src/api_fallback.rs",
+      "source": "infera-crm/src/router.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -2533,10 +2593,10 @@
     {
       "method": "ANY",
       "path": "/api/{*path}",
-      "module": "api_fallback",
+      "module": "router",
       "handler": "api_not_found",
       "permissions": [],
-      "source": "infera-crm/src/api_fallback.rs",
+      "source": "infera-crm/src/router.rs",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -10680,7 +10740,7 @@
       "handler": "public_show",
       "permissions": [],
       "source": "infera-lms/src/branding.rs",
-      "response": "Branding",
+      "response": "PublicBranding",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -18305,19 +18365,6 @@
       "formUrlEncoded": false
     },
     {
-      "method": "POST",
-      "path": "/api/v1/integrations/lms/performance-context",
-      "module": "integration",
-      "handler": "performance_context",
-      "permissions": [],
-      "source": "infera-session/src/integration/lms.rs",
-      "body": "ContextRequest",
-      "response": "Value",
-      "responseEnvelope": "api",
-      "multipart": false,
-      "formUrlEncoded": false
-    },
-    {
       "method": "GET",
       "path": "/api/v1/integrations/lms/rooms/{id}/notification-state",
       "module": "notification_state",
@@ -18337,7 +18384,7 @@
       "handler": "public_show",
       "permissions": [],
       "source": "infera-session/src/branding.rs",
-      "response": "Branding",
+      "response": "PublicBranding",
       "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
@@ -18729,6 +18776,66 @@
       "responseEnvelope": "raw",
       "multipart": false,
       "binary": true,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/summary-access",
+      "module": "native_access",
+      "handler": "get_status",
+      "permissions": [
+        "session:summary_access:manage"
+      ],
+      "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/summary-access",
+      "module": "native_access",
+      "handler": "update_policy",
+      "permissions": [
+        "session:summary_access:manage"
+      ],
+      "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativePolicyUpdate",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/summary-access/revocations",
+      "module": "native_access",
+      "handler": "revoke",
+      "permissions": [
+        "session:summary_access:manage"
+      ],
+      "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativeAccessRevoke",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/summary-access/revocations/{object}",
+      "module": "native_access",
+      "handler": "restore",
+      "permissions": [
+        "session:summary_access:manage"
+      ],
+      "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "body": "NativeAccessRestore",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "raw",
+      "multipart": false,
       "formUrlEncoded": false
     },
     {

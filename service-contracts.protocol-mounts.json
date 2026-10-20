@@ -1,0 +1,145 @@
+{
+  "chat": [
+    {
+      "path": "/mcp",
+      "source": "infera-chat/shared/infera-summary-sdk/src/server.rs",
+      "function": "router",
+      "service_expression": " service",
+      "mounted_via": [
+        {
+          "path": "infera-chat/src/main.rs",
+          "line": 6,
+          "function": "main"
+        },
+        {
+          "path": "infera-chat/src/application.rs",
+          "line": 17,
+          "function": "router"
+        },
+        {
+          "path": "infera-chat/src/summary_evidence.rs",
+          "line": 2,
+          "function": "routes"
+        },
+        {
+          "path": "infera-chat/shared/infera-summary-sdk/src/server.rs",
+          "line": 121,
+          "function": "router"
+        }
+      ]
+    }
+  ],
+  "crm": [
+    {
+      "path": "/mcp",
+      "source": "infera-crm/shared/infera-summary-sdk/src/server.rs",
+      "function": "router",
+      "service_expression": " service",
+      "mounted_via": [
+        {
+          "path": "infera-crm/src/router.rs",
+          "line": 20,
+          "function": "application"
+        },
+        {
+          "path": "infera-crm/src/router.rs",
+          "line": 71,
+          "function": "routes"
+        },
+        {
+          "path": "infera-crm/src/summary_evidence.rs",
+          "line": 177,
+          "function": "routes"
+        },
+        {
+          "path": "infera-crm/shared/infera-summary-sdk/src/server.rs",
+          "line": 121,
+          "function": "router"
+        }
+      ]
+    }
+  ],
+  "session": [
+    {
+      "path": "/mcp",
+      "source": "infera-session/shared/infera-summary-sdk/src/server.rs",
+      "function": "router",
+      "service_expression": " service",
+      "mounted_via": [
+        {
+          "path": "infera-session/src/main.rs",
+          "line": 200,
+          "function": "application_router"
+        },
+        {
+          "path": "infera-session/src/summary_evidence.rs",
+          "line": 2,
+          "function": "routes"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/server.rs",
+          "line": 121,
+          "function": "router"
+        }
+      ]
+    }
+  ],
+  "task": [
+    {
+      "path": "/mcp",
+      "source": "infera-task/shared/infera-summary-sdk/src/server.rs",
+      "function": "router",
+      "service_expression": " service",
+      "conditions": [
+        {
+          "expression": "state.db",
+          "pattern": "crate::state::TaskDatabase::Pool(db)",
+          "path": "infera-task/src/summary_evidence.rs",
+          "line": 2
+        }
+      ],
+      "mounted_via": [
+        {
+          "path": "infera-task/src/routes.rs",
+          "line": 42,
+          "function": "app"
+        },
+        {
+          "path": "infera-task/src/summary_evidence.rs",
+          "line": 2,
+          "function": "routes"
+        },
+        {
+          "path": "infera-task/shared/infera-summary-sdk/src/server.rs",
+          "line": 121,
+          "function": "router"
+        }
+      ]
+    },
+    {
+      "path": "/mcp",
+      "source": "infera-task/src/summary_evidence.rs",
+      "conditions": [
+        {
+          "expression": "state.db",
+          "pattern": "crate::state::TaskDatabase::Transaction(_)",
+          "path": "infera-task/src/summary_evidence.rs",
+          "line": 2
+        }
+      ],
+      "behavior": "HTTP503: request-scoped batch transactions cannot host long-lived MCP",
+      "mounted_via": [
+        {
+          "path": "infera-task/src/routes.rs",
+          "line": 42,
+          "function": "app"
+        },
+        {
+          "path": "infera-task/src/summary_evidence.rs",
+          "line": 2,
+          "function": "routes"
+        }
+      ]
+    }
+  ]
+}
