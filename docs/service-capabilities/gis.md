@@ -10,6 +10,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 - Canonical source revision: `d07b4facd1f73d40a20291dde479365845ec4023`
 - SDK source revision: `0bc8423a51887450b928e7b372153014cd47e582`
+- Evidence inventory revision: `0bc8423a51887450b928e7b372153014cd47e582` (sdk)
 - Working HEAD: `d07b4facd1f73d40a20291dde479365845ec4023`
 - Source relationship: working_behind_sdk
 
@@ -19,14 +20,14 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 |---|---|---|---|
 | `GET /health` | `infera-gis/src/router.rs:16` | inspect middleware/local scope | stale |
 | `GET /api/v1/datasets` | `infera-gis/src/geometry/routes.rs:28` | inspect middleware/local scope | stale |
-| `POST /api/v1/datasets` | `infera-gis/src/geometry/routes.rs:60` | inspect middleware/local scope | stale |
-| `GET /api/v1/datasets/{id}` | `infera-gis/src/geometry/routes.rs:68` | inspect middleware/local scope | stale |
-| `PATCH /api/v1/datasets/{id}` | `infera-gis/src/geometry/routes.rs:87` | inspect middleware/local scope | stale |
-| `GET /api/v1/datasets/{id}/features` | `infera-gis/src/geometry/routes.rs:148` | inspect middleware/local scope | stale |
-| `PUT /api/v1/datasets/{id}/features` | `infera-gis/src/geometry/routes.rs:78` | inspect middleware/local scope | stale |
-| `PUT /api/v1/datasets/{id}/features/{feature}` | `infera-gis/src/geometry/routes.rs:181` | inspect middleware/local scope | stale |
-| `GET /api/v1/datasets/{id}/history` | `infera-gis/src/geometry/routes.rs:167` | inspect middleware/local scope | stale |
-| `GET /api/v1/public/datasets/{id}/geojson` | `infera-gis/src/geometry/routes.rs:159` | inspect middleware/local scope | stale |
+| `POST /api/v1/datasets` | `infera-gis/src/geometry/routes.rs:67` | inspect middleware/local scope | stale |
+| `GET /api/v1/datasets/{id}` | `infera-gis/src/geometry/routes.rs:75` | inspect middleware/local scope | stale |
+| `PATCH /api/v1/datasets/{id}` | `infera-gis/src/geometry/routes.rs:94` | inspect middleware/local scope | stale |
+| `GET /api/v1/datasets/{id}/features` | `infera-gis/src/geometry/routes.rs:155` | inspect middleware/local scope | stale |
+| `PUT /api/v1/datasets/{id}/features` | `infera-gis/src/geometry/routes.rs:85` | inspect middleware/local scope | stale |
+| `PUT /api/v1/datasets/{id}/features/{feature}` | `infera-gis/src/geometry/routes.rs:188` | inspect middleware/local scope | stale |
+| `GET /api/v1/datasets/{id}/history` | `infera-gis/src/geometry/routes.rs:174` | inspect middleware/local scope | stale |
+| `GET /api/v1/public/datasets/{id}/geojson` | `infera-gis/src/geometry/routes.rs:166` | inspect middleware/local scope | stale |
 | `GET /api/v1/maps` | `infera-gis/src/maps/routes.rs:44` | inspect middleware/local scope | stale |
 | `POST /api/v1/maps` | `infera-gis/src/maps/routes.rs:51` | inspect middleware/local scope | stale |
 | `GET /api/v1/maps/{id}` | `infera-gis/src/maps/routes.rs:126` | inspect middleware/local scope | stale |
@@ -40,9 +41,9 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `GET /api/v1/public/datasets/{id}/tilejson` | `infera-gis/src/tiles/routes.rs:22` | inspect middleware/local scope | stale |
 | `GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}` | `infera-gis/src/tiles/routes.rs:31` | inspect middleware/local scope | stale |
 | `GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}` | `infera-gis/src/tiles/routes.rs:41` | inspect middleware/local scope | stale |
-| `GET /api/v1/imports` | `infera-gis/src/imports/mod.rs:79` | inspect middleware/local scope | stale |
-| `POST /api/v1/imports` | `infera-gis/src/imports/mod.rs:43` | inspect middleware/local scope | stale |
-| `POST /api/v1/imports/{id}/retry` | `infera-gis/src/imports/mod.rs:86` | inspect middleware/local scope | stale |
+| `GET /api/v1/imports` | `infera-gis/src/imports/mod.rs:117` | inspect middleware/local scope | stale |
+| `POST /api/v1/imports` | `infera-gis/src/imports/mod.rs:76` | inspect middleware/local scope | stale |
+| `POST /api/v1/imports/{id}/retry` | `infera-gis/src/imports/mod.rs:124` | inspect middleware/local scope | stale |
 | `GET /api/v1/my-places` | `infera-gis/src/personal_places.rs:43` | inspect middleware/local scope | stale |
 | `POST /api/v1/my-places` | `infera-gis/src/personal_places.rs:59` | inspect middleware/local scope | stale |
 | `GET /api/v1/my-places/{id}` | `infera-gis/src/personal_places.rs:50` | inspect middleware/local scope | stale |

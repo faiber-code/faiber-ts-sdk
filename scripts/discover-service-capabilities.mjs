@@ -1,3 +1,5 @@
+import { classifyReviewedProtocolAlternatives } from './reviewed-protocol-alternatives.mjs';
+import { capabilityInventoryRevision, retainCapabilitySourceDecision } from './capability-source-selection.mjs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
@@ -19,6 +21,7 @@ const readJson = path => existsSync(path) ? JSON.parse(readFileSync(path, 'utf8'
 const git = (directory, ...args) => execFileSync('git', args, { cwd: directory, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const remote = readJson(join(target,'remote-baseline.json')) ?? readJson(join(sdkRoot,'contracts/service-capabilities/remote-baseline.json'));
 if (!remote) throw new Error('Capture a fresh remote baseline before canonical service discovery');
+const inventoryMode=process.env.FAIBER_CAPABILITY_SOURCE_MODE??'canonical';
 const canonicalRevisions=Object.fromEntries(Object.entries(locks).map(([service,lock])=>{
   const revision=remote.repositories[service];
   if(revision?.fetch_exit!==0 || !revision.origin_main)throw new Error(`No fetched canonical source for ${service}`);
@@ -117,7 +120,7 @@ function markdown(service, data) {
   return `# ${service} capability discovery\n\n${data.purpose.en}\n\n${data.purpose.fa}\n\n`+
     `Status: evidence inventory; semantic and wire verification remain required.\n\n`+
     `The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.\n\n`+
-    `- Canonical source revision: \`${data.canonical_revision}\`\n- SDK source revision: \`${data.sdk_source_revision??'not in current SDK source lock'}\`\n- Working HEAD: \`${data.working_revision}\`\n- Source relationship: ${data.source_relationship}\n\n`+
+    `- Canonical source revision: \`${data.canonical_revision}\`\n- SDK source revision: \`${data.sdk_source_revision??'not in current SDK source lock'}\`\n- Evidence inventory revision: \`${data.inventory_revision}\` (${data.inventory_source})\n- Working HEAD: \`${data.working_revision}\`\n- Source relationship: ${data.source_relationship}\n\n`+
     `## Operation review matrix\n\n| Method/path | Handler source | Declared permissions | Semantic review |\n|---|---|---|---|\n${rows.join('\n')}\n\n`+
     `Full fields, guards, state/side-effect evidence, call dependencies, source checksums and unresolved symbols are in \`contracts/service-capabilities/${service}.json\`. `+
     `Empty declared permission arrays do not establish public access. Review gateway middleware and resource ownership.\n`;
@@ -154,10 +157,13 @@ const runExtractor=(root,label,lockFile)=>{
   }
 };
 const canonical=runExtractor(null,'canonical',canonicalLock).manifest;
+const inventoryRevisions=Object.fromEntries(Object.entries(canonicalRevisions).map(([service,entry])=>[service,{...entry,revision:capabilityInventoryRevision(inventoryMode,entry.revision,locks[service]?.revision)}]));
+const inventoryLock=join(temporary,'inventory-revisions.json');writeFileSync(inventoryLock,JSON.stringify(inventoryRevisions));
+const inventoryContracts=inventoryMode==='canonical'?canonical:runExtractor(null,'selected-sdk',inventoryLock).manifest;
 const published=readJson(join(sdkRoot,'service-contracts.json'));
 const workingCapture=runExtractor(join(workspace,'Service'),'working');
 const working=workingCapture.manifest;
-const pinnedRoot=serviceSources(sdkRoot,join(workspace,'Service'),{lockPath:canonicalLock,ignoreWorkingOverride:true});
+const pinnedRoot=serviceSources(sdkRoot,join(workspace,'Service'),{lockPath:inventoryLock,ignoreWorkingOverride:true});
 const summary={schema_version:'1.0',services:{},gates:{discovery:'blocked',sdk:'blocked_by_discovery',manage:'blocked_by_sdk',knowledge:'blocked_by_manage',memory:'blocked_by_knowledge'}};
 for(const [service,entry] of Object.entries(universe.services)) {
   const root=join(workspace,entry.directory),revision=git(root,'rev-parse','HEAD');
@@ -168,13 +174,14 @@ for(const [service,entry] of Object.entries(universe.services)) {
   }
   const canonicalRevision=remote.repositories[service];
   if(canonicalRevision?.fetch_exit!==0 || !canonicalRevision.origin_main)throw new Error(`Missing canonical revision for ${service}`);
-  const canonicalRoot=lock?join(pinnedRoot,lock.directory):join(temporary,service);
-  if(!lock)archiveSourceRevision(root,canonicalRevision.origin_main,canonicalRoot);
-  const files=sourceFiles(canonicalRoot,entry.directory.replace(/^Service\//,''));
+  const inventoryRoot=lock?join(pinnedRoot,lock.directory):join(temporary,service);
+  const inventoryRevision=capabilityInventoryRevision(inventoryMode,canonicalRevision.origin_main,lock?.revision);
+  if(!lock)archiveSourceRevision(root,inventoryRevision,inventoryRoot);
+  const files=sourceFiles(inventoryRoot,entry.directory.replace(/^Service\//,''));
   const currentFiles=sourceFiles(root,entry.directory.replace(/^Service\//,''));
   const reviews=readJson(join(target,'reviews',`${service}.json`))??{};
   const extraRouterEntries={manage:{path:'src/router.rs',function:'app'},agentic:{path:'src/router.rs',function:'api_router'},control:{path:'crates/faiber-server/src/routes.rs',function:'api_router'},
-    knowledge:{path:'src/main.rs',function:'main',variable:'app'},chat:{path:'src/main.rs',function:'main',variable:'app'},state:{path:'src/main.rs',function:'main',variable:'app'},
+    social:{path:'src/main.rs',function:'main',variable:'app'},knowledge:{path:'src/main.rs',function:'main',variable:'app'},chat:{path:'src/main.rs',function:'main',variable:'app'},state:{path:'src/main.rs',function:'main',variable:'app'},
     task:{path:'src/routes.rs',function:'app'}};
   const defaultRouter=files.find(file=>file.path.endsWith('/src/router.rs'));
   const mainRouter=files.find(file=>file.path===`${entry.directory.replace(/^Service\//,'')}/src/main.rs`);
@@ -186,7 +193,8 @@ for(const [service,entry] of Object.entries(universe.services)) {
     ? {path:'src/router.rs',function:'application'}
     : extraRouterEntries[service]??(defaultRouter?.functions.some(fn=>fn.name==='routes')?{path:'src/router.rs',function:'routes'}:null);
   const mounted=routerEntry?mountedRouterOperations(files,routerEntry):null;
-  const extracted=canonical[service]??[];
+  if(mounted)classifyReviewedProtocolAlternatives(mounted,service);
+  const extracted=inventoryContracts[service]??[];
   const endpoints=mounted?mounted.operations.map(operation=>{
     const signature=extracted.find(x=>x.method===operation.method&&x.path===operation.path)
       ??extracted.find(x=>x.method===operation.method&&x.handler===operation.handler&&x.source===operation.source);
@@ -195,7 +203,8 @@ for(const [service,entry] of Object.entries(universe.services)) {
   const treeChecksum=hash(JSON.stringify(files.map(({path,checksum})=>({path,checksum}))));
   const old=new Map(endpoints.map(x=>[`${x.method} ${x.path}`,x])),now=new Map((working[service]??[]).map(x=>[`${x.method} ${x.path}`,x]));
   const sdk=new Map((published[service]??[]).map(x=>[`${x.method} ${x.path}`,x]));
-  const data={schema_version:'1.0',service,...entry,canonical_revision:canonicalRevision.origin_main,sdk_source_revision:lock?.revision??null,working_revision:revision,
+  const prior=readJson(join(target,`${service}.json`));
+  const data={schema_version:'1.0',service,...entry,inventory_source:inventoryMode,inventory_revision:inventoryRevision,source_decision:retainCapabilitySourceDecision(prior?.source_decision,inventoryRevision,treeChecksum),relationship_review:prior?.source_tree_checksum===treeChecksum&&prior?.inventory_revision===inventoryRevision?prior?.relationship_review??null:null,canonical_revision:canonicalRevision.origin_main,sdk_source_revision:lock?.revision??null,working_revision:revision,
     working_changes:git(root,'status','--short','--','src','entity','migration','crates','shared','auth','auth_macro','Cargo.toml','Cargo.lock','build.rs').split('\n').filter(Boolean),
     source_relationship:relationship,
     source_tree_checksum:treeChecksum,
@@ -204,7 +213,7 @@ for(const [service,entry] of Object.entries(universe.services)) {
       const id=`PROTOCOL ${mount.path}${mount.conditions?.length?' ['+mount.conditions.map(c=>`${c.expression}=${c.pattern}`).join(';')+']':''}`;
       return {...mount,id,source_checksum:treeChecksum,review:reviews[id]??null};
     }),
-    embedded_source_gaps:{canonical:files.embedded_source_gaps,working:currentFiles.embedded_source_gaps},
+    embedded_source_gaps:{inventory:files.embedded_source_gaps,working:currentFiles.embedded_source_gaps},
     working_source_tree_checksum:hash(JSON.stringify(currentFiles.map(({path,checksum})=>({path,checksum})))),
     working_source_files:currentFiles.map(({path,checksum,embedded_by})=>({path,checksum,...(embedded_by?{embedded_by}:{})})),
     operations:endpoints.map(endpoint=>operationEvidence(files,endpoint,reviews[`${endpoint.method} ${endpoint.path}`],treeChecksum)),

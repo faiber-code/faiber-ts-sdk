@@ -11,6 +11,10 @@
     "README.md",
     "src/router.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
   "sdk_source_revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98",
   "working_revision": "6fe84352982f97e3f56cd750376a88f4e9ac0a85",
@@ -225,7 +229,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "60c0fb1bb5e8c319b702059e9a7999f69d6db87c0a23f6375d9a69a678026aa7",

@@ -10,6 +10,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 - Canonical source revision: `88071d0dd49309e0c93aba6238516e95b57e1df5`
 - SDK source revision: `b5fb6904e9ac005c9437012bf19e9bc3587ef65e`
+- Evidence inventory revision: `b5fb6904e9ac005c9437012bf19e9bc3587ef65e` (sdk)
 - Working HEAD: `92b69f4e85225f87e47258645c6f908a1eb501b4`
 - Source relationship: working_behind_sdk
 
@@ -18,7 +19,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
 | `GET /health` | `infera_version/src/router.rs:146` | inspect middleware/local scope | stale |
-| `POST /api/v1/apk/releases` | `infera_version/src/version/publish.rs:32` | inspect middleware/local scope | stale |
+| `POST /api/v1/apk/releases` | `infera_version/src/version/publish.rs:35` | inspect middleware/local scope | stale |
 | `GET /api/openapi.json` | `infera_version/src/router.rs:130` | inspect middleware/local scope | stale |
 | `GET /api/v1/services` | `infera_version/src/service/routes.rs:32` | inspect middleware/local scope | stale |
 | `GET /api/v1/services/{service_slug}` | `infera_version/src/service/routes.rs:54` | inspect middleware/local scope | stale |

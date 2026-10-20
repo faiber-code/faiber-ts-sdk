@@ -10,12 +10,16 @@
   "sources": [
     "src/router.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "88071d0dd49309e0c93aba6238516e95b57e1df5",
   "sdk_source_revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e",
   "working_revision": "92b69f4e85225f87e47258645c6f908a1eb501b4",
   "working_changes": [],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "ab9342d107a0d4b18264004743e1f8a91c7b320fff42f9db28124ec41b5db39a",
+  "source_tree_checksum": "d98d5b44f903f0be0c04476dd2a93cb2da72e618626e36cbc1cb21c93a24afd9",
   "source_files": [
     {
       "path": "infera_version/src/broker.rs",
@@ -38,6 +42,10 @@
       "checksum": "a558d019c0fd68a318c772f1a49b388a29730e6ec36531f4e7e63c600423d152"
     },
     {
+      "path": "infera_version/src/contract_tests.rs",
+      "checksum": "a1c51df090175a511df01e24d680895b646a6e975bcfe3f3e0ffeb02fd7d48a8"
+    },
+    {
       "path": "infera_version/src/cors.rs",
       "checksum": "44441407770a5a491d0c6327f8d1c7f96359598f9fdf2153b0e8b465d6bee71e"
     },
@@ -51,7 +59,7 @@
     },
     {
       "path": "infera_version/src/main.rs",
-      "checksum": "9efdc759aea226fa9c31f92e7c6b2abffe8918476bad5483c8b0c4d18e5ae705"
+      "checksum": "a1fca6b823e0d771b69908c618f18fc769ddc5dfd588caed888091da96268700"
     },
     {
       "path": "infera_version/src/middleware.rs",
@@ -63,7 +71,7 @@
     },
     {
       "path": "infera_version/src/router.rs",
-      "checksum": "6cce6a2aef7a3ebf8280621875149b61bd22077707b201ab13cd15d73c9fb276"
+      "checksum": "17e2f7104e79004ff2b7ace2c37487bd6a4c22aa78dbb57e02964df971fe0b9f"
     },
     {
       "path": "infera_version/src/schedule/jobs.rs",
@@ -91,7 +99,7 @@
     },
     {
       "path": "infera_version/src/service/routes.rs",
-      "checksum": "82df5b0bc7701a45081f882137c0aa88fecc393de96f292c5930e4d3084680ab"
+      "checksum": "814c1580a2c1ff8bfc0aa87ba0ceb769623d1a6adfb34b69365b5b11a52f39e8"
     },
     {
       "path": "infera_version/src/service/transformers.rs",
@@ -123,7 +131,7 @@
     },
     {
       "path": "infera_version/src/version/publish.rs",
-      "checksum": "0687516d70b1954107b737f0d1b20177ca9461174fa83a65f8c47e7c5f7cb8bd"
+      "checksum": "55f30c85efa52093010e0efbc92cbaebe0f8644d8ceca698bd37f689f6713d08"
     },
     {
       "path": "infera_version/src/version/routes.rs",
@@ -175,7 +183,7 @@
     },
     {
       "path": "infera_version/auth/src/axum_middleware.rs",
-      "checksum": "a8c3920ccca04dd999c8734f443e815a865e5decbcaf075a824543f691af491e"
+      "checksum": "d3025fdd42a624e019c81994ca4b799bce76a8357992c01402347c5d419af7a8"
     },
     {
       "path": "infera_version/auth/src/export.rs",
@@ -244,7 +252,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "ddf1dff523b08575d71137201f9461c2e3903440920b26212f731f06ace03fa0",
@@ -502,7 +510,7 @@
           }
         ]
       },
-      "source_checksum": "52340e8ac27fca432647598762b6f51f6e3ca9325de7aeb1d2a8efa17f3aa119",
+      "source_checksum": "a8b2e3ade4dce8794b1f3be8bc6def25b8cce4506ebcab0ae9b51ccecf6e91af",
       "handler": {
         "ref": "infera_version/src/router.rs:146:status_route",
         "path": "infera_version/src/router.rs",
@@ -567,11 +575,11 @@
           }
         ]
       },
-      "source_checksum": "68edebda6adffb7c637a313b3e7b1c258d43d8eb4a82deb401924c790d484df0",
+      "source_checksum": "089b08a4f9b1c67c8166d57d63009893f8ff494e2bf450c5263a561c12ee795d",
       "handler": {
-        "ref": "infera_version/src/version/publish.rs:32:publish_apk",
+        "ref": "infera_version/src/version/publish.rs:35:publish_apk",
         "path": "infera_version/src/version/publish.rs",
-        "line": 32,
+        "line": 35,
         "name": "publish_apk"
       },
       "related_implementation": [
@@ -587,9 +595,9 @@
           "declared_type": "ApkRelease",
           "models": [
             {
-              "ref": "infera_version/src/version/publish.rs:14:ApkRelease",
+              "ref": "infera_version/src/version/publish.rs:17:ApkRelease",
               "path": "infera_version/src/version/publish.rs",
-              "line": 14,
+              "line": 17,
               "name": "ApkRelease"
             }
           ]
@@ -642,7 +650,7 @@
           }
         ]
       },
-      "source_checksum": "43fe043bb4e68422d71fa225603e06b19ec187131fef530a83882d258a43d299",
+      "source_checksum": "19c6954ebac132f5370f3a51bcb4830ea40bb42abf30687819b29ba96390c1ee",
       "handler": {
         "ref": "infera_version/src/router.rs:130:openapi_json",
         "path": "infera_version/src/router.rs",
@@ -710,7 +718,7 @@
           }
         ]
       },
-      "source_checksum": "4e701d89d31e730d7fb4132709f7f2f55e17d091b27285de3f52e15eac2f0fc7",
+      "source_checksum": "bc42b503a190bf16d91dd2119b1362dee72341a1c8ee8898417f30a240974c5d",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:32:services_index",
         "path": "infera_version/src/service/routes.rs",
@@ -780,7 +788,7 @@
           }
         ]
       },
-      "source_checksum": "77bcda69a38711595f81803fd885e40413845282b9903b4af90caeb615b47634",
+      "source_checksum": "858287c4dcac7e085b5936c6feeda9449fc952eb518365069df273d251fe5e75",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:54:service_show",
         "path": "infera_version/src/service/routes.rs",
@@ -854,7 +862,7 @@
           }
         ]
       },
-      "source_checksum": "3cf10acb3485451888708e02111f6edae695fe288fc42bbc2999b6b8d1466036",
+      "source_checksum": "c03c063a42161d8171e055d80fbad6acede9fb4d15cd22deb9cb90ae22eeeda5",
       "handler": {
         "ref": "infera_version/src/service/routes.rs:79:service_show_all",
         "path": "infera_version/src/service/routes.rs",
@@ -928,7 +936,7 @@
           }
         ]
       },
-      "source_checksum": "a5a6a489e5be70aea160940a2d72de14c5c046aa880da7f5b56558464f4d0c13",
+      "source_checksum": "49903611fcdfe264c0ab0026574b4888e87ec8d16dc6e67d89a4818c81beae27",
       "handler": {
         "ref": "infera_version/src/version/routes.rs:29:version_show",
         "path": "infera_version/src/version/routes.rs",
@@ -1261,183 +1269,198 @@
         }
       ]
     },
-    "infera_version/src/version/publish.rs:32:publish_apk": {
+    "infera_version/src/version/publish.rs:35:publish_apk": {
       "name": "publish_apk",
       "path": "infera_version/src/version/publish.rs",
-      "line": 32,
-      "end_line": 155,
+      "line": 35,
+      "end_line": 168,
       "signature": "pub async fn publish_apk(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    Json(input): Json<ApkRelease>,\n) -> Result<Json<serde_json::Value>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 51,
+          "line": 54,
           "expression": "if !publisher_authorized(&expected, provided) {"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 53,
+          "line": 56,
           "expression": "StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 130,
+          "line": 143,
           "expression": "scope: Set(entity::version::VersionScope::Closed),"
         }
       ],
       "validation": [
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 39,
+          "line": 42,
           "expression": ".filter(|v| v.len() >= 32)"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 61,
+          "line": 64,
           "expression": "|| input.version.len() > 40"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 62,
+          "line": 65,
           "expression": "|| input.version.is_empty()"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 67,
+          "line": 70,
           "expression": "|| input.app_name.trim().is_empty()"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 69,
+          "line": 72,
           "expression": "|| !url.username().is_empty()"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 71,
+          "line": 74,
           "expression": "|| input.service_slug.is_empty()"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 72,
+          "line": 75,
           "expression": "|| input.service_slug.len() > 100"
         }
       ],
       "state": [
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 42,
+          "line": 45,
           "expression": "StatusCode::SERVICE_UNAVAILABLE,"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 53,
+          "line": 56,
           "expression": "StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 58,
+          "line": 61,
           "expression": ".map_err(|_| AppError::new(StatusCode::BAD_REQUEST, \"Invalid download URL\"))?;"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 79,
+          "line": 82,
           "expression": "StatusCode::BAD_REQUEST,"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 85,
+          "line": 88,
           "expression": "StatusCode::INTERNAL_SERVER_ERROR,"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 89,
+          "line": 92,
           "expression": "let tx = state.db.begin().await.map_err(db_error)?;"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 106,
+          "line": 96,
+          "expression": "tx.execute(Statement::from_sql_and_values("
+        },
+        {
+          "path": "infera_version/src/version/publish.rs",
+          "line": 119,
           "expression": "status: Set(1),"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 132,
+          "line": 145,
           "expression": "status: Set(1),"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 142,
+          "line": 155,
           "expression": "serde_json::json!({\"status\":\"success\", \"id\":version_id}),"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 153,
+          "line": 166,
           "expression": "serde_json::json!({\"status\":\"success\", \"id\":version_id}),"
         }
       ],
       "effects": [
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 37,
+          "line": 40,
           "expression": "let expected = std::env::var(\"APK_PUBLISH_TOKEN\")"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 43,
+          "line": 46,
           "expression": "\"APK publishing is not configured\","
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 51,
+          "line": 54,
           "expression": "if !publisher_authorized(&expected, provided) {"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 54,
+          "line": 57,
           "expression": "\"Invalid publisher token\","
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 86,
+          "line": 89,
           "expression": "\"Could not publish APK release\","
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 91,
+          "line": 94,
+          "expression": "// the first publication when no row exists to lock. The transaction owns the"
+        },
+        {
+          "path": "infera_version/src/version/publish.rs",
+          "line": 95,
+          "expression": "// lock, so commit, rollback and connection loss release it automatically."
+        },
+        {
+          "path": "infera_version/src/version/publish.rs",
+          "line": 104,
           "expression": "// Stable IDs make repeated publish attempts idempotent."
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 108,
+          "line": 121,
           "expression": "updated_at: Set(None),"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 110,
+          "line": 123,
           "expression": ".insert(&tx)"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 134,
+          "line": 147,
           "expression": "updated_at: Set(Some(now)),"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 140,
+          "line": 153,
           "expression": "tx.commit().await.map_err(db_error)?;"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 147,
+          "line": 160,
           "expression": "model.update(&tx).await.map_err(db_error)?;"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 149,
+          "line": 162,
           "expression": "model.insert(&tx).await.map_err(db_error)?;"
         },
         {
           "path": "infera_version/src/version/publish.rs",
-          "line": 151,
+          "line": 164,
           "expression": "tx.commit().await.map_err(db_error)?;"
         }
       ],
@@ -1445,11 +1468,11 @@
         "service::Entity::find"
       ]
     },
-    "infera_version/src/version/publish.rs:14:ApkRelease": {
+    "infera_version/src/version/publish.rs:17:ApkRelease": {
       "name": "ApkRelease",
       "kind": "struct",
       "path": "infera_version/src/version/publish.rs",
-      "line": 14,
+      "line": 17,
       "attributes": "#[derive(Deserialize)]\n#[serde(rename_all = \"camelCase\")]",
       "fields": [
         {

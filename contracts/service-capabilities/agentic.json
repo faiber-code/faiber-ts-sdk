@@ -12,6 +12,10 @@
     "src/router.rs",
     "src/agent_runtime"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "308baded8aaf73ae5e16ac3d7ad9763065d93de4",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "308baded8aaf73ae5e16ac3d7ad9763065d93de4",
   "sdk_source_revision": null,
   "working_revision": "84a0e9a95d274a655aae052988915ffc74401942",
@@ -963,7 +967,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "7486c0cf8008853fd4867b35628bbff54a87534506c08eeb4d4d1ebd35f347ce",

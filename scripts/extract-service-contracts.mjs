@@ -1,3 +1,4 @@
+import { classifyReviewedProtocolAlternatives } from './reviewed-protocol-alternatives.mjs';
 import { sourceIndex } from "./capability-source.mjs";
 import { mountedRouterOperations } from "./capability-router.mjs";
 import { integrationEndpoints } from "./integration-contracts.mjs";
@@ -430,20 +431,7 @@ for (const service of services) {
       ? {path:"src/main.rs",function:"main",variable:"app"}
       : {path:"src/router.rs",function:"routes"};
     const graph=mountedRouterOperations(indexed,entry);
-    if(service==='task') {
-      // The production Pool branch hosts signed-grant MCP. A batch transaction
-      // instead mounts this exact 503-only protocol rejection, not a REST API.
-      for(let i=graph.operations.length-1;i>=0;i--) {
-        const op=graph.operations[i];
-        if(op.method==='POST' && op.path==='/mcp' && op.source==='infera-task/src/summary_evidence.rs'
-          && op.conditions?.some(c=>c.expression==='state.db' && c.pattern==='crate::state::TaskDatabase::Transaction(_)')
-          && op.inline_handler?.body.replace(/\s/g,'')==='axum::routing::post(||async{axum::http::StatusCode::SERVICE_UNAVAILABLE})') {
-          graph.protocol_mounts.push({path:op.path,source:op.source,conditions:op.conditions,
-            behavior:'HTTP503: request-scoped batch transactions cannot host long-lived MCP',mounted_via:op.mounted_via});
-          graph.operations.splice(i,1);
-        }
-      }
-    }
+    classifyReviewedProtocolAlternatives(graph,service);
     if (graph.protocol_mounts.length) protocolMounts[service]=graph.protocol_mounts;
     const stateHealth = op => service==="state" && op.method==="GET" && op.path==="/health" &&
       op.inline_handler?.body.replace(/\s/g,"") === 'get(||async{Json(json!({"data":{"service":"infera-state","status":"healthy","transports":["websocket"],"rulesets":["kheradgah.v1"],"wasm":true}}))})';

@@ -11,6 +11,10 @@
     "src/router.rs",
     "src/web_push.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
   "sdk_source_revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c",
   "working_revision": "0038f19eb1d78b744b3d9829c1a05331657a9fa4",
@@ -419,7 +423,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "5e9893948289bfdb4e8b1d88069d57b28dc020268a55fc1f1c615043eafa3442",

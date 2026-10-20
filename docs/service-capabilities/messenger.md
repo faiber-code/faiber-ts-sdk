@@ -10,6 +10,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 - Canonical source revision: `0eb2143fae39dee3e0543abaac59ea1aaaed771c`
 - SDK source revision: `0eb2143fae39dee3e0543abaac59ea1aaaed771c`
+- Evidence inventory revision: `0eb2143fae39dee3e0543abaac59ea1aaaed771c` (sdk)
 - Working HEAD: `0038f19eb1d78b744b3d9829c1a05331657a9fa4`
 - Source relationship: working_behind_sdk
 

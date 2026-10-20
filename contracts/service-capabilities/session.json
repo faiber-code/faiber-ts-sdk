@@ -12,6 +12,10 @@
     "src/handler.rs",
     "src/drm.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "a91a5bea44ecfaf946e13dc7c662ccb74c468800",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
   "sdk_source_revision": "a91a5bea44ecfaf946e13dc7c662ccb74c468800",
   "working_revision": "edefa6463fe1877661cc62ef4752515262c71e00",
@@ -39,7 +43,7 @@
     "?? src/summary_evidence.sql"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "a5756423240ea1d68f2c3853eeed36b40a87659ba8f3dd324534a4b36f822bc0",
+  "source_tree_checksum": "a27184a10b60c242d01a778802b276bcf10173cbdd74632fa8ada28c969f1b4b",
   "source_files": [
     {
       "path": "infera-session/src/asset_economy.rs",
@@ -51,7 +55,7 @@
     },
     {
       "path": "infera-session/src/branding.rs",
-      "checksum": "1f0225db4ab950821c02995ba9b14c4c4d1fbb9d60f7f49387b999aec72ea86e"
+      "checksum": "802bbe4dce2d36d4eee6ef9b3d771370b653971161b3ef95f5b54507384909de"
     },
     {
       "path": "infera-session/src/broker.rs",
@@ -114,12 +118,8 @@
       "checksum": "f9e68aa52ce827247b334689a6247737d68fe501011ad0a035034b055e32960d"
     },
     {
-      "path": "infera-session/src/integration/lms.rs",
-      "checksum": "810a2bd847a23cd2c87cdf62ff8e9185df4bcbe0bde932a664dab990d9d81466"
-    },
-    {
       "path": "infera-session/src/integration/mod.rs",
-      "checksum": "e7ce5218961bd38e57d26426e74a7f80ba5c62ef0fe9aae068a06e2287b5316d"
+      "checksum": "dc0cb9dc7f64cc9318ebdc08557744de382e89919282cd6e12d709cdb65922b3"
     },
     {
       "path": "infera-session/src/integration/models.rs",
@@ -139,7 +139,7 @@
     },
     {
       "path": "infera-session/src/main.rs",
-      "checksum": "ce218380c1cca5b3923ea8d1d7c317eba8bde0806ba163f4460af4ab33d0fc96"
+      "checksum": "27f42f5f44a85b03021cfa8d01c545a21e4862b62a87f4e867b81032ed7ce168"
     },
     {
       "path": "infera-session/src/middleware.rs",
@@ -148,6 +148,10 @@
     {
       "path": "infera-session/src/models.rs",
       "checksum": "3ccffc5cf4bd8381b0e9554126f0778192fc78f8b4ae8ba8944d4856f4a7d38e"
+    },
+    {
+      "path": "infera-session/src/native_access.rs",
+      "checksum": "444524c80bad0c45c6b8f7929276048bc100c113780bff10d20c9a1e5b91ff13"
     },
     {
       "path": "infera-session/src/notification_state.rs",
@@ -172,6 +176,10 @@
     {
       "path": "infera-session/src/recording/routes.rs",
       "checksum": "4076a797f38d6ce536e66e51a67ccad3efa6c52dfa927e32a3313985dc6c04ac"
+    },
+    {
+      "path": "infera-session/src/report_view_http.rs",
+      "checksum": "888cd310c8479ed3516563847288f27a342eebda3e8f7ddf09e8160bb0bd2f5a"
     },
     {
       "path": "infera-session/src/room/asset_actions.rs",
@@ -231,7 +239,7 @@
     },
     {
       "path": "infera-session/src/router.rs",
-      "checksum": "df7dcec77e7dcdf0a8dd17bf0911b06672568bd3109bc4c5ebb3ef1c02ec3810"
+      "checksum": "2de7a66a650053f83dde66cbd02124248185a503f899bb07e664413cf58283b4"
     },
     {
       "path": "infera-session/src/s3.rs",
@@ -270,6 +278,10 @@
       "checksum": "c9b46419a4dc6542b118848cfdbce2d8199255cbcd66c16a8495d11ca8e241a7"
     },
     {
+      "path": "infera-session/src/sdk_peer_tests.rs",
+      "checksum": "1a5fae729f6dbc970f95c116e40584a7603baaabca96f12d9ac63fa91feff051"
+    },
+    {
       "path": "infera-session/src/service_billing.rs",
       "checksum": "bb65b557387b243ebf855e9e61b76bccd26e0719e7cb3f6fe052fe5412a034fb"
     },
@@ -278,8 +290,32 @@
       "checksum": "a944bb00c522ed5e7e81f1cf89de7bca29db710136d88a30dec48dfca457a430"
     },
     {
+      "path": "infera-session/src/summary_aggregates.sql",
+      "checksum": "6f61eb9f855a0423c6bfb567019e598a0ebe8b4fba94cc4ad2148ec43d48b219"
+    },
+    {
+      "path": "infera-session/src/summary_evidence.rs",
+      "checksum": "032e4fce40a170f70617d6a776f7602c9d5c62ca79a016a91c7032e8945004e0"
+    },
+    {
+      "path": "infera-session/src/summary_evidence.sql",
+      "checksum": "d3257a660d40b3863c06e70347547cb967f489970cdebcd9d40f0ea2e1ed8d72"
+    },
+    {
+      "path": "infera-session/src/summary_mount_http.rs",
+      "checksum": "873e8d8daf1336d1be98bafa611cd701ddb48bb0ff5f4d0cb97da5500455ac5e"
+    },
+    {
+      "path": "infera-session/src/summary_query.rs",
+      "checksum": "ebda97729eea23401ffd869e78c30d4d22688e96aaf4c339685def521960aa02"
+    },
+    {
       "path": "infera-session/src/validators.rs",
       "checksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "infera-session/src/viewer_identity.rs",
+      "checksum": "fb70911b90f5b626cba0a54869a05942a79d3922e5164f95fc084a27524d2047"
     },
     {
       "path": "infera-session/entity/src/client_room_activity_log.rs",
@@ -354,8 +390,84 @@
       "checksum": "038a64ae95d7d475864ccbd05a9fb00d82ab4e2fe2325146a56585b6dfdcf93d"
     },
     {
+      "path": "infera-session/shared/infera-summary-sdk/Cargo.toml",
+      "checksum": "f8f49adcda1bbb77fc5e853e53ca05665c4a9dbda098af238cc425f8079b81e6"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/examples/generate_keys.rs",
+      "checksum": "2c055ce4f3f56b75fd58c413924d933098df1a5f5030d46534aa40e406ea8465"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/api.rs",
+      "checksum": "80d5512679333b5dfd0d0b50070f590a1049b8d10c6937366092d271f94ca3de"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/catalog.rs",
+      "checksum": "c04dbef20a7b41d7803ea5023aadff844a2dcdcfe9708d2bc78ae0cccdb9f049"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/config.rs",
+      "checksum": "63b94a830ac8c0af99fc86fc71953659bda67c83c5f52158cd74b5d31a1f0645"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/evidence.rs",
+      "checksum": "b67c8d9ecea944f57663ab3d9ec8686f3d92511bea4531f5979050738275ee09"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/grant.rs",
+      "checksum": "4ec08323843172e92a6ee63e1e9f588b03224b1f79046599ff3780de2d7b220c"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/lib.rs",
+      "checksum": "4996f862a67a948f3cf78a06d77eec770b596cc854d276896f8795b05a9cc841"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/metric.rs",
+      "checksum": "db361bceb5387c75b1da6f0af699cb78c24504e2574d7fd99c1895ef29365d32"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "checksum": "ac0aef5999fc22d74b6da29dda2790fc9f94a57adfe6e9e0ea7d690c1f165042"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/native_access.sql",
+      "checksum": "787c5a86e0588db859332b12e0a9d0264680127ce8f25954eac8674c8b74fa3b"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
+      "checksum": "40696b937098d29860aac3de3a04a86a69f2da02f89ff6d2a125a70e97b9c187"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/native_policy.rs",
+      "checksum": "c10ea586796bb31b5c5080031ba73ae9e1f7182a84ee56d9ca3f0c8dd3f740a1"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/outbox.rs",
+      "checksum": "b1314102c37b4bb13e839ea6cf39d394bd698757376b2732cf94ac474ba0e2e5"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/outbox.sql",
+      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/query.rs",
+      "checksum": "1b41835d869b2efd44aaf7d3f78cdf974c38bebf748b20a967beca0b26adf93c"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/result.rs",
+      "checksum": "46600a6ce2347c0dd621a45972fa94ae624497b2d1b6f02c37f0d5a72b24f981"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/server.rs",
+      "checksum": "edadbfe69af77f695443631c04e26024046ee521ad402669596f0fa372387738"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/tests/mcp_transport.rs",
+      "checksum": "1eb543cda949cf4722d4856c316d3d32ccb9ca45b0dd3284cc15c8113ad78ee4"
+    },
+    {
       "path": "infera-session/migration/src/lib.rs",
-      "checksum": "1fc92f1df5b4e13692beed26a0a940afee8791eacfafef1332fa830a0fc63a3c"
+      "checksum": "62ef14865d490462fa618ced084ea326d3d51756775826c22972460d2e900bf4"
     },
     {
       "path": "infera-session/migration/src/m20220101_000001_create_rooms_table.rs",
@@ -454,16 +566,32 @@
       "checksum": "dad8886b6f9d272a2767905d9e6ed7e4cfb1897473b0873778dbee28d2d4680e"
     },
     {
+      "path": "infera-session/migration/src/m20261019_000050_summary_activity_outbox.rs",
+      "checksum": "6b2a83e1b141b9d4004dc1af889d10563118deea01d388320360c581c77c1dd1"
+    },
+    {
+      "path": "infera-session/migration/src/m20261020_000051_summary_native_access.rs",
+      "checksum": "47fa95eb974b5bf681eb2cd3103e60ad4c4b4da8d994e62562aff86f884ec6f7"
+    },
+    {
+      "path": "infera-session/migration/src/m20261020_000051_summary_native_access.sql",
+      "checksum": "ae65e9afe4460e669af61800c10db3f5e54fb0bf0807fb3322d07b14b8e6514a"
+    },
+    {
+      "path": "infera-session/migration/src/m20261020_000052_summary_presence_timing.rs",
+      "checksum": "51ea64d796e1ce73140f82be725dcea792db5288eca5cddf9b053eaaff85da04"
+    },
+    {
       "path": "infera-session/migration/src/main.rs",
       "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
     },
     {
       "path": "infera-session/Cargo.toml",
-      "checksum": "ea96b245dda33070659f3fde75dd69e55943af213a5ef17d9502f18b99e3d7ac"
+      "checksum": "9fdaf5b942ee9c85aba178547800d05b368bb3f271812e984769a31ce4ad1897"
     },
     {
       "path": "infera-session/Cargo.lock",
-      "checksum": "3d10d3273df580a79bceddff4c0c48c7f22a9c6b70c56f2ad9fdf754b9b73cde"
+      "checksum": "910bebcfbdf658fb3831574ce7e9ca65ef1c44095517b67e38da9028701ae5ef"
     },
     {
       "path": "infera-session/.cargo/config.toml",
@@ -476,11 +604,43 @@
     {
       "path": "infera-session/migration/Cargo.toml",
       "checksum": "f3fff2abca1dcc86b41622da7ec3bab19006decc12b34cff42fc8dc594de4660"
+    },
+    {
+      "path": "infera-session/tests/summary-native/fixture.sql",
+      "checksum": "744efba12fbd4d1f38da3c022fd67cba2ddd270d15214e3af50b285ebb580563",
+      "embedded_by": "infera-session/src/summary_mount_http.rs"
     }
   ],
-  "protocol_mounts": [],
+  "protocol_mounts": [
+    {
+      "path": "/mcp",
+      "source": "infera-session/shared/infera-summary-sdk/src/server.rs",
+      "function": "router",
+      "service_expression": " service",
+      "mounted_via": [
+        {
+          "path": "infera-session/src/main.rs",
+          "line": 200,
+          "function": "application_router"
+        },
+        {
+          "path": "infera-session/src/summary_evidence.rs",
+          "line": 2,
+          "function": "routes"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/server.rs",
+          "line": 121,
+          "function": "router"
+        }
+      ],
+      "id": "PROTOCOL /mcp",
+      "source_checksum": "a27184a10b60c242d01a778802b276bcf10173cbdd74632fa8ada28c969f1b4b",
+      "review": null
+    }
+  ],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "1a3643853dace1d2e006d37a78a92c4f113eab4a5cecb07c8457555d40568ac3",
@@ -998,6 +1158,11 @@
         "handler_source": "infera-session/src/branding.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1009,11 +1174,11 @@
           }
         ]
       },
-      "source_checksum": "f4c35b49f345d921b2b384f8ddc33f3015d027f7c481e8bfd9ce6a4376524e4a",
+      "source_checksum": "399aefc1b53654ae2a9aec713176adc765921416badf3ee42e62014f8e1074ea",
       "handler": {
-        "ref": "infera-session/src/branding.rs:172:show",
+        "ref": "infera-session/src/branding.rs:198:show",
         "path": "infera-session/src/branding.rs",
-        "line": 172,
+        "line": 198,
         "name": "show"
       },
       "related_implementation": [],
@@ -1070,6 +1235,11 @@
         "handler_source": "infera-session/src/branding.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1081,11 +1251,11 @@
           }
         ]
       },
-      "source_checksum": "61239f7a47c69550a31aefc9c096917b82246d186790d7d88ca57b18cab277ee",
+      "source_checksum": "9626ae788ddcfc33348a415e2575c28d28d22f286ca0204f5f004869f77f241d",
       "handler": {
-        "ref": "infera-session/src/branding.rs:185:update",
+        "ref": "infera-session/src/branding.rs:211:update",
         "path": "infera-session/src/branding.rs",
-        "line": 185,
+        "line": 211,
         "name": "update"
       },
       "related_implementation": [],
@@ -1152,6 +1322,11 @@
         "handler_source": "infera-session/src/branding.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1163,11 +1338,11 @@
           }
         ]
       },
-      "source_checksum": "77d7aa9b2ee5d14dce94c31f98c0f43f3ebddc0fb46eaeeb4fd78763d815f594",
+      "source_checksum": "ba7b40a54142d3b17678ad0c6630e7ff85b51c4289ce26c8c1e3c92f788ad5f8",
       "handler": {
-        "ref": "infera-session/src/branding.rs:231:upload",
+        "ref": "infera-session/src/branding.rs:257:upload",
         "path": "infera-session/src/branding.rs",
-        "line": 231,
+        "line": 257,
         "name": "upload"
       },
       "related_implementation": [],
@@ -1206,13 +1381,18 @@
         "handler": "public_show",
         "permissions": [],
         "source": "infera-session/src/branding.rs",
-        "response": "Branding",
+        "response": "PublicBranding",
         "responseEnvelope": "api",
         "multipart": false,
         "formUrlEncoded": false,
         "handlerModule": "branding",
         "handler_source": "infera-session/src/branding.rs",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -1225,23 +1405,23 @@
           }
         ]
       },
-      "source_checksum": "67fc4b041181e14762340efe365061f1f2946f33b0284f3fab0f339d3d78e7f8",
+      "source_checksum": "619442668f09ef564d0023121a9ab191e3f77180be2b1149894e320ec6312d96",
       "handler": {
-        "ref": "infera-session/src/branding.rs:161:public_show",
+        "ref": "infera-session/src/branding.rs:183:public_show",
         "path": "infera-session/src/branding.rs",
-        "line": 161,
+        "line": 183,
         "name": "public_show"
       },
       "related_implementation": [],
       "schemas": {
         "response": {
-          "declared_type": "Branding",
+          "declared_type": "PublicBranding",
           "models": [
             {
-              "ref": "infera-session/src/branding.rs:30:Branding",
+              "ref": "infera-session/src/branding.rs:164:PublicBranding",
               "path": "infera-session/src/branding.rs",
-              "line": 30,
-              "name": "Branding"
+              "line": 164,
+              "name": "PublicBranding"
             }
           ]
         }
@@ -1283,6 +1463,11 @@
         "handler_source": "infera-session/src/branding.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1294,11 +1479,11 @@
           }
         ]
       },
-      "source_checksum": "6ca2356ea61d1b485c9e45f901c325df9d56cc4caf65017f638e18856183ea22",
+      "source_checksum": "51b5d59608349c230b9d8b0aa28d2460812497796e1f50895e7d193bab12cc5f",
       "handler": {
-        "ref": "infera-session/src/branding.rs:273:asset",
+        "ref": "infera-session/src/branding.rs:299:asset",
         "path": "infera-session/src/branding.rs",
-        "line": 273,
+        "line": 299,
         "name": "asset"
       },
       "related_implementation": [],
@@ -1344,13 +1529,18 @@
         "handler_source": "infera-session/src/router.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "946ec7055b848f2633fd218e166c743fe54fec7a251a95d68a9f5e66802be7e5",
+      "source_checksum": "4aee2a4cbd5064ddeb5d6c071137803bd33a0d8075852070a0ff18f8f8169691",
       "handler": {
         "ref": "infera-session/src/router.rs:703:status_route",
         "path": "infera-session/src/router.rs",
@@ -1395,13 +1585,18 @@
         "handler_source": "infera-session/src/router.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "1f1ef3980c3aeeeaae10f8d352a81089f2c28db000b913e56ec31fbb250b1665",
+      "source_checksum": "9ba26db8c1dfc29b34e19e036f975bef915aaa39f4d52b636ef07d0f737e8d01",
       "handler": {
         "ref": "infera-session/src/router.rs:703:status_route",
         "path": "infera-session/src/router.rs",
@@ -1451,6 +1646,11 @@
         "handler_source": "infera-session/src/asset_economy.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1462,7 +1662,7 @@
           }
         ]
       },
-      "source_checksum": "e88aae0d7df4757291710d9b7d20775560db5c3a0430f3d72be01f29a200e56a",
+      "source_checksum": "63ffab79f40f6317f5c75bb8a27de8687d839429fc97d314f689707d934c2bcb",
       "handler": {
         "ref": "infera-session/src/asset_economy.rs:116:interact",
         "path": "infera-session/src/asset_economy.rs",
@@ -1556,6 +1756,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1567,7 +1772,7 @@
           }
         ]
       },
-      "source_checksum": "e95f3674f60dc22f98ad0ddf26022794dea51c8a0a823ee026639429e56f5a01",
+      "source_checksum": "0f9f7fd8ed229a946f5753c300113e11686c415d01d9cefb304f78dd1dc5b279",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:466:rooms_analytics",
         "path": "infera-session/src/room/routes.rs",
@@ -1628,6 +1833,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1639,7 +1849,7 @@
           }
         ]
       },
-      "source_checksum": "4019e6c2d785bf8097b17d62e2e1717390becfad6ca2d689907bfd51a0acd6da",
+      "source_checksum": "a92085a279ba6387ac4eba42a9905a7fa01b1fecd27bc8ced683b45f7a500f6e",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:511:rooms_index",
         "path": "infera-session/src/room/routes.rs",
@@ -1711,6 +1921,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1722,7 +1937,7 @@
           }
         ]
       },
-      "source_checksum": "58efdc83cbc1261f02300dab9c1ff0833d75734a2758cac5d867690ee2d54338",
+      "source_checksum": "b57f52dd6f5095b292f4684cea23db085f9bf5bff53862c254064453e97aedac",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:414:rooms_create",
         "path": "infera-session/src/room/routes.rs",
@@ -1807,6 +2022,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1818,7 +2038,7 @@
           }
         ]
       },
-      "source_checksum": "9b5e53aca55ee0ac1409a711e5b63513bbccb37f2f798cf72528a02b34840ce3",
+      "source_checksum": "6bbca21f70e3bc8edf1449effdb8ccb51d2befcf19363196c013c06973333b06",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:671:rooms_show",
         "path": "infera-session/src/room/routes.rs",
@@ -1883,6 +2103,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1894,7 +2119,7 @@
           }
         ]
       },
-      "source_checksum": "165a9e1b53c79ffb2183d1a338c54af88618c24e593f5f077830a6eee47b53c7",
+      "source_checksum": "5cbbea5a63a3d6944ce782ce632226a90423e3c0c82f547280fca203ef137e71",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1091:rooms_recordings",
         "path": "infera-session/src/room/routes.rs",
@@ -1959,6 +2184,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -1970,7 +2200,7 @@
           }
         ]
       },
-      "source_checksum": "498e08931a2d652acd15ae483a72d86c5da5d4ad0d0d604cd123730d756de582",
+      "source_checksum": "0c6d2df6a52b29e266ecdbd6b41ae49b03ac9e5ca84d8a88ff57ee94c512a7ac",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:242:rooms_presence_events",
         "path": "infera-session/src/room/routes.rs",
@@ -2042,6 +2272,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2053,7 +2288,7 @@
           }
         ]
       },
-      "source_checksum": "248582c73b38c40759ca104ee660bf113af83da80d4a374c41d51c2b9ef15241",
+      "source_checksum": "f5fad15b7fa251efe2a984d94b0620408905ed91165ba9376468d62f880e1d84",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:871:rooms_livekit_token",
         "path": "infera-session/src/room/routes.rs",
@@ -2146,6 +2381,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2157,7 +2397,7 @@
           }
         ]
       },
-      "source_checksum": "7ef9ad47a2f4354001c6e50977ea49786c9b088b1895094d17e2f3dcdaa9f021",
+      "source_checksum": "d04975c36634737378cde42d820132863006b585beb55778437c0934967228aa",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:935:rooms_join",
         "path": "infera-session/src/room/routes.rs",
@@ -2257,6 +2497,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2268,7 +2513,7 @@
           }
         ]
       },
-      "source_checksum": "d4b196a477f1f64411488058abacfb2145336e66cf78f76d63d274e2d6da0455",
+      "source_checksum": "5026604be0f0d1f2f867155f9cde233ccfa06ef857368351c15e30df01a3a775",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:484:rooms_leaderboard",
         "path": "infera-session/src/room/routes.rs",
@@ -2333,6 +2578,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2344,7 +2594,7 @@
           }
         ]
       },
-      "source_checksum": "40365b52f3e9f67eeea0d0110a17e4a82e40afecefb9a9ce4ef95cb02710775c",
+      "source_checksum": "12806ea0a50be1d3663443bf222b0758663b5a39b384e48565be5cb4c3137e49",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1042:rooms_interactive_start",
         "path": "infera-session/src/room/routes.rs",
@@ -2409,6 +2659,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2420,7 +2675,7 @@
           }
         ]
       },
-      "source_checksum": "f770461506f22de9ce45b18bf9a55c8285885728bf8e180e97f814261a79d879",
+      "source_checksum": "bf055775d82197b75f9bb549d75a1393b8d132c5f44f91a0b80ca6f9e2cffd83",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:721:rooms_end",
         "path": "infera-session/src/room/routes.rs",
@@ -2486,6 +2741,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2497,7 +2757,7 @@
           }
         ]
       },
-      "source_checksum": "64b6c1b0ad63edc1deffa2196b3f9454dd90a99974631e9c9f3ef69b315d59dc",
+      "source_checksum": "3b1b2bba3e4e56b1949a4adf470a9219607ff31550b1d05455d44cf1fda7d335",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:332:rooms_participant_mute",
         "path": "infera-session/src/room/routes.rs",
@@ -2590,6 +2850,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2601,7 +2866,7 @@
           }
         ]
       },
-      "source_checksum": "9a15c26f0912454d95cf9aa9b37d0a0d3f5c9dbd69064f673a3bb7ea99bab2d6",
+      "source_checksum": "f3ec302a664d99ac98dab1027f1afe9c0cedd020030309489e3164d1deae221c",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:293:rooms_self_moderation",
         "path": "infera-session/src/room/routes.rs",
@@ -2673,6 +2938,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2684,7 +2954,7 @@
           }
         ]
       },
-      "source_checksum": "8029eb94415b55e0aeae4887e10a6ab1af85882f1ca48e785220379201bfcb62",
+      "source_checksum": "7e0e7e0f3479a686f7e4b02edc9951e51ad649f6a9f7b0cc2516460f5e3faa27",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:767:rooms_playback_show",
         "path": "infera-session/src/room/routes.rs",
@@ -2768,6 +3038,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2779,7 +3054,7 @@
           }
         ]
       },
-      "source_checksum": "eb7b2ddd3e360b595f6a2c915038c6b1f352d02e23d003f100a75ca567571c02",
+      "source_checksum": "4b442c4e572d4bd303dac47a5fd3cac9e6ad9d7beb8a60c0463067ea4ae6b3c5",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1357:rooms_stop",
         "path": "infera-session/src/room/routes.rs",
@@ -2845,6 +3120,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2856,7 +3136,7 @@
           }
         ]
       },
-      "source_checksum": "64963b9eff5dfa8ca752cdda491ce551b75c5eebf1ea3db580fbc91d2230ebd4",
+      "source_checksum": "259e142d8bda255a1e86243a674f3828574e61327edbc1894f53b71f9e3eb376",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:567:rooms_update",
         "path": "infera-session/src/room/routes.rs",
@@ -2940,6 +3220,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -2951,7 +3236,7 @@
           }
         ]
       },
-      "source_checksum": "c6be57a0e5b1bf21e3cf2141b2e6cf2fa70a28d9012b96763bda84f3f676850b",
+      "source_checksum": "0f4189d70ac875b6651a2666100adcd2e25d0a75b54c5c21da3a98293594a046",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:567:rooms_update",
         "path": "infera-session/src/room/routes.rs",
@@ -3034,6 +3319,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3045,7 +3335,7 @@
           }
         ]
       },
-      "source_checksum": "97343365cd863748d1c6a479d24ce743ed9fa19c4de274edeae1763ddcff8317",
+      "source_checksum": "b8fda56429ebbd7a9fa7c579bb9ae5849fa1d03f0482b9abc2b4b4c953eab559",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:626:rooms_delete",
         "path": "infera-session/src/room/routes.rs",
@@ -3108,6 +3398,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3119,7 +3414,7 @@
           }
         ]
       },
-      "source_checksum": "fc49c8d5d3c08fe7e7007f6fd02e1e103ec37e661c7a15eba812a4419b2ac153",
+      "source_checksum": "dc175c3c4e6cb2fa870fa08356a486532a2e7a16b8094a05eb6f46bcbe0fc868",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1388:livekit_webhook",
         "path": "infera-session/src/room/routes.rs",
@@ -3227,6 +3522,11 @@
         "handler_source": "infera-session/src/room_state/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3238,7 +3538,7 @@
           }
         ]
       },
-      "source_checksum": "9eb1f835c7975972c710bfbdbd7ff25cbf8ff942c7c493cedfa07ab406a76099",
+      "source_checksum": "b17c5bb975dce2515cc342810ecea7948e77773ffde2f28a3abeb5380d37e412",
       "handler": {
         "ref": "infera-session/src/room_state/routes.rs:178:room_state_respond",
         "path": "infera-session/src/room_state/routes.rs",
@@ -3323,6 +3623,11 @@
         "handler_source": "infera-session/src/configuration/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3334,7 +3639,7 @@
           }
         ]
       },
-      "source_checksum": "b94f40f706109cb9a2d3dcd474d5eb767cf8ec39e73e92f2948a673391e1e0f3",
+      "source_checksum": "f7fd0a9feeffd1fe3d9be0b0a1f6fb94488aedb3470a00d942e4b7c49196c504",
       "handler": {
         "ref": "infera-session/src/configuration/routes.rs:28:livekit_config_show",
         "path": "infera-session/src/configuration/routes.rs",
@@ -3402,6 +3707,11 @@
         "handler_source": "infera-session/src/configuration/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3413,7 +3723,7 @@
           }
         ]
       },
-      "source_checksum": "d7cc74c8f2892236fff9e5e1fd7b3328bae7a9fb5740a72a23d9e99cb777927e",
+      "source_checksum": "c15b60b4fee177634b71e6d2ca510e663dfc75206c9a45a9fef65ab87f94d674",
       "handler": {
         "ref": "infera-session/src/configuration/routes.rs:45:livekit_config_update",
         "path": "infera-session/src/configuration/routes.rs",
@@ -3498,6 +3808,11 @@
         "handler_source": "infera-session/src/recording/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3509,7 +3824,7 @@
           }
         ]
       },
-      "source_checksum": "830a5a03965776a65ecf5d762f823d0ead8811158f38911246b1f953ad25940d",
+      "source_checksum": "8133a7ffa13432c69d790d567ddf59c929c337c8686121d483922cc05d85177c",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:107:recordings_index",
         "path": "infera-session/src/recording/routes.rs",
@@ -3580,6 +3895,11 @@
         "handler_source": "infera-session/src/recording/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3591,7 +3911,7 @@
           }
         ]
       },
-      "source_checksum": "fe94064184fcbf57b5542e38d424f8672c05154cb6e3b005bf0560316d5a34a4",
+      "source_checksum": "81913078336867f2780c19cd9270db0691c9bae31dec4a5a4506150f5a424f64",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:132:audio_models",
         "path": "infera-session/src/recording/routes.rs",
@@ -3662,6 +3982,11 @@
         "handler_source": "infera-session/src/recording/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3673,7 +3998,7 @@
           }
         ]
       },
-      "source_checksum": "fab6b80e4e1154d4a3acb416f9df9f77cdc47cff9dd7aeebd2a2bb5af80d39e5",
+      "source_checksum": "c758bc5d3c8db986340593c40153907e69483119a417a75dfa237159585d87c2",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:229:recording_manifest",
         "path": "infera-session/src/recording/routes.rs",
@@ -3752,6 +4077,11 @@
         "handler_source": "infera-session/src/recording/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3763,7 +4093,7 @@
           }
         ]
       },
-      "source_checksum": "d0e94da600bad09942f39f9372ea6d066d685ec0670c364e91fd60bc77dc0ad2",
+      "source_checksum": "a0a9773c9207ca0dc1a7b868120ced35554d510d25a16385f088064bb9f5ec71",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:258:recording_schedule",
         "path": "infera-session/src/recording/routes.rs",
@@ -3851,6 +4181,11 @@
         "handler_source": "infera-session/src/assistant_tools.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3862,7 +4197,7 @@
           }
         ]
       },
-      "source_checksum": "e332ac52f97747d2522f8fa1991b2b7521b49c262a5e51467d6e7244aeb7bd15",
+      "source_checksum": "b26adda9c840ac9b8b9279b2fa90b7d919cbed3334176447ac59aa2f97b2d189",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:59:list_user_sessions",
         "path": "infera-session/src/assistant_tools.rs",
@@ -3929,6 +4264,11 @@
         "handler_source": "infera-session/src/assistant_tools.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -3940,7 +4280,7 @@
           }
         ]
       },
-      "source_checksum": "8a8fb8c4b60cd07bd7c8c4270bf52762cfbd6bfe5fedd6ae368979e2569996e6",
+      "source_checksum": "89209e942b676497d86f8339ed9a0b285144fed1d01221d6fdbfe82428a6011c",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:103:user_session_detail",
         "path": "infera-session/src/assistant_tools.rs",
@@ -3995,6 +4335,11 @@
         "handler_source": "infera-session/src/assistant_tools.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4006,7 +4351,7 @@
           }
         ]
       },
-      "source_checksum": "4cdb748c1180cd0bf6c46538fc4d4f509cb9b713c51cffc4f005f8cbb65608f0",
+      "source_checksum": "194730fbf595108f8e4b6bb41bd75c7995fdd25587ac10b88c8137dc14456101",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:145:tool_schema",
         "path": "infera-session/src/assistant_tools.rs",
@@ -4059,13 +4404,18 @@
         "handler_source": "infera-session/src/router.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "bd16fe4a0652a4bc41850c4f7a09ee3424b9f4c47a282c252550a96c5697454f",
+      "source_checksum": "7bd8b49ba38eb9f0fada00761020beb09719ae17b4725d6437ce643474bc2900",
       "handler": {
         "ref": "infera-session/src/router.rs:281:proxy_view_service",
         "path": "infera-session/src/router.rs",
@@ -4164,6 +4514,11 @@
         "handler_source": "infera-session/src/integration/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4175,7 +4530,7 @@
           }
         ]
       },
-      "source_checksum": "afa4d09de3deaf5c879b38be0d762ebc680320b77670cc1f310bfc9ad1cf198a",
+      "source_checksum": "727cc3e4f48d890a2878b9f8ff2e9fe26c1506c1e6cb3f0f7c24d492ffb34932",
       "handler": {
         "ref": "infera-session/src/integration/routes.rs:29:flow_integration_show",
         "path": "infera-session/src/integration/routes.rs",
@@ -4234,6 +4589,11 @@
         "handler_source": "infera-session/src/integration/routes.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4245,7 +4605,7 @@
           }
         ]
       },
-      "source_checksum": "18c32adf6a068209dc79d877df96ab0cfa85cd11a6c90faf9933ea8256fc9d0f",
+      "source_checksum": "fc39961e11bd478c6c800c0aed4c09bec53486424c8fc22102e074b85aef5511",
       "handler": {
         "ref": "infera-session/src/integration/routes.rs:18:integration_docs_show",
         "path": "infera-session/src/integration/routes.rs",
@@ -4297,87 +4657,6 @@
       }
     },
     {
-      "id": "POST /api/v1/integrations/lms/performance-context",
-      "registration": {
-        "method": "POST",
-        "path": "/api/v1/integrations/lms/performance-context",
-        "module": "integration::lms",
-        "handler": "performance_context",
-        "permissions": [],
-        "source": "infera-session/src/integration/lms.rs",
-        "body": "ContextRequest",
-        "response": "Value",
-        "responseEnvelope": "api",
-        "multipart": false,
-        "formUrlEncoded": false,
-        "handlerModule": "integration::lms",
-        "handler_source": "infera-session/src/integration/lms.rs",
-        "mounted_via": [
-          {
-            "path": "infera-session/src/router.rs",
-            "line": 594,
-            "function": "routes"
-          },
-          {
-            "path": "infera-session/src/integration/lms.rs",
-            "line": 83,
-            "function": "routes"
-          }
-        ]
-      },
-      "source_checksum": "2472e66465a09ac7d0a12a865cdd1d0198d8b3abcf37a423e8fee500becb9cd3",
-      "handler": {
-        "ref": "infera-session/src/integration/lms.rs:40:performance_context",
-        "path": "infera-session/src/integration/lms.rs",
-        "line": 40,
-        "name": "performance_context"
-      },
-      "related_implementation": [],
-      "schemas": {
-        "body": {
-          "declared_type": "ContextRequest",
-          "models": [
-            {
-              "ref": "infera-session/src/integration/lms.rs:13:ContextRequest",
-              "path": "infera-session/src/integration/lms.rs",
-              "line": 13,
-              "name": "ContextRequest"
-            }
-          ]
-        },
-        "response": {
-          "declared_type": "Value",
-          "models": []
-        }
-      },
-      "relation_candidates": [
-        {
-          "field": "room_ids",
-          "type": "Vec<Uuid>",
-          "model": "ContextRequest",
-          "target": "requires_semantic_review"
-        }
-      ],
-      "review": {
-        "status": "pending",
-        "required": [
-          "meaning",
-          "permissions",
-          "filters",
-          "inputs_outputs",
-          "lifecycle",
-          "relationships",
-          "test_evidence"
-        ]
-      },
-      "sdk": {
-        "status": "requires_wire_verification"
-      },
-      "manage": {
-        "status": "requires_workflow_verification"
-      }
-    },
-    {
       "id": "GET /api/v1/integrations/lms/rooms/{id}/notification-state",
       "registration": {
         "method": "GET",
@@ -4395,6 +4674,11 @@
         "handler_source": "infera-session/src/notification_state.rs",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4406,7 +4690,7 @@
           }
         ]
       },
-      "source_checksum": "598d51013494e991a2fba98ebb8e8fc62061a5cd1da010b9a2da4239e3dc5430",
+      "source_checksum": "f850ba58fcf17582d37a175ec762136b74d9fb49607a042b440bbe353b2f53be",
       "handler": {
         "ref": "infera-session/src/notification_state.rs:40:snapshot",
         "path": "infera-session/src/notification_state.rs",
@@ -4469,18 +4753,337 @@
       "manage": {
         "status": "requires_workflow_verification"
       }
+    },
+    {
+      "id": "GET /api/v1/summary-access",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/summary-access",
+        "module": "native_access",
+        "handler": "get_status",
+        "permissions": [],
+        "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "response": "Value",
+        "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "native_access",
+        "handler_source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
+            "path": "infera-session/src/native_access.rs",
+            "line": 6,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+            "line": 384,
+            "function": "router"
+          }
+        ]
+      },
+      "source_checksum": "73595af97487588a88853c8e5298b79863017d0d7c740d63d8da8f2fa2cacabe",
+      "handler": {
+        "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:270:get_status",
+        "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "line": 270,
+        "name": "get_status"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "PUT /api/v1/summary-access",
+      "registration": {
+        "method": "PUT",
+        "path": "/api/v1/summary-access",
+        "module": "native_access",
+        "handler": "update_policy",
+        "permissions": [],
+        "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "body": "NativePolicyUpdate",
+        "response": "Value",
+        "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "native_access",
+        "handler_source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
+            "path": "infera-session/src/native_access.rs",
+            "line": 6,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+            "line": 384,
+            "function": "router"
+          }
+        ]
+      },
+      "source_checksum": "a1a2b4427a046d1cd8254845c059042a4fc893bb2172e24f2aee3b2a6bd187bd",
+      "handler": {
+        "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:278:update_policy",
+        "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "line": 278,
+        "name": "update_policy"
+      },
+      "related_implementation": [
+        {
+          "call": "crate::native_identity::validate",
+          "evidence": {
+            "ref": "infera-session/shared/infera-summary-sdk/src/native_identity.rs:13:validate",
+            "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
+            "line": 13,
+            "name": "validate"
+          }
+        }
+      ],
+      "schemas": {
+        "body": {
+          "declared_type": "NativePolicyUpdate",
+          "models": [
+            {
+              "ref": "infera-session/shared/infera-summary-sdk/src/native_policy.rs:35:NativePolicyUpdate",
+              "path": "infera-session/shared/infera-summary-sdk/src/native_policy.rs",
+              "line": 35,
+              "name": "NativePolicyUpdate"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/summary-access/revocations",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/summary-access/revocations",
+        "module": "native_access",
+        "handler": "revoke",
+        "permissions": [],
+        "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "body": "NativeAccessRevoke",
+        "response": "Value",
+        "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "native_access",
+        "handler_source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
+            "path": "infera-session/src/native_access.rs",
+            "line": 6,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+            "line": 384,
+            "function": "router"
+          }
+        ]
+      },
+      "source_checksum": "c991394aaec0b439a8b93a982e6237f65b586ac30d5da5cbf798157a004ae18c",
+      "handler": {
+        "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:346:revoke",
+        "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "line": 346,
+        "name": "revoke"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "NativeAccessRevoke",
+          "models": [
+            {
+              "ref": "infera-session/shared/infera-summary-sdk/src/native_policy.rs:42:NativeAccessRevoke",
+              "path": "infera-session/shared/infera-summary-sdk/src/native_policy.rs",
+              "line": 42,
+              "name": "NativeAccessRevoke"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "object_id",
+          "type": "Uuid",
+          "model": "NativeAccessRevoke",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "DELETE /api/v1/summary-access/revocations/{object}",
+      "registration": {
+        "method": "DELETE",
+        "path": "/api/v1/summary-access/revocations/{object}",
+        "module": "native_access",
+        "handler": "restore",
+        "permissions": [],
+        "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "body": "NativeAccessRestore",
+        "pathParam": "Uuid",
+        "response": "Value",
+        "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "native_access",
+        "handler_source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
+            "path": "infera-session/src/native_access.rs",
+            "line": 6,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+            "line": 384,
+            "function": "router"
+          }
+        ]
+      },
+      "source_checksum": "ed62deff23c047bd5a094c9d4f47d47fc6647de0d241bb04a30c1dd1f2fd41ce",
+      "handler": {
+        "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:362:restore",
+        "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "line": 362,
+        "name": "restore"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "NativeAccessRestore",
+          "models": [
+            {
+              "ref": "infera-session/shared/infera-summary-sdk/src/native_policy.rs:48:NativeAccessRestore",
+              "path": "infera-session/shared/infera-summary-sdk/src/native_policy.rs",
+              "line": 48,
+              "name": "NativeAccessRestore"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "Value",
+          "models": []
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
     }
   ],
   "sdk_contract_drift": {
-    "missing": [
-      "POST /api/v1/integrations/lms/performance-context"
-    ],
-    "extra": [
-      "GET /api/v1/summary-access",
-      "PUT /api/v1/summary-access",
-      "POST /api/v1/summary-access/revocations",
-      "DELETE /api/v1/summary-access/revocations/{object}"
-    ],
+    "missing": [],
+    "extra": [],
     "changed": [
       "GET /api/v1/config/branding",
       "PUT /api/v1/config/branding",
@@ -4522,7 +5125,11 @@
       "ANY /api/v1/view/{service}/{*path}",
       "GET /integration/flow",
       "GET /api/v1/integration/docs",
-      "GET /api/v1/integrations/lms/rooms/{id}/notification-state"
+      "GET /api/v1/integrations/lms/rooms/{id}/notification-state",
+      "GET /api/v1/summary-access",
+      "PUT /api/v1/summary-access",
+      "POST /api/v1/summary-access/revocations",
+      "DELETE /api/v1/summary-access/revocations/{object}"
     ]
   },
   "router_reconciliation": {
@@ -4543,6 +5150,11 @@
         "response": "Branding",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -4571,6 +5183,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4597,6 +5214,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4617,9 +5239,14 @@
         "source": "infera-session/src/branding.rs",
         "permissions": [],
         "handler_source": "infera-session/src/branding.rs",
-        "response": "Branding",
+        "response": "PublicBranding",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -4645,6 +5272,11 @@
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4668,6 +5300,11 @@
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4685,6 +5322,11 @@
         "handler_source": "infera-session/src/router.rs",
         "responseEnvelope": "raw-response",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -4708,6 +5350,11 @@
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -4734,6 +5381,11 @@
         "response": "RoomAnalyticsResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -4762,6 +5414,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4788,6 +5445,11 @@
         "response": "RoomSingleResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -4816,6 +5478,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4842,6 +5509,11 @@
         "response": "RoomRecordingResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -4870,6 +5542,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4896,6 +5573,11 @@
         "response": "LiveKitTokenResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -4924,6 +5606,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4951,6 +5638,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -4977,6 +5669,11 @@
         "responseEnvelope": "raw",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5002,6 +5699,11 @@
         "pathParam": "(Uuid)",
         "responseEnvelope": "raw",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5031,6 +5733,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5057,6 +5764,11 @@
         "response": "ParticipantMuteResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5085,6 +5797,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5111,6 +5828,11 @@
         "response": "RoomSingleResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5139,6 +5861,11 @@
         "response": "RoomSingleResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5168,6 +5895,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5195,6 +5927,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5217,6 +5954,11 @@
         "handler_source": "infera-session/src/room/routes.rs",
         "responseEnvelope": "raw",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5246,6 +5988,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5271,6 +6018,11 @@
         "response": "LiveKitConfigResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5299,6 +6051,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5326,6 +6083,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5351,6 +6113,11 @@
         "response": "Vec<AudioModel>",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5378,6 +6145,11 @@
         "response": "RecordingManifestResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5407,6 +6179,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5433,6 +6210,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5458,6 +6240,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5481,6 +6268,11 @@
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5506,6 +6298,11 @@
         "responseEnvelope": "raw-response",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5524,6 +6321,11 @@
         "response": "infera_flow_sdk::FlowIntegrationResponse",
         "responseEnvelope": "api",
         "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
           {
             "path": "infera-session/src/router.rs",
             "line": 594,
@@ -5551,6 +6353,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5558,31 +6365,6 @@
           {
             "path": "infera-session/src/integration/routes.rs",
             "line": 6,
-            "function": "routes"
-          }
-        ]
-      },
-      {
-        "method": "POST",
-        "path": "/api/v1/integrations/lms/performance-context",
-        "module": "integration::lms",
-        "handler": "performance_context",
-        "handlerModule": "integration::lms",
-        "source": "infera-session/src/integration/lms.rs",
-        "permissions": [],
-        "handler_source": "infera-session/src/integration/lms.rs",
-        "body": "ContextRequest",
-        "response": "Value",
-        "responseEnvelope": "api",
-        "mounted_via": [
-          {
-            "path": "infera-session/src/router.rs",
-            "line": 594,
-            "function": "routes"
-          },
-          {
-            "path": "infera-session/src/integration/lms.rs",
-            "line": 83,
             "function": "routes"
           }
         ]
@@ -5601,6 +6383,11 @@
         "responseEnvelope": "api",
         "mounted_via": [
           {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
             "path": "infera-session/src/router.rs",
             "line": 594,
             "function": "routes"
@@ -5611,6 +6398,122 @@
             "function": "routes"
           }
         ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/summary-access",
+        "module": "native_access",
+        "handler": "get_status",
+        "handlerModule": "native_access",
+        "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "permissions": [],
+        "handler_source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "responseEnvelope": "raw",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
+            "path": "infera-session/src/native_access.rs",
+            "line": 6,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+            "line": 384,
+            "function": "router"
+          }
+        ]
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/summary-access",
+        "module": "native_access",
+        "handler": "update_policy",
+        "handlerModule": "native_access",
+        "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "permissions": [],
+        "handler_source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "body": "NativePolicyUpdate",
+        "responseEnvelope": "raw",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
+            "path": "infera-session/src/native_access.rs",
+            "line": 6,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+            "line": 384,
+            "function": "router"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/summary-access/revocations",
+        "module": "native_access",
+        "handler": "revoke",
+        "handlerModule": "native_access",
+        "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "permissions": [],
+        "handler_source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "body": "NativeAccessRevoke",
+        "responseEnvelope": "raw",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
+            "path": "infera-session/src/native_access.rs",
+            "line": 6,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+            "line": 384,
+            "function": "router"
+          }
+        ]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/summary-access/revocations/{object}",
+        "module": "native_access",
+        "handler": "restore",
+        "handlerModule": "native_access",
+        "source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "permissions": [],
+        "handler_source": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+        "body": "NativeAccessRestore",
+        "pathParam": "Uuid",
+        "responseEnvelope": "raw",
+        "mounted_via": [
+          {
+            "path": "infera-session/src/main.rs",
+            "line": 200,
+            "function": "application_router"
+          },
+          {
+            "path": "infera-session/src/native_access.rs",
+            "line": 6,
+            "function": "routes"
+          },
+          {
+            "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+            "line": 384,
+            "function": "router"
+          }
+        ]
       }
     ],
     "missing_from_extracted_manifest": [],
@@ -5619,8 +6522,11 @@
   "working_drift": {
     "added": [],
     "absent": [
-      "POST /api/v1/integrations/lms/performance-context",
-      "GET /api/v1/integrations/lms/rooms/{id}/notification-state"
+      "GET /api/v1/integrations/lms/rooms/{id}/notification-state",
+      "GET /api/v1/summary-access",
+      "PUT /api/v1/summary-access",
+      "POST /api/v1/summary-access/revocations",
+      "DELETE /api/v1/summary-access/revocations/{object}"
     ],
     "changed": [
       "GET /",
@@ -5913,11 +6819,11 @@
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {
-    "infera-session/src/branding.rs:172:show": {
+    "infera-session/src/branding.rs:198:show": {
       "name": "show",
       "path": "infera-session/src/branding.rs",
-      "line": 172,
-      "end_line": 178,
+      "line": 198,
+      "end_line": 204,
       "signature": "async fn show(\n    Extension(auth): Extension<AuthContext>,\n    State(state): State<AppState>,\n) -> Result<Json<APIResponse<Branding>>, AppError>",
       "declared_permissions": [
         "config:read"
@@ -5925,7 +6831,7 @@
       "guards": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 176,
+          "line": 202,
           "expression": "authorize(auth.user_id, &auth.permissions, \"config:read\")?;"
         }
       ],
@@ -5933,7 +6839,7 @@
       "state": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 177,
+          "line": 203,
           "expression": "Ok(response(load(&state).await?))"
         }
       ],
@@ -5987,11 +6893,11 @@
         }
       ]
     },
-    "infera-session/src/branding.rs:185:update": {
+    "infera-session/src/branding.rs:211:update": {
       "name": "update",
       "path": "infera-session/src/branding.rs",
-      "line": 185,
-      "end_line": 212,
+      "line": 211,
+      "end_line": 238,
       "signature": "async fn update(\n    Extension(auth): Extension<AuthContext>,\n    State(state): State<AppState>,\n    Json(payload): Json<Branding>,\n) -> Result<Json<APIResponse<Branding>>, AppError>",
       "declared_permissions": [
         "config:update"
@@ -5999,73 +6905,73 @@
       "guards": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 190,
+          "line": 216,
           "expression": "authorize(auth.user_id, &auth.permissions, \"config:update\")?;"
         }
       ],
       "validation": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 202,
+          "line": 228,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 210,
+          "line": 236,
           "expression": "\"INSERT INTO learner_branding (id,settings) VALUES (1,$1) ON CONFLICT (id) DO UPDATE SET settings=EXCLUDED.settings\", [value.into()])).await.map_err(|_| fail(StatusCode::INTERNAL_SERVER_ERROR, \"Cannot save branding\"))?;"
         }
       ],
       "state": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 193,
+          "line": 219,
           "expression": "let (client, bucket) = storage(&state).await?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 202,
+          "line": 228,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 208,
+          "line": 234,
           "expression": ".map_err(|_| fail(StatusCode::INTERNAL_SERVER_ERROR, \"Cannot encode branding\"))?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 209,
+          "line": 235,
           "expression": "state.db.execute(Statement::from_sql_and_values(DatabaseBackend::Postgres,"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 210,
+          "line": 236,
           "expression": "\"INSERT INTO learner_branding (id,settings) VALUES (1,$1) ON CONFLICT (id) DO UPDATE SET settings=EXCLUDED.settings\", [value.into()])).await.map_err(|_| fail(StatusCode::INTERNAL_SERVER_ERROR, \"Cannot save branding\"))?;"
         }
       ],
       "effects": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 190,
+          "line": 216,
           "expression": "authorize(auth.user_id, &auth.permissions, \"config:update\")?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 198,
+          "line": 224,
           "expression": ".send()"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 210,
+          "line": 236,
           "expression": "\"INSERT INTO learner_branding (id,settings) VALUES (1,$1) ON CONFLICT (id) DO UPDATE SET settings=EXCLUDED.settings\", [value.into()])).await.map_err(|_| fail(StatusCode::INTERNAL_SERVER_ERROR, \"Cannot save branding\"))?;"
         }
       ],
       "calls": []
     },
-    "infera-session/src/branding.rs:231:upload": {
+    "infera-session/src/branding.rs:257:upload": {
       "name": "upload",
       "path": "infera-session/src/branding.rs",
-      "line": 231,
-      "end_line": 272,
+      "line": 257,
+      "end_line": 298,
       "signature": "async fn upload(\n    Extension(auth): Extension<AuthContext>,\n    State(state): State<AppState>,\n    mut multipart: Multipart,\n) -> Result<Json<APIResponse<serde_json::Value>>, AppError>",
       "declared_permissions": [
         "config:update"
@@ -6073,107 +6979,136 @@
       "guards": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 236,
+          "line": 262,
           "expression": "authorize(auth.user_id, &auth.permissions, \"config:update\")?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 241,
+          "line": 267,
           "expression": ".ok_or_else(|| fail(StatusCode::BAD_REQUEST, \"Logo is required\"))?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 243,
+          "line": 269,
           "expression": "return Err(fail(StatusCode::BAD_REQUEST, \"Logo file is required\"));"
         }
       ],
       "validation": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 250,
+          "line": 276,
           "expression": "if bytes.is_empty() || bytes.len() > MAX_IMAGE {"
         }
       ],
       "state": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 240,
+          "line": 266,
           "expression": ".map_err(|_| fail(StatusCode::BAD_REQUEST, \"Invalid upload\"))?"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 241,
+          "line": 267,
           "expression": ".ok_or_else(|| fail(StatusCode::BAD_REQUEST, \"Logo is required\"))?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 243,
+          "line": 269,
           "expression": "return Err(fail(StatusCode::BAD_REQUEST, \"Logo file is required\"));"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 249,
+          "line": 275,
           "expression": ".map_err(|_| fail(StatusCode::BAD_REQUEST, \"Cannot read logo\"))?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 252,
+          "line": 278,
           "expression": "StatusCode::PAYLOAD_TOO_LARGE,"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 257,
+          "line": 283,
           "expression": ".ok_or_else(|| fail(StatusCode::UNSUPPORTED_MEDIA_TYPE, \"Use PNG, JPEG or WebP\"))?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 259,
+          "line": 285,
           "expression": "let (client, bucket) = storage(&state).await?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 268,
+          "line": 294,
           "expression": ".map_err(|_| fail(StatusCode::BAD_GATEWAY, \"Cannot upload logo\"))?;"
         }
       ],
       "effects": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 236,
+          "line": 262,
           "expression": "authorize(auth.user_id, &auth.permissions, \"config:update\")?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 266,
+          "line": 292,
           "expression": ".send()"
         }
       ],
       "calls": []
     },
-    "infera-session/src/branding.rs:161:public_show": {
+    "infera-session/src/branding.rs:183:public_show": {
       "name": "public_show",
       "path": "infera-session/src/branding.rs",
-      "line": 161,
-      "end_line": 165,
-      "signature": "async fn public_show(\n    State(state): State<AppState>,\n) -> Result<Json<APIResponse<Branding>>, AppError>",
+      "line": 183,
+      "end_line": 191,
+      "signature": "async fn public_show(\n    State(state): State<AppState>,\n) -> Result<Json<APIResponse<PublicBranding>>, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [],
       "state": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 164,
-          "expression": "Ok(response(load(&state).await?))"
+          "line": 188,
+          "expression": "brand: load(&state).await?,"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-session/src/branding.rs:273:asset": {
+    "infera-session/src/branding.rs:164:PublicBranding": {
+      "name": "PublicBranding",
+      "kind": "struct",
+      "path": "infera-session/src/branding.rs",
+      "line": 164,
+      "attributes": "/// Browser-safe service discovery is runtime configuration, independent of branding\n/// persistence and of Task's database-owned feedback workflow.\n#[derive(Debug, Serialize)]",
+      "fields": [
+        {
+          "name": "brand",
+          "rust_name": "brand",
+          "rust_type": "Branding",
+          "optional": false,
+          "defaulted": false,
+          "flatten": true,
+          "attributes": [
+            "serde(flatten)"
+          ]
+        },
+        {
+          "name": "feedback_task_origin",
+          "rust_name": "feedback_task_origin",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-session/src/branding.rs:299:asset": {
       "name": "asset",
       "path": "infera-session/src/branding.rs",
-      "line": 273,
-      "end_line": 303,
+      "line": 299,
+      "end_line": 329,
       "signature": "async fn asset(\n    State(state): State<AppState>,\n    Path(key): Path<String>,\n) -> Result<Response, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -6181,34 +7116,34 @@
       "state": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 278,
+          "line": 304,
           "expression": "return Err(fail(StatusCode::NOT_FOUND, \"Logo not found\"));"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 280,
+          "line": 306,
           "expression": "let (client, bucket) = storage(&state).await?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 287,
+          "line": 313,
           "expression": ".map_err(|_| fail(StatusCode::NOT_FOUND, \"Logo not found\"))?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 296,
+          "line": 322,
           "expression": ".map_err(|_| fail(StatusCode::BAD_GATEWAY, \"Cannot read logo\"))?;"
         },
         {
           "path": "infera-session/src/branding.rs",
-          "line": 302,
+          "line": 328,
           "expression": ".map_err(|_| fail(StatusCode::INTERNAL_SERVER_ERROR, \"Cannot serve logo\"))"
         }
       ],
       "effects": [
         {
           "path": "infera-session/src/branding.rs",
-          "line": 285,
+          "line": 311,
           "expression": ".send()"
         }
       ],
@@ -11284,86 +12219,6 @@
         }
       ]
     },
-    "infera-session/src/integration/lms.rs:40:performance_context": {
-      "name": "performance_context",
-      "path": "infera-session/src/integration/lms.rs",
-      "line": 40,
-      "end_line": 81,
-      "signature": "async fn performance_context(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    Json(input): Json<ContextRequest>,\n) -> Result<Json<APIResponse<Value>>, AppError>",
-      "declared_permissions": [],
-      "guards": [
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 45,
-          "expression": "require_lms(&headers)?;"
-        }
-      ],
-      "validation": [
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 46,
-          "expression": "if input.room_ids.is_empty() || input.room_ids.len() > 100 {"
-        },
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 48,
-          "expression": "reqwest::StatusCode::UNPROCESSABLE_ENTITY,"
-        }
-      ],
-      "state": [
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 48,
-          "expression": "reqwest::StatusCode::UNPROCESSABLE_ENTITY,"
-        },
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 64,
-          "expression": "let value = state"
-        },
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 66,
-          "expression": ".query_one(Statement::from_string(DatabaseBackend::Postgres, sql))"
-        },
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 70,
-          "expression": "reqwest::StatusCode::INTERNAL_SERVER_ERROR,"
-        },
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 77,
-          "expression": "status: \"success\".into(),"
-        }
-      ],
-      "effects": [
-        {
-          "path": "infera-session/src/integration/lms.rs",
-          "line": 61,
-          "expression": "'transcript',left(a.transcript,20000),'analysis',a.analysis,'model_ref',a.model_ref,'updated_at',a.created_at"
-        }
-      ],
-      "calls": []
-    },
-    "infera-session/src/integration/lms.rs:13:ContextRequest": {
-      "name": "ContextRequest",
-      "kind": "struct",
-      "path": "infera-session/src/integration/lms.rs",
-      "line": 13,
-      "attributes": "#[derive(Deserialize)]",
-      "fields": [
-        {
-          "name": "room_ids",
-          "rust_name": "room_ids",
-          "rust_type": "Vec<Uuid>",
-          "optional": false,
-          "defaulted": false,
-          "flatten": false,
-          "attributes": []
-        }
-      ]
-    },
     "infera-session/src/notification_state.rs:40:snapshot": {
       "name": "snapshot",
       "path": "infera-session/src/notification_state.rs",
@@ -11461,6 +12316,356 @@
           "name": "ended",
           "rust_name": "ended",
           "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-session/shared/infera-summary-sdk/src/native_access.rs:270:get_status": {
+      "name": "get_status",
+      "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "line": 270,
+      "end_line": 277,
+      "signature": "async fn get_status(\n    State(host): State<Arc<NativeAccessHost>>,\n    headers: HeaderMap,\n) -> Result<Json<Value>, NativeAccessError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 276,
+          "expression": "Ok(ok(host.status(host.binding()?).await?))"
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-session/shared/infera-summary-sdk/src/native_access.rs:278:update_policy": {
+      "name": "update_policy",
+      "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "line": 278,
+      "end_line": 345,
+      "signature": "async fn update_policy(\n    State(host): State<Arc<NativeAccessHost>>,\n    headers: HeaderMap,\n    Json(input): Json<NativePolicyUpdate>,\n) -> Result<Json<Value>, NativeAccessError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 314,
+          "expression": "let row=tx.query_one(statement(\"SELECT id,revision FROM summary_native_access_policies WHERE deployment_id=$1 AND principal_user_id=$2 AND native_scope_id IS NOT DISTINCT FROM $3::uuid AND scope_kind=$4 FOR UPDATE\",binding.values())).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 332,
+          "expression": "// pods and unexpired grants as soon as a new scope is approved."
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 340,
+          "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_policies(deployment_id,principal_user_id,native_scope_id,scope_kind,enabled,approved_by,reason) VALUES($1,$2,$3,$4,$5,$6,$7)\",values)).await.map_err(|_|unavailable())?;"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 289,
+          "expression": "crate::native_identity::validate("
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 309,
+          "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 322,
+          "expression": "StatusCode::CONFLICT,"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 323,
+          "expression": "\"native_policy_revision_conflict\","
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 299,
+          "expression": "StatusCode::FORBIDDEN,"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 309,
+          "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 314,
+          "expression": "let row=tx.query_one(statement(\"SELECT id,revision FROM summary_native_access_policies WHERE deployment_id=$1 AND principal_user_id=$2 AND native_scope_id IS NOT DISTINCT FROM $3::uuid AND scope_kind=$4 FOR UPDATE\",binding.values())).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 322,
+          "expression": "StatusCode::CONFLICT,"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 333,
+          "expression": "tx.execute(statement(\"UPDATE summary_native_access_policies SET enabled=false,revision=revision+1,approved_by=$4,approved_at=now(),reason=$5 WHERE deployment_id=$1 AND principal_user_id=$2 AND enabled AND id IS DISTINCT FROM $3::uuid\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),current_id.into(),actor.into(),reason.clone().into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 336,
+          "expression": "tx.execute(statement(\"UPDATE summary_native_access_policies SET enabled=$2,revision=revision+1,approved_by=$3,approved_at=now(),reason=$4 WHERE id=$1\",vec![row.try_get::<Uuid>(\"\",\"id\").map_err(|_|unavailable())?.into(),input.enabled.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 340,
+          "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_policies(deployment_id,principal_user_id,native_scope_id,scope_kind,enabled,approved_by,reason) VALUES($1,$2,$3,$4,$5,$6,$7)\",values)).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 344,
+          "expression": "Ok(ok(host.status(binding).await?))"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 313,
+          "expression": "let tx = host.transaction(actor, &binding, &reason).await?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 314,
+          "expression": "let row=tx.query_one(statement(\"SELECT id,revision FROM summary_native_access_policies WHERE deployment_id=$1 AND principal_user_id=$2 AND native_scope_id IS NOT DISTINCT FROM $3::uuid AND scope_kind=$4 FOR UPDATE\",binding.values())).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 331,
+          "expression": "// Retire the previous binding in the same transaction. This fences old"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 333,
+          "expression": "tx.execute(statement(\"UPDATE summary_native_access_policies SET enabled=false,revision=revision+1,approved_by=$4,approved_at=now(),reason=$5 WHERE deployment_id=$1 AND principal_user_id=$2 AND enabled AND id IS DISTINCT FROM $3::uuid\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),current_id.into(),actor.into(),reason.clone().into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 336,
+          "expression": "tx.execute(statement(\"UPDATE summary_native_access_policies SET enabled=$2,revision=revision+1,approved_by=$3,approved_at=now(),reason=$4 WHERE id=$1\",vec![row.try_get::<Uuid>(\"\",\"id\").map_err(|_|unavailable())?.into(),input.enabled.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 340,
+          "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_policies(deployment_id,principal_user_id,native_scope_id,scope_kind,enabled,approved_by,reason) VALUES($1,$2,$3,$4,$5,$6,$7)\",values)).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 342,
+          "expression": "tx.commit().await.map_err(|_| unavailable())?;"
+        }
+      ],
+      "calls": [
+        "crate::native_identity::validate"
+      ]
+    },
+    "infera-session/shared/infera-summary-sdk/src/native_identity.rs:13:validate": {
+      "name": "validate",
+      "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
+      "line": 13,
+      "end_line": 32,
+      "signature": "pub async fn validate(\n    source: Source,\n    expected_user: Uuid,\n    native_service: &str,\n    transport_permission: &str,\n) -> Result<NativeIdentity, String>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
+          "line": 29,
+          "expression": "transport_permission,"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
+          "line": 19,
+          "expression": "let url = configured(\"IDP_VALIDATE_URL\")?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
+          "line": 24,
+          "expression": "validate_at("
+        }
+      ],
+      "state": [],
+      "effects": [],
+      "calls": []
+    },
+    "infera-session/shared/infera-summary-sdk/src/native_policy.rs:35:NativePolicyUpdate": {
+      "name": "NativePolicyUpdate",
+      "kind": "struct",
+      "path": "infera-session/shared/infera-summary-sdk/src/native_policy.rs",
+      "line": 35,
+      "attributes": "#[derive(Debug, Deserialize, Serialize)]\n#[serde(deny_unknown_fields)]",
+      "fields": [
+        {
+          "name": "enabled",
+          "rust_name": "enabled",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "expected_revision",
+          "rust_name": "expected_revision",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "reason",
+          "rust_name": "reason",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-session/shared/infera-summary-sdk/src/native_access.rs:346:revoke": {
+      "name": "revoke",
+      "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "line": 346,
+      "end_line": 361,
+      "signature": "async fn revoke(\n    State(host): State<Arc<NativeAccessHost>>,\n    headers: HeaderMap,\n    Json(input): Json<NativeAccessRevoke>,\n) -> Result<Json<Value>, NativeAccessError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 358,
+          "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_revocations(deployment_id,principal_user_id,object_id,revoked_by,reason) VALUES($1,$2,$3,$4,$5) ON CONFLICT(deployment_id,principal_user_id,object_id) DO UPDATE SET revoked_by=EXCLUDED.revoked_by,reason=EXCLUDED.reason,revoked_at=now()\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),input.object_id.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 358,
+          "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_revocations(deployment_id,principal_user_id,object_id,revoked_by,reason) VALUES($1,$2,$3,$4,$5) ON CONFLICT(deployment_id,principal_user_id,object_id) DO UPDATE SET revoked_by=EXCLUDED.revoked_by,reason=EXCLUDED.reason,revoked_at=now()\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),input.object_id.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 360,
+          "expression": "Ok(ok(host.status(binding).await?))"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 357,
+          "expression": "let tx = host.transaction(actor, &binding, &reason).await?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 358,
+          "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_revocations(deployment_id,principal_user_id,object_id,revoked_by,reason) VALUES($1,$2,$3,$4,$5) ON CONFLICT(deployment_id,principal_user_id,object_id) DO UPDATE SET revoked_by=EXCLUDED.revoked_by,reason=EXCLUDED.reason,revoked_at=now()\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),input.object_id.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 359,
+          "expression": "tx.commit().await.map_err(|_| unavailable())?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-session/shared/infera-summary-sdk/src/native_policy.rs:42:NativeAccessRevoke": {
+      "name": "NativeAccessRevoke",
+      "kind": "struct",
+      "path": "infera-session/shared/infera-summary-sdk/src/native_policy.rs",
+      "line": 42,
+      "attributes": "#[derive(Debug, Deserialize, Serialize)]\n#[serde(deny_unknown_fields)]",
+      "fields": [
+        {
+          "name": "object_id",
+          "rust_name": "object_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "reason",
+          "rust_name": "reason",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-session/shared/infera-summary-sdk/src/native_access.rs:362:restore": {
+      "name": "restore",
+      "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+      "line": 362,
+      "end_line": 383,
+      "signature": "async fn restore(\n    State(host): State<Arc<NativeAccessHost>>,\n    Path(object): Path<Uuid>,\n    headers: HeaderMap,\n    Json(input): Json<NativeAccessRestore>,\n) -> Result<Json<Value>, NativeAccessError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 379,
+          "expression": "tx.execute(statement(\"DELETE FROM summary_native_access_revocations WHERE deployment_id=$1 AND principal_user_id=$2 AND object_id=$3\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),object.into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 382,
+          "expression": "Ok(ok(host.status(binding).await?))"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 372,
+          "expression": "\"DELETE\","
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 378,
+          "expression": "let tx = host.transaction(actor, &binding, &reason).await?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 379,
+          "expression": "tx.execute(statement(\"DELETE FROM summary_native_access_revocations WHERE deployment_id=$1 AND principal_user_id=$2 AND object_id=$3\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),object.into()])).await.map_err(|_|unavailable())?;"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 380,
+          "expression": "tx.commit().await.map_err(|_| unavailable())?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-session/shared/infera-summary-sdk/src/native_policy.rs:48:NativeAccessRestore": {
+      "name": "NativeAccessRestore",
+      "kind": "struct",
+      "path": "infera-session/shared/infera-summary-sdk/src/native_policy.rs",
+      "line": 48,
+      "attributes": "#[derive(Debug, Deserialize, Serialize)]\n#[serde(deny_unknown_fields)]",
+      "fields": [
+        {
+          "name": "reason",
+          "rust_name": "reason",
+          "rust_type": "String",
           "optional": false,
           "defaulted": false,
           "flatten": false,

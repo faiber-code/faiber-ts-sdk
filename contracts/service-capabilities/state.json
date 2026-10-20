@@ -11,12 +11,16 @@
     "README.md",
     "src/routes.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "6be433e043caddb2d1a5761562cfc42bd0c67190",
   "sdk_source_revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4",
   "working_revision": "6be433e043caddb2d1a5761562cfc42bd0c67190",
   "working_changes": [],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "4460796db62247bdd6fbbb56efaa07818577a87a06bcc43831d57c1928f0be12",
+  "source_tree_checksum": "a551ef154b61dc3fc10f0b01f9893cc60ac87d1254f6359837253fe56e54ce66",
   "source_files": [
     {
       "path": "infera-state/src/auth.rs",
@@ -52,15 +56,19 @@
     },
     {
       "path": "infera-state/src/lib.rs",
-      "checksum": "d62862bf6ed19fa2a62415b596dab9fedc5c44b044dd17a650efcc81ff0e4f48"
+      "checksum": "4c96676ba24a6d4b4f00dc5c235ee384b7394d5a65ad0640cc86c60f61a8fabb"
     },
     {
       "path": "infera-state/src/main.rs",
-      "checksum": "5c896620aae56699dafd2681ef59e125cfd1167c7e72c83b2b535e38bf92fa13"
+      "checksum": "0768c418b114fb2f1af0d6849fc39233b7855cd8a9ede7851fbf0063fc3b88ec"
     },
     {
       "path": "infera-state/src/models.rs",
       "checksum": "fa7a368ff0ecd5156a82458f71db1a9e0a2a61dbfedf140a59888bfb2272d212"
+    },
+    {
+      "path": "infera-state/src/process_health.rs",
+      "checksum": "cb936e73ed5aa34b4c82a3b001eb1b96310f0652b44561fa8567be02fed40eca"
     },
     {
       "path": "infera-state/src/routes.rs",
@@ -89,7 +97,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "4460796db62247bdd6fbbb56efaa07818577a87a06bcc43831d57c1928f0be12",
@@ -169,43 +177,46 @@
       "registration": {
         "method": "GET",
         "path": "/health",
-        "module": "main",
-        "handler": "|",
+        "module": "process_health",
+        "handler": "process_health",
         "permissions": [],
-        "source": "infera-state/src/main.rs",
-        "response": "StateProcessHealth",
-        "responseEnvelope": "requires_review",
-        "inline_handler": {
-          "ref": "infera-state/src/main.rs:43:inline",
-          "path": "infera-state/src/main.rs",
-          "line": 43,
-          "name": "inline"
-        },
-        "handlerModule": "",
+        "source": "infera-state/src/process_health.rs",
+        "response": "ProcessHealthResponse",
+        "responseEnvelope": "raw",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "process_health",
+        "handler_source": "infera-state/src/process_health.rs",
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
+          },
+          {
+            "path": "infera-state/src/process_health.rs",
+            "line": 19,
+            "function": "router"
           }
         ]
       },
-      "source_checksum": "5be5f068cf514f42584760cdfe3c6794b319a74509a70f1e5e8c3a613a9029ce",
+      "source_checksum": "a497801c3fe9c7958fa9405e164e119067e8bca3ebca85d093d084327179a648",
       "handler": {
-        "ref": "infera-state/src/main.rs:43:inline",
-        "path": "infera-state/src/main.rs",
-        "line": 43,
-        "name": "inline"
+        "ref": "infera-state/src/process_health.rs:26:process_health",
+        "path": "infera-state/src/process_health.rs",
+        "line": 26,
+        "name": "process_health"
       },
       "related_implementation": [],
       "schemas": {
         "response": {
-          "declared_type": "StateProcessHealth",
+          "declared_type": "ProcessHealthResponse",
           "models": [
             {
-              "name": "StateProcessHealth",
-              "unresolved": true,
-              "candidates": []
+              "ref": "infera-state/src/process_health.rs:14:ProcessHealthResponse",
+              "path": "infera-state/src/process_health.rs",
+              "line": 14,
+              "name": "ProcessHealthResponse"
             }
           ]
         }
@@ -249,7 +260,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -259,7 +270,7 @@
           }
         ]
       },
-      "source_checksum": "baa072472f3bce7bb4d1bf22a6369419d92f6d76edcb9eb70ab0dcd5dc3477ce",
+      "source_checksum": "6a601746ea515f6fd52f6b3244805793122e1ee2ecc2459d6957fd6ab534d009",
       "handler": {
         "ref": "infera-state/src/routes.rs:64:list_worlds",
         "path": "infera-state/src/routes.rs",
@@ -308,7 +319,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -318,7 +329,7 @@
           }
         ]
       },
-      "source_checksum": "06ae878b37421250862dabe4ea4a96c095a8f217cb3f4363ccb5cba5f9d2281b",
+      "source_checksum": "1d35970f1f90702888bef2c72a0d6e9128fd7df20c704580314804811c73183b",
       "handler": {
         "ref": "infera-state/src/routes.rs:90:create_world",
         "path": "infera-state/src/routes.rs",
@@ -379,7 +390,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -389,7 +400,7 @@
           }
         ]
       },
-      "source_checksum": "14a6747c3580cab487b717e61fba8bd6b90ae0ed8395c7c6452c81ffbc141144",
+      "source_checksum": "f0c12c58b22ee8257030ffdb4ecef662bc058bfe2bca9d57280ffb7e5c936cb0",
       "handler": {
         "ref": "infera-state/src/routes.rs:102:get_world",
         "path": "infera-state/src/routes.rs",
@@ -444,7 +455,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -454,7 +465,7 @@
           }
         ]
       },
-      "source_checksum": "e4d234f8868d96d755c327fe45823197c3e1c6c55ff3db8e648b4438fb4f1489",
+      "source_checksum": "f6087cfa912e0bce0fa3908bb1c6481c485e85fbf427ecd2178ddb1b02bf2a24",
       "handler": {
         "ref": "infera-state/src/routes.rs:126:update_world",
         "path": "infera-state/src/routes.rs",
@@ -519,7 +530,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -529,7 +540,7 @@
           }
         ]
       },
-      "source_checksum": "09777e5c8cca056412b492b4b1fdcb53eed2df1b2c1be50d7900bf0f90a9e0a7",
+      "source_checksum": "a525deebb6b289829ab74efa204af86c97295b0697e5a9c71acf46f8a0bd2eb8",
       "handler": {
         "ref": "infera-state/src/routes.rs:169:delete_world",
         "path": "infera-state/src/routes.rs",
@@ -583,7 +594,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -593,7 +604,7 @@
           }
         ]
       },
-      "source_checksum": "41ecda775b48f4a5265837ec90618e48622158c36b686c3979e194fe9bfca76b",
+      "source_checksum": "5d9438be4a13166019755db88b82dec35a43b477916bf94e6c8d3a9aafccc367",
       "handler": {
         "ref": "infera-state/src/routes.rs:289:list_rooms",
         "path": "infera-state/src/routes.rs",
@@ -648,7 +659,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -658,7 +669,7 @@
           }
         ]
       },
-      "source_checksum": "2dad87412482ecc9a81086a05aed947b6b9ae15592b97cb927bb8ddff7f0f4f8",
+      "source_checksum": "d0a9f395b4e4842e17c2fd6776b5e04234b2396786d55a2ac8d90ebe5ce9706e",
       "handler": {
         "ref": "infera-state/src/routes.rs:307:create_room",
         "path": "infera-state/src/routes.rs",
@@ -723,7 +734,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -733,7 +744,7 @@
           }
         ]
       },
-      "source_checksum": "66226f4663319458b783e35a6241014c4cf93e1b418d5989faf02bf60c3796c1",
+      "source_checksum": "8ba28b584bd22a5e3fcabe7ffe9df8e1b2d610623fc27b39521bb40157e19e1d",
       "handler": {
         "ref": "infera-state/src/routes.rs:428:list_wasm",
         "path": "infera-state/src/routes.rs",
@@ -788,7 +799,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -798,7 +809,7 @@
           }
         ]
       },
-      "source_checksum": "26f1c82f0c4ce676caf6e4da9c9cec6b888ac4ce65842a1094709ac7e0a1c20e",
+      "source_checksum": "fae5c3c136cc443927e3e53a9679df3306f19c079496af8d6a0cb6c12473efb4",
       "handler": {
         "ref": "infera-state/src/routes.rs:405:upload_wasm",
         "path": "infera-state/src/routes.rs",
@@ -863,7 +874,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -873,7 +884,7 @@
           }
         ]
       },
-      "source_checksum": "b8b41561c074de77f4524abe009ba3b593e224a870ce7594df40cf51568bfed9",
+      "source_checksum": "9cc330405f1648cf7b512183ae5019d3b01da30d66927555ad4d67bc29b31e24",
       "handler": {
         "ref": "infera-state/src/routes.rs:522:list_endpoints",
         "path": "infera-state/src/routes.rs",
@@ -928,7 +939,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -938,7 +949,7 @@
           }
         ]
       },
-      "source_checksum": "9b48c59da3a22dbaa848c9d785196ec49981c2f40104668a27a162c14dc79eb6",
+      "source_checksum": "540d1305f0e3207d625aced51aaeee35925ef895b8a959e67c5be01fc37afe43",
       "handler": {
         "ref": "infera-state/src/routes.rs:478:create_endpoint",
         "path": "infera-state/src/routes.rs",
@@ -1010,7 +1021,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1020,7 +1031,7 @@
           }
         ]
       },
-      "source_checksum": "1a2e256edc881eb6914b5b378f05937a36567c9cf5d43300e22f79a9c6c39e2e",
+      "source_checksum": "6a4ffe8f47a3437586b424945dde8c1ddd6f9a31e75152581796d73b8b21bb21",
       "handler": {
         "ref": "infera-state/src/routes.rs:320:get_room",
         "path": "infera-state/src/routes.rs",
@@ -1075,7 +1086,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1085,7 +1096,7 @@
           }
         ]
       },
-      "source_checksum": "7456cdfb8587f5b46345f3218306d215f733bf8bf45a109140758cc6ef83e39a",
+      "source_checksum": "6203dc01574387cd38999e29ad7ba6a52494e5dd1b29547847b0074458bf2247",
       "handler": {
         "ref": "infera-state/src/routes.rs:337:update_room",
         "path": "infera-state/src/routes.rs",
@@ -1150,7 +1161,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1160,7 +1171,7 @@
           }
         ]
       },
-      "source_checksum": "8dde5fc174b08673db12e006da7a68def35d6cb7335d555d48dc075bcdd16f5f",
+      "source_checksum": "c368aa1053138e2079b3f291f2e1afdf8ace01d0df18ba14f503b2deeca0be9d",
       "handler": {
         "ref": "infera-state/src/routes.rs:371:delete_room",
         "path": "infera-state/src/routes.rs",
@@ -1214,7 +1225,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1224,7 +1235,7 @@
           }
         ]
       },
-      "source_checksum": "85a844a2f694feee82740712498c7aeb14667cf11311e7ab14a6c455cebe8a65",
+      "source_checksum": "360acfdb7ffe8491907dc16fd17d4e275692b9a101f1ec549b6ab55bb3f35f91",
       "handler": {
         "ref": "infera-state/src/routes.rs:446:delete_wasm",
         "path": "infera-state/src/routes.rs",
@@ -1278,7 +1289,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1288,7 +1299,7 @@
           }
         ]
       },
-      "source_checksum": "3462ee94a182682573bbe762a13c7b138ba31e7afc027eb3b4375930d62a3812",
+      "source_checksum": "70c7e367225fb98c9d25e14fd21ca70d7341453a313afa89ed6aeab6c1b30a04",
       "handler": {
         "ref": "infera-state/src/routes.rs:549:delete_endpoint",
         "path": "infera-state/src/routes.rs",
@@ -1343,7 +1354,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1353,7 +1364,7 @@
           }
         ]
       },
-      "source_checksum": "9f0e905bd85f9cf819d5fd587ac965730b4f7c9ee27337ea56928ff9012c5c35",
+      "source_checksum": "3d44a4af5859cc06c202263c810bd2f8ecbe1896b9e3216421804f2f7094ee6a",
       "handler": {
         "ref": "infera-state/src/routes.rs:386:join_room",
         "path": "infera-state/src/routes.rs",
@@ -1426,7 +1437,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1436,7 +1447,7 @@
           }
         ]
       },
-      "source_checksum": "b842ab0fc4618c11c5032fb65cf3ee0745017de8c875893672121f703e29c17e",
+      "source_checksum": "63d9d4ff55c805862c0e11bdfb6dced1a394ea6b9ba4178a9fff501156d52284",
       "handler": {
         "ref": "infera-state/src/routes.rs:575:invoke_endpoint",
         "path": "infera-state/src/routes.rs",
@@ -1512,7 +1523,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1522,7 +1533,7 @@
           }
         ]
       },
-      "source_checksum": "db978c1eee1d05be1542bd80b2ec122976c637e26418231ef166dd7d9c13b70e",
+      "source_checksum": "6e48257c7a480c3b2eaebc64280a7c78d61ee8298872def641b47fe9e35f2656",
       "handler": {
         "ref": "infera-state/src/routes.rs:612:realtime",
         "path": "infera-state/src/routes.rs",
@@ -1595,7 +1606,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1605,7 +1616,7 @@
           }
         ]
       },
-      "source_checksum": "2e1d21c0409c6bc2c815b2ed0bfe1286423aa3140ae25468e953170a966e31fa",
+      "source_checksum": "ccd649b932f329f2f5875708085ee2cde322157d520bd909e4f17e55bd92df35",
       "handler": {
         "ref": "infera-state/src/routes.rs:213:game_operations_summary",
         "path": "infera-state/src/routes.rs",
@@ -1653,7 +1664,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1663,7 +1674,7 @@
           }
         ]
       },
-      "source_checksum": "6a314a00d6bd87fe67b00f7797165c0e904dac69718042195bdf6b3b0b624542",
+      "source_checksum": "96f96855626adbd678f7b75e9eb6affb14a9cf17d13d8fa15e4b73aa591f7213",
       "handler": {
         "ref": "infera-state/src/routes.rs:226:game_operation_worlds",
         "path": "infera-state/src/routes.rs",
@@ -1713,7 +1724,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1723,7 +1734,7 @@
           }
         ]
       },
-      "source_checksum": "b82c748ea9e87fca58d56a69096ea21ea9fcb86550fc5454a6e13afeef06a401",
+      "source_checksum": "28e3e4122aa4873e61971568251f83b316c4030593de3d81b1314dd02fb0344e",
       "handler": {
         "ref": "infera-state/src/routes.rs:239:update_game_operation_economy",
         "path": "infera-state/src/routes.rs",
@@ -1788,7 +1799,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1798,7 +1809,7 @@
           }
         ]
       },
-      "source_checksum": "df82949aab9824b0cca907c0a459e737ed2517aaef49feb72b6ebb84ec7da71c",
+      "source_checksum": "a65f5573683560f66c65366b66fd6f2eb688ebb58a0f31f033a13cbfa75eee87",
       "handler": {
         "ref": "infera-state/src/routes.rs:254:game_operation_sessions",
         "path": "infera-state/src/routes.rs",
@@ -1879,7 +1890,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1889,7 +1900,7 @@
           }
         ]
       },
-      "source_checksum": "b6b24fe0859aff25edf94919bdf49b72c9f87e497888f95502f4e9c53ae81818",
+      "source_checksum": "e78da91e354db4686895fe23a52dcc9d13ffd7967c52fd64a70eaf5b8f868159",
       "handler": {
         "ref": "infera-state/src/routes.rs:268:game_operation_events",
         "path": "infera-state/src/routes.rs",
@@ -1961,7 +1972,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -1971,7 +1982,7 @@
           }
         ]
       },
-      "source_checksum": "bb6fd9f9dc013c1ea75c7968f5609d8c57f1ed50993054bf3a59f1b288a8062d",
+      "source_checksum": "754ced8db8742976b04d90a8b8353b967516b7563f9ac68824da4a99440fdadc",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:45:enqueue",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2039,7 +2050,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2049,7 +2060,7 @@
           }
         ]
       },
-      "source_checksum": "7b0dfc8654936f56453d20187673a67bf69b856ae186b0514262cc8e813946e3",
+      "source_checksum": "b4db950316bc7cee051e0c944f8ed7cd15cb08d1c5d1339c915adbcb722eb0d5",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:61:ticket",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2106,7 +2117,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2116,7 +2127,7 @@
           }
         ]
       },
-      "source_checksum": "777e6037c8bef4d637d9581aa2cd48451961dbde57ec9cdcf1493dfd2fdac374",
+      "source_checksum": "51f5168645e32b83ebba5cc97544bac6f9c7bfad9d91611fcbae3578b27b0ee6",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:76:cancel",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2173,7 +2184,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2183,7 +2194,7 @@
           }
         ]
       },
-      "source_checksum": "25ae249ed84e8bd2ac4f8aff7925c5304659132338797fecc0e9da1a10c861f9",
+      "source_checksum": "8571c1b2eac685afaf17227b2602e9ec9560dfa3236cb9b25a0a605e3e0b51a6",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:91:view",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2240,7 +2251,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2250,7 +2261,7 @@
           }
         ]
       },
-      "source_checksum": "41799fc5fb59420f983d18ecb1e86edeb3dcdb3138c007addec1e0c543192761",
+      "source_checksum": "e92ea055adb8ec5cb2d5779cb0f7d28df814ad974018e2db368237a03576b855",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:105:connection",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2305,7 +2316,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2315,7 +2326,7 @@
           }
         ]
       },
-      "source_checksum": "61e63cf93a906933f82b198926423e4768b08d0c85fafa2368af588fa7341754",
+      "source_checksum": "69ced6add359b72b322ec4f9c0bcc3c1d2840e380b9c1bbc7c3fbd7aa7f1fe9d",
       "handler": {
         "ref": "infera-state/src/kheradgah_routes.rs:119:realtime",
         "path": "infera-state/src/kheradgah_routes.rs",
@@ -2362,7 +2373,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2372,7 +2383,7 @@
           }
         ]
       },
-      "source_checksum": "6d1705ba9fc1a4e9394b28a828c0b29df98ec5b31fa85f92d531ecd8bb4657d2",
+      "source_checksum": "4e57d6c6094e131ab2085ca8206352bc0d95685e2d2aec1b5d2b519d86752d43",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:50:catalog",
         "path": "infera-state/src/games_routes.rs",
@@ -2425,7 +2436,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2435,7 +2446,7 @@
           }
         ]
       },
-      "source_checksum": "fd7762bff691fd69cb22e5028d5a995a7ac4490ff3ceab6b493ef9f810251b75",
+      "source_checksum": "3ace6e905066f36491c46d216bb1fab148d2958464f1c28e3768285c9c2fc07c",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:58:game",
         "path": "infera-state/src/games_routes.rs",
@@ -2493,7 +2504,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2503,7 +2514,7 @@
           }
         ]
       },
-      "source_checksum": "73c7d2d1667868fc67cf88576e65c2fcfb10cacbfd9bbbfe875b4cf4bdc5989f",
+      "source_checksum": "0ec799ee805d29441b8a026c7da00205c007e07f48b580cf1e86a305cd08ad16",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:72:create_session",
         "path": "infera-state/src/games_routes.rs",
@@ -2579,7 +2590,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2589,7 +2600,7 @@
           }
         ]
       },
-      "source_checksum": "8a79c95e91aae172977823652da28a715d4d54e2aa6e4f85e99ff5278b3927e0",
+      "source_checksum": "cf8893542d340ecec85cb8b45d26d111a9bd63b6c0e6cc4cf00a0013f4eaa67c",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:134:enqueue",
         "path": "infera-state/src/games_routes.rs",
@@ -2657,7 +2668,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2667,7 +2678,7 @@
           }
         ]
       },
-      "source_checksum": "4708ce795a7b24b5c1c207672f7029478c6c739ef3e8b22ff13404db6e0e7d86",
+      "source_checksum": "dc3c7f08f38f5bb5bafd83bc59e4fb90c55eba23499afc7132da9dfd4e3108d4",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:147:ticket",
         "path": "infera-state/src/games_routes.rs",
@@ -2725,7 +2736,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2735,7 +2746,7 @@
           }
         ]
       },
-      "source_checksum": "3b5ff9fe027f4120500109e6f7303df3c8ff64384f81c82fe638e6830f665c6e",
+      "source_checksum": "8188b5c85cc841dd98ec88981b386ea1ff44f5aa9cdf968952a83ba85111e856",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:97:create_lobby",
         "path": "infera-state/src/games_routes.rs",
@@ -2803,7 +2814,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2813,7 +2824,7 @@
           }
         ]
       },
-      "source_checksum": "49958b6cdb615d62062d3c49b18d7514d4b6ea38b9baccc7b7fa44fd920405be",
+      "source_checksum": "81d1c4573ef9d9ed5cb2c0c57836702a51487289b06273156062953b4d2b5706",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:110:join_lobby",
         "path": "infera-state/src/games_routes.rs",
@@ -2870,7 +2881,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2880,7 +2891,7 @@
           }
         ]
       },
-      "source_checksum": "2ebe2ac5e50acbb3cfce211eca7d276780648c2e31cf13bf2a233295626ab4b4",
+      "source_checksum": "c5d4a108602a4c9bd0e9117b25a6d49c0d7e4023f6eb196b6f1dcd57ff3aa34d",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:122:lobby",
         "path": "infera-state/src/games_routes.rs",
@@ -2937,7 +2948,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -2947,7 +2958,7 @@
           }
         ]
       },
-      "source_checksum": "890e04e1c54afbbb9cf5eea62d62fe6e0b28f1777a4e312defb0ae5a3f5d690b",
+      "source_checksum": "788d012f0f132ca9305685feb1d4ac406f9ae1745b4645cf07ee3d725260fc58",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:159:view",
         "path": "infera-state/src/games_routes.rs",
@@ -3004,7 +3015,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3014,7 +3025,7 @@
           }
         ]
       },
-      "source_checksum": "21903657a596c3028a52c63ec8350703bc4081bc07e47fa6b015e845766d69b9",
+      "source_checksum": "4218ed604bfa1203666cb4e5745900961179d051acd19a34ceecab9a1c9d26da",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:171:ready",
         "path": "infera-state/src/games_routes.rs",
@@ -3072,7 +3083,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3082,7 +3093,7 @@
           }
         ]
       },
-      "source_checksum": "1e3f9951ae1a3d12e9852642fa7658beebd39d728630090b31aed3ca2ce77714",
+      "source_checksum": "86be10470fccdef72cae7ba4d1fdb93dff3027bf48d1e01095d633a85729fc1a",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:183:command",
         "path": "infera-state/src/games_routes.rs",
@@ -3159,7 +3170,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3169,7 +3180,7 @@
           }
         ]
       },
-      "source_checksum": "033007917b7cff3adbc0407d14fbec49961c718cddcdf4d89482cce513cb88e7",
+      "source_checksum": "3759129141d7f469b7bd9a2a306caa973238209906071911c62c69b5e9c70db1",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:196:history",
         "path": "infera-state/src/games_routes.rs",
@@ -3221,7 +3232,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3231,7 +3242,7 @@
           }
         ]
       },
-      "source_checksum": "ba52e06800dd22a981dc6a1c1556035658148a1c2e6e43e602e3115e082c582a",
+      "source_checksum": "3dd7fb2f91e1c675e05f74271fba792d4099890b6346aeedeabf0c32bf7445a3",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:207:progress",
         "path": "infera-state/src/games_routes.rs",
@@ -3283,7 +3294,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3293,7 +3304,7 @@
           }
         ]
       },
-      "source_checksum": "58bc3fd4a14f37a48d51797eee046990a6f9b3190ea0485d3898496f97ecc305",
+      "source_checksum": "f7ed8d85663c86bd08ecca2c5906ad184b4db1b04b1d3080310f03205208dfb5",
       "handler": {
         "ref": "infera-state/src/games_routes.rs:218:world_progress",
         "path": "infera-state/src/games_routes.rs",
@@ -3386,25 +3397,25 @@
       {
         "method": "GET",
         "path": "/health",
-        "module": "main",
-        "handler": "|",
-        "handlerModule": "",
-        "source": "infera-state/src/main.rs",
+        "module": "process_health",
+        "handler": "process_health",
+        "handlerModule": "process_health",
+        "source": "infera-state/src/process_health.rs",
         "permissions": [],
-        "responseEnvelope": "requires_review",
+        "handler_source": "infera-state/src/process_health.rs",
+        "responseEnvelope": "raw",
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
+          },
+          {
+            "path": "infera-state/src/process_health.rs",
+            "line": 19,
+            "function": "router"
           }
-        ],
-        "inline_handler": {
-          "ref": "infera-state/src/main.rs:43:inline",
-          "path": "infera-state/src/main.rs",
-          "line": 43,
-          "name": "inline"
-        }
+        ]
       },
       {
         "method": "GET",
@@ -3421,7 +3432,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3447,7 +3458,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3473,7 +3484,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3500,7 +3511,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3526,7 +3537,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3552,7 +3563,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3579,7 +3590,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3605,7 +3616,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3632,7 +3643,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3658,7 +3669,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3685,7 +3696,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3711,7 +3722,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3738,7 +3749,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3764,7 +3775,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3790,7 +3801,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3816,7 +3827,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3843,7 +3854,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3870,7 +3881,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3894,7 +3905,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3919,7 +3930,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3944,7 +3955,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3971,7 +3982,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -3997,7 +4008,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4024,7 +4035,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4049,7 +4060,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4073,7 +4084,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4097,7 +4108,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4121,7 +4132,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4145,7 +4156,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4168,7 +4179,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4191,7 +4202,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4215,7 +4226,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4240,7 +4251,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4265,7 +4276,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4289,7 +4300,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4314,7 +4325,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4338,7 +4349,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4362,7 +4373,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4386,7 +4397,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4410,7 +4421,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4435,7 +4446,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4458,7 +4469,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4481,7 +4492,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4504,7 +4515,7 @@
         "mounted_via": [
           {
             "path": "infera-state/src/main.rs",
-            "line": 43,
+            "line": 41,
             "function": "main"
           },
           {
@@ -4805,12 +4816,47 @@
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {
-    "infera-state/src/main.rs:43:inline": {
-      "name": "inline",
-      "path": "infera-state/src/main.rs",
-      "line": 43,
-      "signature": "inline route closure",
-      "body": "get(|| async { Json(json!({\"data\":{\"service\":\"infera-state\",\"status\":\"healthy\",\"transports\":[\"websocket\"],\"rulesets\":[\"kheradgah.v1\"],\"wasm\":true}})) })"
+    "infera-state/src/process_health.rs:26:process_health": {
+      "name": "process_health",
+      "path": "infera-state/src/process_health.rs",
+      "line": 26,
+      "end_line": 36,
+      "signature": "async fn process_health() -> Json<ProcessHealthResponse>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-state/src/process_health.rs",
+          "line": 29,
+          "expression": "service: \"infera-state\","
+        },
+        {
+          "path": "infera-state/src/process_health.rs",
+          "line": 30,
+          "expression": "status: \"healthy\","
+        }
+      ],
+      "effects": [],
+      "calls": []
+    },
+    "infera-state/src/process_health.rs:14:ProcessHealthResponse": {
+      "name": "ProcessHealthResponse",
+      "kind": "struct",
+      "path": "infera-state/src/process_health.rs",
+      "line": 14,
+      "attributes": "#[derive(Serialize)]",
+      "fields": [
+        {
+          "name": "data",
+          "rust_name": "data",
+          "rust_type": "ProcessHealth",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
     },
     "infera-state/src/routes.rs:64:list_worlds": {
       "name": "list_worlds",

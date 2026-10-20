@@ -12,6 +12,10 @@
     "src/platform.rs",
     "src/retrieval.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
   "sdk_source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
   "working_revision": "92047358a6b4dee1911d47a78621c8359716b7af",
@@ -225,7 +229,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "96a9b8051e5e87182cfa777b49da5a51143f4adf7103605f3577d568c50bab64",

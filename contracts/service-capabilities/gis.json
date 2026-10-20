@@ -13,12 +13,16 @@
     "src/auth.rs",
     "src/places.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "0bc8423a51887450b928e7b372153014cd47e582",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "d07b4facd1f73d40a20291dde479365845ec4023",
   "sdk_source_revision": "0bc8423a51887450b928e7b372153014cd47e582",
   "working_revision": "d07b4facd1f73d40a20291dde479365845ec4023",
   "working_changes": [],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "82ac39049c9b69903ef9d91d2dcfe56aaf36660ed3c67b87a058a9e8c8c00768",
+  "source_tree_checksum": "17200d38c4e85cb2aabcd6e5566e4b1638a92b37c82533dba56716e4c19e0e3c",
   "source_files": [
     {
       "path": "infera-gis/src/auth.rs",
@@ -26,11 +30,11 @@
     },
     {
       "path": "infera-gis/src/error.rs",
-      "checksum": "2cae736f35db68b57783ba2749120aa8ed49fafc403be9506db8af75c810e7b2"
+      "checksum": "7373b0ba009065901d93f49fdb564b1accd0667a9fddc0fb3631732e2178c8a4"
     },
     {
       "path": "infera-gis/src/geometry/methods.rs",
-      "checksum": "67b3c533f025114fd67bbae8bbdd2965976d5679da793f8343640de87f5ccbba"
+      "checksum": "ef8dc118387baaa4b0a02b01d11e62b32885466e9ef5e0e6aad04980be01b9bc"
     },
     {
       "path": "infera-gis/src/geometry/mod.rs",
@@ -42,15 +46,23 @@
     },
     {
       "path": "infera-gis/src/geometry/routes.rs",
-      "checksum": "25acc361a7c38ede76bdf016e8813d281ae281dabd34e947b1896b42b50dc27d"
+      "checksum": "437a78db312f8db2cd9d99cfc004e3040a3c8ee3fda6e996f395c36235a72763"
     },
     {
       "path": "infera-gis/src/geometry/transformers.rs",
       "checksum": "a59a05c5bfcd4f866bbd7e1e6fae4d21c526fcd7b327f9c93b81763e9ce0053a"
     },
     {
+      "path": "infera-gis/src/imports/authority.rs",
+      "checksum": "848f6ef5fcd9da74ffacc28177ab20e6452e3b0b8f50044afd8e2d23b1f13fb7"
+    },
+    {
       "path": "infera-gis/src/imports/mod.rs",
-      "checksum": "9ef6d3b61a2e805563e51e963b34d4d879c488f1d210aa1d082abc86cef447c5"
+      "checksum": "da0e64a9aa540f88823e25730596d04edf21c1554bb89132b32a06799ca6e89f"
+    },
+    {
+      "path": "infera-gis/src/imports/native_tests.rs",
+      "checksum": "10644e1ac1d59d4551d547e4e5507d5f21f9e8c1bc9672b0c025fddc2d244f00"
     },
     {
       "path": "infera-gis/src/lib.rs",
@@ -58,7 +70,7 @@
     },
     {
       "path": "infera-gis/src/main.rs",
-      "checksum": "ff25f69feaa66c1ebf3e29426624b56851d8ff0db1c9f8fec250f0cfb034702e"
+      "checksum": "b5ece0e466363f47e878830b8e743b0fbd29222be9ff6cef78d133d145877f7e"
     },
     {
       "path": "infera-gis/src/maps/mod.rs",
@@ -78,11 +90,11 @@
     },
     {
       "path": "infera-gis/src/router.rs",
-      "checksum": "5470f6b17c60aac266752e285aa2c8b53d4a66a336a2e91b006e122a937fd3ad"
+      "checksum": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
     },
     {
       "path": "infera-gis/src/state.rs",
-      "checksum": "9e7091e09c984b7b2cd0a053fb388230082ce99814121d81eab6ddea60d18fca"
+      "checksum": "c4dcd8f69fa9b6f1635943b8f565a132d985d9c265973b632e3bf36b7366983a"
     },
     {
       "path": "infera-gis/src/tiles/mod.rs",
@@ -97,6 +109,10 @@
       "checksum": "ab4a589206a72157a7d9fad38a6084e508bbf3275b187fcc2f3c898a9b0fdaea"
     },
     {
+      "path": "infera-gis/migration/import-leases.sql",
+      "checksum": "ce8a4218dfbc6f5e81f2c09133f8cf90b2f6e48a291490be9f45efbd99e6b095"
+    },
+    {
       "path": "infera-gis/migration/private-tiles.sql",
       "checksum": "ae52aeec38eab87a2cd13241091b9f0b1a861ba888606766cf34086b869f823d"
     },
@@ -106,15 +122,15 @@
     },
     {
       "path": "infera-gis/migration/src/lib.rs",
-      "checksum": "c79b2b0f22580274452b6fea20f93859a90c0f1c8147f6982cc8552979c2d4bc"
+      "checksum": "5ecb0f50e559368e0d8eb5112c16425aeb24787cf4d686c4452670167c13226c"
     },
     {
       "path": "infera-gis/Cargo.toml",
-      "checksum": "1d8bc5c796c3621e2b4d5d9b254b16fe7e0e2922eafae7d015d468e0d23934f3"
+      "checksum": "120c4f6db040ff16a9d0ccf9b563c51d7603e06eb7737d2429596e3ae6c13aef"
     },
     {
       "path": "infera-gis/Cargo.lock",
-      "checksum": "9447630173bb7057312bf3839c08ee64755745f51e313e44ca42551a550c1b8e"
+      "checksum": "27102baa6c3d8b8f38f846afe8c4ed0bcecb8b2ed737af04205b3d6f5bd42d2a"
     },
     {
       "path": "infera-gis/entity/Cargo.toml",
@@ -137,7 +153,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "82ac39049c9b69903ef9d91d2dcfe56aaf36660ed3c67b87a058a9e8c8c00768",
@@ -281,7 +297,7 @@
           }
         ]
       },
-      "source_checksum": "a14520c7e44747cfa4a64e40bdaf71f7ecc2fff7ef7624f86f3839f02e425656",
+      "source_checksum": "eacc6dc65251913464dd81070327617f019607231d1021c4153382c2a45ab138",
       "handler": {
         "ref": "infera-gis/src/router.rs:16:health",
         "path": "infera-gis/src/router.rs",
@@ -343,7 +359,7 @@
           }
         ]
       },
-      "source_checksum": "275676c3810e5d73cdfeafbd18e223f0e036fbf3416be90a06b8a1d3e519948f",
+      "source_checksum": "4c8bfa30884fce7397ee9bd946c6b85b7800b30b5b1472a37b3deb57db70bdf8",
       "handler": {
         "ref": "infera-gis/src/geometry/routes.rs:28:index",
         "path": "infera-gis/src/geometry/routes.rs",
@@ -406,11 +422,11 @@
           }
         ]
       },
-      "source_checksum": "8b2f8851307617c0dcad3fc15bdd509a38296862a85cc370bb17260b9ec559c2",
+      "source_checksum": "65ff9b1d986821bf2d66f47eb3ecef350a6cb4d0efd29626a04c8c535422858a",
       "handler": {
-        "ref": "infera-gis/src/geometry/routes.rs:60:create",
+        "ref": "infera-gis/src/geometry/routes.rs:67:create",
         "path": "infera-gis/src/geometry/routes.rs",
-        "line": 60,
+        "line": 67,
         "name": "create"
       },
       "related_implementation": [],
@@ -480,11 +496,11 @@
           }
         ]
       },
-      "source_checksum": "d16705546b1e007214e494988e65cb8c894522ab77ca2259e098adea56c510a3",
+      "source_checksum": "cfb1705f1666373f64eed14b436e7364059b86dc7a0bbe9305bc00dea62ab9e6",
       "handler": {
-        "ref": "infera-gis/src/geometry/routes.rs:68:show",
+        "ref": "infera-gis/src/geometry/routes.rs:75:show",
         "path": "infera-gis/src/geometry/routes.rs",
-        "line": 68,
+        "line": 75,
         "name": "show"
       },
       "related_implementation": [],
@@ -548,11 +564,11 @@
           }
         ]
       },
-      "source_checksum": "feaff1f2203a1987e003d817de3728512893934b59b014f81b83c181eb9fc568",
+      "source_checksum": "85ca65efb99f52f2606c9b6bc0a642ba4e03f95a69a42111156a779b8ebfb17e",
       "handler": {
-        "ref": "infera-gis/src/geometry/routes.rs:87:publish",
+        "ref": "infera-gis/src/geometry/routes.rs:94:publish",
         "path": "infera-gis/src/geometry/routes.rs",
-        "line": 87,
+        "line": 94,
         "name": "publish"
       },
       "related_implementation": [],
@@ -627,11 +643,11 @@
           }
         ]
       },
-      "source_checksum": "c2c5463706a892029978c7b8579655e26e58c842afd2319dc72b51de23c57a2c",
+      "source_checksum": "be20a936b8bf78acd3d9c3033d3e443e3666e5270bea52128934d7857bfdcfbe",
       "handler": {
-        "ref": "infera-gis/src/geometry/routes.rs:148:features",
+        "ref": "infera-gis/src/geometry/routes.rs:155:features",
         "path": "infera-gis/src/geometry/routes.rs",
-        "line": 148,
+        "line": 155,
         "name": "features"
       },
       "related_implementation": [],
@@ -706,11 +722,11 @@
           }
         ]
       },
-      "source_checksum": "4381aa58f3652bac859af49df50562b229dd66818d593e923326a23933c5330e",
+      "source_checksum": "6ef0811bfe43896eda5387e87257eaddcfd041de54b5149bca6c18fe46c19f0f",
       "handler": {
-        "ref": "infera-gis/src/geometry/routes.rs:78:write",
+        "ref": "infera-gis/src/geometry/routes.rs:85:write",
         "path": "infera-gis/src/geometry/routes.rs",
-        "line": 78,
+        "line": 85,
         "name": "write"
       },
       "related_implementation": [
@@ -722,12 +738,12 @@
             {
               "name": "write",
               "path": "infera-gis/src/geometry/methods.rs",
-              "line": 103
+              "line": 111
             },
             {
               "name": "write",
               "path": "infera-gis/src/geometry/routes.rs",
-              "line": 78
+              "line": 85
             }
           ]
         }
@@ -803,11 +819,11 @@
           }
         ]
       },
-      "source_checksum": "f08e3876aedef620c4cd37ccb34f6ce0a48d258f8d96b8e2cbc457324e050dd7",
+      "source_checksum": "162e4662fea12e343518ab89bcc03d51ff9ca9e38a6bd99c95c11cdbf689da61",
       "handler": {
-        "ref": "infera-gis/src/geometry/routes.rs:181:delete_feature",
+        "ref": "infera-gis/src/geometry/routes.rs:188:delete_feature",
         "path": "infera-gis/src/geometry/routes.rs",
-        "line": 181,
+        "line": 188,
         "name": "delete_feature"
       },
       "related_implementation": [],
@@ -881,11 +897,11 @@
           }
         ]
       },
-      "source_checksum": "8b98c11f229d97e7fdb54cd2434988e1b24a1073ace0c2e8cb53f9b80f20cd0f",
+      "source_checksum": "bf87eb3bbee6c3a712bcd770beca445fa9011e99ddf90ebcc8bdbba8aaf67ae8",
       "handler": {
-        "ref": "infera-gis/src/geometry/routes.rs:167:history",
+        "ref": "infera-gis/src/geometry/routes.rs:174:history",
         "path": "infera-gis/src/geometry/routes.rs",
-        "line": 167,
+        "line": 174,
         "name": "history"
       },
       "related_implementation": [],
@@ -949,11 +965,11 @@
           }
         ]
       },
-      "source_checksum": "4ab20c4f53ca6d670d1d7ea05c63497fac149577d76d0751fa4736ff8934e63d",
+      "source_checksum": "8ebbcb62bb379800904e6853e93f51b20a931165daed6da11077971b3d26b021",
       "handler": {
-        "ref": "infera-gis/src/geometry/routes.rs:159:public_features",
+        "ref": "infera-gis/src/geometry/routes.rs:166:public_features",
         "path": "infera-gis/src/geometry/routes.rs",
-        "line": 159,
+        "line": 166,
         "name": "public_features"
       },
       "related_implementation": [],
@@ -1026,7 +1042,7 @@
           }
         ]
       },
-      "source_checksum": "e3e7288ce6aa46be02abd66dae93ad2a5f17387acca02a622fce9463e331f404",
+      "source_checksum": "82c56f98c250d4ac8e2fdb0d2c1accb9446db228989b232a00a7bb8682b7f7f2",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:44:index",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1089,7 +1105,7 @@
           }
         ]
       },
-      "source_checksum": "55997b586e36b0ec8468978ae37d754e5d9dc15897161777c0781e27a4bdc912",
+      "source_checksum": "d886cf23c7feaa248dfe475d64070c34e1ffc9652a12e6b47955852b85193801",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:51:create",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1170,7 +1186,7 @@
           }
         ]
       },
-      "source_checksum": "7dafb731d76d223079e896368dd2e6e71be71c46515a5c470a2bbe5cf8656171",
+      "source_checksum": "8a5e6c3686f219eb2849830cc08fd19e81f03d3a95f807e7dae3bfe99b77f126",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:126:detail",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1238,7 +1254,7 @@
           }
         ]
       },
-      "source_checksum": "707cebf5dcdf3276496e1940c2e6d47f142f6e43968076205c46fe53cc9e3895",
+      "source_checksum": "6be674bc3986678171e5ba87b1dd66462040fb37d4fbb22949e23389af2954b2",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:155:update",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1317,7 +1333,7 @@
           }
         ]
       },
-      "source_checksum": "ee2f52d8c5a9199a3cfce00f1ab58f72ba92f6712f63cedda15f11cd30dbe5c2",
+      "source_checksum": "a823be82deeb584ca57c74a1bf893bd5a4ccbf7c8682621675eae9a3655013ae",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:295:private_style",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1396,7 +1412,7 @@
           }
         ]
       },
-      "source_checksum": "7edb4af7fb61067d2dc296ac0905945ece479b391eaad6f13dae5a0af2c150b9",
+      "source_checksum": "d832eea15dfd0d4f82474fab5efddae33592c30857c8837c9213a4f34214efa1",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:199:publish",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1473,7 +1489,7 @@
           }
         ]
       },
-      "source_checksum": "fe9f4762c6680c6d0d5e0fa70f6a0bdc3eb0be2049253b3e82e3f2f714ceffb2",
+      "source_checksum": "b88f82e37d195dd533110daed187ff79dcd41b084f448fa8059ef71bf731d2e8",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:239:public_index",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1536,7 +1552,7 @@
           }
         ]
       },
-      "source_checksum": "462574ca2e13c1f2972ac2927296ea9ef62aa8c67370cf3eac75263a13406148",
+      "source_checksum": "51ce0abf0d7a09ef7432cf558d4ca5b22928b67b8c3d4005ca10bf4ba9d5768c",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:245:show",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1604,7 +1620,7 @@
           }
         ]
       },
-      "source_checksum": "2c29d6bdbbc40a154fc2cdf7ba9554e39edbe2dc4e20337c8c9911782a913bca",
+      "source_checksum": "cf915aa13aa864430731a4189516837517e755f715c07d93859d9d70f78cdce0",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:248:style",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1682,7 +1698,7 @@
           }
         ]
       },
-      "source_checksum": "d1810942fb848d6e63273a131081aec9d692d232b3ba0bb12d69e1bc5fe80411",
+      "source_checksum": "d71004b30537e3f2d04ca7f574494dc125ab388026903235516ddb2e91636df3",
       "handler": {
         "ref": "infera-gis/src/maps/routes.rs:276:geojson",
         "path": "infera-gis/src/maps/routes.rs",
@@ -1693,9 +1709,9 @@
         {
           "call": "crate::geometry::routes::geojson",
           "evidence": {
-            "ref": "infera-gis/src/geometry/routes.rs:121:geojson",
+            "ref": "infera-gis/src/geometry/routes.rs:128:geojson",
             "path": "infera-gis/src/geometry/routes.rs",
-            "line": 121,
+            "line": 128,
             "name": "geojson"
           }
         }
@@ -1759,7 +1775,7 @@
           }
         ]
       },
-      "source_checksum": "dce99f805b16151398e5dcfc7257ae43bfff95046fefafa74a4b47208281e3ae",
+      "source_checksum": "7fe183ccd11232f625b6eafce828cae6594b9a177f8d3eb87702bffe5eeacd2a",
       "handler": {
         "ref": "infera-gis/src/tiles/routes.rs:22:tilejson",
         "path": "infera-gis/src/tiles/routes.rs",
@@ -1825,7 +1841,7 @@
           }
         ]
       },
-      "source_checksum": "7869da5b91f8ab164fa2be4b8e8a2b74f195dab440d53bb6786052a68e685468",
+      "source_checksum": "171ec43cdc9be06e0b6cbaada6f0d485e5f10ec3c38efe8604544d2435b4cfc0",
       "handler": {
         "ref": "infera-gis/src/tiles/routes.rs:31:tile",
         "path": "infera-gis/src/tiles/routes.rs",
@@ -1887,7 +1903,7 @@
           }
         ]
       },
-      "source_checksum": "5d686aefa6a2f56573f8faa08430229cd6c4f48e0a2b4ba03382cd62eba19030",
+      "source_checksum": "19c90d623a4b1594ca2d0d475b2150c635c24147f566c2ebac02a9232bbab21b",
       "handler": {
         "ref": "infera-gis/src/tiles/routes.rs:41:private_tile",
         "path": "infera-gis/src/tiles/routes.rs",
@@ -1907,18 +1923,18 @@
         {
           "call": "crate::geometry::methods::dataset",
           "evidence": {
-            "ref": "infera-gis/src/geometry/methods.rs:15:dataset",
+            "ref": "infera-gis/src/geometry/methods.rs:17:dataset",
             "path": "infera-gis/src/geometry/methods.rs",
-            "line": 15,
+            "line": 17,
             "name": "dataset"
           }
         },
         {
           "call": "crate::geometry::methods::access",
           "evidence": {
-            "ref": "infera-gis/src/geometry/methods.rs:25:access",
+            "ref": "infera-gis/src/geometry/methods.rs:33:access",
             "path": "infera-gis/src/geometry/methods.rs",
-            "line": 25,
+            "line": 33,
             "name": "access"
           }
         }
@@ -1972,16 +1988,16 @@
           },
           {
             "path": "infera-gis/src/imports/mod.rs",
-            "line": 28,
+            "line": 31,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "7cec429146fc8322a90349966885ab83cb0c4f8ea3823fe3ed25ce43d0534ca0",
+      "source_checksum": "013b83116e26d7c80e7ee05a698b04be3ac6ac33c8bb8d17d755bc77ecb5e102",
       "handler": {
-        "ref": "infera-gis/src/imports/mod.rs:79:index",
+        "ref": "infera-gis/src/imports/mod.rs:117:index",
         "path": "infera-gis/src/imports/mod.rs",
-        "line": 79,
+        "line": 117,
         "name": "index"
       },
       "related_implementation": [],
@@ -2035,34 +2051,27 @@
           },
           {
             "path": "infera-gis/src/imports/mod.rs",
-            "line": 28,
+            "line": 31,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "856a76b5633e196c4cb52d8a4c0ec35dcd32dfc949db81e5be93085aab0e4de2",
+      "source_checksum": "669ded9f8ea5e815ecf26474b0f438dddc245f2524c62d995f99254a027fb687",
       "handler": {
-        "ref": "infera-gis/src/imports/mod.rs:43:create",
+        "ref": "infera-gis/src/imports/mod.rs:76:create",
         "path": "infera-gis/src/imports/mod.rs",
-        "line": 43,
+        "line": 76,
         "name": "create"
       },
-      "related_implementation": [
-        {
-          "call": "crate::error::AppError",
-          "evidence": null,
-          "unresolved": true,
-          "candidates": []
-        }
-      ],
+      "related_implementation": [],
       "schemas": {
         "body": {
           "declared_type": "Import",
           "models": [
             {
-              "ref": "infera-gis/src/imports/mod.rs:23:Import",
+              "ref": "infera-gis/src/imports/mod.rs:26:Import",
               "path": "infera-gis/src/imports/mod.rs",
-              "line": 23,
+              "line": 26,
               "name": "Import"
             }
           ]
@@ -2116,19 +2125,26 @@
           },
           {
             "path": "infera-gis/src/imports/mod.rs",
-            "line": 28,
+            "line": 31,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "bf01633e0e7abf0874447cc532310444d760c106d96356d7a02dd2289bb4cc97",
+      "source_checksum": "fb5c26c3e2ea18b159a6d1a551be627857b9113bfb6e66c1e5a2483081b95298",
       "handler": {
-        "ref": "infera-gis/src/imports/mod.rs:86:retry",
+        "ref": "infera-gis/src/imports/mod.rs:124:retry",
         "path": "infera-gis/src/imports/mod.rs",
-        "line": 86,
+        "line": 124,
         "name": "retry"
       },
-      "related_implementation": [],
+      "related_implementation": [
+        {
+          "call": "crate::error::AppError",
+          "evidence": null,
+          "unresolved": true,
+          "candidates": []
+        }
+      ],
       "schemas": {
         "response": {
           "declared_type": "Value",
@@ -2187,7 +2203,7 @@
           }
         ]
       },
-      "source_checksum": "840ff743d7b57406923b0271d91c0b437eff0fbfee8d182249d76eafed53b42c",
+      "source_checksum": "8ce2aa27a7a81100275c75dc4bb9d598f5d0b24f400ff4b8b01b9c1e6f855c2c",
       "handler": {
         "ref": "infera-gis/src/personal_places.rs:43:index",
         "path": "infera-gis/src/personal_places.rs",
@@ -2250,7 +2266,7 @@
           }
         ]
       },
-      "source_checksum": "730801d625383695331275934aacd89c29b46ce9ef7923dbf8b4d42eeff1d69a",
+      "source_checksum": "57c08fe97158268a4a4e544f2412339c0afd7968933e4086bb6356a8475fb434",
       "handler": {
         "ref": "infera-gis/src/personal_places.rs:59:create",
         "path": "infera-gis/src/personal_places.rs",
@@ -2324,7 +2340,7 @@
           }
         ]
       },
-      "source_checksum": "48657cdd19ee55195970676a3738aa81a2b376f38ba8eb3fa1806d8d4d8753bb",
+      "source_checksum": "17a602141cf37f1491a863f3ec98ebe7c63bdccdfefe5aa3518e1e8256455d5f",
       "handler": {
         "ref": "infera-gis/src/personal_places.rs:50:show",
         "path": "infera-gis/src/personal_places.rs",
@@ -2392,7 +2408,7 @@
           }
         ]
       },
-      "source_checksum": "5bdc2ac259a3839aa2dac3ff7b6277e6b56399b70ebd467ad6972c7b3e9a79b1",
+      "source_checksum": "96dd9e50c1c933061e43725fd95db1d13d30c2c7f0b033900e44f3e769a52e11",
       "handler": {
         "ref": "infera-gis/src/personal_places.rs:72:update",
         "path": "infera-gis/src/personal_places.rs",
@@ -2470,7 +2486,7 @@
           }
         ]
       },
-      "source_checksum": "576b5c4db8c9146883923c0626a9b282cfd36e7ca58125927a9c616cd5fe1afa",
+      "source_checksum": "4cd5d1719255d4c636baa0d5015d3a04fe010651b87446a6ca76d93189870e83",
       "handler": {
         "ref": "infera-gis/src/personal_places.rs:88:delete",
         "path": "infera-gis/src/personal_places.rs",
@@ -2531,7 +2547,7 @@
           }
         ]
       },
-      "source_checksum": "e17ee73aa7d12de7d7bd25d3954d19857b7e3f7dbb267f573675644ef010af81",
+      "source_checksum": "cbdb3f9b1c3d127dc971d86dcad9231cf9dd145dbc04eb3a448ac2be763f4879",
       "handler": {
         "ref": "infera-gis/src/router.rs:10:me",
         "path": "infera-gis/src/router.rs",
@@ -2604,7 +2620,7 @@
           }
         ]
       },
-      "source_checksum": "2aca56e14fac4c4479c48c63d85452a9a420e0f5fab4fabe06f617f2e4a90116",
+      "source_checksum": "961cab05c48bdd89808a5eb092ac600d9d49701ff92176f35348bb0c85be3ca3",
       "handler": {
         "ref": "infera-gis/src/places.rs:120:list",
         "path": "infera-gis/src/places.rs",
@@ -2678,7 +2694,7 @@
           }
         ]
       },
-      "source_checksum": "26cb92eafcbcfccf397ff63a6de86d4d20431282504aafe80dd69f99fd68e4dd",
+      "source_checksum": "ae7b2e27c033ce49150dcf85c0d4b6560caa7bceb13565699859ddac0f38c296",
       "handler": {
         "ref": "infera-gis/src/places.rs:226:propose",
         "path": "infera-gis/src/places.rs",
@@ -2752,7 +2768,7 @@
           }
         ]
       },
-      "source_checksum": "c690a33d5127c2fd0ec12c3b62a34c8a27da4de3c98d8e9f10994b8170d16d93",
+      "source_checksum": "cddbfb78fc035a96fd41218d9f2b68ae4199575f4196050efc6fa885ce40945a",
       "handler": {
         "ref": "infera-gis/src/places.rs:175:detail",
         "path": "infera-gis/src/places.rs",
@@ -2819,7 +2835,7 @@
           }
         ]
       },
-      "source_checksum": "7cd765e5a1ac16b688e2f6bbe88ab2e3948251e90292fc8c0d3ac5bff19a44f8",
+      "source_checksum": "b86f47d06d2972b6b5153c28c444f49238018c76b0fdda925145a76acbf8fa09",
       "handler": {
         "ref": "infera-gis/src/places.rs:193:save",
         "path": "infera-gis/src/places.rs",
@@ -2886,7 +2902,7 @@
           }
         ]
       },
-      "source_checksum": "af7c469e888352d8957fde2a4998d25a786ceb450c3314f6e7452aede9229870",
+      "source_checksum": "c25f2978f1794e30a97128a45478ee993a3a673a7efcd9b07629e91d68801e2e",
       "handler": {
         "ref": "infera-gis/src/places.rs:203:unsave",
         "path": "infera-gis/src/places.rs",
@@ -2954,7 +2970,7 @@
           }
         ]
       },
-      "source_checksum": "c74d2ff1a4b0ae94bfd4deecba4353d289eb20ba6e5b11a08162083b20fe4be0",
+      "source_checksum": "0389fd67d090362646d34bb32a5cf2ea5df0e835f589d8c626f8d4f4f6ab2125",
       "handler": {
         "ref": "infera-gis/src/places.rs:264:report",
         "path": "infera-gis/src/places.rs",
@@ -3032,7 +3048,7 @@
           }
         ]
       },
-      "source_checksum": "8cba7a12fd505b486e10c4f261c71d6043377b4b25516b6947b79a2d96c8e396",
+      "source_checksum": "25c82a2177dc6dbe2075772f2a1e59f8522ebf1657575445bcce965c985a6c27",
       "handler": {
         "ref": "infera-gis/src/places.rs:472:assertion",
         "path": "infera-gis/src/places.rs",
@@ -3098,7 +3114,7 @@
           }
         ]
       },
-      "source_checksum": "d1d517a6572b15f76c98446747677b43a123efcb186e68c96bf8a5e13e4217db",
+      "source_checksum": "774e4da8bd487b695a6c5fea4cd44aa0223c44d5b4abc67cb01d7ff88384927b",
       "handler": {
         "ref": "infera-gis/src/places.rs:186:saved",
         "path": "infera-gis/src/places.rs",
@@ -3160,7 +3176,7 @@
           }
         ]
       },
-      "source_checksum": "3f50dd3d599c989c4408394987faac5a901c3e514c4b63f7723e82253bbbbd28",
+      "source_checksum": "92afb1bf89fefb51686249f9e93de3275ea1fdf4515830afdc32a268d9e3d3ff",
       "handler": {
         "ref": "infera-gis/src/places.rs:543:contributions",
         "path": "infera-gis/src/places.rs",
@@ -3222,7 +3238,7 @@
           }
         ]
       },
-      "source_checksum": "91fcd27418fcaf97e6f91327c4dc91f9fea20ab287716b0e6531f901fd938035",
+      "source_checksum": "42d0832456af544babda411a7a13f2561c13ead09d00b301ee861bc95c7869af",
       "handler": {
         "ref": "infera-gis/src/places.rs:590:outbox",
         "path": "infera-gis/src/places.rs",
@@ -3285,7 +3301,7 @@
           }
         ]
       },
-      "source_checksum": "c80029f82b145d061be159b7beed312e457f098331950f962dabc559bed38799",
+      "source_checksum": "930d73e0797b9837ada1baf3fa89a1c2b38478cff06b17d289b316b24353799d",
       "handler": {
         "ref": "infera-gis/src/places.rs:596:ack_event",
         "path": "infera-gis/src/places.rs",
@@ -3352,7 +3368,7 @@
           }
         ]
       },
-      "source_checksum": "c737e0b3ffd0f167eac6959b6a799fefbd488af0b46b7699952cda43418bb26c",
+      "source_checksum": "48e2cc7c8da404fc1e14b063fd0a05b69244ef7fd34ce988189d98e3bd05c87a",
       "handler": {
         "ref": "infera-gis/src/places.rs:549:references",
         "path": "infera-gis/src/places.rs",
@@ -3419,7 +3435,7 @@
           }
         ]
       },
-      "source_checksum": "1f5e76d56f0b001b5d0e958d3fdcc7895f40eebf21d8436c7ddb118b135516d2",
+      "source_checksum": "af259033a7c5d2e7e2641ea4e222d39d41af236c27d938f8da3035f84e5a92b1",
       "handler": {
         "ref": "infera-gis/src/places.rs:553:history",
         "path": "infera-gis/src/places.rs",
@@ -3487,7 +3503,7 @@
           }
         ]
       },
-      "source_checksum": "ef2079512cc922663ec178b2a061f9fe5f7c92b9ed2f7b7173a437e2821a08ae",
+      "source_checksum": "a4ff8a68cf8a39a2b8ac57ce93e00b328a5ee92794c1d01698e2faf1942f946d",
       "handler": {
         "ref": "infera-gis/src/places.rs:563:resolve_report",
         "path": "infera-gis/src/places.rs",
@@ -3564,7 +3580,7 @@
           }
         ]
       },
-      "source_checksum": "6b10b6ab3de98e11d3a92bbaea146b4f0aa5762910807d2a461700a3584a071e",
+      "source_checksum": "26316a3b8211ab163a70acf4cb6c2de8a3ce82bc71f388cfb7547cbfa99df665",
       "handler": {
         "ref": "infera-gis/src/places.rs:292:queue",
         "path": "infera-gis/src/places.rs",
@@ -3628,7 +3644,7 @@
           }
         ]
       },
-      "source_checksum": "6fa9e4a168ea3a411002cc1d488c6613965dd0bcdfcc12072f0afd11e9166403",
+      "source_checksum": "2be266cdb038dd1ff7b5c1cca6f57a065a7e58f577275d4ba308ba7e1cf368f9",
       "handler": {
         "ref": "infera-gis/src/places.rs:317:moderate",
         "path": "infera-gis/src/places.rs",
@@ -4313,7 +4329,7 @@
           },
           {
             "path": "infera-gis/src/imports/mod.rs",
-            "line": 28,
+            "line": 31,
             "function": "routes"
           }
         ]
@@ -4337,7 +4353,7 @@
           },
           {
             "path": "infera-gis/src/imports/mod.rs",
-            "line": 28,
+            "line": 31,
             "function": "routes"
           }
         ]
@@ -4361,7 +4377,7 @@
           },
           {
             "path": "infera-gis/src/imports/mod.rs",
-            "line": 28,
+            "line": 31,
             "function": "routes"
           }
         ]
@@ -5253,11 +5269,11 @@
       ],
       "calls": []
     },
-    "infera-gis/src/geometry/routes.rs:60:create": {
+    "infera-gis/src/geometry/routes.rs:67:create": {
       "name": "create",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 60,
-      "end_line": 67,
+      "line": 67,
+      "end_line": 74,
       "signature": "async fn create(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Json(p): Json<models::DatasetInput>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [],
@@ -5320,11 +5336,11 @@
         }
       ]
     },
-    "infera-gis/src/geometry/routes.rs:68:show": {
+    "infera-gis/src/geometry/routes.rs:75:show": {
       "name": "show",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 68,
-      "end_line": 77,
+      "line": 75,
+      "end_line": 84,
       "signature": "async fn show(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Path(id): Path<Uuid>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [],
@@ -5333,62 +5349,62 @@
       "effects": [],
       "calls": []
     },
-    "infera-gis/src/geometry/routes.rs:87:publish": {
+    "infera-gis/src/geometry/routes.rs:94:publish": {
       "name": "publish",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 87,
-      "end_line": 120,
+      "line": 94,
+      "end_line": 127,
       "signature": "async fn publish(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Path(id): Path<Uuid>,\n    Json(p): Json<models::Publish>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 98,
+          "line": 105,
           "expression": "|| p.reason.trim().len() < 3"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 99,
+          "line": 106,
           "expression": "|| p.reason.len() > 1000"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 106,
+          "line": 113,
           "expression": "return Err(conflict());"
         }
       ],
       "state": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 96,
+          "line": 103,
           "expression": "if !matches!(p.status.as_str(), \"draft\" | \"published\" | \"archived\")"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 104,
+          "line": 111,
           "expression": "let result=tx.execute(stmt(\"UPDATE gis_datasets SET status=$3,visibility=$4,revision=revision+1 WHERE id=$1 AND revision=$2\",vec![id.into(),p.expected_revision.into(),p.status.clone().into(),p.visibility.clone().into()])).await?;"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 115,
+          "line": 122,
           "expression": "json!({\"status\":p.status,\"visibility\":p.visibility,\"revision\":p.expected_revision+1}),"
         }
       ],
       "effects": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 96,
+          "line": 103,
           "expression": "if !matches!(p.status.as_str(), \"draft\" | \"published\" | \"archived\")"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 104,
+          "line": 111,
           "expression": "let result=tx.execute(stmt(\"UPDATE gis_datasets SET status=$3,visibility=$4,revision=revision+1 WHERE id=$1 AND revision=$2\",vec![id.into(),p.expected_revision.into(),p.status.clone().into(),p.visibility.clone().into()])).await?;"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 118,
+          "line": 125,
           "expression": "tx.commit().await?;"
         }
       ],
@@ -5439,11 +5455,11 @@
         }
       ]
     },
-    "infera-gis/src/geometry/routes.rs:148:features": {
+    "infera-gis/src/geometry/routes.rs:155:features": {
       "name": "features",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 148,
-      "end_line": 158,
+      "line": 155,
+      "end_line": 165,
       "signature": "async fn features(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Path(id): Path<Uuid>,\n    Query(q): Query<models::Query>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [],
@@ -5479,11 +5495,11 @@
         }
       ]
     },
-    "infera-gis/src/geometry/routes.rs:78:write": {
+    "infera-gis/src/geometry/routes.rs:85:write": {
       "name": "write",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 78,
-      "end_line": 86,
+      "line": 85,
+      "end_line": 93,
       "signature": "async fn write(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Path(id): Path<Uuid>,\n    Json(p): Json<models::WriteFeatures>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [],
@@ -5530,62 +5546,62 @@
         }
       ]
     },
-    "infera-gis/src/geometry/routes.rs:181:delete_feature": {
+    "infera-gis/src/geometry/routes.rs:188:delete_feature": {
       "name": "delete_feature",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 181,
-      "end_line": 219,
+      "line": 188,
+      "end_line": 226,
       "signature": "async fn delete_feature(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Path((id, feature)): Path<(Uuid, String)>,\n    Json(p): Json<models::Delete>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 190,
+          "line": 197,
           "expression": "if p.reason.trim().len() < 3 {"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 203,
+          "line": 210,
           "expression": "return Err(conflict());"
         }
       ],
       "state": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 205,
+          "line": 212,
           "expression": "let previous=tx.query_one(stmt(\"SELECT jsonb_build_object('id',id,'geometry',ST_AsGeoJSON(geometry)::jsonb,'properties',properties) AS item FROM gis_features WHERE dataset_id=$1 AND id=$2 AND deleted_at IS NULL\",vec![id.into(),feature.clone().into()])).await?.ok_or(missing())?;"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 206,
+          "line": 213,
           "expression": "tx.execute(stmt(\"UPDATE gis_features SET deleted_at=now(),revision=revision+1 WHERE dataset_id=$1 AND id=$2\",vec![id.into(),feature.clone().into()])).await?;"
         }
       ],
       "effects": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 196,
+          "line": 203,
           "expression": "\"UPDATE gis_datasets SET revision=revision+1 WHERE id=$1 AND revision=$2\","
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 205,
+          "line": 212,
           "expression": "let previous=tx.query_one(stmt(\"SELECT jsonb_build_object('id',id,'geometry',ST_AsGeoJSON(geometry)::jsonb,'properties',properties) AS item FROM gis_features WHERE dataset_id=$1 AND id=$2 AND deleted_at IS NULL\",vec![id.into(),feature.clone().into()])).await?.ok_or(missing())?;"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 206,
+          "line": 213,
           "expression": "tx.execute(stmt(\"UPDATE gis_features SET deleted_at=now(),revision=revision+1 WHERE dataset_id=$1 AND id=$2\",vec![id.into(),feature.clone().into()])).await?;"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 211,
+          "line": 218,
           "expression": "\"feature.delete\","
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 217,
+          "line": 224,
           "expression": "tx.commit().await?;"
         }
       ],
@@ -5618,11 +5634,11 @@
         }
       ]
     },
-    "infera-gis/src/geometry/routes.rs:167:history": {
+    "infera-gis/src/geometry/routes.rs:174:history": {
       "name": "history",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 167,
-      "end_line": 180,
+      "line": 174,
+      "end_line": 187,
       "signature": "async fn history(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Path(id): Path<Uuid>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [],
@@ -5631,11 +5647,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-gis/src/geometry/routes.rs:159:public_features": {
+    "infera-gis/src/geometry/routes.rs:166:public_features": {
       "name": "public_features",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 159,
-      "end_line": 166,
+      "line": 166,
+      "end_line": 173,
       "signature": "async fn public_features(\n    State(s): State<AppState>,\n    Path(id): Path<Uuid>,\n    Query(q): Query<models::Query>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [],
@@ -6071,37 +6087,37 @@
         "crate::geometry::routes::geojson"
       ]
     },
-    "infera-gis/src/geometry/routes.rs:121:geojson": {
+    "infera-gis/src/geometry/routes.rs:128:geojson": {
       "name": "geojson",
       "path": "infera-gis/src/geometry/routes.rs",
-      "line": 121,
-      "end_line": 147,
+      "line": 128,
+      "end_line": 154,
       "signature": "pub async fn geojson(s: &AppState, id: Uuid, q: models::Query) -> Result<Value>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 128,
+          "line": 135,
           "expression": "if b.len() != 4"
         },
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 143,
+          "line": 150,
           "expression": "let rows=s.db.query_all(stmt(\"SELECT jsonb_build_object('type','Feature','id',id,'geometry',ST_AsGeoJSON(geometry)::jsonb,'properties',properties,'revision',revision) AS item FROM gis_features WHERE dataset_id=$1 AND deleted_at IS NULL AND geometry && ST_MakeEnvelope($2,$3,$4,$5,4326) ORDER BY id LIMIT $6\",vec![id.into(),bbox[0].into(),bbox[1].into(),bbox[2].into(),bbox[3].into(),q.limit.unwrap_or(5000).clamp(1,5000).into()])).await?;"
         }
       ],
       "state": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 143,
+          "line": 150,
           "expression": "let rows=s.db.query_all(stmt(\"SELECT jsonb_build_object('type','Feature','id',id,'geometry',ST_AsGeoJSON(geometry)::jsonb,'properties',properties,'revision',revision) AS item FROM gis_features WHERE dataset_id=$1 AND deleted_at IS NULL AND geometry && ST_MakeEnvelope($2,$3,$4,$5,4326) ORDER BY id LIMIT $6\",vec![id.into(),bbox[0].into(),bbox[1].into(),bbox[2].into(),bbox[3].into(),q.limit.unwrap_or(5000).clamp(1,5000).into()])).await?;"
         }
       ],
       "effects": [
         {
           "path": "infera-gis/src/geometry/routes.rs",
-          "line": 143,
+          "line": 150,
           "expression": "let rows=s.db.query_all(stmt(\"SELECT jsonb_build_object('type','Feature','id',id,'geometry',ST_AsGeoJSON(geometry)::jsonb,'properties',properties,'revision',revision) AS item FROM gis_features WHERE dataset_id=$1 AND deleted_at IS NULL AND geometry && ST_MakeEnvelope($2,$3,$4,$5,4326) ORDER BY id LIMIT $6\",vec![id.into(),bbox[0].into(),bbox[1].into(),bbox[2].into(),bbox[3].into(),q.limit.unwrap_or(5000).clamp(1,5000).into()])).await?;"
         }
       ],
@@ -6241,11 +6257,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-gis/src/geometry/methods.rs:15:dataset": {
+    "infera-gis/src/geometry/methods.rs:17:dataset": {
       "name": "dataset",
       "path": "infera-gis/src/geometry/methods.rs",
-      "line": 15,
-      "end_line": 24,
+      "line": 17,
+      "end_line": 19,
       "signature": "pub async fn dataset(s: &AppState, id: Uuid) -> Result<Value>",
       "declared_permissions": [],
       "guards": [],
@@ -6254,42 +6270,42 @@
       "effects": [],
       "calls": []
     },
-    "infera-gis/src/geometry/methods.rs:25:access": {
+    "infera-gis/src/geometry/methods.rs:33:access": {
       "name": "access",
       "path": "infera-gis/src/geometry/methods.rs",
-      "line": 25,
-      "end_line": 48,
+      "line": 33,
+      "end_line": 56,
       "signature": "pub fn access(d: &Value, a: &Actor, write: bool) -> Result<()>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-gis/src/geometry/methods.rs",
-          "line": 26,
+          "line": 34,
           "expression": "let scope = d[\"scope\"].as_str().unwrap_or(\"\");"
         },
         {
           "path": "infera-gis/src/geometry/methods.rs",
-          "line": 27,
+          "line": 35,
           "expression": "let allowed = match scope {"
         },
         {
           "path": "infera-gis/src/geometry/methods.rs",
-          "line": 33,
+          "line": 41,
           "expression": "d[\"organization_id\"].as_str() == Some(a.tenant.to_string().as_str())"
         },
         {
           "path": "infera-gis/src/geometry/methods.rs",
-          "line": 34,
+          "line": 42,
           "expression": "&& (d[\"owner_id\"].as_str() == Some(a.id.to_string().as_str())"
         },
         {
           "path": "infera-gis/src/geometry/methods.rs",
-          "line": 37,
+          "line": 45,
           "expression": "\"organization\" => {"
         },
         {
           "path": "infera-gis/src/geometry/methods.rs",
-          "line": 38,
+          "line": 46,
           "expression": "d[\"organization_id\"].as_str() == Some(a.tenant.to_string().as_str())"
         }
       ],
@@ -6297,31 +6313,31 @@
       "state": [
         {
           "path": "infera-gis/src/geometry/methods.rs",
-          "line": 29,
+          "line": 37,
           "expression": "(!write && d[\"status\"] == \"published\" && d[\"visibility\"] == \"public\")"
         }
       ],
       "effects": [
         {
           "path": "infera-gis/src/geometry/methods.rs",
-          "line": 29,
+          "line": 37,
           "expression": "(!write && d[\"status\"] == \"published\" && d[\"visibility\"] == \"public\")"
         }
       ],
       "calls": []
     },
-    "infera-gis/src/imports/mod.rs:79:index": {
+    "infera-gis/src/imports/mod.rs:117:index": {
       "name": "index",
       "path": "infera-gis/src/imports/mod.rs",
-      "line": 79,
-      "end_line": 85,
+      "line": 117,
+      "end_line": 123,
       "signature": "async fn index(State(s): State<AppState>, h: HeaderMap) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 81,
-          "expression": "let rows=s.db.query_all(stmt(\"SELECT to_jsonb(j) AS item FROM gis_import_jobs j WHERE organization_id=$1 AND (owner_id=$2 OR $3) ORDER BY created_at DESC LIMIT 100\",vec![a.tenant.into(),a.id.into(),a.has(\"gis:dataset:manage\").into()])).await?;"
+          "line": 119,
+          "expression": "let rows=s.db.query_all(stmt(\"SELECT to_jsonb(j)-'lease_id' AS item FROM gis_import_jobs j WHERE organization_id=$1 AND (owner_id=$2 OR $3) ORDER BY created_at DESC LIMIT 100\",vec![a.tenant.into(),a.id.into(),a.has(\"gis:dataset:manage\").into()])).await?;"
         }
       ],
       "validation": [],
@@ -6329,64 +6345,62 @@
       "effects": [],
       "calls": []
     },
-    "infera-gis/src/imports/mod.rs:43:create": {
+    "infera-gis/src/imports/mod.rs:76:create": {
       "name": "create",
       "path": "infera-gis/src/imports/mod.rs",
-      "line": 43,
-      "end_line": 78,
+      "line": 76,
+      "end_line": 116,
       "signature": "async fn create(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Json(p): Json<Import>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 53,
-          "expression": "let count=s.db.query_one(stmt(\"SELECT count(*) AS n FROM gis_import_jobs WHERE owner_id=$1 AND state IN ('queued','running')\",vec![a.id.into()])).await?.unwrap();"
+          "line": 87,
+          "expression": ".current(submitted.tenant, submitted.id)"
         },
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 65,
+          "line": 99,
           "expression": "scope: p.scope,"
         },
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 74,
-          "expression": "s.db.execute(stmt(\"INSERT INTO gis_import_jobs(id,organization_id,owner_id,dataset_id,bounds) VALUES($1,$2,$3,$4,$5)\",vec![id.into(),a.tenant.into(),a.id.into(),dataset_id.into(),json!(p.bounds).into()])).await?;"
+          "line": 111,
+          "expression": "tx.execute(stmt(\"INSERT INTO gis_import_jobs(id,organization_id,owner_id,dataset_id,bounds,protocol_version,authority_revision,authority_issuer) VALUES($1,$2,$3,$4,$5,2,$6,$7)\",vec![id.into(),a.tenant.into(),a.id.into(),dataset_id.into(),json!(p.bounds).into(),current.revision.into(),current.issuer.into()])).await?;"
         }
       ],
       "validation": [],
       "state": [
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 53,
-          "expression": "let count=s.db.query_one(stmt(\"SELECT count(*) AS n FROM gis_import_jobs WHERE owner_id=$1 AND state IN ('queued','running')\",vec![a.id.into()])).await?.unwrap();"
-        },
-        {
-          "path": "infera-gis/src/imports/mod.rs",
-          "line": 56,
-          "expression": "axum::http::StatusCode::TOO_MANY_REQUESTS,"
-        },
-        {
-          "path": "infera-gis/src/imports/mod.rs",
-          "line": 76,
+          "line": 114,
           "expression": "json!({\"data\":{\"id\":id,\"dataset_id\":dataset_id,\"state\":\"queued\"}}),"
         }
       ],
       "effects": [
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 74,
-          "expression": "s.db.execute(stmt(\"INSERT INTO gis_import_jobs(id,organization_id,owner_id,dataset_id,bounds) VALUES($1,$2,$3,$4,$5)\",vec![id.into(),a.tenant.into(),a.id.into(),dataset_id.into(),json!(p.bounds).into()])).await?;"
+          "line": 92,
+          "expression": "transaction_limits(&tx).await?;"
+        },
+        {
+          "path": "infera-gis/src/imports/mod.rs",
+          "line": 111,
+          "expression": "tx.execute(stmt(\"INSERT INTO gis_import_jobs(id,organization_id,owner_id,dataset_id,bounds,protocol_version,authority_revision,authority_issuer) VALUES($1,$2,$3,$4,$5,2,$6,$7)\",vec![id.into(),a.tenant.into(),a.id.into(),dataset_id.into(),json!(p.bounds).into(),current.revision.into(),current.issuer.into()])).await?;"
+        },
+        {
+          "path": "infera-gis/src/imports/mod.rs",
+          "line": 112,
+          "expression": "tx.commit().await?;"
         }
       ],
-      "calls": [
-        "crate::error::AppError"
-      ]
+      "calls": []
     },
-    "infera-gis/src/imports/mod.rs:23:Import": {
+    "infera-gis/src/imports/mod.rs:26:Import": {
       "name": "Import",
       "kind": "struct",
       "path": "infera-gis/src/imports/mod.rs",
-      "line": 23,
+      "line": 26,
       "attributes": "#[derive(Deserialize)]",
       "fields": [
         {
@@ -6418,46 +6432,79 @@
         }
       ]
     },
-    "infera-gis/src/imports/mod.rs:86:retry": {
+    "infera-gis/src/imports/mod.rs:124:retry": {
       "name": "retry",
       "path": "infera-gis/src/imports/mod.rs",
-      "line": 86,
-      "end_line": 100,
+      "line": 124,
+      "end_line": 154,
       "signature": "async fn retry(\n    State(s): State<AppState>,\n    h: HeaderMap,\n    Path(id): Path<Uuid>,\n) -> Result<Json<Value>>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 92,
-          "expression": "let j=s.db.query_one(stmt(\"SELECT dataset_id FROM gis_import_jobs WHERE id=$1 AND organization_id=$2 AND owner_id=$3 AND state='failed'\",vec![id.into(),a.tenant.into(),a.id.into()])).await?.ok_or(missing())?;"
+          "line": 132,
+          "expression": ".current(submitted.tenant, submitted.id)"
+        },
+        {
+          "path": "infera-gis/src/imports/mod.rs",
+          "line": 139,
+          "expression": "let j=tx.query_one(stmt(\"SELECT dataset_id,authority_issuer FROM gis_import_jobs WHERE id=$1 AND organization_id=$2 AND owner_id=$3 AND state='failed' AND protocol_version=2 FOR UPDATE\",vec![id.into(),a.tenant.into(),a.id.into()])).await?.ok_or(missing())?;"
         }
       ],
-      "validation": [],
+      "validation": [
+        {
+          "path": "infera-gis/src/imports/mod.rs",
+          "line": 142,
+          "expression": "axum::http::StatusCode::CONFLICT,"
+        }
+      ],
       "state": [
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 92,
-          "expression": "let j=s.db.query_one(stmt(\"SELECT dataset_id FROM gis_import_jobs WHERE id=$1 AND organization_id=$2 AND owner_id=$3 AND state='failed'\",vec![id.into(),a.tenant.into(),a.id.into()])).await?.ok_or(missing())?;"
+          "line": 139,
+          "expression": "let j=tx.query_one(stmt(\"SELECT dataset_id,authority_issuer FROM gis_import_jobs WHERE id=$1 AND organization_id=$2 AND owner_id=$3 AND state='failed' AND protocol_version=2 FOR UPDATE\",vec![id.into(),a.tenant.into(),a.id.into()])).await?.ok_or(missing())?;"
         },
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 95,
-          "expression": "\"UPDATE gis_import_jobs SET state='queued',error=NULL,updated_at=now() WHERE id=$1\","
+          "line": 142,
+          "expression": "axum::http::StatusCode::CONFLICT,"
         },
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 99,
+          "line": 151,
+          "expression": "tx.execute(stmt(\"UPDATE gis_import_jobs SET state='queued',error=NULL,attempts=0,lease_id=NULL,lease_expires_at=NULL,authority_revision=$2,updated_at=now() WHERE id=$1\",vec![id.into(),current.revision.into()])).await?;"
+        },
+        {
+          "path": "infera-gis/src/imports/mod.rs",
+          "line": 153,
           "expression": "Ok(Json(json!({\"data\":{\"id\":id,\"state\":\"queued\"}})))"
         }
       ],
       "effects": [
         {
           "path": "infera-gis/src/imports/mod.rs",
-          "line": 95,
-          "expression": "\"UPDATE gis_import_jobs SET state='queued',error=NULL,updated_at=now() WHERE id=$1\","
+          "line": 137,
+          "expression": "transaction_limits(&tx).await?;"
+        },
+        {
+          "path": "infera-gis/src/imports/mod.rs",
+          "line": 139,
+          "expression": "let j=tx.query_one(stmt(\"SELECT dataset_id,authority_issuer FROM gis_import_jobs WHERE id=$1 AND organization_id=$2 AND owner_id=$3 AND state='failed' AND protocol_version=2 FOR UPDATE\",vec![id.into(),a.tenant.into(),a.id.into()])).await?.ok_or(missing())?;"
+        },
+        {
+          "path": "infera-gis/src/imports/mod.rs",
+          "line": 151,
+          "expression": "tx.execute(stmt(\"UPDATE gis_import_jobs SET state='queued',error=NULL,attempts=0,lease_id=NULL,lease_expires_at=NULL,authority_revision=$2,updated_at=now() WHERE id=$1\",vec![id.into(),current.revision.into()])).await?;"
+        },
+        {
+          "path": "infera-gis/src/imports/mod.rs",
+          "line": 152,
+          "expression": "tx.commit().await?;"
         }
       ],
-      "calls": []
+      "calls": [
+        "crate::error::AppError"
+      ]
     },
     "infera-gis/src/personal_places.rs:43:index": {
       "name": "index",

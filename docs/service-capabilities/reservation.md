@@ -10,6 +10,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 - Canonical source revision: `f7cd709510458083d10a1b79a5ad3d7cd29196bd`
 - SDK source revision: `80aef6037cec20bb808903f15737160cef5f6a66`
+- Evidence inventory revision: `80aef6037cec20bb808903f15737160cef5f6a66` (sdk)
 - Working HEAD: `4ece677c98c48070fcdc3de77a714b783f73bacc`
 - Source relationship: working_behind_sdk
 
@@ -25,14 +26,15 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `GET /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:22` | inspect middleware/local scope | stale |
 | `PATCH /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:33` | inspect middleware/local scope | stale |
 | `DELETE /api/v1/services/{id}` | `infera-reservation/src/reservation_service/routes.rs:39` | inspect middleware/local scope | stale |
-| `GET /api/v1/providers` | `infera-reservation/src/provider/routes.rs:16` | inspect middleware/local scope | stale |
-| `POST /api/v1/providers` | `infera-reservation/src/provider/routes.rs:27` | inspect middleware/local scope | stale |
-| `GET /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:22` | inspect middleware/local scope | stale |
-| `PATCH /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:33` | inspect middleware/local scope | stale |
-| `DELETE /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:39` | inspect middleware/local scope | stale |
-| `GET /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:45` | inspect middleware/local scope | stale |
-| `POST /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:51` | inspect middleware/local scope | stale |
-| `DELETE /api/v1/providers/{id}/services/{service_id}` | `infera-reservation/src/provider/routes.rs:57` | inspect middleware/local scope | stale |
+| `GET /api/v1/providers` | `infera-reservation/src/provider/routes.rs:17` | inspect middleware/local scope | stale |
+| `POST /api/v1/providers` | `infera-reservation/src/provider/routes.rs:28` | inspect middleware/local scope | stale |
+| `GET /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:23` | inspect middleware/local scope | stale |
+| `PATCH /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:34` | inspect middleware/local scope | stale |
+| `DELETE /api/v1/providers/{id}` | `infera-reservation/src/provider/routes.rs:40` | inspect middleware/local scope | stale |
+| `GET /api/v1/providers/{id}/capacity` | `infera-reservation/src/provider/routes.rs:63` | inspect middleware/local scope | pending |
+| `GET /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:46` | inspect middleware/local scope | stale |
+| `POST /api/v1/providers/{id}/services` | `infera-reservation/src/provider/routes.rs:52` | inspect middleware/local scope | stale |
+| `DELETE /api/v1/providers/{id}/services/{service_id}` | `infera-reservation/src/provider/routes.rs:58` | inspect middleware/local scope | stale |
 | `GET /api/v1/providers/{provider_id}/schedules` | `infera-reservation/src/work_schedule/routes.rs:10` | inspect middleware/local scope | stale |
 | `PUT /api/v1/providers/{provider_id}/schedules` | `infera-reservation/src/work_schedule/routes.rs:16` | inspect middleware/local scope | stale |
 | `POST /api/v1/slots` | `infera-reservation/src/time_slot/routes.rs:19` | inspect middleware/local scope | stale |

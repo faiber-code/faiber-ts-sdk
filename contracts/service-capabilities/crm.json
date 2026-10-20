@@ -11,6 +11,10 @@
     "README.md",
     "src/router.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "e5772f8bdeb9df8d17d004aa54b0bc8f5d37dcb4",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "1addec42a400ba980b6547060cdcb4d347a7bbd0",
   "sdk_source_revision": "e5772f8bdeb9df8d17d004aa54b0bc8f5d37dcb4",
   "working_revision": "6c763c989216fbecd6cfdb4c98f1067c09d17507",
@@ -32,7 +36,7 @@
     "?? src/summary_evidence.sql"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "b64d8f325411cabb360ecd868ad21040a304eaa2d8e1ae343671ef985f79ccbc",
+  "source_tree_checksum": "e0e296ba26db989817f7ce9bc3c0242f21899bbb3ee154307c23ef9cf8f0471f",
   "source_files": [
     {
       "path": "infera-crm/src/api/agentic.rs",
@@ -52,11 +56,11 @@
     },
     {
       "path": "infera-crm/src/api/operations.rs",
-      "checksum": "1aabf4ca4fbe2450a48342da39949f66be52ca6e97895e7151020563761fe032"
+      "checksum": "c1e76bc2bfea44a495ce82fb98c67cde6805bbf0716729e06385868465eff748"
     },
     {
       "path": "infera-crm/src/api/routes.rs",
-      "checksum": "35753a58d768af2dec47e66642471d6308ed24fd0e81b5d33cf0d191df152cbe"
+      "checksum": "1180d70afc8c5cb69e5b608455e356afcaf7ad572ac9fab65f9238df0921e069"
     },
     {
       "path": "infera-crm/src/api/types.rs",
@@ -76,7 +80,7 @@
     },
     {
       "path": "infera-crm/src/common/auth.rs",
-      "checksum": "5c750755fb8357f556501dc95aca7ef38b37b632f4c6eb6f0fa90a331d357daa"
+      "checksum": "e29c3972422bfc871b316b5814234383aaeed39b0de26ef4cd42f456af487610"
     },
     {
       "path": "infera-crm/src/common/mod.rs",
@@ -176,11 +180,11 @@
     },
     {
       "path": "infera-crm/src/lib.rs",
-      "checksum": "ed7a7c353f082c6a0ba8565332119fa80866b80ef4505b41309797013b70f41c"
+      "checksum": "d42a8832aed83481df6690a6f70ecc688be015b9980e62f74b7566eb7b49bd8b"
     },
     {
       "path": "infera-crm/src/main.rs",
-      "checksum": "f2dc4b2e7fcf2feab79a57e2c6a168da3b3707efa8bc8c1515a77b83c1631d54"
+      "checksum": "10ddd41da717100ec344a1af68c9dd865b74853ac50b232a42d3c1fc5be046fa"
     },
     {
       "path": "infera-crm/src/models.rs",
@@ -208,7 +212,7 @@
     },
     {
       "path": "infera-crm/src/router.rs",
-      "checksum": "68f626ed661a0729b91fff5c1317ab8b9358acf5e7fa8ab1f9600a1fcb13741b"
+      "checksum": "d8c3e8f035f4b6c57a73e7f599072b9f5ef81bae357ddf25eb6f9b0b89305b6c"
     },
     {
       "path": "infera-crm/src/sos/methods.rs",
@@ -245,6 +249,18 @@
     {
       "path": "infera-crm/src/stats/transformers.rs",
       "checksum": "0783728cb902a4f6cb216b1112dd0732c1f8303f02bf76a70a625c2ae1947c4b"
+    },
+    {
+      "path": "infera-crm/src/summary_aggregates.sql",
+      "checksum": "33d74daab557c52099dce9125d0e7d48a9da341c806fbe284f85b19d29df88c8"
+    },
+    {
+      "path": "infera-crm/src/summary_evidence.rs",
+      "checksum": "cd741776ac9dc52fd33515ecd431659069b01b3d5043b1c7b2e4defa5832c24c"
+    },
+    {
+      "path": "infera-crm/src/summary_evidence.sql",
+      "checksum": "1199390aa41276aee18646fd7a4adea37f113379c3451fd52fa8a9e527ea3365"
     },
     {
       "path": "infera-crm/src/team/methods.rs",
@@ -435,8 +451,96 @@
       "checksum": "15a9f16e37786898e26e682892b5d08c4ae8de4965b27a996260751d7e113ba2"
     },
     {
+      "path": "infera-crm/shared/infera-summary-sdk/Cargo.toml",
+      "checksum": "f8f49adcda1bbb77fc5e853e53ca05665c4a9dbda098af238cc425f8079b81e6"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/examples/generate_keys.rs",
+      "checksum": "2c055ce4f3f56b75fd58c413924d933098df1a5f5030d46534aa40e406ea8465"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/api.rs",
+      "checksum": "0290f185e021cdfdc1c8c93171a53137067ce3baa66e5cc6261d5901f879f717"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/catalog.rs",
+      "checksum": "04049808fb368f4626993efabd8e024daf2f50fec458edf1ac7c205359644ebd"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/config.rs",
+      "checksum": "cca9d741a44b188a3635893d938c80c435635d628644cfc8938ac45ad0c8dd24"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/evidence.rs",
+      "checksum": "53514c622ce810ee449c5ffac2945997154c9ebfe5e9bdd127a534ae331fdfa4"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/grant.rs",
+      "checksum": "4ec08323843172e92a6ee63e1e9f588b03224b1f79046599ff3780de2d7b220c"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/lib.rs",
+      "checksum": "53a49a793302789844ea011e48a59cd54fc25a49f2bbe9001d8c1b16539a75c4"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/metric.rs",
+      "checksum": "db361bceb5387c75b1da6f0af699cb78c24504e2574d7fd99c1895ef29365d32"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/native_access.rs",
+      "checksum": "ac0aef5999fc22d74b6da29dda2790fc9f94a57adfe6e9e0ea7d690c1f165042"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/native_access.sql",
+      "checksum": "787c5a86e0588db859332b12e0a9d0264680127ce8f25954eac8674c8b74fa3b"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/native_identity.rs",
+      "checksum": "40696b937098d29860aac3de3a04a86a69f2da02f89ff6d2a125a70e97b9c187"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/native_policy.rs",
+      "checksum": "c10ea586796bb31b5c5080031ba73ae9e1f7182a84ee56d9ca3f0c8dd3f740a1"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/outbox.rs",
+      "checksum": "b1314102c37b4bb13e839ea6cf39d394bd698757376b2732cf94ac474ba0e2e5"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/outbox.sql",
+      "checksum": "c76b0773603bcc29d5303314d4349f6f9253cb0b4bd524673a22b1206fbb8d9b"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/query.rs",
+      "checksum": "4ff79884d861d55905c07181f6a85620893defeb7701bd00b072c99b60e12418"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/result.rs",
+      "checksum": "d82c62dce78cf8296979266d1db39d7abe13987135d758088edb8d9d776f4f20"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/server.rs",
+      "checksum": "edadbfe69af77f695443631c04e26024046ee521ad402669596f0fa372387738"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/tool_contract.rs",
+      "checksum": "45df2d0f3fe6f7e12b887943615f9ad14cb5755eb0c9b248833c1ee04bb1d999"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/tests/assessment_money_contract.rs",
+      "checksum": "6fde4c372cf2d23a17b3620b8a0faa7eccff49ab92f1b99c29cd55e9ebb07699"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/tests/current_snapshot_contract.rs",
+      "checksum": "8dde5c85af18d817cd8e7e246f6f8de6049bc5bb1c1d689fa27dc77afbd4183c"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/tests/mcp_transport.rs",
+      "checksum": "20f010714239a34cf0a03f17ba80f39f339ccd650632db0ebfe9ec463b0a0ce0"
+    },
+    {
       "path": "infera-crm/migration/src/lib.rs",
-      "checksum": "547ccb31aa25541fe13764afbe485dcf786be0c38781d6d0e73c000f9c68181c"
+      "checksum": "353f96d202e76287a493019b3793f2d8750cfaf11f0b6ee40a3718bd2058e702"
     },
     {
       "path": "infera-crm/migration/src/m20250617_000001_create_crm_tables.rs",
@@ -471,16 +575,24 @@
       "checksum": "3122f851324149d8d67b3575490e107dc1b6c42d69f952570ce92ad064207f45"
     },
     {
+      "path": "infera-crm/migration/src/m20261020_000009_summary_activity_outbox.rs",
+      "checksum": "d72511a3cfa35e152487aa85a47216b5147ad4fab4abda9fc6970897169be6a3"
+    },
+    {
       "path": "infera-crm/migration/src/main.rs",
       "checksum": "b04bb79ddfcf2e6d373a1183619dca2e1563fac684b78d533054d86cf6d5a2a8"
     },
     {
+      "path": "infera-crm/migration/src/summary_activity_outbox.sql",
+      "checksum": "c26c2c612bf912fc5a9d3cc93d759f61064b4bd8a4d4ef2be963f0bbfab08705"
+    },
+    {
       "path": "infera-crm/Cargo.toml",
-      "checksum": "2832f9b50ba687cecc04362d106b2f39675e8781b351a0e613bdc9b9a28781e9"
+      "checksum": "388f2eea566fd8ac84f3679daca208af01f554e6157ff197bdb17595922eb082"
     },
     {
       "path": "infera-crm/Cargo.lock",
-      "checksum": "61663417db5cb44758c4b0789b14364def7f2acb62a57b59082e86b39bb3d8fe"
+      "checksum": "5df9ec4f45f03fd708d5edde28d3ebe0371b7475586810ab544bce7f6d527edb"
     },
     {
       "path": "infera-crm/.cargo/config.toml",
@@ -495,9 +607,41 @@
       "checksum": "3e0c4c78985acde9a43cf6733f98cfa53e98e06213f07b300c5ccbee22703199"
     }
   ],
-  "protocol_mounts": [],
+  "protocol_mounts": [
+    {
+      "path": "/mcp",
+      "source": "infera-crm/shared/infera-summary-sdk/src/server.rs",
+      "function": "router",
+      "service_expression": " service",
+      "mounted_via": [
+        {
+          "path": "infera-crm/src/router.rs",
+          "line": 20,
+          "function": "application"
+        },
+        {
+          "path": "infera-crm/src/router.rs",
+          "line": 71,
+          "function": "routes"
+        },
+        {
+          "path": "infera-crm/src/summary_evidence.rs",
+          "line": 177,
+          "function": "routes"
+        },
+        {
+          "path": "infera-crm/shared/infera-summary-sdk/src/server.rs",
+          "line": 121,
+          "function": "router"
+        }
+      ],
+      "id": "PROTOCOL /mcp",
+      "source_checksum": "e0e296ba26db989817f7ce9bc3c0242f21899bbb3ee154307c23ef9cf8f0471f",
+      "review": null
+    }
+  ],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "9f48be4795250014a39bbbe15e973155f80a2251e6b6f8cc926eec72654f04d8",
@@ -1053,16 +1197,21 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "193310d3b30639450dd23b24074debf811c5ef316e4d00c32c5d7ea2893fc919",
+      "source_checksum": "246d07016d1f5c07850bf7407faee1217c4c92d1c77451e9498a58ceb36d9785",
       "handler": {
-        "ref": "infera-crm/src/router.rs:123:status_route",
+        "ref": "infera-crm/src/router.rs:157:status_route",
         "path": "infera-crm/src/router.rs",
-        "line": 123,
+        "line": 157,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -1104,16 +1253,21 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "2f38d63c21ee432370f153d3a55f8c661ec967541c647edadec6a2793d1e0c02",
+      "source_checksum": "6ee0e194a62de279b8356df77effbe3897646e8a2e1ae8259648cf1e1c780422",
       "handler": {
-        "ref": "infera-crm/src/router.rs:123:status_route",
+        "ref": "infera-crm/src/router.rs:157:status_route",
         "path": "infera-crm/src/router.rs",
-        "line": 123,
+        "line": 157,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -1155,16 +1309,21 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "2a467c3a8d43cfc38e62271730342034e74d47b79d21dc15815ad44507d00982",
+      "source_checksum": "ed5d0f9e62ac8739f304218edeec0c9318f5fd31505b183679754ff4b52fa7c7",
       "handler": {
-        "ref": "infera-crm/src/router.rs:123:status_route",
+        "ref": "infera-crm/src/router.rs:157:status_route",
         "path": "infera-crm/src/router.rs",
-        "line": 123,
+        "line": 157,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -1206,16 +1365,21 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "948debd911fb1fc2caa67efc16312ce7bd00ef158d442e9a08963f331e10714d",
+      "source_checksum": "8e7e863db1e7db2b7a7935bd7f7af5398d03fab7b61cf3ae33dec3e14713bbd1",
       "handler": {
-        "ref": "infera-crm/src/router.rs:123:status_route",
+        "ref": "infera-crm/src/router.rs:157:status_route",
         "path": "infera-crm/src/router.rs",
-        "line": 123,
+        "line": 157,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -1257,16 +1421,21 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "5b346b368a9535e50d502ab8a00fc9849dfc685b9fd57b10ac6bb32ebbe53c21",
+      "source_checksum": "fbc9bb65b1bb3c2a03c51fa1812ebe563f80a62feb816c5918259dd999012b3b",
       "handler": {
-        "ref": "infera-crm/src/router.rs:133:readiness_route",
+        "ref": "infera-crm/src/router.rs:167:readiness_route",
         "path": "infera-crm/src/router.rs",
-        "line": 133,
+        "line": 167,
         "name": "readiness_route"
       },
       "related_implementation": [],
@@ -1311,7 +1480,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -1321,7 +1495,7 @@
           }
         ]
       },
-      "source_checksum": "f7a10c7ec4a10223a725ed90ef7de09a11cb047937885fe6d557b528677983ed",
+      "source_checksum": "8170806813ed90ada58ce3f934eeb0c3e040b0e3a8df7a3696367aebe7839989",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:205:context",
         "path": "infera-crm/src/api/routes.rs",
@@ -1398,7 +1572,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -1408,7 +1587,7 @@
           }
         ]
       },
-      "source_checksum": "b77fbc56431624faada1cfbef9fe438846ad31f6b04361e76016fa9130e41c01",
+      "source_checksum": "3bc57c23c3137761da92949b71d9a6a878867bd49b3148becbaf84878939e4d6",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:973:list_workflows_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1518,7 +1697,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -1528,7 +1712,7 @@
           }
         ]
       },
-      "source_checksum": "4d575c4bbef05d65f2076bd9388757a33a30834897ef2fab02550495ec0acebd",
+      "source_checksum": "9c8cf1b5d7591fd1bb0bc70e311cd4691687db0f62e4460a0953be28a9ab3820",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:945:create_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1616,7 +1800,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -1626,7 +1815,7 @@
           }
         ]
       },
-      "source_checksum": "f91d7f9408c16bfe95c5ca966ffeb028041e98fdaa18108f370b7516950746a0",
+      "source_checksum": "cb31748197dabf80a58b8d3cf0fe39c37a7f1bdcec68b1c08eb8088dfdd88158",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:992:show_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1700,7 +1889,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -1710,7 +1904,7 @@
           }
         ]
       },
-      "source_checksum": "6117867a750a1797a990e20da0a76fbc9b9a0aca853d9dbeecd193dfa4c7a11d",
+      "source_checksum": "4f35a3dd93cdddd387e50ff3bbc77cb262f321cfa2fd8d2bf37f5b96fab7218f",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1801,7 +1995,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -1811,7 +2010,7 @@
           }
         ]
       },
-      "source_checksum": "73b6d39b42884e6755d91925cad6b7d4fad9f1e7c4aa881385547aa5633c447e",
+      "source_checksum": "3f942e20e30db47eff9356d4f4885acdf4303819dfb734b5651f3eb194082c52",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1901,7 +2100,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -1911,7 +2115,7 @@
           }
         ]
       },
-      "source_checksum": "9e5b0dfbc75aae87ff4cff2b07744a47d7db55a6670f0022a2fbcd40e9238a6f",
+      "source_checksum": "e3b0aa272907cb6c4da25675c069fa1fc50f17a81a89123ddebb9886fe2176a8",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1061:delete_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1979,7 +2183,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -1989,7 +2198,7 @@
           }
         ]
       },
-      "source_checksum": "7c30559132b39c53ce1912ce6ae10743991531967edf689e00544dba0a203825",
+      "source_checksum": "98907e348766800087f3bc485adae976c99df31831ccfc8fa074e6af822b8691",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1258:list_workflow_nodes_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2101,7 +2310,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2111,7 +2325,7 @@
           }
         ]
       },
-      "source_checksum": "51d3dbbadc33f2702ae36e14ebf32c1da73d6bab5b20ccf44a3ac5eb8d7a9c1d",
+      "source_checksum": "a4f0ce0f48938cf82c08097a4b9566fef9ccfdebeab1cffae2f3b6c39b106325",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1281:show_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2185,7 +2399,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2195,7 +2414,7 @@
           }
         ]
       },
-      "source_checksum": "c30bd4e988d67abbab108d0327e308234d0c2e6e07fd7a60386801525ac61487",
+      "source_checksum": "230907ca704c61f3a804ea7fc467fefd6e40d574d991646074d882c96d34cc22",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1121:create_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2280,7 +2499,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2290,7 +2514,7 @@
           }
         ]
       },
-      "source_checksum": "a434ee08a1837b68d691dcd0725ef67b64eaae1e4b774a130b51204317382ddd",
+      "source_checksum": "652baf217c1571425f3cfecbd7729091df56361ebbc095296594dd8b4ad32ae9",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1311:update_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2375,7 +2599,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2385,7 +2614,7 @@
           }
         ]
       },
-      "source_checksum": "f27ef440467e7ed3d3b7572f31fac2d933fa54dfabe198844960a4557d4c0820",
+      "source_checksum": "1b25e92fc62353dc0f055b0dff0280b1a86402fbf8a08c1e8b084355d542e0a5",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1311:update_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2469,7 +2698,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2479,7 +2713,7 @@
           }
         ]
       },
-      "source_checksum": "84c091146917f1f36295ec7605f796381fa67a1be3fea4341741540b8ae7f1f1",
+      "source_checksum": "3b014003bab6bac25f5463c8c40519ff31acfa2696f3dd22568999196d9aac8a",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1365:delete_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2540,7 +2774,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2550,7 +2789,7 @@
           }
         ]
       },
-      "source_checksum": "8a862dc528592b09613f6a40a36661bd6ad28d17497b7ea9fcbda595243c5133",
+      "source_checksum": "075605abac3dfb0702dda5063ca6011a85b1e385977cecf5034d0c3bf0e36001",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:973:list_workflows_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2660,7 +2899,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2670,7 +2914,7 @@
           }
         ]
       },
-      "source_checksum": "d923f148e8c54bf603f86f6bd7e4886d6ed7806962793fdc4aaaa932ae3bd015",
+      "source_checksum": "5f8b54480e9f48173c308eaac3b0eab806b0bbddfe8cc0bf7131a7f56ca96e4e",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:945:create_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2758,7 +3002,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2768,7 +3017,7 @@
           }
         ]
       },
-      "source_checksum": "dcafc1c1190e33af9562aeaaae22e0a3b0857eab57950f94a48a0eabc6d3ccdd",
+      "source_checksum": "92aa25a0f15909ef29731b5111ed9518e48ab07136d7db39ee1ebdff73081bc8",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:992:show_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2842,7 +3091,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2852,7 +3106,7 @@
           }
         ]
       },
-      "source_checksum": "b2e92f91229c2ad40d2c31761d733d95481631e0911a91c32a22528bb09a795a",
+      "source_checksum": "ba06044991934efc7e43983dc898208e82912da4c200873c3683351f1637f82e",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2942,7 +3196,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -2952,7 +3211,7 @@
           }
         ]
       },
-      "source_checksum": "f295fa49d25bddeb541c7180356117591b7f26d4e1676995a247043b5f2d2ee4",
+      "source_checksum": "bd30eb7d6639b4b34d0a97fc1e833a8f10e04917f258ab17a4a87a44e6cd7737",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1061:delete_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3021,7 +3280,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3031,7 +3295,7 @@
           }
         ]
       },
-      "source_checksum": "236afc676eb52edc893acb0528a246adf0d4436068560dfb2668d33ed80006cc",
+      "source_checksum": "d37ad91596d0d510f2c3eee80b36a6f1fd56f3d3366176e2be4fe1a442c18b7d",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1096:list_workflow_nodes_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3146,7 +3410,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3156,7 +3425,7 @@
           }
         ]
       },
-      "source_checksum": "1680960d4d3c254dd42adcc8c7e34ef1944792426b759c07cc26a2cb1528658b",
+      "source_checksum": "0db05991e38991c86b195006887a3da54587cefafa1f5ccd4e37c654b032903d",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1121:create_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3242,7 +3511,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3252,7 +3526,7 @@
           }
         ]
       },
-      "source_checksum": "0f12e3a1f650f22df946dca14bf640f0ebcb94163bc78047f5a19e8722ff42d4",
+      "source_checksum": "b06c9b3249b8c528dfcc49cae6c6414b6d5f2ec5b9bc3f9e7df0f328ac3ed4ef",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1151:show_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3326,7 +3600,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3336,7 +3615,7 @@
           }
         ]
       },
-      "source_checksum": "9c45853b0d9426aaf585fe51031df9d2ac2601663bfc42cdbd4f24c4fcb11255",
+      "source_checksum": "56117255c829991d8a78d5c021a171a7b76f08e2cfdad7ab2d1624490fd780c0",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1181:update_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3420,7 +3699,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3430,7 +3714,7 @@
           }
         ]
       },
-      "source_checksum": "f46396c1c1bdf086bab4802354f23ff4ad5f262b4bafbb836c8e4554cdd407f7",
+      "source_checksum": "f779f60f71ba27aee67fdcd984e58d43a096c7ebf32ad2f01626af002af71b32",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1232:delete_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3494,7 +3778,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3504,7 +3793,7 @@
           }
         ]
       },
-      "source_checksum": "86ddff358884fd276d24aff1acf95c55fa8b4c3d2ed3420b507edcc23f90fd27",
+      "source_checksum": "a57989ce34e8c504349a5aeed36adf0aba6c132d51e5eccbb9997cbbed639c2e",
       "handler": {
         "ref": "infera-crm/src/integration/office.rs:58:find_office_lead",
         "path": "infera-crm/src/integration/office.rs",
@@ -3663,7 +3952,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3673,7 +3967,7 @@
           }
         ]
       },
-      "source_checksum": "91b77e8275f48e91cd10793c858ffed4db5b8538916b157db2d04551fbfaa4e5",
+      "source_checksum": "b984e4d19db0eeb30fcf13118f828ac0fdae6ea3ff7231853d172a2dbd48c7a7",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:249:pipelines",
         "path": "infera-crm/src/api/routes.rs",
@@ -3736,7 +4030,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3746,7 +4045,7 @@
           }
         ]
       },
-      "source_checksum": "b353e384992609580745fb0556da062c499767e7888aa684cf825ec1b59e2aa9",
+      "source_checksum": "96858281e1b83e261a9d2514d08e5cf9bf8e281998aa99ae2977bed1ea168be2",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:60:update_pipeline",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -3831,7 +4130,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3841,7 +4145,7 @@
           }
         ]
       },
-      "source_checksum": "27cf1378967dd5fd7dc0659fb9fff88012d99472d2cce3c877ab0d57a9d3914a",
+      "source_checksum": "e6fd048843230c3b38112948f77dc9636246c27476a06da6f8ab03d420960985",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:41:member_workflows",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -3910,7 +4214,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3920,7 +4229,7 @@
           }
         ]
       },
-      "source_checksum": "730b89187b5e8e0ddb04dc12a66dcccb454d49214e38f0bf65ce0b656895137e",
+      "source_checksum": "a48ee64d17c3d3f5ccf989c0ed59977db0b36e5484686bc783697b037de58e8a",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:118:daily_stats",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -3983,7 +4292,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -3993,7 +4307,7 @@
           }
         ]
       },
-      "source_checksum": "5e7257c0969b2abd31de9a4f1e9443eeec9295c914359ddd59adc91d8b607ed2",
+      "source_checksum": "e8aa8f02556d89aafbd63621107db0d5d11748741d27c46a4fd07d3de28f65ee",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:332:lead_stats",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -4054,7 +4368,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4064,7 +4383,7 @@
           }
         ]
       },
-      "source_checksum": "32f8e1a3bef2a15f8c307dd0ad82b5bd6c82d4c4768fd8611fef7e446fc4b5ba",
+      "source_checksum": "82747a646dead6d0317e261d5841a48c855937dc0a4f8ade63727119393391fd",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:259:teams",
         "path": "infera-crm/src/api/routes.rs",
@@ -4133,7 +4452,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4143,7 +4467,7 @@
           }
         ]
       },
-      "source_checksum": "5b73d846794705d3752838129304f5efa592daa2e9a8b65decac46a9066adde5",
+      "source_checksum": "2aa95cb4464d2ac432bd66e02aec6756fc9bd484f08381974d9236ff3d546db3",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:112:create_team",
         "path": "infera-crm/src/api/writes.rs",
@@ -4229,7 +4553,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4239,7 +4568,7 @@
           }
         ]
       },
-      "source_checksum": "71c1a94ab33a09adff2d2e20df369bb8ef2da009eb6d27a16c5935cea33b07d9",
+      "source_checksum": "6fb40cdd24d74511ebbb74d20b659a2380871c26aa3739ec008ec6d8c705920c",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:88:team",
         "path": "infera-crm/src/api/operations.rs",
@@ -4299,7 +4628,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4309,7 +4643,7 @@
           }
         ]
       },
-      "source_checksum": "c0606e945e655df2812c7a732e25f183b4ead1ad2ea395f6e9e0c4697049fee5",
+      "source_checksum": "83650b656661511844338d07c1d458a1c30b7af1ea1bdc0ecb621843465e5533",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:177:delete_team",
         "path": "infera-crm/src/api/operations.rs",
@@ -4387,7 +4721,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4397,7 +4736,7 @@
           }
         ]
       },
-      "source_checksum": "dca358b1caec944f523fec8d11885cff38f6fe30a78f99243c6ccc08c596fb4c",
+      "source_checksum": "338d5a5b9cc9c40bb9438f1e54f240e8555e56aa5110031242a62fa398372f5a",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:110:add_team_member",
         "path": "infera-crm/src/api/operations.rs",
@@ -4493,7 +4832,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4503,7 +4847,7 @@
           }
         ]
       },
-      "source_checksum": "4179f885d349e0068da4ec48805ced7b9efc0f45ac2e6ed7df644b89f4fd19bf",
+      "source_checksum": "e8a65c6f5f1c6d8c8a09f5730460bb1d2090931d15e4bfb8afab097f806666ff",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:245:remove_team_member",
         "path": "infera-crm/src/api/operations.rs",
@@ -4581,7 +4925,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4591,7 +4940,7 @@
           }
         ]
       },
-      "source_checksum": "ef12ce36c14602e2a1bf3764c938fc243d20a3667baf41ca17f997a3c87fb06b",
+      "source_checksum": "14ad4a4fa6df5e4f5981e6d5d3c18d81c0029ac285703aa6af95a7376dee3f55",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:290:list_sos_leads",
         "path": "infera-crm/src/api/operations.rs",
@@ -4660,7 +5009,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4670,7 +5024,7 @@
           }
         ]
       },
-      "source_checksum": "13aa4c18e3064f823b25038479ea06bcff03719382fc29b56c4d23cf69f75ba0",
+      "source_checksum": "f9fc5114106b7c76e30ab8a8a39e425a93afb6df5e73824bff6cd462fe742f6b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:305:add_lead_to_sos",
         "path": "infera-crm/src/api/operations.rs",
@@ -4743,7 +5097,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4753,7 +5112,7 @@
           }
         ]
       },
-      "source_checksum": "d8a44aab03a342a29c87470ab0c9d0510ca509174091d5390c8562affe40351b",
+      "source_checksum": "680c551273498efda3a8086d418ab91795f63f62114bb67a18feec588c0ae7f3",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:359:remove_lead_from_sos",
         "path": "infera-crm/src/api/operations.rs",
@@ -4819,7 +5178,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4829,7 +5193,7 @@
           }
         ]
       },
-      "source_checksum": "d4980bfa78c73e8aaef6f7247cd6070af8096393ef56aeed1d6212b42748e1e2",
+      "source_checksum": "52ca1c33284656e32c475e1df990607924285d94d8bdc5dd85e54d1153b3ebf2",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:403:list_workflow_assignments",
         "path": "infera-crm/src/api/operations.rs",
@@ -4915,7 +5279,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -4925,7 +5294,7 @@
           }
         ]
       },
-      "source_checksum": "30823ed8ed64da156e7eaa2cb10515ab543e65132952425147ccb0ff55a83459",
+      "source_checksum": "0673644e5a8417644431e524d894ba70e5b695149bc81d80bb835b68c9e970e4",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:419:create_workflow_assignment",
         "path": "infera-crm/src/api/operations.rs",
@@ -5033,7 +5402,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5043,7 +5417,7 @@
           }
         ]
       },
-      "source_checksum": "90479e3494e6a116ab860705991e9740da41969c6905d2339ce5bde67cba907e",
+      "source_checksum": "4e528718d83a40217bd5301dc7248a3fa1880af7cc29c99a9e14ba2ac136d8c0",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:505:delete_workflow_assignment",
         "path": "infera-crm/src/api/operations.rs",
@@ -5111,7 +5485,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5121,7 +5500,7 @@
           }
         ]
       },
-      "source_checksum": "aae6578afed74ea6f72b10207222f5fad6511a8e23456358b48efa7e587bd78e",
+      "source_checksum": "c8e0a0410d7138b19e199c9ad3e2ce41883f047d2c0d2e8a92f1b43c3cd3c080",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:549:tasks",
         "path": "infera-crm/src/api/operations.rs",
@@ -5267,7 +5646,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5277,7 +5661,7 @@
           }
         ]
       },
-      "source_checksum": "265778b0d29733709a18aebaddfb7c159d82a1be245682e0ceb0112a1ff4a007",
+      "source_checksum": "3c5da05389efeae7b78a7bdfce0111828ea0b575f72ee539639a95c6054e2309",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:580:create_task",
         "path": "infera-crm/src/api/operations.rs",
@@ -5423,7 +5807,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5433,7 +5822,7 @@
           }
         ]
       },
-      "source_checksum": "9807cf8e18bc75d9cc77e9f294e854269a82ea7dd96d6538624b0cccba397fa0",
+      "source_checksum": "68456d0a6c0a7ff3be430b6c09ef0f71dd9d65813a6a064fc693117b86b85450",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:691:delete_task",
         "path": "infera-crm/src/api/operations.rs",
@@ -5500,7 +5889,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5510,7 +5904,7 @@
           }
         ]
       },
-      "source_checksum": "1cc2e0431808e2bd5a0be2e2e44a73feef22c8c0c2664b925a45442cf795d286",
+      "source_checksum": "820b51ae49901d310ab92bae51620b8944aad8b3e087d9dad68486b2dd3d0def",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:630:update_task_status",
         "path": "infera-crm/src/api/operations.rs",
@@ -5625,7 +6019,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5635,7 +6034,7 @@
           }
         ]
       },
-      "source_checksum": "a9e82a38c43dd77c25d3804078990d17f16ca967e9097564ff1d100e607b35a9",
+      "source_checksum": "d64cd9632652c3b89d4082c16efe3b36ae63a5bcee4d4e0f25e0c41a9cab4a05",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:836:create_activity_with_reminder",
         "path": "infera-crm/src/api/operations.rs",
@@ -5708,7 +6107,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5718,7 +6122,7 @@
           }
         ]
       },
-      "source_checksum": "8cca511026a97c835b161636e7725539f75421006d8e9989bea0acac37acf725",
+      "source_checksum": "cafcb4f5dadbb3dcc5bfb0d063d993198e31831775a0dfdaa52fd399bc86b60b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:757:activities",
         "path": "infera-crm/src/api/operations.rs",
@@ -5828,7 +6232,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5838,7 +6247,7 @@
           }
         ]
       },
-      "source_checksum": "d7c7d9363d9082b8335815b8ead64781f8ba276ba060a7b3fe010f2a7e302e03",
+      "source_checksum": "15d0c23b70274dafa4d5e9412da2348d32855f38ff509654d428ece234b59c62",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:783:create_activity",
         "path": "infera-crm/src/api/operations.rs",
@@ -5938,7 +6347,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -5948,7 +6362,7 @@
           }
         ]
       },
-      "source_checksum": "f59f06ae1f91c37c7f5087c69a939ae259a220b30c40fa3769d1a1add93956c6",
+      "source_checksum": "c5844ac8fe0683a103f55b906c5d24ba7d99d2cc994b33dd4af5f49b30ff4e22",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:920:worklogs",
         "path": "infera-crm/src/api/operations.rs",
@@ -6033,7 +6447,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6043,7 +6462,7 @@
           }
         ]
       },
-      "source_checksum": "9d0d3a62ad1f1cc3d1cd18d4381e42fe70fa5b9a804bd88a7c9611262957db4a",
+      "source_checksum": "e890107caea69a413318bdd6f9ab6095f2a29999928e6882b1d28bc519789c02",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1413:sources",
         "path": "infera-crm/src/api/operations.rs",
@@ -6105,7 +6524,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6115,7 +6539,7 @@
           }
         ]
       },
-      "source_checksum": "c8cbd981210a2ec579614071ba6d735b78f2e78482f4ef6bf384e4dce4526168",
+      "source_checksum": "aa83e3ca811c6aaaa0e1fb5befa331cc498ba6ca5d5cdacca331a7e13a7857be",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1424:create_source",
         "path": "infera-crm/src/api/operations.rs",
@@ -6187,7 +6611,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6197,7 +6626,7 @@
           }
         ]
       },
-      "source_checksum": "67b676cc6875f29543baa6fb7b4f170f189c54f68f4bf559c257c6f1e57a2214",
+      "source_checksum": "01a996f8421d5d44552b292b812fd3c89a5fc1c26fd49a018a5cfa2e05b123da",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1461:campaigns",
         "path": "infera-crm/src/api/operations.rs",
@@ -6266,7 +6695,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6276,7 +6710,7 @@
           }
         ]
       },
-      "source_checksum": "4df8266571a8396f60fd1ecb1b21e2e7b605316470b39bef131a1b4b9a3f1ce8",
+      "source_checksum": "8541e570d7c755eb970fee261a73ad9d90940f6bfc8d3667d7d7e317f720b7d6",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1472:create_campaign",
         "path": "infera-crm/src/api/operations.rs",
@@ -6362,7 +6796,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6372,7 +6811,7 @@
           }
         ]
       },
-      "source_checksum": "3eff0bf7760ba4f85d47f648bb06eb20946fc7a04b757cf400d8b4cd0ad985da",
+      "source_checksum": "f71173e7e59185636dbf07d75696b4b6f194b9fb1428314478062fc471455cc6",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1524:update_workspace",
         "path": "infera-crm/src/api/operations.rs",
@@ -6458,7 +6897,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6468,7 +6912,7 @@
           }
         ]
       },
-      "source_checksum": "b6cb80eb8cae322ff4ac8e1fa4ade9dfc494595876c0b5e2c4c7766218e6be41",
+      "source_checksum": "21d35ca83c902d2ce3729c06dc5f7553544d7c2424464ba97659964d60cc1f95",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:680:automation_jobs",
         "path": "infera-crm/src/api/routes.rs",
@@ -6577,7 +7021,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6587,7 +7036,7 @@
           }
         ]
       },
-      "source_checksum": "cb672a3c9a45ea3a6353c1ad759bea0d622cbe4dde9019a272729bcc9fcabf89",
+      "source_checksum": "18b9944727b8fc8bd07e81b988c5ed31fd1b7edf636721973a42bf563b23f1a0",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:705:automation_webhooks",
         "path": "infera-crm/src/api/routes.rs",
@@ -6650,7 +7099,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6660,7 +7114,7 @@
           }
         ]
       },
-      "source_checksum": "3cb91547f885517e341af97c7437409e1d6efc26fa4166f5e143b959102b55b2",
+      "source_checksum": "be42010417f88a548df5d1298e4ef87b006d74a75eef7e0efba168607c791078",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:274:companies",
         "path": "infera-crm/src/api/routes.rs",
@@ -6782,7 +7236,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6792,7 +7251,7 @@
           }
         ]
       },
-      "source_checksum": "9773c843ad5b62af6d33707d5e92d46a74b3c6de0a347eec3b389bb285b9820d",
+      "source_checksum": "f9d59cc3d6c9c323abf206493090cf8da3b49791cc4d411d1909e8b3b5589513",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:156:create_company",
         "path": "infera-crm/src/api/writes.rs",
@@ -6891,7 +7350,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6901,7 +7365,7 @@
           }
         ]
       },
-      "source_checksum": "fbb1ba3152b637cfff41f7b52c94f45f66f30c9c7462449967a50dc5cd082509",
+      "source_checksum": "b9034597de6e228fdf1828eb882b484497f4e22a2a29734daaacba3b531d8706",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:304:company",
         "path": "infera-crm/src/api/routes.rs",
@@ -6981,7 +7445,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -6991,7 +7460,7 @@
           }
         ]
       },
-      "source_checksum": "c3f6e8d435630dcc91b4cb7202d4cefd1e4be065aa7fac9e3c2c54dc1385085a",
+      "source_checksum": "9deceb8ee2e7dfcce6ee40531ca894e01dac840ed67476b54e132e1a90357479",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:277:update_company",
         "path": "infera-crm/src/api/writes.rs",
@@ -7082,7 +7551,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -7092,7 +7566,7 @@
           }
         ]
       },
-      "source_checksum": "48827712c21ac2d4ce668ffd28a16ec77632db0355559b4928c39ce97039222e",
+      "source_checksum": "db4f20b82654c7553195ad505369c8d44d2c90edf3c21743d4b96094012e49cb",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:324:contacts",
         "path": "infera-crm/src/api/routes.rs",
@@ -7226,7 +7700,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -7236,7 +7715,7 @@
           }
         ]
       },
-      "source_checksum": "0384497cde13e3a79ae32b51f38717c1775c92a8642a36745261ff49cd68eda6",
+      "source_checksum": "76c318c18d7fada194ce5c868d6261b4301db2e02d01f86077bc11293d2fcb0f",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:218:create_contact",
         "path": "infera-crm/src/api/writes.rs",
@@ -7359,7 +7838,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -7369,7 +7853,7 @@
           }
         ]
       },
-      "source_checksum": "2a3659b9f64be961943c97f05973d582971d6c8e621810c859a3650143890746",
+      "source_checksum": "e1017f77ef98a604fe683c2b9aff080dd1d290afb65e0be255d2f980bdd8e2bd",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:354:contact",
         "path": "infera-crm/src/api/routes.rs",
@@ -7461,7 +7945,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -7471,7 +7960,7 @@
           }
         ]
       },
-      "source_checksum": "91188b408a9df9778aebdbce6487ef459d16b0bad75bf8e15ec4f14b7ca04674",
+      "source_checksum": "86486fee6f52e2b270bcdb7f0b73e8b260319cd4f355e0833dcb01875538e412",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:345:update_contact",
         "path": "infera-crm/src/api/writes.rs",
@@ -7571,7 +8060,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -7581,7 +8075,7 @@
           }
         ]
       },
-      "source_checksum": "5ffae1b88003455f65dabf334d0938e644f652f31c7bf50f54c488794753d004",
+      "source_checksum": "cb1c11c6dc36585f6ab0f014b8367e798fc4138a493922c4a99fc87ab1711785",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:436:light_leads",
         "path": "infera-crm/src/api/routes.rs",
@@ -7753,7 +8247,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -7763,7 +8262,7 @@
           }
         ]
       },
-      "source_checksum": "c6fec06f2f51f697e0efaf90462a68b9727fc8252a3e381c8ef8451f5b365d02",
+      "source_checksum": "f80ea77c1dd6dd3ff66c057f5d1e8fa5214b04f57d1a65b947be1ef6836bd133",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:377:leads",
         "path": "infera-crm/src/api/routes.rs",
@@ -7933,7 +8432,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -7943,7 +8447,7 @@
           }
         ]
       },
-      "source_checksum": "58c9db7daf73813bea867b5b319d3ff966caaee347d4d344d43c81bfb4542c2b",
+      "source_checksum": "c1877d0326c148f656f32398081ab5e80330b627a14332677065e50c1b7d7a4b",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:639:create_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -8133,7 +8637,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -8143,7 +8652,7 @@
           }
         ]
       },
-      "source_checksum": "30168b105c53e491b5f58944edc54a320bed239890d1e558900ad5b163a7ff45",
+      "source_checksum": "386c1343e56aaae6bd6ff05faa6c15368f8d12a32c7add9cbddebf90626e7f88",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:445:lead",
         "path": "infera-crm/src/api/routes.rs",
@@ -8210,7 +8719,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -8220,7 +8734,7 @@
           }
         ]
       },
-      "source_checksum": "1dc71fe265bab2aa90ee723ff59026ca6058d6efa9ec0461629dd56bca0af5ec",
+      "source_checksum": "4f566cb52792cdcacf7f0d6cceb636d87564c8531db97a5fb2edad8f9b0f4fd7",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:415:update_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -8365,7 +8879,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -8375,7 +8894,7 @@
           }
         ]
       },
-      "source_checksum": "b8610a8a1e211c1d6c2a618aa459aa060c82470092e5dae3df440b7fed7f6980",
+      "source_checksum": "fe709d15c53f6189ffabe71434057d3b3e21ea13fa3b8daeba5cd9bb1baf2420",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1388:lead_history",
         "path": "infera-crm/src/api/operations.rs",
@@ -8448,7 +8967,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -8458,7 +8982,7 @@
           }
         ]
       },
-      "source_checksum": "c21a89ef4ee5016fc2d5ceac25722e5b74c26d3d051e45d84e3a6c6fc09ea83b",
+      "source_checksum": "d69d065893ae15f554a2556e0d459df3b0c3c32e76e7ad2bec85c10dc48f42fd",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:738:delete_lead_reminders",
         "path": "infera-crm/src/api/operations.rs",
@@ -8518,7 +9042,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -8528,7 +9057,7 @@
           }
         ]
       },
-      "source_checksum": "37e0af4aca073cf66b911d9ab923c396888c14708cd05a8cbdc0ee9f474ed351",
+      "source_checksum": "8d4b6c02dc3deb9f12bb0003727e0be58a36350baca9bff134bdb851133dea21",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:786:move_lead_stage",
         "path": "infera-crm/src/api/writes.rs",
@@ -8673,7 +9202,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -8683,7 +9217,7 @@
           }
         ]
       },
-      "source_checksum": "f0f736fc1ceedbcfa86ea0a169f20f346b691f5ae0994b227237eabc3ba46594",
+      "source_checksum": "b50de85df9c3242b6ecfa9e853567d105c1f3600fb9ae2b15952c645c352dffd",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:932:assign_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -8835,7 +9369,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -8845,7 +9384,7 @@
           }
         ]
       },
-      "source_checksum": "c79120af19bf553135d60a98556b9021228255d9f1e167e7b526db29ad38739c",
+      "source_checksum": "4f4ae7fa8dee568f200b878bae5a7334bca6eae9135616adb7a6bd9a1675df80",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:474:deals",
         "path": "infera-crm/src/api/routes.rs",
@@ -8997,7 +9536,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9007,7 +9551,7 @@
           }
         ]
       },
-      "source_checksum": "d62463988b7cccacd63c24597566fa5829ecd5c89120a315985deb706179d80e",
+      "source_checksum": "1420e03972f884fb64da31d6163d1789b7f5b254beaf776714855d27860ccc94",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:711:create_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -9167,7 +9711,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9177,7 +9726,7 @@
           }
         ]
       },
-      "source_checksum": "36d852d4bea1ffbaae4527adeea657466da3997a368a2cd04223a2da4306a54a",
+      "source_checksum": "b5ecb5aee662c9b753aed783f4599401aec4d178dd55d7fab88ee40d85668829",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:521:deal",
         "path": "infera-crm/src/api/routes.rs",
@@ -9287,7 +9836,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9297,7 +9851,7 @@
           }
         ]
       },
-      "source_checksum": "6b0d0ae0e0fa654b125ac6bf6618c42871621478a46f8dd813c222167cd449e0",
+      "source_checksum": "5f06c5a40faa4b34bb3fa024e17438e57c9a4d9227c320e61dbf2b52ccb1d9d1",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:485:update_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -9418,7 +9972,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9428,7 +9987,7 @@
           }
         ]
       },
-      "source_checksum": "bd3b5543b393ebe61afdb829a16d2a537bfc34b42493e2443c671bb8350fb96c",
+      "source_checksum": "24dee0ce974afe800eeb1a52825462e6e6017fdd9191b5240c305107f872a154",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:855:move_deal_stage",
         "path": "infera-crm/src/api/writes.rs",
@@ -9555,7 +10114,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9565,7 +10129,7 @@
           }
         ]
       },
-      "source_checksum": "10f659b22452f83bb285d3e78ba44cdf3635ed0d504d963a9dac9027cc66ea1b",
+      "source_checksum": "db9e2e0536d0ee76f4b2216553cc37a64b725b32c517e2a58190ccd5ba6d42d2",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:997:assign_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -9697,7 +10261,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9707,7 +10276,7 @@
           }
         ]
       },
-      "source_checksum": "2d9608049dbde40353d61e0887bfc06bf6ff8b36acc6d6a73dce4ab574b6e92a",
+      "source_checksum": "2853f4fd63dc198033981e096841e1670f130a73044a926ddee0c1060b192be8",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:542:board",
         "path": "infera-crm/src/api/routes.rs",
@@ -9766,7 +10335,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9776,7 +10350,7 @@
           }
         ]
       },
-      "source_checksum": "e1478ac08373cf1602c04de9ab1bf14ecc78c2bc345f5efc1c737134b453dda5",
+      "source_checksum": "d66a294c964143d075ead736a9a5f658fc10c84b5bf467f01518d70797fb9061",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:633:overview",
         "path": "infera-crm/src/api/routes.rs",
@@ -9849,7 +10423,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9859,7 +10438,7 @@
           }
         ]
       },
-      "source_checksum": "9568743ec7a46c02925aa994f14fc63e3d8caff076f64360a7a1c4628288e56e",
+      "source_checksum": "83fc8a1c690894ac23cce8827a87b0ceb49910ec0daf7ddd29b72318fa58716e",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:1062:refresh_reports",
         "path": "infera-crm/src/api/writes.rs",
@@ -9931,7 +10510,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -9941,7 +10525,7 @@
           }
         ]
       },
-      "source_checksum": "34533a6b2c82f0910f18606edcdb339d09f0d0e65d05185148d37366e290ae4f",
+      "source_checksum": "6add742e04e822a3ed75cf12bddbd6c308ce7e5d4762895f2179e8b309caacb2",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:1114:request_agentic_insight",
         "path": "infera-crm/src/api/writes.rs",
@@ -10006,7 +10590,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10016,7 +10605,7 @@
           }
         ]
       },
-      "source_checksum": "7b48b846acfedf6b05564772798c7725399f2ffd38aacd316e08d53fdfc45e69",
+      "source_checksum": "58a0430692e8283751047981d1a3c8817423a704db336300935333dc885cb1ff",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:665:report_run",
         "path": "infera-crm/src/api/routes.rs",
@@ -10088,7 +10677,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10098,7 +10692,7 @@
           }
         ]
       },
-      "source_checksum": "ecc57fe59347781cc8c80350187fc09eaeb414c091b45a740d439fd8fa564269",
+      "source_checksum": "e8edb05684e4c793ff0cfa166377f5a0895421ee248ce37736ab0c7cd3e2f490",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:645:report_catalog",
         "path": "infera-crm/src/api/routes.rs",
@@ -10149,16 +10743,21 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "46ce9458e469869aac1b5f16f8ab3225c75a41d0fb110a4662205418f6076b5b",
+      "source_checksum": "e568183e283d27d7448df19aa3192c6a40b3e4122cdf49c0ee42702a506752af",
       "handler": {
-        "ref": "infera-crm/src/router.rs:111:api_not_found",
+        "ref": "infera-crm/src/router.rs:145:api_not_found",
         "path": "infera-crm/src/router.rs",
-        "line": 111,
+        "line": 145,
         "name": "api_not_found"
       },
       "related_implementation": [],
@@ -10200,16 +10799,21 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "5d55662e7cc898fefb1bb48e40ce7bc8b8b5fa12a268e71b0c23d13a2a938761",
+      "source_checksum": "b2071523b372c3a531d9d66bb970cb7c1fc5529f780084ea1aaca376477c0399",
       "handler": {
-        "ref": "infera-crm/src/router.rs:111:api_not_found",
+        "ref": "infera-crm/src/router.rs:145:api_not_found",
         "path": "infera-crm/src/router.rs",
-        "line": 111,
+        "line": 145,
         "name": "api_not_found"
       },
       "related_implementation": [],
@@ -10350,7 +10954,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
@@ -10368,7 +10977,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
@@ -10386,7 +11000,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
@@ -10404,7 +11023,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
@@ -10422,7 +11046,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
@@ -10443,7 +11072,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10472,7 +11106,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10499,7 +11138,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10528,7 +11172,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10556,7 +11205,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10584,7 +11238,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10611,7 +11270,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10640,7 +11304,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10669,7 +11338,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10697,7 +11371,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10725,7 +11404,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10753,7 +11437,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10780,7 +11469,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10809,7 +11503,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10836,7 +11535,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10865,7 +11569,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10893,7 +11602,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10920,7 +11634,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10950,7 +11669,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -10978,7 +11702,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11007,7 +11736,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11035,7 +11769,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11062,7 +11801,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11087,7 +11831,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11113,7 +11862,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11141,7 +11895,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11169,7 +11928,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11196,7 +11960,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11224,7 +11993,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11250,7 +12024,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11277,7 +12056,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11304,7 +12088,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11332,7 +12121,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11360,7 +12154,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11387,7 +12186,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11413,7 +12217,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11440,7 +12249,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11467,7 +12281,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11494,7 +12313,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11522,7 +12346,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11549,7 +12378,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11578,7 +12412,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11605,7 +12444,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11632,7 +12476,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11660,7 +12509,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11688,7 +12542,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11715,7 +12574,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11742,7 +12606,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11771,7 +12640,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11797,7 +12671,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11824,7 +12703,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11850,7 +12734,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11877,7 +12766,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11904,7 +12798,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11931,7 +12830,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11957,7 +12861,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -11985,7 +12894,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12012,7 +12926,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12040,7 +12959,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12068,7 +12992,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12096,7 +13025,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12123,7 +13057,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12151,7 +13090,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12179,7 +13123,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12204,7 +13153,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12233,7 +13187,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12260,7 +13219,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12289,7 +13253,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12317,7 +13286,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12345,7 +13319,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12372,7 +13351,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12400,7 +13384,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12428,7 +13417,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12457,7 +13451,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12484,7 +13483,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12513,7 +13517,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12541,7 +13550,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12569,7 +13583,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12597,7 +13616,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12624,7 +13648,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12651,7 +13680,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12678,7 +13712,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12705,7 +13744,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12732,7 +13776,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12758,7 +13807,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           },
           {
@@ -12781,7 +13835,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
@@ -12799,7 +13858,12 @@
         "mounted_via": [
           {
             "path": "infera-crm/src/router.rs",
-            "line": 38,
+            "line": 20,
+            "function": "application"
+          },
+          {
+            "path": "infera-crm/src/router.rs",
+            "line": 71,
             "function": "routes"
           }
         ]
@@ -13302,11 +14366,11 @@
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {
-    "infera-crm/src/router.rs:123:status_route": {
+    "infera-crm/src/router.rs:157:status_route": {
       "name": "status_route",
       "path": "infera-crm/src/router.rs",
-      "line": 123,
-      "end_line": 131,
+      "line": 157,
+      "end_line": 165,
       "signature": "async fn status_route() -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [],
@@ -13314,24 +14378,24 @@
       "state": [
         {
           "path": "infera-crm/src/router.rs",
-          "line": 125,
+          "line": 159,
           "expression": "status: \"success\".to_string(),"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-crm/src/router.rs:133:readiness_route": {
+    "infera-crm/src/router.rs:167:readiness_route": {
       "name": "readiness_route",
       "path": "infera-crm/src/router.rs",
-      "line": 133,
-      "end_line": 161,
+      "line": 167,
+      "end_line": 195,
       "signature": "async fn readiness_route(State(state): State<AppState>) -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-crm/src/router.rs",
-          "line": 153,
+          "line": 187,
           "expression": "\"message\": if ready { \"Service ready\" } else { \"A required dependency is unavailable\" },"
         }
       ],
@@ -13339,47 +14403,47 @@
       "state": [
         {
           "path": "infera-crm/src/router.rs",
-          "line": 134,
+          "line": 168,
           "expression": "use sea_orm::{ConnectionTrait, DbBackend, Statement};"
         },
         {
           "path": "infera-crm/src/router.rs",
-          "line": 136,
+          "line": 170,
           "expression": "let database_ready = state"
         },
         {
           "path": "infera-crm/src/router.rs",
-          "line": 138,
+          "line": 172,
           "expression": ".query_one(Statement::from_string(DbBackend::Postgres, \"SELECT 1\"))"
         },
         {
           "path": "infera-crm/src/router.rs",
-          "line": 141,
+          "line": 175,
           "expression": "let broker_ready = state.broker_channel.status().connected();"
         },
         {
           "path": "infera-crm/src/router.rs",
-          "line": 143,
+          "line": 177,
           "expression": "let status = if ready {"
         },
         {
           "path": "infera-crm/src/router.rs",
-          "line": 144,
+          "line": 178,
           "expression": "StatusCode::OK"
         },
         {
           "path": "infera-crm/src/router.rs",
-          "line": 146,
+          "line": 180,
           "expression": "StatusCode::SERVICE_UNAVAILABLE"
         },
         {
           "path": "infera-crm/src/router.rs",
-          "line": 150,
+          "line": 184,
           "expression": "status,"
         },
         {
           "path": "infera-crm/src/router.rs",
-          "line": 152,
+          "line": 186,
           "expression": "\"status\": if ready { \"success\" } else { \"unavailable\" },"
         }
       ],
@@ -17612,11 +18676,6 @@
           "path": "infera-crm/src/api/operations.rs",
           "line": 556,
           "expression": "let resolved = authorize("
-        },
-        {
-          "path": "infera-crm/src/api/operations.rs",
-          "line": 562,
-          "expression": "!resolved.has_permission(\"crm:admin\") && !resolved.has_permission(\"crm:task:read_all\");"
         }
       ],
       "validation": [
@@ -21998,11 +23057,6 @@
         },
         {
           "path": "infera-crm/src/api/routes.rs",
-          "line": 390,
-          "expression": "!resolved.has_permission(\"crm:admin\") && !resolved.has_permission(\"crm:lead:read_all\");"
-        },
-        {
-          "path": "infera-crm/src/api/routes.rs",
           "line": 400,
           "expression": "let sql = format!(\"{LEAD_SELECT} WHERE workspace_id=$1 AND deleted_at IS NULL AND ($2::uuid IS NULL OR id>$2) AND ($3::uuid IS NULL OR pipeline_id=$3) AND ($4::uuid IS NULL OR stage_id=$4) AND ($5::text IS NULL OR status=$5) AND ($6::uuid IS NULL OR team_id=$6) AND ($7::uuid IS NULL OR owner_user_id=$7) AND ($8::text IS NULL OR title ILIKE '%'||$8||'%' OR first_name ILIKE '%'||$8||'%' OR last_name ILIKE '%'||$8||'%' OR company_name ILIKE '%'||$8||'%' OR email ILIKE '%'||$8||'%') AND (NOT $9 OR owner_user_id=$10) AND ($11::text IS NULL OR status=ANY(string_to_array($11,',')) OR custom_data->>'task_status'=ANY(string_to_array($11,','))) AND ($12::uuid IS NULL OR profile_id=$12 OR contact_id IN"
         },
@@ -22429,11 +23483,6 @@
           "path": "infera-crm/src/api/routes.rs",
           "line": 452,
           "expression": "let resolved = authorize("
-        },
-        {
-          "path": "infera-crm/src/api/routes.rs",
-          "line": 458,
-          "expression": "!resolved.has_permission(\"crm:admin\") && !resolved.has_permission(\"crm:lead:read_all\");"
         },
         {
           "path": "infera-crm/src/api/routes.rs",
@@ -25325,11 +26374,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-crm/src/router.rs:111:api_not_found": {
+    "infera-crm/src/router.rs:145:api_not_found": {
       "name": "api_not_found",
       "path": "infera-crm/src/router.rs",
-      "line": 111,
-      "end_line": 121,
+      "line": 145,
+      "end_line": 155,
       "signature": "async fn api_not_found() -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [],
@@ -25337,7 +26386,7 @@
       "state": [
         {
           "path": "infera-crm/src/router.rs",
-          "line": 113,
+          "line": 147,
           "expression": "StatusCode::NOT_FOUND,"
         }
       ],

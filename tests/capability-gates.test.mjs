@@ -210,3 +210,14 @@ test('malformed consumer evidence fails closed without crashing the release chec
   assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'blocked');
  }
 });
+
+test('claiming a selected source cannot certify a different actual evidence inventory',()=>{
+ const f=reviewedFixture();const data=f.services.example;
+ data.inventory_revision='fresh-main';data.source_tree_checksum='actual-compiler-inputs';
+ data.source_decision.source_tree_checksum=data.source_tree_checksum;
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/actual inventory revision and compiler inputs/);
+ data.inventory_revision=data.source_decision.revision;
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'passed');
+ data.source_decision.source_tree_checksum='older-inputs';
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/actual inventory revision and compiler inputs/);
+});

@@ -12,6 +12,10 @@
     "src/routes.rs",
     "src/policy.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "2f21a6fa5012d17e4b355369969b30d002bf3b6c",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "63201e112a1e640cab8454b168bbefe52ebab7bc",
   "sdk_source_revision": "2f21a6fa5012d17e4b355369969b30d002bf3b6c",
   "working_revision": "afe576aac58ff0812635dedccfdcaed39519062a",
@@ -30,7 +34,7 @@
     "?? src/summary_evidence.sql"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "4f613aa2f827362f1226d9479137c865b4af3beaf8fc6685a6304bf2288b381c",
+  "source_tree_checksum": "8b46fd69279f9c05534e9a810b4c51cb141d0cfb294e280e29144ea5482bd166",
   "source_files": [
     {
       "path": "infera-task/src/assistant.rs",
@@ -46,7 +50,7 @@
     },
     {
       "path": "infera-task/src/auth.rs",
-      "checksum": "708af7e2eca48c91311f7a30ea32c43cf4a7195e2aa0af086106b641dec414d5"
+      "checksum": "9cfe58b16d3f68aa0efdbe3602b0715b8be8a8a8b77f49c70dfce65c1338c1a3"
     },
     {
       "path": "infera-task/src/cli.rs",
@@ -61,8 +65,16 @@
       "checksum": "cda72fae7b803dafbeb2cab9e213e61951dfbdd8c40a7f804c07f1602d1d8d62"
     },
     {
+      "path": "infera-task/src/feedback/directory.rs",
+      "checksum": "c7c05fb7c1ae90ce463d97efb0915ef25f0db81629b024624cc1c551406405cd"
+    },
+    {
+      "path": "infera-task/src/feedback/identity_binding.rs",
+      "checksum": "26425ea105cea2669a24b5615ef96f50daad9afb066a74654d824753c6acd40d"
+    },
+    {
       "path": "infera-task/src/feedback/mod.rs",
-      "checksum": "67c597a6cb930a961dc0ae9867bf44a1c7c0f95ff92d62db90215822b231da75"
+      "checksum": "56fe1b409d0a65f5e0c6eb0f5efc7aa9713e7aaf8981890bb4edcceb6350b00e"
     },
     {
       "path": "infera-task/src/feedback/models.rs",
@@ -70,11 +82,11 @@
     },
     {
       "path": "infera-task/src/feedback/notifications.rs",
-      "checksum": "6422c0742c56e20fa20d2d1d222b810eec11a48a081af59a20a52754fd0ec15a"
+      "checksum": "6944c12f6ec7dd559ecc9ad6aa9cc83edbd725ee449f83bd9852dfad9fc693bc"
     },
     {
       "path": "infera-task/src/feedback/routes.rs",
-      "checksum": "c9470adf4379f80172aabb5e09b3e3c2adb3792495910ae71cfae328285461fc"
+      "checksum": "0a18b1a1b01a6a385b8b1c64b8b44d74ade104b87476fd2bde0b9a79c8ecdf3f"
     },
     {
       "path": "infera-task/src/feedback/storage.rs",
@@ -82,7 +94,7 @@
     },
     {
       "path": "infera-task/src/lib.rs",
-      "checksum": "10d4a4a293a08fdfc565c58ce353afb8bf53086aae71ec3b91dbbe17d87c6a21"
+      "checksum": "6bc00a933be12fcfac3a4dd86ae6946f17e8c0f86d66eb61e1403f1c50aa5f22"
     },
     {
       "path": "infera-task/src/main.rs",
@@ -150,7 +162,7 @@
     },
     {
       "path": "infera-task/src/routes.rs",
-      "checksum": "2944161cfad2a0c9eb14e46523b3890497ffd5c4cec67936c3d8dfb446bb33e4"
+      "checksum": "166eb2a1872e7af7dc64369c2c4f4fd613f4e652c9ca64a559f81746dd2094f3"
     },
     {
       "path": "infera-task/src/source_imports.rs",
@@ -162,7 +174,23 @@
     },
     {
       "path": "infera-task/src/state.rs",
-      "checksum": "3553365d804e452963b19e3dda7defe2da06ac8310f6e136d4aa78d8964f10c5"
+      "checksum": "4e4fa83d44b35b42864669cded3e28fd8471a4ebad1ecd26abb6d83ac9fa5b78"
+    },
+    {
+      "path": "infera-task/src/summary_aggregates.sql",
+      "checksum": "eeeb486efd853e486cc41876dee88e7df490b562e1c849606de21a424c99d974"
+    },
+    {
+      "path": "infera-task/src/summary_evidence.rs",
+      "checksum": "3b7120134408810f0fe2973c4606e9727389b8c9249d72846e718e4f91f62c1c"
+    },
+    {
+      "path": "infera-task/src/summary_evidence.sql",
+      "checksum": "f054350456047c0b3243956ebf8a245bf17869b9f061d28250ca6a5c1c67b4c6"
+    },
+    {
+      "path": "infera-task/src/summary_query.rs",
+      "checksum": "b36c72231af14225a3f41c1dca3de8c6b38d107934a29745e5a29c06ea096eb2"
     },
     {
       "path": "infera-task/src/trial_gifts.rs",
@@ -189,8 +217,72 @@
       "checksum": "037882ef2c125badd054138e5fe9155c04748d601777ee6bce8107760e38c9b6"
     },
     {
+      "path": "infera-task/shared/infera-summary-sdk/Cargo.toml",
+      "checksum": "f8f49adcda1bbb77fc5e853e53ca05665c4a9dbda098af238cc425f8079b81e6"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/examples/generate_keys.rs",
+      "checksum": "2c055ce4f3f56b75fd58c413924d933098df1a5f5030d46534aa40e406ea8465"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/api.rs",
+      "checksum": "80d5512679333b5dfd0d0b50070f590a1049b8d10c6937366092d271f94ca3de"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/catalog.rs",
+      "checksum": "28f3b4b57b2c2dd7bc1309af471c6514afe1ca8fe70e3727735afc257b18d2e1"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/config.rs",
+      "checksum": "63b94a830ac8c0af99fc86fc71953659bda67c83c5f52158cd74b5d31a1f0645"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/evidence.rs",
+      "checksum": "b67c8d9ecea944f57663ab3d9ec8686f3d92511bea4531f5979050738275ee09"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/grant.rs",
+      "checksum": "4ec08323843172e92a6ee63e1e9f588b03224b1f79046599ff3780de2d7b220c"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/lib.rs",
+      "checksum": "98f8cc59a5520486b70a0a308d96e1375a8755e3761b8561d6061ea968409adb"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/metric.rs",
+      "checksum": "db361bceb5387c75b1da6f0af699cb78c24504e2574d7fd99c1895ef29365d32"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/native_identity.rs",
+      "checksum": "40696b937098d29860aac3de3a04a86a69f2da02f89ff6d2a125a70e97b9c187"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/outbox.rs",
+      "checksum": "2bc0a036e1f6831ce079d9045949d2af99ea064b424e929a776e4a179b9429c8"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/outbox.sql",
+      "checksum": "6624b4c4b2a720870293058d06f4eea46f85f985ddbeb475eff3b4f61d26963a"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/query.rs",
+      "checksum": "1b41835d869b2efd44aaf7d3f78cdf974c38bebf748b20a967beca0b26adf93c"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/result.rs",
+      "checksum": "46600a6ce2347c0dd621a45972fa94ae624497b2d1b6f02c37f0d5a72b24f981"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/src/server.rs",
+      "checksum": "edadbfe69af77f695443631c04e26024046ee521ad402669596f0fa372387738"
+    },
+    {
+      "path": "infera-task/shared/infera-summary-sdk/tests/mcp_transport.rs",
+      "checksum": "1eb543cda949cf4722d4856c316d3d32ccb9ca45b0dd3284cc15c8113ad78ee4"
+    },
+    {
       "path": "infera-task/migration/src/lib.rs",
-      "checksum": "3f9532fc7e98774f624fe32782331723149dede8e5dee5c9c55c2c0b03df4c6d"
+      "checksum": "5e998fb4a94ba10c1b192879ec9f17f31c10d1b5937d79f38fa8047322760d1d"
     },
     {
       "path": "infera-task/migration/src/m20260812_000001_create_task_domain.rs",
@@ -305,16 +397,24 @@
       "checksum": "12423f711082168ba867244de8cad546342173b10e895819cc2a5018963c9802"
     },
     {
+      "path": "infera-task/migration/src/m20261019_000050_summary_activity_outbox.rs",
+      "checksum": "d34aea1cfd4e73327b67d9f778d3e633be872c510704d15ef45b011d4edb05e7"
+    },
+    {
+      "path": "infera-task/migration/src/m20261020_000052_feedback_notification_leases.rs",
+      "checksum": "f776157e023f61afac3a38eeac0c0867a4faaa7457f46063cf27f3e53f8438ab"
+    },
+    {
       "path": "infera-task/migration/src/main.rs",
       "checksum": "9f0ce6ada5b4c42d0fd729da8d37b1e76b2046e8466be167307d519ad5c8404e"
     },
     {
       "path": "infera-task/Cargo.toml",
-      "checksum": "9951b94425aef2ba89d2a8ba3bb606d4441f28e9ed560a84059857cdbca0b95f"
+      "checksum": "84eda812b6129f0aa3a618ecffb0fb08c7c951615326c562a63bb1d67b9f7fc3"
     },
     {
       "path": "infera-task/Cargo.lock",
-      "checksum": "daad91d12a8b4c70af8dd1f66bc4042332fcbd3e85b5eb44febfc2aa9e1a536b"
+      "checksum": "b4de8f9b36fd49c0e79c1c41a596ec6552952a7705cea65ffd1835bf3402fa3b"
     },
     {
       "path": "infera-task/entity/Cargo.toml",
@@ -325,9 +425,72 @@
       "checksum": "9bffff003004ebf567d92913dc997286b8b73bcf15612060f83f5b0e45cfe410"
     }
   ],
-  "protocol_mounts": [],
+  "protocol_mounts": [
+    {
+      "path": "/mcp",
+      "source": "infera-task/shared/infera-summary-sdk/src/server.rs",
+      "function": "router",
+      "service_expression": " service",
+      "conditions": [
+        {
+          "expression": "state.db",
+          "pattern": "crate::state::TaskDatabase::Pool(db)",
+          "path": "infera-task/src/summary_evidence.rs",
+          "line": 2
+        }
+      ],
+      "mounted_via": [
+        {
+          "path": "infera-task/src/routes.rs",
+          "line": 42,
+          "function": "app"
+        },
+        {
+          "path": "infera-task/src/summary_evidence.rs",
+          "line": 2,
+          "function": "routes"
+        },
+        {
+          "path": "infera-task/shared/infera-summary-sdk/src/server.rs",
+          "line": 121,
+          "function": "router"
+        }
+      ],
+      "id": "PROTOCOL /mcp [state.db=crate::state::TaskDatabase::Pool(db)]",
+      "source_checksum": "8b46fd69279f9c05534e9a810b4c51cb141d0cfb294e280e29144ea5482bd166",
+      "review": null
+    },
+    {
+      "path": "/mcp",
+      "source": "infera-task/src/summary_evidence.rs",
+      "conditions": [
+        {
+          "expression": "state.db",
+          "pattern": "crate::state::TaskDatabase::Transaction(_)",
+          "path": "infera-task/src/summary_evidence.rs",
+          "line": 2
+        }
+      ],
+      "behavior": "HTTP503: request-scoped batch transactions cannot host long-lived MCP",
+      "mounted_via": [
+        {
+          "path": "infera-task/src/routes.rs",
+          "line": 42,
+          "function": "app"
+        },
+        {
+          "path": "infera-task/src/summary_evidence.rs",
+          "line": 2,
+          "function": "routes"
+        }
+      ],
+      "id": "PROTOCOL /mcp [state.db=crate::state::TaskDatabase::Transaction(_)]",
+      "source_checksum": "8b46fd69279f9c05534e9a810b4c51cb141d0cfb294e280e29144ea5482bd166",
+      "review": null
+    }
+  ],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "46aeba38790838f9b8d2ab542f71d344134ae6a86032cd759974fb7f5cdd556b",
@@ -590,7 +753,7 @@
           }
         ]
       },
-      "source_checksum": "daf17cd0142c54338653fe754260d1ce29060c69c4c1cae7f5d06f4fe8e6c3ab",
+      "source_checksum": "16930290f70f5c2f600b4c4e3a6c700ff9478b0fb38f1103023d1b2a77de35a8",
       "handler": {
         "ref": "infera-task/src/trial_gifts.rs:147:list",
         "path": "infera-task/src/trial_gifts.rs",
@@ -659,7 +822,7 @@
           }
         ]
       },
-      "source_checksum": "3086d514c1710c2b77cc3835aefdd981e31453dfc99d0ce100342a3aa099fec7",
+      "source_checksum": "5eea4f36fc3b2d272989d0e42b0ed8d619696f3a36dd41dce8f8841bfb77ba10",
       "handler": {
         "ref": "infera-task/src/trial_gifts.rs:215:create",
         "path": "infera-task/src/trial_gifts.rs",
@@ -735,7 +898,7 @@
           }
         ]
       },
-      "source_checksum": "25b6677efbf5ff77efb4cfbd90aab30de392a402019cfb4a77be8b8efccca834",
+      "source_checksum": "568b2aaccd962c820c17016c1c0b3123cba4463206405420d3925c71a1270f85",
       "handler": {
         "ref": "infera-task/src/trial_gifts.rs:200:show",
         "path": "infera-task/src/trial_gifts.rs",
@@ -798,7 +961,7 @@
           }
         ]
       },
-      "source_checksum": "bbbf9b4541575def43358730eca122bcde74804d6f88e978ba909cfcca86ed08",
+      "source_checksum": "63a3b8a27d1471a836f091f01abad2de5fd4578f067da0da5581138b65b3f20e",
       "handler": {
         "ref": "infera-task/src/trial_gifts.rs:263:update",
         "path": "infera-task/src/trial_gifts.rs",
@@ -871,7 +1034,7 @@
           }
         ]
       },
-      "source_checksum": "f9edcb2cd2f80a311e47da562514506896189b4b11f7f5a11ab5cb8cdc6afe96",
+      "source_checksum": "83da0bee48f25ba15671a12c7def0fb8483cd34413574108375b05385e5500c5",
       "handler": {
         "ref": "infera-task/src/memory_usage.rs:258:reserve_internal",
         "path": "infera-task/src/memory_usage.rs",
@@ -954,7 +1117,7 @@
           }
         ]
       },
-      "source_checksum": "e5afdfee3f54a68ca02749f5857d6e5d116a6fe90e1a09b14c158a85478da174",
+      "source_checksum": "1e0658d36c6a89716c5c45a46425e2dd036488f7b030a050f0555475b20caf60",
       "handler": {
         "ref": "infera-task/src/memory_usage.rs:304:settle_internal",
         "path": "infera-task/src/memory_usage.rs",
@@ -1044,7 +1207,7 @@
           }
         ]
       },
-      "source_checksum": "4612ecaf6a3c894647b5df4722f089e76d764ec32f47f109bd5c33be797bdb4d",
+      "source_checksum": "8ffc630a6a63b550e0cd1f619fb0854c3443b02f342ae8e86ce9dcd9914f5eb4",
       "handler": {
         "ref": "infera-task/src/plans.rs:384:reserve",
         "path": "infera-task/src/plans.rs",
@@ -1127,7 +1290,7 @@
           }
         ]
       },
-      "source_checksum": "623311533512f7c2298835590ae32fe5ff50ae2fdfdb7179a9c4424d3f2b6ff6",
+      "source_checksum": "8826a4f55d3072dc645b5160be3d2b22dea9c8f95835a77fcdfeb0bc3b5b88a3",
       "handler": {
         "ref": "infera-task/src/plans.rs:421:finish",
         "path": "infera-task/src/plans.rs",
@@ -1199,11 +1362,11 @@
           }
         ]
       },
-      "source_checksum": "81a46f2dca7db9e50a62b5dfe8c95f338e3f396602723271e2caf4f6166ce0f1",
+      "source_checksum": "cc2a23d06f8f3af3ebf7c5d64fe65ea81fecd84dba4604c109da4b44a639a523",
       "handler": {
-        "ref": "infera-task/src/routes.rs:198:live",
+        "ref": "infera-task/src/routes.rs:297:live",
         "path": "infera-task/src/routes.rs",
-        "line": 198,
+        "line": 297,
         "name": "live"
       },
       "related_implementation": [],
@@ -1262,11 +1425,11 @@
           }
         ]
       },
-      "source_checksum": "22fa4d07cd74edd0e57e715c246e409120efd379c395ccfa5470e46ed67add7f",
+      "source_checksum": "d6ac252a0fc79828cb740a552cbeb7c2ca53d1a3e56662640f1e117814c89f43",
       "handler": {
-        "ref": "infera-task/src/routes.rs:205:ready",
+        "ref": "infera-task/src/routes.rs:304:ready",
         "path": "infera-task/src/routes.rs",
-        "line": 205,
+        "line": 304,
         "name": "ready"
       },
       "related_implementation": [],
@@ -1313,11 +1476,11 @@
           }
         ]
       },
-      "source_checksum": "91058796ad245739dbdc84a84b7a932f8ec183d981cab61bdf6a303a4825fafe",
+      "source_checksum": "da520b3edfd379ab5c711f1b6110fce0d3d1d52817f0f1d5059c5383ed80e589",
       "handler": {
-        "ref": "infera-task/src/routes.rs:205:ready",
+        "ref": "infera-task/src/routes.rs:304:ready",
         "path": "infera-task/src/routes.rs",
-        "line": 205,
+        "line": 304,
         "name": "ready"
       },
       "related_implementation": [],
@@ -1364,11 +1527,11 @@
           }
         ]
       },
-      "source_checksum": "15fd42a4c6b0abe8a425148ee72e11b9ea5131e85f9d074569b5da8c0217c2a5",
+      "source_checksum": "b6591b703d88a7c4c393045d3e9ef0d51126b654a31bdb101180b2c865760d9c",
       "handler": {
-        "ref": "infera-task/src/routes.rs:217:metrics",
+        "ref": "infera-task/src/routes.rs:316:metrics",
         "path": "infera-task/src/routes.rs",
-        "line": 217,
+        "line": 316,
         "name": "metrics"
       },
       "related_implementation": [],
@@ -1416,11 +1579,11 @@
           }
         ]
       },
-      "source_checksum": "74efcf7040491f388e90f3135a976dec51fee03cb5e4807a5e38ace807c566cb",
+      "source_checksum": "4d9342532e36b5a4d05ffac442828bb3a5e949440f46a2a69741566345ff43dd",
       "handler": {
-        "ref": "infera-task/src/routes.rs:228:openapi",
+        "ref": "infera-task/src/routes.rs:327:openapi",
         "path": "infera-task/src/routes.rs",
-        "line": 228,
+        "line": 327,
         "name": "openapi"
       },
       "related_implementation": [
@@ -1493,11 +1656,11 @@
           }
         ]
       },
-      "source_checksum": "40ec79f0f674e61ad7106af5b7a1e2b33e7c2f66e7f35403323e944217e532a4",
+      "source_checksum": "31dd4c2b6c5b00af02923a7bb74a402d86378fbf3f6f311026da689bae909850",
       "handler": {
-        "ref": "infera-task/src/routes.rs:233:use_guest_link",
+        "ref": "infera-task/src/routes.rs:332:use_guest_link",
         "path": "infera-task/src/routes.rs",
-        "line": 233,
+        "line": 332,
         "name": "use_guest_link"
       },
       "related_implementation": [
@@ -1576,11 +1739,11 @@
           }
         ]
       },
-      "source_checksum": "cd4526175b67d01c3129d3c905029e1f6df28a2dda5abe19c22ddf8b68848ce0",
+      "source_checksum": "2972105401b40127614fc2bccad5a3edf58569ba001d345ad6ad4fd41384f82a",
       "handler": {
-        "ref": "infera-task/src/feedback/routes.rs:41:capabilities",
+        "ref": "infera-task/src/feedback/routes.rs:44:capabilities",
         "path": "infera-task/src/feedback/routes.rs",
-        "line": 41,
+        "line": 44,
         "name": "capabilities"
       },
       "related_implementation": [
@@ -1606,7 +1769,23 @@
           "call": "crate::policy::ResourceScope::default",
           "evidence": null,
           "unresolved": true,
-          "candidates": []
+          "candidates": [
+            {
+              "name": "default",
+              "path": "infera-task/shared/infera-summary-sdk/src/config.rs",
+              "line": 128
+            },
+            {
+              "name": "default",
+              "path": "infera-task/shared/infera-summary-sdk/src/config.rs",
+              "line": 149
+            },
+            {
+              "name": "default",
+              "path": "infera-task/shared/infera-summary-sdk/src/config.rs",
+              "line": 174
+            }
+          ]
         }
       ],
       "schemas": {
@@ -1663,11 +1842,11 @@
           }
         ]
       },
-      "source_checksum": "3f6ba2ef793983cf1097a8dc955a685a82dc5149e627ce014324d012577f6381",
+      "source_checksum": "faac05bc1b05f2625fc367d876cca19b6c16ab1ad50e6207e052c05312b1ccbd",
       "handler": {
-        "ref": "infera-task/src/feedback/routes.rs:66:get_policy",
+        "ref": "infera-task/src/feedback/routes.rs:69:get_policy",
         "path": "infera-task/src/feedback/routes.rs",
-        "line": 66,
+        "line": 69,
         "name": "get_policy"
       },
       "related_implementation": [
@@ -1736,11 +1915,11 @@
           }
         ]
       },
-      "source_checksum": "14a8fb5f426c43eae56415fe00aded844829bb74bf879cfa3715d3320e400c2e",
+      "source_checksum": "7bdaaecc586b6a993b43318e2313d3c53a8ae1e36225bbebe9dd3bce5d9d910e",
       "handler": {
-        "ref": "infera-task/src/feedback/routes.rs:99:put_policy",
+        "ref": "infera-task/src/feedback/routes.rs:102:put_policy",
         "path": "infera-task/src/feedback/routes.rs",
-        "line": 99,
+        "line": 102,
         "name": "put_policy"
       },
       "related_implementation": [
@@ -1756,9 +1935,9 @@
         {
           "call": "crate::routes::expected_version",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:249:expected_version",
+            "ref": "infera-task/src/routes.rs:348:expected_version",
             "path": "infera-task/src/routes.rs",
-            "line": 249,
+            "line": 348,
             "name": "expected_version"
           }
         },
@@ -1838,11 +2017,11 @@
           }
         ]
       },
-      "source_checksum": "bb7de108eed62faaad15b47e0c47f9ab170781daa7259465650ab2f9011bd844",
+      "source_checksum": "dd701e8db36c2142eda2737c6534e6f8ac1a0050a238f25ede9fd778f91162a1",
       "handler": {
-        "ref": "infera-task/src/feedback/routes.rs:141:index",
+        "ref": "infera-task/src/feedback/routes.rs:144:index",
         "path": "infera-task/src/feedback/routes.rs",
-        "line": 141,
+        "line": 144,
         "name": "index"
       },
       "related_implementation": [],
@@ -1919,11 +2098,11 @@
           }
         ]
       },
-      "source_checksum": "4a0a467c1736e0ede3e397904b92a3bb9dec0795e9d0580f82d71abfeef7d162",
+      "source_checksum": "13d3b666376d57d94710aa32370bbb046d70eba21da39b41f3be1573592cb5f0",
       "handler": {
-        "ref": "infera-task/src/feedback/routes.rs:148:create",
+        "ref": "infera-task/src/feedback/routes.rs:151:create",
         "path": "infera-task/src/feedback/routes.rs",
-        "line": 148,
+        "line": 151,
         "name": "create"
       },
       "related_implementation": [],
@@ -2006,11 +2185,11 @@
           }
         ]
       },
-      "source_checksum": "129d79834a4e1ec825fb3b4eaf68445ca9e0a7b497e18f2e2e62355be565f571",
+      "source_checksum": "4381501faf2f7c6fc004818f7b713484cfa4ad20ab3990659192b0a855d8a550",
       "handler": {
-        "ref": "infera-task/src/feedback/routes.rs:156:show",
+        "ref": "infera-task/src/feedback/routes.rs:159:show",
         "path": "infera-task/src/feedback/routes.rs",
-        "line": 156,
+        "line": 159,
         "name": "show"
       },
       "related_implementation": [],
@@ -2081,11 +2260,11 @@
           }
         ]
       },
-      "source_checksum": "e3b0c8f689ffe94cb291bd53da187069b09b9a89c459225787c38535f7b93914",
+      "source_checksum": "9ee9e629485dc92fb3cf098bdea4e10b62bb82dd3cf444f14d9dd3c991bf2b91",
       "handler": {
-        "ref": "infera-task/src/feedback/routes.rs:163:decision",
+        "ref": "infera-task/src/feedback/routes.rs:166:decision",
         "path": "infera-task/src/feedback/routes.rs",
-        "line": 163,
+        "line": 166,
         "name": "decision"
       },
       "related_implementation": [],
@@ -2158,7 +2337,7 @@
           }
         ]
       },
-      "source_checksum": "dba7570fc4c5f47eeab4a6afecbddddd72a4dfeb96a5e8365e1445d5f3ddba0e",
+      "source_checksum": "eb1a338b2256a1c9db85da7dcd033af5be45d7b02c1b40609fa82596a6afb967",
       "handler": {
         "ref": "infera-task/src/feedback/storage.rs:122:content",
         "path": "infera-task/src/feedback/storage.rs",
@@ -2221,7 +2400,7 @@
           }
         ]
       },
-      "source_checksum": "009a1ff820a7e640fd62987910925a95e128df143a9216d738e27e59f0670e29",
+      "source_checksum": "2f1e6cb190894e6654853dd5b76ae8e850e60a6c479586ff9c1891f38f6a9544",
       "handler": {
         "ref": "infera-task/src/feedback/storage.rs:23:initialize",
         "path": "infera-task/src/feedback/storage.rs",
@@ -2303,7 +2482,7 @@
           }
         ]
       },
-      "source_checksum": "a2d215688c592ce5bdc170b3a1139da1a6959a92c272a46817ba272ca3d1b23b",
+      "source_checksum": "8a8fecd0ef736f55ce75ee7ac9ea4d7d40ffe764f47737c4545c2e7fddbef963",
       "handler": {
         "ref": "infera-task/src/feedback/storage.rs:92:upload",
         "path": "infera-task/src/feedback/storage.rs",
@@ -2377,7 +2556,7 @@
           }
         ]
       },
-      "source_checksum": "1c32dedeaf3b2abaecec48b1acd834aee7dcf1368a4067946bb52ff62f409594",
+      "source_checksum": "eccb55e3b55c56e658955ce0ebe6256a739c4c90555a631392d12b69b0ef7500",
       "handler": {
         "ref": "infera-task/src/feedback/storage.rs:108:complete",
         "path": "infera-task/src/feedback/storage.rs",
@@ -2450,11 +2629,11 @@
           }
         ]
       },
-      "source_checksum": "c9fa61033c18e1b504d677dec5376fcce0af63ab3e960eb2edc029acf6251550",
+      "source_checksum": "35b64c66370c08f0e479669d7d15d936a5422d235f6910ca39d570c2691d2515",
       "handler": {
-        "ref": "infera-task/src/feedback/routes.rs:172:assignees",
+        "ref": "infera-task/src/feedback/routes.rs:175:assignees",
         "path": "infera-task/src/feedback/routes.rs",
-        "line": 172,
+        "line": 175,
         "name": "assignees"
       },
       "related_implementation": [
@@ -2517,7 +2696,7 @@
           }
         ]
       },
-      "source_checksum": "3db3fae45faae65bc02cfb876b9455900b3c6f446571b417c210ca6659f275f5",
+      "source_checksum": "e61b223e5fd6cb1161248781d515b2cd4ddca27d251a8924992f9394580f829c",
       "handler": {
         "ref": "infera-task/src/attachments.rs:32:config",
         "path": "infera-task/src/attachments.rs",
@@ -2528,9 +2707,9 @@
         {
           "call": "crate::routes::require_global",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:242:require_global",
+            "ref": "infera-task/src/routes.rs:341:require_global",
             "path": "infera-task/src/routes.rs",
-            "line": 242,
+            "line": 341,
             "name": "require_global"
           }
         },
@@ -2621,7 +2800,7 @@
           }
         ]
       },
-      "source_checksum": "36903a60f621eeb712cc7aefea62442b0dc41b01db7bb767d25f9385d59b22ee",
+      "source_checksum": "b72c5dcbacb46c8f8499ad4c21348b754a54b9d057dc95d903dfdd237fc7579b",
       "handler": {
         "ref": "infera-task/src/plans.rs:329:get",
         "path": "infera-task/src/plans.rs",
@@ -2696,7 +2875,7 @@
           }
         ]
       },
-      "source_checksum": "60fd1304e745ff54c448c3eac0b2dd2d1ec097f3284c4c2e23b3fc237b126ad0",
+      "source_checksum": "eb37a75135db3169e01d6fa7cfb0795b4ec66daf29e5d18b779c7c91543c91ae",
       "handler": {
         "ref": "infera-task/src/memory_usage.rs:223:own",
         "path": "infera-task/src/memory_usage.rs",
@@ -2767,7 +2946,7 @@
           }
         ]
       },
-      "source_checksum": "af405a682bd58030f50a0b571f232c495debb8b53b8e767ecae1c4edf8187384",
+      "source_checksum": "57ce6c23195534a7255caaa5c23f96640f8e6b06e008fbe545525b1701d9eae8",
       "handler": {
         "ref": "infera-task/src/memory_usage.rs:235:catalog",
         "path": "infera-task/src/memory_usage.rs",
@@ -2778,9 +2957,9 @@
         {
           "call": "crate::routes::require_global",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:242:require_global",
+            "ref": "infera-task/src/routes.rs:341:require_global",
             "path": "infera-task/src/routes.rs",
-            "line": 242,
+            "line": 341,
             "name": "require_global"
           }
         }
@@ -2842,7 +3021,7 @@
           }
         ]
       },
-      "source_checksum": "d7e6e8d10db9c43a950d651bc5a82de6852db26a8e2276ac09b5318f3c128705",
+      "source_checksum": "f25514bcb4965994ce2225dca4dfc01e2dbb21e92521ae207a9a9c3674ade181",
       "handler": {
         "ref": "infera-task/src/memory_usage.rs:236:configure",
         "path": "infera-task/src/memory_usage.rs",
@@ -2946,7 +3125,7 @@
           }
         ]
       },
-      "source_checksum": "5bcbdc71ed782b12846d24822cd21d2107417637e89b0cff5040a64d51a6a0c0",
+      "source_checksum": "26c5612a769e3329d54809e9ca671736b686c5e0b9019a83a30a949aa8bd07b3",
       "handler": {
         "ref": "infera-task/src/plan_reports.rs:37:users",
         "path": "infera-task/src/plan_reports.rs",
@@ -3032,7 +3211,7 @@
           }
         ]
       },
-      "source_checksum": "38fa39e0306a646f27ffc7819b33dc50f19611b4a2642160d49669ff24ddd1c8",
+      "source_checksum": "0863080d804c3e5eef232964c948b2d9c3e410fd2746e9b2e4c710d2d15aeaef",
       "handler": {
         "ref": "infera-task/src/plan_reports.rs:94:income",
         "path": "infera-task/src/plan_reports.rs",
@@ -3111,7 +3290,7 @@
           }
         ]
       },
-      "source_checksum": "f424a1e3eaaa1073b2ad27e2524f74547de0a2057b2baed359b328bd133c296a",
+      "source_checksum": "d5d488f39b593918a9239a0236e3ee3cedbd7d06fcea68f298e33f98a9cbdb08",
       "handler": {
         "ref": "infera-task/src/plans.rs:465:redeem",
         "path": "infera-task/src/plans.rs",
@@ -3198,7 +3377,7 @@
           }
         ]
       },
-      "source_checksum": "0dc0c3344ce8a4bee055f6634335367fc415bbfdf5cbf14b64caa65093633e9e",
+      "source_checksum": "e92e97b5efd7193709a6256b521fb6abf81af2f76a4cc62f4bf26728903ecb5e",
       "handler": {
         "ref": "infera-task/src/plans.rs:510:gift",
         "path": "infera-task/src/plans.rs",
@@ -3266,7 +3445,7 @@
           }
         ]
       },
-      "source_checksum": "a10abcdcc778b4ad39fb033ce68efbcebb40b4aa43f70f4f08cfdeb0b85bedef",
+      "source_checksum": "f1f13b6b7ce34c317c482bcf89f698d4ba036160f4ab6f0e19433abaee33f296",
       "handler": {
         "ref": "infera-task/src/plans.rs:575:checkout",
         "path": "infera-task/src/plans.rs",
@@ -3352,7 +3531,7 @@
           }
         ]
       },
-      "source_checksum": "3671b53dc3bbc9cc8600cff8921f3660e9e9cbb66e1543f42a28333ddee983c5",
+      "source_checksum": "cd347b6c2554b1940fd57cdcf22e9897383990edc6d113b79d218477c58c5b7e",
       "handler": {
         "ref": "infera-task/src/plans.rs:651:reconcile",
         "path": "infera-task/src/plans.rs",
@@ -3424,7 +3603,7 @@
           }
         ]
       },
-      "source_checksum": "00574f513366c2a7473f2d91beba4e767b5ed25e26c8e4949119846f785e18ad",
+      "source_checksum": "15825e15c761b0364543c0ee8f6ed79a39c7cebbc6e9570cb5a4f77ea51ad748",
       "handler": {
         "ref": "infera-task/src/notes.rs:56:document",
         "path": "infera-task/src/notes.rs",
@@ -3487,7 +3666,7 @@
           }
         ]
       },
-      "source_checksum": "b53f5131e3bd29e992f9f0817ff00443599c74db2fec2ff6e39fc3a5c2dbd5ba",
+      "source_checksum": "3b427f79b9204a2c039120748c8b61c314961dee5c82fda80cd32b2b40e7426c",
       "handler": {
         "ref": "infera-task/src/notes.rs:89:update",
         "path": "infera-task/src/notes.rs",
@@ -3576,7 +3755,7 @@
           }
         ]
       },
-      "source_checksum": "8475fcf826ad08e4c9f9a54d3439c4f1acb4e29d05775eddaffbe359f3019c11",
+      "source_checksum": "70627084dc0348565aeb1a5bce671b66fa123c766d3f4457c81acece0febae72",
       "handler": {
         "ref": "infera-task/src/note_media.rs:85:get",
         "path": "infera-task/src/note_media.rs",
@@ -3653,7 +3832,7 @@
           }
         ]
       },
-      "source_checksum": "98e6bc5d09fda0f750227f0cb43de937314db94a60f4a9744473b20fdd053b08",
+      "source_checksum": "fc17b588ee33d98eb7f72508ef89da9b839f81a24df1cff78c56f7e10314d70e",
       "handler": {
         "ref": "infera-task/src/note_media.rs:98:add",
         "path": "infera-task/src/note_media.rs",
@@ -3790,7 +3969,7 @@
           }
         ]
       },
-      "source_checksum": "040e796333a9592e7798ee1f57959b26eb190691a75e185f14dc5e3dddbfe88d",
+      "source_checksum": "6c8221bdfdd086e39bdbcf5d9509b8505327cba88341a24e7cfc0b1120338614",
       "handler": {
         "ref": "infera-task/src/note_media.rs:370:remove",
         "path": "infera-task/src/note_media.rs",
@@ -3906,7 +4085,7 @@
           }
         ]
       },
-      "source_checksum": "9b56e96f4a1d49cf9639b19fd4f56fc945397ee3b9c3dddd04ebcfcf7f4874e1",
+      "source_checksum": "697f80a617b2f044209bc6b9927a829b3638c980ff491bdaaefce86bba30966f",
       "handler": {
         "ref": "infera-task/src/note_media.rs:240:cover",
         "path": "infera-task/src/note_media.rs",
@@ -4027,7 +4206,7 @@
           }
         ]
       },
-      "source_checksum": "8e6e2d62ad1617d015817b9688125e76564cccc49b6db61f512b665c97c81087",
+      "source_checksum": "b43e3879d56e496bb3f3b0bdbe88682ac15e1e2e155c3f3d8c1c76116775013e",
       "handler": {
         "ref": "infera-task/src/notes.rs:214:config",
         "path": "infera-task/src/notes.rs",
@@ -4090,7 +4269,7 @@
           }
         ]
       },
-      "source_checksum": "7f01155d22e890cc3368cfd4e15c869aa5bd3cd95cb1eac21d3ced37adf6ffaf",
+      "source_checksum": "c4b9acdfafe80a33af5c4e4c2a1199b095ecd9c3a5cb29418a0c41f6a3945912",
       "handler": {
         "ref": "infera-task/src/notes.rs:229:authorize",
         "path": "infera-task/src/notes.rs",
@@ -4170,7 +4349,7 @@
           }
         ]
       },
-      "source_checksum": "7c9e246c3f08dced7377b7dc5a5e0da4de790d949cf01f7b2fd6649e0ecc59a0",
+      "source_checksum": "f5fdc40ad1cedd6e4ef708d888de74e6bdbd5addc02077c94371968040594284",
       "handler": {
         "ref": "infera-task/src/note_data.rs:228:catalog",
         "path": "infera-task/src/note_data.rs",
@@ -4274,7 +4453,7 @@
           }
         ]
       },
-      "source_checksum": "e4fe28d6d9f60b13eb986c93e8e7979b9144a151683026009ba791066cff5a00",
+      "source_checksum": "6c0870491a41f332b2dce5cbde557295b390d0c6a3cab77ebe5842b7d5ff3831",
       "handler": {
         "ref": "infera-task/src/assistant.rs:64:query",
         "path": "infera-task/src/assistant.rs",
@@ -4383,7 +4562,7 @@
           }
         ]
       },
-      "source_checksum": "4b4646d612fec4f73df4b8245038cea6a4ee8a9001a11b54da2589aab57c6e0a",
+      "source_checksum": "375f2014e89ac44e562b6235178ad1ecfae0ed99f214dfc21be154dcb37dbe64",
       "handler": {
         "ref": "infera-task/src/assistant.rs:189:preferences",
         "path": "infera-task/src/assistant.rs",
@@ -4441,7 +4620,7 @@
           }
         ]
       },
-      "source_checksum": "f37b459a53fa8b0417fd0e73f05ddc3055ae2076a96effb62f487d050da3aea6",
+      "source_checksum": "396d769faa1579aea751399c67638a307995a38832ff625ab1a291c65877c131",
       "handler": {
         "ref": "infera-task/src/assistant.rs:202:save_preferences",
         "path": "infera-task/src/assistant.rs",
@@ -4452,9 +4631,9 @@
         {
           "call": "crate::routes::expected_version",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:249:expected_version",
+            "ref": "infera-task/src/routes.rs:348:expected_version",
             "path": "infera-task/src/routes.rs",
-            "line": 249,
+            "line": 348,
             "name": "expected_version"
           }
         }
@@ -4520,7 +4699,7 @@
           }
         ]
       },
-      "source_checksum": "83c5d5f8c0eed8268a443b4c26115383d57d816db1322f4c7f186f199ee04d96",
+      "source_checksum": "1d5cabbc9c4e0a1df3bb12521ac5270e1bfe28d7e43abf0a1c702990dba2784e",
       "handler": {
         "ref": "infera-task/src/assistant.rs:243:folders",
         "path": "infera-task/src/assistant.rs",
@@ -4606,7 +4785,7 @@
           }
         ]
       },
-      "source_checksum": "45d7908fd9956bae3eb122e03c54c95d7dea8ea6777618f8eae10a912a3b475b",
+      "source_checksum": "3e7d8d766aadb09f659d3a81bd085f94ca89439b77d48d132e8a8c09a7684e1e",
       "handler": {
         "ref": "infera-task/src/assistant.rs:730:propose",
         "path": "infera-task/src/assistant.rs",
@@ -4694,7 +4873,7 @@
           }
         ]
       },
-      "source_checksum": "78f99d7bef36e3edd5f42054ecf010f017b5abecb115ecc02aafac8333f6c88c",
+      "source_checksum": "b957d262eddf53d377b3c762c48be5b8d031221d1891f26f9f06ba7246b7c819",
       "handler": {
         "ref": "infera-task/src/assistant.rs:904:validate_proposal",
         "path": "infera-task/src/assistant.rs",
@@ -4782,7 +4961,7 @@
           }
         ]
       },
-      "source_checksum": "cfbb060145331ee8f8d62606528105f9a039da54c43bff663cec4576bc461fce",
+      "source_checksum": "d45195bbde60786d887e0fe0929a62b8eed063dc941ec9b58dd8c84b8f872e28",
       "handler": {
         "ref": "infera-task/src/assistant.rs:747:get",
         "path": "infera-task/src/assistant.rs",
@@ -4864,7 +5043,7 @@
           }
         ]
       },
-      "source_checksum": "0c05c9352fe5fdaa75b22dc0ed064057abc635aae4bcfa4cbe8558c7a4933e1b",
+      "source_checksum": "92b2b7d359df9dc4a559e570b3f13978fe8b2ed2fb7cd6349ce93f7cde791507",
       "handler": {
         "ref": "infera-task/src/assistant.rs:791:revise",
         "path": "infera-task/src/assistant.rs",
@@ -4875,9 +5054,9 @@
         {
           "call": "crate::routes::expected_version",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:249:expected_version",
+            "ref": "infera-task/src/routes.rs:348:expected_version",
             "path": "infera-task/src/routes.rs",
-            "line": 249,
+            "line": 348,
             "name": "expected_version"
           }
         }
@@ -4966,7 +5145,7 @@
           }
         ]
       },
-      "source_checksum": "d282f9611f460bd10d123713e00424b38b48286c74c493cb6ce76411111ea805",
+      "source_checksum": "43f266e670fddc6351b81b1c313e487161eb11cf1122c29d776fdb0610aab128",
       "handler": {
         "ref": "infera-task/src/assistant.rs:812:apply",
         "path": "infera-task/src/assistant.rs",
@@ -4977,9 +5156,9 @@
         {
           "call": "crate::routes::expected_version",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:249:expected_version",
+            "ref": "infera-task/src/routes.rs:348:expected_version",
             "path": "infera-task/src/routes.rs",
-            "line": 249,
+            "line": 348,
             "name": "expected_version"
           }
         },
@@ -5047,7 +5226,7 @@
           }
         ]
       },
-      "source_checksum": "ddfb3c05aa93028171360e6ff241f8fe185b37c3c24aa8efebdff5fc2e5815dc",
+      "source_checksum": "43ca5af6edc5f0c354de92fde6a4cd46bd920828f45ea7073d328c682e9ce5db",
       "handler": {
         "ref": "infera-task/src/assistant.rs:936:refresh",
         "path": "infera-task/src/assistant.rs",
@@ -5108,11 +5287,11 @@
           }
         ]
       },
-      "source_checksum": "0cafc0c76ca986834556840a74f3ca6d3243fbac45698797539869c13334aa4f",
+      "source_checksum": "7cbeba596aaf8aa0baf9b58ba519017bb70e67dea92c971852e4359bb98ced72",
       "handler": {
-        "ref": "infera-task/src/routes.rs:278:workspace",
+        "ref": "infera-task/src/routes.rs:377:workspace",
         "path": "infera-task/src/routes.rs",
-        "line": 278,
+        "line": 377,
         "name": "workspace"
       },
       "related_implementation": [
@@ -5199,7 +5378,7 @@
           }
         ]
       },
-      "source_checksum": "7a138f4ad0f0529b6bfa45fae8788cb6049ded4621110f3895890ef050b99c32",
+      "source_checksum": "0733f8dfef95cd1b954529a05870934cb87bf11e8ee1b2b70bb4328f5b3bdf25",
       "handler": {
         "ref": "infera-task/src/note_knowledge.rs:134:search",
         "path": "infera-task/src/note_knowledge.rs",
@@ -5316,7 +5495,7 @@
           }
         ]
       },
-      "source_checksum": "7a76efe6ede0e7c31353cdbb47964b21f670d1d0d965faa2baac644f660a99bb",
+      "source_checksum": "0760a3174806c4eaa9cdaa5b9a00634b97bef6328dc193d24f82038cd9a6462f",
       "handler": {
         "ref": "infera-task/src/note_imports.rs:92:create",
         "path": "infera-task/src/note_imports.rs",
@@ -5425,7 +5604,7 @@
           }
         ]
       },
-      "source_checksum": "3d684a3814e97e8eba25972dd7d7045e4312af6d754a945c3036c8c9962da01b",
+      "source_checksum": "013959748cc6323380317967fce261b3ef9c1a547ee672dad8a1eadf1d090044",
       "handler": {
         "ref": "infera-task/src/source_imports.rs:17:create",
         "path": "infera-task/src/source_imports.rs",
@@ -5508,7 +5687,7 @@
           }
         ]
       },
-      "source_checksum": "eeaf4ae7e573197f3ab8b27e1629f384e8de85108b249ca3bbe796483c379154",
+      "source_checksum": "1a72658f0c4fc96783ced96fb12e5c34882f81de6ad92363431d792a1557429e",
       "handler": {
         "ref": "infera-task/src/note_imports.rs:178:get",
         "path": "infera-task/src/note_imports.rs",
@@ -5571,7 +5750,7 @@
           }
         ]
       },
-      "source_checksum": "a17d328b699e4c568d864ab598767bd7f73626cb30db7973149c1e5ccc775b58",
+      "source_checksum": "dfe0c3a7eb2fdac3a9443a3013361fbcd1b7b18511ec9bfdb05d864844f8a6f5",
       "handler": {
         "ref": "infera-task/src/note_imports.rs:191:control",
         "path": "infera-task/src/note_imports.rs",
@@ -5673,7 +5852,7 @@
           }
         ]
       },
-      "source_checksum": "57bad1db0ca414f9dad37122d256b41933db4114ef486b1e684db4721252a65c",
+      "source_checksum": "35b3e82dc2e3d25c137378b9781654a76ed9541ba4acb9439fb0ebb88d66ff8c",
       "handler": {
         "ref": "infera-task/src/note_imports.rs:265:apply",
         "path": "infera-task/src/note_imports.rs",
@@ -5774,7 +5953,7 @@
           }
         ]
       },
-      "source_checksum": "4fd8754d8af053324aaabf3e0008d958bf6e3613f7a4573a395270d4700a2202",
+      "source_checksum": "fa8760804210dcdadf2e48e6e14f735b7dba7de4c8e7159183aa93824a41e693",
       "handler": {
         "ref": "infera-task/src/note_knowledge.rs:82:status",
         "path": "infera-task/src/note_knowledge.rs",
@@ -5846,7 +6025,7 @@
           }
         ]
       },
-      "source_checksum": "492786ad820e9b3e0954d9b081341e36fea50f9919c1e56411a98cf621f1cc9f",
+      "source_checksum": "7e54072bcda6105d87884cea8e9f6368af4180e865950cd0e6fdd12c63b4fe41",
       "handler": {
         "ref": "infera-task/src/note_knowledge.rs:96:retry",
         "path": "infera-task/src/note_knowledge.rs",
@@ -5935,7 +6114,7 @@
           }
         ]
       },
-      "source_checksum": "66fb9550431dd1f8984f11295e556017fe6155f1d1aa2e0285ed2eea0de04a1c",
+      "source_checksum": "0bab02f90c70c36f5be1176d664210a8001e2aa3e11288d33b88730d71c7738d",
       "handler": {
         "ref": "infera-task/src/reminders.rs:262:get_preferences",
         "path": "infera-task/src/reminders.rs",
@@ -5946,9 +6125,9 @@
         {
           "call": "crate::routes::require_global",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:242:require_global",
+            "ref": "infera-task/src/routes.rs:341:require_global",
             "path": "infera-task/src/routes.rs",
-            "line": 242,
+            "line": 341,
             "name": "require_global"
           }
         },
@@ -6012,7 +6191,7 @@
           }
         ]
       },
-      "source_checksum": "f7855dea3633816a5681b74222fadc39b559bd9667e0152dc9fc801e6e509391",
+      "source_checksum": "58b21a018f14f66174cd83fd9a0a2fdd60dadf4a12fa9f05dd11bcec4e173874",
       "handler": {
         "ref": "infera-task/src/reminders.rs:286:put_preferences",
         "path": "infera-task/src/reminders.rs",
@@ -6023,9 +6202,9 @@
         {
           "call": "crate::routes::require_global",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:242:require_global",
+            "ref": "infera-task/src/routes.rs:341:require_global",
             "path": "infera-task/src/routes.rs",
-            "line": 242,
+            "line": 341,
             "name": "require_global"
           }
         },
@@ -6041,9 +6220,9 @@
         {
           "call": "crate::routes::expected_version",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:249:expected_version",
+            "ref": "infera-task/src/routes.rs:348:expected_version",
             "path": "infera-task/src/routes.rs",
-            "line": 249,
+            "line": 348,
             "name": "expected_version"
           }
         }
@@ -6109,7 +6288,7 @@
           }
         ]
       },
-      "source_checksum": "1c5cb75377f66ce0b63d45f4fbd68a19b69d1d9d91a68ea991736e3547d8d9e7",
+      "source_checksum": "e0dff37a815433fc9db40b9d5597d53bb5c3d2e1e45bde2cb833e70ab57cb698",
       "handler": {
         "ref": "infera-task/src/reminders.rs:59:get",
         "path": "infera-task/src/reminders.rs",
@@ -6172,7 +6351,7 @@
           }
         ]
       },
-      "source_checksum": "8cabe57b3fec39f6b7ed6eda32e040476987a61d5452e4e7a588c36d0ab1f500",
+      "source_checksum": "35812ad9c4fb4f1fca46be433fe0ffb6e149d9f83b70f92cb8c279d1a9a513ab",
       "handler": {
         "ref": "infera-task/src/reminders.rs:178:put",
         "path": "infera-task/src/reminders.rs",
@@ -6183,9 +6362,9 @@
         {
           "call": "crate::routes::expected_version",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:249:expected_version",
+            "ref": "infera-task/src/routes.rs:348:expected_version",
             "path": "infera-task/src/routes.rs",
-            "line": 249,
+            "line": 348,
             "name": "expected_version"
           }
         },
@@ -6264,7 +6443,7 @@
           }
         ]
       },
-      "source_checksum": "98bc6bcf31d818281703d587b8ae7fcefe576e75922d2da565b0c164834e853b",
+      "source_checksum": "3cf5abae7a0228772019229094a0649543a8200fc20f74b4a6d6feab392af8ac",
       "handler": {
         "ref": "infera-task/src/reminders.rs:240:remove",
         "path": "infera-task/src/reminders.rs",
@@ -6275,9 +6454,9 @@
         {
           "call": "crate::routes::expected_version",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:249:expected_version",
+            "ref": "infera-task/src/routes.rs:348:expected_version",
             "path": "infera-task/src/routes.rs",
-            "line": 249,
+            "line": 348,
             "name": "expected_version"
           }
         }
@@ -6336,7 +6515,7 @@
           }
         ]
       },
-      "source_checksum": "15bc9caee5e5d8a41d8802fa64340ebd3153a1909847f27ec43c13a3fff8491c",
+      "source_checksum": "ebfef0c5358892feefbf8ba6402b401cee8e01fa86d8bf9ce529d2a76801ccc4",
       "handler": {
         "ref": "infera-task/src/collaboration.rs:91:project_checklists",
         "path": "infera-task/src/collaboration.rs",
@@ -6398,7 +6577,7 @@
           }
         ]
       },
-      "source_checksum": "a7ce61500d82c23e9bd7ecefe41aaa5c98505eff345284a20b4f24c06563433b",
+      "source_checksum": "8a47f535de1f89f29341b33352166ff15dbc46755d65e605cad34f0351733806",
       "handler": {
         "ref": "infera-task/src/collaboration.rs:103:work_item_checklist",
         "path": "infera-task/src/collaboration.rs",
@@ -6480,7 +6659,7 @@
           }
         ]
       },
-      "source_checksum": "15678c2b36cba35ac8bd6257249cc5ca55da12909b155a90cbf2074c57e92399",
+      "source_checksum": "cf9f29c20637fbd5266349df7dec6e27a7e84f5d4accbfedb627fcda52b93191",
       "handler": {
         "ref": "infera-task/src/collaboration.rs:120:replace_checklist",
         "path": "infera-task/src/collaboration.rs",
@@ -6491,9 +6670,9 @@
         {
           "call": "crate::routes::expected_version",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:249:expected_version",
+            "ref": "infera-task/src/routes.rs:348:expected_version",
             "path": "infera-task/src/routes.rs",
-            "line": 249,
+            "line": 348,
             "name": "expected_version"
           }
         },
@@ -6608,7 +6787,7 @@
           }
         ]
       },
-      "source_checksum": "a606cdb670a81a38d6539f55b5495b2337bea18b14283092838e1fa9bdc60ca3",
+      "source_checksum": "8dcd1ef9be0053b83ecfda57cf7d2f76785e186fa92d71d20d077e4e6443b657",
       "handler": {
         "ref": "infera-task/src/collaboration.rs:196:members",
         "path": "infera-task/src/collaboration.rs",
@@ -6670,7 +6849,7 @@
           }
         ]
       },
-      "source_checksum": "d5c301a8c13fa1ccc8ed58f2002b6d4f1a8df7a05f6354afeb8ba841fd97478f",
+      "source_checksum": "9e60d41fe08a1f2777cefa2c173520fb28207409149c9d5a6edb910f15d2abc8",
       "handler": {
         "ref": "infera-task/src/collaboration.rs:210:remove_member",
         "path": "infera-task/src/collaboration.rs",
@@ -6732,11 +6911,11 @@
           }
         ]
       },
-      "source_checksum": "dd3157e067482d8bdb5a786040dbcd18b002f25cceab257ecb2c616220883407",
+      "source_checksum": "f909eace06dcb86727769b2e02c8ae2832c1c1752885040f3141b17f78e6806e",
       "handler": {
-        "ref": "infera-task/src/routes.rs:286:effective_access",
+        "ref": "infera-task/src/routes.rs:385:effective_access",
         "path": "infera-task/src/routes.rs",
-        "line": 286,
+        "line": 385,
         "name": "effective_access"
       },
       "related_implementation": [
@@ -6867,11 +7046,11 @@
           }
         ]
       },
-      "source_checksum": "8b7f24f9642ea781ddb6f841584345b8a7907075201e25d42dd5111646227255",
+      "source_checksum": "fd9ebbaadf5f35aa2f79621bf06ce746452a4b576724c11c1dc9e9b01c4cdc59",
       "handler": {
-        "ref": "infera-task/src/routes.rs:297:list_projects",
+        "ref": "infera-task/src/routes.rs:396:list_projects",
         "path": "infera-task/src/routes.rs",
-        "line": 297,
+        "line": 396,
         "name": "list_projects"
       },
       "related_implementation": [
@@ -6965,11 +7144,11 @@
           }
         ]
       },
-      "source_checksum": "a4d018430419a3b457886b8601bc842599af7b868ea8b4ede4d680183e323207",
+      "source_checksum": "01987ed619e5e89b30d35a7f10a8f42cb626463cbbc770684df897ae25c81f45",
       "handler": {
-        "ref": "infera-task/src/routes.rs:315:create_project",
+        "ref": "infera-task/src/routes.rs:414:create_project",
         "path": "infera-task/src/routes.rs",
-        "line": 315,
+        "line": 414,
         "name": "create_project"
       },
       "related_implementation": [
@@ -7045,11 +7224,11 @@
           }
         ]
       },
-      "source_checksum": "98f7d3e13b95bb161e1c2afc398e32a25fe7f51fe4855f44e58219165781c4a1",
+      "source_checksum": "5ea614dd0a28fee840fd8577cf6186d9c7ed7f9c26063e62705e1950e3264679",
       "handler": {
-        "ref": "infera-task/src/routes.rs:325:ensure_personal_project",
+        "ref": "infera-task/src/routes.rs:424:ensure_personal_project",
         "path": "infera-task/src/routes.rs",
-        "line": 325,
+        "line": 424,
         "name": "ensure_personal_project"
       },
       "related_implementation": [
@@ -7107,11 +7286,11 @@
           }
         ]
       },
-      "source_checksum": "fde3763ac030154f05c363d0b95f9a9611d0c4967b57882cd3aeeac6784512cf",
+      "source_checksum": "9e439c1d3f9feb673810b35b14503a06316e1a4ec3af299441f69a11be115b61",
       "handler": {
-        "ref": "infera-task/src/routes.rs:334:create_shared_project",
+        "ref": "infera-task/src/routes.rs:433:create_shared_project",
         "path": "infera-task/src/routes.rs",
-        "line": 334,
+        "line": 433,
         "name": "create_shared_project"
       },
       "related_implementation": [
@@ -7181,11 +7360,11 @@
           }
         ]
       },
-      "source_checksum": "091db06cd12c6b95757b59c081f2ed66347f311977ae08f432258dd1837f6d7a",
+      "source_checksum": "952a1ca0f986aaac7a686c95658bf316d9991d82e7afc7342cdcb34f9e2c383e",
       "handler": {
-        "ref": "infera-task/src/routes.rs:344:get_project",
+        "ref": "infera-task/src/routes.rs:443:get_project",
         "path": "infera-task/src/routes.rs",
-        "line": 344,
+        "line": 443,
         "name": "get_project"
       },
       "related_implementation": [
@@ -7249,11 +7428,11 @@
           }
         ]
       },
-      "source_checksum": "5acb009985109ecd5555d9bd4496c07ecf18c76acea5b9dc39d26ec6f513362e",
+      "source_checksum": "4531537a26542abad9df4ae33a9d008b1f2b550526e3847c7c5aa8b1160a8055",
       "handler": {
-        "ref": "infera-task/src/routes.rs:354:update_project",
+        "ref": "infera-task/src/routes.rs:453:update_project",
         "path": "infera-task/src/routes.rs",
-        "line": 354,
+        "line": 453,
         "name": "update_project"
       },
       "related_implementation": [
@@ -7328,11 +7507,11 @@
           }
         ]
       },
-      "source_checksum": "fa9543d2ad3320e133b05c6308c7457376ab22213e630d404c0ec5f24e4a3863",
+      "source_checksum": "bf21d8ad5f976b2dcccf77a269cadb9b753ccfc18032d2b2ce1404f3b3407a15",
       "handler": {
-        "ref": "infera-task/src/routes.rs:542:workflow_states",
+        "ref": "infera-task/src/routes.rs:641:workflow_states",
         "path": "infera-task/src/routes.rs",
-        "line": 542,
+        "line": 641,
         "name": "workflow_states"
       },
       "related_implementation": [
@@ -7407,7 +7586,7 @@
           }
         ]
       },
-      "source_checksum": "4de1f3f6ff4b92546f865aaf0594af8c62684ea1a795f8cd5f547921a6e72ad1",
+      "source_checksum": "21fc444d61f7ac048ef871646064fd59b32f0161b86736005138c9fbbd3e1661",
       "handler": {
         "ref": "infera-task/src/workflows.rs:191:get",
         "path": "infera-task/src/workflows.rs",
@@ -7484,7 +7663,7 @@
           }
         ]
       },
-      "source_checksum": "ef530d5b7c7359b09d110f20eea558f101b96a9ae894fd2ec6d65ade3217a270",
+      "source_checksum": "5d68b78af1a2e4ba923f1a99123c6c53da96d77937b1de4c855332ea9a5c3a01",
       "handler": {
         "ref": "infera-task/src/workflows.rs:200:put",
         "path": "infera-task/src/workflows.rs",
@@ -7590,7 +7769,7 @@
           }
         ]
       },
-      "source_checksum": "57311a539fc464b5910ca5fe5757520cdf166cf40cccc407f3733ba6748784a8",
+      "source_checksum": "e57cd965e80423f7d84eeb52caa63e1e1cf82123fe299370d84693b297dc0a5e",
       "handler": {
         "ref": "infera-task/src/memory_usage.rs:211:get",
         "path": "infera-task/src/memory_usage.rs",
@@ -7677,7 +7856,7 @@
           }
         ]
       },
-      "source_checksum": "ad76c76eeb80960cbe8c97e29b099b45eb5b1dab10b928c3a8c04617de7054b2",
+      "source_checksum": "6d5c33a09f218f3fc027dc73832914ed205f9a363a817d60fad7305e573d0c9d",
       "handler": {
         "ref": "infera-task/src/attachments.rs:202:create",
         "path": "infera-task/src/attachments.rs",
@@ -7780,7 +7959,7 @@
           }
         ]
       },
-      "source_checksum": "9a3eb7d4dd0d8cbe68a7a7bf941b63ff4da89953f3d96c8ee6579ca5ab54b529",
+      "source_checksum": "6e0f1591948d33b7cf3219e250d665b05679ac7141eb40b5b16c89dcdefc889a",
       "handler": {
         "ref": "infera-task/src/attachments.rs:260:status",
         "path": "infera-task/src/attachments.rs",
@@ -7856,7 +8035,7 @@
           }
         ]
       },
-      "source_checksum": "42f49e7b09ca4fe365675b0fa1cf1ce4cd85df56f71c1c18e3bd4afd3aac06d9",
+      "source_checksum": "13970ca5d02d5950950c8cf0c1a5c5eab94f2187f738b22c5a4690e87c42686e",
       "handler": {
         "ref": "infera-task/src/attachments.rs:445:remove",
         "path": "infera-task/src/attachments.rs",
@@ -7918,7 +8097,7 @@
           }
         ]
       },
-      "source_checksum": "5df3cfab8fe07424334d3dcfa8ef0e4bca7335e58bdf3e89bf753f1189087fce",
+      "source_checksum": "ffbb4db9b679ac8774aa38018d224f2e6f7c884f732563cf4473c818fb42c117",
       "handler": {
         "ref": "infera-task/src/attachments.rs:279:content",
         "path": "infera-task/src/attachments.rs",
@@ -7993,7 +8172,7 @@
           }
         ]
       },
-      "source_checksum": "f845b75247e2ad45ed4e5445152a5857624fb75275e6d4a49fa203fcb4773a7a",
+      "source_checksum": "0c8e232e0616a6e132ffa64b0f2d3df37ec569c38c6c9fc0fb9fc2424c23b910",
       "handler": {
         "ref": "infera-task/src/attachments.rs:376:download",
         "path": "infera-task/src/attachments.rs",
@@ -8052,11 +8231,11 @@
           }
         ]
       },
-      "source_checksum": "2fe8013b7962cd0bad7b8ac3b0d7f7f22581b9c742fa49ccdb3217251386e97c",
+      "source_checksum": "5611f5ffe277e63396139925bbfb608d4592babef6037c1c62663db75269ddc8",
       "handler": {
-        "ref": "infera-task/src/routes.rs:367:grant_project_access",
+        "ref": "infera-task/src/routes.rs:466:grant_project_access",
         "path": "infera-task/src/routes.rs",
-        "line": 367,
+        "line": 466,
         "name": "grant_project_access"
       },
       "related_implementation": [
@@ -8141,11 +8320,11 @@
           }
         ]
       },
-      "source_checksum": "f26fbb8a45464139778c52621c6e04f2d77036fc7618958a539d6c3d9ce387a7",
+      "source_checksum": "05af41fc399428009db3c3e2406842ee6e16d21f1decdcadb0d93ba7940898f5",
       "handler": {
-        "ref": "infera-task/src/routes.rs:500:list_teams",
+        "ref": "infera-task/src/routes.rs:599:list_teams",
         "path": "infera-task/src/routes.rs",
-        "line": 500,
+        "line": 599,
         "name": "list_teams"
       },
       "related_implementation": [
@@ -8222,11 +8401,11 @@
           }
         ]
       },
-      "source_checksum": "74d5874a5c638d16897d4627d199c00608f4b20c0b0897610137e3852b714b83",
+      "source_checksum": "63119fe3810c48e471db8835c97eb8e65565b8e16c949c939dba403b72c03577",
       "handler": {
-        "ref": "infera-task/src/routes.rs:509:create_team",
+        "ref": "infera-task/src/routes.rs:608:create_team",
         "path": "infera-task/src/routes.rs",
-        "line": 509,
+        "line": 608,
         "name": "create_team"
       },
       "related_implementation": [
@@ -8303,11 +8482,11 @@
           }
         ]
       },
-      "source_checksum": "17c07768e65136d6d619446b832ae53384dec93472f636c05dea2cd5bed1ffaf",
+      "source_checksum": "7e59bd565303e9fd3bed86ce2187fca40cd6f9ae7645703e90540835331b44e8",
       "handler": {
-        "ref": "infera-task/src/routes.rs:519:get_team",
+        "ref": "infera-task/src/routes.rs:618:get_team",
         "path": "infera-task/src/routes.rs",
-        "line": 519,
+        "line": 618,
         "name": "get_team"
       },
       "related_implementation": [
@@ -8371,11 +8550,11 @@
           }
         ]
       },
-      "source_checksum": "72301408af1a17b7ef6a7034f91d79aae2c35f8c1106e8aeb94d1ab85effc860",
+      "source_checksum": "11a9849fbe8dec7511665c4b5e98618defa6c3c2d4855a66c5bb868714255f54",
       "handler": {
-        "ref": "infera-task/src/routes.rs:529:update_team",
+        "ref": "infera-task/src/routes.rs:628:update_team",
         "path": "infera-task/src/routes.rs",
-        "line": 529,
+        "line": 628,
         "name": "update_team"
       },
       "related_implementation": [
@@ -8457,11 +8636,11 @@
           }
         ]
       },
-      "source_checksum": "a310a28f55063ae2cbfdf1c7c88a3c9b8057f1bf6788338eaa99fed746bceaac",
+      "source_checksum": "2a392cbd5c053096970d2d43d5abab719a08bcb5f2a5c933829725fe9c8832f0",
       "handler": {
-        "ref": "infera-task/src/routes.rs:378:list_work_items",
+        "ref": "infera-task/src/routes.rs:477:list_work_items",
         "path": "infera-task/src/routes.rs",
-        "line": 378,
+        "line": 477,
         "name": "list_work_items"
       },
       "related_implementation": [
@@ -8633,11 +8812,11 @@
           }
         ]
       },
-      "source_checksum": "0289adefd91a806f0ed94f25a2cb155f76d5b0cd022c5a85d2ea9382d113f871",
+      "source_checksum": "c9c9d4581024c3ef73ded56621c93107c5646bb57dcfbe137ddf08684953b924",
       "handler": {
-        "ref": "infera-task/src/routes.rs:396:create_work_item",
+        "ref": "infera-task/src/routes.rs:495:create_work_item",
         "path": "infera-task/src/routes.rs",
-        "line": 396,
+        "line": 495,
         "name": "create_work_item"
       },
       "related_implementation": [
@@ -8756,11 +8935,11 @@
           }
         ]
       },
-      "source_checksum": "28245d39bdc506c0d490d831688cd3de0b4ff0a4792d1d88115b89a80ddef591",
+      "source_checksum": "ad81037c20fa9035e5e2baac80027eb898fed1073b4afa5e161d099701bea0dc",
       "handler": {
-        "ref": "infera-task/src/routes.rs:413:get_work_item",
+        "ref": "infera-task/src/routes.rs:512:get_work_item",
         "path": "infera-task/src/routes.rs",
-        "line": 413,
+        "line": 512,
         "name": "get_work_item"
       },
       "related_implementation": [
@@ -8824,11 +9003,11 @@
           }
         ]
       },
-      "source_checksum": "c26e09344553d9db985da19ee6598e2f8ffa01bc065443ca83f441508d31e1c6",
+      "source_checksum": "c78d5f833e3f80585c4cd513f1380e26a8dc8b19245dbe66f90631d1cf77e98b",
       "handler": {
-        "ref": "infera-task/src/routes.rs:423:update_work_item",
+        "ref": "infera-task/src/routes.rs:522:update_work_item",
         "path": "infera-task/src/routes.rs",
-        "line": 423,
+        "line": 522,
         "name": "update_work_item"
       },
       "related_implementation": [
@@ -8933,11 +9112,11 @@
           }
         ]
       },
-      "source_checksum": "77e5baf333b788805017d0fd5071cd666a324a44c53761cb3d2012f0a7419cc6",
+      "source_checksum": "634fa69fd117b69830f7f117a9dbf1a6d81180622ee1ea923080a61dba361417",
       "handler": {
-        "ref": "infera-task/src/routes.rs:861:remove_work_item",
+        "ref": "infera-task/src/routes.rs:969:remove_work_item",
         "path": "infera-task/src/routes.rs",
-        "line": 861,
+        "line": 969,
         "name": "remove_work_item"
       },
       "related_implementation": [
@@ -9001,11 +9180,11 @@
           }
         ]
       },
-      "source_checksum": "cee568ed3d2b8185c147fac8723e381e1cecd5052b5d6e3574159533d34afc4c",
+      "source_checksum": "7ca89041970e62be6b632a173c65cded29c94826214e77242f8f382c2292c268",
       "handler": {
-        "ref": "infera-task/src/routes.rs:436:transition_work_item",
+        "ref": "infera-task/src/routes.rs:535:transition_work_item",
         "path": "infera-task/src/routes.rs",
-        "line": 436,
+        "line": 535,
         "name": "transition_work_item"
       },
       "related_implementation": [
@@ -9081,11 +9260,11 @@
           }
         ]
       },
-      "source_checksum": "74a1df2b64e4018bf574c4a1333a809ae1dcdaa7261394b17d238b4cccf2081b",
+      "source_checksum": "1fd597b1771a17976a2f7ebd99d5742503e134dfa1455b2aa6233771b3346cf9",
       "handler": {
-        "ref": "infera-task/src/routes.rs:853:work_item_activity",
+        "ref": "infera-task/src/routes.rs:957:work_item_activity",
         "path": "infera-task/src/routes.rs",
-        "line": 853,
+        "line": 957,
         "name": "work_item_activity"
       },
       "related_implementation": [
@@ -9104,9 +9283,9 @@
           "declared_type": "ActivityQuery",
           "models": [
             {
-              "ref": "infera-task/src/routes.rs:852:ActivityQuery",
+              "ref": "infera-task/src/routes.rs:953:ActivityQuery",
               "path": "infera-task/src/routes.rs",
-              "line": 852,
+              "line": 953,
               "name": "ActivityQuery"
             }
           ]
@@ -9165,11 +9344,11 @@
           }
         ]
       },
-      "source_checksum": "2a9b9d94c36c1c99cd5a28c5ddcd6d0618ce48a71305980acde667fef8fcebbf",
+      "source_checksum": "ffd3d2a5983047d582622a35bca7e02c27a53c486983fc470604c41ad7abf7a6",
       "handler": {
-        "ref": "infera-task/src/routes.rs:552:comment_page",
+        "ref": "infera-task/src/routes.rs:651:comment_page",
         "path": "infera-task/src/routes.rs",
-        "line": 552,
+        "line": 651,
         "name": "comment_page"
       },
       "related_implementation": [
@@ -9255,11 +9434,11 @@
           }
         ]
       },
-      "source_checksum": "d7b0d92a0ae3fdc41d021ba2b8071688c7775d1d62fd4ff28bfdff101d45479a",
+      "source_checksum": "3ba6416b718b31606432d990d3bdab028029df4660252ec1e2937908049d7df4",
       "handler": {
-        "ref": "infera-task/src/routes.rs:561:list_comments",
+        "ref": "infera-task/src/routes.rs:662:list_comments",
         "path": "infera-task/src/routes.rs",
-        "line": 561,
+        "line": 662,
         "name": "list_comments"
       },
       "related_implementation": [
@@ -9347,11 +9526,11 @@
           }
         ]
       },
-      "source_checksum": "29acee439a9a6ca01c1aeca62146d7cdfd08334f886c9ba8904766c7b9248937",
+      "source_checksum": "c9df2b625d740d86b841d9e79bf48f1988cbff39cf21ebd7d39af28d48bf4a19",
       "handler": {
-        "ref": "infera-task/src/routes.rs:490:create_comment",
+        "ref": "infera-task/src/routes.rs:589:create_comment",
         "path": "infera-task/src/routes.rs",
-        "line": 490,
+        "line": 589,
         "name": "create_comment"
       },
       "related_implementation": [
@@ -9439,11 +9618,11 @@
           }
         ]
       },
-      "source_checksum": "6b21ee2a688432bdcd28ac430fc3486ad8463ccbd23ec561a67bcf30a8fb8b09",
+      "source_checksum": "ebae35a3e5f27209151f0630190d4fb5bd4237751ad80e68dacdca4bf8420670",
       "handler": {
-        "ref": "infera-task/src/routes.rs:586:list_work_logs",
+        "ref": "infera-task/src/routes.rs:687:list_work_logs",
         "path": "infera-task/src/routes.rs",
-        "line": 586,
+        "line": 687,
         "name": "list_work_logs"
       },
       "related_implementation": [
@@ -9531,11 +9710,11 @@
           }
         ]
       },
-      "source_checksum": "8da2ec459ae3099666d9ff8ed2ffe1851b158562758b9d7958a0dae66c34607e",
+      "source_checksum": "790ba2b723144eb198910f9a614acc263eaa322b24a3a82e6fe3fc51bf05686f",
       "handler": {
-        "ref": "infera-task/src/routes.rs:571:create_work_log",
+        "ref": "infera-task/src/routes.rs:672:create_work_log",
         "path": "infera-task/src/routes.rs",
-        "line": 571,
+        "line": 672,
         "name": "create_work_log"
       },
       "related_implementation": [
@@ -9610,11 +9789,11 @@
           }
         ]
       },
-      "source_checksum": "39a6fe4f3532a0d5fa20e05b9749046bd24018b2ecedd9057ce5d1c762d77bc1",
+      "source_checksum": "e6627f20883ac12408345ec6397e6a7786432a9214370112e1b71ad8f2e8c65e",
       "handler": {
-        "ref": "infera-task/src/routes.rs:611:list_commits",
+        "ref": "infera-task/src/routes.rs:712:list_commits",
         "path": "infera-task/src/routes.rs",
-        "line": 611,
+        "line": 712,
         "name": "list_commits"
       },
       "related_implementation": [
@@ -9696,11 +9875,11 @@
           }
         ]
       },
-      "source_checksum": "8324e881bd61090120d26158c1b9714e21fccf4cf41868b2e86e615b2b9d4eaf",
+      "source_checksum": "29ae42b862b13c5d2392835092377fbb13b614d1e563c26e03ee5fa6c45e17fc",
       "handler": {
-        "ref": "infera-task/src/routes.rs:596:attach_commit",
+        "ref": "infera-task/src/routes.rs:697:attach_commit",
         "path": "infera-task/src/routes.rs",
-        "line": 596,
+        "line": 697,
         "name": "attach_commit"
       },
       "related_implementation": [
@@ -9775,11 +9954,11 @@
           }
         ]
       },
-      "source_checksum": "dc30ab03709588c8471cb2925d834e1a87544327c1430d4d9a1baa27e94100a4",
+      "source_checksum": "0275648d9acba812ca18d7500e35338c44117581cea290c2bd3f65645f4db989",
       "handler": {
-        "ref": "infera-task/src/routes.rs:667:list_work_sessions",
+        "ref": "infera-task/src/routes.rs:768:list_work_sessions",
         "path": "infera-task/src/routes.rs",
-        "line": 667,
+        "line": 768,
         "name": "list_work_sessions"
       },
       "related_implementation": [
@@ -9879,11 +10058,11 @@
           }
         ]
       },
-      "source_checksum": "a5e291f653d7bd3bea2cbf6f5e00501679bfde7d5d568fce8478a88d91539105",
+      "source_checksum": "3f2a87748be58bdd4c5214e0d7551ec83eced5a583b68b89d906a34e8bc11d00",
       "handler": {
-        "ref": "infera-task/src/routes.rs:621:start_work_session",
+        "ref": "infera-task/src/routes.rs:722:start_work_session",
         "path": "infera-task/src/routes.rs",
-        "line": 621,
+        "line": 722,
         "name": "start_work_session"
       },
       "related_implementation": [
@@ -9965,11 +10144,11 @@
           }
         ]
       },
-      "source_checksum": "cc041979003f2fcc5b88b17bad7b93dfea9815bd3df5f5eb76d9b47067f6c8d8",
+      "source_checksum": "01f33a65ae19af7fb9b179c313239a3a79d402d6164309ea98a7c295f963e0f0",
       "handler": {
-        "ref": "infera-task/src/routes.rs:677:add_points",
+        "ref": "infera-task/src/routes.rs:778:add_points",
         "path": "infera-task/src/routes.rs",
-        "line": 677,
+        "line": 778,
         "name": "add_points"
       },
       "related_implementation": [
@@ -10050,11 +10229,11 @@
           }
         ]
       },
-      "source_checksum": "4dec7dabeea5fb39c3e116d3454a0ee3163483ccd1e23e3e5302161d76cc0c32",
+      "source_checksum": "d640efca686359997bdc69bd4f69e2bba290228d9de37142c9d2b7a1f9203705",
       "handler": {
-        "ref": "infera-task/src/routes.rs:658:active_work_sessions",
+        "ref": "infera-task/src/routes.rs:759:active_work_sessions",
         "path": "infera-task/src/routes.rs",
-        "line": 658,
+        "line": 759,
         "name": "active_work_sessions"
       },
       "related_implementation": [
@@ -10151,11 +10330,11 @@
           }
         ]
       },
-      "source_checksum": "2f640c66e305f34b0d400be36cb39e5460567f2ccd4d7919cdb5dfab89b4883e",
+      "source_checksum": "f661c4a6ea32bada39d429c333c05a924d95d85b1556595ed2b905068062c7b4",
       "handler": {
-        "ref": "infera-task/src/routes.rs:636:heartbeat_work_session",
+        "ref": "infera-task/src/routes.rs:737:heartbeat_work_session",
         "path": "infera-task/src/routes.rs",
-        "line": 636,
+        "line": 737,
         "name": "heartbeat_work_session"
       },
       "related_implementation": [
@@ -10267,11 +10446,11 @@
           }
         ]
       },
-      "source_checksum": "a10b19c869a218deb9ef28396f2c91ac2354386ee422698bac2836b021933cbe",
+      "source_checksum": "f04a3901dd146c42a72f7064e8e983f77fc55109732d51fece54f02cef702567",
       "handler": {
-        "ref": "infera-task/src/routes.rs:647:stop_work_session",
+        "ref": "infera-task/src/routes.rs:748:stop_work_session",
         "path": "infera-task/src/routes.rs",
-        "line": 647,
+        "line": 748,
         "name": "stop_work_session"
       },
       "related_implementation": [
@@ -10382,11 +10561,11 @@
           }
         ]
       },
-      "source_checksum": "99af5cde789c90c1fa835b652a9abde46230d388eb3620f85eddace1bba2aae4",
+      "source_checksum": "7bac58892b74ca9a0b5d794031c371dda8a57373412ac569fba576ffd1044a85",
       "handler": {
-        "ref": "infera-task/src/routes.rs:460:list_sprints",
+        "ref": "infera-task/src/routes.rs:559:list_sprints",
         "path": "infera-task/src/routes.rs",
-        "line": 460,
+        "line": 559,
         "name": "list_sprints"
       },
       "related_implementation": [
@@ -10492,11 +10671,11 @@
           }
         ]
       },
-      "source_checksum": "d12ab00ca504e41d1f0d6f224ab2d2a75665578b2a30232a20305d05c929887e",
+      "source_checksum": "ee2de7ef14acc33224f6c2a442f2ebb479edcf8b89dc261075a98edc87da7f1c",
       "handler": {
-        "ref": "infera-task/src/routes.rs:450:create_sprint",
+        "ref": "infera-task/src/routes.rs:549:create_sprint",
         "path": "infera-task/src/routes.rs",
-        "line": 450,
+        "line": 549,
         "name": "create_sprint"
       },
       "related_implementation": [
@@ -10579,11 +10758,11 @@
           }
         ]
       },
-      "source_checksum": "4562deb2014014f14b345325cacb7295c9182848ab83d8b15a461108d23b4a1a",
+      "source_checksum": "25546e80929009d2691e29cab48b349e59219a513a072b5ffc9185f0b5404e49",
       "handler": {
-        "ref": "infera-task/src/routes.rs:470:start_sprint",
+        "ref": "infera-task/src/routes.rs:569:start_sprint",
         "path": "infera-task/src/routes.rs",
-        "line": 470,
+        "line": 569,
         "name": "start_sprint"
       },
       "related_implementation": [
@@ -10646,11 +10825,11 @@
           }
         ]
       },
-      "source_checksum": "2ce895947dfbe43b5fb0920dc9524e130139333645f847ef9325af38e3614b8f",
+      "source_checksum": "eb6d6e6e570998e29c4d8817cdd62ab68e83d6273a3090633927575673467c86",
       "handler": {
-        "ref": "infera-task/src/routes.rs:480:complete_sprint",
+        "ref": "infera-task/src/routes.rs:579:complete_sprint",
         "path": "infera-task/src/routes.rs",
-        "line": 480,
+        "line": 579,
         "name": "complete_sprint"
       },
       "related_implementation": [
@@ -10715,7 +10894,7 @@
           }
         ]
       },
-      "source_checksum": "f3ffcbfca967c56bf2efbc89ef66129f5bf898885fbaf713ab3e30b2fc6c5df7",
+      "source_checksum": "02b7d04c9cdd4f4ba77bcc58e0293dc4b32f6fed49b2289ad0f9ad4b492f8cea",
       "handler": {
         "ref": "infera-task/src/space_report.rs:55:get",
         "path": "infera-task/src/space_report.rs",
@@ -10726,9 +10905,9 @@
         {
           "call": "crate::routes::require_global",
           "evidence": {
-            "ref": "infera-task/src/routes.rs:242:require_global",
+            "ref": "infera-task/src/routes.rs:341:require_global",
             "path": "infera-task/src/routes.rs",
-            "line": 242,
+            "line": 341,
             "name": "require_global"
           }
         },
@@ -10830,11 +11009,11 @@
           }
         ]
       },
-      "source_checksum": "458c040d8309b3f414e191f67d9f559e9fb5c10f169cbabe2d413fc3d46cb838",
+      "source_checksum": "037f31dd9451e401ad9bd9bdf1ec56fb81c4045911860e83f6455c06a0dde0a8",
       "handler": {
-        "ref": "infera-task/src/routes.rs:722:report_summary",
+        "ref": "infera-task/src/routes.rs:823:report_summary",
         "path": "infera-task/src/routes.rs",
-        "line": 722,
+        "line": 823,
         "name": "report_summary"
       },
       "related_implementation": [
@@ -10923,11 +11102,11 @@
           }
         ]
       },
-      "source_checksum": "7084eac6db525944a23cd89ec24e1a010f74eadbcd4c750537135df631fb9cba",
+      "source_checksum": "02a0151f1ed32954367b69c2b54191c500c7bc3ec5561307f19dbf76eaa09ab0",
       "handler": {
-        "ref": "infera-task/src/routes.rs:712:team_monitoring",
+        "ref": "infera-task/src/routes.rs:813:team_monitoring",
         "path": "infera-task/src/routes.rs",
-        "line": 712,
+        "line": 813,
         "name": "team_monitoring"
       },
       "related_implementation": [
@@ -11009,11 +11188,11 @@
           }
         ]
       },
-      "source_checksum": "ab918ecd919271811613679818ccb80a9a9f38d97cc8faea8fb775b384423bfa",
+      "source_checksum": "7ccca28acb1ce86e6d7f161b2b2a4d3ad40b2cfb62c89fd59261c8428a9a5d2d",
       "handler": {
-        "ref": "infera-task/src/routes.rs:692:upsert_performance_policy",
+        "ref": "infera-task/src/routes.rs:793:upsert_performance_policy",
         "path": "infera-task/src/routes.rs",
-        "line": 692,
+        "line": 793,
         "name": "upsert_performance_policy"
       },
       "related_implementation": [
@@ -11101,11 +11280,11 @@
           }
         ]
       },
-      "source_checksum": "4adb8e65c08cbdf5e8ed27020fd04d46b43835ecd2fe2e21db8af4e022cd6897",
+      "source_checksum": "cff8cf8e474dadfb8966dad6e59cffcbf073fdb73e1c902be93f568070334e6f",
       "handler": {
-        "ref": "infera-task/src/routes.rs:702:point_history",
+        "ref": "infera-task/src/routes.rs:803:point_history",
         "path": "infera-task/src/routes.rs",
-        "line": 702,
+        "line": 803,
         "name": "point_history"
       },
       "related_implementation": [
@@ -11186,11 +11365,11 @@
           }
         ]
       },
-      "source_checksum": "93bc767423dcba534680b2106288376b562f2c1fe4c447b5af64bbfacd9b66f6",
+      "source_checksum": "50e066021c6568cbb9e269df6a07ca47df4de243616d7d9ad41503a5d47459d3",
       "handler": {
-        "ref": "infera-task/src/routes.rs:732:create_agent_proposal",
+        "ref": "infera-task/src/routes.rs:833:create_agent_proposal",
         "path": "infera-task/src/routes.rs",
-        "line": 732,
+        "line": 833,
         "name": "create_agent_proposal"
       },
       "related_implementation": [
@@ -11274,11 +11453,11 @@
           }
         ]
       },
-      "source_checksum": "0b49313a8ae2043fb334cfa91b9f0700974dfe9daec5f056b8955747388e7a1d",
+      "source_checksum": "8afcc38b79c6c6fa87e17d8f3e4bae514fd08c600c84094d32d5c6c02d0755dd",
       "handler": {
-        "ref": "infera-task/src/routes.rs:746:approve_agent_proposal",
+        "ref": "infera-task/src/routes.rs:847:approve_agent_proposal",
         "path": "infera-task/src/routes.rs",
-        "line": 746,
+        "line": 847,
         "name": "approve_agent_proposal"
       },
       "related_implementation": [
@@ -11344,11 +11523,11 @@
           }
         ]
       },
-      "source_checksum": "f0d0fbe3a869f12485b7a34c59a3697c140382633011f507bcd746c694d3bf7b",
+      "source_checksum": "edc517dc84a80f283c23653927831f7aa85a88276534ef33f66b7b7bf2f11842",
       "handler": {
-        "ref": "infera-task/src/routes.rs:757:events",
+        "ref": "infera-task/src/routes.rs:858:events",
         "path": "infera-task/src/routes.rs",
-        "line": 757,
+        "line": 858,
         "name": "events"
       },
       "related_implementation": [
@@ -15280,11 +15459,11 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:198:live": {
+    "infera-task/src/routes.rs:297:live": {
       "name": "live",
       "path": "infera-task/src/routes.rs",
-      "line": 198,
-      "end_line": 204,
+      "line": 297,
+      "end_line": 303,
       "signature": "async fn live() -> Json<ApiResponse<Health>>",
       "declared_permissions": [],
       "guards": [],
@@ -15292,7 +15471,7 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 202,
+          "line": 301,
           "expression": "status: \"ok\".into(),"
         }
       ],
@@ -15335,11 +15514,11 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:205:ready": {
+    "infera-task/src/routes.rs:304:ready": {
       "name": "ready",
       "path": "infera-task/src/routes.rs",
-      "line": 205,
-      "end_line": 216,
+      "line": 304,
+      "end_line": 315,
       "signature": "async fn ready(State(state): State<AppState>) -> Response",
       "declared_permissions": [],
       "guards": [],
@@ -15347,28 +15526,28 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 206,
+          "line": 305,
           "expression": "let ok = state.dependencies_ready().await;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 209,
+          "line": 308,
           "expression": "StatusCode::OK"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 211,
+          "line": 310,
           "expression": "StatusCode::SERVICE_UNAVAILABLE"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-task/src/routes.rs:217:metrics": {
+    "infera-task/src/routes.rs:316:metrics": {
       "name": "metrics",
       "path": "infera-task/src/routes.rs",
-      "line": 217,
-      "end_line": 227,
+      "line": 316,
+      "end_line": 326,
       "signature": "async fn metrics(State(state): State<AppState>) -> Response",
       "declared_permissions": [],
       "guards": [],
@@ -15376,29 +15555,29 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 218,
+          "line": 317,
           "expression": "let counts=state.db.query_one(sea_orm::Statement::from_string(sea_orm::DbBackend::Postgres,\"SELECT (SELECT count(*) FROM task_outbox WHERE published_at IS NULL AND dead_lettered_at IS NULL) pending,(SELECT count(*) FROM task_outbox WHERE dead_lettered_at IS NOT NULL) dead,(SELECT count(*) FROM task_attachments WHERE status='quarantined') quarantined\")).await.ok().flatten();"
         }
       ],
       "effects": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 218,
+          "line": 317,
           "expression": "let counts=state.db.query_one(sea_orm::Statement::from_string(sea_orm::DbBackend::Postgres,\"SELECT (SELECT count(*) FROM task_outbox WHERE published_at IS NULL AND dead_lettered_at IS NULL) pending,(SELECT count(*) FROM task_outbox WHERE dead_lettered_at IS NOT NULL) dead,(SELECT count(*) FROM task_attachments WHERE status='quarantined') quarantined\")).await.ok().flatten();"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 225,
+          "line": 324,
           "expression": "let body=format!(\"# TYPE infera_task_up gauge\\ninfera_task_up 1\\n# TYPE infera_task_outbox_pending gauge\\ninfera_task_outbox_pending {}\\n# TYPE infera_task_outbox_dead_letter gauge\\ninfera_task_outbox_dead_letter {}\\n# TYPE infera_task_attachments_quarantined gauge\\ninfera_task_attachments_quarantined {}\\n\",get(\"pending\"),get(\"dead\"),get(\"quarantined\"));"
         }
       ],
       "calls": []
     },
-    "infera-task/src/routes.rs:228:openapi": {
+    "infera-task/src/routes.rs:327:openapi": {
       "name": "openapi",
       "path": "infera-task/src/routes.rs",
-      "line": 228,
-      "end_line": 232,
+      "line": 327,
+      "end_line": 331,
       "signature": "async fn openapi() -> Json<serde_json::Value>",
       "declared_permissions": [],
       "guards": [],
@@ -15458,11 +15637,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-task/src/routes.rs:233:use_guest_link": {
+    "infera-task/src/routes.rs:332:use_guest_link": {
       "name": "use_guest_link",
       "path": "infera-task/src/routes.rs",
-      "line": 233,
-      "end_line": 240,
+      "line": 332,
+      "end_line": 339,
       "signature": "async fn use_guest_link(\n    State(state): State<AppState>,\n    Json(input): Json<UseGuestLink>,\n) -> Result<Json<ApiResponse<serde_json::Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [],
@@ -15470,7 +15649,7 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 238,
+          "line": 337,
           "expression": "repository::use_guest_link(&state, &input.token).await?,"
         }
       ],
@@ -15544,30 +15723,30 @@
         }
       ]
     },
-    "infera-task/src/feedback/routes.rs:41:capabilities": {
+    "infera-task/src/feedback/routes.rs:44:capabilities": {
       "name": "capabilities",
       "path": "infera-task/src/feedback/routes.rs",
-      "line": 41,
-      "end_line": 65,
+      "line": 44,
+      "end_line": 68,
       "signature": "async fn capabilities(\n    State(s): State<AppState>,\n    CurrentActor(a): CurrentActor,\n) -> Result<Json<ApiResponse<Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 63,
-          "expression": "json!({\"enabled\":configured.is_ok(),\"context_schema_version\":1,\"can_manage_policy\":crate::policy::require(&s,&a,repository::workspace(&s).await?.id,&crate::policy::ResourceScope::default(),\"workspace.manage\").await.is_ok(),\"reporting_roles\":roles,\"can_submit\":configured.is_ok()&&!roles.is_empty()&&a.has_global_permission(\"task:feedback:submit\"),\"can_review\":a.has_global_permission(\"task:feedback:review\")||a.has_global_permission(\"task:feedback:assign\"),\"max_context_bytes\":256*1024,\"max_screenshot_bytes\":10*1024*1024}),"
+          "line": 66,
+          "expression": "json!({\"reporter_id\":a.user_id,\"identity_binding_version\":1,\"enabled\":configured.is_ok(),\"context_schema_version\":1,\"can_manage_policy\":crate::policy::require(&s,&a,repository::workspace(&s).await?.id,&crate::policy::ResourceScope::default(),\"workspace.manage\").await.is_ok(),\"reporting_roles\":roles,\"can_submit\":configured.is_ok()&&!roles.is_empty()&&a.has_global_permission(\"task:feedback:submit\"),\"can_review\":a.has_global_permission(\"task:feedback:review\")||a.has_global_permission(\"task:feedback:assign\"),\"max_context_bytes\":256*1024,\"max_screenshot_bytes\":10*1024*1024}),"
         }
       ],
       "validation": [
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 54,
+          "line": 57,
           "expression": "r.reporting_roles.contains(role)"
         },
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 63,
-          "expression": "json!({\"enabled\":configured.is_ok(),\"context_schema_version\":1,\"can_manage_policy\":crate::policy::require(&s,&a,repository::workspace(&s).await?.id,&crate::policy::ResourceScope::default(),\"workspace.manage\").await.is_ok(),\"reporting_roles\":roles,\"can_submit\":configured.is_ok()&&!roles.is_empty()&&a.has_global_permission(\"task:feedback:submit\"),\"can_review\":a.has_global_permission(\"task:feedback:review\")||a.has_global_permission(\"task:feedback:assign\"),\"max_context_bytes\":256*1024,\"max_screenshot_bytes\":10*1024*1024}),"
+          "line": 66,
+          "expression": "json!({\"reporter_id\":a.user_id,\"identity_binding_version\":1,\"enabled\":configured.is_ok(),\"context_schema_version\":1,\"can_manage_policy\":crate::policy::require(&s,&a,repository::workspace(&s).await?.id,&crate::policy::ResourceScope::default(),\"workspace.manage\").await.is_ok(),\"reporting_roles\":roles,\"can_submit\":configured.is_ok()&&!roles.is_empty()&&a.has_global_permission(\"task:feedback:submit\"),\"can_review\":a.has_global_permission(\"task:feedback:review\")||a.has_global_permission(\"task:feedback:assign\"),\"max_context_bytes\":256*1024,\"max_screenshot_bytes\":10*1024*1024}),"
         }
       ],
       "state": [],
@@ -15603,11 +15782,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-task/src/feedback/routes.rs:66:get_policy": {
+    "infera-task/src/feedback/routes.rs:69:get_policy": {
       "name": "get_policy",
       "path": "infera-task/src/feedback/routes.rs",
-      "line": 66,
-      "end_line": 88,
+      "line": 69,
+      "end_line": 91,
       "signature": "async fn get_policy(\n    State(s): State<AppState>,\n    CurrentActor(a): CurrentActor,\n) -> Result<Json<ApiResponse<Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [],
@@ -15618,33 +15797,33 @@
         "repository::workspace"
       ]
     },
-    "infera-task/src/feedback/routes.rs:99:put_policy": {
+    "infera-task/src/feedback/routes.rs:102:put_policy": {
       "name": "put_policy",
       "path": "infera-task/src/feedback/routes.rs",
-      "line": 99,
-      "end_line": 140,
+      "line": 102,
+      "end_line": 143,
       "signature": "async fn put_policy(\n    State(s): State<AppState>,\n    CurrentActor(a): CurrentActor,\n    h: HeaderMap,\n    Json(p): Json<FeedbackPolicy>,\n) -> Result<Json<ApiResponse<Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 106,
+          "line": 109,
           "expression": "validate_policy(&p)?;"
         },
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 109,
+          "line": 112,
           "expression": "let expected = crate::routes::expected_version(&h)?;"
         },
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 131,
+          "line": 134,
           "expression": "return Err(ApiError::conflict("
         },
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 136,
+          "line": 139,
           "expression": "tx.execute(sql(\"INSERT INTO task_feedback_policies(workspace_id,document,updated_by) VALUES($1,$2,$3) ON CONFLICT(workspace_id) DO UPDATE SET document=excluded.document,version=task_feedback_policies.version+1,updated_by=excluded.updated_by,updated_at=now()\",vec![w.id.into(),json!(p).into(),a.user_id.into()])).await.map_err(db)?;"
         }
       ],
@@ -15652,22 +15831,22 @@
       "effects": [
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 112,
+          "line": 115,
           "expression": "\"SELECT id FROM task_workspaces WHERE id=$1 FOR UPDATE\","
         },
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 136,
+          "line": 139,
           "expression": "tx.execute(sql(\"INSERT INTO task_feedback_policies(workspace_id,document,updated_by) VALUES($1,$2,$3) ON CONFLICT(workspace_id) DO UPDATE SET document=excluded.document,version=task_feedback_policies.version+1,updated_by=excluded.updated_by,updated_at=now()\",vec![w.id.into(),json!(p).into(),a.user_id.into()])).await.map_err(db)?;"
         },
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 137,
+          "line": 140,
           "expression": "repository::append_change(&tx,&s,w.id,\"feedback_policy\",w.id,a.user_id,\"task.feedback.policy-updated.v1\",version+1,json!({\"previous\":old.map(|r|r.try_get::<Value>(\"\",\"document\")).transpose().map_err(db)?,\"policy\":p})).await?;"
         },
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 138,
+          "line": 141,
           "expression": "tx.commit().await.map_err(db)?;"
         }
       ],
@@ -15677,42 +15856,42 @@
         "repository::append_change"
       ]
     },
-    "infera-task/src/routes.rs:249:expected_version": {
+    "infera-task/src/routes.rs:348:expected_version": {
       "name": "expected_version",
       "path": "infera-task/src/routes.rs",
-      "line": 249,
-      "end_line": 268,
+      "line": 348,
+      "end_line": 367,
       "signature": "pub(crate) fn expected_version(headers: &HeaderMap) -> Result<i32, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 251,
+          "line": 350,
           "expression": ".get(header::IF_MATCH)"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 255,
+          "line": 354,
           "expression": "StatusCode::PRECONDITION_REQUIRED,"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 256,
+          "line": 355,
           "expression": "\"if_match_required\","
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 257,
+          "line": 356,
           "expression": "\"If-Match is required\","
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 264,
+          "line": 363,
           "expression": "\"invalid_if_match\","
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 265,
+          "line": 364,
           "expression": "\"If-Match must contain the current integer version\","
         }
       ],
@@ -15720,7 +15899,7 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 255,
+          "line": 354,
           "expression": "StatusCode::PRECONDITION_REQUIRED,"
         }
       ],
@@ -15782,11 +15961,11 @@
         }
       ]
     },
-    "infera-task/src/feedback/routes.rs:141:index": {
+    "infera-task/src/feedback/routes.rs:144:index": {
       "name": "index",
       "path": "infera-task/src/feedback/routes.rs",
-      "line": 141,
-      "end_line": 147,
+      "line": 144,
+      "end_line": 150,
       "signature": "async fn index(\n    State(s): State<AppState>,\n    CurrentActor(a): CurrentActor,\n    Query(q): Query<ListQuery>,\n) -> Result<Json<ApiResponse<RequestPage>>, ApiError>",
       "declared_permissions": [],
       "guards": [],
@@ -15885,11 +16064,11 @@
         }
       ]
     },
-    "infera-task/src/feedback/routes.rs:148:create": {
+    "infera-task/src/feedback/routes.rs:151:create": {
       "name": "create",
       "path": "infera-task/src/feedback/routes.rs",
-      "line": 148,
-      "end_line": 155,
+      "line": 151,
+      "end_line": 158,
       "signature": "async fn create(\n    State(s): State<AppState>,\n    CurrentActor(a): CurrentActor,\n    h: HeaderMap,\n    Json(i): Json<SubmitRequest>,\n) -> Result<Json<ApiResponse<Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [],
@@ -16001,11 +16180,11 @@
         }
       ]
     },
-    "infera-task/src/feedback/routes.rs:156:show": {
+    "infera-task/src/feedback/routes.rs:159:show": {
       "name": "show",
       "path": "infera-task/src/feedback/routes.rs",
-      "line": 156,
-      "end_line": 162,
+      "line": 159,
+      "end_line": 165,
       "signature": "async fn show(\n    State(s): State<AppState>,\n    CurrentActor(a): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<RequestDetail>>, ApiError>",
       "declared_permissions": [],
       "guards": [],
@@ -16059,11 +16238,11 @@
         }
       ]
     },
-    "infera-task/src/feedback/routes.rs:163:decision": {
+    "infera-task/src/feedback/routes.rs:166:decision": {
       "name": "decision",
       "path": "infera-task/src/feedback/routes.rs",
-      "line": 163,
-      "end_line": 171,
+      "line": 166,
+      "end_line": 174,
       "signature": "async fn decision(\n    State(s): State<AppState>,\n    CurrentActor(a): CurrentActor,\n    Path(id): Path<Uuid>,\n    h: HeaderMap,\n    Json(i): Json<DecideRequest>,\n) -> Result<Json<ApiResponse<Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [],
@@ -16328,36 +16507,46 @@
       ],
       "calls": []
     },
-    "infera-task/src/feedback/routes.rs:172:assignees": {
+    "infera-task/src/feedback/routes.rs:175:assignees": {
       "name": "assignees",
       "path": "infera-task/src/feedback/routes.rs",
-      "line": 172,
-      "end_line": 219,
+      "line": 175,
+      "end_line": 231,
       "signature": "async fn assignees(\n    State(s): State<AppState>,\n    CurrentActor(a): CurrentActor,\n) -> Result<Json<ApiResponse<Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 177,
+          "line": 180,
           "expression": "permission(&a, \"task:feedback:assign\")?;"
         },
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 182,
+          "line": 185,
           "expression": "&& has_scope(&p, &a, &route.branch, index as i32)"
+        },
+        {
+          "path": "infera-task/src/feedback/routes.rs",
+          "line": 190,
+          "expression": "// change. Authorize the old final role with current local review scope."
         }
       ],
       "validation": [
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 181,
+          "line": 184,
           "expression": "&& a.roles.contains(&stage.role)"
         }
       ],
       "state": [
         {
           "path": "infera-task/src/feedback/routes.rs",
-          "line": 194,
+          "line": 192,
+          "expression": "\"SELECT EXISTS(SELECT 1 FROM task_feedback_requests r WHERE r.workspace_id=$1 AND r.status='pending_review' AND jsonb_array_length(r.route_snapshot->'stages')=r.stage+1 AND r.route_snapshot->'stages'->r.stage->>'kind'='assign_task' AND $2::jsonb ? (r.route_snapshot->'stages'->r.stage->>'role') AND EXISTS(SELECT 1 FROM jsonb_array_elements($3::jsonb) g WHERE $2::jsonb ? (g->>'role') AND (g->>'branch'='*' OR g->>'branch'=r.branch) AND (g->>'stage')::int<=r.stage)) AS permitted\","
+        },
+        {
+          "path": "infera-task/src/feedback/routes.rs",
+          "line": 206,
           "expression": "status: None,"
         }
       ],
@@ -16479,17 +16668,17 @@
         "crate::media_imports::enabled"
       ]
     },
-    "infera-task/src/routes.rs:242:require_global": {
+    "infera-task/src/routes.rs:341:require_global": {
       "name": "require_global",
       "path": "infera-task/src/routes.rs",
-      "line": 242,
-      "end_line": 248,
+      "line": 341,
+      "end_line": 347,
       "signature": "pub(crate) fn require_global(state: &AppState, actor: &crate::auth::Actor) -> Result<(), ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 243,
+          "line": 342,
           "expression": "if actor.has_global_permission(&state.config.global_permission) {"
         }
       ],
@@ -16497,7 +16686,7 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 243,
+          "line": 342,
           "expression": "if actor.has_global_permission(&state.config.global_permission) {"
         }
       ],
@@ -19622,17 +19811,17 @@
       ],
       "calls": []
     },
-    "infera-task/src/routes.rs:278:workspace": {
+    "infera-task/src/routes.rs:377:workspace": {
       "name": "workspace",
       "path": "infera-task/src/routes.rs",
-      "line": 278,
-      "end_line": 285,
+      "line": 377,
+      "end_line": 384,
       "signature": "async fn workspace(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n) -> Result<Json<ApiResponse<WorkspaceSummary>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 282,
+          "line": 381,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -19640,17 +19829,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 282,
+          "line": 381,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 283,
+          "line": 382,
           "expression": "repository::effective_access(&state, &actor, None, None, None).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 284,
+          "line": 383,
           "expression": "Ok(Json(ApiResponse::ok(repository::workspace(&state).await?)))"
         }
       ],
@@ -21911,17 +22100,17 @@
       ],
       "calls": []
     },
-    "infera-task/src/routes.rs:286:effective_access": {
+    "infera-task/src/routes.rs:385:effective_access": {
       "name": "effective_access",
       "path": "infera-task/src/routes.rs",
-      "line": 286,
-      "end_line": 296,
+      "line": 385,
+      "end_line": 395,
       "signature": "async fn effective_access(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Query(q): Query<AccessQuery>,\n) -> Result<Json<ApiResponse<EffectiveAccess>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 291,
+          "line": 390,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -21929,12 +22118,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 291,
+          "line": 390,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 293,
+          "line": 392,
           "expression": "repository::effective_access(&state, &actor, q.team_id, q.project_id, q.work_item_id)"
         }
       ],
@@ -22042,17 +22231,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:297:list_projects": {
+    "infera-task/src/routes.rs:396:list_projects": {
       "name": "list_projects",
       "path": "infera-task/src/routes.rs",
-      "line": 297,
-      "end_line": 314,
+      "line": 396,
+      "end_line": 413,
       "signature": "async fn list_projects(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Query(q): Query<ProjectListQuery>,\n) -> Result<Json<ApiResponse<Vec<ProjectView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 302,
+          "line": 401,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -22060,12 +22249,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 302,
+          "line": 401,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 304,
+          "line": 403,
           "expression": "let data = repository::list_projects(&state, &actor, &q).await?;"
         }
       ],
@@ -22265,17 +22454,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:315:create_project": {
+    "infera-task/src/routes.rs:414:create_project": {
       "name": "create_project",
       "path": "infera-task/src/routes.rs",
-      "line": 315,
-      "end_line": 324,
+      "line": 414,
+      "end_line": 423,
       "signature": "async fn create_project(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Json(input): Json<CreateProject>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 320,
+          "line": 419,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -22283,17 +22472,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 320,
+          "line": 419,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 321,
+          "line": 420,
           "expression": "let item = repository::create_project(&state, &actor, input).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 323,
+          "line": 422,
           "expression": "Ok(etag(StatusCode::CREATED, item, version))"
         }
       ],
@@ -22388,22 +22577,22 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:325:ensure_personal_project": {
+    "infera-task/src/routes.rs:424:ensure_personal_project": {
       "name": "ensure_personal_project",
       "path": "infera-task/src/routes.rs",
-      "line": 325,
-      "end_line": 333,
+      "line": 424,
+      "end_line": 432,
       "signature": "async fn ensure_personal_project(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 329,
+          "line": 428,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 330,
+          "line": 429,
           "expression": "let project = repository::ensure_personal_project(&state, &actor).await?;"
         }
       ],
@@ -22411,17 +22600,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 329,
+          "line": 428,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 330,
+          "line": 429,
           "expression": "let project = repository::ensure_personal_project(&state, &actor).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 332,
+          "line": 431,
           "expression": "Ok(etag(StatusCode::OK, project, version))"
         }
       ],
@@ -22575,17 +22764,17 @@
         "crate::workflows::initial_general_stages"
       ]
     },
-    "infera-task/src/routes.rs:334:create_shared_project": {
+    "infera-task/src/routes.rs:433:create_shared_project": {
       "name": "create_shared_project",
       "path": "infera-task/src/routes.rs",
-      "line": 334,
-      "end_line": 343,
+      "line": 433,
+      "end_line": 442,
       "signature": "async fn create_shared_project(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Json(input): Json<CreateSharedProject>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 339,
+          "line": 438,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -22593,17 +22782,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 339,
+          "line": 438,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 340,
+          "line": 439,
           "expression": "let project = repository::create_shared_project(&state, &actor, input).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 342,
+          "line": 441,
           "expression": "Ok(etag(StatusCode::CREATED, project, version))"
         }
       ],
@@ -22676,17 +22865,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:344:get_project": {
+    "infera-task/src/routes.rs:443:get_project": {
       "name": "get_project",
       "path": "infera-task/src/routes.rs",
-      "line": 344,
-      "end_line": 353,
+      "line": 443,
+      "end_line": 452,
       "signature": "async fn get_project(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 349,
+          "line": 448,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -22694,17 +22883,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 349,
+          "line": 448,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 350,
+          "line": 449,
           "expression": "let item = repository::get_project(&state, &actor, id).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 352,
+          "line": 451,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
@@ -22713,48 +22902,48 @@
         "repository::get_project"
       ]
     },
-    "infera-task/src/routes.rs:354:update_project": {
+    "infera-task/src/routes.rs:453:update_project": {
       "name": "update_project",
       "path": "infera-task/src/routes.rs",
-      "line": 354,
-      "end_line": 366,
+      "line": 453,
+      "end_line": 465,
       "signature": "async fn update_project(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    headers: HeaderMap,\n    Json(input): Json<UpdateProject>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 361,
+          "line": 460,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
       "validation": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 363,
+          "line": 462,
           "expression": "repository::update_project(&state, &actor, id, expected_version(&headers)?, input).await?;"
         }
       ],
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 361,
+          "line": 460,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 363,
+          "line": 462,
           "expression": "repository::update_project(&state, &actor, id, expected_version(&headers)?, input).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 365,
+          "line": 464,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
       "effects": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 363,
+          "line": 462,
           "expression": "repository::update_project(&state, &actor, id, expected_version(&headers)?, input).await?;"
         }
       ],
@@ -23009,17 +23198,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:542:workflow_states": {
+    "infera-task/src/routes.rs:641:workflow_states": {
       "name": "workflow_states",
       "path": "infera-task/src/routes.rs",
-      "line": 542,
-      "end_line": 551,
+      "line": 641,
+      "end_line": 650,
       "signature": "async fn workflow_states(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Vec<WorkflowStateView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 547,
+          "line": 646,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -23027,12 +23216,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 547,
+          "line": 646,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 549,
+          "line": 648,
           "expression": "repository::workflow_states(&state, &actor, id).await?,"
         }
       ],
@@ -24352,17 +24541,17 @@
       ],
       "calls": []
     },
-    "infera-task/src/routes.rs:367:grant_project_access": {
+    "infera-task/src/routes.rs:466:grant_project_access": {
       "name": "grant_project_access",
       "path": "infera-task/src/routes.rs",
-      "line": 367,
-      "end_line": 377,
+      "line": 466,
+      "end_line": 476,
       "signature": "async fn grant_project_access(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Json(input): Json<GrantAccess>,\n) -> Result<Json<ApiResponse<serde_json::Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 373,
+          "line": 472,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -24370,12 +24559,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 373,
+          "line": 472,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 375,
+          "line": 474,
           "expression": "repository::grant_project_access(&state, &actor, id, input).await?,"
         }
       ],
@@ -24621,17 +24810,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:500:list_teams": {
+    "infera-task/src/routes.rs:599:list_teams": {
       "name": "list_teams",
       "path": "infera-task/src/routes.rs",
-      "line": 500,
-      "end_line": 508,
+      "line": 599,
+      "end_line": 607,
       "signature": "async fn list_teams(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n) -> Result<Json<ApiResponse<Vec<TeamView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 504,
+          "line": 603,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -24639,12 +24828,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 504,
+          "line": 603,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 506,
+          "line": 605,
           "expression": "repository::list_teams(&state, &actor).await?,"
         }
       ],
@@ -24780,17 +24969,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:509:create_team": {
+    "infera-task/src/routes.rs:608:create_team": {
       "name": "create_team",
       "path": "infera-task/src/routes.rs",
-      "line": 509,
-      "end_line": 518,
+      "line": 608,
+      "end_line": 617,
       "signature": "async fn create_team(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Json(input): Json<CreateTeam>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 514,
+          "line": 613,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -24798,17 +24987,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 514,
+          "line": 613,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 515,
+          "line": 614,
           "expression": "let item = repository::create_team(&state, &actor, input).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 517,
+          "line": 616,
           "expression": "Ok(etag(StatusCode::CREATED, item, version))"
         }
       ],
@@ -24975,17 +25164,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:519:get_team": {
+    "infera-task/src/routes.rs:618:get_team": {
       "name": "get_team",
       "path": "infera-task/src/routes.rs",
-      "line": 519,
-      "end_line": 528,
+      "line": 618,
+      "end_line": 627,
       "signature": "async fn get_team(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 524,
+          "line": 623,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -24993,17 +25182,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 524,
+          "line": 623,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 525,
+          "line": 624,
           "expression": "let item = repository::get_team(&state, &actor, id).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 527,
+          "line": 626,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
@@ -25031,48 +25220,48 @@
       "effects": [],
       "calls": []
     },
-    "infera-task/src/routes.rs:529:update_team": {
+    "infera-task/src/routes.rs:628:update_team": {
       "name": "update_team",
       "path": "infera-task/src/routes.rs",
-      "line": 529,
-      "end_line": 541,
+      "line": 628,
+      "end_line": 640,
       "signature": "async fn update_team(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    headers: HeaderMap,\n    Json(input): Json<UpdateTeam>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 536,
+          "line": 635,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
       "validation": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 538,
+          "line": 637,
           "expression": "repository::update_team(&state, &actor, id, expected_version(&headers)?, input).await?;"
         }
       ],
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 536,
+          "line": 635,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 538,
+          "line": 637,
           "expression": "repository::update_team(&state, &actor, id, expected_version(&headers)?, input).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 540,
+          "line": 639,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
       "effects": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 538,
+          "line": 637,
           "expression": "repository::update_team(&state, &actor, id, expected_version(&headers)?, input).await?;"
         }
       ],
@@ -25261,17 +25450,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:378:list_work_items": {
+    "infera-task/src/routes.rs:477:list_work_items": {
       "name": "list_work_items",
       "path": "infera-task/src/routes.rs",
-      "line": 378,
-      "end_line": 395,
+      "line": 477,
+      "end_line": 494,
       "signature": "async fn list_work_items(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Query(q): Query<WorkItemListQuery>,\n) -> Result<Json<ApiResponse<Vec<WorkItemView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 383,
+          "line": 482,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -25279,12 +25468,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 383,
+          "line": 482,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 385,
+          "line": 484,
           "expression": "let data = repository::list_work_items(&state, &actor, &q).await?;"
         }
       ],
@@ -25789,27 +25978,27 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:396:create_work_item": {
+    "infera-task/src/routes.rs:495:create_work_item": {
       "name": "create_work_item",
       "path": "infera-task/src/routes.rs",
-      "line": 396,
-      "end_line": 412,
+      "line": 495,
+      "end_line": 511,
       "signature": "async fn create_work_item(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    headers: HeaderMap,\n    Json(input): Json<CreateWorkItem>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 402,
+          "line": 501,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 404,
+          "line": 503,
           "expression": ".get(\"idempotency-key\")"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 407,
+          "line": 506,
           "expression": "ApiError::bad_request(\"idempotency_key_required\", \"Idempotency-Key is required\")"
         }
       ],
@@ -25817,17 +26006,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 402,
+          "line": 501,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 409,
+          "line": 508,
           "expression": "let item = repository::create_work_item(&state, &actor, input, Some(key)).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 411,
+          "line": 510,
           "expression": "Ok(etag(StatusCode::CREATED, item, version))"
         }
       ],
@@ -26393,17 +26582,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:413:get_work_item": {
+    "infera-task/src/routes.rs:512:get_work_item": {
       "name": "get_work_item",
       "path": "infera-task/src/routes.rs",
-      "line": 413,
-      "end_line": 422,
+      "line": 512,
+      "end_line": 521,
       "signature": "async fn get_work_item(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 418,
+          "line": 517,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -26411,17 +26600,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 418,
+          "line": 517,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 419,
+          "line": 518,
           "expression": "let item = repository::get_work_item(&state, &actor, id).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 421,
+          "line": 520,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
@@ -26430,48 +26619,48 @@
         "repository::get_work_item"
       ]
     },
-    "infera-task/src/routes.rs:423:update_work_item": {
+    "infera-task/src/routes.rs:522:update_work_item": {
       "name": "update_work_item",
       "path": "infera-task/src/routes.rs",
-      "line": 423,
-      "end_line": 435,
+      "line": 522,
+      "end_line": 534,
       "signature": "async fn update_work_item(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    headers: HeaderMap,\n    Json(input): Json<UpdateWorkItem>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 430,
+          "line": 529,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
       "validation": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 431,
+          "line": 530,
           "expression": "let item = repository::update_work_item(&state, &actor, id, expected_version(&headers)?, input)"
         }
       ],
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 430,
+          "line": 529,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 431,
+          "line": 530,
           "expression": "let item = repository::update_work_item(&state, &actor, id, expected_version(&headers)?, input)"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 434,
+          "line": 533,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
       "effects": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 431,
+          "line": 530,
           "expression": "let item = repository::update_work_item(&state, &actor, id, expected_version(&headers)?, input)"
         }
       ],
@@ -26621,41 +26810,41 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:861:remove_work_item": {
+    "infera-task/src/routes.rs:969:remove_work_item": {
       "name": "remove_work_item",
       "path": "infera-task/src/routes.rs",
-      "line": 861,
-      "end_line": 865,
-      "signature": "async fn remove_work_item(State(state): State<AppState>, CurrentActor(actor): CurrentActor, Path(id): Path<Uuid>, headers: HeaderMap) -> Result<StatusCode, ApiError>",
+      "line": 969,
+      "end_line": 978,
+      "signature": "async fn remove_work_item(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    headers: HeaderMap,\n) -> Result<StatusCode, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 862,
+          "line": 975,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
       "validation": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 863,
+          "line": 976,
           "expression": "repository::remove_work_item(&state, &actor, id, expected_version(&headers)?).await?;"
         }
       ],
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 862,
+          "line": 975,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 863,
+          "line": 976,
           "expression": "repository::remove_work_item(&state, &actor, id, expected_version(&headers)?).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 864,
+          "line": 977,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
@@ -26765,41 +26954,41 @@
       ],
       "calls": []
     },
-    "infera-task/src/routes.rs:436:transition_work_item": {
+    "infera-task/src/routes.rs:535:transition_work_item": {
       "name": "transition_work_item",
       "path": "infera-task/src/routes.rs",
-      "line": 436,
-      "end_line": 449,
+      "line": 535,
+      "end_line": 548,
       "signature": "async fn transition_work_item(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    headers: HeaderMap,\n    Json(input): Json<TransitionWorkItem>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 443,
+          "line": 542,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
       "validation": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 445,
+          "line": 544,
           "expression": "repository::transition_work_item(&state, &actor, id, expected_version(&headers)?, input)"
         }
       ],
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 443,
+          "line": 542,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 445,
+          "line": 544,
           "expression": "repository::transition_work_item(&state, &actor, id, expected_version(&headers)?, input)"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 448,
+          "line": 547,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
@@ -26835,17 +27024,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:853:work_item_activity": {
+    "infera-task/src/routes.rs:957:work_item_activity": {
       "name": "work_item_activity",
       "path": "infera-task/src/routes.rs",
-      "line": 853,
-      "end_line": 859,
-      "signature": "async fn work_item_activity(\n    State(state): State<AppState>, CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>, Query(query): Query<ActivityQuery>,\n) -> Result<Json<ApiResponse<Vec<serde_json::Value>>>, ApiError>",
+      "line": 957,
+      "end_line": 967,
+      "signature": "async fn work_item_activity(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Query(query): Query<ActivityQuery>,\n) -> Result<Json<ApiResponse<Vec<serde_json::Value>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 857,
+          "line": 963,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -26853,13 +27042,13 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 857,
+          "line": 963,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 858,
-          "expression": "Ok(Json(ApiResponse::ok(repository::work_item_activity(&state, &actor, id, query.offset).await?)))"
+          "line": 965,
+          "expression": "repository::work_item_activity(&state, &actor, id, query.offset).await?,"
         }
       ],
       "effects": [],
@@ -26907,11 +27096,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-task/src/routes.rs:852:ActivityQuery": {
+    "infera-task/src/routes.rs:953:ActivityQuery": {
       "name": "ActivityQuery",
       "kind": "struct",
       "path": "infera-task/src/routes.rs",
-      "line": 852,
+      "line": 953,
       "attributes": "#[derive(Deserialize)]",
       "fields": [
         {
@@ -26927,17 +27116,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:552:comment_page": {
+    "infera-task/src/routes.rs:651:comment_page": {
       "name": "comment_page",
       "path": "infera-task/src/routes.rs",
-      "line": 552,
-      "end_line": 560,
+      "line": 651,
+      "end_line": 661,
       "signature": "async fn comment_page(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Query(query): Query<CommentPageQuery>,\n) -> Result<Json<ApiResponse<CommentPage>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 558,
+          "line": 657,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -26945,13 +27134,13 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 558,
+          "line": 657,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 559,
-          "expression": "Ok(Json(ApiResponse::ok(repository::comment_page(&state, &actor, id, query.before).await?)))"
+          "line": 659,
+          "expression": "repository::comment_page(&state, &actor, id, query.before).await?,"
         }
       ],
       "effects": [],
@@ -27057,17 +27246,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:561:list_comments": {
+    "infera-task/src/routes.rs:662:list_comments": {
       "name": "list_comments",
       "path": "infera-task/src/routes.rs",
-      "line": 561,
-      "end_line": 570,
+      "line": 662,
+      "end_line": 671,
       "signature": "async fn list_comments(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Vec<CommentView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 566,
+          "line": 667,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -27075,12 +27264,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 566,
+          "line": 667,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 568,
+          "line": 669,
           "expression": "repository::list_comments(&state, &actor, id).await?,"
         }
       ],
@@ -27212,17 +27401,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:490:create_comment": {
+    "infera-task/src/routes.rs:589:create_comment": {
       "name": "create_comment",
       "path": "infera-task/src/routes.rs",
-      "line": 490,
-      "end_line": 499,
+      "line": 589,
+      "end_line": 598,
       "signature": "async fn create_comment(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Json(input): Json<CreateComment>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 496,
+          "line": 595,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -27230,17 +27419,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 496,
+          "line": 595,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 497,
+          "line": 596,
           "expression": "let item = repository::create_comment(&state, &actor, id, input).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 498,
+          "line": 597,
           "expression": "Ok((StatusCode::CREATED, Json(ApiResponse::ok(item))).into_response())"
         }
       ],
@@ -27477,17 +27666,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:586:list_work_logs": {
+    "infera-task/src/routes.rs:687:list_work_logs": {
       "name": "list_work_logs",
       "path": "infera-task/src/routes.rs",
-      "line": 586,
-      "end_line": 595,
+      "line": 687,
+      "end_line": 696,
       "signature": "async fn list_work_logs(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Vec<WorkLogView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 591,
+          "line": 692,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -27495,12 +27684,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 591,
+          "line": 692,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 593,
+          "line": 694,
           "expression": "repository::list_work_logs(&state, &actor, id).await?,"
         }
       ],
@@ -27605,17 +27794,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:571:create_work_log": {
+    "infera-task/src/routes.rs:672:create_work_log": {
       "name": "create_work_log",
       "path": "infera-task/src/routes.rs",
-      "line": 571,
-      "end_line": 585,
+      "line": 672,
+      "end_line": 686,
       "signature": "async fn create_work_log(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Json(input): Json<CreateWorkLog>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 577,
+          "line": 678,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -27623,17 +27812,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 577,
+          "line": 678,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 579,
+          "line": 680,
           "expression": "StatusCode::CREATED,"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 581,
+          "line": 682,
           "expression": "repository::create_work_log(&state, &actor, id, input).await?,"
         }
       ],
@@ -27716,17 +27905,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:611:list_commits": {
+    "infera-task/src/routes.rs:712:list_commits": {
       "name": "list_commits",
       "path": "infera-task/src/routes.rs",
-      "line": 611,
-      "end_line": 620,
+      "line": 712,
+      "end_line": 721,
       "signature": "async fn list_commits(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Vec<CommitLinkView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 616,
+          "line": 717,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -27734,19 +27923,19 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 616,
+          "line": 717,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 618,
+          "line": 719,
           "expression": "repository::list_commit_links(&state, &actor, id).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 618,
+          "line": 719,
           "expression": "repository::list_commit_links(&state, &actor, id).await?,"
         }
       ],
@@ -27902,17 +28091,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:596:attach_commit": {
+    "infera-task/src/routes.rs:697:attach_commit": {
       "name": "attach_commit",
       "path": "infera-task/src/routes.rs",
-      "line": 596,
-      "end_line": 610,
+      "line": 697,
+      "end_line": 711,
       "signature": "async fn attach_commit(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Json(input): Json<AttachCommit>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 602,
+          "line": 703,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -27920,24 +28109,24 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 602,
+          "line": 703,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 604,
+          "line": 705,
           "expression": "StatusCode::CREATED,"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 606,
+          "line": 707,
           "expression": "repository::attach_commit(&state, &actor, id, input).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 606,
+          "line": 707,
           "expression": "repository::attach_commit(&state, &actor, id, input).await?,"
         }
       ],
@@ -28103,17 +28292,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:667:list_work_sessions": {
+    "infera-task/src/routes.rs:768:list_work_sessions": {
       "name": "list_work_sessions",
       "path": "infera-task/src/routes.rs",
-      "line": 667,
-      "end_line": 676,
+      "line": 768,
+      "end_line": 777,
       "signature": "async fn list_work_sessions(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Vec<WorkSessionView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 672,
+          "line": 773,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -28121,12 +28310,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 672,
+          "line": 773,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 674,
+          "line": 775,
           "expression": "repository::list_work_sessions(&state, &actor, id).await?,"
         }
       ],
@@ -28312,17 +28501,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:621:start_work_session": {
+    "infera-task/src/routes.rs:722:start_work_session": {
       "name": "start_work_session",
       "path": "infera-task/src/routes.rs",
-      "line": 621,
-      "end_line": 635,
+      "line": 722,
+      "end_line": 736,
       "signature": "async fn start_work_session(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Json(input): Json<StartWorkSession>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 627,
+          "line": 728,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -28330,17 +28519,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 627,
+          "line": 728,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 629,
+          "line": 730,
           "expression": "StatusCode::CREATED,"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 631,
+          "line": 732,
           "expression": "repository::start_work_session(&state, &actor, id, input).await?,"
         }
       ],
@@ -28599,17 +28788,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:677:add_points": {
+    "infera-task/src/routes.rs:778:add_points": {
       "name": "add_points",
       "path": "infera-task/src/routes.rs",
-      "line": 677,
-      "end_line": 691,
+      "line": 778,
+      "end_line": 792,
       "signature": "async fn add_points(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Json(input): Json<PointEntryInput>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 683,
+          "line": 784,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -28617,17 +28806,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 683,
+          "line": 784,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 685,
+          "line": 786,
           "expression": "StatusCode::CREATED,"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 687,
+          "line": 788,
           "expression": "repository::add_point_entry(&state, &actor, id, input).await?,"
         }
       ],
@@ -28725,17 +28914,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:658:active_work_sessions": {
+    "infera-task/src/routes.rs:759:active_work_sessions": {
       "name": "active_work_sessions",
       "path": "infera-task/src/routes.rs",
-      "line": 658,
-      "end_line": 666,
+      "line": 759,
+      "end_line": 767,
       "signature": "async fn active_work_sessions(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n) -> Result<Json<ApiResponse<Vec<WorkSessionView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 662,
+          "line": 763,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -28743,12 +28932,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 662,
+          "line": 763,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 664,
+          "line": 765,
           "expression": "repository::active_work_sessions(&state, &actor).await?,"
         }
       ],
@@ -28792,17 +28981,17 @@
       "effects": [],
       "calls": []
     },
-    "infera-task/src/routes.rs:636:heartbeat_work_session": {
+    "infera-task/src/routes.rs:737:heartbeat_work_session": {
       "name": "heartbeat_work_session",
       "path": "infera-task/src/routes.rs",
-      "line": 636,
-      "end_line": 646,
+      "line": 737,
+      "end_line": 747,
       "signature": "async fn heartbeat_work_session(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Json(input): Json<HeartbeatWorkSession>,\n) -> Result<Json<ApiResponse<WorkSessionView>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 642,
+          "line": 743,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -28810,12 +28999,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 642,
+          "line": 743,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 644,
+          "line": 745,
           "expression": "repository::heartbeat_work_session(&state, &actor, id, input).await?,"
         }
       ],
@@ -28944,17 +29133,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:647:stop_work_session": {
+    "infera-task/src/routes.rs:748:stop_work_session": {
       "name": "stop_work_session",
       "path": "infera-task/src/routes.rs",
-      "line": 647,
-      "end_line": 657,
+      "line": 748,
+      "end_line": 758,
       "signature": "async fn stop_work_session(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n    Json(input): Json<StopWorkSession>,\n) -> Result<Json<ApiResponse<WorkSessionView>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 653,
+          "line": 754,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -28962,12 +29151,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 653,
+          "line": 754,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 655,
+          "line": 756,
           "expression": "repository::stop_work_session(&state, &actor, id, input).await?,"
         }
       ],
@@ -29100,17 +29289,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:460:list_sprints": {
+    "infera-task/src/routes.rs:559:list_sprints": {
       "name": "list_sprints",
       "path": "infera-task/src/routes.rs",
-      "line": 460,
-      "end_line": 469,
+      "line": 559,
+      "end_line": 568,
       "signature": "async fn list_sprints(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Query(query): Query<SprintListQuery>,\n) -> Result<Json<ApiResponse<Vec<SprintView>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 465,
+          "line": 564,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -29118,12 +29307,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 465,
+          "line": 564,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 467,
+          "line": 566,
           "expression": "repository::list_sprints(&state, &actor, &query).await?,"
         }
       ],
@@ -29347,17 +29536,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:450:create_sprint": {
+    "infera-task/src/routes.rs:549:create_sprint": {
       "name": "create_sprint",
       "path": "infera-task/src/routes.rs",
-      "line": 450,
-      "end_line": 459,
+      "line": 549,
+      "end_line": 558,
       "signature": "async fn create_sprint(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Json(input): Json<CreateSprint>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 455,
+          "line": 554,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -29365,17 +29554,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 455,
+          "line": 554,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 456,
+          "line": 555,
           "expression": "let item = repository::create_sprint(&state, &actor, input).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 458,
+          "line": 557,
           "expression": "Ok(etag(StatusCode::CREATED, item, version))"
         }
       ],
@@ -29552,17 +29741,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:470:start_sprint": {
+    "infera-task/src/routes.rs:569:start_sprint": {
       "name": "start_sprint",
       "path": "infera-task/src/routes.rs",
-      "line": 470,
-      "end_line": 479,
+      "line": 569,
+      "end_line": 578,
       "signature": "async fn start_sprint(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 475,
+          "line": 574,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -29570,17 +29759,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 475,
+          "line": 574,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 476,
+          "line": 575,
           "expression": "let item = repository::start_sprint(&state, &actor, id).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 478,
+          "line": 577,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
@@ -29708,17 +29897,17 @@
         "policy::require"
       ]
     },
-    "infera-task/src/routes.rs:480:complete_sprint": {
+    "infera-task/src/routes.rs:579:complete_sprint": {
       "name": "complete_sprint",
       "path": "infera-task/src/routes.rs",
-      "line": 480,
-      "end_line": 489,
+      "line": 579,
+      "end_line": 588,
       "signature": "async fn complete_sprint(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 485,
+          "line": 584,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -29726,17 +29915,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 485,
+          "line": 584,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 486,
+          "line": 585,
           "expression": "let item = repository::complete_sprint(&state, &actor, id).await?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 488,
+          "line": 587,
           "expression": "Ok(etag(StatusCode::OK, item, version))"
         }
       ],
@@ -30030,17 +30219,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:722:report_summary": {
+    "infera-task/src/routes.rs:823:report_summary": {
       "name": "report_summary",
       "path": "infera-task/src/routes.rs",
-      "line": 722,
-      "end_line": 731,
+      "line": 823,
+      "end_line": 832,
       "signature": "async fn report_summary(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Query(q): Query<ReportQuery>,\n) -> Result<Json<ApiResponse<ReportSummary>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 727,
+          "line": 828,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -30048,12 +30237,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 727,
+          "line": 828,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 729,
+          "line": 830,
           "expression": "repository::report_summary(&state, &actor, q.project_id).await?,"
         }
       ],
@@ -30182,17 +30371,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:712:team_monitoring": {
+    "infera-task/src/routes.rs:813:team_monitoring": {
       "name": "team_monitoring",
       "path": "infera-task/src/routes.rs",
-      "line": 712,
-      "end_line": 721,
+      "line": 813,
+      "end_line": 822,
       "signature": "async fn team_monitoring(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Query(query): Query<MonitoringQuery>,\n) -> Result<Json<ApiResponse<serde_json::Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 717,
+          "line": 818,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -30200,12 +30389,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 717,
+          "line": 818,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 719,
+          "line": 820,
           "expression": "repository::team_monitoring(&state, &actor, &query).await?,"
         }
       ],
@@ -30339,17 +30528,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:692:upsert_performance_policy": {
+    "infera-task/src/routes.rs:793:upsert_performance_policy": {
       "name": "upsert_performance_policy",
       "path": "infera-task/src/routes.rs",
-      "line": 692,
-      "end_line": 701,
+      "line": 793,
+      "end_line": 802,
       "signature": "async fn upsert_performance_policy(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Json(input): Json<PerformancePolicyInput>,\n) -> Result<Json<ApiResponse<serde_json::Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 697,
+          "line": 798,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -30357,12 +30546,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 697,
+          "line": 798,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 699,
+          "line": 800,
           "expression": "repository::upsert_performance_policy(&state, &actor, input).await?,"
         }
       ],
@@ -30502,17 +30691,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:702:point_history": {
+    "infera-task/src/routes.rs:803:point_history": {
       "name": "point_history",
       "path": "infera-task/src/routes.rs",
-      "line": 702,
-      "end_line": 711,
+      "line": 803,
+      "end_line": 812,
       "signature": "async fn point_history(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Query(query): Query<PointHistoryQuery>,\n) -> Result<Json<ApiResponse<Vec<serde_json::Value>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 707,
+          "line": 808,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -30520,12 +30709,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 707,
+          "line": 808,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 709,
+          "line": 810,
           "expression": "repository::point_history(&state, &actor, &query).await?,"
         }
       ],
@@ -30618,17 +30807,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:732:create_agent_proposal": {
+    "infera-task/src/routes.rs:833:create_agent_proposal": {
       "name": "create_agent_proposal",
       "path": "infera-task/src/routes.rs",
-      "line": 732,
-      "end_line": 745,
+      "line": 833,
+      "end_line": 846,
       "signature": "async fn create_agent_proposal(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Json(input): Json<AgentProposalInput>,\n) -> Result<Response, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 737,
+          "line": 838,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -30636,17 +30825,17 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 737,
+          "line": 838,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 739,
+          "line": 840,
           "expression": "StatusCode::CREATED,"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 741,
+          "line": 842,
           "expression": "repository::create_agent_proposal(&state, &actor, input).await?,"
         }
       ],
@@ -30753,17 +30942,17 @@
         }
       ]
     },
-    "infera-task/src/routes.rs:746:approve_agent_proposal": {
+    "infera-task/src/routes.rs:847:approve_agent_proposal": {
       "name": "approve_agent_proposal",
       "path": "infera-task/src/routes.rs",
-      "line": 746,
-      "end_line": 755,
+      "line": 847,
+      "end_line": 856,
       "signature": "async fn approve_agent_proposal(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<serde_json::Value>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 751,
+          "line": 852,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
@@ -30771,12 +30960,12 @@
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 751,
+          "line": 852,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 753,
+          "line": 854,
           "expression": "repository::approve_agent_proposal(&state, &actor, id).await?,"
         }
       ],
@@ -30843,51 +31032,51 @@
         "policy::require"
       ]
     },
-    "infera-task/src/routes.rs:757:events": {
+    "infera-task/src/routes.rs:858:events": {
       "name": "events",
       "path": "infera-task/src/routes.rs",
-      "line": 757,
-      "end_line": 793,
+      "line": 858,
+      "end_line": 894,
       "signature": "async fn events(\n    State(state): State<AppState>,\n    CurrentActor(actor): CurrentActor,\n) -> Result<Sse<impl Stream<Item = Result<axum::response::sse::Event, Infallible>>>, ApiError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 761,
+          "line": 862,
           "expression": "require_global(&state, &actor)?;"
         }
       ],
       "validation": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 778,
+          "line": 879,
           "expression": "yield Ok(axum::response::sse::Event::default().event(\"invalidate\").data(\"changed\"));"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 782,
+          "line": 883,
           "expression": "yield Ok(axum::response::sse::Event::default().event(\"invalidate\").data(\"changed\"));"
         }
       ],
       "state": [
         {
           "path": "infera-task/src/routes.rs",
-          "line": 761,
+          "line": 862,
           "expression": "require_global(&state, &actor)?;"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 762,
+          "line": 863,
           "expression": "let mut receiver = state.events.subscribe();"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 770,
+          "line": 871,
           "expression": "\"project\" | \"workflow\" => repository::get_project(&state, &actor, id).await.is_ok(),"
         },
         {
           "path": "infera-task/src/routes.rs",
-          "line": 771,
+          "line": 872,
           "expression": "\"work_item\" | \"comment\" | \"attachment\" => repository::get_work_item(&state, &actor, id).await.is_ok(),"
         }
       ],

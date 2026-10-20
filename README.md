@@ -68,6 +68,8 @@ Automatic refresh is opt-in through `refreshAuth`. Concurrent `401` responses sh
 
 ## Complete route coverage and AI guidance
 
+Capability discovery defaults to a fresh fetched `main` inventory. To inspect the exact backend commits selected for an SDK candidate, run `FAIBER_CAPABILITY_SOURCE_MODE=sdk npm run capabilities:discover` after capturing the remote baseline. The matrix records the canonical, selected SDK and actual inventory revisions separately. A source decision must bind the actual inventory revision and compiler input checksum; changing either invalidates that decision. Discovery does not verify semantic meaning, current permissions, SDK HTTP behavior or readable Manage workflows automatically.
+
 Every service exposes curated convenience APIs plus `sdk.<service>.operations`, generated from mounted Rust routes. Generated methods preserve the HTTP verb, path identifiers, query shape, body shape, response envelope, form/multipart transport, and declared permission. REST convenience resources are capability guarded, so an unsupported operation fails locally instead of producing a backend `405`.
 
 The facade is the single supported application entrypoint. It exports every public service API and type namespace, plus `FaiberSDK.capabilities` and `sdk.describe(service?)`. This machine-readable catalog tells developers and coding agents what each service does and which transport and authentication mode it needs. Manage is exposed as a project-scoped gateway and governed Agentic transport; it never grants arbitrary-host access. Concrete Rust types that cannot be expanded structurally retain a branded `BackendJson<"Rust::Type">` name rather than degrading to `any` or an unexplained placeholder.

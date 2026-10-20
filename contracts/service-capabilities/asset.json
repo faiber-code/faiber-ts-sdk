@@ -11,6 +11,10 @@
     "src/router.rs",
     "src/economy/routes.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
   "sdk_source_revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
   "working_revision": "894e73657c0044b54a0bb158fca1cdee77f6d438",
@@ -838,7 +842,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "2bd730b5bac7ac0646bf10e20b15b6ffc6dcc025099acd33bfcc9b0d93ee667e",

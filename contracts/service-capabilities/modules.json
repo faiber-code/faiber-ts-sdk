@@ -11,6 +11,10 @@
     "src/router.rs",
     "src/management_api/mod.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
   "sdk_source_revision": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
   "working_revision": "58900d8e5c95fcc3fa4d0d4906d95c7ea9027bb9",
@@ -901,7 +905,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "fdf25d09f3ce391a98e538578f1b9dc3da12df2f4f0cf8ad3731056b18076541",

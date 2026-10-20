@@ -10,6 +10,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 - Canonical source revision: `1addec42a400ba980b6547060cdcb4d347a7bbd0`
 - SDK source revision: `e5772f8bdeb9df8d17d004aa54b0bc8f5d37dcb4`
+- Evidence inventory revision: `e5772f8bdeb9df8d17d004aa54b0bc8f5d37dcb4` (sdk)
 - Working HEAD: `6c763c989216fbecd6cfdb4c98f1067c09d17507`
 - Source relationship: working_behind_sdk
 
@@ -17,11 +18,11 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /` | `infera-crm/src/router.rs:123` | inspect middleware/local scope | pending |
-| `GET /health` | `infera-crm/src/router.rs:123` | inspect middleware/local scope | pending |
-| `GET /up` | `infera-crm/src/router.rs:123` | inspect middleware/local scope | pending |
-| `GET /livez` | `infera-crm/src/router.rs:123` | inspect middleware/local scope | pending |
-| `GET /readyz` | `infera-crm/src/router.rs:133` | inspect middleware/local scope | pending |
+| `GET /` | `infera-crm/src/router.rs:157` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-crm/src/router.rs:157` | inspect middleware/local scope | pending |
+| `GET /up` | `infera-crm/src/router.rs:157` | inspect middleware/local scope | pending |
+| `GET /livez` | `infera-crm/src/router.rs:157` | inspect middleware/local scope | pending |
+| `GET /readyz` | `infera-crm/src/router.rs:167` | inspect middleware/local scope | pending |
 | `GET /api/v1/context` | `infera-crm/src/api/routes.rs:205` | crm:workspace:read | pending |
 | `GET /api/v1/workflow` | `infera-crm/src/api/operations.rs:973` | workflow:read, workflow:read_all, workflow:read_own | pending |
 | `POST /api/v1/workflow` | `infera-crm/src/api/operations.rs:945` | workflow:create | pending |
@@ -107,7 +108,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `POST /api/v1/reports/{id}/agentic` | `infera-crm/src/api/writes.rs:1114` | crm:agent:run | pending |
 | `GET /api/v1/reports/{id}` | `infera-crm/src/api/routes.rs:665` | crm:report:read | pending |
 | `GET /api/v1/reports/catalog` | `infera-crm/src/api/routes.rs:645` | crm:report:read | pending |
-| `ANY /api` | `infera-crm/src/router.rs:111` | inspect middleware/local scope | pending |
-| `ANY /api/{*path}` | `infera-crm/src/router.rs:111` | inspect middleware/local scope | pending |
+| `ANY /api` | `infera-crm/src/router.rs:145` | inspect middleware/local scope | pending |
+| `ANY /api/{*path}` | `infera-crm/src/router.rs:145` | inspect middleware/local scope | pending |
 
 Full fields, guards, state/side-effect evidence, call dependencies, source checksums and unresolved symbols are in `contracts/service-capabilities/crm.json`. Empty declared permission arrays do not establish public access. Review gateway middleware and resource ownership.

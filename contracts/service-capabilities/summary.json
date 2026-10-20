@@ -11,9 +11,9 @@
       "unresolved_router_edges": 0
     },
     "chat": {
-      "mounted_operations": 58,
+      "mounted_operations": 67,
       "working_route_candidates": 40,
-      "resolved_handlers": 58,
+      "resolved_handlers": 67,
       "reviewed_operations": 0,
       "source_relationship": "diverged",
       "missing_meaning_sources": [],
@@ -47,9 +47,9 @@
       "unresolved_router_edges": 0
     },
     "idp": {
-      "mounted_operations": 104,
+      "mounted_operations": 107,
       "working_route_candidates": 90,
-      "resolved_handlers": 104,
+      "resolved_handlers": 107,
       "reviewed_operations": 0,
       "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
@@ -65,9 +65,9 @@
       "unresolved_router_edges": 0
     },
     "lms": {
-      "mounted_operations": 189,
+      "mounted_operations": 181,
       "working_route_candidates": 117,
-      "resolved_handlers": 189,
+      "resolved_handlers": 181,
       "reviewed_operations": 0,
       "source_relationship": "diverged",
       "missing_meaning_sources": [],
@@ -101,36 +101,36 @@
       "unresolved_router_edges": 0
     },
     "profile": {
-      "mounted_operations": 215,
+      "mounted_operations": 235,
       "working_route_candidates": 155,
-      "resolved_handlers": 215,
+      "resolved_handlers": 235,
       "reviewed_operations": 0,
       "source_relationship": "diverged",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
     "reservation": {
-      "mounted_operations": 29,
+      "mounted_operations": 30,
       "working_route_candidates": 17,
-      "resolved_handlers": 29,
+      "resolved_handlers": 30,
       "reviewed_operations": 0,
       "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
     "session": {
-      "mounted_operations": 42,
+      "mounted_operations": 45,
       "working_route_candidates": 38,
-      "resolved_handlers": 42,
+      "resolved_handlers": 45,
       "reviewed_operations": 0,
       "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],
       "unresolved_router_edges": 0
     },
     "social": {
-      "mounted_operations": 97,
+      "mounted_operations": 112,
       "working_route_candidates": 73,
-      "resolved_handlers": 97,
+      "resolved_handlers": 112,
       "reviewed_operations": 0,
       "source_relationship": "working_behind_sdk",
       "missing_meaning_sources": [],

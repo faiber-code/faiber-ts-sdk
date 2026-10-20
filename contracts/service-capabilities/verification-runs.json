@@ -1455,5 +1455,93 @@
         "GET /api/v1/versions/{version_id}"
       ]
     }
+  },
+  "gis-packed-production-router-postgis-v5": {
+    "status": "passed",
+    "exit_code": 0,
+    "command": "cargo test --locked --offline -p infera-gis sdk_http_tests -- --include-ignored --nocapture --test-threads=1",
+    "artifact_path": "evidence/gis-packed-http-v5-native.log",
+    "artifact_sha256": "a626cc493b86549a650b4b2759de980b7d49b777f219b5423fdcfd0d5d2e6011",
+    "tests_executed": 2,
+    "source_revisions": {
+      "gis": "0bc8423a51887450b928e7b372153014cd47e582"
+    },
+    "test_source_revision": "b48ebeeb5151c9921e7b6b91532f8c81bbaea6cd",
+    "sdk_revision": "357bce41ec51f5a89a5ea39a9f57f50a540adad0",
+    "source_unchanged_during_run": true,
+    "boundaries": [
+      "typescript_sdk_http"
+    ],
+    "covered_operations": {
+      "gis": [
+        "GET /api/v1/datasets",
+        "POST /api/v1/datasets",
+        "GET /api/v1/datasets/{id}",
+        "PATCH /api/v1/datasets/{id}",
+        "GET /api/v1/datasets/{id}/features",
+        "PUT /api/v1/datasets/{id}/features",
+        "PUT /api/v1/datasets/{id}/features/{feature}",
+        "GET /api/v1/datasets/{id}/history",
+        "GET /api/v1/datasets/{id}/tiles/{z}/{x}/{y}",
+        "GET /api/v1/imports",
+        "POST /api/v1/imports",
+        "POST /api/v1/imports/{id}/retry",
+        "GET /api/v1/internal/outbox",
+        "PUT /api/v1/internal/outbox/{id}/ack",
+        "GET /api/v1/maps",
+        "POST /api/v1/maps",
+        "GET /api/v1/maps/{id}",
+        "PATCH /api/v1/maps/{id}",
+        "PUT /api/v1/maps/{id}/publish",
+        "GET /api/v1/maps/{id}/style",
+        "GET /api/v1/me",
+        "GET /api/v1/me/contributions",
+        "GET /api/v1/me/saves",
+        "GET /api/v1/moderation",
+        "POST /api/v1/moderation/{id}",
+        "GET /api/v1/moderation/{id}/history",
+        "POST /api/v1/moderation/reports/{id}",
+        "GET /api/v1/my-places",
+        "POST /api/v1/my-places",
+        "DELETE /api/v1/my-places/{id}",
+        "GET /api/v1/my-places/{id}",
+        "PUT /api/v1/my-places/{id}",
+        "GET /api/v1/places",
+        "POST /api/v1/places",
+        "GET /api/v1/places/{id}",
+        "POST /api/v1/places/{id}/assertion",
+        "GET /api/v1/places/{id}/references",
+        "POST /api/v1/places/{id}/reports",
+        "DELETE /api/v1/places/{id}/save",
+        "PUT /api/v1/places/{id}/save",
+        "GET /api/v1/public/datasets/{id}/geojson",
+        "GET /api/v1/public/datasets/{id}/tilejson",
+        "GET /api/v1/public/datasets/{id}/tiles/{z}/{x}/{y}",
+        "GET /api/v1/public/maps",
+        "GET /api/v1/public/maps/{slug}",
+        "GET /api/v1/public/maps/{slug}/geojson",
+        "GET /api/v1/public/maps/{slug}/style",
+        "GET /health"
+      ]
+    },
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/gis-packed-http-v5-receipt.json",
+        "sha256": "2cad52f6f7466aef725e07a26d4d0fc8ef76b5056eeaef9a1c517e2665920cc6"
+      },
+      {
+        "artifact_path": "evidence/gis-packed-http-v5-source-equivalence.json",
+        "sha256": "33cde3e3c6b2541697aae15f9aed8a4ec41109737b3a64a8fce5a90461d6bd7a"
+      },
+      {
+        "artifact_path": "evidence/gis-packed-http-v5-probe.mjs",
+        "sha256": "df1812fb0b6690aab5bf318ec7a2ca384e7373bc18b19d813cf2d76d54789519"
+      },
+      {
+        "artifact_path": "evidence/gis-packed-http-v5-import-probe.mjs",
+        "sha256": "6bcc9e83c3055f4f152a179e30ba27f2530a7eb04925f33d68ae7c2646b57664"
+      }
+    ],
+    "scope": "80 actual packed SDK HTTP assertions on full migrated PostGIS. Current-cookie IDP and trusted-BFF fixtures. Import create/retry positive plus separate native lease proof. Tile renderer is explicit byte fixture; no actual Martin/live IDP/provider/deployment or whole-service completion claim."
   }
 }

@@ -77,6 +77,9 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
     }
     const source = data.source_decision;
     if (!source?.revision || !source.reason || source.status !== 'verified') failures.push(`${service}: canonical runtime/source revision is unverified`);
+    if(data.inventory_revision && (source?.revision!==data.inventory_revision || source?.source_tree_checksum!==data.source_tree_checksum)) {
+      failures.push(`${service}: selected source review does not bind the actual inventory revision and compiler inputs`);
+    }
     if(stage!=='discovery' && selectedSources?.[service]) {
       const selected=selectedSources[service].revision;
       if(data.sdk_source_revision!==selected) failures.push(`${service}: discovery inventory does not bind the current SDK source lock`);

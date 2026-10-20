@@ -83,7 +83,7 @@
     },
     "control": {
       "directory": "Service/infera-control",
-      "revision": "2ca08f07358a75809683c74757b3e5cc115f1c26"
+      "revision": "60b2a772066b46d0dde00cf655a6457144016553"
     },
     "gis": {
       "directory": "Service/infera-gis",

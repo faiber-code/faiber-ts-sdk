@@ -11,12 +11,16 @@
     "README.md",
     "src/router.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "80aef6037cec20bb808903f15737160cef5f6a66",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "f7cd709510458083d10a1b79a5ad3d7cd29196bd",
   "sdk_source_revision": "80aef6037cec20bb808903f15737160cef5f6a66",
   "working_revision": "4ece677c98c48070fcdc3de77a714b783f73bacc",
   "working_changes": [],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "ec9ffd698e8ca41daa15c7abed9d73e3b04f492b20710eb198bb3ffd8c841fd6",
+  "source_tree_checksum": "42e38b4479bc57d28b5b64c96c5098216b133142b7e7fd15f83d30afbb565770",
   "source_files": [
     {
       "path": "infera-reservation/src/auth.rs",
@@ -68,31 +72,35 @@
     },
     {
       "path": "infera-reservation/src/models.rs",
-      "checksum": "db2331933810800b05db8b371179af0598300270f0fa87946f4183fcd2b29876"
+      "checksum": "3053f8f15748621a236108c97220ff89f16c6ad4e1ae031a853d0975bca0877f"
     },
     {
       "path": "infera-reservation/src/pagination.rs",
       "checksum": "02c16152141908f4da4d0d122b4e91dfb86844b525a50734a193cf2d859a2f85"
     },
     {
+      "path": "infera-reservation/src/provider/capacity.rs",
+      "checksum": "49eb32055d071a354f575e84f791e86d3338ca31aa6179e19017009b5a5c5269"
+    },
+    {
       "path": "infera-reservation/src/provider/methods.rs",
-      "checksum": "3ec72e22cffe6e11bee09fa33fcecc3b656071e64cde6b4c2661d0924cdcea21"
+      "checksum": "c7f8964e5dfddd9aff4aacc2f6bf49fa13c9ed3588750f514da7e77591662e3c"
     },
     {
       "path": "infera-reservation/src/provider/mod.rs",
-      "checksum": "fbd7e9e924c238e9da16fec01dfe7bbf6f90ecd2e4f284e782ceeb91e1e489e0"
+      "checksum": "6faa6367bdd25068f310bd2d1f267c972a465a6f3ecc7454c5c5bdeeea75ed38"
     },
     {
       "path": "infera-reservation/src/provider/models.rs",
-      "checksum": "6a8a02e9eec258934008a882bc9583646985c6a2851964bb4394552966df15a8"
+      "checksum": "1506655df9897f53226d9678614357a7d242c8aae9e244d3418ed894370c38e7"
     },
     {
       "path": "infera-reservation/src/provider/routes.rs",
-      "checksum": "3c639d40350ac0c28bbd945517d8b2b3678d5bc34d94ac7eee1e32d54715c4de"
+      "checksum": "07071a2428d2e5ce24323ef32343b02310a0ddaaf611bcf6ba4c8ad1dc699876"
     },
     {
       "path": "infera-reservation/src/reservation/methods.rs",
-      "checksum": "773b3e1330462e99f508c71e48b7265a5573b291a9235297cd3547b1479dbfd5"
+      "checksum": "a4e0420cb2b735864e70a210b02d69fa3fc046c3a72ec8317c181d1960721330"
     },
     {
       "path": "infera-reservation/src/reservation/mod.rs",
@@ -108,7 +116,7 @@
     },
     {
       "path": "infera-reservation/src/reservation_service/methods.rs",
-      "checksum": "fc49303ec88adae6398c2997b6940d484bd363c56bbab1d16e751bd0831aee63"
+      "checksum": "5c3e640e03dfbc11d0b2f408da094703f560ba58f3f9f51bfa3102932ef958d7"
     },
     {
       "path": "infera-reservation/src/reservation_service/mod.rs",
@@ -132,7 +140,7 @@
     },
     {
       "path": "infera-reservation/src/time_slot/methods.rs",
-      "checksum": "0078367c5cfbffe416fcb5a1fe8da5149cf62445e01b8eb900d1c3b19acb31db"
+      "checksum": "ba7a7bc143d2095af7297ba085f0fa8f60bcb84bf6f2f73a210518c337c42091"
     },
     {
       "path": "infera-reservation/src/time_slot/mod.rs",
@@ -148,7 +156,7 @@
     },
     {
       "path": "infera-reservation/src/work_schedule/methods.rs",
-      "checksum": "3bc33ca3934fc4dbbe6f27c6b30d849c314bf73bf5f159958f3f6420a154887c"
+      "checksum": "c1c4ffeff5cad63edc93c6ff69ed71bdb3f6bf19756b7cc506680b617d31de91"
     },
     {
       "path": "infera-reservation/src/work_schedule/mod.rs",
@@ -176,7 +184,7 @@
     },
     {
       "path": "infera-reservation/entity/src/provider.rs",
-      "checksum": "4b0e498af9c1a9a1fb3abbd9ddfe5628839508cdde1d41de40c5292471e13489"
+      "checksum": "c2befb61851efbd6620104cd03b8642cc3759f11a0318039a80217f2da32bc9c"
     },
     {
       "path": "infera-reservation/entity/src/reservation_service.rs",
@@ -204,7 +212,7 @@
     },
     {
       "path": "infera-reservation/migration/src/lib.rs",
-      "checksum": "7942e25b6c49028dd787ab7315cbea36323b29c6ea2eab5c90573c7fc8f0b71a"
+      "checksum": "8fb807aec2afd834231101d1ca543e03a5e8e065b02e5df96367c2143feeaa14"
     },
     {
       "path": "infera-reservation/migration/src/m20250621_000001_create_services_table.rs",
@@ -235,6 +243,14 @@
       "checksum": "9fbf2817cc0f66e4c67eb93a278d5a392c09f7616525d376c635db9a9f034d30"
     },
     {
+      "path": "infera-reservation/migration/src/m20261019_000008_preserve_reservation_history.rs",
+      "checksum": "c79c749a6047aca77f005784498bf6e4f4c40f0e1a11001147703632bad15cd5"
+    },
+    {
+      "path": "infera-reservation/migration/src/m20261019_000009_provider_capacity.rs",
+      "checksum": "d6c6c53ff60e3ed66aa6144e8c1c7507c17d657c08a899c7a6e6848e8f11dda3"
+    },
+    {
       "path": "infera-reservation/migration/src/main.rs",
       "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
     },
@@ -257,7 +273,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "323fea673519d198080ae93be00042d3c25d9b9051ee163529d809f01f19bed3",
@@ -535,7 +551,7 @@
           }
         ]
       },
-      "source_checksum": "fb136005a000acf18acb28476486c9cb4c4487fb44a271bda5b8b3bdc14ccdb4",
+      "source_checksum": "5ade901676f48cd04fe1beaca5ed9a08fb175ebcb21f46417dc9f59a79ab0246",
       "handler": {
         "ref": "infera-reservation/src/router.rs:151:health",
         "path": "infera-reservation/src/router.rs",
@@ -592,7 +608,7 @@
           }
         ]
       },
-      "source_checksum": "987b90db6307619315deb01ab48b599a1af8dc5150710a728de1fd5c7ad1d890",
+      "source_checksum": "415b90be878f02df38a7012ef643ca5c58ac3ecc2f50c0a005fca60ddc99d230",
       "handler": {
         "ref": "infera-reservation/src/router.rs:151:health",
         "path": "infera-reservation/src/router.rs",
@@ -649,7 +665,7 @@
           }
         ]
       },
-      "source_checksum": "e60d3285fdb3e150dd52b6b9f9e7d469f08557e904220837dccaeb275ea6dbdf",
+      "source_checksum": "49580f0aef318136db02c122045a14e7c58e44f96bb9a611d3286c7df16e7e11",
       "handler": {
         "ref": "infera-reservation/src/router.rs:68:openapi_json",
         "path": "infera-reservation/src/router.rs",
@@ -718,7 +734,7 @@
           }
         ]
       },
-      "source_checksum": "e52f8e6e786cf7fc9e0a537ce2aa98df7d90a3181ba6bc823a7d39d32456beb9",
+      "source_checksum": "e5ba47576adaf938311c7c2cde99039db6c76c62e04f435f83f9f6dea206cc72",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:13:index",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -731,9 +747,9 @@
           "declared_type": "PaginationQuery",
           "models": [
             {
-              "ref": "infera-reservation/src/models.rs:5:PaginationQuery",
+              "ref": "infera-reservation/src/models.rs:8:PaginationQuery",
               "path": "infera-reservation/src/models.rs",
-              "line": 5,
+              "line": 8,
               "name": "PaginationQuery"
             }
           ]
@@ -742,9 +758,9 @@
           "declared_type": "crate::models::PagedResult<ServiceResponse>",
           "models": [
             {
-              "ref": "infera-reservation/src/models.rs:17:PagedResult",
+              "ref": "infera-reservation/src/models.rs:73:PagedResult",
               "path": "infera-reservation/src/models.rs",
-              "line": 17,
+              "line": 73,
               "name": "PagedResult"
             },
             {
@@ -805,7 +821,7 @@
           }
         ]
       },
-      "source_checksum": "330b1cba067e934729f17a3de7afcc8385405c82d571da49b7093a6eda86e892",
+      "source_checksum": "1f4cde6740bf48922b03b503791e1f5f1151d19832cacfc5b5d43c6e9876d38f",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:27:store",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -886,7 +902,7 @@
           }
         ]
       },
-      "source_checksum": "4dde7a8b12b5a23464adf24171338085239b0f56c180b2a9e5e4350605773f2d",
+      "source_checksum": "4090888a0838dd42d4b3392d30ecb6c8e7ddd40e73aee245d5771935dd3dbc85",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:22:show",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -961,7 +977,7 @@
           }
         ]
       },
-      "source_checksum": "7261cd6f91dbefffa81736da5187a793f741bb4187a574bc32674e9ae1586191",
+      "source_checksum": "490b38cdabb7bf9dfdda450c8bf29838d2312cc573c593067bdfa1d1e84068b3",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:33:update",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -1046,7 +1062,7 @@
           }
         ]
       },
-      "source_checksum": "b0b56b6cc8c32b8d387b0a3e613aede7cb55d5a754e226289bd98e31027d24ed",
+      "source_checksum": "3c6ae8838809de75c36a382859e30e37d6d13e3ec2570ef7632d66c6e4723769",
       "handler": {
         "ref": "infera-reservation/src/reservation_service/routes.rs:39:destroy",
         "path": "infera-reservation/src/reservation_service/routes.rs",
@@ -1113,11 +1129,11 @@
           }
         ]
       },
-      "source_checksum": "f9a9c02000a747e3a6aa89323f06f42c751a2a24f0f226daf3c666c0322fa5de",
+      "source_checksum": "51be7160f37b78839a07dbe49af52cfc45b0717dbcc108dedecc8a2d91aa66ff",
       "handler": {
-        "ref": "infera-reservation/src/provider/routes.rs:16:index",
+        "ref": "infera-reservation/src/provider/routes.rs:17:index",
         "path": "infera-reservation/src/provider/routes.rs",
-        "line": 16,
+        "line": 17,
         "name": "index"
       },
       "related_implementation": [],
@@ -1126,9 +1142,9 @@
           "declared_type": "PaginationQuery",
           "models": [
             {
-              "ref": "infera-reservation/src/models.rs:5:PaginationQuery",
+              "ref": "infera-reservation/src/models.rs:8:PaginationQuery",
               "path": "infera-reservation/src/models.rs",
-              "line": 5,
+              "line": 8,
               "name": "PaginationQuery"
             }
           ]
@@ -1137,9 +1153,9 @@
           "declared_type": "crate::models::PagedResult<ProviderResponse>",
           "models": [
             {
-              "ref": "infera-reservation/src/models.rs:17:PagedResult",
+              "ref": "infera-reservation/src/models.rs:73:PagedResult",
               "path": "infera-reservation/src/models.rs",
-              "line": 17,
+              "line": 73,
               "name": "PagedResult"
             },
             {
@@ -1207,11 +1223,11 @@
           }
         ]
       },
-      "source_checksum": "919e9990798d180377941afa4c3d0a063453f0a9a6e8591e2135efad05d7eaff",
+      "source_checksum": "66185b15d9e90631c0ff0ff28e99c53071fe22f5971cc1680f4a9cb4633ff248",
       "handler": {
-        "ref": "infera-reservation/src/provider/routes.rs:27:store",
+        "ref": "infera-reservation/src/provider/routes.rs:28:store",
         "path": "infera-reservation/src/provider/routes.rs",
-        "line": 27,
+        "line": 28,
         "name": "store"
       },
       "related_implementation": [],
@@ -1220,9 +1236,9 @@
           "declared_type": "CreateProviderRequest",
           "models": [
             {
-              "ref": "infera-reservation/src/provider/models.rs:24:CreateProviderRequest",
+              "ref": "infera-reservation/src/provider/models.rs:25:CreateProviderRequest",
               "path": "infera-reservation/src/provider/models.rs",
-              "line": 24,
+              "line": 25,
               "name": "CreateProviderRequest"
             }
           ]
@@ -1301,11 +1317,11 @@
           }
         ]
       },
-      "source_checksum": "902d4ee6b2d9b8911ec8585023d3d1f8dc18a739fe45180642a2d79317b21c10",
+      "source_checksum": "c6e0c7a59ec74bb5e8c0ab9287fced2f3aac3164ff33a22b8fcb784e7883e11d",
       "handler": {
-        "ref": "infera-reservation/src/provider/routes.rs:22:show",
+        "ref": "infera-reservation/src/provider/routes.rs:23:show",
         "path": "infera-reservation/src/provider/routes.rs",
-        "line": 22,
+        "line": 23,
         "name": "show"
       },
       "related_implementation": [],
@@ -1383,11 +1399,11 @@
           }
         ]
       },
-      "source_checksum": "523c0315598cc2cf191b1ea460973b959cac1dd2548ecff871378bdff0c2b154",
+      "source_checksum": "646cad455efd9cb531bb3971c42a74e169452f846b2d9a251295a0d049b20a37",
       "handler": {
-        "ref": "infera-reservation/src/provider/routes.rs:33:update",
+        "ref": "infera-reservation/src/provider/routes.rs:34:update",
         "path": "infera-reservation/src/provider/routes.rs",
-        "line": 33,
+        "line": 34,
         "name": "update"
       },
       "related_implementation": [],
@@ -1396,9 +1412,9 @@
           "declared_type": "UpdateProviderRequest",
           "models": [
             {
-              "ref": "infera-reservation/src/provider/models.rs:33:UpdateProviderRequest",
+              "ref": "infera-reservation/src/provider/models.rs:36:UpdateProviderRequest",
               "path": "infera-reservation/src/provider/models.rs",
-              "line": 33,
+              "line": 36,
               "name": "UpdateProviderRequest"
             }
           ]
@@ -1481,11 +1497,11 @@
           }
         ]
       },
-      "source_checksum": "925e477b2501aeab51cb39f83b444c3436d1fca473d0e438b8e223ab14e6adbd",
+      "source_checksum": "7bc35837f74dc73fc4c2c766defbfd2056edd14b507dbacd0508e7196f221c68",
       "handler": {
-        "ref": "infera-reservation/src/provider/routes.rs:39:destroy",
+        "ref": "infera-reservation/src/provider/routes.rs:40:destroy",
         "path": "infera-reservation/src/provider/routes.rs",
-        "line": 39,
+        "line": 40,
         "name": "destroy"
       },
       "related_implementation": [],
@@ -1502,6 +1518,109 @@
       "relation_candidates": [],
       "review": {
         "status": "stale",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "GET /api/v1/providers/{id}/capacity",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/providers/{id}/capacity",
+        "module": "provider::routes",
+        "handler": "capacity_report",
+        "permissions": [],
+        "source": "infera-reservation/src/provider/routes.rs",
+        "query": "PaginationQuery",
+        "pathParam": "i64",
+        "response": "super::capacity::CapacityReport",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handlerModule": "provider::routes",
+        "handler_source": "infera-reservation/src/provider/routes.rs",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "871dd7d5d9063ed599d07a3658ea3f1e8e63285427bda8e94adf30f7484e416f",
+      "handler": {
+        "ref": "infera-reservation/src/provider/routes.rs:63:capacity_report",
+        "path": "infera-reservation/src/provider/routes.rs",
+        "line": 63,
+        "name": "capacity_report"
+      },
+      "related_implementation": [
+        {
+          "call": "super::capacity::report",
+          "evidence": {
+            "ref": "infera-reservation/src/provider/capacity.rs:58:report",
+            "path": "infera-reservation/src/provider/capacity.rs",
+            "line": 58,
+            "name": "report"
+          }
+        }
+      ],
+      "schemas": {
+        "query": {
+          "declared_type": "PaginationQuery",
+          "models": [
+            {
+              "ref": "infera-reservation/src/models.rs:8:PaginationQuery",
+              "path": "infera-reservation/src/models.rs",
+              "line": 8,
+              "name": "PaginationQuery"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "super::capacity::CapacityReport",
+          "models": [
+            {
+              "ref": "infera-reservation/src/provider/capacity.rs:49:CapacityReport",
+              "path": "infera-reservation/src/provider/capacity.rs",
+              "line": 49,
+              "name": "CapacityReport"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "i64",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "provider_id",
+          "type": "i64",
+          "model": "CapacityReport",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
         "required": [
           "meaning",
           "permissions",
@@ -1548,11 +1667,11 @@
           }
         ]
       },
-      "source_checksum": "d7fce5a134512c764b52fcc88dc15c0d73dca73e2abe00d194580ab3f8385da8",
+      "source_checksum": "2ca4b17edc1922f23fec800ef3cc395a75d5591a1d5767a8d31f942ddf4958d8",
       "handler": {
-        "ref": "infera-reservation/src/provider/routes.rs:45:list_services",
+        "ref": "infera-reservation/src/provider/routes.rs:46:list_services",
         "path": "infera-reservation/src/provider/routes.rs",
-        "line": 45,
+        "line": 46,
         "name": "list_services"
       },
       "related_implementation": [],
@@ -1623,11 +1742,11 @@
           }
         ]
       },
-      "source_checksum": "ea214a9259e28f49e00375c6827d826a577f2c344412a92e9dc9b5e4d73e8916",
+      "source_checksum": "f630285dbb70824de69638c6baa228a706c1bf066f5dd5856542ded88cc42d5b",
       "handler": {
-        "ref": "infera-reservation/src/provider/routes.rs:51:assign_service",
+        "ref": "infera-reservation/src/provider/routes.rs:52:assign_service",
         "path": "infera-reservation/src/provider/routes.rs",
-        "line": 51,
+        "line": 52,
         "name": "assign_service"
       },
       "related_implementation": [],
@@ -1636,9 +1755,9 @@
           "declared_type": "AssignServiceRequest",
           "models": [
             {
-              "ref": "infera-reservation/src/provider/models.rs:42:AssignServiceRequest",
+              "ref": "infera-reservation/src/provider/models.rs:47:AssignServiceRequest",
               "path": "infera-reservation/src/provider/models.rs",
-              "line": 42,
+              "line": 47,
               "name": "AssignServiceRequest"
             }
           ]
@@ -1708,11 +1827,11 @@
           }
         ]
       },
-      "source_checksum": "35654becc4e8368bfd91af524937b399a39000b69742bc02adf203afdc7c409f",
+      "source_checksum": "c23a39631f04c16922d0a483e1378f9792de1a16896f17af988c06c5d42d415f",
       "handler": {
-        "ref": "infera-reservation/src/provider/routes.rs:57:remove_service",
+        "ref": "infera-reservation/src/provider/routes.rs:58:remove_service",
         "path": "infera-reservation/src/provider/routes.rs",
-        "line": 57,
+        "line": 58,
         "name": "remove_service"
       },
       "related_implementation": [],
@@ -1775,7 +1894,7 @@
           }
         ]
       },
-      "source_checksum": "742e91068dd9b28004ebc8ec17a415e64d198d1232dd50324c07387936aed54c",
+      "source_checksum": "8958860143b2ecdda9c4738d2279760d1faa45b30e5f07506f6a4819921b5580",
       "handler": {
         "ref": "infera-reservation/src/work_schedule/routes.rs:10:index",
         "path": "infera-reservation/src/work_schedule/routes.rs",
@@ -1857,7 +1976,7 @@
           }
         ]
       },
-      "source_checksum": "b05ceae597064dad52ffd38577b60fa9155dc316e2c35894f41084eec6bffdd9",
+      "source_checksum": "ee9324e7870bc57ac83fc9b406d4219b4d3971306b676086611f7fa74b4969ec",
       "handler": {
         "ref": "infera-reservation/src/work_schedule/routes.rs:16:upsert",
         "path": "infera-reservation/src/work_schedule/routes.rs",
@@ -1949,7 +2068,7 @@
           }
         ]
       },
-      "source_checksum": "7a64049586237be865507f2ca342910c16c1be80e287ba4ed225dc4a40c65c8a",
+      "source_checksum": "be1775eec9fd6849c627fadf8feb20106eccb1f6e0c1e7561caa1cbd655a3bee",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:19:generate",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -2036,7 +2155,7 @@
           }
         ]
       },
-      "source_checksum": "f99fb886b09d06d21050ef5829ad266c54493d666972e6204bb94757cc69514f",
+      "source_checksum": "83f64ed4f57d3c3e70ae202b58366187fc446eb6d79d5db34211731299cc5209",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:13:available",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -2148,7 +2267,7 @@
           }
         ]
       },
-      "source_checksum": "acf09404ec99a548f4858b550675401decef05884e58ac5c08c979cd717d3dd2",
+      "source_checksum": "d751cf7bf4d9e20946ea88b143ef823b42bcacf8a810e02c517fa94099bfc0e9",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:30:show",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -2242,7 +2361,7 @@
           }
         ]
       },
-      "source_checksum": "5efb75b7aa9ace1ff738d804277bd37f9a90790ed0a5c85f28d13946c7855a44",
+      "source_checksum": "26d34f200072d11211e322fc76d04e3f67a43e5cfe0f7de4f299789df38ccc0b",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:34:update",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -2358,7 +2477,7 @@
           }
         ]
       },
-      "source_checksum": "3db94bb03ca2261475e103a5c537bd4c8868cda6cc4bb47275e3138e28511f94",
+      "source_checksum": "118e602cbd7f7e844b75072be2b82effcf1e3f40903779b2cde322aeae4eaca5",
       "handler": {
         "ref": "infera-reservation/src/time_slot/routes.rs:25:destroy",
         "path": "infera-reservation/src/time_slot/routes.rs",
@@ -2425,7 +2544,7 @@
           }
         ]
       },
-      "source_checksum": "9c35d06b95b8f55baba55dcd718724918875883b1ac596ac199e0e7ee5648dd3",
+      "source_checksum": "db6dc52b83678887e3f83e73fcc3eb04d2e8bd9b5aa62b16691f6f913204e34a",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:12:index",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2449,9 +2568,9 @@
           "declared_type": "PagedResult<ReservationResponse>",
           "models": [
             {
-              "ref": "infera-reservation/src/models.rs:17:PagedResult",
+              "ref": "infera-reservation/src/models.rs:73:PagedResult",
               "path": "infera-reservation/src/models.rs",
-              "line": 17,
+              "line": 73,
               "name": "PagedResult"
             },
             {
@@ -2555,7 +2674,7 @@
           }
         ]
       },
-      "source_checksum": "ecee9b9f1b23b9f86397b9e3bd2f3c7d4979bde0b0df47b3e399e9e1bb26f003",
+      "source_checksum": "e29d07b0686f2ae9ba9efc45b966492709e732a507f0eef0be6bdee69cedbed7",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:24:store",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2673,7 +2792,7 @@
           }
         ]
       },
-      "source_checksum": "9368e8b579debe65780dbe4c6e029f1c3bdcfc7eeebcf648b1c3e3153896a882",
+      "source_checksum": "f4959ba12a54620664038f9fc2115779b847b4917be7283a6745e5e2ebc37344",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:18:show",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2773,7 +2892,7 @@
           }
         ]
       },
-      "source_checksum": "317ba94f786ea9a2fa9486bab6802088df09a3dc08c7e5e57264f288fe9364ea",
+      "source_checksum": "c5f2644120e04ff867ed585a6f068a714cdb30795bc5e14b105631cf8936a9a3",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:29:update",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2883,7 +3002,7 @@
           }
         ]
       },
-      "source_checksum": "7d95b5df4f4f90bf33b451106d5101a5637a0d700802c3abd2ca2bbebe6a9d4d",
+      "source_checksum": "f4dd927028ea8ad5be9e300608ae2b00c901623d1c1a869c585678625ebad2ac",
       "handler": {
         "ref": "infera-reservation/src/reservation/routes.rs:35:cancel",
         "path": "infera-reservation/src/reservation/routes.rs",
@@ -2949,7 +3068,7 @@
           }
         ]
       },
-      "source_checksum": "f3fd0e0c3f840615ff5760bb0f426b16dc0aa6798ee84d7735e26885730b6b18",
+      "source_checksum": "b519a58ea41e310f20005486188cde36b9757b8f80608b0fa1727571596f2b1d",
       "handler": {
         "ref": "infera-reservation/src/integration/routes.rs:9:flow_integration_show",
         "path": "infera-reservation/src/integration/routes.rs",
@@ -2992,9 +3111,7 @@
   ],
   "sdk_contract_drift": {
     "missing": [],
-    "extra": [
-      "GET /api/v1/providers/{id}/capacity"
-    ],
+    "extra": [],
     "changed": [
       "GET /health",
       "GET /",
@@ -3009,6 +3126,7 @@
       "GET /api/v1/providers/{id}",
       "PATCH /api/v1/providers/{id}",
       "DELETE /api/v1/providers/{id}",
+      "GET /api/v1/providers/{id}/capacity",
       "GET /api/v1/providers/{id}/services",
       "POST /api/v1/providers/{id}/services",
       "DELETE /api/v1/providers/{id}/services/{service_id}",
@@ -3325,6 +3443,32 @@
         "handler_source": "infera-reservation/src/provider/routes.rs",
         "pathParam": "i64",
         "response": "()",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-reservation/src/router.rs",
+            "line": 92,
+            "function": "routes"
+          },
+          {
+            "path": "infera-reservation/src/provider/routes.rs",
+            "line": 7,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/providers/{id}/capacity",
+        "module": "provider::routes",
+        "handler": "capacity_report",
+        "handlerModule": "provider::routes",
+        "source": "infera-reservation/src/provider/routes.rs",
+        "permissions": [],
+        "handler_source": "infera-reservation/src/provider/routes.rs",
+        "query": "PaginationQuery",
+        "pathParam": "i64",
+        "response": "super::capacity::CapacityReport",
         "responseEnvelope": "api",
         "mounted_via": [
           {
@@ -3747,9 +3891,7 @@
     "absent_from_mounted_graph": []
   },
   "working_drift": {
-    "added": [
-      "GET /api/v1/providers/{id}/capacity"
-    ],
+    "added": [],
     "absent": [],
     "changed": [
       "GET /",
@@ -3760,6 +3902,7 @@
       "DELETE /api/v1/providers/{id}",
       "GET /api/v1/providers/{id}",
       "PATCH /api/v1/providers/{id}",
+      "GET /api/v1/providers/{id}/capacity",
       "GET /api/v1/providers/{id}/services",
       "POST /api/v1/providers/{id}/services",
       "DELETE /api/v1/providers/{id}/services/{service_id}",
@@ -3948,12 +4091,12 @@
       "effects": [],
       "calls": []
     },
-    "infera-reservation/src/models.rs:5:PaginationQuery": {
+    "infera-reservation/src/models.rs:8:PaginationQuery": {
       "name": "PaginationQuery",
       "kind": "struct",
       "path": "infera-reservation/src/models.rs",
-      "line": 5,
-      "attributes": "#[derive(Debug, Deserialize)]",
+      "line": 8,
+      "attributes": "#[derive(Debug)]",
       "fields": [
         {
           "name": "page",
@@ -3962,17 +4105,15 @@
           "optional": true,
           "defaulted": false,
           "flatten": false,
-          "attributes": [
-            "serde(rename = \"page\")"
-          ]
+          "attributes": []
         }
       ]
     },
-    "infera-reservation/src/models.rs:17:PagedResult": {
+    "infera-reservation/src/models.rs:73:PagedResult": {
       "name": "PagedResult",
       "kind": "struct",
       "path": "infera-reservation/src/models.rs",
-      "line": 17,
+      "line": 73,
       "attributes": "#[derive(Serialize, Debug)]",
       "fields": [
         {
@@ -4290,11 +4431,11 @@
       ],
       "calls": []
     },
-    "infera-reservation/src/provider/routes.rs:16:index": {
+    "infera-reservation/src/provider/routes.rs:17:index": {
       "name": "index",
       "path": "infera-reservation/src/provider/routes.rs",
-      "line": 16,
-      "end_line": 19,
+      "line": 17,
+      "end_line": 20,
       "signature": "async fn index(State(s): State<AppState>, Query(page): Query<PaginationQuery>) -> Result<Json<APIResponse<crate::models::PagedResult<ProviderResponse>>>, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -4365,6 +4506,15 @@
           "attributes": []
         },
         {
+          "name": "capacity",
+          "rust_name": "capacity",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
           "name": "created_at",
           "rust_name": "created_at",
           "rust_type": "String",
@@ -4375,18 +4525,18 @@
         }
       ]
     },
-    "infera-reservation/src/provider/routes.rs:27:store": {
+    "infera-reservation/src/provider/routes.rs:28:store": {
       "name": "store",
       "path": "infera-reservation/src/provider/routes.rs",
-      "line": 27,
-      "end_line": 30,
+      "line": 28,
+      "end_line": 31,
       "signature": "async fn store(State(s): State<AppState>, Json(body): Json<CreateProviderRequest>) -> Result<Json<APIResponse<ProviderResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-reservation/src/provider/routes.rs",
-          "line": 28,
+          "line": 29,
           "expression": "body.validate().map_err(|e| AppError::bad_request(e.to_string()))?;"
         }
       ],
@@ -4394,11 +4544,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-reservation/src/provider/models.rs:24:CreateProviderRequest": {
+    "infera-reservation/src/provider/models.rs:25:CreateProviderRequest": {
       "name": "CreateProviderRequest",
       "kind": "struct",
       "path": "infera-reservation/src/provider/models.rs",
-      "line": 24,
+      "line": 25,
       "attributes": "#[derive(Debug, Deserialize, Validate)]",
       "fields": [
         {
@@ -4447,14 +4597,25 @@
           "defaulted": false,
           "flatten": false,
           "attributes": []
+        },
+        {
+          "name": "capacity",
+          "rust_name": "capacity",
+          "rust_type": "Option<i32>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(range(min=1,max=1000))"
+          ]
         }
       ]
     },
-    "infera-reservation/src/provider/routes.rs:22:show": {
+    "infera-reservation/src/provider/routes.rs:23:show": {
       "name": "show",
       "path": "infera-reservation/src/provider/routes.rs",
-      "line": 22,
-      "end_line": 24,
+      "line": 23,
+      "end_line": 25,
       "signature": "async fn show(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<ProviderResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -4463,18 +4624,18 @@
       "effects": [],
       "calls": []
     },
-    "infera-reservation/src/provider/routes.rs:33:update": {
+    "infera-reservation/src/provider/routes.rs:34:update": {
       "name": "update",
       "path": "infera-reservation/src/provider/routes.rs",
-      "line": 33,
-      "end_line": 36,
+      "line": 34,
+      "end_line": 37,
       "signature": "async fn update(State(s): State<AppState>, Path(id): Path<i64>, Json(body): Json<UpdateProviderRequest>) -> Result<Json<APIResponse<ProviderResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-reservation/src/provider/routes.rs",
-          "line": 34,
+          "line": 35,
           "expression": "body.validate().map_err(|e| AppError::bad_request(e.to_string()))?;"
         }
       ],
@@ -4482,17 +4643,17 @@
       "effects": [
         {
           "path": "infera-reservation/src/provider/routes.rs",
-          "line": 35,
+          "line": 36,
           "expression": "Ok(Json(APIResponse::ok(ProviderResponse::from(methods::update(&s.db, id, body).await?))))"
         }
       ],
       "calls": []
     },
-    "infera-reservation/src/provider/models.rs:33:UpdateProviderRequest": {
+    "infera-reservation/src/provider/models.rs:36:UpdateProviderRequest": {
       "name": "UpdateProviderRequest",
       "kind": "struct",
       "path": "infera-reservation/src/provider/models.rs",
-      "line": 33,
+      "line": 36,
       "attributes": "#[derive(Debug, Deserialize, Validate)]",
       "fields": [
         {
@@ -4541,14 +4702,25 @@
           "defaulted": false,
           "flatten": false,
           "attributes": []
+        },
+        {
+          "name": "capacity",
+          "rust_name": "capacity",
+          "rust_type": "Option<i32>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": [
+            "validate(range(min=1,max=1000))"
+          ]
         }
       ]
     },
-    "infera-reservation/src/provider/routes.rs:39:destroy": {
+    "infera-reservation/src/provider/routes.rs:40:destroy": {
       "name": "destroy",
       "path": "infera-reservation/src/provider/routes.rs",
-      "line": 39,
-      "end_line": 42,
+      "line": 40,
+      "end_line": 43,
       "signature": "async fn destroy(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<()>>, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -4557,17 +4729,177 @@
       "effects": [
         {
           "path": "infera-reservation/src/provider/routes.rs",
-          "line": 40,
+          "line": 41,
           "expression": "methods::delete(&s.db, id).await?;"
         }
       ],
       "calls": []
     },
-    "infera-reservation/src/provider/routes.rs:45:list_services": {
+    "infera-reservation/src/provider/routes.rs:63:capacity_report": {
+      "name": "capacity_report",
+      "path": "infera-reservation/src/provider/routes.rs",
+      "line": 63,
+      "end_line": 65,
+      "signature": "async fn capacity_report(State(s):State<AppState>,Path(id):Path<i64>,Query(page):Query<PaginationQuery>)->Result<Json<APIResponse<super::capacity::CapacityReport>>,AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": [
+        "super::capacity::report"
+      ]
+    },
+    "infera-reservation/src/provider/capacity.rs:58:report": {
+      "name": "report",
+      "path": "infera-reservation/src/provider/capacity.rs",
+      "line": 58,
+      "end_line": 112,
+      "signature": "pub async fn report(\n    db: &sea_orm::DatabaseConnection,\n    provider_id: i64,\n    page: &crate::models::PaginationQuery,\n) -> Result<CapacityReport, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 74,
+          "expression": "let count=tx.query_one(Statement::from_sql_and_values(DatabaseBackend::Postgres,\"SELECT COUNT(*)::bigint AS count FROM reservation_provider_capacity_conflicts WHERE provider_id=$1\",[provider_id.into()])).await.map_err(AppError::from)?.unwrap().try_get::<i64>(\"\",\"count\").map_err(AppError::from)?;"
+        },
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 80,
+          "expression": "let rows=tx.query_all(Statement::from_sql_and_values(DatabaseBackend::Postgres,\"SELECT starts_at,ends_at,occupied FROM reservation_provider_capacity_conflicts WHERE provider_id=$1 ORDER BY starts_at OFFSET $2 LIMIT $3\",[provider_id.into(),offset.into(),(size as i64).into()])).await.map_err(AppError::from)?;"
+        },
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 81,
+          "expression": "let conflicts = rows"
+        },
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 84,
+          "expression": "Ok(ConflictWindow {"
+        },
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 108,
+          "expression": "conflicts,"
+        },
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 109,
+          "expression": "conflict_count: count,"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 74,
+          "expression": "let count=tx.query_one(Statement::from_sql_and_values(DatabaseBackend::Postgres,\"SELECT COUNT(*)::bigint AS count FROM reservation_provider_capacity_conflicts WHERE provider_id=$1\",[provider_id.into()])).await.map_err(AppError::from)?.unwrap().try_get::<i64>(\"\",\"count\").map_err(AppError::from)?;"
+        },
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 80,
+          "expression": "let rows=tx.query_all(Statement::from_sql_and_values(DatabaseBackend::Postgres,\"SELECT starts_at,ends_at,occupied FROM reservation_provider_capacity_conflicts WHERE provider_id=$1 ORDER BY starts_at OFFSET $2 LIMIT $3\",[provider_id.into(),offset.into(),(size as i64).into()])).await.map_err(AppError::from)?;"
+        },
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 93,
+          "expression": ".query_one(Statement::from_string("
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 63,
+          "expression": "use sea_orm::{EntityTrait, QuerySelect, TransactionTrait};"
+        },
+        {
+          "path": "infera-reservation/src/provider/capacity.rs",
+          "line": 102,
+          "expression": "tx.commit().await.map_err(AppError::from)?;"
+        }
+      ],
+      "calls": [
+        "crate::pagination::resolve_page"
+      ]
+    },
+    "infera-reservation/src/provider/capacity.rs:49:CapacityReport": {
+      "name": "CapacityReport",
+      "kind": "struct",
+      "path": "infera-reservation/src/provider/capacity.rs",
+      "line": 49,
+      "attributes": "#[derive(Debug, Serialize)]",
+      "fields": [
+        {
+          "name": "provider_id",
+          "rust_name": "provider_id",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "capacity",
+          "rust_name": "capacity",
+          "rust_type": "i32",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "peak_current_future",
+          "rust_name": "peak_current_future",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "observed_at",
+          "rust_name": "observed_at",
+          "rust_type": "DateTime<Utc>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "conflicts",
+          "rust_name": "conflicts",
+          "rust_type": "Vec<ConflictWindow>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "conflict_count",
+          "rust_name": "conflict_count",
+          "rust_type": "i64",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "has_more",
+          "rust_name": "has_more",
+          "rust_type": "bool",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-reservation/src/provider/routes.rs:46:list_services": {
       "name": "list_services",
       "path": "infera-reservation/src/provider/routes.rs",
-      "line": 45,
-      "end_line": 48,
+      "line": 46,
+      "end_line": 49,
       "signature": "async fn list_services(State(s): State<AppState>, Path(id): Path<i64>) -> Result<Json<APIResponse<Vec<ServiceResponse>>>, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -4576,11 +4908,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-reservation/src/provider/routes.rs:51:assign_service": {
+    "infera-reservation/src/provider/routes.rs:52:assign_service": {
       "name": "assign_service",
       "path": "infera-reservation/src/provider/routes.rs",
-      "line": 51,
-      "end_line": 54,
+      "line": 52,
+      "end_line": 55,
       "signature": "async fn assign_service(State(s): State<AppState>, Path(id): Path<i64>, Json(body): Json<AssignServiceRequest>) -> Result<Json<APIResponse<()>>, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -4589,11 +4921,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-reservation/src/provider/models.rs:42:AssignServiceRequest": {
+    "infera-reservation/src/provider/models.rs:47:AssignServiceRequest": {
       "name": "AssignServiceRequest",
       "kind": "struct",
       "path": "infera-reservation/src/provider/models.rs",
-      "line": 42,
+      "line": 47,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -4607,11 +4939,11 @@
         }
       ]
     },
-    "infera-reservation/src/provider/routes.rs:57:remove_service": {
+    "infera-reservation/src/provider/routes.rs:58:remove_service": {
       "name": "remove_service",
       "path": "infera-reservation/src/provider/routes.rs",
-      "line": 57,
-      "end_line": 60,
+      "line": 58,
+      "end_line": 61,
       "signature": "async fn remove_service(State(s): State<AppState>, Path((id, service_id)): Path<(i64, i64)>) -> Result<Json<APIResponse<()>>, AppError>",
       "declared_permissions": [],
       "guards": [],

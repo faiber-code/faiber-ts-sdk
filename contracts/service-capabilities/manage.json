@@ -13,6 +13,10 @@
     "src/proxy.rs",
     "src/agent.rs"
   ],
+  "inventory_source": "sdk",
+  "inventory_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
+  "source_decision": null,
+  "relationship_review": null,
   "canonical_revision": "a13caa6019e3648a1f84766d7ee5034c7147a123",
   "sdk_source_revision": null,
   "working_revision": "bfb5096432bd72bb5d8b920c304309bab9c2928b",
@@ -85,7 +89,7 @@
   ],
   "protocol_mounts": [],
   "embedded_source_gaps": {
-    "canonical": [],
+    "inventory": [],
     "working": []
   },
   "working_source_tree_checksum": "8d6c30d34ba5bc46beca8dc0a94e136acc0793cf8614fc5f1d463633fbe2662a",
