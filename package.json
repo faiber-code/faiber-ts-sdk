@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "clean": "node scripts/clean.mjs",
-    "generate": "npm run contracts:extract && npm run contracts:generate",
-    "generate:check": "npm run contracts:audit && node scripts/generate-service-operations.mjs service-contracts.json --check",
+    "generate": "npm run contracts:extract && npm run contracts:generate && node scripts/generate-manage-actions.mjs",
+    "generate:check": "npm run contracts:audit && node scripts/generate-service-operations.mjs service-contracts.json --check && node scripts/generate-manage-actions.mjs --check",
     "contracts:extract": "node scripts/extract-service-contracts.mjs",
     "contracts:generate": "node scripts/generate-service-operations.mjs",
     "contracts:audit": "node scripts/audit-service-contracts.mjs",

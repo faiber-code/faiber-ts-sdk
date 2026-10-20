@@ -81,3 +81,42 @@ server-authorized services. Agent and project are bound by the server; conflicti
 values, assistant configuration, unknown preferences, and forged trusted-chat context
 are rejected. Cross-project thread operations return404; invalid preferences return400.
 These preferences never grant service, execution, model, or billing permissions.
+
+## Durable Manage actions (canonical v1)
+
+Check `getAgentActionCapabilities()` before enabling durable reviews. The supported
+protocol is `durable-manage-action-v1` with `legacy_completion: false` and the
+closed JSON-schema subset. A missing, failed or incompatible capability stays
+unavailable; it never enables a legacy proxy/completion fallback.
+
+`manage_action` SSE carries only `action_id`, `thread_id` and the protocol. Use
+`isManageDurableActionEvent`, then `getAgentAction(threadId, actionId)` to load the
+server-owned record. `listAgentActions` returns the latest 50 summaries, without
+an invented cursor. Presentation suggestions are untrusted; `body_schema` comes
+from the server catalog. No model form or TypeScript string is schema authority.
+
+`reviewAgentAction` accepts edit/approve/reject. Edits require an explicit body
+and keep the stored service/method/path. Decisions require a nonempty reason of
+at most 2048 UTF-8 bytes. Send the captured `expected_version`, `payload_hash` and
+a caller-owned non-nil `operation_id`. `executeAgentAction` accepts only those
+three fields: the server executes its saved payload under current authorization.
+The generated equivalents are on `manage.operations` with the same method names.
+
+Preserve the entire request and UUID after an unknown network result. A 409 needs
+a fresh GET and review, never automatic rebase or a new UUID. A cancelled HTTP
+request does not cancel a claimed action. `outcome_unknown` is terminal here:
+read the durable receipt; do not resend the target or use the old completion API.
+Server expiry and current permissions remain authoritative. UUID/hash/version,
+closed request fields, finite JSON and input bounds are checked before transport.
+
+No signer, proof header helper, actor/project grant, internal claim/dispatch or
+finish operation is exported. The legacy browser-event guard rejects
+`manage_sdk`; other browser tools retain their existing event contract. General
+manual service operations remain separate APIs and are never called as durable
+action fallback.
+
+Source: reviewed Manage `2c28db4d80bf4814a69892189afe2ae41663e554` and Agentic
+`854a6dd654aab4518bca3a9523d370a161bd659a`. Backend native authority/execution
+proof, SDK wire validation, packed consumer checks and combined UI/runtime
+acceptance are separate gates. This client does not imply all deployed catalog
+entries contain supported schemas or authorize deployment/publication.

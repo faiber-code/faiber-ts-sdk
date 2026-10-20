@@ -1,3 +1,5 @@
+import {ManageActionOperations} from "./operations.js";
+import type * as D from "./durable.types.js";
 import {
   SERVICE_NAMES,
   ServiceApi,
@@ -57,6 +59,17 @@ export function managedImageUrl(response: T.ManageImageUploadResponse): string {
 
 /** Typed client for project-scoped Manage APIs and its governed Agentic bridge. */
 export class ManageApi extends ServiceApi {
+  readonly operations = new ManageActionOperations(this.client);
+  /** Required protocol check. Unavailable capability never enables legacy action execution. */
+  getAgentActionCapabilities(options?: RequestOptions) { return this.operations.getAgentActionCapabilities(options); }
+  /** Latest50 durable summaries for this thread; no invented cursor or payload history. */
+  listAgentActions(threadId: string, options?: RequestOptions) { return this.operations.listAgentActions(threadId,options); }
+  getAgentAction(threadId: string, actionId: string, options?: RequestOptions) { return this.operations.getAgentAction(threadId,actionId,options); }
+  /** Send the reviewed version/hash and caller-owned UUID.409 requires fresh review, never rebase. */
+  reviewAgentAction(threadId: string, actionId: string, input: D.ManageAgentActionReviewInput, options?: RequestOptions<D.ManageAgentActionReviewInput>) { return this.operations.reviewAgentAction(threadId,actionId,input,options); }
+  /** Server executes its saved payload. Preserve exact UUID/body after unknown outcome; never target retry. */
+  executeAgentAction(threadId: string, actionId: string, input: D.ManageAgentActionExecuteInput, options?: RequestOptions<D.ManageAgentActionExecuteInput>) { return this.operations.executeAgentAction(threadId,actionId,input,options); }
+
   /** Gets the active user, project, service catalog, and Agentic origin. */
   me(options?: RequestOptions) {
     return this.client.get<T.ManageMeResponse>("/api/v1/me", undefined, options);
@@ -157,7 +170,7 @@ export class ManageApi extends ServiceApi {
     );
   }
 
-  /** Reports the reviewed execution result of an Agentic browser action. */
+  /** Legacy browser tools only. Never completes or substitutes for a durable Manage action. */
   completeAgentAction(
     actionId: string,
     data: T.ManageAgentActionCompletionInput,
@@ -201,3 +214,6 @@ export class ManageApi extends ServiceApi {
 export * from "./types.js";
 export * from "./stream.js";
 export * from "@faiber/sdk-core";
+
+export * from "./durable.types.js";
+export {ManageActionOperations} from "./operations.js";

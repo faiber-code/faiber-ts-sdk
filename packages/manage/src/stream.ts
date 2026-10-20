@@ -1,6 +1,7 @@
 import type { JsonObject, JsonValue } from "@faiber/sdk-core";
 import type {
   ManageAgentActionEvent,
+  ManageDurableActionSseEvent,
   ManageAgentCompleteEvent,
   ManageAgentEvent,
   ManageAgentQuestionEvent,
@@ -106,7 +107,7 @@ function objectData(event: ManageAgentEvent): JsonObject | null {
 
 export function isManageAgentActionEvent(event: ManageAgentEvent): event is ManageAgentActionEvent {
   const data = objectData(event);
-  return event.event === "browser_action" && typeof data?.action_id === "string" && typeof data.name === "string";
+  return event.event === "browser_action" && typeof data?.action_id === "string" && typeof data.name === "string" && data.name !== "manage_sdk";
 }
 
 export function isManageAgentQuestionEvent(event: ManageAgentEvent): event is ManageAgentQuestionEvent {
@@ -117,4 +118,12 @@ export function isManageAgentQuestionEvent(event: ManageAgentEvent): event is Ma
 export function isManageAgentCompleteEvent(event: ManageAgentEvent): event is ManageAgentCompleteEvent {
   const data = objectData(event);
   return event.event === "complete" && typeof data?.message === "string";
+}
+
+/** A durable reference never contains an executable target or legacy browser arguments. */
+export function isManageDurableActionEvent(event:ManageAgentEvent):event is ManageDurableActionSseEvent {
+ const data=objectData(event);
+ const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+ const valid=(value:unknown)=>typeof value==='string'&&uuid.test(value)&&!/^0{8}-0{4}-0{4}-0{4}-0{12}$/.test(value);
+ return event.event==='manage_action'&&data!==null&&Object.keys(data).length===3&&valid(data.action_id)&&valid(data.thread_id)&&data.protocol==='durable-manage-action-v1';
 }

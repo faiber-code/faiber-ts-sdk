@@ -252,3 +252,8 @@ export interface ManageAgentQuestionEvent extends ManageAgentEvent<ManageAgentQu
 export interface ManageAgentCompleteEvent extends ManageAgentEvent<ManageAgentComplete> {
   event: "complete";
 }
+
+/** Persisted server reference only; fetch its durable record before any review. */
+export interface ManageDurableActionSseEvent extends ManageAgentEvent<import('./durable.types.js').ManageDurableActionEvent & JsonObject> {
+  event: "manage_action";
+}

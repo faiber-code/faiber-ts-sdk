@@ -121,6 +121,7 @@ export * as ManageService from "@faiber/faiber-manage";
 export {
     domainsFromManageProxy,
     isManageAgentActionEvent,
+    isManageDurableActionEvent,
     isManageAgentCompleteEvent,
     isManageAgentQuestionEvent,
     managedImageUrl,
@@ -135,3 +136,5 @@ export { ProfileSummariesApi } from "@faiber/faiber-profile";
 
 export { GisApi };
 export * as GisService from "@faiber/faiber-gis";
+
+export type {ManageAgentActionCapabilities,ManageDurableActionEvent,ManageAgentActionPayload,ManageAgentActionState,ManageAgentActionOutcome,ManageAgentActionView,ManageAgentActionReply,ManageAgentActionSummary,ManageAgentActionReviewInput,ManageAgentActionExecuteInput,ManageDurableActionSseEvent} from "@faiber/faiber-manage";
