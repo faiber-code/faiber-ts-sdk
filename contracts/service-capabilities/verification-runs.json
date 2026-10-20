@@ -1660,5 +1660,33 @@
       }
     ],
     "scope": "84 actual frozen SDK HTTP assertions, full migrated owned PostGIS3.4.3, actual pinned Martin1.16.1, restricted renderer role, nonempty private/public MVT, privacy revocation; current-IDP loopback fixture and trusted BFF are explicit. Positive import create/retry plus separate native atomicity/lease proof. No live IDP/provider/deployment or allzoom/newerPostGIS certificate."
+  },
+  "knowledge-editor-http-d025": {
+    "schema_version": "1.0",
+    "kind": "correctness_regression",
+    "status": "passed",
+    "observed_at": "2026-10-20T08:00:04.206509+00:00",
+    "command": "cargo test --locked --offline --test base_editor_atomicity -- --include-ignored --test-threads=1 --nocapture",
+    "exit_code": 0,
+    "tests_executed": 29,
+    "duration_seconds": 15.319,
+    "source_revisions": {
+      "knowledge": "d02588159ae8993b560c7225e2e39558be39fb3c"
+    },
+    "source_unchanged_during_run": true,
+    "boundaries": [
+      "real_postgresql",
+      "source_http_trusted_fixture_headers"
+    ],
+    "artifact_path": "evidence/knowledge-editor-http-d025.log",
+    "artifact_sha256": "3fe4bc367d14fded5fd1a50f114ff5b532185ff10207a9144d568d0140eed70b",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/knowledge-editor-http-d025-receipt.json",
+        "sha256": "a83b7aa191c822582107c06f55743c80200ba911699d9013a6fa33706080b300"
+      }
+    ],
+    "scope": "Twenty-nine real PostgreSQL editor regressions, including actual production routes over loopback HTTP under explicit trusted fixture headers with DEVfalse: CRUD permissions/CAS/tenant denial and immutable release readback; rule filters/search/stable pagination across206ownedbases. Not current deployed IDP/gateway authority, model quality or agent memory migration certification.",
+    "covered_operations": {}
   }
 }

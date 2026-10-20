@@ -35,7 +35,7 @@ export type KnowledgeEdgeListResponse = ApiEnvelope<KnowledgeEdge[]>;
 export type ChatBindingResponse = ApiEnvelope<ChatBinding>;
 export type ChatBindingListResponse = ApiEnvelope<ChatBinding[]>;
 export type MatchRuleResponse = ApiEnvelope<MatchRule>;
-export type MatchRuleListResponse = ApiEnvelope<MatchRule[]>;
+export interface MatchRuleListResponse extends ApiEnvelope<MatchRule[]> { meta: KnowledgePaginationMeta; }
 export type RuntimeResultResponse = ApiEnvelope<RuntimeResult>;
 
 export type ContextMode = "economy" | "balanced" | "deep" | "custom";
@@ -149,3 +149,14 @@ export interface KnowledgeExport extends JsonObject {
 }
 export type KnowledgeReleaseResponse = ApiEnvelope<KnowledgeRelease>;
 export type KnowledgeExportResponse = ApiEnvelope<KnowledgeExport>;
+
+/** Match-rule filters apply before pagination across every active owned base. Search matches slug or localized name text. */
+export interface KnowledgeRuleListQuery extends QueryParams {
+  q?: string;
+  knowledge_base_id?: string;
+  group_id?: string;
+  enabled?: boolean;
+  page?: number;
+  limit?: number;
+}
+export interface KnowledgePaginationMeta { total: number; page: number; limit: number; }

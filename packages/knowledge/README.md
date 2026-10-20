@@ -81,8 +81,8 @@ An authoring `export(baseId)` is mutable and has an export timestamp; it is not 
 published instruction bundle.
 
 ```ts
-const published = await knowledge.publish(baseId, { signal });
-const release = await knowledge.release(published.data.data.id, { signal });
+const published = await api.publish(baseId, { signal });
+const release = await api.release(published.data.data.id, { signal });
 console.log(release.data.data.checksum_sha256);
 ```
 
@@ -95,3 +95,14 @@ link string clears that link field during an update; omitted fields are preserve
 `null` does not clear optional update fields in the current Rust DTOs. Use
 `expected_version` when editing to detect conflicts; handle HTTP 409 by reloading
 the current record and preserving unsaved user input.
+
+### Filter and page match rules
+
+`matchRules({ q, knowledge_base_id, group_id, enabled, page, limit })` filters
+active rules before pagination across all authorized active bases. `q` matches
+slug or localized name text. The response includes `meta.total`, `meta.page`, and
+`meta.limit`; `limit` is bounded to 1–200 and pages start at 1. Ordering is by
+priority followed by rule ID. This API does not truncate the base directory to
+its first 200 records. `operations.routesListRulesGet()` exposes the same wire
+contract. Group and base filters use their UUIDs; inaccessible or deleted bases
+contribute no results.

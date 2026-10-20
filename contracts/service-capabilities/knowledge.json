@@ -13,18 +13,18 @@
     "src/retrieval.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
+  "inventory_revision": "d02588159ae8993b560c7225e2e39558be39fb3c",
   "source_decision": null,
   "relationship_review": null,
   "canonical_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
-  "sdk_source_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
+  "sdk_source_revision": "d02588159ae8993b560c7225e2e39558be39fb3c",
   "working_revision": "92047358a6b4dee1911d47a78621c8359716b7af",
   "working_changes": [
     "M Cargo.lock",
     " M src/routes.rs"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "12e3f134d0781b8d1a6af9c4000d63dae4e89df3be412ab7c3d69e6de21a3a6d",
+  "source_tree_checksum": "ccfadddd6b22b327cba3a67d2b66ff2a1e412295ebbd115eeb64b5468cc8b135",
   "source_files": [
     {
       "path": "infera-knowledge/src/bin/knowledge_bench.rs",
@@ -68,7 +68,7 @@
     },
     {
       "path": "infera-knowledge/src/models.rs",
-      "checksum": "4384131008905544142c3d6bb148e3098888b393c1b3630bececd949f07cc7ae"
+      "checksum": "07d18b263c911ced5c01aa18ff8b84b7a51b11ee73d748a93eb9042f5d6ba818"
     },
     {
       "path": "infera-knowledge/src/platform.rs",
@@ -76,7 +76,7 @@
     },
     {
       "path": "infera-knowledge/src/repository.rs",
-      "checksum": "06d831ff6eb7e3dff1b3da799acd3c699fb3b4665971a7a03836abb6d9ab4c88"
+      "checksum": "08d561e0441762517246bea0b4279eafedfd2391e0dd96659b8647e2511e27f3"
     },
     {
       "path": "infera-knowledge/src/retrieval.rs",
@@ -84,7 +84,7 @@
     },
     {
       "path": "infera-knowledge/src/routes.rs",
-      "checksum": "21ad7e4efabf55ca48c1e88aed4158fa46a5326aa758d9ef97cecf3f92415fc9"
+      "checksum": "2b36bb004888c4d6328a520399fc2afca208904cff941ee094b7d0cf10f6c3b1"
     },
     {
       "path": "infera-knowledge/src/state.rs",
@@ -447,7 +447,7 @@
           }
         ]
       },
-      "source_checksum": "e7278b8dfced1dd0238d9efccf93e918c46857d9015dd547fd3f3417d254052b",
+      "source_checksum": "a23e4fdc42bcd1df959fa1027f055577a960d881cb10bcf0e427315702066a11",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:92:readiness",
         "path": "infera-knowledge/src/main.rs",
@@ -504,7 +504,7 @@
           }
         ]
       },
-      "source_checksum": "f11e4b581269aa39e88d2970f99350f3a655aefc3966dd1a53f9ad82e7e44747",
+      "source_checksum": "c800ca4cd913b7e0029ac8019e6e2a5e49d5f92f57dde975e16876f00ed35266",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:84:liveness",
         "path": "infera-knowledge/src/main.rs",
@@ -517,9 +517,9 @@
           "declared_type": "Health",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:321:Health",
+              "ref": "infera-knowledge/src/models.rs:340:Health",
               "path": "infera-knowledge/src/models.rs",
-              "line": 321,
+              "line": 340,
               "name": "Health"
             }
           ]
@@ -568,7 +568,7 @@
           }
         ]
       },
-      "source_checksum": "24aa512ab8b4e5bf92d3a8e37d60982d4a656dc16ee885500da4591fbd818b60",
+      "source_checksum": "272c3cba4f224a143d73b53532c6b17c935ec6b1bd7a753d9616a09720e11363",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:92:readiness",
         "path": "infera-knowledge/src/main.rs",
@@ -633,20 +633,20 @@
           }
         ]
       },
-      "source_checksum": "cec94c25cdf8221098f7aa3fded3ad5f627378044bb44c048f02ee5af85f3a29",
+      "source_checksum": "ed3d5bff8b64aaf85b0399cada152ea2d1dd6c5eafec03e0c753ba777552d11f",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:619:get_release",
+        "ref": "infera-knowledge/src/routes.rs:491:get_release",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 619,
+        "line": 491,
         "name": "get_release"
       },
       "related_implementation": [
         {
           "call": "repository::get_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:212:get_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
+            "line": 212,
             "name": "get_base"
           }
         }
@@ -712,11 +712,11 @@
           }
         ]
       },
-      "source_checksum": "b01881accb899fa76ede3eeb1f304f1207e6760dba5bbc829ace996877e28c7a",
+      "source_checksum": "22a8a4ab8da081b51ef712b2d8237a2d10e0dfa2c1ef9e5bcceb24646616b53f",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:67:list_bases",
+        "ref": "infera-knowledge/src/routes.rs:70:list_bases",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 67,
+        "line": 70,
         "name": "list_bases"
       },
       "related_implementation": [
@@ -805,20 +805,20 @@
           }
         ]
       },
-      "source_checksum": "e27cc22daeff5b60756f2a5e8543fbf3d4cc176cc987f80a72268d074a2411bf",
+      "source_checksum": "3e4b25d0210807bf889c05770ba0cecc7882acc3f00a230fe5c0eefde69de223",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:79:create_base",
+        "ref": "infera-knowledge/src/routes.rs:82:create_base",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 79,
+        "line": 82,
         "name": "create_base"
       },
       "related_implementation": [
         {
           "call": "repository::create_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:144:create_base",
+            "ref": "infera-knowledge/src/repository.rs:164:create_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 144,
+            "line": 164,
             "name": "create_base"
           }
         }
@@ -828,9 +828,9 @@
           "declared_type": "CreateKnowledgeBase",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:108:CreateKnowledgeBase",
+              "ref": "infera-knowledge/src/models.rs:127:CreateKnowledgeBase",
               "path": "infera-knowledge/src/models.rs",
-              "line": 108,
+              "line": 127,
               "name": "CreateKnowledgeBase"
             }
           ]
@@ -891,20 +891,20 @@
           }
         ]
       },
-      "source_checksum": "5892da5fe317d3e48ed37530541028136dd2d51b837c470ed962f0d8ed0c141f",
+      "source_checksum": "79339a4ca353783cd267d27dfa2989c81926e8c5b9742fb0e2bb65d075ec9da0",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:88:get_base",
+        "ref": "infera-knowledge/src/routes.rs:91:get_base",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 88,
+        "line": 91,
         "name": "get_base"
       },
       "related_implementation": [
         {
           "call": "repository::get_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:212:get_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
+            "line": 212,
             "name": "get_base"
           }
         }
@@ -971,20 +971,20 @@
           }
         ]
       },
-      "source_checksum": "8bf62879fa2f9439e583b45866ce873490c475de8d4f02950059d61b6f04be7c",
+      "source_checksum": "474bfdac9ac2107ead0f36df3b4efc68fce45a053a63bd2a4316f9e7c4312e64",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:98:update_base",
+        "ref": "infera-knowledge/src/routes.rs:101:update_base",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 98,
+        "line": 101,
         "name": "update_base"
       },
       "related_implementation": [
         {
           "call": "repository::update_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:202:update_base",
+            "ref": "infera-knowledge/src/repository.rs:224:update_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 202,
+            "line": 224,
             "name": "update_base"
           }
         }
@@ -994,9 +994,9 @@
           "declared_type": "UpdateKnowledgeBase",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:121:UpdateKnowledgeBase",
+              "ref": "infera-knowledge/src/models.rs:140:UpdateKnowledgeBase",
               "path": "infera-knowledge/src/models.rs",
-              "line": 121,
+              "line": 140,
               "name": "UpdateKnowledgeBase"
             }
           ]
@@ -1060,20 +1060,20 @@
           }
         ]
       },
-      "source_checksum": "4bcef31e3428162f8e43c215a738c1d0cbeba5b57166b5b86b437b349bd80d7c",
+      "source_checksum": "ed70a3eb5a2b9b17b2deeddf48feccc43a7c092883286c9250410dfd08ecf8bd",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:109:delete_base",
+        "ref": "infera-knowledge/src/routes.rs:112:delete_base",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 109,
+        "line": 112,
         "name": "delete_base"
       },
       "related_implementation": [
         {
           "call": "repository::delete_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:250:delete_base",
+            "ref": "infera-knowledge/src/repository.rs:279:delete_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 250,
+            "line": 279,
             "name": "delete_base"
           }
         }
@@ -1135,20 +1135,20 @@
           }
         ]
       },
-      "source_checksum": "c0b35a571a5e8e363f1f0e557db37450de0378819852dc164ff9841769194b62",
+      "source_checksum": "397c2450463877f7a7920c64bc8608339ffaee3ffd704a60c9e4f238f600439e",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:118:publish",
+        "ref": "infera-knowledge/src/routes.rs:121:publish",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 118,
+        "line": 121,
         "name": "publish"
       },
       "related_implementation": [
         {
           "call": "repository::publish",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:788:publish",
+            "ref": "infera-knowledge/src/repository.rs:1047:publish",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 788,
+            "line": 1047,
             "name": "publish"
           }
         }
@@ -1214,29 +1214,29 @@
           }
         ]
       },
-      "source_checksum": "56666a09faae9f2ed9976dbbfa5200b0d88beef6dd91c1791b4d6fe63d8a436a",
+      "source_checksum": "86924ee96fde3378ed83c494fe9d0df29f441b41103e4425b900e88566189b6c",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:128:export_base",
+        "ref": "infera-knowledge/src/routes.rs:131:export_base",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 128,
+        "line": 131,
         "name": "export_base"
       },
       "related_implementation": [
         {
           "call": "repository::get_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:212:get_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
+            "line": 212,
             "name": "get_base"
           }
         },
         {
           "call": "repository::list_groups",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:273:list_groups",
+            "ref": "infera-knowledge/src/repository.rs:305:list_groups",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 273,
+            "line": 305,
             "name": "list_groups"
           }
         }
@@ -1302,29 +1302,29 @@
           }
         ]
       },
-      "source_checksum": "715876ba446b59cf17e66e80192ab281fe611df49d7e662c8eee3c043f5ff4a2",
+      "source_checksum": "8cdb8e66f017d0afb227f143f1a8e910cca07e001a67560ba4d751beee5b8991",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:155:list_groups",
+        "ref": "infera-knowledge/src/routes.rs:158:list_groups",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 155,
+        "line": 158,
         "name": "list_groups"
       },
       "related_implementation": [
         {
           "call": "repository::get_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:212:get_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
+            "line": 212,
             "name": "get_base"
           }
         },
         {
           "call": "repository::list_groups",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:273:list_groups",
+            "ref": "infera-knowledge/src/repository.rs:305:list_groups",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 273,
+            "line": 305,
             "name": "list_groups"
           }
         }
@@ -1391,20 +1391,20 @@
           }
         ]
       },
-      "source_checksum": "463214ba3266d88024046bc9eda05c8994792c340aba891f0ece113ef1caef1b",
+      "source_checksum": "163ece884889e3c0c7b6a2e2485c32d31055db6aa9bce374db64c6e0d3399a12",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:166:create_group",
+        "ref": "infera-knowledge/src/routes.rs:169:create_group",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 166,
+        "line": 169,
         "name": "create_group"
       },
       "related_implementation": [
         {
           "call": "repository::create_group",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:285:create_group",
+            "ref": "infera-knowledge/src/repository.rs:354:create_group",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 285,
+            "line": 354,
             "name": "create_group"
           }
         }
@@ -1414,9 +1414,9 @@
           "declared_type": "CreateGroup",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:131:CreateGroup",
+              "ref": "infera-knowledge/src/models.rs:150:CreateGroup",
               "path": "infera-knowledge/src/models.rs",
-              "line": 131,
+              "line": 150,
               "name": "CreateGroup"
             }
           ]
@@ -1489,20 +1489,20 @@
           }
         ]
       },
-      "source_checksum": "96cd93e2f981b3bc1fbe7d669c7d547f3edaa672f134310e8bd84188662a0655",
+      "source_checksum": "de0af5ea5a4e53833136f9c855e728b6aa12f9da1041e516f25024186652129c",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:180:update_group",
+        "ref": "infera-knowledge/src/routes.rs:183:update_group",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 180,
+        "line": 183,
         "name": "update_group"
       },
       "related_implementation": [
         {
           "call": "repository::update_group",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:329:update_group",
+            "ref": "infera-knowledge/src/repository.rs:404:update_group",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 329,
+            "line": 404,
             "name": "update_group"
           }
         }
@@ -1512,9 +1512,9 @@
           "declared_type": "UpdateGroup",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:143:UpdateGroup",
+              "ref": "infera-knowledge/src/models.rs:162:UpdateGroup",
               "path": "infera-knowledge/src/models.rs",
-              "line": 143,
+              "line": 162,
               "name": "UpdateGroup"
             }
           ]
@@ -1585,20 +1585,20 @@
           }
         ]
       },
-      "source_checksum": "95e016ac3f0e85de24af5279de8d7ca8ab6aab6c38ffa49d6cfe6aba74501ac6",
+      "source_checksum": "b25ca850cc06c609bb0162dd81d375ea158f95ffeda5f41380ee69577f4c6f0e",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:191:delete_group",
+        "ref": "infera-knowledge/src/routes.rs:194:delete_group",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 191,
+        "line": 194,
         "name": "delete_group"
       },
       "related_implementation": [
         {
           "call": "repository::delete_group",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:387:delete_group",
+            "ref": "infera-knowledge/src/repository.rs:524:delete_group",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 387,
+            "line": 524,
             "name": "delete_group"
           }
         }
@@ -1661,29 +1661,29 @@
           }
         ]
       },
-      "source_checksum": "403095c08a2a8c5aca11dc769724b3b958748f976a1312072c1f713f85c81535",
+      "source_checksum": "31c4c3b4a246b85cf5ade7614e446422bc830e9737c38b20083f34a57837ccdc",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:201:list_items",
+        "ref": "infera-knowledge/src/routes.rs:204:list_items",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 201,
+        "line": 204,
         "name": "list_items"
       },
       "related_implementation": [
         {
           "call": "repository::get_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:212:get_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
+            "line": 212,
             "name": "get_base"
           }
         },
         {
           "call": "repository::list_items",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:415:list_items",
+            "ref": "infera-knowledge/src/repository.rs:569:list_items",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 415,
+            "line": 569,
             "name": "list_items"
           }
         }
@@ -1768,20 +1768,20 @@
           }
         ]
       },
-      "source_checksum": "e9ccd2feaf842e7cb709af502b139cb1371f96a1f15f900649196eb10e373bee",
+      "source_checksum": "5420483e29ef925110a0c22f11fb79a9d6aa990dceb27c3ad71cab7a0c5908b5",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:215:create_item",
+        "ref": "infera-knowledge/src/routes.rs:218:create_item",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 215,
+        "line": 218,
         "name": "create_item"
       },
       "related_implementation": [
         {
           "call": "repository::create_item",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:451:create_item",
+            "ref": "infera-knowledge/src/repository.rs:605:create_item",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 451,
+            "line": 605,
             "name": "create_item"
           }
         }
@@ -1791,9 +1791,9 @@
           "declared_type": "CreateItem",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:153:CreateItem",
+              "ref": "infera-knowledge/src/models.rs:172:CreateItem",
               "path": "infera-knowledge/src/models.rs",
-              "line": 153,
+              "line": 172,
               "name": "CreateItem"
             }
           ]
@@ -1871,20 +1871,20 @@
           }
         ]
       },
-      "source_checksum": "f721fd416f762628f089170e70997d022af2cd56a9c502d06d94cad2595fbd1a",
+      "source_checksum": "f5654c3d7e1776c07e0bfd4cb25f98a4932923faa9be0808e73917c5302d95fd",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:229:get_item",
+        "ref": "infera-knowledge/src/routes.rs:232:get_item",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 229,
+        "line": 232,
         "name": "get_item"
       },
       "related_implementation": [
         {
           "call": "repository::get_item",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:530:get_item",
+            "ref": "infera-knowledge/src/repository.rs:688:get_item",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 530,
+            "line": 688,
             "name": "get_item"
           }
         }
@@ -1951,20 +1951,20 @@
           }
         ]
       },
-      "source_checksum": "67bd63bf772cd08b9f915e4a8b7b23543d54569280f91c55931e941769f64463",
+      "source_checksum": "4035865c6a37b68acf3945ad30be17c08cb6291a76abbb71044b86fb323e52ca",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:239:update_item",
+        "ref": "infera-knowledge/src/routes.rs:242:update_item",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 239,
+        "line": 242,
         "name": "update_item"
       },
       "related_implementation": [
         {
           "call": "repository::update_item",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:543:update_item",
+            "ref": "infera-knowledge/src/repository.rs:701:update_item",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 543,
+            "line": 701,
             "name": "update_item"
           }
         }
@@ -1974,9 +1974,9 @@
           "declared_type": "UpdateItem",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:181:UpdateItem",
+              "ref": "infera-knowledge/src/models.rs:200:UpdateItem",
               "path": "infera-knowledge/src/models.rs",
-              "line": 181,
+              "line": 200,
               "name": "UpdateItem"
             }
           ]
@@ -2053,20 +2053,20 @@
           }
         ]
       },
-      "source_checksum": "d6c8f185f802a6cf116bc523a162e0b17258f76b87929698b6725977cddc217e",
+      "source_checksum": "c5cff4ad9dc434bb6f6cbe738275e0f847e0ea614f08a974d23f1261a53becc1",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:250:delete_item",
+        "ref": "infera-knowledge/src/routes.rs:253:delete_item",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 250,
+        "line": 253,
         "name": "delete_item"
       },
       "related_implementation": [
         {
           "call": "repository::delete_item",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:678:delete_item",
+            "ref": "infera-knowledge/src/repository.rs:845:delete_item",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 678,
+            "line": 845,
             "name": "delete_item"
           }
         }
@@ -2128,20 +2128,20 @@
           }
         ]
       },
-      "source_checksum": "a933b259cef28c98ada585abb9af738d206a0564d76512c7bb45341a0729c5c7",
+      "source_checksum": "1490702bd55ee2bc6ec9977ec4f5d70c9e453de85e3e02fd00c1406a6ba32c91",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:260:list_edges",
+        "ref": "infera-knowledge/src/routes.rs:263:list_edges",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 260,
+        "line": 263,
         "name": "list_edges"
       },
       "related_implementation": [
         {
           "call": "repository::get_base",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:212:get_base",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
+            "line": 212,
             "name": "get_base"
           }
         }
@@ -2208,20 +2208,20 @@
           }
         ]
       },
-      "source_checksum": "871d92016fde828f86d1949b6577b585163cd18ee427d0472498d7335eba560c",
+      "source_checksum": "45007ab8968df4afcb756b3be689b95bd9bcee6ddd7f201fe00deaf9fce095f3",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:274:create_edge",
+        "ref": "infera-knowledge/src/routes.rs:277:create_edge",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 274,
+        "line": 277,
         "name": "create_edge"
       },
       "related_implementation": [
         {
           "call": "repository::create_edge",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:691:create_edge",
+            "ref": "infera-knowledge/src/repository.rs:874:create_edge",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 691,
+            "line": 874,
             "name": "create_edge"
           }
         }
@@ -2231,9 +2231,9 @@
           "declared_type": "CreateEdge",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:203:CreateEdge",
+              "ref": "infera-knowledge/src/models.rs:222:CreateEdge",
               "path": "infera-knowledge/src/models.rs",
-              "line": 203,
+              "line": 222,
               "name": "CreateEdge"
             }
           ]
@@ -2312,21 +2312,21 @@
           }
         ]
       },
-      "source_checksum": "48c791a846af3d23d5c4c5932db3b8ff42e0c01cf030e2828fb8d2431d5a5fb0",
+      "source_checksum": "c6a2d016167f59a82d3eea44e308805b4f094533db688515f5632f1aa9a1f2c1",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:288:update_edge",
+        "ref": "infera-knowledge/src/routes.rs:291:update_edge",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 288,
+        "line": 291,
         "name": "update_edge"
       },
       "related_implementation": [
         {
-          "call": "repository::get_base",
+          "call": "repository::update_edge",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:1841:update_edge",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
-            "name": "get_base"
+            "line": 1841,
+            "name": "update_edge"
           }
         }
       ],
@@ -2335,9 +2335,9 @@
           "declared_type": "UpdateEdge",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:216:UpdateEdge",
+              "ref": "infera-knowledge/src/models.rs:235:UpdateEdge",
               "path": "infera-knowledge/src/models.rs",
-              "line": 216,
+              "line": 235,
               "name": "UpdateEdge"
             }
           ]
@@ -2401,21 +2401,21 @@
           }
         ]
       },
-      "source_checksum": "18d307b0a546684c88a16e6b81fe3975d294a795102ff354c0a136cad4554bb8",
+      "source_checksum": "f8e1bb2e0f644b00090e071054fc3265c9b0cc67922f69176d75720a5b0c5035",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:322:delete_edge",
+        "ref": "infera-knowledge/src/routes.rs:303:delete_edge",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 322,
+        "line": 303,
         "name": "delete_edge"
       },
       "related_implementation": [
         {
-          "call": "repository::get_base",
+          "call": "repository::delete_edge",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:1887:delete_edge",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
-            "name": "get_base"
+            "line": 1887,
+            "name": "delete_edge"
           }
         }
       ],
@@ -2475,11 +2475,11 @@
           }
         ]
       },
-      "source_checksum": "e1df21e69ff3f541e61564d11d649bfc51034645d37057040545443f3eaacc57",
+      "source_checksum": "b7d75ef5bdd60efdf621edd8cb9985cb28b210e773914685443686dde3bc7714",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:339:list_bindings",
+        "ref": "infera-knowledge/src/routes.rs:313:list_bindings",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 339,
+        "line": 313,
         "name": "list_bindings"
       },
       "related_implementation": [],
@@ -2540,20 +2540,20 @@
           }
         ]
       },
-      "source_checksum": "5aeae1110889fb01ca2f54e5e555a55ecabd9a16c8a467b83089ac245f78cd46",
+      "source_checksum": "60ca7888c4f338846ae874f2c57c255093f5272c9409b174c059c398c88463b9",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:351:create_binding",
+        "ref": "infera-knowledge/src/routes.rs:325:create_binding",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 351,
+        "line": 325,
         "name": "create_binding"
       },
       "related_implementation": [
         {
           "call": "repository::create_binding",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:731:create_binding",
+            "ref": "infera-knowledge/src/repository.rs:917:create_binding",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 731,
+            "line": 917,
             "name": "create_binding"
           }
         }
@@ -2563,9 +2563,9 @@
           "declared_type": "CreateBinding",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:224:CreateBinding",
+              "ref": "infera-knowledge/src/models.rs:243:CreateBinding",
               "path": "infera-knowledge/src/models.rs",
-              "line": 224,
+              "line": 243,
               "name": "CreateBinding"
             }
           ]
@@ -2634,22 +2634,32 @@
           }
         ]
       },
-      "source_checksum": "06adaeb8e8125d992fa1afcf9d0cc3129b67ea93def423a9c4be9da36357787b",
+      "source_checksum": "38bc1665f273604f0a5619e17748ab192130e0555336158aa13d55a5f487f6d0",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:364:update_binding",
+        "ref": "infera-knowledge/src/routes.rs:338:update_binding",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 364,
+        "line": 338,
         "name": "update_binding"
       },
-      "related_implementation": [],
+      "related_implementation": [
+        {
+          "call": "repository::update_binding",
+          "evidence": {
+            "ref": "infera-knowledge/src/repository.rs:1919:update_binding",
+            "path": "infera-knowledge/src/repository.rs",
+            "line": 1919,
+            "name": "update_binding"
+          }
+        }
+      ],
       "schemas": {
         "body": {
           "declared_type": "UpdateBinding",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:243:UpdateBinding",
+              "ref": "infera-knowledge/src/models.rs:262:UpdateBinding",
               "path": "infera-knowledge/src/models.rs",
-              "line": 243,
+              "line": 262,
               "name": "UpdateBinding"
             }
           ]
@@ -2713,14 +2723,24 @@
           }
         ]
       },
-      "source_checksum": "d91dd4a255febc77c2e1cc6b82082e50e93ed7766ca6ac045e65eb71f2865e0a",
+      "source_checksum": "7509ce072b1bb976cd68086d7978833ac982a83d23b435c30d52f61a532ac487",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:398:delete_binding",
+        "ref": "infera-knowledge/src/routes.rs:350:delete_binding",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 398,
+        "line": 350,
         "name": "delete_binding"
       },
-      "related_implementation": [],
+      "related_implementation": [
+        {
+          "call": "repository::delete_binding",
+          "evidence": {
+            "ref": "infera-knowledge/src/repository.rs:1965:delete_binding",
+            "path": "infera-knowledge/src/repository.rs",
+            "line": 1965,
+            "name": "delete_binding"
+          }
+        }
+      ],
       "schemas": {
         "pathParam": {
           "declared_type": "Uuid",
@@ -2758,7 +2778,7 @@
           "knowledge:read"
         ],
         "source": "infera-knowledge/src/routes.rs",
-        "query": "ListQuery",
+        "query": "RuleListQuery",
         "response": "Value",
         "responseEnvelope": "api",
         "multipart": false,
@@ -2778,33 +2798,33 @@
           }
         ]
       },
-      "source_checksum": "355882b893fe7d3ba37786cb5197a4dad52396be11a06b28a307f727cd01beee",
+      "source_checksum": "5c47ce553e565816f499d51233911227770d5806d7eb9116f09fe5404d23bb0b",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:417:list_rules",
+        "ref": "infera-knowledge/src/routes.rs:360:list_rules",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 417,
+        "line": 360,
         "name": "list_rules"
       },
       "related_implementation": [
         {
-          "call": "repository::list_bases",
+          "call": "repository::list_rules",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:120:list_bases",
+            "ref": "infera-knowledge/src/repository.rs:955:list_rules",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 120,
-            "name": "list_bases"
+            "line": 955,
+            "name": "list_rules"
           }
         }
       ],
       "schemas": {
         "query": {
-          "declared_type": "ListQuery",
+          "declared_type": "RuleListQuery",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:87:ListQuery",
+              "ref": "infera-knowledge/src/models.rs:109:RuleListQuery",
               "path": "infera-knowledge/src/models.rs",
-              "line": 87,
-              "name": "ListQuery"
+              "line": 109,
+              "name": "RuleListQuery"
             }
           ]
         },
@@ -2815,9 +2835,15 @@
       },
       "relation_candidates": [
         {
-          "field": "linked_entity_id",
-          "type": "Option<String>",
-          "model": "ListQuery",
+          "field": "knowledge_base_id",
+          "type": "Option<Uuid>",
+          "model": "RuleListQuery",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "group_id",
+          "type": "Option<Uuid>",
+          "model": "RuleListQuery",
           "target": "requires_semantic_review"
         }
       ],
@@ -2871,20 +2897,20 @@
           }
         ]
       },
-      "source_checksum": "53cde14aab5483c53f8767e6859df196ca5c88bf044003a487fb0a928a446941",
+      "source_checksum": "4d9711c4a53067747d94c4516a01489b2fd657fc1b46e70bb89df48ddb70916d",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:454:create_rule",
+        "ref": "infera-knowledge/src/routes.rs:373:create_rule",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 454,
+        "line": 373,
         "name": "create_rule"
       },
       "related_implementation": [
         {
           "call": "repository::create_rule",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:755:create_rule",
+            "ref": "infera-knowledge/src/repository.rs:999:create_rule",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 755,
+            "line": 999,
             "name": "create_rule"
           }
         }
@@ -2894,9 +2920,9 @@
           "declared_type": "CreateRule",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:251:CreateRule",
+              "ref": "infera-knowledge/src/models.rs:270:CreateRule",
               "path": "infera-knowledge/src/models.rs",
-              "line": 251,
+              "line": 270,
               "name": "CreateRule"
             }
           ]
@@ -2971,30 +2997,21 @@
           }
         ]
       },
-      "source_checksum": "ebb8d58049e302f507e38663c37095734f82c8bdee58e8cdad783d69e5e4dfcb",
+      "source_checksum": "03cdfc6f7646c31ff2f6aa860a22a1e37a982816005a0230eb30ffff41dce8a7",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:467:update_rule",
+        "ref": "infera-knowledge/src/routes.rs:386:update_rule",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 467,
+        "line": 386,
         "name": "update_rule"
       },
       "related_implementation": [
         {
-          "call": "repository::get_base",
+          "call": "repository::update_rule",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:2006:update_rule",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
-            "name": "get_base"
-          }
-        },
-        {
-          "call": "engine::validate_condition",
-          "evidence": {
-            "ref": "infera-knowledge/src/engine.rs:78:validate_condition",
-            "path": "infera-knowledge/src/engine.rs",
-            "line": 78,
-            "name": "validate_condition"
+            "line": 2006,
+            "name": "update_rule"
           }
         }
       ],
@@ -3003,9 +3020,9 @@
           "declared_type": "UpdateRule",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:269:UpdateRule",
+              "ref": "infera-knowledge/src/models.rs:288:UpdateRule",
               "path": "infera-knowledge/src/models.rs",
-              "line": 269,
+              "line": 288,
               "name": "UpdateRule"
             }
           ]
@@ -3076,21 +3093,21 @@
           }
         ]
       },
-      "source_checksum": "643089565bf316e70b326a6fb2e6e7a4f2328ee5b050bfb24bc8b22907203bda",
+      "source_checksum": "301f32ca03c4b461094ea5010a60b17b784cb5790df311528c1182279bfce155",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:518:delete_rule",
+        "ref": "infera-knowledge/src/routes.rs:398:delete_rule",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 518,
+        "line": 398,
         "name": "delete_rule"
       },
       "related_implementation": [
         {
-          "call": "repository::get_base",
+          "call": "repository::delete_rule",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:190:get_base",
+            "ref": "infera-knowledge/src/repository.rs:2069:delete_rule",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 190,
-            "name": "get_base"
+            "line": 2069,
+            "name": "delete_rule"
           }
         }
       ],
@@ -3151,11 +3168,11 @@
           }
         ]
       },
-      "source_checksum": "68fc0efc0da93122e12a0cd97644765d9f1e8fe8889dfaeb425016dbcbceaf18",
+      "source_checksum": "d530d895c007dcb1bbdc2b72f267ad68ba1b404dbf25d8438ed2a615ea8ae9c3",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:536:list_actions",
+        "ref": "infera-knowledge/src/routes.rs:408:list_actions",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 536,
+        "line": 408,
         "name": "list_actions"
       },
       "related_implementation": [],
@@ -3235,11 +3252,11 @@
           }
         ]
       },
-      "source_checksum": "908a34fc28ff12f6c7a3fde07bc8ba4111c1eb5f85899fae2a53e93fb0994694",
+      "source_checksum": "cfe04625c6ded580574ad0dc43024b30d98a24c273fac9562b37f276eab09157",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:554:update_action_status",
+        "ref": "infera-knowledge/src/routes.rs:426:update_action_status",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 554,
+        "line": 426,
         "name": "update_action_status"
       },
       "related_implementation": [],
@@ -3248,9 +3265,9 @@
           "declared_type": "ActionStatus",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:315:ActionStatus",
+              "ref": "infera-knowledge/src/models.rs:334:ActionStatus",
               "path": "infera-knowledge/src/models.rs",
-              "line": 315,
+              "line": 334,
               "name": "ActionStatus"
             }
           ]
@@ -3315,11 +3332,11 @@
           }
         ]
       },
-      "source_checksum": "4d968658d79eeeee1cd9036ca80691928b21d556300f399163118364fab24aae",
+      "source_checksum": "b9c9b00913ea201049e04c84c2c469dbb98453d6a29fc8a60f043bb7e798bd95",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:586:list_audit",
+        "ref": "infera-knowledge/src/routes.rs:458:list_audit",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 586,
+        "line": 458,
         "name": "list_audit"
       },
       "related_implementation": [],
@@ -3397,7 +3414,7 @@
           }
         ]
       },
-      "source_checksum": "377449422eb8909b76be6f9f6e853bcc5a023ee84dc6dfee934aff74246ea0ca",
+      "source_checksum": "6f9fd84598cb77f1e77a6839472cecd8210db21c7a61fd5dd7099d338f18b420",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:556:status",
         "path": "infera-knowledge/src/platform.rs",
@@ -3461,7 +3478,7 @@
           }
         ]
       },
-      "source_checksum": "4b9ae384b85145072e2c649bbc1df665533d0ddc6a1de0ec1989dc915be19e1b",
+      "source_checksum": "71846fbe9334620f4aeb140124c954bca236c0f56b03da29894843cde6fd6fb5",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:602:catalog",
         "path": "infera-knowledge/src/platform.rs",
@@ -3525,7 +3542,7 @@
           }
         ]
       },
-      "source_checksum": "25bf8779adc917b9c128aa994f7a5bc1303a2fc27a533bae4e54cf7b3a921209",
+      "source_checksum": "10a630684397cd8722a35e50ca2581dbfe1b8f14aa0628bb2307b980a7aa5dd4",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:620:converters",
         "path": "infera-knowledge/src/platform.rs",
@@ -3589,7 +3606,7 @@
           }
         ]
       },
-      "source_checksum": "b221ec229ac047f8e874dd5409cd541b2cdddc71f72e9a0ad53eba7cc65f8647",
+      "source_checksum": "e12fd9cddac6f509866d8e74c56e1499b9819bc8b24d43707945b5decbcd0432",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:629:processing_jobs",
         "path": "infera-knowledge/src/platform.rs",
@@ -3653,7 +3670,7 @@
           }
         ]
       },
-      "source_checksum": "224ae8e10cc6d60e6ece25a08f414d43bde24135ac8b840eb66d03d1b2328d2a",
+      "source_checksum": "f2ce2da124d72698be04c9c3848e4210a87c7770d2af8220c1d64adb99f328bc",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:771:audit_events",
         "path": "infera-knowledge/src/platform.rs",
@@ -3717,7 +3734,7 @@
           }
         ]
       },
-      "source_checksum": "a7cacedcd0bded5a3b02b93e5ca2550267925ee565822097411f6fbc00ee24eb",
+      "source_checksum": "c85e4054f5f19b6ac421ea670426f98cb40579e0cceb4a13750906d5737033df",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:780:list_evaluation_cases",
         "path": "infera-knowledge/src/platform.rs",
@@ -3782,7 +3799,7 @@
           }
         ]
       },
-      "source_checksum": "a5ac81b8be6469cdd53451505c9cdccc9ffa94d040cd8dacf9436e7968ab46a0",
+      "source_checksum": "32e2c663d06e17fed2424cdb46ad2ee6259c79fddd76964374c3d5f70c7c828c",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:789:save_evaluation_case",
         "path": "infera-knowledge/src/platform.rs",
@@ -3876,7 +3893,7 @@
           }
         ]
       },
-      "source_checksum": "5b5503dead97027b5295d4e55c60f2e3a7c6d4de51683e186bd4a11d288c1845",
+      "source_checksum": "44ed66bf87cb759b40ac93df772fcaeafbb2f0748d3cd8a2f3cffcf6fd98855e",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2775:list_sources",
         "path": "infera-knowledge/src/platform.rs",
@@ -3941,7 +3958,7 @@
           }
         ]
       },
-      "source_checksum": "fe2c33d8e4f02113974c3d24eefc8b0be844714b84529952168850ccd642383e",
+      "source_checksum": "c1c51f8de0a19e98a5b4f4f598a393e953ee193c9ded4bd1ac5a4820f9cfa2e1",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2783:create_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -4024,7 +4041,7 @@
           }
         ]
       },
-      "source_checksum": "11576f7705b486442a164ca7033c2845f1b71de54493dc81d9b76fbde87966c1",
+      "source_checksum": "0b87730d9cbdc21bbe2a240b6bf2edb2936f64157afd9d5b8cad7e9cbb46be0f",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:678:sync_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -4093,7 +4110,7 @@
           }
         ]
       },
-      "source_checksum": "de039ca0a06e66a5a49aba7674a35e48dfad5fc9c18efd7ce87a0b7054695231",
+      "source_checksum": "2c0eb589654e9d2e81ec04539ba37efeabe118d6ad39b185a071dd9965fe3505",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:703:pause_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -4161,7 +4178,7 @@
           }
         ]
       },
-      "source_checksum": "b4ae2c16059954ff9a803def2b983a18e38bc55af45af8311a14a503a8fa6867",
+      "source_checksum": "5c6d491647625a4c6e89b557f06f06fa1ef257163d2a1ad13e878d60716d7e03",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2862:list_documents",
         "path": "infera-knowledge/src/platform.rs",
@@ -4226,7 +4243,7 @@
           }
         ]
       },
-      "source_checksum": "aea1dcd6313be2ca66b771a6e4afafe61fcd737d8124acef43ae8743354443bc",
+      "source_checksum": "cc9c0133e470b589b558c2da0f4e76d3f081952ae4f9a01cca90c40a80ec5b81",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2870:ingest_document",
         "path": "infera-knowledge/src/platform.rs",
@@ -4321,7 +4338,7 @@
           }
         ]
       },
-      "source_checksum": "306fe207b08c7a49c2ceba46803b081cfade8826be822afb124131302275906a",
+      "source_checksum": "a8f8465fc4faef524008a77555db71cd5922eb26da164fc4c80362c90a976cae",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:723:reprocess_document",
         "path": "infera-knowledge/src/platform.rs",
@@ -4390,7 +4407,7 @@
           }
         ]
       },
-      "source_checksum": "f054b370a5c0ade3d0b5f53e642c3cd7eb85c4046feacfdcf1c3e76a757d3629",
+      "source_checksum": "ba52b021f4f06ada851654658d9173d27999f0baa3f8c124a270352b43f78fce",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:638:retry_processing_job",
         "path": "infera-knowledge/src/platform.rs",
@@ -4459,7 +4476,7 @@
           }
         ]
       },
-      "source_checksum": "4d316ea0343e0b2e21df1da4eb8617f64a3c91e4f230a321b397a30d196eb547",
+      "source_checksum": "2882bbc40ca3d220af739c8bfaf38820b9950ebb262c519d0ee37b046e25c336",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:658:cancel_processing_job",
         "path": "infera-knowledge/src/platform.rs",
@@ -4527,7 +4544,7 @@
           }
         ]
       },
-      "source_checksum": "439699c7c457792f7840c016ddda75ba7e78630a2f2565048d9502adfa248160",
+      "source_checksum": "d05af2026a7a6103e52e555b6ff3d7f45ec5c083eb20b6c42fe1fdd9d5a3e2ab",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:748:invalidate_policy_cache",
         "path": "infera-knowledge/src/platform.rs",
@@ -4591,7 +4608,7 @@
           }
         ]
       },
-      "source_checksum": "165e48bd3b3e79d1b9da2c9604c9aef9aac3f5fbfcab0827bba4140c39578938",
+      "source_checksum": "0e10b6615db24daaaa628f6de7750eaa51b90262d2c211c6bf0c21f89170392e",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2738:list_recommenders",
         "path": "infera-knowledge/src/platform.rs",
@@ -4656,7 +4673,7 @@
           }
         ]
       },
-      "source_checksum": "80770077e4a28eafaddb630e418169c8fac3d39657ac7ce124042906c3391f66",
+      "source_checksum": "555449fdccd5cd0b967420771c7fe00e820474ec52a02f11448ad6ad7619b39a",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2747:create_recommender_group",
         "path": "infera-knowledge/src/platform.rs",
@@ -4733,7 +4750,7 @@
           }
         ]
       },
-      "source_checksum": "9cf30c80049409cb926d7c1a9a760786b2e39699e2417381a79689857bd5f618",
+      "source_checksum": "eb5435baaa4f42ad8025c909a6829cb4c07af979a1a2d9ed3893613a6c1644fc",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2758:create_recommender_item",
         "path": "infera-knowledge/src/platform.rs",
@@ -4820,7 +4837,7 @@
           }
         ]
       },
-      "source_checksum": "36026a4f55563822af39a61914f7b0781306877702320c78daa0b545a9fc32fc",
+      "source_checksum": "30ff384fce1b54b4ad617c7cf04d9af12719f49b65f85f1be6132db86a832ae1",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2550:list_memory_subjects",
         "path": "infera-knowledge/src/platform.rs",
@@ -4901,7 +4918,7 @@
           }
         ]
       },
-      "source_checksum": "2b9cb697b602a1136cdec46acb8b9bba11e395dab39d1293e01aab0a5ddff8a4",
+      "source_checksum": "a622a2a98f0bb0d6b0b61ba107936f96c603b4c95e7ea4e51a0a55cd31da7065",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2573:clear_memory_subject",
         "path": "infera-knowledge/src/platform.rs",
@@ -4975,7 +4992,7 @@
           }
         ]
       },
-      "source_checksum": "6a22db54dfff1ab41ee29ba4551e766f7b6ea47df650139e34fef65ba9088624",
+      "source_checksum": "c04953d102388af8bf7adfd90babe4d5c37b1bd278296599e840ed484c579f11",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2614:forget_memory",
         "path": "infera-knowledge/src/platform.rs",
@@ -5050,7 +5067,7 @@
           }
         ]
       },
-      "source_checksum": "6f3fd48d1d36d1467535d8206f3bf90d42247520217bd17f81549fb3fba70627",
+      "source_checksum": "a6e281c9725f6193e23437fda2af0a360bc77ccd1446dc7c91d3e981c5abcb78",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2647:set_memory_override",
         "path": "infera-knowledge/src/platform.rs",
@@ -5130,7 +5147,7 @@
           }
         ]
       },
-      "source_checksum": "ea4ea30eabffc7716ebc7dae0646fd074bc366295bfc102199bdab4328f5b10b",
+      "source_checksum": "f8e648ebf7e9b8ad778a959d35de8a06e315e0cbbcf0553f9b49c55b9135e2f7",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2718:replay_memory_outbox",
         "path": "infera-knowledge/src/platform.rs",
@@ -5200,20 +5217,20 @@
           }
         ]
       },
-      "source_checksum": "1a914a59c0c2304ef58dd05f7dcc65d8ca8e90bcc43f9830ead868de6494ca95",
+      "source_checksum": "2525cef1578a6e16239816d75942df6836ac80b9a11c7656fec2bb9e31bc2df1",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:601:runtime_query",
+        "ref": "infera-knowledge/src/routes.rs:473:runtime_query",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 601,
+        "line": 473,
         "name": "runtime_query"
       },
       "related_implementation": [
         {
           "call": "repository::runtime",
           "evidence": {
-            "ref": "infera-knowledge/src/repository.rs:936:runtime",
+            "ref": "infera-knowledge/src/repository.rs:1202:runtime",
             "path": "infera-knowledge/src/repository.rs",
-            "line": 936,
+            "line": 1202,
             "name": "runtime"
           }
         }
@@ -5223,9 +5240,9 @@
           "declared_type": "RuntimeQuery",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:280:RuntimeQuery",
+              "ref": "infera-knowledge/src/models.rs:299:RuntimeQuery",
               "path": "infera-knowledge/src/models.rs",
-              "line": 280,
+              "line": 299,
               "name": "RuntimeQuery"
             }
           ]
@@ -5234,9 +5251,9 @@
           "declared_type": "RuntimeResult",
           "models": [
             {
-              "ref": "infera-knowledge/src/models.rs:301:RuntimeResult",
+              "ref": "infera-knowledge/src/models.rs:320:RuntimeResult",
               "path": "infera-knowledge/src/models.rs",
-              "line": 301,
+              "line": 320,
               "name": "RuntimeResult"
             }
           ]
@@ -5301,11 +5318,11 @@
           }
         ]
       },
-      "source_checksum": "7e270f4ddbf413d9a6a972d5c750c70d1e5f3397fc8f04f7eea2ad86b0ddde16",
+      "source_checksum": "c782d0e46b83a4731b08ac577eb3f94ae109d2a1c51a143ac7d22b9e01ccdab4",
       "handler": {
-        "ref": "infera-knowledge/src/routes.rs:612:tool_schema",
+        "ref": "infera-knowledge/src/routes.rs:484:tool_schema",
         "path": "infera-knowledge/src/routes.rs",
-        "line": 612,
+        "line": 484,
         "name": "tool_schema"
       },
       "related_implementation": [],
@@ -5366,7 +5383,7 @@
           }
         ]
       },
-      "source_checksum": "befbfe9ef9faae002754b3b577b539cd249d7505d63291516c6961cbb20266d7",
+      "source_checksum": "1dbdb5d681df35281cb093151ebd4beca28b2f511bbed888d2c53eced2b1971c",
       "handler": {
         "ref": "infera-knowledge/src/contracts.rs:14:get",
         "path": "infera-knowledge/src/contracts.rs",
@@ -5436,7 +5453,7 @@
           }
         ]
       },
-      "source_checksum": "90370cec8fa5deb192cfcbe7384f075d915691e1e2936187692524524ddd018c",
+      "source_checksum": "1891102dfe05b0010dae7e6d37c803a4958bba6b62e0772ca026970cd7c7ea7f",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:830:configure_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5530,7 +5547,7 @@
           }
         ]
       },
-      "source_checksum": "fce76074ab1ce5e187943ccda68787dcd8dba86d05b99e2762c31e7b2d5b10fa",
+      "source_checksum": "d63b3f29340272f714f301c858f93999303b90a4d4ceb5606ae02a7f2828890a",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:997:query_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5659,7 +5676,7 @@
           }
         ]
       },
-      "source_checksum": "eb1dc32578e39971be5298affda5c4e8a2d00cc6419be8e569807b75517e952d",
+      "source_checksum": "fac5889d0ca0870c1e36847adcfb2695b79a5e49d64c91585c70f316e5528664",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:1667:preview_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5788,7 +5805,7 @@
           }
         ]
       },
-      "source_checksum": "c66b18188c2a93f4cdbab7f9852d902a2e3d3a607392975202f37011079fdc62",
+      "source_checksum": "e117b7ab6471fcd5c2cdbb5dbdad6660900eb73f5afb18954581e22e18a8058b",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:1677:evaluate_assistant",
         "path": "infera-knowledge/src/platform.rs",
@@ -5929,7 +5946,7 @@
           }
         ]
       },
-      "source_checksum": "0fdc68d2cb0475add86bfa3275cbf2979bfb5d2f8a6f71e66249a23f6f042cec",
+      "source_checksum": "eb7fb8df3413afdf76e6f62ceae8de1f41542f8f71696a06affb030860667e30",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:2262:record_turn",
         "path": "infera-knowledge/src/platform.rs",
@@ -6034,7 +6051,7 @@
           }
         ]
       },
-      "source_checksum": "7c7382f01ff862397dd27d46bb02c6ddb856307fbfdc35739453113ecba3047e",
+      "source_checksum": "84b163a55e862226c2fd0eeae76b3f7898002ae75131f7f193d8b81d400e365e",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:457:document_evidence",
         "path": "infera-knowledge/src/platform.rs",
@@ -6103,7 +6120,7 @@
           }
         ]
       },
-      "source_checksum": "98e4a8b64924f0c8f4fb5a7273ac980268642b232c12ff36cd461b77d726b85a",
+      "source_checksum": "6ae5c8b451a6e7bbfa8bdd20d2488852fe778de6285b2ffb9b6beeeb5b5e8c8c",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:467:session_evidence",
         "path": "infera-knowledge/src/platform.rs",
@@ -6173,7 +6190,7 @@
           }
         ]
       },
-      "source_checksum": "81653e67f465264ef981516baeaffaa42ee7571f09ddde5cea25dde807b80854",
+      "source_checksum": "1ac4edf519fb71bc999612122478d63a5548ad209cebf18060f62d919a7218a5",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:424:record_retrieval_usage",
         "path": "infera-knowledge/src/platform.rs",
@@ -6253,7 +6270,7 @@
           }
         ]
       },
-      "source_checksum": "46d4f404b67803dceae8a604f0a93349e6a21217492ee6103bf8e135619ebcff",
+      "source_checksum": "b0b3b8a28dbd6ff2bc55d314597528efe568497b378a025434efda97e7442f0d",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:3439:mcp",
         "path": "infera-knowledge/src/platform.rs",
@@ -6327,7 +6344,7 @@
           }
         ]
       },
-      "source_checksum": "332d35cb0669489569cffc3ccc6b27b5f8de0ff689fefdb9135e095f44c00462",
+      "source_checksum": "a9324b687b467f7cd7ba94469ce021ef29c0863ef53144f14824ba99f5085eb5",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:61:sync",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6414,7 +6431,7 @@
           }
         ]
       },
-      "source_checksum": "4d96911d849e0bbed55c3159dd7e2995e4616862d7a805bb0cdb63b438279e18",
+      "source_checksum": "edfa4fd6e0009c6c13db840f4222a33e3e1a2d68bea99d4f737f60d2d0fe58d7",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:94:candidates",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6495,7 +6512,7 @@
           }
         ]
       },
-      "source_checksum": "42caa0aebce5da8edd7ae7cebf19f33b40806b84c7dc9b39af2ea12cd655a143",
+      "source_checksum": "9cf18c466794231e5da442c181ebba80db7f2e20ac7182bf45a2fb09eaa78633",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:127:passages",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6578,7 +6595,7 @@
           }
         ]
       },
-      "source_checksum": "b5312d5df3e0d3020764a05519842a08ed3f5d3e777224f18a2d9c1baf26d25d",
+      "source_checksum": "659de17e9d73f971d925c5b32e92be5d59e60c9fee119a6e5808cf6cbf49375a",
       "handler": {
         "ref": "infera-knowledge/src/task_conversion.rs:24:convert",
         "path": "infera-knowledge/src/task_conversion.rs",
@@ -7462,7 +7479,7 @@
           "knowledge:read"
         ],
         "handler_source": "infera-knowledge/src/routes.rs",
-        "query": "ListQuery",
+        "query": "RuleListQuery",
         "response": "Value",
         "responseEnvelope": "api",
         "mounted_via": [
@@ -9247,11 +9264,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:321:Health": {
+    "infera-knowledge/src/models.rs:340:Health": {
       "name": "Health",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 321,
+      "line": 340,
       "attributes": "#[derive(Debug, Serialize)]",
       "fields": [
         {
@@ -9283,19 +9300,19 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:619:get_release": {
+    "infera-knowledge/src/routes.rs:491:get_release": {
       "name": "get_release",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 619,
-      "end_line": 624,
-      "signature": "async fn get_release(State(s):State<AppState>,ctx:RequestContext,Path(id):Path<Uuid>)->Result<Json<ApiResponse<Value>>,AppError>",
+      "line": 491,
+      "end_line": 503,
+      "signature": "async fn get_release(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
       ],
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 620,
+          "line": 496,
           "expression": "ctx.require(\"knowledge:read\")?;"
         }
       ],
@@ -9306,17 +9323,17 @@
         "repository::get_base"
       ]
     },
-    "infera-knowledge/src/repository.rs:190:get_base": {
+    "infera-knowledge/src/repository.rs:212:get_base": {
       "name": "get_base",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 190,
-      "end_line": 201,
-      "signature": "pub async fn get_base(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<knowledge_base::Model, AppError>",
+      "line": 212,
+      "end_line": 223,
+      "signature": "pub async fn get_base(\n    db: &impl ConnectionTrait,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<knowledge_base::Model, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 196,
+          "line": 218,
           "expression": ".filter(knowledge_base::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
@@ -9325,17 +9342,17 @@
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 197,
+          "line": 219,
           "expression": ".filter(knowledge_base::Column::DeletedAt.is_null())"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:67:list_bases": {
+    "infera-knowledge/src/routes.rs:70:list_bases": {
       "name": "list_bases",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 67,
-      "end_line": 78,
+      "line": 70,
+      "end_line": 81,
       "signature": "async fn list_bases(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Query(q): Query<ListQuery>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -9343,7 +9360,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 72,
+          "line": 75,
           "expression": "ctx.require(\"knowledge:read\")?;"
         }
       ],
@@ -9496,11 +9513,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:79:create_base": {
+    "infera-knowledge/src/routes.rs:82:create_base": {
       "name": "create_base",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 79,
-      "end_line": 87,
+      "line": 82,
+      "end_line": 90,
       "signature": "async fn create_base(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Json(body): Json<CreateKnowledgeBase>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -9508,7 +9525,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 84,
+          "line": 87,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -9516,7 +9533,7 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 86,
+          "line": 89,
           "expression": "Ok((StatusCode::CREATED, Json(ApiResponse::ok(json!(item)))))"
         }
       ],
@@ -9525,88 +9542,98 @@
         "repository::create_base"
       ]
     },
-    "infera-knowledge/src/repository.rs:144:create_base": {
+    "infera-knowledge/src/repository.rs:164:create_base": {
       "name": "create_base",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 144,
-      "end_line": 189,
+      "line": 164,
+      "end_line": 211,
       "signature": "pub async fn create_base(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    b: CreateKnowledgeBase,\n) -> Result<knowledge_base::Model, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 153,
+          "line": 174,
           "expression": "organization_id: Set(ctx.organization_id),"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 149,
+          "line": 169,
           "expression": "validate_slug(&b.slug)?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 172,
+          "line": 193,
           "expression": "if e.to_string().contains(\"unique\") {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 173,
+          "line": 194,
           "expression": "AppError::Conflict(\"knowledge-base slug already exists\".into())"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 160,
+          "line": 181,
           "expression": "status: Set(\"draft\".into()),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 162,
+          "line": 183,
           "expression": "published_release_id: Set(None),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 167,
+          "line": 188,
           "expression": "deleted_at: Set(None),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 162,
+          "line": 170,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 183,
           "expression": "published_release_id: Set(None),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 164,
+          "line": 185,
           "expression": "updated_by: Set(ctx.user_id),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 166,
+          "line": 187,
           "expression": "updated_at: Set(t),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 167,
+          "line": 188,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 169,
-          "expression": ".insert(db)"
+          "line": 190,
+          "expression": ".insert(&tx)"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 209,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:108:CreateKnowledgeBase": {
+    "infera-knowledge/src/models.rs:127:CreateKnowledgeBase": {
       "name": "CreateKnowledgeBase",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 108,
+      "line": 127,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -9673,11 +9700,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:88:get_base": {
+    "infera-knowledge/src/routes.rs:91:get_base": {
       "name": "get_base",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 88,
-      "end_line": 97,
+      "line": 91,
+      "end_line": 100,
       "signature": "async fn get_base(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -9685,7 +9712,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 93,
+          "line": 96,
           "expression": "ctx.require(\"knowledge:read\")?;"
         }
       ],
@@ -9696,11 +9723,11 @@
         "repository::get_base"
       ]
     },
-    "infera-knowledge/src/routes.rs:98:update_base": {
+    "infera-knowledge/src/routes.rs:101:update_base": {
       "name": "update_base",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 98,
-      "end_line": 108,
+      "line": 101,
+      "end_line": 111,
       "signature": "async fn update_base(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<UpdateKnowledgeBase>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -9708,7 +9735,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 104,
+          "line": 107,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -9717,7 +9744,7 @@
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 106,
+          "line": 109,
           "expression": "repository::update_base(s.db.as_ref(), &ctx, id, body).await?"
         }
       ],
@@ -9725,67 +9752,82 @@
         "repository::update_base"
       ]
     },
-    "infera-knowledge/src/repository.rs:202:update_base": {
+    "infera-knowledge/src/repository.rs:224:update_base": {
       "name": "update_base",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 202,
-      "end_line": 249,
+      "line": 224,
+      "end_line": 278,
       "signature": "pub async fn update_base(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    b: UpdateKnowledgeBase,\n) -> Result<knowledge_base::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 209,
+          "line": 232,
           "expression": "if let Some(v) = b.expected_version {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 211,
+          "line": 234,
           "expression": "return Err(AppError::Conflict(\"version conflict\".into()));"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 241,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"stored version is invalid or exhausted\".into()))?;"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 231,
+          "line": 259,
           "expression": "if let Some(v) = b.status {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 232,
+          "line": 260,
           "expression": "a.status = Set(v)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 235,
+          "line": 230,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 263,
           "expression": "a.updated_by = Set(ctx.user_id);"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 236,
+          "line": 264,
           "expression": "a.updated_at = Set(now());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 237,
-          "expression": "let m = a.update(db).await?;"
+          "line": 265,
+          "expression": "let m = a.update(&tx).await?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 241,
+          "line": 269,
           "expression": "\"update\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 276,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:121:UpdateKnowledgeBase": {
+    "infera-knowledge/src/models.rs:140:UpdateKnowledgeBase": {
       "name": "UpdateKnowledgeBase",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 121,
+      "line": 140,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -9853,11 +9895,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:109:delete_base": {
+    "infera-knowledge/src/routes.rs:112:delete_base": {
       "name": "delete_base",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 109,
-      "end_line": 117,
+      "line": 112,
+      "end_line": 120,
       "signature": "async fn delete_base(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<StatusCode, AppError>",
       "declared_permissions": [
         "knowledge:delete"
@@ -9865,7 +9907,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 114,
+          "line": 117,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         }
       ],
@@ -9873,19 +9915,19 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 116,
+          "line": 119,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 114,
+          "line": 117,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 115,
+          "line": 118,
           "expression": "repository::delete_base(s.db.as_ref(), &ctx, id).await?;"
         }
       ],
@@ -9893,11 +9935,11 @@
         "repository::delete_base"
       ]
     },
-    "infera-knowledge/src/repository.rs:250:delete_base": {
+    "infera-knowledge/src/repository.rs:279:delete_base": {
       "name": "delete_base",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 250,
-      "end_line": 271,
+      "line": 279,
+      "end_line": 303,
       "signature": "pub async fn delete_base(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(), AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -9905,44 +9947,54 @@
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 257,
+          "line": 287,
           "expression": "a.deleted_at = Set(Some(now()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 258,
+          "line": 288,
           "expression": "a.status = Set(\"archived\".into());"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 257,
+          "line": 284,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 287,
           "expression": "a.deleted_at = Set(Some(now()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 259,
+          "line": 289,
           "expression": "a.updated_at = Set(now());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 260,
-          "expression": "a.update(db).await?;"
+          "line": 290,
+          "expression": "a.update(&tx).await?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 264,
+          "line": 294,
           "expression": "\"delete\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 301,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:118:publish": {
+    "infera-knowledge/src/routes.rs:121:publish": {
       "name": "publish",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 118,
-      "end_line": 127,
+      "line": 121,
+      "end_line": 130,
       "signature": "async fn publish(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:publish"
@@ -9950,7 +10002,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 123,
+          "line": 126,
           "expression": "ctx.require(\"knowledge:publish\")?;"
         }
       ],
@@ -9959,12 +10011,12 @@
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 123,
+          "line": 126,
           "expression": "ctx.require(\"knowledge:publish\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 125,
+          "line": 128,
           "expression": "repository::publish(s.db.as_ref(), &ctx, id).await?"
         }
       ],
@@ -9972,250 +10024,270 @@
         "repository::publish"
       ]
     },
-    "infera-knowledge/src/repository.rs:788:publish": {
+    "infera-knowledge/src/repository.rs:1047:publish": {
       "name": "publish",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 788,
-      "end_line": 913,
+      "line": 1047,
+      "end_line": 1179,
       "signature": "pub async fn publish(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    kb: Uuid,\n) -> Result<knowledge_release::Model, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 811,
+          "line": 1072,
           "expression": "\"publishing requires at least one group and item\".into(),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 860,
+          "line": 1120,
           "expression": "INSERT INTO knowledge_release_records(release_id,organization_id,knowledge_base_id,record_type,record_id,payload)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 866,
+          "line": 1126,
           "expression": "ON CONFLICT DO NOTHING\"#,ctx.organization_id,release.id)).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 809,
+          "line": 1070,
           "expression": "if groups.is_empty() || items.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 810,
+          "line": 1071,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 816,
+          "line": 1077,
           "expression": "engine::validate_condition(&r.conditions, 0, &mut e);"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 817,
+          "line": 1078,
           "expression": "if !e.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 818,
+          "line": 1079,
           "expression": "return Err(AppError::BadRequest(format!("
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 866,
+          "line": 1126,
           "expression": "ON CONFLICT DO NOTHING\"#,ctx.organization_id,release.id)).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1164,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"version exhausted\".into()))?);"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 835,
+          "line": 1095,
           "expression": "knowledge_release::Column::Status,"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 843,
+          "line": 1103,
           "expression": ".filter(knowledge_release::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 852,
+          "line": 1112,
           "expression": "status: Set(\"published\".into()),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 853,
+          "line": 1113,
           "expression": "published_by: Set(ctx.user_id),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 854,
+          "line": 1114,
           "expression": "published_at: Set(now()),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 869,
+          "line": 1129,
           "expression": "knowledge_group::Column::Status,"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 870,
+          "line": 1130,
           "expression": "sea_orm::sea_query::Expr::value(\"published\"),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 877,
+          "line": 1138,
           "expression": "knowledge_item::Column::Status,"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 878,
+          "line": 1139,
           "expression": "sea_orm::sea_query::Expr::value(\"published\"),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 885,
+          "line": 1147,
           "expression": "knowledge_edge::Column::Status,"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 886,
+          "line": 1148,
           "expression": "sea_orm::sea_query::Expr::value(\"published\"),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 896,
+          "line": 1158,
           "expression": "ba.published_release_id = Set(Some(release.id));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 897,
+          "line": 1159,
           "expression": "ba.status = Set(\"published\".into());"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 797,
+          "line": 1052,
+          "expression": "let txn = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1058,
           "expression": ".filter(knowledge_item::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 806,
+          "line": 1067,
           "expression": ".filter(match_rule::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 811,
+          "line": 1072,
           "expression": "\"publishing requires at least one group and item\".into(),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 833,
+          "line": 1093,
           "expression": "knowledge_release::Entity::update_many()"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 843,
+          "line": 1103,
           "expression": ".filter(knowledge_release::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 852,
+          "line": 1112,
           "expression": "status: Set(\"published\".into()),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 853,
+          "line": 1113,
           "expression": "published_by: Set(ctx.user_id),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 854,
+          "line": 1114,
           "expression": "published_at: Set(now()),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 857,
+          "line": 1117,
           "expression": ".insert(&txn)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 860,
+          "line": 1120,
           "expression": "INSERT INTO knowledge_release_records(release_id,organization_id,knowledge_base_id,record_type,record_id,payload)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 867,
+          "line": 1127,
           "expression": "knowledge_group::Entity::update_many()"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 870,
+          "line": 1130,
           "expression": "sea_orm::sea_query::Expr::value(\"published\"),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 875,
+          "line": 1133,
+          "expression": ".filter(knowledge_group::Column::DeletedAt.is_null())"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1136,
           "expression": "knowledge_item::Entity::update_many()"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 878,
+          "line": 1139,
           "expression": "sea_orm::sea_query::Expr::value(\"published\"),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 883,
+          "line": 1142,
+          "expression": ".filter(knowledge_item::Column::DeletedAt.is_null())"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1145,
           "expression": "knowledge_edge::Entity::update_many()"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 886,
+          "line": 1148,
           "expression": "sea_orm::sea_query::Expr::value(\"published\"),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 896,
+          "line": 1158,
           "expression": "ba.published_release_id = Set(Some(release.id));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 897,
+          "line": 1159,
           "expression": "ba.status = Set(\"published\".into());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 899,
+          "line": 1165,
           "expression": "ba.updated_at = Set(now());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 900,
+          "line": 1166,
           "expression": "ba.update(&txn).await?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 901,
-          "expression": "txn.commit().await?;"
+          "line": 1170,
+          "expression": "\"publish\","
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 905,
-          "expression": "\"publish\","
+          "line": 1177,
+          "expression": "txn.commit().await?;"
         }
       ],
       "calls": [
         "engine::validate_condition"
       ]
     },
-    "infera-knowledge/src/routes.rs:128:export_base": {
+    "infera-knowledge/src/routes.rs:131:export_base": {
       "name": "export_base",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 128,
-      "end_line": 153,
+      "line": 131,
+      "end_line": 156,
       "signature": "async fn export_base(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -10223,7 +10295,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 133,
+          "line": 136,
           "expression": "ctx.require(\"knowledge:read\")?;"
         }
       ],
@@ -10232,12 +10304,12 @@
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 138,
+          "line": 141,
           "expression": ".filter(knowledge_item::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 147,
+          "line": 150,
           "expression": ".filter(match_rule::Column::DeletedAt.is_null())"
         }
       ],
@@ -10246,12 +10318,12 @@
         "repository::list_groups"
       ]
     },
-    "infera-knowledge/src/repository.rs:273:list_groups": {
+    "infera-knowledge/src/repository.rs:305:list_groups": {
       "name": "list_groups",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 273,
-      "end_line": 284,
-      "signature": "pub async fn list_groups(\n    db: &DatabaseConnection,\n    kb: Uuid,\n) -> Result<Vec<knowledge_group::Model>, AppError>",
+      "line": 305,
+      "end_line": 316,
+      "signature": "pub async fn list_groups(\n    db: &impl ConnectionTrait,\n    kb: Uuid,\n) -> Result<Vec<knowledge_group::Model>, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [],
@@ -10259,17 +10331,17 @@
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 279,
+          "line": 311,
           "expression": ".filter(knowledge_group::Column::DeletedAt.is_null())"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:155:list_groups": {
+    "infera-knowledge/src/routes.rs:158:list_groups": {
       "name": "list_groups",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 155,
-      "end_line": 165,
+      "line": 158,
+      "end_line": 168,
       "signature": "async fn list_groups(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -10277,7 +10349,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 160,
+          "line": 163,
           "expression": "ctx.require(\"knowledge:read\")?;"
         }
       ],
@@ -10289,11 +10361,11 @@
         "repository::list_groups"
       ]
     },
-    "infera-knowledge/src/routes.rs:166:create_group": {
+    "infera-knowledge/src/routes.rs:169:create_group": {
       "name": "create_group",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 166,
-      "end_line": 179,
+      "line": 169,
+      "end_line": 182,
       "signature": "async fn create_group(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<CreateGroup>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -10301,7 +10373,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 172,
+          "line": 175,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -10309,7 +10381,7 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 174,
+          "line": 177,
           "expression": "StatusCode::CREATED,"
         }
       ],
@@ -10318,67 +10390,87 @@
         "repository::create_group"
       ]
     },
-    "infera-knowledge/src/repository.rs:285:create_group": {
+    "infera-knowledge/src/repository.rs:354:create_group": {
       "name": "create_group",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 285,
-      "end_line": 328,
+      "line": 354,
+      "end_line": 403,
       "signature": "pub async fn create_group(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    kb: Uuid,\n    b: CreateGroup,\n) -> Result<knowledge_group::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 292,
+          "line": 363,
           "expression": "validate_slug(&b.slug)?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 297,
+          "line": 369,
           "expression": ".ok_or_else(|| AppError::BadRequest(\"parent group not found\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 299,
+          "line": 371,
           "expression": "return Err(AppError::BadRequest("
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 377,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"group level exhausted\".into()))?"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 318,
+          "line": 392,
           "expression": "status: Set(\"draft\".into()),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 322,
+          "line": 396,
           "expression": "deleted_at: Set(None),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 321,
+          "line": 360,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 366,
+          "expression": ".filter(knowledge_group::Column::DeletedAt.is_null())"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 395,
           "expression": "updated_at: Set(t),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 322,
+          "line": 396,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 324,
+          "line": 398,
           "expression": ".insert(db)"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 401,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:131:CreateGroup": {
+    "infera-knowledge/src/models.rs:150:CreateGroup": {
       "name": "CreateGroup",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 131,
+      "line": 150,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -10443,11 +10535,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:180:update_group": {
+    "infera-knowledge/src/routes.rs:183:update_group": {
       "name": "update_group",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 180,
-      "end_line": 190,
+      "line": 183,
+      "end_line": 193,
       "signature": "async fn update_group(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<UpdateGroup>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -10455,7 +10547,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 186,
+          "line": 189,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -10464,7 +10556,7 @@
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 188,
+          "line": 191,
           "expression": "repository::update_group(s.db.as_ref(), &ctx, id, body).await?"
         }
       ],
@@ -10472,77 +10564,152 @@
         "repository::update_group"
       ]
     },
-    "infera-knowledge/src/repository.rs:329:update_group": {
+    "infera-knowledge/src/repository.rs:404:update_group": {
       "name": "update_group",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 329,
-      "end_line": 386,
+      "line": 404,
+      "end_line": 523,
       "signature": "pub async fn update_group(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    b: UpdateGroup,\n) -> Result<knowledge_group::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 341,
+          "line": 413,
           "expression": "if b.expected_version.is_some_and(|v| v != old.version) {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 342,
+          "line": 414,
           "expression": "return Err(AppError::Conflict(\"version conflict\".into()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 345,
+          "line": 417,
           "expression": "return Err(AppError::BadRequest(\"group cannot parent itself\".into()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 353,
+          "line": 427,
+          "expression": "return Err(AppError::BadRequest("
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 433,
+          "expression": ".ok_or_else(|| AppError::BadRequest(\"parent not found\".into()))?"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 446,
           "expression": ".ok_or_else(|| AppError::BadRequest(\"parent not found\".into()))?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 451,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"group level exhausted\".into()))?)"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 473,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"version exhausted\".into()))?);"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 491,
+          "expression": "return Err(AppError::Conflict("
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 499,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"group level exhausted\".into()))?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 504,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"version exhausted\".into()))?);"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 369,
+          "line": 465,
           "expression": "if let Some(v) = b.status {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 370,
+          "line": 466,
           "expression": "a.status = Set(v)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 336,
+          "line": 410,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 426,
+          "expression": "if current == id || !visited.insert(current) {"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 443,
           "expression": ".filter(knowledge_group::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 373,
+          "line": 474,
           "expression": "a.updated_at = Set(now());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 374,
+          "line": 475,
           "expression": "let m = a.update(db).await?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 378,
+          "line": 479,
           "expression": "\"update\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 490,
+          "expression": "if !seen.insert(parent) {"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 505,
+          "expression": "row.updated_at = Set(now());"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 506,
+          "expression": "let updated = row.update(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 510,
+          "expression": "\"update\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 514,
+          "expression": "Some(json_value(&updated)),"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 521,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:143:UpdateGroup": {
+    "infera-knowledge/src/models.rs:162:UpdateGroup": {
       "name": "UpdateGroup",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 143,
+      "line": 162,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -10610,11 +10777,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:191:delete_group": {
+    "infera-knowledge/src/routes.rs:194:delete_group": {
       "name": "delete_group",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 191,
-      "end_line": 199,
+      "line": 194,
+      "end_line": 202,
       "signature": "async fn delete_group(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<StatusCode, AppError>",
       "declared_permissions": [
         "knowledge:delete"
@@ -10622,7 +10789,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 196,
+          "line": 199,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         }
       ],
@@ -10630,19 +10797,19 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 198,
+          "line": 201,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 196,
+          "line": 199,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 197,
+          "line": 200,
           "expression": "repository::delete_group(s.db.as_ref(), &ctx, id).await?;"
         }
       ],
@@ -10650,67 +10817,97 @@
         "repository::delete_group"
       ]
     },
-    "infera-knowledge/src/repository.rs:387:delete_group": {
+    "infera-knowledge/src/repository.rs:524:delete_group": {
       "name": "delete_group",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 387,
-      "end_line": 413,
+      "line": 524,
+      "end_line": 567,
       "signature": "pub async fn delete_group(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(), AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 404,
+          "line": 539,
+          "expression": "return Err(AppError::Conflict("
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 556,
           "expression": "return Err(AppError::Conflict("
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 409,
+          "line": 561,
           "expression": "a.deleted_at = Set(Some(now()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 410,
+          "line": 562,
           "expression": "a.status = Set(\"archived\".into());"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 399,
+          "line": 529,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 534,
           "expression": ".filter(knowledge_group::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 405,
+          "line": 540,
           "expression": "\"move or delete child groups first\".into(),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 409,
+          "line": 545,
+          "expression": ".filter(knowledge_item::Column::DeletedAt.is_null())"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 551,
+          "expression": ".filter(match_rule::Column::DeletedAt.is_null())"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 557,
+          "expression": "\"move or delete group items and rules first\".into(),"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 561,
           "expression": "a.deleted_at = Set(Some(now()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 411,
+          "line": 563,
           "expression": "a.update(db).await?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 412,
-          "expression": "audit(db, ctx, \"delete\", \"group\", id, Some(json_value(&old)), None).await"
+          "line": 564,
+          "expression": "audit(db, ctx, \"delete\", \"group\", id, Some(json_value(&old)), None).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 565,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:201:list_items": {
+    "infera-knowledge/src/routes.rs:204:list_items": {
       "name": "list_items",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 201,
-      "end_line": 214,
+      "line": 204,
+      "end_line": 217,
       "signature": "async fn list_items(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Query(q): Query<ListQuery>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -10718,7 +10915,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 207,
+          "line": 210,
           "expression": "ctx.require(\"knowledge:read\")?;"
         }
       ],
@@ -10730,57 +10927,57 @@
         "repository::list_items"
       ]
     },
-    "infera-knowledge/src/repository.rs:415:list_items": {
+    "infera-knowledge/src/repository.rs:569:list_items": {
       "name": "list_items",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 415,
-      "end_line": 450,
+      "line": 569,
+      "end_line": 604,
       "signature": "pub async fn list_items(\n    db: &DatabaseConnection,\n    kb: Uuid,\n    q: &ListQuery,\n) -> Result<(Vec<knowledge_item::Model>, u64), AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 441,
+          "line": 595,
           "expression": ".add(knowledge_item::Column::Slug.contains(v))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 442,
+          "line": 596,
           "expression": ".add(knowledge_item::Column::Kind.contains(v)),"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 423,
+          "line": 577,
           "expression": "if let Some(v) = &q.status {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 424,
+          "line": 578,
           "expression": "x = x.filter(knowledge_item::Column::Status.eq(v))"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 422,
+          "line": 576,
           "expression": ".filter(knowledge_item::Column::DeletedAt.is_null());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 446,
+          "line": 600,
           "expression": ".order_by_desc(knowledge_item::Column::UpdatedAt)"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:215:create_item": {
+    "infera-knowledge/src/routes.rs:218:create_item": {
       "name": "create_item",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 215,
-      "end_line": 228,
+      "line": 218,
+      "end_line": 231,
       "signature": "async fn create_item(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<CreateItem>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -10788,7 +10985,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 221,
+          "line": 224,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -10796,7 +10993,7 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 223,
+          "line": 226,
           "expression": "StatusCode::CREATED,"
         }
       ],
@@ -10805,82 +11002,97 @@
         "repository::create_item"
       ]
     },
-    "infera-knowledge/src/repository.rs:451:create_item": {
+    "infera-knowledge/src/repository.rs:605:create_item": {
       "name": "create_item",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 451,
-      "end_line": 529,
+      "line": 605,
+      "end_line": 687,
       "signature": "pub async fn create_item(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    kb: Uuid,\n    b: CreateItem,\n) -> Result<knowledge_item::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 458,
+          "line": 614,
           "expression": "validate_slug(&b.slug)?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 459,
+          "line": 615,
           "expression": "validate_importance(&b.importance)?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 464,
+          "line": 620,
           "expression": "validate_item_link("
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 474,
+          "line": 631,
           "expression": ".ok_or_else(|| AppError::BadRequest(\"group not found\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 476,
+          "line": 633,
           "expression": "return Err(AppError::BadRequest("
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 514,
+          "line": 671,
           "expression": "status: Set(\"draft\".into()),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 523,
+          "line": 680,
           "expression": "deleted_at: Set(None),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 520,
+          "line": 611,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 628,
+          "expression": ".filter(knowledge_group::Column::DeletedAt.is_null())"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 677,
           "expression": "updated_by: Set(ctx.user_id),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 522,
+          "line": 679,
           "expression": "updated_at: Set(t),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 523,
+          "line": 680,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 525,
+          "line": 682,
           "expression": ".insert(db)"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 685,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:153:CreateItem": {
+    "infera-knowledge/src/models.rs:172:CreateItem": {
       "name": "CreateItem",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 153,
+      "line": 172,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -11061,11 +11273,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:229:get_item": {
+    "infera-knowledge/src/routes.rs:232:get_item": {
       "name": "get_item",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 229,
-      "end_line": 238,
+      "line": 232,
+      "end_line": 241,
       "signature": "async fn get_item(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -11073,7 +11285,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 234,
+          "line": 237,
           "expression": "ctx.require(\"knowledge:read\")?;"
         }
       ],
@@ -11084,12 +11296,12 @@
         "repository::get_item"
       ]
     },
-    "infera-knowledge/src/repository.rs:530:get_item": {
+    "infera-knowledge/src/repository.rs:688:get_item": {
       "name": "get_item",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 530,
-      "end_line": 542,
-      "signature": "pub async fn get_item(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<knowledge_item::Model, AppError>",
+      "line": 688,
+      "end_line": 700,
+      "signature": "pub async fn get_item(\n    db: &impl ConnectionTrait,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<knowledge_item::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [],
@@ -11097,17 +11309,17 @@
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 536,
+          "line": 694,
           "expression": ".filter(knowledge_item::Column::DeletedAt.is_null())"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:239:update_item": {
+    "infera-knowledge/src/routes.rs:242:update_item": {
       "name": "update_item",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 239,
-      "end_line": 249,
+      "line": 242,
+      "end_line": 252,
       "signature": "async fn update_item(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<UpdateItem>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -11115,7 +11327,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 245,
+          "line": 248,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -11124,7 +11336,7 @@
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 247,
+          "line": 250,
           "expression": "repository::update_item(s.db.as_ref(), &ctx, id, body).await?"
         }
       ],
@@ -11132,87 +11344,107 @@
         "repository::update_item"
       ]
     },
-    "infera-knowledge/src/repository.rs:543:update_item": {
+    "infera-knowledge/src/repository.rs:701:update_item": {
       "name": "update_item",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 543,
-      "end_line": 677,
+      "line": 701,
+      "end_line": 844,
       "signature": "pub async fn update_item(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    b: UpdateItem,\n) -> Result<knowledge_item::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 550,
+          "line": 710,
           "expression": "if b.expected_version.is_some_and(|v| v != old.version) {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 551,
+          "line": 711,
           "expression": "return Err(AppError::Conflict(\"version conflict\".into()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 554,
+          "line": 714,
           "expression": "validate_importance(v)?"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 573,
+          "line": 733,
           "expression": "validate_item_link("
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 584,
+          "line": 745,
           "expression": ".ok_or_else(|| AppError::BadRequest(\"group not found\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 586,
+          "line": 747,
           "expression": "return Err(AppError::BadRequest("
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 813,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"version exhausted\".into()))?);"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 638,
+          "line": 799,
           "expression": "if let Some(v) = b.status {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 639,
+          "line": 800,
           "expression": "a.status = Set(v)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 648,
+          "line": 707,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 742,
+          "expression": ".filter(knowledge_group::Column::DeletedAt.is_null())"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 814,
           "expression": "a.updated_by = Set(ctx.user_id);"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 649,
+          "line": 815,
           "expression": "a.updated_at = Set(now());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 665,
+          "line": 831,
           "expression": "let m = a.update(db).await?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 669,
+          "line": 835,
           "expression": "\"update\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 842,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:181:UpdateItem": {
+    "infera-knowledge/src/models.rs:200:UpdateItem": {
       "name": "UpdateItem",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 181,
+      "line": 200,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -11388,11 +11620,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:250:delete_item": {
+    "infera-knowledge/src/routes.rs:253:delete_item": {
       "name": "delete_item",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 250,
-      "end_line": 258,
+      "line": 253,
+      "end_line": 261,
       "signature": "async fn delete_item(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<StatusCode, AppError>",
       "declared_permissions": [
         "knowledge:delete"
@@ -11400,7 +11632,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 255,
+          "line": 258,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         }
       ],
@@ -11408,19 +11640,19 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 257,
+          "line": 260,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 255,
+          "line": 258,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 256,
+          "line": 259,
           "expression": "repository::delete_item(s.db.as_ref(), &ctx, id).await?;"
         }
       ],
@@ -11428,51 +11660,72 @@
         "repository::delete_item"
       ]
     },
-    "infera-knowledge/src/repository.rs:678:delete_item": {
+    "infera-knowledge/src/repository.rs:845:delete_item": {
       "name": "delete_item",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 678,
-      "end_line": 689,
+      "line": 845,
+      "end_line": 872,
       "signature": "pub async fn delete_item(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(), AppError>",
       "declared_permissions": [],
       "guards": [],
-      "validation": [],
+      "validation": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 863,
+          "expression": "return Err(AppError::Conflict(\"delete connected edges first\".into()));"
+        }
+      ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 685,
+          "line": 866,
           "expression": "a.deleted_at = Set(Some(now()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 686,
+          "line": 867,
           "expression": "a.status = Set(\"archived\".into());"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 685,
+          "line": 850,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 863,
+          "expression": "return Err(AppError::Conflict(\"delete connected edges first\".into()));"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 866,
           "expression": "a.deleted_at = Set(Some(now()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 687,
+          "line": 868,
           "expression": "a.update(db).await?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 688,
-          "expression": "audit(db, ctx, \"delete\", \"item\", id, Some(json_value(&old)), None).await"
+          "line": 869,
+          "expression": "audit(db, ctx, \"delete\", \"item\", id, Some(json_value(&old)), None).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 870,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:260:list_edges": {
+    "infera-knowledge/src/routes.rs:263:list_edges": {
       "name": "list_edges",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 260,
-      "end_line": 273,
+      "line": 263,
+      "end_line": 276,
       "signature": "async fn list_edges(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -11480,7 +11733,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 265,
+          "line": 268,
           "expression": "ctx.require(\"knowledge:read\")?;"
         }
       ],
@@ -11489,7 +11742,7 @@
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 269,
+          "line": 272,
           "expression": ".order_by_desc(knowledge_edge::Column::UpdatedAt)"
         }
       ],
@@ -11497,11 +11750,11 @@
         "repository::get_base"
       ]
     },
-    "infera-knowledge/src/routes.rs:274:create_edge": {
+    "infera-knowledge/src/routes.rs:277:create_edge": {
       "name": "create_edge",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 274,
-      "end_line": 287,
+      "line": 277,
+      "end_line": 290,
       "signature": "async fn create_edge(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<CreateEdge>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -11509,7 +11762,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 280,
+          "line": 283,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -11517,7 +11770,7 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 282,
+          "line": 285,
           "expression": "StatusCode::CREATED,"
         }
       ],
@@ -11526,57 +11779,67 @@
         "repository::create_edge"
       ]
     },
-    "infera-knowledge/src/repository.rs:691:create_edge": {
+    "infera-knowledge/src/repository.rs:874:create_edge": {
       "name": "create_edge",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 691,
-      "end_line": 730,
+      "line": 874,
+      "end_line": 916,
       "signature": "pub async fn create_edge(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    kb: Uuid,\n    b: CreateEdge,\n) -> Result<knowledge_edge::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 699,
+          "line": 884,
           "expression": "return Err(AppError::BadRequest(\"self edges are not allowed\".into()));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 708,
+          "line": 893,
           "expression": "return Err(AppError::BadRequest("
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 721,
+          "line": 906,
           "expression": "status: Set(\"draft\".into()),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 704,
+          "line": 880,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 889,
           "expression": ".filter(knowledge_item::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 724,
+          "line": 909,
           "expression": "updated_at: Set(t),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 726,
+          "line": 911,
           "expression": ".insert(db)"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 914,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:203:CreateEdge": {
+    "infera-knowledge/src/models.rs:222:CreateEdge": {
       "name": "CreateEdge",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 203,
+      "line": 222,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -11630,11 +11893,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:288:update_edge": {
+    "infera-knowledge/src/routes.rs:291:update_edge": {
       "name": "update_edge",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 288,
-      "end_line": 321,
+      "line": 291,
+      "end_line": 301,
       "signature": "async fn update_edge(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<UpdateEdge>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -11642,55 +11905,94 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 294,
+          "line": 297,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
-      "validation": [
+      "validation": [],
+      "state": [],
+      "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 300,
+          "line": 299,
+          "expression": "repository::update_edge(s.db.as_ref(), &ctx, id, body).await?"
+        }
+      ],
+      "calls": [
+        "repository::update_edge"
+      ]
+    },
+    "infera-knowledge/src/repository.rs:1841:update_edge": {
+      "name": "update_edge",
+      "path": "infera-knowledge/src/repository.rs",
+      "line": 1841,
+      "end_line": 1885,
+      "signature": "pub async fn update_edge(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    body: UpdateEdge,\n) -> Result<knowledge_edge::Model, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1849,
           "expression": "if body.expected_version.is_some_and(|v| v != old.version) {"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 301,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1850,
           "expression": "return Err(AppError::Conflict(\"version conflict\".into()));"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1870,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"version exhausted\".into()))?);"
         }
       ],
       "state": [
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 313,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1863,
           "expression": "if let Some(v) = body.status {"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 314,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1864,
           "expression": "row.status = Set(v)"
         }
       ],
       "effects": [
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 317,
-          "expression": "row.updated_at = Set(Utc::now());"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1847,
+          "expression": "let tx = editor_transaction(db).await?;"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 319,
-          "expression": "row.update(s.db.as_ref()).await?"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1871,
+          "expression": "row.updated_at = Set(now());"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1872,
+          "expression": "let model = row.update(&tx).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1876,
+          "expression": "\"update\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1883,
+          "expression": "tx.commit().await?;"
         }
       ],
-      "calls": [
-        "repository::get_base"
-      ]
+      "calls": []
     },
-    "infera-knowledge/src/models.rs:216:UpdateEdge": {
+    "infera-knowledge/src/models.rs:235:UpdateEdge": {
       "name": "UpdateEdge",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 216,
+      "line": 235,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -11740,11 +12042,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:322:delete_edge": {
+    "infera-knowledge/src/routes.rs:303:delete_edge": {
       "name": "delete_edge",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 322,
-      "end_line": 337,
+      "line": 303,
+      "end_line": 311,
       "signature": "async fn delete_edge(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<StatusCode, AppError>",
       "declared_permissions": [
         "knowledge:delete"
@@ -11752,7 +12054,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 327,
+          "line": 308,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         }
       ],
@@ -11760,31 +12062,65 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 336,
+          "line": 310,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 327,
+          "line": 308,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 333,
-          "expression": "knowledge_edge::Entity::delete_by_id(id)"
+          "line": 309,
+          "expression": "repository::delete_edge(s.db.as_ref(), &ctx, id).await?;"
         }
       ],
       "calls": [
-        "repository::get_base"
+        "repository::delete_edge"
       ]
     },
-    "infera-knowledge/src/routes.rs:339:list_bindings": {
+    "infera-knowledge/src/repository.rs:1887:delete_edge": {
+      "name": "delete_edge",
+      "path": "infera-knowledge/src/repository.rs",
+      "line": 1887,
+      "end_line": 1898,
+      "signature": "pub async fn delete_edge(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(), AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1892,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1894,
+          "expression": "knowledge_edge::Entity::delete_by_id(id).exec(&tx).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1895,
+          "expression": "audit(&tx, ctx, \"delete\", \"edge\", id, Some(json_value(&old)), None).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1896,
+          "expression": "tx.commit().await?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-knowledge/src/routes.rs:313:list_bindings": {
       "name": "list_bindings",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 339,
-      "end_line": 350,
+      "line": 313,
+      "end_line": 324,
       "signature": "async fn list_bindings(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -11792,12 +12128,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 343,
+          "line": 317,
           "expression": "ctx.require(\"knowledge:read\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 345,
+          "line": 319,
           "expression": ".filter(chat_binding::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
@@ -11806,11 +12142,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:351:create_binding": {
+    "infera-knowledge/src/routes.rs:325:create_binding": {
       "name": "create_binding",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 351,
-      "end_line": 363,
+      "line": 325,
+      "end_line": 337,
       "signature": "async fn create_binding(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Json(body): Json<CreateBinding>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -11818,7 +12154,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 356,
+          "line": 330,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -11826,7 +12162,7 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 358,
+          "line": 332,
           "expression": "StatusCode::CREATED,"
         }
       ],
@@ -11835,29 +12171,29 @@
         "repository::create_binding"
       ]
     },
-    "infera-knowledge/src/repository.rs:731:create_binding": {
+    "infera-knowledge/src/repository.rs:917:create_binding": {
       "name": "create_binding",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 731,
-      "end_line": 754,
+      "line": 917,
+      "end_line": 954,
       "signature": "pub async fn create_binding(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    b: CreateBinding,\n) -> Result<chat_binding::Model, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 741,
+          "line": 929,
           "expression": "organization_id: Set(ctx.organization_id),"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 736,
+          "line": 922,
           "expression": "validate_slug(&b.chat_slug)?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 745,
+          "line": 933,
           "expression": "max_level: Set(b.max_level.clamp(0, 64)),"
         }
       ],
@@ -11865,22 +12201,32 @@
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 750,
+          "line": 923,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 938,
           "expression": "updated_at: Set(t),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 752,
+          "line": 940,
           "expression": ".insert(db)"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 952,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:224:CreateBinding": {
+    "infera-knowledge/src/models.rs:243:CreateBinding": {
       "name": "CreateBinding",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 224,
+      "line": 243,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -11947,11 +12293,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:364:update_binding": {
+    "infera-knowledge/src/routes.rs:338:update_binding": {
       "name": "update_binding",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 364,
-      "end_line": 397,
+      "line": 338,
+      "end_line": 348,
       "signature": "async fn update_binding(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<UpdateBinding>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -11959,52 +12305,88 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 370,
+          "line": 344,
           "expression": "ctx.require(\"knowledge:write\")?;"
-        },
-        {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 372,
-          "expression": ".filter(chat_binding::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
-      "validation": [
+      "validation": [],
+      "state": [],
+      "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 376,
+          "line": 346,
+          "expression": "repository::update_binding(s.db.as_ref(), &ctx, id, body).await?"
+        }
+      ],
+      "calls": [
+        "repository::update_binding"
+      ]
+    },
+    "infera-knowledge/src/repository.rs:1919:update_binding": {
+      "name": "update_binding",
+      "path": "infera-knowledge/src/repository.rs",
+      "line": 1919,
+      "end_line": 1963,
+      "signature": "pub async fn update_binding(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    body: UpdateBinding,\n) -> Result<chat_binding::Model, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1927,
           "expression": "if body.expected_version.is_some_and(|v| v != old.version) {"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 377,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1928,
           "expression": "return Err(AppError::Conflict(\"version conflict\".into()));"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 384,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1936,
           "expression": "row.max_level = Set(v.clamp(0, 64))"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1948,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"version exhausted\".into()))?);"
         }
       ],
       "state": [],
       "effects": [
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 393,
-          "expression": "row.updated_at = Set(Utc::now());"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1925,
+          "expression": "let tx = editor_transaction(db).await?;"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 395,
-          "expression": "row.update(s.db.as_ref()).await?"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1949,
+          "expression": "row.updated_at = Set(now());"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1950,
+          "expression": "let model = row.update(&tx).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1954,
+          "expression": "\"update\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1961,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:243:UpdateBinding": {
+    "infera-knowledge/src/models.rs:262:UpdateBinding": {
       "name": "UpdateBinding",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 243,
+      "line": 262,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -12054,11 +12436,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:398:delete_binding": {
+    "infera-knowledge/src/routes.rs:350:delete_binding": {
       "name": "delete_binding",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 398,
-      "end_line": 415,
+      "line": 350,
+      "end_line": 358,
       "signature": "async fn delete_binding(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<StatusCode, AppError>",
       "declared_permissions": [
         "knowledge:delete"
@@ -12066,83 +12448,200 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 403,
+          "line": 355,
           "expression": "ctx.require(\"knowledge:delete\")?;"
-        },
-        {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 405,
-          "expression": ".filter(chat_binding::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
       "validation": [],
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 414,
+          "line": 357,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 403,
+          "line": 355,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 411,
-          "expression": "chat_binding::Entity::delete_by_id(id)"
+          "line": 356,
+          "expression": "repository::delete_binding(s.db.as_ref(), &ctx, id).await?;"
+        }
+      ],
+      "calls": [
+        "repository::delete_binding"
+      ]
+    },
+    "infera-knowledge/src/repository.rs:1965:delete_binding": {
+      "name": "delete_binding",
+      "path": "infera-knowledge/src/repository.rs",
+      "line": 1965,
+      "end_line": 1985,
+      "signature": "pub async fn delete_binding(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(), AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [],
+      "effects": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1970,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1972,
+          "expression": "chat_binding::Entity::delete_by_id(id).exec(&tx).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1976,
+          "expression": "\"delete\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1983,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:417:list_rules": {
+    "infera-knowledge/src/routes.rs:360:list_rules": {
       "name": "list_rules",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 417,
-      "end_line": 453,
-      "signature": "async fn list_rules(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Query(q): Query<ListQuery>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
+      "line": 360,
+      "end_line": 371,
+      "signature": "async fn list_rules(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Query(q): Query<RuleListQuery>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
       ],
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 422,
+          "line": 365,
           "expression": "ctx.require(\"knowledge:read\")?;"
+        }
+      ],
+      "validation": [],
+      "state": [],
+      "effects": [],
+      "calls": [
+        "repository::list_rules"
+      ]
+    },
+    "infera-knowledge/src/repository.rs:955:list_rules": {
+      "name": "list_rules",
+      "path": "infera-knowledge/src/repository.rs",
+      "line": 955,
+      "end_line": 997,
+      "signature": "pub async fn list_rules(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    q: &RuleListQuery,\n) -> Result<(Vec<match_rule::Model>, u64), AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 965,
+          "expression": ".filter(knowledge_base::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
       "validation": [
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 441,
-          "expression": "let rows = if ids.is_empty() {"
-        }
-      ],
-      "state": [
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 980,
+          "expression": "if let Some(text) = q.q.as_ref().filter(|v| !v.is_empty()) {"
+        },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 428,
-          "expression": "status: None,"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 983,
+          "expression": ".add(match_rule::Column::Slug.contains(text))"
         }
       ],
+      "state": [],
       "effects": [
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 446,
-          "expression": ".filter(match_rule::Column::DeletedAt.is_null())"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 966,
+          "expression": ".filter(knowledge_base::Column::DeletedAt.is_null())"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 970,
+          "expression": ".filter(match_rule::Column::DeletedAt.is_null());"
         }
       ],
-      "calls": [
-        "repository::list_bases"
+      "calls": []
+    },
+    "infera-knowledge/src/models.rs:109:RuleListQuery": {
+      "name": "RuleListQuery",
+      "kind": "struct",
+      "path": "infera-knowledge/src/models.rs",
+      "line": 109,
+      "attributes": "/// Rule filters apply before pagination; base ownership is always enforced separately.\n#[derive(Debug, Deserialize)]",
+      "fields": [
+        {
+          "name": "q",
+          "rust_name": "q",
+          "rust_type": "Option<String>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "knowledge_base_id",
+          "rust_name": "knowledge_base_id",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "group_id",
+          "rust_name": "group_id",
+          "rust_type": "Option<Uuid>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "enabled",
+          "rust_name": "enabled",
+          "rust_type": "Option<bool>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "page",
+          "rust_name": "page",
+          "rust_type": "Option<u64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "limit",
+          "rust_name": "limit",
+          "rust_type": "Option<u64>",
+          "optional": true,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
       ]
     },
-    "infera-knowledge/src/routes.rs:454:create_rule": {
+    "infera-knowledge/src/routes.rs:373:create_rule": {
       "name": "create_rule",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 454,
-      "end_line": 466,
+      "line": 373,
+      "end_line": 385,
       "signature": "async fn create_rule(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Json(body): Json<CreateRule>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -12150,7 +12649,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 459,
+          "line": 378,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
@@ -12158,7 +12657,7 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 461,
+          "line": 380,
           "expression": "StatusCode::CREATED,"
         }
       ],
@@ -12167,69 +12666,84 @@
         "repository::create_rule"
       ]
     },
-    "infera-knowledge/src/repository.rs:755:create_rule": {
+    "infera-knowledge/src/repository.rs:999:create_rule": {
       "name": "create_rule",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 755,
-      "end_line": 786,
+      "line": 999,
+      "end_line": 1045,
       "signature": "pub async fn create_rule(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    b: CreateRule,\n) -> Result<match_rule::Model, AppError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 760,
+          "line": 1004,
           "expression": "validate_slug(&b.slug)?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 763,
+          "line": 1008,
+          "expression": "validate_rule_group(db, b.knowledge_base_id, b.group_id).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1010,
           "expression": "engine::validate_condition(&b.conditions, 0, &mut errors);"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 764,
+          "line": 1011,
           "expression": "if !errors.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 765,
+          "line": 1012,
           "expression": "return Err(AppError::BadRequest(errors.join(\"; \")));"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 782,
+          "line": 1029,
           "expression": "deleted_at: Set(None),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 781,
+          "line": 1005,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1028,
           "expression": "updated_at: Set(t),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 782,
+          "line": 1029,
           "expression": "deleted_at: Set(None),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 784,
+          "line": 1031,
           "expression": ".insert(db)"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 1043,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": [
         "engine::validate_condition"
       ]
     },
-    "infera-knowledge/src/models.rs:251:CreateRule": {
+    "infera-knowledge/src/models.rs:270:CreateRule": {
       "name": "CreateRule",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 251,
+      "line": 270,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -12321,11 +12835,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:467:update_rule": {
+    "infera-knowledge/src/routes.rs:386:update_rule": {
       "name": "update_rule",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 467,
-      "end_line": 517,
+      "line": 386,
+      "end_line": 396,
       "signature": "async fn update_rule(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<UpdateRule>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -12333,105 +12847,105 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 473,
+          "line": 392,
           "expression": "ctx.require(\"knowledge:write\")?;"
         }
       ],
-      "validation": [
+      "validation": [],
+      "state": [],
+      "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 480,
+          "line": 394,
+          "expression": "repository::update_rule(s.db.as_ref(), &ctx, id, body).await?"
+        }
+      ],
+      "calls": [
+        "repository::update_rule"
+      ]
+    },
+    "infera-knowledge/src/repository.rs:2006:update_rule": {
+      "name": "update_rule",
+      "path": "infera-knowledge/src/repository.rs",
+      "line": 2006,
+      "end_line": 2067,
+      "signature": "pub async fn update_rule(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n    body: UpdateRule,\n) -> Result<match_rule::Model, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2014,
           "expression": "if body.expected_version.is_some_and(|v| v != old.version) {"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 481,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2015,
           "expression": "return Err(AppError::Conflict(\"version conflict\".into()));"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 485,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2019,
           "expression": "engine::validate_condition(conditions, 0, &mut errors);"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 486,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2020,
           "expression": "if !errors.is_empty() {"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 487,
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2021,
           "expression": "return Err(AppError::BadRequest(errors.join(\"; \")));"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2027,
+          "expression": "validate_rule_group(&tx, row.knowledge_base_id.clone().unwrap(), Some(v)).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2052,
+          "expression": ".ok_or_else(|| AppError::Conflict(\"version exhausted\".into()))?);"
         }
       ],
       "state": [],
       "effects": [
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 475,
-          "expression": ".filter(match_rule::Column::DeletedAt.is_null())"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2012,
+          "expression": "let tx = editor_transaction(db).await?;"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 513,
-          "expression": "row.updated_at = Set(Utc::now());"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2053,
+          "expression": "row.updated_at = Set(now());"
         },
         {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 515,
-          "expression": "row.update(s.db.as_ref()).await?"
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2054,
+          "expression": "let model = row.update(&tx).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2058,
+          "expression": "\"update\","
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2065,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": [
-        "repository::get_base",
         "engine::validate_condition"
       ]
     },
-    "infera-knowledge/src/engine.rs:78:validate_condition": {
-      "name": "validate_condition",
-      "path": "infera-knowledge/src/engine.rs",
-      "line": 78,
-      "end_line": 111,
-      "signature": "pub fn validate_condition(condition: &Value, depth: usize, errors: &mut Vec<String>)",
-      "declared_permissions": [],
-      "guards": [
-        {
-          "path": "infera-knowledge/src/engine.rs",
-          "line": 101,
-          "expression": "errors.push(\"condition requires path\".into())"
-        }
-      ],
-      "validation": [
-        {
-          "path": "infera-knowledge/src/engine.rs",
-          "line": 88,
-          "expression": "if a.is_empty() {"
-        },
-        {
-          "path": "infera-knowledge/src/engine.rs",
-          "line": 92,
-          "expression": "validate_condition(c, depth + 1, errors)"
-        },
-        {
-          "path": "infera-knowledge/src/engine.rs",
-          "line": 97,
-          "expression": "validate_condition(n, depth + 1, errors);"
-        },
-        {
-          "path": "infera-knowledge/src/engine.rs",
-          "line": 107,
-          "expression": ".contains(&op)"
-        }
-      ],
-      "state": [],
-      "effects": [],
-      "calls": []
-    },
-    "infera-knowledge/src/models.rs:269:UpdateRule": {
+    "infera-knowledge/src/models.rs:288:UpdateRule": {
       "name": "UpdateRule",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 269,
+      "line": 288,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -12508,11 +13022,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:518:delete_rule": {
+    "infera-knowledge/src/routes.rs:398:delete_rule": {
       "name": "delete_rule",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 518,
-      "end_line": 534,
+      "line": 398,
+      "end_line": 406,
       "signature": "async fn delete_rule(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<StatusCode, AppError>",
       "declared_permissions": [
         "knowledge:delete"
@@ -12520,7 +13034,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 523,
+          "line": 403,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         }
       ],
@@ -12528,41 +13042,76 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 530,
-          "expression": "row.deleted_at = Set(Some(Utc::now()));"
-        },
-        {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 533,
+          "line": 405,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 523,
+          "line": 403,
           "expression": "ctx.require(\"knowledge:delete\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 530,
-          "expression": "row.deleted_at = Set(Some(Utc::now()));"
-        },
-        {
-          "path": "infera-knowledge/src/routes.rs",
-          "line": 532,
-          "expression": "row.update(s.db.as_ref()).await?;"
+          "line": 404,
+          "expression": "repository::delete_rule(s.db.as_ref(), &ctx, id).await?;"
         }
       ],
       "calls": [
-        "repository::get_base"
+        "repository::delete_rule"
       ]
     },
-    "infera-knowledge/src/routes.rs:536:list_actions": {
+    "infera-knowledge/src/repository.rs:2069:delete_rule": {
+      "name": "delete_rule",
+      "path": "infera-knowledge/src/repository.rs",
+      "line": 2069,
+      "end_line": 2083,
+      "signature": "pub async fn delete_rule(\n    db: &DatabaseConnection,\n    ctx: &RequestContext,\n    id: Uuid,\n) -> Result<(), AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2077,
+          "expression": "row.deleted_at = Set(Some(now()));"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2074,
+          "expression": "let tx = editor_transaction(db).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2077,
+          "expression": "row.deleted_at = Set(Some(now()));"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2079,
+          "expression": "row.update(&tx).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2080,
+          "expression": "audit(&tx, ctx, \"delete\", \"rule\", id, Some(json_value(&old)), None).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/repository.rs",
+          "line": 2081,
+          "expression": "tx.commit().await?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-knowledge/src/routes.rs:408:list_actions": {
       "name": "list_actions",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 536,
-      "end_line": 553,
+      "line": 408,
+      "end_line": 425,
       "signature": "async fn list_actions(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Query(q): Query<ListQuery>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:actions"
@@ -12570,12 +13119,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 541,
+          "line": 413,
           "expression": "ctx.require(\"knowledge:actions\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 543,
+          "line": 415,
           "expression": ".filter(customer_action::Column::OrganizationId.eq(ctx.organization_id));"
         }
       ],
@@ -12583,23 +13132,23 @@
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 544,
+          "line": 416,
           "expression": "if let Some(ref status) = q.status {"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 545,
+          "line": 417,
           "expression": "query = query.filter(customer_action::Column::Status.eq(status))"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:554:update_action_status": {
+    "infera-knowledge/src/routes.rs:426:update_action_status": {
       "name": "update_action_status",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 554,
-      "end_line": 585,
+      "line": 426,
+      "end_line": 457,
       "signature": "async fn update_action_status(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<ActionStatus>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:actions"
@@ -12607,73 +13156,73 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 560,
+          "line": 432,
           "expression": "ctx.require(\"knowledge:actions\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 567,
+          "line": 439,
           "expression": ".filter(customer_action::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 562,
+          "line": 434,
           "expression": ".contains(&body.status.as_str())"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 564,
+          "line": 436,
           "expression": "return Err(AppError::BadRequest(\"invalid action status\".into()));"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 562,
+          "line": 434,
           "expression": ".contains(&body.status.as_str())"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 564,
+          "line": 436,
           "expression": "return Err(AppError::BadRequest(\"invalid action status\".into()));"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 572,
+          "line": 444,
           "expression": "row.status = Set(body.status.clone());"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 574,
+          "line": 446,
           "expression": "if body.status == \"completed\" {"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 573,
+          "line": 445,
           "expression": "row.updated_at = Set(Utc::now());"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 579,
+          "line": 451,
           "expression": "obj.insert(\"customer_input\".into(), body.input);"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 583,
+          "line": 455,
           "expression": "row.update(s.db.as_ref()).await?"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/models.rs:315:ActionStatus": {
+    "infera-knowledge/src/models.rs:334:ActionStatus": {
       "name": "ActionStatus",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 315,
+      "line": 334,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {
@@ -12698,11 +13247,11 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:586:list_audit": {
+    "infera-knowledge/src/routes.rs:458:list_audit": {
       "name": "list_audit",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 586,
-      "end_line": 599,
+      "line": 458,
+      "end_line": 471,
       "signature": "async fn list_audit(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Query(q): Query<ListQuery>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:audit"
@@ -12710,12 +13259,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 591,
+          "line": 463,
           "expression": "ctx.require(\"knowledge:audit\")?;"
         },
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 593,
+          "line": 465,
           "expression": ".filter(audit_log::Column::OrganizationId.eq(ctx.organization_id))"
         }
       ],
@@ -14919,11 +15468,11 @@
       ],
       "calls": []
     },
-    "infera-knowledge/src/routes.rs:601:runtime_query": {
+    "infera-knowledge/src/routes.rs:473:runtime_query": {
       "name": "runtime_query",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 601,
-      "end_line": 611,
+      "line": 473,
+      "end_line": 483,
       "signature": "async fn runtime_query(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(chat_slug): Path<String>,\n    Json(body): Json<RuntimeQuery>,\n) -> Result<Json<ApiResponse<RuntimeResult>>, AppError>",
       "declared_permissions": [
         "knowledge:runtime"
@@ -14931,7 +15480,7 @@
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 607,
+          "line": 479,
           "expression": "ctx.require(\"knowledge:runtime\")?;"
         }
       ],
@@ -14942,378 +15491,378 @@
         "repository::runtime"
       ]
     },
-    "infera-knowledge/src/repository.rs:936:runtime": {
+    "infera-knowledge/src/repository.rs:1202:runtime": {
       "name": "runtime",
       "path": "infera-knowledge/src/repository.rs",
-      "line": 936,
-      "end_line": 1415,
+      "line": 1202,
+      "end_line": 1681,
       "signature": "pub async fn runtime(\n    state: &AppState,\n    ctx: &RequestContext,\n    chat_slug: String,\n    mut request: RuntimeQuery,\n) -> Result<RuntimeResult, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 949,
+          "line": 1215,
           "expression": ".filter(chat_binding::Column::OrganizationId.eq(ctx.organization_id))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 972,
+          "line": 1238,
           "expression": ".filter(knowledge_base::Column::OrganizationId.eq(ctx.organization_id))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1264,
+          "line": 1530,
           "expression": "organization_id: ctx.organization_id,"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1293,
+          "line": 1559,
           "expression": "session: SessionScope::default(),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1319,
+          "line": 1585,
           "expression": "ctx.organization_id,"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1358,
+          "line": 1624,
           "expression": "organization_id: Set(ctx.organization_id),"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 942,
+          "line": 1208,
           "expression": "validate_slug(&chat_slug)?;"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 944,
+          "line": 1210,
           "expression": "if request.profile.is_null() || request.profile.as_object().is_some_and(|o| o.is_empty()) {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 964,
+          "line": 1230,
           "expression": ".clamp(2_000, 30_000);"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 984,
+          "line": 1250,
           "expression": ".clamp(0, 64);"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 988,
+          "line": 1254,
           "expression": ".filter(|a| !a.is_empty())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1004,
+          "line": 1270,
           "expression": ".filter(|g| requested_slugs.contains(g.slug.as_str()))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1016,
+          "line": 1282,
           "expression": ".filter(|group| allowed_slugs.contains(group.slug.as_str()))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1026,
+          "line": 1292,
           "expression": "(allowed_slugs.is_empty()"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1027,
+          "line": 1293,
           "expression": "|| (!allowed_roots.is_empty()"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1029,
+          "line": 1295,
           "expression": "&& (requested_slugs.is_empty()"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1034,
+          "line": 1300,
           "expression": "if !group_ids.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1045,
+          "line": 1311,
           "expression": ".is_some_and(|value| value.is_empty())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1070,
+          "line": 1336,
           "expression": "let score = if query_terms.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1076,
+          "line": 1342,
           "expression": "(title.contains(term) as i32 * 8)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1077,
+          "line": 1343,
           "expression": "+ (summary.contains(term) as i32 * 5)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1078,
+          "line": 1344,
           "expression": "+ (tags.contains(term) as i32 * 4)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1079,
+          "line": 1345,
           "expression": "+ (body.contains(term) as i32)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1092,
+          "line": 1358,
           "expression": "items.truncate(request.limit.unwrap_or(50).clamp(1, 200) as usize);"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1140,
+          "line": 1406,
           "expression": "let size = value.to_string().len();"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1250,
+          "line": 1516,
           "expression": "if !immutable_knowledge.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1299,
+          "line": 1565,
           "expression": "result_limit: request.limit.unwrap_or(50).clamp(1, 200) as usize,"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1350,
+          "line": 1616,
           "expression": ".is_some_and(|id| accepted_ids.contains(id))"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 945,
+          "line": 1211,
           "expression": "request.profile = fetch_profile(state, ctx, id).await"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 952,
+          "line": 1218,
           "expression": ".all(state.db.as_ref())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 971,
+          "line": 1237,
           "expression": "let published_base = knowledge_base::Entity::find_by_id(binding.knowledge_base_id)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 973,
+          "line": 1239,
           "expression": ".filter(knowledge_base::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 975,
+          "line": 1241,
           "expression": ".one(state.db.as_ref())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 977,
+          "line": 1243,
           "expression": "if published_base.is_none() {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 993,
+          "line": 1259,
           "expression": ".filter(knowledge_group::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 996,
+          "line": 1262,
           "expression": ".all(state.db.as_ref())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1038,
+          "line": 1304,
           "expression": ".filter(knowledge_item::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1040,
+          "line": 1306,
           "expression": ".all(state.db.as_ref())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1132,
+          "line": 1398,
           "expression": "\"status\": item.status,"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1153,
+          "line": 1419,
           "expression": ".all(state.db.as_ref())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1177,
+          "line": 1443,
           "expression": ".filter(knowledge_release::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1179,
+          "line": 1445,
           "expression": ".one(state.db.as_ref())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1217,
+          "line": 1483,
           "expression": "object.insert(\"release_status\".into(), json!(\"published\"));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1218,
+          "line": 1484,
           "expression": "object.insert(\"base_status\".into(), json!(\"published\"));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1219,
+          "line": 1485,
           "expression": "// Draft state belongs to the authoring row. A published release is"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1220,
+          "line": 1486,
           "expression": "// immutable and all records in its manifest are published by definition."
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1221,
+          "line": 1487,
           "expression": "object.insert(\"status\".into(), json!(\"published\"));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1331,
+          "line": 1597,
           "expression": "(\"database\".into(), DependencyState::Ready),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1332,
+          "line": 1598,
           "expression": "(\"lexical\".into(), DependencyState::Ready),"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1378,
+          "line": 1644,
           "expression": ".insert(state.db.as_ref())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1382,
+          "line": 1648,
           "expression": "state.db.as_ref(),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 971,
+          "line": 1237,
           "expression": "let published_base = knowledge_base::Entity::find_by_id(binding.knowledge_base_id)"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 973,
+          "line": 1239,
           "expression": ".filter(knowledge_base::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 974,
+          "line": 1240,
           "expression": ".filter(knowledge_base::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 977,
+          "line": 1243,
           "expression": "if published_base.is_none() {"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 993,
+          "line": 1259,
           "expression": ".filter(knowledge_group::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 994,
+          "line": 1260,
           "expression": ".filter(knowledge_group::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1038,
+          "line": 1304,
           "expression": ".filter(knowledge_item::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1039,
+          "line": 1305,
           "expression": ".filter(knowledge_item::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1151,
+          "line": 1417,
           "expression": ".filter(match_rule::Column::DeletedAt.is_null())"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1162,
+          "line": 1428,
           "expression": "object.insert("
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1177,
+          "line": 1443,
           "expression": ".filter(knowledge_release::Column::Status.eq(\"published\"))"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1215,
+          "line": 1481,
           "expression": "object.insert(\"knowledge_base_id\".into(), base_id.clone());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1216,
+          "line": 1482,
           "expression": "object.insert(\"release_id\".into(), release_id.clone());"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1217,
+          "line": 1483,
           "expression": "object.insert(\"release_status\".into(), json!(\"published\"));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1218,
+          "line": 1484,
           "expression": "object.insert(\"base_status\".into(), json!(\"published\"));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1219,
+          "line": 1485,
           "expression": "// Draft state belongs to the authoring row. A published release is"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1220,
+          "line": 1486,
           "expression": "// immutable and all records in its manifest are published by definition."
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1221,
+          "line": 1487,
           "expression": "object.insert(\"status\".into(), json!(\"published\"));"
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1227,
+          "line": 1493,
           "expression": "object.insert("
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1231,
+          "line": 1497,
           "expression": "object.insert("
         },
         {
           "path": "infera-knowledge/src/repository.rs",
-          "line": 1378,
+          "line": 1644,
           "expression": ".insert(state.db.as_ref())"
         }
       ],
@@ -15322,11 +15871,11 @@
         "engine::split_outcomes"
       ]
     },
-    "infera-knowledge/src/models.rs:280:RuntimeQuery": {
+    "infera-knowledge/src/models.rs:299:RuntimeQuery": {
       "name": "RuntimeQuery",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 280,
+      "line": 299,
       "attributes": "#[derive(Debug, Deserialize, Serialize, Clone)]",
       "fields": [
         {
@@ -15451,11 +16000,11 @@
         }
       ]
     },
-    "infera-knowledge/src/models.rs:301:RuntimeResult": {
+    "infera-knowledge/src/models.rs:320:RuntimeResult": {
       "name": "RuntimeResult",
       "kind": "struct",
       "path": "infera-knowledge/src/models.rs",
-      "line": 301,
+      "line": 320,
       "attributes": "#[derive(Debug, Serialize)]",
       "fields": [
         {
@@ -15559,17 +16108,17 @@
         }
       ]
     },
-    "infera-knowledge/src/routes.rs:612:tool_schema": {
+    "infera-knowledge/src/routes.rs:484:tool_schema": {
       "name": "tool_schema",
       "path": "infera-knowledge/src/routes.rs",
-      "line": 612,
-      "end_line": 616,
+      "line": 484,
+      "end_line": 488,
       "signature": "async fn tool_schema() -> Json<ApiResponse<Value>>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/routes.rs",
-          "line": 614,
+          "line": 486,
           "expression": "json!({\"name\":\"query_knowledge\",\"description\":\"Retrieve chat-scoped, level-aware knowledge and evaluate profile rules into warnings, notifications, tasks, input requests, directions, and structured catalog suggestions.\",\"input_schema\":{\"type\":\"object\",\"required\":[\"chat_slug\"],\"properties\":{\"chat_slug\":{\"type\":\"string\"},\"query\":{\"type\":\"string\"},\"profile_id\":{\"type\":\"string\",\"format\":\"uuid\"},\"profile\":{\"type\":\"object\"},\"props\":{\"type\":\"object\"},\"meta\":{\"type\":\"object\"},\"inputs\":{\"type\":\"object\"},\"group_slugs\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"level\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":64},\"limit\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":200},\"compact\":{\"type\":\"boolean\"},\"max_cont"
         }
       ],

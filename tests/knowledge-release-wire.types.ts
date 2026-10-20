@@ -19,3 +19,7 @@ const patch: UpdateItemInput = {description:{en:'Updated'},linked_service:'',lin
 declare const created: RoutesCreateItemPostResponse;
 const createdChecksum: string = created.data.checksum_sha256;
 void [published,readback,exported,canonicalPublish,canonicalRead,releaseId,checksum,parentLevel,deletedAt,linkage,wrongBase,item,patch,createdChecksum];
+
+const rules = api.matchRules({ q:'lesson',knowledge_base_id:'base',group_id:'group',enabled:false,page:2,limit:1 });
+rules.then(response=>{ const total:number=response.data.meta.total; const id:string=response.data.data[0]!.id; void [total,id]; });
+api.operations.routesListRulesGet({q:'lesson',knowledge_base_id:'base',group_id:'group',enabled:false,page:2,limit:1});

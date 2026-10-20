@@ -5,6 +5,8 @@ const id = (value: Identifier) => encodeURIComponent(value);
 export class KnowledgeApi extends ServiceApi {
   /** Loads full contracts from an enabled assistant binding and its immutable published release, without semantic truncation. Requires knowledge:runtime; missing published bindings return 404. */
   assistantContracts(assistantId: Identifier, slug: string, options?: RequestOptions) { return this.client.get<T.AssistantContractsResponse>(`/api/v1/runtime/assistants/${id(assistantId)}/contracts/${id(slug)}`, undefined, options); }
+  /** Searches active match rules across authorized bases. Requires `knowledge:read`. Filters apply before stable pagination; foreign/deleted bases contribute no rows. */
+  matchRules(params?: T.KnowledgeRuleListQuery, options?: RequestOptions) { return this.client.get<T.MatchRuleListResponse>("/api/v1/match-rules", params, options); }
   readonly operations = new KnowledgeOperations(this.client);
   knowledgeBases(params?: T.KnowledgeListQuery, options?: RequestOptions) { return this.client.get<T.KnowledgeBaseListResponse>("/api/v1/knowledge-bases", params, options); }
   createKnowledgeBase(data: T.CreateKnowledgeBaseInput, options?: RequestOptions<T.CreateKnowledgeBaseInput>) { return this.client.post<T.KnowledgeBaseResponse, T.CreateKnowledgeBaseInput>("/api/v1/knowledge-bases", data, options); }

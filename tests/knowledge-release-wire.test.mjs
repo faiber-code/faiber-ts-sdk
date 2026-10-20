@@ -15,3 +15,16 @@ test('Knowledge publication and release readback preserve release identity and f
  const canonical=await sdk.knowledge.operations.routesPublishPost('base/a');assert.deepEqual(canonical.data,wire);assert.equal(seen[2].url,seen[0].url);
  await sdk.knowledge.operations.routesGetReleaseGet('release/a');assert.equal(seen[3].url,seen[1].url);
 });
+
+
+test('Knowledge match-rule convenience and canonical calls preserve all filters and pagination metadata', async()=>{
+ const seen=[];
+ const wire={data:[],meta:{total:3,page:2,limit:1}};
+ const sdk=new FaiberSDK({domains:{},defaultDomain:'https://owned.test',axios:{adapter:async config=>{seen.push(config);return{status:200,statusText:'OK',headers:new AxiosHeaders(),config,data:wire};}}});
+ const params={q:'lesson',knowledge_base_id:'base',group_id:'group',enabled:false,page:2,limit:1};
+ const controller=new AbortController();
+ const result=await sdk.knowledge.matchRules(params,{signal:controller.signal,timeout:3000});
+ assert.deepEqual(result.data,wire);assert.equal(seen[0].url,'/api/v1/match-rules');assert.equal(seen[0].method,'get');assert.deepEqual(seen[0].params,params);assert.equal(seen[0].signal,controller.signal);assert.equal(seen[0].timeout,3000);
+ const canonical=await sdk.knowledge.operations.routesListRulesGet(params);
+ assert.deepEqual(canonical.data,wire);assert.equal(seen[1].url,seen[0].url);assert.deepEqual(seen[1].params,params);
+});

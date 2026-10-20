@@ -304,15 +304,12 @@ export type RoutesPublishPostResponse = import("./types.js").KnowledgeReleaseRes
 /** Backend response type: Value. */
 export type RoutesGetReleaseGetResponse = import("./types.js").KnowledgeReleaseResponse;
 
-/** Backend query type: ListQuery. */
+/** Backend query type: RuleListQuery. */
 export interface RoutesListRulesGetQuery extends QueryParams {
   "q"?: string | null;
-  "status"?: string | null;
-  "group"?: string | null;
-  "kind"?: string | null;
-  "linked_service"?: string | null;
-  "linked_entity_type"?: string | null;
-  "linked_entity_id"?: string | null;
+  "knowledge_base_id"?: string | null;
+  "group_id"?: string | null;
+  "enabled"?: boolean | null;
   "page"?: number | null;
   "limit"?: number | null;
 }

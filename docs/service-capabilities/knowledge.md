@@ -9,8 +9,8 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `70b8a21721dd34125b8f0e167e06da9ad3287223`
-- SDK source revision: `70b8a21721dd34125b8f0e167e06da9ad3287223`
-- Evidence inventory revision: `70b8a21721dd34125b8f0e167e06da9ad3287223` (sdk)
+- SDK source revision: `d02588159ae8993b560c7225e2e39558be39fb3c`
+- Evidence inventory revision: `d02588159ae8993b560c7225e2e39558be39fb3c` (sdk)
 - Working HEAD: `92047358a6b4dee1911d47a78621c8359716b7af`
 - Source relationship: working_behind_sdk
 
@@ -21,38 +21,38 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `GET /health` | `infera-knowledge/src/main.rs:92` | inspect middleware/local scope | pending |
 | `GET /health/live` | `infera-knowledge/src/main.rs:84` | inspect middleware/local scope | pending |
 | `GET /health/ready` | `infera-knowledge/src/main.rs:92` | inspect middleware/local scope | pending |
-| `GET /api/v1/knowledge-releases/{id}` | `infera-knowledge/src/routes.rs:619` | knowledge:read | pending |
-| `GET /api/v1/knowledge-bases` | `infera-knowledge/src/routes.rs:67` | knowledge:read | pending |
-| `POST /api/v1/knowledge-bases` | `infera-knowledge/src/routes.rs:79` | knowledge:write | pending |
-| `GET /api/v1/knowledge-bases/{id}` | `infera-knowledge/src/routes.rs:88` | knowledge:read | pending |
-| `PUT /api/v1/knowledge-bases/{id}` | `infera-knowledge/src/routes.rs:98` | knowledge:write | pending |
-| `DELETE /api/v1/knowledge-bases/{id}` | `infera-knowledge/src/routes.rs:109` | knowledge:delete | pending |
-| `POST /api/v1/knowledge-bases/{id}/publish` | `infera-knowledge/src/routes.rs:118` | knowledge:publish | pending |
-| `GET /api/v1/knowledge-bases/{id}/export` | `infera-knowledge/src/routes.rs:128` | knowledge:read | pending |
-| `GET /api/v1/knowledge-bases/{id}/groups` | `infera-knowledge/src/routes.rs:155` | knowledge:read | pending |
-| `POST /api/v1/knowledge-bases/{id}/groups` | `infera-knowledge/src/routes.rs:166` | knowledge:write | pending |
-| `PUT /api/v1/groups/{id}` | `infera-knowledge/src/routes.rs:180` | knowledge:write | pending |
-| `DELETE /api/v1/groups/{id}` | `infera-knowledge/src/routes.rs:191` | knowledge:delete | pending |
-| `GET /api/v1/knowledge-bases/{id}/items` | `infera-knowledge/src/routes.rs:201` | knowledge:read | pending |
-| `POST /api/v1/knowledge-bases/{id}/items` | `infera-knowledge/src/routes.rs:215` | knowledge:write | pending |
-| `GET /api/v1/items/{id}` | `infera-knowledge/src/routes.rs:229` | knowledge:read | pending |
-| `PUT /api/v1/items/{id}` | `infera-knowledge/src/routes.rs:239` | knowledge:write | pending |
-| `DELETE /api/v1/items/{id}` | `infera-knowledge/src/routes.rs:250` | knowledge:delete | pending |
-| `GET /api/v1/knowledge-bases/{id}/edges` | `infera-knowledge/src/routes.rs:260` | knowledge:read | pending |
-| `POST /api/v1/knowledge-bases/{id}/edges` | `infera-knowledge/src/routes.rs:274` | knowledge:write | pending |
-| `PUT /api/v1/edges/{id}` | `infera-knowledge/src/routes.rs:288` | knowledge:write | pending |
-| `DELETE /api/v1/edges/{id}` | `infera-knowledge/src/routes.rs:322` | knowledge:delete | pending |
-| `GET /api/v1/chat-bindings` | `infera-knowledge/src/routes.rs:339` | knowledge:read | pending |
-| `POST /api/v1/chat-bindings` | `infera-knowledge/src/routes.rs:351` | knowledge:write | pending |
-| `PUT /api/v1/chat-bindings/{id}` | `infera-knowledge/src/routes.rs:364` | knowledge:write | pending |
-| `DELETE /api/v1/chat-bindings/{id}` | `infera-knowledge/src/routes.rs:398` | knowledge:delete | pending |
-| `GET /api/v1/match-rules` | `infera-knowledge/src/routes.rs:417` | knowledge:read | pending |
-| `POST /api/v1/match-rules` | `infera-knowledge/src/routes.rs:454` | knowledge:write | pending |
-| `PUT /api/v1/match-rules/{id}` | `infera-knowledge/src/routes.rs:467` | knowledge:write | pending |
-| `DELETE /api/v1/match-rules/{id}` | `infera-knowledge/src/routes.rs:518` | knowledge:delete | pending |
-| `GET /api/v1/actions` | `infera-knowledge/src/routes.rs:536` | knowledge:actions | pending |
-| `PATCH /api/v1/actions/{id}/status` | `infera-knowledge/src/routes.rs:554` | knowledge:actions | pending |
-| `GET /api/v1/audit` | `infera-knowledge/src/routes.rs:586` | knowledge:audit | pending |
+| `GET /api/v1/knowledge-releases/{id}` | `infera-knowledge/src/routes.rs:491` | knowledge:read | pending |
+| `GET /api/v1/knowledge-bases` | `infera-knowledge/src/routes.rs:70` | knowledge:read | pending |
+| `POST /api/v1/knowledge-bases` | `infera-knowledge/src/routes.rs:82` | knowledge:write | pending |
+| `GET /api/v1/knowledge-bases/{id}` | `infera-knowledge/src/routes.rs:91` | knowledge:read | pending |
+| `PUT /api/v1/knowledge-bases/{id}` | `infera-knowledge/src/routes.rs:101` | knowledge:write | pending |
+| `DELETE /api/v1/knowledge-bases/{id}` | `infera-knowledge/src/routes.rs:112` | knowledge:delete | pending |
+| `POST /api/v1/knowledge-bases/{id}/publish` | `infera-knowledge/src/routes.rs:121` | knowledge:publish | pending |
+| `GET /api/v1/knowledge-bases/{id}/export` | `infera-knowledge/src/routes.rs:131` | knowledge:read | pending |
+| `GET /api/v1/knowledge-bases/{id}/groups` | `infera-knowledge/src/routes.rs:158` | knowledge:read | pending |
+| `POST /api/v1/knowledge-bases/{id}/groups` | `infera-knowledge/src/routes.rs:169` | knowledge:write | pending |
+| `PUT /api/v1/groups/{id}` | `infera-knowledge/src/routes.rs:183` | knowledge:write | pending |
+| `DELETE /api/v1/groups/{id}` | `infera-knowledge/src/routes.rs:194` | knowledge:delete | pending |
+| `GET /api/v1/knowledge-bases/{id}/items` | `infera-knowledge/src/routes.rs:204` | knowledge:read | pending |
+| `POST /api/v1/knowledge-bases/{id}/items` | `infera-knowledge/src/routes.rs:218` | knowledge:write | pending |
+| `GET /api/v1/items/{id}` | `infera-knowledge/src/routes.rs:232` | knowledge:read | pending |
+| `PUT /api/v1/items/{id}` | `infera-knowledge/src/routes.rs:242` | knowledge:write | pending |
+| `DELETE /api/v1/items/{id}` | `infera-knowledge/src/routes.rs:253` | knowledge:delete | pending |
+| `GET /api/v1/knowledge-bases/{id}/edges` | `infera-knowledge/src/routes.rs:263` | knowledge:read | pending |
+| `POST /api/v1/knowledge-bases/{id}/edges` | `infera-knowledge/src/routes.rs:277` | knowledge:write | pending |
+| `PUT /api/v1/edges/{id}` | `infera-knowledge/src/routes.rs:291` | knowledge:write | pending |
+| `DELETE /api/v1/edges/{id}` | `infera-knowledge/src/routes.rs:303` | knowledge:delete | pending |
+| `GET /api/v1/chat-bindings` | `infera-knowledge/src/routes.rs:313` | knowledge:read | pending |
+| `POST /api/v1/chat-bindings` | `infera-knowledge/src/routes.rs:325` | knowledge:write | pending |
+| `PUT /api/v1/chat-bindings/{id}` | `infera-knowledge/src/routes.rs:338` | knowledge:write | pending |
+| `DELETE /api/v1/chat-bindings/{id}` | `infera-knowledge/src/routes.rs:350` | knowledge:delete | pending |
+| `GET /api/v1/match-rules` | `infera-knowledge/src/routes.rs:360` | knowledge:read | pending |
+| `POST /api/v1/match-rules` | `infera-knowledge/src/routes.rs:373` | knowledge:write | pending |
+| `PUT /api/v1/match-rules/{id}` | `infera-knowledge/src/routes.rs:386` | knowledge:write | pending |
+| `DELETE /api/v1/match-rules/{id}` | `infera-knowledge/src/routes.rs:398` | knowledge:delete | pending |
+| `GET /api/v1/actions` | `infera-knowledge/src/routes.rs:408` | knowledge:actions | pending |
+| `PATCH /api/v1/actions/{id}/status` | `infera-knowledge/src/routes.rs:426` | knowledge:actions | pending |
+| `GET /api/v1/audit` | `infera-knowledge/src/routes.rs:458` | knowledge:audit | pending |
 | `GET /api/v1/platform/status` | `infera-knowledge/src/platform.rs:556` | knowledge:read | pending |
 | `GET /api/v1/platform/catalog` | `infera-knowledge/src/platform.rs:602` | knowledge:read | pending |
 | `GET /api/v1/platform/converters` | `infera-knowledge/src/platform.rs:620` | knowledge:read | pending |
@@ -78,8 +78,8 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `DELETE /api/v1/memory-subjects/{subject_id}/memories/{memory_id}` | `infera-knowledge/src/platform.rs:2614` | inspect middleware/local scope | pending |
 | `PUT /api/v1/memory-subjects/{id}/policy` | `infera-knowledge/src/platform.rs:2647` | inspect middleware/local scope | pending |
 | `POST /api/v1/memory-outbox/{id}/replay` | `infera-knowledge/src/platform.rs:2718` | knowledge:memory:write | pending |
-| `POST /api/v1/runtime/chat/{chat_slug}/query` | `infera-knowledge/src/routes.rs:601` | knowledge:runtime | pending |
-| `GET /api/v1/runtime/tool-schema` | `infera-knowledge/src/routes.rs:612` | inspect middleware/local scope | pending |
+| `POST /api/v1/runtime/chat/{chat_slug}/query` | `infera-knowledge/src/routes.rs:473` | knowledge:runtime | pending |
+| `GET /api/v1/runtime/tool-schema` | `infera-knowledge/src/routes.rs:484` | inspect middleware/local scope | pending |
 | `GET /api/v1/runtime/assistants/{assistant_id}/contracts/{slug}` | `infera-knowledge/src/contracts.rs:14` | knowledge:runtime | pending |
 | `PUT /api/v1/runtime/assistants/{assistant_id}/configure` | `infera-knowledge/src/platform.rs:830` | knowledge:write | pending |
 | `POST /api/v1/runtime/assistants/{assistant_id}/query` | `infera-knowledge/src/platform.rs:997` | knowledge:runtime | pending |

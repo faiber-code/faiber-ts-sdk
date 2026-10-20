@@ -7702,7 +7702,7 @@
         "knowledge:read"
       ],
       "source": "infera-knowledge/src/routes.rs",
-      "query": "ListQuery",
+      "query": "RuleListQuery",
       "response": "Value",
       "responseEnvelope": "api",
       "multipart": false,
