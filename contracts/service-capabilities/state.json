@@ -4810,7 +4810,31 @@
     },
     {
       "path": "infera-state/src/main.rs",
+      "checksum": "0768c418b114fb2f1af0d6849fc39233b7855cd8a9ede7851fbf0063fc3b88ec"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-state/src/auth.rs",
+      "checksum": "6db61063b576670e987ffa8556da794b1a3880aee2786616c7ec4eca6a62ca2f"
+    },
+    {
+      "path": "infera-state/src/context.rs",
+      "checksum": "c46748a6f4617800b209aee0c442b4b6a178954ab17e27c24073f0e1c662d03b"
+    },
+    {
+      "path": "infera-state/src/main.rs",
       "checksum": "5c896620aae56699dafd2681ef59e125cfd1167c7e72c83b2b535e38bf92fa13"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-state/README.md",
+      "checksum": "9f544b981185ffccd1a3713ca594093b5dcf588c42a1fa8a199e5b9a49e5e871"
+    },
+    {
+      "path": "Service/infera-state/src/routes.rs",
+      "checksum": "fd8f0ef322d6f84fabcd4009ca313d4462768f9aa751141b525d439395a0989c"
     }
   ],
   "missing_meaning_sources": [],

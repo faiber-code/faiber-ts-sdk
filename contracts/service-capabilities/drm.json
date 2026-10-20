@@ -12204,6 +12204,38 @@
       "checksum": "e82b8af2c956160d64d9a693732eef324d063cd52cc3631fb8129a867c770e18"
     }
   ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-drm/src/auth.rs",
+      "checksum": "8a989296170488b762103379292cf2925b6cd3c26a2fd0e37fbcb0c4a1583ec1"
+    },
+    {
+      "path": "infera-drm/src/main.rs",
+      "checksum": "ab89fd1fd897937188c847675f76be670d057fd15f507c060ac295cece6b32aa"
+    },
+    {
+      "path": "infera-drm/src/router.rs",
+      "checksum": "b329925bac713a3600e11e3d67a907eb8b7e24d1d7dd9d6b0e24e56c76556bfb"
+    },
+    {
+      "path": "infera-drm/entity/src/upload_session.rs",
+      "checksum": "81648e43612fec7d96ecec6a27cf4a5681cb8d9b447abdd03daa31facb8f2742"
+    },
+    {
+      "path": "infera-drm/migration/src/main.rs",
+      "checksum": "e82b8af2c956160d64d9a693732eef324d063cd52cc3631fb8129a867c770e18"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-drm/README.md",
+      "checksum": "6a82beb0f664ff43e87dfacbbff0af0a0a5363d5f96a6ba362d18caa47aafb62"
+    },
+    {
+      "path": "Service/infera-drm/src/router.rs",
+      "checksum": "b329925bac713a3600e11e3d67a907eb8b7e24d1d7dd9d6b0e24e56c76556bfb"
+    }
+  ],
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {

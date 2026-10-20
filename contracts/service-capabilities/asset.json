@@ -15050,6 +15050,20 @@
   "middleware_sources": [
     {
       "path": "infera-asset/src/main.rs",
+      "checksum": "be67aec595b8c7871935667bea6aeca27f94632aca049f1eff5e10ca2422a963"
+    },
+    {
+      "path": "infera-asset/src/router.rs",
+      "checksum": "a2eac0883623342d2d0201f1e5c4efb30d71b24ffbf5e316ccb2dd4ed1f7e2b0"
+    },
+    {
+      "path": "infera-asset/migration/src/main.rs",
+      "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-asset/src/main.rs",
       "checksum": "c992566e7fc3a979cde2021749f4a0908b43ff64cac730d180471f8c10028871"
     },
     {
@@ -15059,6 +15073,16 @@
     {
       "path": "infera-asset/migration/src/main.rs",
       "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-asset/src/router.rs",
+      "checksum": "a2eac0883623342d2d0201f1e5c4efb30d71b24ffbf5e316ccb2dd4ed1f7e2b0"
+    },
+    {
+      "path": "Service/infera-asset/src/economy/routes.rs",
+      "checksum": "54a88c5ed4bf49d7403915e1bcf06147e38f7cc9c0163b00aa7b0c5f46eedc45"
     }
   ],
   "missing_meaning_sources": [],

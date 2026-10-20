@@ -5193,11 +5193,43 @@
     },
     {
       "path": "infera-gis/src/main.rs",
+      "checksum": "b5ece0e466363f47e878830b8e743b0fbd29222be9ff6cef78d133d145877f7e"
+    },
+    {
+      "path": "infera-gis/src/router.rs",
+      "checksum": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-gis/src/auth.rs",
+      "checksum": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10"
+    },
+    {
+      "path": "infera-gis/src/main.rs",
       "checksum": "ff25f69feaa66c1ebf3e29426624b56851d8ff0db1c9f8fec250f0cfb034702e"
     },
     {
       "path": "infera-gis/src/router.rs",
       "checksum": "5470f6b17c60aac266752e285aa2c8b53d4a66a336a2e91b006e122a937fd3ad"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-gis/README.md",
+      "checksum": "ffde8210a21e94d0df3b017501dc0e318447dc29b021f20f2b102bbdf99addb6"
+    },
+    {
+      "path": "Service/infera-gis/src/router.rs",
+      "checksum": "8c1d2eb5f0f46cd02ff54ff6d04b81fa69da7bdb60686d5f746e0e23b8cd7245"
+    },
+    {
+      "path": "Service/infera-gis/src/auth.rs",
+      "checksum": "36fd047006615834bbb912be654361d398c1f4c4262b5b65e7ff2fa15d4a0e10"
+    },
+    {
+      "path": "Service/infera-gis/src/places.rs",
+      "checksum": "20ec69b5bb6b2898fb818a80b1fff9c83b79abbc02b0f210276337cb9c7c2765"
     }
   ],
   "missing_meaning_sources": [],

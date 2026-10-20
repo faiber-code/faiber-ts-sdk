@@ -12997,6 +12997,36 @@
   "middleware_sources": [
     {
       "path": "infera-idp/src/custom_oauth.rs",
+      "checksum": "578df99b37ce21c9fff05ceb560a0b4269d375fa0d9bce4c3bb41b0b83400f52"
+    },
+    {
+      "path": "infera-idp/src/internal_service_auth.rs",
+      "checksum": "9c65ebcb887632f67da4c6e0aef242ed8424a0e76e1eb6aa926db568f3363e30"
+    },
+    {
+      "path": "infera-idp/src/main.rs",
+      "checksum": "33ccc40a20269508a4b924dc1c854bc475d9967b2c7ec9ce35e6c867ced57a58"
+    },
+    {
+      "path": "infera-idp/src/router.rs",
+      "checksum": "3de2051a4a19c0cea9fbd99cd9abf942ac4629a3b34625bba70311710121d246"
+    },
+    {
+      "path": "infera-idp/entity/src/federated_session.rs",
+      "checksum": "7bfe0725d643424a4b31667aecbe82053974759977484f21f527cb12216f2bb2"
+    },
+    {
+      "path": "infera-idp/entity/src/session.rs",
+      "checksum": "278cc666033e85a8ec1e29cd583fcb3b355ddc46fc2bb74590ca15747a881d42"
+    },
+    {
+      "path": "infera-idp/migration/src/main.rs",
+      "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-idp/src/custom_oauth.rs",
       "checksum": "77f18d4032ad991ce1e41ff4435e802ae43670eaa6480e7e470d85c0743afd50"
     },
     {
@@ -13018,6 +13048,16 @@
     {
       "path": "infera-idp/migration/src/main.rs",
       "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-idp/README.md",
+      "checksum": "6cbfe991ddd764cb1055dd34fbcb0ea098d28db3fb609e0fb9bf0d00327b1c72"
+    },
+    {
+      "path": "Service/infera-idp/src/router.rs",
+      "checksum": "3de2051a4a19c0cea9fbd99cd9abf942ac4629a3b34625bba70311710121d246"
     }
   ],
   "missing_meaning_sources": [],

@@ -14352,6 +14352,28 @@
     },
     {
       "path": "infera-crm/src/main.rs",
+      "checksum": "10ddd41da717100ec344a1af68c9dd865b74853ac50b232a42d3c1fc5be046fa"
+    },
+    {
+      "path": "infera-crm/src/router.rs",
+      "checksum": "d8c3e8f035f4b6c57a73e7f599072b9f5ef81bae357ddf25eb6f9b0b89305b6c"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/native_policy.rs",
+      "checksum": "c10ea586796bb31b5c5080031ba73ae9e1f7182a84ee56d9ca3f0c8dd3f740a1"
+    },
+    {
+      "path": "infera-crm/migration/src/main.rs",
+      "checksum": "b04bb79ddfcf2e6d373a1183619dca2e1563fac684b78d533054d86cf6d5a2a8"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-crm/src/common/auth.rs",
+      "checksum": "e29c3972422bfc871b316b5814234383aaeed39b0de26ef4cd42f456af487610"
+    },
+    {
+      "path": "infera-crm/src/main.rs",
       "checksum": "b8a9fd7a0604d11e03acf0ac4af57b4fed039d39657d08e36dd0d39b193e4084"
     },
     {
@@ -14361,6 +14383,16 @@
     {
       "path": "infera-crm/migration/src/main.rs",
       "checksum": "b04bb79ddfcf2e6d373a1183619dca2e1563fac684b78d533054d86cf6d5a2a8"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-crm/README.md",
+      "checksum": "936abab00598cff5515dd31268627727e89e9a95dbcb50cd48fd8922b11607a7"
+    },
+    {
+      "path": "Service/infera-crm/src/router.rs",
+      "checksum": "d8c3e8f035f4b6c57a73e7f599072b9f5ef81bae357ddf25eb6f9b0b89305b6c"
     }
   ],
   "missing_meaning_sources": [],

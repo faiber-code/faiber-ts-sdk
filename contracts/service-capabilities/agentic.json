@@ -44425,6 +44425,48 @@
     },
     {
       "path": "infera-agentic/src/main.rs",
+      "checksum": "be3b671bc7218f0e6b4b5f42fa7b1161c2025961fd8be92bc0e5e65f3ac456cf"
+    },
+    {
+      "path": "infera-agentic/src/project/admin_session.rs",
+      "checksum": "f1d2046eaa385cecaf532b039b96550c18e77ffafc9431cac31cf951361f718d"
+    },
+    {
+      "path": "infera-agentic/src/router.rs",
+      "checksum": "ea18e3e823496f89f574f6d3055fd8624483e59a896d796ac0ebc2c974344179"
+    },
+    {
+      "path": "infera-agentic/faiber-agent-core/src/context.rs",
+      "checksum": "c97a1be406f0b4aaf5be14f761511385862c46bf14cb5dfcd6c060aec4f025d6"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-agentic/src/admin/auth.rs",
+      "checksum": "c2e2e73bdc55cb17832f127d4470a4cb9a2a3f128e46bab774f471927c4a18db"
+    },
+    {
+      "path": "infera-agentic/src/agent/model_policy.rs",
+      "checksum": "e912353677074b449e11ef87128da2859d35e4613bc012581df34ad23f95b799"
+    },
+    {
+      "path": "infera-agentic/src/agent_runtime/context.rs",
+      "checksum": "73f8e510aefaa2e594e5367eda34186bffd9ad25677cdc6a35eac36c9290cb78"
+    },
+    {
+      "path": "infera-agentic/src/handlers/auth.rs",
+      "checksum": "3c0cb86d02904f5e91e8ece646177a6465d85896a0875936cadf3f2748a6b5de"
+    },
+    {
+      "path": "infera-agentic/src/ide/agent_context.rs",
+      "checksum": "63c22d9d176656379e3de2a2b2255ad053a33f0647a70ac1b04499d80f51e7cd"
+    },
+    {
+      "path": "infera-agentic/src/ide/project_context.rs",
+      "checksum": "0ecf84ab9aed238f6fb7c73725d94c0810fb3383b07fefa0e44dfbfdf47e7ade"
+    },
+    {
+      "path": "infera-agentic/src/main.rs",
       "checksum": "584ab1c0db046792653dc3cdd261f0329abed6145d975d14738e2781c9830683"
     },
     {
@@ -44438,6 +44480,20 @@
     {
       "path": "infera-agentic/faiber-agent-core/src/context.rs",
       "checksum": "c97a1be406f0b4aaf5be14f761511385862c46bf14cb5dfcd6c060aec4f025d6"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "infera-agentic/AGENTS.md",
+      "checksum": "ac335aa52ed6396fb0af70d4ddce6ad1ba0c7bd46ac3b72219800f533d8ef8fa"
+    },
+    {
+      "path": "infera-agentic/src/router.rs",
+      "checksum": "ea18e3e823496f89f574f6d3055fd8624483e59a896d796ac0ebc2c974344179"
+    },
+    {
+      "path": "infera-agentic/src/agent_runtime",
+      "checksum": "dcf1e65c24f31a6fd472b71103da352a24a5d16cb6aaabf0d733ff6a83c50b41"
     }
   ],
   "missing_meaning_sources": [],

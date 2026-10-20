@@ -26991,6 +26991,48 @@
   "middleware_sources": [
     {
       "path": "infera-lms/src/main.rs",
+      "checksum": "837a58d0ef82ffded7c69633e490f5c96b2571b438322a96247569482cd7b08f"
+    },
+    {
+      "path": "infera-lms/src/router.rs",
+      "checksum": "edeba8197401d82c7e6aa9813e51949673c6ad5347bf0f25edd4a582ce73234a"
+    },
+    {
+      "path": "infera-lms/entity/src/classroom_session.rs",
+      "checksum": "a280c11e7b91d37c2de0c37623e50d5a73682b2a07ec27a01c79b457642b6b22"
+    },
+    {
+      "path": "infera-lms/entity/src/classroom_user_session.rs",
+      "checksum": "5cfb0526ded96907138088dddcebf1003940ce80ddb7b96fb5fcc7744ae16f6d"
+    },
+    {
+      "path": "infera-lms/entity/src/course_session.rs",
+      "checksum": "93deb6455090974b585450bcc2c5a4d2c020ae6ceff75a66baa2feddaf0eb044"
+    },
+    {
+      "path": "infera-lms/entity/src/exam_session.rs",
+      "checksum": "ffd8119383c01984c0fa68d775b1e030a33903122a771fe870a89e6abe90d29c"
+    },
+    {
+      "path": "infera-lms/entity/src/exam_user_session.rs",
+      "checksum": "c9a3be2ac618e674c233def9bf20e81ab597b4144389c33877c60773e251cfe2"
+    },
+    {
+      "path": "infera-lms/shared/infera-summary-sdk/src/native_policy.rs",
+      "checksum": "c10ea586796bb31b5c5080031ba73ae9e1f7182a84ee56d9ca3f0c8dd3f740a1"
+    },
+    {
+      "path": "infera-lms/migration/src/m20260823_000007_complete_lms_domain.rs",
+      "checksum": "234ff394095a2cc910612c01ecd2edfeb6fcaef03eb1dc486b9e9ce70643dac8"
+    },
+    {
+      "path": "infera-lms/migration/src/main.rs",
+      "checksum": "6a9e7c82244ea3b2eab1a9da36d20fc7df609569da9ec2214bfe6a838c5ba99d"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-lms/src/main.rs",
       "checksum": "70356aa0f707200637cb5c2f4860b5c9727fa83259e1a862be0bd7326fe2887a"
     },
     {
@@ -27024,6 +27066,16 @@
     {
       "path": "infera-lms/migration/src/main.rs",
       "checksum": "6a9e7c82244ea3b2eab1a9da36d20fc7df609569da9ec2214bfe6a838c5ba99d"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-lms/README.md",
+      "checksum": "5202e4e6e293e8ba06e2ad36ee97429cf9eaf60fbffe1ea0843f21ab0d7f7d49"
+    },
+    {
+      "path": "Service/infera-lms/src/router.rs",
+      "checksum": "edeba8197401d82c7e6aa9813e51949673c6ad5347bf0f25edd4a582ce73234a"
     }
   ],
   "missing_meaning_sources": [],

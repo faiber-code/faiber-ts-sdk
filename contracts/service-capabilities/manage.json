@@ -987,6 +987,20 @@
   "middleware_sources": [
     {
       "path": "infera-manage/src/main.rs",
+      "checksum": "33c97bed04ff8c8c0f6e838dd769cfbd3e409980e7a7d73071b74e4e408e2b08"
+    },
+    {
+      "path": "infera-manage/src/router.rs",
+      "checksum": "28ab3aeeb12dcf745904a87b9b489829d1c588c9af3c7401a12017135290dcbd"
+    },
+    {
+      "path": "infera-manage/src/session.rs",
+      "checksum": "edac3e3bbdb0d515ac680534ebb948b8df6038f84b6dd1047cde9ae7280161a0"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-manage/src/main.rs",
       "checksum": "1bc0553e81453d086ac6656e1abc3cf33518bb1fb7ec0bdbf0dfdae0d918e2b1"
     },
     {
@@ -996,6 +1010,24 @@
     {
       "path": "infera-manage/src/session.rs",
       "checksum": "6b2bdf96d17f75ee4611513cca8e9d72b23a30158b53d75225e1dc726be51877"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-manage/README.md",
+      "checksum": "ee486b2bdc84ae0f8d996ed98eded2d814601dab2aae955474d974bf372b583d"
+    },
+    {
+      "path": "Service/infera-manage/src/router.rs",
+      "checksum": "28ab3aeeb12dcf745904a87b9b489829d1c588c9af3c7401a12017135290dcbd"
+    },
+    {
+      "path": "Service/infera-manage/src/proxy.rs",
+      "checksum": "d7bea121562b76cf8a127d8488e0f4bc69375d9612d1b72bc36368f981d3d8ce"
+    },
+    {
+      "path": "Service/infera-manage/src/agent.rs",
+      "checksum": "84aacdf6cfca09a3f318a42fe68bba90d8cf710a547c198e87d5f13aad9c9988"
     }
   ],
   "missing_meaning_sources": [],

@@ -4698,6 +4698,10 @@
   ],
   "middleware_sources": [
     {
+      "path": "infera-payment/src/admin_auth.rs",
+      "checksum": "b8e6642569bf3dfb2ee6c6e6e91afec015dd79c13ae6547bf2c572b331924b6f"
+    },
+    {
       "path": "infera-payment/src/main.rs",
       "checksum": "e4365f67643acc4b0bf955e3352e75423bfc01efc2343d2b166d2838496f453a"
     },
@@ -4708,6 +4712,30 @@
     {
       "path": "infera-payment/migration/src/main.rs",
       "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-payment/src/main.rs",
+      "checksum": "e4365f67643acc4b0bf955e3352e75423bfc01efc2343d2b166d2838496f453a"
+    },
+    {
+      "path": "infera-payment/src/router.rs",
+      "checksum": "33c0963884284be02cc9754d64a6279471b5d30df033c70da2a8f364927897be"
+    },
+    {
+      "path": "infera-payment/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-payment/src/router.rs",
+      "checksum": "33c0963884284be02cc9754d64a6279471b5d30df033c70da2a8f364927897be"
+    },
+    {
+      "path": "Service/infera-payment/src/transaction",
+      "checksum": "f8ccd1887aabe777f653398f3e9df9f0587fbb604296abe011896996f65af5b3"
     }
   ],
   "missing_meaning_sources": [],

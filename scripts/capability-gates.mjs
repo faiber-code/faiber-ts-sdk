@@ -71,6 +71,9 @@ export function evaluateCapabilityGate(universe, services, relationships = [], v
     }
     if (Object.values(data.embedded_source_gaps ?? {}).some(gaps=>gaps.length)) failures.push(`${service}: compiler-embedded source inputs remain unresolved`);
     if (data.missing_meaning_sources?.length) failures.push(`${service}: missing source references`);
+    if(data.inventory_revision && (data.middleware_sources??[]).some(input=>!(data.source_files??[]).some(file=>file.path===input.path&&file.checksum===input.checksum))) {
+      failures.push(`${service}: middleware provenance differs from the actual inventory source`);
+    }
     if (!data.operations?.length) {
       failures.push(`${service}: registered routes have not been reconciled into a mounted operation inventory`);
       continue;

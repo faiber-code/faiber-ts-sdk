@@ -2411,6 +2411,30 @@
       "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
     }
   ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-flow/src/main.rs",
+      "checksum": "8447ecec70d2cc3b047bd8aaa3ce99ab0896d51c5ad917cebee0ec7581e45dd7"
+    },
+    {
+      "path": "infera-flow/src/router.rs",
+      "checksum": "bf7ca10b32804780f7f51e56673952d93ce36858eaf5abeb66d26c0f7520f346"
+    },
+    {
+      "path": "infera-flow/migration/src/main.rs",
+      "checksum": "deb49e9c627495887d941ab7597b42076151a34d292271f9ef3f5677a843dae0"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-flow/README.md",
+      "checksum": "671884b49e8c55d17a3bcf4a2298761afc46a38cf3f0c5c042a65951c2d53b01"
+    },
+    {
+      "path": "Service/infera-flow/src/router.rs",
+      "checksum": "bf7ca10b32804780f7f51e56673952d93ce36858eaf5abeb66d26c0f7520f346"
+    }
+  ],
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {

@@ -1229,6 +1229,26 @@
       "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
     }
   ],
+  "working_middleware_sources": [
+    {
+      "path": "infera_version/src/main.rs",
+      "checksum": "a1fca6b823e0d771b69908c618f18fc769ddc5dfd588caed888091da96268700"
+    },
+    {
+      "path": "infera_version/src/router.rs",
+      "checksum": "17e2f7104e79004ff2b7ace2c37487bd6a4c22aa78dbb57e02964df971fe0b9f"
+    },
+    {
+      "path": "infera_version/migration/src/main.rs",
+      "checksum": "fa61757641c7503356a755184dda504de9d213a9a6e0dbc8bd2100b6d1677d4b"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera_version/src/router.rs",
+      "checksum": "17e2f7104e79004ff2b7ace2c37487bd6a4c22aa78dbb57e02964df971fe0b9f"
+    }
+  ],
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {

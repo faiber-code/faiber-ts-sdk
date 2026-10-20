@@ -221,3 +221,12 @@ test('claiming a selected source cannot certify a different actual evidence inve
  data.source_decision.source_tree_checksum='older-inputs';
  assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/actual inventory revision and compiler inputs/);
 });
+
+test('selected runtime evidence rejects middleware hashes taken from a different working tree',()=>{
+ const f=reviewedFixture();const data=f.services.example;
+ data.inventory_revision='abc';data.source_tree_checksum='inputs';data.source_decision.source_tree_checksum='inputs';
+ data.source_files=[{path:'src/auth.rs',checksum:'selected'}];data.middleware_sources=[{path:'src/auth.rs',checksum:'dirty-working'}];
+ assert.match(evaluateCapabilityGate(f.universe,f.services,[],f.runs).failures.join('\n'),/middleware provenance differs/);
+ data.middleware_sources[0].checksum='selected';
+ assert.equal(evaluateCapabilityGate(f.universe,f.services,[],f.runs).status,'passed');
+});

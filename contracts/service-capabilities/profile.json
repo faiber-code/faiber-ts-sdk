@@ -38665,6 +38665,40 @@
   ],
   "middleware_sources": [
     {
+      "path": "infera-profile/src/ai_summary/auth.rs",
+      "checksum": "56732134c1f3b673fb0d47341acf243c3eb845e8af521335200316adc421d617"
+    },
+    {
+      "path": "infera-profile/src/fitness/domain.rs",
+      "checksum": "2a9b6244f9cd0f17ff20cc47b063bd0c3f4927cb303d951c24d0c9b5905e89a1"
+    },
+    {
+      "path": "infera-profile/src/main.rs",
+      "checksum": "ae939a357d0b8d2a449100a40dd3a18fa831bde353cfdec3092e8c65dffec8be"
+    },
+    {
+      "path": "infera-profile/src/profile/policy.rs",
+      "checksum": "e59876e827b89a52f5424be6509093a53220f74a8d7345edfe3a4a359b4d23fa"
+    },
+    {
+      "path": "infera-profile/src/router.rs",
+      "checksum": "24df9510629f6da753727ddcc8c138e31b780be5a397e66fc5abd349bb137454"
+    },
+    {
+      "path": "infera-profile/entity/src/profile_classroom_session.rs",
+      "checksum": "ff60759962328a73862f956218de35faad878d9ec86e5e34f1982e6d0f5aec2a"
+    },
+    {
+      "path": "infera-profile/shared/infera-summary-sdk/src/native_policy.rs",
+      "checksum": "c10ea586796bb31b5c5080031ba73ae9e1f7182a84ee56d9ca3f0c8dd3f740a1"
+    },
+    {
+      "path": "infera-profile/migration/src/main.rs",
+      "checksum": "c67bdb47232f10137079accb99f975695895c06affd70c3122c4b9ae850ebd35"
+    }
+  ],
+  "working_middleware_sources": [
+    {
       "path": "infera-profile/src/fitness/domain.rs",
       "checksum": "51371e829541bf48dbbd9d75edddb8952df18e2b8bdef79655cba97268942a8a"
     },
@@ -38687,6 +38721,16 @@
     {
       "path": "infera-profile/migration/src/main.rs",
       "checksum": "c67bdb47232f10137079accb99f975695895c06affd70c3122c4b9ae850ebd35"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-profile/README.md",
+      "checksum": "4015cde177b156e6f69c4033077a19b4acd752ac76c745fb6b92f14477c1e264"
+    },
+    {
+      "path": "Service/infera-profile/src/router.rs",
+      "checksum": "24df9510629f6da753727ddcc8c138e31b780be5a397e66fc5abd349bb137454"
     }
   ],
   "missing_meaning_sources": [],

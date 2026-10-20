@@ -14302,6 +14302,28 @@
   "middleware_sources": [
     {
       "path": "infera-social/src/auth.rs",
+      "checksum": "086853722c659d64de8dbbea07522daf42ba7426ec07e0ea14f41c7214bceee3"
+    },
+    {
+      "path": "infera-social/src/context.rs",
+      "checksum": "3b41e8571bfcbbeb9c99b203b6f211c75382bd2704af123efdcfeb7cc2016dd2"
+    },
+    {
+      "path": "infera-social/src/main.rs",
+      "checksum": "ac6cd8179c465addc08023a04d4bdd4c695d3c5348e5a3b78c4e15c830ee266e"
+    },
+    {
+      "path": "infera-social/src/router.rs",
+      "checksum": "35ad7e6622da0e32767f82b604dd869151a84817e2c91832e909f5f07895229f"
+    },
+    {
+      "path": "infera-social/migration/src/main.rs",
+      "checksum": "02e89c99aacc0c95657dcdb532a5f8a35b69a1e8ecffdb31ee9ce2f4c1341c11"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-social/src/auth.rs",
       "checksum": "8b3c82f07be7564b7f0b4bc26c8571981c2def301e00b754084b599c106651fb"
     },
     {
@@ -14319,6 +14341,20 @@
     {
       "path": "infera-social/migration/src/main.rs",
       "checksum": "02e89c99aacc0c95657dcdb532a5f8a35b69a1e8ecffdb31ee9ce2f4c1341c11"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-social/README.md",
+      "checksum": "0063acc77f3cf670b99c544951641ba57a3b195126d1cf6f279615cea544b2cc"
+    },
+    {
+      "path": "Service/infera-social/src/api/routes.rs",
+      "checksum": "fec3e14ffd807be56ebe385caee675b9b3e5b7dbe732619799e1f3cc8f6ed101"
+    },
+    {
+      "path": "Service/infera-social/src/admin.rs",
+      "checksum": "2759c3fc0658e1b43473ee677fcc212eeba80eb769b467d1682ffcd26faaec42"
     }
   ],
   "missing_meaning_sources": [],

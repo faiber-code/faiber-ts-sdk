@@ -14849,6 +14849,28 @@
   "middleware_sources": [
     {
       "path": "infera-task/src/auth.rs",
+      "checksum": "9cfe58b16d3f68aa0efdbe3602b0715b8be8a8a8b77f49c70dfce65c1338c1a3"
+    },
+    {
+      "path": "infera-task/src/main.rs",
+      "checksum": "57be28898e5cdd05eeec8605d6300f532b660a7d9be03972125daf004b397982"
+    },
+    {
+      "path": "infera-task/src/policy.rs",
+      "checksum": "a89681d8404484e270b3d21538136536c04701ceaa7b2183d093574c69384f83"
+    },
+    {
+      "path": "infera-task/migration/src/m20260812_000001_create_task_domain.rs",
+      "checksum": "c84b62784e494d7250a041776b2498cd6d3741e251773d967414e1d2ff2bde9a"
+    },
+    {
+      "path": "infera-task/migration/src/main.rs",
+      "checksum": "9f0ce6ada5b4c42d0fd729da8d37b1e76b2046e8466be167307d519ad5c8404e"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-task/src/auth.rs",
       "checksum": "14d596e6053686bd2b3326cee523c1924746ed715ff3ec426dfb9e7039f7a57a"
     },
     {
@@ -14866,6 +14888,20 @@
     {
       "path": "infera-task/migration/src/main.rs",
       "checksum": "9f0ce6ada5b4c42d0fd729da8d37b1e76b2046e8466be167307d519ad5c8404e"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-task/README.md",
+      "checksum": "7ac2afdff7a8ead53a16f4778c11cb5600a89c03295b4f3b9b1d5f2ad8f67a03"
+    },
+    {
+      "path": "Service/infera-task/src/routes.rs",
+      "checksum": "166eb2a1872e7af7dc64369c2c4f4fd613f4e652c9ca64a559f81746dd2094f3"
+    },
+    {
+      "path": "Service/infera-task/src/policy.rs",
+      "checksum": "a89681d8404484e270b3d21538136536c04701ceaa7b2183d093574c69384f83"
     }
   ],
   "missing_meaning_sources": [],

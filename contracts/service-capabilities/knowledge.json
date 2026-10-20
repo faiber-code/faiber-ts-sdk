@@ -9140,11 +9140,39 @@
     },
     {
       "path": "infera-knowledge/src/main.rs",
+      "checksum": "14c53814300d2e3afdb1a5f70357ee5e863a7bd2721668bf965b283507787d0e"
+    },
+    {
+      "path": "infera-knowledge/migration/src/main.rs",
+      "checksum": "c998366fb87912d4ff036d844c1ed89d0658e885a3bdee82f00a69224c265bec"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-knowledge/src/context.rs",
+      "checksum": "e015d5ef0e82a786fcafc06d67dd4363ff6e83bd4d55655bdc9b09177bddadaf"
+    },
+    {
+      "path": "infera-knowledge/src/main.rs",
       "checksum": "d0b4421cd64356d43b38d275107a6058f5850631ee8ab7b08bf149a22eebfed5"
     },
     {
       "path": "infera-knowledge/migration/src/main.rs",
       "checksum": "c998366fb87912d4ff036d844c1ed89d0658e885a3bdee82f00a69224c265bec"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-knowledge/README.md",
+      "checksum": "7ee4cfe1615ddd8d9618f7932d26396ec379061abd4a0e60c4cee170d92ec230"
+    },
+    {
+      "path": "Service/infera-knowledge/src/platform.rs",
+      "checksum": "0091f39c5b0638079f260a75af8da9be9dc2bd7218719e8847b97f2fae5c4783"
+    },
+    {
+      "path": "Service/infera-knowledge/src/retrieval.rs",
+      "checksum": "fefb80c370fb0315e03a333b3108eb3e44969d737b11ba51b2f505e24d5d1169"
     }
   ],
   "missing_meaning_sources": [],

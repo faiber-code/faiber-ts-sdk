@@ -203,6 +203,10 @@ for(const [service,entry] of Object.entries(universe.services)) {
   const treeChecksum=hash(JSON.stringify(files.map(({path,checksum})=>({path,checksum}))));
   const old=new Map(endpoints.map(x=>[`${x.method} ${x.path}`,x])),now=new Map((working[service]??[]).map(x=>[`${x.method} ${x.path}`,x]));
   const sdk=new Map((published[service]??[]).map(x=>[`${x.method} ${x.path}`,x]));
+  const meaningSources=entry.sources.map(path=>{
+    try {const bytes=execFileSync('git',['show',`${inventoryRevision}:${path}`],{cwd:root,stdio:['ignore','pipe','pipe']});return {path:`${entry.directory}/${path}`,checksum:hash(bytes)};}
+    catch{return {path:`${entry.directory}/${path}`,missing:true};}
+  });
   const prior=readJson(join(target,`${service}.json`));
   const data={schema_version:'1.0',service,...entry,inventory_source:inventoryMode,inventory_revision:inventoryRevision,source_decision:retainCapabilitySourceDecision(prior?.source_decision,inventoryRevision,treeChecksum),relationship_review:prior?.source_tree_checksum===treeChecksum&&prior?.inventory_revision===inventoryRevision?prior?.relationship_review??null:null,canonical_revision:canonicalRevision.origin_main,sdk_source_revision:lock?.revision??null,working_revision:revision,
     working_changes:git(root,'status','--short','--','src','entity','migration','crates','shared','auth','auth_macro','Cargo.toml','Cargo.lock','build.rs').split('\n').filter(Boolean),
@@ -224,8 +228,10 @@ for(const [service,entry] of Object.entries(universe.services)) {
       absent_from_mounted_graph:extracted.filter(op=>!old.has(`${op.method} ${op.path}`)).map(op=>`${op.method} ${op.path}`)}:null,
     working_drift:{added:[...now.keys()].filter(k=>!old.has(k)),absent:workingCapture.error?[]:[...old.keys()].filter(k=>!now.has(k)),changed:[...now.keys()].filter(k=>old.has(k)&&JSON.stringify(old.get(k))!==JSON.stringify(now.get(k))),extraction_errors:workingCapture.error?[workingCapture.error]:[]},
     working_route_candidates:candidateRegistrations(currentFiles),
-    middleware_sources:currentFiles.filter(x=>/(?:auth|context|router|main|session|policy)\.rs$/.test(x.path)).map(x=>({path:x.path,checksum:x.checksum})),
-    missing_meaning_sources:entry.sources.filter(path=>!existsSync(join(root,path))),
+    middleware_sources:files.filter(x=>/(?:auth|context|router|main|session|policy)\.rs$/.test(x.path)).map(x=>({path:x.path,checksum:x.checksum})),
+    working_middleware_sources:currentFiles.filter(x=>/(?:auth|context|router|main|session|policy)\.rs$/.test(x.path)).map(x=>({path:x.path,checksum:x.checksum})),
+    meaning_sources:meaningSources.filter(source=>!source.missing),
+    missing_meaning_sources:meaningSources.filter(source=>source.missing).map(source=>source.path),
     completeness:'not_verified'};
   writeFileSync(join(target,`${service}.json`),JSON.stringify(compactEvidence(data),null,2)+'\n');
   writeFileSync(join(docs,`${service}.md`),markdown(service,data));

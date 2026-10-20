@@ -7913,6 +7913,26 @@
     {
       "path": "infera-control/crates/faiber-server/src/main.rs",
       "checksum": "20e08fd76d99eed37c1472d76b91167e826a4b84a3833d939b81e1b792038353"
+    },
+    {
+      "path": "infera-control/crates/faiber-core/src/build_policy.rs",
+      "checksum": "54397cdbce60b889e57ae973cf5a3560a572a3e218138117194f22de7a5a038c"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-control/crates/faiber-server/src/main.rs",
+      "checksum": "20e08fd76d99eed37c1472d76b91167e826a4b84a3833d939b81e1b792038353"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-control/AGENTS.md",
+      "checksum": "5926c906d01d5fb91e8b83f40d0134346f791dcef906de7805f86196299b8c2f"
+    },
+    {
+      "path": "Service/infera-control/crates/faiber-server/src/routes.rs",
+      "checksum": "80913859249709f9d56f3d127b22f2be17e64c117567c124044d3a8f6b71d1df"
     }
   ],
   "missing_meaning_sources": [],

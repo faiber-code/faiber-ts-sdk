@@ -9387,6 +9387,24 @@
   "middleware_sources": [
     {
       "path": "infera-chat/src/context.rs",
+      "checksum": "7b343a6edbcea3fbe70f480a0581267a3627f93baaa5300da1216c4b96f0f29e"
+    },
+    {
+      "path": "infera-chat/src/main.rs",
+      "checksum": "61e69188274b0415ed10a476dc6c5f42f926217a1d745bc278a54fa17908cf16"
+    },
+    {
+      "path": "infera-chat/shared/infera-summary-sdk/src/native_policy.rs",
+      "checksum": "c10ea586796bb31b5c5080031ba73ae9e1f7182a84ee56d9ca3f0c8dd3f740a1"
+    },
+    {
+      "path": "infera-chat/migration/src/m20260828_000007_governed_assistant_context.rs",
+      "checksum": "1f515318096be370972d64f379602a1cc1968867585c71fc91832af28a53f570"
+    }
+  ],
+  "working_middleware_sources": [
+    {
+      "path": "infera-chat/src/context.rs",
       "checksum": "71e4a9ebb35da4045e6021cd7986717046089976e1573a595c8ee54e63e9dc15"
     },
     {
@@ -9396,6 +9414,16 @@
     {
       "path": "infera-chat/migration/src/m20260828_000007_governed_assistant_context.rs",
       "checksum": "1f515318096be370972d64f379602a1cc1968867585c71fc91832af28a53f570"
+    }
+  ],
+  "meaning_sources": [
+    {
+      "path": "Service/infera-chat/README.md",
+      "checksum": "838e9beeaee1c0658fa43b0e4e8dceca27aee6f224644b09d4ef097a21c75779"
+    },
+    {
+      "path": "Service/infera-chat/src/service.rs",
+      "checksum": "8805a22cb033f812effd051b20bab394aa4bf15561f54c5d184ecfa78e44ad32"
     }
   ],
   "missing_meaning_sources": [],
