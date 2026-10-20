@@ -13,18 +13,18 @@
     "src/retrieval.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "d02588159ae8993b560c7225e2e39558be39fb3c",
+  "inventory_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
   "source_decision": null,
   "relationship_review": null,
   "canonical_revision": "70b8a21721dd34125b8f0e167e06da9ad3287223",
-  "sdk_source_revision": "d02588159ae8993b560c7225e2e39558be39fb3c",
+  "sdk_source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
   "working_revision": "92047358a6b4dee1911d47a78621c8359716b7af",
   "working_changes": [
     "M Cargo.lock",
     " M src/routes.rs"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "ccfadddd6b22b327cba3a67d2b66ff2a1e412295ebbd115eeb64b5468cc8b135",
+  "source_tree_checksum": "d6a368f3fc2622900056b70e8d2d145f140cc454a7f26edea85f3f4cfd05926c",
   "source_files": [
     {
       "path": "infera-knowledge/src/bin/knowledge_bench.rs",
@@ -72,7 +72,7 @@
     },
     {
       "path": "infera-knowledge/src/platform.rs",
-      "checksum": "0091f39c5b0638079f260a75af8da9be9dc2bd7218719e8847b97f2fae5c4783"
+      "checksum": "5a11a24cab16f86ef122e5b9c994f4eb91c1c83b8979fc1e1fb216bb5772d961"
     },
     {
       "path": "infera-knowledge/src/repository.rs",
@@ -447,7 +447,7 @@
           }
         ]
       },
-      "source_checksum": "a23e4fdc42bcd1df959fa1027f055577a960d881cb10bcf0e427315702066a11",
+      "source_checksum": "83c9150a7d75a0403d752843b651466ad4c93b62c76ad045781aa642531070ff",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:92:readiness",
         "path": "infera-knowledge/src/main.rs",
@@ -504,7 +504,7 @@
           }
         ]
       },
-      "source_checksum": "c800ca4cd913b7e0029ac8019e6e2a5e49d5f92f57dde975e16876f00ed35266",
+      "source_checksum": "9b6c7633a1bf0bfb77686e68236878fb4bb54c64d03a497b43fcb3d8ccb1ca86",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:84:liveness",
         "path": "infera-knowledge/src/main.rs",
@@ -568,7 +568,7 @@
           }
         ]
       },
-      "source_checksum": "272c3cba4f224a143d73b53532c6b17c935ec6b1bd7a753d9616a09720e11363",
+      "source_checksum": "89d2c9c31b131640cc0ce8b57a0d9ac849bc625bcf636fe67045734b979eea75",
       "handler": {
         "ref": "infera-knowledge/src/main.rs:92:readiness",
         "path": "infera-knowledge/src/main.rs",
@@ -633,7 +633,7 @@
           }
         ]
       },
-      "source_checksum": "ed3d5bff8b64aaf85b0399cada152ea2d1dd6c5eafec03e0c753ba777552d11f",
+      "source_checksum": "8e135eb43924568635ce7e33b10ff482706a2efb03c0ce87982b720f1fa595bb",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:491:get_release",
         "path": "infera-knowledge/src/routes.rs",
@@ -712,7 +712,7 @@
           }
         ]
       },
-      "source_checksum": "22a8a4ab8da081b51ef712b2d8237a2d10e0dfa2c1ef9e5bcceb24646616b53f",
+      "source_checksum": "6116aa9c0cbf7309dfcb86ecd2bb4b9f9e8c42d773e54974439c180a0e610673",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:70:list_bases",
         "path": "infera-knowledge/src/routes.rs",
@@ -805,7 +805,7 @@
           }
         ]
       },
-      "source_checksum": "3e4b25d0210807bf889c05770ba0cecc7882acc3f00a230fe5c0eefde69de223",
+      "source_checksum": "de637e9ed082e04fb52a1c8df92b7ccd11c007654e12e7f36ed247adf6d9580f",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:82:create_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -891,7 +891,7 @@
           }
         ]
       },
-      "source_checksum": "79339a4ca353783cd267d27dfa2989c81926e8c5b9742fb0e2bb65d075ec9da0",
+      "source_checksum": "cc1b8205b946a4f7d57530c8bdbe69ddd1f75fa47d9e60b7ea0bdd6f5c3b7f6e",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:91:get_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -971,7 +971,7 @@
           }
         ]
       },
-      "source_checksum": "474bfdac9ac2107ead0f36df3b4efc68fce45a053a63bd2a4316f9e7c4312e64",
+      "source_checksum": "7d93155ee96941317329cba3cd51abaf2e151495878c98572a65de4d6c9b413b",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:101:update_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -1060,7 +1060,7 @@
           }
         ]
       },
-      "source_checksum": "ed70a3eb5a2b9b17b2deeddf48feccc43a7c092883286c9250410dfd08ecf8bd",
+      "source_checksum": "db2511a8e8d476140bae35a7bb898fa3dc10333a5b74b6391d0095fa37f79e0e",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:112:delete_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -1135,7 +1135,7 @@
           }
         ]
       },
-      "source_checksum": "397c2450463877f7a7920c64bc8608339ffaee3ffd704a60c9e4f238f600439e",
+      "source_checksum": "67476587c6a2d29c315754c10ff6d2cf5e9f9748dae63aca4813561bf33105ef",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:121:publish",
         "path": "infera-knowledge/src/routes.rs",
@@ -1214,7 +1214,7 @@
           }
         ]
       },
-      "source_checksum": "86924ee96fde3378ed83c494fe9d0df29f441b41103e4425b900e88566189b6c",
+      "source_checksum": "d4f59f5e05c0cb0f06fde63c1d4bf0895ed350e30e1fd10d0329c1664d5210d3",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:131:export_base",
         "path": "infera-knowledge/src/routes.rs",
@@ -1302,7 +1302,7 @@
           }
         ]
       },
-      "source_checksum": "8cdb8e66f017d0afb227f143f1a8e910cca07e001a67560ba4d751beee5b8991",
+      "source_checksum": "1936eea68f8c9d470b35e3a17c5a0f49dcff49ca3684b81216846817a1e785f6",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:158:list_groups",
         "path": "infera-knowledge/src/routes.rs",
@@ -1391,7 +1391,7 @@
           }
         ]
       },
-      "source_checksum": "163ece884889e3c0c7b6a2e2485c32d31055db6aa9bce374db64c6e0d3399a12",
+      "source_checksum": "a64e80d2972e876a3783666973f664c8b4593db635086f072baf9cd3b488f292",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:169:create_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1489,7 +1489,7 @@
           }
         ]
       },
-      "source_checksum": "de0af5ea5a4e53833136f9c855e728b6aa12f9da1041e516f25024186652129c",
+      "source_checksum": "caedc62e232f178fae0ec3bdbe59802b6e5358a60c951868930ffd542e348d3c",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:183:update_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1585,7 +1585,7 @@
           }
         ]
       },
-      "source_checksum": "b25ca850cc06c609bb0162dd81d375ea158f95ffeda5f41380ee69577f4c6f0e",
+      "source_checksum": "caf2d0a5f798bc5d5f01efaa2bbebe650066142cebf737a3546b113aa29060d7",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:194:delete_group",
         "path": "infera-knowledge/src/routes.rs",
@@ -1661,7 +1661,7 @@
           }
         ]
       },
-      "source_checksum": "31c4c3b4a246b85cf5ade7614e446422bc830e9737c38b20083f34a57837ccdc",
+      "source_checksum": "fd90e53052582e67ae031eac3381df7ffdf9aed936ead4b626af6b1cd885c8cd",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:204:list_items",
         "path": "infera-knowledge/src/routes.rs",
@@ -1768,7 +1768,7 @@
           }
         ]
       },
-      "source_checksum": "5420483e29ef925110a0c22f11fb79a9d6aa990dceb27c3ad71cab7a0c5908b5",
+      "source_checksum": "61a1acc08796435a75bf21d9035d7f2f5ff159dfe03718e15539780fdee51e80",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:218:create_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -1871,7 +1871,7 @@
           }
         ]
       },
-      "source_checksum": "f5654c3d7e1776c07e0bfd4cb25f98a4932923faa9be0808e73917c5302d95fd",
+      "source_checksum": "887db090d2827d3e095a8dae40d45111a6595a02563f2623ad896ea5a79994c9",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:232:get_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -1951,7 +1951,7 @@
           }
         ]
       },
-      "source_checksum": "4035865c6a37b68acf3945ad30be17c08cb6291a76abbb71044b86fb323e52ca",
+      "source_checksum": "14c8ac6075b963c929dc423109812b58aac861032ce91aa777ad77d7ef1672c5",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:242:update_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -2053,7 +2053,7 @@
           }
         ]
       },
-      "source_checksum": "c5cff4ad9dc434bb6f6cbe738275e0f847e0ea614f08a974d23f1261a53becc1",
+      "source_checksum": "76bef39d4da1454ade043e6f872f91c1bad7674e612ee0c76595591396f77b05",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:253:delete_item",
         "path": "infera-knowledge/src/routes.rs",
@@ -2128,7 +2128,7 @@
           }
         ]
       },
-      "source_checksum": "1490702bd55ee2bc6ec9977ec4f5d70c9e453de85e3e02fd00c1406a6ba32c91",
+      "source_checksum": "0cff9f9570f57c64b0961ea39fa3fec09c237874a6d3d512abd42ff514f7cdaf",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:263:list_edges",
         "path": "infera-knowledge/src/routes.rs",
@@ -2208,7 +2208,7 @@
           }
         ]
       },
-      "source_checksum": "45007ab8968df4afcb756b3be689b95bd9bcee6ddd7f201fe00deaf9fce095f3",
+      "source_checksum": "36f68ac913c5cb692f1214bab303a62eee0a3620bad5e4a17516ae6a3ca1bce4",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:277:create_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2312,7 +2312,7 @@
           }
         ]
       },
-      "source_checksum": "c6a2d016167f59a82d3eea44e308805b4f094533db688515f5632f1aa9a1f2c1",
+      "source_checksum": "5f346f3d1c776801bca8006c1bbfebb4bb32237edda7a09ef0280f5707408cbb",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:291:update_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2401,7 +2401,7 @@
           }
         ]
       },
-      "source_checksum": "f8e1bb2e0f644b00090e071054fc3265c9b0cc67922f69176d75720a5b0c5035",
+      "source_checksum": "ed96b8803541306e6aa90ff2a33b2bda18eed3100d787d81677b0a198197928d",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:303:delete_edge",
         "path": "infera-knowledge/src/routes.rs",
@@ -2475,7 +2475,7 @@
           }
         ]
       },
-      "source_checksum": "b7d75ef5bdd60efdf621edd8cb9985cb28b210e773914685443686dde3bc7714",
+      "source_checksum": "a96c554925ea3f53dc1b37763a3d275893f798ee3c801d1f87a678f59562088f",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:313:list_bindings",
         "path": "infera-knowledge/src/routes.rs",
@@ -2540,7 +2540,7 @@
           }
         ]
       },
-      "source_checksum": "60ca7888c4f338846ae874f2c57c255093f5272c9409b174c059c398c88463b9",
+      "source_checksum": "e17f5cd9049f9d2ba86a025a138cd1a62193f4a3aed46c21f27922c1f219ab62",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:325:create_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2634,7 +2634,7 @@
           }
         ]
       },
-      "source_checksum": "38bc1665f273604f0a5619e17748ab192130e0555336158aa13d55a5f487f6d0",
+      "source_checksum": "136ffb7d0184581357860ad9e145cd51ad5c8e5a030e3f11b6ef57e70ed70268",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:338:update_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2723,7 +2723,7 @@
           }
         ]
       },
-      "source_checksum": "7509ce072b1bb976cd68086d7978833ac982a83d23b435c30d52f61a532ac487",
+      "source_checksum": "906e11752931172147e5104440771bfc301066d2264b02f6d538e5ee3d97bf39",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:350:delete_binding",
         "path": "infera-knowledge/src/routes.rs",
@@ -2798,7 +2798,7 @@
           }
         ]
       },
-      "source_checksum": "5c47ce553e565816f499d51233911227770d5806d7eb9116f09fe5404d23bb0b",
+      "source_checksum": "6f89b11f941dd28b2d3c3b066b6a44bd502abab566147683eb38c0aa8cffb7e7",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:360:list_rules",
         "path": "infera-knowledge/src/routes.rs",
@@ -2897,7 +2897,7 @@
           }
         ]
       },
-      "source_checksum": "4d9711c4a53067747d94c4516a01489b2fd657fc1b46e70bb89df48ddb70916d",
+      "source_checksum": "782f4ca2f158bed4308d20766e31cd902086ead6bbab787853a2d69251e155f1",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:373:create_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -2997,7 +2997,7 @@
           }
         ]
       },
-      "source_checksum": "03cdfc6f7646c31ff2f6aa860a22a1e37a982816005a0230eb30ffff41dce8a7",
+      "source_checksum": "be3f024509e3058e06d47a07318ac54f3c9cfbcd7e50ba641b20785380c1fa17",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:386:update_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -3093,7 +3093,7 @@
           }
         ]
       },
-      "source_checksum": "301f32ca03c4b461094ea5010a60b17b784cb5790df311528c1182279bfce155",
+      "source_checksum": "199006978af6e4dae839d10b8cc2dd4b481135767c7f38dd460e3d8900706d5e",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:398:delete_rule",
         "path": "infera-knowledge/src/routes.rs",
@@ -3168,7 +3168,7 @@
           }
         ]
       },
-      "source_checksum": "d530d895c007dcb1bbdc2b72f267ad68ba1b404dbf25d8438ed2a615ea8ae9c3",
+      "source_checksum": "e94a3653c1f7b457929f7f9c3d6650c5f2c32be11a2820c1cad4b6e61f472795",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:408:list_actions",
         "path": "infera-knowledge/src/routes.rs",
@@ -3252,7 +3252,7 @@
           }
         ]
       },
-      "source_checksum": "cfe04625c6ded580574ad0dc43024b30d98a24c273fac9562b37f276eab09157",
+      "source_checksum": "b4d46e889e4bb6f6c0bcef3d7dc6e712963aa8aa433f5e45d043d927a8cc0fef",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:426:update_action_status",
         "path": "infera-knowledge/src/routes.rs",
@@ -3332,7 +3332,7 @@
           }
         ]
       },
-      "source_checksum": "b9c9b00913ea201049e04c84c2c469dbb98453d6a29fc8a60f043bb7e798bd95",
+      "source_checksum": "afa5f7ae9abbad0ea98350126f8006c795a95177f1072fd02e66fb8823ba2448",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:458:list_audit",
         "path": "infera-knowledge/src/routes.rs",
@@ -3414,7 +3414,7 @@
           }
         ]
       },
-      "source_checksum": "6f9fd84598cb77f1e77a6839472cecd8210db21c7a61fd5dd7099d338f18b420",
+      "source_checksum": "586447253637ec7b2ab7e576641e7cdc39288cb3aa7eaaa6a9ab54b473c83829",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:556:status",
         "path": "infera-knowledge/src/platform.rs",
@@ -3478,7 +3478,7 @@
           }
         ]
       },
-      "source_checksum": "71846fbe9334620f4aeb140124c954bca236c0f56b03da29894843cde6fd6fb5",
+      "source_checksum": "98a134a2a95e628334b23e90250c03eb5bff0f686549ed2afe5f1920e95e0a9d",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:602:catalog",
         "path": "infera-knowledge/src/platform.rs",
@@ -3542,7 +3542,7 @@
           }
         ]
       },
-      "source_checksum": "10a630684397cd8722a35e50ca2581dbfe1b8f14aa0628bb2307b980a7aa5dd4",
+      "source_checksum": "1c96a854cb7ed47b5006b8d495c0302d3b9610ba9f1ff731d4ef76aee26f0bd8",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:620:converters",
         "path": "infera-knowledge/src/platform.rs",
@@ -3606,7 +3606,7 @@
           }
         ]
       },
-      "source_checksum": "e12fd9cddac6f509866d8e74c56e1499b9819bc8b24d43707945b5decbcd0432",
+      "source_checksum": "c42bcd7e0804685b26d6d5f89d59f77eebfa8749d8953ca8917bf6a30c07560a",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:629:processing_jobs",
         "path": "infera-knowledge/src/platform.rs",
@@ -3670,11 +3670,11 @@
           }
         ]
       },
-      "source_checksum": "f2ce2da124d72698be04c9c3848e4210a87c7770d2af8220c1d64adb99f328bc",
+      "source_checksum": "3f779e89860099d8e54e7fffa8baa66734795153eac632c19f8daad918141e09",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:771:audit_events",
+        "ref": "infera-knowledge/src/platform.rs:787:audit_events",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 771,
+        "line": 787,
         "name": "audit_events"
       },
       "related_implementation": [],
@@ -3734,11 +3734,11 @@
           }
         ]
       },
-      "source_checksum": "c85e4054f5f19b6ac421ea670426f98cb40579e0cceb4a13750906d5737033df",
+      "source_checksum": "693e6f88e8f81fd40b2b5550e8c9d0aa5773eff100a8e55e0f739348fba2dda4",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:780:list_evaluation_cases",
+        "ref": "infera-knowledge/src/platform.rs:796:list_evaluation_cases",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 780,
+        "line": 796,
         "name": "list_evaluation_cases"
       },
       "related_implementation": [],
@@ -3799,11 +3799,11 @@
           }
         ]
       },
-      "source_checksum": "32e2c663d06e17fed2424cdb46ad2ee6259c79fddd76964374c3d5f70c7c828c",
+      "source_checksum": "91a7933d82fc13ef9765b3ec0bb471af83583c9c5dfa533ba8f742253f38193f",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:789:save_evaluation_case",
+        "ref": "infera-knowledge/src/platform.rs:805:save_evaluation_case",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 789,
+        "line": 805,
         "name": "save_evaluation_case"
       },
       "related_implementation": [],
@@ -3893,11 +3893,11 @@
           }
         ]
       },
-      "source_checksum": "44ed66bf87cb759b40ac93df772fcaeafbb2f0748d3cd8a2f3cffcf6fd98855e",
+      "source_checksum": "19a2f91163ffd988268f162193a0a7f922359012f29406bd98654ca3c5f9bd3f",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2775:list_sources",
+        "ref": "infera-knowledge/src/platform.rs:2811:list_sources",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2775,
+        "line": 2811,
         "name": "list_sources"
       },
       "related_implementation": [],
@@ -3958,11 +3958,11 @@
           }
         ]
       },
-      "source_checksum": "c1c51f8de0a19e98a5b4f4f598a393e953ee193c9ded4bd1ac5a4820f9cfa2e1",
+      "source_checksum": "91ae6da6f38c8db3d71eae02a4bc47e044b802b0addc93f04f7c31a3c6f94bbb",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2783:create_source",
+        "ref": "infera-knowledge/src/platform.rs:2819:create_source",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2783,
+        "line": 2819,
         "name": "create_source"
       },
       "related_implementation": [],
@@ -4041,7 +4041,7 @@
           }
         ]
       },
-      "source_checksum": "0b87730d9cbdc21bbe2a240b6bf2edb2936f64157afd9d5b8cad7e9cbb46be0f",
+      "source_checksum": "dbe951617ccd6e2e16d3eb9b99ba60c8884c45c56acddfcdad90b5b9112d3451",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:678:sync_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -4110,7 +4110,7 @@
           }
         ]
       },
-      "source_checksum": "2c0eb589654e9d2e81ec04539ba37efeabe118d6ad39b185a071dd9965fe3505",
+      "source_checksum": "90c8fa1b2f96ec53de6786f27fdf40b21303fb0cebbdb1925cf0916686c6550c",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:703:pause_source",
         "path": "infera-knowledge/src/platform.rs",
@@ -4178,11 +4178,11 @@
           }
         ]
       },
-      "source_checksum": "5c6d491647625a4c6e89b557f06f06fa1ef257163d2a1ad13e878d60716d7e03",
+      "source_checksum": "c63a2546ee8a37b5686ad279653deeb6997cd6ddf97190bf935b1d97661860b1",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2862:list_documents",
+        "ref": "infera-knowledge/src/platform.rs:2898:list_documents",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2862,
+        "line": 2898,
         "name": "list_documents"
       },
       "related_implementation": [],
@@ -4243,11 +4243,11 @@
           }
         ]
       },
-      "source_checksum": "cc9c0133e470b589b558c2da0f4e76d3f081952ae4f9a01cca90c40a80ec5b81",
+      "source_checksum": "07afa60b27e6eeca04d9a71aaf0c7e0b47dc156f3c7dceb342a103c989917f57",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2870:ingest_document",
+        "ref": "infera-knowledge/src/platform.rs:2906:ingest_document",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2870,
+        "line": 2906,
         "name": "ingest_document"
       },
       "related_implementation": [],
@@ -4338,7 +4338,7 @@
           }
         ]
       },
-      "source_checksum": "a8f8465fc4faef524008a77555db71cd5922eb26da164fc4c80362c90a976cae",
+      "source_checksum": "7546cd59b9fae107debb54c88bba8930098fb0a43611d5e038d0cbb78e0f989c",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:723:reprocess_document",
         "path": "infera-knowledge/src/platform.rs",
@@ -4407,7 +4407,7 @@
           }
         ]
       },
-      "source_checksum": "ba52b021f4f06ada851654658d9173d27999f0baa3f8c124a270352b43f78fce",
+      "source_checksum": "c499a79f640d218019dc48ed202c76bed56b3fe012608e70a52a16d1f7137217",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:638:retry_processing_job",
         "path": "infera-knowledge/src/platform.rs",
@@ -4476,7 +4476,7 @@
           }
         ]
       },
-      "source_checksum": "2882bbc40ca3d220af739c8bfaf38820b9950ebb262c519d0ee37b046e25c336",
+      "source_checksum": "bc80b973b474e7532c9bffb0e3a7fd747d806aacfdd5e62f6d68dbfaa7e4bfe6",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:658:cancel_processing_job",
         "path": "infera-knowledge/src/platform.rs",
@@ -4544,11 +4544,11 @@
           }
         ]
       },
-      "source_checksum": "d05af2026a7a6103e52e555b6ff3d7f45ec5c083eb20b6c42fe1fdd9d5a3e2ab",
+      "source_checksum": "eb100d8a2f3f701884a9755e419942fe087d2565380a418e07e9a01e59402b86",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:748:invalidate_policy_cache",
+        "ref": "infera-knowledge/src/platform.rs:764:invalidate_policy_cache",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 748,
+        "line": 764,
         "name": "invalidate_policy_cache"
       },
       "related_implementation": [],
@@ -4608,11 +4608,11 @@
           }
         ]
       },
-      "source_checksum": "0e10b6615db24daaaa628f6de7750eaa51b90262d2c211c6bf0c21f89170392e",
+      "source_checksum": "a28d3eac4e59b89622aa8dfec1abf64246d65f402fed0c67220eb62571b5ca82",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2738:list_recommenders",
+        "ref": "infera-knowledge/src/platform.rs:2774:list_recommenders",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2738,
+        "line": 2774,
         "name": "list_recommenders"
       },
       "related_implementation": [],
@@ -4673,11 +4673,11 @@
           }
         ]
       },
-      "source_checksum": "555449fdccd5cd0b967420771c7fe00e820474ec52a02f11448ad6ad7619b39a",
+      "source_checksum": "c7cf1cfdaf90d6d1a14986974058aa576a5a84b7c9707555fdd32a7eb62249b1",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2747:create_recommender_group",
+        "ref": "infera-knowledge/src/platform.rs:2783:create_recommender_group",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2747,
+        "line": 2783,
         "name": "create_recommender_group"
       },
       "related_implementation": [],
@@ -4750,11 +4750,11 @@
           }
         ]
       },
-      "source_checksum": "eb5435baaa4f42ad8025c909a6829cb4c07af979a1a2d9ed3893613a6c1644fc",
+      "source_checksum": "c0a9177fe5067224024b51328660707872f0d5b016b73c040e8a02d2ab04f70f",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2758:create_recommender_item",
+        "ref": "infera-knowledge/src/platform.rs:2794:create_recommender_item",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2758,
+        "line": 2794,
         "name": "create_recommender_item"
       },
       "related_implementation": [],
@@ -4837,11 +4837,11 @@
           }
         ]
       },
-      "source_checksum": "30ff384fce1b54b4ad617c7cf04d9af12719f49b65f85f1be6132db86a832ae1",
+      "source_checksum": "7d669d3100161a47e27d092c904ec9c9495e22c9e0489aef251831b906c2b363",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2550:list_memory_subjects",
+        "ref": "infera-knowledge/src/platform.rs:2586:list_memory_subjects",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2550,
+        "line": 2586,
         "name": "list_memory_subjects"
       },
       "related_implementation": [],
@@ -4918,11 +4918,11 @@
           }
         ]
       },
-      "source_checksum": "a622a2a98f0bb0d6b0b61ba107936f96c603b4c95e7ea4e51a0a55cd31da7065",
+      "source_checksum": "d0fa6a3588f79c2ba01dce0e963b59835331f9bee5727cd85ff9893e67a10461",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2573:clear_memory_subject",
+        "ref": "infera-knowledge/src/platform.rs:2609:clear_memory_subject",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2573,
+        "line": 2609,
         "name": "clear_memory_subject"
       },
       "related_implementation": [],
@@ -4992,11 +4992,11 @@
           }
         ]
       },
-      "source_checksum": "c04953d102388af8bf7adfd90babe4d5c37b1bd278296599e840ed484c579f11",
+      "source_checksum": "17cad7022356ff22a88f2b25ab6f7b76fccc82fcbed79bade10a392aca5cc4a5",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2614:forget_memory",
+        "ref": "infera-knowledge/src/platform.rs:2650:forget_memory",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2614,
+        "line": 2650,
         "name": "forget_memory"
       },
       "related_implementation": [],
@@ -5067,11 +5067,11 @@
           }
         ]
       },
-      "source_checksum": "a6e281c9725f6193e23437fda2af0a360bc77ccd1446dc7c91d3e981c5abcb78",
+      "source_checksum": "bd939f4ec577848092d591977578c5dadb48265f3db1bf2607218dd505db956f",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2647:set_memory_override",
+        "ref": "infera-knowledge/src/platform.rs:2683:set_memory_override",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2647,
+        "line": 2683,
         "name": "set_memory_override"
       },
       "related_implementation": [],
@@ -5147,11 +5147,11 @@
           }
         ]
       },
-      "source_checksum": "f8e648ebf7e9b8ad778a959d35de8a06e315e0cbbcf0553f9b49c55b9135e2f7",
+      "source_checksum": "40b73886332d0d1e212e51c55dd67100f2aab04200d887728bd7554182a7cf95",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2718:replay_memory_outbox",
+        "ref": "infera-knowledge/src/platform.rs:2754:replay_memory_outbox",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2718,
+        "line": 2754,
         "name": "replay_memory_outbox"
       },
       "related_implementation": [],
@@ -5217,7 +5217,7 @@
           }
         ]
       },
-      "source_checksum": "2525cef1578a6e16239816d75942df6836ac80b9a11c7656fec2bb9e31bc2df1",
+      "source_checksum": "32335021fb00fed5343b1f8dae841a660cbcb6cfe5d41a180e51005d3e269033",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:473:runtime_query",
         "path": "infera-knowledge/src/routes.rs",
@@ -5318,7 +5318,7 @@
           }
         ]
       },
-      "source_checksum": "c782d0e46b83a4731b08ac577eb3f94ae109d2a1c51a143ac7d22b9e01ccdab4",
+      "source_checksum": "68591ef73d129e19b976a251be700ceb39dc8907420f8b297ed1b4e4b3bdb294",
       "handler": {
         "ref": "infera-knowledge/src/routes.rs:484:tool_schema",
         "path": "infera-knowledge/src/routes.rs",
@@ -5383,7 +5383,7 @@
           }
         ]
       },
-      "source_checksum": "1dbdb5d681df35281cb093151ebd4beca28b2f511bbed888d2c53eced2b1971c",
+      "source_checksum": "7c403d49802ae77b61c1143a5377d59a376808bb81aba6258ddfb0dd00bbe249",
       "handler": {
         "ref": "infera-knowledge/src/contracts.rs:14:get",
         "path": "infera-knowledge/src/contracts.rs",
@@ -5453,11 +5453,11 @@
           }
         ]
       },
-      "source_checksum": "1891102dfe05b0010dae7e6d37c803a4958bba6b62e0772ca026970cd7c7ea7f",
+      "source_checksum": "8dd0af9b80171e899145ffcf5f4bbe6f806d901e72cb67b2bc7401041ea0779c",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:830:configure_assistant",
+        "ref": "infera-knowledge/src/platform.rs:846:configure_assistant",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 830,
+        "line": 846,
         "name": "configure_assistant"
       },
       "related_implementation": [],
@@ -5547,11 +5547,11 @@
           }
         ]
       },
-      "source_checksum": "d63b3f29340272f714f301c858f93999303b90a4d4ceb5606ae02a7f2828890a",
+      "source_checksum": "abaf0b65733cbdaa87eb26004b48d2b98fabfbac3104b565446401c6a4eaf9a2",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:997:query_assistant",
+        "ref": "infera-knowledge/src/platform.rs:1013:query_assistant",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 997,
+        "line": 1013,
         "name": "query_assistant"
       },
       "related_implementation": [],
@@ -5676,11 +5676,11 @@
           }
         ]
       },
-      "source_checksum": "fac5889d0ca0870c1e36847adcfb2695b79a5e49d64c91585c70f316e5528664",
+      "source_checksum": "3ad824c9a019b5c71ca69fb872be2665df8f58e59a20044b7ab6be8ac37a068a",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:1667:preview_assistant",
+        "ref": "infera-knowledge/src/platform.rs:1683:preview_assistant",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 1667,
+        "line": 1683,
         "name": "preview_assistant"
       },
       "related_implementation": [],
@@ -5805,11 +5805,11 @@
           }
         ]
       },
-      "source_checksum": "e117b7ab6471fcd5c2cdbb5dbdad6660900eb73f5afb18954581e22e18a8058b",
+      "source_checksum": "3f70335a72dcc93170ed70ae9a90450a7b2aa574300b09a707a4567769ea8517",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:1677:evaluate_assistant",
+        "ref": "infera-knowledge/src/platform.rs:1693:evaluate_assistant",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 1677,
+        "line": 1693,
         "name": "evaluate_assistant"
       },
       "related_implementation": [
@@ -5946,11 +5946,11 @@
           }
         ]
       },
-      "source_checksum": "eb7fb8df3413afdf76e6f62ceae8de1f41542f8f71696a06affb030860667e30",
+      "source_checksum": "7209b65a403f945ccfca2b39f89a7de5304638386df5e0417edda467e7cf2980",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:2262:record_turn",
+        "ref": "infera-knowledge/src/platform.rs:2298:record_turn",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 2262,
+        "line": 2298,
         "name": "record_turn"
       },
       "related_implementation": [],
@@ -6051,7 +6051,7 @@
           }
         ]
       },
-      "source_checksum": "84b163a55e862226c2fd0eeae76b3f7898002ae75131f7f193d8b81d400e365e",
+      "source_checksum": "2f1ea98fcb1c56a46dd94b4c8b7110b2c4534ff7fee8351ffdaddfcd5fc6fc56",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:457:document_evidence",
         "path": "infera-knowledge/src/platform.rs",
@@ -6120,7 +6120,7 @@
           }
         ]
       },
-      "source_checksum": "6ae5c8b451a6e7bbfa8bdd20d2488852fe778de6285b2ffb9b6beeeb5b5e8c8c",
+      "source_checksum": "be383daae8091130a4b21be983b86eadd55bb126c4d6fdb590204f147444260f",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:467:session_evidence",
         "path": "infera-knowledge/src/platform.rs",
@@ -6190,7 +6190,7 @@
           }
         ]
       },
-      "source_checksum": "1ac4edf519fb71bc999612122478d63a5548ad209cebf18060f62d919a7218a5",
+      "source_checksum": "df95f4f81a378f7809bb02d4fe3a2b22f35e69f8f601ee9f9a7a87e46cb89dcc",
       "handler": {
         "ref": "infera-knowledge/src/platform.rs:424:record_retrieval_usage",
         "path": "infera-knowledge/src/platform.rs",
@@ -6270,11 +6270,11 @@
           }
         ]
       },
-      "source_checksum": "b0b3b8a28dbd6ff2bc55d314597528efe568497b378a025434efda97e7442f0d",
+      "source_checksum": "82242e2abcbe508f5ea579ed75f894796cab7e09317642eed2152c288ca04973",
       "handler": {
-        "ref": "infera-knowledge/src/platform.rs:3439:mcp",
+        "ref": "infera-knowledge/src/platform.rs:3493:mcp",
         "path": "infera-knowledge/src/platform.rs",
-        "line": 3439,
+        "line": 3493,
         "name": "mcp"
       },
       "related_implementation": [],
@@ -6283,9 +6283,9 @@
           "declared_type": "McpRequest",
           "models": [
             {
-              "ref": "infera-knowledge/src/platform.rs:3398:McpRequest",
+              "ref": "infera-knowledge/src/platform.rs:3452:McpRequest",
               "path": "infera-knowledge/src/platform.rs",
-              "line": 3398,
+              "line": 3452,
               "name": "McpRequest"
             }
           ]
@@ -6344,7 +6344,7 @@
           }
         ]
       },
-      "source_checksum": "a9324b687b467f7cd7ba94469ce021ef29c0863ef53144f14824ba99f5085eb5",
+      "source_checksum": "d2ea159eb92c7313958426f54a73d9430be90b2b9befe3de0959934e1e25d8fc",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:61:sync",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6431,7 +6431,7 @@
           }
         ]
       },
-      "source_checksum": "edfa4fd6e0009c6c13db840f4222a33e3e1a2d68bea99d4f737f60d2d0fe58d7",
+      "source_checksum": "e6984cb813cabece663b0bee1f97647074788924179b26093f84af01ae1019e7",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:94:candidates",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6512,7 +6512,7 @@
           }
         ]
       },
-      "source_checksum": "9cf18c466794231e5da442c181ebba80db7f2e20ac7182bf45a2fb09eaa78633",
+      "source_checksum": "5d8fd1bce4f2c0864410ef470ecbab360ffffa1198587255debfc16f54e5b9aa",
       "handler": {
         "ref": "infera-knowledge/src/task_projections.rs:127:passages",
         "path": "infera-knowledge/src/task_projections.rs",
@@ -6595,7 +6595,7 @@
           }
         ]
       },
-      "source_checksum": "659de17e9d73f971d925c5b32e92be5d59e60c9fee119a6e5808cf6cbf49375a",
+      "source_checksum": "49f2564ccc3ce6ec16636d78662b9ba01c3343f946026330f2cab67c366d08f4",
       "handler": {
         "ref": "infera-knowledge/src/task_conversion.rs:24:convert",
         "path": "infera-knowledge/src/task_conversion.rs",
@@ -9185,7 +9185,7 @@
     },
     {
       "path": "Service/infera-knowledge/src/platform.rs",
-      "checksum": "0091f39c5b0638079f260a75af8da9be9dc2bd7218719e8847b97f2fae5c4783"
+      "checksum": "5a11a24cab16f86ef122e5b9c994f4eb91c1c83b8979fc1e1fb216bb5772d961"
     },
     {
       "path": "Service/infera-knowledge/src/retrieval.rs",
@@ -13688,11 +13688,11 @@
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:771:audit_events": {
+    "infera-knowledge/src/platform.rs:787:audit_events": {
       "name": "audit_events",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 771,
-      "end_line": 778,
+      "line": 787,
+      "end_line": 794,
       "signature": "async fn audit_events(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -13700,12 +13700,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 775,
+          "line": 791,
           "expression": "ctx.require(\"knowledge:read\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 776,
+          "line": 792,
           "expression": "let rows = json_rows(&s, &format!(\"SELECT to_jsonb(a) AS value FROM knowledge_audit_events a WHERE organization_id='{}' ORDER BY created_at DESC LIMIT 500\", ctx.organization_id)).await?;"
         }
       ],
@@ -13714,11 +13714,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:780:list_evaluation_cases": {
+    "infera-knowledge/src/platform.rs:796:list_evaluation_cases": {
       "name": "list_evaluation_cases",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 780,
-      "end_line": 787,
+      "line": 796,
+      "end_line": 803,
       "signature": "async fn list_evaluation_cases(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -13726,12 +13726,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 784,
+          "line": 800,
           "expression": "ctx.require(\"knowledge:read\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 785,
+          "line": 801,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT to_jsonb(c) AS value FROM knowledge_evaluation_cases c WHERE organization_id='{}' AND status='active' ORDER BY updated_at DESC LIMIT 500\",ctx.organization_id)).await?;"
         }
       ],
@@ -13739,24 +13739,24 @@
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 785,
+          "line": 801,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT to_jsonb(c) AS value FROM knowledge_evaluation_cases c WHERE organization_id='{}' AND status='active' ORDER BY updated_at DESC LIMIT 500\",ctx.organization_id)).await?;"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 785,
+          "line": 801,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT to_jsonb(c) AS value FROM knowledge_evaluation_cases c WHERE organization_id='{}' AND status='active' ORDER BY updated_at DESC LIMIT 500\",ctx.organization_id)).await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:789:save_evaluation_case": {
+    "infera-knowledge/src/platform.rs:805:save_evaluation_case": {
       "name": "save_evaluation_case",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 789,
-      "end_line": 828,
+      "line": 805,
+      "end_line": 844,
       "signature": "async fn save_evaluation_case(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Json(body): Json<SaveEvaluationCase>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -13764,58 +13764,58 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 794,
+          "line": 810,
           "expression": "ctx.require(\"knowledge:write\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 797,
+          "line": 813,
           "expression": "\"evaluation stable key and query are required\".into(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 816,
+          "line": 832,
           "expression": "let row=json_one(&s,&format!(\"INSERT INTO knowledge_evaluation_cases(id,organization_id,knowledge_base_id,assistant_id,stable_key,language,query,sanitized_context,relevant_targets,expected_top1,selected_media_ids,thresholds) VALUES ('{id}','{}',{},{},'{}',{},'{}','{}'::jsonb,'{}'::jsonb,{},ARRAY[{}]::uuid[],'{}'::jsonb) ON CONFLICT(organization_id,stable_key) DO UPDATE SET knowledge_base_id=EXCLUDED.knowledge_base_id,assistant_id=EXCLUDED.assistant_id,language=EXCLUDED.language,query=EXCLUDED.query,sanitized_context=EXCLUDED.sanitized_context,relevant_targets=EXCLUDED.relevant_targets,expected_top1=EXCLUDED.expected_top1,selected_media_ids=EXCLUDED.selected_media_ids,thresholds=EXCLUDED.thre"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 795,
+          "line": 811,
           "expression": "if body.stable_key.trim().is_empty() || body.query.trim().is_empty() {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 796,
+          "line": 812,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 809,
+          "line": 825,
           "expression": ".any(|field| serialized.contains(field))"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 811,
+          "line": 827,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 816,
+          "line": 832,
           "expression": "let row=json_one(&s,&format!(\"INSERT INTO knowledge_evaluation_cases(id,organization_id,knowledge_base_id,assistant_id,stable_key,language,query,sanitized_context,relevant_targets,expected_top1,selected_media_ids,thresholds) VALUES ('{id}','{}',{},{},'{}',{},'{}','{}'::jsonb,'{}'::jsonb,{},ARRAY[{}]::uuid[],'{}'::jsonb) ON CONFLICT(organization_id,stable_key) DO UPDATE SET knowledge_base_id=EXCLUDED.knowledge_base_id,assistant_id=EXCLUDED.assistant_id,language=EXCLUDED.language,query=EXCLUDED.query,sanitized_context=EXCLUDED.sanitized_context,relevant_targets=EXCLUDED.relevant_targets,expected_top1=EXCLUDED.expected_top1,selected_media_ids=EXCLUDED.selected_media_ids,thresholds=EXCLUDED.thre"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 827,
+          "line": 843,
           "expression": "Ok((StatusCode::CREATED, Json(ApiResponse::ok(row))))"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 816,
+          "line": 832,
           "expression": "let row=json_one(&s,&format!(\"INSERT INTO knowledge_evaluation_cases(id,organization_id,knowledge_base_id,assistant_id,stable_key,language,query,sanitized_context,relevant_targets,expected_top1,selected_media_ids,thresholds) VALUES ('{id}','{}',{},{},'{}',{},'{}','{}'::jsonb,'{}'::jsonb,{},ARRAY[{}]::uuid[],'{}'::jsonb) ON CONFLICT(organization_id,stable_key) DO UPDATE SET knowledge_base_id=EXCLUDED.knowledge_base_id,assistant_id=EXCLUDED.assistant_id,language=EXCLUDED.language,query=EXCLUDED.query,sanitized_context=EXCLUDED.sanitized_context,relevant_targets=EXCLUDED.relevant_targets,expected_top1=EXCLUDED.expected_top1,selected_media_ids=EXCLUDED.selected_media_ids,thresholds=EXCLUDED.thre"
         }
       ],
@@ -13928,11 +13928,11 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:2775:list_sources": {
+    "infera-knowledge/src/platform.rs:2811:list_sources": {
       "name": "list_sources",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2775,
-      "end_line": 2782,
+      "line": 2811,
+      "end_line": 2818,
       "signature": "async fn list_sources(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -13940,12 +13940,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2779,
+          "line": 2815,
           "expression": "ctx.require(\"knowledge:read\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2780,
+          "line": 2816,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT to_jsonb(x) AS value FROM knowledge_sources x WHERE organization_id='{}' ORDER BY updated_at DESC\",ctx.organization_id)).await?;"
         }
       ],
@@ -13954,17 +13954,17 @@
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2780,
+          "line": 2816,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT to_jsonb(x) AS value FROM knowledge_sources x WHERE organization_id='{}' ORDER BY updated_at DESC\",ctx.organization_id)).await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:2783:create_source": {
+    "infera-knowledge/src/platform.rs:2819:create_source": {
       "name": "create_source",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2783,
-      "end_line": 2793,
+      "line": 2819,
+      "end_line": 2829,
       "signature": "async fn create_source(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Json(body): Json<CreateSource>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -13972,33 +13972,33 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2788,
+          "line": 2824,
           "expression": "ctx.require(\"knowledge:write\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2791,
+          "line": 2827,
           "expression": "let value=json_one(&s,&format!(\"INSERT INTO knowledge_sources(id,organization_id,knowledge_base_id,slug,name,source_type,configuration,provenance_policy) SELECT '{id}','{}','{}','{}','{}'::jsonb,'{}','{}'::jsonb,'{}'::jsonb WHERE EXISTS(SELECT 1 FROM knowledge_bases WHERE id='{}' AND organization_id='{}') RETURNING to_jsonb(knowledge_sources) AS value\",ctx.organization_id,body.knowledge_base_id,sql_text(&body.slug),sql_json(&body.name),sql_text(&body.source_type),sql_json(&body.configuration),sql_json(&body.provenance_policy),body.knowledge_base_id,ctx.organization_id)).await?.ok_or_else(||AppError::NotFound(\"knowledge base not found\".into()))?;"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2789,
+          "line": 2825,
           "expression": "validate_source_configuration(&body.source_type, &body.configuration)?;"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2792,
+          "line": 2828,
           "expression": "Ok((StatusCode::CREATED, Json(ApiResponse::ok(value))))"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2791,
+          "line": 2827,
           "expression": "let value=json_one(&s,&format!(\"INSERT INTO knowledge_sources(id,organization_id,knowledge_base_id,slug,name,source_type,configuration,provenance_policy) SELECT '{id}','{}','{}','{}','{}'::jsonb,'{}','{}'::jsonb,'{}'::jsonb WHERE EXISTS(SELECT 1 FROM knowledge_bases WHERE id='{}' AND organization_id='{}') RETURNING to_jsonb(knowledge_sources) AS value\",ctx.organization_id,body.knowledge_base_id,sql_text(&body.slug),sql_json(&body.name),sql_text(&body.source_type),sql_json(&body.configuration),sql_json(&body.provenance_policy),body.knowledge_base_id,ctx.organization_id)).await?.ok_or_else(||AppError::NotFound(\"knowledge base not found\".into()))?;"
         }
       ],
@@ -14173,11 +14173,11 @@
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:2862:list_documents": {
+    "infera-knowledge/src/platform.rs:2898:list_documents": {
       "name": "list_documents",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2862,
-      "end_line": 2869,
+      "line": 2898,
+      "end_line": 2905,
       "signature": "async fn list_documents(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -14185,12 +14185,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2866,
+          "line": 2902,
           "expression": "ctx.require(\"knowledge:read\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2867,
+          "line": 2903,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT jsonb_build_object('id',d.id,'knowledge_base_id',d.knowledge_base_id,'source_id',d.source_id,'external_id',d.external_id,'title',d.title,'media_type',d.media_type,'language',d.language,'provenance',d.provenance,'status',d.status,'indexed_at',d.indexed_at,'version',d.version,'created_at',d.created_at) AS value FROM knowledge_documents d WHERE organization_id='{}' ORDER BY updated_at DESC LIMIT 500\",ctx.organization_id)).await?;"
         }
       ],
@@ -14198,24 +14198,24 @@
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2867,
+          "line": 2903,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT jsonb_build_object('id',d.id,'knowledge_base_id',d.knowledge_base_id,'source_id',d.source_id,'external_id',d.external_id,'title',d.title,'media_type',d.media_type,'language',d.language,'provenance',d.provenance,'status',d.status,'indexed_at',d.indexed_at,'version',d.version,'created_at',d.created_at) AS value FROM knowledge_documents d WHERE organization_id='{}' ORDER BY updated_at DESC LIMIT 500\",ctx.organization_id)).await?;"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2867,
+          "line": 2903,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT jsonb_build_object('id',d.id,'knowledge_base_id',d.knowledge_base_id,'source_id',d.source_id,'external_id',d.external_id,'title',d.title,'media_type',d.media_type,'language',d.language,'provenance',d.provenance,'status',d.status,'indexed_at',d.indexed_at,'version',d.version,'created_at',d.created_at) AS value FROM knowledge_documents d WHERE organization_id='{}' ORDER BY updated_at DESC LIMIT 500\",ctx.organization_id)).await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:2870:ingest_document": {
+    "infera-knowledge/src/platform.rs:2906:ingest_document": {
       "name": "ingest_document",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2870,
-      "end_line": 2959,
+      "line": 2906,
+      "end_line": 3013,
       "signature": "async fn ingest_document(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Json(body): Json<IngestDocument>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -14223,218 +14223,273 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2875,
+          "line": 2911,
           "expression": "ctx.require(\"knowledge:write\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2883,
+          "line": 2919,
           "expression": "\"document title and content are required\".into(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2886,
-          "expression": "let scope = json_one(&s,&format!(\"SELECT jsonb_build_object('base',b.id,'source',src.id) AS value FROM knowledge_bases b LEFT JOIN knowledge_sources src ON src.id={} AND src.organization_id=b.organization_id AND src.knowledge_base_id=b.id WHERE b.id='{}' AND b.organization_id='{}' AND b.deleted_at IS NULL\",body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),body.knowledge_base_id,ctx.organization_id)).await?.ok_or_else(||AppError::NotFound(\"knowledge base or source not found\".into()))?;"
+          "line": 2929,
+          "expression": "\"SELECT id FROM knowledge_bases WHERE id=$1 AND organization_id=$2 AND deleted_at IS NULL FOR UPDATE\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2887,
-          "expression": "if body.source_id.is_some() && scope.get(\"source\").is_none_or(Value::is_null) {"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 2895,
-          "expression": "json_one(&s,&format!(\"SELECT jsonb_build_object('id',id,'checksum',checksum) AS value FROM knowledge_documents WHERE organization_id='{}' AND knowledge_base_id='{}' AND external_id='{}' AND deleted_at IS NULL ORDER BY updated_at DESC LIMIT 1\",ctx.organization_id,body.knowledge_base_id,sql_text(external_id))).await?"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 2921,
-          "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,attempts,max_attempts,input_checksum,chunker_version,item_total,item_completed,started_at,input_payload) VALUES ('{job_id}','{}','{}',{},'{id}','document_ingest','processing','chunking',35,1,8,'{checksum}','chars-v1',{},0,now(),'{{}}'::jsonb)\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),chunks.len())).await?;"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 2923,
-          "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_documents SET source_id={},title='{}',content='{}',media_type='{}',language={},provenance='{}'::jsonb,metadata='{}'::jsonb,checksum='{checksum}',status='processing',indexed_at=NULL,version=version+1,updated_at=now(),deleted_at=NULL WHERE id='{id}' AND organization_id='{}'; DELETE FROM knowledge_chunks WHERE document_id='{id}'\",body.source_id.map(|x|format!(\"'{x}'\")).unwrap_or_else(||\"NULL\".into()),sql_text(&body.title),sql_text(&body.content),sql_text(&body.media_type),body.language.as_ref().map(|x|format!(\"'{}'\",sql_text(x))).unwrap_or_else(||\"NULL\".into()),sql_json(&body.provenance),sql_json(&body.metadata),ctx.organization_id)).await?;"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 2925,
-          "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_documents(id,organization_id,knowledge_base_id,source_id,external_id,title,content,media_type,language,provenance,metadata,checksum,status) VALUES ('{id}','{}','{}',{},{},'{}','{}','{}',{},'{}'::jsonb,'{}'::jsonb,'{checksum}','processing')\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|x|format!(\"'{x}'\")).unwrap_or_else(||\"NULL\".into()),opt_sql(&body.external_id),sql_text(&body.title),sql_text(&body.content),sql_text(&body.media_type),body.language.as_ref().map(|x|format!(\"'{}'\",sql_text(x))).unwrap_or_else(||\"NULL\".into()),sql_json(&body.provenance),sql_json(&body.metadata))).await?;"
+          "line": 2930,
+          "expression": "[body.knowledge_base_id.into(),ctx.organization_id.into()])).await?"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
           "line": 2934,
+          "expression": "\"SELECT id FROM knowledge_sources WHERE id=$1 AND organization_id=$2 AND knowledge_base_id=$3 FOR SHARE\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2935,
+          "expression": "[source_id.into(),ctx.organization_id.into(),body.knowledge_base_id.into()])).await?"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2942,
+          "expression": "\"SELECT jsonb_build_object('id',id,'checksum',checksum,'source_id',source_id,'title',title,'media_type',media_type,'language',language,'provenance',provenance,'metadata',metadata) AS value FROM knowledge_documents WHERE organization_id=$1 AND knowledge_base_id=$2 AND external_id=$3 AND deleted_at IS NULL ORDER BY updated_at DESC LIMIT 1\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2943,
+          "expression": "[ctx.organization_id.into(),body.knowledge_base_id.into(),external_id.clone().into()])).await?"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2975,
+          "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_documents SET source_id={},title='{}',content='{}',media_type='{}',language={},provenance='{}'::jsonb,metadata='{}'::jsonb,checksum='{checksum}',status='processing',indexed_at=NULL,version=version+1,updated_at=now(),deleted_at=NULL WHERE id='{id}' AND organization_id='{}'; DELETE FROM knowledge_chunks WHERE document_id='{id}'\",body.source_id.map(|x|format!(\"'{x}'\")).unwrap_or_else(||\"NULL\".into()),sql_text(&body.title),sql_text(&body.content),sql_text(&body.media_type),body.language.as_ref().map(|x|format!(\"'{}'\",sql_text(x))).unwrap_or_else(||\"NULL\".into()),sql_json(&body.provenance),sql_json(&body.metadata),ctx.organization_id)).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2977,
+          "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_documents(id,organization_id,knowledge_base_id,source_id,external_id,title,content,media_type,language,provenance,metadata,checksum,status) VALUES ('{id}','{}','{}',{},{},'{}','{}','{}',{},'{}'::jsonb,'{}'::jsonb,'{checksum}','processing')\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|x|format!(\"'{x}'\")).unwrap_or_else(||\"NULL\".into()),opt_sql(&body.external_id),sql_text(&body.title),sql_text(&body.content),sql_text(&body.media_type),body.language.as_ref().map(|x|format!(\"'{}'\",sql_text(x))).unwrap_or_else(||\"NULL\".into()),sql_json(&body.provenance),sql_json(&body.metadata))).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2980,
+          "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,attempts,max_attempts,input_checksum,chunker_version,item_total,item_completed,started_at,input_payload) VALUES ('{job_id}','{}','{}',{},'{id}','document_ingest','processing','chunking',35,1,8,'{checksum}','chars-v1',{},0,now(),'{{}}'::jsonb)\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),chunks.len())).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2988,
           "expression": "ctx.organization_id,"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2946,
+          "line": 3000,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_chunks(id,organization_id,knowledge_base_id,document_id,ordinal,content,token_count,provenance,metadata,language,embedding_status) VALUES {chunk_values}\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2950,
+          "line": 3004,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_sources SET document_count=(SELECT count(*) FROM knowledge_documents WHERE source_id='{source}' AND deleted_at IS NULL),chunk_count=(SELECT count(*) FROM knowledge_chunks c JOIN knowledge_documents d ON d.id=c.document_id WHERE d.source_id='{source}' AND d.deleted_at IS NULL),sync_status='ready',last_synced_at=now(),last_success_at=now(),last_error=NULL,updated_at=now() WHERE id='{source}' AND organization_id='{}'\",ctx.organization_id)).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2876,
+          "line": 2912,
           "expression": "if body.content.len() > 10 * 1024 * 1024 {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2877,
+          "line": 2913,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2881,
+          "line": 2917,
           "expression": "if body.title.trim().is_empty() || body.content.trim().is_empty() {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2882,
+          "line": 2918,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2888,
-          "expression": "return Err(AppError::BadRequest("
+          "line": 2936,
+          "expression": ".ok_or_else(||AppError::BadRequest(\"source does not belong to the target knowledge base\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2910,
+          "line": 2964,
           "expression": "\"chunks\": chunks.len(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2921,
+          "line": 2980,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,attempts,max_attempts,input_checksum,chunker_version,item_total,item_completed,started_at,input_payload) VALUES ('{job_id}','{}','{}',{},'{id}','document_ingest','processing','chunking',35,1,8,'{checksum}','chars-v1',{},0,now(),'{{}}'::jsonb)\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),chunks.len())).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2945,
+          "line": 2999,
           "expression": "if !chunk_values.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2948,
+          "line": 3002,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_documents SET status='indexed',indexed_at=now(),updated_at=now() WHERE id='{id}'; UPDATE knowledge_processing_jobs SET status='completed',stage='indexed',progress=100,item_completed={},finished_at=now(),updated_at=now() WHERE id='{job_id}'\",chunks.len())).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2956,
+          "line": 3010,
           "expression": "json!({\"id\":id,\"job_id\":job_id,\"checksum\":checksum,\"chunks\":chunks.len(),\"status\":\"indexed\"}),"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2886,
-          "expression": "let scope = json_one(&s,&format!(\"SELECT jsonb_build_object('base',b.id,'source',src.id) AS value FROM knowledge_bases b LEFT JOIN knowledge_sources src ON src.id={} AND src.organization_id=b.organization_id AND src.knowledge_base_id=b.id WHERE b.id='{}' AND b.organization_id='{}' AND b.deleted_at IS NULL\",body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),body.knowledge_base_id,ctx.organization_id)).await?.ok_or_else(||AppError::NotFound(\"knowledge base or source not found\".into()))?;"
+          "line": 2926,
+          "expression": "tx.execute_unprepared(\"SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='15s'\")"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2895,
-          "expression": "json_one(&s,&format!(\"SELECT jsonb_build_object('id',id,'checksum',checksum) AS value FROM knowledge_documents WHERE organization_id='{}' AND knowledge_base_id='{}' AND external_id='{}' AND deleted_at IS NULL ORDER BY updated_at DESC LIMIT 1\",ctx.organization_id,body.knowledge_base_id,sql_text(external_id))).await?"
+          "line": 2928,
+          "expression": "tx.query_one(Statement::from_sql_and_values(DatabaseBackend::Postgres,"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2906,
+          "line": 2929,
+          "expression": "\"SELECT id FROM knowledge_bases WHERE id=$1 AND organization_id=$2 AND deleted_at IS NULL FOR UPDATE\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2933,
+          "expression": "tx.query_one(Statement::from_sql_and_values(DatabaseBackend::Postgres,"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2941,
+          "expression": "tx.query_one(Statement::from_sql_and_values(DatabaseBackend::Postgres,"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2942,
+          "expression": "\"SELECT jsonb_build_object('id',id,'checksum',checksum,'source_id',source_id,'title',title,'media_type',media_type,'language',language,'provenance',provenance,'metadata',metadata) AS value FROM knowledge_documents WHERE organization_id=$1 AND knowledge_base_id=$2 AND external_id=$3 AND deleted_at IS NULL ORDER BY updated_at DESC LIMIT 1\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2960,
           "expression": "StatusCode::OK,"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2911,
+          "line": 2965,
           "expression": "\"status\": \"unchanged\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2921,
-          "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,attempts,max_attempts,input_checksum,chunker_version,item_total,item_completed,started_at,input_payload) VALUES ('{job_id}','{}','{}',{},'{id}','document_ingest','processing','chunking',35,1,8,'{checksum}','chars-v1',{},0,now(),'{{}}'::jsonb)\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),chunks.len())).await?;"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 2923,
+          "line": 2975,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_documents SET source_id={},title='{}',content='{}',media_type='{}',language={},provenance='{}'::jsonb,metadata='{}'::jsonb,checksum='{checksum}',status='processing',indexed_at=NULL,version=version+1,updated_at=now(),deleted_at=NULL WHERE id='{id}' AND organization_id='{}'; DELETE FROM knowledge_chunks WHERE document_id='{id}'\",body.source_id.map(|x|format!(\"'{x}'\")).unwrap_or_else(||\"NULL\".into()),sql_text(&body.title),sql_text(&body.content),sql_text(&body.media_type),body.language.as_ref().map(|x|format!(\"'{}'\",sql_text(x))).unwrap_or_else(||\"NULL\".into()),sql_json(&body.provenance),sql_json(&body.metadata),ctx.organization_id)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2925,
+          "line": 2977,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_documents(id,organization_id,knowledge_base_id,source_id,external_id,title,content,media_type,language,provenance,metadata,checksum,status) VALUES ('{id}','{}','{}',{},{},'{}','{}','{}',{},'{}'::jsonb,'{}'::jsonb,'{checksum}','processing')\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|x|format!(\"'{x}'\")).unwrap_or_else(||\"NULL\".into()),opt_sql(&body.external_id),sql_text(&body.title),sql_text(&body.content),sql_text(&body.media_type),body.language.as_ref().map(|x|format!(\"'{}'\",sql_text(x))).unwrap_or_else(||\"NULL\".into()),sql_json(&body.provenance),sql_json(&body.metadata))).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2946,
+          "line": 2980,
+          "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,attempts,max_attempts,input_checksum,chunker_version,item_total,item_completed,started_at,input_payload) VALUES ('{job_id}','{}','{}',{},'{id}','document_ingest','processing','chunking',35,1,8,'{checksum}','chars-v1',{},0,now(),'{{}}'::jsonb)\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),chunks.len())).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 3000,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_chunks(id,organization_id,knowledge_base_id,document_id,ordinal,content,token_count,provenance,metadata,language,embedding_status) VALUES {chunk_values}\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2948,
+          "line": 3002,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_documents SET status='indexed',indexed_at=now(),updated_at=now() WHERE id='{id}'; UPDATE knowledge_processing_jobs SET status='completed',stage='indexed',progress=100,item_completed={},finished_at=now(),updated_at=now() WHERE id='{job_id}'\",chunks.len())).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2950,
+          "line": 3004,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_sources SET document_count=(SELECT count(*) FROM knowledge_documents WHERE source_id='{source}' AND deleted_at IS NULL),chunk_count=(SELECT count(*) FROM knowledge_chunks c JOIN knowledge_documents d ON d.id=c.document_id WHERE d.source_id='{source}' AND d.deleted_at IS NULL),sync_status='ready',last_synced_at=now(),last_success_at=now(),last_error=NULL,updated_at=now() WHERE id='{source}' AND organization_id='{}'\",ctx.organization_id)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2954,
+          "line": 3008,
           "expression": "StatusCode::CREATED,"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2956,
+          "line": 3010,
           "expression": "json!({\"id\":id,\"job_id\":job_id,\"checksum\":checksum,\"chunks\":chunks.len(),\"status\":\"indexed\"}),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2886,
-          "expression": "let scope = json_one(&s,&format!(\"SELECT jsonb_build_object('base',b.id,'source',src.id) AS value FROM knowledge_bases b LEFT JOIN knowledge_sources src ON src.id={} AND src.organization_id=b.organization_id AND src.knowledge_base_id=b.id WHERE b.id='{}' AND b.organization_id='{}' AND b.deleted_at IS NULL\",body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),body.knowledge_base_id,ctx.organization_id)).await?.ok_or_else(||AppError::NotFound(\"knowledge base or source not found\".into()))?;"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 2895,
-          "expression": "json_one(&s,&format!(\"SELECT jsonb_build_object('id',id,'checksum',checksum) AS value FROM knowledge_documents WHERE organization_id='{}' AND knowledge_base_id='{}' AND external_id='{}' AND deleted_at IS NULL ORDER BY updated_at DESC LIMIT 1\",ctx.organization_id,body.knowledge_base_id,sql_text(external_id))).await?"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 2921,
-          "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,attempts,max_attempts,input_checksum,chunker_version,item_total,item_completed,started_at,input_payload) VALUES ('{job_id}','{}','{}',{},'{id}','document_ingest','processing','chunking',35,1,8,'{checksum}','chars-v1',{},0,now(),'{{}}'::jsonb)\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),chunks.len())).await?;"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
           "line": 2923,
+          "expression": "// inside the transaction. Concurrent external-ID retries must observe the"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2924,
+          "expression": "// first committed document instead of racing the unique index."
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2929,
+          "expression": "\"SELECT id FROM knowledge_bases WHERE id=$1 AND organization_id=$2 AND deleted_at IS NULL FOR UPDATE\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2942,
+          "expression": "\"SELECT jsonb_build_object('id',id,'checksum',checksum,'source_id',source_id,'title',title,'media_type',media_type,'language',language,'provenance',provenance,'metadata',metadata) AS value FROM knowledge_documents WHERE organization_id=$1 AND knowledge_base_id=$2 AND external_id=$3 AND deleted_at IS NULL ORDER BY updated_at DESC LIMIT 1\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2958,
+          "expression": "tx.commit().await?;"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2975,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_documents SET source_id={},title='{}',content='{}',media_type='{}',language={},provenance='{}'::jsonb,metadata='{}'::jsonb,checksum='{checksum}',status='processing',indexed_at=NULL,version=version+1,updated_at=now(),deleted_at=NULL WHERE id='{id}' AND organization_id='{}'; DELETE FROM knowledge_chunks WHERE document_id='{id}'\",body.source_id.map(|x|format!(\"'{x}'\")).unwrap_or_else(||\"NULL\".into()),sql_text(&body.title),sql_text(&body.content),sql_text(&body.media_type),body.language.as_ref().map(|x|format!(\"'{}'\",sql_text(x))).unwrap_or_else(||\"NULL\".into()),sql_json(&body.provenance),sql_json(&body.metadata),ctx.organization_id)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2925,
+          "line": 2977,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_documents(id,organization_id,knowledge_base_id,source_id,external_id,title,content,media_type,language,provenance,metadata,checksum,status) VALUES ('{id}','{}','{}',{},{},'{}','{}','{}',{},'{}'::jsonb,'{}'::jsonb,'{checksum}','processing')\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|x|format!(\"'{x}'\")).unwrap_or_else(||\"NULL\".into()),opt_sql(&body.external_id),sql_text(&body.title),sql_text(&body.content),sql_text(&body.media_type),body.language.as_ref().map(|x|format!(\"'{}'\",sql_text(x))).unwrap_or_else(||\"NULL\".into()),sql_json(&body.provenance),sql_json(&body.metadata))).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2946,
+          "line": 2979,
+          "expression": "// The document must exist before its processing-job foreign key is inserted."
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2980,
+          "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,attempts,max_attempts,input_checksum,chunker_version,item_total,item_completed,started_at,input_payload) VALUES ('{job_id}','{}','{}',{},'{id}','document_ingest','processing','chunking',35,1,8,'{checksum}','chars-v1',{},0,now(),'{{}}'::jsonb)\",ctx.organization_id,body.knowledge_base_id,body.source_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()),chunks.len())).await?;"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 3000,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_chunks(id,organization_id,knowledge_base_id,document_id,ordinal,content,token_count,provenance,metadata,language,embedding_status) VALUES {chunk_values}\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2948,
+          "line": 3002,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_documents SET status='indexed',indexed_at=now(),updated_at=now() WHERE id='{id}'; UPDATE knowledge_processing_jobs SET status='completed',stage='indexed',progress=100,item_completed={},finished_at=now(),updated_at=now() WHERE id='{job_id}'\",chunks.len())).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2950,
+          "line": 3004,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_sources SET document_count=(SELECT count(*) FROM knowledge_documents WHERE source_id='{source}' AND deleted_at IS NULL),chunk_count=(SELECT count(*) FROM knowledge_chunks c JOIN knowledge_documents d ON d.id=c.document_id WHERE d.source_id='{source}' AND d.deleted_at IS NULL),sync_status='ready',last_synced_at=now(),last_success_at=now(),last_error=NULL,updated_at=now() WHERE id='{source}' AND organization_id='{}'\",ctx.organization_id)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2952,
+          "line": 3006,
           "expression": "tx.commit().await?;"
         }
       ],
@@ -14540,7 +14595,7 @@
       "name": "reprocess_document",
       "path": "infera-knowledge/src/platform.rs",
       "line": 723,
-      "end_line": 746,
+      "end_line": 762,
       "signature": "async fn reprocess_document(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -14553,49 +14608,109 @@
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 729,
-          "expression": "let document=json_one(&s,&format!(\"SELECT to_jsonb(d) AS value FROM knowledge_documents d WHERE id='{id}' AND organization_id='{}' AND deleted_at IS NULL\",ctx.organization_id)).await?.ok_or_else(||AppError::NotFound(\"document not found\".into()))?;"
+          "line": 733,
+          "expression": "\"SELECT b.id FROM knowledge_bases b WHERE b.organization_id=$1 AND b.deleted_at IS NULL AND b.id=(SELECT d.knowledge_base_id FROM knowledge_documents d WHERE d.id=$2 AND d.organization_id=$1 AND d.deleted_at IS NULL) FOR UPDATE\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 731,
-          "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,source_id,document_id,job_type,status,stage,progress,input_payload,input_checksum) VALUES ('{job_id}','{}',{},'{id}','document_reprocess','queued','queued',0,'{}'::jsonb,'reprocess:{id}') ON CONFLICT(organization_id,input_checksum) WHERE status IN ('queued','processing') DO NOTHING\",ctx.organization_id,document.get(\"source_id\").and_then(Value::as_str).map(|value|format!(\"'{value}'\")).unwrap_or_else(||\"NULL\".into()),sql_json(&json!({\"document_id\":id})))).await?;"
+          "line": 734,
+          "expression": "[ctx.organization_id.into(),id.into()])).await?"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 737,
+          "expression": "\"SELECT to_jsonb(d) AS value FROM knowledge_documents d WHERE id=$1 AND organization_id=$2 AND deleted_at IS NULL FOR UPDATE\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 738,
+          "expression": "[id.into(),ctx.organization_id.into()])).await?"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 744,
+          "expression": "\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,input_payload,input_checksum) VALUES ($1,$2,$3,$4,$5,'document_reprocess','queued','queued',0,$6,$7) ON CONFLICT(organization_id,input_checksum) WHERE status IN ('queued','processing') DO UPDATE SET input_checksum=EXCLUDED.input_checksum RETURNING id\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 745,
+          "expression": "[proposed.into(),ctx.organization_id.into(),value_uuid(document.get(\"knowledge_base_id\")).into(),value_uuid(document.get(\"source_id\")).into(),id.into(),json!({\"document_id\":id}).into(),format!(\"reprocess:{id}\").into()])).await?"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 731,
-          "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,source_id,document_id,job_type,status,stage,progress,input_payload,input_checksum) VALUES ('{job_id}','{}',{},'{id}','document_reprocess','queued','queued',0,'{}'::jsonb,'reprocess:{id}') ON CONFLICT(organization_id,input_checksum) WHERE status IN ('queued','processing') DO NOTHING\",ctx.organization_id,document.get(\"source_id\").and_then(Value::as_str).map(|value|format!(\"'{value}'\")).unwrap_or_else(||\"NULL\".into()),sql_json(&json!({\"document_id\":id})))).await?;"
+          "line": 741,
+          "expression": "// generated UUID discarded by ON CONFLICT DO NOTHING."
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 744,
+          "expression": "\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,input_payload,input_checksum) VALUES ($1,$2,$3,$4,$5,'document_reprocess','queued','queued',0,$6,$7) ON CONFLICT(organization_id,input_checksum) WHERE status IN ('queued','processing') DO UPDATE SET input_checksum=EXCLUDED.input_checksum RETURNING id\","
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 729,
-          "expression": "let document=json_one(&s,&format!(\"SELECT to_jsonb(d) AS value FROM knowledge_documents d WHERE id='{id}' AND organization_id='{}' AND deleted_at IS NULL\",ctx.organization_id)).await?.ok_or_else(||AppError::NotFound(\"document not found\".into()))?;"
+          "line": 730,
+          "expression": "tx.execute_unprepared(\"SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='15s'\")"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 731,
-          "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,source_id,document_id,job_type,status,stage,progress,input_payload,input_checksum) VALUES ('{job_id}','{}',{},'{id}','document_reprocess','queued','queued',0,'{}'::jsonb,'reprocess:{id}') ON CONFLICT(organization_id,input_checksum) WHERE status IN ('queued','processing') DO NOTHING\",ctx.organization_id,document.get(\"source_id\").and_then(Value::as_str).map(|value|format!(\"'{value}'\")).unwrap_or_else(||\"NULL\".into()),sql_json(&json!({\"document_id\":id})))).await?;"
+          "line": 732,
+          "expression": "tx.query_one(Statement::from_sql_and_values(DatabaseBackend::Postgres,"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 733,
+          "expression": "\"SELECT b.id FROM knowledge_bases b WHERE b.organization_id=$1 AND b.deleted_at IS NULL AND b.id=(SELECT d.knowledge_base_id FROM knowledge_documents d WHERE d.id=$2 AND d.organization_id=$1 AND d.deleted_at IS NULL) FOR UPDATE\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 736,
+          "expression": "let document:Value=tx.query_one(Statement::from_sql_and_values(DatabaseBackend::Postgres,"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 737,
+          "expression": "\"SELECT to_jsonb(d) AS value FROM knowledge_documents d WHERE id=$1 AND organization_id=$2 AND deleted_at IS NULL FOR UPDATE\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
           "line": 743,
+          "expression": "let job_id:Uuid=tx.query_one(Statement::from_sql_and_values(DatabaseBackend::Postgres,"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 744,
+          "expression": "\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,input_payload,input_checksum) VALUES ($1,$2,$3,$4,$5,'document_reprocess','queued','queued',0,$6,$7) ON CONFLICT(organization_id,input_checksum) WHERE status IN ('queued','processing') DO UPDATE SET input_checksum=EXCLUDED.input_checksum RETURNING id\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 759,
           "expression": "StatusCode::ACCEPTED,"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 729,
-          "expression": "let document=json_one(&s,&format!(\"SELECT to_jsonb(d) AS value FROM knowledge_documents d WHERE id='{id}' AND organization_id='{}' AND deleted_at IS NULL\",ctx.organization_id)).await?.ok_or_else(||AppError::NotFound(\"document not found\".into()))?;"
+          "line": 733,
+          "expression": "\"SELECT b.id FROM knowledge_bases b WHERE b.organization_id=$1 AND b.deleted_at IS NULL AND b.id=(SELECT d.knowledge_base_id FROM knowledge_documents d WHERE d.id=$2 AND d.organization_id=$1 AND d.deleted_at IS NULL) FOR UPDATE\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 731,
-          "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_processing_jobs(id,organization_id,source_id,document_id,job_type,status,stage,progress,input_payload,input_checksum) VALUES ('{job_id}','{}',{},'{id}','document_reprocess','queued','queued',0,'{}'::jsonb,'reprocess:{id}') ON CONFLICT(organization_id,input_checksum) WHERE status IN ('queued','processing') DO NOTHING\",ctx.organization_id,document.get(\"source_id\").and_then(Value::as_str).map(|value|format!(\"'{value}'\")).unwrap_or_else(||\"NULL\".into()),sql_json(&json!({\"document_id\":id})))).await?;"
+          "line": 737,
+          "expression": "\"SELECT to_jsonb(d) AS value FROM knowledge_documents d WHERE id=$1 AND organization_id=$2 AND deleted_at IS NULL FOR UPDATE\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 744,
+          "expression": "\"INSERT INTO knowledge_processing_jobs(id,organization_id,knowledge_base_id,source_id,document_id,job_type,status,stage,progress,input_payload,input_checksum) VALUES ($1,$2,$3,$4,$5,'document_reprocess','queued','queued',0,$6,$7) ON CONFLICT(organization_id,input_checksum) WHERE status IN ('queued','processing') DO UPDATE SET input_checksum=EXCLUDED.input_checksum RETURNING id\","
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 757,
+          "expression": "tx.commit().await?;"
         }
       ],
       "calls": []
@@ -14688,11 +14803,11 @@
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:748:invalidate_policy_cache": {
+    "infera-knowledge/src/platform.rs:764:invalidate_policy_cache": {
       "name": "invalidate_policy_cache",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 748,
-      "end_line": 769,
+      "line": 764,
+      "end_line": 785,
       "signature": "async fn invalidate_policy_cache(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -14700,39 +14815,39 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 752,
+          "line": 768,
           "expression": "ctx.require(\"knowledge:write\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 755,
+          "line": 771,
           "expression": "cache.retain(|(organization_id, _), _| *organization_id != ctx.organization_id);"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 761,
+          "line": 777,
           "expression": "\"organization\","
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 754,
+          "line": 770,
           "expression": "let before = cache.len();"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 759,
+          "line": 775,
           "expression": "\"cache.invalidate\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 763,
+          "line": 779,
           "expression": "Some(json!({\"entries_removed\":before-cache.len()})),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 767,
+          "line": 783,
           "expression": "json!({\"entries_removed\":before-cache.len()}),"
         }
       ],
@@ -14740,11 +14855,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:2738:list_recommenders": {
+    "infera-knowledge/src/platform.rs:2774:list_recommenders": {
       "name": "list_recommenders",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2738,
-      "end_line": 2745,
+      "line": 2774,
+      "end_line": 2781,
       "signature": "async fn list_recommenders(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:read"
@@ -14752,12 +14867,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2742,
+          "line": 2778,
           "expression": "ctx.require(\"knowledge:read\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2743,
+          "line": 2779,
           "expression": "let rows=json_rows(&s,&format!(\"SELECT to_jsonb(g)||(SELECT jsonb_build_object('items',COALESCE(jsonb_agg(to_jsonb(i) ORDER BY i.sort_order),'[]')) FROM knowledge_recommender_items i WHERE i.recommender_group_id=g.id) AS value FROM knowledge_recommender_groups g WHERE organization_id='{}' ORDER BY slug\",ctx.organization_id)).await?;"
         }
       ],
@@ -14766,11 +14881,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:2747:create_recommender_group": {
+    "infera-knowledge/src/platform.rs:2783:create_recommender_group": {
       "name": "create_recommender_group",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2747,
-      "end_line": 2756,
+      "line": 2783,
+      "end_line": 2792,
       "signature": "async fn create_recommender_group(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Json(body): Json<CreateRecommenderGroup>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -14778,33 +14893,33 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2752,
+          "line": 2788,
           "expression": "ctx.require(\"knowledge:write\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2754,
+          "line": 2790,
           "expression": "let value=json_one(&s,&format!(\"INSERT INTO knowledge_recommender_groups(id,organization_id,slug,name,description,strategy,conditions,max_results) VALUES ('{id}','{}','{}','{}'::jsonb,'{}'::jsonb,'{}','{}'::jsonb,{}) RETURNING to_jsonb(knowledge_recommender_groups) AS value\",ctx.organization_id,sql_text(&body.slug),sql_json(&body.name),sql_json(&body.description),sql_text(&body.strategy),sql_json(&body.conditions),body.max_results.clamp(1,50))).await?.unwrap();"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2754,
+          "line": 2790,
           "expression": "let value=json_one(&s,&format!(\"INSERT INTO knowledge_recommender_groups(id,organization_id,slug,name,description,strategy,conditions,max_results) VALUES ('{id}','{}','{}','{}'::jsonb,'{}'::jsonb,'{}','{}'::jsonb,{}) RETURNING to_jsonb(knowledge_recommender_groups) AS value\",ctx.organization_id,sql_text(&body.slug),sql_json(&body.name),sql_json(&body.description),sql_text(&body.strategy),sql_json(&body.conditions),body.max_results.clamp(1,50))).await?.unwrap();"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2755,
+          "line": 2791,
           "expression": "Ok((StatusCode::CREATED, Json(ApiResponse::ok(value))))"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2754,
+          "line": 2790,
           "expression": "let value=json_one(&s,&format!(\"INSERT INTO knowledge_recommender_groups(id,organization_id,slug,name,description,strategy,conditions,max_results) VALUES ('{id}','{}','{}','{}'::jsonb,'{}'::jsonb,'{}','{}'::jsonb,{}) RETURNING to_jsonb(knowledge_recommender_groups) AS value\",ctx.organization_id,sql_text(&body.slug),sql_json(&body.name),sql_json(&body.description),sql_text(&body.strategy),sql_json(&body.conditions),body.max_results.clamp(1,50))).await?.unwrap();"
         }
       ],
@@ -14881,11 +14996,11 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:2758:create_recommender_item": {
+    "infera-knowledge/src/platform.rs:2794:create_recommender_item": {
       "name": "create_recommender_item",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2758,
-      "end_line": 2768,
+      "line": 2794,
+      "end_line": 2804,
       "signature": "async fn create_recommender_item(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(group_id): Path<Uuid>,\n    Json(body): Json<CreateRecommenderItem>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -14893,12 +15008,12 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2764,
+          "line": 2800,
           "expression": "ctx.require(\"knowledge:write\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2766,
+          "line": 2802,
           "expression": "let value=json_one(&s,&format!(\"INSERT INTO knowledge_recommender_items(id,organization_id,recommender_group_id,stable_key,kind,label,description,linked_service,linked_entity_type,linked_entity_id,link_url,conditions,tags,base_score) SELECT '{id}','{}','{group_id}','{}','{}','{}'::jsonb,'{}'::jsonb,{},{},{},{},'{}'::jsonb,'{}'::jsonb,{} WHERE EXISTS(SELECT 1 FROM knowledge_recommender_groups WHERE id='{group_id}' AND organization_id='{}') RETURNING to_jsonb(knowledge_recommender_items) AS value\",ctx.organization_id,sql_text(&body.stable_key),sql_text(&body.kind),sql_json(&body.label),sql_json(&body.description),opt_sql(&body.linked_service),opt_sql(&body.linked_entity_type),opt_sql(&body.lin"
         }
       ],
@@ -14906,14 +15021,14 @@
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2767,
+          "line": 2803,
           "expression": "Ok((StatusCode::CREATED, Json(ApiResponse::ok(value))))"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2766,
+          "line": 2802,
           "expression": "let value=json_one(&s,&format!(\"INSERT INTO knowledge_recommender_items(id,organization_id,recommender_group_id,stable_key,kind,label,description,linked_service,linked_entity_type,linked_entity_id,link_url,conditions,tags,base_score) SELECT '{id}','{}','{group_id}','{}','{}','{}'::jsonb,'{}'::jsonb,{},{},{},{},'{}'::jsonb,'{}'::jsonb,{} WHERE EXISTS(SELECT 1 FROM knowledge_recommender_groups WHERE id='{group_id}' AND organization_id='{}') RETURNING to_jsonb(knowledge_recommender_items) AS value\",ctx.organization_id,sql_text(&body.stable_key),sql_text(&body.kind),sql_json(&body.label),sql_json(&body.description),opt_sql(&body.linked_service),opt_sql(&body.linked_entity_type),opt_sql(&body.lin"
         }
       ],
@@ -15035,11 +15150,11 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:2550:list_memory_subjects": {
+    "infera-knowledge/src/platform.rs:2586:list_memory_subjects": {
       "name": "list_memory_subjects",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2550,
-      "end_line": 2571,
+      "line": 2586,
+      "end_line": 2607,
       "signature": "async fn list_memory_subjects(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Query(q): Query<MemoryFilter>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:memory:read"
@@ -15047,29 +15162,29 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2555,
+          "line": 2591,
           "expression": "ctx.require(\"knowledge:memory:read\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2556,
+          "line": 2592,
           "expression": "let org = ctx.organization_id;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2569,
+          "line": 2605,
           "expression": "let rows = json_rows(&s, &format!(\"SELECT jsonb_build_object('id',m.id,'assistant_id',m.assistant_id,'assistant_name',p.assistant_name,'user_id',m.user_id,'profile_id',m.profile_id,'profile',m.profile_snapshot,'short_memory_enabled',COALESCE(m.short_memory_override,p.short_memory_enabled,false),'long_memory_enabled',COALESCE(m.long_memory_override,p.long_memory_enabled,false),'short_memory_count',m.short_memory_count,'long_memory_count',m.long_memory_count,'last_seen_at',m.last_seen_at,'profile_refreshed_at',m.profile_refreshed_at) AS value FROM knowledge_memory_subjects m LEFT JOIN knowledge_assistant_policies p ON p.organization_id=m.organization_id AND p.assistant_id=m.assistant_id WHERE "
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2563,
+          "line": 2599,
           "expression": ".filter(|x| !x.trim().is_empty())"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2567,
+          "line": 2603,
           "expression": "let limit = q.limit.unwrap_or(50).clamp(1, 200);"
         }
       ],
@@ -15077,7 +15192,7 @@
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2569,
+          "line": 2605,
           "expression": "let rows = json_rows(&s, &format!(\"SELECT jsonb_build_object('id',m.id,'assistant_id',m.assistant_id,'assistant_name',p.assistant_name,'user_id',m.user_id,'profile_id',m.profile_id,'profile',m.profile_snapshot,'short_memory_enabled',COALESCE(m.short_memory_override,p.short_memory_enabled,false),'long_memory_enabled',COALESCE(m.long_memory_override,p.long_memory_enabled,false),'short_memory_count',m.short_memory_count,'long_memory_count',m.long_memory_count,'last_seen_at',m.last_seen_at,'profile_refreshed_at',m.profile_refreshed_at) AS value FROM knowledge_memory_subjects m LEFT JOIN knowledge_assistant_policies p ON p.organization_id=m.organization_id AND p.assistant_id=m.assistant_id WHERE "
         }
       ],
@@ -15137,78 +15252,78 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:2573:clear_memory_subject": {
+    "infera-knowledge/src/platform.rs:2609:clear_memory_subject": {
       "name": "clear_memory_subject",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2573,
-      "end_line": 2612,
+      "line": 2609,
+      "end_line": 2648,
       "signature": "async fn clear_memory_subject(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Query(query): Query<MemoryClearQuery>,\n) -> Result<StatusCode, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2579,
+          "line": 2615,
           "expression": "let subject = json_one(&s, &format!(\"SELECT jsonb_build_object('id',id,'user_id',user_id) AS value FROM knowledge_memory_subjects WHERE id='{id}' AND organization_id='{}'\",ctx.organization_id)).await?.ok_or_else(|| AppError::NotFound(\"memory subject not found\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2581,
+          "line": 2617,
           "expression": "let can_delete_any = ctx.permissions.iter().any(|permission| {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2583,
+          "line": 2619,
           "expression": "permission.as_str(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2589,
+          "line": 2625,
           "expression": "\"memory can only be cleared by its user or a scoped administrator\".into(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2600,
+          "line": 2636,
           "expression": "s.db.execute_unprepared(&format!(\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE subject_id='{id}' AND organization_id='{}' AND status<>'forgotten'{kind}; UPDATE knowledge_memory_subjects SET short_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{id}' AND memory_type='short' AND status='active'),long_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{id}' AND memory_type='long' AND status='active'),updated_at=now() WHERE id='{id}' AND organization_id='{}'\",ctx.organization_id,ctx.organization_id)).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2598,
+          "line": 2634,
           "expression": "Some(_) => return Err(AppError::BadRequest(\"invalid memory_type\".into())),"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2600,
+          "line": 2636,
           "expression": "s.db.execute_unprepared(&format!(\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE subject_id='{id}' AND organization_id='{}' AND status<>'forgotten'{kind}; UPDATE knowledge_memory_subjects SET short_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{id}' AND memory_type='short' AND status='active'),long_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{id}' AND memory_type='long' AND status='active'),updated_at=now() WHERE id='{id}' AND organization_id='{}'\",ctx.organization_id,ctx.organization_id)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2611,
+          "line": 2647,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2581,
+          "line": 2617,
           "expression": "let can_delete_any = ctx.permissions.iter().any(|permission| {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2584,
+          "line": 2620,
           "expression": "\"knowledge:*\" | \"*\" | \"knowledge:memory:delete\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2587,
+          "line": 2623,
           "expression": "if !owns_subject && !can_delete_any {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2600,
+          "line": 2636,
           "expression": "s.db.execute_unprepared(&format!(\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE subject_id='{id}' AND organization_id='{}' AND status<>'forgotten'{kind}; UPDATE knowledge_memory_subjects SET short_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{id}' AND memory_type='short' AND status='active'),long_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{id}' AND memory_type='long' AND status='active'),updated_at=now() WHERE id='{id}' AND organization_id='{}'\",ctx.organization_id,ctx.organization_id)).await?;"
         }
       ],
@@ -15241,37 +15356,37 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:2614:forget_memory": {
+    "infera-knowledge/src/platform.rs:2650:forget_memory": {
       "name": "forget_memory",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2614,
-      "end_line": 2645,
+      "line": 2650,
+      "end_line": 2681,
       "signature": "async fn forget_memory(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path((subject_id, memory_id)): Path<(Uuid, Uuid)>,\n    Query(query): Query<MemoryClearQuery>,\n) -> Result<StatusCode, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2620,
+          "line": 2656,
           "expression": "let subject = json_one(&s, &format!(\"SELECT jsonb_build_object('id',id,'user_id',user_id) AS value FROM knowledge_memory_subjects WHERE id='{subject_id}' AND organization_id='{}'\",ctx.organization_id)).await?.ok_or_else(|| AppError::NotFound(\"memory subject not found\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2622,
+          "line": 2658,
           "expression": "let can_delete_any = ctx.permissions.iter().any(|permission| {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2624,
+          "line": 2660,
           "expression": "permission.as_str(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2630,
+          "line": 2666,
           "expression": "\"memory can only be forgotten by its user or a scoped administrator\".into(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2633,
+          "line": 2669,
           "expression": "s.db.execute_unprepared(&format!(\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE id='{memory_id}' AND subject_id='{subject_id}' AND organization_id='{}'; UPDATE knowledge_memory_subjects SET short_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{subject_id}' AND memory_type='short' AND status='active'),long_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{subject_id}' AND memory_type='long' AND status='active'),updated_at=now() WHERE id='{subject_id}' AND organization_id='{}'\",ctx.organization_id,ctx.organization_id)).await?;"
         }
       ],
@@ -15279,87 +15394,87 @@
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2633,
+          "line": 2669,
           "expression": "s.db.execute_unprepared(&format!(\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE id='{memory_id}' AND subject_id='{subject_id}' AND organization_id='{}'; UPDATE knowledge_memory_subjects SET short_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{subject_id}' AND memory_type='short' AND status='active'),long_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{subject_id}' AND memory_type='long' AND status='active'),updated_at=now() WHERE id='{subject_id}' AND organization_id='{}'\",ctx.organization_id,ctx.organization_id)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2644,
+          "line": 2680,
           "expression": "Ok(StatusCode::NO_CONTENT)"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2622,
+          "line": 2658,
           "expression": "let can_delete_any = ctx.permissions.iter().any(|permission| {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2625,
+          "line": 2661,
           "expression": "\"knowledge:*\" | \"*\" | \"knowledge:memory:delete\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2628,
+          "line": 2664,
           "expression": "if !owns_subject && !can_delete_any {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2633,
+          "line": 2669,
           "expression": "s.db.execute_unprepared(&format!(\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE id='{memory_id}' AND subject_id='{subject_id}' AND organization_id='{}'; UPDATE knowledge_memory_subjects SET short_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{subject_id}' AND memory_type='short' AND status='active'),long_memory_count=(SELECT count(*) FROM knowledge_memories WHERE subject_id='{subject_id}' AND memory_type='long' AND status='active'),updated_at=now() WHERE id='{subject_id}' AND organization_id='{}'\",ctx.organization_id,ctx.organization_id)).await?;"
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:2647:set_memory_override": {
+    "infera-knowledge/src/platform.rs:2683:set_memory_override": {
       "name": "set_memory_override",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2647,
-      "end_line": 2716,
+      "line": 2683,
+      "end_line": 2752,
       "signature": "async fn set_memory_override(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n    Json(body): Json<MemoryOverride>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2653,
+          "line": 2689,
           "expression": "let current = json_one(&s, &format!(\"SELECT jsonb_build_object('subject',to_jsonb(m),'policy',to_jsonb(p)) AS value FROM knowledge_memory_subjects m JOIN knowledge_assistant_policies p ON p.organization_id=m.organization_id AND p.assistant_id=m.assistant_id WHERE m.id='{id}' AND m.organization_id='{}'\",ctx.organization_id)).await?.ok_or_else(|| AppError::NotFound(\"memory subject not found\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2654,
+          "line": 2690,
           "expression": "let owner = value_uuid(current.pointer(\"/subject/user_id\")) == ctx.user_id;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2655,
+          "line": 2691,
           "expression": "let can_write_any = ctx.permissions.iter().any(|permission| {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2657,
+          "line": 2693,
           "expression": "permission.as_str(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2661,
+          "line": 2697,
           "expression": "if !owner && !can_write_any {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2663,
+          "line": 2699,
           "expression": "\"memory override can only be changed by its user or a scoped administrator\".into(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2704,
+          "line": 2740,
           "expression": "let value = json_one(&s, &format!(\"UPDATE knowledge_memory_subjects SET short_memory_override={short},long_memory_override={long},override_updated_by={actor},override_updated_at=now(),override_reason={reason},updated_at=now() WHERE id='{id}' AND organization_id='{}' RETURNING to_jsonb(knowledge_memory_subjects) AS value\",ctx.organization_id)).await?.ok_or_else(|| AppError::NotFound(\"memory subject not found\".into()))?;"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2682,
+          "line": 2718,
           "expression": "return Err(AppError::BadRequest("
         }
       ],
@@ -15367,12 +15482,12 @@
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2704,
+          "line": 2740,
           "expression": "let value = json_one(&s, &format!(\"UPDATE knowledge_memory_subjects SET short_memory_override={short},long_memory_override={long},override_updated_by={actor},override_updated_at=now(),override_reason={reason},updated_at=now() WHERE id='{id}' AND organization_id='{}' RETURNING to_jsonb(knowledge_memory_subjects) AS value\",ctx.organization_id)).await?.ok_or_else(|| AppError::NotFound(\"memory subject not found\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2708,
+          "line": 2744,
           "expression": "\"memory.override.update\","
         }
       ],
@@ -15414,11 +15529,11 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:2718:replay_memory_outbox": {
+    "infera-knowledge/src/platform.rs:2754:replay_memory_outbox": {
       "name": "replay_memory_outbox",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2718,
-      "end_line": 2736,
+      "line": 2754,
+      "end_line": 2772,
       "signature": "async fn replay_memory_outbox(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(id): Path<Uuid>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:memory:write"
@@ -15426,43 +15541,43 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2723,
+          "line": 2759,
           "expression": "ctx.require(\"knowledge:memory:write\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2724,
+          "line": 2760,
           "expression": "let value = json_one(&s, &format!(\"UPDATE knowledge_memory_outbox SET status='pending',attempts=0,next_attempt_at=now(),lease_owner=NULL,lease_expires_at=NULL,last_error_code=NULL,last_error_detail=NULL,updated_at=now() WHERE id='{id}' AND organization_id='{}' AND status IN ('dead_letter','retry') RETURNING jsonb_build_object('id',id,'status',status) AS value\",ctx.organization_id)).await?.ok_or_else(|| AppError::Conflict(\"memory outbox item is not replayable\".into()))?;"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2724,
+          "line": 2760,
           "expression": "let value = json_one(&s, &format!(\"UPDATE knowledge_memory_outbox SET status='pending',attempts=0,next_attempt_at=now(),lease_owner=NULL,lease_expires_at=NULL,last_error_code=NULL,last_error_detail=NULL,updated_at=now() WHERE id='{id}' AND organization_id='{}' AND status IN ('dead_letter','retry') RETURNING jsonb_build_object('id',id,'status',status) AS value\",ctx.organization_id)).await?.ok_or_else(|| AppError::Conflict(\"memory outbox item is not replayable\".into()))?;"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2724,
+          "line": 2760,
           "expression": "let value = json_one(&s, &format!(\"UPDATE knowledge_memory_outbox SET status='pending',attempts=0,next_attempt_at=now(),lease_owner=NULL,lease_expires_at=NULL,last_error_code=NULL,last_error_detail=NULL,updated_at=now() WHERE id='{id}' AND organization_id='{}' AND status IN ('dead_letter','retry') RETURNING jsonb_build_object('id',id,'status',status) AS value\",ctx.organization_id)).await?.ok_or_else(|| AppError::Conflict(\"memory outbox item is not replayable\".into()))?;"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2724,
+          "line": 2760,
           "expression": "let value = json_one(&s, &format!(\"UPDATE knowledge_memory_outbox SET status='pending',attempts=0,next_attempt_at=now(),lease_owner=NULL,lease_expires_at=NULL,last_error_code=NULL,last_error_detail=NULL,updated_at=now() WHERE id='{id}' AND organization_id='{}' AND status IN ('dead_letter','retry') RETURNING jsonb_build_object('id',id,'status',status) AS value\",ctx.organization_id)).await?.ok_or_else(|| AppError::Conflict(\"memory outbox item is not replayable\".into()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2728,
+          "line": 2764,
           "expression": "\"memory.outbox.replay\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2729,
+          "line": 2765,
           "expression": "\"memory_outbox\","
         }
       ],
@@ -16180,11 +16295,11 @@
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:830:configure_assistant": {
+    "infera-knowledge/src/platform.rs:846:configure_assistant": {
       "name": "configure_assistant",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 830,
-      "end_line": 953,
+      "line": 846,
+      "end_line": 969,
       "signature": "async fn configure_assistant(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(assistant_id): Path<Uuid>,\n    Json(body): Json<AssistantConfiguration>,\n) -> Result<Json<ApiResponse<Value>>, AppError>",
       "declared_permissions": [
         "knowledge:write"
@@ -16192,233 +16307,233 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 836,
+          "line": 852,
           "expression": "ctx.require(\"knowledge:write\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 856,
+          "line": 872,
           "expression": "let org = ctx.organization_id;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 857,
+          "line": 873,
           "expression": "let before = json_one(&s, &format!(\"SELECT to_jsonb(p) AS value FROM knowledge_assistant_policies p WHERE organization_id='{org}' AND assistant_id='{assistant_id}'\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 892,
+          "line": 908,
           "expression": "\"SELECT jsonb_build_object('id',id) AS value FROM knowledge_bases WHERE id='{base_id}' AND organization_id='{org}' AND deleted_at IS NULL\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 899,
+          "line": 915,
           "expression": "\"knowledge base {base_id} does not belong to the organization\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 907,
+          "line": 923,
           "expression": "\"SELECT jsonb_build_object('id',id) AS value FROM knowledge_recommender_groups WHERE id='{recommender_id}' AND organization_id='{org}'\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 914,
+          "line": 930,
           "expression": "\"recommender group {recommender_id} does not belong to the organization\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 921,
+          "line": 937,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_policies(id,organization_id,assistant_id,assistant_name,short_memory_enabled,long_memory_enabled,short_memory_turns,long_memory_limit,context_mode,context_budget_tokens,knowledge_enabled,recommenders_enabled,selected_media_enabled,session_enabled,max_knowledge_results,max_chunks_per_document) VALUES ('{id}','{org}','{assistant_id}','{name}',{},{},{},{},'{}',{},{},{},{},{},{},{}) ON CONFLICT(organization_id,assistant_id) DO UPDATE SET assistant_name=EXCLUDED.assistant_name,short_memory_enabled=EXCLUDED.short_memory_enabled,long_memory_enabled=EXCLUDED.long_memory_enabled,short_memory_turns=EXCLUDED.short_memory_turns,long_memory_"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 922,
+          "line": 938,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_assistant_policies SET max_selected_media_chunks={},max_session_items={},max_findings={},max_recommendations={},graph_enabled={},vector_enabled={},query_expansion_enabled={},reranking_enabled={},selected_media_budget_percent={},knowledge_budget_percent={},memory_budget_percent={},recommender_budget_percent={},profile_budget_percent={},session_budget_percent={},findings_budget_percent={} WHERE organization_id='{org}' AND assistant_id='{assistant_id}'\",body.max_selected_media_chunks,body.max_session_items,body.max_findings,body.max_recommendations,body.graph_enabled,body.vector_enabled,body.query_expansion_enabled,body.reranking_enabled,body.sel"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 923,
+          "line": 939,
           "expression": "tx.execute_unprepared(&format!(\"DELETE FROM knowledge_assistant_bases WHERE organization_id='{org}' AND assistant_id='{assistant_id}'\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 925,
+          "line": 941,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_bases(id,organization_id,assistant_id,knowledge_base_id,priority) SELECT '{}','{org}','{assistant_id}','{base_id}',{} WHERE EXISTS(SELECT 1 FROM knowledge_bases WHERE id='{base_id}' AND organization_id='{org}' AND deleted_at IS NULL)\", Uuid::new_v4(), priority)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 927,
+          "line": 943,
           "expression": "tx.execute_unprepared(&format!(\"DELETE FROM knowledge_assistant_recommenders WHERE organization_id='{org}' AND assistant_id='{assistant_id}'\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 929,
+          "line": 945,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_recommenders(id,organization_id,assistant_id,recommender_group_id,priority) SELECT '{}','{org}','{assistant_id}','{group_id}',{} WHERE EXISTS(SELECT 1 FROM knowledge_recommender_groups WHERE id='{group_id}' AND organization_id='{org}')\", Uuid::new_v4(), priority)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 936,
+          "line": 952,
           "expression": "let after = json_one(&s, &format!(\"SELECT to_jsonb(p) AS value FROM knowledge_assistant_policies p WHERE organization_id='{org}' AND assistant_id='{assistant_id}'\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 938,
+          "line": 954,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_policy_history(id,organization_id,assistant_id,policy_revision,policy,changed_by,change_reason) VALUES ('{}','{org}','{assistant_id}',{},'{}'::jsonb,{},'configuration update') ON CONFLICT(organization_id,assistant_id,policy_revision) DO NOTHING\",Uuid::new_v4(),policy.get(\"policy_revision\").and_then(Value::as_i64).unwrap_or(1),sql_json(policy),ctx.user_id.map(|value|format!(\"'{value}'\")).unwrap_or_else(||\"NULL\".into()))).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 837,
+          "line": 853,
           "expression": "if !(1..=100).contains(&body.short_memory_turns) || !(1..=500).contains(&body.long_memory_limit)"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 839,
+          "line": 855,
           "expression": "return Err(AppError::BadRequest("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 843,
+          "line": 859,
           "expression": "if ![\"economy\", \"balanced\", \"deep\", \"custom\"].contains(&body.context_mode.as_str())"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 844,
+          "line": 860,
           "expression": "|| !(256..=32000).contains(&body.context_budget_tokens)"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 845,
+          "line": 861,
           "expression": "|| !(1..=50).contains(&body.max_knowledge_results)"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 846,
+          "line": 862,
           "expression": "|| !(1..=10).contains(&body.max_chunks_per_document)"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 847,
+          "line": 863,
           "expression": "|| !(1..=20).contains(&body.max_selected_media_chunks)"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 848,
+          "line": 864,
           "expression": "|| !(0..=20).contains(&body.max_session_items)"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 849,
+          "line": 865,
           "expression": "|| !(0..=50).contains(&body.max_findings)"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 850,
+          "line": 866,
           "expression": "|| !(0..=50).contains(&body.max_recommendations)"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 852,
+          "line": 868,
           "expression": "return Err(AppError::BadRequest("
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 866,
-          "expression": "return Err(AppError::Conflict(format!("
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 867,
-          "expression": "\"assistant policy revision conflict: expected {expected}, current {actual}\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
           "line": 882,
-          "expression": ".any(|value| !(0..=100).contains(value))"
+          "expression": "return Err(AppError::Conflict(format!("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 884,
-          "expression": "return Err(AppError::BadRequest("
+          "line": 883,
+          "expression": "\"assistant policy revision conflict: expected {expected}, current {actual}\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
           "line": 898,
+          "expression": ".any(|value| !(0..=100).contains(value))"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 900,
+          "expression": "return Err(AppError::BadRequest("
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 914,
           "expression": "return Err(AppError::BadRequest(format!("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 913,
+          "line": 929,
           "expression": "return Err(AppError::BadRequest(format!("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 921,
+          "line": 937,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_policies(id,organization_id,assistant_id,assistant_name,short_memory_enabled,long_memory_enabled,short_memory_turns,long_memory_limit,context_mode,context_budget_tokens,knowledge_enabled,recommenders_enabled,selected_media_enabled,session_enabled,max_knowledge_results,max_chunks_per_document) VALUES ('{id}','{org}','{assistant_id}','{name}',{},{},{},{},'{}',{},{},{},{},{},{},{}) ON CONFLICT(organization_id,assistant_id) DO UPDATE SET assistant_name=EXCLUDED.assistant_name,short_memory_enabled=EXCLUDED.short_memory_enabled,long_memory_enabled=EXCLUDED.long_memory_enabled,short_memory_turns=EXCLUDED.short_memory_turns,long_memory_"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 938,
+          "line": 954,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_policy_history(id,organization_id,assistant_id,policy_revision,policy,changed_by,change_reason) VALUES ('{}','{org}','{assistant_id}',{},'{}'::jsonb,{},'configuration update') ON CONFLICT(organization_id,assistant_id,policy_revision) DO NOTHING\",Uuid::new_v4(),policy.get(\"policy_revision\").and_then(Value::as_i64).unwrap_or(1),sql_json(policy),ctx.user_id.map(|value|format!(\"'{value}'\")).unwrap_or_else(||\"NULL\".into()))).await?;"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 892,
+          "line": 908,
           "expression": "\"SELECT jsonb_build_object('id',id) AS value FROM knowledge_bases WHERE id='{base_id}' AND organization_id='{org}' AND deleted_at IS NULL\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 925,
+          "line": 941,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_bases(id,organization_id,assistant_id,knowledge_base_id,priority) SELECT '{}','{org}','{assistant_id}','{base_id}',{} WHERE EXISTS(SELECT 1 FROM knowledge_bases WHERE id='{base_id}' AND organization_id='{org}' AND deleted_at IS NULL)\", Uuid::new_v4(), priority)).await?;"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 892,
+          "line": 908,
           "expression": "\"SELECT jsonb_build_object('id',id) AS value FROM knowledge_bases WHERE id='{base_id}' AND organization_id='{org}' AND deleted_at IS NULL\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 921,
+          "line": 937,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_policies(id,organization_id,assistant_id,assistant_name,short_memory_enabled,long_memory_enabled,short_memory_turns,long_memory_limit,context_mode,context_budget_tokens,knowledge_enabled,recommenders_enabled,selected_media_enabled,session_enabled,max_knowledge_results,max_chunks_per_document) VALUES ('{id}','{org}','{assistant_id}','{name}',{},{},{},{},'{}',{},{},{},{},{},{},{}) ON CONFLICT(organization_id,assistant_id) DO UPDATE SET assistant_name=EXCLUDED.assistant_name,short_memory_enabled=EXCLUDED.short_memory_enabled,long_memory_enabled=EXCLUDED.long_memory_enabled,short_memory_turns=EXCLUDED.short_memory_turns,long_memory_"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 922,
+          "line": 938,
           "expression": "tx.execute_unprepared(&format!(\"UPDATE knowledge_assistant_policies SET max_selected_media_chunks={},max_session_items={},max_findings={},max_recommendations={},graph_enabled={},vector_enabled={},query_expansion_enabled={},reranking_enabled={},selected_media_budget_percent={},knowledge_budget_percent={},memory_budget_percent={},recommender_budget_percent={},profile_budget_percent={},session_budget_percent={},findings_budget_percent={} WHERE organization_id='{org}' AND assistant_id='{assistant_id}'\",body.max_selected_media_chunks,body.max_session_items,body.max_findings,body.max_recommendations,body.graph_enabled,body.vector_enabled,body.query_expansion_enabled,body.reranking_enabled,body.sel"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 923,
+          "line": 939,
           "expression": "tx.execute_unprepared(&format!(\"DELETE FROM knowledge_assistant_bases WHERE organization_id='{org}' AND assistant_id='{assistant_id}'\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 925,
+          "line": 941,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_bases(id,organization_id,assistant_id,knowledge_base_id,priority) SELECT '{}','{org}','{assistant_id}','{base_id}',{} WHERE EXISTS(SELECT 1 FROM knowledge_bases WHERE id='{base_id}' AND organization_id='{org}' AND deleted_at IS NULL)\", Uuid::new_v4(), priority)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 927,
+          "line": 943,
           "expression": "tx.execute_unprepared(&format!(\"DELETE FROM knowledge_assistant_recommenders WHERE organization_id='{org}' AND assistant_id='{assistant_id}'\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 929,
+          "line": 945,
           "expression": "tx.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_recommenders(id,organization_id,assistant_id,recommender_group_id,priority) SELECT '{}','{org}','{assistant_id}','{group_id}',{} WHERE EXISTS(SELECT 1 FROM knowledge_recommender_groups WHERE id='{group_id}' AND organization_id='{org}')\", Uuid::new_v4(), priority)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 931,
+          "line": 947,
           "expression": "tx.commit().await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 938,
+          "line": 954,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_assistant_policy_history(id,organization_id,assistant_id,policy_revision,policy,changed_by,change_reason) VALUES ('{}','{org}','{assistant_id}',{},'{}'::jsonb,{},'configuration update') ON CONFLICT(organization_id,assistant_id,policy_revision) DO NOTHING\",Uuid::new_v4(),policy.get(\"policy_revision\").and_then(Value::as_i64).unwrap_or(1),sql_json(policy),ctx.user_id.map(|value|format!(\"'{value}'\")).unwrap_or_else(||\"NULL\".into()))).await?;"
         }
       ],
@@ -16774,11 +16889,11 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:997:query_assistant": {
+    "infera-knowledge/src/platform.rs:1013:query_assistant": {
       "name": "query_assistant",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 997,
-      "end_line": 1665,
+      "line": 1013,
+      "end_line": 1681,
       "signature": "async fn query_assistant(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(assistant_id): Path<Uuid>,\n    Json(mut body): Json<AssistantQuery>,\n) -> Result<Json<ApiResponse<AssistantRuntimeResult>>, AppError>",
       "declared_permissions": [
         "knowledge:runtime"
@@ -16786,428 +16901,428 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1003,
+          "line": 1019,
           "expression": "ctx.require(\"knowledge:runtime\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1005,
+          "line": 1021,
           "expression": "let org = ctx.organization_id;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1024,
+          "line": 1040,
           "expression": "&format!(\"SELECT delivered_ids AS value FROM knowledge_context_cursors WHERE id='{cursor_id}' AND organization_id='{org}' AND assistant_id='{assistant_id}' AND user_id='{}' AND conversation_id='{conversation_id}' AND expires_at>now()\", body.user_id),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1111,
+          "line": 1127,
           "expression": "WHERE ab.organization_id='{org}' AND ab.assistant_id='{assistant_id}' AND ab.enabled=true AND b.status='published' AND i.status='published' AND i.deleted_at IS NULL"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1131,
+          "line": 1147,
           "expression": "WHERE ab.organization_id='{org}' AND ab.assistant_id='{assistant_id}' AND ab.enabled=true"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1168,
+          "line": 1184,
           "expression": "WHERE ab.organization_id='{org}' AND ab.assistant_id='{assistant_id}' AND ab.enabled=true"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1200,
+          "line": 1216,
           "expression": "WHERE ab.organization_id='{org}' AND ab.assistant_id='{assistant_id}' AND ab.enabled=true"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1237,
+          "line": 1253,
           "expression": "ensure_subject("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1255,
+          "line": 1271,
           "expression": "json_one(&s, &format!(\"SELECT jsonb_build_object('short',short_memory_override,'long',long_memory_override,'status',status) AS value FROM knowledge_memory_subjects WHERE id='{subject}' AND organization_id='{org}'\")).await?.unwrap_or_else(|| json!({}))"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1300,
+          "line": 1316,
           "expression": "json_rows(&s, &format!(r#\"SELECT jsonb_build_object('id',ri.id,'group_id',rg.id,'group_slug',rg.slug,'group_conditions',rg.conditions,'group_max_results',rg.max_results,'item_conditions',ri.conditions,'kind',ri.kind,'label',ri.label,'description',ri.description,'linked_service',ri.linked_service,'linked_entity_type',ri.linked_entity_type,'linked_entity_id',ri.linked_entity_id,'link_url',ri.link_url,'open_in_new_tab',ri.open_in_new_tab,'score',ri.base_score) AS value FROM knowledge_assistant_recommenders ar JOIN knowledge_recommender_groups rg ON rg.id=ar.recommender_group_id AND rg.status='active' JOIN knowledge_recommender_items ri ON ri.recommender_group_id=rg.id AND ri.enabled=true WHERE "
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1304,
+          "line": 1320,
           "expression": "let findings = json_rows(&s, &format!(\"SELECT jsonb_build_object('id',f.id,'knowledge_base_id',f.knowledge_base_id,'type',f.finding_type,'severity',f.severity,'title',f.title,'detail',f.detail) AS value FROM knowledge_findings f JOIN knowledge_assistant_bases ab ON ab.knowledge_base_id=f.knowledge_base_id WHERE f.organization_id='{org}' AND ab.assistant_id='{assistant_id}' AND f.status='open' ORDER BY f.severity DESC LIMIT 20\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1313,
+          "line": 1329,
           "expression": "json_rows(&s,&format!(\"SELECT jsonb_build_object('id',sp.id,'kind','session_evidence','title',jsonb_build_object('en','Session summary'),'summary',jsonb_build_object('en',sp.summary),'content',jsonb_build_object('en',sp.summary),'knowledge_base_id',sp.knowledge_base_id,'session_room_id',sp.room_id,'recording_id',sp.recording_id,'track_id',sp.track_id,'linked_composition_id',sp.linked_composition_id,'provenance',sp.provenance,'visibility','private','score',1.0,'updated_at',sp.projected_at) AS value FROM knowledge_session_projections sp JOIN knowledge_assistant_bases ab ON ab.knowledge_base_id=sp.knowledge_base_id AND ab.organization_id=sp.organization_id AND ab.assistant_id='{assistant_id}' A"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1492,
+          "line": 1508,
           "expression": "selected_media_required: !body.drm_media_ids.is_empty(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1612,
+          "line": 1628,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_retrieval_traces(id,organization_id,assistant_id,user_id,conversation_id,request_id,surface,context_mode,policy_version,query_language,candidate_counts,exclusion_counts,accepted_counts,dependency_state,timing_ms,requested_tokens,packed_tokens,citation_coverage,selected_media_hit_rate,outcome) VALUES ('{trace_id}','{org}','{assistant_id}','{}',{conversation_id},{request_id},'{}','{}',{policy_version},'{}','{}'::jsonb,'{}'::jsonb,'{}'::jsonb,'{dependency_state}'::jsonb,'{}'::jsonb,{},{},{citation_coverage},{selected_hit_rate},'success')\",body.user_id,sql_text(&surface),sql_text(policy.get(\"context_mode\").and_then(Value::as_str).unwrap_or("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1641,
+          "line": 1657,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_context_cursors(id,organization_id,assistant_id,user_id,conversation_id,policy_version,profile_version,delivered_ids,expires_at) VALUES ('{cursor_id}','{org}','{assistant_id}','{}','{conversation_id}',{policy_version},{profile_version_sql},'{}'::jsonb,now()+interval '24 hours') ON CONFLICT(organization_id,assistant_id,user_id,conversation_id) DO UPDATE SET id=EXCLUDED.id,policy_version=EXCLUDED.policy_version,profile_version=EXCLUDED.profile_version,delivered_ids=EXCLUDED.delivered_ids,expires_at=EXCLUDED.expires_at,updated_at=now()\",body.user_id,sql_json(&delivered))).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1654,
+          "line": 1670,
           "expression": "tracing::info!(trace_id=%trace_id, organization_id=%org, assistant_id=%assistant_id, user_id=%body.user_id, accepted=canonical.accepted_results.len(), dropped=canonical.budget.dropped_count, elapsed_ms=retrieval_started_at.elapsed().as_secs_f64()*1000.0, \"governed retrieval completed\");"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1079,
+          "line": 1095,
           "expression": "let limit = body.limit.clamp(1, 50).min("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1084,
+          "line": 1100,
           "expression": ".clamp(1, 50),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1086,
+          "line": 1102,
           "expression": "let selected_media_match = if body.drm_media_ids.is_empty()"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1152,
+          "line": 1168,
           "expression": "if !released_knowledge.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1172,
+          "line": 1188,
           "expression": "let vector_knowledge = if body.query_embedding.len() == 1536"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1283,
+          "line": 1299,
           "expression": ".clamp(1, 100);"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1291,
+          "line": 1307,
           "expression": "json_rows(&s, &format!(\"SELECT jsonb_build_object('id',id,'kind',kind,'content',content,'fact_key',fact_key,'fact_value',fact_value,'importance',importance,'confidence',confidence,'created_at',created_at,'score',ts_rank(search_vector,plainto_tsquery('simple','{q}'))) AS value FROM knowledge_memories WHERE subject_id='{subject}' AND memory_type='long' AND status='active' AND superseded_by IS NULL AND (expires_at IS NULL OR expires_at>now()) AND ('{q}'='' OR search_vector @@ plainto_tsquery('simple','{q}')){delivered_exclusion} ORDER BY (ts_rank(search_vector,plainto_tsquery('simple','{q}'))*0.55 + importance*0.2 + confidence*0.15 + (1.0/(1.0+EXTRACT(EPOCH FROM (now()-updated_at))/86400.0))*0."
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1313,
+          "line": 1329,
           "expression": "json_rows(&s,&format!(\"SELECT jsonb_build_object('id',sp.id,'kind','session_evidence','title',jsonb_build_object('en','Session summary'),'summary',jsonb_build_object('en',sp.summary),'content',jsonb_build_object('en',sp.summary),'knowledge_base_id',sp.knowledge_base_id,'session_room_id',sp.room_id,'recording_id',sp.recording_id,'track_id',sp.track_id,'linked_composition_id',sp.linked_composition_id,'provenance',sp.provenance,'visibility','private','score',1.0,'updated_at',sp.projected_at) AS value FROM knowledge_session_projections sp JOIN knowledge_assistant_bases ab ON ab.knowledge_base_id=sp.knowledge_base_id AND ab.organization_id=sp.organization_id AND ab.assistant_id='{assistant_id}' A"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1338,
+          "line": 1354,
           "expression": ".clamp(1, 20) as usize,"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1356,
+          "line": 1372,
           "expression": ".clamp(256, mode_ceiling) as usize;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1453,
+          "line": 1469,
           "expression": "if body.query_embedding.len() == 1536"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1465,
+          "line": 1481,
           "expression": "} else if session_room_id.is_none() || session_candidates.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1492,
+          "line": 1508,
           "expression": "selected_media_required: !body.drm_media_ids.is_empty(),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1590,
+          "line": 1606,
           "expression": "let citation_coverage = if canonical.accepted_results.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1593,
+          "line": 1609,
           "expression": "canonical.citations.len() as f64 / canonical.accepted_results.len() as f64"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1600,
+          "line": 1616,
           "expression": "let selected_hit_rate = if body.drm_media_ids.is_empty() {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1603,
+          "line": 1619,
           "expression": "selected_count as f64 / body.drm_media_ids.len() as f64"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1612,
+          "line": 1628,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_retrieval_traces(id,organization_id,assistant_id,user_id,conversation_id,request_id,surface,context_mode,policy_version,query_language,candidate_counts,exclusion_counts,accepted_counts,dependency_state,timing_ms,requested_tokens,packed_tokens,citation_coverage,selected_media_hit_rate,outcome) VALUES ('{trace_id}','{org}','{assistant_id}','{}',{conversation_id},{request_id},'{}','{}',{policy_version},'{}','{}'::jsonb,'{}'::jsonb,'{}'::jsonb,'{dependency_state}'::jsonb,'{}'::jsonb,{},{},{citation_coverage},{selected_hit_rate},'success')\",body.user_id,sql_text(&surface),sql_text(policy.get(\"context_mode\").and_then(Value::as_str).unwrap_or("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1641,
+          "line": 1657,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_context_cursors(id,organization_id,assistant_id,user_id,conversation_id,policy_version,profile_version,delivered_ids,expires_at) VALUES ('{cursor_id}','{org}','{assistant_id}','{}','{conversation_id}',{policy_version},{profile_version_sql},'{}'::jsonb,now()+interval '24 hours') ON CONFLICT(organization_id,assistant_id,user_id,conversation_id) DO UPDATE SET id=EXCLUDED.id,policy_version=EXCLUDED.policy_version,profile_version=EXCLUDED.profile_version,delivered_ids=EXCLUDED.delivered_ids,expires_at=EXCLUDED.expires_at,updated_at=now()\",body.user_id,sql_json(&delivered))).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1654,
+          "line": 1670,
           "expression": "tracing::info!(trace_id=%trace_id, organization_id=%org, assistant_id=%assistant_id, user_id=%body.user_id, accepted=canonical.accepted_results.len(), dropped=canonical.budget.dropped_count, elapsed_ms=retrieval_started_at.elapsed().as_secs_f64()*1000.0, \"governed retrieval completed\");"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1008,
+          "line": 1024,
           "expression": "policy: json!({\"status\":\"missing\",\"knowledge_enabled\":false,\"short_memory_enabled\":false,\"long_memory_enabled\":false,\"recommenders_enabled\":false}),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1024,
+          "line": 1040,
           "expression": "&format!(\"SELECT delivered_ids AS value FROM knowledge_context_cursors WHERE id='{cursor_id}' AND organization_id='{org}' AND assistant_id='{assistant_id}' AND user_id='{}' AND conversation_id='{conversation_id}' AND expires_at>now()\", body.user_id),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1111,
+          "line": 1127,
           "expression": "WHERE ab.organization_id='{org}' AND ab.assistant_id='{assistant_id}' AND ab.enabled=true AND b.status='published' AND i.status='published' AND i.deleted_at IS NULL"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1117,
+          "line": 1133,
           "expression": "SELECT target.*,e.edge_type,e.conditions::text edge_conditions_text FROM ranked seed JOIN knowledge_edges e ON e.from_item_id=seed.id AND e.status='published' JOIN ranked target ON target.id=e.to_item_id WHERE seed.score>0"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1123,
+          "line": 1139,
           "expression": "SELECT rr.release_id,rr.record_id,rr.payload item,gr.payload group_payload,b.id knowledge_base_id,b.slug knowledge_base_slug,ab.priority base_priority,r.status release_status,"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1127,
+          "line": 1143,
           "expression": "JOIN knowledge_bases b ON b.id=ab.knowledge_base_id AND b.status='published' AND b.deleted_at IS NULL"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1128,
+          "line": 1144,
           "expression": "JOIN knowledge_releases r ON r.id=b.published_release_id AND r.status='published'"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1144,
+          "line": 1160,
           "expression": "'show_when',COALESCE(item->'show_when','{{}}'::jsonb),'importance',COALESCE(item->>'importance','info'),'status','published',"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1146,
+          "line": 1162,
           "expression": "'group_slug',group_payload->>'slug','level',COALESCE((group_payload->>'level')::integer,0),'release_id',release_id,'release_status',release_status,'base_status','published',"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1166,
+          "line": 1182,
           "expression": "JOIN knowledge_documents d ON d.knowledge_base_id=b.id AND d.status='indexed'"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1197,
+          "line": 1213,
           "expression": "JOIN knowledge_bases b ON b.id=ab.knowledge_base_id AND b.status='published'"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1198,
+          "line": 1214,
           "expression": "JOIN knowledge_documents d ON d.knowledge_base_id=b.id AND d.status='indexed' AND d.deleted_at IS NULL"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1201,
+          "line": 1217,
           "expression": "AND c.embedding_status='ready' AND c.embedding_vector IS NOT NULL"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1255,
+          "line": 1271,
           "expression": "json_one(&s, &format!(\"SELECT jsonb_build_object('short',short_memory_override,'long',long_memory_override,'status',status) AS value FROM knowledge_memory_subjects WHERE id='{subject}' AND organization_id='{org}'\")).await?.unwrap_or_else(|| json!({}))"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1259,
+          "line": 1275,
           "expression": "let subject_active = overrides.get(\"status\").and_then(Value::as_str) == Some(\"active\");"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1284,
+          "line": 1300,
           "expression": "json_rows(&s, &format!(\"SELECT jsonb_build_object('id',id,'kind',kind,'content',content,'created_at',created_at,'conversation_id',conversation_id) AS value FROM knowledge_memories WHERE subject_id='{subject}' AND memory_type='short' AND status='active' AND (expires_at IS NULL OR expires_at>now()){conversation_exclusion}{delivered_exclusion} ORDER BY created_at DESC LIMIT {short_limit}\")).await?"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1291,
+          "line": 1307,
           "expression": "json_rows(&s, &format!(\"SELECT jsonb_build_object('id',id,'kind',kind,'content',content,'fact_key',fact_key,'fact_value',fact_value,'importance',importance,'confidence',confidence,'created_at',created_at,'score',ts_rank(search_vector,plainto_tsquery('simple','{q}'))) AS value FROM knowledge_memories WHERE subject_id='{subject}' AND memory_type='long' AND status='active' AND superseded_by IS NULL AND (expires_at IS NULL OR expires_at>now()) AND ('{q}'='' OR search_vector @@ plainto_tsquery('simple','{q}')){delivered_exclusion} ORDER BY (ts_rank(search_vector,plainto_tsquery('simple','{q}'))*0.55 + importance*0.2 + confidence*0.15 + (1.0/(1.0+EXTRACT(EPOCH FROM (now()-updated_at))/86400.0))*0."
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1300,
+          "line": 1316,
           "expression": "json_rows(&s, &format!(r#\"SELECT jsonb_build_object('id',ri.id,'group_id',rg.id,'group_slug',rg.slug,'group_conditions',rg.conditions,'group_max_results',rg.max_results,'item_conditions',ri.conditions,'kind',ri.kind,'label',ri.label,'description',ri.description,'linked_service',ri.linked_service,'linked_entity_type',ri.linked_entity_type,'linked_entity_id',ri.linked_entity_id,'link_url',ri.link_url,'open_in_new_tab',ri.open_in_new_tab,'score',ri.base_score) AS value FROM knowledge_assistant_recommenders ar JOIN knowledge_recommender_groups rg ON rg.id=ar.recommender_group_id AND rg.status='active' JOIN knowledge_recommender_items ri ON ri.recommender_group_id=rg.id AND ri.enabled=true WHERE "
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1304,
+          "line": 1320,
           "expression": "let findings = json_rows(&s, &format!(\"SELECT jsonb_build_object('id',f.id,'knowledge_base_id',f.knowledge_base_id,'type',f.finding_type,'severity',f.severity,'title',f.title,'detail',f.detail) AS value FROM knowledge_findings f JOIN knowledge_assistant_bases ab ON ab.knowledge_base_id=f.knowledge_base_id WHERE f.organization_id='{org}' AND ab.assistant_id='{assistant_id}' AND f.status='open' ORDER BY f.severity DESC LIMIT 20\")).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1313,
+          "line": 1329,
           "expression": "json_rows(&s,&format!(\"SELECT jsonb_build_object('id',sp.id,'kind','session_evidence','title',jsonb_build_object('en','Session summary'),'summary',jsonb_build_object('en',sp.summary),'content',jsonb_build_object('en',sp.summary),'knowledge_base_id',sp.knowledge_base_id,'session_room_id',sp.room_id,'recording_id',sp.recording_id,'track_id',sp.track_id,'linked_composition_id',sp.linked_composition_id,'provenance',sp.provenance,'visibility','private','score',1.0,'updated_at',sp.projected_at) AS value FROM knowledge_session_projections sp JOIN knowledge_assistant_bases ab ON ab.knowledge_base_id=sp.knowledge_base_id AND ab.organization_id=sp.organization_id AND ab.assistant_id='{assistant_id}' A"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1449,
+          "line": 1465,
           "expression": "(\"database\".into(), DependencyState::Ready),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1450,
+          "line": 1466,
           "expression": "(\"lexical\".into(), DependencyState::Ready),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1456,
+          "line": 1472,
           "expression": "DependencyState::Ready"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1458,
+          "line": 1474,
           "expression": "DependencyState::Degraded"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1464,
+          "line": 1480,
           "expression": "DependencyState::Denied"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1466,
+          "line": 1482,
           "expression": "DependencyState::Empty"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1468,
+          "line": 1484,
           "expression": "DependencyState::Ready"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1605,
+          "line": 1621,
           "expression": "let dependency_state ="
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1606,
+          "line": 1622,
           "expression": "sql_json(&serde_json::to_value(&canonical.dependency_state).unwrap_or_else(|_| json!({})));"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1612,
+          "line": 1628,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_retrieval_traces(id,organization_id,assistant_id,user_id,conversation_id,request_id,surface,context_mode,policy_version,query_language,candidate_counts,exclusion_counts,accepted_counts,dependency_state,timing_ms,requested_tokens,packed_tokens,citation_coverage,selected_media_hit_rate,outcome) VALUES ('{trace_id}','{org}','{assistant_id}','{}',{conversation_id},{request_id},'{}','{}',{policy_version},'{}','{}'::jsonb,'{}'::jsonb,'{}'::jsonb,'{dependency_state}'::jsonb,'{}'::jsonb,{},{},{citation_coverage},{selected_hit_rate},'success')\",body.user_id,sql_text(&surface),sql_text(policy.get(\"context_mode\").and_then(Value::as_str).unwrap_or("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1641,
+          "line": 1657,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_context_cursors(id,organization_id,assistant_id,user_id,conversation_id,policy_version,profile_version,delivered_ids,expires_at) VALUES ('{cursor_id}','{org}','{assistant_id}','{}','{conversation_id}',{policy_version},{profile_version_sql},'{}'::jsonb,now()+interval '24 hours') ON CONFLICT(organization_id,assistant_id,user_id,conversation_id) DO UPDATE SET id=EXCLUDED.id,policy_version=EXCLUDED.policy_version,profile_version=EXCLUDED.profile_version,delivered_ids=EXCLUDED.delivered_ids,expires_at=EXCLUDED.expires_at,updated_at=now()\",body.user_id,sql_json(&delivered))).await?;"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1111,
+          "line": 1127,
           "expression": "WHERE ab.organization_id='{org}' AND ab.assistant_id='{assistant_id}' AND ab.enabled=true AND b.status='published' AND i.status='published' AND i.deleted_at IS NULL"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1117,
+          "line": 1133,
           "expression": "SELECT target.*,e.edge_type,e.conditions::text edge_conditions_text FROM ranked seed JOIN knowledge_edges e ON e.from_item_id=seed.id AND e.status='published' JOIN ranked target ON target.id=e.to_item_id WHERE seed.score>0"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1127,
+          "line": 1143,
           "expression": "JOIN knowledge_bases b ON b.id=ab.knowledge_base_id AND b.status='published' AND b.deleted_at IS NULL"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1128,
+          "line": 1144,
           "expression": "JOIN knowledge_releases r ON r.id=b.published_release_id AND r.status='published'"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1144,
+          "line": 1160,
           "expression": "'show_when',COALESCE(item->'show_when','{{}}'::jsonb),'importance',COALESCE(item->>'importance','info'),'status','published',"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1146,
+          "line": 1162,
           "expression": "'group_slug',group_payload->>'slug','level',COALESCE((group_payload->>'level')::integer,0),'release_id',release_id,'release_status',release_status,'base_status','published',"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1170,
+          "line": 1186,
           "expression": "ORDER BY {selected_media_ordering} DESC,ts_rank(c.search_vector,plainto_tsquery('simple','{q}')) DESC,c.updated_at DESC"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1197,
+          "line": 1213,
           "expression": "JOIN knowledge_bases b ON b.id=ab.knowledge_base_id AND b.status='published'"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1198,
+          "line": 1214,
           "expression": "JOIN knowledge_documents d ON d.knowledge_base_id=b.id AND d.status='indexed' AND d.deleted_at IS NULL"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1291,
+          "line": 1307,
           "expression": "json_rows(&s, &format!(\"SELECT jsonb_build_object('id',id,'kind',kind,'content',content,'fact_key',fact_key,'fact_value',fact_value,'importance',importance,'confidence',confidence,'created_at',created_at,'score',ts_rank(search_vector,plainto_tsquery('simple','{q}'))) AS value FROM knowledge_memories WHERE subject_id='{subject}' AND memory_type='long' AND status='active' AND superseded_by IS NULL AND (expires_at IS NULL OR expires_at>now()) AND ('{q}'='' OR search_vector @@ plainto_tsquery('simple','{q}')){delivered_exclusion} ORDER BY (ts_rank(search_vector,plainto_tsquery('simple','{q}'))*0.55 + importance*0.2 + confidence*0.15 + (1.0/(1.0+EXTRACT(EPOCH FROM (now()-updated_at))/86400.0))*0."
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1313,
+          "line": 1329,
           "expression": "json_rows(&s,&format!(\"SELECT jsonb_build_object('id',sp.id,'kind','session_evidence','title',jsonb_build_object('en','Session summary'),'summary',jsonb_build_object('en',sp.summary),'content',jsonb_build_object('en',sp.summary),'knowledge_base_id',sp.knowledge_base_id,'session_room_id',sp.room_id,'recording_id',sp.recording_id,'track_id',sp.track_id,'linked_composition_id',sp.linked_composition_id,'provenance',sp.provenance,'visibility','private','score',1.0,'updated_at',sp.projected_at) AS value FROM knowledge_session_projections sp JOIN knowledge_assistant_bases ab ON ab.knowledge_base_id=sp.knowledge_base_id AND ab.organization_id=sp.organization_id AND ab.assistant_id='{assistant_id}' A"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1612,
+          "line": 1628,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_retrieval_traces(id,organization_id,assistant_id,user_id,conversation_id,request_id,surface,context_mode,policy_version,query_language,candidate_counts,exclusion_counts,accepted_counts,dependency_state,timing_ms,requested_tokens,packed_tokens,citation_coverage,selected_media_hit_rate,outcome) VALUES ('{trace_id}','{org}','{assistant_id}','{}',{conversation_id},{request_id},'{}','{}',{policy_version},'{}','{}'::jsonb,'{}'::jsonb,'{}'::jsonb,'{dependency_state}'::jsonb,'{}'::jsonb,{},{},{citation_coverage},{selected_hit_rate},'success')\",body.user_id,sql_text(&surface),sql_text(policy.get(\"context_mode\").and_then(Value::as_str).unwrap_or("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1615,
+          "line": 1631,
           "expression": "object.insert(\"trace_id\".into(), json!(trace_id));"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1616,
+          "line": 1632,
           "expression": "object.insert("
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1641,
+          "line": 1657,
           "expression": "s.db.execute_unprepared(&format!(\"INSERT INTO knowledge_context_cursors(id,organization_id,assistant_id,user_id,conversation_id,policy_version,profile_version,delivered_ids,expires_at) VALUES ('{cursor_id}','{org}','{assistant_id}','{}','{conversation_id}',{policy_version},{profile_version_sql},'{}'::jsonb,now()+interval '24 hours') ON CONFLICT(organization_id,assistant_id,user_id,conversation_id) DO UPDATE SET id=EXCLUDED.id,policy_version=EXCLUDED.policy_version,profile_version=EXCLUDED.profile_version,delivered_ids=EXCLUDED.delivered_ids,expires_at=EXCLUDED.expires_at,updated_at=now()\",body.user_id,sql_json(&delivered))).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1643,
+          "line": 1659,
           "expression": "object.insert(\"context_cursor\".into(), json!(cursor_id));"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1644,
+          "line": 1660,
           "expression": "object.insert("
         }
       ],
@@ -17499,11 +17614,11 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:1667:preview_assistant": {
+    "infera-knowledge/src/platform.rs:1683:preview_assistant": {
       "name": "preview_assistant",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 1667,
-      "end_line": 1675,
+      "line": 1683,
+      "end_line": 1691,
       "signature": "async fn preview_assistant(\n    state: State<AppState>,\n    ctx: RequestContext,\n    path: Path<Uuid>,\n    Json(mut body): Json<AssistantQuery>,\n) -> Result<Json<ApiResponse<AssistantRuntimeResult>>, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -17511,65 +17626,65 @@
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1674,
+          "line": 1690,
           "expression": "query_assistant(state, ctx, path, Json(body)).await"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:1677:evaluate_assistant": {
+    "infera-knowledge/src/platform.rs:1693:evaluate_assistant": {
       "name": "evaluate_assistant",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 1677,
-      "end_line": 1701,
+      "line": 1693,
+      "end_line": 1717,
       "signature": "async fn evaluate_assistant(\n    state: State<AppState>,\n    ctx: RequestContext,\n    path: Path<Uuid>,\n    Json(mut body): Json<AssistantQuery>,\n) -> Result<Json<ApiResponse<AssistantRuntimeResult>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1685,
+          "line": 1701,
           "expression": "let organization_id = ctx.organization_id;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1689,
+          "line": 1705,
           "expression": "if let Some(case)=json_one(&state.0,&format!(\"SELECT to_jsonb(c) AS value FROM knowledge_evaluation_cases c WHERE id='{case_id}' AND organization_id='{organization_id}' AND status='active'\")).await? {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1697,
+          "line": 1713,
           "expression": "state.0.db.execute_unprepared(&format!(\"INSERT INTO knowledge_evaluation_runs(id,organization_id,configuration,dataset_checksum,seed,metrics,case_results,benchmark_environment,status,created_at,completed_at) VALUES ('{run_id}','{organization_id}','{}'::jsonb,'{dataset_checksum}',20260829,'{}'::jsonb,'{}'::jsonb,'{}'::jsonb,'completed',now(),now())\",sql_json(&json!({\"assistant_id\":assistant_id,\"case_id\":case_id,\"surface\":\"evaluation\"})),sql_json(&metrics_value),sql_json(&json!([{\"case_id\":case_id,\"ranked_ids\":ranked,\"metrics\":metrics_value}])),sql_json(&json!({\"service_version\":env!(\"CARGO_PKG_VERSION\")})))).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1693,
+          "line": 1709,
           "expression": "let metrics=crate::evaluation::evaluate(&ranked,&qrels,case.get(\"expected_top1\").and_then(Value::as_str),None,&sources,ranked.len().max(1));"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1687,
+          "line": 1703,
           "expression": "let response = query_assistant(state.clone(), ctx, path, Json(body)).await?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1689,
+          "line": 1705,
           "expression": "if let Some(case)=json_one(&state.0,&format!(\"SELECT to_jsonb(c) AS value FROM knowledge_evaluation_cases c WHERE id='{case_id}' AND organization_id='{organization_id}' AND status='active'\")).await? {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1697,
+          "line": 1713,
           "expression": "state.0.db.execute_unprepared(&format!(\"INSERT INTO knowledge_evaluation_runs(id,organization_id,configuration,dataset_checksum,seed,metrics,case_results,benchmark_environment,status,created_at,completed_at) VALUES ('{run_id}','{organization_id}','{}'::jsonb,'{dataset_checksum}',20260829,'{}'::jsonb,'{}'::jsonb,'{}'::jsonb,'completed',now(),now())\",sql_json(&json!({\"assistant_id\":assistant_id,\"case_id\":case_id,\"surface\":\"evaluation\"})),sql_json(&metrics_value),sql_json(&json!([{\"case_id\":case_id,\"ranked_ids\":ranked,\"metrics\":metrics_value}])),sql_json(&json!({\"service_version\":env!(\"CARGO_PKG_VERSION\")})))).await?;"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 1697,
+          "line": 1713,
           "expression": "state.0.db.execute_unprepared(&format!(\"INSERT INTO knowledge_evaluation_runs(id,organization_id,configuration,dataset_checksum,seed,metrics,case_results,benchmark_environment,status,created_at,completed_at) VALUES ('{run_id}','{organization_id}','{}'::jsonb,'{dataset_checksum}',20260829,'{}'::jsonb,'{}'::jsonb,'{}'::jsonb,'completed',now(),now())\",sql_json(&json!({\"assistant_id\":assistant_id,\"case_id\":case_id,\"surface\":\"evaluation\"})),sql_json(&metrics_value),sql_json(&json!([{\"case_id\":case_id,\"ranked_ids\":ranked,\"metrics\":metrics_value}])),sql_json(&json!({\"service_version\":env!(\"CARGO_PKG_VERSION\")})))).await?;"
         }
       ],
@@ -17626,11 +17741,11 @@
       "effects": [],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:2262:record_turn": {
+    "infera-knowledge/src/platform.rs:2298:record_turn": {
       "name": "record_turn",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 2262,
-      "end_line": 2318,
+      "line": 2298,
+      "end_line": 2354,
       "signature": "async fn record_turn(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Path(assistant_id): Path<Uuid>,\n    Json(body): Json<RecordTurn>,\n) -> Result<(StatusCode, Json<ApiResponse<Value>>), AppError>",
       "declared_permissions": [
         "knowledge:runtime"
@@ -17638,78 +17753,78 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2268,
+          "line": 2304,
           "expression": "ctx.require(\"knowledge:runtime\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2269,
+          "line": 2305,
           "expression": "let org = ctx.organization_id;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2296,
+          "line": 2332,
           "expression": "let idempotency_key = body"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2308,
+          "line": 2344,
           "expression": "let row = json_one(&s, &format!(\"INSERT INTO knowledge_memory_outbox(id,organization_id,assistant_id,user_id,conversation_id,user_message_id,assistant_message_id,idempotency_key,payload) VALUES ('{outbox_id}','{org}','{assistant_id}','{}','{}',{},{},'{}','{}'::jsonb) ON CONFLICT(organization_id,idempotency_key) DO UPDATE SET updated_at=knowledge_memory_outbox.updated_at RETURNING jsonb_build_object('id',id,'status',status) AS value\", body.user_id, body.conversation_id, body.user_message_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()), body.assistant_message_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()), sql_text(&idempotency_key), sql_json(&payload))).await?.ok_"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2315,
+          "line": 2351,
           "expression": "\"idempotency_key\": idempotency_key,"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2308,
+          "line": 2344,
           "expression": "let row = json_one(&s, &format!(\"INSERT INTO knowledge_memory_outbox(id,organization_id,assistant_id,user_id,conversation_id,user_message_id,assistant_message_id,idempotency_key,payload) VALUES ('{outbox_id}','{org}','{assistant_id}','{}','{}',{},{},'{}','{}'::jsonb) ON CONFLICT(organization_id,idempotency_key) DO UPDATE SET updated_at=knowledge_memory_outbox.updated_at RETURNING jsonb_build_object('id',id,'status',status) AS value\", body.user_id, body.conversation_id, body.user_message_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()), body.assistant_message_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()), sql_text(&idempotency_key), sql_json(&payload))).await?.ok_"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2272,
-          "expression": "StatusCode::ACCEPTED,"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
-          "line": 2288,
-          "expression": "StatusCode::ACCEPTED,"
-        },
-        {
-          "path": "infera-knowledge/src/platform.rs",
           "line": 2308,
+          "expression": "StatusCode::ACCEPTED,"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2324,
+          "expression": "StatusCode::ACCEPTED,"
+        },
+        {
+          "path": "infera-knowledge/src/platform.rs",
+          "line": 2344,
           "expression": "let row = json_one(&s, &format!(\"INSERT INTO knowledge_memory_outbox(id,organization_id,assistant_id,user_id,conversation_id,user_message_id,assistant_message_id,idempotency_key,payload) VALUES ('{outbox_id}','{org}','{assistant_id}','{}','{}',{},{},'{}','{}'::jsonb) ON CONFLICT(organization_id,idempotency_key) DO UPDATE SET updated_at=knowledge_memory_outbox.updated_at RETURNING jsonb_build_object('id',id,'status',status) AS value\", body.user_id, body.conversation_id, body.user_message_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()), body.assistant_message_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()), sql_text(&idempotency_key), sql_json(&payload))).await?.ok_"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2310,
+          "line": 2346,
           "expression": "StatusCode::ACCEPTED,"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2314,
+          "line": 2350,
           "expression": "\"status\": row.get(\"status\"),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2307,
+          "line": 2343,
           "expression": "let outbox_id = Uuid::new_v4();"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2308,
+          "line": 2344,
           "expression": "let row = json_one(&s, &format!(\"INSERT INTO knowledge_memory_outbox(id,organization_id,assistant_id,user_id,conversation_id,user_message_id,assistant_message_id,idempotency_key,payload) VALUES ('{outbox_id}','{org}','{assistant_id}','{}','{}',{},{},'{}','{}'::jsonb) ON CONFLICT(organization_id,idempotency_key) DO UPDATE SET updated_at=knowledge_memory_outbox.updated_at RETURNING jsonb_build_object('id',id,'status',status) AS value\", body.user_id, body.conversation_id, body.user_message_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()), body.assistant_message_id.map(|id|format!(\"'{id}'\")).unwrap_or_else(||\"NULL\".into()), sql_text(&idempotency_key), sql_json(&payload))).await?.ok_"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 2313,
+          "line": 2349,
           "expression": "\"outbox_id\": row.get(\"id\"),"
         }
       ],
@@ -18047,11 +18162,11 @@
         }
       ]
     },
-    "infera-knowledge/src/platform.rs:3439:mcp": {
+    "infera-knowledge/src/platform.rs:3493:mcp": {
       "name": "mcp",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 3439,
-      "end_line": 3544,
+      "line": 3493,
+      "end_line": 3598,
       "signature": "async fn mcp(\n    State(s): State<AppState>,\n    ctx: RequestContext,\n    Json(req): Json<McpRequest>,\n) -> Result<Json<Value>, AppError>",
       "declared_permissions": [
         "knowledge:runtime"
@@ -18059,133 +18174,133 @@
       "guards": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3444,
+          "line": 3498,
           "expression": "ctx.require(\"knowledge:runtime\")?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3507,
+          "line": 3561,
           "expression": "let can_delete_any = ctx.permissions.iter().any(|permission| {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3508,
+          "line": 3562,
           "expression": "permission == \"*\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3509,
+          "line": 3563,
           "expression": "|| permission == \"knowledge:*\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3510,
+          "line": 3564,
           "expression": "|| permission == \"knowledge:memory:delete\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3520,
+          "line": 3574,
           "expression": "\"SELECT jsonb_build_object('id',id) AS value FROM knowledge_memory_subjects WHERE organization_id='{}' AND assistant_id='{}' AND user_id='{}'\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3521,
+          "line": 3575,
           "expression": "ctx.organization_id, body.assistant_id, body.user_id"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3531,
+          "line": 3585,
           "expression": "\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE subject_id='{subject_id}' AND organization_id='{}' AND status<>'forgotten'; UPDATE knowledge_memory_subjects SET short_memory_count=0,long_memory_count=0,updated_at=now() WHERE id='{subject_id}' AND organization_id='{}'\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3532,
+          "line": 3586,
           "expression": "ctx.organization_id, ctx.organization_id"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3537,
+          "line": 3591,
           "expression": "\"service_status\" => mcp_tool_result(status_value(&s, ctx.organization_id).await?),"
         }
       ],
       "validation": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3461,
+          "line": 3515,
           "expression": ".map_err(|error| AppError::BadRequest(error.to_string()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3479,
+          "line": 3533,
           "expression": ".map_err(|error| AppError::BadRequest(error.to_string()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3493,
+          "line": 3547,
           "expression": ".map_err(|error| AppError::BadRequest(error.to_string()))?;"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3506,
+          "line": 3560,
           "expression": ".map_err(|error| AppError::BadRequest(error.to_string()))?;"
         }
       ],
       "state": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3464,
+          "line": 3518,
           "expression": "State(s.clone()),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3481,
+          "line": 3535,
           "expression": "State(s.clone()),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3496,
+          "line": 3550,
           "expression": "State(s.clone()),"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3531,
+          "line": 3585,
           "expression": "\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE subject_id='{subject_id}' AND organization_id='{}' AND status<>'forgotten'; UPDATE knowledge_memory_subjects SET short_memory_count=0,long_memory_count=0,updated_at=now() WHERE id='{subject_id}' AND organization_id='{}'\","
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3537,
+          "line": 3591,
           "expression": "\"service_status\" => mcp_tool_result(status_value(&s, ctx.organization_id).await?),"
         }
       ],
       "effects": [
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3507,
+          "line": 3561,
           "expression": "let can_delete_any = ctx.permissions.iter().any(|permission| {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3510,
+          "line": 3564,
           "expression": "|| permission == \"knowledge:memory:delete\""
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3512,
+          "line": 3566,
           "expression": "if ctx.user_id != Some(body.user_id) && !can_delete_any {"
         },
         {
           "path": "infera-knowledge/src/platform.rs",
-          "line": 3531,
+          "line": 3585,
           "expression": "\"UPDATE knowledge_memories SET status='forgotten',forgotten_at=COALESCE(forgotten_at,now()),updated_at=now() WHERE subject_id='{subject_id}' AND organization_id='{}' AND status<>'forgotten'; UPDATE knowledge_memory_subjects SET short_memory_count=0,long_memory_count=0,updated_at=now() WHERE id='{subject_id}' AND organization_id='{}'\","
         }
       ],
       "calls": []
     },
-    "infera-knowledge/src/platform.rs:3398:McpRequest": {
+    "infera-knowledge/src/platform.rs:3452:McpRequest": {
       "name": "McpRequest",
       "kind": "struct",
       "path": "infera-knowledge/src/platform.rs",
-      "line": 3398,
+      "line": 3452,
       "attributes": "#[derive(Debug, Deserialize)]",
       "fields": [
         {

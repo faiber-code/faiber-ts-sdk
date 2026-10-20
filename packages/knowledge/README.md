@@ -116,8 +116,8 @@ fields accept `null` as the backend's omitted-value behavior; null does not clea
 parent, date, or link. Empty link strings are handled separately by the service.
 
 `ingestDocument` performs direct text/chunk indexing synchronously. A changed document
-returns HTTP 201 with `status: "indexed"` and a completed `job_id`; an identical
-external-ID/checksum retry returns HTTP 200 with `status: "unchanged"` and no new
+returns HTTP 201 with `status: "indexed"` and a completed `job_id`; a retry with identical
+external ID, content checksum and source fields returns HTTP 200 with `status: "unchanged"` and no new
 job ID. Indexed text does not imply that vector embeddings are ready. The document
 list returns a projection with `indexed_at` and `created_at`; it does not include
 content, checksum or metadata. Use the authorized document-evidence operation when
@@ -128,3 +128,8 @@ and platform audit events (`auditEvents`, permission `knowledge:read`) are disti
 record formats. Action status accepts `open`, `acknowledged`, `snoozed`, `completed`,
 or `dismissed` with `knowledge:actions`; ordinary read permission does not authorize
 action updates.
+
+Corrections to title, media type, language, provenance, metadata or source association
+update the existing external-ID document even when the text checksum is unchanged.
+Reprocessing retries return the actual persisted active job ID; they do not promise
+that an ingestion worker or embeddings are ready.

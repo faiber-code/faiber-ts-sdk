@@ -802,6 +802,48 @@
       ],
       "test_evidence": [],
       "local_native_receipt": "acceptance-results/three-feature-completion-20261019/idp-packed-sdk-native-v1/receipt.json"
+    },
+    {
+      "id": "knowledge-independent-fact-identity",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "The selected4f source extracts unrelated preferences under preference.general and remembered facts under user.remembered, then contradicts every active long memory sharing that key. Define semantic fact identity distinct from extraction category, explicit correction/supersession and per-fact source provenance; prove two independent facts coexist and only an authorized correction supersedes its target. The37-operation editor/ingestion run does not cover these runtime memory paths.",
+      "source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs::persist_memory_turn",
+        "Service/infera-knowledge/src/platform.rs::extract_long_term_fact"
+      ]
+    },
+    {
+      "id": "knowledge-runtime-subject-authority",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "implementation_phase": "memory_after_sdk_manage",
+      "meaning": "Assistant query/record-turn accept body.user_id after knowledge:runtime; scoped current-principal versus delegated-service authorization and assistant ownership must be proved before Ask personal or project memory adoption. Organization scoping and trusted fixture headers alone do not establish current user/project access. Preserve valid service delegation with explicit current authorization, not caller-selected UUID authority.",
+      "source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
+      "source_refs": [
+        "Service/infera-knowledge/src/platform.rs::query_assistant",
+        "Service/infera-knowledge/src/platform.rs::record_turn",
+        "Service/infera-knowledge/src/context.rs"
+      ]
+    },
+    {
+      "id": "knowledge-processing-job-executor",
+      "owner": "knowledge",
+      "required": true,
+      "status": "source_review_requires_runtime_verification",
+      "meaning": "Selected4f source queues source_sync and document_reprocess in knowledge_processing_jobs; inspected startup spawns only the sync broker consumer and memory-outbox worker. Identify/prove the actual durable processing-job executor or implement supported job execution, leases/crash recovery/cancellation/retry/dead-letter behavior. Valid202persisted job identity is not completion or embedding readiness.",
+      "source_revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40",
+      "source_refs": [
+        "Service/infera-knowledge/src/main.rs",
+        "Service/infera-knowledge/src/broker.rs",
+        "Service/infera-knowledge/src/platform.rs::sync_source",
+        "Service/infera-knowledge/src/platform.rs::reprocess_document",
+        "Service/infera-knowledge/src/platform.rs::spawn_memory_worker"
+      ]
     }
   ]
 }

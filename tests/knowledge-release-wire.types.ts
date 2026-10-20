@@ -35,3 +35,5 @@ api.operations.platformIngestDocumentPost({knowledge_base_id:'base',title:'Title
  if(response.data.data.status==='indexed'){const job:string=response.data.data.job_id;void job;}
 });
 void invalidImportance;
+
+api.query('chat',{compact:true,max_context_chars:4000}).then(response=>{const suggestions:import('../packages/core/src/index.js').JsonValue[]=response.data.data.suggestions;void suggestions;});
