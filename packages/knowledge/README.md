@@ -178,3 +178,36 @@ package promotion. The source pin is intentionally unchanged during draft work.
 Adapter tests verify transport and types only. Backend PostgreSQL, authenticated
 Manage proxy, package/source-pin reconciliation, bounded UI and release gates
 remain distinct requirements. All endpoints remain under /api/v1.
+
+
+Assistant memory-enabled flags remain hard capture/recall ceilings. Explicit true
+subject overrides against an off lane are forbidden even if the stored legacy
+override_widening_allowed flag is true. That legacy value is retained as history,
+not an operative UI control. The response declares effective_override_mode as
+narrow_only; inspect raw and effective values separately. Explicit assistant policy
+changes require their own current-authority/revision/epoch integration gate.
+
+### Captured assistant policy revisions and operation outcomes
+
+Open an edit draft with assistantConfiguration(assistantId). Retain its
+expected_policy_revision with that draft. configureAssistant requires the captured
+revision and a caller-created, non-nil configuration_id UUID. Use zero only to
+create an absent policy. Keep the same UUID and exact input after an uncertain
+outcome; a changed request needs a new, explicitly reviewed operation. A409 must
+never cause automatic snapshot fetching or rebasing.
+
+assistantConfigurationOperation(assistantId, configurationId) reads the immutable
+applied/cancelled outcome under current knowledge:write. The canonical generated
+equivalents are platformAssistantConfigurationSnapshotGet,
+platformConfigureAssistantPut, platformAssistantConfigurationOperationGet and
+platformCancelAssistantConfigurationOperationPost. Explicit cancellation accepts
+a nonempty reason up to500bytes, fences delayed delivery, and cannot cancel an
+already committed policy. An identical original-actor replay never increments
+policy history, audit or memory epochs again.
+
+The DTOs are AssistantPolicySnapshotResponse, AssistantConfigurationInput,
+AssistantConfigurationResponse, AssistantConfigurationOperationResponse and
+AssistantConfigurationCancellation. These methods preserve Axios metadata,
+current transport authentication, cancellation and actual error statuses.
+Local PostgreSQL/HTTP tests are separate from deployed IDP/grant certification
+and from the all-service semantic release gate.

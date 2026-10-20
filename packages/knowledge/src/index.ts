@@ -49,8 +49,11 @@ export class KnowledgeApi extends ServiceApi {
     return this.client.post<T.KnowledgeSourceResponse,T.SourceStateInput>(`/api/v1/sources/${id(sourceId)}/pause`,data,options);
   }
   /** Canonical MCP scope invalidation, including accepted work with no extracted subject. */
-  forgetAssistantScope(assistantId:Identifier,data:T.MemoryScopeForgetInput,options?:RequestOptions){
-    return this.client.post<T.MemoryScopeForgetResponse>("/api/v1/runtime/mcp",{jsonrpc:"2.0",id:"memory-forget",method:"tools/call",params:{name:"memory_forget",arguments:{assistant_id:assistantId,...data}}},options);
+  async forgetAssistantScope(assistantId:Identifier,data:T.MemoryScopeForgetInput,options?:RequestOptions){
+    const response=await this.client.post<T.MemoryScopeForgetResponse>("/api/v1/runtime/mcp",{jsonrpc:"2.0",id:"memory-forget",method:"tools/call",params:{name:"memory_forget",arguments:{assistant_id:assistantId,...data}}},options);
+    const result=response.data?.result?.structuredContent;
+    if(!response.data||typeof response.data!=="object"||"error" in response.data||response.data.jsonrpc!=="2.0"||response.data.id!=="memory-forget"||response.data.result?.isError===true||result?.scope_fenced!==true||result.cleared!==true||!Number.isSafeInteger(result.rows_changed)||result.rows_changed<0||(result.subject_id!==null&&typeof result.subject_id!=="string"))throw new Error("The service did not confirm memory scope invalidation");
+    return response;
   }
   auditEvents(options?: RequestOptions) { return this.client.get<T.KnowledgeAuditEventListResponse>("/api/v1/audit-events", undefined, options); }
   toolSchema(options?: RequestOptions) { return this.client.get<ApiEnvelope<JsonValue>>("/api/v1/runtime/tool-schema", undefined, options); }
@@ -67,7 +70,14 @@ export class KnowledgeApi extends ServiceApi {
   /** Indexes text/chunks synchronously; identical input returns 200 without a new job, changed text or source fields return 201 with a completed job. Requires `knowledge:write`. Embedding readiness is separate. */
   ingestDocument(data:T.IngestDocumentInput,options?:RequestOptions<T.IngestDocumentInput>){return this.client.post<T.IngestDocumentResponse,T.IngestDocumentInput>("/api/v1/documents",data,options);}
   /** Configures a versioned assistant context policy with optimistic revision checking. Requires `knowledge:write`. */
-  configureAssistant(assistantId:Identifier,data:T.AssistantConfigurationInput,options?:RequestOptions<T.AssistantConfigurationInput>){return this.client.put<ApiEnvelope<JsonValue>,T.AssistantConfigurationInput>(`/api/v1/runtime/assistants/${id(assistantId)}/configure`,data,options);}
+  /** Capture when opening a draft; never refresh this revision while submitting it. */
+  assistantConfiguration(assistantId:Identifier,options?:RequestOptions){return this.client.get<T.AssistantPolicySnapshotResponse>('/api/v1/runtime/assistants/'+id(assistantId)+'/configure',undefined,options);}
+  configureAssistant(assistantId:Identifier,data:T.AssistantConfigurationInput,options?:RequestOptions<T.AssistantConfigurationInput>){
+    if(!Number.isSafeInteger(data.expected_policy_revision)||data.expected_policy_revision<0||!validConfigurationId(data.configuration_id))throw new TypeError("Captured policy revision and non-nil configuration UUID are required");
+    return this.client.put<T.AssistantConfigurationResponse,T.AssistantConfigurationInput>('/api/v1/runtime/assistants/'+id(assistantId)+'/configure',data,options);
+  }
+  assistantConfigurationOperation(assistantId:Identifier,operationId:Identifier,options?:RequestOptions){return this.client.get<T.AssistantConfigurationOperationResponse>('/api/v1/runtime/assistants/'+id(assistantId)+'/configuration-operations/'+id(operationId),undefined,options);}
+  cancelAssistantConfiguration(assistantId:Identifier,operationId:Identifier,input:T.AssistantConfigurationCancellation,options?:RequestOptions<T.AssistantConfigurationCancellation>){return this.client.post<T.AssistantConfigurationOperationResponse,T.AssistantConfigurationCancellation>('/api/v1/runtime/assistants/'+id(assistantId)+'/configuration-operations/'+id(operationId),input,options);}
   /** Retrieves governed, packed assistant context and returns its delivery cursor. Requires `knowledge:runtime`. */
   assistantQuery(assistantId:Identifier,data:T.AssistantQueryInput,options?:RequestOptions<T.AssistantQueryInput>){return this.client.post<T.AssistantRuntimeResponse,T.AssistantQueryInput>(`/api/v1/runtime/assistants/${id(assistantId)}/query`,data,options);}
   /** Runs the same canonical pipeline for operator preview. Requires `knowledge:runtime`. */
@@ -83,3 +93,5 @@ export * from "./types.js";
 export * from "@faiber/sdk-core";
 export * from "./operations.js";
 export * from "./operations.types.js";
+
+function validConfigurationId(value:unknown):value is string{return typeof value==="string"&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value)&&value.replaceAll("-","")!=="0".repeat(32);}

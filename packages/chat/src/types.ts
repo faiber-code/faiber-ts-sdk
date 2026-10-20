@@ -83,3 +83,23 @@ export type SpeechLanguage = 'en'|'fa'|'auto';
 
 export type SpeechAudioFormat = 'mp3' | 'wav';
 export interface SpeechSynthesisInput { text:string; language?: 'fa'|'en'; /** Compact mono MP3 by default; WAV for lossless processing. */ format?: SpeechAudioFormat }
+
+export interface ManagedAssistantRecord extends JsonObject {
+  id:string; organization_id:string; owner_id:string; name:string; system_prompt:string; model_ref:string; billing_payer:string;
+  knowledge_group_slugs:string[]; knowledge_level:number|null; knowledge_base_ids:string[]; recommender_group_ids:string[];
+  short_memory_enabled:boolean; long_memory_enabled:boolean; short_memory_turns:number; long_memory_limit:number;
+  context_mode:string; context_budget_tokens:number; max_knowledge_results:number; max_chunks_per_document:number;
+  knowledge_enabled:boolean; recommenders_enabled:boolean; selected_media_enabled:boolean; session_access:boolean; drm_access:boolean;
+  customer_actions:JsonObject[]; status:string; version:number; created_at:string; updated_at:string; deleted_at:string|null;
+}
+export interface ManagedAssistantDetail extends ManagedAssistantRecord { expected_knowledge_policy_revision:number; }
+export type ManagedAssistantDetailResponse=ApiEnvelope<ManagedAssistantDetail>;
+export interface AssistantConfigurationIntent extends JsonObject {
+  id:string; organization_id:string; assistant_id:string; actor_id:string; expected_chat_version:number;
+  request:JsonObject; proposed:ManagedAssistantRecord; policy_request:JsonObject; status:"pending"|"applied"|"cancelled";
+  outcome:JsonObject|null; created_at:string; updated_at:string;
+}
+export type AssistantConfigurationIntentResponse=ApiEnvelope<AssistantConfigurationIntent>;
+export interface AssistantPolicyReconciliationInput extends JsonObject { action:"recover"|"cancel"; }
+export interface AssistantPolicyCancellationReceipt extends JsonObject { configuration_id:string; assistant_id:string; status:"cancelled"; }
+export type AssistantPolicyReconciliationResponse=ApiEnvelope<ManagedAssistantRecord|AssistantPolicyCancellationReceipt>;

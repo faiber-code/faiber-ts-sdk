@@ -67,8 +67,17 @@ export class ChatApi extends ServiceApi {
   assistant(assistantId: Identifier, options?: RequestOptions) { return this.operations.routesGetAssistantGet(assistantId, options); }
   managedAssistants(options?: RequestOptions) { return this.operations.routesListManagedAssistantsGet(options); }
   managedAssistant(assistantId: Identifier, options?: RequestOptions) { return this.operations.routesGetManagedAssistantGet(assistantId, options); }
-  createAssistant(data: O.RoutesCreateAssistantPostInput, options?: RequestOptions<O.RoutesCreateAssistantPostInput>) { return this.operations.routesCreateAssistantPost(data, options); }
-  updateAssistant(assistantId: Identifier, data: O.RoutesUpdateAssistantPutInput, options?: RequestOptions<O.RoutesUpdateAssistantPutInput>) { return this.operations.routesUpdateAssistantPut(assistantId, data, options); }
+  createAssistant(data: O.RoutesCreateAssistantPostInput, options?: RequestOptions<O.RoutesCreateAssistantPostInput>) {
+    if(!validConfigurationId(data.configuration_id))throw new TypeError("A non-nil configuration UUID is required");
+    return this.operations.routesCreateAssistantPost(data,options);
+  }
+  /** Send the UUID and both revisions captured with the draft; no automatic GET/rebase. */
+  updateAssistant(assistantId: Identifier, data: O.RoutesUpdateAssistantPutInput, options?: RequestOptions<O.RoutesUpdateAssistantPutInput>) {
+    if(!validConfigurationId(data.configuration_id)||!Number.isSafeInteger(data.expected_version)||data.expected_version<1||!Number.isSafeInteger(data.expected_knowledge_policy_revision)||data.expected_knowledge_policy_revision<0)throw new TypeError("Configuration UUID and both captured revisions are required");
+    return this.operations.routesUpdateAssistantPut(assistantId,data,options);
+  }
+  assistantPolicyOperation(operationId:Identifier,options?:RequestOptions){return this.client.get<T.AssistantConfigurationIntentResponse>('/api/v1/admin/assistant-policy-operations/'+id(operationId),undefined,options);}
+  reconcileAssistantPolicy(operationId:Identifier,input:T.AssistantPolicyReconciliationInput,options?:RequestOptions<T.AssistantPolicyReconciliationInput>){return this.client.post<T.AssistantPolicyReconciliationResponse,T.AssistantPolicyReconciliationInput>('/api/v1/admin/assistant-policy-operations/'+id(operationId),input,options);}
   deleteAssistant(assistantId: Identifier, options?: RequestOptions) { return this.operations.routesDeleteAssistantDelete(assistantId, options); }
   assistantModels(params?: O.RoutesAssistantModelsGetQuery, options?: RequestOptions) { return this.operations.routesAssistantModelsGet(params, options); }
   assistantContextCatalog(options?: RequestOptions) { return this.operations.routesAssistantContextCatalogGet(options); }
@@ -113,3 +122,5 @@ export * from "./speech-live.js";
 export * from "./assistant-voice.js";
 
 export * from "./personal.js";
+
+function validConfigurationId(value:unknown):value is string{return typeof value==="string"&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value)&&value.replaceAll("-","")!=="0".repeat(32);}

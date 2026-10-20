@@ -14,6 +14,14 @@ export interface RoutesAssistantModelsGetResponse extends ApiEnvelope<JsonValue>
 }
 
 /** Backend response type: Value. */
+export type RoutesGetPolicyOperationGetResponse = import("./types.js").AssistantConfigurationIntentResponse;
+
+/** Backend request type: PolicyReconciliation. */
+export type RoutesReconcilePolicyOperationPostInput = import("./types.js").AssistantPolicyReconciliationInput;
+/** Backend response type: Value. */
+export type RoutesReconcilePolicyOperationPostResponse = import("./types.js").AssistantPolicyReconciliationResponse;
+
+/** Backend response type: Value. */
 export interface RoutesListManagedAssistantsGetResponse extends ApiEnvelope<JsonValue> {
 }
 
@@ -30,6 +38,7 @@ export interface RoutesCreateAssistantPostInputCustomerActions extends JsonObjec
   "enabled": boolean;
 }
 export interface RoutesCreateAssistantPostInput extends JsonObject {
+  "configuration_id": string;
   "status"?: string | null;
   "name": string;
   "system_prompt": string;
@@ -62,8 +71,7 @@ export interface RoutesCreateAssistantPostResponse extends ApiEnvelope<JsonValue
 export type RoutesDeleteAssistantDeleteResponse = void;
 
 /** Backend response type: Value. */
-export interface RoutesGetManagedAssistantGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type RoutesGetManagedAssistantGetResponse = import("./types.js").ManagedAssistantDetailResponse;
 
 /** Backend request type: UpdateAssistant. */
 export interface RoutesUpdateAssistantPutInputCustomerActions extends JsonObject {
@@ -78,6 +86,7 @@ export interface RoutesUpdateAssistantPutInputCustomerActions extends JsonObject
   "enabled": boolean;
 }
 export interface RoutesUpdateAssistantPutInput extends JsonObject {
+  "configuration_id": string;
   "name"?: string | null;
   "system_prompt"?: string | null;
   "model_ref"?: string | null;
@@ -101,7 +110,8 @@ export interface RoutesUpdateAssistantPutInput extends JsonObject {
   "drm_access"?: boolean | null;
   "customer_actions"?: RoutesUpdateAssistantPutInputCustomerActions[] | null;
   "status"?: string | null;
-  "expected_version"?: number | null;
+  "expected_version": number;
+  "expected_knowledge_policy_revision": number;
 }
 /** Backend response type: Value. */
 export interface RoutesUpdateAssistantPutResponse extends ApiEnvelope<JsonValue> {

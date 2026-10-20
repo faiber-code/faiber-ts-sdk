@@ -5,11 +5,11 @@
   },
   "chat": {
     "directory": "infera-chat",
-    "revision": "7de27e4843cd7fb394a7590b49d4b78fdc0a0c9a"
+    "revision": "2044823680d30bc5deb9417d0dc24e40b27c8184"
   },
   "crm": {
     "directory": "infera-crm",
-    "revision": "71e24f98cb37a32dc994200f9125d24a162bc8c1"
+    "revision": "77e2e4a7660e007aefef81e27337476c6d748cac"
   },
   "drm": {
     "directory": "infera-drm",
@@ -25,11 +25,11 @@
   },
   "knowledge": {
     "directory": "infera-knowledge",
-    "revision": "4f77384d7cb9084fd78b269a53ed468feb7dbc40"
+    "revision": "07b57813b759bebe160e751224b280eb8a5ccef9"
   },
   "lms": {
     "directory": "infera-lms",
-    "revision": "0276d4a534979e131d07b02b79fd0ef18e1e1bab"
+    "revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6"
   },
   "messenger": {
     "directory": "infera-messenger",
@@ -45,7 +45,7 @@
   },
   "profile": {
     "directory": "infera-profile",
-    "revision": "2684cd83fd99b2ca7d6532651ae3210dcb2d7fa1"
+    "revision": "5e45db008e503504033af3763b4487f00f5be2b4"
   },
   "reservation": {
     "directory": "infera-reservation",
@@ -53,7 +53,7 @@
   },
   "session": {
     "directory": "infera-session",
-    "revision": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5"
+    "revision": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05"
   },
   "social": {
     "directory": "infera-social",
@@ -65,7 +65,7 @@
   },
   "task": {
     "directory": "infera-task",
-    "revision": "9ae25618d5670275fe273dc867ea99c3965d9b70"
+    "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d"
   },
   "version": {
     "directory": "infera_version",

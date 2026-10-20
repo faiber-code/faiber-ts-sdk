@@ -263,3 +263,34 @@ separate `/mcp` transport uses signed scoped grants and rejects browser origins;
 these REST methods do not provide an MCP session.
 
 After a transport error or 503, reload current status before retrying a mutation: the source can commit its policy/revocation before a later status read or reconciliation fails. Use the reloaded revision and review the resulting state.
+
+### Assistant edits and durable Knowledge policy reconciliation
+
+managedAssistant(id) returns a typed ManagedAssistantDetailResponse. Capture
+version and expected_knowledge_policy_revision when opening the edit draft.
+updateAssistant requires expected_version, expected_knowledge_policy_revision,
+and a caller-created non-nil configuration_id UUID. createAssistant also requires
+a configuration_id. Preserve the UUID with the exact request across uncertain
+responses. Do not generate a new operation automatically or refresh either
+revision while resubmitting a stale draft.
+
+assistantPolicyOperation(configurationId) returns the tenant-scoped retained
+AssistantConfigurationIntentResponse. reconcileAssistantPolicy accepts an
+AssistantPolicyReconciliationInput with action recover or cancel. Recovery checks
+the authoritative Knowledge outcome before exact idempotent dispatch/application.
+Current assistant:manage is required after restart; grants and credentials are
+never retained. An administrator can apply an existing committed outcome or
+cancel an undispatched intent after its original actor loses authority.
+Cancellation writes a remote tombstone, blocking a delayed old request.
+
+Pending intents block competing edits and deletion. An already applied operation
+cannot be cancelled as absent. Terminal repeats return their immutable original
+result. An assistant changed outside the protocol produces a review conflict;
+the SDK never infers success or overwrites it. Review/recovery belongs on an
+explicit routed Manage page. A generic raw JSON form is not a completed workflow.
+
+Generated equivalents are routesGetManagedAssistantGet, routesCreateAssistantPost,
+routesUpdateAssistantPut, routesGetPolicyOperationGet and
+routesReconcilePolicyOperationPost. Managed detail, retained intent and
+reconciliation DTOs are exported from the Chat package. These are canonical v1
+methods; no private Summary runner credentials or authority DTOs are browser APIs.

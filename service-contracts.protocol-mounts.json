@@ -23,7 +23,7 @@
         },
         {
           "path": "infera-chat/shared/infera-summary-sdk/src/server.rs",
-          "line": 121,
+          "line": 116,
           "function": "router"
         }
       ]
@@ -48,12 +48,12 @@
         },
         {
           "path": "infera-crm/src/summary_evidence.rs",
-          "line": 177,
+          "line": 151,
           "function": "routes"
         },
         {
           "path": "infera-crm/shared/infera-summary-sdk/src/server.rs",
-          "line": 121,
+          "line": 116,
           "function": "router"
         }
       ]
@@ -73,13 +73,59 @@
         },
         {
           "path": "infera-lms/src/summary_evidence.rs",
-          "line": 17,
+          "line": 23,
           "function": "routes"
         },
         {
           "path": "infera-lms/shared/infera-summary-sdk/src/server.rs",
-          "line": 121,
+          "line": 116,
           "function": "router"
+        }
+      ]
+    },
+    {
+      "kind": "retired_http",
+      "path": "/api/v1/ai-summaries/{*path}",
+      "source": "infera-lms/src/router.rs",
+      "handler_source": "infera-lms/src/router.rs",
+      "handler_body_sha256": "df274b6e1f66e6a3bd81635d4345cae153637ba8cff4105ae56ab047b52034b1",
+      "axum_import_sha256": "276eed10aa516b06d45cd35aae00928f31db085390a6208172f2d0c110216d09",
+      "http_status": 410,
+      "supported": false,
+      "behavior": "HTTP410 lms_summary_retired: unsupported legacy summary URL; Profile-only summary creation/retrieval, no generator, migration, stored-result fallback or proxy.",
+      "mounted_via": [
+        {
+          "path": "infera-lms/src/main.rs",
+          "line": 86,
+          "function": "run_server"
+        },
+        {
+          "path": "infera-lms/src/router.rs",
+          "line": 165,
+          "function": "routes"
+        }
+      ]
+    },
+    {
+      "kind": "retired_http",
+      "path": "/api/v1/ai-summaries",
+      "source": "infera-lms/src/router.rs",
+      "handler_source": "infera-lms/src/router.rs",
+      "handler_body_sha256": "df274b6e1f66e6a3bd81635d4345cae153637ba8cff4105ae56ab047b52034b1",
+      "axum_import_sha256": "276eed10aa516b06d45cd35aae00928f31db085390a6208172f2d0c110216d09",
+      "http_status": 410,
+      "supported": false,
+      "behavior": "HTTP410 lms_summary_retired: unsupported legacy summary URL; Profile-only summary creation/retrieval, no generator, migration, stored-result fallback or proxy.",
+      "mounted_via": [
+        {
+          "path": "infera-lms/src/main.rs",
+          "line": 86,
+          "function": "run_server"
+        },
+        {
+          "path": "infera-lms/src/router.rs",
+          "line": 165,
+          "function": "routes"
         }
       ]
     }
@@ -103,7 +149,7 @@
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/server.rs",
-          "line": 121,
+          "line": 116,
           "function": "router"
         }
       ]
@@ -136,7 +182,7 @@
         },
         {
           "path": "infera-task/shared/infera-summary-sdk/src/server.rs",
-          "line": 121,
+          "line": 116,
           "function": "router"
         }
       ]

@@ -1597,6 +1597,37 @@
     },
     {
       "method": "GET",
+      "path": "/api/v1/admin/assistant-policy-operations/{id}",
+      "module": "routes",
+      "handler": "get_policy_operation",
+      "permissions": [
+        "assistant:manage"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/assistant-policy-operations/{id}",
+      "module": "routes",
+      "handler": "reconcile_policy_operation",
+      "permissions": [
+        "assistant:manage"
+      ],
+      "source": "infera-chat/src/routes.rs",
+      "body": "PolicyReconciliation",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
       "path": "/api/v1/admin/assistants",
       "module": "routes",
       "handler": "list_managed_assistants",
@@ -7263,7 +7294,8 @@
       "module": "platform",
       "handler": "audit_events",
       "permissions": [
-        "knowledge:read"
+        "knowledge:read",
+        "knowledge:memory:read"
       ],
       "source": "infera-knowledge/src/platform.rs",
       "response": "Value",
@@ -7826,6 +7858,73 @@
       "formUrlEncoded": false
     },
     {
+      "method": "GET",
+      "path": "/api/v1/memory-subjects/{id}",
+      "module": "platform",
+      "handler": "subject",
+      "permissions": [
+        "knowledge:memory:read"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_management",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/memory-subjects/{id}/audit-events",
+      "module": "platform",
+      "handler": "audits",
+      "permissions": [
+        "knowledge:memory:read"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_management",
+      "query": "AuditQuery",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/memory-subjects/{id}/corrections",
+      "module": "platform",
+      "handler": "correct",
+      "permissions": [
+        "knowledge:memory:write"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_corrections",
+      "body": "Correction",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/memory-subjects/{id}/memories",
+      "module": "platform",
+      "handler": "records",
+      "permissions": [
+        "knowledge:memory:read"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_management",
+      "query": "RecordsQuery",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
       "method": "PUT",
       "path": "/api/v1/memory-subjects/{id}/policy",
       "module": "platform",
@@ -7849,6 +7948,22 @@
       "query": "MemoryClearQuery",
       "pathParam": "(Uuid, Uuid)",
       "responseEnvelope": "no-content",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/memory-subjects/{subject_id}/memories/{memory_id}",
+      "module": "platform",
+      "handler": "record",
+      "permissions": [
+        "knowledge:memory:read"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "handlerModule": "memory_management",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
       "multipart": false,
       "formUrlEncoded": false
     },
@@ -7991,6 +8106,52 @@
       ],
       "source": "infera-knowledge/src/platform.rs",
       "body": "CreateRecommenderItem",
+      "pathParam": "Uuid",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}",
+      "module": "platform",
+      "handler": "assistant_configuration_operation",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/runtime/assistants/{assistant_id}/configuration-operations/{operation_id}",
+      "module": "platform",
+      "handler": "cancel_assistant_configuration_operation",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
+      "body": "ConfigurationCancellation",
+      "pathParam": "(Uuid, Uuid)",
+      "response": "Value",
+      "responseEnvelope": "api",
+      "multipart": false,
+      "formUrlEncoded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/runtime/assistants/{assistant_id}/configure",
+      "module": "platform",
+      "handler": "assistant_configuration_snapshot",
+      "permissions": [
+        "knowledge:write"
+      ],
+      "source": "infera-knowledge/src/platform.rs",
       "pathParam": "Uuid",
       "response": "Value",
       "responseEnvelope": "api",
@@ -8216,6 +8377,7 @@
         "knowledge:write"
       ],
       "source": "infera-knowledge/src/platform.rs",
+      "body": "SourceStateInput",
       "pathParam": "Uuid",
       "response": "Value",
       "responseEnvelope": "api",

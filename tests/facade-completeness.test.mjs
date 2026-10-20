@@ -81,7 +81,8 @@ test("generated contracts have exact route coverage, named outputs, and complete
     }
     total += endpoints.length;
   }
-  assert.equal(total, 1661);
+  // Snapshot adds eight Knowledge management/policy and two Chat recovery routes.
+  assert.equal(total, 1671);
 });
 
 test("every published workspace package includes developer documentation", async () => {

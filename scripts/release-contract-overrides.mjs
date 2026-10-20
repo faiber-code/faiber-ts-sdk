@@ -1,3 +1,4 @@
+import { knowledgeMemoryManagementContracts } from "./knowledge-memory-management-contracts.mjs";
 import { idpMembershipContracts } from "./idp-membership-contracts.mjs";
 import { gisContracts } from "./gis-contracts.mjs";
 import { lmsBrandingContracts } from "./lms-branding-contracts.mjs";
@@ -708,3 +709,5 @@ for (const [operation, typeBase, responseType, input] of [
     auth:operation.includes('/public/')?'public runtime branding/discovery; no actor or administration permission':`session:config:${input?'update':'read'}`,
     purpose:operation.includes('/public/')?'Read public branding and the validated configuration-derived feedback Task origin. Runtime discovery is not a writable branding field.':'Read or save native learner branding with localized text and asset references. Runtime feedback routing is configured separately.'};
 }
+
+Object.assign(releaseContracts,knowledgeMemoryManagementContracts);

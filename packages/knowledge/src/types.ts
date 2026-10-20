@@ -44,7 +44,8 @@ export type RuntimeResultResponse = ApiEnvelope<RuntimeResult>;
 export type ContextMode = "economy" | "balanced" | "deep" | "custom";
 export type DependencyState = "ready" | "empty" | "stale" | "degraded" | "denied" | "unavailable";
 export interface AssistantConfigurationInput extends JsonObject {
-  expected_policy_revision?: number;
+  configuration_id: string;
+  expected_policy_revision: number;
   assistant_name?: string;
   knowledge_base_ids?: string[];
   recommender_group_ids?: string[];
@@ -189,7 +190,7 @@ export interface KnowledgePaginationMeta { total: number; page: number; limit: n
 
 // Canonical v1 management successor. These draft types require the matching
 // backend/source-pin gate before package promotion.
-export interface MemorySubjectPolicy extends JsonObject {short_memory_enabled:boolean|null;long_memory_enabled:boolean|null;status:string|null;policy_revision:number|null;override_widening_allowed:boolean|null;}
+export interface MemorySubjectPolicy extends JsonObject {effective_override_mode:"narrow_only";short_memory_enabled:boolean|null;long_memory_enabled:boolean|null;status:string|null;policy_revision:number|null;override_widening_allowed:boolean|null;}
 export interface MemorySubjectOverrides extends JsonObject {short_memory_enabled:boolean|null;long_memory_enabled:boolean|null;revision:number;}
 export interface MemorySubjectCapabilities extends JsonObject {set_policy:boolean;forget:boolean;correct:boolean;}
 export interface MemorySubject extends JsonObject {id:string;assistant_id:string;assistant_name:string|null;user_id:string;profile_id:string|null;profile:JsonObject;status:"active"|"disabled"|"forgotten";short_memory_enabled:boolean;long_memory_enabled:boolean;short_memory_count:number;long_memory_count:number;last_seen_at:string|null;profile_refreshed_at:string|null;policy:MemorySubjectPolicy;overrides:MemorySubjectOverrides;expected_revision:string;scope_epochs:{short:number;long:number};capabilities:MemorySubjectCapabilities;}
@@ -211,3 +212,18 @@ export interface MemoryScopeForgetInput extends JsonObject {user_id:string;memor
 export interface MemoryScopeClearResult extends JsonObject {scope_fenced:true;rows_changed:number;cleared:true;subject_id:string|null;}
 export interface MemoryScopeForgetResponse {jsonrpc:"2.0";id:JsonValue;result:{content:Array<{type:"text";text:string}>;structuredContent:MemoryScopeClearResult;isError?:boolean};}
 export interface SourceStateInput extends JsonObject {desired_state:"active"|"paused";expected_version:number;}
+
+export interface AssistantPolicySnapshot extends JsonObject {
+  assistant_id: string; exists: boolean; expected_policy_revision: number; configuration: JsonObject | null;
+}
+export type AssistantPolicySnapshotResponse = ApiEnvelope<AssistantPolicySnapshot>;
+export interface AssistantConfigurationReceipt extends JsonObject {
+  assistant_id: string; configuration_id: string; configured: true; replayed: boolean; policy_revision: number;
+}
+export type AssistantConfigurationResponse = ApiEnvelope<AssistantConfigurationReceipt>;
+export interface AssistantConfigurationOperation extends JsonObject {
+  id: string; organization_id: string; assistant_id: string; actor_id: string | null;
+  request: JsonObject; policy_revision: number | null; status: "applied" | "cancelled"; created_at: string;
+}
+export type AssistantConfigurationOperationResponse = ApiEnvelope<AssistantConfigurationOperation>;
+export interface AssistantConfigurationCancellation extends JsonObject { reason: string; }

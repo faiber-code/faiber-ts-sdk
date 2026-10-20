@@ -24,6 +24,29 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesAssistantModelsGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/assistant-models`, params });
   }
   /**
+   * Inspect retained exact configuration intent and pending/applied/cancelled status. No stored access grants or credentials are returned.
+   * Calls `GET /api/v1/admin/assistant-policy-operations/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage; current tenant.
+   */
+  routesGetPolicyOperationGet(id: Identifier, options?: RequestOptions) {
+    return this.client.request<T.RoutesGetPolicyOperationGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/assistant-policy-operations/${encodeURIComponent(id)}` });
+  }
+  /**
+   * Recover using the authoritative exact Knowledge outcome, or explicitly cancel an undispatched operation with a remote tombstone. Current authorization is required after restart; never impersonate a revoked actor or rebase captured revisions.
+   * Calls `POST /api/v1/admin/assistant-policy-operations/{id}` through the shared IDP-aware Faiber client.
+   * @param id Backend path identifier `id`.
+   * @param data Typed JSON request body.
+   * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
+   * @returns The complete Axios response, including the typed service envelope, status, and headers.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage; current tenant and settings guard.
+   */
+  routesReconcilePolicyOperationPost(id: Identifier, data: T.RoutesReconcilePolicyOperationPostInput, options?: RequestOptions<T.RoutesReconcilePolicyOperationPostInput>) {
+    return this.client.request<T.RoutesReconcilePolicyOperationPostResponse, T.RoutesReconcilePolicyOperationPostInput>({ ...options, method: "POST", url: `/api/v1/admin/assistant-policy-operations/${encodeURIComponent(id)}`, data: data });
+  }
+  /**
    * Performs the list managed assistants operation for the routes capability.
    * Calls `GET /api/v1/admin/assistants` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
@@ -56,12 +79,12 @@ export class ChatOperations extends ServiceApi {
     return this.client.request<T.RoutesDeleteAssistantDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/admin/assistants/${encodeURIComponent(id)}` });
   }
   /**
-   * Performs the get managed assistant operation for the routes capability.
+   * Read a managed assistant and capture its Chat version and Knowledge policy revision when opening a draft. Knowledge outage fails the snapshot instead of inventing a revision.
    * Calls `GET /api/v1/admin/assistants/{id}` through the shared IDP-aware Faiber client.
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage.
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: assistant:manage; current tenant.
    */
   routesGetManagedAssistantGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RoutesGetManagedAssistantGetResponse>({ ...options, method: "GET", url: `/api/v1/admin/assistants/${encodeURIComponent(id)}` });

@@ -304,45 +304,45 @@ export interface PlatformReplayMemoryOutboxPostResponse extends ApiEnvelope<Json
 }
 
 /** Backend query type: MemoryFilter. */
-export interface PlatformListMemorySubjectsGetQuery extends QueryParams {
-  "enabled"?: boolean|null;
-  "status"?: "active"|"disabled"|"forgotten"|null;
-  "assistant_id"?: string | null;
-  "q"?: string | null;
-  "memory_type"?: string | null;
-  "page"?: number | null;
-  "limit"?: number | null;
-}
+export type PlatformListMemorySubjectsGetQuery = import("./types.js").MemorySubjectQuery;
 /** Backend response type: Value. */
-export interface PlatformListMemorySubjectsGetResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformListMemorySubjectsGetResponse = import("./types.js").MemorySubjectListResponse;
 
 /** Backend query type: MemoryClearQuery. */
-export interface PlatformClearMemorySubjectDeleteQuery extends QueryParams {
-  "memory_type"?: string | null;
-  "reason"?: string | null;
-}
+export type PlatformClearMemorySubjectDeleteQuery = import("./types.js").MemoryClearQuery;
 /** Backend response type: no-content. */
 export type PlatformClearMemorySubjectDeleteResponse = void;
 
-/** Backend request type: MemoryOverride. */
-export interface PlatformSetMemoryOverridePutInput extends JsonObject {
-  "expected_revision": string;
-  "short_memory_enabled"?: boolean | null;
-  "long_memory_enabled"?: boolean | null;
-  "reason"?: string | null;
-}
 /** Backend response type: Value. */
-export interface PlatformSetMemoryOverridePutResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformMemorySubjectGetResponse = import("./types.js").MemorySubjectResponse;
+
+/** Backend query type: AuditQuery. */
+export type PlatformMemoryAuditGetQuery = import("./types.js").MemoryAuditQuery;
+/** Backend response type: Value. */
+export type PlatformMemoryAuditGetResponse = import("./types.js").MemoryAuditListResponse;
+
+/** Backend request type: Correction. */
+export type PlatformCorrectMemoryPostInput = import("./types.js").MemoryCorrectionInput;
+/** Backend response type: Value. */
+export type PlatformCorrectMemoryPostResponse = import("./types.js").MemoryCorrectionResponse;
+
+/** Backend query type: RecordsQuery. */
+export type PlatformListMemoriesGetQuery = import("./types.js").MemoryRecordQuery;
+/** Backend response type: Value. */
+export type PlatformListMemoriesGetResponse = import("./types.js").MemoryRecordListResponse;
+
+/** Backend request type: MemoryOverride. */
+export type PlatformSetMemoryOverridePutInput = import("./types.js").MemoryOverrideInput;
+/** Backend response type: Value. */
+export type PlatformSetMemoryOverridePutResponse = import("./types.js").MemorySubjectResponse;
 
 /** Backend query type: MemoryClearQuery. */
-export interface PlatformForgetMemoryDeleteQuery extends QueryParams {
-  "memory_type"?: string | null;
-  "reason"?: string | null;
-}
+export type PlatformForgetMemoryDeleteQuery = import("./types.js").MemoryClearQuery;
 /** Backend response type: no-content. */
 export type PlatformForgetMemoryDeleteResponse = void;
+
+/** Backend response type: Value. */
+export type PlatformMemoryRecordGetResponse = import("./types.js").MemoryRecordResponse;
 
 /** Backend response type: Value. */
 export interface PlatformInvalidatePolicyCachePostResponse extends ApiEnvelope<JsonValue> {
@@ -404,43 +404,21 @@ export interface PlatformCreateRecommenderItemPostInput extends JsonObject {
 export interface PlatformCreateRecommenderItemPostResponse extends ApiEnvelope<JsonValue> {
 }
 
-/** Backend request type: AssistantConfiguration. */
-export interface PlatformConfigureAssistantPutInput extends JsonObject {
-  "expected_policy_revision"?: number | null;
-  "assistant_name"?: string;
-  "knowledge_base_ids"?: string[];
-  "recommender_group_ids"?: string[];
-  "short_memory_enabled"?: boolean;
-  "long_memory_enabled"?: boolean;
-  "short_memory_turns"?: number;
-  "long_memory_limit"?: number;
-  "context_mode"?: string;
-  "context_budget_tokens"?: number;
-  "knowledge_enabled"?: boolean;
-  "recommenders_enabled"?: boolean;
-  "selected_media_enabled"?: boolean;
-  "session_enabled"?: boolean;
-  "max_knowledge_results"?: number;
-  "max_chunks_per_document"?: number;
-  "max_selected_media_chunks"?: number;
-  "max_session_items"?: number;
-  "max_findings"?: number;
-  "max_recommendations"?: number;
-  "graph_enabled"?: boolean;
-  "vector_enabled"?: boolean;
-  "query_expansion_enabled"?: boolean;
-  "reranking_enabled"?: boolean;
-  "selected_media_budget_percent"?: number;
-  "knowledge_budget_percent"?: number;
-  "memory_budget_percent"?: number;
-  "recommender_budget_percent"?: number;
-  "profile_budget_percent"?: number;
-  "session_budget_percent"?: number;
-  "findings_budget_percent"?: number;
-}
 /** Backend response type: Value. */
-export interface PlatformConfigureAssistantPutResponse extends ApiEnvelope<JsonValue> {
-}
+export type PlatformAssistantConfigurationOperationGetResponse = import("./types.js").AssistantConfigurationOperationResponse;
+
+/** Backend request type: ConfigurationCancellation. */
+export type PlatformCancelAssistantConfigurationOperationPostInput = import("./types.js").AssistantConfigurationCancellation;
+/** Backend response type: Value. */
+export type PlatformCancelAssistantConfigurationOperationPostResponse = import("./types.js").AssistantConfigurationOperationResponse;
+
+/** Backend response type: Value. */
+export type PlatformAssistantConfigurationSnapshotGetResponse = import("./types.js").AssistantPolicySnapshotResponse;
+
+/** Backend request type: AssistantConfiguration. */
+export type PlatformConfigureAssistantPutInput = import("./types.js").AssistantConfigurationInput;
+/** Backend response type: Value. */
+export type PlatformConfigureAssistantPutResponse = import("./types.js").AssistantConfigurationResponse;
 
 /** Backend response type: Value. */
 export interface RoutesGetGetResponse extends ApiEnvelope<JsonValue> {
@@ -647,8 +625,9 @@ export type PlatformCreateSourcePostInput = import("./types.js").CreateKnowledge
 /** Backend response type: Value. */
 export type PlatformCreateSourcePostResponse = import("./types.js").KnowledgeSourceResponse;
 
-/** Backend response type: Value. */
+/** Backend request type: SourceStateInput. */
 export type PlatformPauseSourcePostInput = import("./types.js").SourceStateInput;
+/** Backend response type: Value. */
 export type PlatformPauseSourcePostResponse = import("./types.js").KnowledgeSourceResponse;
 
 /** Backend response type: Value. */

@@ -55,3 +55,23 @@ test('MCP forgetting represents committed scope fencing even with zero rows chan
  const response=await f.sdk.knowledge.forgetAssistantScope('assistant',{user_id:'user',memory_type:'short',reason:'Owned'});
  assert.equal(f.seen[0].url,'/api/v1/runtime/mcp');assert.equal(data(f.seen[0]).params.name,'memory_forget');assert.equal(data(f.seen[0]).params.arguments.assistant_id,'assistant');assert.deepEqual(response.data.result.structuredContent,result);
 });
+test('canonical generated memory operations preserve reviewed bodies and query scope',async()=>{
+ const f=fixture(),api=f.sdk.knowledge.operations;
+ await api.platformMemorySubjectGet('s/a');
+ await api.platformListMemoriesGet('s/a',{status:'all',page:2});
+ await api.platformMemoryRecordGet('s/a','m/a');
+ await api.platformMemoryAuditGet('s/a',{limit:10});
+ const correction={correction_id:'c',expected_memory_ids:['m'],user_statement:'I prefer typed forms',reason:'Owned'};
+ await api.platformCorrectMemoryPost('s/a',correction);
+ await api.platformSetMemoryOverridePut('s/a',{expected_revision:revision,long_memory_enabled:null});
+ await api.platformPauseSourcePost('source',{expected_version:3,desired_state:'active'});
+ assert.equal(f.seen[0].url,'/api/v1/memory-subjects/s%2Fa');
+ assert.deepEqual(f.seen[1].params,{status:'all',page:2});assert.equal(f.seen[2].url,'/api/v1/memory-subjects/s%2Fa/memories/m%2Fa');
+ assert.equal(f.seen[3].params.limit,10);assert.deepEqual(data(f.seen[4]),correction);
+ assert.equal(data(f.seen[5]).expected_revision,revision);assert.deepEqual(data(f.seen[6]),{expected_version:3,desired_state:'active'});
+});
+test('an HTTP200 MCP error never claims successful forgetting',async()=>{
+ const f=fixture({jsonrpc:'2.0',id:'memory-forget',error:{code:-32603,message:'Private server detail'}});
+ await assert.rejects(f.sdk.knowledge.forgetAssistantScope('assistant',{user_id:'user'}),e=>e.message==='The service did not confirm memory scope invalidation');
+ assert.equal(f.seen.length,1);
+});
