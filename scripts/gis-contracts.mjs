@@ -179,7 +179,7 @@ export const gisContracts = {
     "typeBase": "Imports",
     "response": "import(\"./types.js\").Data<import(\"./types.js\").ImportJob[]>",
     "purpose": "List visible persistent import jobs.",
-    "auth": "Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference."
+    "auth": "Authenticated actor within its organization: only owned jobs, or all organization jobs with gis:dataset:manage. At most100 newest jobs; no pagination. Listing does not fetch current issuer grants and never exposes lease_id."
   },
   "gis:POST /api/v1/imports": {
     "methodName": "createImport",

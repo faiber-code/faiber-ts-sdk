@@ -9,8 +9,8 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `230453c1471d723af582308e43b5b43b5a0f7b99`
-- SDK source revision: `0276d4a534979e131d07b02b79fd0ef18e1e1bab`
-- Evidence inventory revision: `0276d4a534979e131d07b02b79fd0ef18e1e1bab` (sdk)
+- SDK source revision: `1a55795725ac5ac23b763117fbbe64f96d4cf2f6`
+- Evidence inventory revision: `1a55795725ac5ac23b763117fbbe64f96d4cf2f6` (sdk)
 - Working HEAD: `d94f42a89b344e5b8809f62a4a4324ceda69553a`
 - Source relationship: diverged
 
@@ -18,10 +18,10 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /` | `infera-lms/src/router.rs:279` | inspect middleware/local scope | pending |
-| `GET /health` | `infera-lms/src/router.rs:279` | inspect middleware/local scope | pending |
-| `GET /up` | `infera-lms/src/router.rs:279` | inspect middleware/local scope | pending |
-| `GET /api/openapi.json` | `infera-lms/src/router.rs:273` | inspect middleware/local scope | pending |
+| `GET /` | `infera-lms/src/router.rs:294` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-lms/src/router.rs:294` | inspect middleware/local scope | pending |
+| `GET /up` | `infera-lms/src/router.rs:294` | inspect middleware/local scope | pending |
+| `GET /api/openapi.json` | `infera-lms/src/router.rs:288` | inspect middleware/local scope | pending |
 | `GET /api/v1/config/branding` | `infera-lms/src/branding.rs:198` | lms:config:read | pending |
 | `PUT /api/v1/config/branding` | `infera-lms/src/branding.rs:211` | lms:config:update | pending |
 | `POST /api/v1/config/branding/assets` | `infera-lms/src/branding.rs:257` | lms:config:update | pending |

@@ -5,7 +5,7 @@
   "scope": "business",
   "purpose": {
     "en": "Authoritative game worlds, rooms, schemas, state replication, sequenced inputs and bounded WASM execution.",
-    "fa": "جهان و اتاق بازی مرجع، طرح داده، همگام‌سازی وضعیت، ورودی ترتیبی و اجرای محدود وب‌اسمبلی."
+    "fa": "\u062c\u0647\u0627\u0646 \u0648 \u0627\u062a\u0627\u0642 \u0628\u0627\u0632\u06cc \u0645\u0631\u062c\u0639\u060c \u0637\u0631\u062d \u062f\u0627\u062f\u0647\u060c \u0647\u0645\u06af\u0627\u0645\u200c\u0633\u0627\u0632\u06cc \u0648\u0636\u0639\u06cc\u062a\u060c \u0648\u0631\u0648\u062f\u06cc \u062a\u0631\u062a\u06cc\u0628\u06cc \u0648 \u0627\u062c\u0631\u0627\u06cc \u0645\u062d\u062f\u0648\u062f \u0648\u0628\u200c\u0627\u0633\u0645\u0628\u0644\u06cc."
   },
   "sources": [
     "README.md",
@@ -13,7 +13,15 @@
   ],
   "inventory_source": "sdk",
   "inventory_revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4",
-  "source_decision": null,
+  "source_decision": {
+    "status": "verified",
+    "revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4",
+    "source_tree_checksum": "a551ef154b61dc3fc10f0b01f9893cc60ac87d1254f6359837253fe56e54ce66",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 18 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
   "relationship_review": null,
   "canonical_revision": "6be433e043caddb2d1a5761562cfc42bd0c67190",
   "sdk_source_revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4",

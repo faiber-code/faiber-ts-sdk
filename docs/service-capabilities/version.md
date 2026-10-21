@@ -18,12 +18,12 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /health` | `infera_version/src/router.rs:146` | inspect middleware/local scope | stale |
-| `POST /api/v1/apk/releases` | `infera_version/src/version/publish.rs:35` | inspect middleware/local scope | stale |
-| `GET /api/openapi.json` | `infera_version/src/router.rs:130` | inspect middleware/local scope | stale |
-| `GET /api/v1/services` | `infera_version/src/service/routes.rs:32` | inspect middleware/local scope | stale |
-| `GET /api/v1/services/{service_slug}` | `infera_version/src/service/routes.rs:54` | inspect middleware/local scope | stale |
-| `GET /api/v1/services/{service_slug}/all` | `infera_version/src/service/routes.rs:79` | inspect middleware/local scope | stale |
-| `GET /api/v1/versions/{version_id}` | `infera_version/src/version/routes.rs:29` | inspect middleware/local scope | stale |
+| `GET /health` | `infera_version/src/router.rs:146` | inspect middleware/local scope | verified |
+| `POST /api/v1/apk/releases` | `infera_version/src/version/publish.rs:35` | inspect middleware/local scope | verified |
+| `GET /api/openapi.json` | `infera_version/src/router.rs:130` | inspect middleware/local scope | verified |
+| `GET /api/v1/services` | `infera_version/src/service/routes.rs:32` | inspect middleware/local scope | verified |
+| `GET /api/v1/services/{service_slug}` | `infera_version/src/service/routes.rs:54` | inspect middleware/local scope | verified |
+| `GET /api/v1/services/{service_slug}/all` | `infera_version/src/service/routes.rs:79` | inspect middleware/local scope | verified |
+| `GET /api/v1/versions/{version_id}` | `infera_version/src/version/routes.rs:29` | inspect middleware/local scope | verified |
 
 Full fields, guards, state/side-effect evidence, call dependencies, source checksums and unresolved symbols are in `contracts/service-capabilities/version.json`. Empty declared permission arrays do not establish public access. Review gateway middleware and resource ownership.

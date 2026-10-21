@@ -9,8 +9,8 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `8a841a96c6d03fba9f7baa9e5eb2cc14f0e9747d`
-- SDK source revision: `41635c7d3d03d88f1ddeef9b993e6bd722906354`
-- Evidence inventory revision: `41635c7d3d03d88f1ddeef9b993e6bd722906354` (sdk)
+- SDK source revision: `828799249ef714d333b03bded092a9d6af6ba7bb`
+- Evidence inventory revision: `828799249ef714d333b03bded092a9d6af6ba7bb` (sdk)
 - Working HEAD: `9965e90a81fa3c4844a00e710d8d31b20527fede`
 - Source relationship: working_behind_sdk
 
@@ -18,8 +18,8 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 
 | Method/path | Handler source | Declared permissions | Semantic review |
 |---|---|---|---|
-| `GET /health` | `infera-idp/src/router.rs:233` | inspect middleware/local scope | pending |
-| `GET /api/openapi.json` | `infera-idp/src/router.rs:217` | inspect middleware/local scope | pending |
+| `GET /health` | `infera-idp/src/router.rs:236` | inspect middleware/local scope | pending |
+| `GET /api/openapi.json` | `infera-idp/src/router.rs:220` | inspect middleware/local scope | pending |
 | `GET /.well-known/openid-configuration` | `infera-idp/src/oidc.rs:105` | inspect middleware/local scope | pending |
 | `GET /oauth2/authorize` | `infera-idp/src/oidc.rs:142` | inspect middleware/local scope | pending |
 | `POST /oauth2/token` | `infera-idp/src/oidc.rs:282` | inspect middleware/local scope | pending |
@@ -59,30 +59,32 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `GET /api/v1/auth/refresh` | `infera-idp/src/auth/routes.rs:1915` | inspect middleware/local scope | pending |
 | `GET /api/v1/auth/sessions` | `infera-idp/src/auth/routes.rs:2714` | inspect middleware/local scope | pending |
 | `DELETE /api/v1/auth/sessions/{session_id}` | `infera-idp/src/auth/routes.rs:2783` | inspect middleware/local scope | pending |
-| `GET /api/v1/users` | `infera-idp/src/user/routes.rs:543` | inspect middleware/local scope | pending |
-| `POST /api/v1/users` | `infera-idp/src/user/routes.rs:577` | inspect middleware/local scope | pending |
-| `POST /api/v1/users/register-phone` | `infera-idp/src/user/routes.rs:157` | inspect middleware/local scope | pending |
-| `POST /api/v1/users/register-email` | `infera-idp/src/user/routes.rs:206` | inspect middleware/local scope | pending |
-| `POST /api/v1/users/register` | `infera-idp/src/user/routes.rs:247` | inspect middleware/local scope | pending |
-| `GET /api/v1/users/self` | `infera-idp/src/user/routes.rs:319` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/users/self` | `infera-idp/src/user/routes.rs:379` | inspect middleware/local scope | pending |
+| `GET /api/v1/users` | `infera-idp/src/user/routes.rs:544` | inspect middleware/local scope | pending |
+| `POST /api/v1/users` | `infera-idp/src/user/routes.rs:578` | inspect middleware/local scope | pending |
+| `POST /api/v1/users/register-phone` | `infera-idp/src/user/routes.rs:158` | inspect middleware/local scope | pending |
+| `POST /api/v1/users/register-email` | `infera-idp/src/user/routes.rs:207` | inspect middleware/local scope | pending |
+| `POST /api/v1/users/register` | `infera-idp/src/user/routes.rs:248` | inspect middleware/local scope | pending |
+| `GET /api/v1/users/self` | `infera-idp/src/user/routes.rs:320` | inspect middleware/local scope | pending |
+| `PATCH /api/v1/users/self` | `infera-idp/src/user/routes.rs:380` | inspect middleware/local scope | pending |
 | `GET /api/v1/users/self/password` | `infera-idp/src/user/self_password.rs:46` | inspect middleware/local scope | pending |
 | `PUT /api/v1/users/self/password` | `infera-idp/src/user/self_password.rs:66` | inspect middleware/local scope | pending |
-| `GET /api/v1/users/directory` | `infera-idp/src/user/routes.rs:86` | inspect middleware/local scope | pending |
-| `GET /api/v1/users/stats` | `infera-idp/src/user/routes.rs:498` | inspect middleware/local scope | pending |
-| `GET /api/v1/users/registration-stats` | `infera-idp/src/user/routes.rs:513` | inspect middleware/local scope | pending |
-| `GET /api/v1/users/sync` | `infera-idp/src/user/routes.rs:995` | inspect middleware/local scope | pending |
-| `GET /api/v1/users/{user_id}` | `infera-idp/src/user/routes.rs:656` | inspect middleware/local scope | pending |
-| `PUT /api/v1/users/{user_id}` | `infera-idp/src/user/routes.rs:689` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/users/{user_id}` | `infera-idp/src/user/routes.rs:689` | inspect middleware/local scope | pending |
-| `PUT /api/v1/users/{user_id}/change-password` | `infera-idp/src/user/routes.rs:757` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/users/{user_id}/change-password` | `infera-idp/src/user/routes.rs:757` | inspect middleware/local scope | pending |
-| `PUT /api/v1/users/{user_id}/change-roles` | `infera-idp/src/user/routes.rs:808` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/users/{user_id}/change-roles` | `infera-idp/src/user/routes.rs:808` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/users/{user_id}` | `infera-idp/src/user/routes.rs:853` | inspect middleware/local scope | pending |
-| `GET /api/v1/users/{user_id}/logout` | `infera-idp/src/user/routes.rs:945` | inspect middleware/local scope | pending |
-| `PUT /api/v1/users/{user_id}/status` | `infera-idp/src/user/routes.rs:894` | inspect middleware/local scope | pending |
-| `PATCH /api/v1/users/{user_id}/status` | `infera-idp/src/user/routes.rs:894` | inspect middleware/local scope | pending |
+| `GET /api/v1/users/directory` | `infera-idp/src/user/routes.rs:87` | inspect middleware/local scope | pending |
+| `GET /api/v1/users/stats` | `infera-idp/src/user/routes.rs:499` | inspect middleware/local scope | pending |
+| `GET /api/v1/users/registration-stats` | `infera-idp/src/user/routes.rs:514` | inspect middleware/local scope | pending |
+| `GET /api/v1/users/sync` | `infera-idp/src/user/routes.rs:998` | inspect middleware/local scope | pending |
+| `GET /api/v1/users/{user_id}` | `infera-idp/src/user/routes.rs:658` | inspect middleware/local scope | pending |
+| `PUT /api/v1/users/{user_id}` | `infera-idp/src/user/routes.rs:691` | inspect middleware/local scope | pending |
+| `PATCH /api/v1/users/{user_id}` | `infera-idp/src/user/routes.rs:691` | inspect middleware/local scope | pending |
+| `PUT /api/v1/users/{user_id}/change-password` | `infera-idp/src/user/routes.rs:759` | inspect middleware/local scope | pending |
+| `PATCH /api/v1/users/{user_id}/change-password` | `infera-idp/src/user/routes.rs:759` | inspect middleware/local scope | pending |
+| `GET /api/v1/users/{user_id}/role-memberships` | `infera-idp/src/user/memberships.rs:163` | inspect middleware/local scope | pending |
+| `POST /api/v1/users/{user_id}/role-memberships` | `infera-idp/src/user/memberships.rs:188` | inspect middleware/local scope | pending |
+| `PUT /api/v1/users/{user_id}/change-roles` | `infera-idp/src/user/routes.rs:810` | inspect middleware/local scope | pending |
+| `PATCH /api/v1/users/{user_id}/change-roles` | `infera-idp/src/user/routes.rs:810` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/users/{user_id}` | `infera-idp/src/user/routes.rs:856` | inspect middleware/local scope | pending |
+| `GET /api/v1/users/{user_id}/logout` | `infera-idp/src/user/routes.rs:948` | inspect middleware/local scope | pending |
+| `PUT /api/v1/users/{user_id}/status` | `infera-idp/src/user/routes.rs:897` | inspect middleware/local scope | pending |
+| `PATCH /api/v1/users/{user_id}/status` | `infera-idp/src/user/routes.rs:897` | inspect middleware/local scope | pending |
 | `GET /api/v1/acl/roles` | `infera-idp/src/acl/routes.rs:47` | inspect middleware/local scope | pending |
 | `POST /api/v1/acl/roles` | `infera-idp/src/acl/routes.rs:72` | inspect middleware/local scope | pending |
 | `GET /api/v1/acl/roles/{role_id}` | `infera-idp/src/acl/routes.rs:131` | inspect middleware/local scope | pending |

@@ -5,7 +5,7 @@
   "scope": "business",
   "purpose": {
     "en": "Media libraries, protected playback, processing jobs and versioned mixed-media compositions.",
-    "fa": "کتابخانه رسانه، پخش حفاظت‌شده، پردازش و ترکیب چندرسانه‌ای نسخه‌دار."
+    "fa": "\u06a9\u062a\u0627\u0628\u062e\u0627\u0646\u0647 \u0631\u0633\u0627\u0646\u0647\u060c \u067e\u062e\u0634 \u062d\u0641\u0627\u0638\u062a\u200c\u0634\u062f\u0647\u060c \u067e\u0631\u062f\u0627\u0632\u0634 \u0648 \u062a\u0631\u06a9\u06cc\u0628 \u0686\u0646\u062f\u0631\u0633\u0627\u0646\u0647\u200c\u0627\u06cc \u0646\u0633\u062e\u0647\u200c\u062f\u0627\u0631."
   },
   "sources": [
     "README.md",
@@ -13,7 +13,15 @@
   ],
   "inventory_source": "sdk",
   "inventory_revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
-  "source_decision": null,
+  "source_decision": {
+    "status": "verified",
+    "revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
+    "source_tree_checksum": "9fc8d9a23a9ed92945aa823dbe76f1def10050ee90487d6479f05092825ad1f9",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 63 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
   "relationship_review": null,
   "canonical_revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",
   "sdk_source_revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2",

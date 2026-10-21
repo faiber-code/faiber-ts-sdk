@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "at": "2026-10-20T05:48:50.270659+00:00",
-  "mode": "fresh fetch and read-only working tree/source reconciliation; no source/reset/commit/runtime changes",
+  "at": "2026-10-21T11:14:52.169515+00:00",
+  "mode": "Fresh origin fetch; previous working snapshots retained as historical context.",
   "repositories": {
     "asset": {
       "service": "asset",

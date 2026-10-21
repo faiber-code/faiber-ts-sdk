@@ -5,18 +5,26 @@
   "scope": "business",
   "purpose": {
     "en": "Customer companies and contacts, leads, deals, pipelines, teams, activities and certified reports.",
-    "fa": "شرکت و مخاطب مشتری، سرنخ، معامله، قیف فروش، تیم، فعالیت و گزارش معتبر."
+    "fa": "\u0634\u0631\u06a9\u062a \u0648 \u0645\u062e\u0627\u0637\u0628 \u0645\u0634\u062a\u0631\u06cc\u060c \u0633\u0631\u0646\u062e\u060c \u0645\u0639\u0627\u0645\u0644\u0647\u060c \u0642\u06cc\u0641 \u0641\u0631\u0648\u0634\u060c \u062a\u06cc\u0645\u060c \u0641\u0639\u0627\u0644\u06cc\u062a \u0648 \u06af\u0632\u0627\u0631\u0634 \u0645\u0639\u062a\u0628\u0631."
   },
   "sources": [
     "README.md",
     "src/router.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "71e24f98cb37a32dc994200f9125d24a162bc8c1",
-  "source_decision": null,
+  "inventory_revision": "77e2e4a7660e007aefef81e27337476c6d748cac",
+  "source_decision": {
+    "status": "verified",
+    "revision": "77e2e4a7660e007aefef81e27337476c6d748cac",
+    "source_tree_checksum": "2e14e8f3defc35cdc4bd4595e89974ac1245a630dcd8cdb0e43620bde74c66be",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 146 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
   "relationship_review": null,
   "canonical_revision": "1addec42a400ba980b6547060cdcb4d347a7bbd0",
-  "sdk_source_revision": "71e24f98cb37a32dc994200f9125d24a162bc8c1",
+  "sdk_source_revision": "77e2e4a7660e007aefef81e27337476c6d748cac",
   "working_revision": "6c763c989216fbecd6cfdb4c98f1067c09d17507",
   "working_changes": [
     "M Cargo.lock",
@@ -36,7 +44,7 @@
     "?? src/summary_evidence.sql"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "e0e296ba26db989817f7ce9bc3c0242f21899bbb3ee154307c23ef9cf8f0471f",
+  "source_tree_checksum": "2e14e8f3defc35cdc4bd4595e89974ac1245a630dcd8cdb0e43620bde74c66be",
   "source_files": [
     {
       "path": "infera-crm/src/api/agentic.rs",
@@ -256,7 +264,7 @@
     },
     {
       "path": "infera-crm/src/summary_evidence.rs",
-      "checksum": "cd741776ac9dc52fd33515ecd431659069b01b3d5043b1c7b2e4defa5832c24c"
+      "checksum": "02f7dd5966f135fa8175a2540095279faf18bf97cff1b8ce9d8fa61a222c7f11"
     },
     {
       "path": "infera-crm/src/summary_evidence.sql",
@@ -480,7 +488,7 @@
     },
     {
       "path": "infera-crm/shared/infera-summary-sdk/src/lib.rs",
-      "checksum": "53a49a793302789844ea011e48a59cd54fc25a49f2bbe9001d8c1b16539a75c4"
+      "checksum": "e2086dc9c06459a173088bec1599f1dbb4e51e45cfe6ce07737371a271c83d88"
     },
     {
       "path": "infera-crm/shared/infera-summary-sdk/src/metric.rs",
@@ -496,7 +504,7 @@
     },
     {
       "path": "infera-crm/shared/infera-summary-sdk/src/native_identity.rs",
-      "checksum": "40696b937098d29860aac3de3a04a86a69f2da02f89ff6d2a125a70e97b9c187"
+      "checksum": "dbb311db9127ad85dfc3d380baa32717b188cc257fe5de582a4e5bb41b8be32e"
     },
     {
       "path": "infera-crm/shared/infera-summary-sdk/src/native_policy.rs",
@@ -516,11 +524,27 @@
     },
     {
       "path": "infera-crm/shared/infera-summary-sdk/src/result.rs",
-      "checksum": "d82c62dce78cf8296979266d1db39d7abe13987135d758088edb8d9d776f4f20"
+      "checksum": "97dcdf949109e7ece33323bec126aa4cc1e2dfe0c917fb6e2a2977f1b7b7751d"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/runner_crypto.rs",
+      "checksum": "3bea1b556fd47af11e5a03ea65ea03ed7bf83e925a365a7763e87807a7b5a0be"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/runner_identity.rs",
+      "checksum": "78ec0470c4935e3a82cf0acdc713a9ddf7cb6a17197f1952612ef64dfdb522d3"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/runner_transport.rs",
+      "checksum": "f3b4517824522224fdef6b851891203b5072f2a5b7912df05ce92fd3af60eaf8"
+    },
+    {
+      "path": "infera-crm/shared/infera-summary-sdk/src/runner.rs",
+      "checksum": "486304ffbbe09c18ae55b199a8e5b77e3bfc5d78c4e04db9355b821593352b6d"
     },
     {
       "path": "infera-crm/shared/infera-summary-sdk/src/server.rs",
-      "checksum": "edadbfe69af77f695443631c04e26024046ee521ad402669596f0fa372387738"
+      "checksum": "54c4983b3f9d80b51a9fea88f84a3791d95ea88e0bfff433a0cca3bbe1581beb"
     },
     {
       "path": "infera-crm/shared/infera-summary-sdk/src/tool_contract.rs",
@@ -626,17 +650,17 @@
         },
         {
           "path": "infera-crm/src/summary_evidence.rs",
-          "line": 177,
+          "line": 151,
           "function": "routes"
         },
         {
           "path": "infera-crm/shared/infera-summary-sdk/src/server.rs",
-          "line": 121,
+          "line": 116,
           "function": "router"
         }
       ],
       "id": "PROTOCOL /mcp",
-      "source_checksum": "e0e296ba26db989817f7ce9bc3c0242f21899bbb3ee154307c23ef9cf8f0471f",
+      "source_checksum": "2e14e8f3defc35cdc4bd4595e89974ac1245a630dcd8cdb0e43620bde74c66be",
       "review": null
     }
   ],
@@ -1207,7 +1231,7 @@
           }
         ]
       },
-      "source_checksum": "246d07016d1f5c07850bf7407faee1217c4c92d1c77451e9498a58ceb36d9785",
+      "source_checksum": "2d78c3a406d6981c0da8c435559b10a74b779216969d4a6e85eb57f819405605",
       "handler": {
         "ref": "infera-crm/src/router.rs:157:status_route",
         "path": "infera-crm/src/router.rs",
@@ -1263,7 +1287,7 @@
           }
         ]
       },
-      "source_checksum": "6ee0e194a62de279b8356df77effbe3897646e8a2e1ae8259648cf1e1c780422",
+      "source_checksum": "993f3b4c00903f49633326d460f3d388ac52cb098c1785902a0adfabde7088ff",
       "handler": {
         "ref": "infera-crm/src/router.rs:157:status_route",
         "path": "infera-crm/src/router.rs",
@@ -1319,7 +1343,7 @@
           }
         ]
       },
-      "source_checksum": "ed5d0f9e62ac8739f304218edeec0c9318f5fd31505b183679754ff4b52fa7c7",
+      "source_checksum": "31fb00307d2a1f8f29f95c73b3d0aff9352c73d300673085622676865023f7a6",
       "handler": {
         "ref": "infera-crm/src/router.rs:157:status_route",
         "path": "infera-crm/src/router.rs",
@@ -1375,7 +1399,7 @@
           }
         ]
       },
-      "source_checksum": "8e7e863db1e7db2b7a7935bd7f7af5398d03fab7b61cf3ae33dec3e14713bbd1",
+      "source_checksum": "b69715077e9c5177a7bf36b33c6660e1a953a80a3a9fa7083d4be7097119a107",
       "handler": {
         "ref": "infera-crm/src/router.rs:157:status_route",
         "path": "infera-crm/src/router.rs",
@@ -1431,7 +1455,7 @@
           }
         ]
       },
-      "source_checksum": "fbc9bb65b1bb3c2a03c51fa1812ebe563f80a62feb816c5918259dd999012b3b",
+      "source_checksum": "acc4646a46f49220219b7a6fd15c954e7d1b82e5abf29fc3c4a15a6d67114cc6",
       "handler": {
         "ref": "infera-crm/src/router.rs:167:readiness_route",
         "path": "infera-crm/src/router.rs",
@@ -1495,7 +1519,7 @@
           }
         ]
       },
-      "source_checksum": "8170806813ed90ada58ce3f934eeb0c3e040b0e3a8df7a3696367aebe7839989",
+      "source_checksum": "bff993b28c507ea157a78f2f5cde08c782ab89394259d7da8619024a2f2d1c7f",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:205:context",
         "path": "infera-crm/src/api/routes.rs",
@@ -1587,7 +1611,7 @@
           }
         ]
       },
-      "source_checksum": "3bc57c23c3137761da92949b71d9a6a878867bd49b3148becbaf84878939e4d6",
+      "source_checksum": "e3cf3e61c7b605c2c7df0de81c2b878bb84f60ac78f7d7878f0a43776091cbe2",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:973:list_workflows_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1712,7 +1736,7 @@
           }
         ]
       },
-      "source_checksum": "9c8cf1b5d7591fd1bb0bc70e311cd4691687db0f62e4460a0953be28a9ab3820",
+      "source_checksum": "f5077534c9b3a047dae38503d9ef16d1e433239178f8aa9627bd10c93025a79e",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:945:create_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1815,7 +1839,7 @@
           }
         ]
       },
-      "source_checksum": "cb31748197dabf80a58b8d3cf0fe39c37a7f1bdcec68b1c08eb8088dfdd88158",
+      "source_checksum": "101d0cb204d750788548c8330f95d5b27238da032c0f63b9f246747c9e9baff2",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:992:show_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -1904,7 +1928,7 @@
           }
         ]
       },
-      "source_checksum": "4f35a3dd93cdddd387e50ff3bbc77cb262f321cfa2fd8d2bf37f5b96fab7218f",
+      "source_checksum": "46555c3b79e48e988935138292d060bc4cd40cac1cfc7d2cd51ce5d118b35906",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2010,7 +2034,7 @@
           }
         ]
       },
-      "source_checksum": "3f942e20e30db47eff9356d4f4885acdf4303819dfb734b5651f3eb194082c52",
+      "source_checksum": "ae56c1f0dfe1b409999686166201a8a202a9098c4566d4962a37364a1392f2d0",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2115,7 +2139,7 @@
           }
         ]
       },
-      "source_checksum": "e3b0aa272907cb6c4da25675c069fa1fc50f17a81a89123ddebb9886fe2176a8",
+      "source_checksum": "eb4e40aa424ffcefd4797a130bb0b69fd5849285b0f76549ef1484b3b322fb2c",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1061:delete_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2198,7 +2222,7 @@
           }
         ]
       },
-      "source_checksum": "98907e348766800087f3bc485adae976c99df31831ccfc8fa074e6af822b8691",
+      "source_checksum": "795b3fc3734e1a763d9d7bdfbd0a190bb2a51cb17bae0e45cfc91a111c480fb1",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1258:list_workflow_nodes_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2325,7 +2349,7 @@
           }
         ]
       },
-      "source_checksum": "a4f0ce0f48938cf82c08097a4b9566fef9ccfdebeab1cffae2f3b6c39b106325",
+      "source_checksum": "ebf66a4256a53666c6409c947c4b9def9bbce4689df3b1c64921b18dabbf6e06",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1281:show_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2414,7 +2438,7 @@
           }
         ]
       },
-      "source_checksum": "230907ca704c61f3a804ea7fc467fefd6e40d574d991646074d882c96d34cc22",
+      "source_checksum": "09db0f524f9804997ce3bbe7110aa66cc14e072ae584c638c45ede1ae6d52347",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1121:create_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2514,7 +2538,7 @@
           }
         ]
       },
-      "source_checksum": "652baf217c1571425f3cfecbd7729091df56361ebbc095296594dd8b4ad32ae9",
+      "source_checksum": "40f0b5f78c1c3e13efc155466df7b5b4e94bd3adbb5531ff0f8c0c4526d1bf7b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1311:update_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2614,7 +2638,7 @@
           }
         ]
       },
-      "source_checksum": "1b25e92fc62353dc0f055b0dff0280b1a86402fbf8a08c1e8b084355d542e0a5",
+      "source_checksum": "63bfb6d53bc3cb785c7272cbfc556c4f71222804c957d2dde5053fecdd918bf8",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1311:update_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2713,7 +2737,7 @@
           }
         ]
       },
-      "source_checksum": "3b014003bab6bac25f5463c8c40519ff31acfa2696f3dd22568999196d9aac8a",
+      "source_checksum": "756de73584c1b01ad9b9d32b21a21d97cd8525c88958b7c9ede06aef6ff07d4b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1365:delete_workflow_node_compat_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2789,7 +2813,7 @@
           }
         ]
       },
-      "source_checksum": "075605abac3dfb0702dda5063ca6011a85b1e385977cecf5034d0c3bf0e36001",
+      "source_checksum": "e7b890935aa3b17cc1f9f31e8856364a13e2dda6ccffec07bf6bd149797d1c69",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:973:list_workflows_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -2914,7 +2938,7 @@
           }
         ]
       },
-      "source_checksum": "5f8b54480e9f48173c308eaac3b0eab806b0bbddfe8cc0bf7131a7f56ca96e4e",
+      "source_checksum": "3c6e9b76be0a7c1103ed0d432e96dd4691c28e4948bf7a83a902cb5fc92a4d28",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:945:create_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3017,7 +3041,7 @@
           }
         ]
       },
-      "source_checksum": "92aa25a0f15909ef29731b5111ed9518e48ab07136d7db39ee1ebdff73081bc8",
+      "source_checksum": "536ba6329cfbe9478b46178b494834525f1284858b11f1c032adbfdb9eefbdfe",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:992:show_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3106,7 +3130,7 @@
           }
         ]
       },
-      "source_checksum": "ba06044991934efc7e43983dc898208e82912da4c200873c3683351f1637f82e",
+      "source_checksum": "61f1bad5d1c8a11ba8539668888798753cc60b2937c3f61103b845225a66c0b5",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1015:update_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3211,7 +3235,7 @@
           }
         ]
       },
-      "source_checksum": "bd30eb7d6639b4b34d0a97fc1e833a8f10e04917f258ab17a4a87a44e6cd7737",
+      "source_checksum": "b772880952ae88e8667162dbc6dc15effe42e187dff4cc126a1da2bfcd8ae6b9",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1061:delete_workflow_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3295,7 +3319,7 @@
           }
         ]
       },
-      "source_checksum": "d37ad91596d0d510f2c3eee80b36a6f1fd56f3d3366176e2be4fe1a442c18b7d",
+      "source_checksum": "a42233874fa9779b4ad6900a9fbe7c8f4cc3b520f86049a90d4ec0f00b61900b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1096:list_workflow_nodes_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3425,7 +3449,7 @@
           }
         ]
       },
-      "source_checksum": "0db05991e38991c86b195006887a3da54587cefafa1f5ccd4e37c654b032903d",
+      "source_checksum": "3f223bb001c710ab33828f7ed6e5200dd9182d02fd0dfe8df5877af809445000",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1121:create_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3526,7 +3550,7 @@
           }
         ]
       },
-      "source_checksum": "b06c9b3249b8c528dfcc49cae6c6414b6d5f2ec5b9bc3f9e7df0f328ac3ed4ef",
+      "source_checksum": "54f3ccf5c2d051f4f869e6f2dcd57f8251e3063442df8701aebb775df571cdb2",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1151:show_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3615,7 +3639,7 @@
           }
         ]
       },
-      "source_checksum": "56117255c829991d8a78d5c021a171a7b76f08e2cfdad7ab2d1624490fd780c0",
+      "source_checksum": "f1da285d65d5d89399a2b205260e8162c4f16634616be041e729617041465e30",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1181:update_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3714,7 +3738,7 @@
           }
         ]
       },
-      "source_checksum": "f779f60f71ba27aee67fdcd984e58d43a096c7ebf32ad2f01626af002af71b32",
+      "source_checksum": "48df05e74d405a766adb767f63ca664b4158af665cddd37f2ed10ffc9d4900eb",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1232:delete_workflow_node_route",
         "path": "infera-crm/src/api/operations.rs",
@@ -3793,7 +3817,7 @@
           }
         ]
       },
-      "source_checksum": "a57989ce34e8c504349a5aeed36adf0aba6c132d51e5eccbb9997cbbed639c2e",
+      "source_checksum": "114da9ff661408393382d7f1f8c3abe58e6f06d59e7f7b8ace223653591d6650",
       "handler": {
         "ref": "infera-crm/src/integration/office.rs:58:find_office_lead",
         "path": "infera-crm/src/integration/office.rs",
@@ -3967,7 +3991,7 @@
           }
         ]
       },
-      "source_checksum": "b984e4d19db0eeb30fcf13118f828ac0fdae6ea3ff7231853d172a2dbd48c7a7",
+      "source_checksum": "fbc9635c83edcf57810d2b730f060d14c362708a99bb37c9d1c881b6862904d4",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:249:pipelines",
         "path": "infera-crm/src/api/routes.rs",
@@ -4045,7 +4069,7 @@
           }
         ]
       },
-      "source_checksum": "96858281e1b83e261a9d2514d08e5cf9bf8e281998aa99ae2977bed1ea168be2",
+      "source_checksum": "cf320f06807872260c5c64583e99c2ee95910abe3d7df1eddb82c65d8bee4dc3",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:60:update_pipeline",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -4145,7 +4169,7 @@
           }
         ]
       },
-      "source_checksum": "e6fd048843230c3b38112948f77dc9636246c27476a06da6f8ab03d420960985",
+      "source_checksum": "29b37e0edb63a40b734b169b2f544de0c92debd9d6bd3fa3350515ea42128ea8",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:41:member_workflows",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -4229,7 +4253,7 @@
           }
         ]
       },
-      "source_checksum": "a48ee64d17c3d3f5ccf989c0ed59977db0b36e5484686bc783697b037de58e8a",
+      "source_checksum": "f603972079938284b9557adf756ccaac6bd6dfe354ae401c64f08e525f4e536e",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:118:daily_stats",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -4307,7 +4331,7 @@
           }
         ]
       },
-      "source_checksum": "e8aa8f02556d89aafbd63621107db0d5d11748741d27c46a4fd07d3de28f65ee",
+      "source_checksum": "ebfdd23ce1d382b2f4861f967b2b7a0f4d282450be13a781f482798532634ddc",
       "handler": {
         "ref": "infera-crm/src/api/dashboard.rs:332:lead_stats",
         "path": "infera-crm/src/api/dashboard.rs",
@@ -4383,7 +4407,7 @@
           }
         ]
       },
-      "source_checksum": "82747a646dead6d0317e261d5841a48c855937dc0a4f8ade63727119393391fd",
+      "source_checksum": "1232f6c57386791d94c80f18dc31a58a2267c66aa17feae777ce7ae51938b7ca",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:259:teams",
         "path": "infera-crm/src/api/routes.rs",
@@ -4467,7 +4491,7 @@
           }
         ]
       },
-      "source_checksum": "2aa95cb4464d2ac432bd66e02aec6756fc9bd484f08381974d9236ff3d546db3",
+      "source_checksum": "65334899d07b390d4e94a9c67b24de2ba80e4be26fd9c1bc976ffba58210c464",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:112:create_team",
         "path": "infera-crm/src/api/writes.rs",
@@ -4568,7 +4592,7 @@
           }
         ]
       },
-      "source_checksum": "6fb40cdd24d74511ebbb74d20b659a2380871c26aa3739ec008ec6d8c705920c",
+      "source_checksum": "e7a05398d9df3e4480b6896e97676d6dfa3c911260477ce72a4d0a9d61ada2ad",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:88:team",
         "path": "infera-crm/src/api/operations.rs",
@@ -4643,7 +4667,7 @@
           }
         ]
       },
-      "source_checksum": "83650b656661511844338d07c1d458a1c30b7af1ea1bdc0ecb621843465e5533",
+      "source_checksum": "6aba8f397ae02ce1f70dd1aa782ca7f7a6e6f3cc77ec356b20e4100a2eb586b6",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:177:delete_team",
         "path": "infera-crm/src/api/operations.rs",
@@ -4736,7 +4760,7 @@
           }
         ]
       },
-      "source_checksum": "338d5a5b9cc9c40bb9438f1e54f240e8555e56aa5110031242a62fa398372f5a",
+      "source_checksum": "058268c50432509ba169dc2e3f18c2c0034f70acd5c5adba529cb8048549f085",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:110:add_team_member",
         "path": "infera-crm/src/api/operations.rs",
@@ -4847,7 +4871,7 @@
           }
         ]
       },
-      "source_checksum": "e8a65c6f5f1c6d8c8a09f5730460bb1d2090931d15e4bfb8afab097f806666ff",
+      "source_checksum": "88b020d98db061fa40d234a3fdf6903e4d3dd09be0a42eb018dd5ff5a43d8ec1",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:245:remove_team_member",
         "path": "infera-crm/src/api/operations.rs",
@@ -4940,7 +4964,7 @@
           }
         ]
       },
-      "source_checksum": "14ad4a4fa6df5e4f5981e6d5d3c18d81c0029ac285703aa6af95a7376dee3f55",
+      "source_checksum": "161ed3d2d68ee80de975097e256d1ec45bc2961be98f0678a2d9f28efd58fc56",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:290:list_sos_leads",
         "path": "infera-crm/src/api/operations.rs",
@@ -5024,7 +5048,7 @@
           }
         ]
       },
-      "source_checksum": "f9fc5114106b7c76e30ab8a8a39e425a93afb6df5e73824bff6cd462fe742f6b",
+      "source_checksum": "ac9e24fdf0757f38a6ff5445d05e823431b58813c5757ea1b57d80ce78431316",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:305:add_lead_to_sos",
         "path": "infera-crm/src/api/operations.rs",
@@ -5112,7 +5136,7 @@
           }
         ]
       },
-      "source_checksum": "680c551273498efda3a8086d418ab91795f63f62114bb67a18feec588c0ae7f3",
+      "source_checksum": "9a7eae2d01043f4006d2937fec02000754d9f6f40dc20d5556e6ea840e5c68b2",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:359:remove_lead_from_sos",
         "path": "infera-crm/src/api/operations.rs",
@@ -5193,7 +5217,7 @@
           }
         ]
       },
-      "source_checksum": "52ca1c33284656e32c475e1df990607924285d94d8bdc5dd85e54d1153b3ebf2",
+      "source_checksum": "06654c51409c6802c0c1d6847c645a42215aad332dfaa69478142cceef526653",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:403:list_workflow_assignments",
         "path": "infera-crm/src/api/operations.rs",
@@ -5294,7 +5318,7 @@
           }
         ]
       },
-      "source_checksum": "0673644e5a8417644431e524d894ba70e5b695149bc81d80bb835b68c9e970e4",
+      "source_checksum": "05e6044c1192fdc46674c83b1528185e4eccc2d9f7e23b0795afee4294990ddc",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:419:create_workflow_assignment",
         "path": "infera-crm/src/api/operations.rs",
@@ -5417,7 +5441,7 @@
           }
         ]
       },
-      "source_checksum": "4e528718d83a40217bd5301dc7248a3fa1880af7cc29c99a9e14ba2ac136d8c0",
+      "source_checksum": "38c38d0fee651d33532c051666fdd6fbc5301e0a3cb91f712e494c4634dab6e6",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:505:delete_workflow_assignment",
         "path": "infera-crm/src/api/operations.rs",
@@ -5500,7 +5524,7 @@
           }
         ]
       },
-      "source_checksum": "c8e0a0410d7138b19e199c9ad3e2ce41883f047d2c0d2e8a92f1b43c3cd3c080",
+      "source_checksum": "fa8b2f680a5192480e091aba8b7669c14131f24300ba659270199fbba58c6b3b",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:549:tasks",
         "path": "infera-crm/src/api/operations.rs",
@@ -5661,7 +5685,7 @@
           }
         ]
       },
-      "source_checksum": "3c5da05389efeae7b78a7bdfce0111828ea0b575f72ee539639a95c6054e2309",
+      "source_checksum": "06883aa30a4904b730d0db6ee6ee54668848c5a7a7a7597f2acf12064a26f30e",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:580:create_task",
         "path": "infera-crm/src/api/operations.rs",
@@ -5822,7 +5846,7 @@
           }
         ]
       },
-      "source_checksum": "68456d0a6c0a7ff3be430b6c09ef0f71dd9d65813a6a064fc693117b86b85450",
+      "source_checksum": "cba002f15f6d1949407fa62a17b197e0d557fa991704d69132b4ed2f246218c7",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:691:delete_task",
         "path": "infera-crm/src/api/operations.rs",
@@ -5904,7 +5928,7 @@
           }
         ]
       },
-      "source_checksum": "820b51ae49901d310ab92bae51620b8944aad8b3e087d9dad68486b2dd3d0def",
+      "source_checksum": "797c8a32c7385c6930f365134163b8321c19b5acf740eac3baaa9975230d8a1d",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:630:update_task_status",
         "path": "infera-crm/src/api/operations.rs",
@@ -6034,7 +6058,7 @@
           }
         ]
       },
-      "source_checksum": "d64cd9632652c3b89d4082c16efe3b36ae63a5bcee4d4e0f25e0c41a9cab4a05",
+      "source_checksum": "e18d2c33269e85ae7b7ab414038b5f3b12471eab1355c5d27fbc6f97df290dd7",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:836:create_activity_with_reminder",
         "path": "infera-crm/src/api/operations.rs",
@@ -6122,7 +6146,7 @@
           }
         ]
       },
-      "source_checksum": "cafcb4f5dadbb3dcc5bfb0d063d993198e31831775a0dfdaa52fd399bc86b60b",
+      "source_checksum": "88972d3ec2d0a89105b63855d531c0caed5059d6c3aacf3008c8e3d610801c68",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:757:activities",
         "path": "infera-crm/src/api/operations.rs",
@@ -6247,7 +6271,7 @@
           }
         ]
       },
-      "source_checksum": "15d0c23b70274dafa4d5e9412da2348d32855f38ff509654d428ece234b59c62",
+      "source_checksum": "fd04ce01bf30bc6b709d31231622568d37e6836ec916878ec638b77863575e77",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:783:create_activity",
         "path": "infera-crm/src/api/operations.rs",
@@ -6362,7 +6386,7 @@
           }
         ]
       },
-      "source_checksum": "c5844ac8fe0683a103f55b906c5d24ba7d99d2cc994b33dd4af5f49b30ff4e22",
+      "source_checksum": "27943b506a2f09c01bd16b20a28d5d73eb272257497ad6b0f0b8759b62fdc7e5",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:920:worklogs",
         "path": "infera-crm/src/api/operations.rs",
@@ -6462,7 +6486,7 @@
           }
         ]
       },
-      "source_checksum": "e890107caea69a413318bdd6f9ab6095f2a29999928e6882b1d28bc519789c02",
+      "source_checksum": "fb2ebc28ad43472a65b8c3fc305f76a8c7b9597047145efd0f0346a4a52bf973",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1413:sources",
         "path": "infera-crm/src/api/operations.rs",
@@ -6539,7 +6563,7 @@
           }
         ]
       },
-      "source_checksum": "aa83e3ca811c6aaaa0e1fb5befa331cc498ba6ca5d5cdacca331a7e13a7857be",
+      "source_checksum": "c56a01fca59729189b5289114a0d6ea7601ca974e1cb9b3f8ec20e5e4d0fb708",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1424:create_source",
         "path": "infera-crm/src/api/operations.rs",
@@ -6626,7 +6650,7 @@
           }
         ]
       },
-      "source_checksum": "01a996f8421d5d44552b292b812fd3c89a5fc1c26fd49a018a5cfa2e05b123da",
+      "source_checksum": "34431c3155001173164f237f0a08e9fd0764d09b45791e15306b26302f5ed1de",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1461:campaigns",
         "path": "infera-crm/src/api/operations.rs",
@@ -6710,7 +6734,7 @@
           }
         ]
       },
-      "source_checksum": "8541e570d7c755eb970fee261a73ad9d90940f6bfc8d3667d7d7e317f720b7d6",
+      "source_checksum": "e197e886ef76f395a0d8ca3fcfb1bfd4e457b9733f254d97b9ec52cf007c5737",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1472:create_campaign",
         "path": "infera-crm/src/api/operations.rs",
@@ -6811,7 +6835,7 @@
           }
         ]
       },
-      "source_checksum": "f71173e7e59185636dbf07d75696b4b6f194b9fb1428314478062fc471455cc6",
+      "source_checksum": "ce5549f4334ade1d8ab26dd147c41f2e569440d5303efbea026f452f70c8ee2a",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1524:update_workspace",
         "path": "infera-crm/src/api/operations.rs",
@@ -6912,7 +6936,7 @@
           }
         ]
       },
-      "source_checksum": "21d35ca83c902d2ce3729c06dc5f7553544d7c2424464ba97659964d60cc1f95",
+      "source_checksum": "dceca1dc9ea69a3318f41d28353c7ba42ffe524b0741bb51ec6854cff3a04ec7",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:680:automation_jobs",
         "path": "infera-crm/src/api/routes.rs",
@@ -7036,7 +7060,7 @@
           }
         ]
       },
-      "source_checksum": "18b9944727b8fc8bd07e81b988c5ed31fd1b7edf636721973a42bf563b23f1a0",
+      "source_checksum": "1a98350c1a8daef0968552f85a5d7cf4c2eaa8890b4b3db96867bf666e8b85a5",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:705:automation_webhooks",
         "path": "infera-crm/src/api/routes.rs",
@@ -7114,7 +7138,7 @@
           }
         ]
       },
-      "source_checksum": "be42010417f88a548df5d1298e4ef87b006d74a75eef7e0efba168607c791078",
+      "source_checksum": "0ba14dd507005eec946e21187a40a749d201bb4e25afb4e83424a84d547a4cb4",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:274:companies",
         "path": "infera-crm/src/api/routes.rs",
@@ -7251,7 +7275,7 @@
           }
         ]
       },
-      "source_checksum": "f9d59cc3d6c9c323abf206493090cf8da3b49791cc4d411d1909e8b3b5589513",
+      "source_checksum": "2695adaa7bbe01553dc74d6b959ad6785474257d40db2667c4f212502d1bdb60",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:156:create_company",
         "path": "infera-crm/src/api/writes.rs",
@@ -7365,7 +7389,7 @@
           }
         ]
       },
-      "source_checksum": "b9034597de6e228fdf1828eb882b484497f4e22a2a29734daaacba3b531d8706",
+      "source_checksum": "20f97b155899a93f18eb77c338a40f1dabb217aa3013f26fd62beba02d80f312",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:304:company",
         "path": "infera-crm/src/api/routes.rs",
@@ -7460,7 +7484,7 @@
           }
         ]
       },
-      "source_checksum": "9deceb8ee2e7dfcce6ee40531ca894e01dac840ed67476b54e132e1a90357479",
+      "source_checksum": "7ba037f3c7a500ea335b302be86528e1c109372b3e640edd101fa4c75a235c04",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:277:update_company",
         "path": "infera-crm/src/api/writes.rs",
@@ -7566,7 +7590,7 @@
           }
         ]
       },
-      "source_checksum": "db4f20b82654c7553195ad505369c8d44d2c90edf3c21743d4b96094012e49cb",
+      "source_checksum": "09ad9034ff75bdfcf5d03d2264364fd30828b218af159288aa538e03a4a1c7be",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:324:contacts",
         "path": "infera-crm/src/api/routes.rs",
@@ -7715,7 +7739,7 @@
           }
         ]
       },
-      "source_checksum": "76c318c18d7fada194ce5c868d6261b4301db2e02d01f86077bc11293d2fcb0f",
+      "source_checksum": "9e04194928e787f611f510172b6597c6c9e399c8bb6a9fa8520ed68f0488472a",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:218:create_contact",
         "path": "infera-crm/src/api/writes.rs",
@@ -7853,7 +7877,7 @@
           }
         ]
       },
-      "source_checksum": "e1017f77ef98a604fe683c2b9aff080dd1d290afb65e0be255d2f980bdd8e2bd",
+      "source_checksum": "1cd869742e86c6b18f13372e6a266344e671378a84bb053e18c9e566df2c3c18",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:354:contact",
         "path": "infera-crm/src/api/routes.rs",
@@ -7960,7 +7984,7 @@
           }
         ]
       },
-      "source_checksum": "86486fee6f52e2b270bcdb7f0b73e8b260319cd4f355e0833dcb01875538e412",
+      "source_checksum": "f1a6d162e7b8c72383de5312e9f4698eca41314bb7468a225a393be49da9306f",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:345:update_contact",
         "path": "infera-crm/src/api/writes.rs",
@@ -8075,7 +8099,7 @@
           }
         ]
       },
-      "source_checksum": "cb1c11c6dc36585f6ab0f014b8367e798fc4138a493922c4a99fc87ab1711785",
+      "source_checksum": "4137b7941f712399f7ee2e08a6ca37737f1752d6b23bb7e2fec6bace0a6f2e96",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:436:light_leads",
         "path": "infera-crm/src/api/routes.rs",
@@ -8262,7 +8286,7 @@
           }
         ]
       },
-      "source_checksum": "f80ea77c1dd6dd3ff66c057f5d1e8fa5214b04f57d1a65b947be1ef6836bd133",
+      "source_checksum": "e7685a854e29117259de52655ddf5d2f076f5df8a498c5f056ed1e95251d61a9",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:377:leads",
         "path": "infera-crm/src/api/routes.rs",
@@ -8447,7 +8471,7 @@
           }
         ]
       },
-      "source_checksum": "c1877d0326c148f656f32398081ab5e80330b627a14332677065e50c1b7d7a4b",
+      "source_checksum": "dbd65690871484a592a83e7f967d2882d23516808781638c5573c6a865d008f3",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:639:create_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -8652,7 +8676,7 @@
           }
         ]
       },
-      "source_checksum": "386c1343e56aaae6bd6ff05faa6c15368f8d12a32c7add9cbddebf90626e7f88",
+      "source_checksum": "dfd3fa17758e3230d011cb4651ae23cce64950b7c00a4df57d2304ad47817c39",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:445:lead",
         "path": "infera-crm/src/api/routes.rs",
@@ -8734,7 +8758,7 @@
           }
         ]
       },
-      "source_checksum": "4f566cb52792cdcacf7f0d6cceb636d87564c8531db97a5fb2edad8f9b0f4fd7",
+      "source_checksum": "9652ff235b0cdd060ff00d8674b498e59dc8f878ec0366cc34e52daa3777724d",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:415:update_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -8894,7 +8918,7 @@
           }
         ]
       },
-      "source_checksum": "fe709d15c53f6189ffabe71434057d3b3e21ea13fa3b8daeba5cd9bb1baf2420",
+      "source_checksum": "d43ffee12d0a73d9d3f65b8535f495d2bef18f7036690515b1680d880c934788",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:1388:lead_history",
         "path": "infera-crm/src/api/operations.rs",
@@ -8982,7 +9006,7 @@
           }
         ]
       },
-      "source_checksum": "d69d065893ae15f554a2556e0d459df3b0c3c32e76e7ad2bec85c10dc48f42fd",
+      "source_checksum": "734ec487acb06aa6b782dff15ea56fa34a16da896e0deddb103766e105255e86",
       "handler": {
         "ref": "infera-crm/src/api/operations.rs:738:delete_lead_reminders",
         "path": "infera-crm/src/api/operations.rs",
@@ -9057,7 +9081,7 @@
           }
         ]
       },
-      "source_checksum": "8d4b6c02dc3deb9f12bb0003727e0be58a36350baca9bff134bdb851133dea21",
+      "source_checksum": "8f05747ddd3a856e2757a537d9e3059652d949c7e217e6d2b7296b0d14e2b256",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:786:move_lead_stage",
         "path": "infera-crm/src/api/writes.rs",
@@ -9217,7 +9241,7 @@
           }
         ]
       },
-      "source_checksum": "b50de85df9c3242b6ecfa9e853567d105c1f3600fb9ae2b15952c645c352dffd",
+      "source_checksum": "1809b83a57eb79d60dfd3c59ae9f00c168a317aff3b9d6fe89a2192e83baef91",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:932:assign_lead",
         "path": "infera-crm/src/api/writes.rs",
@@ -9384,7 +9408,7 @@
           }
         ]
       },
-      "source_checksum": "4f4ae7fa8dee568f200b878bae5a7334bca6eae9135616adb7a6bd9a1675df80",
+      "source_checksum": "f27327b409545eb1b78b7914533df8953671ab58fedc1e69d0c9f69f39d349ae",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:474:deals",
         "path": "infera-crm/src/api/routes.rs",
@@ -9551,7 +9575,7 @@
           }
         ]
       },
-      "source_checksum": "1420e03972f884fb64da31d6163d1789b7f5b254beaf776714855d27860ccc94",
+      "source_checksum": "ca88fd9b753b244bd7fdfe9fb41675ac0b93ed92a3a42ffd316580e3ef8cc0d1",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:711:create_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -9726,7 +9750,7 @@
           }
         ]
       },
-      "source_checksum": "b5ecb5aee662c9b753aed783f4599401aec4d178dd55d7fab88ee40d85668829",
+      "source_checksum": "0d97c4a5e7f74082a5145f829a2633a75caf41a60a89ad7d3e1daa89aea71fb8",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:521:deal",
         "path": "infera-crm/src/api/routes.rs",
@@ -9851,7 +9875,7 @@
           }
         ]
       },
-      "source_checksum": "5f06c5a40faa4b34bb3fa024e17438e57c9a4d9227c320e61dbf2b52ccb1d9d1",
+      "source_checksum": "ac3b7058c6725912d8f495f0f978d327c095b65c64b17a8319f18c54ad1c16f7",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:485:update_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -9987,7 +10011,7 @@
           }
         ]
       },
-      "source_checksum": "24dee0ce974afe800eeb1a52825462e6e6017fdd9191b5240c305107f872a154",
+      "source_checksum": "fabe9398f536fef744bb8ff0b519d638870842925d6944f54668101993034b6c",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:855:move_deal_stage",
         "path": "infera-crm/src/api/writes.rs",
@@ -10129,7 +10153,7 @@
           }
         ]
       },
-      "source_checksum": "db9e2e0536d0ee76f4b2216553cc37a64b725b32c517e2a58190ccd5ba6d42d2",
+      "source_checksum": "f80a3085f33b61e760cb013d828f18f5056fb62d725946ed4df4d0f73edf5074",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:997:assign_deal",
         "path": "infera-crm/src/api/writes.rs",
@@ -10276,7 +10300,7 @@
           }
         ]
       },
-      "source_checksum": "2853f4fd63dc198033981e096841e1670f130a73044a926ddee0c1060b192be8",
+      "source_checksum": "d3dccc37c277e73e60ca4257e6c9d8043c83d473d7b56f7fe277f618978771f1",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:542:board",
         "path": "infera-crm/src/api/routes.rs",
@@ -10350,7 +10374,7 @@
           }
         ]
       },
-      "source_checksum": "d66a294c964143d075ead736a9a5f658fc10c84b5bf467f01518d70797fb9061",
+      "source_checksum": "f703a18a8e2b5cfee65e260ed411a342e2e6b78c448078685b868fd68da8969e",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:633:overview",
         "path": "infera-crm/src/api/routes.rs",
@@ -10438,7 +10462,7 @@
           }
         ]
       },
-      "source_checksum": "83fc8a1c690894ac23cce8827a87b0ceb49910ec0daf7ddd29b72318fa58716e",
+      "source_checksum": "ad2bf9c873de5e8277a13becd64c29cf0710a045a49039b9f74849b68c382ec2",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:1062:refresh_reports",
         "path": "infera-crm/src/api/writes.rs",
@@ -10525,7 +10549,7 @@
           }
         ]
       },
-      "source_checksum": "6add742e04e822a3ed75cf12bddbd6c308ce7e5d4762895f2179e8b309caacb2",
+      "source_checksum": "415edb23451e58c96ddfded9621ab5286d5331cf2c6fb13a704dbcc97488d4d9",
       "handler": {
         "ref": "infera-crm/src/api/writes.rs:1114:request_agentic_insight",
         "path": "infera-crm/src/api/writes.rs",
@@ -10605,7 +10629,7 @@
           }
         ]
       },
-      "source_checksum": "58a0430692e8283751047981d1a3c8817423a704db336300935333dc885cb1ff",
+      "source_checksum": "f8a0979c02d2246dc6b2f75c74b12fba7e226e60c4323ca025bdc538e6ffbc94",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:665:report_run",
         "path": "infera-crm/src/api/routes.rs",
@@ -10692,7 +10716,7 @@
           }
         ]
       },
-      "source_checksum": "e8edb05684e4c793ff0cfa166377f5a0895421ee248ce37736ab0c7cd3e2f490",
+      "source_checksum": "4abd9a3730af6424a8db2bcd944e5b15ba0bcc99d506aac47f7b89e2a80b0ef0",
       "handler": {
         "ref": "infera-crm/src/api/routes.rs:645:report_catalog",
         "path": "infera-crm/src/api/routes.rs",
@@ -10753,7 +10777,7 @@
           }
         ]
       },
-      "source_checksum": "e568183e283d27d7448df19aa3192c6a40b3e4122cdf49c0ee42702a506752af",
+      "source_checksum": "c2fb89b0f791408c2e1468fc266700f2d8da95f9b7c0db7cdb3ae5547ea9f3e9",
       "handler": {
         "ref": "infera-crm/src/router.rs:145:api_not_found",
         "path": "infera-crm/src/router.rs",
@@ -10809,7 +10833,7 @@
           }
         ]
       },
-      "source_checksum": "b2071523b372c3a531d9d66bb970cb7c1fc5529f780084ea1aaca376477c0399",
+      "source_checksum": "7c4a5f0a3dd1c4426038d114967ad9ea6a7ccef69a60a183b248b3bfe062edc7",
       "handler": {
         "ref": "infera-crm/src/router.rs:145:api_not_found",
         "path": "infera-crm/src/router.rs",

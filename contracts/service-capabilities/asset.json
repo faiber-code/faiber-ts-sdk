@@ -5,7 +5,7 @@
   "scope": "business",
   "purpose": {
     "en": "Balances, assets, rewards, economy policy, subscriptions and usage ledger.",
-    "fa": "موجودی، دارایی، پاداش، سیاست اقتصادی، اشتراک و دفتر مصرف."
+    "fa": "\u0645\u0648\u062c\u0648\u062f\u06cc\u060c \u062f\u0627\u0631\u0627\u06cc\u06cc\u060c \u067e\u0627\u062f\u0627\u0634\u060c \u0633\u06cc\u0627\u0633\u062a \u0627\u0642\u062a\u0635\u0627\u062f\u06cc\u060c \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648 \u062f\u0641\u062a\u0631 \u0645\u0635\u0631\u0641."
   },
   "sources": [
     "src/router.rs",
@@ -13,7 +13,15 @@
   ],
   "inventory_source": "sdk",
   "inventory_revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
-  "source_decision": null,
+  "source_decision": {
+    "status": "verified",
+    "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
+    "source_tree_checksum": "0a4f9b617a3a21356a96636d66ddd30a3bc6d961078761fafb06c72356b6e68a",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 201 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
   "relationship_review": null,
   "canonical_revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
   "sdk_source_revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf",
@@ -18049,7 +18057,7 @@
       "kind": "struct",
       "path": "infera-asset/src/llm_usage/models.rs",
       "line": 87,
-      "attributes": "// ── admin: subscription plan tier management ─────────────────────────────────\n#[derive(Debug, Clone, Deserialize)]",
+      "attributes": "// \u2500\u2500 admin: subscription plan tier management \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n#[derive(Debug, Clone, Deserialize)]",
       "fields": [
         {
           "name": "tier",
@@ -18376,7 +18384,7 @@
       "kind": "struct",
       "path": "infera-asset/src/wallet_billing/methods.rs",
       "line": 665,
-      "attributes": "// ── plan + points-pack products (priced in IRR; points credited to the wallet) ──\n#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]",
+      "attributes": "// \u2500\u2500 plan + points-pack products (priced in IRR; points credited to the wallet) \u2500\u2500\n#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]",
       "fields": [
         {
           "name": "tier",

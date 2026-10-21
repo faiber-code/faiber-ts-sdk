@@ -10,7 +10,7 @@
   },
   "package_source_sha256": {
     "packages/gis/src/index.ts": "665fbe37b33d5380cfa48de0dc4fb071e96ef8a367b0e18f87f2e2abf6284030",
-    "packages/gis/src/operations.ts": "72e0f29b7a2d8c0e8f15ce12e40d9565a6dc2eab42e6be0b9855e0a960463222",
+    "packages/gis/src/operations.ts": "dbe91e235b9ea6da1435ddfc8dfd29832f6fdd500ab3a02d2ea81c6540612ad7",
     "packages/gis/src/operations.types.ts": "771bce69b290f9f38d022d5555ab161a0dc389295e58a607989d6382e9a165ab",
     "packages/gis/src/types.ts": "ddaa819e13d85adfd822f088de4e55c3b861fd30299e7adee39f9564dddb0eed"
   },

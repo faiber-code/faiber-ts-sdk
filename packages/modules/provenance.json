@@ -15,7 +15,7 @@
     "packages/modules/src/operations.types.ts": "79cea15c28e9c2527205df37f97429f7bca2f2e552b107fbd6ba1c83f18426d2",
     "packages/modules/src/types.ts": "5c8234e25b7d5a658abac6b57b7d7e5586ccec3bd7732362ecbb31b04ef2c261"
   },
-  "capability_review_sha256": "47ff2b8d89e4d405c604dba7d6943d2ab7746955b13e1daa834ddc13cf3798c8",
+  "capability_review_sha256": "0eddd732f44394a2a503ed5fbfbf653738be22d55cd364c84d6a94926223f439",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
   "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
   "public_contract": {

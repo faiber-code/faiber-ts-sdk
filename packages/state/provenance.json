@@ -20,7 +20,7 @@
     "packages/state/src/realtime.ts": "932fe992ca283174320af6d550cceb10d86cf1309130f20099f695dd062b0f16",
     "packages/state/src/types.ts": "e734246e8b37931b681daee43684685451d19dd45a80ec862db52ac652056cbd"
   },
-  "capability_review_sha256": "4e8c469e9d17e0dcc1c17af0e1f54b722a9d8f5ab8014dbbae2bc016a4dcdaa6",
+  "capability_review_sha256": "3cb618e2737f50aae358167b50bd1d3fa63fd85f9b046bd181718946f4e809be",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
   "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
   "public_contract": {

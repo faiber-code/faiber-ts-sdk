@@ -9,8 +9,8 @@ Status: evidence inventory; semantic and wire verification remain required.
 The source snapshots below are intentionally distinct. Missing local routes are not automatically removed from a released SDK.
 
 - Canonical source revision: `bb6b725f2c35fc27bd04b84897523fca77d2854b`
-- SDK source revision: `815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5`
-- Evidence inventory revision: `815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5` (sdk)
+- SDK source revision: `7a395d7149a2d4c03d3e1d4746b69919a52cbb05`
+- Evidence inventory revision: `7a395d7149a2d4c03d3e1d4746b69919a52cbb05` (sdk)
 - Working HEAD: `edefa6463fe1877661cc62ef4752515262c71e00`
 - Source relationship: working_behind_sdk
 
@@ -61,7 +61,7 @@ The source snapshots below are intentionally distinct. Missing local routes are 
 | `GET /api/v1/integrations/lms/rooms/{id}/notification-state` | `infera-session/src/notification_state.rs:40` | inspect middleware/local scope | pending |
 | `GET /api/v1/summary-access` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:270` | inspect middleware/local scope | pending |
 | `PUT /api/v1/summary-access` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:278` | inspect middleware/local scope | pending |
-| `POST /api/v1/summary-access/revocations` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:346` | inspect middleware/local scope | pending |
-| `DELETE /api/v1/summary-access/revocations/{object}` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:362` | inspect middleware/local scope | pending |
+| `POST /api/v1/summary-access/revocations` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:331` | inspect middleware/local scope | pending |
+| `DELETE /api/v1/summary-access/revocations/{object}` | `infera-session/shared/infera-summary-sdk/src/native_access.rs:347` | inspect middleware/local scope | pending |
 
 Full fields, guards, state/side-effect evidence, call dependencies, source checksums and unresolved symbols are in `contracts/service-capabilities/session.json`. Empty declared permission arrays do not establish public access. Review gateway middleware and resource ownership.

@@ -16,7 +16,7 @@
     "packages/social/src/operations.types.ts": "6e89b7cca8a33961d5204fadf8ba81b72a05aeee14cfd64eed61744bd9ad184f",
     "packages/social/src/types.ts": "3b940368d60b72e0828893ac9fd46c456ab3ca850c04aa9b2d84e199605a06ec"
   },
-  "capability_review_sha256": "993459c7d7f332d9054510f6541dd45e8b1bbc0942fd9f2c7122f1b2d39c730a",
+  "capability_review_sha256": "e647c8fda1875f39a7911e3cf93d7ab44b6634cc12be397221eff71c38475500",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
   "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
   "public_contract": {

@@ -5,7 +5,7 @@
   "scope": "business",
   "purpose": {
     "en": "Live rooms, participants, recordings and server-timed sessions backed by published DRM compositions.",
-    "fa": "اتاق زنده، شرکت‌کننده، ضبط و جلسه زمان‌بندی‌شده متکی به ترکیب منتشرشده رسانه."
+    "fa": "\u0627\u062a\u0627\u0642 \u0632\u0646\u062f\u0647\u060c \u0634\u0631\u06a9\u062a\u200c\u06a9\u0646\u0646\u062f\u0647\u060c \u0636\u0628\u0637 \u0648 \u062c\u0644\u0633\u0647 \u0632\u0645\u0627\u0646\u200c\u0628\u0646\u062f\u06cc\u200c\u0634\u062f\u0647 \u0645\u062a\u06a9\u06cc \u0628\u0647 \u062a\u0631\u06a9\u06cc\u0628 \u0645\u0646\u062a\u0634\u0631\u0634\u062f\u0647 \u0631\u0633\u0627\u0646\u0647."
   },
   "sources": [
     "README.md",
@@ -13,11 +13,19 @@
     "src/drm.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5",
-  "source_decision": null,
+  "inventory_revision": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05",
+  "source_decision": {
+    "status": "verified",
+    "revision": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05",
+    "source_tree_checksum": "32217997ac4c1895d415fa3dbd03bf1905a15285f993d7ca299bd10f902b2989",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 145 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
   "relationship_review": null,
   "canonical_revision": "bb6b725f2c35fc27bd04b84897523fca77d2854b",
-  "sdk_source_revision": "815652f36cda3bb5c1c7ac6d4c0b8dafd58640c5",
+  "sdk_source_revision": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05",
   "working_revision": "edefa6463fe1877661cc62ef4752515262c71e00",
   "working_changes": [
     "M Cargo.lock",
@@ -43,7 +51,7 @@
     "?? src/summary_evidence.sql"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "a27184a10b60c242d01a778802b276bcf10173cbdd74632fa8ada28c969f1b4b",
+  "source_tree_checksum": "32217997ac4c1895d415fa3dbd03bf1905a15285f993d7ca299bd10f902b2989",
   "source_files": [
     {
       "path": "infera-session/src/asset_economy.rs",
@@ -303,11 +311,11 @@
     },
     {
       "path": "infera-session/src/summary_mount_http.rs",
-      "checksum": "873e8d8daf1336d1be98bafa611cd701ddb48bb0ff5f4d0cb97da5500455ac5e"
+      "checksum": "c7217018025b4dcdfd4d39c3c525f18571517deb2b8a76732d90579bc77dbf81"
     },
     {
       "path": "infera-session/src/summary_query.rs",
-      "checksum": "ebda97729eea23401ffd869e78c30d4d22688e96aaf4c339685def521960aa02"
+      "checksum": "b0aa3f4ef3c7d257645248ed595d397cc108ce23fd98d71f29f7c92103efaa54"
     },
     {
       "path": "infera-session/src/validators.rs",
@@ -419,7 +427,7 @@
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/lib.rs",
-      "checksum": "4996f862a67a948f3cf78a06d77eec770b596cc854d276896f8795b05a9cc841"
+      "checksum": "491d0839363361595ea905d381541d61858404e3d3c941c7653e4d7de8de3672"
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/metric.rs",
@@ -427,7 +435,7 @@
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-      "checksum": "ac0aef5999fc22d74b6da29dda2790fc9f94a57adfe6e9e0ea7d690c1f165042"
+      "checksum": "fd69e25ec83990d8e5ead2f6198b5ff94006c07169185d47d300e48bff19bc25"
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/native_access.sql",
@@ -435,7 +443,7 @@
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
-      "checksum": "40696b937098d29860aac3de3a04a86a69f2da02f89ff6d2a125a70e97b9c187"
+      "checksum": "dbb311db9127ad85dfc3d380baa32717b188cc257fe5de582a4e5bb41b8be32e"
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/native_policy.rs",
@@ -455,11 +463,27 @@
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/result.rs",
-      "checksum": "46600a6ce2347c0dd621a45972fa94ae624497b2d1b6f02c37f0d5a72b24f981"
+      "checksum": "0184a660d278fcabb919365c89f037e8ee9443718e63afe6895da3a3574fbb65"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/runner_crypto.rs",
+      "checksum": "3bea1b556fd47af11e5a03ea65ea03ed7bf83e925a365a7763e87807a7b5a0be"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/runner_identity.rs",
+      "checksum": "78ec0470c4935e3a82cf0acdc713a9ddf7cb6a17197f1952612ef64dfdb522d3"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/runner_transport.rs",
+      "checksum": "f3b4517824522224fdef6b851891203b5072f2a5b7912df05ce92fd3af60eaf8"
+    },
+    {
+      "path": "infera-session/shared/infera-summary-sdk/src/runner.rs",
+      "checksum": "486304ffbbe09c18ae55b199a8e5b77e3bfc5d78c4e04db9355b821593352b6d"
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/src/server.rs",
-      "checksum": "edadbfe69af77f695443631c04e26024046ee521ad402669596f0fa372387738"
+      "checksum": "54c4983b3f9d80b51a9fea88f84a3791d95ea88e0bfff433a0cca3bbe1581beb"
     },
     {
       "path": "infera-session/shared/infera-summary-sdk/tests/mcp_transport.rs",
@@ -630,12 +654,12 @@
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/server.rs",
-          "line": 121,
+          "line": 116,
           "function": "router"
         }
       ],
       "id": "PROTOCOL /mcp",
-      "source_checksum": "a27184a10b60c242d01a778802b276bcf10173cbdd74632fa8ada28c969f1b4b",
+      "source_checksum": "32217997ac4c1895d415fa3dbd03bf1905a15285f993d7ca299bd10f902b2989",
       "review": null
     }
   ],
@@ -1174,7 +1198,7 @@
           }
         ]
       },
-      "source_checksum": "399aefc1b53654ae2a9aec713176adc765921416badf3ee42e62014f8e1074ea",
+      "source_checksum": "a1037d5fb4f68587d5c1530484894df941a5fa422f736c39b10f3056eb1486f2",
       "handler": {
         "ref": "infera-session/src/branding.rs:198:show",
         "path": "infera-session/src/branding.rs",
@@ -1251,7 +1275,7 @@
           }
         ]
       },
-      "source_checksum": "9626ae788ddcfc33348a415e2575c28d28d22f286ca0204f5f004869f77f241d",
+      "source_checksum": "5717c7a52232e79cc20a988f0a4e822ba8fad0f1fb7b33b7fbd9b1bb767594b5",
       "handler": {
         "ref": "infera-session/src/branding.rs:211:update",
         "path": "infera-session/src/branding.rs",
@@ -1338,7 +1362,7 @@
           }
         ]
       },
-      "source_checksum": "ba7b40a54142d3b17678ad0c6630e7ff85b51c4289ce26c8c1e3c92f788ad5f8",
+      "source_checksum": "626987f6b00ad57e55f8b882d094d57eb3626a7c274e8a9df9b55c04bb987f83",
       "handler": {
         "ref": "infera-session/src/branding.rs:257:upload",
         "path": "infera-session/src/branding.rs",
@@ -1405,7 +1429,7 @@
           }
         ]
       },
-      "source_checksum": "619442668f09ef564d0023121a9ab191e3f77180be2b1149894e320ec6312d96",
+      "source_checksum": "039bd6819c5fcc2da0cb9fc85c34cb817f40b42fe459ad0a17b4646abfeeadba",
       "handler": {
         "ref": "infera-session/src/branding.rs:183:public_show",
         "path": "infera-session/src/branding.rs",
@@ -1479,7 +1503,7 @@
           }
         ]
       },
-      "source_checksum": "51b5d59608349c230b9d8b0aa28d2460812497796e1f50895e7d193bab12cc5f",
+      "source_checksum": "ca3581da842933815fa68dddb8daf121675782b2d02e952b9f9f2b38ab4e6b3f",
       "handler": {
         "ref": "infera-session/src/branding.rs:299:asset",
         "path": "infera-session/src/branding.rs",
@@ -1540,7 +1564,7 @@
           }
         ]
       },
-      "source_checksum": "4aee2a4cbd5064ddeb5d6c071137803bd33a0d8075852070a0ff18f8f8169691",
+      "source_checksum": "b41c9018e25252aed631dd2929e8ae2c7ebbaaaca7075ddcf5e80a6acb0c6292",
       "handler": {
         "ref": "infera-session/src/router.rs:703:status_route",
         "path": "infera-session/src/router.rs",
@@ -1596,7 +1620,7 @@
           }
         ]
       },
-      "source_checksum": "9ba26db8c1dfc29b34e19e036f975bef915aaa39f4d52b636ef07d0f737e8d01",
+      "source_checksum": "f5eb28817dfe302872deec609fff45c26be906b7792f2e86f8339689e51d39ad",
       "handler": {
         "ref": "infera-session/src/router.rs:703:status_route",
         "path": "infera-session/src/router.rs",
@@ -1662,7 +1686,7 @@
           }
         ]
       },
-      "source_checksum": "63ffab79f40f6317f5c75bb8a27de8687d839429fc97d314f689707d934c2bcb",
+      "source_checksum": "7829f4436fe2fe4e9622610ed71cf9afba9de8ee9be62c0a4637bedb876aab46",
       "handler": {
         "ref": "infera-session/src/asset_economy.rs:116:interact",
         "path": "infera-session/src/asset_economy.rs",
@@ -1772,7 +1796,7 @@
           }
         ]
       },
-      "source_checksum": "0f9f7fd8ed229a946f5753c300113e11686c415d01d9cefb304f78dd1dc5b279",
+      "source_checksum": "1a35bce1b0f4b9fe4eb9f56931bcc5427e8e3cad126eaac5c5173adba2e6e734",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:466:rooms_analytics",
         "path": "infera-session/src/room/routes.rs",
@@ -1849,7 +1873,7 @@
           }
         ]
       },
-      "source_checksum": "a92085a279ba6387ac4eba42a9905a7fa01b1fecd27bc8ced683b45f7a500f6e",
+      "source_checksum": "32f0248db9006ac2882efc0599d54485818caf6108f381ddb6ab8ce5ed0f6a11",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:511:rooms_index",
         "path": "infera-session/src/room/routes.rs",
@@ -1937,7 +1961,7 @@
           }
         ]
       },
-      "source_checksum": "b57f52dd6f5095b292f4684cea23db085f9bf5bff53862c254064453e97aedac",
+      "source_checksum": "f59acc57388bd6b6ca727169f059edc023c9a0877ddc1fa85392fa2a59bcbe7f",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:414:rooms_create",
         "path": "infera-session/src/room/routes.rs",
@@ -2038,7 +2062,7 @@
           }
         ]
       },
-      "source_checksum": "6bbca21f70e3bc8edf1449effdb8ccb51d2befcf19363196c013c06973333b06",
+      "source_checksum": "ea19ea0e9d2fe65e66cfa6938c2a6b89dff9aaf923804f9b1a535c8d5f8e5ba9",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:671:rooms_show",
         "path": "infera-session/src/room/routes.rs",
@@ -2119,7 +2143,7 @@
           }
         ]
       },
-      "source_checksum": "5cbbea5a63a3d6944ce782ce632226a90423e3c0c82f547280fca203ef137e71",
+      "source_checksum": "0cb770b147dece731c52eed8651b6be369188c2f9a74ab7485c53907f946a025",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1091:rooms_recordings",
         "path": "infera-session/src/room/routes.rs",
@@ -2200,7 +2224,7 @@
           }
         ]
       },
-      "source_checksum": "0c6d2df6a52b29e266ecdbd6b41ae49b03ac9e5ca84d8a88ff57ee94c512a7ac",
+      "source_checksum": "26d0f5ab97d76698bae5787bcaf2a834c71f768998ec15415cc48b0a75de567e",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:242:rooms_presence_events",
         "path": "infera-session/src/room/routes.rs",
@@ -2288,7 +2312,7 @@
           }
         ]
       },
-      "source_checksum": "f5fad15b7fa251efe2a984d94b0620408905ed91165ba9376468d62f880e1d84",
+      "source_checksum": "f1dbce8a7608e1cad94d5e6d53a0d895fd456ea4505d8d277036974fad66fc58",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:871:rooms_livekit_token",
         "path": "infera-session/src/room/routes.rs",
@@ -2397,7 +2421,7 @@
           }
         ]
       },
-      "source_checksum": "d04975c36634737378cde42d820132863006b585beb55778437c0934967228aa",
+      "source_checksum": "6d9e8ca82aac77cb504ad4ccf0ca25cca0080e08f13c43eb6ed497c79c5072ca",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:935:rooms_join",
         "path": "infera-session/src/room/routes.rs",
@@ -2513,7 +2537,7 @@
           }
         ]
       },
-      "source_checksum": "5026604be0f0d1f2f867155f9cde233ccfa06ef857368351c15e30df01a3a775",
+      "source_checksum": "3e39352dab3734d4dd51819124bb066874ca0d0daaf8ccdaefb9a69d2157cee4",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:484:rooms_leaderboard",
         "path": "infera-session/src/room/routes.rs",
@@ -2594,7 +2618,7 @@
           }
         ]
       },
-      "source_checksum": "12806ea0a50be1d3663443bf222b0758663b5a39b384e48565be5cb4c3137e49",
+      "source_checksum": "f7c89e43c288918948b04bff62997cf23537fb84efba0a8115b82edef1d3cc10",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1042:rooms_interactive_start",
         "path": "infera-session/src/room/routes.rs",
@@ -2675,7 +2699,7 @@
           }
         ]
       },
-      "source_checksum": "bf055775d82197b75f9bb549d75a1393b8d132c5f44f91a0b80ca6f9e2cffd83",
+      "source_checksum": "6860b2477752a42cb1165649881d1ee3787b2d2d073184220998be6dc1724722",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:721:rooms_end",
         "path": "infera-session/src/room/routes.rs",
@@ -2757,7 +2781,7 @@
           }
         ]
       },
-      "source_checksum": "3b1b2bba3e4e56b1949a4adf470a9219607ff31550b1d05455d44cf1fda7d335",
+      "source_checksum": "35b087466afa3ffc514a99e00c20435651442d0e489505e717f97485e314d84e",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:332:rooms_participant_mute",
         "path": "infera-session/src/room/routes.rs",
@@ -2866,7 +2890,7 @@
           }
         ]
       },
-      "source_checksum": "f3ec302a664d99ac98dab1027f1afe9c0cedd020030309489e3164d1deae221c",
+      "source_checksum": "99510be61d0e43d6ae7a8a98bedc192ad07fec50bece74abb09edd26853ac5f6",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:293:rooms_self_moderation",
         "path": "infera-session/src/room/routes.rs",
@@ -2954,7 +2978,7 @@
           }
         ]
       },
-      "source_checksum": "7e0e7e0f3479a686f7e4b02edc9951e51ad649f6a9f7b0cc2516460f5e3faa27",
+      "source_checksum": "7377dcbf792c7cfb6aa40e7520e1b22f6e0daa9b2a7da983e65113decb371e22",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:767:rooms_playback_show",
         "path": "infera-session/src/room/routes.rs",
@@ -3054,7 +3078,7 @@
           }
         ]
       },
-      "source_checksum": "4b442c4e572d4bd303dac47a5fd3cac9e6ad9d7beb8a60c0463067ea4ae6b3c5",
+      "source_checksum": "d634fb4809a2e0fb879cd9174d18c466d769ab6ced3d46c27a42e43033dff80b",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1357:rooms_stop",
         "path": "infera-session/src/room/routes.rs",
@@ -3136,7 +3160,7 @@
           }
         ]
       },
-      "source_checksum": "259e142d8bda255a1e86243a674f3828574e61327edbc1894f53b71f9e3eb376",
+      "source_checksum": "c703c6f8c8b764a71e16f3626431beca0fa3a216864770252a2fc097256c51cd",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:567:rooms_update",
         "path": "infera-session/src/room/routes.rs",
@@ -3236,7 +3260,7 @@
           }
         ]
       },
-      "source_checksum": "0f4189d70ac875b6651a2666100adcd2e25d0a75b54c5c21da3a98293594a046",
+      "source_checksum": "5d4b14b68a94e7398bb5a1479c70ec4a6a2567186a9ca52c19ec2fad2b0e9bb9",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:567:rooms_update",
         "path": "infera-session/src/room/routes.rs",
@@ -3335,7 +3359,7 @@
           }
         ]
       },
-      "source_checksum": "b8fda56429ebbd7a9fa7c579bb9ae5849fa1d03f0482b9abc2b4b4c953eab559",
+      "source_checksum": "f6d5b9d3b7f8bfd703aa203765577b7016bd2e965b8648df8d4a39768604c0ae",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:626:rooms_delete",
         "path": "infera-session/src/room/routes.rs",
@@ -3414,7 +3438,7 @@
           }
         ]
       },
-      "source_checksum": "dc175c3c4e6cb2fa870fa08356a486532a2e7a16b8094a05eb6f46bcbe0fc868",
+      "source_checksum": "682d083065ba823372b33feaf9805d9d531a9f4a0e3a1c1258e94bb4c37cc894",
       "handler": {
         "ref": "infera-session/src/room/routes.rs:1388:livekit_webhook",
         "path": "infera-session/src/room/routes.rs",
@@ -3538,7 +3562,7 @@
           }
         ]
       },
-      "source_checksum": "b17c5bb975dce2515cc342810ecea7948e77773ffde2f28a3abeb5380d37e412",
+      "source_checksum": "fd1e6bc36261e58e16d5722bf3e7858e2b88c40c5392509461482aec2d30539f",
       "handler": {
         "ref": "infera-session/src/room_state/routes.rs:178:room_state_respond",
         "path": "infera-session/src/room_state/routes.rs",
@@ -3639,7 +3663,7 @@
           }
         ]
       },
-      "source_checksum": "f7fd0a9feeffd1fe3d9be0b0a1f6fb94488aedb3470a00d942e4b7c49196c504",
+      "source_checksum": "079022b3dae6198e7f5eb53c3df70d39c194795b74c08c25d7c24ca8b5a0740c",
       "handler": {
         "ref": "infera-session/src/configuration/routes.rs:28:livekit_config_show",
         "path": "infera-session/src/configuration/routes.rs",
@@ -3723,7 +3747,7 @@
           }
         ]
       },
-      "source_checksum": "c15b60b4fee177634b71e6d2ca510e663dfc75206c9a45a9fef65ab87f94d674",
+      "source_checksum": "b4c4de040fa02a47f23b67ea9b6c1f02608c7bc3833319c21869b9c02267defe",
       "handler": {
         "ref": "infera-session/src/configuration/routes.rs:45:livekit_config_update",
         "path": "infera-session/src/configuration/routes.rs",
@@ -3824,7 +3848,7 @@
           }
         ]
       },
-      "source_checksum": "8133a7ffa13432c69d790d567ddf59c929c337c8686121d483922cc05d85177c",
+      "source_checksum": "9ca7ebb00c0381e4ed8ba1d8d8bb0d42878343d9b4f9d637cc44497497042672",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:107:recordings_index",
         "path": "infera-session/src/recording/routes.rs",
@@ -3911,7 +3935,7 @@
           }
         ]
       },
-      "source_checksum": "81913078336867f2780c19cd9270db0691c9bae31dec4a5a4506150f5a424f64",
+      "source_checksum": "5fa8508b8cd0866a3ef1dbe1918c8857630fe55dc1f43c7de88d0064e263d255",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:132:audio_models",
         "path": "infera-session/src/recording/routes.rs",
@@ -3998,7 +4022,7 @@
           }
         ]
       },
-      "source_checksum": "c758bc5d3c8db986340593c40153907e69483119a417a75dfa237159585d87c2",
+      "source_checksum": "8599672e96a2e5d937099e37d48e82e1b735da54d56c257bb4dc19aea44e03fc",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:229:recording_manifest",
         "path": "infera-session/src/recording/routes.rs",
@@ -4093,7 +4117,7 @@
           }
         ]
       },
-      "source_checksum": "a0a9773c9207ca0dc1a7b868120ced35554d510d25a16385f088064bb9f5ec71",
+      "source_checksum": "416e531964b3c6f20b32f1363fa75b33612b17d6592f559e7e3f867730e1b950",
       "handler": {
         "ref": "infera-session/src/recording/routes.rs:258:recording_schedule",
         "path": "infera-session/src/recording/routes.rs",
@@ -4197,7 +4221,7 @@
           }
         ]
       },
-      "source_checksum": "b26adda9c840ac9b8b9279b2fa90b7d919cbed3334176447ac59aa2f97b2d189",
+      "source_checksum": "ecd4e1a1444d4ad05687d1256d54ff643ef96a8049f0f358a6c885a1db1acea7",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:59:list_user_sessions",
         "path": "infera-session/src/assistant_tools.rs",
@@ -4280,7 +4304,7 @@
           }
         ]
       },
-      "source_checksum": "89209e942b676497d86f8339ed9a0b285144fed1d01221d6fdbfe82428a6011c",
+      "source_checksum": "e5b5950baf2b9b80e7a0b82ea764bf38182bf6d6238e972d4d3520392b365d1f",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:103:user_session_detail",
         "path": "infera-session/src/assistant_tools.rs",
@@ -4351,7 +4375,7 @@
           }
         ]
       },
-      "source_checksum": "194730fbf595108f8e4b6bb41bd75c7995fdd25587ac10b88c8137dc14456101",
+      "source_checksum": "f2f28dae6fa15fc2415a7694523ca02901c4d53b69df4e6271f661b199e94d41",
       "handler": {
         "ref": "infera-session/src/assistant_tools.rs:145:tool_schema",
         "path": "infera-session/src/assistant_tools.rs",
@@ -4415,7 +4439,7 @@
           }
         ]
       },
-      "source_checksum": "7bd8b49ba38eb9f0fada00761020beb09719ae17b4725d6437ce643474bc2900",
+      "source_checksum": "3965bd1bdf63c08da2c71dac9862bbb0cc9ae33ad96892da36ca288b83abe7c2",
       "handler": {
         "ref": "infera-session/src/router.rs:281:proxy_view_service",
         "path": "infera-session/src/router.rs",
@@ -4530,7 +4554,7 @@
           }
         ]
       },
-      "source_checksum": "727cc3e4f48d890a2878b9f8ff2e9fe26c1506c1e6cb3f0f7c24d492ffb34932",
+      "source_checksum": "fdf2400be4b8d9f6ea371c8e795669fc24a702c4270c94805e0cb4aacc9867e5",
       "handler": {
         "ref": "infera-session/src/integration/routes.rs:29:flow_integration_show",
         "path": "infera-session/src/integration/routes.rs",
@@ -4605,7 +4629,7 @@
           }
         ]
       },
-      "source_checksum": "fc39961e11bd478c6c800c0aed4c09bec53486424c8fc22102e074b85aef5511",
+      "source_checksum": "6953e77492271601a4c6e8523ca6bee0989efd1eade792d531600f3c2aeb3a14",
       "handler": {
         "ref": "infera-session/src/integration/routes.rs:18:integration_docs_show",
         "path": "infera-session/src/integration/routes.rs",
@@ -4690,7 +4714,7 @@
           }
         ]
       },
-      "source_checksum": "f850ba58fcf17582d37a175ec762136b74d9fb49607a042b440bbe353b2f53be",
+      "source_checksum": "25948cff1e2790dbd13e6f8a97812c152b971d0876d908c484d403aba1551c0c",
       "handler": {
         "ref": "infera-session/src/notification_state.rs:40:snapshot",
         "path": "infera-session/src/notification_state.rs",
@@ -4782,12 +4806,12 @@
           },
           {
             "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-            "line": 384,
+            "line": 369,
             "function": "router"
           }
         ]
       },
-      "source_checksum": "73595af97487588a88853c8e5298b79863017d0d7c740d63d8da8f2fa2cacabe",
+      "source_checksum": "df0cc5fbab7ded7bb7c362dbd2963f8ce9683bffaf90655db08a14b439c754a6",
       "handler": {
         "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:270:get_status",
         "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
@@ -4850,29 +4874,19 @@
           },
           {
             "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-            "line": 384,
+            "line": 369,
             "function": "router"
           }
         ]
       },
-      "source_checksum": "a1a2b4427a046d1cd8254845c059042a4fc893bb2172e24f2aee3b2a6bd187bd",
+      "source_checksum": "813224ff7d235c6e24bc1846011595c94a1c5c03edb6209e87c978e06aabd541",
       "handler": {
         "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:278:update_policy",
         "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
         "line": 278,
         "name": "update_policy"
       },
-      "related_implementation": [
-        {
-          "call": "crate::native_identity::validate",
-          "evidence": {
-            "ref": "infera-session/shared/infera-summary-sdk/src/native_identity.rs:13:validate",
-            "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
-            "line": 13,
-            "name": "validate"
-          }
-        }
-      ],
+      "related_implementation": [],
       "schemas": {
         "body": {
           "declared_type": "NativePolicyUpdate",
@@ -4939,16 +4953,16 @@
           },
           {
             "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-            "line": 384,
+            "line": 369,
             "function": "router"
           }
         ]
       },
-      "source_checksum": "c991394aaec0b439a8b93a982e6237f65b586ac30d5da5cbf798157a004ae18c",
+      "source_checksum": "b056df0285f33f30bce18557afb69bc0661b4a79f9e7649df049af6c98e19cd6",
       "handler": {
-        "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:346:revoke",
+        "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:331:revoke",
         "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-        "line": 346,
+        "line": 331,
         "name": "revoke"
       },
       "related_implementation": [],
@@ -5026,16 +5040,16 @@
           },
           {
             "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-            "line": 384,
+            "line": 369,
             "function": "router"
           }
         ]
       },
-      "source_checksum": "ed62deff23c047bd5a094c9d4f47d47fc6647de0d241bb04a30c1dd1f2fd41ce",
+      "source_checksum": "965d8b7fb66fd3b72e7574c9532cb44730c94ee58f34392a36624d3601cc7d18",
       "handler": {
-        "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:362:restore",
+        "ref": "infera-session/shared/infera-summary-sdk/src/native_access.rs:347:restore",
         "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-        "line": 362,
+        "line": 347,
         "name": "restore"
       },
       "related_implementation": [],
@@ -6422,7 +6436,7 @@
           },
           {
             "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-            "line": 384,
+            "line": 369,
             "function": "router"
           }
         ]
@@ -6451,7 +6465,7 @@
           },
           {
             "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-            "line": 384,
+            "line": 369,
             "function": "router"
           }
         ]
@@ -6480,7 +6494,7 @@
           },
           {
             "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-            "line": 384,
+            "line": 369,
             "function": "router"
           }
         ]
@@ -6510,7 +6524,7 @@
           },
           {
             "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-            "line": 384,
+            "line": 369,
             "function": "router"
           }
         ]
@@ -12378,159 +12392,122 @@
       "name": "update_policy",
       "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
       "line": 278,
-      "end_line": 345,
+      "end_line": 330,
       "signature": "async fn update_policy(\n    State(host): State<Arc<NativeAccessHost>>,\n    headers: HeaderMap,\n    Json(input): Json<NativePolicyUpdate>,\n) -> Result<Json<Value>, NativeAccessError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 314,
+          "line": 290,
+          "expression": "// Every MCP request independently proves current canonical role/permissions"
+        },
+        {
+          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
+          "line": 299,
           "expression": "let row=tx.query_one(statement(\"SELECT id,revision FROM summary_native_access_policies WHERE deployment_id=$1 AND principal_user_id=$2 AND native_scope_id IS NOT DISTINCT FROM $3::uuid AND scope_kind=$4 FOR UPDATE\",binding.values())).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 332,
+          "line": 317,
           "expression": "// pods and unexpired grants as soon as a new scope is approved."
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 340,
+          "line": 325,
           "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_policies(deployment_id,principal_user_id,native_scope_id,scope_kind,enabled,approved_by,reason) VALUES($1,$2,$3,$4,$5,$6,$7)\",values)).await.map_err(|_|unavailable())?;"
         }
       ],
       "validation": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 289,
-          "expression": "crate::native_identity::validate("
-        },
-        {
-          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 309,
+          "line": 294,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 322,
+          "line": 307,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 323,
+          "line": 308,
           "expression": "\"native_policy_revision_conflict\","
         }
       ],
       "state": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 299,
-          "expression": "StatusCode::FORBIDDEN,"
-        },
-        {
-          "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 309,
+          "line": 294,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 314,
+          "line": 299,
           "expression": "let row=tx.query_one(statement(\"SELECT id,revision FROM summary_native_access_policies WHERE deployment_id=$1 AND principal_user_id=$2 AND native_scope_id IS NOT DISTINCT FROM $3::uuid AND scope_kind=$4 FOR UPDATE\",binding.values())).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 322,
+          "line": 307,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 333,
+          "line": 318,
           "expression": "tx.execute(statement(\"UPDATE summary_native_access_policies SET enabled=false,revision=revision+1,approved_by=$4,approved_at=now(),reason=$5 WHERE deployment_id=$1 AND principal_user_id=$2 AND enabled AND id IS DISTINCT FROM $3::uuid\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),current_id.into(),actor.into(),reason.clone().into()])).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 336,
+          "line": 321,
           "expression": "tx.execute(statement(\"UPDATE summary_native_access_policies SET enabled=$2,revision=revision+1,approved_by=$3,approved_at=now(),reason=$4 WHERE id=$1\",vec![row.try_get::<Uuid>(\"\",\"id\").map_err(|_|unavailable())?.into(),input.enabled.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 340,
+          "line": 325,
           "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_policies(deployment_id,principal_user_id,native_scope_id,scope_kind,enabled,approved_by,reason) VALUES($1,$2,$3,$4,$5,$6,$7)\",values)).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 344,
+          "line": 329,
           "expression": "Ok(ok(host.status(binding).await?))"
         }
       ],
       "effects": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 313,
+          "line": 298,
           "expression": "let tx = host.transaction(actor, &binding, &reason).await?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 314,
+          "line": 299,
           "expression": "let row=tx.query_one(statement(\"SELECT id,revision FROM summary_native_access_policies WHERE deployment_id=$1 AND principal_user_id=$2 AND native_scope_id IS NOT DISTINCT FROM $3::uuid AND scope_kind=$4 FOR UPDATE\",binding.values())).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 331,
+          "line": 316,
           "expression": "// Retire the previous binding in the same transaction. This fences old"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 333,
+          "line": 318,
           "expression": "tx.execute(statement(\"UPDATE summary_native_access_policies SET enabled=false,revision=revision+1,approved_by=$4,approved_at=now(),reason=$5 WHERE deployment_id=$1 AND principal_user_id=$2 AND enabled AND id IS DISTINCT FROM $3::uuid\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),current_id.into(),actor.into(),reason.clone().into()])).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 336,
+          "line": 321,
           "expression": "tx.execute(statement(\"UPDATE summary_native_access_policies SET enabled=$2,revision=revision+1,approved_by=$3,approved_at=now(),reason=$4 WHERE id=$1\",vec![row.try_get::<Uuid>(\"\",\"id\").map_err(|_|unavailable())?.into(),input.enabled.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 340,
+          "line": 325,
           "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_policies(deployment_id,principal_user_id,native_scope_id,scope_kind,enabled,approved_by,reason) VALUES($1,$2,$3,$4,$5,$6,$7)\",values)).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 342,
+          "line": 327,
           "expression": "tx.commit().await.map_err(|_| unavailable())?;"
         }
       ],
-      "calls": [
-        "crate::native_identity::validate"
-      ]
-    },
-    "infera-session/shared/infera-summary-sdk/src/native_identity.rs:13:validate": {
-      "name": "validate",
-      "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
-      "line": 13,
-      "end_line": 32,
-      "signature": "pub async fn validate(\n    source: Source,\n    expected_user: Uuid,\n    native_service: &str,\n    transport_permission: &str,\n) -> Result<NativeIdentity, String>",
-      "declared_permissions": [],
-      "guards": [
-        {
-          "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
-          "line": 29,
-          "expression": "transport_permission,"
-        }
-      ],
-      "validation": [
-        {
-          "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
-          "line": 19,
-          "expression": "let url = configured(\"IDP_VALIDATE_URL\")?;"
-        },
-        {
-          "path": "infera-session/shared/infera-summary-sdk/src/native_identity.rs",
-          "line": 24,
-          "expression": "validate_at("
-        }
-      ],
-      "state": [],
-      "effects": [],
       "calls": []
     },
     "infera-session/shared/infera-summary-sdk/src/native_policy.rs:35:NativePolicyUpdate": {
@@ -12569,47 +12546,47 @@
         }
       ]
     },
-    "infera-session/shared/infera-summary-sdk/src/native_access.rs:346:revoke": {
+    "infera-session/shared/infera-summary-sdk/src/native_access.rs:331:revoke": {
       "name": "revoke",
       "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-      "line": 346,
-      "end_line": 361,
+      "line": 331,
+      "end_line": 346,
       "signature": "async fn revoke(\n    State(host): State<Arc<NativeAccessHost>>,\n    headers: HeaderMap,\n    Json(input): Json<NativeAccessRevoke>,\n) -> Result<Json<Value>, NativeAccessError>",
       "declared_permissions": [],
       "guards": [],
       "validation": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 358,
+          "line": 343,
           "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_revocations(deployment_id,principal_user_id,object_id,revoked_by,reason) VALUES($1,$2,$3,$4,$5) ON CONFLICT(deployment_id,principal_user_id,object_id) DO UPDATE SET revoked_by=EXCLUDED.revoked_by,reason=EXCLUDED.reason,revoked_at=now()\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),input.object_id.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
         }
       ],
       "state": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 358,
+          "line": 343,
           "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_revocations(deployment_id,principal_user_id,object_id,revoked_by,reason) VALUES($1,$2,$3,$4,$5) ON CONFLICT(deployment_id,principal_user_id,object_id) DO UPDATE SET revoked_by=EXCLUDED.revoked_by,reason=EXCLUDED.reason,revoked_at=now()\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),input.object_id.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 360,
+          "line": 345,
           "expression": "Ok(ok(host.status(binding).await?))"
         }
       ],
       "effects": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 357,
+          "line": 342,
           "expression": "let tx = host.transaction(actor, &binding, &reason).await?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 358,
+          "line": 343,
           "expression": "tx.execute(statement(\"INSERT INTO summary_native_access_revocations(deployment_id,principal_user_id,object_id,revoked_by,reason) VALUES($1,$2,$3,$4,$5) ON CONFLICT(deployment_id,principal_user_id,object_id) DO UPDATE SET revoked_by=EXCLUDED.revoked_by,reason=EXCLUDED.reason,revoked_at=now()\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),input.object_id.into(),actor.into(),reason.into()])).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 359,
+          "line": 344,
           "expression": "tx.commit().await.map_err(|_| unavailable())?;"
         }
       ],
@@ -12642,11 +12619,11 @@
         }
       ]
     },
-    "infera-session/shared/infera-summary-sdk/src/native_access.rs:362:restore": {
+    "infera-session/shared/infera-summary-sdk/src/native_access.rs:347:restore": {
       "name": "restore",
       "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-      "line": 362,
-      "end_line": 383,
+      "line": 347,
+      "end_line": 368,
       "signature": "async fn restore(\n    State(host): State<Arc<NativeAccessHost>>,\n    Path(object): Path<Uuid>,\n    headers: HeaderMap,\n    Json(input): Json<NativeAccessRestore>,\n) -> Result<Json<Value>, NativeAccessError>",
       "declared_permissions": [],
       "guards": [],
@@ -12654,34 +12631,34 @@
       "state": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 379,
+          "line": 364,
           "expression": "tx.execute(statement(\"DELETE FROM summary_native_access_revocations WHERE deployment_id=$1 AND principal_user_id=$2 AND object_id=$3\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),object.into()])).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 382,
+          "line": 367,
           "expression": "Ok(ok(host.status(binding).await?))"
         }
       ],
       "effects": [
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 372,
+          "line": 357,
           "expression": "\"DELETE\","
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 378,
+          "line": 363,
           "expression": "let tx = host.transaction(actor, &binding, &reason).await?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 379,
+          "line": 364,
           "expression": "tx.execute(statement(\"DELETE FROM summary_native_access_revocations WHERE deployment_id=$1 AND principal_user_id=$2 AND object_id=$3\",vec![binding.deployment_id.clone().into(),binding.principal_user_id.into(),object.into()])).await.map_err(|_|unavailable())?;"
         },
         {
           "path": "infera-session/shared/infera-summary-sdk/src/native_access.rs",
-          "line": 380,
+          "line": 365,
           "expression": "tx.commit().await.map_err(|_| unavailable())?;"
         }
       ],

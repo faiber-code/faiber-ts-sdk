@@ -5,7 +5,7 @@
   "scope": "business",
   "purpose": {
     "en": "Payment gateways, transactions, checkout requests, verification and durable payment result delivery.",
-    "fa": "درگاه پرداخت، تراکنش، درخواست پرداخت، تأیید و ارسال پایدار نتیجه."
+    "fa": "\u062f\u0631\u06af\u0627\u0647 \u067e\u0631\u062f\u0627\u062e\u062a\u060c \u062a\u0631\u0627\u06a9\u0646\u0634\u060c \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u067e\u0631\u062f\u0627\u062e\u062a\u060c \u062a\u0623\u06cc\u06cc\u062f \u0648 \u0627\u0631\u0633\u0627\u0644 \u067e\u0627\u06cc\u062f\u0627\u0631 \u0646\u062a\u06cc\u062c\u0647."
   },
   "sources": [
     "src/router.rs",
@@ -13,7 +13,15 @@
   ],
   "inventory_source": "sdk",
   "inventory_revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8",
-  "source_decision": null,
+  "source_decision": {
+    "status": "verified",
+    "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8",
+    "source_tree_checksum": "b7f519876887d67a7ff9fb4cb187cf52ec83a0b546177e8dc3ab4ee3c5acf8cf",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 78 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
   "relationship_review": null,
   "canonical_revision": "ddc661f4a7e6f2ffdcbbd0d137ddf3831daa4eb2",
   "sdk_source_revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8",

@@ -5,18 +5,26 @@
   "scope": "business",
   "purpose": {
     "en": "Canonical identity, credentials, sessions, federation, roles, permissions and gateway authorization.",
-    "fa": "هویت مرجع، اطلاعات ورود، نشست، اتصال هویت، نقش، مجوز و احراز دسترسی."
+    "fa": "\u0647\u0648\u06cc\u062a \u0645\u0631\u062c\u0639\u060c \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0648\u0631\u0648\u062f\u060c \u0646\u0634\u0633\u062a\u060c \u0627\u062a\u0635\u0627\u0644 \u0647\u0648\u06cc\u062a\u060c \u0646\u0642\u0634\u060c \u0645\u062c\u0648\u0632 \u0648 \u0627\u062d\u0631\u0627\u0632 \u062f\u0633\u062a\u0631\u0633\u06cc."
   },
   "sources": [
     "README.md",
     "src/router.rs"
   ],
   "inventory_source": "sdk",
-  "inventory_revision": "41635c7d3d03d88f1ddeef9b993e6bd722906354",
-  "source_decision": null,
+  "inventory_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+  "source_decision": {
+    "status": "verified",
+    "revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
+    "source_tree_checksum": "5777d5feb816404848c8275abfa276e7a1f5993d940d1bd57b69725f63b93625",
+    "basis": "immutable supported SDK source lock",
+    "reason": "All 127 inventoried compiler input files match selected Git objects. This records which backend source the SDK supports; operation semantics and consumer verification remain separately gated.",
+    "drift_resolution": "Use the explicitly pinned SDK candidate. Preserve working checkout and origin/main differences; deployment and main promotion require separate reconciliation.",
+    "deployment_status": "unverified"
+  },
   "relationship_review": null,
   "canonical_revision": "8a841a96c6d03fba9f7baa9e5eb2cc14f0e9747d",
-  "sdk_source_revision": "41635c7d3d03d88f1ddeef9b993e6bd722906354",
+  "sdk_source_revision": "828799249ef714d333b03bded092a9d6af6ba7bb",
   "working_revision": "9965e90a81fa3c4844a00e710d8d31b20527fede",
   "working_changes": [
     "M entity/config/acl/crm_service.yaml",
@@ -32,11 +40,11 @@
     "?? src/summary_identity.rs"
   ],
   "source_relationship": "working_behind_sdk",
-  "source_tree_checksum": "a5288405aaeec0c97fd0e5333a60ac0c71da04e9b25760aaa58d20b8df95ac55",
+  "source_tree_checksum": "5777d5feb816404848c8275abfa276e7a1f5993d940d1bd57b69725f63b93625",
   "source_files": [
     {
       "path": "infera-idp/src/acl/methods.rs",
-      "checksum": "fba95bb25fd7eca18298c2cf954660b5d5e40a3525a2ec7074e3262a42a9576b"
+      "checksum": "32df27c7e6e7fce00a99a6ae689d7f44a4776278804f5797357c13501a782c7f"
     },
     {
       "path": "infera-idp/src/acl/mod.rs",
@@ -96,7 +104,7 @@
     },
     {
       "path": "infera-idp/src/cli/commands/role_fix_command.rs",
-      "checksum": "b9c834657cb8edc5e5dcd88241a258642f8a169bed580fab86f06cb941a27d55"
+      "checksum": "3cd8b11dfabdb17126ee9bd247cdae523671839e3be219df74440ccbe24fcf14"
     },
     {
       "path": "infera-idp/src/cli/commands/seed_commands.rs",
@@ -116,7 +124,7 @@
     },
     {
       "path": "infera-idp/src/current_principal_authority_tests.rs",
-      "checksum": "cd0d738f5859b03683753e7f4155f3105a47b4a18a346c16bc8f3f269345a56e"
+      "checksum": "00dc8d412e85a7d17cc8c0295de2ba1954207d8ecb8e18e1ea14e12c47f2eb2f"
     },
     {
       "path": "infera-idp/src/custom_oauth_dns.rs",
@@ -140,7 +148,7 @@
     },
     {
       "path": "infera-idp/src/handler.rs",
-      "checksum": "b18e141163b009d362a2fdfc075a18ad59ce09c1bf28383a845a193c4bd6bfa5"
+      "checksum": "c52024dcd15094bfce41710e27b522eaa1dd679d187cdfbb5427a4cc0512c4d9"
     },
     {
       "path": "infera-idp/src/identity_authority.rs",
@@ -184,7 +192,7 @@
     },
     {
       "path": "infera-idp/src/router.rs",
-      "checksum": "3de2051a4a19c0cea9fbd99cd9abf942ac4629a3b34625bba70311710121d246"
+      "checksum": "5afb4ac5a59358caa7601359e258d9a0cc175644f8100e135b337794d6362286"
     },
     {
       "path": "infera-idp/src/sdk_router_tests.rs",
@@ -215,12 +223,20 @@
       "checksum": "a0d41e0f3168a3e0ff729930c7ef8bead67f18d37b0d13627d64b45876e24810"
     },
     {
+      "path": "infera-idp/src/user/memberships/native_tests.rs",
+      "checksum": "1ff6a8751a014c1f3dcb30b7f16202710f5bd72bfb42b69dff0184d9aa387c90"
+    },
+    {
+      "path": "infera-idp/src/user/memberships.rs",
+      "checksum": "2cdd1266cdb948af678ff3efbf955cf98d219f7da9890d18229d862b7f37798b"
+    },
+    {
       "path": "infera-idp/src/user/methods.rs",
-      "checksum": "9cec2e3c75836bfae77307dd98e6d9d6c774a06786f6280a32c42fa34fb68413"
+      "checksum": "fb7f1308ba1ccf9831cb5f2aa97d395fc50226765057b9b8ef9404637bf4b637"
     },
     {
       "path": "infera-idp/src/user/mod.rs",
-      "checksum": "e632585163c43655e16f94ae697d0ab14530a5dd48fb4a0c5aaeaa8ac8368de5"
+      "checksum": "5145cbd07ef90b7887bc0b164c3ad90679bb78191b8b78afbd5efea15ee0726f"
     },
     {
       "path": "infera-idp/src/user/models.rs",
@@ -228,7 +244,7 @@
     },
     {
       "path": "infera-idp/src/user/routes.rs",
-      "checksum": "50b22f0093a9387eec03080d2b0c16b1d1e08683e3acc8c21c47842515a4146e"
+      "checksum": "aa8e94860f2b0e66e0131fdfb6b3ebe2df61fb886befc4c7be3a176cbe09d255"
     },
     {
       "path": "infera-idp/src/user/self_password.rs",
@@ -380,7 +396,7 @@
     },
     {
       "path": "infera-idp/migration/src/lib.rs",
-      "checksum": "92a695b99281befede132a26a7cf4465b11cee084e8c1adb5c6c85d8b41dc070"
+      "checksum": "cde91a04d40369f78eeec50d9e9875e782e8390fd34493be331181a171e0763c"
     },
     {
       "path": "infera-idp/migration/src/m20220101_000001_create_users_table.rs",
@@ -505,6 +521,10 @@
     {
       "path": "infera-idp/migration/src/m20261019_000033_summary_identity_events.sql",
       "checksum": "30c1859cbcef786de25e39108f420f5bcec5a877ff27c40e5b5fd1be03878bfa"
+    },
+    {
+      "path": "infera-idp/migration/src/m20261020_000034_user_role_membership_audits.rs",
+      "checksum": "f7e75874d3a801c6642e7f67a26525590ffb3c0091448c19b142a620e45540ed"
     },
     {
       "path": "infera-idp/migration/src/main.rs",
@@ -1026,16 +1046,16 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "38e672ee5b5d65099723e8cc207a499c0c5041530fa155027f4d8f7abf14ce31",
+      "source_checksum": "fc6593b2713c96cae6802eb366542e276222a2b8670ac2e3e8a7a5f0a8b43645",
       "handler": {
-        "ref": "infera-idp/src/router.rs:233:status_route",
+        "ref": "infera-idp/src/router.rs:236:status_route",
         "path": "infera-idp/src/router.rs",
-        "line": 233,
+        "line": 236,
         "name": "status_route"
       },
       "related_implementation": [],
@@ -1090,16 +1110,16 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           }
         ]
       },
-      "source_checksum": "d400e11003fab598151d0955535ead5f4efb027e99a9397bea794acd396ed0fe",
+      "source_checksum": "75d0be9753121b0d9fe537c81e737bb49b541aeaea2adce1175c5aab76b081c4",
       "handler": {
-        "ref": "infera-idp/src/router.rs:217:openapi_json",
+        "ref": "infera-idp/src/router.rs:220:openapi_json",
         "path": "infera-idp/src/router.rs",
-        "line": 217,
+        "line": 220,
         "name": "openapi_json"
       },
       "related_implementation": [],
@@ -1153,7 +1173,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1163,7 +1183,7 @@
           }
         ]
       },
-      "source_checksum": "210aa62ff630d5c3a1775d5557732e083b1b69b542f05ef5ab64c992c313dd6c",
+      "source_checksum": "ffbec305ac0ddb18f10c13bdca20dc4fd97760384ba70e577b55b91488758094",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:105:discovery",
         "path": "infera-idp/src/oidc.rs",
@@ -1215,7 +1235,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1225,7 +1245,7 @@
           }
         ]
       },
-      "source_checksum": "2c2c080f6c2a5d5138a75d732ffcedb18927d9fc7e53e2b2fd16a87af93ec93b",
+      "source_checksum": "5944ffb4031b173e82582c31a769475b27229f294dfeb409a3f0c9a613504da6",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:142:authorize",
         "path": "infera-idp/src/oidc.rs",
@@ -1292,7 +1312,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1302,7 +1322,7 @@
           }
         ]
       },
-      "source_checksum": "9b3388408c82890748d2d6c27af95d4b5d1b29d6e24e776ad205ade7e820f437",
+      "source_checksum": "a5b9047d0fd5f6c31e91731333c57581375870b6deef9febdb7b3d2ec2ae72bf",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:282:token",
         "path": "infera-idp/src/oidc.rs",
@@ -1422,7 +1442,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1432,7 +1452,7 @@
           }
         ]
       },
-      "source_checksum": "59d43f7fbdb44bb4f3df21ed4aac43dc2853a06ef29188479e2c59cdecae51fe",
+      "source_checksum": "bc1b0921a6da34a07e7b7a8ffbf3873037152ba65d5d114416b2b49209cfb23e",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:642:userinfo",
         "path": "infera-idp/src/oidc.rs",
@@ -1484,7 +1504,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1494,7 +1514,7 @@
           }
         ]
       },
-      "source_checksum": "a1ee9d72224e426fdf9ee7be593fcf3607656733bbc25ca64acf7b547eb6c008",
+      "source_checksum": "b35c820ede9ca14c26362d52d1dbdc3ed9b436d3e2aa72a36aaa7ba782c630cc",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:642:userinfo",
         "path": "infera-idp/src/oidc.rs",
@@ -1546,7 +1566,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1556,7 +1576,7 @@
           }
         ]
       },
-      "source_checksum": "dd1fff9fc8f1049917ce83859777b9cf146b4596e89bfe5e2f72008c8fe8156c",
+      "source_checksum": "96d65ea12aad73090aa295dd9df2da8f1484acf7eb329330937300555b7e9436",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:625:jwks",
         "path": "infera-idp/src/oidc.rs",
@@ -1608,7 +1628,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1618,7 +1638,7 @@
           }
         ]
       },
-      "source_checksum": "d3fe483ab9f31e57e5ec19e1418628363d7366d4261dbdc87e0339610ffea0bc",
+      "source_checksum": "514bc461d8bbe4f5f36b2bd607c8fc02762ceca19e61676e66eb8378c9fe6306",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:705:revoke",
         "path": "infera-idp/src/oidc.rs",
@@ -1685,7 +1705,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1695,7 +1715,7 @@
           }
         ]
       },
-      "source_checksum": "679c0c2f660f0e3367c9f039702bd7d17fb3236ae7628862d8b16d103efeff76",
+      "source_checksum": "f61f21af06925c56b07679b0f923cb4a8c720009b33c252e01a6d8ac4b70a036",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:743:introspect",
         "path": "infera-idp/src/oidc.rs",
@@ -1765,7 +1785,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1775,7 +1795,7 @@
           }
         ]
       },
-      "source_checksum": "d9410bd3ecece7dff183f9e2f60a09b32e579784b7381b1b9bcf4690faee6547",
+      "source_checksum": "a39df6254a7227fc0dee51d99e17c483f7b4a978a0877b7614bbb60b893bc416",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:805:backchannel_logout",
         "path": "infera-idp/src/oidc.rs",
@@ -1879,7 +1899,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1889,7 +1909,7 @@
           }
         ]
       },
-      "source_checksum": "120c724152417b2f4a1a5ac29b1d41561e77fac2f490389d6a9e8dafd00e2224",
+      "source_checksum": "cf80078bbbf7faf8c822a47a55d34741a234333720f0d19e3d456c09390330fc",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:788:logout",
         "path": "infera-idp/src/oidc.rs",
@@ -1945,7 +1965,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -1955,7 +1975,7 @@
           }
         ]
       },
-      "source_checksum": "781bd8c5e98df8331ca44569eb2119118b5c50cc12c65d0f7f5aeac8d5356b9c",
+      "source_checksum": "3f916fe52465eda7f4aae2e0fc68130725ce11e3fca32949dbb55b33f2755720",
       "handler": {
         "ref": "infera-idp/src/oidc.rs:788:logout",
         "path": "infera-idp/src/oidc.rs",
@@ -2012,7 +2032,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2022,7 +2042,7 @@
           }
         ]
       },
-      "source_checksum": "377313e31f1fc622bfe8b7ed6399ff944015f29afba4d5dc122a2364d1cf7d84",
+      "source_checksum": "aa34f20a5befae7bc50d781ad3395631c0dc80c6be2e6cf7c37211747e931814",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:375:public_show",
         "path": "infera-idp/src/identity_authority.rs",
@@ -2087,7 +2107,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2097,7 +2117,7 @@
           }
         ]
       },
-      "source_checksum": "e42d474d130499a092f94eae51219662cfb39ce564199ebe813c9140c2d31704",
+      "source_checksum": "df4bd7d3d3a16f097e4a3570ecf407434fa5c401cb80c920c5c4981195056284",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2128:validate",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2143,7 +2163,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2153,7 +2173,7 @@
           }
         ]
       },
-      "source_checksum": "2c4ad00c112fd71a988fc6d8ccdf12e12919552e622a4258c7f3124869a5a5a1",
+      "source_checksum": "5f0da1a3928842eb022d45c85caf2dfeb26e812af5cd9f8fb49f53f18ec2ac2f",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2128:validate",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2199,7 +2219,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2209,7 +2229,7 @@
           }
         ]
       },
-      "source_checksum": "726c83d917fbb5521b67828b06c9e5c346ec7ad9caff7fb11aa6e4cbe3eb7c48",
+      "source_checksum": "5b1184ae402a4f3e53ed69e89092674cddd10e24c1caa3f5f8beb82cd5bc4c8a",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2500:generate_one_time_token_route",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2256,7 +2276,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2266,7 +2286,7 @@
           }
         ]
       },
-      "source_checksum": "3a9a9c4efe40f0935a4f33e5ba9d2bdb7eb5b489a2bfe65b4faba2de66752887",
+      "source_checksum": "0f1b261172199a5b7dfc3c5dafcc5bf18a9965e9908e9ef65e22f0e17d0970cd",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2540:generate_secure_one_time_token_route",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2318,7 +2338,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2328,7 +2348,7 @@
           }
         ]
       },
-      "source_checksum": "12486eeefb37b98c8c5c7648eb0d02ae5be1773416d072e249b31a1d6c03f54b",
+      "source_checksum": "d41f752af2d9f402c2bb2f72307ac2f6b39be3300128304c1813930f32bc8b16",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1241:login",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2409,7 +2429,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2419,7 +2439,7 @@
           }
         ]
       },
-      "source_checksum": "19842dc39ac310710571650df366311848b4ac042f59464ee0c6c04043aabd09",
+      "source_checksum": "e1a5ef1f9932355858b06dbb634c6a1d5bcd389e8a88aea2beab779289c460a8",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2660:logout",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2476,7 +2496,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2486,7 +2506,7 @@
           }
         ]
       },
-      "source_checksum": "6bb40d3f066de01194e4b05ee5548fe71f13e19ab809ccf886c2bbf30eb10e07",
+      "source_checksum": "a41495655e7047c71b45d50658859373e7d314ddbdab4eb4c74e4987c440e027",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1330:login_web",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2569,7 +2589,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2579,7 +2599,7 @@
           }
         ]
       },
-      "source_checksum": "8b5d2b67369c2482366a4ea93660c2e21fe724398b0448a3742b83ba4b045d14",
+      "source_checksum": "a1744f4144014a12dfd323931218ab1656ff7aef8e5894dddf838fe0a1e1eadb",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1447:browser_login",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2666,7 +2686,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2676,7 +2696,7 @@
           }
         ]
       },
-      "source_checksum": "5c9e8097a3d322d9614ce6727e8902bc5eff15fc256ed12c96ebb61f40c398d7",
+      "source_checksum": "7a5af74fedc406c0d01c0dd6d659fb88419962ebfee9e2e6214e3775f2665a88",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1535:login_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2735,7 +2755,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2745,7 +2765,7 @@
           }
         ]
       },
-      "source_checksum": "daff948a00b03dcb5f38b827f13744521811b808d8f93305958d2aeba2834975",
+      "source_checksum": "2e3d8c38a035e980078ed5ceddcfabd498912121bc6864eb142c653b81ce7180",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1707:exchange_handoff_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2812,7 +2832,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2822,7 +2842,7 @@
           }
         ]
       },
-      "source_checksum": "becb3bfaa6899c26d6a7c8ce5c2210b9cc84319a1dcb1b2ad3847d539c871bd1",
+      "source_checksum": "55549c3f992c7a3bafa1f0d8ae436f5c48bc640758a885e1a9d487412966a915",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1664:issue_handoff_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2892,7 +2912,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2902,7 +2922,7 @@
           }
         ]
       },
-      "source_checksum": "4113f0f657a7725f51cfd271de474390ee755aa08ca121ea4b9fe20580c59af4",
+      "source_checksum": "f5b78d6886abfe9c03c142d7340856c5cd8fb2633a182fe033753e68478689a6",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1593:exchange_one_time_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -2961,7 +2981,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -2971,7 +2991,7 @@
           }
         ]
       },
-      "source_checksum": "c23a0c0a21c6ef72b2d04245f52f5c1607e73fe1e9c82b00864b5e67d95a344d",
+      "source_checksum": "ed495d70cd94eb68d68f244e78bffd0a5461ca8d4fb24677362dab7306d65a1b",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1768:browser_handoff",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3030,7 +3050,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3040,7 +3060,7 @@
           }
         ]
       },
-      "source_checksum": "b3c82b5dbd3a81c507f2fbe05e46ac17040a8d9f59e9a88b0fb807af31ff4e64",
+      "source_checksum": "8f18e02bf981d10d50b16e622cbad517f535124df41ef614633ac664e07209ff",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2581:login_account",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3106,7 +3126,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3116,7 +3136,7 @@
           }
         ]
       },
-      "source_checksum": "fd97e5f694cef5147a81c407e64bd3b8123c682095b299f475eceb3675224849",
+      "source_checksum": "eeee40484602501c2af5945b1d7bba4782c59744e4af4f231497fbfa614c0835",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1840:otp_login",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3198,7 +3218,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3208,7 +3228,7 @@
           }
         ]
       },
-      "source_checksum": "6a2de954e49f1fd59f9670e90d45f481f1331e8c7d13bf0ffc1aa6c055fcbb48",
+      "source_checksum": "6585c5602e486fec8eee76199b76035ee9a66721a843ebcda3e9ad4a331316d1",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:223:oauth_providers",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3267,7 +3287,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3277,7 +3297,7 @@
           }
         ]
       },
-      "source_checksum": "4c28d5a8d2e306551befa59ea557432447df6bc4038ca7dd484fe525cd2e9551",
+      "source_checksum": "713e30b533945459e9b6ba0f51fc69d1cab03f2b7ec832d75cce957222132209",
       "handler": {
         "ref": "infera-idp/src/auth/native.rs:59:authorize",
         "path": "infera-idp/src/auth/native.rs",
@@ -3344,7 +3364,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3354,7 +3374,7 @@
           }
         ]
       },
-      "source_checksum": "08f81cb1acf94a3e50cf81d115e4bff5d1a840af3112255fa1b918aa7014b1f8",
+      "source_checksum": "1f134573f1346ab9c62bb590fd7ca9f1cd8d83a9d2539c6be64595cbd5c9122d",
       "handler": {
         "ref": "infera-idp/src/auth/native.rs:130:token",
         "path": "infera-idp/src/auth/native.rs",
@@ -3437,7 +3457,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3447,7 +3467,7 @@
           }
         ]
       },
-      "source_checksum": "e1c54cf1492038c48463b368bf41847f98828a5b66e1350935cec3df0ac63822",
+      "source_checksum": "94b3ce40801e05eebab5ed2ceec6baef40569859e8ba84706c732bf5d971e993",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:726:list_linked_identities",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3507,7 +3527,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3517,7 +3537,7 @@
           }
         ]
       },
-      "source_checksum": "6850d8d81445fd8bf068d5ff9e5017a33d78486e40ad85a1502033bc32e68e23",
+      "source_checksum": "22af77057dd43f866d410fde0237edcc63ac9ee41657ef7af4889e591a3c4b88",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:555:linked_faiber_billing",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3595,7 +3615,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3605,7 +3625,7 @@
           }
         ]
       },
-      "source_checksum": "8a4279ab3c7eef0efcb3ca8abcedcc030a8d5427c6eda62f8925f73f80d80388",
+      "source_checksum": "81cc082b57db52cb6d553e8b8a0f0c55c3f5e3fb480ba6647c551724b6cd2552",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:679:linked_faiber_wallet_topup",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3683,7 +3703,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3693,7 +3713,7 @@
           }
         ]
       },
-      "source_checksum": "b78cd47b23135f69882f526e086d15e965259d5e54abe6a6b7d22d597c96b4e9",
+      "source_checksum": "be55ce4bbc69880e8ee3c362f1ff5c90518bdc502e82375160efd5eb151019b9",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:234:oauth_start",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3767,7 +3787,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3777,7 +3797,7 @@
           }
         ]
       },
-      "source_checksum": "e76ea3920805f8c2e153d4dd3f3efa021652742151795ead5a47eebf33608122",
+      "source_checksum": "3be52c67d8d625651b6654571bc9f2b1c36d1b6e28b2e967484b487fdee49a3b",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:809:oauth_unlink",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3841,7 +3861,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3851,7 +3871,7 @@
           }
         ]
       },
-      "source_checksum": "fbf04494dc69bffa00b12c459013134bd8d4b62106c64e4a5fac51865a44d396",
+      "source_checksum": "8df3b9eca64f837ee0faab17598f0342df91d6441616957997aa69a12af33fbe",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:328:oauth_callback",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3913,7 +3933,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3923,7 +3943,7 @@
           }
         ]
       },
-      "source_checksum": "870f04565fe0aa45534e96fa7da2db5208acfecc44ab9e297cec479b9503853b",
+      "source_checksum": "d7c9ea6722336e942558982279d92ccaf492c5104db57224bf2477d68323dee4",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:1915:refresh_token",
         "path": "infera-idp/src/auth/routes.rs",
@@ -3989,7 +4009,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -3999,7 +4019,7 @@
           }
         ]
       },
-      "source_checksum": "230fbdfe21c9d1389018a777dcd55a61b56cb9a004f3c0af5d34e8786e68298c",
+      "source_checksum": "d01c1d09650241a080f3182422f935ec53036c3153947aa0b0937dae95257aee",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2714:list_sessions",
         "path": "infera-idp/src/auth/routes.rs",
@@ -4066,7 +4086,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4076,7 +4096,7 @@
           }
         ]
       },
-      "source_checksum": "4b23cad6f451ba6b7137e99853f6b9ea44dbfc5879f2dfd4f10574e9d064b7b7",
+      "source_checksum": "02fece878ce582e910ab571b0d83ed4af01af54b3197e499833bf3c758cdd7ee",
       "handler": {
         "ref": "infera-idp/src/auth/routes.rs:2783:delete_session",
         "path": "infera-idp/src/auth/routes.rs",
@@ -4140,7 +4160,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4150,11 +4170,11 @@
           }
         ]
       },
-      "source_checksum": "1464aa81995f7e16efb377b1a1e2f7b222ea3dca0b3370be2dbef707f4a10ae3",
+      "source_checksum": "9aeb6b027237197f802f294434d8ae53c48e3b062eec56bd38b4c9748c22127c",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:543:users_index",
+        "ref": "infera-idp/src/user/routes.rs:544:users_index",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 543,
+        "line": 544,
         "name": "users_index"
       },
       "related_implementation": [],
@@ -4228,7 +4248,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4238,14 +4258,24 @@
           }
         ]
       },
-      "source_checksum": "303a60549a89c5e364083d8f7bbe219d2b0709cbc5e439dffa6a4725a42a5014",
+      "source_checksum": "0b63ac7ac444dfc68387c8235cab2c511749ea6e044b730e3499c8269a70675c",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:577:user_create",
+        "ref": "infera-idp/src/user/routes.rs:578:user_create",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 577,
+        "line": 578,
         "name": "user_create"
       },
-      "related_implementation": [],
+      "related_implementation": [
+        {
+          "call": "super::memberships::revision",
+          "evidence": {
+            "ref": "infera-idp/src/user/memberships.rs:105:revision",
+            "path": "infera-idp/src/user/memberships.rs",
+            "line": 105,
+            "name": "revision"
+          }
+        }
+      ],
       "schemas": {
         "body": {
           "declared_type": "CreateUser",
@@ -4309,7 +4339,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4319,11 +4349,11 @@
           }
         ]
       },
-      "source_checksum": "513415a51f6dfadc09256c69bbf8482a556ea19670f22ae4cbd451dd5cc946ec",
+      "source_checksum": "54337f3bea271ac938a78f3cbd89c9cb8814d6c22a8f5897fcd26dad27476b93",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:157:register_with_phone",
+        "ref": "infera-idp/src/user/routes.rs:158:register_with_phone",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 157,
+        "line": 158,
         "name": "register_with_phone"
       },
       "related_implementation": [
@@ -4416,7 +4446,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4426,11 +4456,11 @@
           }
         ]
       },
-      "source_checksum": "173808feea237bbba9673eeacdbc07b357dde762babb3d15f43a7218319f9ab4",
+      "source_checksum": "96160f6d560f77742bce6d6ccca1d13264a5cd572c36143049d6ea3474c18c65",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:206:register_with_email",
+        "ref": "infera-idp/src/user/routes.rs:207:register_with_email",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 206,
+        "line": 207,
         "name": "register_with_email"
       },
       "related_implementation": [
@@ -4514,7 +4544,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4524,11 +4554,11 @@
           }
         ]
       },
-      "source_checksum": "1b979a5a8016d2ef29b2f41795869ba56a2ba394a4bea8f7b82b4553266e412d",
+      "source_checksum": "570141a98f3a54f37ee8d6ce7cf6b046d07804379d5b5dd7ce549fd02cc162e5",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:247:register",
+        "ref": "infera-idp/src/user/routes.rs:248:register",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 247,
+        "line": 248,
         "name": "register"
       },
       "related_implementation": [
@@ -4604,7 +4634,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4614,11 +4644,11 @@
           }
         ]
       },
-      "source_checksum": "842681605b126113db6cb2e3620cd9a24219f86490c1e15352912699c8fad65c",
+      "source_checksum": "73b22822c72161f25795150324c5a9a7ce83600390b1ea665ea89c939225eed6",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:319:user_find_self",
+        "ref": "infera-idp/src/user/routes.rs:320:user_find_self",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 319,
+        "line": 320,
         "name": "user_find_self"
       },
       "related_implementation": [],
@@ -4674,7 +4704,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4684,11 +4714,11 @@
           }
         ]
       },
-      "source_checksum": "1c24a7fa1df9f59f180d64d22fdb14636fa78be8a8b5d4003a385a7ca843e169",
+      "source_checksum": "d93e4a5fc436b366edd97ecb56c4b4ce5f5af87dbeccb51a8e1f8956b2946e8a",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:379:user_update_self",
+        "ref": "infera-idp/src/user/routes.rs:380:user_update_self",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 379,
+        "line": 380,
         "name": "user_update_self"
       },
       "related_implementation": [],
@@ -4754,7 +4784,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4764,7 +4794,7 @@
           }
         ]
       },
-      "source_checksum": "b9c5fa6a51abd6a4613bd1d9bb33fe64b040b6d51c8fd2712dc35bc540efeb03",
+      "source_checksum": "5ecfb973dafe2c766595819ccdcdba5977d264647e298c0c795ff28c3859bed0",
       "handler": {
         "ref": "infera-idp/src/user/self_password.rs:46:status",
         "path": "infera-idp/src/user/self_password.rs",
@@ -4817,7 +4847,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4827,7 +4857,7 @@
           }
         ]
       },
-      "source_checksum": "84cab857ba1422bb5bbca748dd757eca60148dc6f04837179c89a87aea254795",
+      "source_checksum": "17e4ceb31370a94d89a695e7fb3d253700f761714f067a23776d02927df09cb7",
       "handler": {
         "ref": "infera-idp/src/user/self_password.rs:66:save",
         "path": "infera-idp/src/user/self_password.rs",
@@ -4891,7 +4921,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4901,11 +4931,11 @@
           }
         ]
       },
-      "source_checksum": "cb64c83ec12e8111cb4e32eaf7de0ba911c3fd8bf8aa0900c126c794971b5c62",
+      "source_checksum": "ba11994aa4667575450c0dc692e44509bcfd9de6eac7683edd8c9dd5dc84fedd",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:86:users_directory",
+        "ref": "infera-idp/src/user/routes.rs:87:users_directory",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 86,
+        "line": 87,
         "name": "users_directory"
       },
       "related_implementation": [],
@@ -4971,7 +5001,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -4981,11 +5011,11 @@
           }
         ]
       },
-      "source_checksum": "715cf3b6735e6846bd70ebafe7089ce88b9bf06a6e3ef1c416c9d36cd4f5ad8f",
+      "source_checksum": "b3630d10ad92a541fd546a75d0fe05b1c7d10de23079a42419034a187852bdff",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:498:users_stats",
+        "ref": "infera-idp/src/user/routes.rs:499:users_stats",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 498,
+        "line": 499,
         "name": "users_stats"
       },
       "related_implementation": [],
@@ -5041,7 +5071,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5051,11 +5081,11 @@
           }
         ]
       },
-      "source_checksum": "12439957ff2682c816c12b6a355a8d555b05c1eebc83f33de8ac39997d623d73",
+      "source_checksum": "1c6b60b2bae49cb5d55b82a1dac2ba1932a5d8015577aae79c239526dc0043b6",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:513:users_registration_stats",
+        "ref": "infera-idp/src/user/routes.rs:514:users_registration_stats",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 513,
+        "line": 514,
         "name": "users_registration_stats"
       },
       "related_implementation": [],
@@ -5121,7 +5151,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5131,11 +5161,11 @@
           }
         ]
       },
-      "source_checksum": "faae51b1cef7d79dca1cde9fd970983096c1cc0ece255f7428a42110a6f3b45f",
+      "source_checksum": "85c4ddaf67ca3da00c7e5be4431bc03501181c34f7064bcda0bcec903b6b6b8e",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:995:sync_users",
+        "ref": "infera-idp/src/user/routes.rs:998:sync_users",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 995,
+        "line": 998,
         "name": "sync_users"
       },
       "related_implementation": [],
@@ -5184,7 +5214,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5194,11 +5224,11 @@
           }
         ]
       },
-      "source_checksum": "9e79c9d45296c3cb16ad99c185e5af8c1770cad295ff9712b43b127def1ed7a2",
+      "source_checksum": "1039660673b75fc45b5136a5d354e1260fe1050da476ab2e63588af47db2f6a5",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:656:user_find",
+        "ref": "infera-idp/src/user/routes.rs:658:user_find",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 656,
+        "line": 658,
         "name": "user_find"
       },
       "related_implementation": [],
@@ -5259,7 +5289,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5269,11 +5299,11 @@
           }
         ]
       },
-      "source_checksum": "bdc4ecca43f6534bf7b87906d7d54d66db0e62ebf4b77fc63bad8a18d8bac478",
+      "source_checksum": "65bbfc21c2d09c5671ab040314ca2788fab87abf6457ca2e96fcdb2cec2ded73",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:689:user_update",
+        "ref": "infera-idp/src/user/routes.rs:691:user_update",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 689,
+        "line": 691,
         "name": "user_update"
       },
       "related_implementation": [],
@@ -5345,7 +5375,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5355,11 +5385,11 @@
           }
         ]
       },
-      "source_checksum": "0b9bb8a5fbdc96f1a41501598495a1d0f1ee1acbf410c2b8cb4d93234bfa868e",
+      "source_checksum": "9bde5b148d380816b48478b37d256456245f8547f249742569d9ced7ff88fa5b",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:689:user_update",
+        "ref": "infera-idp/src/user/routes.rs:691:user_update",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 689,
+        "line": 691,
         "name": "user_update"
       },
       "related_implementation": [],
@@ -5431,7 +5461,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5441,11 +5471,11 @@
           }
         ]
       },
-      "source_checksum": "48d937de91581b9b9c0be8ede972d713cf078bddd9f479161a7a4323fcbc2aff",
+      "source_checksum": "67c84ac4816476c4c086eb5b4287e1c8e462a201c3f5c878db049022182a5eba",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:757:change_password",
+        "ref": "infera-idp/src/user/routes.rs:759:change_password",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 757,
+        "line": 759,
         "name": "change_password"
       },
       "related_implementation": [],
@@ -5517,7 +5547,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5527,11 +5557,11 @@
           }
         ]
       },
-      "source_checksum": "a739c39b138d3a060305fec5d0459c4d1f4ba3dfbd60b1831a511d1f5a1c7c21",
+      "source_checksum": "f9c6bbd0f673d378b1623c202fe7cf643a92583c1648fe495778017fb4594b37",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:757:change_password",
+        "ref": "infera-idp/src/user/routes.rs:759:change_password",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 757,
+        "line": 759,
         "name": "change_password"
       },
       "related_implementation": [],
@@ -5584,6 +5614,186 @@
       }
     },
     {
+      "id": "GET /api/v1/users/{user_id}/role-memberships",
+      "registration": {
+        "method": "GET",
+        "path": "/api/v1/users/{user_id}/role-memberships",
+        "module": "user::routes",
+        "handler": "read",
+        "permissions": [],
+        "source": "infera-idp/src/user/routes.rs",
+        "handlerModule": "user::memberships",
+        "pathParam": "Uuid",
+        "response": "UserRoleMembershipSnapshot",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handler_source": "infera-idp/src/user/memberships.rs",
+        "mounted_via": [
+          {
+            "path": "infera-idp/src/router.rs",
+            "line": 114,
+            "function": "routes"
+          },
+          {
+            "path": "infera-idp/src/user/routes.rs",
+            "line": 41,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "e510f0ce7dbc295259077e7f2c3b37623d69d5c9a9ded3d10d6c1e04b986735c",
+      "handler": {
+        "ref": "infera-idp/src/user/memberships.rs:163:read",
+        "path": "infera-idp/src/user/memberships.rs",
+        "line": 163,
+        "name": "read"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "response": {
+          "declared_type": "UserRoleMembershipSnapshot",
+          "models": [
+            {
+              "ref": "infera-idp/src/user/memberships.rs:26:UserRoleMembershipSnapshot",
+              "path": "infera-idp/src/user/memberships.rs",
+              "line": 26,
+              "name": "UserRoleMembershipSnapshot"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "user_id",
+          "type": "Uuid",
+          "model": "UserRoleMembershipSnapshot",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
+      "id": "POST /api/v1/users/{user_id}/role-memberships",
+      "registration": {
+        "method": "POST",
+        "path": "/api/v1/users/{user_id}/role-memberships",
+        "module": "user::routes",
+        "handler": "add",
+        "permissions": [],
+        "source": "infera-idp/src/user/routes.rs",
+        "handlerModule": "user::memberships",
+        "body": "AddUserRoleMemberships",
+        "pathParam": "Uuid",
+        "response": "AddUserRoleMembershipsResult",
+        "responseEnvelope": "api",
+        "multipart": false,
+        "formUrlEncoded": false,
+        "handler_source": "infera-idp/src/user/memberships.rs",
+        "mounted_via": [
+          {
+            "path": "infera-idp/src/router.rs",
+            "line": 114,
+            "function": "routes"
+          },
+          {
+            "path": "infera-idp/src/user/routes.rs",
+            "line": 41,
+            "function": "routes"
+          }
+        ]
+      },
+      "source_checksum": "8427b6047428db594fcf5e9fdd9bd8573700d55f48d218cc66a613cd281b1749",
+      "handler": {
+        "ref": "infera-idp/src/user/memberships.rs:188:add",
+        "path": "infera-idp/src/user/memberships.rs",
+        "line": 188,
+        "name": "add"
+      },
+      "related_implementation": [],
+      "schemas": {
+        "body": {
+          "declared_type": "AddUserRoleMemberships",
+          "models": [
+            {
+              "ref": "infera-idp/src/user/memberships.rs:35:AddUserRoleMemberships",
+              "path": "infera-idp/src/user/memberships.rs",
+              "line": 35,
+              "name": "AddUserRoleMemberships"
+            }
+          ]
+        },
+        "response": {
+          "declared_type": "AddUserRoleMembershipsResult",
+          "models": [
+            {
+              "ref": "infera-idp/src/user/memberships.rs:39:AddUserRoleMembershipsResult",
+              "path": "infera-idp/src/user/memberships.rs",
+              "line": 39,
+              "name": "AddUserRoleMembershipsResult"
+            }
+          ]
+        },
+        "pathParam": {
+          "declared_type": "Uuid",
+          "models": []
+        }
+      },
+      "relation_candidates": [
+        {
+          "field": "add_role_ids",
+          "type": "Vec<Uuid>",
+          "model": "AddUserRoleMemberships",
+          "target": "requires_semantic_review"
+        },
+        {
+          "field": "added_role_ids",
+          "type": "Vec<Uuid>",
+          "model": "AddUserRoleMembershipsResult",
+          "target": "requires_semantic_review"
+        }
+      ],
+      "review": {
+        "status": "pending",
+        "required": [
+          "meaning",
+          "permissions",
+          "filters",
+          "inputs_outputs",
+          "lifecycle",
+          "relationships",
+          "test_evidence"
+        ]
+      },
+      "sdk": {
+        "status": "requires_wire_verification"
+      },
+      "manage": {
+        "status": "requires_workflow_verification"
+      }
+    },
+    {
       "id": "PUT /api/v1/users/{user_id}/change-roles",
       "registration": {
         "method": "PUT",
@@ -5603,7 +5813,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5613,14 +5823,24 @@
           }
         ]
       },
-      "source_checksum": "041ad85efca444ba39821aa56cc06d3435e85b974be0a667ed145f5e6c277357",
+      "source_checksum": "8e0c7fc6ef369e7963e9656c620ad2f1345d3273908b43ffa36af49a2d78223e",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:808:change_roles",
+        "ref": "infera-idp/src/user/routes.rs:810:change_roles",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 808,
+        "line": 810,
         "name": "change_roles"
       },
-      "related_implementation": [],
+      "related_implementation": [
+        {
+          "call": "super::memberships::expected_revision",
+          "evidence": {
+            "ref": "infera-idp/src/user/memberships.rs:135:expected_revision",
+            "path": "infera-idp/src/user/memberships.rs",
+            "line": 135,
+            "name": "expected_revision"
+          }
+        }
+      ],
       "schemas": {
         "body": {
           "declared_type": "UpdateUserRoles",
@@ -5689,7 +5909,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5699,14 +5919,24 @@
           }
         ]
       },
-      "source_checksum": "027e2feacdafa1676d54a7b120fee9e2c3607aa641faffe4bc365c7b8fb3e003",
+      "source_checksum": "f5b85eaf187234d89d0c24c9f145132ec0f613ad670affb9535eae2d7ada7caa",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:808:change_roles",
+        "ref": "infera-idp/src/user/routes.rs:810:change_roles",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 808,
+        "line": 810,
         "name": "change_roles"
       },
-      "related_implementation": [],
+      "related_implementation": [
+        {
+          "call": "super::memberships::expected_revision",
+          "evidence": {
+            "ref": "infera-idp/src/user/memberships.rs:135:expected_revision",
+            "path": "infera-idp/src/user/memberships.rs",
+            "line": 135,
+            "name": "expected_revision"
+          }
+        }
+      ],
       "schemas": {
         "body": {
           "declared_type": "UpdateUserRoles",
@@ -5774,7 +6004,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5784,11 +6014,11 @@
           }
         ]
       },
-      "source_checksum": "b25575e4a9ce324bef7a8cb3fb82a23c0fe6c17a8f771b7cf240c7f6f752a2cb",
+      "source_checksum": "1ed2ac87e12fa38f2bc0790b304f5571bd1527df3dd3ead3819d5bd7741dbaff",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:853:user_delete",
+        "ref": "infera-idp/src/user/routes.rs:856:user_delete",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 853,
+        "line": 856,
         "name": "user_delete"
       },
       "related_implementation": [],
@@ -5848,7 +6078,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5858,11 +6088,11 @@
           }
         ]
       },
-      "source_checksum": "6de804138f304685c2d45b78ef03d72698e34efd27f135a48d7a5cce76a3fb15",
+      "source_checksum": "0ee6cf698e93633be3f22adb5ec067fef7618bce58c273ac7d820229eb986d40",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:945:user_logout",
+        "ref": "infera-idp/src/user/routes.rs:948:user_logout",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 945,
+        "line": 948,
         "name": "user_logout"
       },
       "related_implementation": [],
@@ -5923,7 +6153,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -5933,11 +6163,11 @@
           }
         ]
       },
-      "source_checksum": "25d5a49173abccb0e0fbcb711f60b5c63372859b88454216ea8be1bf1215ce8b",
+      "source_checksum": "6be4fab2759984be110ed6980acf79faee6fdf103aba9279bda408068e12aa7e",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:894:user_set_status",
+        "ref": "infera-idp/src/user/routes.rs:897:user_set_status",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 894,
+        "line": 897,
         "name": "user_set_status"
       },
       "related_implementation": [],
@@ -6009,7 +6239,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6019,11 +6249,11 @@
           }
         ]
       },
-      "source_checksum": "4c175dc32ded9a5cd5e042fdfa5822cdb13cfd58872b338eb93ab02aabc89b15",
+      "source_checksum": "7a2455f823b8fe3b1de70580db3e7088b3805b97f5702f1d2dc403fd5e642baf",
       "handler": {
-        "ref": "infera-idp/src/user/routes.rs:894:user_set_status",
+        "ref": "infera-idp/src/user/routes.rs:897:user_set_status",
         "path": "infera-idp/src/user/routes.rs",
-        "line": 894,
+        "line": 897,
         "name": "user_set_status"
       },
       "related_implementation": [],
@@ -6093,7 +6323,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6103,7 +6333,7 @@
           }
         ]
       },
-      "source_checksum": "42dd5ec07b03f914721af83e43df6d7518eab02869714bd653377a2ac4b245d8",
+      "source_checksum": "3a337da5c9485c601303bf10cdc636ea3417046d75064165c3fe6313e3c5d3cb",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:47:roles_index",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6163,7 +6393,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6173,7 +6403,7 @@
           }
         ]
       },
-      "source_checksum": "e850ebe8f14a128f34bfd217122de80b17733aaaab16e915b634691d5edc6b16",
+      "source_checksum": "f317b0e59e8b53581ef58b99e047b44cc66ed560250179dbbbb4935babb8c5d8",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:72:roles_create",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6244,7 +6474,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6254,7 +6484,7 @@
           }
         ]
       },
-      "source_checksum": "e7eac257677a2d9f3577cf7d7d805c7332f737366ec4a378931ca33415faa0fe",
+      "source_checksum": "3e718036c8de443f62507cff7dd1698a1a676a03b5ac64d1923403bfc737ca95",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:131:roles_show",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6319,7 +6549,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6329,7 +6559,7 @@
           }
         ]
       },
-      "source_checksum": "4cd96954c1c86644293915d2af7ac028c344a39eacb751a8c97503f19bbf0969",
+      "source_checksum": "c581c6f22bf655bacb6acb5ac6a07a5a5f150a37d4c9b0c0721ad75a8e12647f",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:183:roles_update",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6405,7 +6635,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6415,7 +6645,7 @@
           }
         ]
       },
-      "source_checksum": "b604caa1a5ee670a11e47f9e045cf19912ebebd02424f89a33db41313a9eee0e",
+      "source_checksum": "1c2840557aadb468966be0647011d9e5c63ae5129e5b16874b3f5f58a3a0cb79",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:183:roles_update",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6490,7 +6720,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6500,7 +6730,7 @@
           }
         ]
       },
-      "source_checksum": "cfc4c27fbe15b83e8738d722fb6ab7ceb4e1a6d21e9a8925e224bf7818656ec1",
+      "source_checksum": "4fcec281703d93a913ebe5e2ae02493e31707fd9c9fe9103d717c8e9923cfdd4",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:94:roles_delete",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6563,7 +6793,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6573,7 +6803,7 @@
           }
         ]
       },
-      "source_checksum": "90282f53b2c23902812ba963dcdcc5ee105c86af4ff7f6cca9c5d69f88c9350e",
+      "source_checksum": "5ce0163eef3640674c538458d053017ade9e3cf316188853a202dd04b14c00a5",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:240:permissions_index",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6632,7 +6862,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6642,7 +6872,7 @@
           }
         ]
       },
-      "source_checksum": "8a2716c1d9a69ae75769a4e68f8c58d7635c52ba081d46fa907a172c6d564057",
+      "source_checksum": "c2d51f645c2d1a9377d7d439e33b791d65a39187e3b41578314f868f331a8134",
       "handler": {
         "ref": "infera-idp/src/acl/routes.rs:308:permission_templates_index",
         "path": "infera-idp/src/acl/routes.rs",
@@ -6702,7 +6932,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6717,7 +6947,7 @@
           }
         ]
       },
-      "source_checksum": "ea1512eb8284424beb6ec845fc4ccc1f129b43468f659ed1c9aa8efd05b415f4",
+      "source_checksum": "9bf6f9f90a717afa24779fb58d18685f774212ba14ce8a99bbf3f259d322be7e",
       "handler": {
         "ref": "infera-idp/src/acl/permission_grants.rs:240:read",
         "path": "infera-idp/src/acl/permission_grants.rs",
@@ -6795,7 +7025,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6810,7 +7040,7 @@
           }
         ]
       },
-      "source_checksum": "5a4d553c15c6a11a2cab62c8752c09f44dac3943ffd8ef674514576fd72d9445",
+      "source_checksum": "8af8c6542d7057643da8d10ba867c7a4e15ea02d0345c6178229a3322f8887b0",
       "handler": {
         "ref": "infera-idp/src/acl/permission_grants.rs:258:change",
         "path": "infera-idp/src/acl/permission_grants.rs",
@@ -6899,7 +7129,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -6909,7 +7139,7 @@
           }
         ]
       },
-      "source_checksum": "dee20716a57f6d4eaeaa8771b964d583873d2efb3b211b387cc7ad1fb722b330",
+      "source_checksum": "b22f2b3bd4d533970cc70df116e356060e1e261e6e24542f9cfdc1576bfd27bc",
       "handler": {
         "ref": "infera-idp/src/effective_permissions.rs:57:read",
         "path": "infera-idp/src/effective_permissions.rs",
@@ -6990,7 +7220,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7000,7 +7230,7 @@
           }
         ]
       },
-      "source_checksum": "9b8d2e3553f8852d254dcbf65784c78b521fd12ac3865c9a6adaa54d851f55eb",
+      "source_checksum": "6ed3e66c0a7f27a42b8dfb55791d64c354865f2fd69ee76cc2a0fdbea8657d30",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:239:oauth_settings_show",
         "path": "infera-idp/src/settings/routes.rs",
@@ -7060,7 +7290,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7070,7 +7300,7 @@
           }
         ]
       },
-      "source_checksum": "6e8dec9b5a94522af15e77526bbc21de5910757b1cda359102154ff767e619ce",
+      "source_checksum": "dc8a449d4be4da884e60c40b5a0d60ace6b5bf0341df0a861d1ad1054fe78e25",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:254:oauth_settings_update",
         "path": "infera-idp/src/settings/routes.rs",
@@ -7140,7 +7370,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7150,7 +7380,7 @@
           }
         ]
       },
-      "source_checksum": "fbd3a7cff2dfa872ac3d2e5d8e225675afa6e38e14e10bdc90e0b6e0e2191690",
+      "source_checksum": "14b033e4b14c5a0233b0d2d40e4bb0169f2f7bd2024bfacc5483af43bf3aa82c",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:187:login_page_settings_public",
         "path": "infera-idp/src/settings/routes.rs",
@@ -7209,7 +7439,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7219,7 +7449,7 @@
           }
         ]
       },
-      "source_checksum": "b9b31e688b673b606762053968bdaf62ada2ce2a023a4cdc8b89421454d51351",
+      "source_checksum": "6efe8f4cb6a71451c40c80360799c4e613047e896af5ec49f16048fa1ba0a1c7",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:50:login_page_asset",
         "path": "infera-idp/src/settings/routes.rs",
@@ -7281,7 +7511,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7291,7 +7521,7 @@
           }
         ]
       },
-      "source_checksum": "ddd3e294d185996b9b6486b3cbab9c42779686371252ffc6de0981b7336c22fe",
+      "source_checksum": "365ba89474c31ae4fc6eb115bd3a9ab22debe8ab4d7369ed836ad64d08d9e123",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:97:login_page_asset_upload",
         "path": "infera-idp/src/settings/routes.rs",
@@ -7360,7 +7590,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7370,7 +7600,7 @@
           }
         ]
       },
-      "source_checksum": "c6567c77d453c8dec71d12c0737a5aa6e8e440cf1256599dbf1cd7560e60b0ca",
+      "source_checksum": "c3910669bc4c2b4b4f0f49109881dbfdec63762724ad62f4f39e6094bdf30500",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:198:login_page_settings_show",
         "path": "infera-idp/src/settings/routes.rs",
@@ -7430,7 +7660,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7440,7 +7670,7 @@
           }
         ]
       },
-      "source_checksum": "d81f19004b71d2326585ab9b5e3ba2b2ad4ac134e0a0c85eb0d41de217ad0f67",
+      "source_checksum": "568321ceeca3807f96b3ddd0c5f032b95d1232bfa5f044049926d1350641d77b",
       "handler": {
         "ref": "infera-idp/src/settings/routes.rs:218:login_page_settings_update",
         "path": "infera-idp/src/settings/routes.rs",
@@ -7510,7 +7740,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7520,7 +7750,7 @@
           }
         ]
       },
-      "source_checksum": "71b80fbc7a2b9c576d053a54b96f99e50a126957c9dbee365aff0b420a6e96a7",
+      "source_checksum": "fd8d79d557be31c2c3b6035676d7f271f3df679bcb8b54003eac520666214acf",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:385:admin_show",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7587,7 +7817,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7597,7 +7827,7 @@
           }
         ]
       },
-      "source_checksum": "e8b1ece333cc126975e61da081cdaf2c7bc26a15d3b3efc8801a4a2c236b857a",
+      "source_checksum": "8536479b65a8d5a2019cfc91febefcef48686a367552e022844097885905c10c",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:394:update",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7691,7 +7921,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7701,7 +7931,7 @@
           }
         ]
       },
-      "source_checksum": "9e134f9eb7a0463663d8826fa3726e6aaacd77137f99adf8bd513249eed7a3a2",
+      "source_checksum": "d58f45236a247748ca9148f8fca136560de8ab5beff85c73415871df95e8b14c",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:591:discover",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7782,7 +8012,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7792,7 +8022,7 @@
           }
         ]
       },
-      "source_checksum": "b269869e2098d212796f3d545bc93bb344a8c53b8b851d80e68b8992511b6c64",
+      "source_checksum": "a7b38cb6c3419c4b7b2ff895439fd18211c620ab26194d0f2c1ad444fb3deb0a",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:1082:pair_canonical",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7870,7 +8100,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7880,7 +8110,7 @@
           }
         ]
       },
-      "source_checksum": "2335c5d1c6cffb918663dd710e3ec1520e3b60b54f6f8f23cf744139853288eb",
+      "source_checksum": "26d00a54c4593f787979930ab81681c1489332ca2931c224ffe75960aaf786a3",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:1112:pair_faiber",
         "path": "infera-idp/src/identity_authority.rs",
@@ -7957,7 +8187,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -7967,7 +8197,7 @@
           }
         ]
       },
-      "source_checksum": "8a45cd9a299070bfe82d4ca6b876891dcae8314e91f6a5e0cf8e9a4a0926dd26",
+      "source_checksum": "73317d7782e41be66af4a7c3387091559e48c06254f4ba5d10204e11e23475e0",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:1215:activate_canonical",
         "path": "infera-idp/src/identity_authority.rs",
@@ -8033,7 +8263,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8043,7 +8273,7 @@
           }
         ]
       },
-      "source_checksum": "8cb3f4c166b8ca37a238b85d6d5ce3753954250c426e6f6522c0a6849eaf8d07",
+      "source_checksum": "e3e8b2b126578691831627f947d98d1415cfecf2b2c33876d8a0fad240e75ae9",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:1228:recover_canonical_mode",
         "path": "infera-idp/src/identity_authority.rs",
@@ -8110,7 +8340,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8120,7 +8350,7 @@
           }
         ]
       },
-      "source_checksum": "c38e4b6aa255849b269570163dc96e2a2ccbe8f9392a99e12e469a2443976c32",
+      "source_checksum": "00ec2c5a66cbddf1d09a0e536bdebd1d57d1161a829a2cfa67cc5d7bd492a311",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:668:create_pairing_invitation",
         "path": "infera-idp/src/identity_authority.rs",
@@ -8191,7 +8421,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8201,7 +8431,7 @@
           }
         ]
       },
-      "source_checksum": "6fd4a66455966c22ca6e7c5b08819757ff874cc05cf2efb3fc81bbcbcaac0aee",
+      "source_checksum": "d8cba8ba9be2e96f2cb07412fd5727ec3e352e5be3c62d6d82112a8279f88e23",
       "handler": {
         "ref": "infera-idp/src/identity_authority.rs:731:enroll",
         "path": "infera-idp/src/identity_authority.rs",
@@ -8288,7 +8518,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8298,7 +8528,7 @@
           }
         ]
       },
-      "source_checksum": "c17bdcf98ebaf6cff5a588a47f1bf4dbd8ff75bb2de41d2ad92f79b28b31e192",
+      "source_checksum": "26dc24685c569f9023c6c834257016c7d55ac22fa2953e429437d6f9dfa07477",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:504:public_providers",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8386,7 +8616,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8396,7 +8626,7 @@
           }
         ]
       },
-      "source_checksum": "938384ce9a489af1249b0eebe0dfee9fa608aa8f8234777df38227526f0bc35e",
+      "source_checksum": "6e9506d3dddefefe4b9f4879ab5807364dafd3280f1b850fd5a24145f75282a4",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:722:start",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8479,7 +8709,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8489,7 +8719,7 @@
           }
         ]
       },
-      "source_checksum": "1c7f91abd7e3b331d5fb082c0192f5c4dabfde73b0d1279ee8ad67c492407ded",
+      "source_checksum": "83353aeee896acf14836f3556fe6044bbdc9685e6d39667bec6bb9bfc5d1905c",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:1047:callback",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8572,7 +8802,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8582,7 +8812,7 @@
           }
         ]
       },
-      "source_checksum": "d6de9e640edec613233a2ebae8517af8b9a8e3a9386d47902db5adbd166b4d39",
+      "source_checksum": "e0d8085796d549e63bd9a5b793def30a00d63f5f9d93b72861ca0a4780b30714",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:1476:unlink",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8645,7 +8875,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8655,7 +8885,7 @@
           }
         ]
       },
-      "source_checksum": "66d2183660e99fc52e374cff14335bd6229e69b21cdc20551776b7f9d71acbe9",
+      "source_checksum": "548343d6bf795efb12405eceaf01d47165a9e6a99e83334b43e4f358f1acd47b",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:345:list",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8728,7 +8958,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8738,7 +8968,7 @@
           }
         ]
       },
-      "source_checksum": "cb92707e6adaec37fd27f610dd9ba500d58333965d2f872199db27b2232595fc",
+      "source_checksum": "f2b1dfd657abcc28bbc5243dd7cea67d60857fabd33d26968c1fe653abb7473f",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:366:create",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8835,7 +9065,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8845,7 +9075,7 @@
           }
         ]
       },
-      "source_checksum": "85a75b74af84e2178aac7be1c682e5208700a9f7b40194306e42d34b3de47544",
+      "source_checksum": "650b6d1a69833f4a3371dda40e077fc21fabbc75e98e1306296c2bb047ea2b0c",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:416:update",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -8945,7 +9175,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -8955,7 +9185,7 @@
           }
         ]
       },
-      "source_checksum": "8ce7c91f547fdf0c2b2e15ca74157448ff59d2dba4d1baae07f447053bca86fc",
+      "source_checksum": "9110ecd0f3d00ffe20c8ba0e6de2daf78c3a7fb2932e8513782c2f48f24499db",
       "handler": {
         "ref": "infera-idp/src/custom_oauth.rs:467:remove",
         "path": "infera-idp/src/custom_oauth.rs",
@@ -9018,7 +9248,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9028,7 +9258,7 @@
           }
         ]
       },
-      "source_checksum": "21b6b44890f845fe5bc2233ae2510534ca3b237e9faed0ff54a62ef773361673",
+      "source_checksum": "7d0b15ec799a1ffeeadbfc8608dd4e37f3de194659aec5c1bfa544e6d5952a77",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:378:list",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -9101,7 +9331,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9111,7 +9341,7 @@
           }
         ]
       },
-      "source_checksum": "bc1c62ef9c988d47536da2a58e6b20eb0519430afc42c4aa359edb1b06178d92",
+      "source_checksum": "18fee324da7ce9a4d50e1e95f842f1cb4a20383c5f0515324547639e31f68bb5",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:394:create",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -9195,7 +9425,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9205,7 +9435,7 @@
           }
         ]
       },
-      "source_checksum": "78899dbbc25410c258767a746564752def9786bb98824beb9071f210671da395",
+      "source_checksum": "df193e80f5fcb17eb6357242fa15bf4f9d1816e575afacf6c09c2c4431fb3b2b",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:63:bootstrap_website",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -9290,7 +9520,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9300,7 +9530,7 @@
           }
         ]
       },
-      "source_checksum": "36c7a891bfcfd9a42c7f41519ecac5dd5eac199f6aff1a40c6ae7d5d371a5a9b",
+      "source_checksum": "3024f7a12ed499a5b64b30e1b2aecd14f4a86e9eb6ebb3c0df75a8c888a6faa7",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:449:update",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -9400,7 +9630,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9410,7 +9640,7 @@
           }
         ]
       },
-      "source_checksum": "b5382a07e34049137b4e1b716b95739e1137202482c5ed9db148a4b23e028665",
+      "source_checksum": "74fbcbe7fcff59d3b2d8e01e72f12e0c5f8dd70f0d3c237ae6d674d37c3959ac",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:538:remove",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -9474,7 +9704,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9484,7 +9714,7 @@
           }
         ]
       },
-      "source_checksum": "db25af9a5afe607d1593bea1bac60c0dfa0ac973a0ed824bdfbe5011f6abffc0",
+      "source_checksum": "99b3be1b579b23f71be6f0e1f534ad7b75e61880540b9cf16d467153e2499162",
       "handler": {
         "ref": "infera-idp/src/oauth_clients.rs:501:rotate",
         "path": "infera-idp/src/oauth_clients.rs",
@@ -9547,7 +9777,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9557,7 +9787,7 @@
           }
         ]
       },
-      "source_checksum": "7fc492707e5ddff0c662dd4400fb0432c144570716f7174fc4d56b81fca1d1e0",
+      "source_checksum": "3d57a5a352f733bfab40bd705258b604533667be948442d3e0128757dc9ede83",
       "handler": {
         "ref": "infera-idp/src/integration/routes.rs:9:flow_integration_show",
         "path": "infera-idp/src/integration/routes.rs",
@@ -9661,6 +9891,8 @@
       "PATCH /api/v1/users/{user_id}",
       "PUT /api/v1/users/{user_id}/change-password",
       "PATCH /api/v1/users/{user_id}/change-password",
+      "GET /api/v1/users/{user_id}/role-memberships",
+      "POST /api/v1/users/{user_id}/role-memberships",
       "PUT /api/v1/users/{user_id}/change-roles",
       "PATCH /api/v1/users/{user_id}/change-roles",
       "DELETE /api/v1/users/{user_id}",
@@ -9728,7 +9960,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           }
         ]
@@ -9746,7 +9978,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           }
         ]
@@ -9764,7 +9996,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9788,7 +10020,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9812,7 +10044,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9835,7 +10067,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9858,7 +10090,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9881,7 +10113,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9905,7 +10137,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9929,7 +10161,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9953,7 +10185,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9976,7 +10208,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -9999,7 +10231,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10023,7 +10255,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10046,7 +10278,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10069,7 +10301,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10092,7 +10324,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10116,7 +10348,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10140,7 +10372,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10163,7 +10395,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10187,7 +10419,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10211,7 +10443,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10235,7 +10467,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10259,7 +10491,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10284,7 +10516,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10308,7 +10540,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10332,7 +10564,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10356,7 +10588,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10380,7 +10612,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10404,7 +10636,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10428,7 +10660,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10452,7 +10684,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10476,7 +10708,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10501,7 +10733,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10526,7 +10758,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10551,7 +10783,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10575,7 +10807,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10600,7 +10832,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10623,7 +10855,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10647,7 +10879,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10671,7 +10903,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10696,7 +10928,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10721,7 +10953,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10746,7 +10978,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10771,7 +11003,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10796,7 +11028,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10820,7 +11052,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10845,7 +11077,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10869,7 +11101,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10894,7 +11126,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10919,7 +11151,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10943,7 +11175,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10968,7 +11200,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -10992,7 +11224,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11017,7 +11249,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11043,7 +11275,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11069,7 +11301,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11095,7 +11327,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11121,7 +11353,58 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
+            "function": "routes"
+          },
+          {
+            "path": "infera-idp/src/user/routes.rs",
+            "line": 41,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/users/{user_id}/role-memberships",
+        "module": "user::routes",
+        "handler": "read",
+        "handlerModule": "user::memberships",
+        "source": "infera-idp/src/user/routes.rs",
+        "permissions": [],
+        "handler_source": "infera-idp/src/user/memberships.rs",
+        "pathParam": "Uuid",
+        "response": "UserRoleMembershipSnapshot",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-idp/src/router.rs",
+            "line": 114,
+            "function": "routes"
+          },
+          {
+            "path": "infera-idp/src/user/routes.rs",
+            "line": 41,
+            "function": "routes"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/users/{user_id}/role-memberships",
+        "module": "user::routes",
+        "handler": "add",
+        "handlerModule": "user::memberships",
+        "source": "infera-idp/src/user/routes.rs",
+        "permissions": [],
+        "handler_source": "infera-idp/src/user/memberships.rs",
+        "body": "AddUserRoleMemberships",
+        "pathParam": "Uuid",
+        "response": "AddUserRoleMembershipsResult",
+        "responseEnvelope": "api",
+        "mounted_via": [
+          {
+            "path": "infera-idp/src/router.rs",
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11147,7 +11430,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11173,7 +11456,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11198,7 +11481,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11223,7 +11506,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11249,7 +11532,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11275,7 +11558,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11299,7 +11582,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11324,7 +11607,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11349,7 +11632,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11375,7 +11658,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11401,7 +11684,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11426,7 +11709,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11450,7 +11733,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11474,7 +11757,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11499,7 +11782,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11530,7 +11813,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11561,7 +11844,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11585,7 +11868,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11610,7 +11893,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11634,7 +11917,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11658,7 +11941,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11682,7 +11965,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11706,7 +11989,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11731,7 +12014,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11755,7 +12038,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11780,7 +12063,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11805,7 +12088,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11830,7 +12113,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11855,7 +12138,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11879,7 +12162,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11903,7 +12186,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11928,7 +12211,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11953,7 +12236,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -11977,7 +12260,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12002,7 +12285,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12027,7 +12310,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12051,7 +12334,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12075,7 +12358,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12100,7 +12383,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12126,7 +12409,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12150,7 +12433,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12174,7 +12457,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12199,7 +12482,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12224,7 +12507,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12250,7 +12533,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12274,7 +12557,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12299,7 +12582,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12323,7 +12606,7 @@
         "mounted_via": [
           {
             "path": "infera-idp/src/router.rs",
-            "line": 112,
+            "line": 114,
             "function": "routes"
           },
           {
@@ -12340,6 +12623,8 @@
   "working_drift": {
     "added": [],
     "absent": [
+      "GET /api/v1/users/{user_id}/role-memberships",
+      "POST /api/v1/users/{user_id}/role-memberships",
       "GET /api/v1/acl/roles/{role_id}/permission-grants",
       "PATCH /api/v1/acl/roles/{role_id}/permission-grants",
       "GET /api/v1/acl/users/{user_id}/effective-permissions"
@@ -13009,7 +13294,7 @@
     },
     {
       "path": "infera-idp/src/router.rs",
-      "checksum": "3de2051a4a19c0cea9fbd99cd9abf942ac4629a3b34625bba70311710121d246"
+      "checksum": "5afb4ac5a59358caa7601359e258d9a0cc175644f8100e135b337794d6362286"
     },
     {
       "path": "infera-idp/entity/src/federated_session.rs",
@@ -13057,17 +13342,17 @@
     },
     {
       "path": "Service/infera-idp/src/router.rs",
-      "checksum": "3de2051a4a19c0cea9fbd99cd9abf942ac4629a3b34625bba70311710121d246"
+      "checksum": "5afb4ac5a59358caa7601359e258d9a0cc175644f8100e135b337794d6362286"
     }
   ],
   "missing_meaning_sources": [],
   "completeness": "not_verified",
   "source_records": {
-    "infera-idp/src/router.rs:233:status_route": {
+    "infera-idp/src/router.rs:236:status_route": {
       "name": "status_route",
       "path": "infera-idp/src/router.rs",
-      "line": 233,
-      "end_line": 241,
+      "line": 236,
+      "end_line": 244,
       "signature": "async fn status_route(State(pool): State<AppState>) -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [],
@@ -13075,7 +13360,7 @@
       "state": [
         {
           "path": "infera-idp/src/router.rs",
-          "line": 235,
+          "line": 238,
           "expression": "status: \"success\".to_string(),"
         }
       ],
@@ -13100,11 +13385,11 @@
         }
       ]
     },
-    "infera-idp/src/router.rs:217:openapi_json": {
+    "infera-idp/src/router.rs:220:openapi_json": {
       "name": "openapi_json",
       "path": "infera-idp/src/router.rs",
-      "line": 217,
-      "end_line": 220,
+      "line": 220,
+      "end_line": 223,
       "signature": "async fn openapi_json() -> impl IntoResponse",
       "declared_permissions": [],
       "guards": [],
@@ -13927,10 +14212,16 @@
       "name": "register_canonical_user",
       "path": "infera-idp/src/user/methods.rs",
       "line": 233,
-      "end_line": 283,
+      "end_line": 284,
       "signature": "pub async fn register_canonical_user(\n    state: &AppState,\n    canonical_id: Uuid,\n    email: Option<String>,\n    display_name: Option<String>,\n) -> Result<entity::user::Model, AppError>",
       "declared_permissions": [],
-      "guards": [],
+      "guards": [
+        {
+          "path": "infera-idp/src/user/methods.rs",
+          "line": 280,
+          "expression": "let revision=super::memberships::revision(state,user.id).await?;"
+        }
+      ],
       "validation": [
         {
           "path": "infera-idp/src/user/methods.rs",
@@ -13992,7 +14283,12 @@
         {
           "path": "infera-idp/src/user/methods.rs",
           "line": 280,
-          "expression": "update_user_roles(state, &user.id, &vec![customer_role.id]).await?;"
+          "expression": "let revision=super::memberships::revision(state,user.id).await?;"
+        },
+        {
+          "path": "infera-idp/src/user/methods.rs",
+          "line": 281,
+          "expression": "update_user_roles(state, &user.id, &vec![customer_role.id], &revision, None).await?;"
         }
       ],
       "effects": [
@@ -14003,11 +14299,13 @@
         },
         {
           "path": "infera-idp/src/user/methods.rs",
-          "line": 280,
-          "expression": "update_user_roles(state, &user.id, &vec![customer_role.id]).await?;"
+          "line": 281,
+          "expression": "update_user_roles(state, &user.id, &vec![customer_role.id], &revision, None).await?;"
         }
       ],
-      "calls": []
+      "calls": [
+        "super::memberships::revision"
+      ]
     },
     "infera-idp/src/oidc.rs:222:TokenForm": {
       "name": "TokenForm",
@@ -18606,17 +18904,17 @@
       ],
       "calls": []
     },
-    "infera-idp/src/user/routes.rs:543:users_index": {
+    "infera-idp/src/user/routes.rs:544:users_index": {
       "name": "users_index",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 543,
-      "end_line": 574,
+      "line": 544,
+      "end_line": 575,
       "signature": "async fn users_index(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Query(query): Query<UsersQuery>,\n) -> Result<Json<APIResponse<UserListResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 549,
+          "line": 550,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserRead]).await?;"
         }
       ],
@@ -18624,22 +18922,22 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 549,
+          "line": 550,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserRead]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 553,
+          "line": 554,
           "expression": "&state,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 555,
+          "line": 556,
           "expression": "query.status,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 564,
+          "line": 565,
           "expression": "status: \"success\".to_string(),"
         }
       ],
@@ -18765,154 +19063,191 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:577:user_create": {
+    "infera-idp/src/user/routes.rs:578:user_create": {
       "name": "user_create",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 577,
-      "end_line": 644,
+      "line": 578,
+      "end_line": 646,
       "signature": "pub async fn user_create(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Json(payload): Json<CreateUser>,\n) -> Result<Json<APIResponse<UserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 583,
+          "line": 584,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserCreate]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 590,
+          "line": 591,
           "expression": "\"at least one user identifier is required\","
+        },
+        {
+          "path": "infera-idp/src/user/routes.rs",
+          "line": 633,
+          "expression": "let revision=super::memberships::revision(&state,user.id).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 585,
+          "line": 586,
           "expression": ".validate()"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 586,
+          "line": 587,
           "expression": ".map_err(|_| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 589,
+          "line": 590,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 596,
+          "line": 597,
           "expression": ".is_some_and(|value| value.len() < 8)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 599,
+          "line": 600,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 612,
+          "line": 613,
           "expression": "return Err(AppError::new(StatusCode::CONFLICT, \"user already exists\"));"
         }
       ],
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 583,
+          "line": 584,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserCreate]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 586,
+          "line": 587,
           "expression": ".map_err(|_| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 589,
+          "line": 590,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 599,
+          "line": 600,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 604,
+          "line": 605,
           "expression": "&*state.db,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 612,
+          "line": 613,
           "expression": "return Err(AppError::new(StatusCode::CONFLICT, \"user already exists\"));"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 615,
+          "line": 616,
           "expression": "&state,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 623,
+          "line": 624,
           "expression": "&state,"
-        },
-        {
-          "path": "infera-idp/src/user/routes.rs",
-          "line": 632,
-          "expression": "update_user_roles(&state, &user.id, &payload.roles).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
           "line": 633,
-          "expression": "set_user_status_by_id(&state, &user.id, 1).await?;"
+          "expression": "let revision=super::memberships::revision(&state,user.id).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
           "line": 634,
-          "expression": "let user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
+          "expression": "update_user_roles(&state, &user.id, &payload.roles, &revision, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
           "line": 635,
-          "expression": "publish_profile_user_update(&state, &user).await?;"
+          "expression": "set_user_status_by_id(&state, &user.id, 1).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
           "line": 636,
-          "expression": "publish_lms_user_update(&state, &user, payload.password).await?;"
+          "expression": "let user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
+        },
+        {
+          "path": "infera-idp/src/user/routes.rs",
+          "line": 637,
+          "expression": "publish_profile_user_update(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
           "line": 638,
+          "expression": "publish_lms_user_update(&state, &user, payload.password).await?;"
+        },
+        {
+          "path": "infera-idp/src/user/routes.rs",
+          "line": 640,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 641,
+          "line": 643,
           "expression": "user: to_user_resource(&state, &user).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 622,
+          "line": 623,
           "expression": "update_user("
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 632,
-          "expression": "update_user_roles(&state, &user.id, &payload.roles).await?;"
+          "line": 634,
+          "expression": "update_user_roles(&state, &user.id, &payload.roles, &revision, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 635,
+          "line": 637,
           "expression": "publish_profile_user_update(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 636,
+          "line": 638,
           "expression": "publish_lms_user_update(&state, &user, payload.password).await?;"
+        }
+      ],
+      "calls": [
+        "super::memberships::revision"
+      ]
+    },
+    "infera-idp/src/user/memberships.rs:105:revision": {
+      "name": "revision",
+      "path": "infera-idp/src/user/memberships.rs",
+      "line": 105,
+      "end_line": 111,
+      "signature": "pub(crate) async fn revision(state: &AppState, user_id: Uuid) -> Result<String, AppError>",
+      "declared_permissions": [],
+      "guards": [],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 106,
+          "expression": "let tx = state.db.begin().await.map_err(failure)?;"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 109,
+          "expression": "tx.commit().await.map_err(failure)?;"
         }
       ],
       "calls": []
@@ -18997,93 +19332,93 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:157:register_with_phone": {
+    "infera-idp/src/user/routes.rs:158:register_with_phone": {
       "name": "register_with_phone",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 157,
-      "end_line": 196,
+      "line": 158,
+      "end_line": 197,
       "signature": "async fn register_with_phone(\n    State(state): State<AppState>,\n    Json(payload): Json<PhoneRegister>,\n    // ConnectInfo(addr): ConnectInfo<SocketAddrV4>,\n    // ConnectInfo(addrv6): ConnectInfo<SocketAddrV6>,\n    // TypedHeader(user_agent): TypedHeader<UserAgent>,\n) -> Result<Json<APIResponse<RegisterResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 164,
+          "line": 165,
           "expression": "crate::identity_authority::require_local_login(&state).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 165,
+          "line": 166,
           "expression": "// Validate inputs"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 167,
+          "line": 168,
           "expression": ".validate()"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 168,
+          "line": 169,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         }
       ],
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 164,
+          "line": 165,
           "expression": "crate::identity_authority::require_local_login(&state).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 168,
+          "line": 169,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 170,
+          "line": 171,
           "expression": "return Err(AppError::new(StatusCode::FORBIDDEN, \"registration cannot assign roles\"));"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 174,
+          "line": 175,
           "expression": "let user = match find_user_by_phone(&*state.db, &payload.phone).await? {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 177,
+          "line": 178,
           "expression": "let user = crate::user::methods::register_otp_user(&state, payload.phone).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 182,
+          "line": 183,
           "expression": "publish_profile_user_update(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 183,
+          "line": 184,
           "expression": "publish_lms_user_update(&state, &user, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 186,
+          "line": 187,
           "expression": "let otp_result = generate_otp(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 189,
+          "line": 190,
           "expression": "status: \"success\".to_string(),"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 182,
+          "line": 183,
           "expression": "publish_profile_user_update(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 183,
+          "line": 184,
           "expression": "publish_lms_user_update(&state, &user, None).await?;"
         }
       ],
@@ -19184,88 +19519,88 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:206:register_with_email": {
+    "infera-idp/src/user/routes.rs:207:register_with_email": {
       "name": "register_with_email",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 206,
-      "end_line": 237,
+      "line": 207,
+      "end_line": 238,
       "signature": "async fn register_with_email(\n    State(state): State<AppState>,\n    Json(payload): Json<EmailRegister>,\n    // ConnectInfo(addr): ConnectInfo<SocketAddrV4>,\n    // ConnectInfo(addrv6): ConnectInfo<SocketAddrV6>,\n    // TypedHeader(user_agent): TypedHeader<UserAgent>,\n) -> Result<Json<APIResponse<RegisterResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 213,
+          "line": 214,
           "expression": "crate::identity_authority::require_local_login(&state).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 214,
+          "line": 215,
           "expression": "// Validate inputs"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 216,
+          "line": 217,
           "expression": ".validate()"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 217,
+          "line": 218,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         }
       ],
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 213,
+          "line": 214,
           "expression": "crate::identity_authority::require_local_login(&state).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 217,
+          "line": 218,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 219,
+          "line": 220,
           "expression": "let user = match find_user_by_email(&*state.db, &payload.email).await? {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 221,
+          "line": 222,
           "expression": "None => register_user(&state, None, Some(payload.email), None, None).await?,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 224,
+          "line": 225,
           "expression": "publish_profile_user_update(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 225,
+          "line": 226,
           "expression": "publish_lms_user_update(&state, &user, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 227,
+          "line": 228,
           "expression": "let otp_result = generate_otp(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 230,
+          "line": 231,
           "expression": "status: \"success\".to_string(),"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 224,
+          "line": 225,
           "expression": "publish_profile_user_update(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 225,
+          "line": 226,
           "expression": "publish_lms_user_update(&state, &user, None).await?;"
         }
       ],
@@ -19293,113 +19628,113 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:247:register": {
+    "infera-idp/src/user/routes.rs:248:register": {
       "name": "register",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 247,
-      "end_line": 310,
+      "line": 248,
+      "end_line": 311,
       "signature": "async fn register(\n    State(state): State<AppState>,\n    Json(payload): Json<FullRegister>,\n) -> Result<Json<APIResponse<FindUserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 251,
+          "line": 252,
           "expression": "crate::identity_authority::require_local_login(&state).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 252,
+          "line": 253,
           "expression": "// Validate inputs"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 253,
+          "line": 254,
           "expression": "payload.validate().map_err(|e| {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 255,
+          "line": 256,
           "expression": "AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\")"
         }
       ],
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 251,
+          "line": 252,
           "expression": "crate::identity_authority::require_local_login(&state).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 255,
+          "line": 256,
           "expression": "AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\")"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 258,
+          "line": 259,
           "expression": "return Err(AppError::new(StatusCode::FORBIDDEN, \"registration cannot assign roles\"));"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 263,
+          "line": 264,
           "expression": "&*state.db,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 273,
+          "line": 274,
           "expression": "&state,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 286,
+          "line": 287,
           "expression": "&state,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 295,
+          "line": 296,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 297,
+          "line": 298,
           "expression": "publish_profile_user_update(&state, &updated_user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 298,
+          "line": 299,
           "expression": "publish_lms_user_update(&state, &updated_user, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 301,
+          "line": 302,
           "expression": "status: \"success\".to_string(),"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 284,
+          "line": 285,
           "expression": "// Update user info"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 285,
+          "line": 286,
           "expression": "update_user("
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 295,
+          "line": 296,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 297,
+          "line": 298,
           "expression": "publish_profile_user_update(&state, &updated_user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 298,
+          "line": 299,
           "expression": "publish_lms_user_update(&state, &updated_user, None).await?;"
         }
       ],
@@ -19485,37 +19820,37 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:319:user_find_self": {
+    "infera-idp/src/user/routes.rs:320:user_find_self": {
       "name": "user_find_self",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 319,
-      "end_line": 377,
+      "line": 320,
+      "end_line": 378,
       "signature": "async fn user_find_self(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n) -> Result<Json<APIResponse<UserSelfResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 341,
+          "line": 342,
           "expression": "let permissions: Vec<PermissionResponse> = get_user_permissions(&state, &token.user_id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 351,
+          "line": 352,
           "expression": "return PermissionResponse {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 368,
+          "line": 369,
           "expression": "permissions: permissions,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 374,
+          "line": 375,
           "expression": "StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 375,
+          "line": 376,
           "expression": "\"access unauthorized\","
         }
       ],
@@ -19523,42 +19858,42 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 324,
+          "line": 325,
           "expression": "let maybe_token = get_user_token(&state, &headers, &cookies).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 327,
+          "line": 328,
           "expression": "let Some(user) = find_user_by_id(&*state.db, &token.user_id).await? else {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 329,
+          "line": 330,
           "expression": "status: StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 333,
+          "line": 334,
           "expression": "let roles = get_user_roles(&state, &token.user_id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 341,
+          "line": 342,
           "expression": "let permissions: Vec<PermissionResponse> = get_user_permissions(&state, &token.user_id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 359,
+          "line": 360,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 366,
+          "line": 367,
           "expression": "status: user.status,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 374,
+          "line": 375,
           "expression": "StatusCode::UNAUTHORIZED,"
         }
       ],
@@ -19637,258 +19972,258 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:379:user_update_self": {
+    "infera-idp/src/user/routes.rs:380:user_update_self": {
       "name": "user_update_self",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 379,
-      "end_line": 489,
+      "line": 380,
+      "end_line": 490,
       "signature": "async fn user_update_self(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Json(mut payload): Json<UpdateUser>,\n) -> Result<Json<APIResponse<UserSelfResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 387,
+          "line": 388,
           "expression": ".ok_or_else(|| AppError::new(StatusCode::UNAUTHORIZED, \"access unauthorized\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 409,
+          "line": 410,
           "expression": "\"at least one identifier is required\","
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 468,
+          "line": 469,
           "expression": "let permissions = get_user_permissions(&state, &updated.id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 471,
+          "line": 472,
           "expression": ".map(|p| PermissionResponse {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 486,
+          "line": 487,
           "expression": "permissions,"
         }
       ],
       "validation": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 394,
+          "line": 395,
           "expression": ".filter(|v| !v.is_empty());"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 398,
+          "line": 399,
           "expression": ".filter(|v| !v.is_empty());"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 402,
+          "line": 403,
           "expression": ".filter(|v| !v.is_empty());"
-        },
-        {
-          "path": "infera-idp/src/user/routes.rs",
-          "line": 404,
-          "expression": ".validate()"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
           "line": 405,
+          "expression": ".validate()"
+        },
+        {
+          "path": "infera-idp/src/user/routes.rs",
+          "line": 406,
           "expression": ".map_err(|_| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 408,
+          "line": 409,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 417,
+          "line": 418,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 424,
+          "line": 425,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 432,
+          "line": 433,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 443,
+          "line": 444,
           "expression": "StatusCode::CONFLICT,"
         }
       ],
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 385,
+          "line": 386,
           "expression": "let token = get_user_token(&state, &headers, &cookies)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 387,
+          "line": 388,
           "expression": ".ok_or_else(|| AppError::new(StatusCode::UNAUTHORIZED, \"access unauthorized\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 388,
+          "line": 389,
           "expression": "let user = find_user_by_id(&*state.db, &token.user_id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 390,
+          "line": 391,
           "expression": ".ok_or_else(|| AppError::new(StatusCode::NOT_FOUND, \"User not found\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 405,
+          "line": 406,
           "expression": ".map_err(|_| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 408,
+          "line": 409,
           "expression": "StatusCode::UNPROCESSABLE_ENTITY,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 417,
+          "line": 418,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 422,
+          "line": 423,
           "expression": "if find_user_by_phone(&*state.db, phone).await?.is_some() {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 424,
+          "line": 425,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 430,
+          "line": 431,
           "expression": "if find_user_by_email(&*state.db, email).await?.is_some() {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 432,
+          "line": 433,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 438,
+          "line": 439,
           "expression": "&& find_user_by_info(&*state.db, &None, &None, &payload.national_code)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 443,
+          "line": 444,
           "expression": "StatusCode::CONFLICT,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 448,
+          "line": 449,
           "expression": "&state,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 457,
+          "line": 458,
           "expression": "let updated = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 458,
+          "line": 459,
           "expression": "publish_profile_user_update(&state, &updated).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 459,
+          "line": 460,
           "expression": "publish_lms_user_update(&state, &updated, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 460,
+          "line": 461,
           "expression": "let roles = get_user_roles(&state, &updated.id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 468,
+          "line": 469,
           "expression": "let permissions = get_user_permissions(&state, &updated.id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 477,
+          "line": 478,
           "expression": "status: \"success\".into(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 484,
+          "line": 485,
           "expression": "status: updated.status,"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 447,
+          "line": 448,
           "expression": "update_user("
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 457,
+          "line": 458,
           "expression": "let updated = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 458,
+          "line": 459,
           "expression": "publish_profile_user_update(&state, &updated).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 459,
+          "line": 460,
           "expression": "publish_lms_user_update(&state, &updated, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 460,
+          "line": 461,
           "expression": "let roles = get_user_roles(&state, &updated.id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 468,
+          "line": 469,
           "expression": "let permissions = get_user_permissions(&state, &updated.id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 478,
+          "line": 479,
           "expression": "message: \"User updated\".into(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 480,
+          "line": 481,
           "expression": "id: updated.id,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 481,
+          "line": 482,
           "expression": "phone: updated.phone,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 482,
+          "line": 483,
           "expression": "email: updated.email,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 483,
+          "line": 484,
           "expression": "national_code: updated.national_code,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 484,
+          "line": 485,
           "expression": "status: updated.status,"
         }
       ],
@@ -20054,22 +20389,22 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:86:users_directory": {
+    "infera-idp/src/user/routes.rs:87:users_directory": {
       "name": "users_directory",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 86,
-      "end_line": 147,
+      "line": 87,
+      "end_line": 148,
       "signature": "async fn users_directory(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Query(query): Query<DirectoryQuery>,\n) -> Result<Json<APIResponse<DirectoryUserListResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 94,
+          "line": 95,
           "expression": "StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 95,
+          "line": 96,
           "expression": "\"access unauthorized\","
         }
       ],
@@ -20077,27 +20412,27 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 92,
+          "line": 93,
           "expression": "if get_user_token(&state, &headers, &cookies).await?.is_none() {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 94,
+          "line": 95,
           "expression": "StatusCode::UNAUTHORIZED,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 101,
+          "line": 102,
           "expression": "StatusCode::BAD_REQUEST,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 106,
+          "line": 107,
           "expression": "&state,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 143,
+          "line": 144,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -20140,17 +20475,17 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:498:users_stats": {
+    "infera-idp/src/user/routes.rs:499:users_stats": {
       "name": "users_stats",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 498,
-      "end_line": 511,
+      "line": 499,
+      "end_line": 512,
       "signature": "async fn users_stats(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n) -> Result<Json<APIResponse<UserStatsResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 503,
+          "line": 504,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserRead]).await?;"
         }
       ],
@@ -20158,17 +20493,17 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 503,
+          "line": 504,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserRead]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 504,
+          "line": 505,
           "expression": "let stats = get_users_stats(&state).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 507,
+          "line": 508,
           "expression": "status: \"success\".to_string(),"
         }
       ],
@@ -20211,17 +20546,17 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:513:users_registration_stats": {
+    "infera-idp/src/user/routes.rs:514:users_registration_stats": {
       "name": "users_registration_stats",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 513,
-      "end_line": 533,
+      "line": 514,
+      "end_line": 534,
       "signature": "async fn users_registration_stats(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Query(query): Query<RegistrationStatsQuery>,\n) -> Result<Json<APIResponse<RegistrationStatsResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 519,
+          "line": 520,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserRead]).await?;"
         }
       ],
@@ -20229,22 +20564,22 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 519,
+          "line": 520,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserRead]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 523,
+          "line": 524,
           "expression": "StatusCode::BAD_REQUEST,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 527,
+          "line": 528,
           "expression": "let stats = get_registration_stats(&state, range).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 529,
+          "line": 530,
           "expression": "status: \"success\".into(),"
         }
       ],
@@ -20287,11 +20622,11 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:995:sync_users": {
+    "infera-idp/src/user/routes.rs:998:sync_users": {
       "name": "sync_users",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 995,
-      "end_line": 1003,
+      "line": 998,
+      "end_line": 1006,
       "signature": "async fn sync_users(State(state): State<AppState>) -> Result<Json<APIResponse<bool>>, AppError>",
       "declared_permissions": [],
       "guards": [],
@@ -20299,45 +20634,45 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 996,
+          "line": 999,
           "expression": "publish_lms_all_users(&state).await;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 997,
+          "line": 1000,
           "expression": "let profile_count = publish_profile_all_users(&state).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 999,
+          "line": 1002,
           "expression": "status: \"success\".to_string(),"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 996,
+          "line": 999,
           "expression": "publish_lms_all_users(&state).await;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 997,
+          "line": 1000,
           "expression": "let profile_count = publish_profile_all_users(&state).await?;"
         }
       ],
       "calls": []
     },
-    "infera-idp/src/user/routes.rs:656:user_find": {
+    "infera-idp/src/user/routes.rs:658:user_find": {
       "name": "user_find",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 656,
-      "end_line": 677,
+      "line": 658,
+      "end_line": 679,
       "signature": "async fn user_find(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path((user_id)): Path<(Uuid)>,\n) -> Result<Json<APIResponse<UserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 662,
+          "line": 664,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserRead]).await?;"
         }
       ],
@@ -20345,277 +20680,277 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 662,
+          "line": 664,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserRead]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 663,
+          "line": 665,
           "expression": "let Some(user) = find_user_by_id(&*state.db, &user_id).await? else {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 665,
+          "line": 667,
           "expression": "status: StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 671,
+          "line": 673,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 674,
+          "line": 676,
           "expression": "user: to_user_resource(&state, &user).await?,"
         }
       ],
       "effects": [],
       "calls": []
     },
-    "infera-idp/src/user/routes.rs:689:user_update": {
+    "infera-idp/src/user/routes.rs:691:user_update": {
       "name": "user_update",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 689,
-      "end_line": 745,
+      "line": 691,
+      "end_line": 747,
       "signature": "async fn user_update(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path((user_id)): Path<(Uuid)>,\n    Json(mut payload): Json<UpdateUser>,\n) -> Result<Json<APIResponse<UserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 696,
+          "line": 698,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserUpdate]).await?;"
         }
       ],
       "validation": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 704,
+          "line": 706,
           "expression": "if payload.phone.clone().unwrap().len() == 0 {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 709,
+          "line": 711,
           "expression": "if payload.email.clone().unwrap().len() == 0 {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 714,
+          "line": 716,
           "expression": "if payload.national_code.clone().unwrap().len() == 0 {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 718,
+          "line": 720,
           "expression": "// Validate inputs"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 720,
+          "line": 722,
           "expression": ".validate()"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 721,
+          "line": 723,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         }
       ],
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 696,
+          "line": 698,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserUpdate]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 697,
+          "line": 699,
           "expression": "let Some(user) = find_user_by_id(&*state.db, &user_id).await? else {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 699,
+          "line": 701,
           "expression": "status: StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 721,
+          "line": 723,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 724,
+          "line": 726,
           "expression": "&state,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 733,
+          "line": 735,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 735,
+          "line": 737,
           "expression": "publish_profile_user_update(&state, &updated_user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 736,
+          "line": 738,
           "expression": "publish_lms_user_update(&state, &updated_user, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 739,
+          "line": 741,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 742,
+          "line": 744,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 696,
+          "line": 698,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserUpdate]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 723,
+          "line": 725,
           "expression": "update_user("
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 733,
+          "line": 735,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 735,
+          "line": 737,
           "expression": "publish_profile_user_update(&state, &updated_user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 736,
+          "line": 738,
           "expression": "publish_lms_user_update(&state, &updated_user, None).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 740,
+          "line": 742,
           "expression": "message: \"User updated\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 742,
+          "line": 744,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
       "calls": []
     },
-    "infera-idp/src/user/routes.rs:757:change_password": {
+    "infera-idp/src/user/routes.rs:759:change_password": {
       "name": "change_password",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 757,
-      "end_line": 796,
+      "line": 759,
+      "end_line": 798,
       "signature": "async fn change_password(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path((user_id)): Path<(Uuid)>,\n    Json(mut payload): Json<UpdateUserPassword>,\n) -> Result<Json<APIResponse<UserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 764,
+          "line": 766,
           "expression": "let _ = require_user_permission("
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 768,
+          "line": 770,
           "expression": "vec![Permission::UserChangePassword],"
         }
       ],
       "validation": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 777,
+          "line": 779,
           "expression": "// Validate inputs"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 779,
+          "line": 781,
           "expression": ".validate()"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 780,
+          "line": 782,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         }
       ],
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 765,
+          "line": 767,
           "expression": "&state,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 771,
+          "line": 773,
           "expression": "let Some(user) = find_user_by_id(&*state.db, &user_id).await? else {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 773,
+          "line": 775,
           "expression": "status: StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 780,
+          "line": 782,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 782,
+          "line": 784,
           "expression": "update_user(&state, &user, &None, &None, &None, &payload.password, false).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 783,
+          "line": 785,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 786,
+          "line": 788,
           "expression": "publish_lms_user_update(&state, &updated_user, Some(payload.password.unwrap())).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 790,
+          "line": 792,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 793,
+          "line": 795,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 782,
+          "line": 784,
           "expression": "update_user(&state, &user, &None, &None, &None, &payload.password, false).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 783,
+          "line": 785,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 786,
+          "line": 788,
           "expression": "publish_lms_user_update(&state, &updated_user, Some(payload.password.unwrap())).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 791,
+          "line": 793,
           "expression": "message: \"User password updated\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 793,
+          "line": 795,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
@@ -20641,116 +20976,427 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:808:change_roles": {
+    "infera-idp/src/user/memberships.rs:163:read": {
+      "name": "read",
+      "path": "infera-idp/src/user/memberships.rs",
+      "line": 163,
+      "end_line": 186,
+      "signature": "pub async fn read(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path(id): Path<Uuid>,\n) -> Result<Json<APIResponse<UserRoleMembershipSnapshot>>, AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 169,
+          "expression": "require_user_permission("
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 173,
+          "expression": "vec![Permission::AclRead],"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 178,
+          "expression": "require_user_permission(&state, headers, cookies, vec![Permission::AclRead]).await?;"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 183,
+          "expression": "message: \"Current user role memberships\".into(),"
+        }
+      ],
+      "validation": [],
+      "state": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 170,
+          "expression": "&state,"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 176,
+          "expression": "let tx = state.db.begin().await.map_err(failure)?;"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 178,
+          "expression": "require_user_permission(&state, headers, cookies, vec![Permission::AclRead]).await?;"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 182,
+          "expression": "status: \"success\".into(),"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 180,
+          "expression": "tx.commit().await.map_err(failure)?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-idp/src/user/memberships.rs:26:UserRoleMembershipSnapshot": {
+      "name": "UserRoleMembershipSnapshot",
+      "kind": "struct",
+      "path": "infera-idp/src/user/memberships.rs",
+      "line": 26,
+      "attributes": "#[derive(Debug, Serialize, Deserialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "user_id",
+          "rust_name": "user_id",
+          "rust_type": "Uuid",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "user_status",
+          "rust_name": "user_status",
+          "rust_type": "i16",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "revision",
+          "rust_name": "revision",
+          "rust_type": "String",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "memberships",
+          "rust_name": "memberships",
+          "rust_type": "Vec<Value>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-idp/src/user/memberships.rs:188:add": {
+      "name": "add",
+      "path": "infera-idp/src/user/memberships.rs",
+      "line": 188,
+      "end_line": 225,
+      "signature": "pub async fn add(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path(id): Path<Uuid>,\n    Json(input): Json<AddUserRoleMemberships>,\n) -> Result<Json<APIResponse<AddUserRoleMembershipsResult>>, AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 195,
+          "expression": "let actor = require_user_permission("
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 199,
+          "expression": "vec![Permission::AclRead, Permission::AclUpdate],"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 205,
+          "expression": "require_user_permission("
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 209,
+          "expression": "vec![Permission::AclRead, Permission::AclUpdate],"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 215,
+          "expression": "\"target user must already be enabled; membership addition never activates accounts\","
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 222,
+          "expression": "message: \"Role memberships added\".into(),"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 202,
+          "expression": "let ids = validated_ids(&input.add_role_ids)?;"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 214,
+          "expression": "StatusCode::CONFLICT,"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 196,
+          "expression": "&state,"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 203,
+          "expression": "let tx = state.db.begin().await.map_err(failure)?;"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 206,
+          "expression": "&state,"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 212,
+          "expression": "if user.status != 1 {"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 214,
+          "expression": "StatusCode::CONFLICT,"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 221,
+          "expression": "status: \"success\".into(),"
+        }
+      ],
+      "effects": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 199,
+          "expression": "vec![Permission::AclRead, Permission::AclUpdate],"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 209,
+          "expression": "vec![Permission::AclRead, Permission::AclUpdate],"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 219,
+          "expression": "tx.commit().await.map_err(failure)?;"
+        }
+      ],
+      "calls": []
+    },
+    "infera-idp/src/user/memberships.rs:35:AddUserRoleMemberships": {
+      "name": "AddUserRoleMemberships",
+      "kind": "struct",
+      "path": "infera-idp/src/user/memberships.rs",
+      "line": 35,
+      "attributes": "#[derive(Debug, Deserialize, ToSchema)]\n#[serde(deny_unknown_fields)]",
+      "fields": [
+        {
+          "name": "add_role_ids",
+          "rust_name": "add_role_ids",
+          "rust_type": "Vec<Uuid>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-idp/src/user/memberships.rs:39:AddUserRoleMembershipsResult": {
+      "name": "AddUserRoleMembershipsResult",
+      "kind": "struct",
+      "path": "infera-idp/src/user/memberships.rs",
+      "line": 39,
+      "attributes": "#[derive(Debug, Serialize, Deserialize, ToSchema)]",
+      "fields": [
+        {
+          "name": "snapshot",
+          "rust_name": "snapshot",
+          "rust_type": "UserRoleMembershipSnapshot",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        },
+        {
+          "name": "added_role_ids",
+          "rust_name": "added_role_ids",
+          "rust_type": "Vec<Uuid>",
+          "optional": false,
+          "defaulted": false,
+          "flatten": false,
+          "attributes": []
+        }
+      ]
+    },
+    "infera-idp/src/user/routes.rs:810:change_roles": {
       "name": "change_roles",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 808,
-      "end_line": 841,
+      "line": 810,
+      "end_line": 844,
       "signature": "async fn change_roles(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path((user_id)): Path<(Uuid)>,\n    Json(payload): Json<UpdateUserRoles>,\n) -> Result<Json<APIResponse<UserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 815,
-          "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::AclUpdate]).await?;"
+          "line": 817,
+          "expression": "let _ = require_user_permission(&state, headers.clone(), cookies.clone(), vec![Permission::AclUpdate]).await?;"
+        },
+        {
+          "path": "infera-idp/src/user/routes.rs",
+          "line": 830,
+          "expression": "let revision=super::memberships::expected_revision(&headers)?;"
         }
       ],
       "validation": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 822,
+          "line": 824,
           "expression": "// Validate inputs"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 824,
+          "line": 826,
           "expression": ".validate()"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 825,
+          "line": 827,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         }
       ],
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 815,
-          "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::AclUpdate]).await?;"
-        },
-        {
-          "path": "infera-idp/src/user/routes.rs",
-          "line": 816,
-          "expression": "let Some(user) = find_user_by_id(&*state.db, &user_id).await? else {"
+          "line": 817,
+          "expression": "let _ = require_user_permission(&state, headers.clone(), cookies.clone(), vec![Permission::AclUpdate]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
           "line": 818,
+          "expression": "let Some(user) = find_user_by_id(&*state.db, &user_id).await? else {"
+        },
+        {
+          "path": "infera-idp/src/user/routes.rs",
+          "line": 820,
           "expression": "status: StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 825,
+          "line": 827,
           "expression": ".map_err(|_e| AppError::new(StatusCode::UNPROCESSABLE_ENTITY, \"validation error\"))?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 828,
-          "expression": "update_user_roles(&state, &user_id, &payload.roles.unwrap()).await?;"
+          "line": 831,
+          "expression": "update_user_roles(&state, &user_id, &payload.roles.unwrap(), &revision, Some((headers,cookies))).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 830,
+          "line": 833,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 832,
+          "line": 835,
           "expression": "publish_profile_user_update(&state, &updated_user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 835,
+          "line": 838,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 838,
+          "line": 841,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 815,
-          "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::AclUpdate]).await?;"
+          "line": 817,
+          "expression": "let _ = require_user_permission(&state, headers.clone(), cookies.clone(), vec![Permission::AclUpdate]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 828,
-          "expression": "update_user_roles(&state, &user_id, &payload.roles.unwrap()).await?;"
+          "line": 831,
+          "expression": "update_user_roles(&state, &user_id, &payload.roles.unwrap(), &revision, Some((headers,cookies))).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 830,
+          "line": 833,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 832,
+          "line": 835,
           "expression": "publish_profile_user_update(&state, &updated_user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 836,
+          "line": 839,
           "expression": "message: \"User roles updated\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 838,
+          "line": 841,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
+      "calls": [
+        "super::memberships::expected_revision"
+      ]
+    },
+    "infera-idp/src/user/memberships.rs:135:expected_revision": {
+      "name": "expected_revision",
+      "path": "infera-idp/src/user/memberships.rs",
+      "line": 135,
+      "end_line": 154,
+      "signature": "pub(crate) fn expected_revision(headers: &HeaderMap) -> Result<String, AppError>",
+      "declared_permissions": [],
+      "guards": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 137,
+          "expression": ".get(axum::http::header::IF_MATCH)"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 141,
+          "expression": "StatusCode::PRECONDITION_REQUIRED,"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 142,
+          "expression": "\"If-Match membership revision required\","
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 151,
+          "expression": "return Err(bad(\"invalid membership revision\"));"
+        }
+      ],
+      "validation": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 146,
+          "expression": "if raw.len() != 64"
+        },
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 149,
+          "expression": ".all(|b| b.is_ascii_digit() || (b'a'..=b'f').contains(&b))"
+        }
+      ],
+      "state": [
+        {
+          "path": "infera-idp/src/user/memberships.rs",
+          "line": 141,
+          "expression": "StatusCode::PRECONDITION_REQUIRED,"
+        }
+      ],
+      "effects": [],
       "calls": []
     },
     "infera-idp/src/user/models.rs:230:UpdateUserRoles": {
@@ -20771,17 +21417,17 @@
         }
       ]
     },
-    "infera-idp/src/user/routes.rs:853:user_delete": {
+    "infera-idp/src/user/routes.rs:856:user_delete": {
       "name": "user_delete",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 853,
-      "end_line": 882,
+      "line": 856,
+      "end_line": 885,
       "signature": "async fn user_delete(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path((user_id)): Path<(Uuid)>,\n) -> Result<Json<APIResponse<UserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 860,
+          "line": 863,
           "expression": "require_user_permission(&state, headers, cookies, vec![Permission::UserDelete]).await?;"
         }
       ],
@@ -20789,75 +21435,75 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 860,
+          "line": 863,
           "expression": "require_user_permission(&state, headers, cookies, vec![Permission::UserDelete]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 861,
+          "line": 864,
           "expression": "let Some(user) = find_user_by_id(&*state.db, &user_id).await? else {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 863,
+          "line": 866,
           "expression": "status: StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 869,
+          "line": 872,
           "expression": "status: StatusCode::NOT_ACCEPTABLE,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 873,
+          "line": 876,
           "expression": "delete_user(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 876,
+          "line": 879,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 879,
+          "line": 882,
           "expression": "user: to_user_resource(&state, &user).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 860,
+          "line": 863,
           "expression": "require_user_permission(&state, headers, cookies, vec![Permission::UserDelete]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 870,
+          "line": 873,
           "expression": "message: \"User cannot delete self\","
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 873,
+          "line": 876,
           "expression": "delete_user(&state, &user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 877,
+          "line": 880,
           "expression": "message: \"User deleted\".to_string(),"
         }
       ],
       "calls": []
     },
-    "infera-idp/src/user/routes.rs:945:user_logout": {
+    "infera-idp/src/user/routes.rs:948:user_logout": {
       "name": "user_logout",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 945,
-      "end_line": 969,
+      "line": 948,
+      "end_line": 972,
       "signature": "async fn user_logout(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path((user_id)): Path<(Uuid)>,\n) -> Result<Json<APIResponse<UserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 951,
+          "line": 954,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserLogout]).await?;"
         }
       ],
@@ -20865,70 +21511,70 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 951,
+          "line": 954,
           "expression": "let _ = require_user_permission(&state, headers, cookies, vec![Permission::UserLogout]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 952,
+          "line": 955,
           "expression": "let Some(user) = find_user_by_id(&*state.db, &user_id).await? else {"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 954,
+          "line": 957,
           "expression": "status: StatusCode::NOT_FOUND,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 958,
+          "line": 961,
           "expression": "propagate_user_logout(&state, user.id).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 959,
+          "line": 962,
           "expression": "force_logout_user(&state, &user.id).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 960,
+          "line": 963,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 963,
+          "line": 966,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 966,
+          "line": 969,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 960,
+          "line": 963,
           "expression": "let updated_user = find_user_by_id(&*state.db, &user.id).await?.unwrap();"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 966,
+          "line": 969,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
       "calls": []
     },
-    "infera-idp/src/user/routes.rs:894:user_set_status": {
+    "infera-idp/src/user/routes.rs:897:user_set_status": {
       "name": "user_set_status",
       "path": "infera-idp/src/user/routes.rs",
-      "line": 894,
-      "end_line": 933,
+      "line": 897,
+      "end_line": 936,
       "signature": "async fn user_set_status(\n    State(state): State<AppState>,\n    headers: HeaderMap,\n    cookies: Cookies,\n    Path((user_id)): Path<(Uuid)>,\n    Json(payload): Json<UpdateUserStatus>,\n) -> Result<Json<APIResponse<UserResponse>>, AppError>",
       "declared_permissions": [],
       "guards": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 902,
+          "line": 905,
           "expression": "require_user_permission(&state, headers, cookies, vec![Permission::UserUpdate]).await?;"
         }
       ],
@@ -20936,79 +21582,79 @@
       "state": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 902,
+          "line": 905,
           "expression": "require_user_permission(&state, headers, cookies, vec![Permission::UserUpdate]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 905,
+          "line": 908,
           "expression": "StatusCode::NOT_ACCEPTABLE,"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 910,
+          "line": 913,
           "expression": "let status = if payload.enabled { 1 } else { 0 };"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 911,
+          "line": 914,
           "expression": "let updated_user = set_user_status_by_id(&state, &user_id, status).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 912,
+          "line": 915,
           "expression": "let updated_user = find_user_by_id(&*state.db, &updated_user.id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 916,
+          "line": 919,
           "expression": "publish_profile_user_update(&state, &updated_user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 918,
+          "line": 921,
           "expression": "propagate_user_logout(&state, user_id).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 919,
+          "line": 922,
           "expression": "force_logout_user(&state, &user_id).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 923,
+          "line": 926,
           "expression": "status: \"success\".to_string(),"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 930,
+          "line": 933,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],
       "effects": [
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 902,
+          "line": 905,
           "expression": "require_user_permission(&state, headers, cookies, vec![Permission::UserUpdate]).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 911,
+          "line": 914,
           "expression": "let updated_user = set_user_status_by_id(&state, &user_id, status).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 912,
+          "line": 915,
           "expression": "let updated_user = find_user_by_id(&*state.db, &updated_user.id)"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 916,
+          "line": 919,
           "expression": "publish_profile_user_update(&state, &updated_user).await?;"
         },
         {
           "path": "infera-idp/src/user/routes.rs",
-          "line": 930,
+          "line": 933,
           "expression": "user: to_user_resource(&state, &updated_user).await?,"
         }
       ],

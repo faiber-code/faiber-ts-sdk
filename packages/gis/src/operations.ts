@@ -113,7 +113,7 @@ export class GisOperations extends ServiceApi {
    * Calls `GET /api/v1/imports` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed service envelope, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Current trusted BFF bearer plus user/organization UUID and trusted permissions, or current IDP-validated cookie; cookie mutations require exact configured origin. Dataset native access: global write requires gis:global:manage; organization write same organization plus gis:dataset:manage; user write same organization and owner or gis:dataset:manage. Read organization scope allows same organization; global published/public readable. No role-name inference..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Authenticated actor within its organization: only owned jobs, or all organization jobs with gis:dataset:manage. At most100 newest jobs; no pagination. Listing does not fetch current issuer grants and never exposes lease_id..
    */
   imports(options?: RequestOptions) {
     return this.client.request<T.ImportsResponse>({ ...options, method: "GET", url: `/api/v1/imports` });
