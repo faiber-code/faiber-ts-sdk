@@ -21,7 +21,7 @@
     },
     "flow": {
       "directory": "infera-flow",
-      "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
+      "revision": "a9a0f523379733ecbdec07d4ebf43dda67fee767"
     },
     "idp": {
       "directory": "infera-idp",
@@ -41,7 +41,7 @@
     },
     "modules": {
       "directory": "infera-modules",
-      "revision": "85e42a5f1440b78564f23b4bbf7723a0797d3470"
+      "revision": "2a1063315b85c4c222763b88a463b489b2e6d521"
     },
     "payment": {
       "directory": "infera-payment",
@@ -85,7 +85,7 @@
     "packages/sdk/src/index.ts": "1bdfc0b798a3155ed5969ff7a938af59004bb3ea9d75051a359c6f1d95968161"
   },
   "capability_review_sha256": null,
-  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "source_pin_file_sha256": "9c7bd018aab5e3f8f64c11e9841f1423b82f339e9dd686ad4a042cb0e6dbc96b",
   "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "shared-client-or-facade"

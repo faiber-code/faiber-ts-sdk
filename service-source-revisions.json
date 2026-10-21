@@ -17,7 +17,7 @@
   },
   "flow": {
     "directory": "infera-flow",
-    "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
+    "revision": "a9a0f523379733ecbdec07d4ebf43dda67fee767"
   },
   "idp": {
     "directory": "infera-idp",
@@ -37,7 +37,7 @@
   },
   "modules": {
     "directory": "infera-modules",
-    "revision": "85e42a5f1440b78564f23b4bbf7723a0797d3470"
+    "revision": "2a1063315b85c4c222763b88a463b489b2e6d521"
   },
   "payment": {
     "directory": "infera-payment",

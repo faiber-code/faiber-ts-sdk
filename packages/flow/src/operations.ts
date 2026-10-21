@@ -7,7 +7,7 @@ export class FlowOperations extends ServiceApi {
    * Calls `GET /` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   routerStatusRouteGet(options?: RequestOptions) {
     return this.client.request<T.RouterStatusRouteGetResponse>({ ...options, method: "GET", url: `/` });
@@ -17,7 +17,7 @@ export class FlowOperations extends ServiceApi {
    * Calls `GET /api/v1/catalog/actions` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   catalogActionsGet(options?: RequestOptions) {
     return this.client.request<T.CatalogActionsGetResponse>({ ...options, method: "GET", url: `/api/v1/catalog/actions` });
@@ -27,7 +27,7 @@ export class FlowOperations extends ServiceApi {
    * Calls `POST /api/v1/catalog/sync` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: catalog:sync. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: catalog:sync. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   catalogSyncPost(options?: RequestOptions) {
     return this.client.request<T.CatalogSyncPostResponse>({ ...options, method: "POST", url: `/api/v1/catalog/sync` });
@@ -37,7 +37,7 @@ export class FlowOperations extends ServiceApi {
    * Calls `GET /api/v1/catalog/triggers` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   catalogTriggersGet(options?: RequestOptions) {
     return this.client.request<T.CatalogTriggersGetResponse>({ ...options, method: "GET", url: `/api/v1/catalog/triggers` });
@@ -49,7 +49,7 @@ export class FlowOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:execute. Handler explicitly checks AuthContext flow:execute or *; roles alone are insufficient. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:execute. Handler explicitly checks AuthContext flow:execute or *; roles alone are insufficient. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   eventEmitPost(eventKey: Identifier, data: T.EventEmitPostInput, options?: RequestOptions<T.EventEmitPostInput>) {
     return this.client.request<T.EventEmitPostResponse, T.EventEmitPostInput>({ ...options, method: "POST", url: `/api/v1/events/${encodeURIComponent(eventKey)}`, data: data, headers: { "Content-Type": "application/json", ...options?.headers } });
@@ -59,7 +59,7 @@ export class FlowOperations extends ServiceApi {
    * Calls `GET /api/v1/flows` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   flowIndexGet(options?: RequestOptions) {
     return this.client.request<T.FlowIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/flows` });
@@ -70,7 +70,7 @@ export class FlowOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:create. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:create. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   flowStorePost(data: T.FlowStorePostInput, options?: RequestOptions<T.FlowStorePostInput>) {
     return this.client.request<T.FlowStorePostResponse, T.FlowStorePostInput>({ ...options, method: "POST", url: `/api/v1/flows`, data: data });
@@ -81,7 +81,7 @@ export class FlowOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:delete. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:delete. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   flowDestroyDelete(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.FlowDestroyDeleteResponse>({ ...options, method: "DELETE", url: `/api/v1/flows/${encodeURIComponent(id)}` });
@@ -92,7 +92,7 @@ export class FlowOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   flowShowGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.FlowShowGetResponse>({ ...options, method: "GET", url: `/api/v1/flows/${encodeURIComponent(id)}` });
@@ -104,7 +104,7 @@ export class FlowOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   flowUpdatePut(id: Identifier, data: T.FlowUpdatePutInput, options?: RequestOptions<T.FlowUpdatePutInput>) {
     return this.client.request<T.FlowUpdatePutResponse, T.FlowUpdatePutInput>({ ...options, method: "PUT", url: `/api/v1/flows/${encodeURIComponent(id)}`, data: data });
@@ -115,7 +115,7 @@ export class FlowOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   flowValidatePost(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.FlowValidatePostResponse>({ ...options, method: "POST", url: `/api/v1/flows/${encodeURIComponent(id)}/validate` });
@@ -126,17 +126,17 @@ export class FlowOperations extends ServiceApi {
    * @param data Typed JSON request body.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:create, flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow:create, flow:update. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   flowImportPost(data: T.FlowImportPostInput, options?: RequestOptions<T.FlowImportPostInput>) {
     return this.client.request<T.FlowImportPostResponse, T.FlowImportPostInput>({ ...options, method: "POST", url: `/api/v1/flows/import`, data: data });
   }
   /**
-   * Read integration metadata; queue flow_queue and empty events. Concrete shared metadata inspected in candidate dependency source; exact dependency revision remains unresolved. Success envelope is {status:"success",message:"ok",data}; AppError uses {error:string}, database/broker failures500 and malformed extractors use Axum rejection responses.
+   * Read integration metadata; queue flow_queue and empty events. Concrete shared metadata inspected in pinned dependency source; dependency is pinned to faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Success envelope is {status:"success",message:"ok",data}; AppError uses {error:string}, database/broker failures500 and malformed extractors use Axum rejection responses.
    * Calls `GET /api/v1/integration/flow` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   routerIntegrationFlowGet(options?: RequestOptions) {
     return this.client.request<T.RouterIntegrationFlowGetResponse>({ ...options, method: "GET", url: `/api/v1/integration/flow` });
@@ -147,7 +147,7 @@ export class FlowOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   registryActiveTriggersGet(params?: T.RegistryActiveTriggersGetQuery, options?: RequestOptions) {
     return this.client.request<T.RegistryActiveTriggersGetResponse>({ ...options, method: "GET", url: `/api/v1/registry/active-triggers`, params });
@@ -158,7 +158,7 @@ export class FlowOperations extends ServiceApi {
    * @param params Typed query parameters; omitted members retain backend defaults.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow_run:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow_run:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   runIndexGet(params?: T.RunIndexGetQuery, options?: RequestOptions) {
     return this.client.request<T.RunIndexGetResponse>({ ...options, method: "GET", url: `/api/v1/runs`, params });
@@ -169,7 +169,7 @@ export class FlowOperations extends ServiceApi {
    * @param id Backend path identifier `id`.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow_run:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: Declared IDP metadata: flow_run:read. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   runShowGet(id: Identifier, options?: RequestOptions) {
     return this.client.request<T.RunShowGetResponse>({ ...options, method: "GET", url: `/api/v1/runs/${encodeURIComponent(id)}` });
@@ -179,7 +179,7 @@ export class FlowOperations extends ServiceApi {
    * Calls `GET /health` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   routerStatusRouteGetHealth(options?: RequestOptions) {
     return this.client.request<T.RouterStatusRouteGetHealthResponse>({ ...options, method: "GET", url: `/health` });
@@ -189,7 +189,7 @@ export class FlowOperations extends ServiceApi {
    * Calls `GET /up` through the shared IDP-aware Faiber client.
    * @param options Axios headers, timeout, cancellation signal, credentials, adapter, and other request options.
    * @returns The complete Axios response, including the typed handler payload, status, and headers.
-   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; inspected candidate IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Exact dependency revision is unresolved. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
+   * @throws AxiosError for authentication, permission, validation, not-found, conflict, or transport failures; required permission: No declared handler permission. No handler-local permission enforcement. Global imported auth_extractor_middleware; pinned IDP macro registers metadata and middleware trusts x-user-* with dev-fallback, not token verification. Dependency is pinned to reviewed faiber-sdk 291c81a67bc302d667fb807da2af3240598bee52. Use enforcing gateway; FaiberClient forwards configured Bearer/cookie credentials..
    */
   routerStatusRouteGetUp(options?: RequestOptions) {
     return this.client.request<T.RouterStatusRouteGetUpResponse>({ ...options, method: "GET", url: `/up` });

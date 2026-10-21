@@ -5,17 +5,17 @@
   "source_revisions": {
     "flow": {
       "directory": "infera-flow",
-      "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
+      "revision": "a9a0f523379733ecbdec07d4ebf43dda67fee767"
     }
   },
   "package_source_sha256": {
     "packages/flow/src/index.ts": "0a16ef38f66c01b6c1dacf5d99545c5a4c16196ae3d27cc54e1a0897e7099892",
-    "packages/flow/src/operations.ts": "d30cde4df57aa34b409ccc82d5c6821c8b0c02ffa3825652d8b7e3c5fc071e87",
+    "packages/flow/src/operations.ts": "abe5f8236170b48da69187bc301432bce91131c5306c5bfe0386648166973367",
     "packages/flow/src/operations.types.ts": "135caacafa7c1642f3436e9c059436b0c02a866dac87561641807d5bb9bb8846",
     "packages/flow/src/types.ts": "166900d0963f35a50b926b4b50a8f5cb88bc22c24fb988db685bee34b50a7786"
   },
   "capability_review_sha256": "2c12bcd97ab289ee2d049f7b55845a54789f704084c9511ce59c15e7348548e2",
-  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "source_pin_file_sha256": "9c7bd018aab5e3f8f64c11e9841f1423b82f339e9dd686ad4a042cb0e6dbc96b",
   "http_contract_file_sha256": "03e43d9ad0ed41f7dea7680fdc9ab1b73b80b02ce60eb9514236c684e120188f",
   "public_contract": {
     "kind": "source-extracted-http",

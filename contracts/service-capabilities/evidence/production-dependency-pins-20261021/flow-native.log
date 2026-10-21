@@ -1,0 +1,102 @@
+   Compiling cc v1.2.67
+   Compiling tokio v1.52.3
+   Compiling cmake v0.1.58
+   Compiling aws-lc-sys v0.42.0
+   Compiling ring v0.17.14
+   Compiling serde_json v1.0.150
+   Compiling futures-util v0.3.32
+   Compiling zerocopy v0.8.54
+   Compiling http-body v1.0.1
+   Compiling ppv-lite86 v0.2.21
+   Compiling tokio-util v0.7.18
+   Compiling asn1-rs v0.7.2
+   Compiling rand_chacha v0.3.1
+   Compiling tokio-stream v0.1.18
+   Compiling rand v0.8.6
+   Compiling h2 v0.4.15
+   Compiling regex-automata v0.4.15
+   Compiling hyper v1.10.1
+   Compiling oid-registry v0.8.1
+   Compiling der-parser v10.0.0
+   Compiling http-body-util v0.1.3
+   Compiling hyper-util v0.1.20
+   Compiling x509-parser v0.18.1
+   Compiling sea-query v0.32.7
+   Compiling sha1 v0.10.7
+   Compiling amq-protocol-types v8.3.1
+   Compiling p12-keystore v0.2.1
+   Compiling tower v0.5.3
+   Compiling tokio-native-tls v0.3.1
+   Compiling amq-protocol-uri v8.3.1
+   Compiling matchers v0.2.0
+   Compiling regex v1.13.0
+   Compiling darling_core v0.23.0
+   Compiling tower-http v0.6.11
+   Compiling tracing-subscriber v0.3.23
+   Compiling darling_macro v0.23.0
+   Compiling hyper-tls v0.6.0
+   Compiling axum-core v0.5.6
+   Compiling futures v0.3.32
+   Compiling proc-macro-error-attr3 v3.0.2
+   Compiling sea-orm-cli v1.1.20
+   Compiling axum v0.8.9
+   Compiling proc-macro-error3 v3.0.2
+   Compiling uuid v1.23.4
+   Compiling darling v0.23.0
+   Compiling async-global-executor v2.4.1
+   Compiling async-std v1.13.2
+   Compiling validator_derive v0.20.1
+   Compiling utoipa-gen v5.5.0
+   Compiling utoipa v5.5.0
+   Compiling validator v0.20.0
+   Compiling infera-idp-macro v0.1.0 (https://hamgit.ir/faiber/faiber-sdk.git?rev=291c81a67bc302d667fb807da2af3240598bee52#291c81a6)
+   Compiling aws-lc-rs v1.17.1
+   Compiling rustls v0.23.41
+   Compiling rustls-webpki v0.103.13
+   Compiling sqlx-core v0.8.6
+   Compiling sqlx-postgres v0.8.6
+   Compiling futures-rustls v0.26.0
+   Compiling rustls-connector v0.21.11
+   Compiling tcp-stream v0.30.9
+   Compiling tokio-rustls v0.26.4
+   Compiling hyper-rustls v0.27.9
+   Compiling amq-protocol-tcp v8.3.1
+   Compiling sqlx v0.8.6
+   Compiling sea-query-binder v0.7.0
+   Compiling sea-orm v1.1.20
+   Compiling sea-schema v0.16.2
+   Compiling amq-protocol v8.3.1
+   Compiling reqwest v0.12.28
+   Compiling lapin v3.7.2
+   Compiling entity v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/sdk-production-pins-20261021/infera-flow/entity)
+   Compiling sea-orm-migration v1.1.20
+   Compiling migration v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/sdk-production-pins-20261021/infera-flow/migration)
+   Compiling infera-flow-sdk v0.1.0 (https://hamgit.ir/faiber/faiber-sdk.git?rev=291c81a67bc302d667fb807da2af3240598bee52#291c81a6)
+   Compiling infera-idp-sdk v0.1.0 (https://hamgit.ir/faiber/faiber-sdk.git?rev=291c81a67bc302d667fb807da2af3240598bee52#291c81a6)
+   Compiling infera_flow v0.1.0 (/Users/mohammadralizadeh/Infera/.task-worktrees/sdk-production-pins-20261021/infera-flow)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 59.15s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_flow-69a016c79f9b14cf)
+
+running 13 tests
+test catalog::services::tests::platform_catalog_includes_sezar_services ... ok
+test engine::conditions::tests::field_gt_requires_numeric_values_and_a_strict_increase ... ok
+test engine::executor::tests::matches_concrete_events_to_route_templates ... ok
+test engine::executor::tests::matches_generic_event_keys_exactly ... ok
+test event::routes::tests::accepts_generic_namespaced_event_keys ... ok
+test event::routes::tests::rejects_paths_and_malformed_namespaces ... ok
+test event::routes::tests::requires_explicit_execute_permission ... ok
+test flow::methods::tests::expands_a_generic_event_bridge_without_domain_assumptions ... ok
+test flow::methods::tests::expands_event_bridge_groups_and_templates_event_keys ... ok
+test flow::methods::tests::rejects_duplicate_manifest_slugs_after_normalization ... ok
+test flow::methods::tests::validation_accepts_asset_action_flow ... ok
+test flow::methods::tests::validation_rejects_unconfigured_emit_nodes ... ok
+test flow::methods::tests::validation_rejects_unsafe_edge_conditions ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_flow-251a81cb864cd79b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
