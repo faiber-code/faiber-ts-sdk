@@ -293,3 +293,9 @@ means no limit is configured; a numeric zero remains zero. A UI may display `18 
 or a localized `0 / Unlimited`. This does not change enrollment or capacity rules.
 The list requires `lms:classroom:read` or `lms:classroom:read_own` with existing record
 scoping. Normal Axios response, error, authentication and cancellation behavior applies.
+
+## Academy completion and exam submission
+
+Academy category, course, session, question and enrollment identifiers are UUID strings. Session completion requires the authenticated enrollment owner and an active enrollment; exam and interactive sessions cannot be completed through the ordinary completion endpoint. Incomplete prerequisite sessions return a conflict. Retain the original `idempotency_key` when reconciling a session completion.
+
+Exam submission sends `answers` keyed by question UUID. The server grades the attempt's selected question snapshot; the SDK cannot supply a score or bypass ownership, expiry or attempt status. Submission is not an automatic retry workflow: a response lost after completion requires authoritative readback. Responses retain the full Axios envelope and errors; an empty extracted permission annotation does not mean anonymous access.
