@@ -1,0 +1,14 @@
+    Finished `test` profile [unoptimized] target(s) in 0.20s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_gis-eca4add086484faa)
+
+running 1 test
+test imports::native_tests::native_imports_are_atomic_current_authorized_and_lease_fenced ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 9 filtered out; finished in 1.96s
+
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_gis-f55f5e2a6e09ce13)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
