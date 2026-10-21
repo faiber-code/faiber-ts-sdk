@@ -44,3 +44,10 @@ api.operations.platformSyncSourcePost('source').then(response=>{const job:string
 api.operations.platformCreateSourcePost({knowledge_base_id:'base',slug:'source',name:{},source_type:'invented'});
 
 api.operations.platformProcessingJobsGet().then(response=>{const job=response.data.data[0]!;const lease:string|null=job.lease_owner;const attempts:number=job.attempts;const completed:number=job.item_completed;void [lease,attempts,completed];});
+
+// Native selected-media quota emits the serialized additive exclusion reason.
+import type { TaskProjectionsPassagesPostResponseDataExcludedResultsReason } from '../packages/knowledge/src/index.js';
+const selectedMediaLimit: TaskProjectionsPassagesPostResponseDataExcludedResultsReason = 'selected_media_limit';
+// @ts-expect-error Rust enum names are not the public snake_case wire spelling
+const invalidSelectedMediaLimit: TaskProjectionsPassagesPostResponseDataExcludedResultsReason = 'SelectedMediaLimit';
+void [selectedMediaLimit, invalidSelectedMediaLimit];

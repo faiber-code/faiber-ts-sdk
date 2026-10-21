@@ -716,7 +716,7 @@ export interface TaskProjectionsPassagesPostResponseDataAcceptedResults extends 
   "payload": JsonValue;
 }
 export type TaskProjectionsPassagesPostResponseDataExcludedResultsCategory = "authored_item" | "document_chunk" | "graph_neighbor" | "media_transcript_chunk" | "session_evidence" | "profile_fact" | "user_memory" | "finding" | "recommendation";
-export type TaskProjectionsPassagesPostResponseDataExcludedResultsReason = "tenant_scope" | "assistant_scope" | "user_scope" | "base_not_published" | "release_not_published" | "item_not_published" | "deleted" | "not_yet_valid" | "expired" | "group_scope" | "maximum_level" | "condition_mismatch" | "edge_condition_mismatch" | "recommender_group_condition_mismatch" | "recommender_item_condition_mismatch" | "visibility_denied" | "session_scope" | "selected_media_scope" | "duplicate" | "recommender_group_limit" | "result_limit" | "context_budget" | "policy_disabled" | "already_delivered";
+export type TaskProjectionsPassagesPostResponseDataExcludedResultsReason = "tenant_scope" | "assistant_scope" | "user_scope" | "base_not_published" | "release_not_published" | "item_not_published" | "deleted" | "not_yet_valid" | "expired" | "group_scope" | "maximum_level" | "condition_mismatch" | "edge_condition_mismatch" | "recommender_group_condition_mismatch" | "recommender_item_condition_mismatch" | "visibility_denied" | "session_scope" | "selected_media_scope" | "duplicate" | "recommender_group_limit" | "selected_media_limit" | "result_limit" | "context_budget" | "policy_disabled" | "already_delivered";
 export interface TaskProjectionsPassagesPostResponseDataExcludedResults extends JsonObject {
   "candidate_id": string;
   "category": TaskProjectionsPassagesPostResponseDataExcludedResultsCategory;
