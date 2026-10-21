@@ -13,7 +13,9 @@ import uuid
 
 SDK = Path(__file__).resolve().parents[1]
 REPO = Path(os.environ['INFERA_VERSION_SDK_TEST_REPO']).resolve()
-OUTPUT = SDK / 'contracts/service-capabilities/evidence'
+EVIDENCE_ROOT = SDK / 'contracts/service-capabilities'
+OUTPUT = Path(os.environ.get('INFERA_VERSION_SDK_TEST_OUTPUT', str(EVIDENCE_ROOT / 'evidence'))).resolve()
+OUTPUT.relative_to((EVIDENCE_ROOT / 'evidence').resolve())
 COMMAND = ['cargo', '--config', 'profile.test.package.infera_version.debug=0', '--config', 'profile.test.package.infera_version.strip="debuginfo"', 'test', '--locked', '--offline', '--workspace', '--', '--include-ignored', '--test-threads=1']
 
 def run(args, **kwargs):
@@ -130,9 +132,9 @@ def main():
                     'locked_dependencies': True, 'lock_unchanged_during_run': resolved_lock == before,
                     'input_cargo_lock_sha256': hashlib.sha256(before).hexdigest(),
                     'resolved_cargo_lock_sha256': hashlib.sha256(resolved_lock).hexdigest(),
-                    'resolved_cargo_lock_artifact_path': 'evidence/' + lock_artifact.name,
+                    'resolved_cargo_lock_artifact_path': str(lock_artifact.relative_to(EVIDENCE_ROOT)),
                     'rustc': run(['rustc', '--version']), 'postgres_image': image, 'rabbitmq_image': rabbit_image, 'storage': 'disposable_real_postgresql',
-                    'artifact_path': 'evidence/version-sdk-wire-tests.log', 'artifact_sha256': hashlib.sha256(log_bytes).hexdigest(),
+                    'artifact_path': str((OUTPUT / 'version-sdk-wire-tests.log').relative_to(EVIDENCE_ROOT)), 'artifact_sha256': hashlib.sha256(log_bytes).hexdigest(),
                     'scope': 'Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates'}
         (OUTPUT / 'version-sdk-wire-tests.json').write_text(json.dumps(evidence, indent=2) + '\n')
         print(json.dumps({key:value for key,value in evidence.items() if key not in ['sdk_before','sdk_after']}, indent=2))
