@@ -422,7 +422,7 @@
       "working_tree_status": "?? .vscode/",
       "checkout_sha256": "f1e9b664b396cb51b5fd6b26ed0f6d32475da9687d5061ad96a8925f83f1a96f"
     },
-    "source_capture_note": "Post-test source digest matched the producer source independently fenced throughout the real Control\u2192Version HTTP run. Core tests are not Kubernetes acceptance.",
+    "source_capture_note": "Post-test source digest matched the producer source independently fenced throughout the real Control→Version HTTP run. Core tests are not Kubernetes acceptance.",
     "artifact_path": "evidence/control-core-tests.log",
     "artifact_sha256": "8f21dc5fb518c0b7b5691d2b2a93c2e5101484590381b5f2ac5a1b3cc1899aa6",
     "resolved_cargo_lock_sha256": "b32888badcab0be87f7afbd05f3eaf6ac716f678ec10a9770fe92527c8914c16",
@@ -1956,6 +1956,73 @@
       "source_protocol_http"
     ],
     "scope": "Actual compiled TypeScript SDK over loopback HTTP to mounted Version service with real disposable PostgreSQL/RabbitMQ, all seven operations. Also Version workspace and Control publisher regressions. Current deployed gateway grants, canonical service merge and Manage UI acceptance remain separate gates",
+    "canonical_certification": false
+  },
+  "reservation-current-sdk-native-20261021": {
+    "kind": "real_locked_current_sdk_http_postgres_contract",
+    "status": "passed",
+    "command": "cargo test --locked --offline --lib --tests -- --include-ignored --test-threads=1 --nocapture",
+    "exit_code": 0,
+    "tests_executed": 42,
+    "source_revisions": {
+      "reservation": "80aef6037cec20bb808903f15737160cef5f6a66"
+    },
+    "test_source_revision": "2f6595825607c36474ef92d38d94c601a202d849",
+    "sdk_revision": "00e75a0d4590c02256ffee52ca4d936b0d92f380",
+    "source_unchanged_during_run": true,
+    "artifact_path": "evidence/reservation-finalization-20261021/reservation-sdk-tests.json",
+    "artifact_sha256": "28c2be104a7f53e011a29ec933e9ec788016f83c38ccc0cf6c6630c387489dd3",
+    "resolved_cargo_lock_artifact_path": "evidence/reservation-finalization-20261021/reservation-resolved-Cargo.lock",
+    "resolved_cargo_lock_sha256": "8b36bd28032c388760780bccb82d04d0dab88c2d6003eedcfe84b40637913961",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/reservation-finalization-20261021/reservation-sdk-tests.log",
+        "sha256": "d70c5af072bc7122deb44828be1c1cce6171923ec51c81c73fcf4f1adb239025"
+      },
+      {
+        "artifact_path": "evidence/reservation-finalization-20261021/source-equivalence.json",
+        "sha256": "8e7d5e7f694b8e81b455357a49a7294d8125b91be75cee82a663a72d5a13ffd5"
+      }
+    ],
+    "covered_operations": {
+      "reservation": [
+        "GET /health",
+        "GET /",
+        "GET /api/openapi.json",
+        "GET /api/v1/services",
+        "POST /api/v1/services",
+        "GET /api/v1/services/{id}",
+        "PATCH /api/v1/services/{id}",
+        "DELETE /api/v1/services/{id}",
+        "GET /api/v1/providers",
+        "POST /api/v1/providers",
+        "GET /api/v1/providers/{id}",
+        "PATCH /api/v1/providers/{id}",
+        "DELETE /api/v1/providers/{id}",
+        "GET /api/v1/providers/{id}/capacity",
+        "GET /api/v1/providers/{id}/services",
+        "POST /api/v1/providers/{id}/services",
+        "DELETE /api/v1/providers/{id}/services/{service_id}",
+        "GET /api/v1/providers/{provider_id}/schedules",
+        "PUT /api/v1/providers/{provider_id}/schedules",
+        "POST /api/v1/slots",
+        "GET /api/v1/slots/available",
+        "GET /api/v1/slots/{id}",
+        "PATCH /api/v1/slots/{id}",
+        "DELETE /api/v1/slots/{id}",
+        "GET /api/v1/reservations",
+        "POST /api/v1/reservations",
+        "GET /api/v1/reservations/{id}",
+        "PATCH /api/v1/reservations/{id}",
+        "DELETE /api/v1/reservations/{id}",
+        "GET /api/v1/integration/flow"
+      ]
+    },
+    "boundaries": [
+      "typescript_sdk_http",
+      "source_protocol_http"
+    ],
+    "scope": "Owned real PostgreSQL/RabbitMQ and immutable standalone locked dependency closure. Filtered legacy-claim regression or full backend suite. When wire_result is present, all30 actual mounted operations are called through current compiled SDK. Gateway identities are trusted fixtures, not live JWT/namespace/IDP membership or cross-service user existence proof.",
     "canonical_certification": false
   }
 }
