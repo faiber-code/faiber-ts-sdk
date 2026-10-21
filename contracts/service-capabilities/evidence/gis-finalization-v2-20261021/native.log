@@ -1,0 +1,22 @@
+    Finished `test` profile [unoptimized] target(s) in 0.17s
+     Running unittests src/lib.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_gis-eca4add086484faa)
+
+running 2 tests
+test sdk_http_tests::actual_packed_sdk_uses_production_router_and_persisted_records ... {"id":"gis-native-packed-sdk","status":"passed","operations":["health","me","createDataset","datasets","dataset","writeFeatures","features","datasetHistory","tile","createMap","maps","map","mapStyle","updateMap","publishDataset","publishMap","publicFeatures","tileJson","publicTile","publicMaps","publicMap","publicMapFeatures","publicMapStyle","deleteFeature","createPersonalPlace","personalPlaces","personalPlace","updatePersonalPlace","deletePersonalPlace","proposePlace","contributions","moderationQueue","moderatePlace","places","place","placeReferences","placeAssertion","savePlace","savedPlaces","unsavePlace","reportPlace","resolveReport","placeHistory","outbox","ackEvent","imports","createImport","retryImport"],"assertions":72,"scope":"Current compiled SDK on native production router/PostGIS. Trusted BFF fixture authority; tile upstream is actual pinned Martin1.16.1 with restricted PostgreSQL role, unconfigured import and retry503 are deliberate negative coverage. Import business/native leases are separately tested. No live IDP/provider/deployment claim."}
+{"id":"gis-actual-martin","status":"passed","version":"1.16.1","renderer_table_select_denied":true,"renderer_write_denied":true,"auto_publish":false,"scope":"Actual pinned Martin process with restricted PostgreSQL role and native full-migration GIS HTTP SDK workflow, private/public MVT and privacy revocation. IDP is still explicit owned fixture; no live deployment or external provider claim."}
+
+ok
+test sdk_http_tests::imports_create_and_retry_through_packed_sdk_with_current_authority ... {"id":"gis-native-packed-import","status":"passed","phase":"create","job_id":"28517739-d891-4153-84b6-b0726497e2dd","assertions":6,"scope":"Actual SDK HTTP create/retry with explicit current-IDP loopback fixture and real PostGIS records. Failed-state setup is performed by native fixture between phases, not an external provider failure claim."}
+
+{"id":"gis-native-packed-import","status":"passed","phase":"retry","job_id":"28517739-d891-4153-84b6-b0726497e2dd","assertions":6,"scope":"Actual SDK HTTP create/retry with explicit current-IDP loopback fixture and real PostGIS records. Failed-state setup is performed by native fixture between phases, not an external provider failure claim."}
+
+ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 4.97s
+
+     Running unittests src/main.rs (/Users/mohammadralizadeh/Infera/Service/target/debug/deps/infera_gis-f55f5e2a6e09ce13)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,13 @@
+listen_addresses: '127.0.0.1:64691'
+worker_processes: 2
+cache:
+  size_mb: 32
+postgres:
+  connection_string: 'postgres://gis_owned_renderer:owned-renderer-fixture@127.0.0.1:64690/gis_owned_native'
+  auto_publish: false
+  functions:
+    infera_gis:
+      schema: public
+      function: infera_gis_tile
+      minzoom: 0
+      maxzoom: 20

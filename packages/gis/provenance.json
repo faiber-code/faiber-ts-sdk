@@ -14,7 +14,7 @@
     "packages/gis/src/operations.types.ts": "771bce69b290f9f38d022d5555ab161a0dc389295e58a607989d6382e9a165ab",
     "packages/gis/src/types.ts": "ddaa819e13d85adfd822f088de4e55c3b861fd30299e7adee39f9564dddb0eed"
   },
-  "capability_review_sha256": "4ddaefe9ae37d51634d9f4e0a196ffb2db0025289297621c7b9f156e9b46086b",
+  "capability_review_sha256": "a93d4f5520013f984bc57bb918fd046d319491f246ad4bc06212fb4c1bf584ca",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
   "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
   "public_contract": {

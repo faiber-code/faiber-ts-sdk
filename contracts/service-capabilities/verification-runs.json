@@ -2035,47 +2035,47 @@
       "gis": "0bc8423a51887450b928e7b372153014cd47e582"
     },
     "test_source_revision": "82fa0ca586a38ca71603e76f5ab1ed5dc1deca8d",
-    "sdk_revision": "f66f75b496de7fb811e7f959259da29df080d93b",
+    "sdk_revision": "2f374b11b0399c0691d2608483d3e9c080d726b7",
     "source_unchanged_during_run": true,
-    "artifact_path": "evidence/gis-finalization-20261021/receipt.json",
-    "artifact_sha256": "e9ada6ec2c282abc54502e273d864c2676b167f4016ecf27271280a2277561fa",
-    "resolved_cargo_lock_artifact_path": "evidence/gis-finalization-20261021/resolved-Cargo.lock",
+    "artifact_path": "evidence/gis-finalization-v2-20261021/receipt.json",
+    "artifact_sha256": "67a65863a9da3e8ebd50be5d6fa8a6427fc3ad667794a9b270cc2baea2a9ff9e",
+    "resolved_cargo_lock_artifact_path": "evidence/gis-finalization-v2-20261021/resolved-Cargo.lock",
     "resolved_cargo_lock_sha256": "27102baa6c3d8b8f38f846afe8c4ed0bcecb8b2ed737af04205b3d6f5bd42d2a",
     "additional_artifacts": [
       {
-        "artifact_path": "evidence/gis-finalization-20261021/business-probe.mjs",
+        "artifact_path": "evidence/gis-finalization-v2-20261021/business-probe.mjs",
         "sha256": "04027229f310469e1ad95fac7cbcc445ee5e26875f8c83133d651c77e805b4d8"
       },
       {
-        "artifact_path": "evidence/gis-finalization-20261021/import-probe.mjs",
+        "artifact_path": "evidence/gis-finalization-v2-20261021/import-probe.mjs",
         "sha256": "e4cfd7deb0b6f074e0fe990eb542c0503fadd37f2e6241923c33ee64d5eac55c"
       },
       {
-        "artifact_path": "evidence/gis-finalization-20261021/martin-fixture.yaml",
-        "sha256": "89cbe0d33cea299e2a9f1aa0501f83cc0fb6490f6b3bd31d4eb5db9d496488d5"
+        "artifact_path": "evidence/gis-finalization-v2-20261021/martin-fixture.yaml",
+        "sha256": "5d8907193c73d8ba952d251da8a661478615f764a6b50a660846e8b9e103ac96"
       },
       {
-        "artifact_path": "evidence/gis-finalization-20261021/martin.log",
-        "sha256": "261d6668f30445365b167530d9f1c9c78913f6428af7662274177a765cb23409"
+        "artifact_path": "evidence/gis-finalization-v2-20261021/martin.log",
+        "sha256": "c14a47c61365d8265b3d5087c52cfc980d2ed3880cbadf452c3425fd51d463d0"
       },
       {
-        "artifact_path": "evidence/gis-finalization-20261021/native.log",
-        "sha256": "190701420ad4fa21970bbbf44b47aaf60f7f4cb4c4333ddd12c8c98216a0fda2"
+        "artifact_path": "evidence/gis-finalization-v2-20261021/native.log",
+        "sha256": "67a601320e3d8dbdf597874d65550c510c71e528ab4bc33a9064baee31479f68"
       },
       {
-        "artifact_path": "evidence/gis-finalization-20261021/probe.mjs",
+        "artifact_path": "evidence/gis-finalization-v2-20261021/probe.mjs",
         "sha256": "740a27ec665a387b65f16c47b6bd7ab7bae46b35c361b206dc19661e3055e9d5"
       },
       {
-        "artifact_path": "evidence/gis-finalization-20261021/run.py",
-        "sha256": "acd6ee0cc3663839cbd9c7b4a05abc3f95fcd1e732a4f20a980bd14600fb7e95"
+        "artifact_path": "evidence/gis-finalization-v2-20261021/run.py",
+        "sha256": "895d73a01536ca1fa2f229af57acd50fadfa4b696676fbd1bfc154d7474092ac"
       },
       {
-        "artifact_path": "evidence/gis-finalization-20261021/sdk-inputs.json",
-        "sha256": "329f0d2c5a99fc5cfb39ea2bada0f41be1ed22f50fa1e5fb5829cc8b1b69701f"
+        "artifact_path": "evidence/gis-finalization-v2-20261021/sdk-inputs.json",
+        "sha256": "a74116f5899378be28c9da823e28a368cb77f3b9ddc5b08a1f380bf54a5e6fc7"
       },
       {
-        "artifact_path": "evidence/gis-finalization-20261021/source-equivalence.json",
+        "artifact_path": "evidence/gis-finalization-v2-20261021/source-equivalence.json",
         "sha256": "77b00799253d30132800b5d0ec8958c63e8fdc8b756033a6b345515238453b40"
       }
     ],
@@ -2136,6 +2136,7 @@
       "source_protocol_http"
     ],
     "scope": "Current compiled SDK HTTP consumer through production GIS router and full migrated owned PostGIS. Trusted BFF identity and IDP fixture remains explicit; tiles use actual pinned Martin1.16.1. Unconfigured imports/retry503 negative coverage; actual import business lease proof is separate. No deployed IDP or all-service certification.",
-    "canonical_certification": false
+    "canonical_certification": false,
+    "supersedes": "evidence/gis-finalization-20261021: SDK package fingerprint root was incorrect; its SDK immutability claim is invalid. The v2 run includes nonempty packages and node_modules SHA256 manifests and preserves old artifacts for audit."
   }
 }
