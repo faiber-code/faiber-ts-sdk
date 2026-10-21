@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-asset",
+  "version": "1.0.0",
+  "source_revisions": {
+    "asset": {
+      "directory": "infera-asset",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    }
+  },
+  "package_source_sha256": {
+    "packages/asset/src/contracts.types.ts": "00f7252be3634c933148271d72dc55e7ab3d5e0ebf80a5ea37d55292891bdee4",
+    "packages/asset/src/economy.types.ts": "2dfc18923be2d3006e5aad3dfeffaed93f84a00dd1fc7ce69ecccdc7f165e365",
+    "packages/asset/src/index.ts": "eb5783fa4454fb390685f5a81baebb4c184e7323e779ae333a1028fe4e338166",
+    "packages/asset/src/operations.ts": "61bffa899f78c1b384a72282814e9baa9c342057c9ebcf3f59964a4798b09680",
+    "packages/asset/src/operations.types.ts": "6aeab99ed1fd0575b19da1c0edd9d4e1abda179304f6f2c2ab66b158d4fde8af",
+    "packages/asset/src/types.ts": "0aed9506099c27b37daece9817b4d4f820f3eecf3cd35ddf83bc1899ca0380fc"
+  },
+  "capability_review_sha256": "64f621f7acbb545d6a032e0af20916af156b050997427f88db405628666b42ad",
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 110,
+    "sha256": "7e77133e3184e595358c0050746772cb5d0ba6d256be66142f5f4327e5f330d5"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

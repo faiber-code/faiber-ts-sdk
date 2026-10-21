@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-idp",
+  "version": "1.0.0",
+  "source_revisions": {
+    "idp": {
+      "directory": "infera-idp",
+      "revision": "828799249ef714d333b03bded092a9d6af6ba7bb"
+    }
+  },
+  "package_source_sha256": {
+    "packages/idp/src/authority.ts": "771caff551a474f09b7a2cf429dccbd5c1c5c9c8ca970b4668f03a99b5d94344",
+    "packages/idp/src/contracts.types.ts": "904d2d5243224deee5422bec0a391c47f5605187224b247abc443c5ad2ad9a36",
+    "packages/idp/src/index.ts": "146f9819b75f8b751add4ead7fb929a0c3a532a7b6fd04bfca35ff7312facf97",
+    "packages/idp/src/memberships.ts": "ba3c661e38eec353e2df2ce5f28b41fb2275fed59a0d2ac7680030809088aecf",
+    "packages/idp/src/operations.ts": "44eb86730487c20214d0cf8fab032696facb00639af2d21930bd75b58c620aa8",
+    "packages/idp/src/operations.types.ts": "bd0cec2dc293e5817517422cfd6bb03790f11e26051911a497c65c98d5333b93",
+    "packages/idp/src/types.ts": "b815bf972fd565d8894e3f669687c28f79a0e8c986d4967d1cb04245f03c99b9"
+  },
+  "capability_review_sha256": "2527987fab81383acaef6fe4e5a6475a6a223c93e98334dce2c4720c2aefaaee",
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 109,
+    "sha256": "afa2bea7542079ccb2e271bf4a237c9fd4d3fd8979d9426db6fa0d0afbfe27a1"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

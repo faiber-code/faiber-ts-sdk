@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-task",
+  "version": "1.0.0",
+  "source_revisions": {
+    "task": {
+      "directory": "infera-task",
+      "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d"
+    }
+  },
+  "package_source_sha256": {
+    "packages/task/src/collaboration.ts": "b923ddcec4ffb6aa6b86420ff9dbbefc5f5e3525edc7c2ee051ac68f76c2bd25",
+    "packages/task/src/feedback.ts": "a208b298a40e2f9e25d0e36dd4261fc2c9eb2187c3d5f87d96a01af2413c6035",
+    "packages/task/src/index.ts": "1683bb2273ac62704103fb7cc240b31c351a8ddb8cb19a6619f5f34c7fba2d2e",
+    "packages/task/src/operations.ts": "d8f54ece2f03c6fcbf7774f08e6e6728b98d31a8df4054c32b3eb3cc4a10cc22",
+    "packages/task/src/operations.types.ts": "74037452102a37a301c2a1c50b68f7eed287eea7c97141ec343688cd0b7183f7",
+    "packages/task/src/types.ts": "f6e792714a11c9df04fa880ffdda968d2ede9e10dbe26a636dba1a417ff053a7",
+    "packages/task/src/workspace.ts": "dffe79a11398c10b1d71a5d57cc483a995a0ccc49799eed6e09791d9a19dcf99"
+  },
+  "capability_review_sha256": "fbde61ee04be2470cc639a92a25782b45c45aa9bcba82d9706bd53722a58fe46",
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 128,
+    "sha256": "e19b023301d6dcecf1352fa6109093ab57f157a3ebf69cddee9b3a9878253088"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-chat",
+  "version": "1.0.0",
+  "source_revisions": {
+    "chat": {
+      "directory": "infera-chat",
+      "revision": "03dd17ad3a1f6a36f5b6ad42e8e11729b44ebc55"
+    }
+  },
+  "package_source_sha256": {
+    "packages/chat/src/assistant-voice.ts": "2646fbad3ad189bfad58dc1d2c3713cdf4169b78cea3f9f0a89396c976b2083b",
+    "packages/chat/src/index.ts": "47e6a8dfcfccfe65b88c4c0981872eadf3249f4aab01729dbb854fa45f39b29f",
+    "packages/chat/src/learning.ts": "362ca67a1e763cfb8c8e2d9105330b1f61622f4e916d1b77b5257387fa54691f",
+    "packages/chat/src/operations.ts": "390e42c500957fbbb15baaaaf14e47f23027a3d59f918865337ffe2ff21c0ad6",
+    "packages/chat/src/operations.types.ts": "beb73e304c2047bf8e401c020e46a2ec59a3c2286f2c9ff287423b95c7354c57",
+    "packages/chat/src/personal.ts": "d62a7061fa93acadf13bffc9901962fac59f4781687214f86353f5c47ad5960b",
+    "packages/chat/src/speech-live.ts": "30fcab33101d3e3a7e5bd9ee1fb4618f910f81c7af39f4a38b38e5ca59782e5e",
+    "packages/chat/src/speech-playback.ts": "90f32542a3e6cf392782538b66244d87186f023de73092b2b74470c85b92da46",
+    "packages/chat/src/speech-recorder.ts": "695af79a049dc07658aeb7e3001b0c8cc09757232f8f5fdde19cd782a0e1efeb",
+    "packages/chat/src/types.ts": "26a7be2df4985e1d9d89b9d772046e5ed47f236d5dc64f639ab55bccd5b3b407",
+    "packages/chat/src/workspace.ts": "57ecdcf2ad8b1e3024cb03a4cd1abcd4a5f49203befbdd2b27b393fdb2bd565f"
+  },
+  "capability_review_sha256": "25d11fc908520021a289454034060b28429c6a87df57efa925faee968faf9862",
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 69,
+    "sha256": "af212f9fbc08f81020aefcc37bc22c073cee3653ce92f83a13efff18f2379a3e"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

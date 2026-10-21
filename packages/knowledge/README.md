@@ -29,16 +29,11 @@ const result = await api.query("fitness-coach", {
 });
 ```
 
-## Complete capability
+## API surface
 
-This package exposes 76 registered operations from the knowledge service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 84 source-extracted operations from the knowledge service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
-| Area | Operations | HTTP methods |
-|---|---:|---|
-| `main` | 4 | `GET`, `POST` |
-| `platform` | 34 | `DELETE`, `GET`, `POST`, `PUT` |
-| `routes` | 35 | `DELETE`, `GET`, `PATCH`, `POST`, `PUT` |
-| `task_projections` | 3 | `POST` |
+Operation registration describes transport coverage; it does not certify deployed behavior or current authorization. Packaged `provenance.json` identifies the selected service source and contract checksums.
 
 Management routes use optimistic version fields where supported. Runtime queries are scoped by chat slug and return matched knowledge, rules, notifications, warnings, tasks, input requests, directions, and trace data.
 
@@ -211,3 +206,11 @@ AssistantConfigurationCancellation. These methods preserve Axios metadata,
 current transport authentication, cancellation and actual error statuses.
 Local PostgreSQL/HTTP tests are separate from deployed IDP/grant certification
 and from the all-service semantic release gate.
+
+## Context selection limits
+
+Configured assistant levels constrain the owning-conversation context request on the selected Chat/Knowledge revisions. Null or omitted request levels do not remove a configured ceiling. Older deployed services may not enforce this behavior; verify the deployed receiver before relying on it.
+
+Selected-assistant group slugs are stored configuration, but forwarding and descendant-versus-exact matching are not fully implemented consistently. Do not use those settings as an authorization boundary or promise that unclassified results are excluded. Server-side current tenant, permissions and base bindings remain authoritative.
+
+Knowledge's selected-media chunk cap applies after governance and deduplication across both packing paths (default 8, valid range 1–20). Query limits are not a strict combined count across all returned lanes. Expansion and reranking settings can be retained as requested values while runtime capabilities report unsupported/not applied; storing a flag does not enable an algorithm or provider. Inspect returned trace/capability information instead of assuming these features ran.

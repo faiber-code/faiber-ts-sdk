@@ -13,7 +13,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "provenance.json"
   ],
   "dependencies": {
     "@faiber/sdk-core": "1.0.0",

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-lms",
+  "version": "1.0.0",
+  "source_revisions": {
+    "lms": {
+      "directory": "infera-lms",
+      "revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6"
+    }
+  },
+  "package_source_sha256": {
+    "packages/lms/src/branding.types.ts": "1e4c68b6a3f112d21652775967603e98dab825ff97a835c469dd5083e3559204",
+    "packages/lms/src/contracts.types.ts": "313429cde46b90bd34c5d5276dc1d8e999c96d22393b67dc65cc0495a4622e30",
+    "packages/lms/src/index.ts": "7a54f72112ad6437bc4b67c97923d0472e73c8756a0d6cdacecbc8d2f63b101d",
+    "packages/lms/src/interactive.ts": "d9ecda72b591449a165fb7e52c5209eff931d53d7143f6183d958c440b5e94c3",
+    "packages/lms/src/media.ts": "d5d72f0efbd6bd237ef306e02f9488b9e912b28bf2d4eac23af02ceb07b75512",
+    "packages/lms/src/notification-settings.ts": "2784e29db21a6c2b925c3fa9c35a8523590f53bec8650ad0278791ab2c5f240a",
+    "packages/lms/src/operations.ts": "20db70607febdd54a8f7d379e9a16cf9537a65d40af2f877ae804c65cc2d2970",
+    "packages/lms/src/operations.types.ts": "0f707976fb0b04a5c895c3e9fd10949b737b2a39053bdc9c39b83269f68baeb4",
+    "packages/lms/src/types.ts": "a3124e4b439447ea22bf2b3a497009d373e0201f6dd41f77d1808b25f57944e6"
+  },
+  "capability_review_sha256": "61d353b8d4cd74e3a8385f3a126d71d39391c90dfcd13af057d5f9814c619344",
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 181,
+    "sha256": "df2c6f18d5b6cd44bdaf4fa19da1d67e5d28b67cb8a605fd179d16cd447629e5"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

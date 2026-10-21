@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-game-sdk",
+  "version": "1.0.0",
+  "source_revisions": {
+    "state": {
+      "directory": "infera-state",
+      "revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4"
+    }
+  },
+  "package_source_sha256": {
+    "packages/game/src/assets.ts": "753c8f945a828b35b774c71176e492a4eb95190d17647e1ab164b159ac21c7ef",
+    "packages/game/src/ecs.ts": "1d248b56c0bc5f4f3ec80b7797927aae1768df4e89251a397a5b0308d0a10775",
+    "packages/game/src/engine.ts": "3aa82c610142b02519e93f0334c1121a19b8407a522bc7cf43260aecbca9b16c",
+    "packages/game/src/index.ts": "a841a0d982f58549fef9290938716c0b2c8ade241542ad85ee826d1577608078",
+    "packages/game/src/match.ts": "0d31a7d911eb416bba850d60088cfb572620703c55c9b9bde079177a68e188f3",
+    "packages/game/src/quality.ts": "70a86301ba2f10267c11a80a76585c7254883c88000d589f88e1274f5871281a",
+    "packages/game/src/renderer.ts": "5f6dfdc8419f235f569fcf56a133294480480054874c6b4abecd0a9bf0c4c139",
+    "packages/game/src/state.ts": "900765ef84d59cabfc06366de0437485c9912232166807abb6be79ba5ca72abf",
+    "packages/game/src/wasm.ts": "bfc9a8733dcfd107c104a5162e4e7e1623fe07600b4cde11b8b2a72b1f5b8570"
+  },
+  "capability_review_sha256": null,
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "local-game-runtime-with-state-transport"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

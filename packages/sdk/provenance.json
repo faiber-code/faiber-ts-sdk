@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-ts-sdk",
+  "version": "1.0.0",
+  "source_revisions": {
+    "asset": {
+      "directory": "infera-asset",
+      "revision": "b3d71e6139fc585e491372ebfa645ac90dc883cf"
+    },
+    "chat": {
+      "directory": "infera-chat",
+      "revision": "03dd17ad3a1f6a36f5b6ad42e8e11729b44ebc55"
+    },
+    "crm": {
+      "directory": "infera-crm",
+      "revision": "77e2e4a7660e007aefef81e27337476c6d748cac"
+    },
+    "drm": {
+      "directory": "infera-drm",
+      "revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2"
+    },
+    "flow": {
+      "directory": "infera-flow",
+      "revision": "d560d457b331ffe8e318006e5baf5d3734ffbe98"
+    },
+    "idp": {
+      "directory": "infera-idp",
+      "revision": "828799249ef714d333b03bded092a9d6af6ba7bb"
+    },
+    "knowledge": {
+      "directory": "infera-knowledge",
+      "revision": "1e6b40ca89500a122afe11a0d03c3395502c18e1"
+    },
+    "lms": {
+      "directory": "infera-lms",
+      "revision": "1a55795725ac5ac23b763117fbbe64f96d4cf2f6"
+    },
+    "messenger": {
+      "directory": "infera-messenger",
+      "revision": "0eb2143fae39dee3e0543abaac59ea1aaaed771c"
+    },
+    "modules": {
+      "directory": "infera-modules",
+      "revision": "85e42a5f1440b78564f23b4bbf7723a0797d3470"
+    },
+    "payment": {
+      "directory": "infera-payment",
+      "revision": "ca2f9bbd7ea9e43a78874a2d93bbbd68e5d257c8"
+    },
+    "profile": {
+      "directory": "infera-profile",
+      "revision": "5e45db008e503504033af3763b4487f00f5be2b4"
+    },
+    "reservation": {
+      "directory": "infera-reservation",
+      "revision": "80aef6037cec20bb808903f15737160cef5f6a66"
+    },
+    "session": {
+      "directory": "infera-session",
+      "revision": "7a395d7149a2d4c03d3e1d4746b69919a52cbb05"
+    },
+    "social": {
+      "directory": "infera-social",
+      "revision": "d067ac956571abd73211b06d835caa658b1f09bc"
+    },
+    "state": {
+      "directory": "infera-state",
+      "revision": "b8d3bfa828878a979a8c8765285bfd3899965bd4"
+    },
+    "task": {
+      "directory": "infera-task",
+      "revision": "b8ed5921e4f6bd2d7f4ef675f0cb8b3fbbb1e23d"
+    },
+    "version": {
+      "directory": "infera_version",
+      "revision": "b5fb6904e9ac005c9437012bf19e9bc3587ef65e"
+    },
+    "gis": {
+      "directory": "infera-gis",
+      "revision": "0bc8423a51887450b928e7b372153014cd47e582"
+    }
+  },
+  "package_source_sha256": {
+    "packages/sdk/src/capabilities.ts": "90521393209d8d3a44531d371a99b3ce1103392c1d91f8595d133e236bac8ebb",
+    "packages/sdk/src/index.ts": "1bdfc0b798a3155ed5969ff7a938af59004bb3ea9d75051a359c6f1d95968161"
+  },
+  "capability_review_sha256": null,
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "shared-client-or-facade"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

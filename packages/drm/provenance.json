@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-drm",
+  "version": "1.0.0",
+  "source_revisions": {
+    "drm": {
+      "directory": "infera-drm",
+      "revision": "31d8ace56b1f65c789415bb4bfb9f6da6678b1a2"
+    }
+  },
+  "package_source_sha256": {
+    "packages/drm/src/index.ts": "f6facf3350218154a05841f20e4fb7098e9fe9c4b630aa2a8e8ece90d5061e7e",
+    "packages/drm/src/operations.ts": "6370a55bb3df259742187728dcf2e4609324342462268b625d113710ee0bb965",
+    "packages/drm/src/operations.types.ts": "e7de936233d62554150eb2227b498035cf08f1a1dbdf635e96d06c98a299f0df",
+    "packages/drm/src/types.ts": "a34b9dd592948c4f44f8a813d17ea125e15f38d0d44d40ed35df881ed891bb45"
+  },
+  "capability_review_sha256": "be5ee78c1d4029445ed202e5f5c4f40085f03ee70283c046f890473d131ff620",
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 96,
+    "sha256": "6ad0ad9c651c7ec1677f3f28ef4c14b156ab805b248e0f8d1c5793108700a62f"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

@@ -29,17 +29,11 @@ const conversation = await api.createConversation({
 await api.sendMessage(conversation.data.data.id, { content: { text: "Hello" } });
 ```
 
-## Complete capability
+## API surface
 
-This package exposes 63 registered operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
+This package exposes 69 source-extracted operations from the chat service. Common workflows have concise methods on `api`; every registered backend route is also available as a named function on `api.operations`. Generated operation input, query, response, path, verb, and permission contracts are exported from `operations.types`.
 
-| Area | Operations | HTTP methods |
-|---|---:|---|
-| `fitness` | 2 | `POST`, `PUT` |
-| `human-chat` | 6 | `GET`, `POST` |
-| `main` | 1 | `GET` |
-| `memory-import` | 2 | `POST` |
-| `routes` | 52 | `DELETE`, `GET`, `POST`, `PUT` |
+Operation registration describes transport coverage; it does not certify deployed behavior or current authorization. Packaged `provenance.json` identifies the selected service source and contract checksums.
 
 AI turns are executed and billed by Infera Agentic; Chat only coordinates conversation context and reconciliation. The events endpoint is an SSE stream and can be requested with normal SDK authorization headers.
 
@@ -294,3 +288,11 @@ routesUpdateAssistantPut, routesGetPolicyOperationGet and
 routesReconcilePolicyOperationPost. Managed detail, retained intent and
 reconciliation DTOs are exported from the Chat package. These are canonical v1
 methods; no private Summary runner credentials or authority DTOs are browser APIs.
+
+## Context selection limits
+
+Configured assistant levels constrain the owning-conversation context request on the selected Chat/Knowledge revisions. Null or omitted request levels do not remove a configured ceiling. Older deployed services may not enforce this behavior; verify the deployed receiver before relying on it.
+
+Selected-assistant group slugs are stored configuration, but forwarding and descendant-versus-exact matching are not fully implemented consistently. Do not use those settings as an authorization boundary or promise that unclassified results are excluded. Server-side current tenant, permissions and base bindings remain authoritative.
+
+Knowledge's selected-media chunk cap applies after governance and deduplication across both packing paths (default 8, valid range 1–20). Query limits are not a strict combined count across all returned lanes. Expansion and reranking settings can be retained as requested values while runtime capabilities report unsupported/not applied; storing a flag does not enable an algorithm or provider. Inspect returned trace/capability information instead of assuming these features ran.

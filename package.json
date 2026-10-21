@@ -19,9 +19,11 @@
     "typecheck": "tsc -b --pretty false",
     "test:types": "tsc -p tests/tsconfig.json --pretty false",
     "test": "npm run test:types && node --test tests/*.test.mjs",
-    "pack:check": "node scripts/pack-check.mjs",
+    "pack:check": "npm run provenance:check && node scripts/pack-check.mjs",
     "openapi:generate": "node scripts/generate-openapi.mjs",
-    "openapi:check": "node scripts/generate-openapi.mjs --check"
+    "openapi:check": "node scripts/generate-openapi.mjs --check",
+    "provenance:generate": "node scripts/package-provenance.mjs",
+    "provenance:check": "node scripts/package-provenance.mjs --check"
   },
   "engines": {
     "node": ">=18"

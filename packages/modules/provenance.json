@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-modules",
+  "version": "1.0.0",
+  "source_revisions": {
+    "modules": {
+      "directory": "infera-modules",
+      "revision": "85e42a5f1440b78564f23b4bbf7723a0797d3470"
+    }
+  },
+  "package_source_sha256": {
+    "packages/modules/src/contracts.types.ts": "8773417d2222df45b45116a1e7dc473ba5d326f95761883d4c84f4ba98755695",
+    "packages/modules/src/index.ts": "8f5ba3a0112d5b1f7a407456d612d7ebaf6d1ac821ef78b735ef533c0dfbe0d6",
+    "packages/modules/src/operations.ts": "a6ae131e7b2ae769cab0b1c870e61078b72b11d0f669dbb78638a586db475e05",
+    "packages/modules/src/operations.types.ts": "963d5d8c306c17a5f9597d2b83f28f291c932129fe496ca4895641da6d561b5b",
+    "packages/modules/src/types.ts": "5c8234e25b7d5a658abac6b57b7d7e5586ccec3bd7732362ecbb31b04ef2c261"
+  },
+  "capability_review_sha256": "47ff2b8d89e4d405c604dba7d6943d2ab7746955b13e1daa834ddc13cf3798c8",
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "source-extracted-http",
+    "operation_count": 179,
+    "sha256": "df26dbbb5442f617d3e5f5baa9dcb7f07c30e272e37537a4ec883446ecb5b628"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}

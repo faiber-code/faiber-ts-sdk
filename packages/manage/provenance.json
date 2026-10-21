@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "package": "@faiber/faiber-manage",
+  "version": "1.0.0",
+  "source_revisions": {
+    "manage": {
+      "revision": "2c28db4d80bf4814a69892189afe2ae41663e554"
+    },
+    "agentic": {
+      "revision": "854a6dd654aab4518bca3a9523d370a161bd659a"
+    }
+  },
+  "package_source_sha256": {
+    "packages/manage/src/durable.ts": "24001c54e2a942fa9f7d9d74fd8710270456966b5c5d654abc2b6e7324ccb8cf",
+    "packages/manage/src/durable.types.ts": "6caeb9167882809ea5b6cce6bdfd3d85039c9a4172b031e7364134bb9fd7750d",
+    "packages/manage/src/index.ts": "78309df62f673aa1357f23b5056ebe5bffe0f6fe9251b6c27a45b69c15caf3c6",
+    "packages/manage/src/operations.ts": "ae982cd13058aeafade6689f89c26420781f3e67ba11f5609d6c1f6617d72e60",
+    "packages/manage/src/stream.ts": "6803c133f1ae377115f95004e5c35ef3854c8837e63f23f442912b4a96752af4",
+    "packages/manage/src/types.ts": "c1104dcc21046b104baf471c58de55ba3bf0e165f26e1c49b391f22c08508c13"
+  },
+  "capability_review_sha256": "7d54e63b39d10af9b39524caf7a4b37da107102a334c04d958d41bf0bd7428f1",
+  "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",
+  "http_contract_file_sha256": "772fd6c66988a5a8c36139b21cda5070ae0ecac35cd46ab0539e258a4ef75b53",
+  "public_contract": {
+    "kind": "reviewed-durable-actions",
+    "operation_count": 5,
+    "sha256": "92a8affb0296f9b37da78ef7fd3e4bf6440dfc9da87fe8dd8c1e544a5b07a306",
+    "wire_sha256": "e5eefc890d90658d9f646913f678a3673eaf026635174ffa4f62ee122c2dfe22"
+  },
+  "verification_scope": "Source and contract identity only. This manifest is not proof of deployed compatibility, current authorization, or complete semantic verification."
+}
