@@ -11,8 +11,8 @@
   "package_source_sha256": {
     "packages/knowledge/src/index.ts": "f0a0e5d6108dcf44cead9d67b59bdbfee6b2380e2b1da0b5362c150348cbac00",
     "packages/knowledge/src/operations.ts": "1ba6965ad9bcec755dd60d0fc24b2206ff89e179d306912998e94cdad7d7594b",
-    "packages/knowledge/src/operations.types.ts": "5ff64cd74fd92cc0c1ee9d4d8f087a19fc90c805ef1b568b103459b13af3a5fe",
-    "packages/knowledge/src/types.ts": "c74c09c377be02183c05d92888f4fc039b725c664e5ab7a343b308db61ac60d4"
+    "packages/knowledge/src/operations.types.ts": "6d594c28f50756bf5e93130f427638774d815ded2ebbddfbd8e64cf94fdeb386",
+    "packages/knowledge/src/types.ts": "492380f6f5ad12285d1b530b9bce9b346de041144eb52fd552dad5f89bac7cb7"
   },
   "capability_review_sha256": "c662805acd3f0f0e463cabb6fccb25e05b8dab7d29295af95a431dd3e5e01cdc",
   "source_pin_file_sha256": "1c40c4c9d25072e5d623ee32b6e0a332ba92a2b1efc9e67855f50b8564d3c926",

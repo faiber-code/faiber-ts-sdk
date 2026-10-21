@@ -81,18 +81,20 @@ export interface AssistantQueryInput extends JsonObject {
   user_id: string;
   query?: string;
   profile?: JsonValue;
-  profile_version?: string;
-  profile_source?: string;
-  profile_refreshed_at?: string;
-  conversation_id?: string;
+  profile_version?: string | null;
+  profile_source?: string | null;
+  profile_refreshed_at?: string | null;
+  conversation_id?: string | null;
   drm_media_ids?: string[];
-  model_id?: string;
+  model_id?: string | null;
   context?: JsonValue;
   delivered_memory_ids?: string[];
   delivered_result_ids?: string[];
-  context_cursor?: string;
+  context_cursor?: string | null;
   force_full_context?: boolean;
+  evaluation_case_id?: string | null;
   query_embedding?: number[];
+  /** Retrieval prefetch limit (default 12, clamped to 1–50 and policy); not a combined response-row cap. */
   limit?: number;
 }
 export interface RetrievalBudget extends JsonObject { requested_tokens:number; used_tokens:number; remaining_tokens:number; dropped_count:number; truncated:boolean; estimator:string; sections:Record<string,number>; }

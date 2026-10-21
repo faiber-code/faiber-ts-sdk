@@ -51,3 +51,9 @@ const selectedMediaLimit: TaskProjectionsPassagesPostResponseDataExcludedResults
 // @ts-expect-error Rust enum names are not the public snake_case wire spelling
 const invalidSelectedMediaLimit: TaskProjectionsPassagesPostResponseDataExcludedResultsReason = 'SelectedMediaLimit';
 void [selectedMediaLimit, invalidSelectedMediaLimit];
+
+// Rust AssistantQuery Option fields accept explicit null, including evaluation linkage.
+api.queryAssistant('assistant', {
+ user_id:'user', profile_version:null, profile_source:null, profile_refreshed_at:null,
+ conversation_id:null, model_id:null, context_cursor:null, evaluation_case_id:null,
+});

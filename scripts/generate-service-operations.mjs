@@ -225,6 +225,9 @@ function structFrom(file, name) {
   const renameAll = attrs.match(/serde\([^\]]*rename_all\s*=\s*"([^"]+)"/)?.[1];
   const wireName = name => renameAll === "camelCase" ? name.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase()) : name;
   const fields = splitFields(file.source.slice(open + 1, close)).flatMap(part => {
+    // serde(skip) excludes a field from both wire directions. Do not confuse
+    // skip_serializing_if with unconditional exclusion: that field is public.
+    if (/#\[serde\(\s*(?:[^\]]*,\s*)?skip\s*(?:,|\))/.test(part)) return [];
     const rename = part.match(/#\[serde\(rename\s*=\s*"([^"]+)"\)\]/)?.[1];
     const flatten = /#\[serde\(flatten\)\]/.test(part);
     const defaulted = /#\[serde\([^\]]*\bdefault\b[^\]]*\)\]/.test(part);

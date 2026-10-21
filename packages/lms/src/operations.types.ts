@@ -697,7 +697,6 @@ export interface ClassroomIndexSessionGetResponseItem extends JsonObject {
   "session_lifecycle_status"?: string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
   "status": string;
@@ -790,7 +789,6 @@ export interface ClassroomStoreSessionPostResponseData extends JsonObject {
   "session_lifecycle_status"?: string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
   "status": string;
@@ -855,7 +853,6 @@ export interface ClassroomShowSessionGetResponseData extends JsonObject {
   "session_lifecycle_status"?: string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
   "status": string;
@@ -939,7 +936,6 @@ export interface ClassroomUpdateSessionPatchResponseData extends JsonObject {
   "session_lifecycle_status"?: string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
   "status": string;
@@ -1076,7 +1072,6 @@ export interface ClassroomIndexTodaySessionsGetResponseItem extends JsonObject {
   "session_lifecycle_status"?: string | null;
   "session_access_mode": string;
   "session_archive_ready": boolean;
-  "legacy_source_id"?: number | null;
   "starts_at"?: string | null;
   "ends_at"?: string | null;
   "status": string;

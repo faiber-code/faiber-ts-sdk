@@ -425,7 +425,6 @@ export interface RoutesGetGetResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: AssistantQuery. */
-export type PlatformEvaluateAssistantPostInputSurface = "chat_slug" | "assistant" | "mcp" | "preview" | "evaluation";
 export interface PlatformEvaluateAssistantPostInput extends JsonObject {
   "user_id": string;
   "query"?: string;
@@ -444,7 +443,6 @@ export interface PlatformEvaluateAssistantPostInput extends JsonObject {
   "evaluation_case_id"?: string | null;
   "query_embedding"?: number[];
   "limit"?: number;
-  "surface"?: PlatformEvaluateAssistantPostInputSurface | null;
 }
 /** Backend response type: AssistantRuntimeResult. */
 export interface PlatformEvaluateAssistantPostResponseData extends JsonObject {
@@ -478,7 +476,6 @@ export interface PlatformRecordTurnPostResponse extends ApiEnvelope<JsonValue> {
 }
 
 /** Backend request type: AssistantQuery. */
-export type PlatformPreviewAssistantPostInputSurface = "chat_slug" | "assistant" | "mcp" | "preview" | "evaluation";
 export interface PlatformPreviewAssistantPostInput extends JsonObject {
   "user_id": string;
   "query"?: string;
@@ -497,7 +494,6 @@ export interface PlatformPreviewAssistantPostInput extends JsonObject {
   "evaluation_case_id"?: string | null;
   "query_embedding"?: number[];
   "limit"?: number;
-  "surface"?: PlatformPreviewAssistantPostInputSurface | null;
 }
 /** Backend response type: AssistantRuntimeResult. */
 export interface PlatformPreviewAssistantPostResponseData extends JsonObject {
@@ -514,7 +510,6 @@ export interface PlatformPreviewAssistantPostResponse extends ApiEnvelope<Platfo
 }
 
 /** Backend request type: AssistantQuery. */
-export type PlatformQueryAssistantPostInputSurface = "chat_slug" | "assistant" | "mcp" | "preview" | "evaluation";
 export interface PlatformQueryAssistantPostInput extends JsonObject {
   "user_id": string;
   "query"?: string;
@@ -533,7 +528,6 @@ export interface PlatformQueryAssistantPostInput extends JsonObject {
   "evaluation_case_id"?: string | null;
   "query_embedding"?: number[];
   "limit"?: number;
-  "surface"?: PlatformQueryAssistantPostInputSurface | null;
 }
 /** Backend response type: AssistantRuntimeResult. */
 export interface PlatformQueryAssistantPostResponseData extends JsonObject {

@@ -55,3 +55,28 @@ test('optional OpenAPI import never probes a legacy fallback when explicit sourc
   assert.notEqual(result.code,0);assert.match(result.stderr,/set FAIBER_PROFILE_OPENAPI/);assert.match(result.stderr,/no service was probed/);assert.equal(requests,0);
  }finally{await new Promise(resolve=>server.close(resolve));rmSync(f.work,{recursive:true,force:true});}
 });
+
+test('serde skipped internal fields are absent while conditional wire fields remain',()=>{
+ const f=fixture();
+ try{
+  writeFileSync(join(f.work,'Service/infera-profile/src/routes.rs'),`
+#[derive(Deserialize, Serialize)]
+pub struct Query {
+ pub user_id: String,
+ #[serde(skip)]
+ surface: Option<String>,
+ #[serde(default, skip)]
+ pub internal_default: String,
+ #[serde(skip_serializing_if = "Option::is_none")]
+ pub optional_wire: Option<String>,
+}
+pub async fn query(Json(body): Json<Query>) -> Json<Query> { todo!() }
+`);
+  writeFileSync(join(f.work,'manifest.json'),JSON.stringify({profile:[{method:'POST',path:'/query',module:'routes',handler:'query',handlerModule:'routes',source:'infera-profile/src/routes.rs',body:'Query',response:'Query',responseEnvelope:'raw',permissions:[]}]}));
+  const result=generate(f,'profile');assert.equal(result.status,0,result.stderr);
+  const types=readFileSync(join(f.dest,'operations.types.ts'),'utf8');
+  assert.doesNotMatch(types,/surface|internal_default/);
+  assert.match(types,/"user_id": string/);
+  assert.match(types,/"optional_wire"\??: string \| null/);
+ }finally{rmSync(f.work,{recursive:true,force:true});}
+});
