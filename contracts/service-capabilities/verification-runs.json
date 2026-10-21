@@ -2138,5 +2138,38 @@
     "scope": "Current compiled SDK HTTP consumer through production GIS router and full migrated owned PostGIS. Trusted BFF identity and IDP fixture remains explicit; tiles use actual pinned Martin1.16.1. Unconfigured imports/retry503 negative coverage; actual import business lease proof is separate. No deployed IDP or all-service certification.",
     "canonical_certification": false,
     "supersedes": "evidence/gis-finalization-20261021: SDK package fingerprint root was incorrect; its SDK immutability claim is invalid. The v2 run includes nonempty packages and node_modules SHA256 manifests and preserves old artifacts for audit."
+  },
+  "gis-current-import-native-20261021": {
+    "kind": "native_backend",
+    "status": "passed",
+    "command": "cargo test --locked --offline -p infera-gis imports::native_tests -- --include-ignored --nocapture --test-threads=1",
+    "exit_code": 0,
+    "tests_executed": 1,
+    "source_revisions": {
+      "gis": "0bc8423a51887450b928e7b372153014cd47e582"
+    },
+    "test_source_revision": "82fa0ca586a38ca71603e76f5ab1ed5dc1deca8d",
+    "sdk_revision": "880a60eca2ea76b78a625d5a02ebe4564a8f1b60",
+    "source_unchanged_during_run": true,
+    "artifact_path": "evidence/gis-import-native-finalization-20261021/native.log",
+    "artifact_sha256": "f85eaeb07977862b7bf17d05a41f1144cfa2f76e9c34261bb86d6de9f92ed97e",
+    "resolved_cargo_lock_artifact_path": "evidence/gis-import-native-finalization-20261021/resolved-Cargo.lock",
+    "resolved_cargo_lock_sha256": "27102baa6c3d8b8f38f846afe8c4ed0bcecb8b2ed737af04205b3d6f5bd42d2a",
+    "additional_artifacts": [
+      {
+        "artifact_path": "evidence/gis-import-native-finalization-20261021/receipt.json",
+        "sha256": "7094438525be67349636a892662ad79cba2486be3a02962dd9945b10eda94e2f"
+      }
+    ],
+    "covered_operations": {
+      "gis": [
+        "POST /api/v1/imports"
+      ]
+    },
+    "boundaries": [
+      "native_postgis_import_lifecycle"
+    ],
+    "scope": "Native import lifecycle on selected equivalent backend with fresh PostGIS; migration, current-grant revocation, atomic rollback, lease fencing and quota. Explicit loopback IDP and provider fixtures. No SDK HTTP or live issuer claim.",
+    "canonical_certification": false
   }
 }
